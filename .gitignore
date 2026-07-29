@@ -9,3 +9,6 @@ scratchpad/
 # os
 .DS_Store
 Thumbs.db
+
+# דוחות עבודה פנימיים — לא לפרסום
+דוחות/

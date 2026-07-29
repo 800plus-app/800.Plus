@@ -3,7 +3,7 @@
 absurd - מגוחך, לא סביר
 accelerate - להאיץ
 acclaim - להריע, לשבח
-accommodate - לאכסן, לשכן
+accommodate - להכיל, לפנות מקום ל-; להתאים (לצרכים); לאכסן, לשכן
 accompany - ללוות
 accustomed - מורגל
 aggressive - תוקפני, אלים
@@ -28,7 +28,7 @@ cage - כלוב, לכלוא
 cancer - סרטן (מחלה)
 capture - ללכוד
 cargo - מטען
-carve - לחרוט
+carve - לגלף, לחטוב; לחתוך (בשר); לחרוט
 cemetery - בית קברות
 certify - להצהיר, לאשר
 chapter - פרק
@@ -41,16 +41,16 @@ collision - התנגשות
 commendably - באופן ראוי לשבח
 commends - לציין לשבח
 commentary - פרשנות
-companion - בן-זוג
-compatible - מתאים, ראוי
+companion - בן לוויה, מלווה, רֵע
+compatible - תואם, מתיישב עם, מתאים (זה לזה)
 compel - לאלץ, לחייב
 compensate - לפצות
 compile - לאסוף, לקבץ
 conceal - להסתיר
-conceive - להרהר; לעבר
+conceive - להגות, לתפוס, להעלות על הדעת; להרות
 concerted - מתואם
 concur - להסכים
-concurrence - להתרחש בו זמנית
+concurrence - הסכמה, הסכמה משותפת; התרחשות בו-זמנית
 condemned - לגנות; נידון ל-
 confess - להודות
 confession - וידוי
@@ -103,7 +103,7 @@ deviant - סוטה
 device - מכשיר
 devise - לתכנן, להמציא
 dictate - להכתיב, לפקד
-disorder - הפרעה
+disorder - אי-סדר, ערבוביה; מהומה, אי-שקט; הפרעה (רפואית)
 display - להציג
 disregard - להתעלם
 dissolve - להתמוסס
@@ -128,7 +128,7 @@ evolutionary - התפתחותי
 evolved - התפתח
 excessively - בצורה מוגזמת
 exchange - להחליף, חלופה
-exclude - למנוע, לשלול, להרחיק, לגרש
+exclude - לא לכלול, להוציא מן הכלל, להדיר; למנוע כניסה
 exclusive - בלעדי
 exclusively - באופן בלעדי, רק
 excuse - תירוץ; לסלוח
@@ -137,15 +137,15 @@ explore - לחקור, ללמוד
 exposure - חשיפה
 exquisite - מצוין; חד, מעודן, אנין
 extend - להאריך, להרחיב
-extension - שלוחה
+extension - הארכה, הרחבה; תוספת (מבנה); שלוחה (טלפון)
 exterior - חיצוני
 external - חיצוני
 extinction - הכחדה
-extract - לתמצת, להפיק
+extract - לחלץ, להוציא, לעקור; להפיק; תמצית
 factor - גורם
 favor - טובה; להעדיף
 favored - מועדף
-fight, fought - לריב, רב
+fight, fought - להילחם, להיאבק; לריב
 figure - גזרה, צורה; ספרה, מספר; דמות; לחשב, להניח, להסיק
 flat - שטוח; דירה
 flew - עף
@@ -182,7 +182,7 @@ indifference - אדישות
 infinite - אינסופי
 innate - מולד
 inner - פנימי
-inquire - לתשאל
+inquire - לשאול, לברר, להתעניין
 inquiry - חקירה
 insist - להתעקש
 inspiration - השראה
@@ -207,7 +207,7 @@ lens - עדשה
 license - רישיון; לאשר, להתיר
 lifetime - תקופת החיים, במשך החיים
 literary - ספרותי
-literate - משכיל, מלומד
+literate - יודע קרוא וכתוב; בקיא, בעל אוריינות
 literature - ספרות
 load - להעמיס
 losing - מפסיד
@@ -220,7 +220,7 @@ mayor - ראש עיר
 mediate - לגשר, לתווך
 mediocre - בינוני (במובן שלילי)
 miserable - אומלל
-moist - לחות
+moist - לח, לחלוחי, טחוב
 moral - מוסר
 morale - מורל
 necessary - הכרחי
@@ -228,23 +228,23 @@ neglect - להזניח, הזנחה
 negligence - הזנחה, רשלנות
 nocturnal - לילי
 noon - צהריים (12:00)
-notable - נכבד
+notable - ראוי לציון, בולט, יוצא דופן
 notice - לשים לב; התראה
 notify - להודיע, ליידע
 obedience - ציות
 obey - לציית
-objective - אוביקטיבי
+objective - אובייקטיבי, ענייני; מטרה, יעד
 obstacle - מכשול
-offshore - חו"ל
-orbit - לחוג, להסתובב
+offshore - מול החוף, בלב ים, הרחק מהחוף; מעבר לים (חשבון/חברה)
+orbit - מסלול (סביב גרם שמים); להקיף במסלול, לחוג
 orient - להתמצא
 oriented - מכוון, מונחה
 outer - חיצוני
 outline - תוואי, מתאר, קווים כלליים
-overlooked - העלים עין
+overlooked - לא הבחין, פספס, החמיץ; התעלם; (גם: צפה על מגבוה)
 parallel - מקביל
 party - מפלגה; מסיבה
-pattern - דוגמה
+pattern - תבנית, דפוס, מתכונת; דוגמת עיטור
 penned - כָּתַב
 perceive - להבחין, לראות
 perform - לבצע, להציג
@@ -290,7 +290,7 @@ rank - דרגה
 ray - קרן, אלומת אור
 razor - סכין גילוח
 rear - אחורי; לטפח, לגדל
-reconcile - להתפייס
+reconcile - להתפייס; ליישב (סתירות), לגשר בין, להתאים
 reform - שינוי, רפורמה
 reinvigorate - לרענן, להמריץ מחדש
 relationship - מערכת יחסים
@@ -311,7 +311,7 @@ sacred - קדוש
 sacrifice - להקריב, קורבן
 sake - תועלת, עניין
 screen - לסרוק; מסך, צג, וילון; לסנן
-seek - לבקש
+seek - לחפש, לתור אחר; לשאוף ל-; לבקש
 seek, sought - לחפש, חיפש
 seismic - ססמי (קשור לרעידות אדמה)
 series - סדרה
@@ -335,7 +335,7 @@ stabilize - לייצב
 stable - יציב
 steam - אד, לאדות
 steamship - אוניית קיטור
-straightforward - ישיר
+straightforward - פשוט, לא מסובך, ברור; ישיר, גלוי
 stream - לזרום, נחל, זרם
 stricken - מוכה
 stride - צעד, לצעוד
@@ -369,7 +369,7 @@ unforgettable - בלתי נשכח
 unsafe - לא בטוח
 vain - לשווא; שחצן
 vary - משתנה
-venture - סיכון
+venture - מיזם, מפעל (עסקי); הרפתקה מסוכנת; להעז, להסתכן
 verify - לוודא, לאמת
 versions - גרסאות
 vessel - כלי שיט

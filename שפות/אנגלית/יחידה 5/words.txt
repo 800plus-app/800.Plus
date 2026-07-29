@@ -40,7 +40,7 @@ coexistence - דו-קיום
 collaborate - לשתף פעולה
 collapse - להתמוטט
 column - טור; עמוד
-comfort - נחמה
+comfort - נוחות, רווחה; נחמה; לנחם
 comfortable - נוח
 commerce - מסחר
 commercial - מסחרי; סרטון פרסומת
@@ -52,11 +52,11 @@ comply - להסכים, לציית
 compromise - להתפשר
 concern - דאגה, עניין
 condition - תנאי, מצב, מעמד; להכשיר, להתאים
-conduct - לנהל, לקיים
+conduct - לנהל, לקיים; התנהגות (ש״ע); להוליך (חשמל)
 confront - להתעמת, לעמת
 confrontation - עימות
-consideration - התחשבות
-considering - מתחשב
+consideration - שיקול, שיקול דעת; מכלול שיקולים; התחשבות
+considering - בהתחשב ב-, לאור; (כפועל) שוקל
 consistent - עקבי
 constant - קבוע, רצוף
 constitute - מהווים; להקים, לייסד
@@ -74,7 +74,7 @@ declare - להכריז
 dedicate - להקדיש
 dedicated - מסור; מוקדש ל-
 degenerate - להתנוון
-degree - מעלה; דרגה
+degree - מעלה (מדידה); תואר אקדמי; דרגה; מידה, במידה מסוימת
 delay - עיכוב, לאחר, לדחות
 delight - תענוג
 design - תכנית, דוגמה, תרשים; לתכנן, לעצב
@@ -120,7 +120,7 @@ feminine - נשי
 fine - קטן, עדין, דקיק; משביע רצון; משובח, מצוין; קנס
 fit - בכושר; להתאים
 flight - בריחה, מנוסה; טיסה
-forceful - חזק
+forceful - תקיף, נמרץ, בעל עוצמה
 forecast - תחזית
 foreign - חוץ; זר, נוכרי
 forfeit - לוותר, להפסיד
@@ -137,7 +137,7 @@ generation - דור
 govern - למשול
 government - ממשל
 governor - מושל
-gratify - לרצות
+gratify - לספק, להשביע רצון, לענג
 ground - בסיס, אדמה
 grow - לגדול, לגדל
 grow up - להתבגר, לגדול
@@ -165,7 +165,7 @@ innocent - תמים; חף מפשע
 institute - מוסד, מכון; לכונן
 instruction - הוראה, הדרכה
 insurance - ביטוח
-insure - להבטיח
+insure - לבטח; להבטיח, לוודא
 investing - להשקיע
 investment - השקעה
 investor - משקיע
@@ -178,11 +178,11 @@ legislation - חקיקה
 length - אורך
 lower - להנמיך
 lung - ריאה
-maintain - לשמר
+maintain - לשמור על, לתחזק; לטעון, לגרוס
 major - סולם מז'ור (במוזיקה); מסלול לימודים; ראשי, עיקרי
 majority - רוב
 male - זכר
-manage - לנהל
+manage - לנהל; להצליח, להסתדר (manage to)
 management - ניהול
 manuscript - כתב יד
 marine - ימי
@@ -226,18 +226,18 @@ overlaps - חופף
 own - משלו; בעלות על משהו
 owner - בעלים
 paramount - בעל חשיבות עליונה
-pass - לוותר; להעביר, למסור
+pass - לעבור, לחלוף; להעביר, למסור; לוותר (pass on)
 pedestrian - הולך רגל
 perhaps - אולי
 period - נקודה; משך זמן, מחזור; תקופה
 permanent - קבוע
 persecution - רדיפה (דתית)
 planet - כוכב לכת
-plant - צמח, עציץ, לשתול
+plant - צמח; לשתול; מפעל (power plant)
 poll - סקר, הצבעה
 populous - מאוכלס בצפיפות
 post - להציב, למנות ; עמדה, משרה, תפקיד; עמוד; לפרסם ; פרסום; לשלוח בדואר ; דואר
-postage - דבר דואר
+postage - דמי משלוח, דמי דואר; בולים
 postpone - לדחות
 powerful - רב כוח
 preferable - עדיף
@@ -246,7 +246,7 @@ priest - כומר
 privilege - זכות יתר, פריביליגיה
 profit - רווח
 profitable - רווחי
-publication - הוצאה לאור
+publication - פרסום; מאמר/כתב עת שפורסם; הוצאה לאור
 publicized - פורסם
 publish - לפרסם, להוציא לאור
 publisher - מוציא לאור
@@ -268,7 +268,7 @@ reliance - הסתמכות
 remains - נשאר, עדיין; שרידים
 remove - להסיר
 renew - לחדש
-renown - ידוע
+renown - תהילה, פרסום, מוניטין
 repair - לתקן
 replace - להחליף
 replacement - מחליף
@@ -280,12 +280,12 @@ resource - משאב
 resourceful - בעל תושייה
 restrain - לרסן
 retain - להחזיק, לשמור
-retrieve - להשיב
-revenue - הכנסה, רווח
+retrieve - לאחזר, לשלוף, להשיג בחזרה
+revenue - הכנסות, פדיון
 route - מסלול, דרך
 ruin - להרוס
 ruins - הריסות, עיי חורבות
-sample - דוגמית
+sample - מדגם, דגימה, דוגמה
 satisfaction - שביעות רצון
 scatter - לפזר
 schedule - לוח זמנים
@@ -301,22 +301,22 @@ single - רווק; יחיד
 skepticism - ספקנות
 skill - יכולת, מיומנות
 sophisticated - מתוחכם
-spare - מיותר, עודף
+spare - רזרבי, חלופי, פנוי (spare time); עודף; לחסוך, לחוס על
 specialize - להתמחות
 species - מין, זן
 specify - לפרט
 spectator - צופה, משקיף
-speech - דיבור
+speech - נאום; דיבור, כושר דיבור
 spoil - לקלקל; לפנק; לבזוז, שלל; להרוס
 stack - ערמה
-staple - להדק
+staple - מצרך יסוד, מוצר בסיסי; עיקרי; סיכת הידוק
 station - תחנה; להציב
-stem - גזע
+stem - גבעול, גזע; לנבוע מ-, להיווצר מ-
 stomach - בטן, קיבה
 strategy - אסטרטגיה
 subdue - להכניע
 submit - להגיש; להיכנע
-subtle - מעודן
+subtle - דק, עדין, כמעט בלתי מורגש; מרומז
 suitable - ראוי, מתאים, יאה
 superb - מעולה (איכותי)
 superficial - שטחי
@@ -333,7 +333,7 @@ tour - סיור
 tourist - תייר
 trust - אמון, לבטוח
 type - להקליד; סוג
-typically - אופייני
+typically - בדרך כלל, על פי רוב; באופן אופייני
 unbelievable - לא יאמן
 underlies - מונח ביסוד, נמצא מתחת ל-
 undertake - לקחת על עצמך
@@ -356,7 +356,7 @@ variable - משתנה
 variation - שינוי, וריאציה
 variety - מבחר, מגוון
 various - מגוון
-vast - גדול
+vast - עצום, נרחב, רחב ידיים
 vertical - מאונך
 vigorously - במרץ
 violate - להפר, לחלל
@@ -368,7 +368,7 @@ ward - מחלקה
 wide - רחב
 willing - מוכן
 wise - חכם, פיקח
-wish - משאלה, לבקש
+wish - משאלה; לאחל, לייחל, לרצות
 withhold - לעכב, לעצור, לא לתת
 worldwide - כלל עולמי, בכל העולם
 worse - גרוע יותר

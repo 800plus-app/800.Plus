@@ -15,22 +15,22 @@ what - מה, איזה
 which - איזה; אשר, ש-
 who - מי, ש-
 whom - מי
-whose - אשר לו, אשר הוא
+whose - של מי; אשר שלו, ש...שלו
 as if - כאילו
 based on - מבוסס על
 even if - גם אם
 granted (that) - בהנחה ש-, נתון ש-
 If - אם
-in case - במקרה
+in case - למקרה ש-, שמא; אם במקרה
 in order to - על-מנת, בכדי
 only - רק
 provided that - בתנאי ש-
 so long as - כל עוד
 unless - אלא אם כן
-while - כל עוד; בזמן ש-
+while - בזמן ש-, בעוד ש-; ואילו, אף על פי ש-; כל עוד
 always - תמיד
 consistently - בעקביות
-constantly - באופן קבוע
+constantly - כל הזמן, ללא הרף, בהתמדה; לעיתים תכופות
 daily - יומיומי
 every day - כל יום
 every now and then - לפעמים
@@ -46,7 +46,7 @@ often - לעיתים קרובות
 once in a while - מידי פעם
 ordinarily - בדרך-כלל
 permanently - קבוע
-perpetually - נצחי, לנצח
+perpetually - ללא הרף, כל הזמן, תמידית; לנצח
 rarely - לעיתים נדירות
 regularly - באופן קבוע
 seldom - לעיתים רחוקות
@@ -62,26 +62,26 @@ in that case - במקרה הזה
 led to - הוביל ל-
 so - אז, כך ש-, ולכן; כל-כך, מאוד
 so that - כך ש-
-subsequently - כתוצאה מכך
+subsequently - לאחר מכן, אחר כך, בהמשך
 then - אז
 thus - לכן, כך ש-
 after all - אחרי הכל
 all in all - בסך הכל
 altogether - בסך הכל; לגמרי
 besides - בכל מקרה; בנוסף על; מלבד, חוץ מ-
-i.e. - כלומר, לדוגמה
+i.e. - כלומר, דהיינו, זאת אומרת
 in a word - במילה אחת
 in conclusion - לסיכום
 in fact - למעשה
 overall - כולל, באופן כללי
 to sum up - כדי לסכם; לסכם
-because - בגלל
+because - כי, מפני ש-, משום ש-
 because of - בגלל
 being that - מכיוון ש-
 due to - בגלל, לאור
 given that - בהתחשב בכך
 in light of - לאור
-owing to - הודות ל-
+owing to - בגלל, עקב, בשל
 since - מכיוון ש-; מאז
 thanks to - תודות ל-
 therefore - לכן
@@ -95,10 +95,10 @@ conversely - לעומת זאת
 different from - שונה מ-
 in comparison - בהשוואה
 in contrast to - בניגוד ל-
-instead - במקום
+instead - במקום זאת, תחת זאת
 instead of - במקום
 of course... but... - כמובן... אך...
-on the contrary - בניגוד לכך
+on the contrary - להפך, אדרבא, נהפוך הוא
 or - או
 otherwise - אחרת
 rather - עדיף; למדי
@@ -197,7 +197,7 @@ past - עבר, שעבר
 presently - כעת
 previously - הקודם, לפני-כן
 prior to - קודם ל-, לפני
-shortly - בקיצור, בקרוב
+shortly - בקרוב, בעוד זמן קצר; בקצרה
 simultaneously - בו זמנית
 soon - בהקדם, מוקדם
 still - עדיין, למרות זאת; נייח, דומם, שקט
@@ -206,7 +206,7 @@ to begin with - בתור התחלה
 until - עד ש-
 until now - עד עתה
 when - כאשר, כש-
-whenever - כש-, מתישהו
+whenever - בכל פעם ש-, מתי ש-; לא משנה מתי
 despite - למרות
 even so - אף על פי כן
 even though - למרות ש-
@@ -247,17 +247,17 @@ indeed - בהחלט
 just as... so... - בדיוק כמו... גם
 mainly - בעיקר
 markedly - בצורה ניכרת
-namely - במיוחד, כלומר
+namely - כלומר, דהיינו, והם
 neither... nor... - לא... ולא...
 not only... but also... - לא רק... אלא גם...
-not... but... - לא... אבל...
-notably - ראוי לציון
+not... but... - לא... אלא...
+notably - בייחוד, בפרט; באופן בולט
 of course - כמובן, בוודאי
 on one hand...on the other hand - מצד אחד... מצד שני
 particularly - במיוחד, בפרט
 primarily - בעיקר
 significantly - באופן משמעותי
-specifically - במיוחד
+specifically - באופן ספציפי, ליתר דיוק, במפורש
 surely - ללא ספק
 surprisingly - במפתיע
 truly - באמת

@@ -7,7 +7,7 @@ adorn - לקשט
 agenda - סדר יום
 air conditioner - מזגן
 algae - אצות
-antler - קרן
+antler - קרן מסועפת של אייל/צבי
 automobile - כלי רכב, אוטו
 bass - בס (במוזיקה)
 bead - חרוז
@@ -45,7 +45,7 @@ cockroach - מקק, ג'וק
 coffin - ארון מתים
 cologne - קולון, בושם (של גבר)
 compost - זבל אורגני
-conductor - מנצח (תזמורת)
+conductor - מנצח (תזמורת); מוליך (חשמל/חום); כרטיסן
 conquistador - כובש
 consonant - עיצור (לשון)
 coop - לול; לכלוא
@@ -65,7 +65,7 @@ dentist - רופא שיניים
 diary - יומן
 dictator - עריץ, דיקטטור
 dilemma - דילמה, בעיה
-diurnal - יומי
+diurnal - פעיל ביום (הפך ל-nocturnal); יומי, יומיומי
 divorce - גירושין
 doorstep - מפתן הדלת
 dovecote - שובך
@@ -90,7 +90,7 @@ filmmaker - יוצר סרטים
 filter - פילטר, מסנן
 fisherman - דייג
 fishing - דיג
-flimsy - עדין, שביר
+flimsy - רעוע, דל, שביר; קלוש, בלתי משכנע (תירוץ/ראיה)
 folk - עממי
 folklore - פולקלור
 fool - טיפש, לשטות במישהו
@@ -116,14 +116,14 @@ glove - כפפה
 golden - מוזהב
 grammatical - דקדוקי
 grapes - ענבים
-grit - גרגרים, לכלוך
+grit - גרגרי חול, חצץ, לכלוך; נחישות, אומץ לב
 grocery - מכולת
 groom - חתן; לטפח, לטפל
 guillotine - גיליוטינה
 Gulf War - מלחמת המפרץ
 gym - אולם ספורט
 gymnasium - אולם ספורט
-handicap - נכה
+handicap - מוגבלות, נכות; חיסרון, מגבלה; להכביד, להגביל
 harmony - הרמוניה
 heart - לב
 heartbeat - דופק, פעימות לב
@@ -133,7 +133,7 @@ hill - גבעה
 horn - צופר; קרן (של בע"ח)
 housemaid - עוזרת בית, מנקה
 howl - יללה, לילל
-index - אינדקס, תוכן עניינים
+index - מדד; מפתח (רשימת ערכים אלפביתית בסוף ספר)
 inexpensive - לא יקר, זול
 inn - פונדק
 intense - עז, אינטנסיבי
@@ -155,7 +155,7 @@ lame - צולע
 launder - לכבס
 leaf (leaves) - עלה (עלים)
 league - מידת אורך קדומה; ליגה
-leniency - חמלה, רחמים
+leniency - ותרנות, מתינות, הקלה בעונש
 leopard - נמר
 lifestyle - אורח חיים
 lip - שפה
@@ -198,7 +198,7 @@ orchestrate - לתאם, לתזמר
 oven - תנור בישול
 overhaul - שיפוץ, אוברול
 pad - לרפד
-paddle - משוט, דוושה; מחבט
+paddle - משוט; מחבט (טניס שולחן); לחתור, לשכשך
 pan - מחבת
 paradox - סתירה, פרדוקס
 pathology - פתולוגיה, ענף ברפואה
@@ -282,24 +282,24 @@ smog - ערפיח
 smoke - עשן, לעשן
 snake - נחש
 snap - להישבר; במהירות (סלנג)
-snarl - לרטון, לנחור
+snarl - לנהום בחשיפת שיניים, לרטון בכעס; סבך/פקק
 sneeze - להתעטש
 snow - שלג
 soccer - כדורגל
 sold - מכר
 South - דרום
 southern - דרומי
-speck - כתם
+speck - גרגר זעיר, נקודה זעירה, פירור
 spider - עכביש
 spinach - תרד
 sponsor - נותן חסות
-spontaneous - ללא מחשבה
+spontaneous - ספונטני, לא מתוכנן, מתרחש מאליו
 spread - התפשטות, פיזור; ממרח, למרוח
 spy - מרגל, לרגל
 staircase - גרם מדרגות
-stalk - לעקוב, להטריד
+stalk - גבעול, קנה; לעקוב/לארוב אחרי, להטריד
 star - כוכב, לככב
-staunch - חזק, מוצק; לעצור, לחסום
+staunch - נאמן, מסור, איתן בדעתו; לעצור זרימה/דימום
 steal - לגנוב
 stereotype - סטריאוטיפ
 sticky - דביק
@@ -370,7 +370,7 @@ victory - ניצחון
 villain - רשע, נבל
 vinegar - חומץ
 viper - צפע
-vociferous - רעשני
+vociferous - קולני, צעקני, המביע דעה בקול רם ובתוקף
 vowel - תנועה (לשון)
 wall - קיר
 wart - יבלת
@@ -379,7 +379,7 @@ waterfall - מפל
 wave - גל
 weapon - נשק
 wear - ללבוש
-weave - לטוות, לארוג
+weave - לארוג, לשזור; להתפתל בין (בתנועה)
 wedding - חתונה
 weekend - סוף שבוע
 well - באר; טוב, היטב; בריא

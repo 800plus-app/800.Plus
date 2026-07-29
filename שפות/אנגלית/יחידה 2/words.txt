@@ -4,7 +4,7 @@ ability - יכולת
 able - יכול, מסוגל
 accept - לקבל
 acceptable - מקובל
-acceptance - הסכמה
+acceptance - קבלה, קבלת דבר; הסכמה, השלמה
 accident - תאונה
 achieve - להשיג
 activate - להפעיל
@@ -18,7 +18,7 @@ adjust - להתרגל; לכוונן
 afford - יכל לעמוד בהוצאות
 afraid - מפחד
 agree - להסכים
-agreement - הסכם
+agreement - הסכמה; הסכם
 aim - לכוון, מטרה
 alarm - דאגה, להדאיג; אזעקה
 alive - חי
@@ -42,8 +42,8 @@ approve - לאשר
 architect - ארכיטקט
 architecture - אדריכלות, ארכיטקטורה
 area - אזור, תחום
-argue - להתווכח
-argument - ויכוח
+argue - לטעון, לגרוס; להתווכח, להתדיין
+argument - טיעון, נימוק; ויכוח, מחלוקת
 aristocrat - אציל, אריסטוקרט
 arm - לחמש; זרוע
 army - צבא
@@ -80,14 +80,14 @@ average - ממוצע, רגיל
 avoid - להתחמק, להימנע
 awake - ער, להתעורר
 bacteria - חיידקים
-badly - נואשות, קשות
+badly - בצורה גרועה, רע; קשות, נואשות
 baker - אופה
 band - להקה; לחבוש, תחבושת, רצועה
 barely - בקושי
 base - בסיס
 bat - מחבט; עטלף
 bath - אמבטיה, להתרחץ
-battle - מאבק, להיאבק
+battle - קרב, התכתשות; מאבק, מלחמה; להיאבק, להילחם
 beach - חוף ים
 bear - לסבול, לשאת; דוב
 beauty - יופי
@@ -126,7 +126,7 @@ broad - נרחב
 budget - תקציב, לתקצב
 build - מבנה; לבנות
 building - בניין
-built - לבנות
+built - בנה, נבנה (עבר/בינוני פעול של build); בנוי, בנוי היטב
 bullet - קליע
 call - לקרוא, להתקשר
 camera - מצלמה
@@ -154,7 +154,7 @@ clean - נקי, לנקות
 clever - פיקח
 climb - לטפס
 clock - שעון
-cloth - בגד, בד
+cloth - בד, אריג; מטלית
 coach - מאמן, לאמן, להדריך; קרון נוסעים, כרכרה, מחלקת תיירים (במטוס)
 code - קוד
 coexist - להתקיים בשותפות
@@ -163,7 +163,7 @@ cold - קר, התקררות
 colonial - קולוניאלי
 color - לצבוע; צבע
 complain - להתלונן
-complete - כולל; להשלים
+complete - שלם, מלא, מושלם; להשלים, לסיים
 consist - מורכב מ-
 contact - ליצור קשר, מגע
 continue - להמשיך
@@ -179,7 +179,7 @@ cost - מחיר, עלות
 costly - יקר
 count - לספור; רוזן
 country - ארץ; כפר, אזור
-cover - כיסוי, מכסה
+cover - לכסות; לסקר, לכלול; כיסוי, מכסה
 cow - פרה
 culture - תרבות
 dance - לרקוד
@@ -190,7 +190,7 @@ death - מוות
 deep - עמוק
 deeply - מאוד, במידה רבה
 define - להגדיר
-definite - מוחלט
+definite - ברור, מוגדר; ודאי
 delete - למחוק
 desert - מדבר; לנטוש
 devastate - להחריב
@@ -226,7 +226,7 @@ excessive - יתר, מוגזם
 expert - מומחה
 extinct - נכחד
 fact - עובדה
-false - שקר
+false - שקרי, כוזב, לא נכון; מזויף
 farm - חווה
 farmer - חוואי
 father - אבא
@@ -318,7 +318,7 @@ river - נהר
 road - דרך
 safe - בטוח
 safety - בטיחות
-save - לשמור
+save - להציל; לחסוך, לחסוך מ-; לשמור
 scare - פחד, להפחיד
 school - בית-ספר
 search - חיפוש, לחפש
@@ -337,7 +337,7 @@ speed - מהירות
 start - להתחיל
 stone - אבן
 strong - חזק
-stronghold - מאחז
+stronghold - מעוז, מבצר; מרכז כוח, מוקד שליטה
 system - מערכת; שיטה
 target - מטרה
 teach, taught - ללמד, לימד
@@ -353,7 +353,7 @@ useless - חסר תועלת
 usual - רגיל
 valuable - יקר ערך
 value - ערך, להעריך
-view - נוף, שדה ראיה; לראות
+view - דעה, השקפה; נוף, מראה; שדה ראייה; לראות, לצפות; להתייחס ל-
 viewer - צופה
 visit - לבקר
 visitor - אורח, מבקר

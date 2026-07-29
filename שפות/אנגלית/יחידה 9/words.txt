@@ -34,10 +34,10 @@ charm - קסם
 cheat - לרמות, לבגוד
 clash - התנגשות
 cliff - צוק
-cloak - מסווה, להסוות
+cloak - גלימה, מעטה; מסווה, להסוות
 coma - תרדמת
 comic - קומי (מהמילה קומדיה)
-cosmopolitan - אוניברסלי
+cosmopolitan - קוסמופוליטי, רב-תרבותי, בעל אופי בין-לאומי
 cough - שיעול, להשתעל
 course - מנה; קורס; מסלול
 cousin - בן-דוד
@@ -61,7 +61,7 @@ detail - פרט, לפרט
 detrimental - מזיק
 devastated - הרוס, מפורק
 diet - דיאטה, תזונה
-dim - לעמעמם
+dim - עמום, קלוש, מעורפל; לעמעם
 disarmament - פירוק מנשק
 discord - סכסוך, מחלוקת, צרימה
 disgust - גועל, להגעיל
@@ -97,9 +97,9 @@ engine - מנוע
 engineer - מהנדס, להנדס
 enrich - להעשיר
 enroll - להירשם
-ensue - נבע
+ensue - להתרחש בעקבות, לבוא כתוצאה, להתחולל
 enthusiasm - התלהבות
-envious - קנאי
+envious - מקנא, מלא קנאה
 envy - קנאה, לקנא
 epitomize - לייצג, לאפיין
 erosion - סחף, כרסום
@@ -110,9 +110,9 @@ exhibit - להציג, מוצג
 exhibition - תערוכה
 exile - להגלות, לגרש
 expand - להרחיב
-expansion - התפתחות
-expatriate - להגלות, לגרש
-expel - להשעות, להרחיק
+expansion - הרחבה, התרחבות, התפשטות
+expatriate - גולה, מי שחי מחוץ למולדתו; לגרש/להגלות מהמולדת
+expel - לגרש, לסלק, להרחיק; לפלוט (אוויר)
 explode - להתפוצץ
 extortion - סחיטה
 extraordinary - בלתי רגיל
@@ -130,7 +130,7 @@ flip - לזרוק, להעיף; סלטה; להפוך צד
 flow - זרם
 focus - להתמקד, מיקוד
 forgettable - שאפשר לשכוח אותו
-foster - אומן, מאומץ
+foster - לטפח, לעודד, לקדם; (הורה/ילד) אומן
 fraction - שבר
 fracture - שבר
 fraud - מרמה, הונאה
@@ -155,7 +155,7 @@ glitch - תקלה, הפרעה
 glorify - להאדיר
 grace - חסד, חינניות
 gracious - חינני, אדיב
-grain - גרעין, לטחון; תבואה
+grain - גרגר, גרעין; תבואה, דגן
 hike - הליכה, טיול
 hobby - תחביב
 humiliate - להשפיל
@@ -163,7 +163,7 @@ humility - ענוה
 ice cream - גלידה
 iceberg - קרחון
 icicle - נטיף קרח
-indigenous - ילידים, מולד
+indigenous - ילידי, מקומי, שמקורו במקום
 inflammation - דלקת
 inflate - לנפח
 infraction - עבירה
@@ -181,7 +181,7 @@ intermediary - מתווך, אמצעי
 interminable - נצחי
 intimidate - להפחיד
 intrusive - פולשני
-invariably - ללא שינוי
+invariably - תמיד, בכל פעם, ללא יוצא מן הכלל
 ironic - אירוני
 jagged - משונן
 journey - מסע
@@ -204,13 +204,13 @@ lodge - להתאכסן, אכסנייה
 log - יומן, לתעד ביומן; בול עץ
 lone - בודד, יחיד
 loneliness - בדידות
-lumber - גזע עץ
+lumber - עצי בניין, קרשים, עצה מנוסרת
 maximize - למקסם
 maze - מבוך
 mechanize - למכן, להתקין מכונות
 media - מדיה, תקשורת
 Mediterranean - ים תיכוני
-memorial - מצבה, תזכיר
+memorial - אנדרטה, מונומנט הנצחה; אזכרה; של זיכרון
 memorize - לשנן, לזכור בעל-פה
 memory - זיכרון, לזכר
 mental - נפשי
@@ -258,14 +258,14 @@ plead - לעתור, להתחנן
 pleasure - תענוג, לענג
 pledge - להתחייב
 plight - צרה, סכנה
-plunge - טבילה
-poignant - חריף, נוקב
+plunge - לצלול, לצנוח, לשקוע; צניחה חדה
+poignant - נוגע ללב, מרגש, מכמיר לב; חריף, נוקב
 poisonous - רעיל
 polish - פולני; להבריק, לצחצח
 polite - מנומס
 portray - לתאר, לצייר
 precious - יקר
-predominantly - באופן ניכר
+predominantly - בעיקר, ברובו, בעיקרו של דבר
 prey - טרף, לטרוף
 prize - פרס
 probe - לחטט, לברר, לגשש
@@ -284,8 +284,8 @@ rebellion - מרד
 rebellious - סורר, מרדני
 recipe - מתכון
 recipient - נמען
-reciprocal - מספר הופכי (במתמטיקה)
-reciprocate - הדדי
+reciprocal - הדדי; (במתמטיקה) מספר הופכי
+reciprocate - לגמול, להשיב כגמול, להחזיר באותה מטבע
 recreation - בילוי
 refund - החזר
 regret - להתחרט, חרטה
@@ -307,7 +307,7 @@ saturated - רווי
 scale - מאזניים; לעלות, לטפס; סולם, סקלה
 scales - קשקשים (של דג)
 scan - סריקה, לסרוק
-scorn - לבוז, לזלזל, מנודה
+scorn - בוז, זלזול; לבוז, לזלזל
 scrutinize - בדק, בחן
 sculpture - פסל
 sedative - סם הרגעה, משכך
@@ -324,7 +324,7 @@ slaughterhouse - בית מטבחיים
 sober - פיכח
 solely - בלבד, רק
 sperm - זרע
-spewing - להזרים
+spewing - פולט/מתיז בעוצמה, מקיא
 spice - תבלין, לתבל
 spicy - פיקנטי
 spray - לרסס, לפזר
@@ -351,7 +351,7 @@ taint - לזהם; להכתים, להכפיש
 tainted - מוכתם, מזוהם
 talent - כשרון
 tame - לאלף, לבית
-tentative - ניסיוני, טנטטיבי
+tentative - זמני, לא סופי, מהוסס
 thief - גנב
 thriller - מותחן
 tone - טון
@@ -367,7 +367,7 @@ upheaval - מהפך
 uproar - רעש, מהומה
 urine - שתן
 utilize - השתמש
-utter - לבטא, להגות
+utter - לבטא, להגות; (ת') מוחלט, גמור
 valley - עמק
 valve - שסתום
 verbal - ורבלי, מילולי

@@ -3,21 +3,21 @@
 abstain - להתנזר, להימנע ממשהו
 accentuate - להבליט, להדגיש
 accusation - האשמה
-acknowledge - להכיר, לדעת
-adequate - הולם
-advertise - פרסום
+acknowledge - להכיר ב-, להודות ב-; לאשר קבלה
+adequate - מספיק, מספק; הולם
+advertise - לפרסם, להודיע ברבים
 advertisement - מודעה, פרסום
 affinity - זיקה, קירבה; משיכה
 agitate - להסעיר, לזעזע, לעצבן
-agonize - לענות, לייסר
+agonize - להתייסר, לסבול ייסורים; להתלבט קשות
 agony - ייסורים
 aisle - מעבר
-alien - חייזר
+alien - זר, נוכרי; לא מוכר, מוזר; חייזר
 alienation - ניכור, הרחקה
 anchor - עוגן
 annihilate - להשמיד
 antique - עתיק, ענתיקה
-apparatus - מנגנון
+apparatus - מכשיר, ציוד, מערכת מכשירים; מנגנון
 auction - מכירה פומבית
 augment - להרחיב
 autograph - חתימה
@@ -33,14 +33,14 @@ cheer - לעודד
 cheerful - עליז, שמח
 chemical - כימיקל, כימי
 circuit - מסלול, להקיף; מעגל חשמלי
-combat - לתקוף; קרב
+combat - להילחם ב-, להיאבק ב-; קרב, לחימה
 compete - להתחרות, להתמודד
 competition - תחרות
 components - חלקים, מרכיבים
 compulsory - מהווה חובה
 concise - תמציתי, תכליתי
 concrete - בטון; קונקרטי, מוחשי
-congregate - לאסוף קהל, לאסוף
+congregate - להתקהל, להתאסף, להתכנס
 conspicuous - בולט
 conspiracy - קשר, מזימה
 contagious - מדבק
@@ -68,8 +68,8 @@ dealt - עסק ב, חולק (קלפים, ניירת)
 debt - חוב
 decay - ריקבון
 decipher - לפענח
-delegate - להאציל, להסמיך
-delinquent - עבריין; נזנח, נשכח
+delegate - להאציל, להסמיך; נציג, ציר
+delinquent - עבריין; מזניח חובה, בפיגור (בתשלום)
 depression - דיכאון
 described - מתואר
 description - תיאור
@@ -94,7 +94,7 @@ disinfection - חיטוי
 dislocate - לפרוק, לנקוע
 disparage - לזלזל, להמעיט בערך
 dissent - להתנגד, חילוקי דעות
-distinction - מצוינות; הפרדה
+distinction - הבחנה, הבדל; מצוינות, הצטיינות
 distinctive - מיוחד
 distinguish - להבדיל, להבחין
 disturb - להפריע
@@ -104,18 +104,18 @@ dozen - תריסר
 drought - בצורת
 duel - דו-קרב
 duplicate - לשכפל
-durable - יציב, מתמשך
+durable - עמיד, בר-קיימא, מחזיק מעמד
 dynasty - שושלת
 eliminate - לחסל, לפסול
 eloquent - רהוט
 elude - לברוח, להתחמק
 embrace - לחבק, לאמץ לקרבו
 emission - פליטה
-employ - להעסיק
+employ - להעסיק; להשתמש ב-, לנקוט
 employer - מעסיק, מעביד
 enclosing - לסגור, להקיף
 enclosure - סגירה, כיתור, שטח מגודר
-encounter - מפגש
+encounter - להיתקל ב-, לפגוש; מפגש, היתקלות
 endanger - לסכן
 endangered - בסכנת הכחדה
 endurance - כוח סבל
@@ -131,7 +131,7 @@ expensive - יקר
 fabric - בד
 fabricate - לבדות
 family - משפחה
-fatal - סופני (פטלי)
+fatal - קטלני, ממית; הרה-אסון, גורלי
 fate - גורל, חרץ גורל
 fellow - חבר, עמית
 fiction - בדיון, לא אמיתי
@@ -169,9 +169,9 @@ herd - לאסוף; עדר, לרעות
 heritage - מורשת
 husband - בעל
 illness - מחלה
-illustrate - להמחיש, להדגיש
+illustrate - להמחיש, להדגים; לאייר
 illustrator - מאייר
-immersion - שקיעה
+immersion - טבילה, שיקוע (במים); שקיעה מוחלטת, מעורבות עמוקה (בנושא)
 immoral - לא מוסרי
 implement - ליישם, להוציא לפועל
 implementation - מימוש, יישום, ביצוע
@@ -213,7 +213,7 @@ lie - לשקר, שֶקֶר
 lie, lay - לשכב, שכב
 listen - להקשיב
 loosely - באופן רפוי
-loud - חזק
+loud - רועש, קולני, רם
 loudspeaker - רמקול
 luxury - מותרות
 machine - מכונה
@@ -238,7 +238,7 @@ nobility - אצולה
 noble - אציל, אצילי
 notion - רעיון, מושג, נטיה
 novel - רומן, סיפור; חדש
-observation - אבחנה
+observation - תצפית, התבוננות; הערה, הבחנה
 observe - להתבונן, להבחין
 obstinate - עקשן
 offend - להעליב
@@ -268,8 +268,8 @@ prophecy - נבואה
 prosper - לשגשג
 province - מחוז, אזור
 provoke - להתגרות, להסית
-punctuate - הדגשה
-punctuation - ניקוד, פיסוק
+punctuate - לפסק, לשים סימני פיסוק; לקטוע שוב ושוב; להדגיש
+punctuation - פיסוק, סימני פיסוק
 pure - טהור
 purification - טיהור
 query - שאלה, חקירה
@@ -322,7 +322,7 @@ spell - כישוף, קסם; איות, לאיית
 spend - לבזבז, לפזר; לבלות, להעביר
 spill - לשפוך
 spot - כתם; לזהות
-sprang - נבע
+sprang - קפץ, זינק; נבע, צמח (עבר של spring)
 stadium - אצטדיון
 stark - בוטה, מוחלט, גמור; שומם, עזוב
 statue - פסל
@@ -336,7 +336,7 @@ struggle - מאבק, מאמץ
 stuck - תקוע
 suffer - לסבול
 sundown - שקיעה
-sunlight - אור יום
+sunlight - אור שמש, קרינת השמש
 supreme - עליון
 surprise - הפתעה
 swing - לנדנד, נדנדה
@@ -372,7 +372,7 @@ vanish - להיעלם
 vegetable - ירק
 vegetarian - צמחוני
 vehicle - כלי רכב
-veracity - יושר, הגינות
+veracity - אמיתוּת, דבקות באמת; דיוק, התאמה לעובדות
 verdict - פסק דין, פסיקה
 voyage - מסע
 want - לרצות

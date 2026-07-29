@@ -4,7 +4,7 @@ abroad - חו"ל
 accomplices - שותף לדבר עבירה
 acquitted - זוכה מאשמה
 adhere - לדבוק ב-, לדגול ב-
-advocate - פרקליט; לייעץ
+advocate - תומך, מצדד; פרקליט; לדגול ב-, לתמוך בגלוי ב-
 align - להסתדר בשורה
 allowance - דמי כיס, הקצבה
 allusion - אזכור, רמיזה
@@ -37,17 +37,17 @@ ceremony - טקס, מסכת
 coal - פחם
 command - פקודה, לפקוד
 commute - להמתיק (עונש); להחליף, להמיר; לנסוע בקביעות לעבודה
-composed - הלחין
-condense - לדחוס
+composed - רגוע, שלֵו, שולט בעצמו; הלחין, חיבר
+condense - לתמצת, לצמצם; לדחוס, לרכז; לעבות (גז לנוזל)
 condone - לסלוח, למחול
 congenial - נעים, ידידותי
 congenital - מולד
 consolidate - לאחד, לגבש
 container - מיכל, קונטיינר
-contest - תחרות; למחות
+contest - תחרות; לערער על, לחלוק על; להתמודד על
 convict - אסיר; להרשיע
 cope - להתמודד
-cord - מיתר
+cord - חבל דק, חוט; כבל (חשמלי)
 cornerstone - אבן פינה
 crash - להתנגש, התנגשות
 credibility - אמינות, מהימנות
@@ -70,7 +70,7 @@ demean - להנמיך, להשפיל
 department - מחלקה
 department-store - חנות כלבו
 deposit - להפקיד, פיקדון
-depreciate - להפחית
+depreciate - לרדת בערך, לפחות מערכו; להפחית ערך, להמעיט בערך
 despise - לתעב
 dessert - קינוח
 devoid - חסר, נטול
@@ -83,12 +83,12 @@ dispatch - לשגר
 displacement - עקירה
 disseminate - להפיץ
 docile - צייתן, כנוע, נח
-domestic - ביתי
+domestic - ביתי; מקומי, פנים-ארצי; מבוית (חיה)
 donate - לתרום
 donor - תורם
 draw - תיקו, שוויון; לצייר
 draw (drew) - לשלוף, שלף
-drawback - חסרון, עיכוב
+drawback - חיסרון, מגרעת
 drift - זרם, סחף
 eager - נחוש, נלהב
 embryo - עוּבָּר
@@ -107,13 +107,13 @@ examination - בחינה, בדיקה
 examine - לבחון
 excitement - התרגשות
 exert - להתאמץ; להפעיל
-exhaust - פליטה, צינור מפלט
+exhaust - לרוקן, למצות, להתיש; (ש״ע) גזי פליטה, צינור מפלט
 exist - קיים
 existence - קיום
 expedite - לזרז
 expend - לגמור, לבזבז, לפזר
 expendable - שניתן לוותר עליו
-eyesight - ראייה, כוונת
+eyesight - ראייה, חוש הראייה
 factory - מפעל, בית חרושת
 familiar - מוכר
 familiarize - להתוודע
@@ -121,7 +121,7 @@ fascinate - לרתק
 fertile - פורה
 fetus - עובר (ברחם)
 fiber - סיב
-figurative - סמלי
+figurative - ציורי, מטאפורי, מושאל (לא מילולי)
 finalize - לסכם, לגבש
 firm - מוצק; נחוש, תקיף; חברה (פירמה)
 flagrant - בוטה
@@ -149,8 +149,8 @@ grief - יגון, צער
 grievance - טרוניה, התמרמרות
 growled - נהם
 guarantee - להבטיח, ערבות
-halve - לחצות
-harass - להציק
+halve - לחלק לשניים, להקטין בחצי
+harass - להטריד, להציק ללא הרף, לרדוף
 hasten - למהר, להחפז
 hasty - מהיר, בהול
 hatch - לבקוע (מביצה); פתח, צוהר
@@ -177,13 +177,13 @@ idolize - להעריץ
 ill - חולה
 illuminate - להאיר
 illusion - אשליה
-imaginative - דמיוני
+imaginative - בעל דמיון עשיר, יצירתי, מלא דמיון
 imitate - לחקות
 implore - להתחנן, להפציר
 imply - לרמוז
 imprisonment - מאסר, כליאה
 inadvertently - בלי משים, בלי כוונה
-incline - שיפוע; להתאים
+incline - שיפוע, מדרון; לנטות, להטות
 indebted - חייב ל-, אסיר תודה
 induce - לגרום, לייצר
 infancy - ינקות
@@ -199,7 +199,7 @@ intelligence - אינטליגנציה; מודיעין
 interface - ממשק
 interjection - הערה, הפרעה לשיחה
 keystone - אבן מפתח
-lackluster - העדר ברק, העדר כוח
+lackluster - חסר ברק, עמום, לא מרשים
 leisure - פנאי
 leisurely - נינוח, רגוע
 lucrative - ריווחי
@@ -229,7 +229,7 @@ neighborhood - שכונה
 noise - רעש
 nuisance - מטרד
 nurse - אחות
-nursery - חדר ילדים
+nursery - חדר ילדים, פעוטון; משתלה
 nurture - לטפח, להזין, לחנך
 obligation - התחייבות
 oblige - לחייב, להכריח
@@ -237,7 +237,7 @@ ocean - אוקיינוס
 offset - לקזז
 overly - יותר מידי
 oversee - לפקח
-overwhelm - מהמם
+overwhelm - להכריע, להציף, לגבור על; להמם
 package - חפיסה, חבילה
 painter - צייר
 painting - ציור
@@ -247,7 +247,7 @@ patience - סבלנות
 patiently - בסבלנות
 patients - מטופלים
 peddler - רוכל, סוחר
-penalty - קנס
+penalty - עונש; קנס
 people - אנשים
 perpetuate - להנציח
 pest - מטרד, מזיק (חרקים)
@@ -269,12 +269,12 @@ prepare - התכונן
 preside - לנהל
 prestigious - יוקרתי
 pretend - להעמיד פנים
-principal - מנהל בית ספר
-principle - עיקרון; עיקרי
+principal - מנהל בית ספר; ראשי, עיקרי; קרן (הלוואה)
+principle - עיקרון, כלל יסוד
 probation - תקופת מבחן
 proliferate - התפשט במהירות
 prolific - פורה, שופע
-prolong - מתמשך
+prolong - להאריך, למשוך (בזמן)
 prominent - בולט, חשוב
 prone - נוטה
 proof - הוכחה, ראיה; חסין, עמיד (סיומת)
@@ -294,7 +294,7 @@ recall - להיזכר; להחזיר, להשיב צלצול
 recruitment - גיוס
 reliable - אמין, שניתן לסמוך עליו
 relic - שארית, שריד
-relieve - להקהל
+relieve - להקל, להפיג, לשחרר (מתפקיד)
 remedy - תרופה
 reorganize - לארגן מחדש
 repelled - דחה, הגעיל
@@ -303,7 +303,7 @@ represent - לייצג, מייצג
 repressive - מדכא
 reproduce - להתרבות, לשכפל
 reputation - שם, מוניטין
-resent - להתנגד, להתרעם
+resent - לחוש טינה, להתרעם על
 reservation - שמורה; שריון מקום
 reserve - עתודה, מילואים; לשמור; שמורה
 reservoir - מאגר
@@ -324,7 +324,7 @@ rope - חבל
 rub - לשפשף
 rumor - שמועה
 salary - שכר
-sanction - קנס, עונש, עידוד
+sanction - סנקציה, עונש; לאשר, להתיר, לתת גושפנקה
 saw - מסור
 saw, see - ראה, לראות
 seeds - זרעים
@@ -357,7 +357,7 @@ special - מיוחד
 spike - יתד
 splendor - פאר
 spotlight - זרקור
-stage - במה, לביים
+stage - שלב; במה; לביים, לארגן (הפגנה)
 starve - לרעוב
 store - חנות, לאחסן; לאחסן
 stress - להדגיש; מתח, לחץ, מצוקה
@@ -366,7 +366,7 @@ stubborn - עקשן
 subsequent - עוקב
 supplement - תוסף
 supply - אספקה
-susceptible - רגישות
+susceptible - רגיש ל-, חשוף ל-, נוטה ל-
 suspend - להשעות
 suspense - השהיה, מתח
 tact - טקט
@@ -391,7 +391,7 @@ veteran - ותיק; חייל משוחרר, יוצא צבא
 virtue - מעלה
 vital - חיוני
 vivid - חד, בהיר, ססגוני, שופע
-vulnerable - פגיעות
+vulnerable - פגיע, חשוף לפגיעה
 warn - להזהיר
 warning - אזהרה
 weaken - להחליש

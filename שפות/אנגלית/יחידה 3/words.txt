@@ -6,7 +6,7 @@ accessible - נגיש, זמין
 accomplish - להשלים, להשיג
 accomplished - מומחה, מעולה
 accomplishment - הישג
-account - להתחשב ב-, להתייחס ל-; חשבון
+account - חשבון; דיווח, תיאור; account for — להסביר; take into account — להתחשב
 accuracy - דיוק
 accurate - מדויק
 activist - פעיל, אקטיביסט
@@ -16,18 +16,18 @@ administration - מנהל
 admit - להודות; להכניס, לקבל לתוך קבוצה
 adult - מבוגר
 adulthood - בגרות
-advance - מתקדם
+advance - להתקדם, לקדם; התקדמות; מקדמה; מוקדם, מראש
 advancement - התקדמות; מקדמה
 advantage - יתרון
 advice - עצה
 advise - לייעץ
 advisor - יועץ
-aesthetic - אסתטיקה
+aesthetic - אסתטי; אסתטיקה
 allocate - להקצות
 announcement - הכרזה
 annually - שנתי
 appoint - למנות
-approach - גישה
+approach - גישה, שיטה; להתקרב, לפנות אל
 approximately - בערך, בקירוב
 astronomy - אסטרונומיה
 attention - תשומת לב
@@ -38,11 +38,11 @@ ban - חרם, איסור
 belief - אמונה
 bend - לכופף
 beware - היזהר
-borrow - להשאיל
-brief - תדריך, תקציר
+borrow - לשאול, ללוות (מ-)
+brief - קצר, תמציתי; תדריך, לתדרך
 briefly - בקצרה
-bright - בהיר, ברור
-by no means - ללא ספק, בשום אופן
+bright - בהיר, זוהר; חכם, מבריק
+by no means - בשום אופן לא, כלל לא
 by now - עד עתה
 capable - מסוגל, יכול
 capacity - יכולת, סמכות, תפקיד; קיבולת
@@ -80,7 +80,7 @@ continuation - המשך
 cooperation - שיתוף פעולה
 core - ליבה
 crisis - משבר
-cure - מרפא
+cure - מרפא, תרופה; לרפא
 decide - להחליט
 decline - לרדת; לדחות; ירידה
 decrease - ירידה, הפחתה; להפחית, לצמצם
@@ -131,7 +131,7 @@ explanation - הסבר
 express - מהיר; לבטא
 expression - ביטוי
 extreme - קיצוני
-face - פונה ל-, עם הפנים ל-; פנים
+face - פנים; לפנות אל, לעמוד מול; להתמודד עם, לעמוד בפני
 facial - שקשור בפנים
 financial - כספי
 forbid - לאסור
@@ -223,7 +223,7 @@ officiate - לכהן, לערוך
 oil - נפט, שמן, לשמן
 ongoing - מתמשך
 option - אפשרות, אופציה
-order - לצוות; מסדר דתי; להזמין
+order - סדר; פקודה, לצוות; להזמין; מסדר (דתי)
 orderly - מסודר
 orientation - התמצאות
 origin - מקור, מוצא
@@ -280,7 +280,7 @@ regulation - תקנה
 reign - שלטון
 reigned - משל, שלט
 relative - קרוב-משפחה; יחסי
-relatively - בקרוב, באופן יחסי
+relatively - יחסית, באופן יחסי
 religion - דת
 repeat - לחזור; שידור/מאורע חוזר
 repetition - חזרה
@@ -318,7 +318,7 @@ spacious - מרווח
 square - ריבוע; כיכר
 stand - לעמוד
 standardize - לתקנן
-subject - למסור, להעביר לבעלות אחר; נתין, אזרח, אדם; נושא; נתון ל-, בכפוך ל-
+subject - נושא; נתין, אזרח; נבדק; להכפיף, לחשוף ל-; נתון ל-, כפוף ל-
 subjective - אישי, משוחד בדעתו
 suburban - פרברי
 succeed - הצליח

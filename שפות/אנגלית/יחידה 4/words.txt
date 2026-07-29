@@ -3,7 +3,7 @@
 abandon - לנטוש, לזנוח
 abduct - חטיפה, לחטוף
 abide - לציית
-absence - מחסור
+absence - היעדרות, היעדר; אי-נוכחות
 absent - חסר, לא נוכח
 absorb - לספוג
 abundance - שפע
@@ -28,16 +28,16 @@ alter - שינה ,לשנות
 alterations - שינויים
 alternately - לסירוגין
 amateur - חובבן
-amend - תיקון, שינוי לטובה
+amend - לתקן, לשנות (חוק/מסמך)
 analyze - לנתח
 anticipate - לצפות
 anxious - להוט; חרד
-apparent - גלוי
+apparent - ברור, נראה לעין; לכאורה, מדומה
 apparently - כנראה
-apply - לפנות
-appreciate - עליה בערך
+apply - ליישם, להחיל; לחול על; להגיש בקשה, לפנות
+appreciate - להעריך, להוקיר; (כלכלי) לעלות בערך
 appreciation - הערכה
-appropriately - בהתאם
+appropriately - כראוי, כיאות, באופן מתאים
 arise - להופיע, לעלות
 arise, arose - לקום, קם
 artificial - מלאכותי
@@ -81,7 +81,7 @@ compress - לדחוס
 comprise - לכלול
 concept - רעיון, מושג
 conception - תפיסה
-confer - להתייעץ; להעניק, להסביר
+confer - להתייעץ, לדון; להעניק (תואר, כבוד)
 conference - ועידה
 confide - לשתף, לספר (סוד)
 confident - בטוח בעצמו
@@ -94,7 +94,7 @@ considerable - הרבה, רבות
 consume - לצרוך
 consumers - צרכנים
 contain - להכיל, מכיל
-contemporary - עכשווי
+contemporary - עכשווי, מודרני; בן-זמנו, בן-תקופה
 convenient - נוח
 conveniently - באופן נח
 convention - מוסכמה; ועידה, כנס
@@ -111,21 +111,21 @@ customer - לקוח, צרכן
 customize - להתאים באופן אישי
 damage - נזק, לגרום נזק
 decade - עשור
-defeat - תבוסה
+defeat - להביס, לנצח; תבוסה, הבסה
 defeated - הובס
 defend - להגן
 defense - הגנה
 deficiency - מחסור
-deliver - לשלוח
+deliver - למסור, לספק; לשאת (נאום); ליילד
 delivery - משלוח
 demographic - דמוגרפי
 demonstrate - להדגים; להפגין
 destination - יעד
-detach - להתנתק
+detach - לנתק, להפריד
 deteriorate - להידרדר
 diagnose - לאבחן
 director - במאי; מנהל
-discriminate - להפלות
+discriminate - להפלות; להבחין, להבדיל (between)
 dismiss - לבטל, לפטר, לשחרר
 disposable - חד-פעמי
 disrupt - להפריע, לשבש
@@ -135,8 +135,8 @@ document - מסמך; לתעד
 duty - תפקיד, חובה
 earn - להרוויח
 economy - כלכלה
-edge - קצה, חספוס
-elaborate - לפרט, להרחיב
+edge - קצה, שוליים; יתרון; להב (של סכין)
+elaborate - לפרט, להרחיב; (ת׳) מורכב, משוכלל, מפורט
 elect - לבחור
 emerge - להגיח, להופיע
 emigrate - להגר
@@ -159,8 +159,8 @@ execute - להוציא לפועל; להוציא להורג
 facility - מתקן
 fail - להיכשל
 failure - כשלון
-faith - אמון
-fall - סתיו
+faith - אמונה; אמון
+fall - ליפול, נפילה; ירידה; סתיו
 feature - להציג; סרט באורך מלא; תכונה, מאפיין
 flourish - לשגשג, לפרוח
 follow - לעקוב, לציית
@@ -227,7 +227,7 @@ limit - גבול, לשים גבול, מוגבל
 limitation - מגבלה
 lobby - לשדל; לובי, מבואה
 mammal - יונק
-moderate - מתון; לתווך, לפשר
+moderate - מתון, ממוצע; למתן, לרסן; לנהל/להנחות (דיון)
 modernize - להפוך למודרני
 mold - לעצב; עובש
 motivate - לדרבן
@@ -252,8 +252,8 @@ pair - זוג
 parent - הורה
 parenting - הורות
 participate - השתתף
-particular - מיוחד, לא רגיל
-particulars - פריטים
+particular - מסוים, ספציפי; מיוחד; (about) קפדן, בררן
+particulars - פרטים, פרטי מידע
 pause - הפסקה, להפסיק
 persist - להתמיד, להתעקש
 person - אדם
@@ -338,7 +338,7 @@ spring, sprang - קפיץ ; לקפוץ, קפץ
 stability - יציבות
 stamina - כושר עמידה, סיבולת
 standard - רמה, תקן, מקובל
-state - מצב; מדינה
+state - מצב; מדינה; לציין, להצהיר, לקבוע
 statement - הצהרה
 steady - קבוע, יציב
 stimulate - לעורר, להמריץ
