@@ -1,2 +1,14799 @@
 // Auto-generated English word bank (Quizlet units 1-10). One word = one entry, senses merged.
-window.UNIT_DATA_EN = {"1": [["1st - first", "ראשון"], ["2nd - second", "שני"], ["3rd - third", "שלישי"], ["4th - fourth", "רביעי"], ["5th - fifth", "חמישי"], ["6th - sixth", "שישי"], ["7th - seventh", "שביעי"], ["8th - eighth", "שמיני"], ["9th - ninth", "תשיעי"], ["tenth - 10th", "עשירי"], ["how", "איך, כיצד"], ["what", "מה, איזה"], ["which", "איזה; אשר, ש-"], ["who", "מי, ש-"], ["whom", "מי"], ["whose", "אשר לו, אשר הוא"], ["as if", "כאילו"], ["based on", "מבוסס על"], ["even if", "גם אם"], ["granted (that)", "בהנחה ש-, נתון ש-"], ["If", "אם"], ["in case", "במקרה"], ["in order to", "על-מנת, בכדי"], ["only", "רק"], ["provided that", "בתנאי ש-"], ["so long as", "כל עוד"], ["unless", "אלא אם כן"], ["while", "כל עוד; בזמן ש-"], ["always", "תמיד"], ["consistently", "בעקביות"], ["constantly", "באופן קבוע"], ["daily", "יומיומי"], ["every day", "כל יום"], ["every now and then", "לפעמים"], ["for the most part", "בדרך-כלל"], ["forever", "לנצח, לתמיד"], ["frequently", "לעיתים קרובות"], ["from time to time", "מפעם לפעם"], ["hardly ever", "כמעט אף פעם"], ["mostly", "לרוב"], ["never", "אף פעם"], ["occasionally", "מידי פעם"], ["often", "לעיתים קרובות"], ["once in a while", "מידי פעם"], ["ordinarily", "בדרך-כלל"], ["permanently", "קבוע"], ["perpetually", "נצחי, לנצח"], ["rarely", "לעיתים נדירות"], ["regularly", "באופן קבוע"], ["seldom", "לעיתים רחוקות"], ["sometimes", "לעיתים, לפעמים"], ["usually", "בדרך-כלל"], ["according", "לפי"], ["accordingly", "בהתאם"], ["as a result", "כתוצאה"], ["consequently", "כתוצאה מכך"], ["for", "מפני ש-; עבור"], ["hence", "לפיכך, לכן"], ["in that case", "במקרה הזה"], ["led to", "הוביל ל-"], ["so", "אז, כך ש-, ולכן; כל-כך, מאוד"], ["so that", "כך ש-"], ["subsequently", "כתוצאה מכך"], ["then", "אז"], ["thus", "לכן, כך ש-"], ["after all", "אחרי הכל"], ["all in all", "בסך הכל"], ["altogether", "בסך הכל; לגמרי"], ["besides", "בכל מקרה; בנוסף על; מלבד, חוץ מ-"], ["i.e.", "כלומר, לדוגמה"], ["in a word", "במילה אחת"], ["in conclusion", "לסיכום"], ["in fact", "למעשה"], ["overall", "כולל, באופן כללי"], ["to sum up", "כדי לסכם; לסכם"], ["because", "בגלל"], ["because of", "בגלל"], ["being that", "מכיוון ש-"], ["due to", "בגלל, לאור"], ["given that", "בהתחשב בכך"], ["in light of", "לאור"], ["owing to", "הודות ל-"], ["since", "מכיוון ש-; מאז"], ["thanks to", "תודות ל-"], ["therefore", "לכן"], ["why", "מדוע"], ["albeit", "אף על פי"], ["although", "למרות ש-"], ["but", "אך, אבל; מלבד, חוץ מ-"], ["contradictory", "סותר"], ["contrary", "להפך, בניגוד ל-"], ["conversely", "לעומת זאת"], ["different from", "שונה מ-"], ["in comparison", "בהשוואה"], ["in contrast to", "בניגוד ל-"], ["instead", "במקום"], ["instead of", "במקום"], ["of course... but...", "כמובן... אך..."], ["on the contrary", "בניגוד לכך"], ["or", "או"], ["otherwise", "אחרת"], ["rather", "עדיף; למדי"], ["rather than", "במקום, יותר מ-"], ["regardless", "למרות, ללא קשר"], ["than", "מ-"], ["though", "למרות זאת; למרות ש-"], ["unlike", "שלא כמו"], ["vice versa", "להיפך"], ["where", "בעוד ש-; היכן, איפה"], ["whereas", "בעוד ש-"], ["yet", "אך, אולם; עדיין, בכל זאת"], ["about", "ליד, בערך; אודות"], ["above", "מעל"], ["across", "בצד השני, לרוחב"], ["adjacent to", "ליד"], ["against", "כנגד, ממול"], ["ahead of", "לפני, לפנים"], ["along", "לאורך"], ["alongside", "לצד, במקביל"], ["amid", "בקרב, בין"], ["among", "בקרב, בין"], ["around", "מסביב; בערך"], ["at", "אצל, ב-"], ["before", "לפני, מול; לפני"], ["behind", "מאחורי; ישבן"], ["below", "מתחת"], ["beneath", "מתחת"], ["beside", "ליד"], ["between", "בין"], ["beyond", "מעבר"], ["by", "ליד, בסמוך ל-; עד, לא יאוחר מ-; באמצעות, על-ידי"], ["close", "קרוב; סגור, לסגור"], ["distant", "מרוחק"], ["elsewhere", "במקום אחר"], ["farther", "הלאה, יותר"], ["from", "מ-"], ["here", "כאן"], ["in", "ב-, בתוך"], ["in front of", "בחזית של, מול"], ["inside", "בתוך, פנים"], ["into", "אל תוך"], ["latter", "שני, אחרון"], ["near", "קרוב"], ["nearby", "ליד, קרוב"], ["next to", "ליד"], ["of", "של, מ-"], ["on", "על"], ["on top of", "על, מעל"], ["opposite", "מנוגד, ממול"], ["outside", "חוץ; בחוץ"], ["over", "על, מעל; מחדש, שוב"], ["there", "שם"], ["under", "מתחת"], ["underneath", "מתחת"], ["up", "למעלה"], ["wherever", "בכל מקום, לא משנה היכן"], ["within", "בתוך"], ["backward", "לאחור"], ["down", "למטה"], ["forward", "קדימה, לפנים"], ["further", "לקדם; בהמשך"], ["left", "שמאלה"], ["right", "ימינה; זכות"], ["sideways", "הצידה"], ["toward", "אל, אל עבר"], ["upon", "על"], ["upside down", "הפוך"], ["after", "אחרי"], ["afterwards", "לאחר מכן"], ["again", "שוב"], ["as", "כאשר, כש-; כמו"], ["as long as", "כל עוד"], ["as soon as", "כאשר, ברגע ש-"], ["at first", "בהתחלה"], ["at last", "סוף סוף"], ["currently", "כרגע, נכון לעכשיו"], ["during", "תוך כדי, במשך"], ["earlier", "קודם לכן"], ["eventually", "לבסוף"], ["finally", "לבסוף, סוף סוף"], ["first of all", "ראשית"], ["former", "קודם, לשעבר"], ["immediately", "מיד"], ["in a moment", "בעוד רגע"], ["in due time", "בבוא העת"], ["initially", "בתחילה"], ["instantly", "מיד"], ["last", "אחרון; המשיך, החזיק מעמד"], ["later", "מאוחר יותר"], ["meanwhile", "בינתיים"], ["next", "הבא"], ["now", "עכשיו"], ["once", "ברגע ש-; פעם (בעבר); פעם אחת"], ["past", "עבר, שעבר"], ["presently", "כעת"], ["previously", "הקודם, לפני-כן"], ["prior to", "קודם ל-, לפני"], ["shortly", "בקיצור, בקרוב"], ["simultaneously", "בו זמנית"], ["soon", "בהקדם, מוקדם"], ["still", "עדיין, למרות זאת; נייח, דומם, שקט"], ["suddenly", "לפתע"], ["to begin with", "בתור התחלה"], ["until", "עד ש-"], ["until now", "עד עתה"], ["when", "כאשר, כש-"], ["whenever", "כש-, מתישהו"], ["despite", "למרות"], ["even so", "אף על פי כן"], ["even though", "למרות ש-"], ["however", "למרות זאת; בכל דרך"], ["in spite of", "למרות"], ["nevertheless", "למרות זאת"], ["nonetheless", "למרות זאת"], ["additionally", "בנוסף"], ["along with", "יחד עם"], ["also", "גם"], ["and", "ו-"], ["as well as", "כמו גם"], ["aside from", "חוץ מ-"], ["coupled with", "יחד עם"], ["except", "מלבד, חוץ מ-"], ["furthermore", "זאת ועוד"], ["in addition", "בנוסף"], ["including", "כולל"], ["moreover", "זאת ועוד"], ["not only", "לא רק"], ["not to mention", "שלא לדבר על"], ["together with", "יחד עם"], ["too", "גם; יותר מידי"], ["with", "באמצעות, עם"], ["without", "מבלי, ללא"], ["above all", "מעל לכל"], ["absolutely", "לחלוטין"], ["both... and...", "גם... וגם..."], ["certainly", "בהחלט, בוודאי"], ["chiefly", "בעיקר"], ["either... or...", "או... או..."], ["especially", "במיוחד"], ["essentially", "בעיקרו, במהותו"], ["in general", "באופן כללי"], ["in particular", "במיוחד"], ["incidentally", "דרך אגב"], ["indeed", "בהחלט"], ["just as... so...", "בדיוק כמו... גם"], ["mainly", "בעיקר"], ["markedly", "בצורה ניכרת"], ["namely", "במיוחד, כלומר"], ["neither... nor...", "לא... ולא..."], ["not only... but also...", "לא רק... אלא גם..."], ["not... but...", "לא... אבל..."], ["notably", "ראוי לציון"], ["of course", "כמובן, בוודאי"], ["on one hand...on the other hand", "מצד אחד... מצד שני"], ["particularly", "במיוחד, בפרט"], ["primarily", "בעיקר"], ["significantly", "באופן משמעותי"], ["specifically", "במיוחד"], ["surely", "ללא ספק"], ["surprisingly", "במפתיע"], ["truly", "באמת"], ["undoubtedly", "ללא ספק"], ["whether... or...", "בין אם... או..."], ["both", "שניהם"], ["comparatively", "באופן יחסי"], ["correspondingly", "בהתאמה"], ["e.g.", "לדוגמה"], ["equally", "במידה שווה"], ["for example", "לדוגמה"], ["for instance", "לדוגמה"], ["identically", "באופן זהה"], ["in other words", "במילים אחרות"], ["in the same way", "באותו אופן"], ["just as", "בדיוק כמו"], ["like", "כמו; לחבב, להעדיף"], ["likewise", "כמו-כן, באותו אופן"], ["similarly", "באופן דומה"], ["such as", "כמו למשל"], ["that", "ש-"]], "2": [["ability", "יכולת"], ["able", "יכול, מסוגל"], ["accept", "לקבל"], ["acceptable", "מקובל"], ["acceptance", "הסכמה"], ["accident", "תאונה"], ["achieve", "להשיג"], ["activate", "להפעיל"], ["active", "פעיל"], ["actor", "שחקן"], ["actual", "ממשי"], ["actually", "למעשה"], ["addition", "תוספת, הוספה"], ["address", "כתובת; לפנות, לטפל"], ["adjust", "להתרגל; לכוונן"], ["afford", "יכל לעמוד בהוצאות"], ["afraid", "מפחד"], ["agree", "להסכים"], ["agreement", "הסכם"], ["aim", "לכוון, מטרה"], ["alarm", "דאגה, להדאיג; אזעקה"], ["alive", "חי"], ["almost", "כמעט"], ["alone", "לבד"], ["alternate", "חלופי; התחלף, עבר מדבר אחד לשני וחזרה"], ["ambassador", "שגריר"], ["ambiguous", "דו משמעי, לא לגמרי ברור"], ["amount", "כמות"], ["anger", "כעס, להכעיס"], ["angry", "כועס"], ["animal", "חיה"], ["another", "נוסף; אחר"], ["answer", "תשובה"], ["apart", "בנפרד"], ["apology", "התנצלות"], ["appear", "להופיע; נראה ש-"], ["appearance", "מראה, הופעה"], ["appropriate", "מתאים"], ["approve", "לאשר"], ["architect", "ארכיטקט"], ["architecture", "אדריכלות, ארכיטקטורה"], ["area", "אזור, תחום"], ["argue", "להתווכח"], ["argument", "ויכוח"], ["aristocrat", "אציל, אריסטוקרט"], ["arm", "לחמש; זרוע"], ["army", "צבא"], ["arrange", "לסדר"], ["arrest", "מעצר, לעצור"], ["arrive", "להגיע"], ["art", "אמנות"], ["article", "מאמר; פריט"], ["articulate", "להביע; רהוט"], ["artist", "אמן"], ["artistic", "אמנותי"], ["as far as", "לגבי, בכל הנוגע ל-"], ["as proof of", "כהוכחה ל-"], ["ask", "לשאול"], ["asked for", "ביקש"], ["associate", "לקשר"], ["association", "אסוציאציה; איגוד"], ["assume", "להניח"], ["assumption", "הנחה"], ["at least", "לפחות"], ["athlete", "ספורטאי, אתלט"], ["attach", "לחבר, ליחס"], ["attack", "לתקוף, מתקפה"], ["attempt", "ניסיון"], ["attitude", "גישה"], ["attract", "למשוך"], ["attraction", "משיכה"], ["attractive", "נאה, מושך"], ["audience", "קהל"], ["authentic", "מקורי, אותנטי"], ["availability", "זמינות"], ["available", "זמין"], ["average", "ממוצע, רגיל"], ["avoid", "להתחמק, להימנע"], ["awake", "ער, להתעורר"], ["bacteria", "חיידקים"], ["badly", "נואשות, קשות"], ["baker", "אופה"], ["band", "להקה; לחבוש, תחבושת, רצועה"], ["barely", "בקושי"], ["base", "בסיס"], ["bat", "מחבט; עטלף"], ["bath", "אמבטיה, להתרחץ"], ["battle", "מאבק, להיאבק"], ["beach", "חוף ים"], ["bear", "לסבול, לשאת; דוב"], ["beauty", "יופי"], ["bedroom", "חדר שינה"], ["begin/an/un", "להתחיל / התחיל / התחיל"], ["beginning", "התחלה"], ["belong", "שייך"], ["best", "הכי טוב"], ["best-seller", "רב-מכר"], ["better", "טוב יותר"], ["bicycle", "אופניים"], ["birth", "לידה"], ["bite", "לנשוך, נשיכה"], ["bizarre", "מוזר"], ["blind", "עיוור"], ["block", "חסימה; לבנה, גוש, חלק"], ["blood", "דם"], ["blood vessel", "כלי דם"], ["blow, blew", "לנשוף, נשף; לפוצץ, פוצץ"], ["boat", "סירה"], ["body", "גוויה, גוף"], ["bone", "עצם"], ["border", "גבול"], ["boring", "משעמם"], ["bottle", "בקבוק"], ["bottom", "תחתית; ישבן"], ["bought", "קנה"], ["brain", "מוח, שכל"], ["brainwash", "לשטוף את המח"], ["brave", "אמיץ"], ["bread", "לחם"], ["break", "לשבור"], ["breathe", "לנשום"], ["bridge", "גשר, לגשר"], ["broad", "נרחב"], ["budget", "תקציב, לתקצב"], ["build", "מבנה; לבנות"], ["building", "בניין"], ["built", "לבנות"], ["bullet", "קליע"], ["call", "לקרוא, להתקשר"], ["camera", "מצלמה"], ["care", "לחבב; לדאוג, לטפל"], ["carefully", "בזהירות"], ["careless", "לא זהיר, רשלני"], ["carry", "לסחוב"], ["catalogue", "קטלוג, רשימת פריטים"], ["catch, caught", "לתפוס, תפס"], ["cause", "מטרה; גורם, סיבה"], ["cell", "תא"], ["center", "מרכז"], ["central", "מרכזי"], ["challenge", "לאתגר; אתגר"], ["chance", "סיכוי"], ["change", "שינוי, לשנות; עודף"], ["characterize", "לאפיין"], ["cheap", "זול"], ["check", "לבדוק"], ["child", "ילד"], ["childhood", "ילדות"], ["children", "ילדים"], ["circle", "להקיף בעיגול; מעגל"], ["clean", "נקי, לנקות"], ["clever", "פיקח"], ["climb", "לטפס"], ["clock", "שעון"], ["cloth", "בגד, בד"], ["coach", "מאמן, לאמן, להדריך; קרון נוסעים, כרכרה, מחלקת תיירים (במטוס)"], ["code", "קוד"], ["coexist", "להתקיים בשותפות"], ["coin", "מטבע"], ["cold", "קר, התקררות"], ["colonial", "קולוניאלי"], ["color", "לצבוע; צבע"], ["complain", "להתלונן"], ["complete", "כולל; להשלים"], ["consist", "מורכב מ-"], ["contact", "ליצור קשר, מגע"], ["continue", "להמשיך"], ["continuity", "המשכיות, רצף הגיוני"], ["continuous", "מתמשך"], ["control", "לוח בקרה, פיקוח; שליטה, לשלוט"], ["cool", "לצנן, צונן"], ["copies", "עותקים"], ["copy", "להעתיק"], ["corner", "פינה, לדחוק לפינה"], ["correct", "לתקן; נכון"], ["cost", "מחיר, עלות"], ["costly", "יקר"], ["count", "לספור; רוזן"], ["country", "ארץ; כפר, אזור"], ["cover", "כיסוי, מכסה"], ["cow", "פרה"], ["culture", "תרבות"], ["dance", "לרקוד"], ["danger", "סכנה, לסכן"], ["dangerous", "מסוכן"], ["daughter", "בת"], ["death", "מוות"], ["deep", "עמוק"], ["deeply", "מאוד, במידה רבה"], ["define", "להגדיר"], ["definite", "מוחלט"], ["delete", "למחוק"], ["desert", "מדבר; לנטוש"], ["devastate", "להחריב"], ["die", "מת, למות"], ["die (dice)", "קובייה (קוביות)"], ["difficult", "קשה"], ["dirty", "מלוכלך"], ["diverse", "מגוון"], ["done", "גמור, עשוי"], ["dream", "חלום, לחלום"], ["drink", "לשתות, משקה"], ["drug", "סם, תרופה, לסמם"], ["due", "צריך להיעשות, זמנו הגיע; בשל"], ["early", "מוקדם"], ["earth", "אדמה; כדור הארץ"], ["earthquake", "רעידת אדמה"], ["educate", "לחנך"], ["education", "השכלה"], ["empty", "ריק, לרוקן"], ["enemy", "אויב"], ["energy", "אנרגיה, כוח"], ["enjoy", "ליהנות"], ["enjoyable", "מהנה"], ["enter", "נכנס"], ["error", "שגיאה"], ["escape", "לברוח, בריחה"], ["evening", "ערב"], ["event", "אירוע"], ["exact", "מדויק"], ["exactly", "בדיוק"], ["example", "דוגמה"], ["excessive", "יתר, מוגזם"], ["expert", "מומחה"], ["extinct", "נכחד"], ["fact", "עובדה"], ["false", "שקר"], ["farm", "חווה"], ["farmer", "חוואי"], ["father", "אבא"], ["fear", "פחד, לפחד"], ["feel", "להרגיש"], ["feeling", "הרגשה"], ["few", "מעט"], ["field", "תחום, שדה"], ["find", "למצוא"], ["findings", "ממצאים"], ["finger", "אצבע"], ["fire", "אש, להצית; לירות; לפטר"], ["fix", "לתקן"], ["flower", "פרח"], ["forget", "לשכוח"], ["friend", "חבר"], ["friendly", "ידידותי"], ["friendship", "חברות"], ["front", "חזית, להתעמת"], ["full", "מלא, למלא"], ["gain", "להרוויח, להוסיף"], ["glad", "שמח"], ["gradual", "הדרגתי"], ["great", "גדול, מעולה"], ["half", "חצי"], ["hand", "יד; למסור"], ["hear", "לשמוע"], ["hearsay", "שמועה"], ["heat", "חום, לחמם"], ["hero", "גיבור"], ["horse", "סוס"], ["hot", "חם; חריף"], ["house", "לשכן; בית"], ["impartial", "אוביקטיבי, ללא צד"], ["inconsistent", "לא עקבי"], ["insert", "להכניס"], ["jump", "לקפוץ"], ["just", "מדויק, אמיתי; רק, בלבד; צודק, הוגן"], ["kill", "להרוג, לחסל, הרג"], ["king", "מלך"], ["kingdom", "ממלכה"], ["kitchen", "מטבח"], ["late", "מאוחר, לאחר"], ["light", "אור; קל"], ["list", "רשימה, להכין רשימה"], ["lock", "מנעול, לנעול"], ["logic", "הגיון"], ["main", "עיקרי"], ["map", "מפה, למפות"], ["mark", "לסמן"], ["maybe", "אולי"], ["meeting", "פגישה"], ["member", "חבר (בקבוצה מסוימת)"], ["milk", "חלב, לחלוב"], ["mistake", "טעות"], ["mistaken", "שגוי, לטעות"], ["money", "כסף"], ["move", "לזוז, לעבור"], ["movement", "תנועה"], ["must", "חייב, חובה, הכרח"], ["number", "מספר"], ["open", "לפתוח, פתוח"], ["paragraph", "פִסקה"], ["pay", "לשלם"], ["peace", "שלום"], ["peaceful", "שָׁלֵו, שקט"], ["pilot", "טייס"], ["place", "מקום, למקם"], ["plan", "תכנית; לתכנן"], ["plane", "מטוס; מישור"], ["president", "נשיא"], ["price", "מחיר"], ["primary", "יסודי, עיקרי"], ["problem", "בעיה"], ["program", "תכנית; תכניה; לתכנת"], ["queen", "מלכה"], ["question", "להטיל ספק; שאלה"], ["quick", "זריז"], ["rates", "שיעור , היקף, תעריף"], ["react", "להגיב"], ["region", "מחוז, אזור"], ["register", "להירשם"], ["registration", "הרשמה"], ["reject", "לדחות"], ["rest", "מנוחה; יתר, שאר"], ["rich", "עשיר"], ["risk", "סיכון, לסכן"], ["river", "נהר"], ["road", "דרך"], ["safe", "בטוח"], ["safety", "בטיחות"], ["save", "לשמור"], ["scare", "פחד, להפחיד"], ["school", "בית-ספר"], ["search", "חיפוש, לחפש"], ["select", "לבחור"], ["sell", "למכור"], ["send", "לשלוח"], ["several", "אחדים, כמה"], ["short", "קצר"], ["shortage", "מחסור"], ["side", "צד, לצודד, לתמוך"], ["sleep", "שינה; לישון"], ["slow", "איטי, לאט"], ["slow down", "להאט"], ["space", "חלל; רווח"], ["speed", "מהירות"], ["start", "להתחיל"], ["stone", "אבן"], ["strong", "חזק"], ["stronghold", "מאחז"], ["system", "מערכת; שיטה"], ["target", "מטרה"], ["teach, taught", "ללמד, לימד"], ["think, thought", "לחשוב, חשב"], ["time", "זמן"], ["totally", "לחלוטין"], ["town", "עיר, עיירה"], ["understand", "להבין"], ["unusual", "בלתי רגיל, יוצא דופן"], ["use", "תועלת, תכלית; לנצל; להשתמש"], ["useful", "שימושי"], ["useless", "חסר תועלת"], ["usual", "רגיל"], ["valuable", "יקר ערך"], ["value", "ערך, להעריך"], ["view", "נוף, שדה ראיה; לראות"], ["viewer", "צופה"], ["visit", "לבקר"], ["visitor", "אורח, מבקר"], ["voice", "קול, להשמיע קול"], ["wait", "להמתין, המתנה"], ["way", "דרך"], ["weather", "מזג אוויר"]], "3": [["abrupt", "פתאומי"], ["absolute", "מוחלט"], ["accessible", "נגיש, זמין"], ["accomplish", "להשלים, להשיג"], ["accomplished", "מומחה, מעולה"], ["accomplishment", "הישג"], ["account", "להתחשב ב-, להתייחס ל-; חשבון"], ["accuracy", "דיוק"], ["accurate", "מדויק"], ["activist", "פעיל, אקטיביסט"], ["adapt", "להתאים; לעבד; להסתגל"], ["administer", "לנהל, לפקח; לתת, לחלק"], ["administration", "מנהל"], ["admit", "להודות; להכניס, לקבל לתוך קבוצה"], ["adult", "מבוגר"], ["adulthood", "בגרות"], ["advance", "מתקדם"], ["advancement", "התקדמות; מקדמה"], ["advantage", "יתרון"], ["advice", "עצה"], ["advise", "לייעץ"], ["advisor", "יועץ"], ["aesthetic", "אסתטיקה"], ["allocate", "להקצות"], ["announcement", "הכרזה"], ["annually", "שנתי"], ["appoint", "למנות"], ["approach", "גישה"], ["approximately", "בערך, בקירוב"], ["astronomy", "אסטרונומיה"], ["attention", "תשומת לב"], ["attribute", "לייחס, לקשר; תכונה, מאפיין"], ["aware", "מודע"], ["balance", "שיווי משקל; איזון, לאזן"], ["ban", "חרם, איסור"], ["belief", "אמונה"], ["bend", "לכופף"], ["beware", "היזהר"], ["borrow", "להשאיל"], ["brief", "תדריך, תקציר"], ["briefly", "בקצרה"], ["bright", "בהיר, ברור"], ["by no means", "ללא ספק, בשום אופן"], ["by now", "עד עתה"], ["capable", "מסוגל, יכול"], ["capacity", "יכולת, סמכות, תפקיד; קיבולת"], ["capital", "עיר בירה; אות גדולה; ראשי, משמעותי; הון"], ["capital punishment", "עונש מוות"], ["capitalize", "לנצל"], ["certain", "בטוח; מסוים"], ["certainty", "וודאות"], ["character", "אות, תו; דמות; אופי"], ["characteristic", "מאפיין"], ["choice", "בחירה"], ["choose", "לבחור"], ["circumstance", "מצב, תנאי, נסיבות"], ["civil", "אדיב; אזרחי"], ["class", "מעמד; סוג; כיתה"], ["classify", "לסווג, מסווג"], ["colony", "מושבה"], ["combine", "לצרף, לשלב"], ["common", "נפוץ, משותף"], ["communal", "משותף, ציבורי"], ["communicate", "לתקשר"], ["community", "קהילה"], ["company", "חברה"], ["comparable", "בר-השוואה"], ["compare", "להשוות"], ["comparison", "השוואה"], ["comprehend", "להבין"], ["comprehension", "הבנה"], ["concentrate", "להתרכז"], ["conclude", "לסיים; להסיק"], ["conclusion", "מסקנה"], ["conclusively", "סופית, באופן החלטי"], ["confirm", "לאשר, לאמת"], ["continuation", "המשך"], ["cooperation", "שיתוף פעולה"], ["core", "ליבה"], ["crisis", "משבר"], ["cure", "מרפא"], ["decide", "להחליט"], ["decline", "לרדת; לדחות; ירידה"], ["decrease", "ירידה, הפחתה; להפחית, לצמצם"], ["deduce", "להסיק"], ["demand", "לדרוש, דרישה"], ["deny", "לסרב; להכחיש"], ["depart", "לעזוב"], ["derive", "לשאוב, להפיק, לגזור מ-"], ["descend", "ירד, הדרדר"], ["descendent", "צאצא"], ["deserve", "מגיע (לו)"], ["destiny", "גורל"], ["devote", "להקדיש"], ["direct", "ישיר, כנה; לכוון; לביים"], ["direction", "כיוון"], ["disadvantage", "חסרון"], ["disclose", "לגלות, לחשוף"], ["discover", "לגלות"], ["discoveries", "תגליות"], ["discuss", "לדון, להתווכח"], ["disprove", "להפריך"], ["distinct", "ברור, נפרד"], ["distress", "מצוקה"], ["diverge", "לסטות"], ["diversity", "מגוון"], ["divide", "לחלק"], ["doubt", "ספק, להטיל ספק"], ["edit", "לערוך"], ["edition", "מהדורה"], ["editor", "עורך"], ["emperor", "שליט, קיסר"], ["empire", "אימפריה"], ["enable", "לאפשר"], ["enormous", "עצום"], ["enough", "מספיק"], ["era", "עידן"], ["essential", "חיוני"], ["evaluate", "להעריך, לאמוד"], ["evaluation", "הערכה"], ["even", "אפילו; זוגי (מספר); ליישר, להשוות"], ["evenly", "באופן שווה"], ["except for", "למעט"], ["exercise", "תרגיל; להתאמן; לממש, ליישם"], ["expect", "לצפות"], ["expectations", "ציפיות"], ["explain", "להסביר"], ["explanation", "הסבר"], ["express", "מהיר; לבטא"], ["expression", "ביטוי"], ["extreme", "קיצוני"], ["face", "פונה ל-, עם הפנים ל-; פנים"], ["facial", "שקשור בפנים"], ["financial", "כספי"], ["forbid", "לאסור"], ["form", "צורה; ליצור, להקים"], ["formal", "רשמי"], ["forth", "הלאה, קדימה"], ["General", "גנרל (דרגה צבאית); כללי"], ["generally", "באופן כללי"], ["gross", "ברוטו, גלמי; ענק, דוחה"], ["growth", "צמיחה, גדילה"], ["habit", "הרגל"], ["habitat", "סביבת מגורים"], ["health", "בריאות"], ["heavily", "מאוד, במידה רבה"], ["heavy", "כבד"], ["hope", "תקווה, לקוות"], ["human", "אנושי"], ["human being", "בן-אדם, אנוש"], ["identical", "זהה"], ["implicate", "לסבך, לערב"], ["implications", "השלכות, משמעות"], ["importance", "חשיבות"], ["important", "חשוב"], ["inadequate", "לקוי, לא מספיק"], ["income", "הכנסה"], ["incomprehensible", "לא מובן"], ["indicate", "להצביע על"], ["indication", "אינדיקציה, סימן ל-"], ["inhabit", "ליישב, לאכלס"], ["inhabitants", "תושבים"], ["initial", "ראשי תיבות; התחלתי, ראשוני"], ["initiated", "יזם, התחיל, אִתְחֵל"], ["international", "בינלאומי"], ["island", "אי"], ["isle", "אי"], ["issue", "נושא, עניין, סוגיה; להוציא לאור, להפיץ; גיליון"], ["jewel", "תכשיט"], ["join", "להצטרף, לחבר"], ["joint", "משותף; מפרק, חיבור"], ["judge", "לשפוט; שופט"], ["lack", "מחסור"], ["language", "שפה"], ["large", "גדול"], ["largest", "הגדול ביותר"], ["law", "חוק"], ["lawyer", "עורך-דין"], ["legal", "משפטי; חוקי"], ["legalize", "להפוך חוקי, לאשר"], ["less", "פחות"], ["lethal", "קטלני"], ["level", "לאזן, להשוות; רמה, דרגה, מפלס"], ["likely", "סביר"], ["local", "מקומי"], ["locate", "לאתר"], ["malfunction", "כשל, ליקוי"], ["massacre", "טֶבַח"], ["medicine", "רפואה, תרופה"], ["medieval", "מתקופת ימי הביניים"], ["merchandise", "מוצרים, סחורה"], ["mere", "רק, לא יותר מ-"], ["merely", "רק, לא יותר מ-"], ["middle", "אמצע"], ["mortal", "קטלני; אנושי, בן תמותה"], ["mortality", "תמותה"], ["most", "רוב; הכי"], ["mutually", "באופן שווה/הדדי"], ["nation", "אומה"], ["nationality", "לאום"], ["nationalize", "להלאים"], ["native", "יליד, מקומי, טבעי"], ["natural", "טבעי"], ["nature", "טבע"], ["need", "צריך, צורך"], ["negative", "שלילי"], ["network", "רשת"], ["new", "חדש"], ["newscaster", "מגיש חדשות"], ["newspaper", "עיתון"], ["note", "הערה, פתק; לציין"], ["noted", "ידוע, מפורסם"], ["obviously", "ברור"], ["occasion", "אירוע, סיבה, הזדמנות"], ["occasional", "מדי פעם, מקרי"], ["occasions", "הזדמנויות, מקרים"], ["occur", "קרה, התרחש"], ["offer", "הצעה, להציע"], ["official", "רשמי, מאושר"], ["officiate", "לכהן, לערוך"], ["oil", "נפט, שמן, לשמן"], ["ongoing", "מתמשך"], ["option", "אפשרות, אופציה"], ["order", "לצוות; מסדר דתי; להזמין"], ["orderly", "מסודר"], ["orientation", "התמצאות"], ["origin", "מקור, מוצא"], ["original", "מקורי"], ["originality", "מקוריות"], ["originate", "התחיל, התהווה"], ["outcome", "תוצאה"], ["overcome", "להתגבר"], ["part", "חלק"], ["partial", "חלקי"], ["patient", "סבלני; חולה"], ["per", "לכל"], ["percent", "אחוז"], ["perfect", "להשלים, לשפר; מושלם"], ["pollution", "זיהום"], ["population", "אוכלוסייה"], ["possess", "להיות בעלים של, להחזיק ב-"], ["possession", "בעלות, חזקה"], ["precise", "מדויק"], ["precision", "דיוק"], ["presence", "נוכחות"], ["present", "להציג; מתנה; הווה, נוכח, קיים"], ["prime", "ראשוני, עיקרי, מובחר"], ["primitive", "קדום, חסר תרבות"], ["prior", "קודם"], ["priority", "עדיפות"], ["progress", "התקדמות, להתקדם"], ["progressive", "מתקדם ומתמשך"], ["proper", "מתאים, הולם"], ["properly", "כראוי"], ["protect", "להגן"], ["provide", "לפרנס; לספק"], ["purpose", "כוונה, מטרה"], ["purposely", "בכוונה"], ["quiet", "שקט"], ["quite", "למדי"], ["quote", "ציטוט"], ["raise", "להעלות"], ["range", "טווח; רכס; מטווח"], ["rational", "הגיוני, רציונאלי"], ["rationalize", "להצדיק, להסביר"], ["reality", "מציאות"], ["reason", "סיבה; הגיון"], ["recession", "מיתון"], ["recommend", "להמליץ"], ["recycle", "למחזר"], ["recycling", "מחזור"], ["reduce", "להפחית"], ["refer", "מתייחס"], ["reference", "התייחסות, הפניה"], ["refuse", "אשפה, זבל; לסרב"], ["regime", "שלטון, משטר"], ["regulation", "תקנה"], ["reign", "שלטון"], ["reigned", "משל, שלט"], ["relative", "קרוב-משפחה; יחסי"], ["relatively", "בקרוב, באופן יחסי"], ["religion", "דת"], ["repeat", "לחזור; שידור/מאורע חוזר"], ["repetition", "חזרה"], ["reply", "להשיב"], ["research", "מחקר"], ["resist", "להתנגד"], ["resistance", "התנגדות, מחתרת"], ["resolve", "נחוש; לפתור"], ["result", "תוצאה"], ["result in", "הסתיים ב-"], ["reveal", "לחשוף"], ["review", "ביקורת; לסקור, סקירה"], ["rigid", "נוקשה, מחמיר"], ["rise", "עליה, לעלות"], ["rising", "זריחה; עולה"], ["rocket", "טיל"], ["scene", "סצנה; זירה"], ["scenery", "נוף"], ["science", "מדע"], ["scientist", "מדען"], ["section", "יחידה, חלק"], ["seem", "נראה כ-, דומה ל-"], ["sense", "היגיון, תודעה; חוש, לחוש"], ["sensible", "נבון"], ["serious", "רציני, חמור"], ["shuttle", "מעבורת"], ["sign", "לחתום; שֶׁלֶט; סימן, לסמן"], ["signal", "אות, סימן, לאותת"], ["similar", "דומה"], ["simple", "פשוט"], ["simplify", "לפשט"], ["simply", "בפשטות"], ["social", "חברתי"], ["spacious", "מרווח"], ["square", "ריבוע; כיכר"], ["stand", "לעמוד"], ["standardize", "לתקנן"], ["subject", "למסור, להעביר לבעלות אחר; נתין, אזרח, אדם; נושא; נתון ל-, בכפוך ל-"], ["subjective", "אישי, משוחד בדעתו"], ["suburban", "פרברי"], ["succeed", "הצליח"], ["success", "הצלחה"], ["sum", "סכום, סך, לסכם"], ["summarize", "לסכם"], ["summary", "סיכום, תמצית"], ["surround", "להקיף"], ["surrounding", "מקיף, סובב"], ["task", "משימה"], ["territory", "תחום, שטח"], ["thereby", "ולכן, גרם ל-"], ["title", "כותרת"], ["touch", "מגע, לגעת"], ["trade", "להחליף; לסחור, מסחר"], ["train", "רכבת; להכשיר, לאמן"], ["trial", "נסיון; משפט"], ["turn", "לפנות, סיבוב"], ["uncharted", "לא מתועד"], ["uniform", "מדים; אחיד"], ["unify", "לאחד"], ["union", "איגוד, איחוד"], ["universe", "יקום"], ["uphold", "להחזיק, לתמוך, לדגול"], ["volume", "נפח; כרך; עוצמת קול"], ["war", "מלחמה"], ["warfare", "לוחמה"], ["warrior", "לוחם"], ["waste", "בזבוז, לבזבז; הפסולת"], ["watch", "להסתכל, להשגיח; שעון"], ["widespread", "נפוץ"], ["wild", "פראי, טבע"], ["wilderness", "ערבה, שממה"], ["wool", "צמר"]], "4": [["abandon", "לנטוש, לזנוח"], ["abduct", "חטיפה, לחטוף"], ["abide", "לציית"], ["absence", "מחסור"], ["absent", "חסר, לא נוכח"], ["absorb", "לספוג"], ["abundance", "שפע"], ["abuse", "התעללות, ניצול; להתעלל, לנצל"], ["accumulate", "לצבור, לאסוף"], ["acquire", "לרכוש, להשיג"], ["acquisition", "רכישה"], ["adopt", "לאמץ"], ["adventure", "הרפתקה"], ["affect", "להשפיע"], ["affection", "חיבה"], ["affluence", "שפע"], ["affluent", "שופע, עשיר"], ["aid", "עזרה, לסייע"], ["airborne", "נישא באוויר"], ["airline", "חברת תעופה"], ["airplane", "אווירון, מטוס"], ["alike", "דומה"], ["allow", "להרשות"], ["ally (allies)", "בן-ברית (בנות-ברית)"], ["alter", "שינה ,לשנות"], ["alterations", "שינויים"], ["alternately", "לסירוגין"], ["amateur", "חובבן"], ["amend", "תיקון, שינוי לטובה"], ["analyze", "לנתח"], ["anticipate", "לצפות"], ["anxious", "להוט; חרד"], ["apparent", "גלוי"], ["apparently", "כנראה"], ["apply", "לפנות"], ["appreciate", "עליה בערך"], ["appreciation", "הערכה"], ["appropriately", "בהתאם"], ["arise", "להופיע, לעלות"], ["arise, arose", "לקום, קם"], ["artificial", "מלאכותי"], ["aside", "הצידה; במאמר מוסגר, מלבד"], ["assess", "להעריך, לאמוד"], ["asset", "נכס"], ["assign", "למנות, להקצות"], ["assignment", "משימה, מטלה"], ["attain", "להשיג, להגיע"], ["attend", "להשתתף, להיות נוכח"], ["attendant", "משרת, מטפל, מלווה"], ["authority", "סמכות"], ["authorize", "להרשות, להסמיך"], ["autumn", "סתיו"], ["await", "להמתין"], ["awareness", "מודעות"], ["bare", "חשוף, ריק, לחשוף"], ["behave", "להתנהג"], ["behavior", "התנהגות"], ["bounce", "לקפץ, ניתור"], ["brilliant", "מבריק"], ["burden", "עול"], ["bush", "שיח; ערבה"], ["cable", "כבל"], ["calculate", "לחשב"], ["calculator", "מחשבון"], ["campaign", "מערכה, מסע"], ["candid", "כנה, ישיר"], ["candidate", "מועמד"], ["case", "תיבה; מקרה, טיעון"], ["categorize", "לקטלג, למיין, לסווג"], ["cautious", "זהיר"], ["century", "מאה שנים"], ["charge", "לגבות; להאשים; להסתער; לחייב"], ["chart", "גיליון, תרשים"], ["claim", "טענה, טוען; תביעה"], ["coincide", "להקביל, לחפוף"], ["colossal", "עצום"], ["commence", "להתחיל"], ["compress", "לדחוס"], ["comprise", "לכלול"], ["concept", "רעיון, מושג"], ["conception", "תפיסה"], ["confer", "להתייעץ; להעניק, להסביר"], ["conference", "ועידה"], ["confide", "לשתף, לספר (סוד)"], ["confident", "בטוח בעצמו"], ["conflict", "עימות, סכסוך"], ["conjecture", "סברה, לשער"], ["connect", "לחבר"], ["consequence", "תוצאה"], ["consider", "לקחת בחשבון, לשקול"], ["considerable", "הרבה, רבות"], ["consume", "לצרוך"], ["consumers", "צרכנים"], ["contain", "להכיל, מכיל"], ["contemporary", "עכשווי"], ["convenient", "נוח"], ["conveniently", "באופן נח"], ["convention", "מוסכמה; ועידה, כנס"], ["conventional", "שגרתי, קונבנציונאלי"], ["convert", "להמיר; מומר"], ["convey", "למסור, להעביר"], ["courageous", "אמיץ"], ["create", "ליצור"], ["creator", "יוצר"], ["creature", "יצור"], ["currency", "מטבע"], ["custom", "מנהג; מותאם אישית"], ["customer", "לקוח, צרכן"], ["customize", "להתאים באופן אישי"], ["damage", "נזק, לגרום נזק"], ["decade", "עשור"], ["defeat", "תבוסה"], ["defeated", "הובס"], ["defend", "להגן"], ["defense", "הגנה"], ["deficiency", "מחסור"], ["deliver", "לשלוח"], ["delivery", "משלוח"], ["demographic", "דמוגרפי"], ["demonstrate", "להדגים; להפגין"], ["destination", "יעד"], ["detach", "להתנתק"], ["deteriorate", "להידרדר"], ["diagnose", "לאבחן"], ["director", "במאי; מנהל"], ["discriminate", "להפלות"], ["dismiss", "לבטל, לפטר, לשחרר"], ["disposable", "חד-פעמי"], ["disrupt", "להפריע, לשבש"], ["distribute", "להפיץ"], ["distribution", "הפצה"], ["document", "מסמך; לתעד"], ["duty", "תפקיד, חובה"], ["earn", "להרוויח"], ["economy", "כלכלה"], ["edge", "קצה, חספוס"], ["elaborate", "לפרט, להרחיב"], ["elect", "לבחור"], ["emerge", "להגיח, להופיע"], ["emigrate", "להגר"], ["eminent", "בולט, בכיר"], ["enclose", "לצרף"], ["enlarge", "להגדיל"], ["ensure", "להבטיח"], ["environment", "סביבה"], ["epidemic", "מגיפה, אפידמיה"], ["equivalent", "מקבילה"], ["erase", "למחוק"], ["eraser", "מחק"], ["establish", "לייסד"], ["estimate", "להעריך, לאמוד"], ["ethical", "אתי, מוסרי"], ["evade", "התחמק"], ["evidence", "ראיה"], ["exception", "יוצא מהכלל"], ["execute", "להוציא לפועל; להוציא להורג"], ["facility", "מתקן"], ["fail", "להיכשל"], ["failure", "כשלון"], ["faith", "אמון"], ["fall", "סתיו"], ["feature", "להציג; סרט באורך מלא; תכונה, מאפיין"], ["flourish", "לשגשג, לפרוח"], ["follow", "לעקוב, לציית"], ["for the sake of", "למען"], ["force", "לכפות; כוח"], ["forsake", "לזנוח"], ["found", "מצא, גילה; לייסד"], ["foundation", "יסוד"], ["function", "תפקוד, לתפקד"], ["future", "עתיד"], ["gather", "אסף"], ["global", "עולמי, גלובאלי"], ["goal", "מטרה"], ["goods", "סחורה, טובין"], ["grasp", "לתפוס, להבין; אחיזה"], ["group", "קבוצה, לקבץ"], ["hardly", "בקושי"], ["hesitate", "להסס"], ["hold back", "לעכב, למנוע"], ["homeland", "מולדת"], ["honest", "הגון"], ["honor", "לכבד, כבוד"], ["huge", "עצום, ענק"], ["idea", "רעיון"], ["identify", "לזהות"], ["illegal", "לא חוקי"], ["image", "דמות, תמונה"], ["imagination", "דמיון"], ["imagine", "לדמיין"], ["impair", "לפגום, להחליש"], ["impart", "להעביר, להקנות"], ["impartially", "באופן הוגן, ללא אפליה"], ["import", "לייבא"], ["impose", "לכפות"], ["impossible", "בלתי אפשר"], ["imprisoned", "כלוא"], ["improve", "לשפר"], ["improvise", "לאלתר"], ["in order", "תקין, מסודר"], ["increase", "להגדיל, להגביר"], ["incredible", "מדהים"], ["individual", "יחיד, אינדיבידואל"], ["industry", "תעשייה"], ["inferred", "נגזר, משתמע"], ["inform", "להודיע, לעדכן"], ["information", "מידע"], ["innovate", "לחדש, להמציא"], ["intention", "כוונה"], ["intentional", "מכוון"], ["interact", "לתקשר, להשפיע"], ["interest", "עניין; ריבית"], ["internal", "פנימי"], ["interpretation", "פרשנות"], ["involve", "לערב"], ["isolate", "לבודד"], ["judgment", "שיפוט"], ["know, knew", "לדעת, ידע"], ["knowledge", "יֶדַע"], ["known", "ידוע"], ["laid", "מונח"], ["lane", "מסלול"], ["launch", "לשגר, להוציא לדרך; להשיק, להתחיל"], ["limit", "גבול, לשים גבול, מוגבל"], ["limitation", "מגבלה"], ["lobby", "לשדל; לובי, מבואה"], ["mammal", "יונק"], ["moderate", "מתון; לתווך, לפשר"], ["modernize", "להפוך למודרני"], ["mold", "לעצב; עובש"], ["motivate", "לדרבן"], ["negate", "לשלול"], ["neutral", "ניטרלי"], ["numerous", "מרובה"], ["nutrition", "תזונה"], ["object", "פריט, אובייקט; להתנגד"], ["obtain", "להשיג"], ["operate", "לפעול, להפעיל, לתפעל; לנתח"], ["operation", "ניתוח; מבצע, פעולה"], ["opposition", "אופוזיציה, התנגדות"], ["ordinary", "רגיל"], ["organ", "אורגן (כלי נגינה); איבר"], ["organization", "ארגון"], ["organize", "לארגן"], ["outbreak", "התפרצות"], ["overdo", "להפריז, להגזים"], ["overdue", "שעבר זמן ההגשה שלו"], ["pace", "קצב"], ["pair", "זוג"], ["parent", "הורה"], ["parenting", "הורות"], ["participate", "השתתף"], ["particular", "מיוחד, לא רגיל"], ["particulars", "פריטים"], ["pause", "הפסקה, להפסיק"], ["persist", "להתמיד, להתעקש"], ["person", "אדם"], ["personal", "אישי"], ["personality", "אישיות"], ["phase", "שלב, דרגה"], ["phenomenon", "תופעה"], ["pioneer", "חלוץ"], ["position", "מיקום, למקם; תנוחה; תפקיד, משרה"], ["possible", "אפשרי"], ["poverty", "עוני"], ["poverty-stricken", "מוכה עוני"], ["precedent", "תקדים"], ["preceding", "קודם"], ["predecessors", "קודמים"], ["predestined", "נקבע מראש"], ["predict", "לצפות מראש"], ["prediction", "חיזוי, ניבוי"], ["predictive", "נבואי"], ["premature", "מוקדם מדי"], ["private", "פרטי"], ["produce", "לייצר; תוצר, ירקות ופירות"], ["product", "מוצר"], ["profession", "מקצוע"], ["professional", "מקצועי"], ["profound", "מעמיק; מוחלט, מאוד"], ["profoundly", "עמוקות"], ["promise", "הבטחה, להבטיח"], ["property", "תכונה; רכוש"], ["protest", "למחות, הפגנה"], ["prove", "להוכיח"], ["public", "ציבורי"], ["race", "מרוץ; גזע"], ["rail", "מעקה, מסילה"], ["railroad", "מסילת רכבת"], ["random", "מקרי, אקראי"], ["randomly", "באקראיות"], ["reaction", "תגובה"], ["reasonable", "הגיוני"], ["reconstruct", "לשחזר"], ["refute", "להפריך"], ["regain", "להשיג מחדש"], ["regard", "להתייחס, להחשיב"], ["relate", "להתייחס, לקשר"], ["release", "לשחרר"], ["relevant", "רלוונטי, קשור"], ["relocate", "למקם מחדש"], ["reluctant", "מסויג, לא מעוניין"], ["rely", "להסתמך"], ["remote", "מרוחק"], ["report", "דיווח, לדווח"], ["reporter", "עיתונאי"], ["request", "בקשה, לבקש"], ["require", "לדרוש, דרישה"], ["restore", "לשקם, לשחזר"], ["resume", "להמשיך"], ["resumption", "חידוש"], ["rule", "לשלוט, לפסוק, להחליט; כלל, חוק, שלטון"], ["ruler", "סרגל; מושל, שליט"], ["season", "לתבל; עונה"], ["secure", "להבטיח, לשמור, להגן"], ["selective", "סלקטיבי"], ["service", "שירות"], ["share", "מניה; לחלוק"], ["ship", "לשלוח; אוניה"], ["shipment", "משלוח"], ["significance", "משמעות, חשיבות"], ["significant", "משמעותי"], ["simulate", "לדמות, לחקות"], ["size", "גודל"], ["soar", "להמריא"], ["soil", "אדמה; לכלוך"], ["solicit", "לשדל / להדיח; לבקש/לחפש בתחינה"], ["solitude", "בדידות"], ["solution", "פתרון"], ["sort", "למיין"], ["source", "מקור"], ["span", "להימתח, להקיף; מרווח"], ["splendid", "נהדר, מהולל"], ["spring", "מעיין; אביב"], ["spring, sprang", "קפיץ ; לקפוץ, קפץ"], ["stability", "יציבות"], ["stamina", "כושר עמידה, סיבולת"], ["standard", "רמה, תקן, מקובל"], ["state", "מצב; מדינה"], ["statement", "הצהרה"], ["steady", "קבוע, יציב"], ["stimulate", "לעורר, להמריץ"], ["stock", "מלאי; מניה; לאחסן"], ["strange", "מוזר"], ["strive", "לשאוף"], ["successor", "יורש"], ["summer", "קיץ"], ["superior", "עליון"], ["supervise", "לפקח"], ["support", "תמיכה, לתמוך"], ["supportive", "תומך"], ["survey", "לבחון, לסקור; סקר"], ["survive", "לשרוד"], ["swift", "מהיר"], ["temporary", "זמני"], ["thick", "סמיך; עבה"], ["thrive", "לשגשג"], ["tradition", "מסורת"], ["traffic", "תנועה"], ["traffic jam", "פקק תנועה"], ["transfer", "העברה; להעביר"], ["tribe", "שבט"], ["unaware", "לא מודע"], ["uncertain", "לא בטוח"], ["unclear", "לא ברור"], ["uncover", "לחשוף, לגלות"], ["unfold", "נפרש, נפתח, התגלה; לפתוח קיפול"], ["unit", "יחידה"], ["unstable", "לא יציב"], ["update", "עדכון, לעדכן"], ["upgrade", "לשדרג"], ["valid", "תקף"], ["validate", "אימת, נתן תוקף"], ["violence", "אלימות"], ["violent", "אלים"], ["widely", "בצורה נרחבת"], ["widen", "להרחיב"], ["winter", "חורף"]], "5": [["admirable", "נערץ, ראוי להערצה"], ["admire", "להעריץ"], ["adore", "העריץ, אהב"], ["adverse", "שלילי"], ["analog", "אנלוגי (ההיפך מדיגיטלי)"], ["analogy", "אנלוגיה, הקבלה"], ["ancestor", "אב קדמון"], ["ancestry", "מוצא"], ["ancient", "קדום, עתיק"], ["assemble", "להרכיב, להתאסף"], ["assist", "לעזור, לסייע"], ["astonishment", "תדהמה, השתאות"], ["astound", "להדהים"], ["at your disposal", "לרשותך"], ["author", "סופר, מחבר"], ["avert", "להסיט, להפנות, למנוע"], ["background", "רקע"], ["benefactors", "נדבנים, תורמים"], ["beneficial", "מועיל, רווחי"], ["bold", "אמיץ, חצוף; מודגש"], ["botanist", "בוטנאי"], ["boundary", "גבול"], ["branch", "ענף, סניף"], ["broaden", "להרחיב"], ["canal", "תעלה"], ["cast", "להשליך, לגרש; צוות שחקנים"], ["caste", "מעמד חברתי"], ["castle", "טירה"], ["casual", "אגבי, רגיל, יומיומי"], ["chief", "ראשי, בכיר, מנהיג; צ'יף"], ["citizen", "אזרחים"], ["clarify", "להבהיר"], ["climate", "אקלים"], ["coast", "חוף"], ["coastline", "קו/רצועת חוף"], ["coat", "מעיל; שכבה (של צבע, בטון וכו')"], ["coexistence", "דו-קיום"], ["collaborate", "לשתף פעולה"], ["collapse", "להתמוטט"], ["column", "טור; עמוד"], ["comfort", "נחמה"], ["comfortable", "נוח"], ["commerce", "מסחר"], ["commercial", "מסחרי; סרטון פרסומת"], ["commit", "ביצוע/ לבצע; להתחייב"], ["committee", "ועדה"], ["complex", "מסובך"], ["complication", "סיבוך"], ["comply", "להסכים, לציית"], ["compromise", "להתפשר"], ["concern", "דאגה, עניין"], ["condition", "תנאי, מצב, מעמד; להכשיר, להתאים"], ["conduct", "לנהל, לקיים"], ["confront", "להתעמת, לעמת"], ["confrontation", "עימות"], ["consideration", "התחשבות"], ["considering", "מתחשב"], ["consistent", "עקבי"], ["constant", "קבוע, רצוף"], ["constitute", "מהווים; להקים, לייסד"], ["construct", "לבנות"], ["consult", "להתייעץ"], ["context", "הקשר"], ["contract", "ללקות, להידבק (במחלה); חוזה, הסכם; להתכווץ"], ["contradiction", "סתירה"], ["convoy", "שיירה"], ["criteria", "אמת מידה, אבן בחן"], ["critic", "מבקר"], ["criticize", "לבקר"], ["declaration", "הכרזה, הצהרה"], ["declare", "להכריז"], ["dedicate", "להקדיש"], ["dedicated", "מסור; מוקדש ל-"], ["degenerate", "להתנוון"], ["degree", "מעלה; דרגה"], ["delay", "עיכוב, לאחר, לדחות"], ["delight", "תענוג"], ["design", "תכנית, דוגמה, תרשים; לתכנן, לעצב"], ["designer", "מעצב"], ["detect", "לאתר, לגלות"], ["determine", "לקבוע"], ["determined", "נחוש, נחרץ"], ["develop", "לפתח"], ["development", "התפתחות, פיתוח"], ["diagram", "תרשים, דיאגרמה"], ["dialect", "ניב"], ["difference", "הבדל"], ["differences", "חילוקי דעות"], ["different", "שונה"], ["differentiate", "להבדיל, להבחין"], ["diminish", "לצמצם"], ["disaster", "אסון"], ["disobey", "להפר, לא לציית"], ["dispose", "להיפטר"], ["distance", "מרחק"], ["drastic", "דרסטי"], ["effective", "יעיל, אפקטיבי"], ["efficient", "יעיל"], ["effort", "מאמץ"], ["electricity", "חשמל"], ["emotion", "רגש"], ["enact", "לחוקק"], ["episode", "פרק"], ["ethnic", "אתני"], ["excel", "להצטיין"], ["excellent", "מצוין"], ["exhausting", "מתיש, מעייף"], ["experience", "ניסיון, לחוות"], ["experiment", "ניסוי, להתנסות"], ["exploit", "פעולות, מעשים; לנצל, להפיק תועלת"], ["export", "ייצוא"], ["extensive", "נרחב"], ["facilitate", "לסייע, לעזור, להקל"], ["fall apart", "להתפרק"], ["fast", "צום; מהיר"], ["fasten", "להדק"], ["feminine", "נשי"], ["fine", "קטן, עדין, דקיק; משביע רצון; משובח, מצוין; קנס"], ["fit", "בכושר; להתאים"], ["flight", "בריחה, מנוסה; טיסה"], ["forceful", "חזק"], ["forecast", "תחזית"], ["foreign", "חוץ; זר, נוכרי"], ["forfeit", "לוותר, להפסיד"], ["fortunate", "בעל מזל"], ["fortune", "מזל; עושר"], ["frame", "מסגרת, למסגר"], ["fund", "קרן; לממן"], ["fundamental", "בסיסי (פונדמנטלי)"], ["fundraiser", "מגייס כספים"], ["funds", "כסף, הון, מקור מימון"], ["gap", "פער"], ["generated", "יצר"], ["generation", "דור"], ["govern", "למשול"], ["government", "ממשל"], ["governor", "מושל"], ["gratify", "לרצות"], ["ground", "בסיס, אדמה"], ["grow", "לגדול, לגדל"], ["grow up", "להתבגר, לגדול"], ["guilty", "אשם"], ["harsh", "נוקשה, אכזרי"], ["hollow", "חלול"], ["hundred", "מאה"], ["hunt", "לצוד, ציד"], ["hunter", "צייד"], ["ignorance", "בורות"], ["ignorant", "בור, חסר השכלה"], ["ignore", "להתעלם"], ["illiterate", "בור, אנאלפבית"], ["impact", "השפעה; התנגשות"], ["impatient", "חסר סבלנות"], ["impress", "להרשים"], ["impressive", "מרשים"], ["inactivity", "חוסר פעילות"], ["include", "לכלול"], ["inclusive", "כולל"], ["industrious", "חרוץ, שקדן"], ["infected", "הודבק"], ["infection", "זיהום"], ["innocent", "תמים; חף מפשע"], ["institute", "מוסד, מכון; לכונן"], ["instruction", "הוראה, הדרכה"], ["insurance", "ביטוח"], ["insure", "להבטיח"], ["investing", "להשקיע"], ["investment", "השקעה"], ["investor", "משקיע"], ["irrigation", "השקיה"], ["lapse", "מעידה, פליטת פה; פרק זמן, פקיעה, סיום"], ["leather", "עור"], ["lecture", "הרצאה"], ["legislate", "לחוקק"], ["legislation", "חקיקה"], ["length", "אורך"], ["lower", "להנמיך"], ["lung", "ריאה"], ["maintain", "לשמר"], ["major", "סולם מז'ור (במוזיקה); מסלול לימודים; ראשי, עיקרי"], ["majority", "רוב"], ["male", "זכר"], ["manage", "לנהל"], ["management", "ניהול"], ["manuscript", "כתב יד"], ["marine", "ימי"], ["maritime", "ימי"], ["market", "שוק"], ["marketing", "שיווק, לשווק"], ["mass", "המון, המוני; מסה"], ["material", "חומר, חומרני"], ["measure", "אמצעי; למדוד"], ["merge", "למזג, לחבר"], ["merger", "מיזוג"], ["message", "הודעה"], ["method", "שיטה"], ["mild", "מתון, עדין"], ["military", "צבא, צבאי"], ["minor", "קטין; סולם מינור (במוזיקה); קטן, שולי"], ["minority", "מיעוט"], ["misconception", "דעה מוטעית"], ["mission", "משימה"], ["mode", "מצב, אופן, צורה; אופנה, מודה"], ["model", "דגם, מודל, דוגמן"], ["modest", "צנוע"], ["modify", "לשנות, להתאים"], ["monumental", "גדול, אדיר"], ["negotiate", "לשאת ולתת"], ["negotiation", "משא ומתן"], ["nominated", "מועמד"], ["nuclear", "גרעיני"], ["observer", "משקיף"], ["obsolete", "מיושן"], ["occupy", "להעסיק; לתפוס, לאכלס"], ["occurrence", "התרחשות"], ["odd", "מוזר; אי זוגי"], ["omission", "השמטה, הזנחה"], ["omit", "להשמיט, להזניח"], ["opinion", "דעה"], ["opponent", "יריב, מתנגד"], ["opportunity", "הזדמנות"], ["organic", "אורגני"], ["overlaps", "חופף"], ["own", "משלו; בעלות על משהו"], ["owner", "בעלים"], ["paramount", "בעל חשיבות עליונה"], ["pass", "לוותר; להעביר, למסור"], ["pedestrian", "הולך רגל"], ["perhaps", "אולי"], ["period", "נקודה; משך זמן, מחזור; תקופה"], ["permanent", "קבוע"], ["persecution", "רדיפה (דתית)"], ["planet", "כוכב לכת"], ["plant", "צמח, עציץ, לשתול"], ["poll", "סקר, הצבעה"], ["populous", "מאוכלס בצפיפות"], ["post", "להציב, למנות ; עמדה, משרה, תפקיד; עמוד; לפרסם ; פרסום; לשלוח בדואר ; דואר"], ["postage", "דבר דואר"], ["postpone", "לדחות"], ["powerful", "רב כוח"], ["preferable", "עדיף"], ["presume", "להניח"], ["priest", "כומר"], ["privilege", "זכות יתר, פריביליגיה"], ["profit", "רווח"], ["profitable", "רווחי"], ["publication", "הוצאה לאור"], ["publicized", "פורסם"], ["publish", "לפרסם, להוציא לאור"], ["publisher", "מוציא לאור"], ["qualify", "להיות מוסמך"], ["quality", "איכות"], ["quarter", "רבע"], ["radiation", "קרינה"], ["rare", "נא (בשר); נדיר"], ["raw", "חי, נא (בשר); גולמי, גס"], ["receive", "לקבל"], ["recent", "שארע לאחרונה"], ["recently", "לאחרונה"], ["recognition", "הכרה"], ["record", "רשומה; לתעד; להקליט; שיא"], ["recover", "להתאושש"], ["recreate", "לשחזר, ליצור מחדש"], ["relax", "להירגע"], ["reliance", "הסתמכות"], ["remains", "נשאר, עדיין; שרידים"], ["remove", "להסיר"], ["renew", "לחדש"], ["renown", "ידוע"], ["repair", "לתקן"], ["replace", "להחליף"], ["replacement", "מחליף"], ["rescue", "להציל"], ["resemble", "דומה"], ["residence", "מגורים"], ["resident", "תושב קבע"], ["resource", "משאב"], ["resourceful", "בעל תושייה"], ["restrain", "לרסן"], ["retain", "להחזיק, לשמור"], ["retrieve", "להשיב"], ["revenue", "הכנסה, רווח"], ["route", "מסלול, דרך"], ["ruin", "להרוס"], ["ruins", "הריסות, עיי חורבות"], ["sample", "דוגמית"], ["satisfaction", "שביעות רצון"], ["scatter", "לפזר"], ["schedule", "לוח זמנים"], ["sensitive", "רגיש"], ["sensitivity", "רגישות"], ["sentence", "משפט; גזר דין"], ["servant", "משרת"], ["serve", "לשרת; לְרַצּוֹת (עונש); להגיש, לשרת"], ["session", "מושב"], ["sharp", "חד"], ["sheer", "מוחלט, לחלוטין; שקוף; משופע, תלול"], ["single", "רווק; יחיד"], ["skepticism", "ספקנות"], ["skill", "יכולת, מיומנות"], ["sophisticated", "מתוחכם"], ["spare", "מיותר, עודף"], ["specialize", "להתמחות"], ["species", "מין, זן"], ["specify", "לפרט"], ["spectator", "צופה, משקיף"], ["speech", "דיבור"], ["spoil", "לקלקל; לפנק; לבזוז, שלל; להרוס"], ["stack", "ערמה"], ["staple", "להדק"], ["station", "תחנה; להציב"], ["stem", "גזע"], ["stomach", "בטן, קיבה"], ["strategy", "אסטרטגיה"], ["subdue", "להכניע"], ["submit", "להגיש; להיכנע"], ["subtle", "מעודן"], ["suitable", "ראוי, מתאים, יאה"], ["superb", "מעולה (איכותי)"], ["superficial", "שטחי"], ["suppression", "דיכוי"], ["sustain", "לתמוך; סבל מ-; להמשיך באותה צורה"], ["symbol", "סמל"], ["symbolize", "לסמל"], ["take place", "התרחש"], ["temple", "מקדש"], ["terms", "מונחים; תנאים"], ["thousand", "אלף"], ["tormented", "לייסר, לענות"], ["tour", "סיור"], ["tourist", "תייר"], ["trust", "אמון, לבטוח"], ["type", "להקליד; סוג"], ["typically", "אופייני"], ["unbelievable", "לא יאמן"], ["underlies", "מונח ביסוד, נמצא מתחת ל-"], ["undertake", "לקחת על עצמך"], ["unemployed", "מובטל"], ["unexplored", "לא נחקר, לא נבדק"], ["unfamiliar", "לא מוכר"], ["unfortunate", "מצער"], ["unfortunately", "למרבה הצער"], ["unimaginable", "בלתי נתפס"], ["unique", "מיוחד"], ["unite", "לאחד"], ["unlock", "לפתוח, לשחרר"], ["unnecessary", "לא הכרחי"], ["uprising", "התקוממות, מרד"], ["urban", "עירוני"], ["urge", "לעודד, לדחוף ; דחף, רצון, תשוקה"], ["urgent", "דחוף"], ["vaccine", "חיסון"], ["variable", "משתנה"], ["variation", "שינוי, וריאציה"], ["variety", "מבחר, מגוון"], ["various", "מגוון"], ["vast", "גדול"], ["vertical", "מאונך"], ["vigorously", "במרץ"], ["violate", "להפר, לחלל"], ["violation", "עבירה, הפרה"], ["volunteer", "להתנדב, מתנדב"], ["vote", "קול, הצבעה, להצביע"], ["wage", "לערוך, לנהל; משכורת"], ["ward", "מחלקה"], ["wide", "רחב"], ["willing", "מוכן"], ["wise", "חכם, פיקח"], ["wish", "משאלה, לבקש"], ["withhold", "לעכב, לעצור, לא לתת"], ["worldwide", "כלל עולמי, בכל העולם"], ["worse", "גרוע יותר"], ["worthy", "ראוי"], ["yield", "להיכנע, לוותר, לסגת; להניב, להפיק"], ["zone", "אזור"]], "6": [["absurd", "מגוחך, לא סביר"], ["accelerate", "להאיץ"], ["acclaim", "להריע, לשבח"], ["accommodate", "לאכסן, לשכן"], ["accompany", "ללוות"], ["accustomed", "מורגל"], ["aggressive", "תוקפני, אלים"], ["agriculture", "חקלאות"], ["allergic", "אלרגי"], ["amass", "לצבור, לערום"], ["amaze", "להדהים"], ["appeal", "לבקש; מדבר אל, מושך; לערער"], ["applicant", "מועמד"], ["arousing", "מעורר"], ["as many as", "רבים כמו (מספר גדול)"], ["ascertain", "לוודא"], ["aspiration", "שאיפה, חלום"], ["audit", "ביקורת"], ["award", "פרס, להעניק פרס"], ["bank", "בנק; גדה; לערום"], ["betray", "לבגוד"], ["blank", "ריק, רווח"], ["boost", "דחף, המריץ"], ["broadcast", "לשדר"], ["cage", "כלוב, לכלוא"], ["cancer", "סרטן (מחלה)"], ["capture", "ללכוד"], ["cargo", "מטען"], ["carve", "לחרוט"], ["cemetery", "בית קברות"], ["certify", "להצהיר, לאשר"], ["chapter", "פרק"], ["church", "כנסיה"], ["circulate", "להפיץ; לנוע במחזוריות"], ["colleague", "עמית, קולגה"], ["collect", "לאסוף"], ["collide", "להתנגש"], ["collision", "התנגשות"], ["commendably", "באופן ראוי לשבח"], ["commends", "לציין לשבח"], ["commentary", "פרשנות"], ["companion", "בן-זוג"], ["compatible", "מתאים, ראוי"], ["compel", "לאלץ, לחייב"], ["compensate", "לפצות"], ["compile", "לאסוף, לקבץ"], ["conceal", "להסתיר"], ["conceive", "להרהר; לעבר"], ["concerted", "מתואם"], ["concur", "להסכים"], ["concurrence", "להתרחש בו זמנית"], ["condemned", "לגנות; נידון ל-"], ["confess", "להודות"], ["confession", "וידוי"], ["confinement", "מאסר, ריתוק"], ["confiscate", "להחרים"], ["conform", "להתאים, להסתגל"], ["confuse", "לבלבל"], ["confusion", "בלבול"], ["conquer", "לכבוש"], ["conquest", "כיבוש"], ["conscious", "מודע"], ["conservation", "שימור"], ["conservative", "שמרני"], ["conserve", "לשמר"], ["contend", "להתמודד, לטעון, להיאבק"], ["content", "תוכן; שביעות רצון"], ["continent", "יבשת"], ["contrast", "ניגוד; להוות ניגוד"], ["contribute", "לתרום"], ["controversial", "שנוי במחלוקת"], ["controversy", "מחלוקת"], ["convene", "לכנס"], ["conversation", "שיחה"], ["convince", "לשכנע"], ["coordination", "קואורדינציה, תיאום"], ["coordinator", "מתאם"], ["correspond", "להתכתב; להתאים"], ["correspondence", "התכתבות"], ["crack", "סדק, לסדוק"], ["crave", "להשתוקק"], ["crime", "פשע"], ["crude", "וולגרי, גס; גולמי"], ["cuisine", "מטבח, בישול"], ["curse", "קללה, לקלל"], ["darkness", "חשיכה"], ["debate", "ויכוח, דיון"], ["deceased", "נפטר"], ["deceive", "להונות"], ["deliberate", "מכוון; לשקול, לבחון, לדון"], ["deliberation", "דיון"], ["delusions", "אשליות, הזיות"], ["denial", "הכחשה"], ["depend on", "תלוי ב-"], ["describe", "לתאר"], ["desolate", "הרוס; שומם, נטוש"], ["destroy", "להרוס"], ["destructive", "הרסני"], ["detract", "להפחית, לגרוע"], ["deviant", "סוטה"], ["device", "מכשיר"], ["devise", "לתכנן, להמציא"], ["dictate", "להכתיב, לפקד"], ["disorder", "הפרעה"], ["display", "להציג"], ["disregard", "להתעלם"], ["dissolve", "להתמוסס"], ["distract", "להסיח את הדעת"], ["district", "מחוז"], ["divine", "אלוהי"], ["divinity", "אלוהות"], ["downhill", "מדרון, מורד"], ["ease", "להקל, קלוּת"], ["easily", "בקלות"], ["effect", "תוצאה, אפקט; רושם, השפעה"], ["emblem", "סמל"], ["encourage", "לעודד"], ["engrave", "לחרוט"], ["enhance", "להעצים"], ["entirely", "לחלוטין"], ["enzyme", "אנזים"], ["equality", "שוויון, במידה שווה"], ["equates", "להשוות, להתאים"], ["evoke", "לעורר, להעלות"], ["evolutionary", "התפתחותי"], ["evolved", "התפתח"], ["excessively", "בצורה מוגזמת"], ["exchange", "להחליף, חלופה"], ["exclude", "למנוע, לשלול, להרחיק, לגרש"], ["exclusive", "בלעדי"], ["exclusively", "באופן בלעדי, רק"], ["excuse", "תירוץ; לסלוח"], ["explicit", "מפורש, ברור, בוטה"], ["explore", "לחקור, ללמוד"], ["exposure", "חשיפה"], ["exquisite", "מצוין; חד, מעודן, אנין"], ["extend", "להאריך, להרחיב"], ["extension", "שלוחה"], ["exterior", "חיצוני"], ["external", "חיצוני"], ["extinction", "הכחדה"], ["extract", "לתמצת, להפיק"], ["factor", "גורם"], ["favor", "טובה; להעדיף"], ["favored", "מועדף"], ["fight, fought", "לריב, רב"], ["figure", "גזרה, צורה; ספרה, מספר; דמות; לחשב, להניח, להסיק"], ["flat", "שטוח; דירה"], ["flew", "עף"], ["fly", "זבוב; לעוף"], ["foil", "לסכל"], ["forerunner", "שליח, חלוץ, מבשר; אות, סימן מבשר באות"], ["fossil", "מאובן"], ["genius", "גאון"], ["gentle", "עדין"], ["genuine", "אמיתי, מקורי"], ["grant", "להעניק, מענק"], ["guard", "שומר, לשמור"], ["halt", "לעצור,להפסיק, עצירה"], ["handle", "להתמודד"], ["harder", "קשה יותר"], ["harmful", "מזיק"], ["harmless", "שאינו מזיק"], ["hazardous", "מסוכן"], ["hectic", "קדחתני"], ["heir", "יורש"], ["heredity", "תורשה"], ["hospital", "בית חולים"], ["hospitalize", "לאשפז"], ["hunger", "רעב"], ["ideal", "אידיאל, אידיאלי"], ["immense", "כביר, עצום"], ["immigrate", "להגר"], ["impulse", "דחף"], ["impulsively", "ללא שיקול דעת"], ["in favor of", "לטובת"], ["incentive", "תמריץ"], ["incidence", "כמות, הִקָּרוּת (משהו שקורה)"], ["indifference", "אדישות"], ["infinite", "אינסופי"], ["innate", "מולד"], ["inner", "פנימי"], ["inquire", "לתשאל"], ["inquiry", "חקירה"], ["insist", "להתעקש"], ["inspiration", "השראה"], ["inspiring", "נותן השראה"], ["interior", "פנימי"], ["interrupt", "להפריע"], ["intersection", "צומת, הצטלבות"], ["intervene", "להתערב"], ["intervention", "התערבות"], ["invent", "להמציא"], ["inventor", "ממציא"], ["inventory", "מצאי"], ["invisible", "בלתי נראה"], ["invite", "להזמין"], ["Jew", "יהודי"], ["kind", "סוג; טוב לב, אדיב, נעים"], ["landmark", "אבן דרך"], ["landscape", "נוף"], ["lean", "להישען"], ["legible", "קריא"], ["lens", "עדשה"], ["license", "רישיון; לאשר, להתיר"], ["lifetime", "תקופת החיים, במשך החיים"], ["literary", "ספרותי"], ["literate", "משכיל, מלומד"], ["literature", "ספרות"], ["load", "להעמיס"], ["losing", "מפסיד"], ["mail", "דואר"], ["mailman", "דוור"], ["malnutrition", "תת-תזונה"], ["mate", "בן זוג, חבר; להזדווג"], ["maturity", "בגרות"], ["mayor", "ראש עיר"], ["mediate", "לגשר, לתווך"], ["mediocre", "בינוני (במובן שלילי)"], ["miserable", "אומלל"], ["moist", "לחות"], ["moral", "מוסר"], ["morale", "מורל"], ["necessary", "הכרחי"], ["neglect", "להזניח, הזנחה"], ["negligence", "הזנחה, רשלנות"], ["nocturnal", "לילי"], ["noon", "צהריים (12:00)"], ["notable", "נכבד"], ["notice", "לשים לב; התראה"], ["notify", "להודיע, ליידע"], ["obedience", "ציות"], ["obey", "לציית"], ["objective", "אוביקטיבי"], ["obstacle", "מכשול"], ["offshore", "חו\"ל"], ["orbit", "לחוג, להסתובב"], ["orient", "להתמצא"], ["oriented", "מכוון, מונחה"], ["outer", "חיצוני"], ["outline", "תוואי, מתאר, קווים כלליים"], ["overlooked", "העלים עין"], ["parallel", "מקביל"], ["party", "מפלגה; מסיבה"], ["pattern", "דוגמה"], ["penned", "כָּתַב"], ["perceive", "להבחין, לראות"], ["perform", "לבצע, להציג"], ["performance", "ביצוע; הופעה"], ["performer", "מבצע, מציג"], ["permission", "רשות, היתר"], ["permit", "אישור, רישיון; להרשות"], ["persuade", "לשכנע"], ["persuasion", "שכנוע"], ["piece", "יצירה; חתיכה, חלק"], ["pipe", "צינור"], ["plausible", "סביר, מתקבל על הדעת"], ["plot", "עלילה; חלקה (חלקת אדמה); להכין תרשים; לזמום, לקשור קשר"], ["poacher", "מסיג גבול, צייד לא מורשה"], ["practical", "מעשי"], ["practice", "לתרגל, תרגול"], ["prescribe", "לרשום מרשם"], ["prescription", "מרשם"], ["preserve", "לשמר"], ["pretext", "אמתלה, תואנה"], ["prevent", "למנוע"], ["prevention", "מניעה"], ["previous", "קודם"], ["probable", "סביר, מתקבל על הדעת"], ["probably", "כנראה, קרוב לוודאי"], ["process", "לעכל, לעבד; תהליך"], ["prohibit", "לאסור, למנוע"], ["project", "לתכנן; פרוייקט, מיזם; להשליך, להקרין"], ["promote", "לקדם"], ["promotion", "קידום"], ["prompted", "הביא לידי"], ["proponent", "תומך"], ["proportion", "שיעור, מידה"], ["prosperity", "צמיחה, שגשוג"], ["prosperous", "משגשג, מצליח"], ["pump", "משאבה, לשאוב"], ["pursue", "לרדוף"], ["pursuit", "מרדף"], ["quantify", "לכמת"], ["quantity", "כמות"], ["radically", "באופן קיצוני"], ["rank", "דרגה"], ["ray", "קרן, אלומת אור"], ["razor", "סכין גילוח"], ["rear", "אחורי; לטפח, לגדל"], ["reconcile", "להתפייס"], ["reform", "שינוי, רפורמה"], ["reinvigorate", "לרענן, להמריץ מחדש"], ["relationship", "מערכת יחסים"], ["religious", "דתי"], ["remainder", "שארית"], ["renovate", "לחדש, לשפץ"], ["respective", "שייך בהתאמה"], ["respectively", "בהתאמה"], ["restrict", "להגביל"], ["restriction", "הגבלה"], ["retire", "לפרוש"], ["revoke", "לבטל, לשלול"], ["reward", "פרס, לתגמל"], ["ritual", "טקס, פולחן"], ["rough", "קשה, מחוספס"], ["rudimentary", "יסודי, בסיסי"], ["sacred", "קדוש"], ["sacrifice", "להקריב, קורבן"], ["sake", "תועלת, עניין"], ["screen", "לסרוק; מסך, צג, וילון; לסנן"], ["seek", "לבקש"], ["seek, sought", "לחפש, חיפש"], ["seismic", "ססמי (קשור לרעידות אדמה)"], ["series", "סדרה"], ["settle", "להתיישב; להסדיר"], ["severe", "חמור"], ["shape", "צורה, לעצב (צורה)"], ["shift", "משמרת; להזיז"], ["shiny", "נוצץ, בוהק"], ["side effect", "תופעת לוואי"], ["simplicity", "פשטות"], ["sketch", "שרטוט, איור, סקיצה"], ["skyrocket", "להאמיר"], ["skyscraper", "גורד שחקים"], ["sorrow", "עצב, צער"], ["spark", "גיץ, ניצוץ"], ["spectacular", "מדהים"], ["spirit", "כוונה, רוח הדברים; רוח רפאים, נפש"], ["spiritual", "רוחני"], ["spontaneously", "ללא תכנון"], ["stabilize", "לייצב"], ["stable", "יציב"], ["steam", "אד, לאדות"], ["steamship", "אוניית קיטור"], ["straightforward", "ישיר"], ["stream", "לזרום, נחל, זרם"], ["stricken", "מוכה"], ["stride", "צעד, לצעוד"], ["strife", "מאבק, עימות"], ["strike", "הכה, התקיף; שביתה"], ["stripes", "פסים"], ["structure", "מבנה, לבנות"], ["stumble", "למעוד"], ["substitute", "תחליף"], ["sufficient", "מספיק"], ["superfluous", "מיותר, עודף"], ["surface", "פני שטח"], ["suspect", "חשוד (מישהו); לחשוד"], ["suspicious", "חשוד (משהו)"], ["sympathetic", "אוהד"], ["team", "צוות"], ["tendency", "נטייה"], ["terminate", "לסיים, לחסל"], ["terrain", "שטח"], ["terrify", "להפחיד, להבעית"], ["theme", "נושא"], ["threat", "איום"], ["tight", "הדוק, לחוץ, צמוד"], ["tolerance", "סובלנות"], ["tolerate", "לסבול"], ["ultimate", "מוחלט, סופי"], ["unbearable", "בלתי נסבל"], ["uncountable", "אינספור"], ["undergo", "לעבור, להתנסות, לחוות"], ["unforgettable", "בלתי נשכח"], ["unsafe", "לא בטוח"], ["vain", "לשווא; שחצן"], ["vary", "משתנה"], ["venture", "סיכון"], ["verify", "לוודא, לאמת"], ["versions", "גרסאות"], ["vessel", "כלי שיט"], ["village", "כפר"], ["virtual", "מדומה, וירטואלי"], ["virtually", "למעשה, בעצם"], ["visual", "חזותי"], ["visualize", "לדמיין"], ["wealthy", "עשיר"], ["weigh", "לשקול"], ["weight", "משקל"], ["wickedly", "ברשעות"], ["wisdom", "חכמה, בינה"]], "7": [["abstain", "להתנזר, להימנע ממשהו"], ["accentuate", "להבליט, להדגיש"], ["accusation", "האשמה"], ["acknowledge", "להכיר, לדעת"], ["adequate", "הולם"], ["advertise", "פרסום"], ["advertisement", "מודעה, פרסום"], ["affinity", "זיקה, קירבה; משיכה"], ["agitate", "להסעיר, לזעזע, לעצבן"], ["agonize", "לענות, לייסר"], ["agony", "ייסורים"], ["aisle", "מעבר"], ["alien", "חייזר"], ["alienation", "ניכור, הרחקה"], ["anchor", "עוגן"], ["annihilate", "להשמיד"], ["antique", "עתיק, ענתיקה"], ["apparatus", "מנגנון"], ["auction", "מכירה פומבית"], ["augment", "להרחיב"], ["autograph", "חתימה"], ["beg", "להתחנן"], ["burn", "לשרוף, להישרף"], ["cater", "לספק"], ["cathedral", "קתדרלה"], ["cattle", "בקר"], ["chariot", "מרכבה"], ["charity", "צדקה"], ["chase", "לרדוף, מרדף"], ["cheer", "לעודד"], ["cheerful", "עליז, שמח"], ["chemical", "כימיקל, כימי"], ["circuit", "מסלול, להקיף; מעגל חשמלי"], ["combat", "לתקוף; קרב"], ["compete", "להתחרות, להתמודד"], ["competition", "תחרות"], ["components", "חלקים, מרכיבים"], ["compulsory", "מהווה חובה"], ["concise", "תמציתי, תכליתי"], ["concrete", "בטון; קונקרטי, מוחשי"], ["congregate", "לאסוף קהל, לאסוף"], ["conspicuous", "בולט"], ["conspiracy", "קשר, מזימה"], ["contagious", "מדבק"], ["contaminate", "לזהם"], ["correlate", "לתאם, לקשר"], ["corrupt", "להשחית, מושחת"], ["council", "מועצה"], ["counsel", "לייעץ, להדריך; פרקליט, יועץ"], ["counterpart", "בעל תפקיד מקביל, עמית, בן-זוג"], ["couple", "זוג, לצמד"], ["courage", "אומץ"], ["court", "מגרש (ספורט); בית משפט"], ["courteous", "אדיב"], ["courtesy", "נימוס, אדיבות"], ["craft", "אומנות, מלאכה; כלי טייס / כלי שייט"], ["craftsmen", "אומן, בעל מלאכה"], ["critique", "ביקורת"], ["cross", "לחצות; צלב, להצליב"], ["crossroad", "צומת"], ["cruel", "אכזרי"], ["cult", "כת"], ["dawn", "שחר"], ["deal", "עסקה; להתמודד"], ["dealt", "עסק ב, חולק (קלפים, ניירת)"], ["debt", "חוב"], ["decay", "ריקבון"], ["decipher", "לפענח"], ["delegate", "להאציל, להסמיך"], ["delinquent", "עבריין; נזנח, נשכח"], ["depression", "דיכאון"], ["described", "מתואר"], ["description", "תיאור"], ["desirable", "נחשק"], ["desire", "תשוקה, חשק, לחפוץ"], ["despair", "להתייאש"], ["desperate", "נואש"], ["desperation", "ייאוש"], ["dimension", "מימד"], ["disagreement", "חוסר הסכמה"], ["disappear", "להעלם"], ["disappoint", "לאכזב"], ["disapproving", "לא מאשר, לא מסכים, לא מרוצה"], ["disciples", "תלמידים"], ["discipline", "תחום לימוד/מחקר; להעניש, לחנך, משמעת"], ["disciplined", "חינך, העניש; ממושמע"], ["discontent", "חוסר שביעות רצון"], ["discourage", "לשכנע שלא לעשות משהו"], ["discrepancy", "סתירה, פער"], ["disease", "מחלה"], ["disinfection", "חיטוי"], ["dislocate", "לפרוק, לנקוע"], ["disparage", "לזלזל, להמעיט בערך"], ["dissent", "להתנגד, חילוקי דעות"], ["distinction", "מצוינות; הפרדה"], ["distinctive", "מיוחד"], ["distinguish", "להבדיל, להבחין"], ["disturb", "להפריע"], ["disturbance", "הפרעה"], ["dominate", "לשלוט"], ["dozen", "תריסר"], ["drought", "בצורת"], ["duel", "דו-קרב"], ["duplicate", "לשכפל"], ["durable", "יציב, מתמשך"], ["dynasty", "שושלת"], ["eliminate", "לחסל, לפסול"], ["eloquent", "רהוט"], ["elude", "לברוח, להתחמק"], ["embrace", "לחבק, לאמץ לקרבו"], ["emission", "פליטה"], ["employ", "להעסיק"], ["employer", "מעסיק, מעביד"], ["enclosing", "לסגור, להקיף"], ["enclosure", "סגירה, כיתור, שטח מגודר"], ["encounter", "מפגש"], ["endanger", "לסכן"], ["endangered", "בסכנת הכחדה"], ["endurance", "כוח סבל"], ["endure", "לסבול, להחזיק מעמד"], ["enforce", "לאכוף, לכפות"], ["Equator", "קו המשווה"], ["equip", "לצייד"], ["equipment", "ציוד"], ["erupt", "התפרץ"], ["estate", "אחוזה; נכס"], ["expense", "הוצאות"], ["expensive", "יקר"], ["fabric", "בד"], ["fabricate", "לבדות"], ["family", "משפחה"], ["fatal", "סופני (פטלי)"], ["fate", "גורל, חרץ גורל"], ["fellow", "חבר, עמית"], ["fiction", "בדיון, לא אמיתי"], ["file", "תיק, קובץ"], ["fingerprint", "טביעת אצבע"], ["flame", "להבה"], ["flatter", "להחמיא; שטוח יותר"], ["flattery", "חנופה"], ["flock", "לנהור, עדר, המון"], ["flood", "שיטפון"], ["fragile", "עדין, שביר"], ["gauge", "למדוד, להעריך, מידה"], ["generous", "נדיב"], ["genes", "גנים"], ["gesture", "מחווה"], ["given", "נתון"], ["grade", "כיתה; ציון, דרגה, מעמד; שיפוע"], ["gradually", "בהדרגה"], ["graduate", "לסיים לימודים"], ["grand", "גדול, כולל, מרשים"], ["granddaughter", "נכדה"], ["grandfather", "סבא"], ["grandmother", "סבתא"], ["grandson", "נכד"], ["guess", "ניחוש, לנחש"], ["guidance", "הנחיה, הכוונה, הנהגה"], ["guide", "להדריך"], ["gunpowder", "אבק שריפה"], ["hail", "לשבח; ברד"], ["hall", "מסדרון; היכל"], ["harm", "לפגוע, להזיק"], ["harness", "לרתום"], ["herb", "עשב"], ["herd", "לאסוף; עדר, לרעות"], ["heritage", "מורשת"], ["husband", "בעל"], ["illness", "מחלה"], ["illustrate", "להמחיש, להדגיש"], ["illustrator", "מאייר"], ["immersion", "שקיעה"], ["immoral", "לא מוסרי"], ["implement", "ליישם, להוציא לפועל"], ["implementation", "מימוש, יישום, ביצוע"], ["incident", "תקרית"], ["incompetence", "חוסר יכולת"], ["incorporate", "לכלול, לשתף, לאגד"], ["indefinitely", "ללא הגבלה"], ["independence", "עצמאות"], ["independent", "עצמאי"], ["inevitable", "בלתי נמנע"], ["infectious", "מדבק"], ["inferior", "נחות"], ["infiltrate", "להסתנן"], ["influence", "השפעה, להשפיע"], ["insight", "תובנה"], ["instrument", "כלי"], ["insurmountable", "שאין להתגבר עליו"], ["intellectual", "אינטלקטואלי"], ["interview", "לראיין, ראיון"], ["introduce", "להציג, לעשות היכרות"], ["introduction", "הקדמה, מבוא, היכרות"], ["invade", "לחדור, לפלוש"], ["invaders", "פולשים"], ["investigate", "לחקור"], ["invoke", "לעורר, לזמן"], ["irregular", "לא רגיל"], ["irresistible", "שלא ניתן לעמוד בפניו"], ["justify", "להצדיק"], ["knife (knives)", "סכין (סכינים)"], ["label", "תגית; לתייג"], ["labor", "להתאמץ; עבודה, עמל, לעמול"], ["laboratory", "מעבדה"], ["laborer", "פועל"], ["layer", "שכבה"], ["lead, led", "להוביל, הוביל"], ["leader", "מנהיג"], ["leadership", "מנהיגות"], ["lie", "לשקר, שֶקֶר"], ["lie, lay", "לשכב, שכב"], ["listen", "להקשיב"], ["loosely", "באופן רפוי"], ["loud", "חזק"], ["loudspeaker", "רמקול"], ["luxury", "מותרות"], ["machine", "מכונה"], ["manufacture", "ייצר"], ["march", "לצעוד"], ["margin", "שוליים, מרווח"], ["martial", "צבאי, קרבי"], ["master", "להתמחות, לשלוט; אדון, שליט"], ["masterpiece", "יצירת מופת"], ["mastery", "מומחיות"], ["match", "גפרור; התאמה, להתאים"], ["melt", "להמיס"], ["mind", "לשים לב, לשמור; שכל; אכפת"], ["missile", "טיל"], ["mobilize", "לנייד, להניע"], ["mole", "חפרפרת; שומה"], ["myriad", "רב, הרבה"], ["narrow", "צר"], ["navigate", "לנווט"], ["nervous", "עצבני, לחוץ, מתוח"], ["nobility", "אצולה"], ["noble", "אציל, אצילי"], ["notion", "רעיון, מושג, נטיה"], ["novel", "רומן, סיפור; חדש"], ["observation", "אבחנה"], ["observe", "להתבונן, להבחין"], ["obstinate", "עקשן"], ["offend", "להעליב"], ["offender", "פושע, פוגע"], ["offensive", "מעליב, פוגעני"], ["oppressive", "אכזרי; מדכא, מעיק"], ["ornament", "קישוט"], ["outdated", "מיושן"], ["outspoken", "מדבר גלויות, ישיר"], ["outstanding", "יוצא מן הכלל, מצוין"], ["overtake", "לעקוף, להשיג"], ["pain", "כאב, להכאיב"], ["passive", "סביל"], ["pervasive", "מתפשט, מחלחל"], ["petition", "עצומה, עתירה, לעתור"], ["picture", "תמונה, לצלם; לדמיין"], ["play", "משחק, לשחק; מחזה"], ["playwright", "מחזאי"], ["policy", "מדיניות"], ["potent", "חזק, בעל כוח השפעה"], ["potential", "אפשרי, פוטנציאלי"], ["prejudice", "דעה קדומה"], ["prevalent", "נפוץ, שכיח, רווח"], ["pride", "גאווה"], ["prison", "כלא"], ["prophecy", "נבואה"], ["prosper", "לשגשג"], ["province", "מחוז, אזור"], ["provoke", "להתגרות, להסית"], ["punctuate", "הדגשה"], ["punctuation", "ניקוד, פיסוק"], ["pure", "טהור"], ["purification", "טיהור"], ["query", "שאלה, חקירה"], ["rapid", "מהיר; אֶשֶד, זרם מים מהיר בנהר"], ["rapidly", "במהירות"], ["reader", "קורא"], ["rebuttal", "הפרכה, סתירה"], ["recognize", "לזהות"], ["recollection", "זיכרון"], ["recordings", "הקלטות"], ["recruit", "לגייס"], ["recur", "קרה שוב"], ["recurring", "חוזר, נשנה"], ["refined", "מעודן, מלוטש"], ["reflect", "להרהר; לשקף, להחזיר אור"], ["reflection", "השתקפות"], ["refugee", "פליט"], ["reinforce", "לתגבר, לחזק"], ["relapse", "הדרדר, הישנות"], ["relating", "מתייחס"], ["relations", "יחסים"], ["remarkable", "ראוי לציון, יוצא דופן"], ["rival", "יריב"], ["rivalry", "יריבות"], ["rodent", "מכרסם"], ["role", "תפקיד"], ["rural", "כפרי"], ["satellite", "לווין"], ["satisfy", "לרצות, לספק"], ["scarce", "נדיר"], ["scholar", "אקדמאי, בעל מלגה, מלומד"], ["score", "לחתוך, לחרוץ; תוצאה; לזכות בניקוד"], ["secular", "חילוני"], ["senior", "בכיר; זקן"], ["sensation", "תחושה"], ["sensations", "חדשות מרעישות"], ["set up", "להרכיב, לארגן, לסדר"], ["sheet", "סדין; דף"], ["sight", "ראייה, כוונת"], ["sighting", "תצפית, מראה"], ["silver", "כסף, כסוף"], ["sink", "כיור; לשקוע"], ["skin", "עור"], ["skinned", "פשט עור"], ["slander", "השמצה, להשמיץ"], ["slight", "קל, מעט"], ["speak, spoke", "לדבר, דיבר"], ["speaker", "דובר"], ["spell", "כישוף, קסם; איות, לאיית"], ["spend", "לבזבז, לפזר; לבלות, להעביר"], ["spill", "לשפוך"], ["spot", "כתם; לזהות"], ["sprang", "נבע"], ["stadium", "אצטדיון"], ["stark", "בוטה, מוחלט, גמור; שומם, עזוב"], ["statue", "פסל"], ["steel", "פלדה"], ["stiff", "נוקשה"], ["storage", "אחסון"], ["strain", "מתח נפשי; להתאמץ, למתוח, לנקוע"], ["strength", "חוזק"], ["strengthen", "לחזק"], ["struggle", "מאבק, מאמץ"], ["stuck", "תקוע"], ["suffer", "לסבול"], ["sundown", "שקיעה"], ["sunlight", "אור יום"], ["supreme", "עליון"], ["surprise", "הפתעה"], ["swing", "לנדנד, נדנדה"], ["switch", "מתג; להחליף"], ["symptom", "סימפטום"], ["tempt", "לפתות"], ["tend", "נוטה"], ["tender", "רך"], ["threaten", "לאיים"], ["tilt", "להטות, שיפוע"], ["timid", "ביישן"], ["topic", "נושא"], ["tower", "מגדל"], ["toxic", "רעיל"], ["trace", "סימן, עִקְבָה; לעקוב, למצוא"], ["track", "מסילה, מסלול,; לעקוב"], ["transform", "לשנות צורה"], ["translate", "לתרגם"], ["translator", "מתרגם"], ["transmit", "לשדר"], ["transmitter", "משדר"], ["transplant", "לשתול"], ["trap", "מלכודת"], ["triumph", "ניצחון"], ["tropical", "טרופי"], ["truth", "אמת"], ["tube", "צינור"], ["twist", "סיבוך, סיבוב"], ["unconscious", "מחוסר הכרה"], ["unjust", "לא צודק"], ["vagueness", "עמימות, ערפול"], ["vanish", "להיעלם"], ["vegetable", "ירק"], ["vegetarian", "צמחוני"], ["vehicle", "כלי רכב"], ["veracity", "יושר, הגינות"], ["verdict", "פסק דין, פסיקה"], ["voyage", "מסע"], ["want", "לרצות"], ["wanted", "מבוקש"], ["warmth", "חום"], ["wealth", "עושר"], ["welfare", "סעד"], ["wheat", "חיטה"], ["wildlife", "חיות בר"], ["wind", "למתוח; רוח"], ["wing", "כנף"], ["withstand", "להתמודד, לעמוד ב-"]], "8": [["abroad", "חו\"ל"], ["accomplices", "שותף לדבר עבירה"], ["acquitted", "זוכה מאשמה"], ["adhere", "לדבוק ב-, לדגול ב-"], ["advocate", "פרקליט; לייעץ"], ["align", "להסתדר בשורה"], ["allowance", "דמי כיס, הקצבה"], ["allusion", "אזכור, רמיזה"], ["ample", "מספיק, שופע, גדול"], ["amputation", "קטיעה"], ["amusement", "שעשוע"], ["anesthesia", "הרדמה"], ["annoy", "להציק"], ["appraise", "להעריך (שווי), לאמוד"], ["ark", "תיבה"], ["arrogant", "יהיר, שחצן"], ["artifact", "חפץ, פריט אומנות"], ["atrocity", "זוועה"], ["attire", "לבוש"], ["baffled", "מבולבל"], ["baggage", "מטען, מזוודה"], ["bandage", "תחבושת"], ["barrier", "מחסום"], ["bashful", "ביישן"], ["bent", "כופף"], ["blend", "לערבב"], ["blur", "טשטוש, לטשטש"], ["boil", "להרתיח"], ["bolster", "לתמוך"], ["boot", "מגף"], ["bore", "לשעמם, שעמום; לקדוח (חור)"], ["bury", "לקבור"], ["cabin", "בקתה"], ["ceremony", "טקס, מסכת"], ["coal", "פחם"], ["command", "פקודה, לפקוד"], ["commute", "להמתיק (עונש); להחליף, להמיר; לנסוע בקביעות לעבודה"], ["composed", "הלחין"], ["condense", "לדחוס"], ["condone", "לסלוח, למחול"], ["congenial", "נעים, ידידותי"], ["congenital", "מולד"], ["consolidate", "לאחד, לגבש"], ["container", "מיכל, קונטיינר"], ["contest", "תחרות; למחות"], ["convict", "אסיר; להרשיע"], ["cope", "להתמודד"], ["cord", "מיתר"], ["cornerstone", "אבן פינה"], ["crash", "להתנגש, התנגשות"], ["credibility", "אמינות, מהימנות"], ["crown", "כתר, להכתיר"], ["cultivate", "לעבד, לטפח"], ["curiosity", "סקרנות"], ["curious", "סקרן"], ["curve", "עקומה, פניה"], ["damp", "לח"], ["dampen", "לדכא"], ["dare", "להעיז, תעוזה; אתגר"], ["daydream", "לחלום בהקיץ"], ["deaf", "חרש"], ["defer", "לעכב, לדחות"], ["deflate", "להוציא אוויר מ-"], ["deform", "לעוות"], ["deformity", "מום, עיוות"], ["delicate", "עדין"], ["demean", "להנמיך, להשפיל"], ["department", "מחלקה"], ["department-store", "חנות כלבו"], ["deposit", "להפקיד, פיקדון"], ["depreciate", "להפחית"], ["despise", "לתעב"], ["dessert", "קינוח"], ["devoid", "חסר, נטול"], ["disdain", "זלזול, בוז"], ["disgrace", "בושה"], ["disguise", "תחפושת"], ["disloyal", "לא נאמן"], ["disparagement", "זלזול"], ["dispatch", "לשגר"], ["displacement", "עקירה"], ["disseminate", "להפיץ"], ["docile", "צייתן, כנוע, נח"], ["domestic", "ביתי"], ["donate", "לתרום"], ["donor", "תורם"], ["draw", "תיקו, שוויון; לצייר"], ["draw (drew)", "לשלוף, שלף"], ["drawback", "חסרון, עיכוב"], ["drift", "זרם, סחף"], ["eager", "נחוש, נלהב"], ["embryo", "עוּבָּר"], ["engage", "להעסיק, ליצור מגע"], ["engagement", "התחייבות; אירוסין"], ["enlist", "להתגייס"], ["enrage", "להרגיז, להכעיס"], ["entertain", "לשעשע, לבדר"], ["entertainment", "בידור"], ["entitled", "זכאי"], ["entrance", "כניסה"], ["envision", "לחזות, לצפות"], ["esteemed", "מכובד"], ["exaggerate", "להגזים"], ["examination", "בחינה, בדיקה"], ["examine", "לבחון"], ["excitement", "התרגשות"], ["exert", "להתאמץ; להפעיל"], ["exhaust", "פליטה, צינור מפלט"], ["exist", "קיים"], ["existence", "קיום"], ["expedite", "לזרז"], ["expend", "לגמור, לבזבז, לפזר"], ["expendable", "שניתן לוותר עליו"], ["eyesight", "ראייה, כוונת"], ["factory", "מפעל, בית חרושת"], ["familiar", "מוכר"], ["familiarize", "להתוודע"], ["fascinate", "לרתק"], ["fertile", "פורה"], ["fetus", "עובר (ברחם)"], ["fiber", "סיב"], ["figurative", "סמלי"], ["finalize", "לסכם, לגבש"], ["firm", "מוצק; נחוש, תקיף; חברה (פירמה)"], ["flagrant", "בוטה"], ["flexible", "גמיש"], ["fluctuation", "חוסר יציבות"], ["fluency", "שטף"], ["fluent", "שוטף"], ["fluid", "נוזל"], ["footprints", "עקבות, טביעות רגל"], ["foresee", "לצפות מראש"], ["fort", "מצודה, מבצר"], ["fortify", "לחזק, לבצר"], ["fragrance", "ניחוח"], ["freeze, froze", "להקפיא, הקפיא"], ["fruit", "פרי"], ["fulfill", "להגשים"], ["garment", "בגד, לבוש"], ["gasoline", "בנזין"], ["genre", "ז'אנר, סוגה"], ["genus", "סוג, מין"], ["giant", "ענק"], ["goblet", "גביע"], ["greet", "לברך, לקבל פנים"], ["grief", "יגון, צער"], ["grievance", "טרוניה, התמרמרות"], ["growled", "נהם"], ["guarantee", "להבטיח, ערבות"], ["halve", "לחצות"], ["harass", "להציק"], ["hasten", "למהר, להחפז"], ["hasty", "מהיר, בהול"], ["hatch", "לבקוע (מביצה); פתח, צוהר"], ["haul", "לגרור"], ["heed", "לשים לב"], ["hegemony", "הגמוניה"], ["height", "גובה"], ["heresy", "כפירה"], ["hibernate", "לישון שנת חורף"], ["hid from", "התחבא מ-"], ["hidden", "חבוי, נסתר"], ["highway", "כביש ראשי"], ["hinder", "לעכב"], ["hint", "רמז"], ["historian", "היסטוריון"], ["hive", "כוורת"], ["horrific", "אָיוֹם"], ["horror", "אימה"], ["hospitality", "הכנסת אורחים"], ["host", "מארח"], ["hostility", "עוינות"], ["hypocrisy", "צביעות"], ["idolize", "להעריץ"], ["ill", "חולה"], ["illuminate", "להאיר"], ["illusion", "אשליה"], ["imaginative", "דמיוני"], ["imitate", "לחקות"], ["implore", "להתחנן, להפציר"], ["imply", "לרמוז"], ["imprisonment", "מאסר, כליאה"], ["inadvertently", "בלי משים, בלי כוונה"], ["incline", "שיפוע; להתאים"], ["indebted", "חייב ל-, אסיר תודה"], ["induce", "לגרום, לייצר"], ["infancy", "ינקות"], ["inherit", "לרשת"], ["inhibit", "לרסן"], ["inject", "להזריק"], ["injury", "פציעה"], ["insanity", "אי שפיות"], ["inspect", "לבחון, לבדוק"], ["insult", "להעליב; עלבון"], ["integrate", "לשלב"], ["intelligence", "אינטליגנציה; מודיעין"], ["interface", "ממשק"], ["interjection", "הערה, הפרעה לשיחה"], ["keystone", "אבן מפתח"], ["lackluster", "העדר ברק, העדר כוח"], ["leisure", "פנאי"], ["leisurely", "נינוח, רגוע"], ["lucrative", "ריווחי"], ["luggage", "מזוודות"], ["luminous", "זוהר, בוהק"], ["lurking", "אורב, מתגנב"], ["magnitude", "גודל, חשיבות"], ["malformation", "עיוות, פגם"], ["manner", "התנהגות, אופן"], ["manners", "נימוס"], ["marriage", "נישואין"], ["masculine", "גברי"], ["merit", "ערך, הישג"], ["metal", "מתכת, מתכתי"], ["meticulous", "קפדני"], ["migrate", "להגר"], ["mimic", "לחקות"], ["minister", "שר (בממשלה)"], ["monarch", "מלך"], ["morose", "קודר, עגמומי"], ["muscle", "שריר"], ["mutation", "מוטציה"], ["mystery", "תעלומה"], ["narcotic", "סם"], ["neighbor", "שכן"], ["neighborhood", "שכונה"], ["noise", "רעש"], ["nuisance", "מטרד"], ["nurse", "אחות"], ["nursery", "חדר ילדים"], ["nurture", "לטפח, להזין, לחנך"], ["obligation", "התחייבות"], ["oblige", "לחייב, להכריח"], ["ocean", "אוקיינוס"], ["offset", "לקזז"], ["overly", "יותר מידי"], ["oversee", "לפקח"], ["overwhelm", "מהמם"], ["package", "חפיסה, חבילה"], ["painter", "צייר"], ["painting", "ציור"], ["passion", "תשוקה"], ["path", "דרך, נתיב"], ["patience", "סבלנות"], ["patiently", "בסבלנות"], ["patients", "מטופלים"], ["peddler", "רוכל, סוחר"], ["penalty", "קנס"], ["people", "אנשים"], ["perpetuate", "להנציח"], ["pest", "מטרד, מזיק (חרקים)"], ["petroleum", "נפט"], ["plague", "מגפה"], ["plentiful", "מלא, שופע"], ["poet", "משורר"], ["polar", "קוטבי, הפוך לחלוטין"], ["pole", "מוט; קוטב"], ["poor", "עני, מסכן"], ["poorly", "בצורה גרועה"], ["portrait", "דיוקן"], ["posterity", "הדורות הבאים"], ["pot", "סיר, קדרה"], ["potato", "תפוח אדמה"], ["potter", "קדר"], ["praise", "לשבח"], ["prepare", "התכונן"], ["preside", "לנהל"], ["prestigious", "יוקרתי"], ["pretend", "להעמיד פנים"], ["principal", "מנהל בית ספר"], ["principle", "עיקרון; עיקרי"], ["probation", "תקופת מבחן"], ["proliferate", "התפשט במהירות"], ["prolific", "פורה, שופע"], ["prolong", "מתמשך"], ["prominent", "בולט, חשוב"], ["prone", "נוטה"], ["proof", "הוכחה, ראיה; חסין, עמיד (סיומת)"], ["propel", "להניע, לדחוף"], ["proposal", "הצעה"], ["propose", "להציע; להציע, להציע נישואין"], ["proposition", "הצעה"], ["prospective", "צפוי, עתידי"], ["punish", "להעניש"], ["readily", "ללא קושי"], ["readiness", "מוכנות"], ["realize", "הבין"], ["rearing", "גידול, טיפוח"], ["reassurance", "הבטחה, הרגעה"], ["reborn", "נולד מחדש"], ["recall", "להיזכר; להחזיר, להשיב צלצול"], ["recruitment", "גיוס"], ["reliable", "אמין, שניתן לסמוך עליו"], ["relic", "שארית, שריד"], ["relieve", "להקהל"], ["remedy", "תרופה"], ["reorganize", "לארגן מחדש"], ["repelled", "דחה, הגעיל"], ["replica", "העתק מדויק"], ["represent", "לייצג, מייצג"], ["repressive", "מדכא"], ["reproduce", "להתרבות, לשכפל"], ["reputation", "שם, מוניטין"], ["resent", "להתנגד, להתרעם"], ["reservation", "שמורה; שריון מקום"], ["reserve", "עתודה, מילואים; לשמור; שמורה"], ["reservoir", "מאגר"], ["resigned", "התפטר"], ["respect", "כבוד, לכבד"], ["respectfully", "בכבוד"], ["respond", "להגיב, תגובה, תשובה"], ["responsibility", "אחריות"], ["responsible", "אחראי"], ["retirement", "פרישה"], ["retreat", "לסגת, נסיגה"], ["revise", "לתקן, לשפר"], ["revision", "בדיקה מחדש לצורך שיפור"], ["ridicule", "ללעוג"], ["ridiculous", "מגוחך"], ["rim", "שפה"], ["rope", "חבל"], ["rub", "לשפשף"], ["rumor", "שמועה"], ["salary", "שכר"], ["sanction", "קנס, עונש, עידוד"], ["saw", "מסור"], ["saw, see", "ראה, לראות"], ["seeds", "זרעים"], ["segment", "קטע, מקטע"], ["self-confidence", "בטחון-עצמי"], ["self-indulgence", "סיפוק-עצמי"], ["sequel", "המשך"], ["sequence", "רצף"], ["shatter", "לנפץ, להרוס, לקעקע"], ["shell", "קליפה, מעטפת; פגז"], ["shelter", "מקלט"], ["shield", "מגן, להגן"], ["signature", "חתימה"], ["silent", "דומם, שקט"], ["silently", "בשקט"], ["slant", "אלכסון, נטייה"], ["slate", "להכניס מישהו לרשימה; רעף, לוח"], ["slaughter", "לטבוח, לשחוט, טֶבַח"], ["slave", "עבד"], ["slavery", "עבדות"], ["slender", "רזה"], ["slope", "שיפוע, מדרון"], ["snicker", "גיחוך"], ["soldier", "חייל"], ["solitary", "מבודד"], ["solve", "לפתור"], ["soul", "נשמה"], ["sound", "קול; בריא"], ["special", "מיוחד"], ["spike", "יתד"], ["splendor", "פאר"], ["spotlight", "זרקור"], ["stage", "במה, לביים"], ["starve", "לרעוב"], ["store", "חנות, לאחסן; לאחסן"], ["stress", "להדגיש; מתח, לחץ, מצוקה"], ["strict", "נוקשה"], ["stubborn", "עקשן"], ["subsequent", "עוקב"], ["supplement", "תוסף"], ["supply", "אספקה"], ["susceptible", "רגישות"], ["suspend", "להשעות"], ["suspense", "השהיה, מתח"], ["tact", "טקט"], ["tension", "מתח"], ["testify", "להעיד"], ["texture", "מרקם, טקסטורה"], ["tie", "לקשור, קשר; עניבה"], ["timber", "עץ"], ["tomb", "קבר"], ["trait", "תכונה"], ["tranquilize", "להרגיע, להרדים"], ["transaction", "עסקה"], ["transcend", "להתעלות"], ["transition", "מעבר, שינוי"], ["transparent", "שקוף"], ["transport", "להוביל; הובלה"], ["transportation", "תחבורה"], ["unconventional", "לא שיגרתי"], ["underestimate", "הערכה נמוכה, לזלזל"], ["vacant", "פנוי, ריק"], ["veteran", "ותיק; חייל משוחרר, יוצא צבא"], ["virtue", "מעלה"], ["vital", "חיוני"], ["vivid", "חד, בהיר, ססגוני, שופע"], ["vulnerable", "פגיעות"], ["warn", "להזהיר"], ["warning", "אזהרה"], ["weaken", "להחליש"], ["withdraw", "לסגת, לפרוש"], ["witness", "עד, להעיד"], ["worry", "דאגה, לדאוג"], ["zoo", "גן חיות"]], "9": [["abhor", "לשנוא, לתעב"], ["adolescence", "גיל ההתבגרות"], ["agency", "סוכנות"], ["apathetic", "אדיש"], ["apathy", "אפאתיה, אדישות"], ["appease", "לפייס"], ["appetite", "תיאבון, רצון עז"], ["applaud", "מחא כפיים, הריע"], ["arable", "מתאים לעיבוד"], ["attorney", "עורך-דין"], ["aura", "הילה"], ["awe", "יראת כבוד"], ["awkward", "מגושם; מוזר, מביך"], ["bail", "ערבות, לשחרר בערבות"], ["bald", "קרח"], ["bargain", "להתמקח; מציאה, עסקה"], ["barn", "אסם"], ["basin", "אגן, כיור"], ["beard", "זקן"], ["beast", "חיה, מפלצת"], ["beat", "מקצב; מכה, להכות"], ["biblical", "תנ\"כי"], ["bland", "תפל"], ["blink", "למצמץ"], ["bond", "קשר"], ["breed", "מין, גזע; להרביע, להפרות"], ["burglar", "פורץ"], ["butcher", "קצב; לשחוט"], ["cavity", "חור"], ["celebrate", "לחגוג"], ["charm", "קסם"], ["cheat", "לרמות, לבגוד"], ["clash", "התנגשות"], ["cliff", "צוק"], ["cloak", "מסווה, להסוות"], ["coma", "תרדמת"], ["comic", "קומי (מהמילה קומדיה)"], ["cosmopolitan", "אוניברסלי"], ["cough", "שיעול, להשתעל"], ["course", "מנה; קורס; מסלול"], ["cousin", "בן-דוד"], ["cripple", "להטיל מום"], ["croak", "קרקור"], ["crop", "לקצץ; יבול"], ["crowd", "קהל; להצטופף"], ["curtain", "וילון"], ["dagger", "פגיון"], ["dairy", "מחלבה"], ["dandy", "גנדרני"], ["decorate", "לקשט"], ["decorative", "קישוטי, דקורטיבי"], ["deer", "איל"], ["demented", "משוגע, מטורף"], ["densely", "בצפיפות"], ["density", "צפיפות"], ["depict", "לתאר, להציג, לשרטט"], ["derision", "לעג"], ["detail", "פרט, לפרט"], ["detrimental", "מזיק"], ["devastated", "הרוס, מפורק"], ["diet", "דיאטה, תזונה"], ["dim", "לעמעמם"], ["disarmament", "פירוק מנשק"], ["discord", "סכסוך, מחלוקת, צרימה"], ["disgust", "גועל, להגעיל"], ["dissect", "לנתח, לבתר"], ["dissection", "חיתוך, ביתור"], ["disuse", "חוסר שימוש"], ["dose", "מנה, מינון"], ["double standard", "מוסר כפול"], ["draft", "גיוס; טיוטה; משיכה; רוח פרצים"], ["drag", "לגרור"], ["dread", "פחד, לפחד"], ["drench", "להרטיב, להספיג"], ["drip", "לטפטף"], ["dull", "סתום; משעמם; עמום"], ["dump", "לשפוך"], ["dwell", "להתגורר"], ["dwelling", "משכן, בית"], ["dye", "צבע, לצבוע"], ["East", "מזרח"], ["eccentric", "מוזר, אקסצנטרי"], ["ecological", "אקולוגי"], ["elastic", "גמיש, אלסטי, גומיה"], ["elderly", "זקן"], ["embalm", "לחנוט, לשמר"], ["embarrass", "להביך"], ["embitter", "גורם התמרמרות"], ["emit", "לפלוט, להוציא"], ["empathy", "הזדהות, אמפתיה"], ["emphasize", "להדגיש"], ["enchant", "לכשף, להקסים"], ["encroach", "להסיג גבול, לפלוש"], ["engine", "מנוע"], ["engineer", "מהנדס, להנדס"], ["enrich", "להעשיר"], ["enroll", "להירשם"], ["ensue", "נבע"], ["enthusiasm", "התלהבות"], ["envious", "קנאי"], ["envy", "קנאה, לקנא"], ["epitomize", "לייצג, לאפיין"], ["erosion", "סחף, כרסום"], ["erroneous", "שגוי"], ["evocative", "מעורר, מעלה, מזכיר"], ["exhale", "לנשוף"], ["exhibit", "להציג, מוצג"], ["exhibition", "תערוכה"], ["exile", "להגלות, לגרש"], ["expand", "להרחיב"], ["expansion", "התפתחות"], ["expatriate", "להגלות, לגרש"], ["expel", "להשעות, להרחיק"], ["explode", "להתפוצץ"], ["extortion", "סחיטה"], ["extraordinary", "בלתי רגיל"], ["extrapolate", "לאמוד על סמך מידע קיים"], ["faint", "להתעלף; קלוש"], ["famine", "רעב קשה"], ["famous", "מפורסם"], ["fatigue", "עייפות, תשישות; לעייף"], ["fault", "פגם, תקלה; אשמה"], ["faulty", "לקוי, לא תקין"], ["fever", "חום (של מחלה)"], ["flavor", "לתבל; טעם"], ["flee, fled", "להימלט, נמלט"], ["flip", "לזרוק, להעיף; סלטה; להפוך צד"], ["flow", "זרם"], ["focus", "להתמקד, מיקוד"], ["forgettable", "שאפשר לשכוח אותו"], ["foster", "אומן, מאומץ"], ["fraction", "שבר"], ["fracture", "שבר"], ["fraud", "מרמה, הונאה"], ["frequency", "תדר, תדירות"], ["frequent", "תדיר, שכיח"], ["frightening", "מפחיד"], ["fringes", "שוליים"], ["frugal", "חסכני"], ["frustration", "תסכול"], ["fuel", "דלק"], ["fume", "אדים, עשן"], ["fungus", "פטרת"], ["fur", "פרווה"], ["fury", "זעם"], ["gamble", "הימר"], ["gene", "גן (תורשתי)"], ["genesis", "ספר בראשית; היווצרות, התהוות"], ["genetic", "תורשתי, גנטי"], ["genial", "ידידותי"], ["glance", "מבט חטוף"], ["glitch", "תקלה, הפרעה"], ["glorify", "להאדיר"], ["grace", "חסד, חינניות"], ["gracious", "חינני, אדיב"], ["grain", "גרעין, לטחון; תבואה"], ["hike", "הליכה, טיול"], ["hobby", "תחביב"], ["humiliate", "להשפיל"], ["humility", "ענוה"], ["ice cream", "גלידה"], ["iceberg", "קרחון"], ["icicle", "נטיף קרח"], ["indigenous", "ילידים, מולד"], ["inflammation", "דלקת"], ["inflate", "לנפח"], ["infraction", "עבירה"], ["ingest", "להכניס משהו לגוף דרך הפה"], ["ingredients", "מרכיבים"], ["injure", "לפצוע"], ["insect", "חרק"], ["installation", "התקנה"], ["instant", "מיידי; בהרף עין"], ["instill", "להחדיר, להשריש"], ["insulate", "לבודד"], ["insurrection", "התקוממות"], ["intact", "ללא פגע"], ["intermediary", "מתווך, אמצעי"], ["interminable", "נצחי"], ["intimidate", "להפחיד"], ["intrusive", "פולשני"], ["invariably", "ללא שינוי"], ["ironic", "אירוני"], ["jagged", "משונן"], ["journey", "מסע"], ["joyous", "שמח, עליז"], ["keep", "לשמור; חלק מהמצודה"], ["kick", "לבעוט, בעיטה"], ["knees", "ברכיים"], ["knot", "קשר"], ["lamentable", "מצער, מעציב"], ["laugh", "לצחוק"], ["lend", "להלוות, להשאיל"], ["liberal", "ליברלי, מתירני"], ["library", "ספריה"], ["limb", "גף, איבר; קצה"], ["limber", "גמיש"], ["lineage", "ייחוס, שושלת"], ["linger", "להתעכב, להשתהות"], ["link", "קישור, לקשר, חוליה"], ["lodge", "להתאכסן, אכסנייה"], ["log", "יומן, לתעד ביומן; בול עץ"], ["lone", "בודד, יחיד"], ["loneliness", "בדידות"], ["lumber", "גזע עץ"], ["maximize", "למקסם"], ["maze", "מבוך"], ["mechanize", "למכן, להתקין מכונות"], ["media", "מדיה, תקשורת"], ["Mediterranean", "ים תיכוני"], ["memorial", "מצבה, תזכיר"], ["memorize", "לשנן, לזכור בעל-פה"], ["memory", "זיכרון, לזכר"], ["mental", "נפשי"], ["mention", "להזכיר, לאזכר"], ["mentor", "מדריך רוחני"], ["mercy", "רחמים"], ["midair", "באוויר"], ["minimize", "למזער"], ["mirror", "מראה"], ["misbehave", "להתנהג בצורה לא הולמת"], ["mischief", "נזק, מעשה קונדס"], ["miss", "להתגעגע; לפספס"], ["misty", "מעורפל"], ["mix", "לערבב, ערבוב"], ["monitor", "להשגיח, מוניטור"], ["monument", "אנדרטה"], ["motif", "מוטיב"], ["mountain", "הר"], ["mountainside", "מדרון"], ["mountaintop", "פסגת הר"], ["mourning", "אבל, מתאבל"], ["narration", "קריינות"], ["naval", "ימי"], ["neck", "צוואר"], ["nest", "קן, לקונן"], ["norm", "נורמה, תקן"], ["North", "צפון"], ["nose", "אף, חרטום"], ["nowadays", "כיום"], ["numb", "רדום, חסר תחושה"], ["obsession", "אובססיה, דיבוק"], ["odor", "ריח, ניחוח"], ["old-fashioned", "מיושן"], ["outweigh", "עולה על, שוקל יותר מ-"], ["owe", "להיות חייב"], ["oxygen", "חמצן"], ["palm", "דקל; כף יד"], ["pardon", "לחון, חנינה; סליחה, לסלוח"], ["peek", "להציץ"], ["petty", "קטן, חסר חשיבות; קטנוני"], ["phobia", "פוביה, פחד כרוני"], ["pivot", "ציר, לסובב על ציר"], ["plate", "צלחת, לוח"], ["plead", "לעתור, להתחנן"], ["pleasure", "תענוג, לענג"], ["pledge", "להתחייב"], ["plight", "צרה, סכנה"], ["plunge", "טבילה"], ["poignant", "חריף, נוקב"], ["poisonous", "רעיל"], ["polish", "פולני; להבריק, לצחצח"], ["polite", "מנומס"], ["portray", "לתאר, לצייר"], ["precious", "יקר"], ["predominantly", "באופן ניכר"], ["prey", "טרף, לטרוף"], ["prize", "פרס"], ["probe", "לחטט, לברר, לגשש"], ["proverb", "פתגם, אמרה"], ["pupil", "תלמיד"], ["purchase", "לקנות, לרכוש"], ["puzzle", "חידה, פאזל"], ["puzzled", "מבולבל"], ["quake", "רעד"], ["quench", "לספק, להרוות"], ["rage", "זעם"], ["raid", "פשיטה"], ["reap", "לקצור"], ["rebel", "מורד"], ["rebellion", "מרד"], ["rebellious", "סורר, מרדני"], ["recipe", "מתכון"], ["recipient", "נמען"], ["reciprocal", "מספר הופכי (במתמטיקה)"], ["reciprocate", "הדדי"], ["recreation", "בילוי"], ["refund", "החזר"], ["regret", "להתחרט, חרטה"], ["regulate", "לווסת"], ["rehabilitation", "שיקום"], ["relegated", "הורד בדרגה"], ["resort", "אתר נופש; לנקוט באמצעים"], ["revitalize", "להחיות"], ["revived", "קם לתחייה, התחדש"], ["revolt", "מרד"], ["revolution", "מהפכה"], ["rhythm", "קֶצֶב"], ["root", "שורש"], ["rotary", "נע על ציר סיבובי"], ["rubber", "גומי"], ["sailor", "ימאי"], ["salvation", "ישועה, גאולה"], ["saturated", "רווי"], ["scale", "מאזניים; לעלות, לטפס; סולם, סקלה"], ["scales", "קשקשים (של דג)"], ["scan", "סריקה, לסרוק"], ["scorn", "לבוז, לזלזל, מנודה"], ["scrutinize", "בדק, בחן"], ["sculpture", "פסל"], ["sedative", "סם הרגעה, משכך"], ["segregation", "הפרדה"], ["seizure", "התקף"], ["separately", "בנפרד"], ["separation", "הפרדה"], ["shrink", "לכווץ ,כיווץ"], ["shroud", "תכריך, עטיפה"], ["sin", "חטא"], ["sincerity", "כנות"], ["situation", "מצב, סיטואציה"], ["slaughterhouse", "בית מטבחיים"], ["sober", "פיכח"], ["solely", "בלבד, רק"], ["sperm", "זרע"], ["spewing", "להזרים"], ["spice", "תבלין, לתבל"], ["spicy", "פיקנטי"], ["spray", "לרסס, לפזר"], ["stain", "כתם"], ["stamp", "בול, חותמת"], ["step", "צעד, לצעוד"], ["storm", "סערה"], ["straighten", "ליישר"], ["study", "מחקר; חדר עבודה"], ["stunned", "נדהם, היה המום"], ["substance", "חומר, תוכן"], ["suggest", "להציע"], ["suicide", "התאבדות"], ["summits", "פסגות"], ["surgery", "ניתוח"], ["surpass", "להצטיין, לעלות על"], ["surrender", "להיכנע"], ["surveillance", "מעקב"], ["survival", "הישרדות"], ["swallow", "לבלוע"], ["sweep", "לטאטא"], ["symmetry", "סימטריה, התאמה"], ["taint", "לזהם; להכתים, להכפיש"], ["tainted", "מוכתם, מזוהם"], ["talent", "כשרון"], ["tame", "לאלף, לבית"], ["tentative", "ניסיוני, טנטטיבי"], ["thief", "גנב"], ["thriller", "מותחן"], ["tone", "טון"], ["transcript", "תמליל, פרוטוקול"], ["trip", "למעוד; טיול"], ["unofficial", "בלתי רשמי"], ["unorganized", "לא מאורגן"], ["unpardonable", "בלתי נסלח"], ["unrealistic", "לא מציאותי"], ["unrest", "חוסר שקט"], ["unwilling", "לא מוכן, ממאן"], ["upheaval", "מהפך"], ["uproar", "רעש, מהומה"], ["urine", "שתן"], ["utilize", "השתמש"], ["utter", "לבטא, להגות"], ["valley", "עמק"], ["valve", "שסתום"], ["verbal", "ורבלי, מילולי"], ["via", "דרך"], ["victim", "קורבן"], ["vocabulary", "אוצר מילים"], ["vocation", "מקצוע"], ["wagon", "עגלה"], ["wander", "להסתובב, לשוטט"], ["West", "מערב"], ["wine", "יין"], ["wonder", "לתהות, להטיל ספק; פלא"], ["wonderful", "נפלא"], ["wood", "עץ"], ["woods", "יער"], ["wound", "מתוח, נמתח; פצע"], ["wrap", "לעטוף, מעטפת"], ["wrought", "מעוצב, מחושל"], ["young", "צעיר"]], "10": [["abacus", "חשבונייה"], ["academic", "אקדמי"], ["actress", "שחקנית (בהצגה או סרט)"], ["adorn", "לקשט"], ["agenda", "סדר יום"], ["air conditioner", "מזגן"], ["algae", "אצות"], ["antler", "קרן"], ["automobile", "כלי רכב, אוטו"], ["bass", "בס (במוזיקה)"], ["bead", "חרוז"], ["beak", "מקור"], ["bee", "דבורה"], ["bell", "פעמון"], ["berry", "גרגרי יער"], ["blade", "להב"], ["blame", "להאשים"], ["blanket", "שמיכה"], ["bleak", "עגום"], ["blew", "נשב (רוח), ניפח, פוצץ"], ["brick", "לבנה"], ["bully", "בריון"], ["butterfly", "פרפר"], ["cadaver", "גופה"], ["camel", "גמל"], ["cancel", "לבטל"], ["candy", "ממתק"], ["canvass", "לבדוק, לסקור"], ["carpet", "שטיח"], ["cash", "לפדות; מזומן"], ["cashier", "קופאי"], ["casino", "קזינו"], ["caterpillar", "זחל"], ["cave", "מערה"], ["caviar", "קוויאר"], ["cereal", "דגני בוקר"], ["cigarette", "סיגריה"], ["citrus", "פרי הדר"], ["clay", "חימר"], ["cloud", "ענן"], ["club", "מועדון"], ["cockroach", "מקק, ג'וק"], ["coffin", "ארון מתים"], ["cologne", "קולון, בושם (של גבר)"], ["compost", "זבל אורגני"], ["conductor", "מנצח (תזמורת)"], ["conquistador", "כובש"], ["consonant", "עיצור (לשון)"], ["coop", "לול; לכלוא"], ["copper", "נחושת"], ["cotton", "כותנה"], ["cougar", "פומה, סוג של טורף"], ["coupon", "קופון"], ["cucumber", "מלפפון"], ["culminate", "הגיע לשיא"], ["czar", "צאר (שליט רוסי)"], ["dart", "חץ"], ["date", "תמר; יציאה, פגישה, דייט; תאריך"], ["Dead Sea", "ים המלח"], ["denominator", "מכנה (של שבר)"], ["dental", "שקשור בשיניים"], ["dentist", "רופא שיניים"], ["diary", "יומן"], ["dictator", "עריץ, דיקטטור"], ["dilemma", "דילמה, בעיה"], ["diurnal", "יומי"], ["divorce", "גירושין"], ["doorstep", "מפתן הדלת"], ["dovecote", "שובך"], ["dust", "אבק, לאבק"], ["Dutch", "הולנדי"], ["dwarf", "לגמד, גמד"], ["dwindle", "הידלדל, התמעט"], ["eagle", "נשר"], ["echo", "הד"], ["edible", "אכיל"], ["eel", "צלופח"], ["elephant", "פיל"], ["envelope", "מעטפה"], ["exotic", "אקזוטי, מארץ זרה"], ["explosive", "חומר נפץ"], ["fairy", "פיה"], ["fairytale", "אגדה"], ["fan", "מעריץ, אוהד; מאוורר, לאוורר"], ["fancy", "מחבב; מגונדר"], ["fashion", "אופנה; לעצב"], ["filmmaker", "יוצר סרטים"], ["filter", "פילטר, מסנן"], ["fisherman", "דייג"], ["fishing", "דיג"], ["flimsy", "עדין, שביר"], ["folk", "עממי"], ["folklore", "פולקלור"], ["fool", "טיפש, לשטות במישהו"], ["footage", "קטע צילום"], ["forest", "יער"], ["forgive", "לסלוח"], ["fork", "מזלג"], ["formula", "נוסחה, פורמולה"], ["formulate", "לנסח"], ["fraternal", "אחוותי, של אחים"], ["frog", "צפרדע"], ["furnish", "לרהט"], ["garbage", "זבל"], ["garden", "גן"], ["garlic", "שום"], ["gate", "שער"], ["gift", "מתנה"], ["glacier", "קרחון"], ["gland", "בלוטה"], ["glass", "כוס; זכוכית"], ["glaze", "זיגוג"], ["glove", "כפפה"], ["golden", "מוזהב"], ["grammatical", "דקדוקי"], ["grapes", "ענבים"], ["grit", "גרגרים, לכלוך"], ["grocery", "מכולת"], ["groom", "חתן; לטפח, לטפל"], ["guillotine", "גיליוטינה"], ["Gulf War", "מלחמת המפרץ"], ["gym", "אולם ספורט"], ["gymnasium", "אולם ספורט"], ["handicap", "נכה"], ["harmony", "הרמוניה"], ["heart", "לב"], ["heartbeat", "דופק, פעימות לב"], ["heroine", "גיבורה"], ["hilarious", "מצחיק"], ["hill", "גבעה"], ["horn", "צופר; קרן (של בע\"ח)"], ["housemaid", "עוזרת בית, מנקה"], ["howl", "יללה, לילל"], ["index", "אינדקס, תוכן עניינים"], ["inexpensive", "לא יקר, זול"], ["inn", "פונדק"], ["intense", "עז, אינטנסיבי"], ["intoxicate", "להרעיל, לשכר; להלהיב"], ["intuition", "אינטואיציה"], ["invertebrate", "חסר-חוליות"], ["ivory", "שנהב"], ["janitor", "שרת"], ["jog", "ריצה, ג'וגינג, לרוץ"], ["joke", "בדיחה"], ["jug", "כד, קנקן"], ["juice", "מיץ"], ["jungle", "ג'ונגל"], ["junkyard", "מגרש גרוטאות"], ["kettle", "קומקום"], ["kite", "עפיפון"], ["lake", "אגם"], ["lame", "צולע"], ["launder", "לכבס"], ["leaf (leaves)", "עלה (עלים)"], ["league", "מידת אורך קדומה; ליגה"], ["leniency", "חמלה, רחמים"], ["leopard", "נמר"], ["lifestyle", "אורח חיים"], ["lip", "שפה"], ["liver", "כבד"], ["loan", "הלוואה"], ["loathe", "לתעב"], ["loyalty", "נאמנות"], ["luck", "מזל"], ["lunch", "ארוחת צהריים"], ["made", "עשה"], ["magical", "קסום"], ["magnificent", "מדהים"], ["make sure", "להבטיח, לוודא"], ["makeup", "איפור"], ["marble", "שיש; גוּלָּה"], ["marsupial", "חיית כיס"], ["mathematician", "מתמטיקאי"], ["miracle", "נס, פלא"], ["mock", "ללעוג"], ["monk", "נזיר"], ["monkey", "קוף"], ["monster", "מפלצת"], ["mood", "מצב רוח"], ["mosquito", "יתוש"], ["moth", "עש"], ["mouse (mice)", "עכבר (עכברים)"], ["mouth", "פה"], ["nausea", "בחילה"], ["nickname", "כינוי חיבה"], ["no longer", "לא עוד"], ["numerator", "מונה (של שבר)"], ["numeric", "מספרי"], ["nut", "אגוז"], ["octopus", "תמנון"], ["ode", "שיר הלל"], ["olive", "זית"], ["onion", "בצל"], ["orchestra", "תזמורת"], ["orchestrate", "לתאם, לתזמר"], ["oven", "תנור בישול"], ["overhaul", "שיפוץ, אוברול"], ["pad", "לרפד"], ["paddle", "משוט, דוושה; מחבט"], ["pan", "מחבת"], ["paradox", "סתירה, פרדוקס"], ["pathology", "פתולוגיה, ענף ברפואה"], ["peach", "אפרסק"], ["pepper", "פלפל"], ["perch", "ענף; נח, ישב על ענף"], ["pet", "חיית מחמד"], ["pharmacy", "בית מרקחת"], ["philosophy", "פילוסופיה"], ["photograph", "צילום, לצלם"], ["physical", "פיזי, גופני"], ["physicist", "פיזיקאי"], ["pick", "לקטוף, לבחור; מפרט לגיטרה"], ["pigeon", "יונה"], ["pinch", "לצבוט"], ["pit", "בור"], ["plaster", "טיח"], ["pool", "בריכה"], ["pothole", "מהמורה, בור"], ["pottery", "קדרות"], ["poultry", "עוף"], ["prank", "מתיחה"], ["pregnancy", "הריון"], ["pregnant", "הרה (בהריון)"], ["prehistoric", "קדמון, פרה-היסטורי"], ["preparation for", "הכנות לקראת"], ["presentation", "מצגת"], ["prick", "לדקור"], ["printer", "מדפסת, דַּפָּס"], ["propaganda", "תעמולה"], ["prowess", "מיומנות, יכולת"], ["purse", "ארנק"], ["quarrelsome", "וכחני"], ["rain", "גשם"], ["rainbow", "קשת"], ["rainfall", "ירידת גשמים"], ["rainstorm", "סערת גשמים"], ["rat", "עכברוש"], ["redhead", "ג'ינג'י (סלנג)"], ["rehearsal", "חזרה"], ["rehearse", "לחזור, לתרגל"], ["reincarnation", "גלגול נשמות"], ["restaurant", "מסעדה"], ["resurgence", "תחייה"], ["retroactive", "רטרואקטיבי, למפרע"], ["rhyme", "חרוז"], ["rice", "אורז"], ["ride", "רכיבה, לרכוב"], ["ring", "טבעת; זירה"], ["ring, rang", "לצלצל, צלצל"], ["roast", "לקלות, צלי"], ["robbery", "שוד"], ["robe", "חלוק"], ["roof", "גג"], ["rubbish", "זבל; שטויות"], ["run, ran", "לרוץ, רץ"], ["saga", "סיפור, סאגה"], ["salt", "מלח"], ["sarcophagus", "ארון קבורה קדום"], ["savanna", "ערבה, סוואנה"], ["script", "תסריט"], ["seafood", "פירות ים"], ["seat", "מושב, להושיב"], ["secret", "סוד"], ["sentiments", "רגשות"], ["shadow", "צל, להאפיל"], ["shave", "גילוח, לגלח"], ["shelf (shelves)", "מדף (מדפים)"], ["shepherd", "רועה צאן"], ["shingles", "רעף"], ["shop", "חנות; לקנות"], ["shoulder", "כתף"], ["show", "הופעה; להראות"], ["shy", "ביישן"], ["silk", "משי"], ["silkworm", "תולעת משי"], ["singer", "זמר"], ["sir", "אדון, תואר אצולה אנגלי"], ["sky", "שמיים, רקיע"], ["smog", "ערפיח"], ["smoke", "עשן, לעשן"], ["snake", "נחש"], ["snap", "להישבר; במהירות (סלנג)"], ["snarl", "לרטון, לנחור"], ["sneeze", "להתעטש"], ["snow", "שלג"], ["soccer", "כדורגל"], ["sold", "מכר"], ["South", "דרום"], ["southern", "דרומי"], ["speck", "כתם"], ["spider", "עכביש"], ["spinach", "תרד"], ["sponsor", "נותן חסות"], ["spontaneous", "ללא מחשבה"], ["spread", "התפשטות, פיזור; ממרח, למרוח"], ["spy", "מרגל, לרגל"], ["staircase", "גרם מדרגות"], ["stalk", "לעקוב, להטריד"], ["star", "כוכב, לככב"], ["staunch", "חזק, מוצק; לעצור, לחסום"], ["steal", "לגנוב"], ["stereotype", "סטריאוטיפ"], ["sticky", "דביק"], ["stove", "תנור, כיריים"], ["stroke", "ליטוף; מכה; שבץ/אירוע מוחי"], ["studio", "סטודיו"], ["stuff", "דברים; למלא, לפחלץ"], ["stunt", "פעלול"], ["stupid", "טיפש"], ["subtraction", "חיסור (חשבון)"], ["sugar", "סוכר"], ["sweet", "מתוק, ממתק"], ["swept away", "נסחף"], ["swindler", "רמאי"], ["sword", "חרב"], ["syllable", "הברה"], ["syndrome", "תסמונת"], ["syrup", "סירופ"], ["tale", "סיפור, אגדה"], ["taste", "טעם, לטעום"], ["tax", "מס"], ["teeth, tooth", "שיניים, שן"], ["tent", "אוהל"], ["thank", "תודה, להודות"], ["theater", "תיאטרון; בית קולנוע"], ["theoretically", "תיאורטית, לכאורה"], ["theory", "תיאוריה"], ["thimble", "אצבעון (לתפירה)"], ["through", "דרך, מבעד"], ["throughout", "במשך, בכל"], ["throw", "לזרוק, זריקה"], ["ticket", "כרטיס"], ["timeline", "ציר זמן"], ["tin", "בדיל, עשוי מפח"], ["tiny", "קטנטן"], ["toad", "קרפדה"], ["toes", "בהונות"], ["tongue", "לשון"], ["treasure", "אוצר, לנצור"], ["treat", "להתייחס; פינוק, ממתק; לפנק"], ["treatment", "טיפול"], ["treaty", "אמנה,הסכם, חוזה"], ["trigger", "הדק"], ["triggered", "גרם, עורר, הוביל ל-"], ["trim", "לגזום"], ["triple", "פי 3"], ["truck", "משאית, קרון משא"], ["tutor", "מורה פרטי, להדריך"], ["twig", "ענף קטן, זרד"], ["twins", "תאומים"], ["ugly", "מכוער"], ["unattractive", "לא מושך"], ["uncle", "דוד"], ["unconcerned", "לא מודאג"], ["uncritical", "לא ביקורתי"], ["unearth", "לחשוף, לחפור"], ["unfair", "לא הוגן"], ["unholy", "לא קדוש, לא מוסרי"], ["unwanted", "לא רצוי"], ["upbringing", "גידול, חינוך"], ["upholstery", "ריפוד"], ["usher", "סדרן"], ["using up", "לכלות, לנצל עד תום"], ["vacation", "חופשה"], ["vertebrate", "בעל חוליות"], ["vest", "אפודה"], ["victory", "ניצחון"], ["villain", "רשע, נבל"], ["vinegar", "חומץ"], ["viper", "צפע"], ["vociferous", "רעשני"], ["vowel", "תנועה (לשון)"], ["wall", "קיר"], ["wart", "יבלת"], ["wasp", "צרעה"], ["waterfall", "מפל"], ["wave", "גל"], ["weapon", "נשק"], ["wear", "ללבוש"], ["weave", "לטוות, לארוג"], ["wedding", "חתונה"], ["weekend", "סוף שבוע"], ["well", "באר; טוב, היטב; בריא"], ["whale", "לוויתן"], ["whistle", "משרוקית, לשרוק"], ["wholesale", "סיטונאות"], ["wife", "אישה, רעיה"], ["win", "ניצחון, לנצח"], ["wolf (wolves)", "זאב (זאבים)"], ["work", "עבודה, לעבוד"], ["worm", "תולעת"], ["writer", "סופר"], ["yawn", "לפהק, פיהוק"], ["zealot", "קנאי, פנט"]]};
+window.UNIT_DATA_EN = {
+ "1": [
+  [
+   "1st - first",
+   "ראשון"
+  ],
+  [
+   "2nd - second",
+   "שני"
+  ],
+  [
+   "3rd - third",
+   "שלישי"
+  ],
+  [
+   "4th - fourth",
+   "רביעי"
+  ],
+  [
+   "5th - fifth",
+   "חמישי"
+  ],
+  [
+   "6th - sixth",
+   "שישי"
+  ],
+  [
+   "7th - seventh",
+   "שביעי"
+  ],
+  [
+   "8th - eighth",
+   "שמיני"
+  ],
+  [
+   "9th - ninth",
+   "תשיעי"
+  ],
+  [
+   "10th - tenth",
+   "עשירי"
+  ],
+  [
+   "how",
+   "איך, כיצד"
+  ],
+  [
+   "what",
+   "מה, איזה"
+  ],
+  [
+   "which",
+   "איזה; אשר, ש-"
+  ],
+  [
+   "who",
+   "מי, ש-"
+  ],
+  [
+   "whom",
+   "מי"
+  ],
+  [
+   "whose",
+   "אשר לו, אשר הוא"
+  ],
+  [
+   "as if",
+   "כאילו"
+  ],
+  [
+   "based on",
+   "מבוסס על"
+  ],
+  [
+   "even if",
+   "גם אם"
+  ],
+  [
+   "granted (that)",
+   "בהנחה ש-, נתון ש-"
+  ],
+  [
+   "If",
+   "אם"
+  ],
+  [
+   "in case",
+   "במקרה"
+  ],
+  [
+   "in order to",
+   "על-מנת, בכדי"
+  ],
+  [
+   "only",
+   "רק"
+  ],
+  [
+   "provided that",
+   "בתנאי ש-"
+  ],
+  [
+   "so long as",
+   "כל עוד"
+  ],
+  [
+   "unless",
+   "אלא אם כן"
+  ],
+  [
+   "while",
+   "כל עוד; בזמן ש-"
+  ],
+  [
+   "always",
+   "תמיד"
+  ],
+  [
+   "consistently",
+   "בעקביות"
+  ],
+  [
+   "constantly",
+   "באופן קבוע"
+  ],
+  [
+   "daily",
+   "יומיומי"
+  ],
+  [
+   "every day",
+   "כל יום"
+  ],
+  [
+   "every now and then",
+   "לפעמים"
+  ],
+  [
+   "for the most part",
+   "בדרך-כלל"
+  ],
+  [
+   "forever",
+   "לנצח, לתמיד"
+  ],
+  [
+   "frequently",
+   "לעיתים קרובות"
+  ],
+  [
+   "from time to time",
+   "מפעם לפעם"
+  ],
+  [
+   "hardly ever",
+   "כמעט אף פעם"
+  ],
+  [
+   "mostly",
+   "לרוב"
+  ],
+  [
+   "never",
+   "אף פעם"
+  ],
+  [
+   "occasionally",
+   "מידי פעם"
+  ],
+  [
+   "often",
+   "לעיתים קרובות"
+  ],
+  [
+   "once in a while",
+   "מידי פעם"
+  ],
+  [
+   "ordinarily",
+   "בדרך-כלל"
+  ],
+  [
+   "permanently",
+   "קבוע"
+  ],
+  [
+   "perpetually",
+   "נצחי, לנצח"
+  ],
+  [
+   "rarely",
+   "לעיתים נדירות"
+  ],
+  [
+   "regularly",
+   "באופן קבוע"
+  ],
+  [
+   "seldom",
+   "לעיתים רחוקות"
+  ],
+  [
+   "sometimes",
+   "לעיתים, לפעמים"
+  ],
+  [
+   "usually",
+   "בדרך-כלל"
+  ],
+  [
+   "according",
+   "לפי"
+  ],
+  [
+   "accordingly",
+   "בהתאם"
+  ],
+  [
+   "as a result",
+   "כתוצאה"
+  ],
+  [
+   "consequently",
+   "כתוצאה מכך"
+  ],
+  [
+   "for",
+   "מפני ש-; עבור"
+  ],
+  [
+   "hence",
+   "לפיכך, לכן"
+  ],
+  [
+   "in that case",
+   "במקרה הזה"
+  ],
+  [
+   "led to",
+   "הוביל ל-"
+  ],
+  [
+   "so",
+   "אז, כך ש-, ולכן; כל-כך, מאוד"
+  ],
+  [
+   "so that",
+   "כך ש-"
+  ],
+  [
+   "subsequently",
+   "כתוצאה מכך"
+  ],
+  [
+   "then",
+   "אז"
+  ],
+  [
+   "thus",
+   "לכן, כך ש-"
+  ],
+  [
+   "after all",
+   "אחרי הכל"
+  ],
+  [
+   "all in all",
+   "בסך הכל"
+  ],
+  [
+   "altogether",
+   "בסך הכל; לגמרי"
+  ],
+  [
+   "besides",
+   "בכל מקרה; בנוסף על; מלבד, חוץ מ-"
+  ],
+  [
+   "i.e.",
+   "כלומר, לדוגמה"
+  ],
+  [
+   "in a word",
+   "במילה אחת"
+  ],
+  [
+   "in conclusion",
+   "לסיכום"
+  ],
+  [
+   "in fact",
+   "למעשה"
+  ],
+  [
+   "overall",
+   "כולל, באופן כללי"
+  ],
+  [
+   "to sum up",
+   "כדי לסכם; לסכם"
+  ],
+  [
+   "because",
+   "בגלל"
+  ],
+  [
+   "because of",
+   "בגלל"
+  ],
+  [
+   "being that",
+   "מכיוון ש-"
+  ],
+  [
+   "due to",
+   "בגלל, לאור"
+  ],
+  [
+   "given that",
+   "בהתחשב בכך"
+  ],
+  [
+   "in light of",
+   "לאור"
+  ],
+  [
+   "owing to",
+   "הודות ל-"
+  ],
+  [
+   "since",
+   "מכיוון ש-; מאז"
+  ],
+  [
+   "thanks to",
+   "תודות ל-"
+  ],
+  [
+   "therefore",
+   "לכן"
+  ],
+  [
+   "why",
+   "מדוע"
+  ],
+  [
+   "albeit",
+   "אף על פי"
+  ],
+  [
+   "although",
+   "למרות ש-"
+  ],
+  [
+   "but",
+   "אך, אבל; מלבד, חוץ מ-"
+  ],
+  [
+   "contradictory",
+   "סותר"
+  ],
+  [
+   "contrary",
+   "להפך, בניגוד ל-"
+  ],
+  [
+   "conversely",
+   "לעומת זאת"
+  ],
+  [
+   "different from",
+   "שונה מ-"
+  ],
+  [
+   "in comparison",
+   "בהשוואה"
+  ],
+  [
+   "in contrast to",
+   "בניגוד ל-"
+  ],
+  [
+   "instead",
+   "במקום"
+  ],
+  [
+   "instead of",
+   "במקום"
+  ],
+  [
+   "of course... but...",
+   "כמובן... אך..."
+  ],
+  [
+   "on the contrary",
+   "בניגוד לכך"
+  ],
+  [
+   "or",
+   "או"
+  ],
+  [
+   "otherwise",
+   "אחרת"
+  ],
+  [
+   "rather",
+   "עדיף; למדי"
+  ],
+  [
+   "rather than",
+   "במקום, יותר מ-"
+  ],
+  [
+   "regardless",
+   "למרות, ללא קשר"
+  ],
+  [
+   "than",
+   "מ-"
+  ],
+  [
+   "though",
+   "למרות זאת; למרות ש-"
+  ],
+  [
+   "unlike",
+   "שלא כמו"
+  ],
+  [
+   "vice versa",
+   "להיפך"
+  ],
+  [
+   "where",
+   "בעוד ש-; היכן, איפה"
+  ],
+  [
+   "whereas",
+   "בעוד ש-"
+  ],
+  [
+   "yet",
+   "אך, אולם; עדיין, בכל זאת"
+  ],
+  [
+   "about",
+   "ליד, בערך; אודות"
+  ],
+  [
+   "above",
+   "מעל"
+  ],
+  [
+   "across",
+   "בצד השני, לרוחב"
+  ],
+  [
+   "adjacent to",
+   "ליד"
+  ],
+  [
+   "against",
+   "כנגד, ממול"
+  ],
+  [
+   "ahead of",
+   "לפני, לפנים"
+  ],
+  [
+   "along",
+   "לאורך"
+  ],
+  [
+   "alongside",
+   "לצד, במקביל"
+  ],
+  [
+   "amid",
+   "בקרב, בין"
+  ],
+  [
+   "among",
+   "בקרב, בין"
+  ],
+  [
+   "around",
+   "מסביב; בערך"
+  ],
+  [
+   "at",
+   "אצל, ב-"
+  ],
+  [
+   "before",
+   "לפני, מול; לפני"
+  ],
+  [
+   "behind",
+   "מאחורי; ישבן"
+  ],
+  [
+   "below",
+   "מתחת"
+  ],
+  [
+   "beneath",
+   "מתחת"
+  ],
+  [
+   "beside",
+   "ליד"
+  ],
+  [
+   "between",
+   "בין"
+  ],
+  [
+   "beyond",
+   "מעבר"
+  ],
+  [
+   "by",
+   "ליד, בסמוך ל-; עד, לא יאוחר מ-; באמצעות, על-ידי"
+  ],
+  [
+   "close",
+   "קרוב; סגור, לסגור"
+  ],
+  [
+   "distant",
+   "מרוחק"
+  ],
+  [
+   "elsewhere",
+   "במקום אחר"
+  ],
+  [
+   "farther",
+   "הלאה, יותר"
+  ],
+  [
+   "from",
+   "מ-"
+  ],
+  [
+   "here",
+   "כאן"
+  ],
+  [
+   "in",
+   "ב-, בתוך"
+  ],
+  [
+   "in front of",
+   "בחזית של, מול"
+  ],
+  [
+   "inside",
+   "בתוך, פנים"
+  ],
+  [
+   "into",
+   "אל תוך"
+  ],
+  [
+   "latter",
+   "שני, אחרון"
+  ],
+  [
+   "near",
+   "קרוב"
+  ],
+  [
+   "nearby",
+   "ליד, קרוב"
+  ],
+  [
+   "next to",
+   "ליד"
+  ],
+  [
+   "of",
+   "של, מ-"
+  ],
+  [
+   "on",
+   "על"
+  ],
+  [
+   "on top of",
+   "על, מעל"
+  ],
+  [
+   "opposite",
+   "מנוגד, ממול"
+  ],
+  [
+   "outside",
+   "חוץ; בחוץ"
+  ],
+  [
+   "over",
+   "על, מעל; מחדש, שוב"
+  ],
+  [
+   "there",
+   "שם"
+  ],
+  [
+   "under",
+   "מתחת"
+  ],
+  [
+   "underneath",
+   "מתחת"
+  ],
+  [
+   "up",
+   "למעלה"
+  ],
+  [
+   "wherever",
+   "בכל מקום, לא משנה היכן"
+  ],
+  [
+   "within",
+   "בתוך"
+  ],
+  [
+   "backward",
+   "לאחור"
+  ],
+  [
+   "down",
+   "למטה"
+  ],
+  [
+   "forward",
+   "קדימה, לפנים"
+  ],
+  [
+   "further",
+   "לקדם; בהמשך"
+  ],
+  [
+   "left",
+   "שמאלה"
+  ],
+  [
+   "right",
+   "ימינה; זכות"
+  ],
+  [
+   "sideways",
+   "הצידה"
+  ],
+  [
+   "toward",
+   "אל, אל עבר"
+  ],
+  [
+   "upon",
+   "על"
+  ],
+  [
+   "upside down",
+   "הפוך"
+  ],
+  [
+   "after",
+   "אחרי"
+  ],
+  [
+   "afterwards",
+   "לאחר מכן"
+  ],
+  [
+   "again",
+   "שוב"
+  ],
+  [
+   "as",
+   "כאשר, כש-; כמו"
+  ],
+  [
+   "as long as",
+   "כל עוד"
+  ],
+  [
+   "as soon as",
+   "כאשר, ברגע ש-"
+  ],
+  [
+   "at first",
+   "בהתחלה"
+  ],
+  [
+   "at last",
+   "סוף סוף"
+  ],
+  [
+   "currently",
+   "כרגע, נכון לעכשיו"
+  ],
+  [
+   "during",
+   "תוך כדי, במשך"
+  ],
+  [
+   "earlier",
+   "קודם לכן"
+  ],
+  [
+   "eventually",
+   "לבסוף"
+  ],
+  [
+   "finally",
+   "לבסוף, סוף סוף"
+  ],
+  [
+   "first of all",
+   "ראשית"
+  ],
+  [
+   "former",
+   "קודם, לשעבר"
+  ],
+  [
+   "immediately",
+   "מיד"
+  ],
+  [
+   "in a moment",
+   "בעוד רגע"
+  ],
+  [
+   "in due time",
+   "בבוא העת"
+  ],
+  [
+   "initially",
+   "בתחילה"
+  ],
+  [
+   "instantly",
+   "מיד"
+  ],
+  [
+   "last",
+   "אחרון; המשיך, החזיק מעמד"
+  ],
+  [
+   "later",
+   "מאוחר יותר"
+  ],
+  [
+   "meanwhile",
+   "בינתיים"
+  ],
+  [
+   "next",
+   "הבא"
+  ],
+  [
+   "now",
+   "עכשיו"
+  ],
+  [
+   "once",
+   "ברגע ש-; פעם (בעבר); פעם אחת"
+  ],
+  [
+   "past",
+   "עבר, שעבר"
+  ],
+  [
+   "presently",
+   "כעת"
+  ],
+  [
+   "previously",
+   "הקודם, לפני-כן"
+  ],
+  [
+   "prior to",
+   "קודם ל-, לפני"
+  ],
+  [
+   "shortly",
+   "בקיצור, בקרוב"
+  ],
+  [
+   "simultaneously",
+   "בו זמנית"
+  ],
+  [
+   "soon",
+   "בהקדם, מוקדם"
+  ],
+  [
+   "still",
+   "עדיין, למרות זאת; נייח, דומם, שקט"
+  ],
+  [
+   "suddenly",
+   "לפתע"
+  ],
+  [
+   "to begin with",
+   "בתור התחלה"
+  ],
+  [
+   "until",
+   "עד ש-"
+  ],
+  [
+   "until now",
+   "עד עתה"
+  ],
+  [
+   "when",
+   "כאשר, כש-"
+  ],
+  [
+   "whenever",
+   "כש-, מתישהו"
+  ],
+  [
+   "despite",
+   "למרות"
+  ],
+  [
+   "even so",
+   "אף על פי כן"
+  ],
+  [
+   "even though",
+   "למרות ש-"
+  ],
+  [
+   "however",
+   "למרות זאת; בכל דרך"
+  ],
+  [
+   "in spite of",
+   "למרות"
+  ],
+  [
+   "nevertheless",
+   "למרות זאת"
+  ],
+  [
+   "nonetheless",
+   "למרות זאת"
+  ],
+  [
+   "additionally",
+   "בנוסף"
+  ],
+  [
+   "along with",
+   "יחד עם"
+  ],
+  [
+   "also",
+   "גם"
+  ],
+  [
+   "and",
+   "ו-"
+  ],
+  [
+   "as well as",
+   "כמו גם"
+  ],
+  [
+   "aside from",
+   "חוץ מ-"
+  ],
+  [
+   "coupled with",
+   "יחד עם"
+  ],
+  [
+   "except",
+   "מלבד, חוץ מ-"
+  ],
+  [
+   "furthermore",
+   "זאת ועוד"
+  ],
+  [
+   "in addition",
+   "בנוסף"
+  ],
+  [
+   "including",
+   "כולל"
+  ],
+  [
+   "moreover",
+   "זאת ועוד"
+  ],
+  [
+   "not only",
+   "לא רק"
+  ],
+  [
+   "not to mention",
+   "שלא לדבר על"
+  ],
+  [
+   "together with",
+   "יחד עם"
+  ],
+  [
+   "too",
+   "גם; יותר מידי"
+  ],
+  [
+   "with",
+   "באמצעות, עם"
+  ],
+  [
+   "without",
+   "מבלי, ללא"
+  ],
+  [
+   "above all",
+   "מעל לכל"
+  ],
+  [
+   "absolutely",
+   "לחלוטין"
+  ],
+  [
+   "both... and...",
+   "גם... וגם..."
+  ],
+  [
+   "certainly",
+   "בהחלט, בוודאי"
+  ],
+  [
+   "chiefly",
+   "בעיקר"
+  ],
+  [
+   "either... or...",
+   "או... או..."
+  ],
+  [
+   "especially",
+   "במיוחד"
+  ],
+  [
+   "essentially",
+   "בעיקרו, במהותו"
+  ],
+  [
+   "in general",
+   "באופן כללי"
+  ],
+  [
+   "in particular",
+   "במיוחד"
+  ],
+  [
+   "incidentally",
+   "דרך אגב"
+  ],
+  [
+   "indeed",
+   "בהחלט"
+  ],
+  [
+   "just as... so...",
+   "בדיוק כמו... גם"
+  ],
+  [
+   "mainly",
+   "בעיקר"
+  ],
+  [
+   "markedly",
+   "בצורה ניכרת"
+  ],
+  [
+   "namely",
+   "במיוחד, כלומר"
+  ],
+  [
+   "neither... nor...",
+   "לא... ולא..."
+  ],
+  [
+   "not only... but also...",
+   "לא רק... אלא גם..."
+  ],
+  [
+   "not... but...",
+   "לא... אבל..."
+  ],
+  [
+   "notably",
+   "ראוי לציון"
+  ],
+  [
+   "of course",
+   "כמובן, בוודאי"
+  ],
+  [
+   "on one hand...on the other hand",
+   "מצד אחד... מצד שני"
+  ],
+  [
+   "particularly",
+   "במיוחד, בפרט"
+  ],
+  [
+   "primarily",
+   "בעיקר"
+  ],
+  [
+   "significantly",
+   "באופן משמעותי"
+  ],
+  [
+   "specifically",
+   "במיוחד"
+  ],
+  [
+   "surely",
+   "ללא ספק"
+  ],
+  [
+   "surprisingly",
+   "במפתיע"
+  ],
+  [
+   "truly",
+   "באמת"
+  ],
+  [
+   "undoubtedly",
+   "ללא ספק"
+  ],
+  [
+   "whether... or...",
+   "בין אם... או..."
+  ],
+  [
+   "both",
+   "שניהם"
+  ],
+  [
+   "comparatively",
+   "באופן יחסי"
+  ],
+  [
+   "correspondingly",
+   "בהתאמה"
+  ],
+  [
+   "e.g.",
+   "לדוגמה"
+  ],
+  [
+   "equally",
+   "במידה שווה"
+  ],
+  [
+   "for example",
+   "לדוגמה"
+  ],
+  [
+   "for instance",
+   "לדוגמה"
+  ],
+  [
+   "identically",
+   "באופן זהה"
+  ],
+  [
+   "in other words",
+   "במילים אחרות"
+  ],
+  [
+   "in the same way",
+   "באותו אופן"
+  ],
+  [
+   "just as",
+   "בדיוק כמו"
+  ],
+  [
+   "like",
+   "כמו; לחבב, להעדיף"
+  ],
+  [
+   "likewise",
+   "כמו-כן, באותו אופן"
+  ],
+  [
+   "similarly",
+   "באופן דומה"
+  ],
+  [
+   "such as",
+   "כמו למשל"
+  ],
+  [
+   "that",
+   "ש-"
+  ]
+ ],
+ "2": [
+  [
+   "ability",
+   "יכולת"
+  ],
+  [
+   "able",
+   "יכול, מסוגל"
+  ],
+  [
+   "accept",
+   "לקבל"
+  ],
+  [
+   "acceptable",
+   "מקובל"
+  ],
+  [
+   "acceptance",
+   "הסכמה"
+  ],
+  [
+   "accident",
+   "תאונה"
+  ],
+  [
+   "achieve",
+   "להשיג"
+  ],
+  [
+   "activate",
+   "להפעיל"
+  ],
+  [
+   "active",
+   "פעיל"
+  ],
+  [
+   "actor",
+   "שחקן"
+  ],
+  [
+   "actual",
+   "ממשי"
+  ],
+  [
+   "actually",
+   "למעשה"
+  ],
+  [
+   "addition",
+   "תוספת, הוספה"
+  ],
+  [
+   "address",
+   "כתובת; לפנות, לטפל"
+  ],
+  [
+   "adjust",
+   "להתרגל; לכוונן"
+  ],
+  [
+   "afford",
+   "יכל לעמוד בהוצאות"
+  ],
+  [
+   "afraid",
+   "מפחד"
+  ],
+  [
+   "agree",
+   "להסכים"
+  ],
+  [
+   "agreement",
+   "הסכם"
+  ],
+  [
+   "aim",
+   "לכוון, מטרה"
+  ],
+  [
+   "alarm",
+   "דאגה, להדאיג; אזעקה"
+  ],
+  [
+   "alive",
+   "חי"
+  ],
+  [
+   "almost",
+   "כמעט"
+  ],
+  [
+   "alone",
+   "לבד"
+  ],
+  [
+   "alternate",
+   "חלופי; התחלף, עבר מדבר אחד לשני וחזרה"
+  ],
+  [
+   "ambassador",
+   "שגריר"
+  ],
+  [
+   "ambiguous",
+   "דו משמעי, לא לגמרי ברור"
+  ],
+  [
+   "amount",
+   "כמות"
+  ],
+  [
+   "anger",
+   "כעס, להכעיס"
+  ],
+  [
+   "angry",
+   "כועס"
+  ],
+  [
+   "animal",
+   "חיה"
+  ],
+  [
+   "another",
+   "נוסף; אחר"
+  ],
+  [
+   "answer",
+   "תשובה"
+  ],
+  [
+   "apart",
+   "בנפרד"
+  ],
+  [
+   "apology",
+   "התנצלות"
+  ],
+  [
+   "appear",
+   "להופיע; נראה ש-"
+  ],
+  [
+   "appearance",
+   "מראה, הופעה"
+  ],
+  [
+   "appropriate",
+   "מתאים"
+  ],
+  [
+   "approve",
+   "לאשר"
+  ],
+  [
+   "architect",
+   "ארכיטקט"
+  ],
+  [
+   "architecture",
+   "אדריכלות, ארכיטקטורה"
+  ],
+  [
+   "area",
+   "אזור, תחום"
+  ],
+  [
+   "argue",
+   "להתווכח"
+  ],
+  [
+   "argument",
+   "ויכוח"
+  ],
+  [
+   "aristocrat",
+   "אציל, אריסטוקרט"
+  ],
+  [
+   "arm",
+   "לחמש; זרוע"
+  ],
+  [
+   "army",
+   "צבא"
+  ],
+  [
+   "arrange",
+   "לסדר"
+  ],
+  [
+   "arrest",
+   "מעצר, לעצור"
+  ],
+  [
+   "arrive",
+   "להגיע"
+  ],
+  [
+   "art",
+   "אמנות"
+  ],
+  [
+   "article",
+   "מאמר; פריט"
+  ],
+  [
+   "articulate",
+   "להביע; רהוט"
+  ],
+  [
+   "artist",
+   "אמן"
+  ],
+  [
+   "artistic",
+   "אמנותי"
+  ],
+  [
+   "as far as",
+   "לגבי, בכל הנוגע ל-"
+  ],
+  [
+   "as proof of",
+   "כהוכחה ל-"
+  ],
+  [
+   "ask",
+   "לשאול"
+  ],
+  [
+   "asked for",
+   "ביקש"
+  ],
+  [
+   "associate",
+   "לקשר"
+  ],
+  [
+   "association",
+   "אסוציאציה; איגוד"
+  ],
+  [
+   "assume",
+   "להניח"
+  ],
+  [
+   "assumption",
+   "הנחה"
+  ],
+  [
+   "at least",
+   "לפחות"
+  ],
+  [
+   "athlete",
+   "ספורטאי, אתלט"
+  ],
+  [
+   "attach",
+   "לחבר, ליחס"
+  ],
+  [
+   "attack",
+   "לתקוף, מתקפה"
+  ],
+  [
+   "attempt",
+   "ניסיון"
+  ],
+  [
+   "attitude",
+   "גישה"
+  ],
+  [
+   "attract",
+   "למשוך"
+  ],
+  [
+   "attraction",
+   "משיכה"
+  ],
+  [
+   "attractive",
+   "נאה, מושך"
+  ],
+  [
+   "audience",
+   "קהל"
+  ],
+  [
+   "authentic",
+   "מקורי, אותנטי"
+  ],
+  [
+   "availability",
+   "זמינות"
+  ],
+  [
+   "available",
+   "זמין"
+  ],
+  [
+   "average",
+   "ממוצע, רגיל"
+  ],
+  [
+   "avoid",
+   "להתחמק, להימנע"
+  ],
+  [
+   "awake",
+   "ער, להתעורר"
+  ],
+  [
+   "bacteria",
+   "חיידקים"
+  ],
+  [
+   "badly",
+   "נואשות, קשות"
+  ],
+  [
+   "baker",
+   "אופה"
+  ],
+  [
+   "band",
+   "להקה; לחבוש, תחבושת, רצועה"
+  ],
+  [
+   "barely",
+   "בקושי"
+  ],
+  [
+   "base",
+   "בסיס"
+  ],
+  [
+   "bat",
+   "מחבט; עטלף"
+  ],
+  [
+   "bath",
+   "אמבטיה, להתרחץ"
+  ],
+  [
+   "battle",
+   "מאבק, להיאבק"
+  ],
+  [
+   "beach",
+   "חוף ים"
+  ],
+  [
+   "bear",
+   "לסבול, לשאת; דוב"
+  ],
+  [
+   "beauty",
+   "יופי"
+  ],
+  [
+   "bedroom",
+   "חדר שינה"
+  ],
+  [
+   "begin/an/un",
+   "להתחיל / התחיל / התחיל"
+  ],
+  [
+   "beginning",
+   "התחלה"
+  ],
+  [
+   "belong",
+   "שייך"
+  ],
+  [
+   "best",
+   "הכי טוב"
+  ],
+  [
+   "best-seller",
+   "רב-מכר"
+  ],
+  [
+   "better",
+   "טוב יותר"
+  ],
+  [
+   "bicycle",
+   "אופניים"
+  ],
+  [
+   "birth",
+   "לידה"
+  ],
+  [
+   "bite",
+   "לנשוך, נשיכה"
+  ],
+  [
+   "bizarre",
+   "מוזר"
+  ],
+  [
+   "blind",
+   "עיוור"
+  ],
+  [
+   "block",
+   "חסימה; לבנה, גוש, חלק"
+  ],
+  [
+   "blood",
+   "דם"
+  ],
+  [
+   "blood vessel",
+   "כלי דם"
+  ],
+  [
+   "blow, blew",
+   "לנשוף, נשף; לפוצץ, פוצץ"
+  ],
+  [
+   "boat",
+   "סירה"
+  ],
+  [
+   "body",
+   "גוויה, גוף"
+  ],
+  [
+   "bone",
+   "עצם"
+  ],
+  [
+   "border",
+   "גבול"
+  ],
+  [
+   "boring",
+   "משעמם"
+  ],
+  [
+   "bottle",
+   "בקבוק"
+  ],
+  [
+   "bottom",
+   "תחתית; ישבן"
+  ],
+  [
+   "bought",
+   "קנה"
+  ],
+  [
+   "brain",
+   "מוח, שכל"
+  ],
+  [
+   "brainwash",
+   "לשטוף את המח"
+  ],
+  [
+   "brave",
+   "אמיץ"
+  ],
+  [
+   "bread",
+   "לחם"
+  ],
+  [
+   "break",
+   "לשבור"
+  ],
+  [
+   "breathe",
+   "לנשום"
+  ],
+  [
+   "bridge",
+   "גשר, לגשר"
+  ],
+  [
+   "broad",
+   "נרחב"
+  ],
+  [
+   "budget",
+   "תקציב, לתקצב"
+  ],
+  [
+   "build",
+   "מבנה; לבנות"
+  ],
+  [
+   "building",
+   "בניין"
+  ],
+  [
+   "built",
+   "לבנות"
+  ],
+  [
+   "bullet",
+   "קליע"
+  ],
+  [
+   "call",
+   "לקרוא, להתקשר"
+  ],
+  [
+   "camera",
+   "מצלמה"
+  ],
+  [
+   "care",
+   "לחבב; לדאוג, לטפל"
+  ],
+  [
+   "carefully",
+   "בזהירות"
+  ],
+  [
+   "careless",
+   "לא זהיר, רשלני"
+  ],
+  [
+   "carry",
+   "לסחוב"
+  ],
+  [
+   "catalogue",
+   "קטלוג, רשימת פריטים"
+  ],
+  [
+   "catch, caught",
+   "לתפוס, תפס"
+  ],
+  [
+   "cause",
+   "מטרה; גורם, סיבה"
+  ],
+  [
+   "cell",
+   "תא"
+  ],
+  [
+   "center",
+   "מרכז"
+  ],
+  [
+   "central",
+   "מרכזי"
+  ],
+  [
+   "challenge",
+   "לאתגר; אתגר"
+  ],
+  [
+   "chance",
+   "סיכוי"
+  ],
+  [
+   "change",
+   "שינוי, לשנות; עודף"
+  ],
+  [
+   "characterize",
+   "לאפיין"
+  ],
+  [
+   "cheap",
+   "זול"
+  ],
+  [
+   "check",
+   "לבדוק"
+  ],
+  [
+   "child",
+   "ילד"
+  ],
+  [
+   "childhood",
+   "ילדות"
+  ],
+  [
+   "children",
+   "ילדים"
+  ],
+  [
+   "circle",
+   "להקיף בעיגול; מעגל"
+  ],
+  [
+   "clean",
+   "נקי, לנקות"
+  ],
+  [
+   "clever",
+   "פיקח"
+  ],
+  [
+   "climb",
+   "לטפס"
+  ],
+  [
+   "clock",
+   "שעון"
+  ],
+  [
+   "cloth",
+   "בגד, בד"
+  ],
+  [
+   "coach",
+   "מאמן, לאמן, להדריך; קרון נוסעים, כרכרה, מחלקת תיירים (במטוס)"
+  ],
+  [
+   "code",
+   "קוד"
+  ],
+  [
+   "coexist",
+   "להתקיים בשותפות"
+  ],
+  [
+   "coin",
+   "מטבע"
+  ],
+  [
+   "cold",
+   "קר, התקררות"
+  ],
+  [
+   "colonial",
+   "קולוניאלי"
+  ],
+  [
+   "color",
+   "לצבוע; צבע"
+  ],
+  [
+   "complain",
+   "להתלונן"
+  ],
+  [
+   "complete",
+   "כולל; להשלים"
+  ],
+  [
+   "consist",
+   "מורכב מ-"
+  ],
+  [
+   "contact",
+   "ליצור קשר, מגע"
+  ],
+  [
+   "continue",
+   "להמשיך"
+  ],
+  [
+   "continuity",
+   "המשכיות, רצף הגיוני"
+  ],
+  [
+   "continuous",
+   "מתמשך"
+  ],
+  [
+   "control",
+   "לוח בקרה, פיקוח; שליטה, לשלוט"
+  ],
+  [
+   "cool",
+   "לצנן, צונן"
+  ],
+  [
+   "copies",
+   "עותקים"
+  ],
+  [
+   "copy",
+   "להעתיק"
+  ],
+  [
+   "corner",
+   "פינה, לדחוק לפינה"
+  ],
+  [
+   "correct",
+   "לתקן; נכון"
+  ],
+  [
+   "cost",
+   "מחיר, עלות"
+  ],
+  [
+   "costly",
+   "יקר"
+  ],
+  [
+   "count",
+   "לספור; רוזן"
+  ],
+  [
+   "country",
+   "ארץ; כפר, אזור"
+  ],
+  [
+   "cover",
+   "כיסוי, מכסה"
+  ],
+  [
+   "cow",
+   "פרה"
+  ],
+  [
+   "culture",
+   "תרבות"
+  ],
+  [
+   "dance",
+   "לרקוד"
+  ],
+  [
+   "danger",
+   "סכנה, לסכן"
+  ],
+  [
+   "dangerous",
+   "מסוכן"
+  ],
+  [
+   "daughter",
+   "בת"
+  ],
+  [
+   "death",
+   "מוות"
+  ],
+  [
+   "deep",
+   "עמוק"
+  ],
+  [
+   "deeply",
+   "מאוד, במידה רבה"
+  ],
+  [
+   "define",
+   "להגדיר"
+  ],
+  [
+   "definite",
+   "מוחלט"
+  ],
+  [
+   "delete",
+   "למחוק"
+  ],
+  [
+   "desert",
+   "מדבר; לנטוש"
+  ],
+  [
+   "devastate",
+   "להחריב"
+  ],
+  [
+   "die",
+   "מת, למות"
+  ],
+  [
+   "die (dice)",
+   "קובייה (קוביות)"
+  ],
+  [
+   "difficult",
+   "קשה"
+  ],
+  [
+   "dirty",
+   "מלוכלך"
+  ],
+  [
+   "diverse",
+   "מגוון"
+  ],
+  [
+   "done",
+   "גמור, עשוי"
+  ],
+  [
+   "dream",
+   "חלום, לחלום"
+  ],
+  [
+   "drink",
+   "לשתות, משקה"
+  ],
+  [
+   "drug",
+   "סם, תרופה, לסמם"
+  ],
+  [
+   "due",
+   "צריך להיעשות, זמנו הגיע; בשל"
+  ],
+  [
+   "early",
+   "מוקדם"
+  ],
+  [
+   "earth",
+   "אדמה; כדור הארץ"
+  ],
+  [
+   "earthquake",
+   "רעידת אדמה"
+  ],
+  [
+   "educate",
+   "לחנך"
+  ],
+  [
+   "education",
+   "השכלה"
+  ],
+  [
+   "empty",
+   "ריק, לרוקן"
+  ],
+  [
+   "enemy",
+   "אויב"
+  ],
+  [
+   "energy",
+   "אנרגיה, כוח"
+  ],
+  [
+   "enjoy",
+   "ליהנות"
+  ],
+  [
+   "enjoyable",
+   "מהנה"
+  ],
+  [
+   "enter",
+   "נכנס"
+  ],
+  [
+   "error",
+   "שגיאה"
+  ],
+  [
+   "escape",
+   "לברוח, בריחה"
+  ],
+  [
+   "evening",
+   "ערב"
+  ],
+  [
+   "event",
+   "אירוע"
+  ],
+  [
+   "exact",
+   "מדויק"
+  ],
+  [
+   "exactly",
+   "בדיוק"
+  ],
+  [
+   "example",
+   "דוגמה"
+  ],
+  [
+   "excessive",
+   "יתר, מוגזם"
+  ],
+  [
+   "expert",
+   "מומחה"
+  ],
+  [
+   "extinct",
+   "נכחד"
+  ],
+  [
+   "fact",
+   "עובדה"
+  ],
+  [
+   "false",
+   "שקר"
+  ],
+  [
+   "farm",
+   "חווה"
+  ],
+  [
+   "farmer",
+   "חוואי"
+  ],
+  [
+   "father",
+   "אבא"
+  ],
+  [
+   "fear",
+   "פחד, לפחד"
+  ],
+  [
+   "feel",
+   "להרגיש"
+  ],
+  [
+   "feeling",
+   "הרגשה"
+  ],
+  [
+   "few",
+   "מעט"
+  ],
+  [
+   "field",
+   "תחום, שדה"
+  ],
+  [
+   "find",
+   "למצוא"
+  ],
+  [
+   "findings",
+   "ממצאים"
+  ],
+  [
+   "finger",
+   "אצבע"
+  ],
+  [
+   "fire",
+   "אש, להצית; לירות; לפטר"
+  ],
+  [
+   "fix",
+   "לתקן"
+  ],
+  [
+   "flower",
+   "פרח"
+  ],
+  [
+   "forget",
+   "לשכוח"
+  ],
+  [
+   "friend",
+   "חבר"
+  ],
+  [
+   "friendly",
+   "ידידותי"
+  ],
+  [
+   "friendship",
+   "חברות"
+  ],
+  [
+   "front",
+   "חזית, להתעמת"
+  ],
+  [
+   "full",
+   "מלא, למלא"
+  ],
+  [
+   "gain",
+   "להרוויח, להוסיף"
+  ],
+  [
+   "glad",
+   "שמח"
+  ],
+  [
+   "gradual",
+   "הדרגתי"
+  ],
+  [
+   "great",
+   "גדול, מעולה"
+  ],
+  [
+   "half",
+   "חצי"
+  ],
+  [
+   "hand",
+   "יד; למסור"
+  ],
+  [
+   "hear",
+   "לשמוע"
+  ],
+  [
+   "hearsay",
+   "שמועה"
+  ],
+  [
+   "heat",
+   "חום, לחמם"
+  ],
+  [
+   "hero",
+   "גיבור"
+  ],
+  [
+   "horse",
+   "סוס"
+  ],
+  [
+   "hot",
+   "חם; חריף"
+  ],
+  [
+   "house",
+   "לשכן; בית"
+  ],
+  [
+   "impartial",
+   "אוביקטיבי, ללא צד"
+  ],
+  [
+   "inconsistent",
+   "לא עקבי"
+  ],
+  [
+   "insert",
+   "להכניס"
+  ],
+  [
+   "jump",
+   "לקפוץ"
+  ],
+  [
+   "just",
+   "מדויק, אמיתי; רק, בלבד; צודק, הוגן"
+  ],
+  [
+   "kill",
+   "להרוג, לחסל, הרג"
+  ],
+  [
+   "king",
+   "מלך"
+  ],
+  [
+   "kingdom",
+   "ממלכה"
+  ],
+  [
+   "kitchen",
+   "מטבח"
+  ],
+  [
+   "late",
+   "מאוחר, לאחר"
+  ],
+  [
+   "light",
+   "אור; קל"
+  ],
+  [
+   "list",
+   "רשימה, להכין רשימה"
+  ],
+  [
+   "lock",
+   "מנעול, לנעול"
+  ],
+  [
+   "logic",
+   "הגיון"
+  ],
+  [
+   "main",
+   "עיקרי"
+  ],
+  [
+   "map",
+   "מפה, למפות"
+  ],
+  [
+   "mark",
+   "לסמן"
+  ],
+  [
+   "maybe",
+   "אולי"
+  ],
+  [
+   "meeting",
+   "פגישה"
+  ],
+  [
+   "member",
+   "חבר (בקבוצה מסוימת)"
+  ],
+  [
+   "milk",
+   "חלב, לחלוב"
+  ],
+  [
+   "mistake",
+   "טעות"
+  ],
+  [
+   "mistaken",
+   "שגוי, לטעות"
+  ],
+  [
+   "money",
+   "כסף"
+  ],
+  [
+   "move",
+   "לזוז, לעבור"
+  ],
+  [
+   "movement",
+   "תנועה"
+  ],
+  [
+   "must",
+   "חייב, חובה, הכרח"
+  ],
+  [
+   "number",
+   "מספר"
+  ],
+  [
+   "open",
+   "לפתוח, פתוח"
+  ],
+  [
+   "paragraph",
+   "פִסקה"
+  ],
+  [
+   "pay",
+   "לשלם"
+  ],
+  [
+   "peace",
+   "שלום"
+  ],
+  [
+   "peaceful",
+   "שָׁלֵו, שקט"
+  ],
+  [
+   "pilot",
+   "טייס"
+  ],
+  [
+   "place",
+   "מקום, למקם"
+  ],
+  [
+   "plan",
+   "תכנית; לתכנן"
+  ],
+  [
+   "plane",
+   "מטוס; מישור"
+  ],
+  [
+   "president",
+   "נשיא"
+  ],
+  [
+   "price",
+   "מחיר"
+  ],
+  [
+   "primary",
+   "יסודי, עיקרי"
+  ],
+  [
+   "problem",
+   "בעיה"
+  ],
+  [
+   "program",
+   "תכנית; תכניה; לתכנת"
+  ],
+  [
+   "queen",
+   "מלכה"
+  ],
+  [
+   "question",
+   "להטיל ספק; שאלה"
+  ],
+  [
+   "quick",
+   "זריז"
+  ],
+  [
+   "rates",
+   "שיעור , היקף, תעריף"
+  ],
+  [
+   "react",
+   "להגיב"
+  ],
+  [
+   "region",
+   "מחוז, אזור"
+  ],
+  [
+   "register",
+   "להירשם"
+  ],
+  [
+   "registration",
+   "הרשמה"
+  ],
+  [
+   "reject",
+   "לדחות"
+  ],
+  [
+   "rest",
+   "מנוחה; יתר, שאר"
+  ],
+  [
+   "rich",
+   "עשיר"
+  ],
+  [
+   "risk",
+   "סיכון, לסכן"
+  ],
+  [
+   "river",
+   "נהר"
+  ],
+  [
+   "road",
+   "דרך"
+  ],
+  [
+   "safe",
+   "בטוח"
+  ],
+  [
+   "safety",
+   "בטיחות"
+  ],
+  [
+   "save",
+   "לשמור"
+  ],
+  [
+   "scare",
+   "פחד, להפחיד"
+  ],
+  [
+   "school",
+   "בית-ספר"
+  ],
+  [
+   "search",
+   "חיפוש, לחפש"
+  ],
+  [
+   "select",
+   "לבחור"
+  ],
+  [
+   "sell",
+   "למכור"
+  ],
+  [
+   "send",
+   "לשלוח"
+  ],
+  [
+   "several",
+   "אחדים, כמה"
+  ],
+  [
+   "short",
+   "קצר"
+  ],
+  [
+   "shortage",
+   "מחסור"
+  ],
+  [
+   "side",
+   "צד, לצודד, לתמוך"
+  ],
+  [
+   "sleep",
+   "שינה; לישון"
+  ],
+  [
+   "slow",
+   "איטי, לאט"
+  ],
+  [
+   "slow down",
+   "להאט"
+  ],
+  [
+   "space",
+   "חלל; רווח"
+  ],
+  [
+   "speed",
+   "מהירות"
+  ],
+  [
+   "start",
+   "להתחיל"
+  ],
+  [
+   "stone",
+   "אבן"
+  ],
+  [
+   "strong",
+   "חזק"
+  ],
+  [
+   "stronghold",
+   "מאחז"
+  ],
+  [
+   "system",
+   "מערכת; שיטה"
+  ],
+  [
+   "target",
+   "מטרה"
+  ],
+  [
+   "teach, taught",
+   "ללמד, לימד"
+  ],
+  [
+   "think, thought",
+   "לחשוב, חשב"
+  ],
+  [
+   "time",
+   "זמן"
+  ],
+  [
+   "totally",
+   "לחלוטין"
+  ],
+  [
+   "town",
+   "עיר, עיירה"
+  ],
+  [
+   "understand",
+   "להבין"
+  ],
+  [
+   "unusual",
+   "בלתי רגיל, יוצא דופן"
+  ],
+  [
+   "use",
+   "תועלת, תכלית; לנצל; להשתמש"
+  ],
+  [
+   "useful",
+   "שימושי"
+  ],
+  [
+   "useless",
+   "חסר תועלת"
+  ],
+  [
+   "usual",
+   "רגיל"
+  ],
+  [
+   "valuable",
+   "יקר ערך"
+  ],
+  [
+   "value",
+   "ערך, להעריך"
+  ],
+  [
+   "view",
+   "נוף, שדה ראיה; לראות"
+  ],
+  [
+   "viewer",
+   "צופה"
+  ],
+  [
+   "visit",
+   "לבקר"
+  ],
+  [
+   "visitor",
+   "אורח, מבקר"
+  ],
+  [
+   "voice",
+   "קול, להשמיע קול"
+  ],
+  [
+   "wait",
+   "להמתין, המתנה"
+  ],
+  [
+   "way",
+   "דרך"
+  ],
+  [
+   "weather",
+   "מזג אוויר"
+  ]
+ ],
+ "3": [
+  [
+   "abrupt",
+   "פתאומי"
+  ],
+  [
+   "absolute",
+   "מוחלט"
+  ],
+  [
+   "accessible",
+   "נגיש, זמין"
+  ],
+  [
+   "accomplish",
+   "להשלים, להשיג"
+  ],
+  [
+   "accomplished",
+   "מומחה, מעולה"
+  ],
+  [
+   "accomplishment",
+   "הישג"
+  ],
+  [
+   "account",
+   "להתחשב ב-, להתייחס ל-; חשבון"
+  ],
+  [
+   "accuracy",
+   "דיוק"
+  ],
+  [
+   "accurate",
+   "מדויק"
+  ],
+  [
+   "activist",
+   "פעיל, אקטיביסט"
+  ],
+  [
+   "adapt",
+   "להתאים; לעבד; להסתגל"
+  ],
+  [
+   "administer",
+   "לנהל, לפקח; לתת, לחלק"
+  ],
+  [
+   "administration",
+   "מנהל"
+  ],
+  [
+   "admit",
+   "להודות; להכניס, לקבל לתוך קבוצה"
+  ],
+  [
+   "adult",
+   "מבוגר"
+  ],
+  [
+   "adulthood",
+   "בגרות"
+  ],
+  [
+   "advance",
+   "מתקדם"
+  ],
+  [
+   "advancement",
+   "התקדמות; מקדמה"
+  ],
+  [
+   "advantage",
+   "יתרון"
+  ],
+  [
+   "advice",
+   "עצה"
+  ],
+  [
+   "advise",
+   "לייעץ"
+  ],
+  [
+   "advisor",
+   "יועץ"
+  ],
+  [
+   "aesthetic",
+   "אסתטיקה"
+  ],
+  [
+   "allocate",
+   "להקצות"
+  ],
+  [
+   "announcement",
+   "הכרזה"
+  ],
+  [
+   "annually",
+   "שנתי"
+  ],
+  [
+   "appoint",
+   "למנות"
+  ],
+  [
+   "approach",
+   "גישה"
+  ],
+  [
+   "approximately",
+   "בערך, בקירוב"
+  ],
+  [
+   "astronomy",
+   "אסטרונומיה"
+  ],
+  [
+   "attention",
+   "תשומת לב"
+  ],
+  [
+   "attribute",
+   "לייחס, לקשר; תכונה, מאפיין"
+  ],
+  [
+   "aware",
+   "מודע"
+  ],
+  [
+   "balance",
+   "שיווי משקל; איזון, לאזן"
+  ],
+  [
+   "ban",
+   "חרם, איסור"
+  ],
+  [
+   "belief",
+   "אמונה"
+  ],
+  [
+   "bend",
+   "לכופף"
+  ],
+  [
+   "beware",
+   "היזהר"
+  ],
+  [
+   "borrow",
+   "להשאיל"
+  ],
+  [
+   "brief",
+   "תדריך, תקציר"
+  ],
+  [
+   "briefly",
+   "בקצרה"
+  ],
+  [
+   "bright",
+   "בהיר, ברור"
+  ],
+  [
+   "by no means",
+   "ללא ספק, בשום אופן"
+  ],
+  [
+   "by now",
+   "עד עתה"
+  ],
+  [
+   "capable",
+   "מסוגל, יכול"
+  ],
+  [
+   "capacity",
+   "יכולת, סמכות, תפקיד; קיבולת"
+  ],
+  [
+   "capital",
+   "עיר בירה; אות גדולה; ראשי, משמעותי; הון"
+  ],
+  [
+   "capital punishment",
+   "עונש מוות"
+  ],
+  [
+   "capitalize",
+   "לנצל"
+  ],
+  [
+   "certain",
+   "בטוח; מסוים"
+  ],
+  [
+   "certainty",
+   "וודאות"
+  ],
+  [
+   "character",
+   "אות, תו; דמות; אופי"
+  ],
+  [
+   "characteristic",
+   "מאפיין"
+  ],
+  [
+   "choice",
+   "בחירה"
+  ],
+  [
+   "choose",
+   "לבחור"
+  ],
+  [
+   "circumstance",
+   "מצב, תנאי, נסיבות"
+  ],
+  [
+   "civil",
+   "אדיב; אזרחי"
+  ],
+  [
+   "class",
+   "מעמד; סוג; כיתה"
+  ],
+  [
+   "classify",
+   "לסווג, מסווג"
+  ],
+  [
+   "colony",
+   "מושבה"
+  ],
+  [
+   "combine",
+   "לצרף, לשלב"
+  ],
+  [
+   "common",
+   "נפוץ, משותף"
+  ],
+  [
+   "communal",
+   "משותף, ציבורי"
+  ],
+  [
+   "communicate",
+   "לתקשר"
+  ],
+  [
+   "community",
+   "קהילה"
+  ],
+  [
+   "company",
+   "חברה"
+  ],
+  [
+   "comparable",
+   "בר-השוואה"
+  ],
+  [
+   "compare",
+   "להשוות"
+  ],
+  [
+   "comparison",
+   "השוואה"
+  ],
+  [
+   "comprehend",
+   "להבין"
+  ],
+  [
+   "comprehension",
+   "הבנה"
+  ],
+  [
+   "concentrate",
+   "להתרכז"
+  ],
+  [
+   "conclude",
+   "לסיים; להסיק"
+  ],
+  [
+   "conclusion",
+   "מסקנה"
+  ],
+  [
+   "conclusively",
+   "סופית, באופן החלטי"
+  ],
+  [
+   "confirm",
+   "לאשר, לאמת"
+  ],
+  [
+   "continuation",
+   "המשך"
+  ],
+  [
+   "cooperation",
+   "שיתוף פעולה"
+  ],
+  [
+   "core",
+   "ליבה"
+  ],
+  [
+   "crisis",
+   "משבר"
+  ],
+  [
+   "cure",
+   "מרפא"
+  ],
+  [
+   "decide",
+   "להחליט"
+  ],
+  [
+   "decline",
+   "לרדת; לדחות; ירידה"
+  ],
+  [
+   "decrease",
+   "ירידה, הפחתה; להפחית, לצמצם"
+  ],
+  [
+   "deduce",
+   "להסיק"
+  ],
+  [
+   "demand",
+   "לדרוש, דרישה"
+  ],
+  [
+   "deny",
+   "לסרב; להכחיש"
+  ],
+  [
+   "depart",
+   "לעזוב"
+  ],
+  [
+   "derive",
+   "לשאוב, להפיק, לגזור מ-"
+  ],
+  [
+   "descend",
+   "ירד, הדרדר"
+  ],
+  [
+   "descendent",
+   "צאצא"
+  ],
+  [
+   "deserve",
+   "מגיע (לו)"
+  ],
+  [
+   "destiny",
+   "גורל"
+  ],
+  [
+   "devote",
+   "להקדיש"
+  ],
+  [
+   "direct",
+   "ישיר, כנה; לכוון; לביים"
+  ],
+  [
+   "direction",
+   "כיוון"
+  ],
+  [
+   "disadvantage",
+   "חסרון"
+  ],
+  [
+   "disclose",
+   "לגלות, לחשוף"
+  ],
+  [
+   "discover",
+   "לגלות"
+  ],
+  [
+   "discoveries",
+   "תגליות"
+  ],
+  [
+   "discuss",
+   "לדון, להתווכח"
+  ],
+  [
+   "disprove",
+   "להפריך"
+  ],
+  [
+   "distinct",
+   "ברור, נפרד"
+  ],
+  [
+   "distress",
+   "מצוקה"
+  ],
+  [
+   "diverge",
+   "לסטות"
+  ],
+  [
+   "diversity",
+   "מגוון"
+  ],
+  [
+   "divide",
+   "לחלק"
+  ],
+  [
+   "doubt",
+   "ספק, להטיל ספק"
+  ],
+  [
+   "edit",
+   "לערוך"
+  ],
+  [
+   "edition",
+   "מהדורה"
+  ],
+  [
+   "editor",
+   "עורך"
+  ],
+  [
+   "emperor",
+   "שליט, קיסר"
+  ],
+  [
+   "empire",
+   "אימפריה"
+  ],
+  [
+   "enable",
+   "לאפשר"
+  ],
+  [
+   "enormous",
+   "עצום"
+  ],
+  [
+   "enough",
+   "מספיק"
+  ],
+  [
+   "era",
+   "עידן"
+  ],
+  [
+   "essential",
+   "חיוני"
+  ],
+  [
+   "evaluate",
+   "להעריך, לאמוד"
+  ],
+  [
+   "evaluation",
+   "הערכה"
+  ],
+  [
+   "even",
+   "אפילו; זוגי (מספר); ליישר, להשוות"
+  ],
+  [
+   "evenly",
+   "באופן שווה"
+  ],
+  [
+   "except for",
+   "למעט"
+  ],
+  [
+   "exercise",
+   "תרגיל; להתאמן; לממש, ליישם"
+  ],
+  [
+   "expect",
+   "לצפות"
+  ],
+  [
+   "expectations",
+   "ציפיות"
+  ],
+  [
+   "explain",
+   "להסביר"
+  ],
+  [
+   "explanation",
+   "הסבר"
+  ],
+  [
+   "express",
+   "מהיר; לבטא"
+  ],
+  [
+   "expression",
+   "ביטוי"
+  ],
+  [
+   "extreme",
+   "קיצוני"
+  ],
+  [
+   "face",
+   "פונה ל-, עם הפנים ל-; פנים"
+  ],
+  [
+   "facial",
+   "שקשור בפנים"
+  ],
+  [
+   "financial",
+   "כספי"
+  ],
+  [
+   "forbid",
+   "לאסור"
+  ],
+  [
+   "form",
+   "צורה; ליצור, להקים"
+  ],
+  [
+   "formal",
+   "רשמי"
+  ],
+  [
+   "forth",
+   "הלאה, קדימה"
+  ],
+  [
+   "General",
+   "גנרל (דרגה צבאית); כללי"
+  ],
+  [
+   "generally",
+   "באופן כללי"
+  ],
+  [
+   "gross",
+   "ברוטו, גלמי; ענק, דוחה"
+  ],
+  [
+   "growth",
+   "צמיחה, גדילה"
+  ],
+  [
+   "habit",
+   "הרגל"
+  ],
+  [
+   "habitat",
+   "סביבת מגורים"
+  ],
+  [
+   "health",
+   "בריאות"
+  ],
+  [
+   "heavily",
+   "מאוד, במידה רבה"
+  ],
+  [
+   "heavy",
+   "כבד"
+  ],
+  [
+   "hope",
+   "תקווה, לקוות"
+  ],
+  [
+   "human",
+   "אנושי"
+  ],
+  [
+   "human being",
+   "בן-אדם, אנוש"
+  ],
+  [
+   "identical",
+   "זהה"
+  ],
+  [
+   "implicate",
+   "לסבך, לערב"
+  ],
+  [
+   "implications",
+   "השלכות, משמעות"
+  ],
+  [
+   "importance",
+   "חשיבות"
+  ],
+  [
+   "important",
+   "חשוב"
+  ],
+  [
+   "inadequate",
+   "לקוי, לא מספיק"
+  ],
+  [
+   "income",
+   "הכנסה"
+  ],
+  [
+   "incomprehensible",
+   "לא מובן"
+  ],
+  [
+   "indicate",
+   "להצביע על"
+  ],
+  [
+   "indication",
+   "אינדיקציה, סימן ל-"
+  ],
+  [
+   "inhabit",
+   "ליישב, לאכלס"
+  ],
+  [
+   "inhabitants",
+   "תושבים"
+  ],
+  [
+   "initial",
+   "ראשי תיבות; התחלתי, ראשוני"
+  ],
+  [
+   "initiated",
+   "יזם, התחיל, אִתְחֵל"
+  ],
+  [
+   "international",
+   "בינלאומי"
+  ],
+  [
+   "island",
+   "אי"
+  ],
+  [
+   "isle",
+   "אי"
+  ],
+  [
+   "issue",
+   "נושא, עניין, סוגיה; להוציא לאור, להפיץ; גיליון"
+  ],
+  [
+   "jewel",
+   "תכשיט"
+  ],
+  [
+   "join",
+   "להצטרף, לחבר"
+  ],
+  [
+   "joint",
+   "משותף; מפרק, חיבור"
+  ],
+  [
+   "judge",
+   "לשפוט; שופט"
+  ],
+  [
+   "lack",
+   "מחסור"
+  ],
+  [
+   "language",
+   "שפה"
+  ],
+  [
+   "large",
+   "גדול"
+  ],
+  [
+   "largest",
+   "הגדול ביותר"
+  ],
+  [
+   "law",
+   "חוק"
+  ],
+  [
+   "lawyer",
+   "עורך-דין"
+  ],
+  [
+   "legal",
+   "משפטי; חוקי"
+  ],
+  [
+   "legalize",
+   "להפוך חוקי, לאשר"
+  ],
+  [
+   "less",
+   "פחות"
+  ],
+  [
+   "lethal",
+   "קטלני"
+  ],
+  [
+   "level",
+   "לאזן, להשוות; רמה, דרגה, מפלס"
+  ],
+  [
+   "likely",
+   "סביר"
+  ],
+  [
+   "local",
+   "מקומי"
+  ],
+  [
+   "locate",
+   "לאתר"
+  ],
+  [
+   "malfunction",
+   "כשל, ליקוי"
+  ],
+  [
+   "massacre",
+   "טֶבַח"
+  ],
+  [
+   "medicine",
+   "רפואה, תרופה"
+  ],
+  [
+   "medieval",
+   "מתקופת ימי הביניים"
+  ],
+  [
+   "merchandise",
+   "מוצרים, סחורה"
+  ],
+  [
+   "mere",
+   "רק, לא יותר מ-"
+  ],
+  [
+   "merely",
+   "רק, לא יותר מ-"
+  ],
+  [
+   "middle",
+   "אמצע"
+  ],
+  [
+   "mortal",
+   "קטלני; אנושי, בן תמותה"
+  ],
+  [
+   "mortality",
+   "תמותה"
+  ],
+  [
+   "most",
+   "רוב; הכי"
+  ],
+  [
+   "mutually",
+   "באופן שווה/הדדי"
+  ],
+  [
+   "nation",
+   "אומה"
+  ],
+  [
+   "nationality",
+   "לאום"
+  ],
+  [
+   "nationalize",
+   "להלאים"
+  ],
+  [
+   "native",
+   "יליד, מקומי, טבעי"
+  ],
+  [
+   "natural",
+   "טבעי"
+  ],
+  [
+   "nature",
+   "טבע"
+  ],
+  [
+   "need",
+   "צריך, צורך"
+  ],
+  [
+   "negative",
+   "שלילי"
+  ],
+  [
+   "network",
+   "רשת"
+  ],
+  [
+   "new",
+   "חדש"
+  ],
+  [
+   "newscaster",
+   "מגיש חדשות"
+  ],
+  [
+   "newspaper",
+   "עיתון"
+  ],
+  [
+   "note",
+   "הערה, פתק; לציין"
+  ],
+  [
+   "noted",
+   "ידוע, מפורסם"
+  ],
+  [
+   "obviously",
+   "ברור"
+  ],
+  [
+   "occasion",
+   "אירוע, סיבה, הזדמנות"
+  ],
+  [
+   "occasional",
+   "מדי פעם, מקרי"
+  ],
+  [
+   "occasions",
+   "הזדמנויות, מקרים"
+  ],
+  [
+   "occur",
+   "קרה, התרחש"
+  ],
+  [
+   "offer",
+   "הצעה, להציע"
+  ],
+  [
+   "official",
+   "רשמי, מאושר"
+  ],
+  [
+   "officiate",
+   "לכהן, לערוך"
+  ],
+  [
+   "oil",
+   "נפט, שמן, לשמן"
+  ],
+  [
+   "ongoing",
+   "מתמשך"
+  ],
+  [
+   "option",
+   "אפשרות, אופציה"
+  ],
+  [
+   "order",
+   "לצוות; מסדר דתי; להזמין"
+  ],
+  [
+   "orderly",
+   "מסודר"
+  ],
+  [
+   "orientation",
+   "התמצאות"
+  ],
+  [
+   "origin",
+   "מקור, מוצא"
+  ],
+  [
+   "original",
+   "מקורי"
+  ],
+  [
+   "originality",
+   "מקוריות"
+  ],
+  [
+   "originate",
+   "התחיל, התהווה"
+  ],
+  [
+   "outcome",
+   "תוצאה"
+  ],
+  [
+   "overcome",
+   "להתגבר"
+  ],
+  [
+   "part",
+   "חלק"
+  ],
+  [
+   "partial",
+   "חלקי"
+  ],
+  [
+   "patient",
+   "סבלני; חולה"
+  ],
+  [
+   "per",
+   "לכל"
+  ],
+  [
+   "percent",
+   "אחוז"
+  ],
+  [
+   "perfect",
+   "להשלים, לשפר; מושלם"
+  ],
+  [
+   "pollution",
+   "זיהום"
+  ],
+  [
+   "population",
+   "אוכלוסייה"
+  ],
+  [
+   "possess",
+   "להיות בעלים של, להחזיק ב-"
+  ],
+  [
+   "possession",
+   "בעלות, חזקה"
+  ],
+  [
+   "precise",
+   "מדויק"
+  ],
+  [
+   "precision",
+   "דיוק"
+  ],
+  [
+   "presence",
+   "נוכחות"
+  ],
+  [
+   "present",
+   "להציג; מתנה; הווה, נוכח, קיים"
+  ],
+  [
+   "prime",
+   "ראשוני, עיקרי, מובחר"
+  ],
+  [
+   "primitive",
+   "קדום, חסר תרבות"
+  ],
+  [
+   "prior",
+   "קודם"
+  ],
+  [
+   "priority",
+   "עדיפות"
+  ],
+  [
+   "progress",
+   "התקדמות, להתקדם"
+  ],
+  [
+   "progressive",
+   "מתקדם ומתמשך"
+  ],
+  [
+   "proper",
+   "מתאים, הולם"
+  ],
+  [
+   "properly",
+   "כראוי"
+  ],
+  [
+   "protect",
+   "להגן"
+  ],
+  [
+   "provide",
+   "לפרנס; לספק"
+  ],
+  [
+   "purpose",
+   "כוונה, מטרה"
+  ],
+  [
+   "purposely",
+   "בכוונה"
+  ],
+  [
+   "quiet",
+   "שקט"
+  ],
+  [
+   "quite",
+   "למדי"
+  ],
+  [
+   "quote",
+   "ציטוט"
+  ],
+  [
+   "raise",
+   "להעלות"
+  ],
+  [
+   "range",
+   "טווח; רכס; מטווח"
+  ],
+  [
+   "rational",
+   "הגיוני, רציונאלי"
+  ],
+  [
+   "rationalize",
+   "להצדיק, להסביר"
+  ],
+  [
+   "reality",
+   "מציאות"
+  ],
+  [
+   "reason",
+   "סיבה; הגיון"
+  ],
+  [
+   "recession",
+   "מיתון"
+  ],
+  [
+   "recommend",
+   "להמליץ"
+  ],
+  [
+   "recycle",
+   "למחזר"
+  ],
+  [
+   "recycling",
+   "מחזור"
+  ],
+  [
+   "reduce",
+   "להפחית"
+  ],
+  [
+   "refer",
+   "מתייחס"
+  ],
+  [
+   "reference",
+   "התייחסות, הפניה"
+  ],
+  [
+   "refuse",
+   "אשפה, זבל; לסרב"
+  ],
+  [
+   "regime",
+   "שלטון, משטר"
+  ],
+  [
+   "regulation",
+   "תקנה"
+  ],
+  [
+   "reign",
+   "שלטון"
+  ],
+  [
+   "reigned",
+   "משל, שלט"
+  ],
+  [
+   "relative",
+   "קרוב-משפחה; יחסי"
+  ],
+  [
+   "relatively",
+   "בקרוב, באופן יחסי"
+  ],
+  [
+   "religion",
+   "דת"
+  ],
+  [
+   "repeat",
+   "לחזור; שידור/מאורע חוזר"
+  ],
+  [
+   "repetition",
+   "חזרה"
+  ],
+  [
+   "reply",
+   "להשיב"
+  ],
+  [
+   "research",
+   "מחקר"
+  ],
+  [
+   "resist",
+   "להתנגד"
+  ],
+  [
+   "resistance",
+   "התנגדות, מחתרת"
+  ],
+  [
+   "resolve",
+   "נחוש; לפתור"
+  ],
+  [
+   "result",
+   "תוצאה"
+  ],
+  [
+   "result in",
+   "הסתיים ב-"
+  ],
+  [
+   "reveal",
+   "לחשוף"
+  ],
+  [
+   "review",
+   "ביקורת; לסקור, סקירה"
+  ],
+  [
+   "rigid",
+   "נוקשה, מחמיר"
+  ],
+  [
+   "rise",
+   "עליה, לעלות"
+  ],
+  [
+   "rising",
+   "זריחה; עולה"
+  ],
+  [
+   "rocket",
+   "טיל"
+  ],
+  [
+   "scene",
+   "סצנה; זירה"
+  ],
+  [
+   "scenery",
+   "נוף"
+  ],
+  [
+   "science",
+   "מדע"
+  ],
+  [
+   "scientist",
+   "מדען"
+  ],
+  [
+   "section",
+   "יחידה, חלק"
+  ],
+  [
+   "seem",
+   "נראה כ-, דומה ל-"
+  ],
+  [
+   "sense",
+   "היגיון, תודעה; חוש, לחוש"
+  ],
+  [
+   "sensible",
+   "נבון"
+  ],
+  [
+   "serious",
+   "רציני, חמור"
+  ],
+  [
+   "shuttle",
+   "מעבורת"
+  ],
+  [
+   "sign",
+   "לחתום; שֶׁלֶט; סימן, לסמן"
+  ],
+  [
+   "signal",
+   "אות, סימן, לאותת"
+  ],
+  [
+   "similar",
+   "דומה"
+  ],
+  [
+   "simple",
+   "פשוט"
+  ],
+  [
+   "simplify",
+   "לפשט"
+  ],
+  [
+   "simply",
+   "בפשטות"
+  ],
+  [
+   "social",
+   "חברתי"
+  ],
+  [
+   "spacious",
+   "מרווח"
+  ],
+  [
+   "square",
+   "ריבוע; כיכר"
+  ],
+  [
+   "stand",
+   "לעמוד"
+  ],
+  [
+   "standardize",
+   "לתקנן"
+  ],
+  [
+   "subject",
+   "למסור, להעביר לבעלות אחר; נתין, אזרח, אדם; נושא; נתון ל-, בכפוך ל-"
+  ],
+  [
+   "subjective",
+   "אישי, משוחד בדעתו"
+  ],
+  [
+   "suburban",
+   "פרברי"
+  ],
+  [
+   "succeed",
+   "הצליח"
+  ],
+  [
+   "success",
+   "הצלחה"
+  ],
+  [
+   "sum",
+   "סכום, סך, לסכם"
+  ],
+  [
+   "summarize",
+   "לסכם"
+  ],
+  [
+   "summary",
+   "סיכום, תמצית"
+  ],
+  [
+   "surround",
+   "להקיף"
+  ],
+  [
+   "surrounding",
+   "מקיף, סובב"
+  ],
+  [
+   "task",
+   "משימה"
+  ],
+  [
+   "territory",
+   "תחום, שטח"
+  ],
+  [
+   "thereby",
+   "ולכן, גרם ל-"
+  ],
+  [
+   "title",
+   "כותרת"
+  ],
+  [
+   "touch",
+   "מגע, לגעת"
+  ],
+  [
+   "trade",
+   "להחליף; לסחור, מסחר"
+  ],
+  [
+   "train",
+   "רכבת; להכשיר, לאמן"
+  ],
+  [
+   "trial",
+   "נסיון; משפט"
+  ],
+  [
+   "turn",
+   "לפנות, סיבוב"
+  ],
+  [
+   "uncharted",
+   "לא מתועד"
+  ],
+  [
+   "uniform",
+   "מדים; אחיד"
+  ],
+  [
+   "unify",
+   "לאחד"
+  ],
+  [
+   "union",
+   "איגוד, איחוד"
+  ],
+  [
+   "universe",
+   "יקום"
+  ],
+  [
+   "uphold",
+   "להחזיק, לתמוך, לדגול"
+  ],
+  [
+   "volume",
+   "נפח; כרך; עוצמת קול"
+  ],
+  [
+   "war",
+   "מלחמה"
+  ],
+  [
+   "warfare",
+   "לוחמה"
+  ],
+  [
+   "warrior",
+   "לוחם"
+  ],
+  [
+   "waste",
+   "בזבוז, לבזבז; הפסולת"
+  ],
+  [
+   "watch",
+   "להסתכל, להשגיח; שעון"
+  ],
+  [
+   "widespread",
+   "נפוץ"
+  ],
+  [
+   "wild",
+   "פראי, טבע"
+  ],
+  [
+   "wilderness",
+   "ערבה, שממה"
+  ],
+  [
+   "wool",
+   "צמר"
+  ]
+ ],
+ "4": [
+  [
+   "abandon",
+   "לנטוש, לזנוח"
+  ],
+  [
+   "abduct",
+   "חטיפה, לחטוף"
+  ],
+  [
+   "abide",
+   "לציית"
+  ],
+  [
+   "absence",
+   "מחסור"
+  ],
+  [
+   "absent",
+   "חסר, לא נוכח"
+  ],
+  [
+   "absorb",
+   "לספוג"
+  ],
+  [
+   "abundance",
+   "שפע"
+  ],
+  [
+   "abuse",
+   "התעללות, ניצול; להתעלל, לנצל"
+  ],
+  [
+   "accumulate",
+   "לצבור, לאסוף"
+  ],
+  [
+   "acquire",
+   "לרכוש, להשיג"
+  ],
+  [
+   "acquisition",
+   "רכישה"
+  ],
+  [
+   "adopt",
+   "לאמץ"
+  ],
+  [
+   "adventure",
+   "הרפתקה"
+  ],
+  [
+   "affect",
+   "להשפיע"
+  ],
+  [
+   "affection",
+   "חיבה"
+  ],
+  [
+   "affluence",
+   "שפע"
+  ],
+  [
+   "affluent",
+   "שופע, עשיר"
+  ],
+  [
+   "aid",
+   "עזרה, לסייע"
+  ],
+  [
+   "airborne",
+   "נישא באוויר"
+  ],
+  [
+   "airline",
+   "חברת תעופה"
+  ],
+  [
+   "airplane",
+   "אווירון, מטוס"
+  ],
+  [
+   "alike",
+   "דומה"
+  ],
+  [
+   "allow",
+   "להרשות"
+  ],
+  [
+   "ally (allies)",
+   "בן-ברית (בנות-ברית)"
+  ],
+  [
+   "alter",
+   "שינה ,לשנות"
+  ],
+  [
+   "alterations",
+   "שינויים"
+  ],
+  [
+   "alternately",
+   "לסירוגין"
+  ],
+  [
+   "amateur",
+   "חובבן"
+  ],
+  [
+   "amend",
+   "תיקון, שינוי לטובה"
+  ],
+  [
+   "analyze",
+   "לנתח"
+  ],
+  [
+   "anticipate",
+   "לצפות"
+  ],
+  [
+   "anxious",
+   "להוט; חרד"
+  ],
+  [
+   "apparent",
+   "גלוי"
+  ],
+  [
+   "apparently",
+   "כנראה"
+  ],
+  [
+   "apply",
+   "לפנות"
+  ],
+  [
+   "appreciate",
+   "עליה בערך"
+  ],
+  [
+   "appreciation",
+   "הערכה"
+  ],
+  [
+   "appropriately",
+   "בהתאם"
+  ],
+  [
+   "arise",
+   "להופיע, לעלות"
+  ],
+  [
+   "arise, arose",
+   "לקום, קם"
+  ],
+  [
+   "artificial",
+   "מלאכותי"
+  ],
+  [
+   "aside",
+   "הצידה; במאמר מוסגר, מלבד"
+  ],
+  [
+   "assess",
+   "להעריך, לאמוד"
+  ],
+  [
+   "asset",
+   "נכס"
+  ],
+  [
+   "assign",
+   "למנות, להקצות"
+  ],
+  [
+   "assignment",
+   "משימה, מטלה"
+  ],
+  [
+   "attain",
+   "להשיג, להגיע"
+  ],
+  [
+   "attend",
+   "להשתתף, להיות נוכח"
+  ],
+  [
+   "attendant",
+   "משרת, מטפל, מלווה"
+  ],
+  [
+   "authority",
+   "סמכות"
+  ],
+  [
+   "authorize",
+   "להרשות, להסמיך"
+  ],
+  [
+   "autumn",
+   "סתיו"
+  ],
+  [
+   "await",
+   "להמתין"
+  ],
+  [
+   "awareness",
+   "מודעות"
+  ],
+  [
+   "bare",
+   "חשוף, ריק, לחשוף"
+  ],
+  [
+   "behave",
+   "להתנהג"
+  ],
+  [
+   "behavior",
+   "התנהגות"
+  ],
+  [
+   "bounce",
+   "לקפץ, ניתור"
+  ],
+  [
+   "brilliant",
+   "מבריק"
+  ],
+  [
+   "burden",
+   "עול"
+  ],
+  [
+   "bush",
+   "שיח; ערבה"
+  ],
+  [
+   "cable",
+   "כבל"
+  ],
+  [
+   "calculate",
+   "לחשב"
+  ],
+  [
+   "calculator",
+   "מחשבון"
+  ],
+  [
+   "campaign",
+   "מערכה, מסע"
+  ],
+  [
+   "candid",
+   "כנה, ישיר"
+  ],
+  [
+   "candidate",
+   "מועמד"
+  ],
+  [
+   "case",
+   "תיבה; מקרה, טיעון"
+  ],
+  [
+   "categorize",
+   "לקטלג, למיין, לסווג"
+  ],
+  [
+   "cautious",
+   "זהיר"
+  ],
+  [
+   "century",
+   "מאה שנים"
+  ],
+  [
+   "charge",
+   "לגבות; להאשים; להסתער; לחייב"
+  ],
+  [
+   "chart",
+   "גיליון, תרשים"
+  ],
+  [
+   "claim",
+   "טענה, טוען; תביעה"
+  ],
+  [
+   "coincide",
+   "להקביל, לחפוף"
+  ],
+  [
+   "colossal",
+   "עצום"
+  ],
+  [
+   "commence",
+   "להתחיל"
+  ],
+  [
+   "compress",
+   "לדחוס"
+  ],
+  [
+   "comprise",
+   "לכלול"
+  ],
+  [
+   "concept",
+   "רעיון, מושג"
+  ],
+  [
+   "conception",
+   "תפיסה"
+  ],
+  [
+   "confer",
+   "להתייעץ; להעניק, להסביר"
+  ],
+  [
+   "conference",
+   "ועידה"
+  ],
+  [
+   "confide",
+   "לשתף, לספר (סוד)"
+  ],
+  [
+   "confident",
+   "בטוח בעצמו"
+  ],
+  [
+   "conflict",
+   "עימות, סכסוך"
+  ],
+  [
+   "conjecture",
+   "סברה, לשער"
+  ],
+  [
+   "connect",
+   "לחבר"
+  ],
+  [
+   "consequence",
+   "תוצאה"
+  ],
+  [
+   "consider",
+   "לקחת בחשבון, לשקול"
+  ],
+  [
+   "considerable",
+   "הרבה, רבות"
+  ],
+  [
+   "consume",
+   "לצרוך"
+  ],
+  [
+   "consumers",
+   "צרכנים"
+  ],
+  [
+   "contain",
+   "להכיל, מכיל"
+  ],
+  [
+   "contemporary",
+   "עכשווי"
+  ],
+  [
+   "convenient",
+   "נוח"
+  ],
+  [
+   "conveniently",
+   "באופן נח"
+  ],
+  [
+   "convention",
+   "מוסכמה; ועידה, כנס"
+  ],
+  [
+   "conventional",
+   "שגרתי, קונבנציונאלי"
+  ],
+  [
+   "convert",
+   "להמיר; מומר"
+  ],
+  [
+   "convey",
+   "למסור, להעביר"
+  ],
+  [
+   "courageous",
+   "אמיץ"
+  ],
+  [
+   "create",
+   "ליצור"
+  ],
+  [
+   "creator",
+   "יוצר"
+  ],
+  [
+   "creature",
+   "יצור"
+  ],
+  [
+   "currency",
+   "מטבע"
+  ],
+  [
+   "custom",
+   "מנהג; מותאם אישית"
+  ],
+  [
+   "customer",
+   "לקוח, צרכן"
+  ],
+  [
+   "customize",
+   "להתאים באופן אישי"
+  ],
+  [
+   "damage",
+   "נזק, לגרום נזק"
+  ],
+  [
+   "decade",
+   "עשור"
+  ],
+  [
+   "defeat",
+   "תבוסה"
+  ],
+  [
+   "defeated",
+   "הובס"
+  ],
+  [
+   "defend",
+   "להגן"
+  ],
+  [
+   "defense",
+   "הגנה"
+  ],
+  [
+   "deficiency",
+   "מחסור"
+  ],
+  [
+   "deliver",
+   "לשלוח"
+  ],
+  [
+   "delivery",
+   "משלוח"
+  ],
+  [
+   "demographic",
+   "דמוגרפי"
+  ],
+  [
+   "demonstrate",
+   "להדגים; להפגין"
+  ],
+  [
+   "destination",
+   "יעד"
+  ],
+  [
+   "detach",
+   "להתנתק"
+  ],
+  [
+   "deteriorate",
+   "להידרדר"
+  ],
+  [
+   "diagnose",
+   "לאבחן"
+  ],
+  [
+   "director",
+   "במאי; מנהל"
+  ],
+  [
+   "discriminate",
+   "להפלות"
+  ],
+  [
+   "dismiss",
+   "לבטל, לפטר, לשחרר"
+  ],
+  [
+   "disposable",
+   "חד-פעמי"
+  ],
+  [
+   "disrupt",
+   "להפריע, לשבש"
+  ],
+  [
+   "distribute",
+   "להפיץ"
+  ],
+  [
+   "distribution",
+   "הפצה"
+  ],
+  [
+   "document",
+   "מסמך; לתעד"
+  ],
+  [
+   "duty",
+   "תפקיד, חובה"
+  ],
+  [
+   "earn",
+   "להרוויח"
+  ],
+  [
+   "economy",
+   "כלכלה"
+  ],
+  [
+   "edge",
+   "קצה, חספוס"
+  ],
+  [
+   "elaborate",
+   "לפרט, להרחיב"
+  ],
+  [
+   "elect",
+   "לבחור"
+  ],
+  [
+   "emerge",
+   "להגיח, להופיע"
+  ],
+  [
+   "emigrate",
+   "להגר"
+  ],
+  [
+   "eminent",
+   "בולט, בכיר"
+  ],
+  [
+   "enclose",
+   "לצרף"
+  ],
+  [
+   "enlarge",
+   "להגדיל"
+  ],
+  [
+   "ensure",
+   "להבטיח"
+  ],
+  [
+   "environment",
+   "סביבה"
+  ],
+  [
+   "epidemic",
+   "מגיפה, אפידמיה"
+  ],
+  [
+   "equivalent",
+   "מקבילה"
+  ],
+  [
+   "erase",
+   "למחוק"
+  ],
+  [
+   "eraser",
+   "מחק"
+  ],
+  [
+   "establish",
+   "לייסד"
+  ],
+  [
+   "estimate",
+   "להעריך, לאמוד"
+  ],
+  [
+   "ethical",
+   "אתי, מוסרי"
+  ],
+  [
+   "evade",
+   "התחמק"
+  ],
+  [
+   "evidence",
+   "ראיה"
+  ],
+  [
+   "exception",
+   "יוצא מהכלל"
+  ],
+  [
+   "execute",
+   "להוציא לפועל; להוציא להורג"
+  ],
+  [
+   "facility",
+   "מתקן"
+  ],
+  [
+   "fail",
+   "להיכשל"
+  ],
+  [
+   "failure",
+   "כשלון"
+  ],
+  [
+   "faith",
+   "אמון"
+  ],
+  [
+   "fall",
+   "סתיו"
+  ],
+  [
+   "feature",
+   "להציג; סרט באורך מלא; תכונה, מאפיין"
+  ],
+  [
+   "flourish",
+   "לשגשג, לפרוח"
+  ],
+  [
+   "follow",
+   "לעקוב, לציית"
+  ],
+  [
+   "for the sake of",
+   "למען"
+  ],
+  [
+   "force",
+   "לכפות; כוח"
+  ],
+  [
+   "forsake",
+   "לזנוח"
+  ],
+  [
+   "found",
+   "מצא, גילה; לייסד"
+  ],
+  [
+   "foundation",
+   "יסוד"
+  ],
+  [
+   "function",
+   "תפקוד, לתפקד"
+  ],
+  [
+   "future",
+   "עתיד"
+  ],
+  [
+   "gather",
+   "אסף"
+  ],
+  [
+   "global",
+   "עולמי, גלובאלי"
+  ],
+  [
+   "goal",
+   "מטרה"
+  ],
+  [
+   "goods",
+   "סחורה, טובין"
+  ],
+  [
+   "grasp",
+   "לתפוס, להבין; אחיזה"
+  ],
+  [
+   "group",
+   "קבוצה, לקבץ"
+  ],
+  [
+   "hardly",
+   "בקושי"
+  ],
+  [
+   "hesitate",
+   "להסס"
+  ],
+  [
+   "hold back",
+   "לעכב, למנוע"
+  ],
+  [
+   "homeland",
+   "מולדת"
+  ],
+  [
+   "honest",
+   "הגון"
+  ],
+  [
+   "honor",
+   "לכבד, כבוד"
+  ],
+  [
+   "huge",
+   "עצום, ענק"
+  ],
+  [
+   "idea",
+   "רעיון"
+  ],
+  [
+   "identify",
+   "לזהות"
+  ],
+  [
+   "illegal",
+   "לא חוקי"
+  ],
+  [
+   "image",
+   "דמות, תמונה"
+  ],
+  [
+   "imagination",
+   "דמיון"
+  ],
+  [
+   "imagine",
+   "לדמיין"
+  ],
+  [
+   "impair",
+   "לפגום, להחליש"
+  ],
+  [
+   "impart",
+   "להעביר, להקנות"
+  ],
+  [
+   "impartially",
+   "באופן הוגן, ללא אפליה"
+  ],
+  [
+   "import",
+   "לייבא"
+  ],
+  [
+   "impose",
+   "לכפות"
+  ],
+  [
+   "impossible",
+   "בלתי אפשר"
+  ],
+  [
+   "imprisoned",
+   "כלוא"
+  ],
+  [
+   "improve",
+   "לשפר"
+  ],
+  [
+   "improvise",
+   "לאלתר"
+  ],
+  [
+   "in order",
+   "תקין, מסודר"
+  ],
+  [
+   "increase",
+   "להגדיל, להגביר"
+  ],
+  [
+   "incredible",
+   "מדהים"
+  ],
+  [
+   "individual",
+   "יחיד, אינדיבידואל"
+  ],
+  [
+   "industry",
+   "תעשייה"
+  ],
+  [
+   "inferred",
+   "נגזר, משתמע"
+  ],
+  [
+   "inform",
+   "להודיע, לעדכן"
+  ],
+  [
+   "information",
+   "מידע"
+  ],
+  [
+   "innovate",
+   "לחדש, להמציא"
+  ],
+  [
+   "intention",
+   "כוונה"
+  ],
+  [
+   "intentional",
+   "מכוון"
+  ],
+  [
+   "interact",
+   "לתקשר, להשפיע"
+  ],
+  [
+   "interest",
+   "עניין; ריבית"
+  ],
+  [
+   "internal",
+   "פנימי"
+  ],
+  [
+   "interpretation",
+   "פרשנות"
+  ],
+  [
+   "involve",
+   "לערב"
+  ],
+  [
+   "isolate",
+   "לבודד"
+  ],
+  [
+   "judgment",
+   "שיפוט"
+  ],
+  [
+   "know, knew",
+   "לדעת, ידע"
+  ],
+  [
+   "knowledge",
+   "יֶדַע"
+  ],
+  [
+   "known",
+   "ידוע"
+  ],
+  [
+   "laid",
+   "מונח"
+  ],
+  [
+   "lane",
+   "מסלול"
+  ],
+  [
+   "launch",
+   "לשגר, להוציא לדרך; להשיק, להתחיל"
+  ],
+  [
+   "limit",
+   "גבול, לשים גבול, מוגבל"
+  ],
+  [
+   "limitation",
+   "מגבלה"
+  ],
+  [
+   "lobby",
+   "לשדל; לובי, מבואה"
+  ],
+  [
+   "mammal",
+   "יונק"
+  ],
+  [
+   "moderate",
+   "מתון; לתווך, לפשר"
+  ],
+  [
+   "modernize",
+   "להפוך למודרני"
+  ],
+  [
+   "mold",
+   "לעצב; עובש"
+  ],
+  [
+   "motivate",
+   "לדרבן"
+  ],
+  [
+   "negate",
+   "לשלול"
+  ],
+  [
+   "neutral",
+   "ניטרלי"
+  ],
+  [
+   "numerous",
+   "מרובה"
+  ],
+  [
+   "nutrition",
+   "תזונה"
+  ],
+  [
+   "object",
+   "פריט, אובייקט; להתנגד"
+  ],
+  [
+   "obtain",
+   "להשיג"
+  ],
+  [
+   "operate",
+   "לפעול, להפעיל, לתפעל; לנתח"
+  ],
+  [
+   "operation",
+   "ניתוח; מבצע, פעולה"
+  ],
+  [
+   "opposition",
+   "אופוזיציה, התנגדות"
+  ],
+  [
+   "ordinary",
+   "רגיל"
+  ],
+  [
+   "organ",
+   "אורגן (כלי נגינה); איבר"
+  ],
+  [
+   "organization",
+   "ארגון"
+  ],
+  [
+   "organize",
+   "לארגן"
+  ],
+  [
+   "outbreak",
+   "התפרצות"
+  ],
+  [
+   "overdo",
+   "להפריז, להגזים"
+  ],
+  [
+   "overdue",
+   "שעבר זמן ההגשה שלו"
+  ],
+  [
+   "pace",
+   "קצב"
+  ],
+  [
+   "pair",
+   "זוג"
+  ],
+  [
+   "parent",
+   "הורה"
+  ],
+  [
+   "parenting",
+   "הורות"
+  ],
+  [
+   "participate",
+   "השתתף"
+  ],
+  [
+   "particular",
+   "מיוחד, לא רגיל"
+  ],
+  [
+   "particulars",
+   "פריטים"
+  ],
+  [
+   "pause",
+   "הפסקה, להפסיק"
+  ],
+  [
+   "persist",
+   "להתמיד, להתעקש"
+  ],
+  [
+   "person",
+   "אדם"
+  ],
+  [
+   "personal",
+   "אישי"
+  ],
+  [
+   "personality",
+   "אישיות"
+  ],
+  [
+   "phase",
+   "שלב, דרגה"
+  ],
+  [
+   "phenomenon",
+   "תופעה"
+  ],
+  [
+   "pioneer",
+   "חלוץ"
+  ],
+  [
+   "position",
+   "מיקום, למקם; תנוחה; תפקיד, משרה"
+  ],
+  [
+   "possible",
+   "אפשרי"
+  ],
+  [
+   "poverty",
+   "עוני"
+  ],
+  [
+   "poverty-stricken",
+   "מוכה עוני"
+  ],
+  [
+   "precedent",
+   "תקדים"
+  ],
+  [
+   "preceding",
+   "קודם"
+  ],
+  [
+   "predecessors",
+   "קודמים"
+  ],
+  [
+   "predestined",
+   "נקבע מראש"
+  ],
+  [
+   "predict",
+   "לצפות מראש"
+  ],
+  [
+   "prediction",
+   "חיזוי, ניבוי"
+  ],
+  [
+   "predictive",
+   "נבואי"
+  ],
+  [
+   "premature",
+   "מוקדם מדי"
+  ],
+  [
+   "private",
+   "פרטי"
+  ],
+  [
+   "produce",
+   "לייצר; תוצר, ירקות ופירות"
+  ],
+  [
+   "product",
+   "מוצר"
+  ],
+  [
+   "profession",
+   "מקצוע"
+  ],
+  [
+   "professional",
+   "מקצועי"
+  ],
+  [
+   "profound",
+   "מעמיק; מוחלט, מאוד"
+  ],
+  [
+   "profoundly",
+   "עמוקות"
+  ],
+  [
+   "promise",
+   "הבטחה, להבטיח"
+  ],
+  [
+   "property",
+   "תכונה; רכוש"
+  ],
+  [
+   "protest",
+   "למחות, הפגנה"
+  ],
+  [
+   "prove",
+   "להוכיח"
+  ],
+  [
+   "public",
+   "ציבורי"
+  ],
+  [
+   "race",
+   "מרוץ; גזע"
+  ],
+  [
+   "rail",
+   "מעקה, מסילה"
+  ],
+  [
+   "railroad",
+   "מסילת רכבת"
+  ],
+  [
+   "random",
+   "מקרי, אקראי"
+  ],
+  [
+   "randomly",
+   "באקראיות"
+  ],
+  [
+   "reaction",
+   "תגובה"
+  ],
+  [
+   "reasonable",
+   "הגיוני"
+  ],
+  [
+   "reconstruct",
+   "לשחזר"
+  ],
+  [
+   "refute",
+   "להפריך"
+  ],
+  [
+   "regain",
+   "להשיג מחדש"
+  ],
+  [
+   "regard",
+   "להתייחס, להחשיב"
+  ],
+  [
+   "relate",
+   "להתייחס, לקשר"
+  ],
+  [
+   "release",
+   "לשחרר"
+  ],
+  [
+   "relevant",
+   "רלוונטי, קשור"
+  ],
+  [
+   "relocate",
+   "למקם מחדש"
+  ],
+  [
+   "reluctant",
+   "מסויג, לא מעוניין"
+  ],
+  [
+   "rely",
+   "להסתמך"
+  ],
+  [
+   "remote",
+   "מרוחק"
+  ],
+  [
+   "report",
+   "דיווח, לדווח"
+  ],
+  [
+   "reporter",
+   "עיתונאי"
+  ],
+  [
+   "request",
+   "בקשה, לבקש"
+  ],
+  [
+   "require",
+   "לדרוש, דרישה"
+  ],
+  [
+   "restore",
+   "לשקם, לשחזר"
+  ],
+  [
+   "resume",
+   "להמשיך"
+  ],
+  [
+   "resumption",
+   "חידוש"
+  ],
+  [
+   "rule",
+   "לשלוט, לפסוק, להחליט; כלל, חוק, שלטון"
+  ],
+  [
+   "ruler",
+   "סרגל; מושל, שליט"
+  ],
+  [
+   "season",
+   "לתבל; עונה"
+  ],
+  [
+   "secure",
+   "להבטיח, לשמור, להגן"
+  ],
+  [
+   "selective",
+   "סלקטיבי"
+  ],
+  [
+   "service",
+   "שירות"
+  ],
+  [
+   "share",
+   "מניה; לחלוק"
+  ],
+  [
+   "ship",
+   "לשלוח; אוניה"
+  ],
+  [
+   "shipment",
+   "משלוח"
+  ],
+  [
+   "significance",
+   "משמעות, חשיבות"
+  ],
+  [
+   "significant",
+   "משמעותי"
+  ],
+  [
+   "simulate",
+   "לדמות, לחקות"
+  ],
+  [
+   "size",
+   "גודל"
+  ],
+  [
+   "soar",
+   "להמריא"
+  ],
+  [
+   "soil",
+   "אדמה; לכלוך"
+  ],
+  [
+   "solicit",
+   "לשדל / להדיח; לבקש/לחפש בתחינה"
+  ],
+  [
+   "solitude",
+   "בדידות"
+  ],
+  [
+   "solution",
+   "פתרון"
+  ],
+  [
+   "sort",
+   "למיין"
+  ],
+  [
+   "source",
+   "מקור"
+  ],
+  [
+   "span",
+   "להימתח, להקיף; מרווח"
+  ],
+  [
+   "splendid",
+   "נהדר, מהולל"
+  ],
+  [
+   "spring",
+   "מעיין; אביב"
+  ],
+  [
+   "spring, sprang",
+   "קפיץ ; לקפוץ, קפץ"
+  ],
+  [
+   "stability",
+   "יציבות"
+  ],
+  [
+   "stamina",
+   "כושר עמידה, סיבולת"
+  ],
+  [
+   "standard",
+   "רמה, תקן, מקובל"
+  ],
+  [
+   "state",
+   "מצב; מדינה"
+  ],
+  [
+   "statement",
+   "הצהרה"
+  ],
+  [
+   "steady",
+   "קבוע, יציב"
+  ],
+  [
+   "stimulate",
+   "לעורר, להמריץ"
+  ],
+  [
+   "stock",
+   "מלאי; מניה; לאחסן"
+  ],
+  [
+   "strange",
+   "מוזר"
+  ],
+  [
+   "strive",
+   "לשאוף"
+  ],
+  [
+   "successor",
+   "יורש"
+  ],
+  [
+   "summer",
+   "קיץ"
+  ],
+  [
+   "superior",
+   "עליון"
+  ],
+  [
+   "supervise",
+   "לפקח"
+  ],
+  [
+   "support",
+   "תמיכה, לתמוך"
+  ],
+  [
+   "supportive",
+   "תומך"
+  ],
+  [
+   "survey",
+   "לבחון, לסקור; סקר"
+  ],
+  [
+   "survive",
+   "לשרוד"
+  ],
+  [
+   "swift",
+   "מהיר"
+  ],
+  [
+   "temporary",
+   "זמני"
+  ],
+  [
+   "thick",
+   "סמיך; עבה"
+  ],
+  [
+   "thrive",
+   "לשגשג"
+  ],
+  [
+   "tradition",
+   "מסורת"
+  ],
+  [
+   "traffic",
+   "תנועה"
+  ],
+  [
+   "traffic jam",
+   "פקק תנועה"
+  ],
+  [
+   "transfer",
+   "העברה; להעביר"
+  ],
+  [
+   "tribe",
+   "שבט"
+  ],
+  [
+   "unaware",
+   "לא מודע"
+  ],
+  [
+   "uncertain",
+   "לא בטוח"
+  ],
+  [
+   "unclear",
+   "לא ברור"
+  ],
+  [
+   "uncover",
+   "לחשוף, לגלות"
+  ],
+  [
+   "unfold",
+   "נפרש, נפתח, התגלה; לפתוח קיפול"
+  ],
+  [
+   "unit",
+   "יחידה"
+  ],
+  [
+   "unstable",
+   "לא יציב"
+  ],
+  [
+   "update",
+   "עדכון, לעדכן"
+  ],
+  [
+   "upgrade",
+   "לשדרג"
+  ],
+  [
+   "valid",
+   "תקף"
+  ],
+  [
+   "validate",
+   "אימת, נתן תוקף"
+  ],
+  [
+   "violence",
+   "אלימות"
+  ],
+  [
+   "violent",
+   "אלים"
+  ],
+  [
+   "widely",
+   "בצורה נרחבת"
+  ],
+  [
+   "widen",
+   "להרחיב"
+  ],
+  [
+   "winter",
+   "חורף"
+  ]
+ ],
+ "5": [
+  [
+   "admirable",
+   "נערץ, ראוי להערצה"
+  ],
+  [
+   "admire",
+   "להעריץ"
+  ],
+  [
+   "adore",
+   "העריץ, אהב"
+  ],
+  [
+   "adverse",
+   "שלילי"
+  ],
+  [
+   "analog",
+   "אנלוגי (ההיפך מדיגיטלי)"
+  ],
+  [
+   "analogy",
+   "אנלוגיה, הקבלה"
+  ],
+  [
+   "ancestor",
+   "אב קדמון"
+  ],
+  [
+   "ancestry",
+   "מוצא"
+  ],
+  [
+   "ancient",
+   "קדום, עתיק"
+  ],
+  [
+   "assemble",
+   "להרכיב, להתאסף"
+  ],
+  [
+   "assist",
+   "לעזור, לסייע"
+  ],
+  [
+   "astonishment",
+   "תדהמה, השתאות"
+  ],
+  [
+   "astound",
+   "להדהים"
+  ],
+  [
+   "at your disposal",
+   "לרשותך"
+  ],
+  [
+   "author",
+   "סופר, מחבר"
+  ],
+  [
+   "avert",
+   "להסיט, להפנות, למנוע"
+  ],
+  [
+   "background",
+   "רקע"
+  ],
+  [
+   "benefactors",
+   "נדבנים, תורמים"
+  ],
+  [
+   "beneficial",
+   "מועיל, רווחי"
+  ],
+  [
+   "bold",
+   "אמיץ, חצוף; מודגש"
+  ],
+  [
+   "botanist",
+   "בוטנאי"
+  ],
+  [
+   "boundary",
+   "גבול"
+  ],
+  [
+   "branch",
+   "ענף, סניף"
+  ],
+  [
+   "broaden",
+   "להרחיב"
+  ],
+  [
+   "canal",
+   "תעלה"
+  ],
+  [
+   "cast",
+   "להשליך, לגרש; צוות שחקנים"
+  ],
+  [
+   "caste",
+   "מעמד חברתי"
+  ],
+  [
+   "castle",
+   "טירה"
+  ],
+  [
+   "casual",
+   "אגבי, רגיל, יומיומי"
+  ],
+  [
+   "chief",
+   "ראשי, בכיר, מנהיג; צ'יף"
+  ],
+  [
+   "citizen",
+   "אזרחים"
+  ],
+  [
+   "clarify",
+   "להבהיר"
+  ],
+  [
+   "climate",
+   "אקלים"
+  ],
+  [
+   "coast",
+   "חוף"
+  ],
+  [
+   "coastline",
+   "קו/רצועת חוף"
+  ],
+  [
+   "coat",
+   "מעיל; שכבה (של צבע, בטון וכו')"
+  ],
+  [
+   "coexistence",
+   "דו-קיום"
+  ],
+  [
+   "collaborate",
+   "לשתף פעולה"
+  ],
+  [
+   "collapse",
+   "להתמוטט"
+  ],
+  [
+   "column",
+   "טור; עמוד"
+  ],
+  [
+   "comfort",
+   "נחמה"
+  ],
+  [
+   "comfortable",
+   "נוח"
+  ],
+  [
+   "commerce",
+   "מסחר"
+  ],
+  [
+   "commercial",
+   "מסחרי; סרטון פרסומת"
+  ],
+  [
+   "commit",
+   "ביצוע/ לבצע; להתחייב"
+  ],
+  [
+   "committee",
+   "ועדה"
+  ],
+  [
+   "complex",
+   "מסובך"
+  ],
+  [
+   "complication",
+   "סיבוך"
+  ],
+  [
+   "comply",
+   "להסכים, לציית"
+  ],
+  [
+   "compromise",
+   "להתפשר"
+  ],
+  [
+   "concern",
+   "דאגה, עניין"
+  ],
+  [
+   "condition",
+   "תנאי, מצב, מעמד; להכשיר, להתאים"
+  ],
+  [
+   "conduct",
+   "לנהל, לקיים"
+  ],
+  [
+   "confront",
+   "להתעמת, לעמת"
+  ],
+  [
+   "confrontation",
+   "עימות"
+  ],
+  [
+   "consideration",
+   "התחשבות"
+  ],
+  [
+   "considering",
+   "מתחשב"
+  ],
+  [
+   "consistent",
+   "עקבי"
+  ],
+  [
+   "constant",
+   "קבוע, רצוף"
+  ],
+  [
+   "constitute",
+   "מהווים; להקים, לייסד"
+  ],
+  [
+   "construct",
+   "לבנות"
+  ],
+  [
+   "consult",
+   "להתייעץ"
+  ],
+  [
+   "context",
+   "הקשר"
+  ],
+  [
+   "contract",
+   "ללקות, להידבק (במחלה); חוזה, הסכם; להתכווץ"
+  ],
+  [
+   "contradiction",
+   "סתירה"
+  ],
+  [
+   "convoy",
+   "שיירה"
+  ],
+  [
+   "criteria",
+   "אמת מידה, אבן בחן"
+  ],
+  [
+   "critic",
+   "מבקר"
+  ],
+  [
+   "criticize",
+   "לבקר"
+  ],
+  [
+   "declaration",
+   "הכרזה, הצהרה"
+  ],
+  [
+   "declare",
+   "להכריז"
+  ],
+  [
+   "dedicate",
+   "להקדיש"
+  ],
+  [
+   "dedicated",
+   "מסור; מוקדש ל-"
+  ],
+  [
+   "degenerate",
+   "להתנוון"
+  ],
+  [
+   "degree",
+   "מעלה; דרגה"
+  ],
+  [
+   "delay",
+   "עיכוב, לאחר, לדחות"
+  ],
+  [
+   "delight",
+   "תענוג"
+  ],
+  [
+   "design",
+   "תכנית, דוגמה, תרשים; לתכנן, לעצב"
+  ],
+  [
+   "designer",
+   "מעצב"
+  ],
+  [
+   "detect",
+   "לאתר, לגלות"
+  ],
+  [
+   "determine",
+   "לקבוע"
+  ],
+  [
+   "determined",
+   "נחוש, נחרץ"
+  ],
+  [
+   "develop",
+   "לפתח"
+  ],
+  [
+   "development",
+   "התפתחות, פיתוח"
+  ],
+  [
+   "diagram",
+   "תרשים, דיאגרמה"
+  ],
+  [
+   "dialect",
+   "ניב"
+  ],
+  [
+   "difference",
+   "הבדל"
+  ],
+  [
+   "differences",
+   "חילוקי דעות"
+  ],
+  [
+   "different",
+   "שונה"
+  ],
+  [
+   "differentiate",
+   "להבדיל, להבחין"
+  ],
+  [
+   "diminish",
+   "לצמצם"
+  ],
+  [
+   "disaster",
+   "אסון"
+  ],
+  [
+   "disobey",
+   "להפר, לא לציית"
+  ],
+  [
+   "dispose",
+   "להיפטר"
+  ],
+  [
+   "distance",
+   "מרחק"
+  ],
+  [
+   "drastic",
+   "דרסטי"
+  ],
+  [
+   "effective",
+   "יעיל, אפקטיבי"
+  ],
+  [
+   "efficient",
+   "יעיל"
+  ],
+  [
+   "effort",
+   "מאמץ"
+  ],
+  [
+   "electricity",
+   "חשמל"
+  ],
+  [
+   "emotion",
+   "רגש"
+  ],
+  [
+   "enact",
+   "לחוקק"
+  ],
+  [
+   "episode",
+   "פרק"
+  ],
+  [
+   "ethnic",
+   "אתני"
+  ],
+  [
+   "excel",
+   "להצטיין"
+  ],
+  [
+   "excellent",
+   "מצוין"
+  ],
+  [
+   "exhausting",
+   "מתיש, מעייף"
+  ],
+  [
+   "experience",
+   "ניסיון, לחוות"
+  ],
+  [
+   "experiment",
+   "ניסוי, להתנסות"
+  ],
+  [
+   "exploit",
+   "פעולות, מעשים; לנצל, להפיק תועלת"
+  ],
+  [
+   "export",
+   "ייצוא"
+  ],
+  [
+   "extensive",
+   "נרחב"
+  ],
+  [
+   "facilitate",
+   "לסייע, לעזור, להקל"
+  ],
+  [
+   "fall apart",
+   "להתפרק"
+  ],
+  [
+   "fast",
+   "צום; מהיר"
+  ],
+  [
+   "fasten",
+   "להדק"
+  ],
+  [
+   "feminine",
+   "נשי"
+  ],
+  [
+   "fine",
+   "קטן, עדין, דקיק; משביע רצון; משובח, מצוין; קנס"
+  ],
+  [
+   "fit",
+   "בכושר; להתאים"
+  ],
+  [
+   "flight",
+   "בריחה, מנוסה; טיסה"
+  ],
+  [
+   "forceful",
+   "חזק"
+  ],
+  [
+   "forecast",
+   "תחזית"
+  ],
+  [
+   "foreign",
+   "חוץ; זר, נוכרי"
+  ],
+  [
+   "forfeit",
+   "לוותר, להפסיד"
+  ],
+  [
+   "fortunate",
+   "בעל מזל"
+  ],
+  [
+   "fortune",
+   "מזל; עושר"
+  ],
+  [
+   "frame",
+   "מסגרת, למסגר"
+  ],
+  [
+   "fund",
+   "קרן; לממן"
+  ],
+  [
+   "fundamental",
+   "בסיסי (פונדמנטלי)"
+  ],
+  [
+   "fundraiser",
+   "מגייס כספים"
+  ],
+  [
+   "funds",
+   "כסף, הון, מקור מימון"
+  ],
+  [
+   "gap",
+   "פער"
+  ],
+  [
+   "generated",
+   "יצר"
+  ],
+  [
+   "generation",
+   "דור"
+  ],
+  [
+   "govern",
+   "למשול"
+  ],
+  [
+   "government",
+   "ממשל"
+  ],
+  [
+   "governor",
+   "מושל"
+  ],
+  [
+   "gratify",
+   "לרצות"
+  ],
+  [
+   "ground",
+   "בסיס, אדמה"
+  ],
+  [
+   "grow",
+   "לגדול, לגדל"
+  ],
+  [
+   "grow up",
+   "להתבגר, לגדול"
+  ],
+  [
+   "guilty",
+   "אשם"
+  ],
+  [
+   "harsh",
+   "נוקשה, אכזרי"
+  ],
+  [
+   "hollow",
+   "חלול"
+  ],
+  [
+   "hundred",
+   "מאה"
+  ],
+  [
+   "hunt",
+   "לצוד, ציד"
+  ],
+  [
+   "hunter",
+   "צייד"
+  ],
+  [
+   "ignorance",
+   "בורות"
+  ],
+  [
+   "ignorant",
+   "בור, חסר השכלה"
+  ],
+  [
+   "ignore",
+   "להתעלם"
+  ],
+  [
+   "illiterate",
+   "בור, אנאלפבית"
+  ],
+  [
+   "impact",
+   "השפעה; התנגשות"
+  ],
+  [
+   "impatient",
+   "חסר סבלנות"
+  ],
+  [
+   "impress",
+   "להרשים"
+  ],
+  [
+   "impressive",
+   "מרשים"
+  ],
+  [
+   "inactivity",
+   "חוסר פעילות"
+  ],
+  [
+   "include",
+   "לכלול"
+  ],
+  [
+   "inclusive",
+   "כולל"
+  ],
+  [
+   "industrious",
+   "חרוץ, שקדן"
+  ],
+  [
+   "infected",
+   "הודבק"
+  ],
+  [
+   "infection",
+   "זיהום"
+  ],
+  [
+   "innocent",
+   "תמים; חף מפשע"
+  ],
+  [
+   "institute",
+   "מוסד, מכון; לכונן"
+  ],
+  [
+   "instruction",
+   "הוראה, הדרכה"
+  ],
+  [
+   "insurance",
+   "ביטוח"
+  ],
+  [
+   "insure",
+   "להבטיח"
+  ],
+  [
+   "investing",
+   "להשקיע"
+  ],
+  [
+   "investment",
+   "השקעה"
+  ],
+  [
+   "investor",
+   "משקיע"
+  ],
+  [
+   "irrigation",
+   "השקיה"
+  ],
+  [
+   "lapse",
+   "מעידה, פליטת פה; פרק זמן, פקיעה, סיום"
+  ],
+  [
+   "leather",
+   "עור"
+  ],
+  [
+   "lecture",
+   "הרצאה"
+  ],
+  [
+   "legislate",
+   "לחוקק"
+  ],
+  [
+   "legislation",
+   "חקיקה"
+  ],
+  [
+   "length",
+   "אורך"
+  ],
+  [
+   "lower",
+   "להנמיך"
+  ],
+  [
+   "lung",
+   "ריאה"
+  ],
+  [
+   "maintain",
+   "לשמר"
+  ],
+  [
+   "major",
+   "סולם מז'ור (במוזיקה); מסלול לימודים; ראשי, עיקרי"
+  ],
+  [
+   "majority",
+   "רוב"
+  ],
+  [
+   "male",
+   "זכר"
+  ],
+  [
+   "manage",
+   "לנהל"
+  ],
+  [
+   "management",
+   "ניהול"
+  ],
+  [
+   "manuscript",
+   "כתב יד"
+  ],
+  [
+   "marine",
+   "ימי"
+  ],
+  [
+   "maritime",
+   "ימי"
+  ],
+  [
+   "market",
+   "שוק"
+  ],
+  [
+   "marketing",
+   "שיווק, לשווק"
+  ],
+  [
+   "mass",
+   "המון, המוני; מסה"
+  ],
+  [
+   "material",
+   "חומר, חומרני"
+  ],
+  [
+   "measure",
+   "אמצעי; למדוד"
+  ],
+  [
+   "merge",
+   "למזג, לחבר"
+  ],
+  [
+   "merger",
+   "מיזוג"
+  ],
+  [
+   "message",
+   "הודעה"
+  ],
+  [
+   "method",
+   "שיטה"
+  ],
+  [
+   "mild",
+   "מתון, עדין"
+  ],
+  [
+   "military",
+   "צבא, צבאי"
+  ],
+  [
+   "minor",
+   "קטין; סולם מינור (במוזיקה); קטן, שולי"
+  ],
+  [
+   "minority",
+   "מיעוט"
+  ],
+  [
+   "misconception",
+   "דעה מוטעית"
+  ],
+  [
+   "mission",
+   "משימה"
+  ],
+  [
+   "mode",
+   "מצב, אופן, צורה; אופנה, מודה"
+  ],
+  [
+   "model",
+   "דגם, מודל, דוגמן"
+  ],
+  [
+   "modest",
+   "צנוע"
+  ],
+  [
+   "modify",
+   "לשנות, להתאים"
+  ],
+  [
+   "monumental",
+   "גדול, אדיר"
+  ],
+  [
+   "negotiate",
+   "לשאת ולתת"
+  ],
+  [
+   "negotiation",
+   "משא ומתן"
+  ],
+  [
+   "nominated",
+   "מועמד"
+  ],
+  [
+   "nuclear",
+   "גרעיני"
+  ],
+  [
+   "observer",
+   "משקיף"
+  ],
+  [
+   "obsolete",
+   "מיושן"
+  ],
+  [
+   "occupy",
+   "להעסיק; לתפוס, לאכלס"
+  ],
+  [
+   "occurrence",
+   "התרחשות"
+  ],
+  [
+   "odd",
+   "מוזר; אי זוגי"
+  ],
+  [
+   "omission",
+   "השמטה, הזנחה"
+  ],
+  [
+   "omit",
+   "להשמיט, להזניח"
+  ],
+  [
+   "opinion",
+   "דעה"
+  ],
+  [
+   "opponent",
+   "יריב, מתנגד"
+  ],
+  [
+   "opportunity",
+   "הזדמנות"
+  ],
+  [
+   "organic",
+   "אורגני"
+  ],
+  [
+   "overlaps",
+   "חופף"
+  ],
+  [
+   "own",
+   "משלו; בעלות על משהו"
+  ],
+  [
+   "owner",
+   "בעלים"
+  ],
+  [
+   "paramount",
+   "בעל חשיבות עליונה"
+  ],
+  [
+   "pass",
+   "לוותר; להעביר, למסור"
+  ],
+  [
+   "pedestrian",
+   "הולך רגל"
+  ],
+  [
+   "perhaps",
+   "אולי"
+  ],
+  [
+   "period",
+   "נקודה; משך זמן, מחזור; תקופה"
+  ],
+  [
+   "permanent",
+   "קבוע"
+  ],
+  [
+   "persecution",
+   "רדיפה (דתית)"
+  ],
+  [
+   "planet",
+   "כוכב לכת"
+  ],
+  [
+   "plant",
+   "צמח, עציץ, לשתול"
+  ],
+  [
+   "poll",
+   "סקר, הצבעה"
+  ],
+  [
+   "populous",
+   "מאוכלס בצפיפות"
+  ],
+  [
+   "post",
+   "להציב, למנות ; עמדה, משרה, תפקיד; עמוד; לפרסם ; פרסום; לשלוח בדואר ; דואר"
+  ],
+  [
+   "postage",
+   "דבר דואר"
+  ],
+  [
+   "postpone",
+   "לדחות"
+  ],
+  [
+   "powerful",
+   "רב כוח"
+  ],
+  [
+   "preferable",
+   "עדיף"
+  ],
+  [
+   "presume",
+   "להניח"
+  ],
+  [
+   "priest",
+   "כומר"
+  ],
+  [
+   "privilege",
+   "זכות יתר, פריביליגיה"
+  ],
+  [
+   "profit",
+   "רווח"
+  ],
+  [
+   "profitable",
+   "רווחי"
+  ],
+  [
+   "publication",
+   "הוצאה לאור"
+  ],
+  [
+   "publicized",
+   "פורסם"
+  ],
+  [
+   "publish",
+   "לפרסם, להוציא לאור"
+  ],
+  [
+   "publisher",
+   "מוציא לאור"
+  ],
+  [
+   "qualify",
+   "להיות מוסמך"
+  ],
+  [
+   "quality",
+   "איכות"
+  ],
+  [
+   "quarter",
+   "רבע"
+  ],
+  [
+   "radiation",
+   "קרינה"
+  ],
+  [
+   "rare",
+   "נא (בשר); נדיר"
+  ],
+  [
+   "raw",
+   "חי, נא (בשר); גולמי, גס"
+  ],
+  [
+   "receive",
+   "לקבל"
+  ],
+  [
+   "recent",
+   "שארע לאחרונה"
+  ],
+  [
+   "recently",
+   "לאחרונה"
+  ],
+  [
+   "recognition",
+   "הכרה"
+  ],
+  [
+   "record",
+   "רשומה; לתעד; להקליט; שיא"
+  ],
+  [
+   "recover",
+   "להתאושש"
+  ],
+  [
+   "recreate",
+   "לשחזר, ליצור מחדש"
+  ],
+  [
+   "relax",
+   "להירגע"
+  ],
+  [
+   "reliance",
+   "הסתמכות"
+  ],
+  [
+   "remains",
+   "נשאר, עדיין; שרידים"
+  ],
+  [
+   "remove",
+   "להסיר"
+  ],
+  [
+   "renew",
+   "לחדש"
+  ],
+  [
+   "renown",
+   "ידוע"
+  ],
+  [
+   "repair",
+   "לתקן"
+  ],
+  [
+   "replace",
+   "להחליף"
+  ],
+  [
+   "replacement",
+   "מחליף"
+  ],
+  [
+   "rescue",
+   "להציל"
+  ],
+  [
+   "resemble",
+   "דומה"
+  ],
+  [
+   "residence",
+   "מגורים"
+  ],
+  [
+   "resident",
+   "תושב קבע"
+  ],
+  [
+   "resource",
+   "משאב"
+  ],
+  [
+   "resourceful",
+   "בעל תושייה"
+  ],
+  [
+   "restrain",
+   "לרסן"
+  ],
+  [
+   "retain",
+   "להחזיק, לשמור"
+  ],
+  [
+   "retrieve",
+   "להשיב"
+  ],
+  [
+   "revenue",
+   "הכנסה, רווח"
+  ],
+  [
+   "route",
+   "מסלול, דרך"
+  ],
+  [
+   "ruin",
+   "להרוס"
+  ],
+  [
+   "ruins",
+   "הריסות, עיי חורבות"
+  ],
+  [
+   "sample",
+   "דוגמית"
+  ],
+  [
+   "satisfaction",
+   "שביעות רצון"
+  ],
+  [
+   "scatter",
+   "לפזר"
+  ],
+  [
+   "schedule",
+   "לוח זמנים"
+  ],
+  [
+   "sensitive",
+   "רגיש"
+  ],
+  [
+   "sensitivity",
+   "רגישות"
+  ],
+  [
+   "sentence",
+   "משפט; גזר דין"
+  ],
+  [
+   "servant",
+   "משרת"
+  ],
+  [
+   "serve",
+   "לשרת; לְרַצּוֹת (עונש); להגיש, לשרת"
+  ],
+  [
+   "session",
+   "מושב"
+  ],
+  [
+   "sharp",
+   "חד"
+  ],
+  [
+   "sheer",
+   "מוחלט, לחלוטין; שקוף; משופע, תלול"
+  ],
+  [
+   "single",
+   "רווק; יחיד"
+  ],
+  [
+   "skepticism",
+   "ספקנות"
+  ],
+  [
+   "skill",
+   "יכולת, מיומנות"
+  ],
+  [
+   "sophisticated",
+   "מתוחכם"
+  ],
+  [
+   "spare",
+   "מיותר, עודף"
+  ],
+  [
+   "specialize",
+   "להתמחות"
+  ],
+  [
+   "species",
+   "מין, זן"
+  ],
+  [
+   "specify",
+   "לפרט"
+  ],
+  [
+   "spectator",
+   "צופה, משקיף"
+  ],
+  [
+   "speech",
+   "דיבור"
+  ],
+  [
+   "spoil",
+   "לקלקל; לפנק; לבזוז, שלל; להרוס"
+  ],
+  [
+   "stack",
+   "ערמה"
+  ],
+  [
+   "staple",
+   "להדק"
+  ],
+  [
+   "station",
+   "תחנה; להציב"
+  ],
+  [
+   "stem",
+   "גזע"
+  ],
+  [
+   "stomach",
+   "בטן, קיבה"
+  ],
+  [
+   "strategy",
+   "אסטרטגיה"
+  ],
+  [
+   "subdue",
+   "להכניע"
+  ],
+  [
+   "submit",
+   "להגיש; להיכנע"
+  ],
+  [
+   "subtle",
+   "מעודן"
+  ],
+  [
+   "suitable",
+   "ראוי, מתאים, יאה"
+  ],
+  [
+   "superb",
+   "מעולה (איכותי)"
+  ],
+  [
+   "superficial",
+   "שטחי"
+  ],
+  [
+   "suppression",
+   "דיכוי"
+  ],
+  [
+   "sustain",
+   "לתמוך; סבל מ-; להמשיך באותה צורה"
+  ],
+  [
+   "symbol",
+   "סמל"
+  ],
+  [
+   "symbolize",
+   "לסמל"
+  ],
+  [
+   "take place",
+   "התרחש"
+  ],
+  [
+   "temple",
+   "מקדש"
+  ],
+  [
+   "terms",
+   "מונחים; תנאים"
+  ],
+  [
+   "thousand",
+   "אלף"
+  ],
+  [
+   "tormented",
+   "לייסר, לענות"
+  ],
+  [
+   "tour",
+   "סיור"
+  ],
+  [
+   "tourist",
+   "תייר"
+  ],
+  [
+   "trust",
+   "אמון, לבטוח"
+  ],
+  [
+   "type",
+   "להקליד; סוג"
+  ],
+  [
+   "typically",
+   "אופייני"
+  ],
+  [
+   "unbelievable",
+   "לא יאמן"
+  ],
+  [
+   "underlies",
+   "מונח ביסוד, נמצא מתחת ל-"
+  ],
+  [
+   "undertake",
+   "לקחת על עצמך"
+  ],
+  [
+   "unemployed",
+   "מובטל"
+  ],
+  [
+   "unexplored",
+   "לא נחקר, לא נבדק"
+  ],
+  [
+   "unfamiliar",
+   "לא מוכר"
+  ],
+  [
+   "unfortunate",
+   "מצער"
+  ],
+  [
+   "unfortunately",
+   "למרבה הצער"
+  ],
+  [
+   "unimaginable",
+   "בלתי נתפס"
+  ],
+  [
+   "unique",
+   "מיוחד"
+  ],
+  [
+   "unite",
+   "לאחד"
+  ],
+  [
+   "unlock",
+   "לפתוח, לשחרר"
+  ],
+  [
+   "unnecessary",
+   "לא הכרחי"
+  ],
+  [
+   "uprising",
+   "התקוממות, מרד"
+  ],
+  [
+   "urban",
+   "עירוני"
+  ],
+  [
+   "urge",
+   "לעודד, לדחוף ; דחף, רצון, תשוקה"
+  ],
+  [
+   "urgent",
+   "דחוף"
+  ],
+  [
+   "vaccine",
+   "חיסון"
+  ],
+  [
+   "variable",
+   "משתנה"
+  ],
+  [
+   "variation",
+   "שינוי, וריאציה"
+  ],
+  [
+   "variety",
+   "מבחר, מגוון"
+  ],
+  [
+   "various",
+   "מגוון"
+  ],
+  [
+   "vast",
+   "גדול"
+  ],
+  [
+   "vertical",
+   "מאונך"
+  ],
+  [
+   "vigorously",
+   "במרץ"
+  ],
+  [
+   "violate",
+   "להפר, לחלל"
+  ],
+  [
+   "violation",
+   "עבירה, הפרה"
+  ],
+  [
+   "volunteer",
+   "להתנדב, מתנדב"
+  ],
+  [
+   "vote",
+   "קול, הצבעה, להצביע"
+  ],
+  [
+   "wage",
+   "לערוך, לנהל; משכורת"
+  ],
+  [
+   "ward",
+   "מחלקה"
+  ],
+  [
+   "wide",
+   "רחב"
+  ],
+  [
+   "willing",
+   "מוכן"
+  ],
+  [
+   "wise",
+   "חכם, פיקח"
+  ],
+  [
+   "wish",
+   "משאלה, לבקש"
+  ],
+  [
+   "withhold",
+   "לעכב, לעצור, לא לתת"
+  ],
+  [
+   "worldwide",
+   "כלל עולמי, בכל העולם"
+  ],
+  [
+   "worse",
+   "גרוע יותר"
+  ],
+  [
+   "worthy",
+   "ראוי"
+  ],
+  [
+   "yield",
+   "להיכנע, לוותר, לסגת; להניב, להפיק"
+  ],
+  [
+   "zone",
+   "אזור"
+  ]
+ ],
+ "6": [
+  [
+   "absurd",
+   "מגוחך, לא סביר"
+  ],
+  [
+   "accelerate",
+   "להאיץ"
+  ],
+  [
+   "acclaim",
+   "להריע, לשבח"
+  ],
+  [
+   "accommodate",
+   "לאכסן, לשכן"
+  ],
+  [
+   "accompany",
+   "ללוות"
+  ],
+  [
+   "accustomed",
+   "מורגל"
+  ],
+  [
+   "aggressive",
+   "תוקפני, אלים"
+  ],
+  [
+   "agriculture",
+   "חקלאות"
+  ],
+  [
+   "allergic",
+   "אלרגי"
+  ],
+  [
+   "amass",
+   "לצבור, לערום"
+  ],
+  [
+   "amaze",
+   "להדהים"
+  ],
+  [
+   "appeal",
+   "לבקש; מדבר אל, מושך; לערער"
+  ],
+  [
+   "applicant",
+   "מועמד"
+  ],
+  [
+   "arousing",
+   "מעורר"
+  ],
+  [
+   "as many as",
+   "רבים כמו (מספר גדול)"
+  ],
+  [
+   "ascertain",
+   "לוודא"
+  ],
+  [
+   "aspiration",
+   "שאיפה, חלום"
+  ],
+  [
+   "audit",
+   "ביקורת"
+  ],
+  [
+   "award",
+   "פרס, להעניק פרס"
+  ],
+  [
+   "bank",
+   "בנק; גדה; לערום"
+  ],
+  [
+   "betray",
+   "לבגוד"
+  ],
+  [
+   "blank",
+   "ריק, רווח"
+  ],
+  [
+   "boost",
+   "דחף, המריץ"
+  ],
+  [
+   "broadcast",
+   "לשדר"
+  ],
+  [
+   "cage",
+   "כלוב, לכלוא"
+  ],
+  [
+   "cancer",
+   "סרטן (מחלה)"
+  ],
+  [
+   "capture",
+   "ללכוד"
+  ],
+  [
+   "cargo",
+   "מטען"
+  ],
+  [
+   "carve",
+   "לחרוט"
+  ],
+  [
+   "cemetery",
+   "בית קברות"
+  ],
+  [
+   "certify",
+   "להצהיר, לאשר"
+  ],
+  [
+   "chapter",
+   "פרק"
+  ],
+  [
+   "church",
+   "כנסיה"
+  ],
+  [
+   "circulate",
+   "להפיץ; לנוע במחזוריות"
+  ],
+  [
+   "colleague",
+   "עמית, קולגה"
+  ],
+  [
+   "collect",
+   "לאסוף"
+  ],
+  [
+   "collide",
+   "להתנגש"
+  ],
+  [
+   "collision",
+   "התנגשות"
+  ],
+  [
+   "commendably",
+   "באופן ראוי לשבח"
+  ],
+  [
+   "commends",
+   "לציין לשבח"
+  ],
+  [
+   "commentary",
+   "פרשנות"
+  ],
+  [
+   "companion",
+   "בן-זוג"
+  ],
+  [
+   "compatible",
+   "מתאים, ראוי"
+  ],
+  [
+   "compel",
+   "לאלץ, לחייב"
+  ],
+  [
+   "compensate",
+   "לפצות"
+  ],
+  [
+   "compile",
+   "לאסוף, לקבץ"
+  ],
+  [
+   "conceal",
+   "להסתיר"
+  ],
+  [
+   "conceive",
+   "להרהר; לעבר"
+  ],
+  [
+   "concerted",
+   "מתואם"
+  ],
+  [
+   "concur",
+   "להסכים"
+  ],
+  [
+   "concurrence",
+   "להתרחש בו זמנית"
+  ],
+  [
+   "condemned",
+   "לגנות; נידון ל-"
+  ],
+  [
+   "confess",
+   "להודות"
+  ],
+  [
+   "confession",
+   "וידוי"
+  ],
+  [
+   "confinement",
+   "מאסר, ריתוק"
+  ],
+  [
+   "confiscate",
+   "להחרים"
+  ],
+  [
+   "conform",
+   "להתאים, להסתגל"
+  ],
+  [
+   "confuse",
+   "לבלבל"
+  ],
+  [
+   "confusion",
+   "בלבול"
+  ],
+  [
+   "conquer",
+   "לכבוש"
+  ],
+  [
+   "conquest",
+   "כיבוש"
+  ],
+  [
+   "conscious",
+   "מודע"
+  ],
+  [
+   "conservation",
+   "שימור"
+  ],
+  [
+   "conservative",
+   "שמרני"
+  ],
+  [
+   "conserve",
+   "לשמר"
+  ],
+  [
+   "contend",
+   "להתמודד, לטעון, להיאבק"
+  ],
+  [
+   "content",
+   "תוכן; שביעות רצון"
+  ],
+  [
+   "continent",
+   "יבשת"
+  ],
+  [
+   "contrast",
+   "ניגוד; להוות ניגוד"
+  ],
+  [
+   "contribute",
+   "לתרום"
+  ],
+  [
+   "controversial",
+   "שנוי במחלוקת"
+  ],
+  [
+   "controversy",
+   "מחלוקת"
+  ],
+  [
+   "convene",
+   "לכנס"
+  ],
+  [
+   "conversation",
+   "שיחה"
+  ],
+  [
+   "convince",
+   "לשכנע"
+  ],
+  [
+   "coordination",
+   "קואורדינציה, תיאום"
+  ],
+  [
+   "coordinator",
+   "מתאם"
+  ],
+  [
+   "correspond",
+   "להתכתב; להתאים"
+  ],
+  [
+   "correspondence",
+   "התכתבות"
+  ],
+  [
+   "crack",
+   "סדק, לסדוק"
+  ],
+  [
+   "crave",
+   "להשתוקק"
+  ],
+  [
+   "crime",
+   "פשע"
+  ],
+  [
+   "crude",
+   "וולגרי, גס; גולמי"
+  ],
+  [
+   "cuisine",
+   "מטבח, בישול"
+  ],
+  [
+   "curse",
+   "קללה, לקלל"
+  ],
+  [
+   "darkness",
+   "חשיכה"
+  ],
+  [
+   "debate",
+   "ויכוח, דיון"
+  ],
+  [
+   "deceased",
+   "נפטר"
+  ],
+  [
+   "deceive",
+   "להונות"
+  ],
+  [
+   "deliberate",
+   "מכוון; לשקול, לבחון, לדון"
+  ],
+  [
+   "deliberation",
+   "דיון"
+  ],
+  [
+   "delusions",
+   "אשליות, הזיות"
+  ],
+  [
+   "denial",
+   "הכחשה"
+  ],
+  [
+   "depend on",
+   "תלוי ב-"
+  ],
+  [
+   "describe",
+   "לתאר"
+  ],
+  [
+   "desolate",
+   "הרוס; שומם, נטוש"
+  ],
+  [
+   "destroy",
+   "להרוס"
+  ],
+  [
+   "destructive",
+   "הרסני"
+  ],
+  [
+   "detract",
+   "להפחית, לגרוע"
+  ],
+  [
+   "deviant",
+   "סוטה"
+  ],
+  [
+   "device",
+   "מכשיר"
+  ],
+  [
+   "devise",
+   "לתכנן, להמציא"
+  ],
+  [
+   "dictate",
+   "להכתיב, לפקד"
+  ],
+  [
+   "disorder",
+   "הפרעה"
+  ],
+  [
+   "display",
+   "להציג"
+  ],
+  [
+   "disregard",
+   "להתעלם"
+  ],
+  [
+   "dissolve",
+   "להתמוסס"
+  ],
+  [
+   "distract",
+   "להסיח את הדעת"
+  ],
+  [
+   "district",
+   "מחוז"
+  ],
+  [
+   "divine",
+   "אלוהי"
+  ],
+  [
+   "divinity",
+   "אלוהות"
+  ],
+  [
+   "downhill",
+   "מדרון, מורד"
+  ],
+  [
+   "ease",
+   "להקל, קלוּת"
+  ],
+  [
+   "easily",
+   "בקלות"
+  ],
+  [
+   "effect",
+   "תוצאה, אפקט; רושם, השפעה"
+  ],
+  [
+   "emblem",
+   "סמל"
+  ],
+  [
+   "encourage",
+   "לעודד"
+  ],
+  [
+   "engrave",
+   "לחרוט"
+  ],
+  [
+   "enhance",
+   "להעצים"
+  ],
+  [
+   "entirely",
+   "לחלוטין"
+  ],
+  [
+   "enzyme",
+   "אנזים"
+  ],
+  [
+   "equality",
+   "שוויון, במידה שווה"
+  ],
+  [
+   "equates",
+   "להשוות, להתאים"
+  ],
+  [
+   "evoke",
+   "לעורר, להעלות"
+  ],
+  [
+   "evolutionary",
+   "התפתחותי"
+  ],
+  [
+   "evolved",
+   "התפתח"
+  ],
+  [
+   "excessively",
+   "בצורה מוגזמת"
+  ],
+  [
+   "exchange",
+   "להחליף, חלופה"
+  ],
+  [
+   "exclude",
+   "למנוע, לשלול, להרחיק, לגרש"
+  ],
+  [
+   "exclusive",
+   "בלעדי"
+  ],
+  [
+   "exclusively",
+   "באופן בלעדי, רק"
+  ],
+  [
+   "excuse",
+   "תירוץ; לסלוח"
+  ],
+  [
+   "explicit",
+   "מפורש, ברור, בוטה"
+  ],
+  [
+   "explore",
+   "לחקור, ללמוד"
+  ],
+  [
+   "exposure",
+   "חשיפה"
+  ],
+  [
+   "exquisite",
+   "מצוין; חד, מעודן, אנין"
+  ],
+  [
+   "extend",
+   "להאריך, להרחיב"
+  ],
+  [
+   "extension",
+   "שלוחה"
+  ],
+  [
+   "exterior",
+   "חיצוני"
+  ],
+  [
+   "external",
+   "חיצוני"
+  ],
+  [
+   "extinction",
+   "הכחדה"
+  ],
+  [
+   "extract",
+   "לתמצת, להפיק"
+  ],
+  [
+   "factor",
+   "גורם"
+  ],
+  [
+   "favor",
+   "טובה; להעדיף"
+  ],
+  [
+   "favored",
+   "מועדף"
+  ],
+  [
+   "fight, fought",
+   "לריב, רב"
+  ],
+  [
+   "figure",
+   "גזרה, צורה; ספרה, מספר; דמות; לחשב, להניח, להסיק"
+  ],
+  [
+   "flat",
+   "שטוח; דירה"
+  ],
+  [
+   "flew",
+   "עף"
+  ],
+  [
+   "fly",
+   "זבוב; לעוף"
+  ],
+  [
+   "foil",
+   "לסכל"
+  ],
+  [
+   "forerunner",
+   "שליח, חלוץ, מבשר; אות, סימן מבשר באות"
+  ],
+  [
+   "fossil",
+   "מאובן"
+  ],
+  [
+   "genius",
+   "גאון"
+  ],
+  [
+   "gentle",
+   "עדין"
+  ],
+  [
+   "genuine",
+   "אמיתי, מקורי"
+  ],
+  [
+   "grant",
+   "להעניק, מענק"
+  ],
+  [
+   "guard",
+   "שומר, לשמור"
+  ],
+  [
+   "halt",
+   "לעצור,להפסיק, עצירה"
+  ],
+  [
+   "handle",
+   "להתמודד"
+  ],
+  [
+   "harder",
+   "קשה יותר"
+  ],
+  [
+   "harmful",
+   "מזיק"
+  ],
+  [
+   "harmless",
+   "שאינו מזיק"
+  ],
+  [
+   "hazardous",
+   "מסוכן"
+  ],
+  [
+   "hectic",
+   "קדחתני"
+  ],
+  [
+   "heir",
+   "יורש"
+  ],
+  [
+   "heredity",
+   "תורשה"
+  ],
+  [
+   "hospital",
+   "בית חולים"
+  ],
+  [
+   "hospitalize",
+   "לאשפז"
+  ],
+  [
+   "hunger",
+   "רעב"
+  ],
+  [
+   "ideal",
+   "אידיאל, אידיאלי"
+  ],
+  [
+   "immense",
+   "כביר, עצום"
+  ],
+  [
+   "immigrate",
+   "להגר"
+  ],
+  [
+   "impulse",
+   "דחף"
+  ],
+  [
+   "impulsively",
+   "ללא שיקול דעת"
+  ],
+  [
+   "in favor of",
+   "לטובת"
+  ],
+  [
+   "incentive",
+   "תמריץ"
+  ],
+  [
+   "incidence",
+   "כמות, הִקָּרוּת (משהו שקורה)"
+  ],
+  [
+   "indifference",
+   "אדישות"
+  ],
+  [
+   "infinite",
+   "אינסופי"
+  ],
+  [
+   "innate",
+   "מולד"
+  ],
+  [
+   "inner",
+   "פנימי"
+  ],
+  [
+   "inquire",
+   "לתשאל"
+  ],
+  [
+   "inquiry",
+   "חקירה"
+  ],
+  [
+   "insist",
+   "להתעקש"
+  ],
+  [
+   "inspiration",
+   "השראה"
+  ],
+  [
+   "inspiring",
+   "נותן השראה"
+  ],
+  [
+   "interior",
+   "פנימי"
+  ],
+  [
+   "interrupt",
+   "להפריע"
+  ],
+  [
+   "intersection",
+   "צומת, הצטלבות"
+  ],
+  [
+   "intervene",
+   "להתערב"
+  ],
+  [
+   "intervention",
+   "התערבות"
+  ],
+  [
+   "invent",
+   "להמציא"
+  ],
+  [
+   "inventor",
+   "ממציא"
+  ],
+  [
+   "inventory",
+   "מצאי"
+  ],
+  [
+   "invisible",
+   "בלתי נראה"
+  ],
+  [
+   "invite",
+   "להזמין"
+  ],
+  [
+   "Jew",
+   "יהודי"
+  ],
+  [
+   "kind",
+   "סוג; טוב לב, אדיב, נעים"
+  ],
+  [
+   "landmark",
+   "אבן דרך"
+  ],
+  [
+   "landscape",
+   "נוף"
+  ],
+  [
+   "lean",
+   "להישען"
+  ],
+  [
+   "legible",
+   "קריא"
+  ],
+  [
+   "lens",
+   "עדשה"
+  ],
+  [
+   "license",
+   "רישיון; לאשר, להתיר"
+  ],
+  [
+   "lifetime",
+   "תקופת החיים, במשך החיים"
+  ],
+  [
+   "literary",
+   "ספרותי"
+  ],
+  [
+   "literate",
+   "משכיל, מלומד"
+  ],
+  [
+   "literature",
+   "ספרות"
+  ],
+  [
+   "load",
+   "להעמיס"
+  ],
+  [
+   "losing",
+   "מפסיד"
+  ],
+  [
+   "mail",
+   "דואר"
+  ],
+  [
+   "mailman",
+   "דוור"
+  ],
+  [
+   "malnutrition",
+   "תת-תזונה"
+  ],
+  [
+   "mate",
+   "בן זוג, חבר; להזדווג"
+  ],
+  [
+   "maturity",
+   "בגרות"
+  ],
+  [
+   "mayor",
+   "ראש עיר"
+  ],
+  [
+   "mediate",
+   "לגשר, לתווך"
+  ],
+  [
+   "mediocre",
+   "בינוני (במובן שלילי)"
+  ],
+  [
+   "miserable",
+   "אומלל"
+  ],
+  [
+   "moist",
+   "לחות"
+  ],
+  [
+   "moral",
+   "מוסר"
+  ],
+  [
+   "morale",
+   "מורל"
+  ],
+  [
+   "necessary",
+   "הכרחי"
+  ],
+  [
+   "neglect",
+   "להזניח, הזנחה"
+  ],
+  [
+   "negligence",
+   "הזנחה, רשלנות"
+  ],
+  [
+   "nocturnal",
+   "לילי"
+  ],
+  [
+   "noon",
+   "צהריים (12:00)"
+  ],
+  [
+   "notable",
+   "נכבד"
+  ],
+  [
+   "notice",
+   "לשים לב; התראה"
+  ],
+  [
+   "notify",
+   "להודיע, ליידע"
+  ],
+  [
+   "obedience",
+   "ציות"
+  ],
+  [
+   "obey",
+   "לציית"
+  ],
+  [
+   "objective",
+   "אוביקטיבי"
+  ],
+  [
+   "obstacle",
+   "מכשול"
+  ],
+  [
+   "offshore",
+   "חו\"ל"
+  ],
+  [
+   "orbit",
+   "לחוג, להסתובב"
+  ],
+  [
+   "orient",
+   "להתמצא"
+  ],
+  [
+   "oriented",
+   "מכוון, מונחה"
+  ],
+  [
+   "outer",
+   "חיצוני"
+  ],
+  [
+   "outline",
+   "תוואי, מתאר, קווים כלליים"
+  ],
+  [
+   "overlooked",
+   "העלים עין"
+  ],
+  [
+   "parallel",
+   "מקביל"
+  ],
+  [
+   "party",
+   "מפלגה; מסיבה"
+  ],
+  [
+   "pattern",
+   "דוגמה"
+  ],
+  [
+   "penned",
+   "כָּתַב"
+  ],
+  [
+   "perceive",
+   "להבחין, לראות"
+  ],
+  [
+   "perform",
+   "לבצע, להציג"
+  ],
+  [
+   "performance",
+   "ביצוע; הופעה"
+  ],
+  [
+   "performer",
+   "מבצע, מציג"
+  ],
+  [
+   "permission",
+   "רשות, היתר"
+  ],
+  [
+   "permit",
+   "אישור, רישיון; להרשות"
+  ],
+  [
+   "persuade",
+   "לשכנע"
+  ],
+  [
+   "persuasion",
+   "שכנוע"
+  ],
+  [
+   "piece",
+   "יצירה; חתיכה, חלק"
+  ],
+  [
+   "pipe",
+   "צינור"
+  ],
+  [
+   "plausible",
+   "סביר, מתקבל על הדעת"
+  ],
+  [
+   "plot",
+   "עלילה; חלקה (חלקת אדמה); להכין תרשים; לזמום, לקשור קשר"
+  ],
+  [
+   "poacher",
+   "מסיג גבול, צייד לא מורשה"
+  ],
+  [
+   "practical",
+   "מעשי"
+  ],
+  [
+   "practice",
+   "לתרגל, תרגול"
+  ],
+  [
+   "prescribe",
+   "לרשום מרשם"
+  ],
+  [
+   "prescription",
+   "מרשם"
+  ],
+  [
+   "preserve",
+   "לשמר"
+  ],
+  [
+   "pretext",
+   "אמתלה, תואנה"
+  ],
+  [
+   "prevent",
+   "למנוע"
+  ],
+  [
+   "prevention",
+   "מניעה"
+  ],
+  [
+   "previous",
+   "קודם"
+  ],
+  [
+   "probable",
+   "סביר, מתקבל על הדעת"
+  ],
+  [
+   "probably",
+   "כנראה, קרוב לוודאי"
+  ],
+  [
+   "process",
+   "לעכל, לעבד; תהליך"
+  ],
+  [
+   "prohibit",
+   "לאסור, למנוע"
+  ],
+  [
+   "project",
+   "לתכנן; פרוייקט, מיזם; להשליך, להקרין"
+  ],
+  [
+   "promote",
+   "לקדם"
+  ],
+  [
+   "promotion",
+   "קידום"
+  ],
+  [
+   "prompted",
+   "הביא לידי"
+  ],
+  [
+   "proponent",
+   "תומך"
+  ],
+  [
+   "proportion",
+   "שיעור, מידה"
+  ],
+  [
+   "prosperity",
+   "צמיחה, שגשוג"
+  ],
+  [
+   "prosperous",
+   "משגשג, מצליח"
+  ],
+  [
+   "pump",
+   "משאבה, לשאוב"
+  ],
+  [
+   "pursue",
+   "לרדוף"
+  ],
+  [
+   "pursuit",
+   "מרדף"
+  ],
+  [
+   "quantify",
+   "לכמת"
+  ],
+  [
+   "quantity",
+   "כמות"
+  ],
+  [
+   "radically",
+   "באופן קיצוני"
+  ],
+  [
+   "rank",
+   "דרגה"
+  ],
+  [
+   "ray",
+   "קרן, אלומת אור"
+  ],
+  [
+   "razor",
+   "סכין גילוח"
+  ],
+  [
+   "rear",
+   "אחורי; לטפח, לגדל"
+  ],
+  [
+   "reconcile",
+   "להתפייס"
+  ],
+  [
+   "reform",
+   "שינוי, רפורמה"
+  ],
+  [
+   "reinvigorate",
+   "לרענן, להמריץ מחדש"
+  ],
+  [
+   "relationship",
+   "מערכת יחסים"
+  ],
+  [
+   "religious",
+   "דתי"
+  ],
+  [
+   "remainder",
+   "שארית"
+  ],
+  [
+   "renovate",
+   "לחדש, לשפץ"
+  ],
+  [
+   "respective",
+   "שייך בהתאמה"
+  ],
+  [
+   "respectively",
+   "בהתאמה"
+  ],
+  [
+   "restrict",
+   "להגביל"
+  ],
+  [
+   "restriction",
+   "הגבלה"
+  ],
+  [
+   "retire",
+   "לפרוש"
+  ],
+  [
+   "revoke",
+   "לבטל, לשלול"
+  ],
+  [
+   "reward",
+   "פרס, לתגמל"
+  ],
+  [
+   "ritual",
+   "טקס, פולחן"
+  ],
+  [
+   "rough",
+   "קשה, מחוספס"
+  ],
+  [
+   "rudimentary",
+   "יסודי, בסיסי"
+  ],
+  [
+   "sacred",
+   "קדוש"
+  ],
+  [
+   "sacrifice",
+   "להקריב, קורבן"
+  ],
+  [
+   "sake",
+   "תועלת, עניין"
+  ],
+  [
+   "screen",
+   "לסרוק; מסך, צג, וילון; לסנן"
+  ],
+  [
+   "seek",
+   "לבקש"
+  ],
+  [
+   "seek, sought",
+   "לחפש, חיפש"
+  ],
+  [
+   "seismic",
+   "ססמי (קשור לרעידות אדמה)"
+  ],
+  [
+   "series",
+   "סדרה"
+  ],
+  [
+   "settle",
+   "להתיישב; להסדיר"
+  ],
+  [
+   "severe",
+   "חמור"
+  ],
+  [
+   "shape",
+   "צורה, לעצב (צורה)"
+  ],
+  [
+   "shift",
+   "משמרת; להזיז"
+  ],
+  [
+   "shiny",
+   "נוצץ, בוהק"
+  ],
+  [
+   "side effect",
+   "תופעת לוואי"
+  ],
+  [
+   "simplicity",
+   "פשטות"
+  ],
+  [
+   "sketch",
+   "שרטוט, איור, סקיצה"
+  ],
+  [
+   "skyrocket",
+   "להאמיר"
+  ],
+  [
+   "skyscraper",
+   "גורד שחקים"
+  ],
+  [
+   "sorrow",
+   "עצב, צער"
+  ],
+  [
+   "spark",
+   "גיץ, ניצוץ"
+  ],
+  [
+   "spectacular",
+   "מדהים"
+  ],
+  [
+   "spirit",
+   "כוונה, רוח הדברים; רוח רפאים, נפש"
+  ],
+  [
+   "spiritual",
+   "רוחני"
+  ],
+  [
+   "spontaneously",
+   "ללא תכנון"
+  ],
+  [
+   "stabilize",
+   "לייצב"
+  ],
+  [
+   "stable",
+   "יציב"
+  ],
+  [
+   "steam",
+   "אד, לאדות"
+  ],
+  [
+   "steamship",
+   "אוניית קיטור"
+  ],
+  [
+   "straightforward",
+   "ישיר"
+  ],
+  [
+   "stream",
+   "לזרום, נחל, זרם"
+  ],
+  [
+   "stricken",
+   "מוכה"
+  ],
+  [
+   "stride",
+   "צעד, לצעוד"
+  ],
+  [
+   "strife",
+   "מאבק, עימות"
+  ],
+  [
+   "strike",
+   "הכה, התקיף; שביתה"
+  ],
+  [
+   "stripes",
+   "פסים"
+  ],
+  [
+   "structure",
+   "מבנה, לבנות"
+  ],
+  [
+   "stumble",
+   "למעוד"
+  ],
+  [
+   "substitute",
+   "תחליף"
+  ],
+  [
+   "sufficient",
+   "מספיק"
+  ],
+  [
+   "superfluous",
+   "מיותר, עודף"
+  ],
+  [
+   "surface",
+   "פני שטח"
+  ],
+  [
+   "suspect",
+   "חשוד (מישהו); לחשוד"
+  ],
+  [
+   "suspicious",
+   "חשוד (משהו)"
+  ],
+  [
+   "sympathetic",
+   "אוהד"
+  ],
+  [
+   "team",
+   "צוות"
+  ],
+  [
+   "tendency",
+   "נטייה"
+  ],
+  [
+   "terminate",
+   "לסיים, לחסל"
+  ],
+  [
+   "terrain",
+   "שטח"
+  ],
+  [
+   "terrify",
+   "להפחיד, להבעית"
+  ],
+  [
+   "theme",
+   "נושא"
+  ],
+  [
+   "threat",
+   "איום"
+  ],
+  [
+   "tight",
+   "הדוק, לחוץ, צמוד"
+  ],
+  [
+   "tolerance",
+   "סובלנות"
+  ],
+  [
+   "tolerate",
+   "לסבול"
+  ],
+  [
+   "ultimate",
+   "מוחלט, סופי"
+  ],
+  [
+   "unbearable",
+   "בלתי נסבל"
+  ],
+  [
+   "uncountable",
+   "אינספור"
+  ],
+  [
+   "undergo",
+   "לעבור, להתנסות, לחוות"
+  ],
+  [
+   "unforgettable",
+   "בלתי נשכח"
+  ],
+  [
+   "unsafe",
+   "לא בטוח"
+  ],
+  [
+   "vain",
+   "לשווא; שחצן"
+  ],
+  [
+   "vary",
+   "משתנה"
+  ],
+  [
+   "venture",
+   "סיכון"
+  ],
+  [
+   "verify",
+   "לוודא, לאמת"
+  ],
+  [
+   "versions",
+   "גרסאות"
+  ],
+  [
+   "vessel",
+   "כלי שיט"
+  ],
+  [
+   "village",
+   "כפר"
+  ],
+  [
+   "virtual",
+   "מדומה, וירטואלי"
+  ],
+  [
+   "virtually",
+   "למעשה, בעצם"
+  ],
+  [
+   "visual",
+   "חזותי"
+  ],
+  [
+   "visualize",
+   "לדמיין"
+  ],
+  [
+   "wealthy",
+   "עשיר"
+  ],
+  [
+   "weigh",
+   "לשקול"
+  ],
+  [
+   "weight",
+   "משקל"
+  ],
+  [
+   "wickedly",
+   "ברשעות"
+  ],
+  [
+   "wisdom",
+   "חכמה, בינה"
+  ]
+ ],
+ "7": [
+  [
+   "abstain",
+   "להתנזר, להימנע ממשהו"
+  ],
+  [
+   "accentuate",
+   "להבליט, להדגיש"
+  ],
+  [
+   "accusation",
+   "האשמה"
+  ],
+  [
+   "acknowledge",
+   "להכיר, לדעת"
+  ],
+  [
+   "adequate",
+   "הולם"
+  ],
+  [
+   "advertise",
+   "פרסום"
+  ],
+  [
+   "advertisement",
+   "מודעה, פרסום"
+  ],
+  [
+   "affinity",
+   "זיקה, קירבה; משיכה"
+  ],
+  [
+   "agitate",
+   "להסעיר, לזעזע, לעצבן"
+  ],
+  [
+   "agonize",
+   "לענות, לייסר"
+  ],
+  [
+   "agony",
+   "ייסורים"
+  ],
+  [
+   "aisle",
+   "מעבר"
+  ],
+  [
+   "alien",
+   "חייזר"
+  ],
+  [
+   "alienation",
+   "ניכור, הרחקה"
+  ],
+  [
+   "anchor",
+   "עוגן"
+  ],
+  [
+   "annihilate",
+   "להשמיד"
+  ],
+  [
+   "antique",
+   "עתיק, ענתיקה"
+  ],
+  [
+   "apparatus",
+   "מנגנון"
+  ],
+  [
+   "auction",
+   "מכירה פומבית"
+  ],
+  [
+   "augment",
+   "להרחיב"
+  ],
+  [
+   "autograph",
+   "חתימה"
+  ],
+  [
+   "beg",
+   "להתחנן"
+  ],
+  [
+   "burn",
+   "לשרוף, להישרף"
+  ],
+  [
+   "cater",
+   "לספק"
+  ],
+  [
+   "cathedral",
+   "קתדרלה"
+  ],
+  [
+   "cattle",
+   "בקר"
+  ],
+  [
+   "chariot",
+   "מרכבה"
+  ],
+  [
+   "charity",
+   "צדקה"
+  ],
+  [
+   "chase",
+   "לרדוף, מרדף"
+  ],
+  [
+   "cheer",
+   "לעודד"
+  ],
+  [
+   "cheerful",
+   "עליז, שמח"
+  ],
+  [
+   "chemical",
+   "כימיקל, כימי"
+  ],
+  [
+   "circuit",
+   "מסלול, להקיף; מעגל חשמלי"
+  ],
+  [
+   "combat",
+   "לתקוף; קרב"
+  ],
+  [
+   "compete",
+   "להתחרות, להתמודד"
+  ],
+  [
+   "competition",
+   "תחרות"
+  ],
+  [
+   "components",
+   "חלקים, מרכיבים"
+  ],
+  [
+   "compulsory",
+   "מהווה חובה"
+  ],
+  [
+   "concise",
+   "תמציתי, תכליתי"
+  ],
+  [
+   "concrete",
+   "בטון; קונקרטי, מוחשי"
+  ],
+  [
+   "congregate",
+   "לאסוף קהל, לאסוף"
+  ],
+  [
+   "conspicuous",
+   "בולט"
+  ],
+  [
+   "conspiracy",
+   "קשר, מזימה"
+  ],
+  [
+   "contagious",
+   "מדבק"
+  ],
+  [
+   "contaminate",
+   "לזהם"
+  ],
+  [
+   "correlate",
+   "לתאם, לקשר"
+  ],
+  [
+   "corrupt",
+   "להשחית, מושחת"
+  ],
+  [
+   "council",
+   "מועצה"
+  ],
+  [
+   "counsel",
+   "לייעץ, להדריך; פרקליט, יועץ"
+  ],
+  [
+   "counterpart",
+   "בעל תפקיד מקביל, עמית, בן-זוג"
+  ],
+  [
+   "couple",
+   "זוג, לצמד"
+  ],
+  [
+   "courage",
+   "אומץ"
+  ],
+  [
+   "court",
+   "מגרש (ספורט); בית משפט"
+  ],
+  [
+   "courteous",
+   "אדיב"
+  ],
+  [
+   "courtesy",
+   "נימוס, אדיבות"
+  ],
+  [
+   "craft",
+   "אומנות, מלאכה; כלי טייס / כלי שייט"
+  ],
+  [
+   "craftsmen",
+   "אומן, בעל מלאכה"
+  ],
+  [
+   "critique",
+   "ביקורת"
+  ],
+  [
+   "cross",
+   "לחצות; צלב, להצליב"
+  ],
+  [
+   "crossroad",
+   "צומת"
+  ],
+  [
+   "cruel",
+   "אכזרי"
+  ],
+  [
+   "cult",
+   "כת"
+  ],
+  [
+   "dawn",
+   "שחר"
+  ],
+  [
+   "deal",
+   "עסקה; להתמודד"
+  ],
+  [
+   "dealt",
+   "עסק ב, חולק (קלפים, ניירת)"
+  ],
+  [
+   "debt",
+   "חוב"
+  ],
+  [
+   "decay",
+   "ריקבון"
+  ],
+  [
+   "decipher",
+   "לפענח"
+  ],
+  [
+   "delegate",
+   "להאציל, להסמיך"
+  ],
+  [
+   "delinquent",
+   "עבריין; נזנח, נשכח"
+  ],
+  [
+   "depression",
+   "דיכאון"
+  ],
+  [
+   "described",
+   "מתואר"
+  ],
+  [
+   "description",
+   "תיאור"
+  ],
+  [
+   "desirable",
+   "נחשק"
+  ],
+  [
+   "desire",
+   "תשוקה, חשק, לחפוץ"
+  ],
+  [
+   "despair",
+   "להתייאש"
+  ],
+  [
+   "desperate",
+   "נואש"
+  ],
+  [
+   "desperation",
+   "ייאוש"
+  ],
+  [
+   "dimension",
+   "מימד"
+  ],
+  [
+   "disagreement",
+   "חוסר הסכמה"
+  ],
+  [
+   "disappear",
+   "להעלם"
+  ],
+  [
+   "disappoint",
+   "לאכזב"
+  ],
+  [
+   "disapproving",
+   "לא מאשר, לא מסכים, לא מרוצה"
+  ],
+  [
+   "disciples",
+   "תלמידים"
+  ],
+  [
+   "discipline",
+   "תחום לימוד/מחקר; להעניש, לחנך, משמעת"
+  ],
+  [
+   "disciplined",
+   "חינך, העניש; ממושמע"
+  ],
+  [
+   "discontent",
+   "חוסר שביעות רצון"
+  ],
+  [
+   "discourage",
+   "לשכנע שלא לעשות משהו"
+  ],
+  [
+   "discrepancy",
+   "סתירה, פער"
+  ],
+  [
+   "disease",
+   "מחלה"
+  ],
+  [
+   "disinfection",
+   "חיטוי"
+  ],
+  [
+   "dislocate",
+   "לפרוק, לנקוע"
+  ],
+  [
+   "disparage",
+   "לזלזל, להמעיט בערך"
+  ],
+  [
+   "dissent",
+   "להתנגד, חילוקי דעות"
+  ],
+  [
+   "distinction",
+   "מצוינות; הפרדה"
+  ],
+  [
+   "distinctive",
+   "מיוחד"
+  ],
+  [
+   "distinguish",
+   "להבדיל, להבחין"
+  ],
+  [
+   "disturb",
+   "להפריע"
+  ],
+  [
+   "disturbance",
+   "הפרעה"
+  ],
+  [
+   "dominate",
+   "לשלוט"
+  ],
+  [
+   "dozen",
+   "תריסר"
+  ],
+  [
+   "drought",
+   "בצורת"
+  ],
+  [
+   "duel",
+   "דו-קרב"
+  ],
+  [
+   "duplicate",
+   "לשכפל"
+  ],
+  [
+   "durable",
+   "יציב, מתמשך"
+  ],
+  [
+   "dynasty",
+   "שושלת"
+  ],
+  [
+   "eliminate",
+   "לחסל, לפסול"
+  ],
+  [
+   "eloquent",
+   "רהוט"
+  ],
+  [
+   "elude",
+   "לברוח, להתחמק"
+  ],
+  [
+   "embrace",
+   "לחבק, לאמץ לקרבו"
+  ],
+  [
+   "emission",
+   "פליטה"
+  ],
+  [
+   "employ",
+   "להעסיק"
+  ],
+  [
+   "employer",
+   "מעסיק, מעביד"
+  ],
+  [
+   "enclosing",
+   "לסגור, להקיף"
+  ],
+  [
+   "enclosure",
+   "סגירה, כיתור, שטח מגודר"
+  ],
+  [
+   "encounter",
+   "מפגש"
+  ],
+  [
+   "endanger",
+   "לסכן"
+  ],
+  [
+   "endangered",
+   "בסכנת הכחדה"
+  ],
+  [
+   "endurance",
+   "כוח סבל"
+  ],
+  [
+   "endure",
+   "לסבול, להחזיק מעמד"
+  ],
+  [
+   "enforce",
+   "לאכוף, לכפות"
+  ],
+  [
+   "Equator",
+   "קו המשווה"
+  ],
+  [
+   "equip",
+   "לצייד"
+  ],
+  [
+   "equipment",
+   "ציוד"
+  ],
+  [
+   "erupt",
+   "התפרץ"
+  ],
+  [
+   "estate",
+   "אחוזה; נכס"
+  ],
+  [
+   "expense",
+   "הוצאות"
+  ],
+  [
+   "expensive",
+   "יקר"
+  ],
+  [
+   "fabric",
+   "בד"
+  ],
+  [
+   "fabricate",
+   "לבדות"
+  ],
+  [
+   "family",
+   "משפחה"
+  ],
+  [
+   "fatal",
+   "סופני (פטלי)"
+  ],
+  [
+   "fate",
+   "גורל, חרץ גורל"
+  ],
+  [
+   "fellow",
+   "חבר, עמית"
+  ],
+  [
+   "fiction",
+   "בדיון, לא אמיתי"
+  ],
+  [
+   "file",
+   "תיק, קובץ"
+  ],
+  [
+   "fingerprint",
+   "טביעת אצבע"
+  ],
+  [
+   "flame",
+   "להבה"
+  ],
+  [
+   "flatter",
+   "להחמיא; שטוח יותר"
+  ],
+  [
+   "flattery",
+   "חנופה"
+  ],
+  [
+   "flock",
+   "לנהור, עדר, המון"
+  ],
+  [
+   "flood",
+   "שיטפון"
+  ],
+  [
+   "fragile",
+   "עדין, שביר"
+  ],
+  [
+   "gauge",
+   "למדוד, להעריך, מידה"
+  ],
+  [
+   "generous",
+   "נדיב"
+  ],
+  [
+   "genes",
+   "גנים"
+  ],
+  [
+   "gesture",
+   "מחווה"
+  ],
+  [
+   "given",
+   "נתון"
+  ],
+  [
+   "grade",
+   "כיתה; ציון, דרגה, מעמד; שיפוע"
+  ],
+  [
+   "gradually",
+   "בהדרגה"
+  ],
+  [
+   "graduate",
+   "לסיים לימודים"
+  ],
+  [
+   "grand",
+   "גדול, כולל, מרשים"
+  ],
+  [
+   "granddaughter",
+   "נכדה"
+  ],
+  [
+   "grandfather",
+   "סבא"
+  ],
+  [
+   "grandmother",
+   "סבתא"
+  ],
+  [
+   "grandson",
+   "נכד"
+  ],
+  [
+   "guess",
+   "ניחוש, לנחש"
+  ],
+  [
+   "guidance",
+   "הנחיה, הכוונה, הנהגה"
+  ],
+  [
+   "guide",
+   "להדריך"
+  ],
+  [
+   "gunpowder",
+   "אבק שריפה"
+  ],
+  [
+   "hail",
+   "לשבח; ברד"
+  ],
+  [
+   "hall",
+   "מסדרון; היכל"
+  ],
+  [
+   "harm",
+   "לפגוע, להזיק"
+  ],
+  [
+   "harness",
+   "לרתום"
+  ],
+  [
+   "herb",
+   "עשב"
+  ],
+  [
+   "herd",
+   "לאסוף; עדר, לרעות"
+  ],
+  [
+   "heritage",
+   "מורשת"
+  ],
+  [
+   "husband",
+   "בעל"
+  ],
+  [
+   "illness",
+   "מחלה"
+  ],
+  [
+   "illustrate",
+   "להמחיש, להדגיש"
+  ],
+  [
+   "illustrator",
+   "מאייר"
+  ],
+  [
+   "immersion",
+   "שקיעה"
+  ],
+  [
+   "immoral",
+   "לא מוסרי"
+  ],
+  [
+   "implement",
+   "ליישם, להוציא לפועל"
+  ],
+  [
+   "implementation",
+   "מימוש, יישום, ביצוע"
+  ],
+  [
+   "incident",
+   "תקרית"
+  ],
+  [
+   "incompetence",
+   "חוסר יכולת"
+  ],
+  [
+   "incorporate",
+   "לכלול, לשתף, לאגד"
+  ],
+  [
+   "indefinitely",
+   "ללא הגבלה"
+  ],
+  [
+   "independence",
+   "עצמאות"
+  ],
+  [
+   "independent",
+   "עצמאי"
+  ],
+  [
+   "inevitable",
+   "בלתי נמנע"
+  ],
+  [
+   "infectious",
+   "מדבק"
+  ],
+  [
+   "inferior",
+   "נחות"
+  ],
+  [
+   "infiltrate",
+   "להסתנן"
+  ],
+  [
+   "influence",
+   "השפעה, להשפיע"
+  ],
+  [
+   "insight",
+   "תובנה"
+  ],
+  [
+   "instrument",
+   "כלי"
+  ],
+  [
+   "insurmountable",
+   "שאין להתגבר עליו"
+  ],
+  [
+   "intellectual",
+   "אינטלקטואלי"
+  ],
+  [
+   "interview",
+   "לראיין, ראיון"
+  ],
+  [
+   "introduce",
+   "להציג, לעשות היכרות"
+  ],
+  [
+   "introduction",
+   "הקדמה, מבוא, היכרות"
+  ],
+  [
+   "invade",
+   "לחדור, לפלוש"
+  ],
+  [
+   "invaders",
+   "פולשים"
+  ],
+  [
+   "investigate",
+   "לחקור"
+  ],
+  [
+   "invoke",
+   "לעורר, לזמן"
+  ],
+  [
+   "irregular",
+   "לא רגיל"
+  ],
+  [
+   "irresistible",
+   "שלא ניתן לעמוד בפניו"
+  ],
+  [
+   "justify",
+   "להצדיק"
+  ],
+  [
+   "knife (knives)",
+   "סכין (סכינים)"
+  ],
+  [
+   "label",
+   "תגית; לתייג"
+  ],
+  [
+   "labor",
+   "להתאמץ; עבודה, עמל, לעמול"
+  ],
+  [
+   "laboratory",
+   "מעבדה"
+  ],
+  [
+   "laborer",
+   "פועל"
+  ],
+  [
+   "layer",
+   "שכבה"
+  ],
+  [
+   "lead, led",
+   "להוביל, הוביל"
+  ],
+  [
+   "leader",
+   "מנהיג"
+  ],
+  [
+   "leadership",
+   "מנהיגות"
+  ],
+  [
+   "lie",
+   "לשקר, שֶקֶר"
+  ],
+  [
+   "lie, lay",
+   "לשכב, שכב"
+  ],
+  [
+   "listen",
+   "להקשיב"
+  ],
+  [
+   "loosely",
+   "באופן רפוי"
+  ],
+  [
+   "loud",
+   "חזק"
+  ],
+  [
+   "loudspeaker",
+   "רמקול"
+  ],
+  [
+   "luxury",
+   "מותרות"
+  ],
+  [
+   "machine",
+   "מכונה"
+  ],
+  [
+   "manufacture",
+   "ייצר"
+  ],
+  [
+   "march",
+   "לצעוד"
+  ],
+  [
+   "margin",
+   "שוליים, מרווח"
+  ],
+  [
+   "martial",
+   "צבאי, קרבי"
+  ],
+  [
+   "master",
+   "להתמחות, לשלוט; אדון, שליט"
+  ],
+  [
+   "masterpiece",
+   "יצירת מופת"
+  ],
+  [
+   "mastery",
+   "מומחיות"
+  ],
+  [
+   "match",
+   "גפרור; התאמה, להתאים"
+  ],
+  [
+   "melt",
+   "להמיס"
+  ],
+  [
+   "mind",
+   "לשים לב, לשמור; שכל; אכפת"
+  ],
+  [
+   "missile",
+   "טיל"
+  ],
+  [
+   "mobilize",
+   "לנייד, להניע"
+  ],
+  [
+   "mole",
+   "חפרפרת; שומה"
+  ],
+  [
+   "myriad",
+   "רב, הרבה"
+  ],
+  [
+   "narrow",
+   "צר"
+  ],
+  [
+   "navigate",
+   "לנווט"
+  ],
+  [
+   "nervous",
+   "עצבני, לחוץ, מתוח"
+  ],
+  [
+   "nobility",
+   "אצולה"
+  ],
+  [
+   "noble",
+   "אציל, אצילי"
+  ],
+  [
+   "notion",
+   "רעיון, מושג, נטיה"
+  ],
+  [
+   "novel",
+   "רומן, סיפור; חדש"
+  ],
+  [
+   "observation",
+   "אבחנה"
+  ],
+  [
+   "observe",
+   "להתבונן, להבחין"
+  ],
+  [
+   "obstinate",
+   "עקשן"
+  ],
+  [
+   "offend",
+   "להעליב"
+  ],
+  [
+   "offender",
+   "פושע, פוגע"
+  ],
+  [
+   "offensive",
+   "מעליב, פוגעני"
+  ],
+  [
+   "oppressive",
+   "אכזרי; מדכא, מעיק"
+  ],
+  [
+   "ornament",
+   "קישוט"
+  ],
+  [
+   "outdated",
+   "מיושן"
+  ],
+  [
+   "outspoken",
+   "מדבר גלויות, ישיר"
+  ],
+  [
+   "outstanding",
+   "יוצא מן הכלל, מצוין"
+  ],
+  [
+   "overtake",
+   "לעקוף, להשיג"
+  ],
+  [
+   "pain",
+   "כאב, להכאיב"
+  ],
+  [
+   "passive",
+   "סביל"
+  ],
+  [
+   "pervasive",
+   "מתפשט, מחלחל"
+  ],
+  [
+   "petition",
+   "עצומה, עתירה, לעתור"
+  ],
+  [
+   "picture",
+   "תמונה, לצלם; לדמיין"
+  ],
+  [
+   "play",
+   "משחק, לשחק; מחזה"
+  ],
+  [
+   "playwright",
+   "מחזאי"
+  ],
+  [
+   "policy",
+   "מדיניות"
+  ],
+  [
+   "potent",
+   "חזק, בעל כוח השפעה"
+  ],
+  [
+   "potential",
+   "אפשרי, פוטנציאלי"
+  ],
+  [
+   "prejudice",
+   "דעה קדומה"
+  ],
+  [
+   "prevalent",
+   "נפוץ, שכיח, רווח"
+  ],
+  [
+   "pride",
+   "גאווה"
+  ],
+  [
+   "prison",
+   "כלא"
+  ],
+  [
+   "prophecy",
+   "נבואה"
+  ],
+  [
+   "prosper",
+   "לשגשג"
+  ],
+  [
+   "province",
+   "מחוז, אזור"
+  ],
+  [
+   "provoke",
+   "להתגרות, להסית"
+  ],
+  [
+   "punctuate",
+   "הדגשה"
+  ],
+  [
+   "punctuation",
+   "ניקוד, פיסוק"
+  ],
+  [
+   "pure",
+   "טהור"
+  ],
+  [
+   "purification",
+   "טיהור"
+  ],
+  [
+   "query",
+   "שאלה, חקירה"
+  ],
+  [
+   "rapid",
+   "מהיר; אֶשֶד, זרם מים מהיר בנהר"
+  ],
+  [
+   "rapidly",
+   "במהירות"
+  ],
+  [
+   "reader",
+   "קורא"
+  ],
+  [
+   "rebuttal",
+   "הפרכה, סתירה"
+  ],
+  [
+   "recognize",
+   "לזהות"
+  ],
+  [
+   "recollection",
+   "זיכרון"
+  ],
+  [
+   "recordings",
+   "הקלטות"
+  ],
+  [
+   "recruit",
+   "לגייס"
+  ],
+  [
+   "recur",
+   "קרה שוב"
+  ],
+  [
+   "recurring",
+   "חוזר, נשנה"
+  ],
+  [
+   "refined",
+   "מעודן, מלוטש"
+  ],
+  [
+   "reflect",
+   "להרהר; לשקף, להחזיר אור"
+  ],
+  [
+   "reflection",
+   "השתקפות"
+  ],
+  [
+   "refugee",
+   "פליט"
+  ],
+  [
+   "reinforce",
+   "לתגבר, לחזק"
+  ],
+  [
+   "relapse",
+   "הדרדר, הישנות"
+  ],
+  [
+   "relating",
+   "מתייחס"
+  ],
+  [
+   "relations",
+   "יחסים"
+  ],
+  [
+   "remarkable",
+   "ראוי לציון, יוצא דופן"
+  ],
+  [
+   "rival",
+   "יריב"
+  ],
+  [
+   "rivalry",
+   "יריבות"
+  ],
+  [
+   "rodent",
+   "מכרסם"
+  ],
+  [
+   "role",
+   "תפקיד"
+  ],
+  [
+   "rural",
+   "כפרי"
+  ],
+  [
+   "satellite",
+   "לווין"
+  ],
+  [
+   "satisfy",
+   "לרצות, לספק"
+  ],
+  [
+   "scarce",
+   "נדיר"
+  ],
+  [
+   "scholar",
+   "אקדמאי, בעל מלגה, מלומד"
+  ],
+  [
+   "score",
+   "לחתוך, לחרוץ; תוצאה; לזכות בניקוד"
+  ],
+  [
+   "secular",
+   "חילוני"
+  ],
+  [
+   "senior",
+   "בכיר; זקן"
+  ],
+  [
+   "sensation",
+   "תחושה"
+  ],
+  [
+   "sensations",
+   "חדשות מרעישות"
+  ],
+  [
+   "set up",
+   "להרכיב, לארגן, לסדר"
+  ],
+  [
+   "sheet",
+   "סדין; דף"
+  ],
+  [
+   "sight",
+   "ראייה, כוונת"
+  ],
+  [
+   "sighting",
+   "תצפית, מראה"
+  ],
+  [
+   "silver",
+   "כסף, כסוף"
+  ],
+  [
+   "sink",
+   "כיור; לשקוע"
+  ],
+  [
+   "skin",
+   "עור"
+  ],
+  [
+   "skinned",
+   "פשט עור"
+  ],
+  [
+   "slander",
+   "השמצה, להשמיץ"
+  ],
+  [
+   "slight",
+   "קל, מעט"
+  ],
+  [
+   "speak, spoke",
+   "לדבר, דיבר"
+  ],
+  [
+   "speaker",
+   "דובר"
+  ],
+  [
+   "spell",
+   "כישוף, קסם; איות, לאיית"
+  ],
+  [
+   "spend",
+   "לבזבז, לפזר; לבלות, להעביר"
+  ],
+  [
+   "spill",
+   "לשפוך"
+  ],
+  [
+   "spot",
+   "כתם; לזהות"
+  ],
+  [
+   "sprang",
+   "נבע"
+  ],
+  [
+   "stadium",
+   "אצטדיון"
+  ],
+  [
+   "stark",
+   "בוטה, מוחלט, גמור; שומם, עזוב"
+  ],
+  [
+   "statue",
+   "פסל"
+  ],
+  [
+   "steel",
+   "פלדה"
+  ],
+  [
+   "stiff",
+   "נוקשה"
+  ],
+  [
+   "storage",
+   "אחסון"
+  ],
+  [
+   "strain",
+   "מתח נפשי; להתאמץ, למתוח, לנקוע"
+  ],
+  [
+   "strength",
+   "חוזק"
+  ],
+  [
+   "strengthen",
+   "לחזק"
+  ],
+  [
+   "struggle",
+   "מאבק, מאמץ"
+  ],
+  [
+   "stuck",
+   "תקוע"
+  ],
+  [
+   "suffer",
+   "לסבול"
+  ],
+  [
+   "sundown",
+   "שקיעה"
+  ],
+  [
+   "sunlight",
+   "אור יום"
+  ],
+  [
+   "supreme",
+   "עליון"
+  ],
+  [
+   "surprise",
+   "הפתעה"
+  ],
+  [
+   "swing",
+   "לנדנד, נדנדה"
+  ],
+  [
+   "switch",
+   "מתג; להחליף"
+  ],
+  [
+   "symptom",
+   "סימפטום"
+  ],
+  [
+   "tempt",
+   "לפתות"
+  ],
+  [
+   "tend",
+   "נוטה"
+  ],
+  [
+   "tender",
+   "רך"
+  ],
+  [
+   "threaten",
+   "לאיים"
+  ],
+  [
+   "tilt",
+   "להטות, שיפוע"
+  ],
+  [
+   "timid",
+   "ביישן"
+  ],
+  [
+   "topic",
+   "נושא"
+  ],
+  [
+   "tower",
+   "מגדל"
+  ],
+  [
+   "toxic",
+   "רעיל"
+  ],
+  [
+   "trace",
+   "סימן, עִקְבָה; לעקוב, למצוא"
+  ],
+  [
+   "track",
+   "מסילה, מסלול,; לעקוב"
+  ],
+  [
+   "transform",
+   "לשנות צורה"
+  ],
+  [
+   "translate",
+   "לתרגם"
+  ],
+  [
+   "translator",
+   "מתרגם"
+  ],
+  [
+   "transmit",
+   "לשדר"
+  ],
+  [
+   "transmitter",
+   "משדר"
+  ],
+  [
+   "transplant",
+   "לשתול"
+  ],
+  [
+   "trap",
+   "מלכודת"
+  ],
+  [
+   "triumph",
+   "ניצחון"
+  ],
+  [
+   "tropical",
+   "טרופי"
+  ],
+  [
+   "truth",
+   "אמת"
+  ],
+  [
+   "tube",
+   "צינור"
+  ],
+  [
+   "twist",
+   "סיבוך, סיבוב"
+  ],
+  [
+   "unconscious",
+   "מחוסר הכרה"
+  ],
+  [
+   "unjust",
+   "לא צודק"
+  ],
+  [
+   "vagueness",
+   "עמימות, ערפול"
+  ],
+  [
+   "vanish",
+   "להיעלם"
+  ],
+  [
+   "vegetable",
+   "ירק"
+  ],
+  [
+   "vegetarian",
+   "צמחוני"
+  ],
+  [
+   "vehicle",
+   "כלי רכב"
+  ],
+  [
+   "veracity",
+   "יושר, הגינות"
+  ],
+  [
+   "verdict",
+   "פסק דין, פסיקה"
+  ],
+  [
+   "voyage",
+   "מסע"
+  ],
+  [
+   "want",
+   "לרצות"
+  ],
+  [
+   "wanted",
+   "מבוקש"
+  ],
+  [
+   "warmth",
+   "חום"
+  ],
+  [
+   "wealth",
+   "עושר"
+  ],
+  [
+   "welfare",
+   "סעד"
+  ],
+  [
+   "wheat",
+   "חיטה"
+  ],
+  [
+   "wildlife",
+   "חיות בר"
+  ],
+  [
+   "wind",
+   "למתוח; רוח"
+  ],
+  [
+   "wing",
+   "כנף"
+  ],
+  [
+   "withstand",
+   "להתמודד, לעמוד ב-"
+  ]
+ ],
+ "8": [
+  [
+   "abroad",
+   "חו\"ל"
+  ],
+  [
+   "accomplices",
+   "שותף לדבר עבירה"
+  ],
+  [
+   "acquitted",
+   "זוכה מאשמה"
+  ],
+  [
+   "adhere",
+   "לדבוק ב-, לדגול ב-"
+  ],
+  [
+   "advocate",
+   "פרקליט; לייעץ"
+  ],
+  [
+   "align",
+   "להסתדר בשורה"
+  ],
+  [
+   "allowance",
+   "דמי כיס, הקצבה"
+  ],
+  [
+   "allusion",
+   "אזכור, רמיזה"
+  ],
+  [
+   "ample",
+   "מספיק, שופע, גדול"
+  ],
+  [
+   "amputation",
+   "קטיעה"
+  ],
+  [
+   "amusement",
+   "שעשוע"
+  ],
+  [
+   "anesthesia",
+   "הרדמה"
+  ],
+  [
+   "annoy",
+   "להציק"
+  ],
+  [
+   "appraise",
+   "להעריך (שווי), לאמוד"
+  ],
+  [
+   "ark",
+   "תיבה"
+  ],
+  [
+   "arrogant",
+   "יהיר, שחצן"
+  ],
+  [
+   "artifact",
+   "חפץ, פריט אומנות"
+  ],
+  [
+   "atrocity",
+   "זוועה"
+  ],
+  [
+   "attire",
+   "לבוש"
+  ],
+  [
+   "baffled",
+   "מבולבל"
+  ],
+  [
+   "baggage",
+   "מטען, מזוודה"
+  ],
+  [
+   "bandage",
+   "תחבושת"
+  ],
+  [
+   "barrier",
+   "מחסום"
+  ],
+  [
+   "bashful",
+   "ביישן"
+  ],
+  [
+   "bent",
+   "כופף"
+  ],
+  [
+   "blend",
+   "לערבב"
+  ],
+  [
+   "blur",
+   "טשטוש, לטשטש"
+  ],
+  [
+   "boil",
+   "להרתיח"
+  ],
+  [
+   "bolster",
+   "לתמוך"
+  ],
+  [
+   "boot",
+   "מגף"
+  ],
+  [
+   "bore",
+   "לשעמם, שעמום; לקדוח (חור)"
+  ],
+  [
+   "bury",
+   "לקבור"
+  ],
+  [
+   "cabin",
+   "בקתה"
+  ],
+  [
+   "ceremony",
+   "טקס, מסכת"
+  ],
+  [
+   "coal",
+   "פחם"
+  ],
+  [
+   "command",
+   "פקודה, לפקוד"
+  ],
+  [
+   "commute",
+   "להמתיק (עונש); להחליף, להמיר; לנסוע בקביעות לעבודה"
+  ],
+  [
+   "composed",
+   "הלחין"
+  ],
+  [
+   "condense",
+   "לדחוס"
+  ],
+  [
+   "condone",
+   "לסלוח, למחול"
+  ],
+  [
+   "congenial",
+   "נעים, ידידותי"
+  ],
+  [
+   "congenital",
+   "מולד"
+  ],
+  [
+   "consolidate",
+   "לאחד, לגבש"
+  ],
+  [
+   "container",
+   "מיכל, קונטיינר"
+  ],
+  [
+   "contest",
+   "תחרות; למחות"
+  ],
+  [
+   "convict",
+   "אסיר; להרשיע"
+  ],
+  [
+   "cope",
+   "להתמודד"
+  ],
+  [
+   "cord",
+   "מיתר"
+  ],
+  [
+   "cornerstone",
+   "אבן פינה"
+  ],
+  [
+   "crash",
+   "להתנגש, התנגשות"
+  ],
+  [
+   "credibility",
+   "אמינות, מהימנות"
+  ],
+  [
+   "crown",
+   "כתר, להכתיר"
+  ],
+  [
+   "cultivate",
+   "לעבד, לטפח"
+  ],
+  [
+   "curiosity",
+   "סקרנות"
+  ],
+  [
+   "curious",
+   "סקרן"
+  ],
+  [
+   "curve",
+   "עקומה, פניה"
+  ],
+  [
+   "damp",
+   "לח"
+  ],
+  [
+   "dampen",
+   "לדכא"
+  ],
+  [
+   "dare",
+   "להעיז, תעוזה; אתגר"
+  ],
+  [
+   "daydream",
+   "לחלום בהקיץ"
+  ],
+  [
+   "deaf",
+   "חרש"
+  ],
+  [
+   "defer",
+   "לעכב, לדחות"
+  ],
+  [
+   "deflate",
+   "להוציא אוויר מ-"
+  ],
+  [
+   "deform",
+   "לעוות"
+  ],
+  [
+   "deformity",
+   "מום, עיוות"
+  ],
+  [
+   "delicate",
+   "עדין"
+  ],
+  [
+   "demean",
+   "להנמיך, להשפיל"
+  ],
+  [
+   "department",
+   "מחלקה"
+  ],
+  [
+   "department-store",
+   "חנות כלבו"
+  ],
+  [
+   "deposit",
+   "להפקיד, פיקדון"
+  ],
+  [
+   "depreciate",
+   "להפחית"
+  ],
+  [
+   "despise",
+   "לתעב"
+  ],
+  [
+   "dessert",
+   "קינוח"
+  ],
+  [
+   "devoid",
+   "חסר, נטול"
+  ],
+  [
+   "disdain",
+   "זלזול, בוז"
+  ],
+  [
+   "disgrace",
+   "בושה"
+  ],
+  [
+   "disguise",
+   "תחפושת"
+  ],
+  [
+   "disloyal",
+   "לא נאמן"
+  ],
+  [
+   "disparagement",
+   "זלזול"
+  ],
+  [
+   "dispatch",
+   "לשגר"
+  ],
+  [
+   "displacement",
+   "עקירה"
+  ],
+  [
+   "disseminate",
+   "להפיץ"
+  ],
+  [
+   "docile",
+   "צייתן, כנוע, נח"
+  ],
+  [
+   "domestic",
+   "ביתי"
+  ],
+  [
+   "donate",
+   "לתרום"
+  ],
+  [
+   "donor",
+   "תורם"
+  ],
+  [
+   "draw",
+   "תיקו, שוויון; לצייר"
+  ],
+  [
+   "draw (drew)",
+   "לשלוף, שלף"
+  ],
+  [
+   "drawback",
+   "חסרון, עיכוב"
+  ],
+  [
+   "drift",
+   "זרם, סחף"
+  ],
+  [
+   "eager",
+   "נחוש, נלהב"
+  ],
+  [
+   "embryo",
+   "עוּבָּר"
+  ],
+  [
+   "engage",
+   "להעסיק, ליצור מגע"
+  ],
+  [
+   "engagement",
+   "התחייבות; אירוסין"
+  ],
+  [
+   "enlist",
+   "להתגייס"
+  ],
+  [
+   "enrage",
+   "להרגיז, להכעיס"
+  ],
+  [
+   "entertain",
+   "לשעשע, לבדר"
+  ],
+  [
+   "entertainment",
+   "בידור"
+  ],
+  [
+   "entitled",
+   "זכאי"
+  ],
+  [
+   "entrance",
+   "כניסה"
+  ],
+  [
+   "envision",
+   "לחזות, לצפות"
+  ],
+  [
+   "esteemed",
+   "מכובד"
+  ],
+  [
+   "exaggerate",
+   "להגזים"
+  ],
+  [
+   "examination",
+   "בחינה, בדיקה"
+  ],
+  [
+   "examine",
+   "לבחון"
+  ],
+  [
+   "excitement",
+   "התרגשות"
+  ],
+  [
+   "exert",
+   "להתאמץ; להפעיל"
+  ],
+  [
+   "exhaust",
+   "פליטה, צינור מפלט"
+  ],
+  [
+   "exist",
+   "קיים"
+  ],
+  [
+   "existence",
+   "קיום"
+  ],
+  [
+   "expedite",
+   "לזרז"
+  ],
+  [
+   "expend",
+   "לגמור, לבזבז, לפזר"
+  ],
+  [
+   "expendable",
+   "שניתן לוותר עליו"
+  ],
+  [
+   "eyesight",
+   "ראייה, כוונת"
+  ],
+  [
+   "factory",
+   "מפעל, בית חרושת"
+  ],
+  [
+   "familiar",
+   "מוכר"
+  ],
+  [
+   "familiarize",
+   "להתוודע"
+  ],
+  [
+   "fascinate",
+   "לרתק"
+  ],
+  [
+   "fertile",
+   "פורה"
+  ],
+  [
+   "fetus",
+   "עובר (ברחם)"
+  ],
+  [
+   "fiber",
+   "סיב"
+  ],
+  [
+   "figurative",
+   "סמלי"
+  ],
+  [
+   "finalize",
+   "לסכם, לגבש"
+  ],
+  [
+   "firm",
+   "מוצק; נחוש, תקיף; חברה (פירמה)"
+  ],
+  [
+   "flagrant",
+   "בוטה"
+  ],
+  [
+   "flexible",
+   "גמיש"
+  ],
+  [
+   "fluctuation",
+   "חוסר יציבות"
+  ],
+  [
+   "fluency",
+   "שטף"
+  ],
+  [
+   "fluent",
+   "שוטף"
+  ],
+  [
+   "fluid",
+   "נוזל"
+  ],
+  [
+   "footprints",
+   "עקבות, טביעות רגל"
+  ],
+  [
+   "foresee",
+   "לצפות מראש"
+  ],
+  [
+   "fort",
+   "מצודה, מבצר"
+  ],
+  [
+   "fortify",
+   "לחזק, לבצר"
+  ],
+  [
+   "fragrance",
+   "ניחוח"
+  ],
+  [
+   "freeze, froze",
+   "להקפיא, הקפיא"
+  ],
+  [
+   "fruit",
+   "פרי"
+  ],
+  [
+   "fulfill",
+   "להגשים"
+  ],
+  [
+   "garment",
+   "בגד, לבוש"
+  ],
+  [
+   "gasoline",
+   "בנזין"
+  ],
+  [
+   "genre",
+   "ז'אנר, סוגה"
+  ],
+  [
+   "genus",
+   "סוג, מין"
+  ],
+  [
+   "giant",
+   "ענק"
+  ],
+  [
+   "goblet",
+   "גביע"
+  ],
+  [
+   "greet",
+   "לברך, לקבל פנים"
+  ],
+  [
+   "grief",
+   "יגון, צער"
+  ],
+  [
+   "grievance",
+   "טרוניה, התמרמרות"
+  ],
+  [
+   "growled",
+   "נהם"
+  ],
+  [
+   "guarantee",
+   "להבטיח, ערבות"
+  ],
+  [
+   "halve",
+   "לחצות"
+  ],
+  [
+   "harass",
+   "להציק"
+  ],
+  [
+   "hasten",
+   "למהר, להחפז"
+  ],
+  [
+   "hasty",
+   "מהיר, בהול"
+  ],
+  [
+   "hatch",
+   "לבקוע (מביצה); פתח, צוהר"
+  ],
+  [
+   "haul",
+   "לגרור"
+  ],
+  [
+   "heed",
+   "לשים לב"
+  ],
+  [
+   "hegemony",
+   "הגמוניה"
+  ],
+  [
+   "height",
+   "גובה"
+  ],
+  [
+   "heresy",
+   "כפירה"
+  ],
+  [
+   "hibernate",
+   "לישון שנת חורף"
+  ],
+  [
+   "hid from",
+   "התחבא מ-"
+  ],
+  [
+   "hidden",
+   "חבוי, נסתר"
+  ],
+  [
+   "highway",
+   "כביש ראשי"
+  ],
+  [
+   "hinder",
+   "לעכב"
+  ],
+  [
+   "hint",
+   "רמז"
+  ],
+  [
+   "historian",
+   "היסטוריון"
+  ],
+  [
+   "hive",
+   "כוורת"
+  ],
+  [
+   "horrific",
+   "אָיוֹם"
+  ],
+  [
+   "horror",
+   "אימה"
+  ],
+  [
+   "hospitality",
+   "הכנסת אורחים"
+  ],
+  [
+   "host",
+   "מארח"
+  ],
+  [
+   "hostility",
+   "עוינות"
+  ],
+  [
+   "hypocrisy",
+   "צביעות"
+  ],
+  [
+   "idolize",
+   "להעריץ"
+  ],
+  [
+   "ill",
+   "חולה"
+  ],
+  [
+   "illuminate",
+   "להאיר"
+  ],
+  [
+   "illusion",
+   "אשליה"
+  ],
+  [
+   "imaginative",
+   "דמיוני"
+  ],
+  [
+   "imitate",
+   "לחקות"
+  ],
+  [
+   "implore",
+   "להתחנן, להפציר"
+  ],
+  [
+   "imply",
+   "לרמוז"
+  ],
+  [
+   "imprisonment",
+   "מאסר, כליאה"
+  ],
+  [
+   "inadvertently",
+   "בלי משים, בלי כוונה"
+  ],
+  [
+   "incline",
+   "שיפוע; להתאים"
+  ],
+  [
+   "indebted",
+   "חייב ל-, אסיר תודה"
+  ],
+  [
+   "induce",
+   "לגרום, לייצר"
+  ],
+  [
+   "infancy",
+   "ינקות"
+  ],
+  [
+   "inherit",
+   "לרשת"
+  ],
+  [
+   "inhibit",
+   "לרסן"
+  ],
+  [
+   "inject",
+   "להזריק"
+  ],
+  [
+   "injury",
+   "פציעה"
+  ],
+  [
+   "insanity",
+   "אי שפיות"
+  ],
+  [
+   "inspect",
+   "לבחון, לבדוק"
+  ],
+  [
+   "insult",
+   "להעליב; עלבון"
+  ],
+  [
+   "integrate",
+   "לשלב"
+  ],
+  [
+   "intelligence",
+   "אינטליגנציה; מודיעין"
+  ],
+  [
+   "interface",
+   "ממשק"
+  ],
+  [
+   "interjection",
+   "הערה, הפרעה לשיחה"
+  ],
+  [
+   "keystone",
+   "אבן מפתח"
+  ],
+  [
+   "lackluster",
+   "העדר ברק, העדר כוח"
+  ],
+  [
+   "leisure",
+   "פנאי"
+  ],
+  [
+   "leisurely",
+   "נינוח, רגוע"
+  ],
+  [
+   "lucrative",
+   "ריווחי"
+  ],
+  [
+   "luggage",
+   "מזוודות"
+  ],
+  [
+   "luminous",
+   "זוהר, בוהק"
+  ],
+  [
+   "lurking",
+   "אורב, מתגנב"
+  ],
+  [
+   "magnitude",
+   "גודל, חשיבות"
+  ],
+  [
+   "malformation",
+   "עיוות, פגם"
+  ],
+  [
+   "manner",
+   "התנהגות, אופן"
+  ],
+  [
+   "manners",
+   "נימוס"
+  ],
+  [
+   "marriage",
+   "נישואין"
+  ],
+  [
+   "masculine",
+   "גברי"
+  ],
+  [
+   "merit",
+   "ערך, הישג"
+  ],
+  [
+   "metal",
+   "מתכת, מתכתי"
+  ],
+  [
+   "meticulous",
+   "קפדני"
+  ],
+  [
+   "migrate",
+   "להגר"
+  ],
+  [
+   "mimic",
+   "לחקות"
+  ],
+  [
+   "minister",
+   "שר (בממשלה)"
+  ],
+  [
+   "monarch",
+   "מלך"
+  ],
+  [
+   "morose",
+   "קודר, עגמומי"
+  ],
+  [
+   "muscle",
+   "שריר"
+  ],
+  [
+   "mutation",
+   "מוטציה"
+  ],
+  [
+   "mystery",
+   "תעלומה"
+  ],
+  [
+   "narcotic",
+   "סם"
+  ],
+  [
+   "neighbor",
+   "שכן"
+  ],
+  [
+   "neighborhood",
+   "שכונה"
+  ],
+  [
+   "noise",
+   "רעש"
+  ],
+  [
+   "nuisance",
+   "מטרד"
+  ],
+  [
+   "nurse",
+   "אחות"
+  ],
+  [
+   "nursery",
+   "חדר ילדים"
+  ],
+  [
+   "nurture",
+   "לטפח, להזין, לחנך"
+  ],
+  [
+   "obligation",
+   "התחייבות"
+  ],
+  [
+   "oblige",
+   "לחייב, להכריח"
+  ],
+  [
+   "ocean",
+   "אוקיינוס"
+  ],
+  [
+   "offset",
+   "לקזז"
+  ],
+  [
+   "overly",
+   "יותר מידי"
+  ],
+  [
+   "oversee",
+   "לפקח"
+  ],
+  [
+   "overwhelm",
+   "מהמם"
+  ],
+  [
+   "package",
+   "חפיסה, חבילה"
+  ],
+  [
+   "painter",
+   "צייר"
+  ],
+  [
+   "painting",
+   "ציור"
+  ],
+  [
+   "passion",
+   "תשוקה"
+  ],
+  [
+   "path",
+   "דרך, נתיב"
+  ],
+  [
+   "patience",
+   "סבלנות"
+  ],
+  [
+   "patiently",
+   "בסבלנות"
+  ],
+  [
+   "patients",
+   "מטופלים"
+  ],
+  [
+   "peddler",
+   "רוכל, סוחר"
+  ],
+  [
+   "penalty",
+   "קנס"
+  ],
+  [
+   "people",
+   "אנשים"
+  ],
+  [
+   "perpetuate",
+   "להנציח"
+  ],
+  [
+   "pest",
+   "מטרד, מזיק (חרקים)"
+  ],
+  [
+   "petroleum",
+   "נפט"
+  ],
+  [
+   "plague",
+   "מגפה"
+  ],
+  [
+   "plentiful",
+   "מלא, שופע"
+  ],
+  [
+   "poet",
+   "משורר"
+  ],
+  [
+   "polar",
+   "קוטבי, הפוך לחלוטין"
+  ],
+  [
+   "pole",
+   "מוט; קוטב"
+  ],
+  [
+   "poor",
+   "עני, מסכן"
+  ],
+  [
+   "poorly",
+   "בצורה גרועה"
+  ],
+  [
+   "portrait",
+   "דיוקן"
+  ],
+  [
+   "posterity",
+   "הדורות הבאים"
+  ],
+  [
+   "pot",
+   "סיר, קדרה"
+  ],
+  [
+   "potato",
+   "תפוח אדמה"
+  ],
+  [
+   "potter",
+   "קדר"
+  ],
+  [
+   "praise",
+   "לשבח"
+  ],
+  [
+   "prepare",
+   "התכונן"
+  ],
+  [
+   "preside",
+   "לנהל"
+  ],
+  [
+   "prestigious",
+   "יוקרתי"
+  ],
+  [
+   "pretend",
+   "להעמיד פנים"
+  ],
+  [
+   "principal",
+   "מנהל בית ספר"
+  ],
+  [
+   "principle",
+   "עיקרון; עיקרי"
+  ],
+  [
+   "probation",
+   "תקופת מבחן"
+  ],
+  [
+   "proliferate",
+   "התפשט במהירות"
+  ],
+  [
+   "prolific",
+   "פורה, שופע"
+  ],
+  [
+   "prolong",
+   "מתמשך"
+  ],
+  [
+   "prominent",
+   "בולט, חשוב"
+  ],
+  [
+   "prone",
+   "נוטה"
+  ],
+  [
+   "proof",
+   "הוכחה, ראיה; חסין, עמיד (סיומת)"
+  ],
+  [
+   "propel",
+   "להניע, לדחוף"
+  ],
+  [
+   "proposal",
+   "הצעה"
+  ],
+  [
+   "propose",
+   "להציע; להציע, להציע נישואין"
+  ],
+  [
+   "proposition",
+   "הצעה"
+  ],
+  [
+   "prospective",
+   "צפוי, עתידי"
+  ],
+  [
+   "punish",
+   "להעניש"
+  ],
+  [
+   "readily",
+   "ללא קושי"
+  ],
+  [
+   "readiness",
+   "מוכנות"
+  ],
+  [
+   "realize",
+   "הבין"
+  ],
+  [
+   "rearing",
+   "גידול, טיפוח"
+  ],
+  [
+   "reassurance",
+   "הבטחה, הרגעה"
+  ],
+  [
+   "reborn",
+   "נולד מחדש"
+  ],
+  [
+   "recall",
+   "להיזכר; להחזיר, להשיב צלצול"
+  ],
+  [
+   "recruitment",
+   "גיוס"
+  ],
+  [
+   "reliable",
+   "אמין, שניתן לסמוך עליו"
+  ],
+  [
+   "relic",
+   "שארית, שריד"
+  ],
+  [
+   "relieve",
+   "להקהל"
+  ],
+  [
+   "remedy",
+   "תרופה"
+  ],
+  [
+   "reorganize",
+   "לארגן מחדש"
+  ],
+  [
+   "repelled",
+   "דחה, הגעיל"
+  ],
+  [
+   "replica",
+   "העתק מדויק"
+  ],
+  [
+   "represent",
+   "לייצג, מייצג"
+  ],
+  [
+   "repressive",
+   "מדכא"
+  ],
+  [
+   "reproduce",
+   "להתרבות, לשכפל"
+  ],
+  [
+   "reputation",
+   "שם, מוניטין"
+  ],
+  [
+   "resent",
+   "להתנגד, להתרעם"
+  ],
+  [
+   "reservation",
+   "שמורה; שריון מקום"
+  ],
+  [
+   "reserve",
+   "עתודה, מילואים; לשמור; שמורה"
+  ],
+  [
+   "reservoir",
+   "מאגר"
+  ],
+  [
+   "resigned",
+   "התפטר"
+  ],
+  [
+   "respect",
+   "כבוד, לכבד"
+  ],
+  [
+   "respectfully",
+   "בכבוד"
+  ],
+  [
+   "respond",
+   "להגיב, תגובה, תשובה"
+  ],
+  [
+   "responsibility",
+   "אחריות"
+  ],
+  [
+   "responsible",
+   "אחראי"
+  ],
+  [
+   "retirement",
+   "פרישה"
+  ],
+  [
+   "retreat",
+   "לסגת, נסיגה"
+  ],
+  [
+   "revise",
+   "לתקן, לשפר"
+  ],
+  [
+   "revision",
+   "בדיקה מחדש לצורך שיפור"
+  ],
+  [
+   "ridicule",
+   "ללעוג"
+  ],
+  [
+   "ridiculous",
+   "מגוחך"
+  ],
+  [
+   "rim",
+   "שפה"
+  ],
+  [
+   "rope",
+   "חבל"
+  ],
+  [
+   "rub",
+   "לשפשף"
+  ],
+  [
+   "rumor",
+   "שמועה"
+  ],
+  [
+   "salary",
+   "שכר"
+  ],
+  [
+   "sanction",
+   "קנס, עונש, עידוד"
+  ],
+  [
+   "saw",
+   "מסור"
+  ],
+  [
+   "saw, see",
+   "ראה, לראות"
+  ],
+  [
+   "seeds",
+   "זרעים"
+  ],
+  [
+   "segment",
+   "קטע, מקטע"
+  ],
+  [
+   "self-confidence",
+   "בטחון-עצמי"
+  ],
+  [
+   "self-indulgence",
+   "סיפוק-עצמי"
+  ],
+  [
+   "sequel",
+   "המשך"
+  ],
+  [
+   "sequence",
+   "רצף"
+  ],
+  [
+   "shatter",
+   "לנפץ, להרוס, לקעקע"
+  ],
+  [
+   "shell",
+   "קליפה, מעטפת; פגז"
+  ],
+  [
+   "shelter",
+   "מקלט"
+  ],
+  [
+   "shield",
+   "מגן, להגן"
+  ],
+  [
+   "signature",
+   "חתימה"
+  ],
+  [
+   "silent",
+   "דומם, שקט"
+  ],
+  [
+   "silently",
+   "בשקט"
+  ],
+  [
+   "slant",
+   "אלכסון, נטייה"
+  ],
+  [
+   "slate",
+   "להכניס מישהו לרשימה; רעף, לוח"
+  ],
+  [
+   "slaughter",
+   "לטבוח, לשחוט, טֶבַח"
+  ],
+  [
+   "slave",
+   "עבד"
+  ],
+  [
+   "slavery",
+   "עבדות"
+  ],
+  [
+   "slender",
+   "רזה"
+  ],
+  [
+   "slope",
+   "שיפוע, מדרון"
+  ],
+  [
+   "snicker",
+   "גיחוך"
+  ],
+  [
+   "soldier",
+   "חייל"
+  ],
+  [
+   "solitary",
+   "מבודד"
+  ],
+  [
+   "solve",
+   "לפתור"
+  ],
+  [
+   "soul",
+   "נשמה"
+  ],
+  [
+   "sound",
+   "קול; בריא"
+  ],
+  [
+   "special",
+   "מיוחד"
+  ],
+  [
+   "spike",
+   "יתד"
+  ],
+  [
+   "splendor",
+   "פאר"
+  ],
+  [
+   "spotlight",
+   "זרקור"
+  ],
+  [
+   "stage",
+   "במה, לביים"
+  ],
+  [
+   "starve",
+   "לרעוב"
+  ],
+  [
+   "store",
+   "חנות, לאחסן; לאחסן"
+  ],
+  [
+   "stress",
+   "להדגיש; מתח, לחץ, מצוקה"
+  ],
+  [
+   "strict",
+   "נוקשה"
+  ],
+  [
+   "stubborn",
+   "עקשן"
+  ],
+  [
+   "subsequent",
+   "עוקב"
+  ],
+  [
+   "supplement",
+   "תוסף"
+  ],
+  [
+   "supply",
+   "אספקה"
+  ],
+  [
+   "susceptible",
+   "רגישות"
+  ],
+  [
+   "suspend",
+   "להשעות"
+  ],
+  [
+   "suspense",
+   "השהיה, מתח"
+  ],
+  [
+   "tact",
+   "טקט"
+  ],
+  [
+   "tension",
+   "מתח"
+  ],
+  [
+   "testify",
+   "להעיד"
+  ],
+  [
+   "texture",
+   "מרקם, טקסטורה"
+  ],
+  [
+   "tie",
+   "לקשור, קשר; עניבה"
+  ],
+  [
+   "timber",
+   "עץ"
+  ],
+  [
+   "tomb",
+   "קבר"
+  ],
+  [
+   "trait",
+   "תכונה"
+  ],
+  [
+   "tranquilize",
+   "להרגיע, להרדים"
+  ],
+  [
+   "transaction",
+   "עסקה"
+  ],
+  [
+   "transcend",
+   "להתעלות"
+  ],
+  [
+   "transition",
+   "מעבר, שינוי"
+  ],
+  [
+   "transparent",
+   "שקוף"
+  ],
+  [
+   "transport",
+   "להוביל; הובלה"
+  ],
+  [
+   "transportation",
+   "תחבורה"
+  ],
+  [
+   "unconventional",
+   "לא שיגרתי"
+  ],
+  [
+   "underestimate",
+   "הערכה נמוכה, לזלזל"
+  ],
+  [
+   "vacant",
+   "פנוי, ריק"
+  ],
+  [
+   "veteran",
+   "ותיק; חייל משוחרר, יוצא צבא"
+  ],
+  [
+   "virtue",
+   "מעלה"
+  ],
+  [
+   "vital",
+   "חיוני"
+  ],
+  [
+   "vivid",
+   "חד, בהיר, ססגוני, שופע"
+  ],
+  [
+   "vulnerable",
+   "פגיעות"
+  ],
+  [
+   "warn",
+   "להזהיר"
+  ],
+  [
+   "warning",
+   "אזהרה"
+  ],
+  [
+   "weaken",
+   "להחליש"
+  ],
+  [
+   "withdraw",
+   "לסגת, לפרוש"
+  ],
+  [
+   "witness",
+   "עד, להעיד"
+  ],
+  [
+   "worry",
+   "דאגה, לדאוג"
+  ],
+  [
+   "zoo",
+   "גן חיות"
+  ]
+ ],
+ "9": [
+  [
+   "abhor",
+   "לשנוא, לתעב"
+  ],
+  [
+   "adolescence",
+   "גיל ההתבגרות"
+  ],
+  [
+   "agency",
+   "סוכנות"
+  ],
+  [
+   "apathetic",
+   "אדיש"
+  ],
+  [
+   "apathy",
+   "אפאתיה, אדישות"
+  ],
+  [
+   "appease",
+   "לפייס"
+  ],
+  [
+   "appetite",
+   "תיאבון, רצון עז"
+  ],
+  [
+   "applaud",
+   "מחא כפיים, הריע"
+  ],
+  [
+   "arable",
+   "מתאים לעיבוד"
+  ],
+  [
+   "attorney",
+   "עורך-דין"
+  ],
+  [
+   "aura",
+   "הילה"
+  ],
+  [
+   "awe",
+   "יראת כבוד"
+  ],
+  [
+   "awkward",
+   "מגושם; מוזר, מביך"
+  ],
+  [
+   "bail",
+   "ערבות, לשחרר בערבות"
+  ],
+  [
+   "bald",
+   "קרח"
+  ],
+  [
+   "bargain",
+   "להתמקח; מציאה, עסקה"
+  ],
+  [
+   "barn",
+   "אסם"
+  ],
+  [
+   "basin",
+   "אגן, כיור"
+  ],
+  [
+   "beard",
+   "זקן"
+  ],
+  [
+   "beast",
+   "חיה, מפלצת"
+  ],
+  [
+   "beat",
+   "מקצב; מכה, להכות"
+  ],
+  [
+   "biblical",
+   "תנ\"כי"
+  ],
+  [
+   "bland",
+   "תפל"
+  ],
+  [
+   "blink",
+   "למצמץ"
+  ],
+  [
+   "bond",
+   "קשר"
+  ],
+  [
+   "breed",
+   "מין, גזע; להרביע, להפרות"
+  ],
+  [
+   "burglar",
+   "פורץ"
+  ],
+  [
+   "butcher",
+   "קצב; לשחוט"
+  ],
+  [
+   "cavity",
+   "חור"
+  ],
+  [
+   "celebrate",
+   "לחגוג"
+  ],
+  [
+   "charm",
+   "קסם"
+  ],
+  [
+   "cheat",
+   "לרמות, לבגוד"
+  ],
+  [
+   "clash",
+   "התנגשות"
+  ],
+  [
+   "cliff",
+   "צוק"
+  ],
+  [
+   "cloak",
+   "מסווה, להסוות"
+  ],
+  [
+   "coma",
+   "תרדמת"
+  ],
+  [
+   "comic",
+   "קומי (מהמילה קומדיה)"
+  ],
+  [
+   "cosmopolitan",
+   "אוניברסלי"
+  ],
+  [
+   "cough",
+   "שיעול, להשתעל"
+  ],
+  [
+   "course",
+   "מנה; קורס; מסלול"
+  ],
+  [
+   "cousin",
+   "בן-דוד"
+  ],
+  [
+   "cripple",
+   "להטיל מום"
+  ],
+  [
+   "croak",
+   "קרקור"
+  ],
+  [
+   "crop",
+   "לקצץ; יבול"
+  ],
+  [
+   "crowd",
+   "קהל; להצטופף"
+  ],
+  [
+   "curtain",
+   "וילון"
+  ],
+  [
+   "dagger",
+   "פגיון"
+  ],
+  [
+   "dairy",
+   "מחלבה"
+  ],
+  [
+   "dandy",
+   "גנדרני"
+  ],
+  [
+   "decorate",
+   "לקשט"
+  ],
+  [
+   "decorative",
+   "קישוטי, דקורטיבי"
+  ],
+  [
+   "deer",
+   "איל"
+  ],
+  [
+   "demented",
+   "משוגע, מטורף"
+  ],
+  [
+   "densely",
+   "בצפיפות"
+  ],
+  [
+   "density",
+   "צפיפות"
+  ],
+  [
+   "depict",
+   "לתאר, להציג, לשרטט"
+  ],
+  [
+   "derision",
+   "לעג"
+  ],
+  [
+   "detail",
+   "פרט, לפרט"
+  ],
+  [
+   "detrimental",
+   "מזיק"
+  ],
+  [
+   "devastated",
+   "הרוס, מפורק"
+  ],
+  [
+   "diet",
+   "דיאטה, תזונה"
+  ],
+  [
+   "dim",
+   "לעמעמם"
+  ],
+  [
+   "disarmament",
+   "פירוק מנשק"
+  ],
+  [
+   "discord",
+   "סכסוך, מחלוקת, צרימה"
+  ],
+  [
+   "disgust",
+   "גועל, להגעיל"
+  ],
+  [
+   "dissect",
+   "לנתח, לבתר"
+  ],
+  [
+   "dissection",
+   "חיתוך, ביתור"
+  ],
+  [
+   "disuse",
+   "חוסר שימוש"
+  ],
+  [
+   "dose",
+   "מנה, מינון"
+  ],
+  [
+   "double standard",
+   "מוסר כפול"
+  ],
+  [
+   "draft",
+   "גיוס; טיוטה; משיכה; רוח פרצים"
+  ],
+  [
+   "drag",
+   "לגרור"
+  ],
+  [
+   "dread",
+   "פחד, לפחד"
+  ],
+  [
+   "drench",
+   "להרטיב, להספיג"
+  ],
+  [
+   "drip",
+   "לטפטף"
+  ],
+  [
+   "dull",
+   "סתום; משעמם; עמום"
+  ],
+  [
+   "dump",
+   "לשפוך"
+  ],
+  [
+   "dwell",
+   "להתגורר"
+  ],
+  [
+   "dwelling",
+   "משכן, בית"
+  ],
+  [
+   "dye",
+   "צבע, לצבוע"
+  ],
+  [
+   "East",
+   "מזרח"
+  ],
+  [
+   "eccentric",
+   "מוזר, אקסצנטרי"
+  ],
+  [
+   "ecological",
+   "אקולוגי"
+  ],
+  [
+   "elastic",
+   "גמיש, אלסטי, גומיה"
+  ],
+  [
+   "elderly",
+   "זקן"
+  ],
+  [
+   "embalm",
+   "לחנוט, לשמר"
+  ],
+  [
+   "embarrass",
+   "להביך"
+  ],
+  [
+   "embitter",
+   "גורם התמרמרות"
+  ],
+  [
+   "emit",
+   "לפלוט, להוציא"
+  ],
+  [
+   "empathy",
+   "הזדהות, אמפתיה"
+  ],
+  [
+   "emphasize",
+   "להדגיש"
+  ],
+  [
+   "enchant",
+   "לכשף, להקסים"
+  ],
+  [
+   "encroach",
+   "להסיג גבול, לפלוש"
+  ],
+  [
+   "engine",
+   "מנוע"
+  ],
+  [
+   "engineer",
+   "מהנדס, להנדס"
+  ],
+  [
+   "enrich",
+   "להעשיר"
+  ],
+  [
+   "enroll",
+   "להירשם"
+  ],
+  [
+   "ensue",
+   "נבע"
+  ],
+  [
+   "enthusiasm",
+   "התלהבות"
+  ],
+  [
+   "envious",
+   "קנאי"
+  ],
+  [
+   "envy",
+   "קנאה, לקנא"
+  ],
+  [
+   "epitomize",
+   "לייצג, לאפיין"
+  ],
+  [
+   "erosion",
+   "סחף, כרסום"
+  ],
+  [
+   "erroneous",
+   "שגוי"
+  ],
+  [
+   "evocative",
+   "מעורר, מעלה, מזכיר"
+  ],
+  [
+   "exhale",
+   "לנשוף"
+  ],
+  [
+   "exhibit",
+   "להציג, מוצג"
+  ],
+  [
+   "exhibition",
+   "תערוכה"
+  ],
+  [
+   "exile",
+   "להגלות, לגרש"
+  ],
+  [
+   "expand",
+   "להרחיב"
+  ],
+  [
+   "expansion",
+   "התפתחות"
+  ],
+  [
+   "expatriate",
+   "להגלות, לגרש"
+  ],
+  [
+   "expel",
+   "להשעות, להרחיק"
+  ],
+  [
+   "explode",
+   "להתפוצץ"
+  ],
+  [
+   "extortion",
+   "סחיטה"
+  ],
+  [
+   "extraordinary",
+   "בלתי רגיל"
+  ],
+  [
+   "extrapolate",
+   "לאמוד על סמך מידע קיים"
+  ],
+  [
+   "faint",
+   "להתעלף; קלוש"
+  ],
+  [
+   "famine",
+   "רעב קשה"
+  ],
+  [
+   "famous",
+   "מפורסם"
+  ],
+  [
+   "fatigue",
+   "עייפות, תשישות; לעייף"
+  ],
+  [
+   "fault",
+   "פגם, תקלה; אשמה"
+  ],
+  [
+   "faulty",
+   "לקוי, לא תקין"
+  ],
+  [
+   "fever",
+   "חום (של מחלה)"
+  ],
+  [
+   "flavor",
+   "לתבל; טעם"
+  ],
+  [
+   "flee, fled",
+   "להימלט, נמלט"
+  ],
+  [
+   "flip",
+   "לזרוק, להעיף; סלטה; להפוך צד"
+  ],
+  [
+   "flow",
+   "זרם"
+  ],
+  [
+   "focus",
+   "להתמקד, מיקוד"
+  ],
+  [
+   "forgettable",
+   "שאפשר לשכוח אותו"
+  ],
+  [
+   "foster",
+   "אומן, מאומץ"
+  ],
+  [
+   "fraction",
+   "שבר"
+  ],
+  [
+   "fracture",
+   "שבר"
+  ],
+  [
+   "fraud",
+   "מרמה, הונאה"
+  ],
+  [
+   "frequency",
+   "תדר, תדירות"
+  ],
+  [
+   "frequent",
+   "תדיר, שכיח"
+  ],
+  [
+   "frightening",
+   "מפחיד"
+  ],
+  [
+   "fringes",
+   "שוליים"
+  ],
+  [
+   "frugal",
+   "חסכני"
+  ],
+  [
+   "frustration",
+   "תסכול"
+  ],
+  [
+   "fuel",
+   "דלק"
+  ],
+  [
+   "fume",
+   "אדים, עשן"
+  ],
+  [
+   "fungus",
+   "פטרת"
+  ],
+  [
+   "fur",
+   "פרווה"
+  ],
+  [
+   "fury",
+   "זעם"
+  ],
+  [
+   "gamble",
+   "הימר"
+  ],
+  [
+   "gene",
+   "גן (תורשתי)"
+  ],
+  [
+   "genesis",
+   "ספר בראשית; היווצרות, התהוות"
+  ],
+  [
+   "genetic",
+   "תורשתי, גנטי"
+  ],
+  [
+   "genial",
+   "ידידותי"
+  ],
+  [
+   "glance",
+   "מבט חטוף"
+  ],
+  [
+   "glitch",
+   "תקלה, הפרעה"
+  ],
+  [
+   "glorify",
+   "להאדיר"
+  ],
+  [
+   "grace",
+   "חסד, חינניות"
+  ],
+  [
+   "gracious",
+   "חינני, אדיב"
+  ],
+  [
+   "grain",
+   "גרעין, לטחון; תבואה"
+  ],
+  [
+   "hike",
+   "הליכה, טיול"
+  ],
+  [
+   "hobby",
+   "תחביב"
+  ],
+  [
+   "humiliate",
+   "להשפיל"
+  ],
+  [
+   "humility",
+   "ענוה"
+  ],
+  [
+   "ice cream",
+   "גלידה"
+  ],
+  [
+   "iceberg",
+   "קרחון"
+  ],
+  [
+   "icicle",
+   "נטיף קרח"
+  ],
+  [
+   "indigenous",
+   "ילידים, מולד"
+  ],
+  [
+   "inflammation",
+   "דלקת"
+  ],
+  [
+   "inflate",
+   "לנפח"
+  ],
+  [
+   "infraction",
+   "עבירה"
+  ],
+  [
+   "ingest",
+   "להכניס משהו לגוף דרך הפה"
+  ],
+  [
+   "ingredients",
+   "מרכיבים"
+  ],
+  [
+   "injure",
+   "לפצוע"
+  ],
+  [
+   "insect",
+   "חרק"
+  ],
+  [
+   "installation",
+   "התקנה"
+  ],
+  [
+   "instant",
+   "מיידי; בהרף עין"
+  ],
+  [
+   "instill",
+   "להחדיר, להשריש"
+  ],
+  [
+   "insulate",
+   "לבודד"
+  ],
+  [
+   "insurrection",
+   "התקוממות"
+  ],
+  [
+   "intact",
+   "ללא פגע"
+  ],
+  [
+   "intermediary",
+   "מתווך, אמצעי"
+  ],
+  [
+   "interminable",
+   "נצחי"
+  ],
+  [
+   "intimidate",
+   "להפחיד"
+  ],
+  [
+   "intrusive",
+   "פולשני"
+  ],
+  [
+   "invariably",
+   "ללא שינוי"
+  ],
+  [
+   "ironic",
+   "אירוני"
+  ],
+  [
+   "jagged",
+   "משונן"
+  ],
+  [
+   "journey",
+   "מסע"
+  ],
+  [
+   "joyous",
+   "שמח, עליז"
+  ],
+  [
+   "keep",
+   "לשמור; חלק מהמצודה"
+  ],
+  [
+   "kick",
+   "לבעוט, בעיטה"
+  ],
+  [
+   "knees",
+   "ברכיים"
+  ],
+  [
+   "knot",
+   "קשר"
+  ],
+  [
+   "lamentable",
+   "מצער, מעציב"
+  ],
+  [
+   "laugh",
+   "לצחוק"
+  ],
+  [
+   "lend",
+   "להלוות, להשאיל"
+  ],
+  [
+   "liberal",
+   "ליברלי, מתירני"
+  ],
+  [
+   "library",
+   "ספריה"
+  ],
+  [
+   "limb",
+   "גף, איבר; קצה"
+  ],
+  [
+   "limber",
+   "גמיש"
+  ],
+  [
+   "lineage",
+   "ייחוס, שושלת"
+  ],
+  [
+   "linger",
+   "להתעכב, להשתהות"
+  ],
+  [
+   "link",
+   "קישור, לקשר, חוליה"
+  ],
+  [
+   "lodge",
+   "להתאכסן, אכסנייה"
+  ],
+  [
+   "log",
+   "יומן, לתעד ביומן; בול עץ"
+  ],
+  [
+   "lone",
+   "בודד, יחיד"
+  ],
+  [
+   "loneliness",
+   "בדידות"
+  ],
+  [
+   "lumber",
+   "גזע עץ"
+  ],
+  [
+   "maximize",
+   "למקסם"
+  ],
+  [
+   "maze",
+   "מבוך"
+  ],
+  [
+   "mechanize",
+   "למכן, להתקין מכונות"
+  ],
+  [
+   "media",
+   "מדיה, תקשורת"
+  ],
+  [
+   "Mediterranean",
+   "ים תיכוני"
+  ],
+  [
+   "memorial",
+   "מצבה, תזכיר"
+  ],
+  [
+   "memorize",
+   "לשנן, לזכור בעל-פה"
+  ],
+  [
+   "memory",
+   "זיכרון, לזכר"
+  ],
+  [
+   "mental",
+   "נפשי"
+  ],
+  [
+   "mention",
+   "להזכיר, לאזכר"
+  ],
+  [
+   "mentor",
+   "מדריך רוחני"
+  ],
+  [
+   "mercy",
+   "רחמים"
+  ],
+  [
+   "midair",
+   "באוויר"
+  ],
+  [
+   "minimize",
+   "למזער"
+  ],
+  [
+   "mirror",
+   "מראה"
+  ],
+  [
+   "misbehave",
+   "להתנהג בצורה לא הולמת"
+  ],
+  [
+   "mischief",
+   "נזק, מעשה קונדס"
+  ],
+  [
+   "miss",
+   "להתגעגע; לפספס"
+  ],
+  [
+   "misty",
+   "מעורפל"
+  ],
+  [
+   "mix",
+   "לערבב, ערבוב"
+  ],
+  [
+   "monitor",
+   "להשגיח, מוניטור"
+  ],
+  [
+   "monument",
+   "אנדרטה"
+  ],
+  [
+   "motif",
+   "מוטיב"
+  ],
+  [
+   "mountain",
+   "הר"
+  ],
+  [
+   "mountainside",
+   "מדרון"
+  ],
+  [
+   "mountaintop",
+   "פסגת הר"
+  ],
+  [
+   "mourning",
+   "אבל, מתאבל"
+  ],
+  [
+   "narration",
+   "קריינות"
+  ],
+  [
+   "naval",
+   "ימי"
+  ],
+  [
+   "neck",
+   "צוואר"
+  ],
+  [
+   "nest",
+   "קן, לקונן"
+  ],
+  [
+   "norm",
+   "נורמה, תקן"
+  ],
+  [
+   "North",
+   "צפון"
+  ],
+  [
+   "nose",
+   "אף, חרטום"
+  ],
+  [
+   "nowadays",
+   "כיום"
+  ],
+  [
+   "numb",
+   "רדום, חסר תחושה"
+  ],
+  [
+   "obsession",
+   "אובססיה, דיבוק"
+  ],
+  [
+   "odor",
+   "ריח, ניחוח"
+  ],
+  [
+   "old-fashioned",
+   "מיושן"
+  ],
+  [
+   "outweigh",
+   "עולה על, שוקל יותר מ-"
+  ],
+  [
+   "owe",
+   "להיות חייב"
+  ],
+  [
+   "oxygen",
+   "חמצן"
+  ],
+  [
+   "palm",
+   "דקל; כף יד"
+  ],
+  [
+   "pardon",
+   "לחון, חנינה; סליחה, לסלוח"
+  ],
+  [
+   "peek",
+   "להציץ"
+  ],
+  [
+   "petty",
+   "קטן, חסר חשיבות; קטנוני"
+  ],
+  [
+   "phobia",
+   "פוביה, פחד כרוני"
+  ],
+  [
+   "pivot",
+   "ציר, לסובב על ציר"
+  ],
+  [
+   "plate",
+   "צלחת, לוח"
+  ],
+  [
+   "plead",
+   "לעתור, להתחנן"
+  ],
+  [
+   "pleasure",
+   "תענוג, לענג"
+  ],
+  [
+   "pledge",
+   "להתחייב"
+  ],
+  [
+   "plight",
+   "צרה, סכנה"
+  ],
+  [
+   "plunge",
+   "טבילה"
+  ],
+  [
+   "poignant",
+   "חריף, נוקב"
+  ],
+  [
+   "poisonous",
+   "רעיל"
+  ],
+  [
+   "polish",
+   "פולני; להבריק, לצחצח"
+  ],
+  [
+   "polite",
+   "מנומס"
+  ],
+  [
+   "portray",
+   "לתאר, לצייר"
+  ],
+  [
+   "precious",
+   "יקר"
+  ],
+  [
+   "predominantly",
+   "באופן ניכר"
+  ],
+  [
+   "prey",
+   "טרף, לטרוף"
+  ],
+  [
+   "prize",
+   "פרס"
+  ],
+  [
+   "probe",
+   "לחטט, לברר, לגשש"
+  ],
+  [
+   "proverb",
+   "פתגם, אמרה"
+  ],
+  [
+   "pupil",
+   "תלמיד"
+  ],
+  [
+   "purchase",
+   "לקנות, לרכוש"
+  ],
+  [
+   "puzzle",
+   "חידה, פאזל"
+  ],
+  [
+   "puzzled",
+   "מבולבל"
+  ],
+  [
+   "quake",
+   "רעד"
+  ],
+  [
+   "quench",
+   "לספק, להרוות"
+  ],
+  [
+   "rage",
+   "זעם"
+  ],
+  [
+   "raid",
+   "פשיטה"
+  ],
+  [
+   "reap",
+   "לקצור"
+  ],
+  [
+   "rebel",
+   "מורד"
+  ],
+  [
+   "rebellion",
+   "מרד"
+  ],
+  [
+   "rebellious",
+   "סורר, מרדני"
+  ],
+  [
+   "recipe",
+   "מתכון"
+  ],
+  [
+   "recipient",
+   "נמען"
+  ],
+  [
+   "reciprocal",
+   "מספר הופכי (במתמטיקה)"
+  ],
+  [
+   "reciprocate",
+   "הדדי"
+  ],
+  [
+   "recreation",
+   "בילוי"
+  ],
+  [
+   "refund",
+   "החזר"
+  ],
+  [
+   "regret",
+   "להתחרט, חרטה"
+  ],
+  [
+   "regulate",
+   "לווסת"
+  ],
+  [
+   "rehabilitation",
+   "שיקום"
+  ],
+  [
+   "relegated",
+   "הורד בדרגה"
+  ],
+  [
+   "resort",
+   "אתר נופש; לנקוט באמצעים"
+  ],
+  [
+   "revitalize",
+   "להחיות"
+  ],
+  [
+   "revived",
+   "קם לתחייה, התחדש"
+  ],
+  [
+   "revolt",
+   "מרד"
+  ],
+  [
+   "revolution",
+   "מהפכה"
+  ],
+  [
+   "rhythm",
+   "קֶצֶב"
+  ],
+  [
+   "root",
+   "שורש"
+  ],
+  [
+   "rotary",
+   "נע על ציר סיבובי"
+  ],
+  [
+   "rubber",
+   "גומי"
+  ],
+  [
+   "sailor",
+   "ימאי"
+  ],
+  [
+   "salvation",
+   "ישועה, גאולה"
+  ],
+  [
+   "saturated",
+   "רווי"
+  ],
+  [
+   "scale",
+   "מאזניים; לעלות, לטפס; סולם, סקלה"
+  ],
+  [
+   "scales",
+   "קשקשים (של דג)"
+  ],
+  [
+   "scan",
+   "סריקה, לסרוק"
+  ],
+  [
+   "scorn",
+   "לבוז, לזלזל, מנודה"
+  ],
+  [
+   "scrutinize",
+   "בדק, בחן"
+  ],
+  [
+   "sculpture",
+   "פסל"
+  ],
+  [
+   "sedative",
+   "סם הרגעה, משכך"
+  ],
+  [
+   "segregation",
+   "הפרדה"
+  ],
+  [
+   "seizure",
+   "התקף"
+  ],
+  [
+   "separately",
+   "בנפרד"
+  ],
+  [
+   "separation",
+   "הפרדה"
+  ],
+  [
+   "shrink",
+   "לכווץ ,כיווץ"
+  ],
+  [
+   "shroud",
+   "תכריך, עטיפה"
+  ],
+  [
+   "sin",
+   "חטא"
+  ],
+  [
+   "sincerity",
+   "כנות"
+  ],
+  [
+   "situation",
+   "מצב, סיטואציה"
+  ],
+  [
+   "slaughterhouse",
+   "בית מטבחיים"
+  ],
+  [
+   "sober",
+   "פיכח"
+  ],
+  [
+   "solely",
+   "בלבד, רק"
+  ],
+  [
+   "sperm",
+   "זרע"
+  ],
+  [
+   "spewing",
+   "להזרים"
+  ],
+  [
+   "spice",
+   "תבלין, לתבל"
+  ],
+  [
+   "spicy",
+   "פיקנטי"
+  ],
+  [
+   "spray",
+   "לרסס, לפזר"
+  ],
+  [
+   "stain",
+   "כתם"
+  ],
+  [
+   "stamp",
+   "בול, חותמת"
+  ],
+  [
+   "step",
+   "צעד, לצעוד"
+  ],
+  [
+   "storm",
+   "סערה"
+  ],
+  [
+   "straighten",
+   "ליישר"
+  ],
+  [
+   "study",
+   "מחקר; חדר עבודה"
+  ],
+  [
+   "stunned",
+   "נדהם, היה המום"
+  ],
+  [
+   "substance",
+   "חומר, תוכן"
+  ],
+  [
+   "suggest",
+   "להציע"
+  ],
+  [
+   "suicide",
+   "התאבדות"
+  ],
+  [
+   "summits",
+   "פסגות"
+  ],
+  [
+   "surgery",
+   "ניתוח"
+  ],
+  [
+   "surpass",
+   "להצטיין, לעלות על"
+  ],
+  [
+   "surrender",
+   "להיכנע"
+  ],
+  [
+   "surveillance",
+   "מעקב"
+  ],
+  [
+   "survival",
+   "הישרדות"
+  ],
+  [
+   "swallow",
+   "לבלוע"
+  ],
+  [
+   "sweep",
+   "לטאטא"
+  ],
+  [
+   "symmetry",
+   "סימטריה, התאמה"
+  ],
+  [
+   "taint",
+   "לזהם; להכתים, להכפיש"
+  ],
+  [
+   "tainted",
+   "מוכתם, מזוהם"
+  ],
+  [
+   "talent",
+   "כשרון"
+  ],
+  [
+   "tame",
+   "לאלף, לבית"
+  ],
+  [
+   "tentative",
+   "ניסיוני, טנטטיבי"
+  ],
+  [
+   "thief",
+   "גנב"
+  ],
+  [
+   "thriller",
+   "מותחן"
+  ],
+  [
+   "tone",
+   "טון"
+  ],
+  [
+   "transcript",
+   "תמליל, פרוטוקול"
+  ],
+  [
+   "trip",
+   "למעוד; טיול"
+  ],
+  [
+   "unofficial",
+   "בלתי רשמי"
+  ],
+  [
+   "unorganized",
+   "לא מאורגן"
+  ],
+  [
+   "unpardonable",
+   "בלתי נסלח"
+  ],
+  [
+   "unrealistic",
+   "לא מציאותי"
+  ],
+  [
+   "unrest",
+   "חוסר שקט"
+  ],
+  [
+   "unwilling",
+   "לא מוכן, ממאן"
+  ],
+  [
+   "upheaval",
+   "מהפך"
+  ],
+  [
+   "uproar",
+   "רעש, מהומה"
+  ],
+  [
+   "urine",
+   "שתן"
+  ],
+  [
+   "utilize",
+   "השתמש"
+  ],
+  [
+   "utter",
+   "לבטא, להגות"
+  ],
+  [
+   "valley",
+   "עמק"
+  ],
+  [
+   "valve",
+   "שסתום"
+  ],
+  [
+   "verbal",
+   "ורבלי, מילולי"
+  ],
+  [
+   "via",
+   "דרך"
+  ],
+  [
+   "victim",
+   "קורבן"
+  ],
+  [
+   "vocabulary",
+   "אוצר מילים"
+  ],
+  [
+   "vocation",
+   "מקצוע"
+  ],
+  [
+   "wagon",
+   "עגלה"
+  ],
+  [
+   "wander",
+   "להסתובב, לשוטט"
+  ],
+  [
+   "West",
+   "מערב"
+  ],
+  [
+   "wine",
+   "יין"
+  ],
+  [
+   "wonder",
+   "לתהות, להטיל ספק; פלא"
+  ],
+  [
+   "wonderful",
+   "נפלא"
+  ],
+  [
+   "wood",
+   "עץ"
+  ],
+  [
+   "woods",
+   "יער"
+  ],
+  [
+   "wound",
+   "מתוח, נמתח; פצע"
+  ],
+  [
+   "wrap",
+   "לעטוף, מעטפת"
+  ],
+  [
+   "wrought",
+   "מעוצב, מחושל"
+  ],
+  [
+   "young",
+   "צעיר"
+  ]
+ ],
+ "10": [
+  [
+   "abacus",
+   "חשבונייה"
+  ],
+  [
+   "academic",
+   "אקדמי"
+  ],
+  [
+   "actress",
+   "שחקנית (בהצגה או סרט)"
+  ],
+  [
+   "adorn",
+   "לקשט"
+  ],
+  [
+   "agenda",
+   "סדר יום"
+  ],
+  [
+   "air conditioner",
+   "מזגן"
+  ],
+  [
+   "algae",
+   "אצות"
+  ],
+  [
+   "antler",
+   "קרן"
+  ],
+  [
+   "automobile",
+   "כלי רכב, אוטו"
+  ],
+  [
+   "bass",
+   "בס (במוזיקה)"
+  ],
+  [
+   "bead",
+   "חרוז"
+  ],
+  [
+   "beak",
+   "מקור"
+  ],
+  [
+   "bee",
+   "דבורה"
+  ],
+  [
+   "bell",
+   "פעמון"
+  ],
+  [
+   "berry",
+   "גרגרי יער"
+  ],
+  [
+   "blade",
+   "להב"
+  ],
+  [
+   "blame",
+   "להאשים"
+  ],
+  [
+   "blanket",
+   "שמיכה"
+  ],
+  [
+   "bleak",
+   "עגום"
+  ],
+  [
+   "blew",
+   "נשב (רוח), ניפח, פוצץ"
+  ],
+  [
+   "brick",
+   "לבנה"
+  ],
+  [
+   "bully",
+   "בריון"
+  ],
+  [
+   "butterfly",
+   "פרפר"
+  ],
+  [
+   "cadaver",
+   "גופה"
+  ],
+  [
+   "camel",
+   "גמל"
+  ],
+  [
+   "cancel",
+   "לבטל"
+  ],
+  [
+   "candy",
+   "ממתק"
+  ],
+  [
+   "canvass",
+   "לבדוק, לסקור"
+  ],
+  [
+   "carpet",
+   "שטיח"
+  ],
+  [
+   "cash",
+   "לפדות; מזומן"
+  ],
+  [
+   "cashier",
+   "קופאי"
+  ],
+  [
+   "casino",
+   "קזינו"
+  ],
+  [
+   "caterpillar",
+   "זחל"
+  ],
+  [
+   "cave",
+   "מערה"
+  ],
+  [
+   "caviar",
+   "קוויאר"
+  ],
+  [
+   "cereal",
+   "דגני בוקר"
+  ],
+  [
+   "cigarette",
+   "סיגריה"
+  ],
+  [
+   "citrus",
+   "פרי הדר"
+  ],
+  [
+   "clay",
+   "חימר"
+  ],
+  [
+   "cloud",
+   "ענן"
+  ],
+  [
+   "club",
+   "מועדון"
+  ],
+  [
+   "cockroach",
+   "מקק, ג'וק"
+  ],
+  [
+   "coffin",
+   "ארון מתים"
+  ],
+  [
+   "cologne",
+   "קולון, בושם (של גבר)"
+  ],
+  [
+   "compost",
+   "זבל אורגני"
+  ],
+  [
+   "conductor",
+   "מנצח (תזמורת)"
+  ],
+  [
+   "conquistador",
+   "כובש"
+  ],
+  [
+   "consonant",
+   "עיצור (לשון)"
+  ],
+  [
+   "coop",
+   "לול; לכלוא"
+  ],
+  [
+   "copper",
+   "נחושת"
+  ],
+  [
+   "cotton",
+   "כותנה"
+  ],
+  [
+   "cougar",
+   "פומה, סוג של טורף"
+  ],
+  [
+   "coupon",
+   "קופון"
+  ],
+  [
+   "cucumber",
+   "מלפפון"
+  ],
+  [
+   "culminate",
+   "הגיע לשיא"
+  ],
+  [
+   "czar",
+   "צאר (שליט רוסי)"
+  ],
+  [
+   "dart",
+   "חץ"
+  ],
+  [
+   "date",
+   "תמר; יציאה, פגישה, דייט; תאריך"
+  ],
+  [
+   "Dead Sea",
+   "ים המלח"
+  ],
+  [
+   "denominator",
+   "מכנה (של שבר)"
+  ],
+  [
+   "dental",
+   "שקשור בשיניים"
+  ],
+  [
+   "dentist",
+   "רופא שיניים"
+  ],
+  [
+   "diary",
+   "יומן"
+  ],
+  [
+   "dictator",
+   "עריץ, דיקטטור"
+  ],
+  [
+   "dilemma",
+   "דילמה, בעיה"
+  ],
+  [
+   "diurnal",
+   "יומי"
+  ],
+  [
+   "divorce",
+   "גירושין"
+  ],
+  [
+   "doorstep",
+   "מפתן הדלת"
+  ],
+  [
+   "dovecote",
+   "שובך"
+  ],
+  [
+   "dust",
+   "אבק, לאבק"
+  ],
+  [
+   "Dutch",
+   "הולנדי"
+  ],
+  [
+   "dwarf",
+   "לגמד, גמד"
+  ],
+  [
+   "dwindle",
+   "הידלדל, התמעט"
+  ],
+  [
+   "eagle",
+   "נשר"
+  ],
+  [
+   "echo",
+   "הד"
+  ],
+  [
+   "edible",
+   "אכיל"
+  ],
+  [
+   "eel",
+   "צלופח"
+  ],
+  [
+   "elephant",
+   "פיל"
+  ],
+  [
+   "envelope",
+   "מעטפה"
+  ],
+  [
+   "exotic",
+   "אקזוטי, מארץ זרה"
+  ],
+  [
+   "explosive",
+   "חומר נפץ"
+  ],
+  [
+   "fairy",
+   "פיה"
+  ],
+  [
+   "fairytale",
+   "אגדה"
+  ],
+  [
+   "fan",
+   "מעריץ, אוהד; מאוורר, לאוורר"
+  ],
+  [
+   "fancy",
+   "מחבב; מגונדר"
+  ],
+  [
+   "fashion",
+   "אופנה; לעצב"
+  ],
+  [
+   "filmmaker",
+   "יוצר סרטים"
+  ],
+  [
+   "filter",
+   "פילטר, מסנן"
+  ],
+  [
+   "fisherman",
+   "דייג"
+  ],
+  [
+   "fishing",
+   "דיג"
+  ],
+  [
+   "flimsy",
+   "עדין, שביר"
+  ],
+  [
+   "folk",
+   "עממי"
+  ],
+  [
+   "folklore",
+   "פולקלור"
+  ],
+  [
+   "fool",
+   "טיפש, לשטות במישהו"
+  ],
+  [
+   "footage",
+   "קטע צילום"
+  ],
+  [
+   "forest",
+   "יער"
+  ],
+  [
+   "forgive",
+   "לסלוח"
+  ],
+  [
+   "fork",
+   "מזלג"
+  ],
+  [
+   "formula",
+   "נוסחה, פורמולה"
+  ],
+  [
+   "formulate",
+   "לנסח"
+  ],
+  [
+   "fraternal",
+   "אחוותי, של אחים"
+  ],
+  [
+   "frog",
+   "צפרדע"
+  ],
+  [
+   "furnish",
+   "לרהט"
+  ],
+  [
+   "garbage",
+   "זבל"
+  ],
+  [
+   "garden",
+   "גן"
+  ],
+  [
+   "garlic",
+   "שום"
+  ],
+  [
+   "gate",
+   "שער"
+  ],
+  [
+   "gift",
+   "מתנה"
+  ],
+  [
+   "glacier",
+   "קרחון"
+  ],
+  [
+   "gland",
+   "בלוטה"
+  ],
+  [
+   "glass",
+   "כוס; זכוכית"
+  ],
+  [
+   "glaze",
+   "זיגוג"
+  ],
+  [
+   "glove",
+   "כפפה"
+  ],
+  [
+   "golden",
+   "מוזהב"
+  ],
+  [
+   "grammatical",
+   "דקדוקי"
+  ],
+  [
+   "grapes",
+   "ענבים"
+  ],
+  [
+   "grit",
+   "גרגרים, לכלוך"
+  ],
+  [
+   "grocery",
+   "מכולת"
+  ],
+  [
+   "groom",
+   "חתן; לטפח, לטפל"
+  ],
+  [
+   "guillotine",
+   "גיליוטינה"
+  ],
+  [
+   "Gulf War",
+   "מלחמת המפרץ"
+  ],
+  [
+   "gym",
+   "אולם ספורט"
+  ],
+  [
+   "gymnasium",
+   "אולם ספורט"
+  ],
+  [
+   "handicap",
+   "נכה"
+  ],
+  [
+   "harmony",
+   "הרמוניה"
+  ],
+  [
+   "heart",
+   "לב"
+  ],
+  [
+   "heartbeat",
+   "דופק, פעימות לב"
+  ],
+  [
+   "heroine",
+   "גיבורה"
+  ],
+  [
+   "hilarious",
+   "מצחיק"
+  ],
+  [
+   "hill",
+   "גבעה"
+  ],
+  [
+   "horn",
+   "צופר; קרן (של בע\"ח)"
+  ],
+  [
+   "housemaid",
+   "עוזרת בית, מנקה"
+  ],
+  [
+   "howl",
+   "יללה, לילל"
+  ],
+  [
+   "index",
+   "אינדקס, תוכן עניינים"
+  ],
+  [
+   "inexpensive",
+   "לא יקר, זול"
+  ],
+  [
+   "inn",
+   "פונדק"
+  ],
+  [
+   "intense",
+   "עז, אינטנסיבי"
+  ],
+  [
+   "intoxicate",
+   "להרעיל, לשכר; להלהיב"
+  ],
+  [
+   "intuition",
+   "אינטואיציה"
+  ],
+  [
+   "invertebrate",
+   "חסר-חוליות"
+  ],
+  [
+   "ivory",
+   "שנהב"
+  ],
+  [
+   "janitor",
+   "שרת"
+  ],
+  [
+   "jog",
+   "ריצה, ג'וגינג, לרוץ"
+  ],
+  [
+   "joke",
+   "בדיחה"
+  ],
+  [
+   "jug",
+   "כד, קנקן"
+  ],
+  [
+   "juice",
+   "מיץ"
+  ],
+  [
+   "jungle",
+   "ג'ונגל"
+  ],
+  [
+   "junkyard",
+   "מגרש גרוטאות"
+  ],
+  [
+   "kettle",
+   "קומקום"
+  ],
+  [
+   "kite",
+   "עפיפון"
+  ],
+  [
+   "lake",
+   "אגם"
+  ],
+  [
+   "lame",
+   "צולע"
+  ],
+  [
+   "launder",
+   "לכבס"
+  ],
+  [
+   "leaf (leaves)",
+   "עלה (עלים)"
+  ],
+  [
+   "league",
+   "מידת אורך קדומה; ליגה"
+  ],
+  [
+   "leniency",
+   "חמלה, רחמים"
+  ],
+  [
+   "leopard",
+   "נמר"
+  ],
+  [
+   "lifestyle",
+   "אורח חיים"
+  ],
+  [
+   "lip",
+   "שפה"
+  ],
+  [
+   "liver",
+   "כבד"
+  ],
+  [
+   "loan",
+   "הלוואה"
+  ],
+  [
+   "loathe",
+   "לתעב"
+  ],
+  [
+   "loyalty",
+   "נאמנות"
+  ],
+  [
+   "luck",
+   "מזל"
+  ],
+  [
+   "lunch",
+   "ארוחת צהריים"
+  ],
+  [
+   "made",
+   "עשה"
+  ],
+  [
+   "magical",
+   "קסום"
+  ],
+  [
+   "magnificent",
+   "מדהים"
+  ],
+  [
+   "make sure",
+   "להבטיח, לוודא"
+  ],
+  [
+   "makeup",
+   "איפור"
+  ],
+  [
+   "marble",
+   "שיש; גוּלָּה"
+  ],
+  [
+   "marsupial",
+   "חיית כיס"
+  ],
+  [
+   "mathematician",
+   "מתמטיקאי"
+  ],
+  [
+   "miracle",
+   "נס, פלא"
+  ],
+  [
+   "mock",
+   "ללעוג"
+  ],
+  [
+   "monk",
+   "נזיר"
+  ],
+  [
+   "monkey",
+   "קוף"
+  ],
+  [
+   "monster",
+   "מפלצת"
+  ],
+  [
+   "mood",
+   "מצב רוח"
+  ],
+  [
+   "mosquito",
+   "יתוש"
+  ],
+  [
+   "moth",
+   "עש"
+  ],
+  [
+   "mouse (mice)",
+   "עכבר (עכברים)"
+  ],
+  [
+   "mouth",
+   "פה"
+  ],
+  [
+   "nausea",
+   "בחילה"
+  ],
+  [
+   "nickname",
+   "כינוי חיבה"
+  ],
+  [
+   "no longer",
+   "לא עוד"
+  ],
+  [
+   "numerator",
+   "מונה (של שבר)"
+  ],
+  [
+   "numeric",
+   "מספרי"
+  ],
+  [
+   "nut",
+   "אגוז"
+  ],
+  [
+   "octopus",
+   "תמנון"
+  ],
+  [
+   "ode",
+   "שיר הלל"
+  ],
+  [
+   "olive",
+   "זית"
+  ],
+  [
+   "onion",
+   "בצל"
+  ],
+  [
+   "orchestra",
+   "תזמורת"
+  ],
+  [
+   "orchestrate",
+   "לתאם, לתזמר"
+  ],
+  [
+   "oven",
+   "תנור בישול"
+  ],
+  [
+   "overhaul",
+   "שיפוץ, אוברול"
+  ],
+  [
+   "pad",
+   "לרפד"
+  ],
+  [
+   "paddle",
+   "משוט, דוושה; מחבט"
+  ],
+  [
+   "pan",
+   "מחבת"
+  ],
+  [
+   "paradox",
+   "סתירה, פרדוקס"
+  ],
+  [
+   "pathology",
+   "פתולוגיה, ענף ברפואה"
+  ],
+  [
+   "peach",
+   "אפרסק"
+  ],
+  [
+   "pepper",
+   "פלפל"
+  ],
+  [
+   "perch",
+   "ענף; נח, ישב על ענף"
+  ],
+  [
+   "pet",
+   "חיית מחמד"
+  ],
+  [
+   "pharmacy",
+   "בית מרקחת"
+  ],
+  [
+   "philosophy",
+   "פילוסופיה"
+  ],
+  [
+   "photograph",
+   "צילום, לצלם"
+  ],
+  [
+   "physical",
+   "פיזי, גופני"
+  ],
+  [
+   "physicist",
+   "פיזיקאי"
+  ],
+  [
+   "pick",
+   "לקטוף, לבחור; מפרט לגיטרה"
+  ],
+  [
+   "pigeon",
+   "יונה"
+  ],
+  [
+   "pinch",
+   "לצבוט"
+  ],
+  [
+   "pit",
+   "בור"
+  ],
+  [
+   "plaster",
+   "טיח"
+  ],
+  [
+   "pool",
+   "בריכה"
+  ],
+  [
+   "pothole",
+   "מהמורה, בור"
+  ],
+  [
+   "pottery",
+   "קדרות"
+  ],
+  [
+   "poultry",
+   "עוף"
+  ],
+  [
+   "prank",
+   "מתיחה"
+  ],
+  [
+   "pregnancy",
+   "הריון"
+  ],
+  [
+   "pregnant",
+   "הרה (בהריון)"
+  ],
+  [
+   "prehistoric",
+   "קדמון, פרה-היסטורי"
+  ],
+  [
+   "preparation for",
+   "הכנות לקראת"
+  ],
+  [
+   "presentation",
+   "מצגת"
+  ],
+  [
+   "prick",
+   "לדקור"
+  ],
+  [
+   "printer",
+   "מדפסת, דַּפָּס"
+  ],
+  [
+   "propaganda",
+   "תעמולה"
+  ],
+  [
+   "prowess",
+   "מיומנות, יכולת"
+  ],
+  [
+   "purse",
+   "ארנק"
+  ],
+  [
+   "quarrelsome",
+   "וכחני"
+  ],
+  [
+   "rain",
+   "גשם"
+  ],
+  [
+   "rainbow",
+   "קשת"
+  ],
+  [
+   "rainfall",
+   "ירידת גשמים"
+  ],
+  [
+   "rainstorm",
+   "סערת גשמים"
+  ],
+  [
+   "rat",
+   "עכברוש"
+  ],
+  [
+   "redhead",
+   "ג'ינג'י (סלנג)"
+  ],
+  [
+   "rehearsal",
+   "חזרה"
+  ],
+  [
+   "rehearse",
+   "לחזור, לתרגל"
+  ],
+  [
+   "reincarnation",
+   "גלגול נשמות"
+  ],
+  [
+   "restaurant",
+   "מסעדה"
+  ],
+  [
+   "resurgence",
+   "תחייה"
+  ],
+  [
+   "retroactive",
+   "רטרואקטיבי, למפרע"
+  ],
+  [
+   "rhyme",
+   "חרוז"
+  ],
+  [
+   "rice",
+   "אורז"
+  ],
+  [
+   "ride",
+   "רכיבה, לרכוב"
+  ],
+  [
+   "ring",
+   "טבעת; זירה"
+  ],
+  [
+   "ring, rang",
+   "לצלצל, צלצל"
+  ],
+  [
+   "roast",
+   "לקלות, צלי"
+  ],
+  [
+   "robbery",
+   "שוד"
+  ],
+  [
+   "robe",
+   "חלוק"
+  ],
+  [
+   "roof",
+   "גג"
+  ],
+  [
+   "rubbish",
+   "זבל; שטויות"
+  ],
+  [
+   "run, ran",
+   "לרוץ, רץ"
+  ],
+  [
+   "saga",
+   "סיפור, סאגה"
+  ],
+  [
+   "salt",
+   "מלח"
+  ],
+  [
+   "sarcophagus",
+   "ארון קבורה קדום"
+  ],
+  [
+   "savanna",
+   "ערבה, סוואנה"
+  ],
+  [
+   "script",
+   "תסריט"
+  ],
+  [
+   "seafood",
+   "פירות ים"
+  ],
+  [
+   "seat",
+   "מושב, להושיב"
+  ],
+  [
+   "secret",
+   "סוד"
+  ],
+  [
+   "sentiments",
+   "רגשות"
+  ],
+  [
+   "shadow",
+   "צל, להאפיל"
+  ],
+  [
+   "shave",
+   "גילוח, לגלח"
+  ],
+  [
+   "shelf (shelves)",
+   "מדף (מדפים)"
+  ],
+  [
+   "shepherd",
+   "רועה צאן"
+  ],
+  [
+   "shingles",
+   "רעף"
+  ],
+  [
+   "shop",
+   "חנות; לקנות"
+  ],
+  [
+   "shoulder",
+   "כתף"
+  ],
+  [
+   "show",
+   "הופעה; להראות"
+  ],
+  [
+   "shy",
+   "ביישן"
+  ],
+  [
+   "silk",
+   "משי"
+  ],
+  [
+   "silkworm",
+   "תולעת משי"
+  ],
+  [
+   "singer",
+   "זמר"
+  ],
+  [
+   "sir",
+   "אדון, תואר אצולה אנגלי"
+  ],
+  [
+   "sky",
+   "שמיים, רקיע"
+  ],
+  [
+   "smog",
+   "ערפיח"
+  ],
+  [
+   "smoke",
+   "עשן, לעשן"
+  ],
+  [
+   "snake",
+   "נחש"
+  ],
+  [
+   "snap",
+   "להישבר; במהירות (סלנג)"
+  ],
+  [
+   "snarl",
+   "לרטון, לנחור"
+  ],
+  [
+   "sneeze",
+   "להתעטש"
+  ],
+  [
+   "snow",
+   "שלג"
+  ],
+  [
+   "soccer",
+   "כדורגל"
+  ],
+  [
+   "sold",
+   "מכר"
+  ],
+  [
+   "South",
+   "דרום"
+  ],
+  [
+   "southern",
+   "דרומי"
+  ],
+  [
+   "speck",
+   "כתם"
+  ],
+  [
+   "spider",
+   "עכביש"
+  ],
+  [
+   "spinach",
+   "תרד"
+  ],
+  [
+   "sponsor",
+   "נותן חסות"
+  ],
+  [
+   "spontaneous",
+   "ללא מחשבה"
+  ],
+  [
+   "spread",
+   "התפשטות, פיזור; ממרח, למרוח"
+  ],
+  [
+   "spy",
+   "מרגל, לרגל"
+  ],
+  [
+   "staircase",
+   "גרם מדרגות"
+  ],
+  [
+   "stalk",
+   "לעקוב, להטריד"
+  ],
+  [
+   "star",
+   "כוכב, לככב"
+  ],
+  [
+   "staunch",
+   "חזק, מוצק; לעצור, לחסום"
+  ],
+  [
+   "steal",
+   "לגנוב"
+  ],
+  [
+   "stereotype",
+   "סטריאוטיפ"
+  ],
+  [
+   "sticky",
+   "דביק"
+  ],
+  [
+   "stove",
+   "תנור, כיריים"
+  ],
+  [
+   "stroke",
+   "ליטוף; מכה; שבץ/אירוע מוחי"
+  ],
+  [
+   "studio",
+   "סטודיו"
+  ],
+  [
+   "stuff",
+   "דברים; למלא, לפחלץ"
+  ],
+  [
+   "stunt",
+   "פעלול"
+  ],
+  [
+   "stupid",
+   "טיפש"
+  ],
+  [
+   "subtraction",
+   "חיסור (חשבון)"
+  ],
+  [
+   "sugar",
+   "סוכר"
+  ],
+  [
+   "sweet",
+   "מתוק, ממתק"
+  ],
+  [
+   "swept away",
+   "נסחף"
+  ],
+  [
+   "swindler",
+   "רמאי"
+  ],
+  [
+   "sword",
+   "חרב"
+  ],
+  [
+   "syllable",
+   "הברה"
+  ],
+  [
+   "syndrome",
+   "תסמונת"
+  ],
+  [
+   "syrup",
+   "סירופ"
+  ],
+  [
+   "tale",
+   "סיפור, אגדה"
+  ],
+  [
+   "taste",
+   "טעם, לטעום"
+  ],
+  [
+   "tax",
+   "מס"
+  ],
+  [
+   "teeth, tooth",
+   "שיניים, שן"
+  ],
+  [
+   "tent",
+   "אוהל"
+  ],
+  [
+   "thank",
+   "תודה, להודות"
+  ],
+  [
+   "theater",
+   "תיאטרון; בית קולנוע"
+  ],
+  [
+   "theoretically",
+   "תיאורטית, לכאורה"
+  ],
+  [
+   "theory",
+   "תיאוריה"
+  ],
+  [
+   "thimble",
+   "אצבעון (לתפירה)"
+  ],
+  [
+   "through",
+   "דרך, מבעד"
+  ],
+  [
+   "throughout",
+   "במשך, בכל"
+  ],
+  [
+   "throw",
+   "לזרוק, זריקה"
+  ],
+  [
+   "ticket",
+   "כרטיס"
+  ],
+  [
+   "timeline",
+   "ציר זמן"
+  ],
+  [
+   "tin",
+   "בדיל, עשוי מפח"
+  ],
+  [
+   "tiny",
+   "קטנטן"
+  ],
+  [
+   "toad",
+   "קרפדה"
+  ],
+  [
+   "toes",
+   "בהונות"
+  ],
+  [
+   "tongue",
+   "לשון"
+  ],
+  [
+   "treasure",
+   "אוצר, לנצור"
+  ],
+  [
+   "treat",
+   "להתייחס; פינוק, ממתק; לפנק"
+  ],
+  [
+   "treatment",
+   "טיפול"
+  ],
+  [
+   "treaty",
+   "אמנה,הסכם, חוזה"
+  ],
+  [
+   "trigger",
+   "הדק"
+  ],
+  [
+   "triggered",
+   "גרם, עורר, הוביל ל-"
+  ],
+  [
+   "trim",
+   "לגזום"
+  ],
+  [
+   "triple",
+   "פי 3"
+  ],
+  [
+   "truck",
+   "משאית, קרון משא"
+  ],
+  [
+   "tutor",
+   "מורה פרטי, להדריך"
+  ],
+  [
+   "twig",
+   "ענף קטן, זרד"
+  ],
+  [
+   "twins",
+   "תאומים"
+  ],
+  [
+   "ugly",
+   "מכוער"
+  ],
+  [
+   "unattractive",
+   "לא מושך"
+  ],
+  [
+   "uncle",
+   "דוד"
+  ],
+  [
+   "unconcerned",
+   "לא מודאג"
+  ],
+  [
+   "uncritical",
+   "לא ביקורתי"
+  ],
+  [
+   "unearth",
+   "לחשוף, לחפור"
+  ],
+  [
+   "unfair",
+   "לא הוגן"
+  ],
+  [
+   "unholy",
+   "לא קדוש, לא מוסרי"
+  ],
+  [
+   "unwanted",
+   "לא רצוי"
+  ],
+  [
+   "upbringing",
+   "גידול, חינוך"
+  ],
+  [
+   "upholstery",
+   "ריפוד"
+  ],
+  [
+   "usher",
+   "סדרן"
+  ],
+  [
+   "using up",
+   "לכלות, לנצל עד תום"
+  ],
+  [
+   "vacation",
+   "חופשה"
+  ],
+  [
+   "vertebrate",
+   "בעל חוליות"
+  ],
+  [
+   "vest",
+   "אפודה"
+  ],
+  [
+   "victory",
+   "ניצחון"
+  ],
+  [
+   "villain",
+   "רשע, נבל"
+  ],
+  [
+   "vinegar",
+   "חומץ"
+  ],
+  [
+   "viper",
+   "צפע"
+  ],
+  [
+   "vociferous",
+   "רעשני"
+  ],
+  [
+   "vowel",
+   "תנועה (לשון)"
+  ],
+  [
+   "wall",
+   "קיר"
+  ],
+  [
+   "wart",
+   "יבלת"
+  ],
+  [
+   "wasp",
+   "צרעה"
+  ],
+  [
+   "waterfall",
+   "מפל"
+  ],
+  [
+   "wave",
+   "גל"
+  ],
+  [
+   "weapon",
+   "נשק"
+  ],
+  [
+   "wear",
+   "ללבוש"
+  ],
+  [
+   "weave",
+   "לטוות, לארוג"
+  ],
+  [
+   "wedding",
+   "חתונה"
+  ],
+  [
+   "weekend",
+   "סוף שבוע"
+  ],
+  [
+   "well",
+   "באר; טוב, היטב; בריא"
+  ],
+  [
+   "whale",
+   "לוויתן"
+  ],
+  [
+   "whistle",
+   "משרוקית, לשרוק"
+  ],
+  [
+   "wholesale",
+   "סיטונאות"
+  ],
+  [
+   "wife",
+   "אישה, רעיה"
+  ],
+  [
+   "win",
+   "ניצחון, לנצח"
+  ],
+  [
+   "wolf (wolves)",
+   "זאב (זאבים)"
+  ],
+  [
+   "work",
+   "עבודה, לעבוד"
+  ],
+  [
+   "worm",
+   "תולעת"
+  ],
+  [
+   "writer",
+   "סופר"
+  ],
+  [
+   "yawn",
+   "לפהק, פיהוק"
+  ],
+  [
+   "zealot",
+   "קנאי, פנט"
+  ]
+ ]
+};
