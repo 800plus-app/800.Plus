@@ -12,3 +12,7 @@ Thumbs.db
 
 # דוחות עבודה פנימיים — לא לפרסום
 דוחות/
+
+# מסמכי הקמה — נשארים מקומית
+supabase-setup.md
+migration-*.sql

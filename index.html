@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <!-- Locked down for public release: scripts may only come from this origin, so no injected
      markup can ever execute, and nothing can be exfiltrated to a third-party endpoint. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://oycypbnzcvtjliovfsxn.supabase.co; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#b5482e">
@@ -228,6 +228,49 @@
   .ask-cancel{margin-top:14px;background:transparent;border:none;color:var(--ink-soft);
        font-family:"Heebo";font-size:.85rem;text-decoration:underline}
 
+  /* auth */
+  .auth-form{display:flex;flex-direction:column;gap:10px;max-width:340px;margin:0 auto}
+  .auth-form input{font-family:"Heebo";font-size:1rem;background:var(--card);border:1px solid var(--line);
+       border-radius:12px;padding:13px 14px;outline:none;text-align:right}
+  .auth-form input:focus{border-color:var(--gold)}
+  .auth-form input:invalid:not(:placeholder-shown){border-color:var(--accent)}
+  .auth-link{background:transparent;border:none;color:var(--ink-soft);font-family:"Heebo";
+       font-size:.82rem;text-decoration:underline;margin-top:2px}
+  .user-badge{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft)}
+  .user-badge b{color:var(--ink)}
+
+  /* admin */
+  .adm-row{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;
+       margin-bottom:8px}
+  .adm-top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .adm-top b{font-family:"Frank Ruhl Libre",serif;font-size:1.05rem}
+  .adm-top .mail{color:var(--ink-soft);font-size:.82rem;direction:ltr}
+  .adm-tag{font-size:.62rem;letter-spacing:.06em;background:var(--accent);color:#fff;
+       border-radius:5px;padding:2px 6px;font-weight:700}
+  .adm-meta{display:flex;gap:14px;flex-wrap:wrap;font-size:.76rem;color:var(--ink-soft);margin-top:6px}
+  .adm-meta i{font-style:normal;color:var(--ink);font-weight:600}
+  .adm-acts{margin-top:9px}
+  .adm-acts button{background:transparent;border:1px solid var(--line);border-radius:999px;
+       padding:5px 13px;font-family:"Heebo";font-size:.78rem;color:var(--ink-soft)}
+  .adm-acts button:hover{border-color:var(--gold);color:var(--ink)}
+
+  /* install-to-home-screen */
+  .install-box{max-width:380px}
+  .inst-icon{font-size:2.6rem;line-height:1;margin-bottom:6px}
+  .install-box h3{font-size:1.3rem}
+  .install-box p{color:var(--ink-soft);font-size:.88rem;margin-top:6px;line-height:1.5}
+  #instAuto{margin-top:18px}
+  .inst-steps{list-style:none;text-align:right;margin-top:16px;display:flex;
+       flex-direction:column;gap:10px}
+  .inst-steps li{display:flex;align-items:center;gap:10px;font-size:.92rem;
+       background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+  .inst-steps li span{flex:0 0 auto;width:23px;height:23px;border-radius:50%;
+       background:linear-gradient(180deg,var(--gold),var(--accent));color:#fff;font-weight:700;
+       font-size:.78rem;display:flex;align-items:center;justify-content:center}
+  .inst-steps li b{font-weight:700}
+  .inst-manual{margin-top:14px;background:var(--paper);border:1px dashed var(--gold);
+       border-radius:12px;padding:12px;font-size:.88rem}
+
   /* toast */
   .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 20px;border-radius:999px;font-size:.9rem;box-shadow:var(--shadow);z-index:50;opacity:0;transition:.25s;pointer-events:none}
   .toast.show{opacity:1}
@@ -236,8 +279,43 @@
 <body>
 <div class="wrap">
 
+  <!-- ===== AUTH — required before anything else ===== -->
+  <section id="auth">
+    <div class="welcome-head">
+      <div class="kicker">אוצר מילים · פסיכומטרי</div>
+      <h1 class="w-title">כניסה לחשבון</h1>
+      <p class="w-sub" id="authSub">כדי לשמור את ההתקדמות שלך צריך חשבון — זה לוקח חצי דקה.</p>
+    </div>
+
+    <div class="seg" id="authTabs" style="max-width:320px;margin:0 auto 18px">
+      <button data-tab="signup" class="active">הרשמה</button>
+      <button data-tab="signin">התחברות</button>
+    </div>
+
+    <form id="authForm" class="auth-form" autocomplete="on">
+      <input id="authUsername" placeholder="שם תצוגה" autocomplete="username" maxlength="40">
+      <input id="authEmail" type="email" placeholder="אימייל" autocomplete="email" required>
+      <input id="authPassword" type="password" placeholder="סיסמה (לפחות 8 תווים)" autocomplete="new-password" minlength="8" required>
+      <button type="submit" class="btn btn-primary btn-block" id="authSubmit">צור חשבון</button>
+      <button type="button" class="auth-link" id="authForgot">שכחתי סיסמה</button>
+    </form>
+    <p class="msg hidden" id="authMsg"></p>
+  </section>
+
+  <!-- ===== ADMIN (visible only to role=admin) ===== -->
+  <section id="admin" class="hidden">
+    <div class="topbar"><button class="back" data-home>→ חזרה</button><div class="sp"></div>
+      <div class="brand">בקרה</div></div>
+    <div class="scope-head"><h1>משתמשים</h1></div>
+    <div class="rule"></div>
+    <p style="color:var(--ink-soft);font-size:.86rem">
+      סיסמאות אינן נשמרות בצורה שניתן לקרוא — לא כאן ולא בשרת. כדי לעזור למשתמש שנחסם,
+      השתמש ב"אפס סיסמה": נשלח אליו קישור והוא בוחר סיסמה חדשה בעצמו.</p>
+    <div id="adminBody"></div>
+  </section>
+
   <!-- ===== WELCOME / LANGUAGE PICKER ===== -->
-  <section id="welcome">
+  <section id="welcome" class="hidden">
     <div class="welcome-head">
       <div class="kicker">ברוך הבא</div>
       <h1 class="w-title" id="greet">שלום!</h1>
@@ -264,7 +342,10 @@
 
   <!-- ===== HOME ===== -->
   <section id="home" class="hidden">
-    <div class="topbar"><button class="back" id="switchLang">⇄ החלף שפה</button><div class="sp"></div></div>
+    <div class="topbar"><button class="back" id="switchLang">⇄ החלף שפה</button><div class="sp"></div>
+      <div class="user-badge"><b id="userBadge"></b></div>
+      <button class="back hidden" id="adminBtn" style="margin-inline-start:8px">בקרה</button>
+      <button class="back" id="signOutBtn" style="margin-inline-start:8px">יציאה</button></div>
     <div class="home-head">
       <div class="kicker">אוצר מילים</div>
       <h1 id="homeTitle">פסיכומטרי — עברית</h1>
@@ -398,10 +479,43 @@
   </div>
 </div>
 
+<!-- ===== התקנה למסך הבית ===== -->
+<div class="ask hidden" id="installAsk">
+  <div class="ask-box install-box">
+    <div class="inst-icon">📲</div>
+    <h3 id="instTitle">שים את האפליקציה במסך הבית</h3>
+    <p id="instSub">כך תוכל לתרגל מכל מקום — גם בלי אינטרנט, בלי לחפש את הקישור.</p>
+
+    <!-- אנדרואיד: התקנה בלחיצה -->
+    <div id="instAuto" class="hidden">
+      <button class="btn btn-primary btn-block" id="instNow">התקן עכשיו</button>
+    </div>
+
+    <!-- אייפון: הדרכה -->
+    <div id="instIOS" class="hidden">
+      <ol class="inst-steps">
+        <li><span>1</span> לחץ על <b>שיתוף</b> <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px"><path d="M12 16V4M8 8l4-4 4 4M5 14v5a1 1 0 001 1h12a1 1 0 001-1v-5"/></svg> בסרגל התחתון</li>
+        <li><span>2</span> גלול ובחר <b>הוסף למסך הבית</b></li>
+        <li><span>3</span> לחץ <b>הוסף</b></li>
+      </ol>
+    </div>
+
+    <!-- דפדפן שלא תומך -->
+    <div id="instManual" class="hidden">
+      <p class="inst-manual">פתח את תפריט הדפדפן (⋮) ובחר <b>התקן אפליקציה</b> או <b>הוסף למסך הבית</b>.</p>
+    </div>
+
+    <button class="ask-cancel" id="instLater">אולי אחר כך</button>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
-<script src="data.js?v=14"></script>
-<script src="data-en.js?v=14"></script>
-<script src="app.js?v=14"></script>
+<script src="supabase.min.js"></script>
+<script src="config.js"></script>
+<script src="store.js"></script>
+<script src="data.js?v=16"></script>
+<script src="data-en.js?v=16"></script>
+<script src="app.js?v=16"></script>
 </body>
 </html>

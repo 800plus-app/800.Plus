@@ -101,7 +101,7 @@ function renderDirSegs(){
   ['#dirSegHome','#dirSegScope'].forEach(sel=>{
     const el=document.querySelector(sel); if(!el) return;
     el.innerHTML=DIRS().map(([d,l])=>`<button data-dir="${d}" class="${direction===d?'active':''}">${l}</button>`).join('');
-    el.querySelectorAll('button').forEach(b=>b.onclick=()=>{ direction=b.dataset.dir; LS.set(KEY('hw_dir'),direction); renderDirSegs(); });
+    el.querySelectorAll('button').forEach(b=>b.onclick=()=>{ direction=b.dataset.dir; LS.set(KEY('hw_dir'),direction); queueRemoteSync(); renderDirSegs(); });
   });
 }
 /* Associations are the one store the user can grow without limit, and localStorage is a hard
@@ -115,11 +115,11 @@ function saveAssoc(){
     if(isObj(prev)) assoc=prev;
     return false;
   }
-  return LS.set(KEY('hw_assoc'), assoc);
+  const ok=LS.set(KEY('hw_assoc'), assoc); queueRemoteSync(); return ok;
 }
-const saveStats   = () => LS.set(KEY('hw_stats'), stats);
-const saveDeleted = () => LS.set(KEY('hw_deleted'), [...deleted]);
-const saveAdded   = () => LS.set(KEY('hw_added'), added);
+const saveStats   = () => { const ok=LS.set(KEY('hw_stats'), stats); queueRemoteSync(); return ok; };
+const saveDeleted = () => { const ok=LS.set(KEY('hw_deleted'), [...deleted]); queueRemoteSync(); return ok; };
+const saveAdded   = () => { const ok=LS.set(KEY('hw_added'), added); queueRemoteSync(); return ok; };
 
 /* canonical word key: same word with/without niqqud (or across units) is ONE word everywhere */
 const K = t => LANG==='en' ? normEn(t) : norm(t);
@@ -252,7 +252,7 @@ function isCorrect(input, term){
 }
 
 /* ===== screens ===== */
-const SCREENS=['welcome','home','scope','quiz','results','stats','manage','add'];
+const SCREENS=['auth','welcome','home','scope','quiz','results','stats','manage','add'];
 /* Heavy lists left in hidden screens keep thousands of nodes alive for the whole session;
    drop them on the way out — they are always rebuilt when the screen is opened again. */
 const HEAVY = {stats:'#statsBody', manage:'#manageList', results:'#reviewList'};
@@ -650,6 +650,45 @@ document.querySelectorAll('[data-scope]').forEach(b=>b.onclick=()=>openScope(b.d
 /* ===== PWA ===== */
 if('serviceWorker' in navigator){ window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{})); }
 
+/* ===== התקנה למסך הבית =====
+   כרום/אנדרואיד נותן לנו את אירוע ההתקנה ואפשר לפתוח את החלון בלחיצה.
+   אייפון לא מאפשר זאת תכנותית — שם מציגים הדרכה. */
+let installEvt = null;
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; });
+window.addEventListener('appinstalled', () => { installEvt = null; LS.set('hw_installed', 1); });
+
+const isStandalone = () =>
+  window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
+
+/* מציג את חלון ההתקנה. force=true מתעלם מ"אולי אחר כך" (לשימוש מכפתור מפורש). */
+function promptInstall(force){
+  if(isStandalone() || LS.get('hw_installed',0)) return false;      // כבר מותקנת
+  if(!force && LS.get('hw_instDismissed',0)) return false;          // המשתמש דחה
+  ['#instAuto','#instIOS','#instManual'].forEach(s=>hide($(s)));
+  if(installEvt)      show($('#instAuto'));
+  else if(isIOS())    show($('#instIOS'));
+  else                show($('#instManual'));
+  show($('#installAsk'));
+  return true;
+}
+function closeInstall(dismissed){
+  hide($('#installAsk'));
+  if(dismissed) LS.set('hw_instDismissed', 1);
+}
+$('#instNow').onclick = async ()=>{
+  if(!installEvt){ closeInstall(false); return; }
+  const evt = installEvt; installEvt = null;      // אפשר להשתמש באירוע פעם אחת בלבד
+  try{
+    evt.prompt();
+    const { outcome } = await evt.userChoice;
+    if(outcome === 'accepted'){ LS.set('hw_installed',1); toast('מותקן! חפש את האייקון במסך הבית'); }
+    closeInstall(outcome !== 'accepted');
+  }catch(e){ closeInstall(false); }
+};
+$('#instLater').onclick = ()=> closeInstall(true);
+$('#installAsk').onclick = e =>{ if(e.target===$('#installAsk')) closeInstall(true); };
+
 /* ===== welcome / language selection ===== */
 function greeting(){
   const h=new Date().getHours();
@@ -699,19 +738,239 @@ function enterLang(lang){
   $('#homeSub').textContent   = lang==='en' ? 'English vocabulary · 10 יחידות' : 'המילון הרשמי · 10 יחידות';
   renderHome();
   goto('home');
+  syncWithRemote(lang);   // fire-and-forget: pulls any progress from another device and merges it in
 }
 document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>enterLang(b.dataset.lang));
 $('#switchLang').onclick=()=>{ if(!committed && session.size>0) commitSession(); renderWelcome(); };
 
+/* ===== account — every screen above this line requires a signed-in user =====
+   This is the ONLY place app.js touches Store; everything else stays pure UI. */
+let currentUser=null, syncTimer=null;
+
+let syncPending=false;
+function flushRemoteSync(){
+  if(!currentUser || !syncPending) return;
+  syncPending=false; clearTimeout(syncTimer);
+  Store.pushProgress(LANG, {assoc, stats, deleted:[...deleted], added, dir:direction}).catch(()=>{});
+}
+function queueRemoteSync(){
+  if(!currentUser) return;
+  syncPending=true;
+  clearTimeout(syncTimer);
+  syncTimer=setTimeout(flushRemoteSync, 1500);
+}
+// A debounced save that never fires is a save the user lost. Flush before the page goes away.
+window.addEventListener('pagehide', flushRemoteSync);
+document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='hidden') flushRemoteSync(); });
+
+/* Merge is max-based, never subtractive — the same rule migrateStores already uses — so a
+   sync race between two devices can only make progress look better than it is, never erase it. */
+function mergeProgress(local, remote){
+  if(!remote || !isObj(remote)) return local;
+  const words={};
+  const lw=isObj(local.stats)&&isObj(local.stats.words)?local.stats.words:{};
+  const rw=isObj(remote.stats)&&isObj(remote.stats.words)?remote.stats.words:{};
+  for(const k of new Set([...Object.keys(lw),...Object.keys(rw)])){
+    const a=saneRec(lw[k]), b=saneRec(rw[k]);
+    words[k]={ seen:Math.max(a.seen,b.seen), first:Math.max(a.first,b.first), ever:Math.max(a.ever,b.ever),
+               wrong:Math.max(a.wrong,b.wrong), level:Math.max(a.level,b.level), last:Math.max(a.last,b.last) };
+  }
+  const ls=Array.isArray(local.stats&&local.stats.sessions)?local.stats.sessions:[];
+  const rs=Array.isArray(remote.stats&&remote.stats.sessions)?remote.stats.sessions:[];
+  const sessions=[...rs,...ls].filter(isObj).slice(-MAX_SESSIONS);
+  const mergedAssoc={...(isObj(remote.assoc)?remote.assoc:{}), ...(isObj(local.assoc)?local.assoc:{})};
+  const mergedDeleted=[...new Set([...(Array.isArray(remote.deleted)?remote.deleted:[]),
+                                    ...(Array.isArray(local.deleted)?local.deleted:[])])];
+  const seenAdd=new Set(); const mergedAdded=[];
+  for(const p of [...(Array.isArray(local.added)?local.added:[]), ...(Array.isArray(remote.added)?remote.added:[])]){
+    if(!Array.isArray(p)||!p[0]) continue; const k=K(p[0]); if(seenAdd.has(k)) continue; seenAdd.add(k); mergedAdded.push(p);
+  }
+  return { assoc:mergedAssoc, stats:{words,sessions}, deleted:mergedDeleted, added:mergedAdded,
+           dir: local.dir || remote.dir || 'm2w' };
+}
+
+async function syncWithRemote(lang){
+  if(!currentUser || !window.Store) return;
+  let remote=null;
+  try{ remote=await Store.pullProgress(lang); }catch(e){ return; }     // offline — keep working locally
+  if(remote && lang===LANG){
+    const before = added.length;
+    const merged=mergeProgress({assoc,stats,deleted:[...deleted],added,dir:direction}, remote);
+    assoc=merged.assoc; stats=merged.stats; deleted=new Set(merged.deleted); added=merged.added; direction=merged.dir;
+    saveAssoc(); saveStats(); saveDeleted(); saveAdded(); LS.set(KEY('hw_dir'),direction);
+    buildBank(); renderDirSegs(); renderHome();
+    if(added.length>before) toast('התקדמות ממכשיר אחר צורפה');
+  }
+  Store.pushProgress(lang, {assoc, stats, deleted:[...deleted], added, dir:direction}).catch(()=>{});
+}
+
+function translateAuthError(err){
+  const m=(err&&err.message)||'';
+  if(/already registered|already exists/i.test(m)) return 'כבר יש חשבון עם המייל הזה — נסה להתחבר.';
+  if(/invalid login credentials/i.test(m)) return 'אימייל או סיסמה שגויים.';
+  if(/password.*(least|short|weak)/i.test(m)) return 'הסיסמה חייבת להיות לפחות 8 תווים.';
+  if(/email.*invalid/i.test(m)) return 'כתובת אימייל לא תקינה.';
+  if(/rate limit/i.test(m)) return 'יותר מדי ניסיונות — נסה שוב בעוד כמה דקות.';
+  return 'משהו השתבש. בדוק את החיבור לרשת ונסה שוב.';
+}
+
+let authMode='signup';
+function setAuthMode(m, keepMsg){
+  authMode=m;
+  document.querySelectorAll('#authTabs button').forEach(b=>b.classList.toggle('active', b.dataset.tab===m));
+  $('#authUsername').classList.toggle('hidden', m!=='signup');
+  $('#authSubmit').textContent = m==='signup' ? 'צור חשבון' : 'התחבר';
+  $('#authPassword').autocomplete = m==='signup' ? 'new-password' : 'current-password';
+  if(!keepMsg) $('#authMsg').classList.add('hidden');   // keepMsg: don't wipe a message we just wrote
+}
+document.querySelectorAll('#authTabs button').forEach(b=>b.onclick=()=>setAuthMode(b.dataset.tab));
+
+/* The local cache belongs to exactly one account. A session can end without a click on
+   "יציאה" (token expiry, cleared cookies, shared device) — and then the next person to sign
+   in here would have the previous user's progress merged into THEIR account. So the cache is
+   stamped with its owner, and any mismatch wipes it before a single byte is read. */
+const HW_KEYS = ['hw_assoc','hw_stats','hw_deleted','hw_added','hw_dir','hw_migr','hw_size',
+                 'hw_assoc_en','hw_stats_en','hw_deleted_en','hw_added_en','hw_dir_en','hw_migr_en','hw_size_en','hw_lang'];
+function bindCacheToUser(uid){
+  const owner = LS.get('hw_owner', null);
+  if(owner && owner !== uid){
+    HW_KEYS.forEach(k=>LS.del(k));
+    assoc={}; stats={words:{},sessions:[]}; deleted=new Set(); added=[]; direction='m2w'; LANG=null;
+  }
+  LS.set('hw_owner', uid);
+}
+
+async function afterAuthed(justSignedUp){
+  bindCacheToUser(currentUser.id);
+  try{ const p=await Store.myProfile(); $('#userBadge').textContent = p ? p.username : (currentUser.email||''); }
+  catch(e){ $('#userBadge').textContent = currentUser.email||''; }
+  await showAdminIfAllowed();
+  renderWelcome();
+  // With email confirmation on, sign-up never yields a session — so the install offer has to
+  // ride on the first successful sign-in, not on the sign-up call.
+  if(justSignedUp || !LS.get('hw_instOffered',0)){ LS.set('hw_instOffered',1); setTimeout(()=>promptInstall(false),600); }
+}
+
+$('#authForm').addEventListener('submit', async e=>{
+  e.preventDefault();
+  const email=$('#authEmail').value.trim(), pw=$('#authPassword').value, uname=$('#authUsername').value.trim();
+  const msg=$('#authMsg'); msg.classList.remove('hidden'); msg.className='msg';
+  const btn=$('#authSubmit'); btn.disabled=true;
+  try{
+    if(authMode==='signup'){
+      const r=await Store.signUp(email,pw,uname);
+      if(r.error){ msg.className='msg err'; msg.textContent=translateAuthError(r.error); return; }
+      if(!r.session){                                    // email confirmation required before login
+        setAuthMode('signin', true);
+        msg.className='msg ok'; msg.textContent='📧 נשלח מייל אימות לכתובת שלך. אשר אותו — ואז התחבר כאן.';
+        $('#authPassword').value=''; return;
+      }
+      currentUser=r.user; toast('ברוך הבא!'); afterAuthed(true);
+    }else{
+      const r=await Store.signIn(email,pw);
+      if(r.error){ msg.className='msg err'; msg.textContent=translateAuthError(r.error); return; }
+      currentUser=r.user; afterAuthed(false);
+    }
+  } finally { btn.disabled=false; }
+});
+$('#authForgot').onclick=async ()=>{
+  const email=$('#authEmail').value.trim();
+  const msg=$('#authMsg'); msg.classList.remove('hidden');
+  if(!email){ msg.className='msg err'; msg.textContent='הזן קודם את כתובת האימייל שלך למעלה.'; return; }
+  msg.className='msg'; msg.textContent='שולח…';
+  try{ await Store.resetPasswordFor(email); msg.className='msg ok'; msg.textContent='אם הכתובת רשומה, נשלח אליה קישור לאיפוס סיסמה.'; }
+  catch(e){ msg.className='msg err'; msg.textContent='שגיאה בשליחה — נסה שוב.'; }
+};
+$('#signOutBtn').onclick=async ()=>{
+  if(!committed && session.size>0) commitSession();
+  try{ await Store.signOut(); }catch(e){}
+  localStorage.clear();          // the local cache belongs to this account; never let it bleed into the next login
+  location.reload();
+};
+
+/* ===== admin dashboard — who signed up, when, how far they got.
+   Deliberately has no way to reveal a password: none is stored in readable form. ===== */
+let isAdmin=false;
+async function showAdminIfAllowed(){
+  isAdmin=false;
+  try{ const p=await Store.myProfile(); isAdmin = !!(p && p.role==='admin'); }catch(e){}
+  $('#adminBtn').classList.toggle('hidden', !isAdmin);
+}
+const fmtDate = t => t ? new Date(t).toLocaleDateString('he-IL',{day:'2-digit',month:'2-digit',year:'2-digit'})
+                        +' '+new Date(t).toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'}) : '—';
+
+async function openAdmin(){
+  goto('admin');
+  const body=$('#adminBody');
+  body.innerHTML='<p class="msg" style="color:var(--ink-soft)">טוען…</p>';
+  const { users, error } = await Store.adminListUsers();
+  if(error){
+    body.innerHTML=`<p class="msg err">לא ניתן לטעון: ${esc(error.message)}</p>`+
+      `<p class="msg" style="color:var(--ink-soft)">אם חסרות עמודות — הרץ את migration-2.sql ב-SQL Editor.</p>`;
+    return;
+  }
+  if(!users.length){ body.innerHTML='<p class="msg" style="color:var(--ink-soft)">עדיין אין משתמשים רשומים.</p>'; return; }
+
+  const rows=await Promise.all(users.map(async u=>{
+    let learnedHe=0, learnedEn=0, last=u.last_seen;
+    try{
+      for(const p of await Store.adminUserProgress(u.id)){
+        const w=(p.data&&p.data.stats&&p.data.stats.words)||{};
+        const n=Object.values(w).filter(r=>r&&Number(r.level)>=3).length;
+        if(p.lang==='en') learnedEn=n; else learnedHe=n;
+        if(!last || (p.updated_at && p.updated_at>last)) last=p.updated_at;
+      }
+    }catch(e){}
+    return `<div class="adm-row">
+      <div class="adm-top"><b>${esc(u.username||'—')}</b>
+        <span class="mail">${esc(u.email||'')}</span>
+        ${u.role==='admin'?'<span class="adm-tag">אדמין</span>':''}</div>
+      <div class="adm-meta">
+        <span>נרשם <i>${fmtDate(u.created_at)}</i></span>
+        <span>פעילות אחרונה <i>${fmtDate(last)}</i></span>
+        <span>למד <i>${learnedHe}</i> עברית · <i>${learnedEn}</i> אנגלית</span>
+      </div>
+      <div class="adm-acts"><button data-reset="${esc(u.email||'')}">✉ אפס סיסמה</button></div>
+    </div>`;
+  }));
+  body.innerHTML=`<p style="font-size:.82rem;color:var(--ink-soft);margin-bottom:10px">${users.length} משתמשים</p>`+rows.join('');
+  body.querySelectorAll('[data-reset]').forEach(b=>b.onclick=async()=>{
+    const mail=b.dataset.reset; if(!mail) return;
+    b.disabled=true; b.textContent='שולח…';
+    try{ await Store.adminSendReset(mail); b.textContent='✓ נשלח קישור איפוס'; }
+    catch(e){ b.textContent='שגיאה — נסה שוב'; b.disabled=false; }
+  });
+}
+$('#adminBtn').onclick=openAdmin;
+
+async function checkSessionAndBoot(){
+  let sess=null;
+  try{ sess=await Store.currentSession(); }catch(e){}
+  if(sess && sess.user){ currentUser=sess.user; await afterAuthed(false); }
+  else { setAuthMode('signup'); goto('auth'); }
+  try{
+    Store.onAuthChange((s)=>{
+      if(s && s.user && !currentUser){ currentUser=s.user; afterAuthed(false); }
+      else if(!s){ currentUser=null; }
+    });
+  }catch(e){}
+}
+
 /* ===== boot ===== */
 (function boot(){
   try{
-    const iOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
-    const hint = iOS ? 'טיפ: שתף → "הוסף למסך הבית" לשימוש אופליין' : 'טיפ: תפריט הדפדפן → "התקן אפליקציה" לשימוש אופליין';
-    const standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-    if(!standalone && $('#installHint2')) $('#installHint2').textContent=hint;
+    // רמז ההתקנה הוא כפתור: לחיצה פותחת את חלון ההתקנה המתאים למכשיר.
+    // אחרי בניית ההרשמה, אותה פונקציה תיקרא אוטומטית בסיום ההרשמה.
+    const el=$('#installHint2');
+    if(el && !isStandalone() && !LS.get('hw_installed',0)){
+      el.textContent='📲 התקן את האפליקציה במסך הבית';
+      el.style.cssText='cursor:pointer;text-decoration:underline;color:var(--gold);font-weight:500';
+      el.onclick=()=>promptInstall(true);
+    }
   }catch(e){}
-  // the welcome screen must render even if a summary/stat read fails — it is the only way in
-  try{ renderWelcome(); }
-  catch(e){ SCREENS.forEach(s=>{const el=$('#'+s); if(el) hide(el);}); show($('#welcome')); }
+  // The auth screen is the only way in, so it must appear even if the session lookup throws.
+  // checkSessionAndBoot is async — a plain try/catch would never see its rejection.
+  const fallbackToAuth = ()=>{ SCREENS.forEach(s=>{const el=$('#'+s); if(el) hide(el);}); show($('#auth')); setAuthMode('signup'); };
+  try{ Promise.resolve(checkSessionAndBoot()).catch(fallbackToAuth); }
+  catch(e){ fallbackToAuth(); }
 })();
