@@ -810,7 +810,8 @@ function translateAuthError(err){
   if(/invalid login credentials/i.test(m)) return 'אימייל או סיסמה שגויים.';
   if(/password.*(least|short|weak)/i.test(m)) return 'הסיסמה חייבת להיות לפחות 8 תווים.';
   if(/email.*invalid/i.test(m)) return 'כתובת אימייל לא תקינה.';
-  if(/rate limit/i.test(m)) return 'יותר מדי ניסיונות — נסה שוב בעוד כמה דקות.';
+  if(/rate limit|too many/i.test(m)) return 'המערכת עמוסה כרגע — נסה שוב בעוד כמה דקות.';
+  if(/confirm|not confirmed/i.test(m)) return 'צריך לאשר את מייל האימות לפני ההתחברות.';
   return 'משהו השתבש. בדוק את החיבור לרשת ונסה שוב.';
 }
 
