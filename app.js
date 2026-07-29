@@ -13,30 +13,44 @@ const LS = {
   get(k,d){ try{ const v=JSON.parse(localStorage.getItem(k)); return v==null?d:v; }catch(e){ return d; } },
   set(k,v){ localStorage.setItem(k, JSON.stringify(v)); }
 };
-let assoc   = LS.get('hw_assoc', {});
-let stats   = (function(){ const s=LS.get('hw_stats',{}); return {words:s.words||{}, sessions:s.sessions||[]}; })();
-let deleted = new Set(LS.get('hw_deleted', []));
-let added   = LS.get('hw_added', []); // [[term,meaning],...]
-let direction = LS.get('hw_dir', 'm2w'); // m2w = פירוש→מילה, w2m = מילה→פירוש, mixed
-const DIRS = [['m2w','פירוש → מילה'],['w2m','מילה → פירוש'],['mixed','מעורב']];
+/* ---- language layer: Hebrew keeps the ORIGINAL keys so existing progress is never lost ---- */
+let LANG = LS.get('hw_lang', null);            // 'he' | 'en' | null (not chosen yet)
+const SUF = () => (LANG==='en' ? '_en' : '');  // Hebrew = legacy keys, English = *_en keys
+const KEY = base => base + SUF();
+
+let assoc={}, stats={words:{},sessions:[]}, deleted=new Set(), added=[], direction='m2w';
+function loadLangState(){
+  assoc     = LS.get(KEY('hw_assoc'), {});
+  const s   = LS.get(KEY('hw_stats'), {});
+  stats     = {words:s.words||{}, sessions:s.sessions||[]};
+  deleted   = new Set(LS.get(KEY('hw_deleted'), []));
+  added     = LS.get(KEY('hw_added'), []);
+  direction = LS.get(KEY('hw_dir'), 'm2w');
+}
+const DIRS_HE = [['m2w','פירוש → מילה'],['w2m','מילה → פירוש'],['mixed','מעורב']];
+const DIRS_EN = [['m2w','עברית → אנגלית'],['w2m','אנגלית → עברית'],['mixed','מעורב']];
+const DIRS = () => (LANG==='en' ? DIRS_EN : DIRS_HE);
 function renderDirSegs(){
   ['#dirSegHome','#dirSegScope'].forEach(sel=>{
     const el=document.querySelector(sel); if(!el) return;
-    el.innerHTML=DIRS.map(([d,l])=>`<button data-dir="${d}" class="${direction===d?'active':''}">${l}</button>`).join('');
-    el.querySelectorAll('button').forEach(b=>b.onclick=()=>{ direction=b.dataset.dir; LS.set('hw_dir',direction); renderDirSegs(); });
+    el.innerHTML=DIRS().map(([d,l])=>`<button data-dir="${d}" class="${direction===d?'active':''}">${l}</button>`).join('');
+    el.querySelectorAll('button').forEach(b=>b.onclick=()=>{ direction=b.dataset.dir; LS.set(KEY('hw_dir'),direction); renderDirSegs(); });
   });
 }
-const saveAssoc   = () => LS.set('hw_assoc', assoc);
-const saveStats   = () => LS.set('hw_stats', stats);
-const saveDeleted = () => LS.set('hw_deleted', [...deleted]);
-const saveAdded   = () => LS.set('hw_added', added);
+const saveAssoc   = () => LS.set(KEY('hw_assoc'), assoc);
+const saveStats   = () => LS.set(KEY('hw_stats'), stats);
+const saveDeleted = () => LS.set(KEY('hw_deleted'), [...deleted]);
+const saveAdded   = () => LS.set(KEY('hw_added'), added);
 
 /* canonical word key: same word with/without niqqud (or across units) is ONE word everywhere */
-const K = t => norm(t);
+const K = t => LANG==='en' ? normEn(t) : norm(t);
+function normEn(s){
+  return (s||'').toLowerCase().replace(/^(to|a|an|the)\s+/,'').replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ').trim();
+}
 /* one-time migration: merge existing per-exact-string records into normalized keys.
    Called from boot (norm/NIQ are defined further down the file). */
 function migrateStores(){
-  if(LS.get('hw_migr',0)>=7) return;
+  if(LS.get(KEY('hw_migr'),0)>=7) return;
   const nw={};
   for(const t in stats.words){
     const k=K(t), r=stats.words[t];
@@ -46,7 +60,7 @@ function migrateStores(){
   stats.words=nw; saveStats();
   const na={}; for(const t in assoc){ const k=K(t); if(assoc[t] && !na[k]) na[k]=assoc[t]; } assoc=na; saveAssoc();
   deleted=new Set([...deleted].map(K)); saveDeleted();
-  LS.set('hw_migr',7);
+  LS.set(KEY('hw_migr'),7);
 }
 
 /* ===== word bank ===== */
@@ -54,7 +68,7 @@ let BANK = [];
 const UNIT_IDS = ['1','2','3','4','5','6','7','8','9','10'];
 function buildBank(){
   BANK = [];
-  const data = window.UNIT_DATA || {};
+  const data = (LANG==='en' ? window.UNIT_DATA_EN : window.UNIT_DATA) || {};
   for(const uid of Object.keys(data)){
     const byKey = new Map();  // merge duplicate terms within a unit by normalized key (ignores niqqud diffs)
     data[uid].forEach(pair=>{
@@ -129,15 +143,15 @@ function norm(s){
     .replace(/ך/g,'כ').replace(/ם/g,'מ').replace(/ן/g,'נ').replace(/ף/g,'פ').replace(/ץ/g,'צ');
 }
 function isCorrect(input, term){
-  const a=norm(input); if(!a) return false;
-  if(a===norm(term)) return true;
-  // accept any single word of a multi-word term, or slash-alternatives
-  const alts=term.split(/[\/|]/).map(x=>norm(x)).filter(Boolean);
+  const a=K(input); if(!a) return false;
+  if(a===K(term)) return true;
+  // accept slash/comma alternatives ("1st - first", "raise / lift")
+  const alts=term.split(/[\/|,]|\s-\s/).map(x=>K(x)).filter(Boolean);
   return alts.includes(a);
 }
 
 /* ===== screens ===== */
-const SCREENS=['home','scope','quiz','results','stats','manage','add'];
+const SCREENS=['welcome','home','scope','quiz','results','stats','manage','add'];
 function goto(id){ SCREENS.forEach(s=>hide($('#'+s))); show($('#'+id)); window.scrollTo(0,0); }
 
 /* ===== HOME ===== */
@@ -222,18 +236,24 @@ function renderCard(){
   const inp=$('#answerInput');
   inp.classList.remove('hidden'); inp.value=''; inp.disabled=false;
   show($('#answerActions'));
-  if(w._dir==='w2m'){
-    $('#qKind').textContent='כתוב את הפירוש של המילה';
-    $('#qText').textContent=w.term;
-    inp.placeholder='הפירוש…';
-  }else{
-    $('#qKind').textContent='כתוב את המילה לפי הפירוש';
-    $('#qText').textContent=w.meaning;
-    inp.placeholder='המילה…';
+  const en = LANG==='en';
+  if(w._dir==='w2m'){   // show the WORD, type the meaning (Hebrew side)
+    $('#qKind').textContent = en ? 'כתוב את התרגום לעברית' : 'כתוב את הפירוש של המילה';
+    $('#qText').textContent = w.term;
+    $('#qText').dir = en ? 'ltr' : 'rtl';
+    inp.placeholder = en ? 'התרגום…' : 'הפירוש…';
+    inp.dir='rtl';
+  }else{                // show the MEANING (Hebrew), type the word
+    $('#qKind').textContent = en ? 'כתוב את המילה באנגלית' : 'כתוב את המילה לפי הפירוש';
+    $('#qText').textContent = w.meaning;
+    $('#qText').dir='rtl';
+    inp.placeholder = en ? 'the word…' : 'המילה…';
+    inp.dir = en ? 'ltr' : 'rtl';
   }
   setTimeout(()=>inp.focus(),30);
 }
 function meaningMatch(input, meaning){
+  // the "meaning" side is Hebrew in both languages → always use the Hebrew normalizer
   const a=norm(input); if(!a) return false;
   if(a===norm(meaning)) return true;
   const segs=meaning.split(/[,;/|()]|\s-\s/).map(norm).filter(Boolean);
@@ -451,16 +471,59 @@ document.querySelectorAll('[data-scope]').forEach(b=>b.onclick=()=>openScope(b.d
 
 /* ===== PWA ===== */
 if('serviceWorker' in navigator){ window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{})); }
-(function installHint(){
-  const standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-  if(!standalone){
-    const iOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
-    $('#installHint').textContent = iOS ? 'טיפ: שתף → "הוסף למסך הבית" כדי להשתמש כאפליקציה אופליין' : 'טיפ: תפריט הדפדפן → "התקן אפליקציה" לשימוש אופליין';
-  }
-})();
+
+/* ===== welcome / language selection ===== */
+function greeting(){
+  const h=new Date().getHours();
+  if(h<5)  return 'לילה טוב';
+  if(h<12) return 'בוקר טוב';
+  if(h<17) return 'צהריים טובים';
+  if(h<21) return 'ערב טוב';
+  return 'לילה טוב';
+}
+function langSummary(lang){
+  // read that language's stats without switching the active language
+  const s=LS.get(lang==='en'?'hw_stats_en':'hw_stats',{});
+  const words=(s.words)||{};
+  const data=(lang==='en'?window.UNIT_DATA_EN:window.UNIT_DATA)||{};
+  const del=new Set(LS.get(lang==='en'?'hw_deleted_en':'hw_deleted',[]));
+  const nk = lang==='en'?normEn:norm;
+  const keys=new Set();
+  for(const u in data) for(const [t] of data[u]){ const k=nk(t); if(!del.has(k)) keys.add(k); }
+  let learned=0; keys.forEach(k=>{ if((words[k]||{}).level>=3) learned++; });
+  return {total:keys.size, learned, pct: keys.size? Math.round(100*learned/keys.size):0};
+}
+function renderWelcome(){
+  $('#greet').textContent=greeting()+'!';
+  const he=langSummary('he'), en=langSummary('en');
+  $('#heCount').textContent=he.total+' מילים';
+  $('#enCount').textContent=en.total+' מילים';
+  $('#heProg').style.width=he.pct+'%';
+  $('#enProg').style.width=en.pct+'%';
+  $('#heProg').parentElement.title=`למדת ${he.learned} מתוך ${he.total}`;
+  $('#enProg').parentElement.title=`למדת ${en.learned} מתוך ${en.total}`;
+  goto('welcome');
+}
+function enterLang(lang){
+  if(!committed && session.size>0) commitSession();   // never lose an in-flight round
+  LANG=lang; LS.set('hw_lang',lang);
+  loadLangState();
+  migrateStores();
+  buildBank();
+  document.documentElement.lang = 'he';
+  $('#homeTitle').textContent = lang==='en' ? 'פסיכומטרי — אנגלית' : 'פסיכומטרי — עברית';
+  $('#homeSub').textContent   = lang==='en' ? 'English vocabulary · 10 יחידות' : 'המילון הרשמי · 10 יחידות';
+  renderHome();
+  goto('home');
+}
+document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>enterLang(b.dataset.lang));
+$('#switchLang').onclick=()=>{ if(!committed && session.size>0) commitSession(); renderWelcome(); };
 
 /* ===== boot ===== */
-migrateStores();
-buildBank();
-renderHome();
-goto('home');
+(function boot(){
+  const iOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
+  const hint = iOS ? 'טיפ: שתף → "הוסף למסך הבית" לשימוש אופליין' : 'טיפ: תפריט הדפדפן → "התקן אפליקציה" לשימוש אופליין';
+  const standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+  if(!standalone && $('#installHint2')) $('#installHint2').textContent=hint;
+  renderWelcome();          // always greet first; picking a language loads its own memory
+})();

@@ -53,6 +53,30 @@
   .seg button{flex:1;border:none;background:transparent;color:var(--ink-soft);font-family:"Heebo";font-weight:700;font-size:.82rem;padding:9px 5px;border-radius:8px;transition:.15s}
   .seg button.active{background:linear-gradient(180deg,var(--gold),var(--accent));color:#fff;box-shadow:var(--shadow)}
 
+  /* WELCOME */
+  #welcome{padding-top:6vh}
+  .welcome-head{text-align:center;margin-bottom:30px}
+  .w-title{font-size:clamp(2rem,7vw,2.9rem);font-weight:900;line-height:1.15;margin-top:4px}
+  .w-sub{color:var(--ink-soft);font-size:.95rem;margin-top:8px}
+  .lang-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:420px){.lang-cards{grid-template-columns:1fr}}
+  .lang-card{
+    background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px 18px 20px;
+    text-align:center;transition:.18s;box-shadow:var(--shadow);position:relative;overflow:hidden;
+  }
+  .lang-card::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--gold),var(--accent))}
+  .lang-card.en::before{background:linear-gradient(90deg,#4e7d4e,#2f6f8f)}
+  .lang-card:hover{transform:translateY(-4px);border-color:var(--gold)}
+  .lang-card.en:hover{border-color:#2f6f8f}
+  .lang-flag{font-size:2.3rem;line-height:1}
+  .lang-card h2{font-size:1.5rem;font-weight:900;margin-top:10px}
+  .lang-card p{color:var(--ink-soft);font-size:.85rem;margin-top:2px}
+  .lang-meta{font-size:.75rem;color:var(--ink-soft);margin-top:12px}
+  .lang-prog{height:6px;border-radius:3px;background:var(--paper-deep);margin-top:8px;overflow:hidden}
+  .lang-prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--accent));transition:.4s}
+  .lang-card.en .lang-prog i{background:linear-gradient(90deg,#4e7d4e,#2f6f8f)}
+  .w-foot{text-align:center;color:var(--ink-soft);font-size:.72rem;margin-top:26px}
+
   /* HOME */
   .home-head{text-align:center;margin-bottom:6px}
   .home-head h1{font-size:clamp(1.9rem,6vw,2.6rem);font-weight:900}
@@ -193,12 +217,39 @@
 <body>
 <div class="wrap">
 
+  <!-- ===== WELCOME / LANGUAGE PICKER ===== -->
+  <section id="welcome">
+    <div class="welcome-head">
+      <div class="kicker">ברוך הבא</div>
+      <h1 class="w-title" id="greet">שלום!</h1>
+      <p class="w-sub">מוכן לתרגל? בחר את השפה שתרצה לתרגל היום</p>
+    </div>
+    <div class="lang-cards">
+      <button class="lang-card" data-lang="he">
+        <div class="lang-flag">📖</div>
+        <h2>עברית</h2>
+        <p>אוצר מילים פסיכומטרי</p>
+        <div class="lang-meta"><span id="heCount">—</span> · 10 יחידות</div>
+        <div class="lang-prog"><i id="heProg"></i></div>
+      </button>
+      <button class="lang-card en" data-lang="en">
+        <div class="lang-flag">🔤</div>
+        <h2>אנגלית</h2>
+        <p>English vocabulary</p>
+        <div class="lang-meta"><span id="enCount">—</span> · 10 יחידות</div>
+        <div class="lang-prog"><i id="enProg"></i></div>
+      </button>
+    </div>
+    <p class="w-foot" id="installHint2"></p>
+  </section>
+
   <!-- ===== HOME ===== -->
-  <section id="home">
+  <section id="home" class="hidden">
+    <div class="topbar"><button class="back" id="switchLang">⇄ החלף שפה</button><div class="sp"></div></div>
     <div class="home-head">
       <div class="kicker">אוצר מילים</div>
-      <h1>פסיכומטרי — עברית</h1>
-      <p>המילון הרשמי · 10 יחידות</p>
+      <h1 id="homeTitle">פסיכומטרי — עברית</h1>
+      <p id="homeSub">המילון הרשמי · 10 יחידות</p>
       <div class="totalpill" id="totalPill">—</div>
     </div>
 
@@ -319,7 +370,8 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="data.js?v=8"></script>
-<script src="app.js?v=8"></script>
+<script src="data.js?v=9"></script>
+<script src="data-en.js?v=9"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>

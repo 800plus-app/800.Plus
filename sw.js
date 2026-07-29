@@ -1,7 +1,7 @@
 /* service worker — offline cache. Bump V to push an update to installed apps. */
-const V = 'hw-v8';
+const V = 'hw-v9';
 const ASSETS = [
-  './', './index.html', './app.js', './data.js', './manifest.webmanifest',
+  './', './index.html', './app.js', './data.js', './data-en.js', './manifest.webmanifest',
   './icon-192.png', './icon-512.png', './icon-maskable-512.png'
 ];
 self.addEventListener('install', e => {

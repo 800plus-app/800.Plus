@@ -1,0 +1,281 @@
+# יחידה 1 — אנגלית, פסיכומטרי קמפוס. פורמט: word - תרגום
+
+1st - first - ראשון
+2nd - second - שני
+3rd - third - שלישי
+4th - fourth - רביעי
+5th - fifth - חמישי
+6th - sixth - שישי
+7th - seventh - שביעי
+8th - eighth - שמיני
+9th - ninth - תשיעי
+tenth - 10th - עשירי
+how - איך, כיצד
+what - מה, איזה
+which - איזה; אשר, ש-
+who - מי, ש-
+whom - מי
+whose - אשר לו, אשר הוא
+as if - כאילו
+based on - מבוסס על
+even if - גם אם
+granted (that) - בהנחה ש-, נתון ש-
+If - אם
+in case - במקרה
+in order to - על-מנת, בכדי
+only - רק
+provided that - בתנאי ש-
+so long as - כל עוד
+unless - אלא אם כן
+while - כל עוד; בזמן ש-
+always - תמיד
+consistently - בעקביות
+constantly - באופן קבוע
+daily - יומיומי
+every day - כל יום
+every now and then - לפעמים
+for the most part - בדרך-כלל
+forever - לנצח, לתמיד
+frequently - לעיתים קרובות
+from time to time - מפעם לפעם
+hardly ever - כמעט אף פעם
+mostly - לרוב
+never - אף פעם
+occasionally - מידי פעם
+often - לעיתים קרובות
+once in a while - מידי פעם
+ordinarily - בדרך-כלל
+permanently - קבוע
+perpetually - נצחי, לנצח
+rarely - לעיתים נדירות
+regularly - באופן קבוע
+seldom - לעיתים רחוקות
+sometimes - לעיתים, לפעמים
+usually - בדרך-כלל
+according - לפי
+accordingly - בהתאם
+as a result - כתוצאה
+consequently - כתוצאה מכך
+for - מפני ש-; עבור
+hence - לפיכך, לכן
+in that case - במקרה הזה
+led to - הוביל ל-
+so - אז, כך ש-, ולכן; כל-כך, מאוד
+so that - כך ש-
+subsequently - כתוצאה מכך
+then - אז
+thus - לכן, כך ש-
+after all - אחרי הכל
+all in all - בסך הכל
+altogether - בסך הכל; לגמרי
+besides - בכל מקרה; בנוסף על; מלבד, חוץ מ-
+i.e. - כלומר, לדוגמה
+in a word - במילה אחת
+in conclusion - לסיכום
+in fact - למעשה
+overall - כולל, באופן כללי
+to sum up - כדי לסכם; לסכם
+because - בגלל
+because of - בגלל
+being that - מכיוון ש-
+due to - בגלל, לאור
+given that - בהתחשב בכך
+in light of - לאור
+owing to - הודות ל-
+since - מכיוון ש-; מאז
+thanks to - תודות ל-
+therefore - לכן
+why - מדוע
+albeit - אף על פי
+although - למרות ש-
+but - אך, אבל; מלבד, חוץ מ-
+contradictory - סותר
+contrary - להפך, בניגוד ל-
+conversely - לעומת זאת
+different from - שונה מ-
+in comparison - בהשוואה
+in contrast to - בניגוד ל-
+instead - במקום
+instead of - במקום
+of course... but... - כמובן... אך...
+on the contrary - בניגוד לכך
+or - או
+otherwise - אחרת
+rather - עדיף; למדי
+rather than - במקום, יותר מ-
+regardless - למרות, ללא קשר
+than - מ-
+though - למרות זאת; למרות ש-
+unlike - שלא כמו
+vice versa - להיפך
+where - בעוד ש-; היכן, איפה
+whereas - בעוד ש-
+yet - אך, אולם; עדיין, בכל זאת
+about - ליד, בערך; אודות
+above - מעל
+across - בצד השני, לרוחב
+adjacent to - ליד
+against - כנגד, ממול
+ahead of - לפני, לפנים
+along - לאורך
+alongside - לצד, במקביל
+amid - בקרב, בין
+among - בקרב, בין
+around - מסביב; בערך
+at - אצל, ב-
+before - לפני, מול; לפני
+behind - מאחורי; ישבן
+below - מתחת
+beneath - מתחת
+beside - ליד
+between - בין
+beyond - מעבר
+by - ליד, בסמוך ל-; עד, לא יאוחר מ-; באמצעות, על-ידי
+close - קרוב; סגור, לסגור
+distant - מרוחק
+elsewhere - במקום אחר
+farther - הלאה, יותר
+from - מ-
+here - כאן
+in - ב-, בתוך
+in front of - בחזית של, מול
+inside - בתוך, פנים
+into - אל תוך
+latter - שני, אחרון
+near - קרוב
+nearby - ליד, קרוב
+next to - ליד
+of - של, מ-
+on - על
+on top of - על, מעל
+opposite - מנוגד, ממול
+outside - חוץ; בחוץ
+over - על, מעל; מחדש, שוב
+there - שם
+under - מתחת
+underneath - מתחת
+up - למעלה
+wherever - בכל מקום, לא משנה היכן
+within - בתוך
+backward - לאחור
+down - למטה
+forward - קדימה, לפנים
+further - לקדם; בהמשך
+left - שמאלה
+right - ימינה; זכות
+sideways - הצידה
+toward - אל, אל עבר
+upon - על
+upside down - הפוך
+after - אחרי
+afterwards - לאחר מכן
+again - שוב
+as - כאשר, כש-; כמו
+as long as - כל עוד
+as soon as - כאשר, ברגע ש-
+at first - בהתחלה
+at last - סוף סוף
+currently - כרגע, נכון לעכשיו
+during - תוך כדי, במשך
+earlier - קודם לכן
+eventually - לבסוף
+finally - לבסוף, סוף סוף
+first of all - ראשית
+former - קודם, לשעבר
+immediately - מיד
+in a moment - בעוד רגע
+in due time - בבוא העת
+initially - בתחילה
+instantly - מיד
+last - אחרון; המשיך, החזיק מעמד
+later - מאוחר יותר
+meanwhile - בינתיים
+next - הבא
+now - עכשיו
+once - ברגע ש-; פעם (בעבר); פעם אחת
+past - עבר, שעבר
+presently - כעת
+previously - הקודם, לפני-כן
+prior to - קודם ל-, לפני
+shortly - בקיצור, בקרוב
+simultaneously - בו זמנית
+soon - בהקדם, מוקדם
+still - עדיין, למרות זאת; נייח, דומם, שקט
+suddenly - לפתע
+to begin with - בתור התחלה
+until - עד ש-
+until now - עד עתה
+when - כאשר, כש-
+whenever - כש-, מתישהו
+despite - למרות
+even so - אף על פי כן
+even though - למרות ש-
+however - למרות זאת; בכל דרך
+in spite of - למרות
+nevertheless - למרות זאת
+nonetheless - למרות זאת
+additionally - בנוסף
+along with - יחד עם
+also - גם
+and - ו-
+as well as - כמו גם
+aside from - חוץ מ-
+coupled with - יחד עם
+except - מלבד, חוץ מ-
+furthermore - זאת ועוד
+in addition - בנוסף
+including - כולל
+moreover - זאת ועוד
+not only - לא רק
+not to mention - שלא לדבר על
+together with - יחד עם
+too - גם; יותר מידי
+with - באמצעות, עם
+without - מבלי, ללא
+above all - מעל לכל
+absolutely - לחלוטין
+both... and... - גם... וגם...
+certainly - בהחלט, בוודאי
+chiefly - בעיקר
+either... or... - או... או...
+especially - במיוחד
+essentially - בעיקרו, במהותו
+in general - באופן כללי
+in particular - במיוחד
+incidentally - דרך אגב
+indeed - בהחלט
+just as... so... - בדיוק כמו... גם
+mainly - בעיקר
+markedly - בצורה ניכרת
+namely - במיוחד, כלומר
+neither... nor... - לא... ולא...
+not only... but also... - לא רק... אלא גם...
+not... but... - לא... אבל...
+notably - ראוי לציון
+of course - כמובן, בוודאי
+on one hand...on the other hand - מצד אחד... מצד שני
+particularly - במיוחד, בפרט
+primarily - בעיקר
+significantly - באופן משמעותי
+specifically - במיוחד
+surely - ללא ספק
+surprisingly - במפתיע
+truly - באמת
+undoubtedly - ללא ספק
+whether... or... - בין אם... או...
+both - שניהם
+comparatively - באופן יחסי
+correspondingly - בהתאמה
+e.g. - לדוגמה
+equally - במידה שווה
+for example - לדוגמה
+for instance - לדוגמה
+identically - באופן זהה
+in other words - במילים אחרות
+in the same way - באותו אופן
+just as - בדיוק כמו
+like - כמו; לחבב, להעדיף
+likewise - כמו-כן, באותו אופן
+similarly - באופן דומה
+such as - כמו למשל
+that - ש-
