@@ -699,11 +699,45 @@ function langSummary(lang){
     const rows=Array.isArray(data[u])?data[u]:[];
     for(const p of rows){ if(!Array.isArray(p)) continue; const k=nk(p[0]); if(k && !del.has(k)) keys.add(k); }
   }
-  let learned=0; keys.forEach(k=>{ const r=words[k]; if(isObj(r) && Number(r.level)>=3) learned++; });
-  return {total:keys.size, learned, pct: keys.size? Math.round(100*learned/keys.size):0};
+  // Scope every count to the live bank. Counting raw stats keys instead would fold in
+  // orphans left behind by deleted or renamed entries, so "practised" could exceed the
+  // number of words that exist.
+  let learned=0, practised=0;
+  keys.forEach(k=>{ const r=words[k]; if(!isObj(r)) return;
+    if(int0(r.seen)>0) practised++;
+    if(int0(r.level)>=3) learned++; });
+  return {total:keys.size, learned, practised, pct: keys.size? Math.round(100*learned/keys.size):0};
+}
+/* ===== streak =====
+   Derived from the session log rather than a counter of its own, so it can't drift out of
+   sync with reality and it rides the existing cross-device merge for free. Both languages
+   count: a day of Hebrew is a day of practice.
+   Local calendar days, not 24h windows — practising at 23:50 and again at 00:10 is two days,
+   which is how people actually experience a streak. */
+const dayKey = ts =>{ const d=new Date(ts); return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); };
+function practiceDays(){
+  const out=new Set();
+  for(const key of ['hw_stats','hw_stats_en']){
+    const s=LS.get(key,{});
+    const arr=(isObj(s)&&Array.isArray(s.sessions))?s.sessions:[];
+    arr.forEach(x=>{ if(isObj(x) && x.t) out.add(dayKey(x.t)); });
+  }
+  return out;
+}
+function streakInfo(){
+  const days=practiceDays();
+  const DAY=86400000, now=Date.now();
+  // today doesn't break a streak that ran through yesterday — it just hasn't been extended yet
+  let start = days.has(dayKey(now)) ? 0 : (days.has(dayKey(now-DAY)) ? 1 : -1);
+  let n=0;
+  if(start>=0) for(let i=start;;i++){ if(!days.has(dayKey(now-i*DAY))) break; n++; }
+  const week=[];
+  for(let i=6;i>=0;i--) week.push(days.has(dayKey(now-i*DAY)));
+  return {n, today: days.has(dayKey(now)), week, total: days.size};
 }
 function renderWelcome(){
-  $('#greet').textContent=greeting()+'!';
+  const name=(LS.get('hw_name','')||'').trim();
+  $('#greet').textContent = name ? greeting()+', '+name : greeting()+'!';
   const he=langSummary('he'), en=langSummary('en');
   $('#heCount').textContent=he.total+' מילים';
   $('#enCount').textContent=en.total+' מילים';
@@ -711,6 +745,22 @@ function renderWelcome(){
   $('#enProg').style.width=en.pct+'%';
   $('#heProg').parentElement.title=`למדת ${he.learned} מתוך ${he.total}`;
   $('#enProg').parentElement.title=`למדת ${en.learned} מתוך ${en.total}`;
+
+  const st=streakInfo();
+  const learned=he.learned+en.learned, total=he.total+en.total;
+  const seen=he.practised+en.practised;
+  $('#dStreak').textContent=st.n;
+  $('#dLearned').textContent=learned;
+  $('#dSeen').textContent=seen;
+  const pct=total?Math.round(100*learned/total):0;
+  $('#dTotalLbl').textContent=`${learned} מתוך ${total} מילים — עברית ואנגלית יחד`;
+  $('#dTotalPct').textContent=pct+'%';
+  $('#dTotalBar').style.width=pct+'%';
+  $('#dWeek').innerHTML=st.week.map(on=>`<i class="${on?'on':''}"></i>`).join('');
+  $('#greetSub').textContent =
+    st.n===0   ? 'מוכן לתרגל? בחר את השפה שתרצה לתרגל היום'
+  : st.today   ? `כבר תרגלת היום — ${st.n} ימים רצוף. כל הכבוד.`
+               : `${st.n} ימים רצוף. תרגול קצר היום שומר על הרצף.`;
   renderBuildTag();
   goto('welcome');
 }
@@ -1090,12 +1140,13 @@ function buildAuthDrift(){
   ).join('');
 }
 
-let authMode='signup';
+let authMode='signin';   // signing in is the common case; the sign-up tab is styled to stay findable
 function setAuthMode(m, keepMsg){
   authMode=m;
   document.querySelectorAll('#authTabs button').forEach(b=>b.classList.toggle('active', b.dataset.tab===m));
   $('#fUsername').classList.toggle('hidden', m!=='signup');
   $('#authSubmit').innerHTML = (m==='signup' ? 'צור חשבון' : 'התחבר') + '<i>←</i>';
+  $('#authSubmit').classList.toggle('bright', m==='signup');
   $('#authPassword').autocomplete = m==='signup' ? 'new-password' : 'current-password';
   if(!keepMsg) $('#authMsg').classList.add('hidden');   // keepMsg: don't wipe a message we just wrote
 }
@@ -1106,7 +1157,8 @@ document.querySelectorAll('#authTabs button').forEach(b=>b.onclick=()=>setAuthMo
    in here would have the previous user's progress merged into THEIR account. So the cache is
    stamped with its owner, and any mismatch wipes it before a single byte is read. */
 const HW_KEYS = ['hw_assoc','hw_stats','hw_deleted','hw_added','hw_dir','hw_migr','hw_size',
-                 'hw_assoc_en','hw_stats_en','hw_deleted_en','hw_added_en','hw_dir_en','hw_migr_en','hw_size_en','hw_lang'];
+                 'hw_assoc_en','hw_stats_en','hw_deleted_en','hw_added_en','hw_dir_en','hw_migr_en','hw_size_en','hw_lang',
+                 'hw_name','hw_level'];
 function bindCacheToUser(uid){
   const owner = LS.get('hw_owner', null);
   if(owner && owner !== uid){
@@ -1118,7 +1170,12 @@ function bindCacheToUser(uid){
 
 async function afterAuthed(justSignedUp){
   bindCacheToUser(currentUser.id);
-  try{ const p=await Store.myProfile(); $('#userBadge').textContent = p ? p.username : (currentUser.email||''); }
+  try{
+    const p=await Store.myProfile();
+    const nm = (p && p.username) || (currentUser.email||'').split('@')[0];
+    $('#userBadge').textContent = p ? p.username : (currentUser.email||'');
+    LS.set('hw_name', nm);            // the dashboard greets by name before any network call returns
+  }
   catch(e){ $('#userBadge').textContent = currentUser.email||''; }
   await showAdminIfAllowed();
   show($('#fbFab'));            // reporting a bug must never be more than one tap away
@@ -1262,7 +1319,7 @@ async function checkSessionAndBoot(){
   let sess=null;
   try{ sess=await Store.currentSession(); }catch(e){}
   if(sess && sess.user){ currentUser=sess.user; await afterAuthed(false); }
-  else { setAuthMode('signup'); buildAuthDrift(); goto('auth'); hide($('#fbFab')); }
+  else { setAuthMode('signin'); buildAuthDrift(); goto('auth'); hide($('#fbFab')); }
   try{
     Store.onAuthChange((s)=>{
       if(s && s.user && !currentUser){ currentUser=s.user; afterAuthed(false); }
@@ -1283,7 +1340,7 @@ async function checkSessionAndBoot(){
   }catch(e){}
   // The auth screen is the only way in, so it must appear even if the session lookup throws.
   // checkSessionAndBoot is async — a plain try/catch would never see its rejection.
-  const fallbackToAuth = ()=>{ SCREENS.forEach(s=>{const el=$('#'+s); if(el) hide(el);}); show($('#auth')); setAuthMode('signup'); };
+  const fallbackToAuth = ()=>{ SCREENS.forEach(s=>{const el=$('#'+s); if(el) hide(el);}); show($('#auth')); setAuthMode('signin'); };
   try{ Promise.resolve(checkSessionAndBoot()).catch(fallbackToAuth); }
   catch(e){ fallbackToAuth(); }
 })();
