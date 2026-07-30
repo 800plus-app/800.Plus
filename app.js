@@ -408,7 +408,11 @@ function maskTerm(meaning, term){
   /* One side must be the word as written. Letting BOTH sides be stripped made שָׁפוּף match
      כפוף — the כ and the ש each read as a prefix and both reduce to פופ — which is not a
      giveaway at all, just two unrelated words with a shared tail. */
+  /* Function words are never 'the answer'. Blanking אין inside אֵין יָדוֹ מַשֶּׂגֶת turned
+     the prompt into its own opposite. */
+  const FUNC=new Set(['אינ','אינו','בינ','ממנו','אלא','אשר','כמו','לפי','אתה','הוא','היא','זה','זאת','של','את','על','לא','כל','גמ','אמ','כי']);
   const hits = w => { const b=norm(w);
+    if(FUNC.has(b)) return false;
     return tStems.has(b) || heStems(w).some(s=>tBase.has(s)); };
   /* A parenthetical is an EXAMPLE of the word in use. Blanking the word inside it leaves
      "(מכת ־־־ ־־־)" — noise, not a hint — so the whole aside is dropped from the prompt
@@ -427,7 +431,7 @@ function maskTerm(meaning, term){
   const hidden=(out.match(/־־־/g)||[]).length;
   const rest=(out.replace(/־־־/g,' ').match(/[֐-׿]{2,}/g)||[]).length;
   if(out.includes('־־־') &&
-     (out.replace(/־־־/g,'').replace(/[^֐-׿]/g,'').length < 6 || (hidden>=2 && rest<=2)))
+     (out.replace(/־־־/g,'').replace(/[^֐-׿]/g,'').length < 6 || (hidden>=2 && rest<=2) || hidden>=3))
     out = tidy(noAside);
   return /[֐-׿]/.test(out) ? out : meaning;
 }
@@ -696,7 +700,7 @@ function finishCard(ok, skipped){
        rest on a CORRECT answer is where it costs nothing and teaches something. */
     (ok && w2m ? (()=>{ const rest=otherSenses($('#answerInput').value, w.meaning);
        return rest.length ? `<div class="also">גם: <b>${esc(rest.join(' · '))}</b></div>` : ''; })() : '')+
-    (!ok?`<div class="reveal">${label}: <b>${esc(answer)}</b></div>`:'')+
+    (!ok?`<div class="reveal">${label}: <b><bdi>${esc(answer)}</bdi></b></div>`:'')+
     /* The prompt hid the word inside its own gloss, and in this direction the gloss is never
        shown again — so the example that made it worth reading would have been lost. Now that
        the card is over it can only teach, so it is restored in full. */
@@ -1067,6 +1071,7 @@ function showUpdateBar(rev){
   }
   bar.innerHTML=`גרסה ${rev} מוכנה — לחץ לרענון`;
   bar.classList.remove('hidden');
+  document.body.classList.add('has-upd');   // lift the bug-report button clear of the bar
 }
 
 /* ===== התקנה למסך הבית =====
@@ -1968,6 +1973,16 @@ function queueRemoteSync(){
   clearTimeout(syncTimer);
   syncTimer=setTimeout(flushRemoteSync, 1500);
 }
+/* Every overlay could only be dismissed by locating its cancel button. Escape is the one key
+   every user already knows, and it cost four lines. */
+document.addEventListener('keydown', e=>{
+  if(e.key!=='Escape') return;
+  const open=[...document.querySelectorAll('.ask')].filter(el=>!el.classList.contains('hidden'));
+  if(!open.length) return;
+  e.preventDefault();
+  open.forEach(el=>el.classList.add('hidden'));
+});
+
 /* A debounced save that never fires is a save the user lost. Flush before the page goes away.
    Now that every push reads and merges first, this cannot always complete inside a pagehide —
    and that is accepted: the data is already in localStorage and syncs on the next open. The one

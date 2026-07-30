@@ -48,7 +48,7 @@
 
   /* buttons */
   .btn{font-family:"Heebo";font-weight:700;font-size:1rem;border:none;border-radius:14px;padding:15px 22px;transition:.18s}
-  .btn-primary{background:linear-gradient(180deg,var(--gold),var(--accent));color:#fff;box-shadow:var(--shadow)}
+  .btn-primary{background:linear-gradient(180deg,var(--accent),var(--accent-deep));color:#fff;box-shadow:var(--shadow)}  /* not gold→rust: white on gold measured 2.66:1, below AA */
   .btn-primary:hover{transform:translateY(-2px)}
   .btn-primary:disabled{opacity:.45;transform:none;box-shadow:none;cursor:not-allowed}
   .btn-ghost{background:transparent;border:1px solid var(--line);color:var(--ink-soft)}
@@ -454,7 +454,7 @@
      the rule draws itself, the count runs up, the cards arrive one after another. Slow and
      small on purpose — this is a study tool, not a launch page. Every motion is opt-out via
      prefers-reduced-motion, and every colour is already in the palette. */
-  #intro{position:relative}
+  #intro{position:relative;overflow-x:clip}
   #intro::before{content:"";position:absolute;inset-block:-40px 40%;inset-inline:calc(50% - 50vw);z-index:-1;pointer-events:none;
     background:
       radial-gradient(60% 45% at 50% 0%, rgba(201,150,47,.13), transparent 70%),
@@ -559,6 +559,8 @@
   .install-cta:hover .ar{transform:translateX(-4px)}
 
   /* bug report — a small persistent affordance; MVP users need it one tap away */
+  /* lifted while the update bar is up — the bar used to sit directly on top of it */
+  body.has-upd .fb-fab{bottom:calc(74px + env(safe-area-inset-bottom))}
   .fb-fab{position:fixed;inset-inline-start:16px;bottom:calc(16px + env(safe-area-inset-bottom));
        z-index:55;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);
        background:var(--card);box-shadow:var(--shadow);font-size:1.28rem;line-height:1;
@@ -1078,14 +1080,14 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="supabase.min.js?v=64"></script>
-<script src="config.js?v=64"></script>
-<script src="store.js?v=64"></script>
-<script src="leveltest-he.js?v=64"></script>
-  <script src="leveltest.js?v=64"></script>
-<script src="enrank.js?v=64"></script>
-<script src="data.js?v=64"></script>
-<script src="data-en.js?v=64"></script>
-<script src="app.js?v=64"></script>
+<script src="supabase.min.js?v=65"></script>
+<script src="config.js?v=65"></script>
+<script src="store.js?v=65"></script>
+<script src="leveltest-he.js?v=65"></script>
+  <script src="leveltest.js?v=65"></script>
+<script src="enrank.js?v=65"></script>
+<script src="data.js?v=65"></script>
+<script src="data-en.js?v=65"></script>
+<script src="app.js?v=65"></script>
 </body>
 </html>
