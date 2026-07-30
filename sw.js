@@ -63,6 +63,10 @@ self.addEventListener('fetch', e => {
   try { url = new URL(req.url); } catch (_) { return; }
   if (url.protocol !== 'http:' && url.protocol !== 'https:') return;   // never touch extension schemes
 
+  // A cache-busting probe must never be stored: renderBuildTag() asks for index.html with a
+  // fresh ?probe= every render, and each one used to become its own permanent cache entry.
+  if (url.searchParams.has('probe')) { e.respondWith(fetch(req)); return; }
+
   // Navigations: network-first, so a freshly deployed version is picked up on the next open
   // instead of one load late. Falls back to the cached shell when offline.
   if (req.mode === 'navigate') {
@@ -82,10 +86,6 @@ self.addEventListener('fetch', e => {
     );
     return;
   }
-
-  // A cache-busting probe must never be stored: renderBuildTag() asks for index.html with a
-  // fresh ?probe= every render, and each one used to become its own permanent cache entry.
-  if (url.searchParams.has('probe')) { e.respondWith(fetch(req)); return; }
 
   // Everything else: cache-first on the EXACT url (query included), refreshed in the background.
   // waitUntil is what makes the refresh real: respondWith resolves the moment the cached copy

@@ -931,9 +931,9 @@ if('serviceWorker' in navigator){
   window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
   // an installed PWA can live for days in the background; check whenever it comes back
   const askForUpdate=()=>{ navigator.serviceWorker.ready.then(r=>r.update()).catch(()=>{}); };
-  document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible'){ askForUpdate(); pullIfStale(); } });
-  window.addEventListener('online', ()=>{ askForUpdate(); pullIfStale(); });
-  window.addEventListener('focus', pullIfStale);
+  document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible'){ askForUpdate(); pullIfStale(); checkBuildNow(); } });
+  window.addEventListener('online', ()=>{ askForUpdate(); pullIfStale(); checkBuildNow(); });
+  window.addEventListener('focus', ()=>{ pullIfStale(); checkBuildNow(); });
   navigator.serviceWorker.addEventListener('message', e=>{
     if(!e.data || e.data.type!=='sw-activated') return;
     if(String(e.data.rev)===String(BUILD)) return;      // already running it
@@ -962,20 +962,46 @@ function updateSafeNow(){
   const busy=['quiz','exam','level'];
   return !busy.includes(currentScreenId()) && !(typeof session!=='undefined' && session.size>0 && !committed);
 }
+/* May this tab reload itself right now?
+   The first version remembered only the LAST version it tried, which two real situations
+   defeat outright. Two builds alternating — GitHub Pages serves index.html with max-age=600 and
+   different edges can disagree for minutes after a deploy, and a rollback does the same — bounce
+   A→B→A→B forever, because each reload sees a version different from the one remembered. And
+   when sessionStorage cannot be written at all (Safari private mode, iOS Lockdown), the empty
+   catch meant nothing was ever remembered and EVERY call reloaded.
+   So: count reloads in a window instead of remembering one version, and read the counter back
+   to prove the write actually stuck. If it cannot be counted, do not reload — show the bar. */
+const UPD_MAX=2, UPD_WINDOW=15*60*1000;
+function mayAutoReload(){
+  try{
+    const now=Date.now();
+    let o=null;
+    try{ o=JSON.parse(sessionStorage.getItem('hw_updN')||'null'); }catch(e){}
+    if(!isObj(o) || typeof o.n!=='number' || typeof o.t0!=='number' || now-o.t0>UPD_WINDOW) o={n:0,t0:now};
+    if(o.n>=UPD_MAX) return false;
+    o.n++;
+    const payload=JSON.stringify(o);
+    sessionStorage.setItem('hw_updN', payload);
+    return sessionStorage.getItem('hw_updN')===payload;   // storage that silently drops writes
+  }catch(e){ return false; }
+}
 function applyUpdate(rev){
   if(!rev || String(rev)===String(BUILD)) return;
   updatePending=rev;
-  /* Reload AT MOST ONCE per version. If the reload does not actually land on the new build —
-     a worker that will not activate, an asset stuck behind a CDN — reloading again would spin
-     the app forever. After one attempt it becomes a button and the user is in control. */
-  let tried=null;
-  try{ tried=sessionStorage.getItem('hw_updTried'); }catch(e){}
-  if(updateSafeNow() && tried!==String(rev)){
-    try{ sessionStorage.setItem('hw_updTried', String(rev)); }catch(e){}
-    location.reload();
-    return;
-  }
+  if(updateSafeNow() && mayAutoReload()){ location.reload(); return; }
   showUpdateBar(rev);
+}
+/* renderBuildTag runs only from the welcome screen, and `sw-activated` fires once. A learner who
+   stays inside a language after a deploy therefore had no path back to a fresh build at all —
+   registration.update() on an already-active worker produces no second activate and no second
+   message. Ask the server directly when the app comes back to the foreground. */
+let lastBuildCheck=0;
+async function checkBuildNow(){
+  const now=Date.now();
+  if(now-lastBuildCheck < 5*60*1000) return;
+  lastBuildCheck=now;
+  const sv=await serverBuild();
+  if(sv && sv!==BUILD) applyUpdate(sv);
 }
 function showUpdateBar(rev){
   let bar=$('#updBar');
@@ -2257,6 +2283,8 @@ const signOutNow = async ()=>{
   }catch(e){}
   try{ await Store.signOut(); }catch(e){}
   hide($('#fbFab'));
+  // the cached reminder names the previous learner's streak — it is account data, not an asset
+  try{ if(window.caches) await caches.delete('hw-data'); }catch(e){}
   localStorage.clear();          // the local cache belongs to this account; never let it bleed into the next login
   location.reload();
 };
