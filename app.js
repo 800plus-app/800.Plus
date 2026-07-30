@@ -1495,6 +1495,7 @@ function flushRemoteSync(){
 }
 function queueRemoteSync(){
   if(!currentUser) return;
+  if(LANG!=='he' && LANG!=='en') return;        // nothing to key the row by yet
   syncPending=true;
   clearTimeout(syncTimer);
   syncTimer=setTimeout(flushRemoteSync, 1500);
@@ -1531,8 +1532,14 @@ function mergeProgress(local, remote){
 
 async function syncWithRemote(lang){
   if(!currentUser || !window.Store) return;
-  let remote=null;
-  try{ remote=await Store.pullProgress(lang); }catch(e){ return; }     // offline — keep working locally
+  if(lang!=='he' && lang!=='en') return;        // no language chosen yet: the row has no key to write to
+  let res=null;
+  try{ res=await Store.pullProgress(lang); }catch(e){ return; }
+  /* A failed read used to look exactly like an empty cloud, and the push below then wrote the
+     local state over it. On a fresh device the local state is EMPTY — one dropped request was
+     enough to erase everything the account had. Only a confirmed read may be followed by a write. */
+  if(!res || res.ok!==true) return;
+  const remote=res.data;
   if(remote && lang===LANG){
     const before = added.length;
     const merged=mergeProgress({assoc,stats,deleted:[...deleted],added,dir:direction}, remote);
@@ -1541,6 +1548,10 @@ async function syncWithRemote(lang){
     buildBank(); renderDirSegs(); renderHome();
     if(added.length>before) toast('התקדמות ממכשיר אחר צורפה');
   }
+  /* Guard the write too: the language can change while the read is in flight, and the globals
+     below always belong to the CURRENT language. Pushing them under `lang` wrote English
+     progress into the Hebrew row. */
+  if(lang!==LANG) return;
   Store.pushProgress(lang, {assoc, stats, deleted:[...deleted], added, dir:direction}).catch(()=>{});
 }
 

@@ -42,15 +42,17 @@ const Store = {
   },
 
   /* ---------- progress: one JSON blob per (user, lang) ---------- */
+  /* Returns {ok, data}. A bare null could not tell "the request failed" apart from
+     "there is no row yet", and the caller answered both by overwriting the cloud. */
   async pullProgress(lang) {
     const { data: u } = await sb.auth.getUser();
-    if (!u || !u.user) return null;
+    if (!u || !u.user) return { ok: false, data: null };
     // RLS already scopes this, but filtering explicitly means a mis-edited policy still can't
     // hand us someone else's row — and it guarantees at most one row for maybeSingle().
     const { data, error } = await sb.from('progress').select('data,updated_at')
       .eq('user_id', u.user.id).eq('lang', lang).maybeSingle();
-    if (error) { console.warn('pullProgress failed', error.message); return null; }
-    return data ? data.data : null;
+    if (error) { console.warn('pullProgress failed', error.message); return { ok: false, data: null }; }
+    return { ok: true, data: data ? data.data : null };
   },
   async pushProgress(lang, payload) {
     const { data: u } = await sb.auth.getUser();
