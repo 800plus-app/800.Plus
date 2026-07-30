@@ -1794,6 +1794,15 @@ $('#authForgot').onclick=async ()=>{
    have to be reachable from it too — not only from inside a language. */
 const signOutNow = async ()=>{
   if(!committed && session.size>0) commitSession();
+  /* The local copy is about to be erased, and a debounced push may still be pending — or an
+     earlier one may have failed silently, since pushProgress returns false instead of throwing
+     and nothing retried it. Flush once, wait for it, and only then clear. */
+  try{
+    if(currentUser && (LANG==='he' || LANG==='en')){
+      clearTimeout(syncTimer);
+      await Store.pushProgress(LANG, {assoc, stats, deleted:[...deleted], added, dir:direction});
+    }
+  }catch(e){}
   try{ await Store.signOut(); }catch(e){}
   hide($('#fbFab'));
   localStorage.clear();          // the local cache belongs to this account; never let it bleed into the next login
