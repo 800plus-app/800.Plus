@@ -415,7 +415,8 @@ let session=new Map(), sessionScope='global', sessionMode='all', committed=false
 
 function sess(w){ const k=K(w.term); if(!session.has(k)) session.set(k,{w,attempts:0,mastered:false,firstTry:false}); return session.get(k); }
 
-function startRound(cards, scope, mode){
+let isRetryRound=false;
+function startRound(cards, scope, mode, retry){
   if(!Array.isArray(cards) || cards.length===0){ toast('אין מילים לתרגול כאן'); return; }
   if(!committed && session.size>0) commitSession();
   session=new Map(); committed=false;
@@ -425,7 +426,7 @@ function startRound(cards, scope, mode){
   for(const c of cards){ const k=K(c.term); if(k && !ks.has(k)){ ks.add(k); uniq.push(c); } }
   deck=shuffle(uniq).map(c=>({...c, _dir: direction==='mixed' ? (Math.random()<0.5?'m2w':'w2m') : direction}));
   if(!deck.length){ toast('אין מילים לתרגול כאן'); return; }
-  idx=0; correct=0; missed=[];
+  idx=0; correct=0; missed=[]; isRetryRound=!!retry;
   $('#quizScope').textContent = scopeTitle(scope);
   goto('quiz'); renderCard();
 }
@@ -563,7 +564,9 @@ function commitSession(){
     r.seen++;
     if(e.mastered && e.firstTry){                       // knew it (correct on first attempt of the round)
       r.first++; r.ever++;
-      r.level = wasNew ? 3 : Math.min(3, r.level+1);     // knew on very first sight → straight to "שלמדתי"; else climb toward 3
+      // a retry of a word just missed proves short-term recall, not knowledge: credit it, but
+      // never let it climb past where the word already stood before the round began
+      r.level = isRetryRound ? r.level : (wasNew ? 3 : Math.min(3, r.level+1));
       ft++; c++;
     }
     else if(e.mastered){ r.ever++; r.wrong+=Math.max(0,e.attempts-1); r.level=Math.max(0,r.level-1); st++; c++; }
@@ -586,7 +589,11 @@ document.addEventListener('keydown',e=>{
 });
 $('#hintBtn').onclick=()=>{ const w=deck[idx]; if(!w) return; const a=assoc[K(w.term)]; const b=$('#hintBox'); b.textContent=a?('💡 '+a):'עדיין לא כתבת אסוציאציה למילה הזו — תוכל להוסיף אחרי שתענה.'; b.classList.remove('hidden'); };
 $('#quitQuiz').onclick=()=>{ if(!committed&&session.size>0) commitSession(); openScope(sessionScope); };
-$('#retryMissedBtn').onclick=()=>startRound(missed.slice(), sessionScope, sessionMode); // startRound commits the (corrected) session first
+/* Retrying the words you just missed must not undo the miss. startRound commits the (corrected)
+   session first, so the retry begins with attempts===1 and counted as "knew it first try" —
+   handing back the level the mistake had just taken away, ten seconds after the answer was
+   shown on screen. The round is now flagged so the retry can restore at most what was lost. */
+$('#retryMissedBtn').onclick=()=>startRound(missed.slice(), sessionScope, sessionMode, true);
 $('#resBackBtn').onclick=()=>{ commitSession(); openScope(sessionScope); };
 $('#resScope').onclick=()=>{ commitSession(); openScope(sessionScope); };
 // safety net: if the app is closed/backgrounded on the results screen, still record the round
@@ -706,7 +713,14 @@ $('#addSave').onclick=()=>{
 };
 
 /* ===== nav ===== */
-document.querySelectorAll('[data-home]').forEach(b=>b.onclick=()=>{ if(!committed && session.size>0) commitSession(); renderHome(); goto('home'); });
+/* BANK is empty until enterLang() runs, and the admin panel is reachable straight from the
+   welcome screen — so "back" used to land on a home screen with no units, no counts and every
+   button disabled. Go back to where the user actually came from. */
+document.querySelectorAll('[data-home]').forEach(b=>b.onclick=()=>{
+  if(!committed && session.size>0) commitSession();
+  if(!BANK.length || (LANG!=='he' && LANG!=='en')){ renderWelcome(); return; }
+  renderHome(); goto('home');
+});
 document.querySelectorAll('[data-scope]').forEach(b=>b.onclick=()=>openScope(b.dataset.scope));
 
 /* ===== PWA ===== */
@@ -1531,7 +1545,7 @@ function mergeProgress(local, remote){
      because the two lists are not necessarily in chronological order. */
   const seenSess=new Set();
   const sessions=[...rs,...ls].filter(isObj)
-    .filter(x=>{ const id=[x.t,x.n,x.ok,x.scope].join('|'); if(seenSess.has(id)) return false; seenSess.add(id); return true; })
+    .filter(x=>{ const id=[x.t,x.scope,x.total,x.correct].join('|'); if(seenSess.has(id)) return false; seenSess.add(id); return true; })
     .sort((x,y)=>(Number(x.t)||0)-(Number(y.t)||0))
     .slice(-MAX_SESSIONS);
   const mergedAssoc={...(isObj(remote.assoc)?remote.assoc:{}), ...(isObj(local.assoc)?local.assoc:{})};
