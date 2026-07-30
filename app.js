@@ -2142,17 +2142,25 @@ function startPreview(){
   LANG = null;
   renderWelcome();
 }
+/* Leaving the preview no longer throws the work away on the way to the sign-up form.
+   A visitor who tapped "create account" and then changed their mind landed on a screen with
+   no way back, with everything they had practised already deleted. The data now stays under
+   owner='preview'; bindCacheToUser clears it only once a real account actually takes over. */
 function endPreview(){
   PREVIEW = false;
   hide($('#pvBar'));
-  HW_KEYS.forEach(k=>LS.del(k));      // a preview is a demo, not an account
-  LS.del('hw_owner');
   setAuthMode('signup'); buildAuthDrift(); goto('auth');
+}
+function backFromAuth(){
+  if(currentUser) return;                       // signed in: nothing behind this screen
+  if(LS.get('hw_owner',null)==='preview'){ PREVIEW=true; show($('#pvBar')); renderWelcome(); }
+  else goto('intro');
 }
 
 $('#introTry').onclick  = ()=>{ LS.set('hw_seenIntro',1); startPreview(); };
 $('#introAuth').onclick = ()=>{ LS.set('hw_seenIntro',1); setAuthMode('signin'); buildAuthDrift(); goto('auth'); };
 $('#pvSignup').onclick  = ()=>endPreview();
+$('#authBack').onclick   = backFromAuth;
 
 async function checkSessionAndBoot(){
   let sess=null;
