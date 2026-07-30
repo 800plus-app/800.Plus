@@ -338,6 +338,51 @@
   .build-tag .stale{color:var(--accent);font-weight:700}
 
   /* install call-to-action — a real button, not an underlined hint that reads like an error */
+  /* UNIT EXAM */
+  .ex-parts{display:flex;flex-direction:column;gap:8px;margin-top:20px}
+  .ex-part{display:flex;align-items:center;gap:11px;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:11px 14px;font-size:.86rem}
+  .ex-part b{font-family:"Cascadia Mono",Consolas,monospace;color:var(--accent);flex:0 0 auto}
+  .ex-part span{color:var(--ink-soft);font-size:.8rem}
+  .ex-fb{margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+  .ex-fb .v{font-weight:700}
+  .ex-fb .v.ok{color:var(--green)} .ex-fb .v.no{color:var(--accent)}
+  .ex-fb .rv{font-size:.9rem;color:var(--ink-soft);margin-top:5px}
+  .ex-break{display:flex;flex-direction:column;gap:7px;margin-top:22px}
+  .ex-row{display:flex;align-items:center;gap:11px;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:10px 14px;font-size:.86rem}
+  .ex-row .nm{flex:1} .ex-row .sc{font-family:"Cascadia Mono",Consolas,monospace;font-size:.84rem;color:var(--ink-soft)}
+  .ex-miss{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;
+    margin-bottom:7px;font-size:.9rem}
+  .ex-miss b{color:var(--accent)}
+  .ex-miss .yours{font-size:.78rem;color:var(--ink-soft)}
+  .ex-hist{font-size:.78rem;color:var(--ink-soft);margin-top:9px;text-align:center}
+
+  /* PRINT SHEET — invisible on screen, the whole page when printing */
+  #sheet{display:none}
+  @media print{
+    /* Everything the app draws is irrelevant on paper; only the sheet prints. */
+    body>.wrap,#auth,#installAsk,#fbFab,#fbAsk,.toast{display:none!important}
+    body{background:#fff;color:#000;padding:0}
+    #sheet{display:block!important;font-family:"Heebo",sans-serif;font-size:11pt;line-height:1.6}
+    #sheet .sh-page{page-break-after:always;padding:14mm 12mm}
+    #sheet .sh-page:last-child{page-break-after:auto}
+    #sheet h1{font-family:"Frank Ruhl Libre",serif;font-size:17pt;margin-bottom:2mm}
+    #sheet .sh-meta{font-size:9.5pt;color:#444;border-bottom:1.5pt solid #000;padding-bottom:3mm;margin-bottom:5mm}
+    #sheet .sh-fill{display:flex;gap:8mm;font-size:10pt;margin-bottom:6mm}
+    #sheet .sh-fill span{flex:1;border-bottom:.8pt solid #000;padding-bottom:1mm}
+    #sheet .sh-inst{font-size:9.5pt;background:#f2f2f2;padding:3mm 4mm;margin-bottom:6mm;border-radius:2mm}
+    #sheet ol{padding-inline-start:9mm}
+    #sheet ol li{margin-bottom:5.5mm;page-break-inside:avoid}
+    #sheet .sh-q{font-weight:700}
+    #sheet .sh-q.ltr{direction:ltr;display:inline-block;text-align:left}
+    #sheet .sh-line{display:block;border-bottom:.8pt dotted #555;height:6mm;margin-top:1mm}
+    #sheet .sh-key{columns:2;column-gap:10mm;font-size:10pt}
+    #sheet .sh-key div{break-inside:avoid;margin-bottom:2mm}
+    #sheet .sh-key b{font-weight:700}
+    #sheet .sh-foot{margin-top:6mm;font-size:8.5pt;color:#666;text-align:center}
+  }
+
   /* DASHBOARD strip on the welcome screen */
   .dash-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
   .dash-stat{background:var(--card);border:1px solid var(--line);border-radius:14px;
@@ -599,7 +644,65 @@
       <button class="pbtn" id="pbAll"><div class="ic">🔀</div><div class="tx"><b>תרגל הכל</b><span id="pbAllSub">כל המילים בערבוב</span></div><div class="cnt" id="cntAll">0</div></button>
       <button class="pbtn" id="pbStats"><div class="ic">📊</div><div class="tx"><b>סטטיסטיקה מפורטת</b><span>חוזק כל מילה + היסטוריה</span></div><div class="cnt">›</div></button>
     </div>
+    <div class="section-t" id="examSectionT">מבחן</div>
+    <div class="practice-btns">
+      <button class="pbtn" id="pbExam"><div class="ic">📝</div><div class="tx"><b>היבחן ביחידה</b><span id="pbExamSub">ציון על השליטה שלך במילים של היחידה</span></div><div class="cnt" id="cntExam">›</div></button>
+      <button class="pbtn" id="pbSheet"><div class="ic">🖨</div><div class="tx"><b>דף מבחן להדפסה</b><span>PDF להדפסה ומילוי בעט — עם דף פתרונות</span></div><div class="cnt">›</div></button>
+    </div>
   </section>
+
+  <!-- ===== UNIT EXAM ===== -->
+  <section id="exam" class="hidden">
+    <div class="topbar"><button class="back" id="exExit">✕ יציאה</button><div class="sp"></div>
+      <div class="brand" id="exCount"></div></div>
+    <div class="prog"><i id="exBar"></i></div>
+
+    <div id="exIntro">
+      <div class="welcome-head" style="margin-top:6vh">
+        <div class="kicker" id="exKicker">מבחן יחידה</div>
+        <h1 class="w-title" id="exTitle"></h1>
+        <p class="w-sub" id="exSub"></p>
+      </div>
+      <div class="ex-parts" id="exParts"></div>
+      <button class="btn btn-primary btn-block" id="exStart" style="margin-top:18px">מתחילים</button>
+      <button class="ask-cancel" id="exCancel" style="display:block;margin:14px auto 0">חזרה</button>
+    </div>
+
+    <div id="exQuiz" class="hidden">
+      <div class="card">
+        <div class="q-kind" id="exKind"></div>
+        <div class="q-text" id="exPrompt"></div>
+        <div class="lv-opts" id="exOpts"></div>
+        <div id="exWrite" class="hidden">
+          <input id="exInput" class="answer-input" placeholder="כתוב את התשובה…" autocomplete="off"
+                 autocapitalize="off" spellcheck="false">
+          <div class="row" style="margin-top:12px">
+            <button class="btn btn-primary" id="exSubmit">בדיקה</button>
+            <button class="btn btn-ghost" id="exSkip">לא יודע</button>
+          </div>
+        </div>
+        <div id="exFb" class="ex-fb hidden"></div>
+      </div>
+    </div>
+
+    <div id="exResult" class="hidden">
+      <div class="res-head" style="margin-top:4vh">
+        <div class="kicker">תוצאת המבחן</div>
+        <div class="lv-badge" id="exScore">—</div>
+        <p class="w-sub" id="exVerdict"></p>
+      </div>
+      <div class="ex-break" id="exBreak"></div>
+      <div class="section-t">מה לא ידעת</div>
+      <div id="exMissed"></div>
+      <div class="row" style="margin-top:18px">
+        <button class="btn btn-primary" id="exPractice">לתרגל את השגיאות</button>
+        <button class="btn btn-ghost" id="exAgain">מבחן נוסף</button>
+      </div>
+      <button class="btn btn-ghost btn-block" id="exDone" style="margin-top:10px">חזרה ליחידה</button>
+    </div>
+  </section>
+
+
 
   <!-- ===== QUIZ ===== -->
   <section id="quiz" class="hidden">
@@ -718,6 +821,10 @@
 </div>
 
 <!-- ===== דיווח באג / רעיון ===== -->
+<!-- ===== PRINTABLE SHEET — a direct child of body, so the print rules can hide .wrap
+     and leave only this behind. Screen CSS keeps it display:none at all times. ===== -->
+<div id="sheet"></div>
+
 <button class="fb-fab hidden" id="fbFab" title="דווח על באג" aria-label="דווח על באג">🐞</button>
 
 <div class="ask hidden" id="fbAsk">
@@ -746,10 +853,10 @@
 <script src="supabase.min.js"></script>
 <script src="config.js"></script>
 <script src="store.js"></script>
-<script src="leveltest.js?v=22"></script>
-<script src="enrank.js?v=22"></script>
-<script src="data.js?v=22"></script>
-<script src="data-en.js?v=22"></script>
-<script src="app.js?v=22"></script>
+<script src="leveltest.js?v=23"></script>
+<script src="enrank.js?v=23"></script>
+<script src="data.js?v=23"></script>
+<script src="data-en.js?v=23"></script>
+<script src="app.js?v=23"></script>
 </body>
 </html>

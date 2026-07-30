@@ -252,7 +252,7 @@ function isCorrect(input, term){
 }
 
 /* ===== screens ===== */
-const SCREENS=['auth','welcome','level','home','scope','quiz','results','stats','manage','add'];
+const SCREENS=['auth','welcome','level','home','scope','quiz','results','stats','manage','add','exam'];
 /* Heavy lists left in hidden screens keep thousands of nodes alive for the whole session;
    drop them on the way out — they are always rebuilt when the screen is opened again. */
 const HEAVY = {stats:'#statsBody', manage:'#manageList', results:'#reviewList'};
@@ -309,6 +309,18 @@ function openScope(scope){
   $('#cntAll').textContent=allN;
   $('#pbAllSub').textContent = (scope==='global'||scope==='random')?'מדגם אקראי לתרגול מהיר':'כל מילות היחידה בערבוב';
   $('#pbAll').disabled = c.total===0;
+  const isUnit=scope.startsWith('unit:');
+  $('#examSectionT').classList.toggle('hidden', !isUnit);
+  $('#pbExam').classList.toggle('hidden', !isUnit);
+  $('#pbSheet').classList.toggle('hidden', !isUnit);
+  if(isUnit){
+    const h=LS.get(exKey(scope.slice(5)),[]);
+    const last=Array.isArray(h)&&h.length?h[h.length-1]:null;
+    $('#cntExam').textContent = last ? last.pct+'%' : '›';
+    $('#pbExamSub').textContent = last
+      ? `ציון אחרון ${last.pct}% · שיא ${Math.max(...h.map(x=>int0(x.pct)))}% · ${h.length===1?'מבחן אחד':h.length+' מבחנים'}`
+      : 'ציון על השליטה שלך במילים של היחידה';
+  }
   renderDirSegs();
   goto('scope');
 }
@@ -318,6 +330,8 @@ $('#pbAll').onclick     = ()=> startRound(allCards(curScope), curScope, 'all');
 $('#pbWeak').onclick    = ()=> askSize(n=> startRound(cap(weakCards(curScope),n), curScope, 'weak'));
 $('#pbNew').onclick     = ()=> askSize(n=> startRound(cap(shuffle(newCards(curScope)),n), curScope, 'new'));
 $('#pbLearned').onclick = ()=> askSize(n=> startRound(cap(shuffle(learnedCards(curScope)),n), curScope, 'learned'));
+$('#pbExam').onclick=()=>{ if(curScope.startsWith('unit:')) openExam(curScope.slice(5)); };
+$('#pbSheet').onclick=()=>{ if(curScope.startsWith('unit:')) printSheet(curScope.slice(5)); };
 $('#pbStats').onclick   = ()=> openStats(curScope);
 function cap(list,n){ if(n && list.length>n){ toast(`מתרגל ${n} מתוך ${list.length}`); return list.slice(0,n);} return list; }
 
@@ -954,6 +968,255 @@ const lvBtn=$('#lvOpen'); if(lvBtn) lvBtn.onclick=()=>{ hide($('#lvQuiz')); hide
 $('#lvSkip').onclick=()=>{ LS.set('hw_level','skipped'); renderWelcome(); };
 $('#lvExit').onclick=()=>{ if(confirm('לצאת מהמבחן? התוצאות לא יישמרו.')) renderWelcome(); };
 $('#lvDone').onclick=()=>renderWelcome();
+
+/* ===== unit exams =====
+   A measurement, not a practice round: the exam samples the unit at random and NEVER writes
+   to word levels or the session log. If taking a test moved your progress bars, the bars would
+   stop meaning "what I learned" and the score would stop being an independent read on it.
+
+   Items are generated from the unit itself rather than hand-authored per unit. That is the
+   whole reason the test can be trusted: a word can't repeat inside a sheet, an answer can't
+   contradict the bank it came from, and every unit in both languages gets the same rigour
+   without twenty hand-written files drifting out of sync with the data.
+
+   Three sections, because one format only measures one kind of recall:
+     recognise  — word → meaning, 4 options
+     retrieve   — meaning → word, 4 options
+     produce    — meaning → write the word yourself (no options to lean on) */
+const EX_LEN=20, EX_MIX=[0.4,0.3,0.3];
+let exQ=[], exI=0, exUnit=null, exAns=[];
+
+function exWords(uid){
+  const data=(LANG==='en'?window.UNIT_DATA_EN:window.UNIT_DATA)||{};
+  const rows=Array.isArray(data[uid])?data[uid]:[];
+  const nk=LANG==='en'?normEn:norm;
+  const seen=new Set(), out=[];
+  for(const p of rows){
+    if(!Array.isArray(p)||!p[0]||!p[1]) continue;
+    const k=nk(p[0]); if(!k || seen.has(k) || deleted.has(k)) continue;
+    seen.add(k); out.push({term:String(p[0]).trim(), meaning:String(p[1]).trim(), k});
+  }
+  return out;
+}
+/* Distractors come from the same unit, so difficulty is uniform and a wrong option can never
+   be "obviously from somewhere else". Anything that overlaps the real answer is discarded —
+   two options that are both defensible make the item unanswerable, not hard. */
+function exDistract(pool, item, field, taken){
+  const right=item[field], rn=norm(right);
+  const usable=o=>{
+    if(o.k===item.k) return false;
+    const v=o[field]; if(!v) return false;
+    const vn=norm(v);
+    return vn!==rn && !vn.includes(rn) && !rn.includes(vn);
+  };
+  // Prefer distractors that aren't another item's answer — reusing one hands out that item's
+  // solution a question early. In a unit small enough that the paper covers most of it there
+  // is nothing else to draw on, so relax rather than fail to build the question at all.
+  let ok=pool.filter(o=>usable(o) && !taken.has(norm(o[field])));
+  if(ok.length<3) ok=pool.filter(usable);
+  // Two distractors that differ only in vowel points or punctuation read as the same option
+  // twice, which quietly turns a four-way question into a three-way one.
+  const used=new Set([rn]), out=[];
+  for(const o of shuffle(ok)){
+    const vn=norm(o[field]); if(used.has(vn)) continue;
+    used.add(vn); out.push(o[field]);
+    if(out.length===3) break;
+  }
+  return out;
+}
+function exBuild(uid){
+  const pool=exWords(uid);
+  if(pool.length<8) return [];
+  const n=Math.min(EX_LEN, pool.length);
+  let picked=shuffle(pool).slice(0,n);
+  const nRec=Math.round(n*EX_MIX[0]), nRet=Math.round(n*EX_MIX[1]);
+  // Write-in items ask for the word with no options to lean on, so put the single-word terms
+  // in those slots. Expecting someone to type a three-word idiom letter-perfect measures
+  // typing, not vocabulary.
+  const oneWord=t=>!/\s/.test(String(t).replace(/\s*\/\s*/g,'/'));
+  picked.sort((a,b)=>(oneWord(a.term)?1:0)-(oneWord(b.term)?1:0));
+  // Every answer in the paper, so no distractor can leak one.
+  const taken=new Set(picked.map(it=>norm(it.term)).concat(picked.map(it=>norm(it.meaning))));
+  return picked.map((it,i)=>{
+    const kind = i<nRec ? 'recognise' : i<nRec+nRet ? 'retrieve' : 'produce';
+    if(kind==='recognise'){
+      const d=exDistract(pool,it,'meaning',taken);
+      return d.length<3 ? null : {kind, it, prompt:it.term, answer:it.meaning, opts:shuffle([it.meaning,...d])};
+    }
+    if(kind==='retrieve'){
+      const d=exDistract(pool,it,'term',taken);
+      return d.length<3 ? null : {kind, it, prompt:it.meaning, answer:it.term, opts:shuffle([it.term,...d])};
+    }
+    return {kind, it, prompt:it.meaning, answer:it.term, opts:null};
+  }).filter(Boolean);
+}
+const EX_KIND={recognise:'מה הפירוש?', retrieve:'איזו מילה מתאימה לפירוש?', produce:'כתוב את המילה'};
+const exKey = uid => 'hw_exam'+(LANG==='en'?'_en':'')+':'+uid;
+
+function openExam(uid){
+  exUnit=uid;
+  const pool=exWords(uid);
+  $('#exTitle').textContent='יחידה '+uid;
+  if(pool.length<8){
+    $('#exSub').textContent='ביחידה הזאת פחות מ-8 מילים — אין ממה לבנות מבחן אמיתי.';
+    $('#exParts').innerHTML=''; $('#exStart').disabled=true;
+  }else{
+    const n=Math.min(EX_LEN,pool.length);
+    const nRec=Math.round(n*EX_MIX[0]), nRet=Math.round(n*EX_MIX[1]);
+    $('#exSub').textContent=`${n} שאלות מתוך ${pool.length} מילים ביחידה, בהגרלה חדשה בכל פעם. `+
+      `המבחן לא משנה את ההתקדמות שלך — הוא רק מודד אותה.`;
+    $('#exParts').innerHTML=
+      `<div class="ex-part"><b>${nRec}</b><span>זיהוי — מילה ← פירוש, ארבע אפשרויות</span></div>
+       <div class="ex-part"><b>${nRet}</b><span>שליפה — פירוש ← מילה, ארבע אפשרויות</span></div>
+       <div class="ex-part"><b>${n-nRec-nRet}</b><span>כתיבה — פירוש ← לכתוב את המילה בעצמך</span></div>`;
+    $('#exStart').disabled=false;
+  }
+  const hist=LS.get(exKey(uid),[]);
+  const last=Array.isArray(hist)&&hist.length?hist[hist.length-1]:null;
+  const best=Array.isArray(hist)&&hist.length?Math.max(...hist.map(h=>int0(h.pct))):null;
+  $('#exKicker').textContent = last
+    ? `מבחן יחידה · אחרון ${last.pct}% · שיא ${best}%` : 'מבחן יחידה';
+  hide($('#exQuiz')); hide($('#exResult')); show($('#exIntro'));
+  goto('exam');
+}
+function startExam(){
+  exQ=exBuild(exUnit); exI=0; exAns=[];
+  if(!exQ.length){ toast('לא הצלחתי לבנות מבחן ליחידה הזאת'); return; }
+  hide($('#exIntro')); hide($('#exResult')); show($('#exQuiz'));
+  exRender();
+}
+function exRender(){
+  const q=exQ[exI];
+  if(!q){ exFinish(); return; }
+  $('#exCount').textContent=`${exI+1} / ${exQ.length}`;
+  $('#exBar').style.width=(100*exI/exQ.length)+'%';
+  $('#exKind').textContent=EX_KIND[q.kind];
+  const promptIsEn = LANG==='en' && q.kind==='recognise';
+  $('#exPrompt').textContent=q.prompt;
+  $('#exPrompt').dir = promptIsEn ? 'ltr' : 'rtl';
+  hide($('#exFb'));
+  if(q.opts){
+    show($('#exOpts')); hide($('#exWrite'));
+    const ltr = LANG==='en' && q.kind==='retrieve';
+    $('#exOpts').innerHTML=q.opts.map((o,i)=>`<button data-i="${i}"${ltr?' dir="ltr"':''}>${esc(o)}</button>`).join('');
+    $('#exOpts').querySelectorAll('button').forEach(b=>{
+      b.onclick=()=>exAnswer(q.opts[+b.dataset.i]===q.answer, q.opts[+b.dataset.i], b);
+    });
+  }else{
+    hide($('#exOpts')); show($('#exWrite'));
+    const inp=$('#exInput');
+    inp.value=''; inp.disabled=false; inp.dir = LANG==='en' ? 'ltr' : 'rtl';
+    $('#exSubmit').disabled=false; $('#exSkip').disabled=false;
+    inp.focus();
+  }
+}
+function exAnswer(ok, given, btn){
+  const q=exQ[exI];
+  exAns.push({kind:q.kind, ok, term:q.it.term, meaning:q.it.meaning, given:given||''});
+  if(q.opts){
+    $('#exOpts').querySelectorAll('button').forEach(b=>{
+      b.disabled=true;
+      if(b.textContent===q.answer) b.classList.add('right');
+      else if(b===btn) b.classList.add('wrong');
+    });
+  }else{
+    $('#exInput').disabled=true; $('#exSubmit').disabled=true; $('#exSkip').disabled=true;
+  }
+  const fb=$('#exFb');
+  fb.innerHTML=`<div class="v ${ok?'ok':'no'}">${ok?'נכון ✓':'לא נכון'}</div>`+
+    (ok?'':`<div class="rv">התשובה: <b>${esc(q.answer)}</b></div>`);
+  show(fb);
+  setTimeout(()=>{ exI++; exRender(); }, ok?420:1100);
+}
+$('#exSubmit').onclick=()=>{ const q=exQ[exI]; if(!q||$('#exInput').disabled) return;
+  const v=$('#exInput').value; exAnswer(isCorrect(v, q.answer), v); };
+$('#exInput').addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); $('#exSubmit').click(); } });
+$('#exSkip').onclick=()=>{ const q=exQ[exI]; if(!q||$('#exInput').disabled) return; exAnswer(false,''); };
+
+const EX_GRADE=[[90,'שליטה מלאה ביחידה'],[75,'שליטה טובה, נשארו פינות'],[60,'בסיס קיים, צריך חזרה'],[40,'חצי הדרך — כדאי לתרגל את היחידה'],[0,'היחידה עוד לא נלמדה באמת']];
+function exFinish(){
+  const n=exAns.length, ok=exAns.filter(a=>a.ok).length;
+  const pct=n?Math.round(100*ok/n):0;
+  $('#exBar').style.width='100%'; $('#exCount').textContent='';
+  hide($('#exQuiz')); show($('#exResult'));
+  $('#exScore').textContent=pct+'%';
+  $('#exVerdict').textContent=`${ok} מתוך ${n} — ${(EX_GRADE.find(g=>pct>=g[0])||EX_GRADE[EX_GRADE.length-1])[1]}`;
+  const per={recognise:[0,0], retrieve:[0,0], produce:[0,0]};
+  exAns.forEach(a=>{ const p=per[a.kind]; if(!p) return; p[1]++; if(a.ok) p[0]++; });
+  const NAMES={recognise:'זיהוי (מילה ← פירוש)', retrieve:'שליפה (פירוש ← מילה)', produce:'כתיבה עצמאית'};
+  $('#exBreak').innerHTML=Object.keys(per).filter(k=>per[k][1]).map(k=>
+    `<div class="ex-row"><span class="nm">${NAMES[k]}</span><span class="sc">${per[k][0]}/${per[k][1]}</span></div>`).join('');
+  const missed=exAns.filter(a=>!a.ok);
+  $('#exMissed').innerHTML = missed.length
+    ? missed.map(a=>`<div class="ex-miss"><b>${esc(a.term)}</b> — ${esc(a.meaning)}`+
+        (a.given?`<div class="yours">כתבת: ${esc(a.given)}</div>`:'')+`</div>`).join('')
+    : '<div class="ex-miss">ידעת את כל המילים במבחן הזה. 🎯</div>';
+  // history is capped: a score log that grows without bound is the kind of thing that
+  // silently eats the localStorage quota months later
+  const hist=LS.get(exKey(exUnit),[]);
+  const arr=(Array.isArray(hist)?hist:[]).concat([{t:Date.now(), pct, n}]).slice(-20);
+  LS.set(exKey(exUnit), arr);
+  const missedKeys=missed.map(a=>a.term);
+  $('#exPractice').disabled=!missedKeys.length;
+  $('#exPractice').onclick=()=>{
+    const set=new Set(missedKeys.map(t=>K(t)));
+    const cards=BANK.filter(w=>set.has(K(w.term)));
+    if(!cards.length){ toast('אין מה לתרגל'); return; }
+    startRound(shuffle(cards), 'unit:'+exUnit, 'exam');
+  };
+}
+$('#exStart').onclick=startExam;
+$('#exAgain').onclick=()=>openExam(exUnit);
+$('#exCancel').onclick=()=>openScope('unit:'+exUnit);
+$('#exDone').onclick=()=>openScope('unit:'+exUnit);
+$('#exExit').onclick=()=>{ if(!exAns.length || confirm('לצאת מהמבחן? התוצאה לא תישמר.')) openScope('unit:'+exUnit); };
+
+/* ===== printable sheet =====
+   No PDF library: the CSP allows scripts from this origin only, and pulling in a bundler-sized
+   dependency to draw text on a page would be the wrong trade anyway. The browser's own
+   "print → save as PDF" produces a better sheet, works on every platform, and prints directly. */
+function buildSheet(uid){
+  const pool=exWords(uid);
+  // clear first: a refusal must not leave the previous unit's sheet sitting in the DOM
+  $('#sheet').innerHTML='';
+  if(pool.length<8) return false;
+  const n=Math.min(25, pool.length);
+  const items=shuffle(pool).slice(0,n);
+  const langName=LANG==='en'?'אנגלית':'עברית';
+  const ltr=LANG==='en'?' ltr':'';
+  const d=new Date();
+  const date=`${d.getDate()}.${d.getMonth()+1}.${d.getFullYear()}`;
+  // Hebrew unit: the word is given and the definition is written. English unit: the Hebrew
+  // meaning is given and the English word is written — matching how each side is actually tested.
+  const askTerm = LANG!=='en';
+  const q = it => askTerm ? it.term : it.meaning;
+  const a = it => askTerm ? it.meaning : it.term;
+  $('#sheet').innerHTML=`
+    <div class="sh-page">
+      <h1>מבחן אוצר מילים — ${langName}, יחידה ${uid}</h1>
+      <div class="sh-meta">${n} מילים · הוגרל ב-${date} · אוצר מילים לפסיכומטרי</div>
+      <div class="sh-fill"><span>שם:</span><span>תאריך:</span><span>ציון: ____ / ${n}</span></div>
+      <div class="sh-inst">${askTerm
+        ? 'כתוב את הפירוש של כל מילה. תשובה חלקית שמעבירה את המשמעות — נקודה מלאה.'
+        : 'כתוב את המילה באנגלית שמתאימה לפירוש. איות מדויק נדרש.'}</div>
+      <ol>${items.map(it=>`<li><span class="sh-q${askTerm?ltr:''}">${esc(q(it))}</span>
+        <span class="sh-line"></span></li>`).join('')}</ol>
+      <div class="sh-foot">דף 1 מתוך 2 — דף הפתרונות בעמוד הבא</div>
+    </div>
+    <div class="sh-page">
+      <h1>דף פתרונות — ${langName}, יחידה ${uid}</h1>
+      <div class="sh-meta">אותה הגרלה, אותו סדר</div>
+      <div class="sh-key">${items.map((it,i)=>
+        `<div>${i+1}. <b${askTerm?ltr:''}>${esc(q(it))}</b> — ${esc(a(it))}</div>`).join('')}</div>
+      <div class="sh-foot">דף 2 מתוך 2</div>
+    </div>`;
+  return true;
+}
+function printSheet(uid){
+  if(!buildSheet(uid)){ toast('ביחידה הזאת אין מספיק מילים לדף מבחן'); return; }
+  // give the browser a frame to lay the sheet out before it snapshots the page
+  setTimeout(()=>{ try{ window.print(); }catch(e){ toast('ההדפסה לא נפתחה'); } }, 60);
+}
 
 /* ===== account — every screen above this line requires a signed-in user =====
    This is the ONLY place app.js touches Store; everything else stays pure UI. */
