@@ -1193,12 +1193,25 @@ $('#exExit').onclick=()=>{ if(!exAns.length || confirm('לצאת מהמבחן? �
    No PDF library: the CSP allows scripts from this origin only, and pulling in a bundler-sized
    dependency to draw text on a page would be the wrong trade anyway. The browser's own
    "print → save as PDF" produces a better sheet, works on every platform, and prints directly. */
-function buildSheet(uid){
+/* The footer claims rights in what we actually made — the sheet, its layout and the app —
+   and grants personal/classroom use. It deliberately does NOT claim ownership of the
+   vocabulary itself: the word lists came from published psychometric material, and an
+   "all rights reserved" over someone else's content is both false and the kind of claim
+   that invites the wrong letter. See the note in משימות.md. */
+const SHEET_YEAR = new Date().getFullYear();
+const SHEET_RIGHTS = `© ${SHEET_YEAR} · עיצוב הדף והאפליקציה — כל הזכויות שמורות · `+
+  `מותר לשימוש אישי ולימודי · אין למכור או להפיץ בתשלום`;
+
+/* size=0 means the whole unit. A full English unit is ~380 words, which is a real worksheet
+   rather than a quiz, so those sheets go two-up: the answer is a single short word and two
+   columns halve the page count. Hebrew sheets stay single-column — you cannot write a
+   definition on half a line. */
+function buildSheet(uid, size){
   const pool=exWords(uid);
   // clear first: a refusal must not leave the previous unit's sheet sitting in the DOM
   $('#sheet').innerHTML='';
   if(pool.length<8) return false;
-  const n=Math.min(25, pool.length);
+  const n = size ? Math.min(size, pool.length) : pool.length;
   const items=shuffle(pool).slice(0,n);
   const langName=LANG==='en'?'אנגלית':'עברית';
   const ltr=LANG==='en'?' ltr':'';
@@ -1212,29 +1225,46 @@ function buildSheet(uid){
   $('#sheet').innerHTML=`
     <div class="sh-page">
       <h1>מבחן אוצר מילים — ${langName}, יחידה ${uid}</h1>
-      <div class="sh-meta">${n} מילים · הוגרל ב-${date} · אוצר מילים לפסיכומטרי</div>
+      <div class="sh-meta">${n===pool.length?`כל ${n} מילות היחידה`:`${n} מילים מתוך ${pool.length}`} · ${date} · אוצר מילים לפסיכומטרי</div>
       <div class="sh-fill"><span>שם:</span><span>תאריך:</span><span>ציון: ____ / ${n}</span></div>
       <div class="sh-inst">${askTerm
         ? 'כתוב את הפירוש של כל מילה. תשובה חלקית שמעבירה את המשמעות — נקודה מלאה.'
         : 'כתוב את המילה באנגלית שמתאימה לפירוש. איות מדויק נדרש.'}</div>
-      <ol>${items.map(it=>`<li><span class="sh-q${askTerm?ltr:''}">${esc(q(it))}</span>
+      <ol${askTerm?'':' class="two"'}>${items.map(it=>`<li><span class="sh-q${askTerm?ltr:''}">${esc(q(it))}</span>
         <span class="sh-line"></span></li>`).join('')}</ol>
-      <div class="sh-foot">דף 1 מתוך 2 — דף הפתרונות בעמוד הבא</div>
+      <div class="sh-foot">דף הפתרונות בסוף<br>${SHEET_RIGHTS}</div>
     </div>
     <div class="sh-page">
       <h1>דף פתרונות — ${langName}, יחידה ${uid}</h1>
-      <div class="sh-meta">אותה הגרלה, אותו סדר</div>
+      <div class="sh-meta">אותה הגרלה, אותו סדר · ${n} מילים</div>
       <div class="sh-key">${items.map((it,i)=>
         `<div>${i+1}. <b${askTerm?ltr:''}>${esc(q(it))}</b> — ${esc(a(it))}</div>`).join('')}</div>
-      <div class="sh-foot">דף 2 מתוך 2</div>
+      <div class="sh-foot">${SHEET_RIGHTS}</div>
     </div>`;
   return true;
 }
+const SHEET_SIZES=[25,50,100,0];      // 0 = the whole unit
 function printSheet(uid){
-  if(!buildSheet(uid)){ toast('ביחידה הזאת אין מספיק מילים לדף מבחן'); return; }
-  // give the browser a frame to lay the sheet out before it snapshots the page
-  setTimeout(()=>{ try{ window.print(); }catch(e){ toast('ההדפסה לא נפתחה'); } }, 60);
+  const total=exWords(uid).length;
+  if(total<8){ toast('ביחידה הזאת אין מספיק מילים לדף מבחן'); return; }
+  const opts=SHEET_SIZES.filter(n=>!n || n<total);
+  $('#sheetOpts').innerHTML=opts.map(n=>
+    `<button data-n="${n}">${n||'כל היחידה · '+total}</button>`).join('');
+  $('#sheetAskSub').textContent=`ביחידה ${total} מילים. הדף נפתח בחלון ההדפסה — משם אפשר להדפיס או לשמור כ-PDF.`;
+  sheetUid=uid;
+  show($('#sheetAsk'));
 }
+let sheetUid=null;
+$('#sheetOpts').onclick=e=>{
+  const b=e.target.closest('button[data-n]'); if(!b||!sheetUid) return;
+  const uid=sheetUid, n=+b.dataset.n;
+  hide($('#sheetAsk')); sheetUid=null;
+  if(!buildSheet(uid,n)){ toast('לא הצלחתי לבנות את הדף'); return; }
+  // give the browser a frame to lay the sheet out before it snapshots the page
+  setTimeout(()=>{ try{ window.print(); }catch(e){ toast('ההדפסה לא נפתחה'); } }, 80);
+};
+$('#sheetCancel').onclick=()=>{ sheetUid=null; hide($('#sheetAsk')); };
+$('#sheetAsk').onclick=e=>{ if(e.target===$('#sheetAsk')){ sheetUid=null; hide($('#sheetAsk')); } };
 
 /* ===== account — every screen above this line requires a signed-in user =====
    This is the ONLY place app.js touches Store; everything else stays pure UI. */

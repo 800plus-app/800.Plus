@@ -373,6 +373,10 @@
     #sheet .sh-fill span{flex:1;border-bottom:.8pt solid #000;padding-bottom:1mm}
     #sheet .sh-inst{font-size:9.5pt;background:#f2f2f2;padding:3mm 4mm;margin-bottom:6mm;border-radius:2mm}
     #sheet ol{padding-inline-start:9mm}
+    /* Two columns only where the answer is one short word. A Hebrew definition needs the
+       full width of the page to be writable, so those sheets stay single-column. */
+    #sheet ol.two{columns:2;column-gap:9mm}
+    #sheet ol.two li{break-inside:avoid}
     #sheet ol li{margin-bottom:5.5mm;page-break-inside:avoid}
     #sheet .sh-q{font-weight:700}
     #sheet .sh-q.ltr{direction:ltr;display:inline-block;text-align:left}
@@ -790,6 +794,15 @@
   </div>
 </div>
 
+<div class="ask hidden" id="sheetAsk">
+  <div class="ask-box">
+    <h3>כמה מילים בדף?</h3>
+    <p id="sheetAskSub">הדף נפתח בחלון ההדפסה — משם אפשר להדפיס או לשמור כ-PDF.</p>
+    <div class="ask-opts" id="sheetOpts"></div>
+    <button class="ask-cancel" id="sheetCancel">ביטול</button>
+  </div>
+</div>
+
 <!-- ===== התקנה למסך הבית ===== -->
 <div class="ask hidden" id="installAsk">
   <div class="ask-box install-box">
@@ -853,10 +866,10 @@
 <script src="supabase.min.js"></script>
 <script src="config.js"></script>
 <script src="store.js"></script>
-<script src="leveltest.js?v=24"></script>
-<script src="enrank.js?v=24"></script>
-<script src="data.js?v=24"></script>
-<script src="data-en.js?v=24"></script>
-<script src="app.js?v=24"></script>
+<script src="leveltest.js?v=25"></script>
+<script src="enrank.js?v=25"></script>
+<script src="data.js?v=25"></script>
+<script src="data-en.js?v=25"></script>
+<script src="app.js?v=25"></script>
 </body>
 </html>
