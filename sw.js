@@ -2,7 +2,7 @@
    ONE place to bump on every deploy: REV. It names the cache *and* the asset query strings,
    so the URLs precached here are byte-for-byte the URLs index.html requests. When those drift
    apart the app silently keeps serving an old build — which is exactly what used to happen. */
-const REV = '26';
+const REV = '27';
 const V = 'hw-v' + REV;
 const ASSETS = [
   './', './index.html', './manifest.webmanifest',

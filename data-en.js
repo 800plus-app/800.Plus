@@ -183,7 +183,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "permanently",
-   "קבוע"
+   "באופן קבוע, לצמיתות"
   ],
   [
    "perpetually",
@@ -347,7 +347,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "albeit",
-   "אף על פי"
+   "אף על פי ש, אם כי"
   ],
   [
    "although",
@@ -539,7 +539,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "farther",
-   "הלאה, יותר"
+   "רחוק יותר, הלאה, יותר"
   ],
   [
    "from",
@@ -643,7 +643,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "further",
-   "לקדם; בהמשך"
+   "יותר, נוסף, רחוק יותר; לקדם"
   ],
   [
    "left",
@@ -1181,7 +1181,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "afford",
-   "יכל לעמוד בהוצאות"
+   "יכול לעמוד בהוצאות, להרשות לעצמו"
   ],
   [
    "afraid",
@@ -1381,7 +1381,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "attach",
-   "לחבר, ליחס"
+   "לחבר, לייחס"
   ],
   [
    "attack",
@@ -1585,7 +1585,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "brainwash",
-   "לשטוף את המח"
+   "לשטוף את המוח"
   ],
   [
    "brave",
@@ -1749,7 +1749,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "coexist",
-   "להתקיים בשותפות"
+   "להתקיים זה בצד זה, לחיות יחד בשלום"
   ],
   [
    "coin",
@@ -2249,7 +2249,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "mistaken",
-   "שגוי, לטעות"
+   "שגוי, מוטעה, טועה"
   ],
   [
    "money",
@@ -2667,7 +2667,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "annually",
-   "שנתי"
+   "אחת לשנה, בכל שנה"
   ],
   [
    "appoint",
@@ -3207,7 +3207,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "inhabit",
-   "ליישב, לאכלס"
+   "לגור ב-, לשכון ב-, לאכלס"
   ],
   [
    "inhabitants",
@@ -3719,7 +3719,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "resolve",
-   "נחוש; לפתור"
+   "לפתור, להחליט; נחישות"
   ],
   [
    "result",
@@ -3887,7 +3887,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "thereby",
-   "ולכן, גרם ל-"
+   "ובכך, על ידי כך, ולכן"
   ],
   [
    "title",
@@ -3915,7 +3915,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "uncharted",
-   "לא מתועד"
+   "לא ממופה, לא נחקר, לא נודע"
   ],
   [
    "uniform",
@@ -4365,7 +4365,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "conveniently",
-   "באופן נח"
+   "באופן נוח"
   ],
   [
    "convention",
@@ -4761,7 +4761,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "impossible",
-   "בלתי אפשר"
+   "בלתי אפשרי"
   ],
   [
    "imprisoned",
@@ -4821,7 +4821,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "interact",
-   "לתקשר, להשפיע"
+   "ליצור אינטראקציה, לתקשר, להשפיע הדדית"
   ],
   [
    "interest",
@@ -5069,7 +5069,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "predictive",
-   "נבואי"
+   "חיזויי, מנבא"
   ],
   [
    "premature",
@@ -5097,7 +5097,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "profound",
-   "מעמיק; מוחלט, מאוד"
+   "עמוק, מעמיק; מוחלט, מרחיק לכת"
   ],
   [
    "profoundly",
@@ -5615,7 +5615,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "citizen",
-   "אזרחים"
+   "אזרח"
   ],
   [
    "clarify",
@@ -5759,7 +5759,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "criteria",
-   "אמת מידה, אבן בחן"
+   "אמות מידה, קריטריונים"
   ],
   [
    "critic",
@@ -6419,7 +6419,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "persecution",
-   "רדיפה (דתית)"
+   "רדיפה, התעללות (על רקע דת, גזע או פוליטיקה)"
   ],
   [
    "planet",
@@ -6467,7 +6467,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "privilege",
-   "זכות יתר, פריביליגיה"
+   "זכות יתר, פריווילגיה"
   ],
   [
    "profit",
@@ -6595,7 +6595,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "resident",
-   "תושב קבע"
+   "תושב, דייר"
   ],
   [
    "resource",
@@ -6867,7 +6867,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "unique",
-   "מיוחד"
+   "יחיד במינו, ייחודי; מיוחד"
   ],
   [
    "unite",
@@ -7481,7 +7481,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "equality",
-   "שוויון, במידה שווה"
+   "שוויון"
   ],
   [
    "equates",
@@ -7601,7 +7601,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "forerunner",
-   "שליח, חלוץ, מבשר; אות, סימן מבשר באות"
+   "מבשר, קודם, חלוץ; אות, סימן מקדים"
   ],
   [
    "fossil",
@@ -9963,7 +9963,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "transplant",
-   "לשתול"
+   "להשתיל, להעביר ממקום למקום; השתלה"
   ],
   [
    "trap",
@@ -10137,7 +10137,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "artifact",
-   "חפץ, פריט אומנות"
+   "חפץ מעשה ידי אדם, מוצג ארכיאולוגי"
   ],
   [
    "atrocity",
@@ -10433,7 +10433,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "eager",
-   "נחוש, נלהב"
+   "נלהב, משתוקק, כמה"
   ],
   [
    "embryo",
@@ -11393,7 +11393,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "self-indulgence",
-   "סיפוק-עצמי"
+   "פינוק עצמי, התמכרות להנאות, התפנקות"
   ],
   [
    "sequel",
@@ -11633,7 +11633,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "vivid",
-   "חד, בהיר, ססגוני, שופע"
+   "חד, בהיר, ססגוני, חי, מוחשי"
   ],
   [
    "vulnerable",
@@ -12239,7 +12239,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "fungus",
-   "פטרת"
+   "פטרייה"
   ],
   [
    "fur",
@@ -12611,7 +12611,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "nest",
-   "קן, לקונן"
+   "קן, לקנן"
   ],
   [
    "norm",
@@ -13889,7 +13889,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "magnificent",
-   "מדהים"
+   "מפואר, נהדר, מרהיב"
   ],
   [
    "make sure",
@@ -13957,7 +13957,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "nickname",
-   "כינוי חיבה"
+   "כינוי"
   ],
   [
    "no longer",
@@ -14217,7 +14217,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "roast",
-   "לקלות, צלי"
+   "לצלות, לקלות; צלי"
   ],
   [
    "robbery",
