@@ -275,11 +275,33 @@ function norm(s){
     .replace(/["'`׳״.,;:!?()\[\]{}\-–—/|]/g,'').replace(/\s+/g,' ').trim()
     .replace(/ך/g,'כ').replace(/ם/g,'מ').replace(/ן/g,'נ').replace(/ף/g,'פ').replace(/ץ/g,'צ');
 }
+/* Hebrew is stored vocalised, and stripping niqqud leaves the DEFECTIVE spelling: כֹּפֶר -> כפר.
+   Nobody types that — they type כופר — while כפר, a different word entirely, was accepted.
+   The full spelling is derived from the niqqud itself rather than guessed: a holam or qubuts
+   becomes a ו, a hiriq becomes a י. Guessing (dropping all matres) would have merged
+   unrelated words such as שיר and שר. */
+const HOLAM='ֹ', QUBUTS='ֻ', HIRIQ='ִ';
+function fullSpelling(term){
+  const src=String(term).normalize('NFKC');
+  let out='';
+  for(let i=0;i<src.length;i++){
+    const c=src[i];
+    out+=c;
+    if(c!==HOLAM && c!==QUBUTS && c!==HIRIQ) continue;
+    const add = c===HIRIQ ? 'י' : 'ו';
+    // look past any further niqqud marks to find the next real letter
+    let j=i+1; while(j<src.length && /[֑-ׇ]/.test(src[j])) j++;
+    if(src[j]!==add) out+=add;
+  }
+  return out;
+}
 function isCorrect(input, term){
   const a=K(input); if(!a) return false;
   if(a===K(term)) return true;
+  if(LANG!=='en' && a===K(fullSpelling(term))) return true;   // כופר for כֹּפֶר
   // accept slash/comma alternatives ("1st - first", "raise / lift")
-  const alts=term.split(/[\/|,]|\s-\s/).map(x=>K(x)).filter(Boolean);
+  const alts=term.split(/[\/|,]|\s-\s/).flatMap(x=>LANG==='en'?[x]:[x,fullSpelling(x)])
+                 .map(x=>K(x)).filter(Boolean);
   return alts.includes(a);
 }
 
