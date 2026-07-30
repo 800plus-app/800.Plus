@@ -1322,7 +1322,7 @@ $('#exExit').onclick=()=>{ if(!exAns.length || confirm('לצאת מהמבחן? �
    "all rights reserved" over someone else's content is both false and the kind of claim
    that invites the wrong letter. See the note in משימות.md. */
 const SHEET_YEAR = new Date().getFullYear();
-const SHEET_RIGHTS = `© ${SHEET_YEAR} Easy800 · עיצוב הדף והאפליקציה — כל הזכויות שמורות · `+
+const SHEET_RIGHTS = `© ${SHEET_YEAR} 800+ · עיצוב הדף והאפליקציה — כל הזכויות שמורות · `+
   `מותר לשימוש אישי ולימודי · אין למכור או להפיץ בתשלום`;
 
 /* size=0 means the whole unit. A full English unit is ~380 words, which is a real worksheet
@@ -1347,8 +1347,8 @@ function buildSheet(uid, size){
   const a = it => askTerm ? it.meaning : it.term;
   $('#sheet').innerHTML=`
     <div class="sh-page">
-      <h1>Easy800 — מבחן ${langName}, יחידה ${uid}</h1>
-      <div class="sh-meta">${n===pool.length?`כל ${n} מילות היחידה`:`${n} מילים מתוך ${pool.length}`} · ${date} · Easy800</div>
+      <h1>800+ — מבחן ${langName}, יחידה ${uid}</h1>
+      <div class="sh-meta">${n===pool.length?`כל ${n} מילות היחידה`:`${n} מילים מתוך ${pool.length}`} · ${date} · 800+</div>
       <div class="sh-fill"><span>שם:</span><span>תאריך:</span><span>ציון: ____ / ${n}</span></div>
       <div class="sh-inst">${askTerm
         ? 'כתוב את הפירוש של כל מילה. תשובה חלקית שמעבירה את המשמעות — נקודה מלאה.'
