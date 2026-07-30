@@ -23,7 +23,10 @@ self.addEventListener('install', e => {
 
 self.addEventListener('activate', e => {
   e.waitUntil(
-    caches.keys().then(ks => Promise.all(ks.filter(k => k !== V).map(k => caches.delete(k))))
+    // only OUR old versions: CacheStorage is scoped per origin, and hagay-bot.github.io
+    // hosts every Pages project of the account — the old filter wiped their caches too
+    caches.keys().then(ks => Promise.all(
+      ks.filter(k => k !== V && k.startsWith('hw-v')).map(k => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });
@@ -54,14 +57,22 @@ self.addEventListener('fetch', e => {
     return;
   }
 
+  // A cache-busting probe must never be stored: renderBuildTag() asks for index.html with a
+  // fresh ?probe= every render, and each one used to become its own permanent cache entry.
+  if (url.searchParams.has('probe')) { e.respondWith(fetch(req)); return; }
+
   // Everything else: cache-first on the EXACT url (query included), refreshed in the background.
+  // waitUntil is what makes the refresh real: respondWith resolves the moment the cached copy
+  // is handed over, and the browser is then free to kill the worker — so an unheld revalidation
+  // was routinely dropped, and the fuller the cache the more reliably it never ran.
   e.respondWith(
     caches.match(req).then(cached => {
       const net = fetch(req).then(res => {
-        if (cacheable(res)) { const cp = res.clone(); caches.open(V).then(c => c.put(req, cp)); }
+        if (cacheable(res)) { const cp = res.clone(); return caches.open(V).then(c => c.put(req, cp)).then(() => res); }
         return res;
       }).catch(() => cached || Response.error());
-      return cached || net;
+      if (cached) { e.waitUntil(net.catch(() => {})); return cached; }
+      return net;
     })
   );
 });
@@ -92,7 +103,7 @@ self.addEventListener('periodicsync', e => {
       if (ws.some(w => w.visibilityState === 'visible')) return;
       const c = await caches.open(V);
       const r = await c.match('daily-msg');
-      showDaily(r ? await r.json() : null);
+      return showDaily(r ? await r.json() : null);
     })
   );
 });
