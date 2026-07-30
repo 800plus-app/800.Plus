@@ -1862,9 +1862,14 @@ function wipeAccountKeys(){
   doomed.forEach(k=>LS.del(k));
   return doomed.length;
 }
-function bindCacheToUser(uid){
+/* `adopt` is the preview handover. A visitor practises under owner='preview', and the landing
+   page tells them their progress is kept — but a brand-new account is still an owner change,
+   so the wipe below threw away exactly what the promise covered. On SIGN-UP the preview cache
+   is adopted; on SIGN-IN it is not, because that account already has its own cloud row and
+   merging a stranger's demo into it is the leak this whole mechanism exists to prevent. */
+function bindCacheToUser(uid, adopt){
   const owner = LS.get('hw_owner', null);
-  if(owner && owner !== uid){
+  if(owner && owner !== uid && !(adopt && owner === 'preview')){
     wipeAccountKeys();
     assoc={}; stats={words:{},sessions:[]}; deleted=new Set(); added=[]; direction='m2w'; LANG=null;
   }
@@ -1872,7 +1877,7 @@ function bindCacheToUser(uid){
 }
 
 async function afterAuthed(justSignedUp){
-  bindCacheToUser(currentUser.id);
+  bindCacheToUser(currentUser.id, justSignedUp);   // a fresh account inherits the preview it came from
   try{
     const p=await Store.myProfile();
     const nm = (p && p.username) || (currentUser.email||'').split('@')[0];
