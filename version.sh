@@ -10,7 +10,10 @@ LOCAL_SHA=$(git rev-parse --short HEAD)
 DIRTY=$(git status --porcelain | wc -l | tr -d ' ')
 AHEAD=$(git rev-list --count @{u}..HEAD 2>/dev/null || echo '?')
 
-LIVE_V=$(curl -s "https://hagay-bot.github.io/milim/index.html?probe=$RANDOM" \
+# GitHub Pages serves index.html with max-age=600, so a plain curl can read a stale copy
+# and report a false mismatch. Ask the CDN explicitly not to hand us its cache.
+LIVE_V=$(curl -sS -H 'Cache-Control: no-cache' -H 'Pragma: no-cache' \
+         "https://hagay-bot.github.io/milim/index.html?probe=$RANDOM$(date +%s)" \
          | grep -oE 'app\.js\?v=[0-9]+' | head -1 | grep -oE '[0-9]+')
 LIVE_SHA=$(gh api repos/Hagay-BOT/milim/pages/builds/latest --jq '.commit' 2>/dev/null | cut -c1-7)
 LIVE_ST=$(gh api repos/Hagay-BOT/milim/pages/builds/latest --jq '.status' 2>/dev/null)
@@ -30,8 +33,9 @@ echo "  └───────────────────────
 echo
 
 problems=0
-[ "${LOCAL_V:-x}" != "${LIVE_REV:-${LIVE_V:-y}}" ] && [ "${LOCAL_V:-x}" != "${LIVE_V:-y}" ] && {
-  echo "  ⚠  גרסת הנכסים שונה: מקומי ${LOCAL_V:-?} · באוויר ${LIVE_V:-?}"; problems=1; }
+[ -n "${LIVE_V:-}" ] && [ "${LOCAL_V:-x}" != "$LIVE_V" ] && {
+  echo "  ⚠  גרסת הנכסים שונה: מקומי ${LOCAL_V:-?} · באוויר $LIVE_V  (ה-CDN יכול לפגר עד 10 דק׳)"; problems=1; }
+[ -z "${LIVE_V:-}" ] && { echo "  ⚠  לא הצלחתי לקרוא את הגרסה שבאוויר"; problems=1; }
 [ "${LOCAL_V:-x}" != "${LOCAL_REV:-y}" ] && {
   echo "  ⚠  index.html (v=$LOCAL_V) ו-sw.js (REV=$LOCAL_REV) לא תואמים — המכשירים יקבלו קוד ישן"; problems=1; }
 [ "$DIRTY" != "0" ] && { echo "  ⚠  יש $DIRTY שינויים שלא נשמרו ב-commit"; problems=1; }
