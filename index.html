@@ -507,6 +507,15 @@
     #intro .w-title em::after{transform:scaleX(1)}
     .feat{transition:none}
   }
+  /* a new build is ready but the moment was wrong — one tap, no hunting for a reload button */
+  .upd-bar{position:fixed;inset-inline:0;bottom:0;z-index:200;border:0;width:100%;
+    background:linear-gradient(180deg,var(--gold),var(--accent));color:#fff;
+    font-family:"Heebo",sans-serif;font-weight:700;font-size:.92rem;
+    padding:13px 16px calc(13px + env(safe-area-inset-bottom));
+    box-shadow:0 -8px 24px -12px rgba(90,60,20,.55);animation:updIn .35s cubic-bezier(.22,.8,.3,1)}
+  @keyframes updIn{ from{transform:translateY(100%)} to{transform:none} }
+  @media (prefers-reduced-motion:reduce){ .upd-bar{animation:none} }
+
   /* PREVIEW BAR */
   .pv-bar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:10px;
     background:var(--gold);color:#fff;padding:8px 14px;border-radius:0 0 12px 12px;
@@ -1063,14 +1072,14 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="supabase.min.js?v=53"></script>
-<script src="config.js?v=53"></script>
-<script src="store.js?v=53"></script>
-<script src="leveltest-he.js?v=53"></script>
-  <script src="leveltest.js?v=53"></script>
-<script src="enrank.js?v=53"></script>
-<script src="data.js?v=53"></script>
-<script src="data-en.js?v=53"></script>
-<script src="app.js?v=53"></script>
+<script src="supabase.min.js?v=54"></script>
+<script src="config.js?v=54"></script>
+<script src="store.js?v=54"></script>
+<script src="leveltest-he.js?v=54"></script>
+  <script src="leveltest.js?v=54"></script>
+<script src="enrank.js?v=54"></script>
+<script src="data.js?v=54"></script>
+<script src="data-en.js?v=54"></script>
+<script src="app.js?v=54"></script>
 </body>
 </html>

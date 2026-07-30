@@ -2,7 +2,7 @@
    ONE place to bump on every deploy: REV. It names the cache *and* the asset query strings,
    so the URLs precached here are byte-for-byte the URLs index.html requests. When those drift
    apart the app silently keeps serving an old build — which is exactly what used to happen. */
-const REV = '53';
+const REV = '54';
 const V = 'hw-v' + REV;
 /* App DATA must not live in a versioned cache. The personalised reminder text was written into
    hw-v<REV>, so the next deploy deleted it along with the assets — and it was never rewritten,
@@ -45,6 +45,11 @@ self.addEventListener('activate', e => {
     caches.keys().then(ks => Promise.all(
       ks.filter(k => k !== V && k.startsWith('hw-v')).map(k => caches.delete(k))))
       .then(() => self.clients.claim())
+      /* Tell every open tab that a new build took over. Without this the page keeps running the
+         old code until the user happens to reload — and the only hint was a line of small text
+         asking them to do it. */
+      .then(() => self.clients.matchAll({ type: 'window', includeUncontrolled: true }))
+      .then(cs => cs.forEach(c => c.postMessage({ type: 'sw-activated', rev: REV })))
   );
 });
 
@@ -62,7 +67,11 @@ self.addEventListener('fetch', e => {
   // instead of one load late. Falls back to the cached shell when offline.
   if (req.mode === 'navigate') {
     e.respondWith(
-      fetch(req)
+      /* cache:'reload' skips the browser's HTTP cache. GitHub Pages serves index.html with
+         max-age=600, so a plain fetch could hand back a ten-minute-old shell — which still
+         points at the PREVIOUS build's ?v= URLs. The app then reported itself up to date while
+         running old code, which is the worst of both worlds: stale and confident. */
+      fetch(req.url, { cache: 'reload', credentials: 'same-origin' })
         .then(res => {
           if (cacheable(res)) { const cp = res.clone(); caches.open(V).then(c => c.put(req, cp)); }
           return res;

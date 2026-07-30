@@ -906,7 +906,57 @@ document.querySelectorAll('[data-home]').forEach(b=>b.onclick=()=>{
 document.querySelectorAll('[data-scope]').forEach(b=>b.onclick=()=>openScope(b.dataset.scope));
 
 /* ===== PWA ===== */
-if('serviceWorker' in navigator){ window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{})); }
+/* ===== staying up to date =====
+   Registering the worker was the whole update story, and it is not enough: a page that stays
+   open never asks again, so a learner could sit on a build from days ago while the footer
+   quietly suggested they reload. Three parts now — ask again on every return to the app,
+   notice when a new worker takes over, and apply it at a moment that costs nothing. */
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+  // an installed PWA can live for days in the background; check whenever it comes back
+  const askForUpdate=()=>{ navigator.serviceWorker.ready.then(r=>r.update()).catch(()=>{}); };
+  document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible') askForUpdate(); });
+  window.addEventListener('online', askForUpdate);
+  navigator.serviceWorker.addEventListener('message', e=>{
+    if(!e.data || e.data.type!=='sw-activated') return;
+    if(String(e.data.rev)===String(BUILD)) return;      // already running it
+    applyUpdate(e.data.rev);
+  });
+}
+let updatePending=null;
+/* Reloading mid-round would throw away answers the learner has not committed yet, so the new
+   build is applied only from a screen where nothing is in flight. Otherwise it waits, visibly,
+   and goes in the moment they finish. */
+function updateSafeNow(){
+  const busy=['quiz','exam','level'];
+  return !busy.includes(currentScreenId()) && !(typeof session!=='undefined' && session.size>0 && !committed);
+}
+function applyUpdate(rev){
+  if(!rev || String(rev)===String(BUILD)) return;
+  updatePending=rev;
+  /* Reload AT MOST ONCE per version. If the reload does not actually land on the new build —
+     a worker that will not activate, an asset stuck behind a CDN — reloading again would spin
+     the app forever. After one attempt it becomes a button and the user is in control. */
+  let tried=null;
+  try{ tried=sessionStorage.getItem('hw_updTried'); }catch(e){}
+  if(updateSafeNow() && tried!==String(rev)){
+    try{ sessionStorage.setItem('hw_updTried', String(rev)); }catch(e){}
+    location.reload();
+    return;
+  }
+  showUpdateBar(rev);
+}
+function showUpdateBar(rev){
+  let bar=$('#updBar');
+  if(!bar){
+    bar=document.createElement('button');
+    bar.id='updBar'; bar.className='upd-bar';
+    bar.onclick=()=>location.reload();
+    document.body.appendChild(bar);
+  }
+  bar.innerHTML=`גרסה ${rev} מוכנה — לחץ לרענון`;
+  bar.classList.remove('hidden');
+}
 
 /* ===== התקנה למסך הבית =====
    כרום/אנדרואיד נותן לנו את אירוע ההתקנה ואפשר לפתוח את החלון בלחיצה.
@@ -1876,8 +1926,11 @@ async function renderBuildTag(){
   el.innerHTML=`גרסה <b>${BUILD}</b>`;
   const sv=await serverBuild();
   if(!sv) return;                                   // offline — say nothing rather than guess
-  if(sv===BUILD) el.innerHTML=`גרסה <b>${BUILD}</b> · מסונכרן ✓`;
-  else el.innerHTML=`גרסה <b>${BUILD}</b> · <span class="stale">יש גרסה ${sv} — רענן</span>`;
+  if(sv===BUILD){ el.innerHTML=`גרסה <b>${BUILD}</b> · מסונכרן ✓`; return; }
+  /* This used to be a sentence. A sentence asking the user to perform a browser action is not
+     a fix — it is a note. The same detection now offers the action itself. */
+  el.innerHTML=`גרסה <b>${BUILD}</b> · <span class="stale">יש גרסה ${sv}</span>`;
+  applyUpdate(sv);
 }
 
 /* ===== bug reports =====
