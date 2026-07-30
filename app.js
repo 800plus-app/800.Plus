@@ -19,8 +19,12 @@ const LS = {
     try{ payload = JSON.stringify(v); }catch(e){ return false; }
     try{ localStorage.setItem(k, payload); return true; }
     catch(e){
-      // quota exceeded (or storage disabled) — shed the least valuable data and retry once
+      /* quota exceeded (or storage disabled) — shed the least valuable data and retry once.
+         The retry must re-serialize: shedStorage trims stats.sessions in memory, and `v` is
+         usually that very object, so re-sending the payload built above would write back
+         exactly what did not fit and undo the shedding in the same breath. */
       if(shedStorage()){
+        try{ payload = JSON.stringify(v); }catch(e4){}
         try{ localStorage.setItem(k, payload); return true; }catch(e2){}
       }
       if(!storageWarned){ storageWarned=true; try{ toast('אין מקום פנוי בדפדפן — חלק מההתקדמות לא נשמרה'); }catch(e3){} }
@@ -29,16 +33,25 @@ const LS = {
   },
   del(k){ try{ localStorage.removeItem(k); }catch(e){} }
 };
-/* Sessions history is the only unbounded-ish store; drop the old tail first. */
+/* Sessions history is the only unbounded-ish store; drop the old tail first.
+   The live `stats` object is trimmed FIRST and from memory, because it holds the round that
+   just ended — the one that triggered the overflow and is not on disk yet. Reading the disk
+   copy and assigning it back over stats.sessions threw that round away. */
 function shedStorage(){
   let freed=false;
+  const live=KEY('hw_stats');
+  if(stats && Array.isArray(stats.sessions) && stats.sessions.length>40){
+    stats.sessions=stats.sessions.slice(-40);
+    try{ localStorage.setItem(live, JSON.stringify(stats)); }catch(e){}
+    freed=true;
+  }
   for(const base of ['hw_stats','hw_stats_en']){
+    if(base===live) continue;                    // handled above, from memory
     try{
       const s=JSON.parse(localStorage.getItem(base)||'null');
       if(s && Array.isArray(s.sessions) && s.sessions.length>40){
         s.sessions=s.sessions.slice(-40);
         localStorage.setItem(base, JSON.stringify(s));
-        if(stats && Array.isArray(stats.sessions) && KEY('hw_stats')===base) stats.sessions=s.sessions;
         freed=true;
       }
     }catch(e){}
