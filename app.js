@@ -252,7 +252,7 @@ function isCorrect(input, term){
 }
 
 /* ===== screens ===== */
-const SCREENS=['auth','welcome','level','home','scope','quiz','results','stats','manage','add','exam'];
+const SCREENS=['auth','welcome','level','home','scope','quiz','results','stats','manage','add','exam','admin'];
 /* Heavy lists left in hidden screens keep thousands of nodes alive for the whole session;
    drop them on the way out — they are always rebuilt when the screen is opened again. */
 const HEAVY = {stats:'#statsBody', manage:'#manageList', results:'#reviewList'};
