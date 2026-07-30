@@ -132,6 +132,15 @@
   .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 24px;box-shadow:var(--shadow);text-align:center}
   .q-kind{font-size:.72rem;letter-spacing:.12em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:14px}
   .q-text{font-family:"Frank Ruhl Libre",serif;font-size:clamp(1.4rem,4.6vw,1.9rem);font-weight:700;line-height:1.35}
+  /* speaker sits beside the prompt, never inside it — the prompt is also read by the
+     print sheet and the exam, and it must stay pure text */
+  .q-row{display:flex;align-items:flex-start;gap:10px}
+  .q-row .q-text{flex:1;min-width:0}
+  .say{flex:0 0 auto;background:transparent;border:1px solid var(--line);border-radius:10px;
+    font-size:1.05rem;line-height:1;padding:8px 10px;color:var(--ink-soft);transition:.15s}
+  .say:hover{border-color:var(--gold);color:var(--ink)}
+  .say.on{border-color:var(--gold);background:rgba(201,150,47,.12)}
+  .say.hidden{display:none!important}
   .answer-input{width:100%;margin-top:22px;font-family:"Frank Ruhl Libre",serif;font-size:1.5rem;text-align:center;color:var(--ink);background:var(--paper);border:2px solid var(--line);border-radius:14px;padding:14px;outline:none;transition:.2s}
   .answer-input:focus{border-color:var(--gold)}
   .answer-input:disabled{opacity:.75}
@@ -573,7 +582,10 @@
     <div id="lvQuiz" class="hidden">
       <div class="card">
         <div class="q-kind">מה הפירוש?</div>
-        <div class="q-text" id="lvWord" dir="ltr"></div>
+        <div class="q-row">
+          <div class="q-text" id="lvWord" dir="ltr"></div>
+          <button class="say hidden" id="lvSay" title="השמע" aria-label="השמע">🔊</button>
+        </div>
         <div class="lv-opts" id="lvOpts"></div>
         <button class="lv-dunno" id="lvDunno">לא יודע</button>
       </div>
@@ -675,7 +687,10 @@
     <div id="exQuiz" class="hidden">
       <div class="card">
         <div class="q-kind" id="exKind"></div>
-        <div class="q-text" id="exPrompt"></div>
+        <div class="q-row">
+          <div class="q-text" id="exPrompt"></div>
+          <button class="say hidden" id="exSay" title="השמע" aria-label="השמע">🔊</button>
+        </div>
         <div class="lv-opts" id="exOpts"></div>
         <div id="exWrite" class="hidden">
           <input id="exInput" class="answer-input" placeholder="כתוב את התשובה…" autocomplete="off"
@@ -715,7 +730,10 @@
     <div class="qmeta"><span id="qCount"></span><span id="qLive"></span></div>
     <div class="card">
       <div class="q-kind" id="qKind">מהו הפירוש? כתוב את המילה</div>
-      <div class="q-text" id="qText"></div>
+      <div class="q-row">
+        <div class="q-text" id="qText"></div>
+        <button class="say hidden" id="qSay" title="השמע את המילה" aria-label="השמע את המילה">🔊</button>
+      </div>
       <input class="answer-input" id="answerInput" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="המילה…">
       <div class="actions" id="answerActions">
         <button class="btn btn-primary" id="checkBtn">בדיקה</button>
@@ -866,10 +884,10 @@
 <script src="supabase.min.js"></script>
 <script src="config.js"></script>
 <script src="store.js"></script>
-<script src="leveltest.js?v=27"></script>
-<script src="enrank.js?v=27"></script>
-<script src="data.js?v=27"></script>
-<script src="data-en.js?v=27"></script>
-<script src="app.js?v=27"></script>
+<script src="leveltest.js?v=28"></script>
+<script src="enrank.js?v=28"></script>
+<script src="data.js?v=28"></script>
+<script src="data-en.js?v=28"></script>
+<script src="app.js?v=28"></script>
 </body>
 </html>

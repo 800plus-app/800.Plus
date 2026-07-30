@@ -395,10 +395,14 @@ function renderCard(){
     $('#qText').dir = en ? 'ltr' : 'rtl';
     inp.placeholder = en ? 'התרגום…' : 'הפירוש…';
     inp.dir='rtl';
+    bindSay('#qSay', w.term);
   }else{                // show the MEANING (Hebrew), type the word
     $('#qKind').textContent = en ? 'כתוב את המילה באנגלית' : 'כתוב את המילה לפי הפירוש';
     $('#qText').textContent = w.meaning;
     $('#qText').dir='rtl';
+    // The English word IS the answer here, so it can only be read out after the card is
+    // answered — otherwise the speaker button just gives it away.
+    bindSay('#qSay', null);
     inp.placeholder = en ? 'the word…' : 'המילה…';
     inp.dir = en ? 'ltr' : 'rtl';
   }
@@ -422,6 +426,8 @@ function finishCard(ok, skipped){
   const w2m = w._dir==='w2m';
   $('#answerInput').disabled=true; hide($('#answerActions'));
   $('#hintBtn').classList.add('hidden'); $('#hintBox').classList.add('hidden');
+  // The card is over, so the English word can be read out in either direction now.
+  bindSay('#qSay', w.term);
   const e=sess(w); e.attempts++;
   if(ok){ correct++; e.mastered=true; if(e.attempts===1)e.firstTry=true; }
   else { missed.push(w); }
@@ -859,6 +865,7 @@ function lvRender(){
   $('#lvCount').textContent=`${lvBand} · ${lvIdx+1}/${lvDeck.length}`;
   $('#lvBar').style.width=(100*(lvAns.length)/(lvAns.length+lvDeck.length-lvIdx))+'%';
   $('#lvWord').textContent=it.w;
+  bindSay('#lvSay', it.w, true);
   $('#lvOpts').innerHTML=it.opts.map((o,i)=>`<button data-i="${i}">${esc(o)}</button>`).join('');
   $('#lvOpts').querySelectorAll('button').forEach(b=>{
     b.onclick=()=>lvPick(it.opts[+b.dataset.i], b);
@@ -968,6 +975,65 @@ const lvBtn=$('#lvOpen'); if(lvBtn) lvBtn.onclick=()=>{ hide($('#lvQuiz')); hide
 $('#lvSkip').onclick=()=>{ LS.set('hw_level','skipped'); renderWelcome(); };
 $('#lvExit').onclick=()=>{ if(confirm('לצאת מהמבחן? התוצאות לא יישמרו.')) renderWelcome(); };
 $('#lvDone').onclick=()=>renderWelcome();
+
+/* ===== הקראה קולית =====
+   Web Speech API — מובנה בדפדפן. אין תלות חוץ, אין קריאת רשת, ולכן ה-CSP לא נוגע בזה.
+   מוקרא רק הצד האנגלי: הקראת עברית בקול אנגלי היא רעש, והקראת הפירוש בעברית תיתן
+   ללומד את התשובה במקום לבחון אותה. */
+const TTS = {
+  ok: typeof speechSynthesis !== 'undefined' && typeof SpeechSynthesisUtterance !== 'undefined',
+  voice: null,
+  // Voices load asynchronously and the first call often returns an empty list, so we look
+  // again on the voiceschanged event instead of deciding once at boot.
+  pick(){
+    if(!this.ok) return null;
+    let vs=[]; try{ vs=speechSynthesis.getVoices()||[]; }catch(e){ return null; }
+    const en=vs.filter(v=>/^en(-|_|$)/i.test(v.lang||''));
+    if(!en.length) return null;
+    this.voice = en.find(v=>/^en-US/i.test(v.lang)) || en[0];
+    return this.voice;
+  },
+  available(){ return !!(this.ok && (this.voice || this.pick())); },
+  say(text, btn){
+    if(!this.available() || !text) return false;
+    try{
+      speechSynthesis.cancel();                       // never let two words overlap
+      const u=new SpeechSynthesisUtterance(String(text));
+      u.voice=this.voice; u.lang=this.voice.lang || 'en-US';
+      u.rate=0.9;                                     // a touch slow: this is for learning
+      if(btn){ btn.classList.add('on');
+        const off=()=>btn.classList.remove('on');
+        u.onend=off; u.onerror=off; }
+      speechSynthesis.speak(u);
+      return true;
+    }catch(e){ if(btn) btn.classList.remove('on'); return false; }
+  }
+};
+/* Wire one speaker button to whatever English text is on screen. Hidden — not disabled —
+   when the device has no English voice, because a button that does nothing is worse than
+   no button.
+   alwaysEn: the level test is an English test whatever language the app is currently in,
+   so it must not be gated on LANG. */
+const sayBound = new Map();
+function bindSay(btnSel, text, alwaysEn){
+  const btn=$(btnSel); if(!btn) return;
+  sayBound.set(btnSel, [text, alwaysEn]);
+  const speakable = (alwaysEn || LANG==='en') && text && TTS.available();
+  btn.classList.toggle('hidden', !speakable);
+  if(speakable) btn.onclick=(e)=>{ e.preventDefault(); TTS.say(text, btn); };
+  else btn.onclick=null;
+}
+/* Voices arrive asynchronously and often after the first card is already on screen. Without
+   replaying the last binding, the speaker would stay hidden until the user advanced a card. */
+if(TTS.ok){
+  try{
+    TTS.pick();
+    speechSynthesis.onvoiceschanged=()=>{
+      const had=!!TTS.voice; TTS.voice=null;
+      if(TTS.pick() && !had) sayBound.forEach((v,sel)=>bindSay(sel, v[0], v[1]));
+    };
+  }catch(e){}
+}
 
 /* ===== unit exams =====
    A measurement, not a practice round: the exam samples the unit at random and NEVER writes
@@ -1156,6 +1222,9 @@ function exRender(){
   const promptIsEn = LANG==='en' && q.kind==='recognise';
   $('#exPrompt').textContent=q.prompt;
   $('#exPrompt').dir = promptIsEn ? 'ltr' : 'rtl';
+  // Only when the English word is the prompt. On retrieve/produce items it is the answer,
+  // and reading it aloud would hand the question over.
+  bindSay('#exSay', promptIsEn ? q.prompt : null);
   hide($('#exFb'));
   if(q.opts){
     show($('#exOpts')); hide($('#exWrite'));
@@ -1184,6 +1253,7 @@ function exAnswer(ok, given, btn){
   }else{
     $('#exInput').disabled=true; $('#exSubmit').disabled=true; $('#exSkip').disabled=true;
   }
+  bindSay('#exSay', q.it.term);
   const fb=$('#exFb');
   const alts = (q.accept||[]).filter(t=>t!==q.answer);
   fb.innerHTML=`<div class="v ${ok?'ok':'no'}">${ok?'נכון ✓':'לא נכון'}</div>`+
