@@ -471,10 +471,29 @@ function meaningMatch(input, meaning){
   // the "meaning" side is Hebrew in both languages → always use the Hebrew normalizer
   const a=norm(input); if(!a) return false;
   if(a===norm(meaning)) return true;
-  const segs=meaning.split(/[,;/|()]|\s-\s/).map(norm).filter(Boolean);
+  // …and the same answer without the explanatory parenthesis, which nobody types
+  if(a===norm(String(meaning).replace(/\([^)]*\)/g,' '))) return true;
+  const segs=meaningSegs(meaning);
   if(segs.includes(a)) return true;
-  if(!a.includes(' ') && a.length>=2) return norm(meaning).split(' ').includes(a);
+  /* A single word from ANYWHERE in the gloss used to pass — including from inside a
+     parenthetical example. "יגור :: פוחד, חושש (אשר יגורתי בא - הדבר ממנו חששתי קרה)"
+     accepted "קרה", a different word entirely, and promoted the item to level 3.
+     One whole listed sense is still enough; a word lifted out of an example is not. */
   return false;
+}
+/* the senses a learner may legitimately answer with: comma/semicolon separated, and never
+   the contents of a parenthesis, which explains rather than defines */
+/* the senses the learner did NOT give, for the "also:" line after a correct answer */
+function otherSenses(input, meaning){
+  const a=norm(input);
+  const raw=String(meaning).replace(/\([^)]*\)/g,' ').split(/[;/|]|\s-\s|,/)
+    .map(x=>x.trim()).filter(Boolean);
+  if(raw.length<2) return [];
+  return raw.filter(x=>norm(x)!==a).slice(0,4);
+}
+function meaningSegs(meaning){
+  return String(meaning).replace(/\([^)]*\)/g,' ')
+    .split(/[,;/|]|\s-\s/).map(norm).filter(Boolean);
 }
 function check(){ if(answered||!deck[idx]) return; const w=deck[idx]; const ok = w._dir==='w2m' ? meaningMatch($('#answerInput').value, w.meaning) : isCorrect($('#answerInput').value, w.term); finishCard(ok, false); }
 function skip(){ if(answered||!deck[idx]) return; finishCard(false, true); }
@@ -496,6 +515,10 @@ function finishCard(ok, skipped){
   const verdict = ok?'נכון! ✓':(skipped?'התשובה:':'לא מדויק');
   fb.innerHTML =
     `<div class="verdict ${ok?'ok':'no'}">${verdict}</div>`+
+    /* One listed sense is a correct answer, but the word usually carries more. Showing the
+       rest on a CORRECT answer is where it costs nothing and teaches something. */
+    (ok && w2m ? (()=>{ const rest=otherSenses($('#answerInput').value, w.meaning);
+       return rest.length ? `<div class="also">גם: <b>${esc(rest.join(' · '))}</b></div>` : ''; })() : '')+
     (!ok?`<div class="reveal">${label}: <b>${esc(answer)}</b></div>`:'')+
     (!ok?`<button class="was-right" id="wasRight">בעצם ידעתי — סמן כנכון</button>`:'')+
     `<div class="assoc">
