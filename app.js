@@ -346,6 +346,49 @@ function heForms(x){
   const f=fullSpelling(x), y=pleneYod(x);
   return [x, f, y, fullSpelling(y), pleneYod(f)];
 }
+/* ===== the gloss must not contain the answer =====
+   132 Hebrew glosses name the very word they define — literally (תְּלוּלִית :: ערימה קטנה,
+   תלולית), through an inflection (לַהַק :: ...להקה), or inside the example that makes the gloss
+   worth reading (בְּאִיבּוֹ :: בראשית דרכו (נקטף באיבו)). Rewriting all of them would have
+   thrown away the examples and etymologies, so the word is hidden at the moment it is used as
+   a PROMPT instead — and the full text is shown again in the feedback, where it teaches.
+   Hebrew glues ו/ה/ב/כ/ל/מ/ש to the front of a word and inflects the end, so a giveaway is
+   matched on the stripped stem, never on a raw substring: צָעִיר must not hide עִיר. */
+const CLITIC=['ו','ה','ב','כ','ל','מ','ש','וה','וב','ול','ומ','כש','שה','שב','מה','לה','בה'];
+const HSUF=['ה','ות','ים','י','ו','נו','כם','הם','יה','ית','יות'];
+function heStems(w){
+  const base=norm(w); if(base.length<3) return [];
+  const out=new Set([base]);
+  for(const p of CLITIC) if(base.startsWith(p) && base.length-p.length>2) out.add(base.slice(p.length));
+  for(const b of [...out]) for(const s of HSUF.map(norm))
+    if(s && b.endsWith(s) && b.length-s.length>2) out.add(b.slice(0,-s.length));
+  return [...out];
+}
+function maskTerm(meaning, term){
+  if(LANG==='en') return meaning;                       // the answer is English; a Hebrew gloss cannot leak it
+  const tWords=String(term).split(/\s+/);
+  const tBase=new Set(tWords.map(norm).filter(x=>x.length>2));
+  const tStems=new Set(); for(const t of tWords) for(const s of heStems(t)) tStems.add(s);
+  if(!tStems.size) return meaning;
+  /* One side must be the word as written. Letting BOTH sides be stripped made שָׁפוּף match
+     כפוף — the כ and the ש each read as a prefix and both reduce to פופ — which is not a
+     giveaway at all, just two unrelated words with a shared tail. */
+  const hits = w => { const b=norm(w);
+    return tStems.has(b) || heStems(w).some(s=>tBase.has(s)); };
+  /* A parenthetical is an EXAMPLE of the word in use. Blanking the word inside it leaves
+     "(מכת ־־־ ־־־)" — noise, not a hint — so the whole aside is dropped from the prompt
+     instead. It comes back in the feedback, where the example is the point. */
+  const noAside=String(meaning).replace(/\s*\([^)]*\)/g, m => (m.match(/[֐-׿]+/g)||[]).some(hits) ? '' : m);
+  const tidy = s => s.replace(/\s{2,}/g,' ').replace(/^[\s,;]+|[\s,;]+$/g,'');
+  let out=tidy(noAside.replace(/[֐-׿]+/g, w => hits(w) ? '־־־' : w));
+  /* An unanswerable prompt is worse than a hint. "אֲלוּמָּת אוֹר :: קרן אור" masks down to
+     "קרן ־־־", which asks the learner to guess from three letters — so when blanking leaves
+     too little to work with, the giveaway is accepted and the original gloss is shown.
+     Dropping a circular example never triggers this: what remains is a clean definition. */
+  if(out.includes('־־־') && out.replace(/־־־/g,'').replace(/[^֐-׿]/g,'').length < 6)
+    out = tidy(noAside);
+  return /[֐-׿]/.test(out) ? out : meaning;
+}
 function isCorrect(input, term){
   const a=K(input); if(!a) return false;
   if(a===K(term)) return true;
@@ -504,7 +547,8 @@ function renderCard(){
     bindSay('#qSay', w.term);
   }else{                // show the MEANING (Hebrew), type the word
     $('#qKind').textContent = en ? 'כתוב את המילה באנגלית' : 'כתוב את המילה לפי הפירוש';
-    $('#qText').textContent = w.meaning;
+    // the gloss becomes the question here, so the answer must not be inside it
+    $('#qText').textContent = maskTerm(w.meaning, w.term);
     $('#qText').dir='rtl';
     // The English word IS the answer here, so it can only be read out after the card is
     // answered — otherwise the speaker button just gives it away.
@@ -568,6 +612,11 @@ function finishCard(ok, skipped){
     (ok && w2m ? (()=>{ const rest=otherSenses($('#answerInput').value, w.meaning);
        return rest.length ? `<div class="also">גם: <b>${esc(rest.join(' · '))}</b></div>` : ''; })() : '')+
     (!ok?`<div class="reveal">${label}: <b>${esc(answer)}</b></div>`:'')+
+    /* The prompt hid the word inside its own gloss, and in this direction the gloss is never
+       shown again — so the example that made it worth reading would have been lost. Now that
+       the card is over it can only teach, so it is restored in full. */
+    (!w2m && maskTerm(w.meaning,w.term)!==w.meaning
+      ? `<div class="also">הפירוש המלא: <b>${esc(w.meaning)}</b></div>` : '')+
     (!ok?`<button class="was-right" id="wasRight">בעצם ידעתי — סמן כנכון</button>`:'')+
     `<div class="assoc">
        <label>💡 האסוציאציה שלי ל"${esc(w.term)}"</label>
@@ -1402,14 +1451,14 @@ function exBuild(uid){
     }
     if(kind==='retrieve'){
       const d=exDistract(pool,it,'term',taken);
-      return d.length<3 ? null : {kind, it, prompt:it.meaning, answer:it.term, opts:shuffle([it.term,...d])};
+      return d.length<3 ? null : {kind, it, prompt:maskTerm(it.meaning,it.term), answer:it.term, opts:shuffle([it.term,...d])};
     }
     // A write-in has no options to disambiguate it, so if two words in the unit share a gloss
     // the prompt genuinely has two right answers — the unit lists both זלזל and פארה as "ענף".
     // Accept all of them. Marking someone wrong for the synonym they happened to recall is the
     // exact failure this whole audit was about.
     const accept=pool.filter(o=>norm(o.meaning)===norm(it.meaning)).map(o=>o.term);
-    return {kind, it, prompt:it.meaning, answer:it.term, opts:null, accept};
+    return {kind, it, prompt:maskTerm(it.meaning,it.term), answer:it.term, opts:null, accept};
   }).filter(Boolean);
 }
 const EX_KIND={recognise:'מה הפירוש?', retrieve:'איזו מילה מתאימה לפירוש?', produce:'כתוב את המילה'};
