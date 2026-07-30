@@ -1439,7 +1439,18 @@ function exBuild(uid){
   // in those slots. Expecting someone to type a three-word idiom letter-perfect measures
   // typing, not vocabulary.
   const oneWord=t=>!/\s/.test(String(t).replace(/\s*\/\s*/g,'/'));
-  const goodProduce=it=>oneWord(it.term) && !isTranslit(it.meaning, it.term);
+  /* A one-word gloss that is itself a word in the bank makes an unfair write-in: "בד" is a
+     defensible answer to the prompt "בד", and the item was after אָרִיג. Seven of them —
+     אריג/בד, זרד/ענף, אסקופה/סף, נפיל/ענק, טלף/פרסה, זלזל/ענף, פארה/ענף. They stay in
+     practice, where the direction is stated and the feedback teaches, but they never take a
+     write-in slot in a graded test. */
+  const glossIsAWord=it=>{
+    const m=String(it.meaning).trim();
+    if(!/^[֐-׿]+$/.test(m)) return false;
+    const k=norm(m);
+    return k!==norm(it.term) && BANK.some(w=>norm(w.term)===k);
+  };
+  const goodProduce=it=>oneWord(it.term) && !isTranslit(it.meaning, it.term) && !glossIsAWord(it);
   picked.sort((a,b)=>(goodProduce(a)?1:0)-(goodProduce(b)?1:0));
   // Every answer in the paper, so no distractor can leak one.
   const taken=new Set(picked.map(it=>norm(it.term)).concat(picked.map(it=>norm(it.meaning))));
