@@ -423,6 +423,21 @@
     #sheet .sh-foot{margin-top:6mm;font-size:8.5pt;color:#666;text-align:center}
   }
 
+  /* INTRO */
+  .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+  @media (max-width:430px){ .feat-grid{grid-template-columns:1fr} }
+  .feat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 15px;
+    display:flex;flex-direction:column;gap:3px}
+  .feat b{font-family:"Frank Ruhl Libre",serif;font-size:1rem;font-weight:700}
+  .feat span{font-size:.79rem;color:var(--ink-soft);line-height:1.5}
+  /* PREVIEW BAR */
+  .pv-bar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:10px;
+    background:var(--gold);color:#fff;padding:8px 14px;border-radius:0 0 12px 12px;
+    font-size:.78rem;box-shadow:var(--shadow)}
+  .pv-bar.hidden{display:none!important}
+  .pv-bar span{flex:1}
+  .pv-bar button{background:#fff;color:var(--ink);border:0;border-radius:999px;
+    padding:5px 13px;font-size:.76rem;font-family:"Heebo";cursor:pointer}
   /* DASHBOARD — the streak stands alone; everything else lives inside its own language card,
      so the two languages are never averaged into one number. */
   .dash-streak{display:flex;align-items:center;gap:16px;background:var(--card);
@@ -498,6 +513,10 @@
 </head>
 <body>
 <div class="wrap">
+  <div id="pvBar" class="pv-bar hidden">
+    <span>מצב הצצה · יחידה 1 בלבד — ההתקדמות לא נשמרת</span>
+    <button id="pvSignup">צור חשבון</button>
+  </div>
 
   <!-- ===== AUTH — required before anything else ===== -->
   <section id="auth">
@@ -541,6 +560,31 @@
     <div class="scope-head"><h1>משתמשים</h1></div>
     <div class="rule"></div>
     <div id="adminBody"></div>
+  </section>
+
+  <!-- ===== INTRO / LANDING — what the app does, and a way in without an account ===== -->
+  <section id="intro" class="hidden">
+    <div class="welcome-head" style="margin-top:6vh">
+      <div class="kicker"><bdi>800+</bdi></div>
+      <h1 class="w-title">אוצר מילים לפסיכומטרי<br><em>שנשאר איתך</em></h1>
+      <p class="w-sub">5,413 מילים בעברית ובאנגלית, עם מנוע חזרה שמחזיר לך בדיוק את המילים
+         שאתה שוכח — ולא את אלה שכבר ידעת.</p>
+    </div>
+
+    <div class="feat-grid">
+      <div class="feat"><b>מבחן רמה מסתגל</b><span>בעברית ובאנגלית. מטפס ויורד לפי התשובות עד שהוא מוצא את התקרה שלך.</span></div>
+      <div class="feat"><b>חזרה מרווחת</b><span>מילה שטעית בה חוזרת מוקדם. מילה שידעת מתרחקת. אין תרגול מיותר.</span></div>
+      <div class="feat"><b>מבחן לכל יחידה</b><span>שלושה פורמטים — זיהוי, שליפה וכתיבה עצמאית — עם ציון שאפשר למדוד לפיו התקדמות.</span></div>
+      <div class="feat"><b>דף מבחן להדפסה</b><span>עד כל מילות היחידה, עם דף פתרונות. למי שלומד טוב יותר על נייר.</span></div>
+      <div class="feat"><b>הקראה קולית</b><span>שמיעת ההגייה של כל מילה באנגלית, בלי לצאת מהתרגול.</span></div>
+      <div class="feat"><b>עובד בלי אינטרנט</b><span>מותקנת כאפליקציה בטלפון ורצה גם באוטובוס.</span></div>
+      <div class="feat"><b>סנכרון בין מכשירים</b><span>מתחילים בטלפון וממשיכים במחשב מאותה נקודה.</span></div>
+      <div class="feat"><b>רצף ימים</b><span>שבעת הימים האחרונים מול העיניים, כדי שתראה מתי נשבר הרצף.</span></div>
+    </div>
+
+    <button class="btn btn-block" id="introTry" style="margin-top:22px">התחל בלי הרשמה ←</button>
+    <p class="w-foot" style="margin-top:10px">יחידה שלמה ומבחן רמה, בלי למסור שום פרט.</p>
+    <button class="btn btn-ghost btn-block" id="introAuth" style="margin-top:14px">כבר יש לי חשבון</button>
   </section>
 
   <!-- ===== LOCKED (subscription lapsed) ===== -->
@@ -941,11 +985,11 @@
 <script src="supabase.min.js"></script>
 <script src="config.js"></script>
 <script src="store.js"></script>
-<script src="leveltest-he.js?v=40"></script>
-  <script src="leveltest.js?v=40"></script>
-<script src="enrank.js?v=40"></script>
-<script src="data.js?v=40"></script>
-<script src="data-en.js?v=40"></script>
-<script src="app.js?v=40"></script>
+<script src="leveltest-he.js?v=41"></script>
+  <script src="leveltest.js?v=41"></script>
+<script src="enrank.js?v=41"></script>
+<script src="data.js?v=41"></script>
+<script src="data-en.js?v=41"></script>
+<script src="app.js?v=41"></script>
 </body>
 </html>

@@ -48,6 +48,10 @@ function shedStorage(){
 /* ---- language layer: Hebrew keeps the ORIGINAL keys so existing progress is never lost ---- */
 let LANG = LS.get('hw_lang', null);            // 'he' | 'en' | null (not chosen yet)
 if(LANG!=='he' && LANG!=='en') LANG=null;
+/* declared here, not next to startPreview(): buildBank() reads it and runs long before
+   that block would execute, which would throw on the temporal dead zone */
+let PREVIEW = false;
+const PREVIEW_UNIT = '1';
 const SUF = () => (LANG==='en' ? '_en' : '');  // Hebrew = legacy keys, English = *_en keys
 const KEY = base => base + SUF();
 
@@ -171,7 +175,8 @@ const UNIT_IDS = ['1','2','3','4','5','6','7','8','9','10'];
 function buildBank(){
   BANK = [];
   const seen = new Map();       // normalized key -> the one entry that owns it (first unit wins)
-  const data = (LANG==='en' ? window.UNIT_DATA_EN : window.UNIT_DATA) || {};
+  let data = (LANG==='en' ? window.UNIT_DATA_EN : window.UNIT_DATA) || {};
+  if(PREVIEW) data = { [PREVIEW_UNIT]: data[PREVIEW_UNIT] || [] };   // preview = unit 1 only
   const add = (term, meaning, unit) => {
     if(typeof term!=='string' || !term.trim()) return;
     const k=K(term);
@@ -252,7 +257,7 @@ function isCorrect(input, term){
 }
 
 /* ===== screens ===== */
-const SCREENS=['auth','welcome','level','home','scope','quiz','results','stats','manage','add','exam','admin','locked'];
+const SCREENS=['auth','welcome','level','home','scope','quiz','results','stats','manage','add','exam','admin','locked','intro'];
 /* Heavy lists left in hidden screens keep thousands of nodes alive for the whole session;
    drop them on the way out — they are always rebuilt when the screen is opened again. */
 const HEAVY = {stats:'#statsBody', manage:'#manageList', results:'#reviewList'};
@@ -2039,11 +2044,40 @@ $('#lockContact').onclick=()=>{
     +'&body='+encodeURIComponent('החשבון שלי: '+mail);
 };
 
+/* ===== preview =====
+   The survey's clearest finding was that a mandatory account is the first wall people hit.
+   Preview opens unit 1 and the level test with no sign-up. Progress is real and kept locally
+   under its own owner key, so the moment an account is created nothing has to be discarded —
+   and a preview session can never leak into a real account's cache. */
+function startPreview(){
+  PREVIEW = true;
+  bindCacheToUser('preview');
+  show($('#pvBar'));
+  hide($('#fbFab'));
+  LANG = null;
+  renderWelcome();
+}
+function endPreview(){
+  PREVIEW = false;
+  hide($('#pvBar'));
+  HW_KEYS.forEach(k=>LS.del(k));      // a preview is a demo, not an account
+  LS.del('hw_owner');
+  setAuthMode('signup'); buildAuthDrift(); goto('auth');
+}
+
+$('#introTry').onclick  = ()=>{ LS.set('hw_seenIntro',1); startPreview(); };
+$('#introAuth').onclick = ()=>{ LS.set('hw_seenIntro',1); setAuthMode('signin'); buildAuthDrift(); goto('auth'); };
+$('#pvSignup').onclick  = ()=>endPreview();
+
 async function checkSessionAndBoot(){
   let sess=null;
   try{ sess=await Store.currentSession(); }catch(e){}
   if(sess && sess.user){ currentUser=sess.user; await afterAuthed(false); }
-  else { setAuthMode('signin'); buildAuthDrift(); goto('auth'); hide($('#fbFab')); }
+  else {
+    // a stranger meets the landing page, not a password field: the survey's clearest finding
+    setAuthMode('signin'); buildAuthDrift(); hide($('#fbFab'));
+    goto(LS.get('hw_seenIntro',0) ? 'auth' : 'intro');
+  }
   try{
     Store.onAuthChange((s)=>{
       if(s && s.user && !currentUser){ currentUser=s.user; afterAuthed(false); }
