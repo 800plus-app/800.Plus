@@ -1146,6 +1146,22 @@ function lvApplyKnown(level){
     n++;
   }
   saveStats();
+  /* saveStats only SCHEDULES a push, 1500ms out — and LANG is restored on the next line, so by
+     the time it fired it was pushing the other language's row. The 40+ words just marked as
+     known never reached the cloud, and on a second device the learner met them as new.
+     Pushed here, while the English state is still the loaded one — and only after a confirmed
+     read, so a dropped request can't overwrite a real English row with this partial snapshot. */
+  if(currentUser && window.Store){
+    const snap={assoc, stats, deleted:[...deleted], added, dir:direction, extras:collectExtras('en')};
+    (async()=>{
+      try{
+        const res=await Store.pullProgress('en');
+        if(!res || res.ok!==true) return;
+        const m = res.data ? mergeProgress(snap, res.data) : snap;
+        await Store.pushProgress('en', {...m, extras:snap.extras});
+      }catch(e){}
+    })();
+  }
   LANG=wasLang; loadLangState(); buildBank();
   return n;
 }
