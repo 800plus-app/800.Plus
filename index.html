@@ -316,7 +316,14 @@
        border-radius:5px;padding:2px 6px;font-weight:700}
   .adm-meta{display:flex;gap:14px;flex-wrap:wrap;font-size:.76rem;color:var(--ink-soft);margin-top:6px}
   .adm-meta i{font-style:normal;color:var(--ink);font-weight:600}
-  .adm-acts{margin-top:9px}
+  .adm-sub{margin-top:8px;display:inline-block;font-size:.72rem;padding:2px 9px;border-radius:999px;
+    border:1px solid var(--line);color:var(--ink-soft)}
+  .adm-sub.ok{border-color:#4e7d4e;color:#3f6b4a}
+  .adm-sub.due{border-color:var(--accent);color:var(--accent)}
+  .adm-sub.off{border-color:var(--line);color:var(--ink-soft)}
+  .adm-acts{margin-top:9px;display:flex;flex-wrap:wrap;gap:6px}
+  .adm-acts button.danger{border-color:rgba(181,72,46,.45);color:var(--accent)}
+  .adm-acts button.danger:hover{border-color:var(--accent);background:rgba(181,72,46,.07)}
   .adm-acts button{background:transparent;border:1px solid var(--line);border-radius:999px;
        padding:5px 13px;font-family:"Heebo";font-size:.78rem;color:var(--ink-soft)}
   .adm-acts button:hover{border-color:var(--gold);color:var(--ink)}
@@ -532,6 +539,25 @@
     <div class="scope-head"><h1>משתמשים</h1></div>
     <div class="rule"></div>
     <div id="adminBody"></div>
+  </section>
+
+  <!-- ===== LOCKED (subscription lapsed) ===== -->
+  <section id="locked" class="hidden">
+    <div class="topbar"><div class="sp"></div>
+      <button class="back" id="signOutBtn3" style="margin-inline-start:8px">יציאה</button></div>
+    <div class="welcome-head">
+      <div class="kicker">הגישה מושהית</div>
+      <h1 class="w-title">המנוי אינו פעיל</h1>
+      <p class="w-sub" id="lockWhy">אין מנוי פעיל לחשבון הזה.</p>
+    </div>
+    <div class="dash-streak" style="display:block">
+      <p style="font-size:.88rem;line-height:1.7">
+        <b>ההתקדמות שלך נשמרת במלואה</b> וממתינה לך — שום מילה שלמדת לא נמחקת.
+        ברגע שהמנוי יחודש תמשיך בדיוק מאותה נקודה.</p>
+      <p style="font-size:.8rem;color:var(--ink-soft);margin-top:10px">
+        החשבון: <b id="lockMail"></b></p>
+    </div>
+    <button class="btn btn-block" id="lockContact" style="margin-top:16px">✉ צור קשר לחידוש</button>
   </section>
 
   <!-- ===== WELCOME / LANGUAGE PICKER ===== -->
@@ -905,10 +931,10 @@
 <script src="supabase.min.js"></script>
 <script src="config.js"></script>
 <script src="store.js"></script>
-<script src="leveltest.js?v=37"></script>
-<script src="enrank.js?v=37"></script>
-<script src="data.js?v=37"></script>
-<script src="data-en.js?v=37"></script>
-<script src="app.js?v=37"></script>
+<script src="leveltest.js?v=38"></script>
+<script src="enrank.js?v=38"></script>
+<script src="data.js?v=38"></script>
+<script src="data-en.js?v=38"></script>
+<script src="app.js?v=38"></script>
 </body>
 </html>

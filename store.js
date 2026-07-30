@@ -99,6 +99,39 @@ const Store = {
     const { data } = await sb.from('progress').select('lang,data,updated_at').eq('user_id', userId);
     return data || [];
   },
-  async adminSendReset(email) { return this.resetPasswordFor(email); }
+  async adminSendReset(email) { return this.resetPasswordFor(email); },
+
+  /* Re-authentication. The password is verified BY SUPABASE against the stored hash —
+     nothing is compared in the browser and no secret lives in this file. */
+  async verifyMyPassword(password) {
+    const { data } = await sb.auth.getUser();
+    const email = data && data.user && data.user.email;
+    if (!email || !password) return false;
+    const { error } = await sb.auth.signInWithPassword({ email, password });
+    return !error;
+  },
+
+  /* Deletes the DATA, not the account: auth.users can only be removed with a
+     service_role key, which must never reach the browser. The caller says so plainly. */
+  async adminDeleteUserData(userId) {
+    if (!userId) return { ok: false, error: { message: 'חסר מזהה משתמש' } };
+    const steps = [
+      sb.from('progress').delete().eq('user_id', userId),
+      sb.from('feedback').delete().eq('user_id', userId),
+      sb.from('profiles').delete().eq('id', userId),
+    ];
+    for (const p of steps) { const { error } = await p; if (error) return { ok: false, error }; }
+    return { ok: true };
+  },
+
+  /* status: none | grace | active | past_due | canceled */
+  async adminSetSubscription(userId, { status, until, plan, note }) {
+    const patch = { sub_status: status };
+    if (until !== undefined) patch.sub_until = until;
+    if (plan  !== undefined) patch.plan = plan;
+    if (note  !== undefined) patch.sub_note = note;
+    const { error } = await sb.from('profiles').update(patch).eq('id', userId);
+    return { ok: !error, error };
+  }
 };
 window.Store = Store;

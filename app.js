@@ -252,7 +252,7 @@ function isCorrect(input, term){
 }
 
 /* ===== screens ===== */
-const SCREENS=['auth','welcome','level','home','scope','quiz','results','stats','manage','add','exam','admin'];
+const SCREENS=['auth','welcome','level','home','scope','quiz','results','stats','manage','add','exam','admin','locked'];
 /* Heavy lists left in hidden screens keep thousands of nodes alive for the whole session;
    drop them on the way out — they are always rebuilt when the screen is opened again. */
 const HEAVY = {stats:'#statsBody', manage:'#manageList', results:'#reviewList'};
@@ -1616,6 +1616,7 @@ async function afterAuthed(justSignedUp){
   }
   catch(e){ $('#userBadge').textContent = currentUser.email||''; }
   await showAdminIfAllowed();
+  if(!(await accessOk())) return;      // subscription lapsed — the gate owns the screen from here
   show($('#fbFab'));            // reporting a bug must never be more than one tap away
   // First run: offer the level test once. Everything else lands on the language picker.
   if(!levelDone()){ hide($('#lvQuiz')); hide($('#lvResult')); show($('#lvIntro')); goto('level'); }
@@ -1666,6 +1667,33 @@ const signOutNow = async ()=>{
 };
 $('#signOutBtn').onclick  = signOutNow;
 $('#signOutBtn2').onclick = signOutNow;
+$('#signOutBtn3').onclick = signOutNow;
+
+/* ===== subscription gate =====
+   Fails OPEN on purpose. If migration-5 has not run the columns do not exist, and a gate
+   that assumed the worst would lock every existing user out of an app they already paid
+   nothing for. Only an explicit blocked state closes the door. */
+async function accessOk(){
+  let p=null;
+  try{ p=await Store.myProfile(); }catch(e){ return true; }
+  if(!p || p.sub_status===undefined) return true;
+  if(p.role==='admin') return true;
+  const live = (p.sub_status==='active' || p.sub_status==='grace')
+            && (!p.sub_until || new Date(p.sub_until) > new Date());
+  if(live) return true;
+  showLocked(p);
+  return false;
+}
+function showLocked(p){
+  const why = p.sub_status==='past_due' ? 'החיוב האחרון לא עבר.'
+            : p.sub_status==='canceled' ? 'המנוי בוטל.'
+            : p.sub_until               ? 'המנוי הסתיים.'
+            : 'אין מנוי פעיל לחשבון הזה.';
+  $('#lockWhy').textContent = why;
+  $('#lockMail').textContent = (currentUser && currentUser.email) || '';
+  hide($('#fbFab'));
+  goto('locked');
+}
 
 /* ===== admin dashboard — who signed up, when, how far they got.
    Deliberately has no way to reveal a password: none is stored in readable form. ===== */
@@ -1729,7 +1757,14 @@ function renderAdminUsers(){
         <span>פעילות אחרונה <i>${r.lastTs?fmtDate(r.last):'לא נכנס מעולם'}</i></span>
         <span>למד <i>${r.learnedHe}</i> עברית · <i>${r.learnedEn}</i> אנגלית</span>
       </div>
-      ${r.email?`<div class="adm-acts"><button data-reset="${esc(r.email)}">✉ אפס סיסמה</button></div>`:''}
+      <div class="adm-sub ${subClass(r)}">${subLabel(r)}</div>
+      <div class="adm-acts">
+        ${r.email?`<button data-reset="${esc(r.email)}">✉ אפס סיסמה</button>`:''}
+        <button data-sub="${r.id}" data-st="active">✓ הפעל מנוי</button>
+        <button data-sub="${r.id}" data-st="past_due">⏸ חיוב נכשל</button>
+        <button data-sub="${r.id}" data-st="canceled">✕ בטל מנוי</button>
+        ${r.role==='admin'?'':`<button class="danger" data-del="${r.id}" data-mail="${esc(r.email||'')}">🗑 מחק נתונים</button>`}
+      </div>
     </div>`).join('');
   list.querySelectorAll('[data-reset]').forEach(b=>b.onclick=async()=>{
     const mail=b.dataset.reset; if(!mail) return;
@@ -1737,6 +1772,68 @@ function renderAdminUsers(){
     try{ await Store.adminSendReset(mail); b.textContent='✓ נשלח קישור איפוס'; }
     catch(e){ b.textContent='שגיאה — נסה שוב'; b.disabled=false; }
   });
+
+  list.querySelectorAll('[data-sub]').forEach(b=>b.onclick=async()=>{
+    const id=b.dataset.sub, st=b.dataset.st;
+    const u=admUsers.find(x=>x.id===id); if(!u) return;
+    let until;
+    if(st==='active'){
+      const months = confirm('שלושה חודשים? (ביטול = חודש אחד)') ? 3 : 1;
+      const d=new Date(); d.setMonth(d.getMonth()+months);
+      until=d.toISOString();
+      u.plan = months===3 ? 'quarter' : 'monthly';
+    }
+    b.disabled=true;
+    const { ok, error } = await Store.adminSetSubscription(id,
+      { status: st, until, plan: u.plan, note: null });
+    b.disabled=false;
+    if(!ok){ toast('לא נשמר: '+(error&&error.message||'')); return; }
+    u.sub_status=st; if(until!==undefined) u.sub_until=until;
+    renderAdminUsers();
+  });
+
+  /* Deletion asks for the ADMIN'S OWN password and the target's email.
+     The password proves who is asking; the email proves which row was meant. */
+  list.querySelectorAll('[data-del]').forEach(b=>b.onclick=async()=>{
+    const id=b.dataset.del, mail=b.dataset.mail;
+    const typed=prompt('מחיקת נתוני משתמש היא בלתי הפיכה. הקלד את המייל של המשתמש לאישור: '+mail);
+    if(typed===null) return;
+    if(typed.trim().toLowerCase()!==String(mail).trim().toLowerCase()){ toast('המייל אינו תואם — לא נמחק'); return; }
+    const pw=prompt('הקלד את סיסמת החשבון שלך כדי לאשר:');
+    if(!pw) return;
+    b.disabled=true; b.textContent='מאמת…';
+    if(!await Store.verifyMyPassword(pw)){ toast('סיסמה שגויה — לא נמחק'); b.disabled=false; b.textContent='🗑 מחק נתונים'; return; }
+    b.textContent='מוחק…';
+    const { ok, error } = await Store.adminDeleteUserData(id);
+    if(!ok){ toast('לא נמחק: '+(error&&error.message||'')); b.disabled=false; b.textContent='🗑 מחק נתונים'; return; }
+    admUsers = admUsers.filter(x=>x.id!==id);
+    renderAdminUsers();
+    toast('הנתונים נמחקו. את החשבון עצמו מוחקים בסופאבייס → Authentication → Users');
+  });
+}
+
+/* One place decides whether access is live, so the badge and the gate never disagree. */
+function subActive(r){
+  if(r.role==='admin') return true;
+  if(r.sub_status!=='active' && r.sub_status!=='grace') return false;
+  return !r.sub_until || new Date(r.sub_until) > new Date();
+}
+function subClass(r){
+  if(r.role==='admin') return 'ok';
+  if(r.sub_status==='past_due') return 'due';
+  if(r.sub_status==='canceled' || !subActive(r)) return 'off';
+  return 'ok';
+}
+function subLabel(r){
+  if(r.role==='admin') return 'אדמין · גישה מלאה';
+  const until = r.sub_until ? ' · עד '+fmtDate(r.sub_until).split(' ')[0] : '';
+  switch(r.sub_status){
+    case 'active':   return subActive(r) ? 'מנוי פעיל'+until : 'המנוי פג'+until;
+    case 'grace':    return 'גישה ידנית'+until;
+    case 'past_due': return 'חיוב נכשל — הגישה חסומה';
+    case 'canceled': return 'המנוי בוטל';
+    default:         return 'ללא מנוי';
+  }
 }
 
 async function openAdmin(){
@@ -1831,6 +1928,11 @@ async function renderAdminFeedback(){
 }
 $('#adminBtn').onclick=openAdmin;
 $('#adminBtn2').onclick=openAdmin;
+$('#lockContact').onclick=()=>{
+  const mail=(currentUser&&currentUser.email)||'';
+  location.href='mailto:03hagay@gmail.com?subject='+encodeURIComponent('חידוש מנוי — 800+')
+    +'&body='+encodeURIComponent('החשבון שלי: '+mail);
+};
 
 async function checkSessionAndBoot(){
   let sess=null;
