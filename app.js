@@ -345,6 +345,12 @@ function pleneYod(term){
   }
   return out;
 }
+/* A tsere-to-yod rule was tried here and REVERTED. In unvocalised Hebrew a pi'el like מֵרֵט or
+   בֵּרֵךְ is written מירט / בירך, so accepting that spelling looked right — but measured against
+   the whole bank it made five real pairs collide (רְדִיד~רִדֵּד, הִגִיר~הִגֵּר, נִיכָּר~נֵכַר,
+   גִּבֵּן~גָבִין, גִּלְעֵן~גַּלְעִין), meaning a learner asked for one word would be marked
+   correct for the other. Five wrong acceptances to rescue one entry is a bad trade, and unlike
+   the vav and doubled-yod rules this one cannot be made safe by being permissive. */
 /* Every spelling of a Hebrew term a learner might reasonably type. The two rules compose:
    a word can need a restored ו and a doubled י at once. */
 function heForms(x){
