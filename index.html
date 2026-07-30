@@ -448,13 +448,65 @@
     #sheet .sh-foot{margin-top:6mm;font-size:8.5pt;color:#666;text-align:center}
   }
 
-  /* INTRO */
-  .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+  /* ===== INTRO =====
+     The landing page was a wall of eight identical grey boxes. It is the first thing a stranger
+     sees and it had to earn the next tap, so it now reads as a printed page that is being set:
+     the rule draws itself, the count runs up, the cards arrive one after another. Slow and
+     small on purpose — this is a study tool, not a launch page. Every motion is opt-out via
+     prefers-reduced-motion, and every colour is already in the palette. */
+  #intro{position:relative}
+  #intro::before{content:"";position:absolute;inset:-40px -100vw 40%;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(60% 45% at 50% 0%, rgba(201,150,47,.13), transparent 70%),
+      radial-gradient(40% 30% at 12% 18%, rgba(181,72,46,.07), transparent 70%);
+    animation:wash 14s ease-in-out infinite alternate}
+  @keyframes wash{ from{opacity:.75;transform:translateY(0)} to{opacity:1;transform:translateY(-10px)} }
+
+  .in-rise{opacity:0;animation:rise .7s cubic-bezier(.22,.8,.3,1) forwards}
+  @keyframes rise{ from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:none} }
+
+  #intro .w-title em{position:relative;font-style:normal;color:var(--accent)}
+  #intro .w-title em::after{content:"";position:absolute;inset-inline:0;bottom:.06em;height:.09em;
+    border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--accent));
+    transform:scaleX(0);transform-origin:right;animation:draw .9s .55s cubic-bezier(.22,.8,.3,1) forwards}
+  @keyframes draw{ to{transform:scaleX(1)} }
+
+  .in-stat{display:flex;align-items:baseline;justify-content:center;gap:9px;margin-top:16px}
+  .in-stat b{font-family:"Frank Ruhl Libre",serif;font-size:clamp(2.4rem,11vw,3.4rem);font-weight:900;
+    line-height:1;letter-spacing:-.03em;
+    background:linear-gradient(100deg,var(--accent),var(--gold) 70%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    font-variant-numeric:tabular-nums}
+  .in-stat span{font-size:.9rem;color:var(--ink-soft)}
+
+  .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
   @media (max-width:430px){ .feat-grid{grid-template-columns:1fr} }
-  .feat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 15px;
-    display:flex;flex-direction:column;gap:3px}
+  .feat{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);
+    border-radius:14px;padding:14px 16px 14px 15px;display:flex;gap:11px;align-items:flex-start;
+    transition:transform .25s cubic-bezier(.22,.8,.3,1), box-shadow .25s, border-color .25s}
+  /* a gold edge that grows from the top on hover — the reading edge in RTL is the right one */
+  .feat::before{content:"";position:absolute;inset-block:0;inset-inline-end:0;width:3px;
+    background:linear-gradient(180deg,var(--gold),var(--accent));
+    transform:scaleY(0);transform-origin:top;transition:transform .3s cubic-bezier(.22,.8,.3,1)}
+  .feat:hover{transform:translateY(-3px);border-color:#d8c8a8;box-shadow:var(--shadow)}
+  .feat:hover::before{transform:scaleY(1)}
+  .feat i{flex:0 0 1.6rem;font-style:normal;font-size:1.15rem;line-height:1.35;opacity:.9}
+  .feat div{display:flex;flex-direction:column;gap:3px;min-width:0}
   .feat b{font-family:"Frank Ruhl Libre",serif;font-size:1rem;font-weight:700}
   .feat span{font-size:.79rem;color:var(--ink-soft);line-height:1.5}
+
+  /* the CTA breathes rather than pulses: a shadow that swells, no size change, so nothing jumps */
+  #introTry{position:relative;animation:breathe 3.6s ease-in-out 1.4s infinite}
+  @keyframes breathe{
+    0%,100%{box-shadow:0 8px 22px -12px rgba(181,72,46,.55)}
+    50%    {box-shadow:0 14px 34px -12px rgba(181,72,46,.8)}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #intro::before,.in-rise,#intro .w-title em::after,#introTry{animation:none}
+    .in-rise{opacity:1}
+    #intro .w-title em::after{transform:scaleX(1)}
+    .feat{transition:none}
+  }
   /* PREVIEW BAR */
   .pv-bar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:10px;
     background:var(--gold);color:#fff;padding:8px 14px;border-radius:0 0 12px 12px;
@@ -590,27 +642,30 @@
 
   <!-- ===== INTRO / LANDING — what the app does, and a way in without an account ===== -->
   <section id="intro" class="hidden">
-    <div class="welcome-head" style="margin-top:6vh">
+    <div class="welcome-head in-rise" style="margin-top:6vh;animation-delay:.05s">
       <div class="kicker"><bdi>800+</bdi></div>
       <h1 class="w-title">אוצר מילים לפסיכומטרי<br><em>שנשאר איתך</em></h1>
-      <p class="w-sub">5,413 מילים בעברית ובאנגלית, עם מנוע חזרה שמחזיר לך בדיוק את המילים
-         שאתה שוכח — ולא את אלה שכבר ידעת.</p>
+      <div class="in-stat"><b id="introCount">0</b><span>מילים בעברית ובאנגלית</span></div>
+      <p class="w-sub" style="margin-top:12px">מנוע חזרה שמחזיר לך בדיוק את המילים שאתה שוכח —
+         ולא את אלה שכבר ידעת.</p>
     </div>
 
     <div class="feat-grid">
-      <div class="feat"><b>מבחן רמה מסתגל</b><span>בעברית ובאנגלית. מטפס ויורד לפי התשובות עד שהוא מוצא את התקרה שלך.</span></div>
-      <div class="feat"><b>חזרה מרווחת</b><span>מילה שטעית בה חוזרת מוקדם. מילה שידעת מתרחקת. אין תרגול מיותר.</span></div>
-      <div class="feat"><b>מבחן לכל יחידה</b><span>שלושה פורמטים — זיהוי, שליפה וכתיבה עצמאית — עם ציון שאפשר למדוד לפיו התקדמות.</span></div>
-      <div class="feat"><b>דף מבחן להדפסה</b><span>עד כל מילות היחידה, עם דף פתרונות. למי שלומד טוב יותר על נייר.</span></div>
-      <div class="feat"><b>הקראה קולית</b><span>שמיעת ההגייה של כל מילה באנגלית, בלי לצאת מהתרגול.</span></div>
-      <div class="feat"><b>עובד בלי אינטרנט</b><span>מותקנת כאפליקציה בטלפון ורצה גם באוטובוס.</span></div>
-      <div class="feat"><b>סנכרון בין מכשירים</b><span>מתחילים בטלפון וממשיכים במחשב מאותה נקודה.</span></div>
-      <div class="feat"><b>רצף ימים</b><span>שבעת הימים האחרונים מול העיניים, כדי שתראה מתי נשבר הרצף.</span></div>
+      <div class="feat in-rise" style="animation-delay:.30s"><i>🎯</i><div><b>מבחן רמה מסתגל</b><span>בעברית ובאנגלית. מטפס ויורד לפי התשובות עד שהוא מוצא את התקרה שלך.</span></div></div>
+      <div class="feat in-rise" style="animation-delay:.36s"><i>🔁</i><div><b>חזרה מרווחת</b><span>מילה שטעית בה חוזרת מוקדם. מילה שידעת מתרחקת. אין תרגול מיותר.</span></div></div>
+      <div class="feat in-rise" style="animation-delay:.42s"><i>📝</i><div><b>מבחן לכל יחידה</b><span>שלושה פורמטים — זיהוי, שליפה וכתיבה עצמאית — עם ציון שאפשר למדוד לפיו התקדמות.</span></div></div>
+      <div class="feat in-rise" style="animation-delay:.48s"><i>🖨</i><div><b>דף מבחן להדפסה</b><span>עד כל מילות היחידה, עם דף פתרונות. למי שלומד טוב יותר על נייר.</span></div></div>
+      <div class="feat in-rise" style="animation-delay:.54s"><i>🔊</i><div><b>הקראה קולית</b><span>שמיעת ההגייה של כל מילה באנגלית, בלי לצאת מהתרגול.</span></div></div>
+      <div class="feat in-rise" style="animation-delay:.60s"><i>📶</i><div><b>עובד בלי אינטרנט</b><span>מותקנת כאפליקציה בטלפון ורצה גם באוטובוס.</span></div></div>
+      <div class="feat in-rise" style="animation-delay:.66s"><i>☁</i><div><b>סנכרון בין מכשירים</b><span>מתחילים בטלפון וממשיכים במחשב מאותה נקודה.</span></div></div>
+      <div class="feat in-rise" style="animation-delay:.72s"><i>🔥</i><div><b>רצף ימים</b><span>שבעת הימים האחרונים מול העיניים, כדי שתראה מתי נשבר הרצף.</span></div></div>
     </div>
 
-    <button class="btn btn-block" id="introTry" style="margin-top:22px">התחל בלי הרשמה ←</button>
-    <p class="w-foot" style="margin-top:10px">יחידה שלמה ומבחן רמה, בלי למסור שום פרט.</p>
-    <button class="btn btn-ghost btn-block" id="introAuth" style="margin-top:14px">כבר יש לי חשבון</button>
+    <div class="in-rise" style="animation-delay:.82s">
+      <button class="btn btn-primary btn-block" id="introTry" style="margin-top:22px">התחל בלי הרשמה ←</button>
+      <p class="w-foot" style="margin-top:10px">יחידה שלמה ומבחן רמה, בלי למסור שום פרט.</p>
+      <button class="btn btn-ghost btn-block" id="introAuth" style="margin-top:14px">כבר יש לי חשבון</button>
+    </div>
   </section>
 
   <!-- ===== LOCKED (subscription lapsed) ===== -->
@@ -629,7 +684,7 @@
       <p style="font-size:.8rem;color:var(--ink-soft);margin-top:10px">
         החשבון: <b id="lockMail"></b></p>
     </div>
-    <button class="btn btn-block" id="lockContact" style="margin-top:16px">✉ צור קשר לחידוש</button>
+    <button class="btn btn-primary btn-block" id="lockContact" style="margin-top:16px">✉ צור קשר לחידוש</button>
   </section>
 
   <!-- ===== WELCOME / LANGUAGE PICKER ===== -->
@@ -1008,14 +1063,14 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="supabase.min.js?v=50"></script>
-<script src="config.js?v=50"></script>
-<script src="store.js?v=50"></script>
-<script src="leveltest-he.js?v=50"></script>
-  <script src="leveltest.js?v=50"></script>
-<script src="enrank.js?v=50"></script>
-<script src="data.js?v=50"></script>
-<script src="data-en.js?v=50"></script>
-<script src="app.js?v=50"></script>
+<script src="supabase.min.js?v=51"></script>
+<script src="config.js?v=51"></script>
+<script src="store.js?v=51"></script>
+<script src="leveltest-he.js?v=51"></script>
+  <script src="leveltest.js?v=51"></script>
+<script src="enrank.js?v=51"></script>
+<script src="data.js?v=51"></script>
+<script src="data-en.js?v=51"></script>
+<script src="app.js?v=51"></script>
 </body>
 </html>

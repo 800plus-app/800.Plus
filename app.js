@@ -410,6 +410,32 @@ function goto(id){
     hide($('#'+s));
   });
   show($('#'+id)); window.scrollTo(0,0);
+  if(id==='intro') countUpIntro();
+}
+/* The landing page states the size of the bank. A number that arrives already finished reads as
+   a claim; one that runs up reads as a count. Eased, so it decelerates into the real figure —
+   and it never invents one: the target is the two banks as actually loaded. */
+let countedIntro=false;
+function countUpIntro(){
+  const el=$('#introCount'); if(!el || countedIntro) return;
+  const n=(Object.values(window.UNIT_DATA||{}).reduce((a,b)=>a+b.length,0))
+        + (Object.values(window.UNIT_DATA_EN||{}).reduce((a,b)=>a+b.length,0));
+  if(!n) return;
+  countedIntro=true;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){ el.textContent=n.toLocaleString('en-US'); return; }
+  const t0=performance.now(), DUR=1400;
+  let ran=false;
+  const tick=t=>{
+    ran=true;
+    const p=Math.min(1,(t-t0)/DUR), e=1-Math.pow(1-p,3);
+    el.textContent=Math.round(n*e).toLocaleString('en-US');
+    if(p<1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+  /* requestAnimationFrame does not advance in a tab that is not compositing — a background tab,
+     a battery-saver throttle. Without this the headline number sits on "0", which reads as a
+     broken page rather than a slow one. If no frame has arrived, show the real figure. */
+  setTimeout(()=>{ if(!ran) el.textContent=n.toLocaleString('en-US'); }, 500);
 }
 
 /* ===== HOME ===== */
@@ -1987,6 +2013,31 @@ function bindCacheToUser(uid, adopt){
   LS.set('hw_owner', uid);
 }
 
+/* Read the level-test result out of the cloud before the gate looks at it. Both rows are asked
+   for, because the test exists in two languages and either one closes the gate. Kept cheap and
+   fail-safe: a request that does not come back leaves the gate exactly as it was. */
+async function restoreLevelFromCloud(){
+  if(!currentUser || !window.Store) return;
+  // local history counts too: the device may hold progress the cloud has not seen yet
+  for(const lang of ['en','he'])
+    if(hasProgressIn(lang)>=10){ LS.set(levelKeyFor(lang),'skipped'); return; }
+  for(const lang of ['en','he']){
+    let res=null;
+    try{ res=await Store.pullProgress(lang); }catch(e){ continue; }
+    if(!res || res.ok!==true || !res.data) continue;
+    applyExtras(lang, res.data.extras);
+    if(levelDone()) return;
+    /* Accounts that predate the extras field have no stored result to restore — but a learner
+       with real history plainly does not need a placement test. Progress is the stronger
+       signal, so it closes the gate on its own. */
+    const w=res.data.stats && res.data.stats.words;
+    if(isObj(w) && Object.values(w).filter(r=>isObj(r) && r.seen>0).length>=10){
+      LS.set(levelKeyFor(lang),'skipped');
+      return;
+    }
+  }
+}
+
 async function afterAuthed(justSignedUp){
   bindCacheToUser(currentUser.id, justSignedUp);   // a fresh account inherits the preview it came from
   try{
@@ -1999,6 +2050,12 @@ async function afterAuthed(justSignedUp){
   await showAdminIfAllowed();
   if(!(await accessOk())) return;      // subscription lapsed — the gate owns the screen from here
   show($('#fbFab'));            // reporting a bug must never be more than one tap away
+  /* The level test was being forced on EVERY sign-in. Signing out runs localStorage.clear(),
+     and the cloud copy of the result is only read by syncWithRemote — which needs a language,
+     which is chosen AFTER this gate. So the gate always read an empty local key and sent the
+     learner back through a test they had already finished. The result is now fetched before
+     the gate decides, and only a confirmed read counts. */
+  if(!levelDone()) await restoreLevelFromCloud();
   // First run: offer the level test once. Everything else lands on the language picker.
   if(!levelDone()){ hide($('#lvQuiz')); hide($('#lvResult')); show($('#lvIntro')); goto('level'); }
   else renderWelcome();
