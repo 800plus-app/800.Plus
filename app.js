@@ -986,6 +986,34 @@ $('#lvDone').onclick=()=>renderWelcome();
 const EX_LEN=20, EX_MIX=[0.4,0.3,0.3];
 let exQ=[], exI=0, exUnit=null, exAns=[];
 
+/* Not every dictionary entry can be a test item. Some entries are fine to learn from and
+   impossible to test: sentence templates ("either... or..."), and glosses that are a bare
+   grammatical prefix — than, from and of are all "מ-" in the bank, so no option list built
+   from them has one right answer. They stay in the practice bank and stay out of exams. */
+function exTestable(term, meaning){
+  if(/\.\.\.|…/.test(term) || /\.\.\.|…/.test(meaning)) return false;
+  if(/^[א-ת]{1,2}-?$/.test(meaning)) return false;         // מ- · ש- · ו-
+  if(meaning.replace(/[^א-ת]/g,'').length < 3) return false;
+  return true;
+}
+/* Loan words are glossed by transliteration — drastic/דרסטי, organic/אורגני, strategy/אסטרטגיה.
+   As a multiple-choice option that is fine. As a write-in prompt it hands over the answer:
+   you sound out the Hebrew and spell it back without knowing the word at all.
+   Rough transliteration + consonant overlap is enough to catch these; it only ever decides
+   whether an item goes in a write-in slot, so a false positive costs nothing. */
+const TRL={א:'a',ב:'b',ג:'g',ד:'d',ה:'h',ו:'v',ז:'z',ח:'h',ט:'t',י:'i',כ:'k',ך:'k',ל:'l',
+  מ:'m',ם:'m',נ:'n',ן:'n',ס:'s',ע:'a',פ:'p',ף:'f',צ:'c',ץ:'c',ק:'k',ר:'r',ש:'s',ת:'t'};
+const skel = s => String(s).toLowerCase().replace(/[aeiouhwy'’\- ]/g,'');
+function isTranslit(meaning, term){
+  if(LANG!=='en') return false;
+  const heb=String(meaning).replace(/[^א-ת]/g,'');
+  if(heb.length<4) return false;
+  const a=skel([...heb].map(c=>TRL[c]||'').join('')), b=skel(term);
+  if(!a.length || !b.length) return false;
+  let hits=0, i=0;
+  for(const c of b){ const j=a.indexOf(c,i); if(j>=0){ hits++; i=j+1; } }
+  return hits/b.length >= 0.7;      // most of the English consonants appear, in order
+}
 function exWords(uid){
   const data=(LANG==='en'?window.UNIT_DATA_EN:window.UNIT_DATA)||{};
   const rows=Array.isArray(data[uid])?data[uid]:[];
@@ -993,8 +1021,10 @@ function exWords(uid){
   const seen=new Set(), out=[];
   for(const p of rows){
     if(!Array.isArray(p)||!p[0]||!p[1]) continue;
-    const k=nk(p[0]); if(!k || seen.has(k) || deleted.has(k)) continue;
-    seen.add(k); out.push({term:String(p[0]).trim(), meaning:String(p[1]).trim(), k});
+    const term=String(p[0]).trim(), meaning=String(p[1]).trim();
+    const k=nk(term); if(!k || seen.has(k) || deleted.has(k)) continue;
+    if(!exTestable(term, meaning)) continue;
+    seen.add(k); out.push({term, meaning, k});
   }
   return out;
 }
@@ -1003,11 +1033,19 @@ function exWords(uid){
    two options that are both defensible make the item unanswerable, not hard. */
 function exDistract(pool, item, field, taken){
   const right=item[field], rn=norm(right);
+  // A candidate must differ from the item on BOTH fields, not just the one being shown.
+  // Comparing only the displayed field was a real hole: the unit lists אביון, חלכאי, מך and רש
+  // with the same gloss, so a "which word means עני" item happily offered all four - four
+  // correct answers, and the learner is marked wrong for knowing three of them.
+  const other = field==='term' ? 'meaning' : 'term';
+  const on=norm(item[other]);
+  const clash=(a,b)=> a===b || a.includes(b) || b.includes(a);
   const usable=o=>{
     if(o.k===item.k) return false;
     const v=o[field]; if(!v) return false;
-    const vn=norm(v);
-    return vn!==rn && !vn.includes(rn) && !rn.includes(vn);
+    if(clash(norm(v), rn)) return false;
+    const w=o[other];
+    return !(w && clash(norm(w), on));
   };
   // Prefer distractors that aren't another item's answer — reusing one hands out that item's
   // solution a question early. In a unit small enough that the paper covers most of it there
@@ -1052,7 +1090,8 @@ function exBuild(uid){
   // in those slots. Expecting someone to type a three-word idiom letter-perfect measures
   // typing, not vocabulary.
   const oneWord=t=>!/\s/.test(String(t).replace(/\s*\/\s*/g,'/'));
-  picked.sort((a,b)=>(oneWord(a.term)?1:0)-(oneWord(b.term)?1:0));
+  const goodProduce=it=>oneWord(it.term) && !isTranslit(it.meaning, it.term);
+  picked.sort((a,b)=>(goodProduce(a)?1:0)-(goodProduce(b)?1:0));
   // Every answer in the paper, so no distractor can leak one.
   const taken=new Set(picked.map(it=>norm(it.term)).concat(picked.map(it=>norm(it.meaning))));
   return picked.map((it,i)=>{
@@ -1065,7 +1104,12 @@ function exBuild(uid){
       const d=exDistract(pool,it,'term',taken);
       return d.length<3 ? null : {kind, it, prompt:it.meaning, answer:it.term, opts:shuffle([it.term,...d])};
     }
-    return {kind, it, prompt:it.meaning, answer:it.term, opts:null};
+    // A write-in has no options to disambiguate it, so if two words in the unit share a gloss
+    // the prompt genuinely has two right answers — the unit lists both זלזל and פארה as "ענף".
+    // Accept all of them. Marking someone wrong for the synonym they happened to recall is the
+    // exact failure this whole audit was about.
+    const accept=pool.filter(o=>norm(o.meaning)===norm(it.meaning)).map(o=>o.term);
+    return {kind, it, prompt:it.meaning, answer:it.term, opts:null, accept};
   }).filter(Boolean);
 }
 const EX_KIND={recognise:'מה הפירוש?', retrieve:'איזו מילה מתאימה לפירוש?', produce:'כתוב את המילה'};
@@ -1141,13 +1185,22 @@ function exAnswer(ok, given, btn){
     $('#exInput').disabled=true; $('#exSubmit').disabled=true; $('#exSkip').disabled=true;
   }
   const fb=$('#exFb');
+  const alts = (q.accept||[]).filter(t=>t!==q.answer);
   fb.innerHTML=`<div class="v ${ok?'ok':'no'}">${ok?'נכון ✓':'לא נכון'}</div>`+
-    (ok?'':`<div class="rv">התשובה: <b>${esc(q.answer)}</b></div>`);
+    (ok
+      ? (alts.length?`<div class="rv">גם ${alts.map(t=>'<b>'+esc(t)+'</b>').join(' וגם ')} נכון כאן</div>`:'')
+      : `<div class="rv">התשובה: <b>${esc(q.answer)}</b>`+
+        (alts.length?` (גם ${alts.map(esc).join(', ')})`:'')+`</div>`);
   show(fb);
   setTimeout(()=>{ exI++; exRender(); }, ok?420:1100);
 }
+/* any word in the unit that carries this exact gloss counts */
+function exWriteOk(v, q){
+  const list = (q.accept && q.accept.length) ? q.accept : [q.answer];
+  return list.some(t=>isCorrect(v, t));
+}
 $('#exSubmit').onclick=()=>{ const q=exQ[exI]; if(!q||$('#exInput').disabled) return;
-  const v=$('#exInput').value; exAnswer(isCorrect(v, q.answer), v); };
+  const v=$('#exInput').value; exAnswer(exWriteOk(v, q), v); };
 $('#exInput').addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); $('#exSubmit').click(); } });
 $('#exSkip').onclick=()=>{ const q=exQ[exI]; if(!q||$('#exInput').disabled) return; exAnswer(false,''); };
 
