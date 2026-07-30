@@ -129,7 +129,9 @@ const saveAdded   = () => { const ok=LS.set(KEY('hw_added'), added); queueRemote
 const K = t => LANG==='en' ? normEn(t) : norm(t);
 function normEn(s){
   return (s==null?'':String(s)).normalize('NFKC').toLowerCase()
-    .replace(/^(to|a|an|the)\s+/,'').replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ').trim();
+    .trim().replace(/^(to|a|an|the)\s+/,'')        // trim first: a leading space hid the article
+    .replace(/[-–—/]/g,' ')                        // separator, not noise
+    .replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ').trim();
 }
 /* one-time migration: merge existing per-exact-string records into normalized keys.
    Called from boot (norm/NIQ are defined further down the file). */
@@ -272,7 +274,8 @@ function norm(s){
   // NFKC folds Hebrew presentation forms (e.g. U+FB35 ﬡּ) back to letter+dagesh, so a word
   // stored with one can still be typed normally and matched.
   return (s==null?'':String(s)).normalize('NFKC').replace(NIQ,'').replace(/[‎‏]/g,'')
-    .replace(/["'`׳״.,;:!?()\[\]{}\-–—/|]/g,'').replace(/\s+/g,' ').trim()
+    .replace(/[-–—/|]/g,' ')                       // separator, not noise: department-store == department store
+    .replace(/["'`׳״.,;:!?()\[\]{}]/g,'').replace(/\s+/g,' ').trim()
     .replace(/ך/g,'כ').replace(/ם/g,'מ').replace(/ן/g,'נ').replace(/ף/g,'פ').replace(/ץ/g,'צ');
 }
 /* Hebrew is stored vocalised, and stripping niqqud leaves the DEFECTIVE spelling: כֹּפֶר -> כפר.
