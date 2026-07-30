@@ -2040,6 +2040,10 @@ const NOTIF = {
 async function accessOk(){
   let p=null;
   try{ p=await Store.myProfile(); }catch(e){ return true; }
+  /* Deliberately fail-open: a missing profile means the subscription columns aren't deployed
+     yet, or the sign-up trigger did not fire — locking a paying learner out over our own
+     infrastructure fault is worse than a free day. The one path that USED to manufacture a
+     missing profile on purpose (adminDeleteUserData) now clears the row instead of deleting it. */
   if(!p || p.sub_status===undefined) return true;
   if(p.role==='admin') return true;
   const live = (p.sub_status==='active' || p.sub_status==='grace')

@@ -148,13 +148,20 @@ const Store = {
   },
 
   /* Deletes the DATA, not the account: auth.users can only be removed with a
-     service_role key, which must never reach the browser. The caller says so plainly. */
+     service_role key, which must never reach the browser. The caller says so plainly.
+
+     The profiles row is CLEARED, not deleted. handle_new_user only fires on INSERT into
+     auth.users, so a deleted row was never recreated — and accessOk() treats a missing
+     profile as "the subscription columns aren't deployed yet" and lets the user through.
+     Deleting the data therefore handed that account unlimited access forever, which is the
+     exact opposite of what the button says. */
   async adminDeleteUserData(userId) {
     if (!userId) return { ok: false, error: { message: 'חסר מזהה משתמש' } };
     const steps = [
       sb.from('progress').delete().eq('user_id', userId),
       sb.from('feedback').delete().eq('user_id', userId),
-      sb.from('profiles').delete().eq('id', userId),
+      sb.from('profiles').update({ sub_status: 'none', sub_until: null, sub_note: 'הנתונים נמחקו על ידי מנהל' })
+        .eq('id', userId),
     ];
     for (const p of steps) { const { error } = await p; if (error) return { ok: false, error }; }
     return { ok: true };
