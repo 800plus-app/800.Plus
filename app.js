@@ -310,6 +310,12 @@ function fullSpelling(term){
     out+=c;
     if(c!==HOLAM && c!==QUBUTS && c!==HIRIQ) continue;
     const add = c===HIRIQ ? 'י' : 'ו';
+    /* A holam male is already a vav — the mark sits ON it, so the letter comes BEFORE the mark.
+       Looking only forward meant מִכְמוֹרֶת produced מיכמוורת, a non-word, and the ordinary
+       spelling מיכמורת was offered nowhere. 74 terms rejected their own standard spelling.
+       Same bug family as סייס; missed because the earlier fix was written for yod alone. */
+    let b=i-1; while(b>=0 && /[֑-ׇ]/.test(src[b])) b--;
+    if(src[b]===add) continue;
     // look past any further niqqud marks to find the next real letter
     let j=i+1; while(j<src.length && /[֑-ׇ]/.test(src[j])) j++;
     if(src[j]!==add) out+=add;
@@ -351,11 +357,29 @@ function pleneYod(term){
    גִּבֵּן~גָבִין, גִּלְעֵן~גַּלְעִין), meaning a learner asked for one word would be marked
    correct for the other. Five wrong acceptances to rescue one entry is a bad trade, and unlike
    the vav and doubled-yod rules this one cannot be made safe by being permissive. */
-/* Every spelling of a Hebrew term a learner might reasonably type. The two rules compose:
-   a word can need a restored ו and a doubled י at once. */
+const VAV='ו';
+function pleneVav(term){
+  const s=String(term).normalize('NFKC');
+  let out='';
+  for(let i=0;i<s.length;i++){
+    const c=s[i]; out+=c;
+    if(c!==VAV) continue;
+    let j=i+1, marks='';
+    while(j<s.length && /[֑-ׇ]/.test(s[j])){ marks+=s[j]; j++; }
+    if(!marks.split('').some(m=>Y_VOWELS.includes(m)||m===DAGESH)) continue;  // a mater, not a consonant
+    if(s[j]===VAV) continue;                                   // already written double
+    let p=i-1; while(p>=0 && /[֑-ׇ]/.test(s[p])) p--;
+    if(p<0 || !HE_LETTER.test(s[p]) || s[p]===VAV) continue;    // word-initial, or the pair's second half
+    if(!HE_LETTER.test(s[j]||'')) continue;                     // word-final
+    out+=marks+VAV; i=j-1;
+  }
+  return out;
+}
+/* Every spelling of a Hebrew term a learner might reasonably type. The rules compose:
+   a word can need a restored ו, a doubled י and a doubled ו at once. */
 function heForms(x){
-  const f=fullSpelling(x), y=pleneYod(x);
-  return [x, f, y, fullSpelling(y), pleneYod(f)];
+  const f=fullSpelling(x), y=pleneYod(x), v=pleneVav(x);
+  return [x, f, y, v, fullSpelling(y), pleneYod(f), pleneVav(f), fullSpelling(v)];
 }
 /* ===== the gloss must not contain the answer =====
    132 Hebrew glosses name the very word they define — literally (תְּלוּלִית :: ערימה קטנה,
@@ -414,7 +438,15 @@ function isCorrect(input, term){
   // accept slash/comma alternatives ("1st - first", "raise / lift")
   const alts=term.split(/[\/|,]|\s-\s/).flatMap(x=>LANG==='en'?[x]:heForms(x))
                  .map(x=>K(x)).filter(Boolean);
-  return alts.includes(a);
+  if(alts.includes(a)) return true;
+  /* English compounds are written both ways in the wild — best-seller / bestseller,
+     self-confidence / selfconfidence. normEn turns the hyphen into a space, so the closed
+     form matched nothing. Compare with the separators removed as a last resort. */
+  if(LANG==='en'){
+    const squash=x=>String(x).replace(/\s+/g,'');
+    if(alts.some(x=>squash(x)===squash(a))) return true;
+  }
+  return false;
 }
 
 /* ===== screens ===== */
