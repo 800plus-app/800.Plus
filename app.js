@@ -711,6 +711,7 @@ function renderWelcome(){
   $('#enProg').style.width=en.pct+'%';
   $('#heProg').parentElement.title=`למדת ${he.learned} מתוך ${he.total}`;
   $('#enProg').parentElement.title=`למדת ${en.learned} מתוך ${en.total}`;
+  renderBuildTag();
   goto('welcome');
 }
 function enterLang(lang){
@@ -929,6 +930,33 @@ function translateAuthError(err){
   if(/rate limit|too many/i.test(m)) return 'המערכת עמוסה כרגע — נסה שוב בעוד כמה דקות.';
   if(/confirm|not confirmed/i.test(m)) return 'צריך לאשר את מייל האימות לפני ההתחברות.';
   return 'משהו השתבש. בדוק את החיבור לרשת ונסה שוב.';
+}
+
+/* ===== build identity =====
+   Two numbers can disagree: the build this page loaded, and the build sitting on the server.
+   Showing both turns "is it deployed?" from a guess into something you can read. */
+const BUILD = (()=>{
+  const s=(document.querySelector('script[src*="app.js"]')||{}).src||'';
+  return (s.match(/[?&]v=(\d+)/)||[])[1] || '?';
+})();
+
+async function serverBuild(){
+  // cache:'no-store' — asking the network, not the copy this device already holds
+  try{
+    const r=await fetch('index.html?probe='+Date.now(), {cache:'no-store'});
+    if(!r.ok) return null;
+    const html=await r.text();
+    return (html.match(/app\.js\?v=(\d+)/)||[])[1] || null;
+  }catch(e){ return null; }   // offline: leave it unknown rather than claim it matches
+}
+
+async function renderBuildTag(){
+  const el=$('#buildTag'); if(!el) return;
+  el.innerHTML=`גרסה <b>${BUILD}</b>`;
+  const sv=await serverBuild();
+  if(!sv) return;                                   // offline — say nothing rather than guess
+  if(sv===BUILD) el.innerHTML=`גרסה <b>${BUILD}</b> · מסונכרן ✓`;
+  else el.innerHTML=`גרסה <b>${BUILD}</b> · <span class="stale">יש גרסה ${sv} — רענן</span>`;
 }
 
 /* ===== bug reports =====
@@ -1201,12 +1229,10 @@ async function checkSessionAndBoot(){
 /* ===== boot ===== */
 (function boot(){
   try{
-    // רמז ההתקנה הוא כפתור: לחיצה פותחת את חלון ההתקנה המתאים למכשיר.
-    // אחרי בניית ההרשמה, אותה פונקציה תיקרא אוטומטית בסיום ההרשמה.
+    // The install CTA only makes sense when the app isn't installed yet — otherwise it's noise.
     const el=$('#installHint2');
     if(el && !isStandalone() && !LS.get('hw_installed',0)){
-      el.textContent='📲 התקן את האפליקציה במסך הבית';
-      el.style.cssText='cursor:pointer;text-decoration:underline;color:var(--gold);font-weight:500';
+      show(el);
       el.onclick=()=>promptInstall(true);
     }
   }catch(e){}
