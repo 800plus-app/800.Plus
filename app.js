@@ -1713,10 +1713,24 @@ document.querySelectorAll('#authTabs button').forEach(b=>b.onclick=()=>setAuthMo
 const HW_KEYS = ['hw_assoc','hw_stats','hw_deleted','hw_added','hw_dir','hw_migr','hw_size',
                  'hw_assoc_en','hw_stats_en','hw_deleted_en','hw_added_en','hw_dir_en','hw_migr_en','hw_size_en','hw_lang',
                  'hw_name','hw_level'];
+/* Every hw_* key belongs to whoever was signed in when it was written. The old list was
+   hand-maintained and did not know about keys built at runtime — hw_exam:3, hw_exam_en:7,
+   hw_level_he — so exam scores and level results survived a change of account and were shown
+   to the next person. Sweeping by prefix cannot fall behind a new key again. */
+function wipeAccountKeys(){
+  const doomed=[];
+  for(let i=0;i<localStorage.length;i++){
+    const k=localStorage.key(i);
+    if(k && k.startsWith('hw_') && k!=='hw_owner' && k!=='hw_seenIntro' && k!=='hw_instDismissed')
+      doomed.push(k);
+  }
+  doomed.forEach(k=>LS.del(k));
+  return doomed.length;
+}
 function bindCacheToUser(uid){
   const owner = LS.get('hw_owner', null);
   if(owner && owner !== uid){
-    HW_KEYS.forEach(k=>LS.del(k));
+    wipeAccountKeys();
     assoc={}; stats={words:{},sessions:[]}; deleted=new Set(); added=[]; direction='m2w'; LANG=null;
   }
   LS.set('hw_owner', uid);
