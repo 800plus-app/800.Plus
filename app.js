@@ -2013,29 +2013,39 @@ function bindCacheToUser(uid, adopt){
   LS.set('hw_owner', uid);
 }
 
-/* Read the level-test result out of the cloud before the gate looks at it. Both rows are asked
-   for, because the test exists in two languages and either one closes the gate. Kept cheap and
-   fail-safe: a request that does not come back leaves the gate exactly as it was. */
-async function restoreLevelFromCloud(){
+/* Bring the account down from the cloud BEFORE anything is drawn or decided.
+   Two screens read straight out of localStorage — the welcome dashboard (langSummary) and the
+   level-test gate — and on a fresh device localStorage is empty. A returning learner with 188
+   Hebrew and 292 English records was therefore greeted with "0 words · 0 practised" and pushed
+   back into a placement test, while every one of those records sat safe in the cloud. Nothing
+   was ever lost; nothing was fetched either.
+   Fail-safe by construction: only a confirmed read writes anything, and a request that never
+   comes back leaves the device exactly as it was. */
+async function pullAccountState(){
   if(!currentUser || !window.Store) return;
-  // local history counts too: the device may hold progress the cloud has not seen yet
-  for(const lang of ['en','he'])
-    if(hasProgressIn(lang)>=10){ LS.set(levelKeyFor(lang),'skipped'); return; }
-  for(const lang of ['en','he']){
+  for(const lang of ['he','en']){
     let res=null;
     try{ res=await Store.pullProgress(lang); }catch(e){ continue; }
     if(!res || res.ok!==true || !res.data) continue;
-    applyExtras(lang, res.data.extras);
-    if(levelDone()) return;
-    /* Accounts that predate the extras field have no stored result to restore — but a learner
-       with real history plainly does not need a placement test. Progress is the stronger
-       signal, so it closes the gate on its own. */
-    const w=res.data.stats && res.data.stats.words;
-    if(isObj(w) && Object.values(w).filter(r=>isObj(r) && r.seen>0).length>=10){
-      LS.set(levelKeyFor(lang),'skipped');
-      return;
-    }
+    const d=res.data;
+    applyExtras(lang, d.extras);
+    /* Fill only a side that is EMPTY. A side that already holds progress is merged by
+       syncWithRemote when that language is actually entered — with its own normaliser
+       loaded, which is what `added` has to be keyed by. Merging it from here would key it
+       with the wrong one. */
+    if(hasProgressIn(lang)>0) continue;
+    const sk = lang==='en' ? '_en' : '';
+    if(isObj(d.stats))        LS.set('hw_stats'+sk,   d.stats);
+    if(isObj(d.assoc))        LS.set('hw_assoc'+sk,   d.assoc);
+    if(Array.isArray(d.deleted)) LS.set('hw_deleted'+sk, d.deleted);
+    if(Array.isArray(d.added))   LS.set('hw_added'+sk,   d.added);
+    if(d.dir)                 LS.set('hw_dir'+sk,     d.dir);
+    if(lang===LANG) loadLangState();          // the active language is already in memory
   }
+  /* Accounts created before the extras field have no stored test result to restore — but a
+     learner with real history plainly does not need a placement test. */
+  if(!levelDone()) for(const lang of ['en','he'])
+    if(hasProgressIn(lang)>=10){ LS.set(levelKeyFor(lang),'skipped'); break; }
 }
 
 async function afterAuthed(justSignedUp){
@@ -2055,7 +2065,7 @@ async function afterAuthed(justSignedUp){
      which is chosen AFTER this gate. So the gate always read an empty local key and sent the
      learner back through a test they had already finished. The result is now fetched before
      the gate decides, and only a confirmed read counts. */
-  if(!levelDone()) await restoreLevelFromCloud();
+  await pullAccountState();     // the two screens below read localStorage; fill it first
   // First run: offer the level test once. Everything else lands on the language picker.
   if(!levelDone()){ hide($('#lvQuiz')); hide($('#lvResult')); show($('#lvIntro')); goto('level'); }
   else renderWelcome();
