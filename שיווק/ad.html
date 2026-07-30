@@ -1,0 +1,136 @@
+<meta charset="utf-8">
+<title>800+ — פרסומת יום הציונים</title>
+<style>
+  /* 24-second vertical ad for the week psychometric scores are released.
+     ?beat=N renders one beat statically, which is how the MP4 frames are captured. */
+  :root{
+    --ink:#0d0c0a; --ink-2:#191713; --paper:#f2ede1;
+    --gold:#c9962f; --rust:#b5482e; --dim:#8b8172;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  /* every size below is in rem, and the root scales with the viewport — so the same file
+     renders identically at 405px for preview and at 1080px for the video export */
+  html{font-size:3.95vw}
+  html,body{width:100%;height:100%;overflow:hidden;background:#070605}
+  body{font-family:"Heebo","Arial Hebrew",system-ui,sans-serif}
+
+  /* fill the viewport exactly: any centering offset shifted the frame and clipped a column */
+  .stage{position:fixed;inset:0;overflow:hidden;
+    background:radial-gradient(130% 85% at 50% 8%,var(--ink-2) 0%,var(--ink) 55%,#060505 100%);
+    direction:rtl;color:var(--paper)}
+  .stage::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;
+    mix-blend-mode:overlay;
+    background-image:repeating-radial-gradient(circle at 19% 27%,#fff 0 1px,transparent 1px 3px),
+                     repeating-radial-gradient(circle at 73% 63%,#fff 0 1px,transparent 1px 4px)}
+
+  .beat{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+        justify-content:center;gap:1rem;padding:2.5rem 1.9rem;opacity:0;text-align:center}
+
+  .kicker{font-size:.72rem;letter-spacing:.22em;color:var(--dim)}
+  .big{font-family:"Frank Ruhl Libre","David",serif;font-weight:900;
+       font-size:2.15rem;letter-spacing:-.02em;line-height:1.2}
+  .line{font-family:"Frank Ruhl Libre","David",serif;font-weight:900;line-height:1.2;
+        font-size:1.95rem}
+  .line em{font-style:normal;color:var(--gold)}
+  .sub{font-size:.93rem;color:var(--dim);line-height:1.65}
+  .stat{font-size:.95rem;color:var(--paper);line-height:1.6;
+        border-top:1px solid rgba(201,150,47,.3);padding-top:.9rem;margin-top:.25rem}
+  .stat b{color:var(--gold);font-family:"Frank Ruhl Libre",serif;font-size:1.25rem}
+
+  /* beat 2 — score illustration */
+  .rows{width:100%;display:flex;flex-direction:column;gap:.7rem}
+  .row{display:flex;align-items:center;gap:.75rem}
+  .row b{flex:0 0 5.2rem;text-align:start;font-size:.92rem;font-weight:500}
+  .row .bar{flex:1;height:.56rem;border-radius:.31rem;background:rgba(242,237,225,.10);overflow:hidden}
+  .row .bar i{display:block;height:100%;border-radius:.31rem;background:#6f6656}
+  .row.low .bar i{background:linear-gradient(90deg,var(--rust),#d1613f)}
+  .row .n{flex:0 0 2.5rem;text-align:end;font-family:Consolas,monospace;
+          font-size:.9rem;color:var(--dim)}
+  .row.low .n{color:var(--rust)}
+
+  /* beat 4 — the offer */
+  .mech{width:100%;display:flex;flex-direction:column;gap:.56rem}
+  .m{display:flex;align-items:flex-start;gap:.62rem;background:rgba(242,237,225,.05);
+     border:1px solid rgba(201,150,47,.22);border-radius:.75rem;padding:.7rem .8rem;
+     font-size:.85rem;text-align:start;line-height:1.45}
+  .m span{flex:0 0 1.2rem;font-size:1rem;line-height:1.3}
+
+  .huge{font-family:"Frank Ruhl Libre",serif;font-weight:900;color:var(--gold);
+        font-size:4rem;line-height:.95;letter-spacing:-.03em}
+  .mark{font-family:"Frank Ruhl Libre",serif;font-weight:900;letter-spacing:-.04em;
+    font-size:4.4rem;
+    background:linear-gradient(100deg,var(--gold),#e8c67c 42%,var(--rust));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .cta{font-size:1.02rem}
+  .cta b{color:var(--gold)}
+  .url{font-size:.85rem;color:var(--dim);letter-spacing:.06em;direction:ltr}
+
+  /* one beat at a time when ?beat=N is present */
+  body.frozen .beat{opacity:0}
+  body.frozen .beat.on{opacity:1}
+</style>
+
+<div class="stage">
+  <div class="beat" id="b1">
+    <div class="kicker">הציונים יצאו</div>
+    <div class="big">פתחת את המייל.</div>
+    <div class="sub">ואז סגרת אותו מהר.</div>
+  </div>
+
+  <div class="beat" id="b2">
+    <div class="rows">
+      <div class="row"><b>כמותי</b><span class="bar"><i style="width:74%"></i></span><span class="n">128</span></div>
+      <div class="row low"><b>מילולי</b><span class="bar"><i style="width:41%"></i></span><span class="n">104</span></div>
+      <div class="row low"><b>אנגלית</b><span class="bar"><i style="width:38%"></i></span><span class="n">101</span></div>
+    </div>
+    <div class="sub">הכמותי בסדר גמור, בעוד המילולי והאנגלית גוררים את הציון למטה…</div>
+  </div>
+
+  <div class="beat" id="b3">
+    <div class="line">זה לא חוסר יכולת.<br><em>זה אוצר מילים.</em></div>
+    <div class="stat"><b>4 מתוך 6</b> פרקים בפסיכומטרי<br>נשענים על אוצר מילים.</div>
+  </div>
+
+  <div class="beat" id="b4">
+    <div class="line" style="font-size:1.5rem">אז מה אנחנו מציעים?</div>
+    <div class="mech">
+      <div class="m"><span>🎯</span><div>מבחן רמה שבוחן איפה אתה עומד</div></div>
+      <div class="m"><span>📈</span><div>לומדה אדפטיבית שמתכווננת ליכולות שלך</div></div>
+      <div class="m"><span>🔎</span><div>מיקוד במילים השכיחות במבחן</div></div>
+      <div class="m"><span>🧠</span><div>חשיבה אקטיבית על כל מילה — בלי שינון פסיבי</div></div>
+      <div class="m"><span>📄</span><div>מבחן מסכם לכל יחידה, גם בגרסה מודפסת</div></div>
+      <div class="m"><span>📶</span><div>עובד בלי אינטרנט, ומסתנכרן בין המכשירים</div></div>
+    </div>
+  </div>
+
+  <div class="beat" id="b5">
+    <div class="huge">5,413</div>
+    <div class="sub">מילים בעברית ובאנגלית.<br>כמה מהן אתה באמת מכיר?</div>
+  </div>
+
+  <div class="beat" id="b6">
+    <div class="mark"><bdi>800+</bdi></div>
+    <div class="cta">אוצר מילים לפסיכומטרי<br><b>שנשאר איתך</b></div>
+    <div class="url">800-plus.com</div>
+  </div>
+</div>
+
+<script>
+  // ?beat=N freezes a single beat so the frame can be captured for the video
+  const p = new URLSearchParams(location.search).get('beat');
+  if (p) {
+    document.body.classList.add('frozen');
+    const el = document.getElementById('b' + p);
+    if (el) el.classList.add('on');
+  } else {
+    // live preview: 4s per beat, no sweep line, plain cross-fade
+    const beats = [...document.querySelectorAll('.beat')];
+    const DUR = 4000;
+    beats.forEach((b, i) => {
+      b.style.animation = `bt ${DUR * beats.length}ms linear ${DUR * i}ms infinite`;
+    });
+    const st = document.createElement('style');
+    st.textContent = '@keyframes bt{0%{opacity:0}2%{opacity:1}14.5%{opacity:1}16.6%{opacity:0}100%{opacity:0}}';
+    document.head.appendChild(st);
+  }
+</script>
