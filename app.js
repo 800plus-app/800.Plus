@@ -656,6 +656,7 @@ function finishCard(ok, skipped){
      <button class="del-live" id="delLive">🗑 אני מכיר את המילה — מחק מהמאגר</button>
      <div class="actions" style="margin-top:14px"><button class="btn btn-primary" id="nextBtn">${idx+1<deck.length?'הבא ←':'לסיכום'}</button></div>`;
   fb.classList.remove('hidden');
+  let shareKnown=false;          // has the share state been read back successfully?
   function persist(){ const el=$('#assocInput'); if(!el) return; const v=el.value.trim().slice(0,ASSOC_MAX); if(v)assoc[K(w.term)]=v; else delete assoc[K(w.term)]; saveAssoc(); }
   $('#assocSave').onclick=async()=>{
     persist(); $('#assocSt').textContent='נשמר ✓';
@@ -664,8 +665,11 @@ function finishCard(ok, skipped){
     if(box.checked && txt.length>=2){
       const r=await Store.shareAssoc(wLang, wKey, w.term, txt);
       $('#assocSt').textContent = r.ok ? 'נשמר ושותף ✓' : 'נשמר · השיתוף נכשל';
-    } else {
-      await Store.unshareAssoc(wLang, wKey);          // unchecking must actually take it down
+    } else if(shareKnown){
+      /* Only take a share down when we actually KNOW the current state. If the read that fills
+         this checkbox failed, an unchecked box means "we don't know", not "the learner opted
+         out" — and acting on it deleted a share nobody asked to delete. */
+      await Store.unshareAssoc(wLang, wKey);
     }
   };
   $('#assocInput').oninput=()=>$('#assocSt').textContent='';
@@ -675,7 +679,14 @@ function finishCard(ok, skipped){
   const wKey=K(w.term), wLang=LANG;
   const shareBox=$('#assocShare');
   if(shareBox && currentUser){
-    Store.listSharedAssoc(wLang, wKey).then(r=>{ if($('#assocShare')) $('#assocShare').checked = !!r.mine; }).catch(()=>{});
+    /* Check `ok` before trusting `mine`. A failed read returned mine:false, the checkbox
+       cleared itself, and the next save read that box and UNSHARED an association the learner
+       had shared — while the UI said "נשמר ✓". Exactly the bug pullProgress already had. */
+    Store.listSharedAssoc(wLang, wKey).then(r=>{
+      if(!r || r.ok!==true) return;
+      shareKnown=true;
+      if($('#assocShare')) $('#assocShare').checked = !!r.mine;
+    }).catch(()=>{});
   } else if(shareBox){ shareBox.closest('.shr').classList.add('hidden'); }
 
   $('#assocPeek').onclick=async()=>{
@@ -925,8 +936,9 @@ if('serviceWorker' in navigator){
 }
 let updatePending=null;
 /* Reloading mid-round would throw away answers the learner has not committed yet, so the new
-   build is applied only from a screen where nothing is in flight. Otherwise it waits, visibly,
-   and goes in the moment they finish. */
+   build is applied only from a screen where nothing is in flight. Otherwise the bar appears and
+   waits for a tap — deliberately NOT applied automatically when the round ends, because that
+   moment is the results screen and reloading would erase what they are reading. */
 function updateSafeNow(){
   const busy=['quiz','exam','level'];
   return !busy.includes(currentScreenId()) && !(typeof session!=='undefined' && session.size>0 && !committed);
@@ -1667,6 +1679,9 @@ function exFinish(){
   const hist=LS.get(exKey(exUnit),[]);
   const arr=(Array.isArray(hist)?hist:[]).concat([{t:Date.now(), pct, n}]).slice(-20);
   LS.set(exKey(exUnit), arr);
+  // exam history is part of the account's progress, but nothing ever asked for it to be sent —
+  // so scores lived only on the device that produced them
+  queueRemoteSync();
   const missedKeys=missed.map(a=>a.term);
   $('#exPractice').disabled=!missedKeys.length;
   $('#exPractice').onclick=()=>{
@@ -1805,11 +1820,31 @@ function applyExtras(lang, ex){
 }
 
 let syncPending=false;
-function flushRemoteSync(){
+/* Languages whose cloud row has already been read AND merged into this device in this session.
+   Until that has happened the local state is not a superset of the cloud, and pushing it would
+   erase whatever another device wrote. */
+const pulledLangs=new Set();
+async function flushRemoteSync(){
   if(!currentUser || !syncPending) return;
   syncPending=false; clearTimeout(syncTimer);
   if(LANG!=='he' && LANG!=='en') return;        // the row has no key to write to
   const lang=LANG;
+  /* pushProgress is a whole-row upsert. mergeProgress only ever ran inside syncWithRemote,
+     which only runs when a language is entered — so every debounced save in between wrote this
+     device's state straight over the row, and a learner with two devices lost whatever the
+     other one had added. If this language has not been merged yet, read and merge first. */
+  if(!pulledLangs.has(lang)){
+    let res=null;
+    try{ res=await Store.pullProgress(lang); }catch(e){ return; }
+    if(!res || res.ok!==true) return;            // a failed read is never followed by a write
+    if(lang!==LANG) return;                      // language changed while in flight
+    if(res.data){
+      const merged=mergeProgress({assoc,stats,deleted:[...deleted],added,dir:direction}, res.data);
+      assoc=merged.assoc; stats=merged.stats; deleted=new Set(merged.deleted); added=merged.added; direction=merged.dir;
+      saveAssoc(); saveStats(); saveDeleted(); saveAdded(); LS.set(KEY('hw_dir'),direction);
+    }
+    pulledLangs.add(lang);
+  }
   Store.pushProgress(lang, {assoc, stats, deleted:[...deleted], added, dir:direction,
                             extras:collectExtras(lang)}).catch(()=>{});
 }
@@ -1888,6 +1923,7 @@ async function syncWithRemote(lang){
      below always belong to the CURRENT language. Pushing them under `lang` wrote English
      progress into the Hebrew row. */
   if(lang!==LANG) return;
+  pulledLangs.add(lang);        // local now contains the cloud: later pushes may skip the read
   Store.pushProgress(lang, {assoc, stats, deleted:[...deleted], added, dir:direction,
                             extras:collectExtras(lang)}).catch(()=>{});
 }
