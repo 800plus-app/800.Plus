@@ -386,7 +386,7 @@ function openScope(scope){
   if(isUnit){
     const h=LS.get(exKey(scope.slice(5)),[]);
     const last=Array.isArray(h)&&h.length?h[h.length-1]:null;
-    $('#cntExam').textContent = last ? last.pct+'%' : '›';
+    $('#cntExam').textContent = last ? last.pct+'%' : '‹';
     $('#pbExamSub').textContent = last
       ? `ציון אחרון ${last.pct}% · שיא ${Math.max(...h.map(x=>int0(x.pct)))}% · ${h.length===1?'מבחן אחד':h.length+' מבחנים'}`
       : 'ציון על השליטה שלך במילים של היחידה';
@@ -1897,6 +1897,10 @@ async function afterAuthed(justSignedUp){
   // asked after the third day of use, not on arrival: a prompt shown to a stranger gets denied,
   // and a denial in the browser is permanent
   setTimeout(()=>{ if(NOTIF.askable() && streakInfo().total>=2) $('#notifCta').classList.remove('hidden'); }, 1200);
+  /* Refresh the cached reminder on every sign-in. It used to be written once, while asking for
+     permission, and then never again — so the background worker kept announcing a streak the
+     learner had left behind months earlier. */
+  if(NOTIF.granted()) NOTIF.cacheMessage();
   NOTIF.openTimeNudge();
 }
 
@@ -2000,7 +2004,9 @@ const NOTIF = {
      show is written into the cache while the page is alive. */
   async cacheMessage(){
     try{
-      const c = await caches.open('hw-v'+BUILD);
+      // 'hw-data', not the versioned asset cache: the next deploy deletes that one, and this
+      // message is only ever written while asking for permission — which happens exactly once.
+      const c = await caches.open('hw-data');
       await c.put('daily-msg', new Response(JSON.stringify(this.compose()),
         { headers:{'Content-Type':'application/json'} }));
     }catch(e){}
@@ -2027,13 +2033,18 @@ const NOTIF = {
     const today = dayKey(Date.now());
     if(LS.get('hw_notifDay','') === today) return;
     if(streakInfo().today) return;                 // already practised — nothing to nudge
-    LS.set('hw_notifDay', today);
+    /* The day is marked only once the notification has actually been shown. Marking it first
+       and swallowing the rejection meant a failure — the worker not ready yet on a cold open,
+       or permission revoked at OS level — burned the day silently and there was no way to
+       tell the path had stopped working at all. */
+    const m = this.compose();
     navigator.serviceWorker.ready
-      .then(reg => reg.showNotification(this.compose().title, {
-        body: this.compose().body, dir:'rtl', lang:'he',
+      .then(reg => reg.showNotification(m.title, {
+        body: m.body, dir:'rtl', lang:'he',
         icon:'./icon-192.png', badge:'./icon-192.png', tag:'daily-study',
         data:{ url:'./' }
       }))
+      .then(()=>{ LS.set('hw_notifDay', today); })
       .catch(()=>{});
   }
 };

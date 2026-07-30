@@ -2,8 +2,13 @@
    ONE place to bump on every deploy: REV. It names the cache *and* the asset query strings,
    so the URLs precached here are byte-for-byte the URLs index.html requests. When those drift
    apart the app silently keeps serving an old build — which is exactly what used to happen. */
-const REV = '46';
+const REV = '47';
 const V = 'hw-v' + REV;
+/* App DATA must not live in a versioned cache. The personalised reminder text was written into
+   hw-v<REV>, so the next deploy deleted it along with the assets — and it was never rewritten,
+   because the page only writes it while asking for notification permission, which never happens
+   twice. Every reminder after the first deploy fell back to the generic wording, forever. */
+const DATA = 'hw-data';
 const ASSETS = [
   './', './index.html', './manifest.webmanifest',
   `./app.js?v=${REV}`, `./data.js?v=${REV}`, `./data-en.js?v=${REV}`,
@@ -12,12 +17,24 @@ const ASSETS = [
   './icon-192.png', './icon-512.png', './icon-maskable-512.png'
 ];
 
+/* Without these the app cannot start. Everything else is content that the fetch handler will
+   pull in on demand. */
+const CORE = ['./', './index.html', `./app.js?v=${REV}`, `./store.js?v=${REV}`, `./config.js?v=${REV}`];
+
 self.addEventListener('install', e => {
   // cache:'reload' bypasses the HTTP cache, so a new REV can never precache a stale file
+  const load = u => fetch(new Request(u, { cache: 'reload' }))
+    .then(res => { if (!res || res.status !== 200) throw new Error(u); return res; });
   e.waitUntil(
-    caches.open(V)
-      .then(c => c.addAll(ASSETS.map(u => new Request(u, { cache: 'reload' }))))
-      .then(() => self.skipWaiting())
+    caches.open(V).then(async c => {
+      /* addAll is all-or-nothing over ~720KB. One flaky asset on a weak connection rejected the
+         install, the new worker was discarded, and the user stayed on the previous build —
+         precisely the users who are hardest to reach. Only CORE is allowed to fail the install;
+         the rest is best-effort and is fetched on demand anyway. */
+      await Promise.all(CORE.map(u => load(u).then(r => c.put(u, r))));
+      await Promise.all(ASSETS.filter(u => !CORE.includes(u))
+        .map(u => load(u).then(r => c.put(u, r)).catch(() => {})));
+    }).then(() => self.skipWaiting())
   );
 });
 
@@ -101,7 +118,7 @@ self.addEventListener('periodicsync', e => {
     clients.matchAll({ type: 'window', includeUncontrolled: true }).then(async ws => {
       // if the app is already open the user is studying; a notification would be noise
       if (ws.some(w => w.visibilityState === 'visible')) return;
-      const c = await caches.open(V);
+      const c = await caches.open(DATA);
       const r = await c.match('daily-msg');
       return showDaily(r ? await r.json() : null);
     })
