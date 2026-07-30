@@ -13,7 +13,7 @@ AHEAD=$(git rev-list --count @{u}..HEAD 2>/dev/null || echo '?')
 # GitHub Pages serves index.html with max-age=600, so a plain curl can read a stale copy
 # and report a false mismatch. Ask the CDN explicitly not to hand us its cache.
 LIVE_V=$(curl -sS -H 'Cache-Control: no-cache' -H 'Pragma: no-cache' \
-         "https://hagay-bot.github.io/milim/index.html?probe=$RANDOM$(date +%s)" \
+         "https://800-plus.com/index.html?probe=$RANDOM$(date +%s)" \
          | grep -oE 'app\.js\?v=[0-9]+' | head -1 | grep -oE '[0-9]+')
 LIVE_SHA=$(gh api repos/Hagay-BOT/milim/pages/builds/latest --jq '.commit' 2>/dev/null | cut -c1-7)
 LIVE_ST=$(gh api repos/Hagay-BOT/milim/pages/builds/latest --jq '.status' 2>/dev/null)

@@ -12,7 +12,7 @@ gh api -X POST repos/Hagay-BOT/milim/pages -f "source[branch]=main" -f "source[p
 ```
 
 אחרי דקה, הכתובת תהיה:
-**https://hagay-bot.github.io/milim/**
+**https://800-plus.com/**
 
 ## אפשרות ב — דרך האתר (בלי פקודות)
 1. היכנס ל-github.com → New repository → שם: `milim` → Public → Create.
