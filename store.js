@@ -103,6 +103,40 @@ const Store = {
   },
   async adminSendReset(email) { return this.resetPasswordFor(email); },
 
+  /* ---------- shared associations ----------
+     A separate table from the private ones on purpose: an association is personal writing,
+     made under the assumption nobody would read it. Nothing already written is ever copied
+     here — sharing is an explicit act, one association at a time. */
+  async shareAssoc(lang, wordKey, word, text) {
+    const { data: u } = await sb.auth.getUser();
+    if (!u || !u.user) return { ok: false };
+    const body = String(text || '').trim();
+    if (body.length < 2) return { ok: false };
+    const { error } = await sb.from('assoc_shared').upsert(
+      { user_id: u.user.id, lang, word_key: wordKey, word, text: body.slice(0, 300) },
+      { onConflict: 'user_id,lang,word_key' });
+    if (error) { console.warn('shareAssoc failed', error.message); return { ok: false, error }; }
+    return { ok: true };
+  },
+  async unshareAssoc(lang, wordKey) {
+    const { data: u } = await sb.auth.getUser();
+    if (!u || !u.user) return { ok: false };
+    const { error } = await sb.from('assoc_shared').delete()
+      .eq('user_id', u.user.id).eq('lang', lang).eq('word_key', wordKey);
+    return { ok: !error };
+  },
+  async listSharedAssoc(lang, wordKey) {
+    const { data: u } = await sb.auth.getUser();
+    const me = u && u.user ? u.user.id : null;
+    const { data, error } = await sb.from('assoc_shared')
+      .select('id,text,user_id,created_at')
+      .eq('lang', lang).eq('word_key', wordKey)
+      .order('created_at', { ascending: true }).limit(20);
+    if (error) return { ok: false, rows: [], mine: false };
+    return { ok: true, rows: (data || []).filter(r => r.user_id !== me),
+             mine: (data || []).some(r => r.user_id === me) };
+  },
+
   /* Re-authentication. The password is verified BY SUPABASE against the stored hash —
      nothing is compared in the browser and no secret lives in this file. */
   async verifyMyPassword(password) {

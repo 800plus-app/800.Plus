@@ -163,6 +163,18 @@
   @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
   .verdict{font-family:"Frank Ruhl Libre",serif;font-size:1.35rem;font-weight:700}
   .verdict.ok{color:var(--green)} .verdict.no{color:var(--accent)}
+  .assoc-bar .shr{display:inline-flex;align-items:center;gap:5px;font-size:.75rem;
+    color:var(--ink-soft);cursor:pointer;margin-inline-start:10px}
+  .assoc-bar .shr.hidden{display:none!important}
+  .assoc-peek{margin-top:8px;background:transparent;border:1px solid var(--line);
+    border-radius:999px;padding:5px 12px;font-size:.76rem;color:var(--ink-soft);
+    font-family:"Heebo";cursor:pointer}
+  .assoc-peek:hover{border-color:var(--gold);color:var(--ink)}
+  .assoc-others{margin-top:9px;display:flex;flex-direction:column;gap:6px}
+  .assoc-others.hidden{display:none!important}
+  .assoc-others .oth{background:var(--paper-deep);border-radius:10px;padding:8px 11px;
+    font-size:.82rem;line-height:1.5}
+  .assoc-others .oth.empty{color:var(--ink-soft);background:transparent;padding:4px 0}
   .also{margin-top:8px;font-size:.85rem;color:var(--ink-soft)}
   .also b{color:var(--ink);font-weight:600}
   .reveal{margin-top:8px;font-size:1.05rem}
@@ -985,14 +997,14 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="supabase.min.js?v=44"></script>
-<script src="config.js?v=44"></script>
-<script src="store.js?v=44"></script>
-<script src="leveltest-he.js?v=44"></script>
-  <script src="leveltest.js?v=44"></script>
-<script src="enrank.js?v=44"></script>
-<script src="data.js?v=44"></script>
-<script src="data-en.js?v=44"></script>
-<script src="app.js?v=44"></script>
+<script src="supabase.min.js?v=45"></script>
+<script src="config.js?v=45"></script>
+<script src="store.js?v=45"></script>
+<script src="leveltest-he.js?v=45"></script>
+  <script src="leveltest.js?v=45"></script>
+<script src="enrank.js?v=45"></script>
+<script src="data.js?v=45"></script>
+<script src="data-en.js?v=45"></script>
+<script src="app.js?v=45"></script>
 </body>
 </html>

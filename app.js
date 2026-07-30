@@ -524,15 +524,48 @@ function finishCard(ok, skipped){
     `<div class="assoc">
        <label>💡 האסוציאציה שלי ל"${esc(w.term)}"</label>
        <textarea id="assocInput" rows="2" placeholder="קישור/תמונה שיעזרו לזכור…">${esc(assoc[K(w.term)]||'')}</textarea>
-       <div class="assoc-bar"><button id="assocSave">שמירה</button><span class="st" id="assocSt"></span></div>
+       <div class="assoc-bar"><button id="assocSave">שמירה</button>
+         <label class="shr"><input type="checkbox" id="assocShare"> שתף עם לומדים אחרים</label>
+         <span class="st" id="assocSt"></span></div>
+       <button class="assoc-peek" id="assocPeek">👀 מה אחרים כתבו על המילה הזאת</button>
+       <div class="assoc-others hidden" id="assocOthers"></div>
      </div>
      <button class="del-live" id="delLive">🗑 אני מכיר את המילה — מחק מהמאגר</button>
      <div class="actions" style="margin-top:14px"><button class="btn btn-primary" id="nextBtn">${idx+1<deck.length?'הבא ←':'לסיכום'}</button></div>`;
   fb.classList.remove('hidden');
   function persist(){ const el=$('#assocInput'); if(!el) return; const v=el.value.trim().slice(0,ASSOC_MAX); if(v)assoc[K(w.term)]=v; else delete assoc[K(w.term)]; saveAssoc(); }
-  $('#assocSave').onclick=()=>{ persist(); $('#assocSt').textContent='נשמר ✓'; };
+  $('#assocSave').onclick=async()=>{
+    persist(); $('#assocSt').textContent='נשמר ✓';
+    const box=$('#assocShare'); if(!box || !currentUser) return;
+    const txt=($('#assocInput').value||'').trim();
+    if(box.checked && txt.length>=2){
+      const r=await Store.shareAssoc(wLang, wKey, w.term, txt);
+      $('#assocSt').textContent = r.ok ? 'נשמר ושותף ✓' : 'נשמר · השיתוף נכשל';
+    } else {
+      await Store.unshareAssoc(wLang, wKey);          // unchecking must actually take it down
+    }
+  };
   $('#assocInput').oninput=()=>$('#assocSt').textContent='';
   $('#nextBtn').onclick=()=>{ persist(); next(); };
+  /* Sharing is per-association and starts OFF. Everything written before this feature existed
+     was written privately, and none of it is ever published retroactively. */
+  const wKey=K(w.term), wLang=LANG;
+  const shareBox=$('#assocShare');
+  if(shareBox && currentUser){
+    Store.listSharedAssoc(wLang, wKey).then(r=>{ if($('#assocShare')) $('#assocShare').checked = !!r.mine; }).catch(()=>{});
+  } else if(shareBox){ shareBox.closest('.shr').classList.add('hidden'); }
+
+  $('#assocPeek').onclick=async()=>{
+    const box=$('#assocOthers'); if(!box) return;
+    if(!currentUser){ box.textContent='צריך חשבון כדי לראות אסוציאציות של לומדים אחרים.'; box.classList.remove('hidden'); return; }
+    box.classList.remove('hidden'); box.textContent='טוען…';
+    const r=await Store.listSharedAssoc(wLang, wKey);
+    if(!r.ok){ box.textContent='לא ניתן לטעון כרגע.'; return; }
+    box.innerHTML = r.rows.length
+      ? r.rows.map(x=>`<div class="oth">${esc(x.text)}</div>`).join('')
+      : '<div class="oth empty">עוד אף אחד לא שיתף כאן. אתה יכול להיות הראשון.</div>';
+  };
+
   const wr=$('#wasRight'); if(wr) wr.onclick=()=>{ correct++; const i=missed.indexOf(w); if(i>=0)missed.splice(i,1); e.mastered=true; e.firstTry=(e.attempts===1); $('#qLive').textContent=`✓ ${correct}`; wr.remove(); document.querySelector('.verdict').textContent='סומן כנכון ✓'; document.querySelector('.verdict').className='verdict ok'; };
   $('#delLive').onclick=()=>{ const k=K(w.term); deleteWord(w.term); toast(`"${w.term}" נמחקה`); deck=deck.filter(c=>K(c.term)!==k); missed=missed.filter(c=>K(c.term)!==k); session.delete(k); if(deck.length===0){ finishRound(); return; } if(idx>=deck.length) idx=deck.length-1; next(true); };
 }
