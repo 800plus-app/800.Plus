@@ -758,29 +758,26 @@ function streakInfo(){
 function renderWelcome(){
   const name=(LS.get('hw_name','')||'').trim();
   $('#greet').textContent = name ? greeting()+', '+name : greeting()+'!';
-  const he=langSummary('he'), en=langSummary('en');
-  $('#heCount').textContent=he.total+' מילים';
-  $('#enCount').textContent=en.total+' מילים';
-  $('#heProg').style.width=he.pct+'%';
-  $('#enProg').style.width=en.pct+'%';
-  $('#heProg').parentElement.title=`למדת ${he.learned} מתוך ${he.total}`;
-  $('#enProg').parentElement.title=`למדת ${en.learned} מתוך ${en.total}`;
+  /* Each language reports its own numbers. Averaging 1,713 Hebrew words with 3,694 English
+     ones produced a single percentage that described neither. */
+  for(const [lang, s] of [['he', langSummary('he')], ['en', langSummary('en')]]){
+    $('#'+lang+'Pct').textContent     = s.pct+'%';
+    $('#'+lang+'Learned').textContent = s.learned;
+    $('#'+lang+'Pract').textContent   = s.practised;
+    $('#'+lang+'Count').textContent   = 'מתוך '+s.total;
+    $('#'+lang+'Prog').style.width    = s.pct+'%';
+    $('#'+lang+'Prog').parentElement.title = `למדת ${s.learned} מתוך ${s.total}`;
+  }
 
   const st=streakInfo();
-  const learned=he.learned+en.learned, total=he.total+en.total;
-  const seen=he.practised+en.practised;
+  const days = n => n===1 ? 'יום רצוף' : 'ימים רצוף';
   $('#dStreak').textContent=st.n;
-  $('#dLearned').textContent=learned;
-  $('#dSeen').textContent=seen;
-  const pct=total?Math.round(100*learned/total):0;
-  $('#dTotalLbl').textContent=`${learned} מתוך ${total} מילים — עברית ואנגלית יחד`;
-  $('#dTotalPct').textContent=pct+'%';
-  $('#dTotalBar').style.width=pct+'%';
+  $('#dStreakLbl').textContent=days(st.n);
   $('#dWeek').innerHTML=st.week.map(on=>`<i class="${on?'on':''}"></i>`).join('');
   $('#greetSub').textContent =
     st.n===0   ? 'מוכן לתרגל? בחר את השפה שתרצה לתרגל היום'
-  : st.today   ? `כבר תרגלת היום — ${st.n} ימים רצוף. כל הכבוד.`
-               : `${st.n} ימים רצוף. תרגול קצר היום שומר על הרצף.`;
+  : st.today   ? `כבר תרגלת היום — ${st.n} ${days(st.n)}. כל הכבוד.`
+               : `${st.n} ${days(st.n)}. תרגול קצר היום שומר על הרצף.`;
   renderBuildTag();
   goto('welcome');
 }
@@ -1322,7 +1319,7 @@ $('#exExit').onclick=()=>{ if(!exAns.length || confirm('לצאת מהמבחן? �
    "all rights reserved" over someone else's content is both false and the kind of claim
    that invites the wrong letter. See the note in משימות.md. */
 const SHEET_YEAR = new Date().getFullYear();
-const SHEET_RIGHTS = `© ${SHEET_YEAR} 800+ · עיצוב הדף והאפליקציה — כל הזכויות שמורות · `+
+const SHEET_RIGHTS = `© ${SHEET_YEAR} <bdi>800+</bdi> · עיצוב הדף והאפליקציה — כל הזכויות שמורות · `+
   `מותר לשימוש אישי ולימודי · אין למכור או להפיץ בתשלום`;
 
 /* size=0 means the whole unit. A full English unit is ~380 words, which is a real worksheet
@@ -1347,8 +1344,8 @@ function buildSheet(uid, size){
   const a = it => askTerm ? it.meaning : it.term;
   $('#sheet').innerHTML=`
     <div class="sh-page">
-      <h1>800+ — מבחן ${langName}, יחידה ${uid}</h1>
-      <div class="sh-meta">${n===pool.length?`כל ${n} מילות היחידה`:`${n} מילים מתוך ${pool.length}`} · ${date} · 800+</div>
+      <h1><bdi>800+</bdi> — מבחן ${langName}, יחידה ${uid}</h1>
+      <div class="sh-meta">${n===pool.length?`כל ${n} מילות היחידה`:`${n} מילים מתוך ${pool.length}`} · ${date} · <bdi>800+</bdi></div>
       <div class="sh-fill"><span>שם:</span><span>תאריך:</span><span>ציון: ____ / ${n}</span></div>
       <div class="sh-inst">${askTerm
         ? 'כתוב את הפירוש של כל מילה. תשובה חלקית שמעבירה את המשמעות — נקודה מלאה.'
@@ -1651,13 +1648,17 @@ $('#authForgot').onclick=async ()=>{
   try{ await Store.resetPasswordFor(email); msg.className='au-msg ok'; msg.textContent='אם הכתובת רשומה, נשלח אליה קישור לאיפוס סיסמה.'; }
   catch(e){ msg.className='au-msg err'; msg.textContent='שגיאה בשליחה — נסה שוב.'; }
 };
-$('#signOutBtn').onclick=async ()=>{
+/* The welcome screen is now a real landing page, so sign-out and the admin panel
+   have to be reachable from it too — not only from inside a language. */
+const signOutNow = async ()=>{
   if(!committed && session.size>0) commitSession();
   try{ await Store.signOut(); }catch(e){}
   hide($('#fbFab'));
   localStorage.clear();          // the local cache belongs to this account; never let it bleed into the next login
   location.reload();
 };
+$('#signOutBtn').onclick  = signOutNow;
+$('#signOutBtn2').onclick = signOutNow;
 
 /* ===== admin dashboard — who signed up, when, how far they got.
    Deliberately has no way to reveal a password: none is stored in readable form. ===== */
@@ -1666,6 +1667,7 @@ async function showAdminIfAllowed(){
   isAdmin=false;
   try{ const p=await Store.myProfile(); isAdmin = !!(p && p.role==='admin'); }catch(e){}
   $('#adminBtn').classList.toggle('hidden', !isAdmin);
+  $('#adminBtn2').classList.toggle('hidden', !isAdmin);
 }
 const fmtDate = t => t ? new Date(t).toLocaleDateString('he-IL',{day:'2-digit',month:'2-digit',year:'2-digit'})
                         +' '+new Date(t).toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'}) : '—';
@@ -1748,6 +1750,7 @@ async function renderAdminFeedback(){
   });
 }
 $('#adminBtn').onclick=openAdmin;
+$('#adminBtn2').onclick=openAdmin;
 
 async function checkSessionAndBoot(){
   let sess=null;
