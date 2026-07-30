@@ -311,12 +311,47 @@ function fullSpelling(term){
   }
   return out;
 }
+/* The second half of the same problem. Unvocalised Hebrew also DOUBLES a consonantal yod
+   inside a word — סייס, מניין, קניין, עיניים, צרכנייה — and stripping niqqud leaves one yod,
+   so a learner typing the ordinary modern spelling was marked wrong. 64 terms in the bank.
+   Again the niqqud decides rather than a guess: a yod carrying a vowel or a dagesh is a
+   consonant; a bare yod after a hiriq is a mater lectionis and is left alone.
+
+   Deliberately permissive. The rule over-applies to a handful of conventional spellings
+   (היה, עין), so those get accepted in both forms — and accepting one extra spelling costs
+   nothing, while rejecting the standard one costs the learner a word they actually knew. */
+const YOD='י', DAGESH='ּ';
+const Y_VOWELS='ְֱֲֳִֵֶַָֹֻ';
+const HE_LETTER=/[א-ת]/;
+function pleneYod(term){
+  const s=String(term).normalize('NFKC');
+  let out='';
+  for(let i=0;i<s.length;i++){
+    const c=s[i]; out+=c;
+    if(c!==YOD) continue;
+    let j=i+1, marks='';
+    while(j<s.length && /[֑-ׇ]/.test(s[j])){ marks+=s[j]; j++; }
+    if(!marks.split('').some(m=>Y_VOWELS.includes(m)||m===DAGESH)) continue;  // a mater, not a consonant
+    if(s[j]===YOD) continue;                                   // already written double
+    let p=i-1; while(p>=0 && /[֑-ׇ]/.test(s[p])) p--;
+    if(p<0 || !HE_LETTER.test(s[p]) || s[p]===YOD) continue;   // word-initial, or the pair's second half
+    if(!HE_LETTER.test(s[j]||'')) continue;                    // word-final
+    out+=marks+YOD; i=j-1;
+  }
+  return out;
+}
+/* Every spelling of a Hebrew term a learner might reasonably type. The two rules compose:
+   a word can need a restored ו and a doubled י at once. */
+function heForms(x){
+  const f=fullSpelling(x), y=pleneYod(x);
+  return [x, f, y, fullSpelling(y), pleneYod(f)];
+}
 function isCorrect(input, term){
   const a=K(input); if(!a) return false;
   if(a===K(term)) return true;
-  if(LANG!=='en' && a===K(fullSpelling(term))) return true;   // כופר for כֹּפֶר
+  if(LANG!=='en' && heForms(term).some(v=>K(v)===a)) return true;   // כופר for כֹּפֶר, סייס for סַיָּס
   // accept slash/comma alternatives ("1st - first", "raise / lift")
-  const alts=term.split(/[\/|,]|\s-\s/).flatMap(x=>LANG==='en'?[x]:[x,fullSpelling(x)])
+  const alts=term.split(/[\/|,]|\s-\s/).flatMap(x=>LANG==='en'?[x]:heForms(x))
                  .map(x=>K(x)).filter(Boolean);
   return alts.includes(a);
 }
