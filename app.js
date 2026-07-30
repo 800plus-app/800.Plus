@@ -1343,8 +1343,15 @@ function lvApplyKnown(level){
       try{
         const res=await Store.pullProgress('en');
         if(!res || res.ok!==true) return;
-        const m = res.data ? mergeProgress(snap, res.data) : snap;
-        await Store.pushProgress('en', {...m, extras:snap.extras});
+        let m=snap;
+        if(res.data){
+          /* mergeProgress keys `added` through K(), which reads the CURRENT language — and by
+             the time this resolves LANG is back to Hebrew. Pin it for the merge itself. */
+          const here=LANG; LANG='en';
+          try{ m=mergeProgress(snap, res.data); } finally { LANG=here; }
+          applyExtras('en', res.data.extras);
+        }
+        await Store.pushProgress('en', {...m, extras:collectExtras('en')});
       }catch(e){}
     })();
   }
@@ -1840,7 +1847,7 @@ let syncPending=false;
 const pulledLangs=new Set();
 async function flushRemoteSync(){
   if(!currentUser || !syncPending) return;
-  syncPending=false; clearTimeout(syncTimer);
+  clearTimeout(syncTimer);
   if(LANG!=='he' && LANG!=='en') return;        // the row has no key to write to
   const lang=LANG;
   /* pushProgress is a whole-row upsert. mergeProgress only ever ran inside syncWithRemote,
@@ -1856,11 +1863,23 @@ async function flushRemoteSync(){
       const merged=mergeProgress({assoc,stats,deleted:[...deleted],added,dir:direction}, res.data);
       assoc=merged.assoc; stats=merged.stats; deleted=new Set(merged.deleted); added=merged.added; direction=merged.dir;
       saveAssoc(); saveStats(); saveDeleted(); saveAdded(); LS.set(KEY('hw_dir'),direction);
+      /* mergeProgress covers stats/assoc/deleted/added — it knows nothing about extras. Without
+         this, collectExtras below read a device that had never seen the other one's exam
+         history and pushed right over it. applyExtras is additive, so this only ever adds. */
+      applyExtras(lang, res.data.extras);
     }
     pulledLangs.add(lang);
   }
-  Store.pushProgress(lang, {assoc, stats, deleted:[...deleted], added, dir:direction,
-                            extras:collectExtras(lang)}).catch(()=>{});
+  /* Cleared here and nowhere earlier. Clearing it at the top meant that a flush which bailed
+     out — no language chosen yet, or a read that failed — threw the pending save away, and
+     nothing ever retried it. Every early return above now leaves the save queued.
+     Awaited, not fire-and-forget: signOutNow calls this and then runs localStorage.clear(),
+     so returning before the write lands would erase the only other copy of the session. */
+  syncPending=false;
+  try{
+    await Store.pushProgress(lang, {assoc, stats, deleted:[...deleted], added, dir:direction,
+                                    extras:collectExtras(lang)});
+  }catch(e){}
 }
 function queueRemoteSync(){
   if(!currentUser) return;
@@ -2138,11 +2157,16 @@ async function pullAccountState(){
        with the wrong one. */
     if(hasProgressIn(lang)>0) continue;
     const sk = lang==='en' ? '_en' : '';
-    if(isObj(d.stats))        LS.set('hw_stats'+sk,   d.stats);
-    if(isObj(d.assoc))        LS.set('hw_assoc'+sk,   d.assoc);
-    if(Array.isArray(d.deleted)) LS.set('hw_deleted'+sk, d.deleted);
-    if(Array.isArray(d.added))   LS.set('hw_added'+sk,   d.added);
-    if(d.dir)                 LS.set('hw_dir'+sk,     d.dir);
+    /* Each key is filled only if it is EMPTY here. An earlier version keyed the whole decision
+       off the stats side, so a visitor who had added or deleted words without practising yet
+       had that work overwritten by the cloud copy. */
+    const empty = (k,isArr) => { const v=LS.get(k, null);
+      return v==null || (isArr ? (!Array.isArray(v) || !v.length) : !Object.keys(isObj(v)?v:{}).length); };
+    if(isObj(d.stats))           LS.set('hw_stats'+sk,   d.stats);
+    if(isObj(d.assoc)   && empty('hw_assoc'+sk,false))   LS.set('hw_assoc'+sk,   d.assoc);
+    if(Array.isArray(d.deleted) && empty('hw_deleted'+sk,true)) LS.set('hw_deleted'+sk, d.deleted);
+    if(Array.isArray(d.added)   && empty('hw_added'+sk,true))   LS.set('hw_added'+sk,   d.added);
+    if(d.dir && LS.get('hw_dir'+sk,null)==null) LS.set('hw_dir'+sk, d.dir);
     if(lang===LANG) loadLangState();          // the active language is already in memory
   }
   /* Accounts created before the extras field have no stored test result to restore — but a
@@ -2222,11 +2246,14 @@ const signOutNow = async ()=>{
   /* The local copy is about to be erased, and a debounced push may still be pending — or an
      earlier one may have failed silently, since pushProgress returns false instead of throwing
      and nothing retried it. Flush once, wait for it, and only then clear. */
+  /* This used to push straight to the cloud with no read and no merge — the single most
+     destructive moment to do that, since localStorage.clear() below removes the only other
+     copy. Routed through flushRemoteSync, which reads and merges first when this language has
+     not been reconciled yet, and refuses to write at all after a failed read. */
   try{
     if(currentUser && (LANG==='he' || LANG==='en')){
-      clearTimeout(syncTimer);
-      await Store.pushProgress(LANG, {assoc, stats, deleted:[...deleted], added, dir:direction,
-                                      extras:collectExtras(LANG)});
+      syncPending=true;
+      await flushRemoteSync();
     }
   }catch(e){}
   try{ await Store.signOut(); }catch(e){}
