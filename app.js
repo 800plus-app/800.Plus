@@ -943,8 +943,15 @@ function lvFinish(){
   // offer to skip words below the tested level — only with explicit consent.
   // hide() first: without it a previous run's offer stays on screen with a stale count.
   hide($('#lvOffer'));
-  // the skip offer rests on frequency ranks, which exist only for English
-  const skippable = LV_LANG==='en' ? lvCountKnown(level) : 0;
+  /* The offer is for someone STARTING OUT. Once an account holds practice history the test
+     is a measurement, not a setup step — and offering to rewrite that history is how a real
+     account lost 2,470 records. Ranks exist only for English, so Hebrew never qualifies. */
+  const already = hasProgressIn('en');
+  const skippable = (LV_LANG==='en' && already < 10) ? lvCountKnown(level) : 0;
+  if(LV_LANG==='en' && already >= 10){
+    $('#lvOfferText').innerHTML='';
+    console.info('[lv] הצעת הדילוג הושמטה — לחשבון כבר יש '+already+' מילים עם התקדמות');
+  }
   if(skippable>=40){
     show($('#lvOffer'));
     $('#lvOfferText').innerHTML=`מצאתי <b>${skippable}</b> מילים באנגלית שברמה שלך כמעט בוודאי כבר מוכרות לך.
@@ -969,17 +976,35 @@ function lvCountKnown(level){
   }
   return n;
 }
+/* Does this account already hold real practice history in `lang`?
+   Read straight from storage: the caller may be standing in the OTHER language, and
+   switching LANG just to count would be a side effect on a read. */
+function hasProgressIn(lang){
+  try{
+    const raw=LS.get(lang==='en' ? 'hw_stats_en' : 'hw_stats', null);
+    const w=(isObj(raw) && isObj(raw.words)) ? raw.words : null;
+    if(!w) return 0;
+    let n=0; for(const k in w){ const r=w[k]; if(isObj(r) && Number(r.seen)>0) n++; }
+    return n;
+  }catch(e){ return 0; }
+}
+
+/* Marks words as already known. TWO rules exist because breaking either one destroyed a
+   real account: a level test wrote {seen:1,wrong:0,level:3} over 2,470 words and erased
+   every practice count behind them.
+   1. An existing record is NEVER touched — not even a weak one. History outranks a guess.
+   2. Records written here carry src:'lv', so a mistaken run can always be told apart from
+      genuine practice and undone. Without that marker the two are indistinguishable. */
 function lvApplyKnown(level){
   const cut=LV_CUT[level]; if(!cut) return 0;
   const wasLang=LANG;
   LANG='en'; loadLangState();
-  const data=window.UNIT_DATA_EN||{}; let n=0;
+  const data=window.UNIT_DATA_EN||{}; let n=0; const stamp=Date.now();
   for(const u in data) for(const p of (data[u]||[])){
     const r=lvRankOf(p[0]); if(!(r && r<=cut)) continue;
     const k=normEn(p[0]); if(!k) continue;
-    const rec=stats.words[k];
-    if(rec && rec.level>=3) continue;                  // already known — leave as is
-    stats.words[k]={seen:1,first:1,ever:1,wrong:0,level:3,last:Date.now()};
+    if(stats.words[k]) continue;                       // any history at all — leave it alone
+    stats.words[k]={seen:1,first:1,ever:1,wrong:0,level:3,last:stamp,src:'lv'};
     n++;
   }
   saveStats();
