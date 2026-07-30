@@ -965,7 +965,10 @@ const LV_BLOCK=6, LV_PASS=5, LV_START='B1';
 let lvDeck=[], lvIdx=0, lvAns=[];
 let lvBand=LV_START, lvBlock=[], lvBlockOk=0, lvPassed=null, lvFailedUp=false, lvSeen=new Set();
 
-function levelDone(){ return LS.get('hw_level', null); }
+/* The test exists in both languages and writes to two different keys, but this gate read only
+   the English one — so a learner who finished the Hebrew test was sent back to the level screen
+   on every sign-in, and the Hebrew result was stored and never used for anything. */
+function levelDone(){ return LS.get('hw_level', null) || LS.get('hw_level_he', null); }
 
 /* The test now exists in both languages. LV_LANG says which bank is being answered;
    everything downstream (the result key, the skip offer, the speaker button) reads it. */
@@ -1578,11 +1581,50 @@ $('#sheetAsk').onclick=e=>{ if(e.target===$('#sheetAsk')){ sheetUid=null; hide($
    This is the ONLY place app.js touches Store; everything else stays pure UI. */
 let currentUser=null, syncTimer=null;
 
+/* Progress is more than hw_stats. The level-test result, the unit-exam history and the round
+   size were written to localStorage only, so "one account and your progress follows you"
+   stopped being true at the language gate: a second device sent the learner back through a
+   level test they had already finished, and their exam scores were simply absent. The keys are
+   per-language, so they are collected under the language the row is keyed by — never the
+   language that happens to be loaded when the debounced push fires. */
+const levelKeyFor = lang => lang==='he' ? 'hw_level_he' : 'hw_level';
+const examPreFor  = lang => 'hw_exam'+(lang==='en'?'_en':'')+':';
+const sizeKeyFor  = lang => lang==='en' ? 'hw_size_en' : 'hw_size';
+function collectExtras(lang){
+  const exams={}, pre=examPreFor(lang);
+  for(let i=0;i<localStorage.length;i++){
+    const k=localStorage.key(i);
+    if(k && k.startsWith(pre)) exams[k.slice(pre.length)]=LS.get(k,[]);
+  }
+  return { level:LS.get(levelKeyFor(lang),null), size:LS.get(sizeKeyFor(lang),null), exams };
+}
+/* Same rule as mergeProgress: additive only. A local value already present is never replaced,
+   so a device that is ahead can't be pulled backwards by an older row. */
+function applyExtras(lang, ex){
+  if(!isObj(ex)) return;
+  if(ex.level && !LS.get(levelKeyFor(lang),null)) LS.set(levelKeyFor(lang), ex.level);
+  if(ex.size!=null && LS.get(sizeKeyFor(lang),null)==null) LS.set(sizeKeyFor(lang), ex.size);
+  if(!isObj(ex.exams)) return;
+  const pre=examPreFor(lang);
+  for(const u of Object.keys(ex.exams)){
+    const rem=Array.isArray(ex.exams[u])?ex.exams[u]:[];
+    const loc=LS.get(pre+u,[]);
+    const seen=new Set();
+    const all=[...(Array.isArray(loc)?loc:[]),...rem].filter(isObj)
+      .filter(x=>{ const id=[x.t,x.pct,x.n].join('|'); if(seen.has(id)) return false; seen.add(id); return true; })
+      .sort((a,b)=>(Number(a.t)||0)-(Number(b.t)||0)).slice(-20);
+    LS.set(pre+u, all);
+  }
+}
+
 let syncPending=false;
 function flushRemoteSync(){
   if(!currentUser || !syncPending) return;
   syncPending=false; clearTimeout(syncTimer);
-  Store.pushProgress(LANG, {assoc, stats, deleted:[...deleted], added, dir:direction}).catch(()=>{});
+  if(LANG!=='he' && LANG!=='en') return;        // the row has no key to write to
+  const lang=LANG;
+  Store.pushProgress(lang, {assoc, stats, deleted:[...deleted], added, dir:direction,
+                            extras:collectExtras(lang)}).catch(()=>{});
 }
 function queueRemoteSync(){
   if(!currentUser) return;
@@ -1646,6 +1688,7 @@ async function syncWithRemote(lang){
      enough to erase everything the account had. Only a confirmed read may be followed by a write. */
   if(!res || res.ok!==true) return;
   const remote=res.data;
+  if(remote) applyExtras(lang, remote.extras);   // level / exams / size are not language-loaded state
   if(remote && lang===LANG){
     const before = added.length;
     const merged=mergeProgress({assoc,stats,deleted:[...deleted],added,dir:direction}, remote);
@@ -1658,7 +1701,8 @@ async function syncWithRemote(lang){
      below always belong to the CURRENT language. Pushing them under `lang` wrote English
      progress into the Hebrew row. */
   if(lang!==LANG) return;
-  Store.pushProgress(lang, {assoc, stats, deleted:[...deleted], added, dir:direction}).catch(()=>{});
+  Store.pushProgress(lang, {assoc, stats, deleted:[...deleted], added, dir:direction,
+                            extras:collectExtras(lang)}).catch(()=>{});
 }
 
 function translateAuthError(err){
@@ -1716,7 +1760,7 @@ function fbContext(){
     screen: currentScreenId(),
     lang: LANG||'—',
     build: (v.match(/v=(\d+)/)||[])[1] || '?',
-    level: LS.get('hw_level',null),
+    level: LS.get('hw_level',null) || LS.get('hw_level_he',null),
     standalone: isStandalone(),
     viewport: innerWidth+'×'+innerHeight,
     ua: navigator.userAgent.slice(0,160)
@@ -1891,7 +1935,8 @@ const signOutNow = async ()=>{
   try{
     if(currentUser && (LANG==='he' || LANG==='en')){
       clearTimeout(syncTimer);
-      await Store.pushProgress(LANG, {assoc, stats, deleted:[...deleted], added, dir:direction});
+      await Store.pushProgress(LANG, {assoc, stats, deleted:[...deleted], added, dir:direction,
+                                      extras:collectExtras(LANG)});
     }
   }catch(e){}
   try{ await Store.signOut(); }catch(e){}
