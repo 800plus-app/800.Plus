@@ -80,8 +80,13 @@ const isObj = v => v && typeof v==='object' && !Array.isArray(v);
 const int0  = (v,max) => { const n=Math.trunc(Number(v)); if(!Number.isFinite(n)||n<0) return 0; return max==null?n:Math.min(n,max); };
 function saneRec(r){
   if(!isObj(r)) r={};
-  return { seen:int0(r.seen), first:int0(r.first), ever:int0(r.ever),
-           wrong:int0(r.wrong), level:int0(r.level,3), last:int0(r.last) };
+  const out={ seen:int0(r.seen), first:int0(r.first), ever:int0(r.ever),
+              wrong:int0(r.wrong), level:int0(r.level,3), last:int0(r.last) };
+  /* `src` marks a record the LEVEL TEST wrote rather than the learner. Dropping it here erased
+     the marker on the first load, which is exactly the information needed to undo a level test
+     that was taken by the wrong person — the incident this field was added for. */
+  if(r.src) out.src=String(r.src).slice(0,8);
+  return out;
 }
 function loadLangState(){
   const a=LS.get(KEY('hw_assoc'), {});
@@ -1841,20 +1846,16 @@ function applyExtras(lang, ex){
 }
 
 let syncPending=false;
-/* Languages whose cloud row has already been read AND merged into this device in this session.
-   Until that has happened the local state is not a superset of the cloud, and pushing it would
-   erase whatever another device wrote. */
-const pulledLangs=new Set();
 async function flushRemoteSync(){
   if(!currentUser || !syncPending) return;
   clearTimeout(syncTimer);
   if(LANG!=='he' && LANG!=='en') return;        // the row has no key to write to
   const lang=LANG;
-  /* pushProgress is a whole-row upsert. mergeProgress only ever ran inside syncWithRemote,
-     which only runs when a language is entered — so every debounced save in between wrote this
-     device's state straight over the row, and a learner with two devices lost whatever the
-     other one had added. If this language has not been merged yet, read and merge first. */
-  if(!pulledLangs.has(lang)){
+  /* pushProgress is a whole-row upsert, so EVERY write must be preceded by a read. An earlier
+     version merged once per language and then wrote blind for the rest of the page's life —
+     which still lost whatever the other device wrote in between. One extra request per
+     debounced save is a cheap price for not overwriting a paying user's work. */
+  {
     let res=null;
     try{ res=await Store.pullProgress(lang); }catch(e){ return; }
     if(!res || res.ok!==true) return;            // a failed read is never followed by a write
@@ -1868,7 +1869,6 @@ async function flushRemoteSync(){
          history and pushed right over it. applyExtras is additive, so this only ever adds. */
       applyExtras(lang, res.data.extras);
     }
-    pulledLangs.add(lang);
   }
   /* Cleared here and nowhere earlier. Clearing it at the top meant that a flush which bailed
      out — no language chosen yet, or a read that failed — threw the pending save away, and
@@ -1956,7 +1956,6 @@ async function syncWithRemote(lang){
      below always belong to the CURRENT language. Pushing them under `lang` wrote English
      progress into the Hebrew row. */
   if(lang!==LANG) return;
-  pulledLangs.add(lang);        // local now contains the cloud: later pushes may skip the read
   Store.pushProgress(lang, {assoc, stats, deleted:[...deleted], added, dir:direction,
                             extras:collectExtras(lang)}).catch(()=>{});
 }
