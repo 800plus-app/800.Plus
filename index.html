@@ -62,6 +62,8 @@
   .welcome-head{text-align:center;margin-bottom:30px}
   .w-title{font-size:clamp(2rem,7vw,2.9rem);font-weight:900;line-height:1.15;margin-top:4px}
   .w-sub{color:var(--ink-soft);font-size:.95rem;margin-top:8px}
+  .lv-open-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+  @media (max-width:400px){ .lv-open-row{grid-template-columns:1fr} }
   .lang-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   @media(max-width:420px){.lang-cards{grid-template-columns:1fr}}
   .lang-card{
@@ -599,7 +601,10 @@
         </div>
       </button>
     </div>
-    <button class="btn btn-ghost btn-block" id="lvOpen" style="margin-top:16px">🎯 מבחן רמה באנגלית</button>
+    <div class="lv-open-row">
+      <button class="btn btn-ghost" id="lvOpen">🎯 מבחן רמה באנגלית</button>
+      <button class="btn btn-ghost" id="lvOpenHe">🎯 מבחן רמה בעברית</button>
+    </div>
     <button class="install-cta hidden" id="notifCta">
       <span class="ic">🔔</span>
       <span class="tx"><b>תזכורת יומית בבוקר</b><em>הודעה קצרה שמזכירה לתרגל ומראה את ההתקדמות</em></span>
@@ -621,7 +626,7 @@
 
     <div id="lvIntro">
       <div class="welcome-head" style="margin-top:8vh">
-        <div class="kicker">מבחן רמה</div>
+        <div class="kicker">מבחן רמה · <span id="lvIntroLang">אנגלית</span></div>
         <h1 class="w-title">איפה כדאי לך להתחיל?</h1>
         <p class="w-sub">מבחן מסתגל: 12–24 מילים, שתיים-שלוש דקות. המבחן מתחיל באמצע
            ומטפס או יורד לפי התשובות שלך, עד שהוא מוצא את התקרה שלך. כדי לעלות רמה
@@ -936,10 +941,11 @@
 <script src="supabase.min.js"></script>
 <script src="config.js"></script>
 <script src="store.js"></script>
-<script src="leveltest.js?v=39"></script>
-<script src="enrank.js?v=39"></script>
-<script src="data.js?v=39"></script>
-<script src="data-en.js?v=39"></script>
-<script src="app.js?v=39"></script>
+<script src="leveltest-he.js?v=40"></script>
+  <script src="leveltest.js?v=40"></script>
+<script src="enrank.js?v=40"></script>
+<script src="data.js?v=40"></script>
+<script src="data-en.js?v=40"></script>
+<script src="app.js?v=40"></script>
 </body>
 </html>

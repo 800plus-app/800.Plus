@@ -827,8 +827,14 @@ let lvBand=LV_START, lvBlock=[], lvBlockOk=0, lvPassed=null, lvFailedUp=false, l
 
 function levelDone(){ return LS.get('hw_level', null); }
 
+/* The test now exists in both languages. LV_LANG says which bank is being answered;
+   everything downstream (the result key, the skip offer, the speaker button) reads it. */
+let LV_LANG='en';
+const lvKey = () => LV_LANG==='he' ? 'hw_level_he' : 'hw_level';
 function lvPool(band){
-  const bank=Array.isArray(window.LEVEL_TEST)?window.LEVEL_TEST:[];
+  const bank = LV_LANG==='he'
+    ? (Array.isArray(window.LEVEL_TEST_HE) ? window.LEVEL_TEST_HE : [])
+    : (Array.isArray(window.LEVEL_TEST)    ? window.LEVEL_TEST    : []);
   return bank.filter(it=>it.band===band && !lvSeen.has(it.w));
 }
 function startLevelTest(){
@@ -869,7 +875,7 @@ function lvRender(){
   $('#lvCount').textContent=`${lvBand} · ${lvIdx+1}/${lvDeck.length}`;
   $('#lvBar').style.width=(100*(lvAns.length)/(lvAns.length+lvDeck.length-lvIdx))+'%';
   $('#lvWord').textContent=it.w;
-  bindSay('#lvSay', it.w, true);
+  bindSay('#lvSay', LV_LANG==='en' ? it.w : null, true);
   $('#lvOpts').innerHTML=it.opts.map((o,i)=>`<button data-i="${i}">${esc(o)}</button>`).join('');
   $('#lvOpts').querySelectorAll('button').forEach(b=>{
     b.onclick=()=>lvPick(it.opts[+b.dataset.i], b);
@@ -911,7 +917,7 @@ function lvFinish(){
   const {level, per}=lvEstimate();
   // level===null means even the easiest block we reached wasn't cleared. Say so plainly
   // rather than handing out an A1 nobody earned.
-  LS.set('hw_level', level||'A1'); queueRemoteSync();
+  LS.set(lvKey(), level||'A1'); queueRemoteSync();
   $('#lvBar').style.width='100%';
   $('#lvCount').textContent='';
   hide($('#lvQuiz')); show($('#lvResult'));
@@ -932,7 +938,8 @@ function lvFinish(){
   // offer to skip words below the tested level — only with explicit consent.
   // hide() first: without it a previous run's offer stays on screen with a stale count.
   hide($('#lvOffer'));
-  const skippable = lvCountKnown(level);
+  // the skip offer rests on frequency ranks, which exist only for English
+  const skippable = LV_LANG==='en' ? lvCountKnown(level) : 0;
   if(skippable>=40){
     show($('#lvOffer'));
     $('#lvOfferText').innerHTML=`מצאתי <b>${skippable}</b> מילים באנגלית שברמה שלך כמעט בוודאי כבר מוכרות לך.
@@ -975,8 +982,12 @@ function lvApplyKnown(level){
   return n;
 }
 $('#lvStart').onclick=startLevelTest;
-const lvBtn=$('#lvOpen'); if(lvBtn) lvBtn.onclick=()=>{ hide($('#lvQuiz')); hide($('#lvResult')); show($('#lvIntro')); goto('level'); };
-$('#lvSkip').onclick=()=>{ LS.set('hw_level','skipped'); renderWelcome(); };
+const lvStart = lang => { LV_LANG=lang;
+  $('#lvIntroLang').textContent = lang==='he' ? 'עברית' : 'אנגלית';
+  hide($('#lvQuiz')); hide($('#lvResult')); show($('#lvIntro')); goto('level'); };
+const lvBtn=$('#lvOpen');     if(lvBtn) lvBtn.onclick=()=>lvStart('en');
+const lvBtnHe=$('#lvOpenHe'); if(lvBtnHe) lvBtnHe.onclick=()=>lvStart('he');
+$('#lvSkip').onclick=()=>{ LS.set(lvKey(),'skipped'); renderWelcome(); };
 $('#lvExit').onclick=()=>{ if(confirm('לצאת מהמבחן? התוצאות לא יישמרו.')) renderWelcome(); };
 $('#lvDone').onclick=()=>renderWelcome();
 
