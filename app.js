@@ -1971,7 +1971,7 @@ const NOTIF = {
 };
 
 /* ===== subscription gate =====
-   Fails OPEN on purpose. If migration-5 has not run the columns do not exist, and a gate
+   Fails OPEN on purpose. If migrations/5.sql has not run the columns do not exist, and a gate
    that assumed the worst would lock every existing user out of an app they already paid
    nothing for. Only an explicit blocked state closes the door. */
 async function accessOk(){
@@ -2144,7 +2144,7 @@ async function openAdmin(){
   const { users, error } = await Store.adminListUsers();
   if(error){
     body.innerHTML=`<p class="msg err">לא ניתן לטעון: ${esc(error.message)}</p>`+
-      `<p class="msg" style="color:var(--ink-soft)">אם חסרות עמודות — הרץ את migration-2.sql ב-SQL Editor.</p>`;
+      `<p class="msg" style="color:var(--ink-soft)">אם חסרות עמודות — הרץ את המיגרציות שבתיקיית migrations.</p>`;
     return;
   }
   if(!users.length){ admUsers=[]; body.innerHTML='<p class="msg" style="color:var(--ink-soft)">עדיין אין משתמשים רשומים.</p>'; return; }
@@ -2202,7 +2202,7 @@ async function renderAdminFeedback(){
   const { rows, error }=await Store.adminListFeedback();
   if(error){
     host.innerHTML=`<p class="msg" style="color:var(--ink-soft)">אין עדיין טבלת דיווחים — הרץ את
-      <b>migration-4.sql</b> ב-SQL Editor. עד אז דיווחים נשלחים אליך במייל.</p>`;
+      <b>migrations/4.sql</b> ב-SQL Editor. עד אז דיווחים נשלחים אליך במייל.</p>`;
     return;
   }
   if(!rows.length){ host.innerHTML='<p class="msg" style="color:var(--ink-soft)">אין דיווחים.</p>'; return; }
