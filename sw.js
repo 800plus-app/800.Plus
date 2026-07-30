@@ -8,7 +8,7 @@ const ASSETS = [
   './', './index.html', './manifest.webmanifest',
   `./app.js?v=${REV}`, `./data.js?v=${REV}`, `./data-en.js?v=${REV}`,
   `./leveltest.js?v=${REV}`, `./leveltest-he.js?v=${REV}`, `./enrank.js?v=${REV}`,
-  './supabase.min.js', './config.js', './store.js',
+  `./supabase.min.js?v=${REV}`, `./config.js?v=${REV}`, `./store.js?v=${REV}`,
   './icon-192.png', './icon-512.png', './icon-maskable-512.png'
 ];
 
