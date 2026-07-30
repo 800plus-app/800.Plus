@@ -252,7 +252,7 @@ function isCorrect(input, term){
 }
 
 /* ===== screens ===== */
-const SCREENS=['auth','welcome','home','scope','quiz','results','stats','manage','add'];
+const SCREENS=['auth','welcome','level','home','scope','quiz','results','stats','manage','add'];
 /* Heavy lists left in hidden screens keep thousands of nodes alive for the whole session;
    drop them on the way out — they are always rebuilt when the screen is opened again. */
 const HEAVY = {stats:'#statsBody', manage:'#manageList', results:'#reviewList'};
@@ -631,18 +631,6 @@ $('#addSave').onclick=()=>{
   m.className='msg ok'; m.textContent=`"${t}" נוספה למאגר ✓`; $('#addTerm').value=''; $('#addMeaning').value=''; $('#addTerm').focus();
 };
 
-/* ===== EXPORT ===== */
-$('#exportBtn').onclick=()=>{
-  const keys=Object.keys(assoc).filter(t=>assoc[t]);
-  if(!keys.length){ toast('אין עדיין אסוציאציות לגיבוי'); return; }
-  const lines=['# גיבוי אסוציאציות','# מילה - אסוציאציה',''].concat(keys.map(t=>`${t} - ${assoc[t]}`));
-  const blob=new Blob([lines.join('\r\n')],{type:'text/plain;charset=utf-8'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a'); a.href=url; a.download='associations.txt';
-  document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(()=>URL.revokeObjectURL(url), 1000);   // release the blob, don't leak it for the session
-};
-
 /* ===== nav ===== */
 document.querySelectorAll('[data-home]').forEach(b=>b.onclick=()=>{ if(!committed && session.size>0) commitSession(); renderHome(); goto('home'); });
 document.querySelectorAll('[data-scope]').forEach(b=>b.onclick=()=>openScope(b.dataset.scope));
@@ -743,6 +731,134 @@ function enterLang(lang){
 document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>enterLang(b.dataset.lang));
 $('#switchLang').onclick=()=>{ if(!committed && session.size>0) commitSession(); renderWelcome(); };
 
+/* ===== level test =====
+   Estimates where the learner already knows the vocabulary, so the app can stop showing
+   them words they mastered years ago. Result is advisory: nothing is marked as "learned"
+   without the user explicitly agreeing on the result screen. */
+const LV_BANDS=[['A1','בסיסי'],['A2','יסודי'],['B1','בינוני'],['B2','בינוני+'],['C1','מתקדם'],['C2','אקדמי']];
+const LV_LABEL={A1:'רמה בסיסית',A2:'רמה יסודית',B1:'רמה בינונית',B2:'רמה בינונית-גבוהה',C1:'רמה מתקדמת',C2:'רמה אקדמית'};
+let lvDeck=[], lvIdx=0, lvAns=[];
+
+function levelDone(){ return LS.get('hw_level', null); }
+
+function startLevelTest(){
+  const bank=Array.isArray(window.LEVEL_TEST)?window.LEVEL_TEST:[];
+  if(!bank.length){ toast('מבחן הרמה לא נטען'); return; }
+  lvDeck=bank.map(it=>({...it, opts: shuffle([it.a, ...it.d].slice())}));
+  lvIdx=0; lvAns=[];
+  hide($('#lvIntro')); hide($('#lvResult')); show($('#lvQuiz'));
+  goto('level'); lvRender();
+}
+function lvRender(){
+  const it=lvDeck[lvIdx];
+  if(!it){ lvFinish(); return; }
+  $('#lvCount').textContent=`${lvIdx+1} / ${lvDeck.length}`;
+  $('#lvBar').style.width=(100*lvIdx/lvDeck.length)+'%';
+  $('#lvWord').textContent=it.w;
+  $('#lvOpts').innerHTML=it.opts.map((o,i)=>`<button data-i="${i}">${esc(o)}</button>`).join('');
+  $('#lvOpts').querySelectorAll('button').forEach(b=>{
+    b.onclick=()=>lvPick(it.opts[+b.dataset.i], b);
+  });
+  $('#lvDunno').disabled=false;
+}
+function lvPick(choice, btn){
+  const it=lvDeck[lvIdx];
+  const ok = choice===it.a;
+  lvAns.push({band:it.band, ok});
+  // brief feedback so the test still teaches something
+  $('#lvOpts').querySelectorAll('button').forEach(b=>{
+    b.disabled=true;
+    if(b.textContent===it.a) b.classList.add('right');
+    else if(b===btn) b.classList.add('wrong');
+  });
+  $('#lvDunno').disabled=true;
+  setTimeout(()=>{ lvIdx++; lvRender(); }, ok?320:900);
+}
+$('#lvDunno').onclick=()=>{
+  const it=lvDeck[lvIdx]; if(!it) return;
+  lvAns.push({band:it.band, ok:false});
+  $('#lvOpts').querySelectorAll('button').forEach(b=>{ b.disabled=true; if(b.textContent===it.a) b.classList.add('right'); });
+  $('#lvDunno').disabled=true;
+  setTimeout(()=>{ lvIdx++; lvRender(); }, 900);
+};
+
+/* Level = the hardest band the learner still gets right at least 60% of the time.
+   A single lucky guess on a hard band shouldn't promote them, hence the per-band ratio. */
+function lvEstimate(){
+  const per={};
+  for(const [b] of LV_BANDS) per[b]={n:0,ok:0};
+  lvAns.forEach(a=>{ if(per[a.band]){ per[a.band].n++; if(a.ok) per[a.band].ok++; } });
+  let level='A1';
+  for(const [b] of LV_BANDS){
+    const p=per[b]; if(!p.n) continue;
+    if(p.ok/p.n>=0.6) level=b; else break;
+  }
+  return {level, per};
+}
+function lvFinish(){
+  const {level, per}=lvEstimate();
+  LS.set('hw_level', level); queueRemoteSync();
+  $('#lvBar').style.width='100%';
+  $('#lvCount').textContent='';
+  hide($('#lvQuiz')); show($('#lvResult'));
+  $('#lvBadge').textContent=level;
+  $('#lvVerdict').textContent=LV_LABEL[level]+' — לפי מה שידעת ומה שלא.';
+  $('#lvBands').innerHTML=LV_BANDS.map(([b,name])=>{
+    const p=per[b]||{n:0,ok:0};
+    const pc=p.n?Math.round(100*p.ok/p.n):0;
+    return `<div class="lv-band"><b>${b}</b><span class="lbl">${name}</span>
+      <span class="bar"><i style="width:${pc}%"></i></span><span class="pc">${pc}%</span></div>`;
+  }).join('');
+
+  // offer to skip words below the tested level — only with explicit consent.
+  // hide() first: without it a previous run's offer stays on screen with a stale count.
+  hide($('#lvOffer'));
+  const skippable = lvCountKnown(level);
+  if(skippable>=40){
+    show($('#lvOffer'));
+    $('#lvOfferText').innerHTML=`מצאתי <b>${skippable}</b> מילים באנגלית שברמה שלך כמעט בוודאי כבר מוכרות לך.
+      אפשר לסמן אותן כמילים שלמדת, כדי שלא יופיעו ב"מילים חדשות" ותתחיל ישר במה שבאמת חסר לך.
+      <br><span style="color:var(--ink-soft);font-size:.86rem">תמיד אפשר להחזיר אותן דרך ניהול מילים.</span>`;
+    $('#lvApply').onclick=()=>{ const n=lvApplyKnown(level); hide($('#lvOffer')); toast(`${n} מילים סומנו כמוכרות`); };
+    $('#lvNoApply').onclick=()=>hide($('#lvOffer'));
+  }
+}
+/* Only English has frequency ranks, so the skip offer applies to the English bank.
+   The cut is the ceiling of the band BELOW the estimated level — we only skip what is
+   comfortably easier than where the learner tested, never words at their own level. */
+const LV_CUT={A1:0, A2:600, B1:2000, B2:5000, C1:10000, C2:20000};
+function lvRankOf(term){ const m=window.EN_RANK; return m ? m[normEn(term)] : null; }
+function lvCountKnown(level){
+  const cut=LV_CUT[level]; if(!cut) return 0;
+  const data=window.UNIT_DATA_EN||{}; let n=0;
+  for(const u in data) for(const p of (data[u]||[])){
+    const r=lvRankOf(p[0]); if(r && r<=cut) n++;
+  }
+  return n;
+}
+function lvApplyKnown(level){
+  const cut=LV_CUT[level]; if(!cut) return 0;
+  const wasLang=LANG;
+  LANG='en'; loadLangState();
+  const data=window.UNIT_DATA_EN||{}; let n=0;
+  for(const u in data) for(const p of (data[u]||[])){
+    const r=lvRankOf(p[0]); if(!(r && r<=cut)) continue;
+    const k=normEn(p[0]); if(!k) continue;
+    const rec=stats.words[k];
+    if(rec && rec.level>=3) continue;                  // already known — leave as is
+    stats.words[k]={seen:1,first:1,ever:1,wrong:0,level:3,last:Date.now()};
+    n++;
+  }
+  saveStats();
+  LANG=wasLang; loadLangState(); buildBank();
+  return n;
+}
+$('#lvStart').onclick=startLevelTest;
+const lvBtn=$('#lvOpen'); if(lvBtn) lvBtn.onclick=()=>{ hide($('#lvQuiz')); hide($('#lvResult')); show($('#lvIntro')); goto('level'); };
+$('#lvSkip').onclick=()=>{ LS.set('hw_level','skipped'); renderWelcome(); };
+$('#lvExit').onclick=()=>{ if(confirm('לצאת מהמבחן? התוצאות לא יישמרו.')) renderWelcome(); };
+$('#lvDone').onclick=()=>renderWelcome();
+
 /* ===== account — every screen above this line requires a signed-in user =====
    This is the ONLY place app.js touches Store; everything else stays pure UI. */
 let currentUser=null, syncTimer=null;
@@ -815,12 +931,98 @@ function translateAuthError(err){
   return 'משהו השתבש. בדוק את החיבור לרשת ונסה שוב.';
 }
 
+/* ===== bug reports =====
+   A report without context is unusable, so the screen / language / build / device are captured
+   automatically. If the feedback table isn't created yet, fall back to email rather than
+   silently swallowing what the user just wrote. */
+const FB_TO='03hagay@gmail.com';
+let fbKind='bug';
+
+function currentScreenId(){
+  for(const s of SCREENS){ const el=$('#'+s); if(el && !el.classList.contains('hidden')) return s; }
+  return 'unknown';
+}
+function fbContext(){
+  const v=(document.querySelector('script[src*="app.js"]')||{}).src||'';
+  return {
+    screen: currentScreenId(),
+    lang: LANG||'—',
+    build: (v.match(/v=(\d+)/)||[])[1] || '?',
+    level: LS.get('hw_level',null),
+    standalone: isStandalone(),
+    viewport: innerWidth+'×'+innerHeight,
+    ua: navigator.userAgent.slice(0,160)
+  };
+}
+function openFeedback(){
+  fbKind='bug';
+  $('#fbKinds').querySelectorAll('button').forEach(b=>b.classList.toggle('active', b.dataset.k==='bug'));
+  $('#fbBody').value='';
+  $('#fbMsg').classList.add('hidden');
+  const c=fbContext();
+  $('#fbCtx').textContent=`screen:${c.screen} · lang:${c.lang} · build:${c.build} · ${c.viewport}`;
+  show($('#fbAsk'));
+  setTimeout(()=>$('#fbBody').focus(),60);
+}
+function closeFeedback(){ hide($('#fbAsk')); }
+$('#fbFab').onclick=openFeedback;
+$('#fbCancel').onclick=closeFeedback;
+$('#fbAsk').onclick=e=>{ if(e.target===$('#fbAsk')) closeFeedback(); };
+$('#fbKinds').onclick=e=>{
+  const b=e.target.closest('button[data-k]'); if(!b) return;
+  fbKind=b.dataset.k;
+  $('#fbKinds').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));
+};
+function fbMailto(body,ctx){
+  const subj=`[milim/${fbKind}] דיווח מהאפליקציה`;
+  const lines=[body,'','— הקשר אוטומטי —',...Object.entries(ctx).map(([k,v])=>`${k}: ${v}`)];
+  location.href=`mailto:${FB_TO}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(lines.join('\n'))}`;
+}
+$('#fbSend').onclick=async ()=>{
+  const body=$('#fbBody').value.trim();
+  const msg=$('#fbMsg'); msg.classList.remove('hidden'); msg.className='msg';
+  if(body.length<5){ msg.className='msg err'; msg.textContent='כתוב עוד משפט אחד כדי שנבין מה קרה.'; return; }
+  const btn=$('#fbSend'); btn.disabled=true; msg.textContent='שולח…';
+  const ctx=fbContext();
+  try{
+    const r=await Store.sendFeedback(fbKind, body, ctx);
+    if(r.ok){ closeFeedback(); toast('תודה! הדיווח נשלח'); return; }
+    if(r.missingTable){ msg.className='msg'; msg.textContent='נפתח לך מייל עם הדיווח — רק לשלוח.'; fbMailto(body,ctx); return; }
+    msg.className='msg err'; msg.textContent='השליחה נכשלה. פותח מייל במקום…'; fbMailto(body,ctx);
+  }catch(e){
+    msg.className='msg err'; msg.textContent='אין חיבור. פותח מייל במקום…'; fbMailto(body,ctx);
+  } finally { btn.disabled=false; }
+};
+
+/* Drifting words behind the sign-in screen: real entries from the bank, so the door already
+   shows what is inside. Built once, from whichever banks happen to be loaded. */
+function buildAuthDrift(){
+  const host=$('#auDrift'); if(!host || host.childElementCount) return;
+  const pick=[];
+  for(const data of [window.UNIT_DATA, window.UNIT_DATA_EN]){
+    if(!data) continue;
+    const units=Object.keys(data).filter(u=>u!=='custom');   // never show one user's private words
+    for(let i=0;i<11;i++){
+      const u=units[Math.floor(Math.random()*units.length)];
+      const rows=data[u]||[];
+      if(!rows.length) continue;
+      const t=rows[Math.floor(Math.random()*rows.length)][0];
+      if(t && t.length<=18) pick.push(t);
+    }
+  }
+  shuffle(pick);
+  host.innerHTML=pick.slice(0,11).map((w,i)=>
+    `<b style="inset-inline-start:${4+i*8.6}%;font-size:${(0.85+((i*7)%5)*0.19).toFixed(2)}rem;`+
+    `animation-duration:${20+((i*11)%16)}s;animation-delay:-${((i*3.1)%23).toFixed(1)}s">${esc(w)}</b>`
+  ).join('');
+}
+
 let authMode='signup';
 function setAuthMode(m, keepMsg){
   authMode=m;
   document.querySelectorAll('#authTabs button').forEach(b=>b.classList.toggle('active', b.dataset.tab===m));
-  $('#authUsername').classList.toggle('hidden', m!=='signup');
-  $('#authSubmit').textContent = m==='signup' ? 'צור חשבון' : 'התחבר';
+  $('#fUsername').classList.toggle('hidden', m!=='signup');
+  $('#authSubmit').innerHTML = (m==='signup' ? 'צור חשבון' : 'התחבר') + '<i>←</i>';
   $('#authPassword').autocomplete = m==='signup' ? 'new-password' : 'current-password';
   if(!keepMsg) $('#authMsg').classList.add('hidden');   // keepMsg: don't wipe a message we just wrote
 }
@@ -846,7 +1048,10 @@ async function afterAuthed(justSignedUp){
   try{ const p=await Store.myProfile(); $('#userBadge').textContent = p ? p.username : (currentUser.email||''); }
   catch(e){ $('#userBadge').textContent = currentUser.email||''; }
   await showAdminIfAllowed();
-  renderWelcome();
+  show($('#fbFab'));            // reporting a bug must never be more than one tap away
+  // First run: offer the level test once. Everything else lands on the language picker.
+  if(!levelDone()){ hide($('#lvQuiz')); hide($('#lvResult')); show($('#lvIntro')); goto('level'); }
+  else renderWelcome();
   // With email confirmation on, sign-up never yields a session — so the install offer has to
   // ride on the first successful sign-in, not on the sign-up call.
   if(justSignedUp || !LS.get('hw_instOffered',0)){ LS.set('hw_instOffered',1); setTimeout(()=>promptInstall(false),600); }
@@ -855,21 +1060,21 @@ async function afterAuthed(justSignedUp){
 $('#authForm').addEventListener('submit', async e=>{
   e.preventDefault();
   const email=$('#authEmail').value.trim(), pw=$('#authPassword').value, uname=$('#authUsername').value.trim();
-  const msg=$('#authMsg'); msg.classList.remove('hidden'); msg.className='msg';
+  const msg=$('#authMsg'); msg.classList.remove('hidden'); msg.className='au-msg';
   const btn=$('#authSubmit'); btn.disabled=true;
   try{
     if(authMode==='signup'){
       const r=await Store.signUp(email,pw,uname);
-      if(r.error){ msg.className='msg err'; msg.textContent=translateAuthError(r.error); return; }
+      if(r.error){ msg.className='au-msg err'; msg.textContent=translateAuthError(r.error); return; }
       if(!r.session){                                    // email confirmation required before login
         setAuthMode('signin', true);
-        msg.className='msg ok'; msg.textContent='📧 נשלח מייל אימות לכתובת שלך. אשר אותו — ואז התחבר כאן.';
+        msg.className='au-msg ok'; msg.textContent='📧 נשלח מייל אימות לכתובת שלך. אשר אותו — ואז התחבר כאן.';
         $('#authPassword').value=''; return;
       }
       currentUser=r.user; toast('ברוך הבא!'); afterAuthed(true);
     }else{
       const r=await Store.signIn(email,pw);
-      if(r.error){ msg.className='msg err'; msg.textContent=translateAuthError(r.error); return; }
+      if(r.error){ msg.className='au-msg err'; msg.textContent=translateAuthError(r.error); return; }
       currentUser=r.user; afterAuthed(false);
     }
   } finally { btn.disabled=false; }
@@ -877,14 +1082,15 @@ $('#authForm').addEventListener('submit', async e=>{
 $('#authForgot').onclick=async ()=>{
   const email=$('#authEmail').value.trim();
   const msg=$('#authMsg'); msg.classList.remove('hidden');
-  if(!email){ msg.className='msg err'; msg.textContent='הזן קודם את כתובת האימייל שלך למעלה.'; return; }
+  if(!email){ msg.className='au-msg err'; msg.textContent='הזן קודם את כתובת האימייל שלך למעלה.'; return; }
   msg.className='msg'; msg.textContent='שולח…';
-  try{ await Store.resetPasswordFor(email); msg.className='msg ok'; msg.textContent='אם הכתובת רשומה, נשלח אליה קישור לאיפוס סיסמה.'; }
-  catch(e){ msg.className='msg err'; msg.textContent='שגיאה בשליחה — נסה שוב.'; }
+  try{ await Store.resetPasswordFor(email); msg.className='au-msg ok'; msg.textContent='אם הכתובת רשומה, נשלח אליה קישור לאיפוס סיסמה.'; }
+  catch(e){ msg.className='au-msg err'; msg.textContent='שגיאה בשליחה — נסה שוב.'; }
 };
 $('#signOutBtn').onclick=async ()=>{
   if(!committed && session.size>0) commitSession();
   try{ await Store.signOut(); }catch(e){}
+  hide($('#fbFab'));
   localStorage.clear();          // the local cache belongs to this account; never let it bleed into the next login
   location.reload();
 };
@@ -934,12 +1140,47 @@ async function openAdmin(){
       <div class="adm-acts"><button data-reset="${esc(u.email||'')}">✉ אפס סיסמה</button></div>
     </div>`;
   }));
-  body.innerHTML=`<p style="font-size:.82rem;color:var(--ink-soft);margin-bottom:10px">${users.length} משתמשים</p>`+rows.join('');
+  body.innerHTML=`<p style="font-size:.82rem;color:var(--ink-soft);margin-bottom:10px">${users.length} משתמשים</p>`+rows.join('')
+    +`<div class="section-t" style="margin-top:30px">דיווחי באגים ומשוב</div><div id="admFb">
+        <p class="msg" style="color:var(--ink-soft)">טוען…</p></div>`;
   body.querySelectorAll('[data-reset]').forEach(b=>b.onclick=async()=>{
     const mail=b.dataset.reset; if(!mail) return;
     b.disabled=true; b.textContent='שולח…';
     try{ await Store.adminSendReset(mail); b.textContent='✓ נשלח קישור איפוס'; }
     catch(e){ b.textContent='שגיאה — נסה שוב'; b.disabled=false; }
+  });
+  renderAdminFeedback();
+}
+
+const FB_KIND_HE={bug:'🐞 באג',idea:'💡 רעיון',other:'💬 אחר'};
+async function renderAdminFeedback(){
+  const host=$('#admFb'); if(!host) return;
+  const { rows, error }=await Store.adminListFeedback();
+  if(error){
+    host.innerHTML=`<p class="msg" style="color:var(--ink-soft)">אין עדיין טבלת דיווחים — הרץ את
+      <b>migration-4.sql</b> ב-SQL Editor. עד אז דיווחים נשלחים אליך במייל.</p>`;
+    return;
+  }
+  if(!rows.length){ host.innerHTML='<p class="msg" style="color:var(--ink-soft)">אין דיווחים.</p>'; return; }
+  const open=rows.filter(r=>r.status!=='done').length;
+  host.innerHTML=`<p style="font-size:.82rem;color:var(--ink-soft);margin-bottom:10px">
+      ${rows.length} דיווחים · <b style="color:var(--accent)">${open}</b> פתוחים</p>`
+    + rows.map(r=>{
+      const c=r.context||{};
+      return `<div class="adm-row"${r.status==='done'?' style="opacity:.55"':''}>
+        <div class="adm-top"><b>${FB_KIND_HE[r.kind]||r.kind}</b>
+          <span class="mail">${esc(r.email||'—')}</span>
+          ${r.status==='done'?'<span class="adm-tag">טופל</span>':''}</div>
+        <p style="font-size:.94rem;line-height:1.55;margin:6px 0 8px;white-space:pre-wrap">${esc(r.body)}</p>
+        <div class="fb-ctx">${esc(`${fmtDate(r.created_at)} · screen:${c.screen||'?'} · lang:${c.lang||'?'} · build:${c.build||'?'} · ${c.viewport||''} ${c.standalone?'· PWA':''}`)}</div>
+        <div class="adm-acts"><button data-fb="${r.id}" data-st="${r.status==='done'?'new':'done'}">
+          ${r.status==='done'?'↩ החזר לפתוח':'✓ סמן כטופל'}</button></div>
+      </div>`;
+    }).join('');
+  host.querySelectorAll('[data-fb]').forEach(b=>b.onclick=async()=>{
+    b.disabled=true;
+    if(await Store.adminMarkFeedback(+b.dataset.fb, b.dataset.st)) renderAdminFeedback();
+    else { b.disabled=false; toast('העדכון נכשל'); }
   });
 }
 $('#adminBtn').onclick=openAdmin;
@@ -948,7 +1189,7 @@ async function checkSessionAndBoot(){
   let sess=null;
   try{ sess=await Store.currentSession(); }catch(e){}
   if(sess && sess.user){ currentUser=sess.user; await afterAuthed(false); }
-  else { setAuthMode('signup'); goto('auth'); }
+  else { setAuthMode('signup'); buildAuthDrift(); goto('auth'); hide($('#fbFab')); }
   try{
     Store.onAuthChange((s)=>{
       if(s && s.user && !currentUser){ currentUser=s.user; afterAuthed(false); }

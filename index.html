@@ -228,14 +228,59 @@
   .ask-cancel{margin-top:14px;background:transparent;border:none;color:var(--ink-soft);
        font-family:"Heebo";font-size:.85rem;text-decoration:underline}
 
-  /* auth */
-  .auth-form{display:flex;flex-direction:column;gap:10px;max-width:340px;margin:0 auto}
-  .auth-form input{font-family:"Heebo";font-size:1rem;background:var(--card);border:1px solid var(--line);
-       border-radius:12px;padding:13px 14px;outline:none;text-align:right}
-  .auth-form input:focus{border-color:var(--gold)}
-  .auth-form input:invalid:not(:placeholder-shown){border-color:var(--accent)}
-  .auth-link{background:transparent;border:none;color:var(--ink-soft);font-family:"Heebo";
-       font-size:.82rem;text-decoration:underline;margin-top:2px}
+  /* ===== auth — "ענבר": near-black walnut, a single amber glow, thin rules, generous air.
+     Full-bleed so it escapes .wrap, and it owns its own dark palette regardless of the app's. ===== */
+  #auth{position:fixed;inset:0;z-index:70;overflow-y:auto;background:#141210;color:#efe9e0;
+       display:flex;flex-direction:column;justify-content:center;isolation:isolate;
+       padding:max(34px,env(safe-area-inset-top)) 26px max(34px,env(safe-area-inset-bottom))}
+  #auth.hidden{display:none!important}
+  .au-orb{position:absolute;width:min(620px,150vw);aspect-ratio:1;border-radius:50%;
+       bottom:-42vh;inset-inline-end:-28vw;pointer-events:none;z-index:-1;filter:blur(60px);
+       background:radial-gradient(circle,rgba(214,138,58,.22),transparent 62%)}
+  .au-drift{position:absolute;inset:0;overflow:hidden;z-index:-1;pointer-events:none}
+  .au-drift b{position:absolute;font-family:"Frank Ruhl Libre",serif;font-weight:700;
+       white-space:nowrap;color:rgba(214,138,58,.1);animation:auRise linear infinite}
+  @keyframes auRise{0%{transform:translateY(105%);opacity:0}14%{opacity:.5}
+       70%{opacity:.5}100%{transform:translateY(-45%);opacity:0}}
+  @media(prefers-reduced-motion:reduce){.au-drift b{animation:none;opacity:.14}}
+  .au-inner{width:100%;max-width:392px;margin:0 auto}
+  .au-mark{font-family:"Frank Ruhl Libre",serif;font-weight:400;font-size:.72rem;
+       letter-spacing:.44em;color:#8b8175}
+  .au-title{font-family:"Frank Ruhl Libre",serif;font-size:clamp(2rem,8vw,2.5rem);font-weight:400;
+       line-height:1.06;margin-top:15px;letter-spacing:-.012em;text-wrap:balance}
+  .au-title em{font-style:normal;color:#d68a3a;font-weight:700}
+  .au-sub{font-size:.8rem;line-height:1.62;margin-top:12px;color:#8b8175}
+  .au-tabs{display:flex;gap:0;margin:26px 0 20px}
+  .au-tabs button{flex:1;border:0;background:transparent;font-family:"Heebo";font-weight:500;
+       font-size:.86rem;padding:11px 0;color:#6f665c;border-bottom:1px solid rgba(255,255,255,.08);
+       transition:.2s;cursor:pointer}
+  .au-tabs button.active{color:#efe9e0;border-bottom-color:#d68a3a}
+  .au-slider{display:none}
+  #authForm{display:flex;flex-direction:column;gap:12px}
+  .au-field{position:relative;display:block}
+  .au-field.hidden{display:none!important}
+  .au-field input{width:100%;font-family:"Heebo";font-size:1.02rem;padding:18px 2px 7px;
+       background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.12);
+       color:#efe9e0;outline:none;text-align:right;transition:.2s;border-radius:0}
+  .au-field input:focus{border-bottom-color:#d68a3a}
+  .au-field span{position:absolute;inset-inline-start:2px;top:16px;font-size:.94rem;color:#6f665c;
+       pointer-events:none;transition:.16s cubic-bezier(.2,.8,.2,1);transform-origin:right top}
+  .au-field input:focus + span,.au-field input:not(:placeholder-shown) + span{
+       top:0;transform:scale(.72)}
+  .au-field input:focus + span{color:#d68a3a}
+  .au-go{margin-top:9px;background:transparent;border:1px solid #d68a3a;color:#d68a3a;
+       font-family:"Heebo";font-weight:500;font-size:1rem;padding:17px;letter-spacing:.09em;
+       cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;transition:.22s}
+  .au-go i{font-style:normal;transition:.22s}
+  .au-go:hover{background:#d68a3a;color:#141210}
+  .au-go:hover i{transform:translateX(-5px)}
+  .au-go:disabled{opacity:.5;cursor:not-allowed}
+  .au-link{background:transparent;border:0;color:#6f665c;font-family:"Heebo";font-size:.8rem;
+       text-decoration:underline;cursor:pointer;margin-top:5px}
+  .au-msg{margin-top:16px;font-size:.88rem;line-height:1.55;text-align:center}
+  .au-msg.err{color:#e8907f} .au-msg.ok{color:#8fce9d}
+  .au-msg.hidden{display:none!important}
+
   .user-badge{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft)}
   .user-badge b{color:var(--ink)}
 
@@ -253,6 +298,55 @@
   .adm-acts button{background:transparent;border:1px solid var(--line);border-radius:999px;
        padding:5px 13px;font-family:"Heebo";font-size:.78rem;color:var(--ink-soft)}
   .adm-acts button:hover{border-color:var(--gold);color:var(--ink)}
+
+  /* level test */
+  .lv-opts{display:flex;flex-direction:column;gap:9px;margin-top:22px}
+  .lv-opts button{font-family:"Heebo";font-size:1.02rem;font-weight:500;text-align:right;
+       background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+       transition:.13s;color:var(--ink)}
+  .lv-opts button:hover{border-color:var(--gold);transform:translateY(-1px)}
+  .lv-opts button:disabled{opacity:.55;transform:none}
+  .lv-opts button.right{background:rgba(78,125,78,.14);border-color:var(--green);font-weight:700}
+  .lv-opts button.wrong{background:rgba(181,72,46,.12);border-color:var(--accent)}
+  .lv-dunno{display:block;margin:14px auto 0;background:transparent;border:1px solid var(--line);
+       color:var(--ink-soft);border-radius:999px;padding:8px 20px;font-family:"Heebo";font-size:.88rem}
+  .lv-dunno:hover{border-color:var(--ink-soft);color:var(--ink)}
+  .lv-badge{font-family:"Frank Ruhl Libre",serif;font-size:3.4rem;font-weight:900;color:var(--accent);
+       line-height:1;letter-spacing:.02em}
+  .lv-bands{display:flex;flex-direction:column;gap:7px;margin-top:24px}
+  .lv-band{display:flex;align-items:center;gap:11px;background:var(--card);border:1px solid var(--line);
+       border-radius:11px;padding:10px 14px}
+  .lv-band b{font-family:"Cascadia Mono",Consolas,monospace;font-size:.86rem;width:26px;flex:0 0 auto}
+  .lv-band .bar{flex:1;height:8px;background:var(--paper-deep);border-radius:4px;overflow:hidden}
+  .lv-band .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--accent))}
+  .lv-band .pc{font-family:"Cascadia Mono",Consolas,monospace;font-size:.82rem;color:var(--ink-soft);
+       width:42px;text-align:left;flex:0 0 auto}
+  .lv-band .lbl{font-size:.78rem;color:var(--ink-soft);width:78px;flex:0 0 auto}
+  .lv-offer{background:var(--card);border:1px solid var(--gold);border-radius:14px;padding:16px 18px;margin-top:20px}
+  .lv-offer p{font-size:.92rem;line-height:1.55}
+
+  /* bug report — a small persistent affordance; MVP users need it one tap away */
+  .fb-fab{position:fixed;inset-inline-start:16px;bottom:calc(16px + env(safe-area-inset-bottom));
+       z-index:55;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);
+       background:var(--card);box-shadow:var(--shadow);font-size:1.28rem;line-height:1;
+       display:flex;align-items:center;justify-content:center;transition:.18s;padding:0}
+  .fb-fab:hover{transform:translateY(-3px) rotate(-8deg);border-color:var(--gold)}
+  .fb-fab.hidden{display:none!important}
+  .fb-box{max-width:400px;text-align:right}
+  .fb-box h3{text-align:center}
+  .fb-box p{text-align:center}
+  .fb-kinds{display:flex;gap:7px;margin-top:16px}
+  .fb-kinds button{flex:1;font-family:"Heebo";font-size:.82rem;font-weight:700;padding:9px 4px;
+       border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink-soft);transition:.15s}
+  .fb-kinds button.active{background:linear-gradient(180deg,var(--gold),var(--accent));
+       color:#fff;border-color:transparent}
+  #fbBody{width:100%;margin-top:11px;font-family:"Heebo";font-size:.98rem;line-height:1.55;
+       background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px;
+       outline:none;resize:vertical;color:var(--ink);text-align:right}
+  #fbBody:focus{border-color:var(--gold)}
+  .fb-ctx{margin-top:9px;font-size:.7rem;color:var(--ink-soft);background:var(--paper-deep);
+       border-radius:8px;padding:8px 10px;line-height:1.5;font-family:"Cascadia Mono",Consolas,monospace;
+       direction:ltr;text-align:left;word-break:break-word}
 
   /* install-to-home-screen */
   .install-box{max-width:380px}
@@ -281,25 +375,37 @@
 
   <!-- ===== AUTH — required before anything else ===== -->
   <section id="auth">
-    <div class="welcome-head">
-      <div class="kicker">אוצר מילים · פסיכומטרי</div>
-      <h1 class="w-title">כניסה לחשבון</h1>
-      <p class="w-sub" id="authSub">כדי לשמור את ההתקדמות שלך צריך חשבון — זה לוקח חצי דקה.</p>
-    </div>
+    <div class="au-drift" id="auDrift" aria-hidden="true"></div>
+    <div class="au-orb" aria-hidden="true"></div>
+    <div class="au-inner">
+      <div class="au-mark">מִילִים</div>
+      <h1 class="au-title">אוצר מילים<br><em>שנשאר איתך</em></h1>
+      <p class="au-sub" id="authSub">1,719 מילים בעברית · 3,694 באנגלית.<br>חשבון אחד, וההתקדמות עוברת איתך לכל מכשיר.</p>
 
-    <div class="seg" id="authTabs" style="max-width:320px;margin:0 auto 18px">
-      <button data-tab="signup" class="active">הרשמה</button>
-      <button data-tab="signin">התחברות</button>
-    </div>
+      <div class="au-tabs" id="authTabs">
+        <button data-tab="signup" class="active">הרשמה</button>
+        <button data-tab="signin">התחברות</button>
+        <i class="au-slider"></i>
+      </div>
 
-    <form id="authForm" class="auth-form" autocomplete="on">
-      <input id="authUsername" placeholder="שם תצוגה" autocomplete="username" maxlength="40">
-      <input id="authEmail" type="email" placeholder="אימייל" autocomplete="email" required>
-      <input id="authPassword" type="password" placeholder="סיסמה (לפחות 8 תווים)" autocomplete="new-password" minlength="8" required>
-      <button type="submit" class="btn btn-primary btn-block" id="authSubmit">צור חשבון</button>
-      <button type="button" class="auth-link" id="authForgot">שכחתי סיסמה</button>
-    </form>
-    <p class="msg hidden" id="authMsg"></p>
+      <form id="authForm" autocomplete="on">
+        <label class="au-field" id="fUsername">
+          <input id="authUsername" placeholder=" " autocomplete="username" maxlength="40">
+          <span>שם תצוגה</span>
+        </label>
+        <label class="au-field">
+          <input id="authEmail" type="email" placeholder=" " autocomplete="email" required>
+          <span>אימייל</span>
+        </label>
+        <label class="au-field">
+          <input id="authPassword" type="password" placeholder=" " autocomplete="new-password" minlength="8" required>
+          <span>סיסמה · 8 תווים לפחות</span>
+        </label>
+        <button type="submit" class="au-go" id="authSubmit">צור חשבון<i>←</i></button>
+        <button type="button" class="au-link" id="authForgot">שכחתי סיסמה</button>
+      </form>
+      <p class="au-msg hidden" id="authMsg"></p>
+    </div>
   </section>
 
   <!-- ===== ADMIN (visible only to role=admin) ===== -->
@@ -337,7 +443,54 @@
         <div class="lang-prog"><i id="enProg"></i></div>
       </button>
     </div>
+    <button class="btn btn-ghost btn-block" id="lvOpen" style="margin-top:16px">🎯 מבחן רמה באנגלית</button>
     <p class="w-foot" id="installHint2"></p>
+  </section>
+
+  <!-- ===== LEVEL TEST ===== -->
+  <section id="level" class="hidden">
+    <div class="topbar"><button class="back" id="lvExit">✕ יציאה</button><div class="sp"></div>
+      <div class="brand" id="lvCount"></div></div>
+    <div class="prog"><i id="lvBar"></i></div>
+
+    <div id="lvIntro">
+      <div class="welcome-head" style="margin-top:8vh">
+        <div class="kicker">מבחן רמה</div>
+        <h1 class="w-title">איפה כדאי לך להתחיל?</h1>
+        <p class="w-sub">30 מילים, כשלוש דקות. נבין מה אתה כבר יודע כדי שלא תבזבז זמן
+           על מילים מוכרות — ותתחיל בדיוק ברמה שלך.</p>
+      </div>
+      <button class="btn btn-primary btn-block" id="lvStart">מתחילים</button>
+      <button class="ask-cancel" id="lvSkip" style="display:block;margin:14px auto 0">אולי אחר כך</button>
+    </div>
+
+    <div id="lvQuiz" class="hidden">
+      <div class="card">
+        <div class="q-kind">מה הפירוש?</div>
+        <div class="q-text" id="lvWord" dir="ltr"></div>
+        <div class="lv-opts" id="lvOpts"></div>
+        <button class="lv-dunno" id="lvDunno">לא יודע</button>
+      </div>
+    </div>
+
+    <div id="lvResult" class="hidden">
+      <div class="res-head" style="margin-top:4vh">
+        <div class="kicker">התוצאה שלך</div>
+        <div class="lv-badge" id="lvBadge">—</div>
+        <p class="w-sub" id="lvVerdict"></p>
+      </div>
+      <div class="lv-bands" id="lvBands"></div>
+      <div id="lvOffer" class="hidden">
+        <div class="lv-offer">
+          <p id="lvOfferText"></p>
+          <div class="row" style="margin-top:12px">
+            <button class="btn btn-primary" id="lvApply">כן, לדלג עליהן</button>
+            <button class="btn btn-ghost" id="lvNoApply">לא, אתרגל הכל</button>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-block" id="lvDone" style="margin-top:18px">להתחיל לתרגל</button>
+    </div>
   </section>
 
   <!-- ===== HOME ===== -->
@@ -370,7 +523,6 @@
       <button class="btn btn-ghost" id="manageBtn">🗑 ניהול מילים</button>
       <button class="btn btn-ghost" id="addBtn">➕ הוסף מילה</button>
     </div>
-    <div style="margin-top:10px"><button class="btn btn-ghost btn-block" id="exportBtn">⬇ גיבוי אסוציאציות</button></div>
     <p style="text-align:center;color:var(--ink-soft);font-size:.72rem;margin-top:18px" id="installHint"></p>
   </section>
 
@@ -509,13 +661,39 @@
   </div>
 </div>
 
+<!-- ===== דיווח באג / רעיון ===== -->
+<button class="fb-fab hidden" id="fbFab" title="דווח על באג" aria-label="דווח על באג">🐞</button>
+
+<div class="ask hidden" id="fbAsk">
+  <div class="ask-box fb-box">
+    <h3>מה לא עבד?</h3>
+    <p>כתוב במילים שלך. אני שולח יחד עם זה את המסך שהיית בו והגרסה — כדי שנוכל לשחזר.</p>
+
+    <div class="fb-kinds" id="fbKinds">
+      <button data-k="bug" class="active">🐞 באג</button>
+      <button data-k="idea">💡 רעיון</button>
+      <button data-k="other">💬 אחר</button>
+    </div>
+
+    <textarea id="fbBody" rows="5" maxlength="1200"
+      placeholder="למשל: לחצתי על &quot;מילים חדשות&quot; והמסך נשאר ריק…"></textarea>
+    <div class="fb-ctx" id="fbCtx"></div>
+
+    <button class="btn btn-primary btn-block" id="fbSend">שלח</button>
+    <p class="msg hidden" id="fbMsg"></p>
+    <button class="ask-cancel" id="fbCancel">ביטול</button>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script src="supabase.min.js"></script>
 <script src="config.js"></script>
 <script src="store.js"></script>
-<script src="data.js?v=17"></script>
-<script src="data-en.js?v=17"></script>
-<script src="app.js?v=17"></script>
+<script src="leveltest.js?v=20"></script>
+<script src="enrank.js?v=20"></script>
+<script src="data.js?v=20"></script>
+<script src="data-en.js?v=20"></script>
+<script src="app.js?v=20"></script>
 </body>
 </html>

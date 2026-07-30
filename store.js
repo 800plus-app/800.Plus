@@ -63,6 +63,31 @@ const Store = {
     return true;
   },
 
+  /* ---------- feedback / bug reports ---------- */
+  async sendFeedback(kind, body, context) {
+    const { data: u } = await sb.auth.getUser();
+    const user = u && u.user;
+    const { error } = await sb.from('feedback').insert({
+      user_id: user ? user.id : null,
+      email: user ? user.email : null,
+      kind, body, context
+    });
+    // 42P01 = table missing (migration not run yet); the caller falls back to email
+    if (error) return { ok: false, missingTable: error.code === '42P01', error };
+    return { ok: true };
+  },
+  async adminListFeedback() {
+    const { data, error } = await sb.from('feedback')
+      .select('id,email,kind,body,context,status,created_at')
+      .order('created_at', { ascending: false }).limit(200);
+    if (error) return { rows: [], error };
+    return { rows: data, error: null };
+  },
+  async adminMarkFeedback(id, status) {
+    const { error } = await sb.from('feedback').update({ status }).eq('id', id);
+    return !error;
+  },
+
   /* ---------- admin ---------- */
   async adminListUsers() {
     const { data, error } = await sb.from('profiles')
