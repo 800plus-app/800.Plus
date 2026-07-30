@@ -92,7 +92,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "in order to",
-   "על-מנת, בכדי"
+   "על-מנת, כדי"
   ],
   [
    "only",
@@ -2927,7 +2927,7 @@ window.UNIT_DATA_EN = {
    "ירד, הדרדר"
   ],
   [
-   "descendent",
+   "descendant",
    "צאצא"
   ],
   [
