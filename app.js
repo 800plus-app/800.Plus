@@ -1624,6 +1624,10 @@ async function afterAuthed(justSignedUp){
   // With email confirmation on, sign-up never yields a session — so the install offer has to
   // ride on the first successful sign-in, not on the sign-up call.
   if(justSignedUp || !LS.get('hw_instOffered',0)){ LS.set('hw_instOffered',1); setTimeout(()=>promptInstall(false),600); }
+  // asked after the third day of use, not on arrival: a prompt shown to a stranger gets denied,
+  // and a denial in the browser is permanent
+  setTimeout(()=>{ if(NOTIF.askable() && streakInfo().total>=2) $('#notifCta').classList.remove('hidden'); }, 1200);
+  NOTIF.openTimeNudge();
 }
 
 $('#authForm').addEventListener('submit', async e=>{
@@ -1668,6 +1672,91 @@ const signOutNow = async ()=>{
 $('#signOutBtn').onclick  = signOutNow;
 $('#signOutBtn2').onclick = signOutNow;
 $('#signOutBtn3').onclick = signOutNow;
+
+/* ===== daily reminder =====
+   Asked for at the right moment and never twice. A denied permission is permanent in the
+   browser and cannot be re-requested, so the prompt only appears when it can actually
+   succeed AND the user has shown they use the app.
+
+   Platform reality, stated plainly because it shapes the whole design:
+   - iOS grants Notification only to a PWA added to the home screen (16.4+). In Safari the
+     API is absent, so we must not ask.
+   - Reliable delivery while the app is CLOSED needs either periodicSync (Chrome, installed)
+     or a push server holding VAPID keys. There is no push server yet, so the third path is
+     the app itself: on open, if it is morning and today has no practice, remind. */
+const NOTIF = {
+  supported(){ return typeof Notification !== 'undefined' && 'serviceWorker' in navigator; },
+  askable(){
+    if(!this.supported()) return false;
+    if(Notification.permission !== 'default') return false;   // granted or denied — both final
+    if(isIOS() && !isStandalone()) return false;              // Safari tab: the API would throw
+    return true;
+  },
+  granted(){ return this.supported() && Notification.permission === 'granted'; },
+
+  async ask(){
+    if(!this.askable()) return false;
+    let p='denied';
+    try{ p = await Notification.requestPermission(); }catch(e){ return false; }
+    LS.set('hw_notifAsked', 1);
+    if(p==='granted'){ await this.registerPeriodic(); await this.cacheMessage(); }
+    return p==='granted';
+  },
+
+  /* Chrome only, and only for an installed PWA. Silently unavailable elsewhere — that is
+     expected, not an error, so it never surfaces to the user. */
+  async registerPeriodic(){
+    try{
+      const reg = await navigator.serviceWorker.ready;
+      if(!('periodicSync' in reg)) return false;
+      const st = await navigator.permissions.query({ name:'periodic-background-sync' });
+      if(st.state !== 'granted') return false;
+      await reg.periodicSync.register('daily-study', { minInterval: 20*60*60*1000 });
+      return true;
+    }catch(e){ return false; }
+  },
+
+  /* The service worker wakes up with no access to localStorage, so the message it should
+     show is written into the cache while the page is alive. */
+  async cacheMessage(){
+    try{
+      const c = await caches.open('hw-v'+BUILD);
+      await c.put('daily-msg', new Response(JSON.stringify(this.compose()),
+        { headers:{'Content-Type':'application/json'} }));
+    }catch(e){}
+  },
+
+  /* Progress, not nagging: the message states what the learner actually did. */
+  compose(){
+    const he=langSummary('he'), en=langSummary('en');
+    const st=streakInfo();
+    const learned=he.learned+en.learned;
+    const body =
+      st.n>=3   ? `${st.n} ימים ברצף. חמש דקות היום שומרות על הרצף.`
+    : learned>0 ? `למדת כבר ${learned} מילים. עוד עשר היום?`
+    :             'תרגול קצר של חמש דקות מספיק כדי להתחיל.';
+    return { title: 'זמן ללמוד מילים', body };
+  },
+
+  /* The path that works on iOS: the app reminds when opened in the morning with no
+     practice logged today. Fires once per day at most. */
+  openTimeNudge(){
+    if(!this.granted()) return;
+    const h = new Date().getHours();
+    if(h < 6 || h > 12) return;
+    const today = dayKey(Date.now());
+    if(LS.get('hw_notifDay','') === today) return;
+    if(streakInfo().today) return;                 // already practised — nothing to nudge
+    LS.set('hw_notifDay', today);
+    navigator.serviceWorker.ready
+      .then(reg => reg.showNotification(this.compose().title, {
+        body: this.compose().body, dir:'rtl', lang:'he',
+        icon:'./icon-192.png', badge:'./icon-192.png', tag:'daily-study',
+        data:{ url:'./' }
+      }))
+      .catch(()=>{});
+  }
+};
 
 /* ===== subscription gate =====
    Fails OPEN on purpose. If migration-5 has not run the columns do not exist, and a gate
@@ -1928,6 +2017,11 @@ async function renderAdminFeedback(){
 }
 $('#adminBtn').onclick=openAdmin;
 $('#adminBtn2').onclick=openAdmin;
+$('#notifCta').onclick=async()=>{
+  const ok=await NOTIF.ask();
+  $('#notifCta').classList.add('hidden');
+  toast(ok ? 'מעולה — תקבל תזכורת בבוקר' : 'אפשר להפעיל התראות מאוחר יותר בהגדרות הדפדפן');
+};
 $('#lockContact').onclick=()=>{
   const mail=(currentUser&&currentUser.email)||'';
   location.href='mailto:03hagay@gmail.com?subject='+encodeURIComponent('חידוש מנוי — 800+')
