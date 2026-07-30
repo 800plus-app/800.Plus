@@ -1513,12 +1513,27 @@ function mergeProgress(local, remote){
   const rw=isObj(remote.stats)&&isObj(remote.stats.words)?remote.stats.words:{};
   for(const k of new Set([...Object.keys(lw),...Object.keys(rw)])){
     const a=saneRec(lw[k]), b=saneRec(rw[k]);
+    /* The record that was written LAST wins. Taking Math.max per field looked safe but was not:
+       a downgrade after a wrong answer could never survive, because the older copy still held
+       the higher level — so a word the learner had just failed stayed marked as known. Counts
+       still take the max, since they only ever grow. */
+    const newer = (a.last >= b.last) ? a : b;
     words[k]={ seen:Math.max(a.seen,b.seen), first:Math.max(a.first,b.first), ever:Math.max(a.ever,b.ever),
-               wrong:Math.max(a.wrong,b.wrong), level:Math.max(a.level,b.level), last:Math.max(a.last,b.last) };
+               wrong:Math.max(a.wrong,b.wrong), level:newer.level, last:Math.max(a.last,b.last) };
+    if(newer.src) words[k].src=newer.src;
   }
   const ls=Array.isArray(local.stats&&local.stats.sessions)?local.stats.sessions:[];
   const rs=Array.isArray(remote.stats&&remote.stats.sessions)?remote.stats.sessions:[];
-  const sessions=[...rs,...ls].filter(isObj).slice(-MAX_SESSIONS);
+  /* Sessions carry no id, and the local list is the one that was pushed to the server — so a
+     plain concat re-added every round the device already had. Each return to a language
+     doubled the history (3 -> 6 -> 12 -> 24) until the 200 cap filled with copies and real
+     practice days fell out, shrinking the streak. Dedupe on the round's own fields, and sort,
+     because the two lists are not necessarily in chronological order. */
+  const seenSess=new Set();
+  const sessions=[...rs,...ls].filter(isObj)
+    .filter(x=>{ const id=[x.t,x.n,x.ok,x.scope].join('|'); if(seenSess.has(id)) return false; seenSess.add(id); return true; })
+    .sort((x,y)=>(Number(x.t)||0)-(Number(y.t)||0))
+    .slice(-MAX_SESSIONS);
   const mergedAssoc={...(isObj(remote.assoc)?remote.assoc:{}), ...(isObj(local.assoc)?local.assoc:{})};
   const mergedDeleted=[...new Set([...(Array.isArray(remote.deleted)?remote.deleted:[]),
                                     ...(Array.isArray(local.deleted)?local.deleted:[])])];
