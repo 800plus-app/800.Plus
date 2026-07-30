@@ -1028,7 +1028,25 @@ function exBuild(uid){
   const pool=exWords(uid);
   if(pool.length<8) return [];
   const n=Math.min(EX_LEN, pool.length);
-  let picked=shuffle(pool).slice(0,n);
+  // Keep morphological relatives out of the same paper. "evaluate" and "evaluation" are two
+  // distinct entries, so nothing here counts them as a duplicate — but sitting side by side
+  // they cue each other and burn a slot that could have tested a different word.
+  // English only: the terms are ASCII lemmas, so a shared prefix is a reliable signal.
+  // Hebrew relatives share a root with letters scattered through the word, which a prefix
+  // test would either miss or fire on unrelated pairs.
+  const related=(a,b)=>{
+    if(LANG!=='en') return false;
+    const x=normEn(a), y=normEn(b); let i=0;
+    while(i<x.length && i<y.length && x[i]===y[i]) i++;
+    return i>=5;
+  };
+  let picked=[];
+  for(const c of shuffle(pool)){
+    if(picked.length>=n) break;
+    if(picked.some(p=>related(p.term,c.term))) continue;
+    picked.push(c);
+  }
+  if(picked.length<n) picked=shuffle(pool).slice(0,n);   // tiny unit — coverage beats polish
   const nRec=Math.round(n*EX_MIX[0]), nRet=Math.round(n*EX_MIX[1]);
   // Write-in items ask for the word with no options to lean on, so put the single-word terms
   // in those slots. Expecting someone to type a three-word idiom letter-perfect measures
