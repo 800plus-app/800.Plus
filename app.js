@@ -738,23 +738,62 @@ $('#switchLang').onclick=()=>{ if(!committed && session.size>0) commitSession();
    without the user explicitly agreeing on the result screen. */
 const LV_BANDS=[['A1','בסיסי'],['A2','יסודי'],['B1','בינוני'],['B2','בינוני+'],['C1','מתקדם'],['C2','אקדמי']];
 const LV_LABEL={A1:'רמה בסיסית',A2:'רמה יסודית',B1:'רמה בינונית',B2:'רמה בינונית-גבוהה',C1:'רמה מתקדמת',C2:'רמה אקדמית'};
+/* ===== adaptive ladder =====
+   The old test ran all 30 items and promoted on 60% per band — 3 of 5, where blind guessing
+   already returns 25%. Two lucky guesses in a five-item band were enough to climb it, so the
+   result drifted upward and topped out at C2 for people with real gaps.
+   Now each band is a BLOCK of 6 items and promotion needs 5 of them. Guessing your way to
+   5/6 on four-option items is a ~4% event, so a level has to be earned. We start in the
+   middle and walk toward the edge that keeps failing, which also keeps the test short:
+   a typical run is 12–18 items instead of a flat 30. */
+const LV_ORDER=LV_BANDS.map(b=>b[0]);
+const LV_BLOCK=6, LV_PASS=5, LV_START='B1';
 let lvDeck=[], lvIdx=0, lvAns=[];
+let lvBand=LV_START, lvBlock=[], lvBlockOk=0, lvPassed=null, lvFailedUp=false, lvSeen=new Set();
 
 function levelDone(){ return LS.get('hw_level', null); }
 
-function startLevelTest(){
+function lvPool(band){
   const bank=Array.isArray(window.LEVEL_TEST)?window.LEVEL_TEST:[];
-  if(!bank.length){ toast('מבחן הרמה לא נטען'); return; }
-  lvDeck=bank.map(it=>({...it, opts: shuffle([it.a, ...it.d].slice())}));
-  lvIdx=0; lvAns=[];
+  return bank.filter(it=>it.band===band && !lvSeen.has(it.w));
+}
+function startLevelTest(){
+  if(!lvPool(LV_START).length){ toast('מבחן הרמה לא נטען'); return; }
+  lvAns=[]; lvSeen=new Set(); lvPassed=null; lvFailedUp=false; lvBand=LV_START;
   hide($('#lvIntro')); hide($('#lvResult')); show($('#lvQuiz'));
-  goto('level'); lvRender();
+  goto('level'); lvLoadBlock();
+}
+/* Deal one band's block. Items are drawn fresh each run, so a retake isn't the same test. */
+function lvLoadBlock(){
+  lvBlock=shuffle(lvPool(lvBand)).slice(0,LV_BLOCK);
+  lvBlock.forEach(it=>lvSeen.add(it.w));
+  lvDeck=lvBlock.map(it=>({...it, opts: shuffle([it.a, ...it.d].slice())}));
+  lvIdx=0; lvBlockOk=0;
+  lvRender();
+}
+/* Where to go after a block: up while passing, down while failing, stop the moment the
+   direction would reverse — that boundary IS the level. */
+function lvNextBand(){
+  const i=LV_ORDER.indexOf(lvBand);
+  if(lvBlockOk>=LV_PASS){
+    lvPassed=lvBand;
+    if(lvFailedUp) return null;                 // already know the band above fails
+    return LV_ORDER[i+1] || null;               // nothing above C2
+  }
+  lvFailedUp=true;
+  if(lvPassed) return null;                     // found the ceiling from below
+  return i>0 ? LV_ORDER[i-1] : null;            // still descending; A1 is the floor
 }
 function lvRender(){
   const it=lvDeck[lvIdx];
-  if(!it){ lvFinish(); return; }
-  $('#lvCount').textContent=`${lvIdx+1} / ${lvDeck.length}`;
-  $('#lvBar').style.width=(100*lvIdx/lvDeck.length)+'%';
+  if(!it){
+    const nx=lvNextBand();
+    if(nx){ lvBand=nx; lvLoadBlock(); return; }
+    lvFinish(); return;
+  }
+  // total length isn't known up front, so show the block position and the band being probed
+  $('#lvCount').textContent=`${lvBand} · ${lvIdx+1}/${lvDeck.length}`;
+  $('#lvBar').style.width=(100*(lvAns.length)/(lvAns.length+lvDeck.length-lvIdx))+'%';
   $('#lvWord').textContent=it.w;
   $('#lvOpts').innerHTML=it.opts.map((o,i)=>`<button data-i="${i}">${esc(o)}</button>`).join('');
   $('#lvOpts').querySelectorAll('button').forEach(b=>{
@@ -765,7 +804,7 @@ function lvRender(){
 function lvPick(choice, btn){
   const it=lvDeck[lvIdx];
   const ok = choice===it.a;
-  lvAns.push({band:it.band, ok});
+  lvAns.push({band:it.band, ok}); if(ok) lvBlockOk++;
   // brief feedback so the test still teaches something
   $('#lvOpts').querySelectorAll('button').forEach(b=>{
     b.disabled=true;
@@ -783,32 +822,36 @@ $('#lvDunno').onclick=()=>{
   setTimeout(()=>{ lvIdx++; lvRender(); }, 900);
 };
 
-/* Level = the hardest band the learner still gets right at least 60% of the time.
-   A single lucky guess on a hard band shouldn't promote them, hence the per-band ratio. */
+/* The level is the highest band that cleared 5/6 — nothing is inferred from bands we
+   never reached, and nothing is credited to a band that only half-passed. */
 function lvEstimate(){
   const per={};
   for(const [b] of LV_BANDS) per[b]={n:0,ok:0};
   lvAns.forEach(a=>{ if(per[a.band]){ per[a.band].n++; if(a.ok) per[a.band].ok++; } });
-  let level='A1';
-  for(const [b] of LV_BANDS){
-    const p=per[b]; if(!p.n) continue;
-    if(p.ok/p.n>=0.6) level=b; else break;
-  }
+  let level=null;
+  for(const [b] of LV_BANDS){ const p=per[b]; if(p.n && p.ok>=LV_PASS) level=b; }
   return {level, per};
 }
 function lvFinish(){
   const {level, per}=lvEstimate();
-  LS.set('hw_level', level); queueRemoteSync();
+  // level===null means even the easiest block we reached wasn't cleared. Say so plainly
+  // rather than handing out an A1 nobody earned.
+  LS.set('hw_level', level||'A1'); queueRemoteSync();
   $('#lvBar').style.width='100%';
   $('#lvCount').textContent='';
   hide($('#lvQuiz')); show($('#lvResult'));
-  $('#lvBadge').textContent=level;
-  $('#lvVerdict').textContent=LV_LABEL[level]+' — לפי מה שידעת ומה שלא.';
+  $('#lvBadge').textContent=level||'A1−';
+  $('#lvVerdict').textContent = level
+    ? LV_LABEL[level]+' — הרמה הגבוהה ביותר שעברת בה 5 מתוך 6.'
+    : 'נתחיל מהבסיס — זה בדיוק מה שהאפליקציה נועדה לסגור.';
   $('#lvBands').innerHTML=LV_BANDS.map(([b,name])=>{
     const p=per[b]||{n:0,ok:0};
-    const pc=p.n?Math.round(100*p.ok/p.n):0;
+    if(!p.n) return `<div class="lv-band" style="opacity:.42"><b>${b}</b><span class="lbl">${name}</span>
+      <span class="bar"></span><span class="pc">לא נבדק</span></div>`;
+    const pc=Math.round(100*p.ok/p.n);
+    const mark=p.ok>=LV_PASS?' ✓':'';
     return `<div class="lv-band"><b>${b}</b><span class="lbl">${name}</span>
-      <span class="bar"><i style="width:${pc}%"></i></span><span class="pc">${pc}%</span></div>`;
+      <span class="bar"><i style="width:${pc}%"></i></span><span class="pc">${p.ok}/${p.n}${mark}</span></div>`;
   }).join('');
 
   // offer to skip words below the tested level — only with explicit consent.
@@ -825,9 +868,11 @@ function lvFinish(){
   }
 }
 /* Only English has frequency ranks, so the skip offer applies to the English bank.
-   The cut is the ceiling of the band BELOW the estimated level — we only skip what is
-   comfortably easier than where the learner tested, never words at their own level. */
-const LV_CUT={A1:0, A2:600, B1:2000, B2:5000, C1:10000, C2:20000};
+   The cut sits TWO bands below where the learner tested. One band below was too greedy:
+   a C2 result cleared 20000, which is every ranked word in the bank — the app offered to
+   mark 3175 of 3694 words known off the back of a single test. Skipping should only ever
+   cover words that are far easier than the ceiling that was actually demonstrated. */
+const LV_CUT={A1:0, A2:0, B1:600, B2:2000, C1:5000, C2:10000};
 function lvRankOf(term){ const m=window.EN_RANK; return m ? m[normEn(term)] : null; }
 function lvCountKnown(level){
   const cut=LV_CUT[level]; if(!cut) return 0;
