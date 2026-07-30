@@ -926,13 +926,27 @@ if('serviceWorker' in navigator){
   window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
   // an installed PWA can live for days in the background; check whenever it comes back
   const askForUpdate=()=>{ navigator.serviceWorker.ready.then(r=>r.update()).catch(()=>{}); };
-  document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible') askForUpdate(); });
-  window.addEventListener('online', askForUpdate);
+  document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible'){ askForUpdate(); pullIfStale(); } });
+  window.addEventListener('online', ()=>{ askForUpdate(); pullIfStale(); });
+  window.addEventListener('focus', pullIfStale);
   navigator.serviceWorker.addEventListener('message', e=>{
     if(!e.data || e.data.type!=='sw-activated') return;
     if(String(e.data.rev)===String(BUILD)) return;      // already running it
     applyUpdate(e.data.rev);
   });
+}
+/* The app pushed to the cloud but never pulled again after the language was entered — there is
+   no poll and no realtime channel. So a learner who practised on their phone and left the
+   laptop tab open all day saw nothing from the phone, and the laptop's next save pushed a state
+   that had never seen it. Coming back to the app is the natural moment to reconcile.
+   Throttled, because visibilitychange fires on every alt-tab. */
+let lastPull=0;
+function pullIfStale(){
+  if(!currentUser || (LANG!=='he' && LANG!=='en')) return;
+  const now=Date.now();
+  if(now-lastPull < 60000) return;
+  lastPull=now;
+  syncWithRemote(LANG);
 }
 let updatePending=null;
 /* Reloading mid-round would throw away answers the learner has not committed yet, so the new
