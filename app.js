@@ -1679,6 +1679,66 @@ async function showAdminIfAllowed(){
 const fmtDate = t => t ? new Date(t).toLocaleDateString('he-IL',{day:'2-digit',month:'2-digit',year:'2-digit'})
                         +' '+new Date(t).toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'}) : '—';
 
+/* Users are fetched once per visit and kept here; search / sort / filter all run
+   in memory over this array, so typing never hits the network. Session-only state
+   by design — nothing is persisted to localStorage. */
+let admUsers=[];
+let admView={ q:'', sort:'new', filter:'all' };
+const ADM_DAY=864e5;
+
+function admFilterSort(){
+  const q=admView.q.trim().toLowerCase();
+  const cut=Date.now()-7*ADM_DAY;
+  let out=admUsers.filter(r=>{
+    if(q && !((r.username||'').toLowerCase().includes(q) || (r.email||'').toLowerCase().includes(q))) return false;
+    switch(admView.filter){
+      case 'active7': return !!r.lastTs && r.lastTs>=cut;
+      case 'never':   return !r.lastTs;
+      case 'admins':  return r.role==='admin';
+      default:        return true;
+    }
+  });
+  const t=v=>{ const n=v?Date.parse(v):NaN; return isNaN(n)?0:n; };
+  const cmp={
+    new:  (a,b)=>t(b.created_at)-t(a.created_at),
+    old:  (a,b)=>t(a.created_at)-t(b.created_at),
+    last: (a,b)=>(b.lastTs||0)-(a.lastTs||0),
+    words:(a,b)=>b.learnedTotal-a.learnedTotal
+  }[admView.sort]||((a,b)=>0);
+  return out.sort(cmp);
+}
+
+function renderAdminUsers(){
+  const list=$('#admUserList'), count=$('#admCount');
+  if(!list) return;
+  const shown=admFilterSort();
+  const filtering = !!admView.q.trim() || admView.filter!=='all';
+  if(count) count.innerHTML = filtering
+    ? `מציג <b>${shown.length}</b> מתוך ${admUsers.length} משתמשים`
+    : `${admUsers.length} משתמשים`;
+  if(!shown.length){
+    list.innerHTML='<p class="msg" style="color:var(--ink-soft)">אין משתמשים התואמים לסינון.</p>';
+    return;
+  }
+  list.innerHTML=shown.map(r=>`<div class="adm-row">
+      <div class="adm-top"><b>${esc(r.username||'—')}</b>
+        <span class="mail">${esc(r.email||'')}</span>
+        ${r.role==='admin'?'<span class="adm-tag">אדמין</span>':''}</div>
+      <div class="adm-meta">
+        <span>נרשם <i>${fmtDate(r.created_at)}</i></span>
+        <span>פעילות אחרונה <i>${r.lastTs?fmtDate(r.last):'לא נכנס מעולם'}</i></span>
+        <span>למד <i>${r.learnedHe}</i> עברית · <i>${r.learnedEn}</i> אנגלית</span>
+      </div>
+      ${r.email?`<div class="adm-acts"><button data-reset="${esc(r.email)}">✉ אפס סיסמה</button></div>`:''}
+    </div>`).join('');
+  list.querySelectorAll('[data-reset]').forEach(b=>b.onclick=async()=>{
+    const mail=b.dataset.reset; if(!mail) return;
+    b.disabled=true; b.textContent='שולח…';
+    try{ await Store.adminSendReset(mail); b.textContent='✓ נשלח קישור איפוס'; }
+    catch(e){ b.textContent='שגיאה — נסה שוב'; b.disabled=false; }
+  });
+}
+
 async function openAdmin(){
   goto('admin');
   const body=$('#adminBody');
@@ -1689,9 +1749,9 @@ async function openAdmin(){
       `<p class="msg" style="color:var(--ink-soft)">אם חסרות עמודות — הרץ את migration-2.sql ב-SQL Editor.</p>`;
     return;
   }
-  if(!users.length){ body.innerHTML='<p class="msg" style="color:var(--ink-soft)">עדיין אין משתמשים רשומים.</p>'; return; }
+  if(!users.length){ admUsers=[]; body.innerHTML='<p class="msg" style="color:var(--ink-soft)">עדיין אין משתמשים רשומים.</p>'; return; }
 
-  const rows=await Promise.all(users.map(async u=>{
+  admUsers=await Promise.all(users.map(async u=>{
     let learnedHe=0, learnedEn=0, last=u.last_seen;
     try{
       for(const p of await Store.adminUserProgress(u.id)){
@@ -1701,27 +1761,40 @@ async function openAdmin(){
         if(!last || (p.updated_at && p.updated_at>last)) last=p.updated_at;
       }
     }catch(e){}
-    return `<div class="adm-row">
-      <div class="adm-top"><b>${esc(u.username||'—')}</b>
-        <span class="mail">${esc(u.email||'')}</span>
-        ${u.role==='admin'?'<span class="adm-tag">אדמין</span>':''}</div>
-      <div class="adm-meta">
-        <span>נרשם <i>${fmtDate(u.created_at)}</i></span>
-        <span>פעילות אחרונה <i>${fmtDate(last)}</i></span>
-        <span>למד <i>${learnedHe}</i> עברית · <i>${learnedEn}</i> אנגלית</span>
-      </div>
-      <div class="adm-acts"><button data-reset="${esc(u.email||'')}">✉ אפס סיסמה</button></div>
-    </div>`;
+    const ts=last?Date.parse(last):NaN;
+    return { id:u.id, username:u.username||'', email:u.email||'', role:u.role,
+             created_at:u.created_at, last, lastTs:isNaN(ts)?0:ts,
+             learnedHe, learnedEn, learnedTotal:learnedHe+learnedEn };
   }));
-  body.innerHTML=`<p style="font-size:.82rem;color:var(--ink-soft);margin-bottom:10px">${users.length} משתמשים</p>`+rows.join('')
-    +`<div class="section-t" style="margin-top:30px">דיווחי באגים ומשוב</div><div id="admFb">
+
+  body.innerHTML=`<div class="adm-tools">
+      <input class="adm-search" id="admSearch" type="search" inputmode="search"
+             placeholder="חיפוש לפי מייל או שם" value="${esc(admView.q)}" aria-label="חיפוש משתמשים">
+      <select id="admSort" aria-label="מיון">
+        <option value="new">הצטרפו — חדש→ישן</option>
+        <option value="old">הצטרפו — ישן→חדש</option>
+        <option value="last">פעילות אחרונה</option>
+        <option value="words">כמות מילים שנלמדו</option>
+      </select>
+      <select id="admFilter" aria-label="סינון">
+        <option value="all">הכול</option>
+        <option value="active7">פעילים ב-7 ימים</option>
+        <option value="never">לא נכנסו מעולם</option>
+        <option value="admins">אדמינים</option>
+      </select>
+    </div>
+    <p class="adm-count" id="admCount"></p>
+    <div id="admUserList"></div>
+    <div class="section-t" style="margin-top:30px">דיווחי באגים ומשוב</div><div id="admFb">
         <p class="msg" style="color:var(--ink-soft)">טוען…</p></div>`;
-  body.querySelectorAll('[data-reset]').forEach(b=>b.onclick=async()=>{
-    const mail=b.dataset.reset; if(!mail) return;
-    b.disabled=true; b.textContent='שולח…';
-    try{ await Store.adminSendReset(mail); b.textContent='✓ נשלח קישור איפוס'; }
-    catch(e){ b.textContent='שגיאה — נסה שוב'; b.disabled=false; }
-  });
+
+  const sortSel=$('#admSort'), filtSel=$('#admFilter');
+  sortSel.value=admView.sort; filtSel.value=admView.filter;
+  $('#admSearch').oninput=e=>{ admView.q=e.target.value; renderAdminUsers(); };
+  sortSel.onchange=e=>{ admView.sort=e.target.value; renderAdminUsers(); };
+  filtSel.onchange=e=>{ admView.filter=e.target.value; renderAdminUsers(); };
+
+  renderAdminUsers();
   renderAdminFeedback();
 }
 

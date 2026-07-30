@@ -320,6 +320,17 @@
   .adm-acts button{background:transparent;border:1px solid var(--line);border-radius:999px;
        padding:5px 13px;font-family:"Heebo";font-size:.78rem;color:var(--ink-soft)}
   .adm-acts button:hover{border-color:var(--gold);color:var(--ink)}
+  /* admin toolbar — search / sort / filter */
+  .adm-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:2px 0 10px}
+  .adm-tools input.adm-search,.adm-tools select{background:var(--card);border:1px solid var(--line);
+       border-radius:999px;padding:8px 13px;font-family:"Heebo";color:var(--ink);min-width:0}
+  .adm-tools input.adm-search{flex:1 1 200px;font-size:.86rem}
+  .adm-tools input.adm-search::placeholder{color:var(--ink-soft)}
+  .adm-tools select{flex:1 1 132px;font-size:.79rem;color:var(--ink-soft)}
+  .adm-tools input.adm-search:focus,.adm-tools select:focus{outline:none;border-color:var(--gold);color:var(--ink)}
+  .adm-count{font-size:.82rem;color:var(--ink-soft);margin-bottom:10px}
+  .adm-count b{color:var(--accent);font-weight:700}
+  @media (max-width:480px){ .adm-tools input.adm-search{flex-basis:100%} }
 
   /* level test */
   .lv-opts{display:flex;flex-direction:column;gap:9px;margin-top:22px}
@@ -520,9 +531,6 @@
       <div class="brand">בקרה</div></div>
     <div class="scope-head"><h1>משתמשים</h1></div>
     <div class="rule"></div>
-    <p style="color:var(--ink-soft);font-size:.86rem">
-      סיסמאות אינן נשמרות בצורה שניתן לקרוא — לא כאן ולא בשרת. כדי לעזור למשתמש שנחסם,
-      השתמש ב"אפס סיסמה": נשלח אליו קישור והוא בוחר סיסמה חדשה בעצמו.</p>
     <div id="adminBody"></div>
   </section>
 
