@@ -455,7 +455,7 @@
      small on purpose — this is a study tool, not a launch page. Every motion is opt-out via
      prefers-reduced-motion, and every colour is already in the palette. */
   #intro{position:relative}
-  #intro::before{content:"";position:absolute;inset:-40px -100vw 40%;z-index:-1;pointer-events:none;
+  #intro::before{content:"";position:absolute;inset-block:-40px 40%;inset-inline:calc(50% - 50vw);z-index:-1;pointer-events:none;
     background:
       radial-gradient(60% 45% at 50% 0%, rgba(201,150,47,.13), transparent 70%),
       radial-gradient(40% 30% at 12% 18%, rgba(181,72,46,.07), transparent 70%);
@@ -463,7 +463,13 @@
   @keyframes wash{ from{opacity:.75;transform:translateY(0)} to{opacity:1;transform:translateY(-10px)} }
 
   .in-rise{opacity:0;animation:rise .7s cubic-bezier(.22,.8,.3,1) forwards}
-  @keyframes rise{ from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:none} }
+  /* Two independent safety nets, because the CTA lives under this rule. `@supports`
+     covers a browser that cannot run the animation at all; `.anim-done` is set from JS
+     after 1.5s and covers an animation that exists but never advances. */
+  @supports not (animation-name:rise){ .in-rise{opacity:1} }
+  #intro.anim-done .in-rise{opacity:1}
+  /* the intro reuses the shared `rise` keyframes defined above — a second definition
+     here silently overrode them for every other screen that animates in. */
 
   #intro .w-title em{position:relative;font-style:normal;color:var(--accent)}
   #intro .w-title em::after{content:"";position:absolute;inset-inline:0;bottom:.06em;height:.09em;
@@ -1072,14 +1078,14 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="supabase.min.js?v=62"></script>
-<script src="config.js?v=62"></script>
-<script src="store.js?v=62"></script>
-<script src="leveltest-he.js?v=62"></script>
-  <script src="leveltest.js?v=62"></script>
-<script src="enrank.js?v=62"></script>
-<script src="data.js?v=62"></script>
-<script src="data-en.js?v=62"></script>
-<script src="app.js?v=62"></script>
+<script src="supabase.min.js?v=63"></script>
+<script src="config.js?v=63"></script>
+<script src="store.js?v=63"></script>
+<script src="leveltest-he.js?v=63"></script>
+  <script src="leveltest.js?v=63"></script>
+<script src="enrank.js?v=63"></script>
+<script src="data.js?v=63"></script>
+<script src="data-en.js?v=63"></script>
+<script src="app.js?v=63"></script>
 </body>
 </html>

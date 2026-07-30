@@ -396,7 +396,14 @@ function maskTerm(meaning, term){
      "קרן ־־־", which asks the learner to guess from three letters — so when blanking leaves
      too little to work with, the giveaway is accepted and the original gloss is shown.
      Dropping a circular example never triggers this: what remains is a clean definition. */
-  if(out.includes('־־־') && out.replace(/־־־/g,'').replace(/[^֐-׿]/g,'').length < 6)
+  /* Two guards, because letter-count alone was not enough. "נֶחָמָה פּוּרְתָּא :: נחמה כלשהי,
+     נחמה מועטה" masked BOTH heads and left "־־־ כלשהי, ־־־ מועטה" — ten letters, comfortably
+     over the threshold, and completely unanswerable. When two or more words are hidden and only
+     a couple of content words survive, what is left is modifiers with nothing to modify. */
+  const hidden=(out.match(/־־־/g)||[]).length;
+  const rest=(out.replace(/־־־/g,' ').match(/[֐-׿]{2,}/g)||[]).length;
+  if(out.includes('־־־') &&
+     (out.replace(/־־־/g,'').replace(/[^֐-׿]/g,'').length < 6 || (hidden>=2 && rest<=2)))
     out = tidy(noAside);
   return /[֐-׿]/.test(out) ? out : meaning;
 }
@@ -421,7 +428,11 @@ function goto(id){
     hide($('#'+s));
   });
   show($('#'+id)); window.scrollTo(0,0);
-  if(id==='intro') countUpIntro();
+  if(id==='intro'){
+    countUpIntro();
+    // if the reveal animation has not finished by now it is never going to — show everything
+    setTimeout(()=>{ const el=$('#intro'); if(el) el.classList.add('anim-done'); }, 1500);
+  }
 }
 /* The landing page states the size of the bank. A number that arrives already finished reads as
    a claim; one that runs up reads as a count. Eased, so it decelerates into the real figure —
@@ -429,24 +440,29 @@ function goto(id){
 let countedIntro=false;
 function countUpIntro(){
   const el=$('#introCount'); if(!el || countedIntro) return;
-  const n=(Object.values(window.UNIT_DATA||{}).reduce((a,b)=>a+b.length,0))
-        + (Object.values(window.UNIT_DATA_EN||{}).reduce((a,b)=>a+b.length,0));
-  if(!n) return;
+  /* Both banks must be present. A failed <script> for one of them is silent — no console error,
+     no exception — and the headline then announced 3,694 instead of 5,413, which is worse than
+     announcing nothing: a broken load was presented as a plausible fact. */
+  const he=window.UNIT_DATA, en=window.UNIT_DATA_EN;
+  const cnt=o=>Object.values(o||{}).reduce((a,b)=>a+b.length,0);
+  const n=cnt(he)+cnt(en);
+  if(!cnt(he) || !cnt(en)){ el.textContent='—'; return; }
   countedIntro=true;
   if(matchMedia('(prefers-reduced-motion: reduce)').matches){ el.textContent=n.toLocaleString('en-US'); return; }
   const t0=performance.now(), DUR=1400;
-  let ran=false;
+  let done=false;
   const tick=t=>{
-    ran=true;
     const p=Math.min(1,(t-t0)/DUR), e=1-Math.pow(1-p,3);
     el.textContent=Math.round(n*e).toLocaleString('en-US');
-    if(p<1) requestAnimationFrame(tick);
+    if(p<1) requestAnimationFrame(tick); else done=true;
   };
   requestAnimationFrame(tick);
   /* requestAnimationFrame does not advance in a tab that is not compositing — a background tab,
      a battery-saver throttle. Without this the headline number sits on "0", which reads as a
      broken page rather than a slow one. If no frame has arrived, show the real figure. */
-  setTimeout(()=>{ if(!ran) el.textContent=n.toLocaleString('en-US'); }, 500);
+  /* The guard asks whether the count FINISHED, not whether a frame ever ran — one frame and
+     then a stall used to leave the number frozen half way. */
+  setTimeout(()=>{ if(!done) el.textContent=n.toLocaleString('en-US'); }, DUR+400);
 }
 
 /* ===== HOME ===== */
@@ -1920,7 +1936,10 @@ function queueRemoteSync(){
   clearTimeout(syncTimer);
   syncTimer=setTimeout(flushRemoteSync, 1500);
 }
-// A debounced save that never fires is a save the user lost. Flush before the page goes away.
+/* A debounced save that never fires is a save the user lost. Flush before the page goes away.
+   Now that every push reads and merges first, this cannot always complete inside a pagehide —
+   and that is accepted: the data is already in localStorage and syncs on the next open. The one
+   path that MUST complete is sign-out, because it erases localStorage, and that one awaits. */
 window.addEventListener('pagehide', flushRemoteSync);
 document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='hidden') flushRemoteSync(); });
 
@@ -1965,9 +1984,17 @@ function mergeProgress(local, remote){
            dir: local.dir || remote.dir || 'm2w' };
 }
 
+/* One merge at a time. Two of them interleaving means the second one's loadLangState()
+   re-reads a disk the first has already rewritten, and the merge is lost. */
+let syncBusy=false;
 async function syncWithRemote(lang){
   if(!currentUser || !window.Store) return;
   if(lang!=='he' && lang!=='en') return;        // no language chosen yet: the row has no key to write to
+  if(syncBusy) return;
+  syncBusy=true;
+  try{ return await syncWithRemoteInner(lang); } finally { syncBusy=false; }
+}
+async function syncWithRemoteInner(lang){
   let res=null;
   try{ res=await Store.pullProgress(lang); }catch(e){ return; }
   /* A failed read used to look exactly like an empty cloud, and the push below then wrote the
@@ -2176,6 +2203,7 @@ function bindCacheToUser(uid, adopt){
    comes back leaves the device exactly as it was. */
 async function pullAccountState(){
   if(!currentUser || !window.Store) return;
+  if(syncBusy) return;          // a merge is in flight; reloading the disk under it loses it
   for(const lang of ['he','en']){
     let res=null;
     try{ res=await Store.pullProgress(lang); }catch(e){ continue; }
@@ -2216,6 +2244,10 @@ async function afterAuthed(justSignedUp){
   }
   catch(e){ $('#userBadge').textContent = currentUser.email||''; }
   await showAdminIfAllowed();
+  /* BEFORE the subscription gate: a locked user can still press "יציאה", and sign-out writes to
+     the cloud. Reaching that write with a device that never fetched the account meant the locked
+     screen's own promise — "שום מילה שלמדת לא נמחקת" — was false. */
+  await pullAccountState();
   if(!(await accessOk())) return;      // subscription lapsed — the gate owns the screen from here
   show($('#fbFab'));            // reporting a bug must never be more than one tap away
   /* The level test was being forced on EVERY sign-in. Signing out runs localStorage.clear(),
@@ -2223,7 +2255,6 @@ async function afterAuthed(justSignedUp){
      which is chosen AFTER this gate. So the gate always read an empty local key and sent the
      learner back through a test they had already finished. The result is now fetched before
      the gate decides, and only a confirmed read counts. */
-  await pullAccountState();     // the two screens below read localStorage; fill it first
   // First run: offer the level test once. Everything else lands on the language picker.
   if(!levelDone()){ hide($('#lvQuiz')); hide($('#lvResult')); show($('#lvIntro')); goto('level'); }
   else renderWelcome();
