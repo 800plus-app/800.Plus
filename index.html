@@ -8,6 +8,7 @@
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#b5482e">
+<link rel="icon" href="icon-192.png">
 <title>800+ — אוצר מילים לפסיכומטרי</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -410,7 +411,13 @@
 
   /* PRINT SHEET — invisible on screen, the whole page when printing */
   #sheet{display:none}
+  /* Ctrl+P from anywhere used to print a blank page: the print rule hides the whole app and
+     shows #sheet, which is empty until a worksheet is built. */
   @media print{
+    #sheet:empty::after{content:"אין דף מבחן להדפסה. פתחו יחידה ולחצו \"דף מבחן להדפסה\".";
+      display:block;padding:40px;font-size:14px;text-align:center;color:#444}
+    #sizeAsk,#sheetAsk{display:none!important}
+
     /* Everything the app draws is irrelevant on paper; only the sheet prints. */
     body>.wrap,#auth,#installAsk,#fbFab,#fbAsk,.toast{display:none!important}
     body{background:#fff;color:#000;padding:0}

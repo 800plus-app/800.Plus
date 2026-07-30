@@ -1020,7 +1020,7 @@ function lvPick(choice, btn){
     else if(b===btn) b.classList.add('wrong');
   });
   $('#lvDunno').disabled=true;
-  setTimeout(()=>{ lvIdx++; lvRender(); }, ok?320:900);
+  lvTimer=setTimeout(()=>{ lvIdx++; lvRender(); }, ok?320:900);
 }
 $('#lvDunno').onclick=()=>{
   const it=lvDeck[lvIdx]; if(!it) return;
@@ -1140,7 +1140,7 @@ const lvStart = lang => { LV_LANG=lang;
 const lvBtn=$('#lvOpen');     if(lvBtn) lvBtn.onclick=()=>lvStart('en');
 const lvBtnHe=$('#lvOpenHe'); if(lvBtnHe) lvBtnHe.onclick=()=>lvStart('he');
 $('#lvSkip').onclick=()=>{ LS.set(lvKey(),'skipped'); renderWelcome(); };
-$('#lvExit').onclick=()=>{ if(confirm('לצאת מהמבחן? התוצאות לא יישמרו.')) renderWelcome(); };
+$('#lvExit').onclick=()=>{ if(confirm('לצאת מהמבחן? התוצאות לא יישמרו.')){ clearTimeout(lvTimer); renderWelcome(); } };
 $('#lvDone').onclick=()=>renderWelcome();
 
 /* ===== הקראה קולית =====
@@ -1429,7 +1429,7 @@ function exAnswer(ok, given, btn){
       : `<div class="rv">התשובה: <b>${esc(q.answer)}</b>`+
         (alts.length?` (גם ${alts.map(esc).join(', ')})`:'')+`</div>`);
   show(fb);
-  setTimeout(()=>{ exI++; exRender(); }, ok?420:1100);
+  exTimer=setTimeout(()=>{ exI++; exRender(); }, ok?420:1100);
 }
 /* any word in the unit that carries this exact gloss counts */
 function exWriteOk(v, q){
@@ -1477,7 +1477,12 @@ $('#exStart').onclick=startExam;
 $('#exAgain').onclick=()=>openExam(exUnit);
 $('#exCancel').onclick=()=>openScope('unit:'+exUnit);
 $('#exDone').onclick=()=>openScope('unit:'+exUnit);
-$('#exExit').onclick=()=>{ if(!exAns.length || confirm('לצאת מהמבחן? התוצאה לא תישמר.')) openScope('unit:'+exUnit); };
+/* confirm() blocks the queue but does not cancel timers: answering the LAST question and then
+   confirming "leave, the result will not be saved" let the pending tick fire, reach exFinish()
+   and save the score anyway — and in the level test it wrote hw_level, which is the gate that
+   decides whether the test is ever offered again. */
+let exTimer=null, lvTimer=null;
+$('#exExit').onclick=()=>{ if(!exAns.length || confirm('לצאת מהמבחן? התוצאה לא תישמר.')){ clearTimeout(exTimer); openScope('unit:'+exUnit); } };
 
 /* ===== printable sheet =====
    No PDF library: the CSP allows scripts from this origin only, and pulling in a bundler-sized
