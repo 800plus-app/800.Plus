@@ -133,8 +133,34 @@ function normEn(s){
 }
 /* one-time migration: merge existing per-exact-string records into normalized keys.
    Called from boot (norm/NIQ are defined further down the file). */
+/* v8: norm/normEn began treating a hyphen as a separator instead of deleting it, so the key
+   of every hyphenated term changed (departmentstore -> "department store"). The old key cannot
+   be reversed back into a term, so the remap is driven from the BANK: for each word in the data
+   files, compute the key under the OLD rule and move any record found there onto the new key.
+   Must run before pruneOrphans(), which would otherwise delete the records as orphans. */
+function remapHyphenKeys(){
+  const oldNorm = t => String(t).normalize('NFKC').replace(NIQ,'').replace(/[‎‏]/g,'')
+    .replace(/["'`׳״.,;:!?()\[\]{}\-–—/|]/g,'').replace(/\s+/g,' ').trim()
+    .replace(/ך/g,'כ').replace(/ם/g,'מ').replace(/ן/g,'נ').replace(/ף/g,'פ').replace(/ץ/g,'צ');
+  const oldNormEn = t => String(t).normalize('NFKC').toLowerCase()
+    .replace(/^(to|a|an|the)\s+/,'').replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ').trim();
+  const oldK = LANG==='en' ? oldNormEn : oldNorm;
+  const data = (LANG==='en' ? window.UNIT_DATA_EN : window.UNIT_DATA) || {};
+  let moved=0;
+  for(const u in data) for(const p of (data[u]||[])){
+    const term=p&&p[0]; if(!term) continue;
+    const nk=K(term), ok=oldK(term);
+    if(!nk || !ok || nk===ok) continue;
+    if(stats.words[ok] && !stats.words[nk]){ stats.words[nk]=stats.words[ok]; delete stats.words[ok]; moved++; }
+    if(assoc[ok] && !assoc[nk]){ assoc[nk]=assoc[ok]; delete assoc[ok]; }
+    if(deleted.has(ok)){ deleted.delete(ok); deleted.add(nk); }
+  }
+  if(moved){ saveStats(); saveAssoc(); saveDeleted(); }
+  return moved;
+}
 function migrateStores(){
-  if(LS.get(KEY('hw_migr'),0)>=7) return;
+  if(LS.get(KEY('hw_migr'),0)===7){ remapHyphenKeys(); LS.set(KEY('hw_migr'),8); return; }
+  if(LS.get(KEY('hw_migr'),0)>=8) return;
   const nw={};
   for(const t in stats.words){
     const k=K(t); if(!k) continue;
@@ -147,7 +173,8 @@ function migrateStores(){
   stats.words=nw; saveStats();
   const na={}; for(const t in assoc){ const k=K(t); if(k && assoc[t] && !na[k]) na[k]=assoc[t]; } assoc=na; saveAssoc();
   deleted=new Set([...deleted].map(K).filter(Boolean)); saveDeleted();
-  LS.set(KEY('hw_migr'),7);
+  remapHyphenKeys();
+  LS.set(KEY('hw_migr'),8);
 }
 
 /* Housekeeping: drop records/associations/deletions for words that no longer exist in the
