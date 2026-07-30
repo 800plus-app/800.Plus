@@ -1,4 +1,5 @@
-// Auto-generated word bank (Quizlet units 1-10 + personal). Duplicates merged: one word = one entry, all senses joined.
+// Hebrew word bank: 1,719 entries in 10 units + a personal unit. One word = one entry, senses merged.
+// Deduplicated, NFKC-normalised, and dictionary-audited. Provenance and the full audit trail: METHODOLOGY.md
 window.UNIT_DATA = {
  "1": [
   [
