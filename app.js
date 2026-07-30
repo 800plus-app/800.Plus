@@ -751,8 +751,14 @@ function streakInfo(){
   let start = days.has(dayKey(now)) ? 0 : (days.has(dayKey(now-DAY)) ? 1 : -1);
   let n=0;
   if(start>=0) for(let i=start;;i++){ if(!days.has(dayKey(now-i*DAY))) break; n++; }
+  // the last seven days, each carrying its weekday letter so the strip explains itself:
+  // five filled bars next to a streak of 1 looks like a contradiction until you see WHERE the gap is
+  const HE_DAY=['א','ב','ג','ד','ה','ו','ש'];
   const week=[];
-  for(let i=6;i>=0;i--) week.push(days.has(dayKey(now-i*DAY)));
+  for(let i=6;i>=0;i--){
+    const t=now-i*DAY;
+    week.push({on: days.has(dayKey(t)), label: HE_DAY[new Date(t).getDay()], today: i===0});
+  }
   return {n, today: days.has(dayKey(now)), week, total: days.size};
 }
 function renderWelcome(){
@@ -773,7 +779,8 @@ function renderWelcome(){
   const days = n => n===1 ? 'יום רצוף' : 'ימים רצוף';
   $('#dStreak').textContent=st.n;
   $('#dStreakLbl').textContent=days(st.n);
-  $('#dWeek').innerHTML=st.week.map(on=>`<i class="${on?'on':''}"></i>`).join('');
+  $('#dWeek').innerHTML=st.week.map(d=>
+    `<i class="${d.on?'on':''}${d.today?' now':''}"><em>${d.label}</em></i>`).join('');
   $('#greetSub').textContent =
     st.n===0   ? 'מוכן לתרגל? בחר את השפה שתרצה לתרגל היום'
   : st.today   ? `כבר תרגלת היום — ${st.n} ${days(st.n)}. כל הכבוד.`
