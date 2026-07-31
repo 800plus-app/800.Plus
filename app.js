@@ -301,15 +301,29 @@ function classify(scope){
     const k=K(w.term);
     if(seen.has(k)) continue; seen.add(k);
     if(wasSkipped(w.term)){ skipped++; continue; }
-    const v=lvl(w.term);
-    if(v>=3) strong++; else if(v>=1) weak++; else fresh++;
+    /* Same three buckets the practice buttons use, and for the same reason: a word you got
+       wrong is not a word you have never met. Keeping the donut on the old rule would have
+       left the picture disagreeing with the buttons underneath it. */
+    if(lvl(w.term)>=3) strong++;
+    else if(seenCount(w.term)>0) weak++;
+    else fresh++;
   }
   return {total:seen.size, strong, weak, fresh, skipped};
 }
 function uniqScope(scope){ const seen=new Set(),out=[]; for(const w of scopeWords(scope)){ const k=K(w.term); if(!seen.has(k)){seen.add(k);out.push(w);} } return out; }
-function newCards(scope){ return uniqScope(scope).filter(w=>lvl(w.term)<1); }
+/* Reported by a tester: practise 30 words in a unit, then ask for "מילים חדשות", and some of
+   the 30 come back — both ones he got right and ones he got wrong.
+   The cause was that "new" was defined as `level < 1`, and `level` is a STRENGTH counter, not a
+   record of having met the word. A word answered wrong is decremented and floors at 0; a word
+   answered right but not on the first try is ALSO decremented. Both land back on 0, which the
+   old rule read as "never seen".
+   `seen` is the field that actually answers "have I met this word", so it is the one the button
+   labelled "מילים שעוד לא תרגלתי" now uses. A practised word that is still weak belongs in
+   לחיזוק — which is exactly what that button is for. */
+const seenCount = term => { const r=stats.words[K(term)]; return r ? int0(r.seen) : 0; };
+function newCards(scope){ return uniqScope(scope).filter(w=>seenCount(w.term)===0); }
 function weakCards(scope){
-  const arr=uniqScope(scope).filter(w=>{const v=lvl(w.term);return v>=1&&v<3;});
+  const arr=uniqScope(scope).filter(w=>seenCount(w.term)>0 && lvl(w.term)<3);
   arr.sort((a,b)=>lastOf(a.term)-lastOf(b.term));
   return arr;
 }
