@@ -324,7 +324,23 @@
   .au-msg.err{color:#e8907f} .au-msg.ok{color:#8fce9d}
   .au-msg.hidden{display:none!important}
 
-  .user-badge{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft)}
+  .user-badge{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft);
+       background:transparent;border:1px solid transparent;border-radius:10px;padding:6px 10px;
+       cursor:pointer;font-family:inherit}
+  .user-badge:hover{border-color:var(--line);color:var(--ink)}
+  /* account screen */
+  .acc-card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+       padding:4px 16px;margin-bottom:22px}
+  .acc-row{display:flex;justify-content:space-between;align-items:center;gap:12px;
+       padding:13px 0;border-bottom:1px solid var(--line);font-size:.9rem}
+  .acc-row:last-child{border-bottom:none}
+  .acc-row span{color:var(--ink-soft)}
+  .acc-row b{font-weight:600;text-align:start;direction:ltr;unicode-bidi:plaintext}
+  .acc-h{font-family:"Frank Ruhl Libre",serif;font-size:1.05rem;margin:26px 0 10px;color:var(--ink)}
+  /* the destructive action must not look like the two ordinary ones above it */
+  .pbtn.danger-tile{border-color:#d8a99c}
+  .pbtn.danger-tile .tx b{color:#a33f28}
+  .acc-soon{margin-top:26px;font-size:.8rem;line-height:1.7;color:var(--ink-soft)}
   .user-badge b{color:var(--ink)}
 
   /* admin */
@@ -719,6 +735,7 @@
   <!-- ===== WELCOME / LANGUAGE PICKER ===== -->
   <section id="welcome" class="hidden">
     <div class="topbar"><div class="sp"></div>
+      <button class="user-badge" id="userBadge3" title="החשבון שלי"><b id="userBadgeW"></b></button>
       <button class="back hidden" id="adminBtn2" style="margin-inline-start:8px">בקרה</button>
       <button class="back" id="signOutBtn2" style="margin-inline-start:8px">יציאה</button></div>
     <div class="welcome-head">
@@ -823,9 +840,43 @@
   </section>
 
   <!-- ===== HOME ===== -->
+  <!-- ===== ACCOUNT / SETTINGS =====
+       Reached by tapping your own name. Everything here is either rare (install, privacy) or
+       dangerous (reset progress) — both are wrong on a screen you pass through every day. -->
+  <section id="account" class="hidden">
+    <div class="topbar"><button class="back" id="accBack">→ חזרה</button><div class="sp"></div>
+      <button class="back" id="signOutBtn4" style="margin-inline-start:8px">יציאה</button></div>
+    <div class="welcome-head">
+      <div class="kicker">החשבון שלי</div>
+      <h1 class="w-title" id="accName">—</h1>
+      <p class="w-sub" id="accMail"></p>
+    </div>
+
+    <div class="acc-card">
+      <div class="acc-row"><span>מייל</span><b id="accMail2">—</b></div>
+      <div class="acc-row"><span>שם משתמש</span><b id="accUser">—</b></div>
+      <div class="acc-row"><span>נרשמת</span><b id="accSince">—</b></div>
+      <div class="acc-row"><span>סטטוס גישה</span><b id="accSub">—</b></div>
+    </div>
+
+    <h3 class="acc-h">כלים</h3>
+    <button class="pbtn" id="accInstall"><div class="ic">📲</div><div class="tx"><b>התקנה כאפליקציה</b>
+      <span>פותח את 800+ ממסך הבית, גם בלי אינטרנט</span></div><div class="cnt">‹</div></button>
+    <button class="pbtn" id="accSheet"><div class="ic">🖨</div><div class="tx"><b>דף מבחן להדפסה</b>
+      <span>נפתח מתוך יחידה — כאן רק כדי שתדע שהוא קיים</span></div><div class="cnt">‹</div></button>
+
+    <h3 class="acc-h">אזור מסוכן</h3>
+    <button class="pbtn danger-tile" id="accReset"><div class="ic">⚠️</div><div class="tx"><b>איפוס התקדמות</b>
+      <span>מוחק את כל ההיסטוריה שלך בשתי השפות — מילים שלמדת, ציונים, רצף ימים.
+      החשבון עצמו נשאר. אין דרך לבטל.</span></div><div class="cnt">‹</div></button>
+
+    <p class="acc-soon">בהמשך יופיעו כאן הצהרת פרטיות ונגישות, ופרטי המנוי —
+      איזו חבילה, מתי התחילה וכמה זמן נשאר.</p>
+  </section>
+
   <section id="home" class="hidden">
     <div class="topbar"><button class="back" id="switchLang">⇄ החלף שפה</button><div class="sp"></div>
-      <div class="user-badge"><b id="userBadge"></b></div>
+      <button class="user-badge" id="userBadge2" title="החשבון שלי"><b id="userBadge"></b></button>
       <button class="back hidden" id="adminBtn" style="margin-inline-start:8px">בקרה</button>
       <button class="back" id="signOutBtn" style="margin-inline-start:8px">יציאה</button></div>
     <div class="home-head">
@@ -1092,14 +1143,14 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="supabase.min.js?v=69"></script>
-<script src="config.js?v=69"></script>
-<script src="store.js?v=69"></script>
-<script src="leveltest-he.js?v=69"></script>
-  <script src="leveltest.js?v=69"></script>
-<script src="enrank.js?v=69"></script>
-<script src="data.js?v=69"></script>
-<script src="data-en.js?v=69"></script>
-<script src="app.js?v=69"></script>
+<script src="supabase.min.js?v=70"></script>
+<script src="config.js?v=70"></script>
+<script src="store.js?v=70"></script>
+<script src="leveltest-he.js?v=70"></script>
+  <script src="leveltest.js?v=70"></script>
+<script src="enrank.js?v=70"></script>
+<script src="data.js?v=70"></script>
+<script src="data-en.js?v=70"></script>
+<script src="app.js?v=70"></script>
 </body>
 </html>

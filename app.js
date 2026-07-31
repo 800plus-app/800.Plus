@@ -454,7 +454,7 @@ function isCorrect(input, term){
 }
 
 /* ===== screens ===== */
-const SCREENS=['auth','welcome','level','home','scope','quiz','results','stats','manage','add','exam','admin','locked','intro'];
+const SCREENS=['auth','welcome','level','home','scope','quiz','results','stats','manage','add','exam','admin','locked','intro','account'];
 /* Heavy lists left in hidden screens keep thousands of nodes alive for the whole session;
    drop them on the way out — they are always rebuilt when the screen is opened again. */
 const HEAVY = {stats:'#statsBody', manage:'#manageList', results:'#reviewList'};
@@ -2293,15 +2293,23 @@ async function pullAccountState(){
     if(hasProgressIn(lang)>=10){ LS.set(levelKeyFor(lang),'skipped'); break; }
 }
 
+/* The name appears on two screens and both are the way into the account page, so they are
+   written together — a badge that says one thing on the welcome screen and another on the home
+   screen is how "which account am I actually in" becomes a question. */
+function setBadges(text){
+  const t=text||'';
+  ['#userBadge','#userBadgeW'].forEach(id=>{ const el=$(id); if(el) el.textContent=t; });
+}
+
 async function afterAuthed(justSignedUp){
   bindCacheToUser(currentUser.id, justSignedUp);   // a fresh account inherits the preview it came from
   try{
     const p=await Store.myProfile();
     const nm = (p && p.username) || (currentUser.email||'').split('@')[0];
-    $('#userBadge').textContent = p ? p.username : (currentUser.email||'');
+    setBadges(p ? p.username : (currentUser.email||''));
     LS.set('hw_name', nm);            // the dashboard greets by name before any network call returns
   }
-  catch(e){ $('#userBadge').textContent = currentUser.email||''; }
+  catch(e){ setBadges(currentUser.email||''); }
   await showAdminIfAllowed();
   /* BEFORE the subscription gate: a locked user can still press "יציאה", and sign-out writes to
      the cloud. Reaching that write with a device that never fetched the account meant the locked
@@ -2387,6 +2395,60 @@ const signOutNow = async ()=>{
 $('#signOutBtn').onclick  = signOutNow;
 $('#signOutBtn2').onclick = signOutNow;
 $('#signOutBtn3').onclick = signOutNow;
+$('#signOutBtn4').onclick = signOutNow;
+
+/* ===== account screen =====
+   Tapping your own name opens it. For an admin the same tap opens the control centre instead —
+   an admin has no use for "install the app" and every use for the list of who signed up. */
+async function openAccount(){
+  if(isAdmin){ openAdmin(); return; }
+  const mail=(currentUser&&currentUser.email)||'—';
+  $('#accName').textContent = (LS.get('hw_name','')||'').trim() || 'החשבון שלי';
+  $('#accMail').textContent = mail;
+  $('#accMail2').textContent = mail;
+  $('#accUser').textContent = (LS.get('hw_name','')||'—');
+  $('#accSince').textContent = '—';
+  $('#accSub').textContent = 'טוען…';
+  /* Install is pointless once the app IS installed. Unlike the home-screen CTA this one is NOT
+     hidden after a dismissal — the whole point of moving it here is that a settings page is
+     where you go looking for something you said "not now" to. */
+  $('#accInstall').classList.toggle('hidden', isStandalone() || LS.get('hw_installed',0)===1);
+  goto('account');
+  try{
+    const p=await Store.myProfile();
+    if(p){
+      if(p.username){ $('#accUser').textContent=p.username; $('#accName').textContent=p.username; }
+      if(p.created_at) $('#accSince').textContent=fmtDate(p.created_at).split(' ')[0];
+      $('#accSub').textContent = FREE_PHASE && p.sub_status==='none' ? 'פתוח — שלב חינמי' : subLabel(p);
+    } else $('#accSub').textContent='פתוח';
+  }catch(e){ $('#accSub').textContent='לא ידוע'; }
+}
+$('#userBadge2').onclick = openAccount;
+$('#userBadge3').onclick = openAccount;
+$('#accBack').onclick = ()=>{ if(LANG==='he'||LANG==='en') goto('home'); else { renderWelcome(); goto('welcome'); } };
+$('#accInstall').onclick = ()=>promptInstall(true);
+$('#accSheet').onclick = ()=>toast('פותחים יחידה ואז "דף מבחן להדפסה" — הדף נבנה מהמילים של אותה יחידה');
+
+/* Reset asks twice, and the second time it asks you to TYPE something. A single confirm on an
+   irreversible action is a mis-tap away from erasing months of work. */
+$('#accReset').onclick = async ()=>{
+  if(!confirm('לאפס את כל ההתקדמות שלך בשתי השפות? מילים שלמדת, ציוני מבחנים ורצף הימים יימחקו. אין דרך לבטל.')) return;
+  const typed=prompt('כדי לאשר, הקלד: איפוס');
+  if((typed||'').trim()!=='איפוס'){ toast('לא אופס'); return; }
+  const btn=$('#accReset'); btn.disabled=true;
+  try{
+    /* The cloud row is emptied FIRST. Clearing the device and then failing to reach the server
+       would leave the old progress in the cloud, and the next sync would pull it all back —
+       a reset that silently undoes itself is worse than one that fails loudly. */
+    for(const lang of ['he','en'])
+      await Store.pushProgress(lang, {assoc:{}, stats:{words:{},sessions:[]}, deleted:[], added:[],
+                                      dir:'m2w', extras:{}});
+    wipeAccountKeys();
+    if(window.caches) try{ await caches.delete('hw-data'); }catch(e){}
+    toast('ההתקדמות אופסה');
+    setTimeout(()=>location.reload(), 700);
+  }catch(e){ btn.disabled=false; toast('האיפוס נכשל — ההתקדמות שלך לא נגעה'); }
+};
 
 /* ===== daily reminder =====
    Asked for at the right moment and never twice. A denied permission is permanent in the
