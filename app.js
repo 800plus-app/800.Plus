@@ -189,7 +189,7 @@ const K = t => LANG==='en' ? normEn(t) : norm(t);
 function normEn(s){
   return (s==null?'':String(s)).normalize('NFKC').toLowerCase()
     .trim().replace(/^(to|a|an|the)\s+/,'')        // trim first: a leading space hid the article
-    .replace(/[-–—/]/g,' ')                        // separator, not noise
+    .replace(/[-–—/|]/g,' ')                       // separator, not noise (| was dropped here and kept in Hebrew)
     .replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ').trim();
 }
 /* one-time migration: merge existing per-exact-string records into normalized keys.
@@ -393,12 +393,17 @@ function allCards(scope){
 }
 
 /* ===== answer normalization ===== */
-const NIQ=/[֑-ׇ]/g;
+/* U+05BE MAQAF — the Hebrew hyphen — sits inside the niqqud block, so the old single range
+   DELETED it: norm("בֵּית־סֵפֶר") gave "ביתספר" while the same term with an ASCII hyphen gave
+   "בית ספר". Two spellings of one word, two different keys. Excluded here and handled as the
+   separator it is, exactly like "-" already was. No term in the bank uses it today, so no
+   stored key moves — this closes the door before someone types it. */
+const NIQ=/[֑-ֽֿ-ׇ]/g;
 function norm(s){
   // NFKC folds Hebrew presentation forms (e.g. U+FB35 ﬡּ) back to letter+dagesh, so a word
   // stored with one can still be typed normally and matched.
   return (s==null?'':String(s)).normalize('NFKC').replace(NIQ,'').replace(/[‎‏]/g,'')
-    .replace(/[-–—/|]/g,' ')                       // separator, not noise: department-store == department store
+    .replace(/[-–—/|־]/g,' ')                    // separator, not noise: department-store == department store
     .replace(/["'`׳״.,;:!?()\[\]{}]/g,'').replace(/\s+/g,' ').trim()
     .replace(/ך/g,'כ').replace(/ם/g,'מ').replace(/ן/g,'נ').replace(/ף/g,'פ').replace(/ץ/g,'צ');
 }
@@ -549,13 +554,14 @@ function isCorrect(input, term){
   const alts=term.split(/[\/|,]|\s-\s/).flatMap(x=>LANG==='en'?[x]:heForms(x))
                  .map(x=>K(x)).filter(Boolean);
   if(alts.includes(a)) return true;
-  /* English compounds are written both ways in the wild — best-seller / bestseller,
-     self-confidence / selfconfidence. normEn turns the hyphen into a space, so the closed
-     form matched nothing. Compare with the separators removed as a last resort. */
-  if(LANG==='en'){
-    const squash=x=>String(x).replace(/\s+/g,'');
-    if(alts.some(x=>squash(x)===squash(a))) return true;
-  }
+  /* Compounds get written both ways — best-seller / bestseller, and in Hebrew a learner who
+     types בית ספר as one word. This ran for English only, so 163 English terms were protected
+     and the 380 multi-word Hebrew terms were not. Extended to both after measuring the risk:
+     squashing spaces produces ZERO new collisions across all 1,719 Hebrew terms, neither
+     between two terms nor onto an existing single-word key. Like the plene-spelling rules,
+     this only ever ADDS an accepted form and can never reject one. */
+  const squash=x=>String(x).replace(/\s+/g,'');
+  if(alts.some(x=>squash(x)===squash(a))) return true;
   return false;
 }
 

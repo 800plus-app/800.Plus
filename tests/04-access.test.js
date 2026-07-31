@@ -151,35 +151,31 @@ describe('access gate — malformed dates', () => {
   /* Not a hypothetical: sub_until is written by billing webhooks, and a provider that sends a
    * unix timestamp, an empty string or a localised date produces exactly these. Pinned so the
    * behaviour is a decision rather than an accident. */
-  test('an unparseable date denies access to a paying status (fails CLOSED)', () => {
+  /* Was pinned the other way round — "fails CLOSED" — with the fix sitting beside it as a
+   * skipped test. The fix was made in app.js (REV 87), so the two swap: this now asserts the
+   * behaviour we chose, and the old assertion is gone rather than commented out.
+   *
+   * Why open and not closed: sub_until is written by a billing webhook. A provider that starts
+   * sending "2026-07-31 00:00:00+03" or a localised date produces an Invalid Date, and under the
+   * old rule every `active` subscriber holding one was locked out of an app they had paid for —
+   * silently, and all at once. An unreadable date now means no end date, which fails in the
+   * direction that costs a few free days instead of every paying customer simultaneously.
+   * The accepted cost: a row whose date is garbage for some other reason gets open-ended access
+   * until someone notices. hasAccess logs to console.error precisely so it is noticeable. */
+  test('an unparseable date does NOT lock a paying subscriber', () => {
     for (const bad of ['not-a-date', 'yesterday', '31/07/2026', {}, []]) {
-      assert.strictEqual(can({ sub_status: 'active', sub_until: bad }), false,
-        `sub_until=${JSON.stringify(bad)} — an "active" subscriber is locked out. This is the ` +
-        `current behaviour, and it is the risky direction: a malformed webhook write locks a ` +
-        `customer who has paid. If that is not wanted, hasAccess must treat an Invalid Date the ` +
-        `same as no date at all.`);
+      assert.strictEqual(can({ sub_status: 'active', sub_until: bad }), true,
+        `sub_until=${JSON.stringify(bad)} — an "active" subscriber must keep access when the ` +
+        `date cannot be read. Locking them is the one failure mode that hits every paying ` +
+        `customer at once.`);
     }
   });
 
-  test('an unparseable date should not lock a paying subscriber', { skip: 'needs an app.js change — see comment' }, () => {
-    /* SKIPPED because it fails today and the fix belongs in app.js, not here.
-     *
-     * The change that would enable it, in hasAccess() (app.js:2983):
-     *     const until = r.sub_until ? new Date(r.sub_until) : null;
-     * becomes
-     *     let until = r.sub_until ? new Date(r.sub_until) : null;
-     *     if (until && isNaN(until.getTime())) until = null;   // unreadable date == no date
-     *
-     * Why it is worth making: sub_until is written by a billing webhook. A provider that starts
-     * sending "2026-07-31 00:00:00+03" or a localised date produces an Invalid Date, and today
-     * every `active` subscriber whose row has one is locked out of an app they have paid for —
-     * silently, and all at once. Treating an unreadable date as "no end date" fails in the
-     * direction that costs a few days of access instead of every paying customer at once.
-     *
-     * The counter-argument, which is why this is not just done: it also grants open-ended access
-     * to a row whose date is garbage for some other reason. That is a decision for whoever owns
-     * billing, not for a test. */
-    assert.strictEqual(can({ sub_status: 'active', sub_until: 'not-a-date' }), true);
+  test('an unreadable date does not RESURRECT a status that has no access', () => {
+    // Fail-open applies to the date, not to the status: canceled with an unreadable date has
+    // no period left to honour, so it stays closed.
+    assert.strictEqual(can({ sub_status: 'canceled', sub_until: 'not-a-date' }), false);
+    assert.strictEqual(can({ sub_status: 'past_due',  sub_until: 'not-a-date' }), false);
   });
 
   test('an empty-string date is treated as no date, not as an invalid one', () => {
