@@ -17,7 +17,7 @@ const LS = {
   set(k,v){
     let payload;
     try{ payload = JSON.stringify(v); }catch(e){ return false; }
-    try{ localStorage.setItem(k, payload); return true; }
+    try{ localStorage.setItem(k, payload); if(storageBarOn) hideStorageBar(); return true; }
     catch(e){
       /* quota exceeded (or storage disabled) — shed the least valuable data and retry once.
          The retry must re-serialize: shedStorage trims stats.sessions in memory, and `v` is
@@ -25,14 +25,42 @@ const LS = {
          exactly what did not fit and undo the shedding in the same breath. */
       if(shedStorage()){
         try{ payload = JSON.stringify(v); }catch(e4){}
-        try{ localStorage.setItem(k, payload); return true; }catch(e2){}
+        try{ localStorage.setItem(k, payload); hideStorageBar(); return true; }catch(e2){}
       }
+      /* A toast lasts under two seconds and then this fails in total silence for the rest of
+         the session, while every later round is quietly lost. A learner deserves to know the
+         app has stopped remembering — and to know whether the cloud still has them. */
       if(!storageWarned){ storageWarned=true; try{ toast('אין מקום פנוי בדפדפן — חלק מההתקדמות לא נשמרה'); }catch(e3){} }
+      try{ showStorageBar(); }catch(e5){}
       return false;
     }
   },
   del(k){ try{ localStorage.removeItem(k); }catch(e){} }
 };
+/* A bar, not a toast: it stays until a write succeeds, because the condition stays until then
+   too. The wording changes with the one fact that decides how bad this is — whether there is a
+   signed-in account still receiving the progress. */
+let storageBarOn=false;
+function showStorageBar(){
+  if(storageBarOn) return;
+  storageBarOn=true;
+  let bar=document.getElementById('stgBar');
+  if(!bar){
+    bar=document.createElement('div');
+    bar.id='stgBar'; bar.className='stg-bar';
+    document.body.appendChild(bar);
+  }
+  bar.innerHTML = currentUser
+    ? 'הזיכרון של הדפדפן מלא. ההתקדמות ממשיכה להישמר בחשבון שלך, אבל לא במכשיר הזה — פנה מקום כדי לחזור לעבודה רגילה.'
+    : '⚠ הזיכרון של הדפדפן מלא וההתקדמות שלך <b>לא נשמרת</b>. פתח חשבון או פנה מקום בדפדפן.';
+  bar.classList.remove('hidden');
+}
+function hideStorageBar(){
+  if(!storageBarOn) return;
+  storageBarOn=false;
+  const bar=document.getElementById('stgBar');
+  if(bar) bar.classList.add('hidden');
+}
 /* Sessions history is the only unbounded-ish store; drop the old tail first.
    The live `stats` object is trimmed FIRST and from memory, because it holds the round that
    just ended — the one that triggered the overflow and is not on disk yet. Reading the disk
@@ -870,7 +898,13 @@ function finishCard(ok, skipped){
   let shareKnown=false;          // has the share state been read back successfully?
   function persist(){ const el=$('#assocInput'); if(!el) return; const v=el.value.trim().slice(0,ASSOC_MAX); if(v)assoc[K(w.term)]=v; else delete assoc[K(w.term)]; saveAssoc(); }
   $('#assocSave').onclick=async()=>{
-    persist(); $('#assocSt').textContent='נשמר ✓';
+    /* persist() silently slices to ASSOC_MAX. Someone who wrote a long note was told "נשמר ✓"
+       and lost everything past the limit without ever being shown a limit. */
+    const rawLen=($('#assocInput').value||'').trim().length;
+    persist();
+    $('#assocSt').textContent = rawLen>ASSOC_MAX
+      ? `נשמר ✓ · נשמרו ${ASSOC_MAX} התווים הראשונים מתוך ${rawLen}`
+      : 'נשמר ✓';
     const box=$('#assocShare'); if(!box || !currentUser) return;
     const txt=($('#assocInput').value||'').trim();
     if(box.checked && txt.length>=2){

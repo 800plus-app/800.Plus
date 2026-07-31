@@ -603,6 +603,13 @@
   @keyframes updIn{ from{transform:translateY(100%)} to{transform:none} }
   @media (prefers-reduced-motion:reduce){ .upd-bar{animation:none} }
 
+  /* STORAGE-FULL BAR — stays until a write succeeds, unlike the toast it replaces */
+  .stg-bar{position:fixed;inset-inline:0;bottom:0;z-index:210;width:100%;
+    background:#8c3a24;color:#fff;font-family:"Heebo",sans-serif;font-size:.86rem;
+    line-height:1.55;padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    box-shadow:0 -8px 24px -12px rgba(60,20,10,.6)}
+  .stg-bar.hidden{display:none!important}
+
   /* PREVIEW BAR */
   .pv-bar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:10px;
     background:var(--gold);color:#fff;padding:8px 14px;border-radius:0 0 12px 12px;
@@ -1214,14 +1221,14 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="supabase.min.js?v=89"></script>
-<script src="config.js?v=89"></script>
-<script src="store.js?v=89"></script>
-<script src="leveltest-he.js?v=89"></script>
-  <script src="leveltest.js?v=89"></script>
-<script src="enrank.js?v=89"></script>
-<script src="data.js?v=89"></script>
-<script src="data-en.js?v=89"></script>
-<script src="app.js?v=89"></script>
+<script src="supabase.min.js?v=90"></script>
+<script src="config.js?v=90"></script>
+<script src="store.js?v=90"></script>
+<script src="leveltest-he.js?v=90"></script>
+  <script src="leveltest.js?v=90"></script>
+<script src="enrank.js?v=90"></script>
+<script src="data.js?v=90"></script>
+<script src="data-en.js?v=90"></script>
+<script src="app.js?v=90"></script>
 </body>
 </html>
