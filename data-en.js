@@ -399,6 +399,10 @@ window.UNIT_DATA_EN = {
    "מלבד, חוץ מ-"
   ],
   [
+   "family",
+   "משפחה"
+  ],
+  [
    "farther",
    "רחוק יותר, הלאה, יותר"
   ],
@@ -467,8 +471,16 @@ window.UNIT_DATA_EN = {
    "בהנחה ש-, נתון ש-"
   ],
   [
+   "guess",
+   "ניחוש, לנחש"
+  ],
+  [
    "hardly ever",
    "כמעט אף פעם"
+  ],
+  [
+   "heart",
+   "לב"
   ],
   [
    "hence",
@@ -651,6 +663,14 @@ window.UNIT_DATA_EN = {
    "כמו-כן, באותו אופן"
   ],
   [
+   "listen",
+   "להקשיב"
+  ],
+  [
+   "made",
+   "עשה"
+  ],
+  [
    "mainly",
    "בעיקר"
   ],
@@ -819,6 +839,10 @@ window.UNIT_DATA_EN = {
    "עבר, שעבר"
   ],
   [
+   "people",
+   "אנשים"
+  ],
+  [
    "permanently",
    "באופן קבוע, לצמיתות"
   ],
@@ -951,6 +975,10 @@ window.UNIT_DATA_EN = {
    "מ-"
   ],
   [
+   "thank",
+   "תודה, להודות"
+  ],
+  [
    "thanks to",
    "תודות ל-"
   ],
@@ -973,6 +1001,10 @@ window.UNIT_DATA_EN = {
   [
    "though",
    "למרות זאת; למרות ש-"
+  ],
+  [
+   "through",
+   "דרך, מבעד"
   ],
   [
    "thus",
@@ -1051,6 +1083,14 @@ window.UNIT_DATA_EN = {
    "להיפך"
   ],
   [
+   "want",
+   "לרצות"
+  ],
+  [
+   "wanted",
+   "מבוקש"
+  ],
+  [
    "what",
    "מה, איזה"
   ],
@@ -1103,6 +1143,10 @@ window.UNIT_DATA_EN = {
    "מדוע"
   ],
   [
+   "wife",
+   "אישה, רעיה"
+  ],
+  [
    "with",
    "באמצעות, עם"
   ],
@@ -1115,8 +1159,20 @@ window.UNIT_DATA_EN = {
    "מבלי, ללא"
   ],
   [
+   "work",
+   "עבודה, לעבוד"
+  ],
+  [
+   "worry",
+   "דאגה, לדאוג"
+  ],
+  [
    "yet",
    "אך, אולם; עדיין, בכל זאת"
+  ],
+  [
+   "young",
+   "צעיר"
   ]
  ],
  "2": [
@@ -1837,6 +1893,10 @@ window.UNIT_DATA_EN = {
    "ארץ; כפר, אזור"
   ],
   [
+   "couple",
+   "זוג, לצמד"
+  ],
+  [
    "cover",
    "לכסות; לסקר, לכלול; כיסוי, מכסה"
   ],
@@ -2089,6 +2149,10 @@ window.UNIT_DATA_EN = {
    "לשכוח"
   ],
   [
+   "forgive",
+   "לסלוח"
+  ],
+  [
    "friend",
    "חבר"
   ],
@@ -2111,6 +2175,10 @@ window.UNIT_DATA_EN = {
   [
    "gain",
    "להרוויח, להוסיף"
+  ],
+  [
+   "given",
+   "נתון"
   ],
   [
    "glad",
@@ -2161,6 +2229,10 @@ window.UNIT_DATA_EN = {
    "לשכן; בית"
   ],
   [
+   "husband",
+   "בעל"
+  ],
+  [
    "impartial",
    "אוביקטיבי, ללא צד"
   ],
@@ -2201,6 +2273,10 @@ window.UNIT_DATA_EN = {
    "מאוחר, לאחר"
   ],
   [
+   "lie",
+   "לשקר, שֶקֶר"
+  ],
+  [
    "light",
    "אור; קל"
   ],
@@ -2215,6 +2291,10 @@ window.UNIT_DATA_EN = {
   [
    "logic",
    "הגיון"
+  ],
+  [
+   "luck",
+   "מזל"
   ],
   [
    "main",
@@ -2257,6 +2337,10 @@ window.UNIT_DATA_EN = {
    "כסף"
   ],
   [
+   "mouth",
+   "פה"
+  ],
+  [
    "move",
    "לזוז, לעבור"
   ],
@@ -2275,6 +2359,10 @@ window.UNIT_DATA_EN = {
   [
    "open",
    "לפתוח, פתוח"
+  ],
+  [
+   "pain",
+   "כאב, להכאיב"
   ],
   [
    "paragraph",
@@ -2307,6 +2395,10 @@ window.UNIT_DATA_EN = {
   [
    "plane",
    "מטוס; מישור"
+  ],
+  [
+   "poor",
+   "עני, מסכן"
   ],
   [
    "president",
@@ -2373,6 +2465,10 @@ window.UNIT_DATA_EN = {
    "עשיר"
   ],
   [
+   "ride",
+   "רכיבה, לרכוב"
+  ],
+  [
    "risk",
    "סיכון, לסכן"
   ],
@@ -2407,6 +2503,10 @@ window.UNIT_DATA_EN = {
   [
    "search",
    "חיפוש, לחפש"
+  ],
+  [
+   "secret",
+   "סוד"
   ],
   [
    "select",
@@ -2453,12 +2553,20 @@ window.UNIT_DATA_EN = {
    "חלל; רווח"
   ],
   [
+   "special",
+   "מיוחד"
+  ],
+  [
    "speed",
    "מהירות"
   ],
   [
    "start",
    "להתחיל"
+  ],
+  [
+   "step",
+   "צעד, לצעוד"
   ],
   [
    "stone",
@@ -2471,6 +2579,14 @@ window.UNIT_DATA_EN = {
   [
    "stronghold",
    "מעוז, מבצר; מרכז כוח, מוקד שליטה"
+  ],
+  [
+   "stupid",
+   "טיפש"
+  ],
+  [
+   "sweet",
+   "מתוק, ממתק"
   ],
   [
    "system",
@@ -2489,6 +2605,10 @@ window.UNIT_DATA_EN = {
    "לחשוב, חשב"
   ],
   [
+   "throw",
+   "לזרוק, זריקה"
+  ],
+  [
    "time",
    "זמן"
   ],
@@ -2499,6 +2619,14 @@ window.UNIT_DATA_EN = {
   [
    "town",
    "עיר, עיירה"
+  ],
+  [
+   "truth",
+   "אמת"
+  ],
+  [
+   "uncle",
+   "דוד"
   ],
   [
    "understand",
@@ -2561,8 +2689,24 @@ window.UNIT_DATA_EN = {
    "דרך"
   ],
   [
+   "wear",
+   "ללבוש"
+  ],
+  [
    "weather",
    "מזג אוויר"
+  ],
+  [
+   "wedding",
+   "חתונה"
+  ],
+  [
+   "win",
+   "ניצחון, לנצח"
+  ],
+  [
+   "wonderful",
+   "נפלא"
   ]
  ],
  "3": [
@@ -2719,6 +2863,10 @@ window.UNIT_DATA_EN = {
    "היזהר"
   ],
   [
+   "blame",
+   "להאשים"
+  ],
+  [
    "borrow",
    "לשאול, ללוות (מ-)"
   ],
@@ -2801,6 +2949,10 @@ window.UNIT_DATA_EN = {
   [
    "classify",
    "לסווג, מסווג"
+  ],
+  [
+   "club",
+   "מועדון"
   ],
   [
    "colony",
@@ -3103,6 +3255,10 @@ window.UNIT_DATA_EN = {
    "כספי"
   ],
   [
+   "fool",
+   "טיפש, לשטות במישהו"
+  ],
+  [
    "forbid",
    "לאסור"
   ],
@@ -3125,6 +3281,14 @@ window.UNIT_DATA_EN = {
   [
    "generally",
    "באופן כללי"
+  ],
+  [
+   "gift",
+   "מתנה"
+  ],
+  [
+   "grand",
+   "גדול, כולל, מרשים"
   ],
   [
    "gross",
@@ -3251,6 +3415,10 @@ window.UNIT_DATA_EN = {
    "משותף; מפרק, חיבור"
   ],
   [
+   "joke",
+   "בדיחה"
+  ],
+  [
    "judge",
    "לשפוט; שופט"
   ],
@@ -3269,6 +3437,10 @@ window.UNIT_DATA_EN = {
   [
    "largest",
    "הגדול ביותר"
+  ],
+  [
+   "laugh",
+   "לצחוק"
   ],
   [
    "law",
@@ -3311,8 +3483,20 @@ window.UNIT_DATA_EN = {
    "לאתר"
   ],
   [
+   "lunch",
+   "ארוחת צהריים"
+  ],
+  [
+   "machine",
+   "מכונה"
+  ],
+  [
    "malfunction",
    "כשל, ליקוי"
+  ],
+  [
+   "marriage",
+   "נישואין"
   ],
   [
    "massacre",
@@ -3391,6 +3575,10 @@ window.UNIT_DATA_EN = {
    "שלילי"
   ],
   [
+   "nervous",
+   "עצבני, לחוץ, מתוח"
+  ],
+  [
    "network",
    "רשת"
   ],
@@ -3405,6 +3593,10 @@ window.UNIT_DATA_EN = {
   [
    "newspaper",
    "עיתון"
+  ],
+  [
+   "North",
+   "צפון"
   ],
   [
    "note",
@@ -3495,6 +3687,10 @@ window.UNIT_DATA_EN = {
    "להתגבר"
   ],
   [
+   "owe",
+   "להיות חייב"
+  ],
+  [
    "part",
    "חלק"
   ],
@@ -3517,6 +3713,10 @@ window.UNIT_DATA_EN = {
   [
    "perfect",
    "להשלים, לשפר; מושלם"
+  ],
+  [
+   "pleasure",
+   "תענוג, לענג"
   ],
   [
    "pollution",
@@ -3565,6 +3765,10 @@ window.UNIT_DATA_EN = {
   [
    "priority",
    "עדיפות"
+  ],
+  [
+   "prison",
+   "כלא"
   ],
   [
    "progress",
@@ -3629,6 +3833,10 @@ window.UNIT_DATA_EN = {
   [
    "reality",
    "מציאות"
+  ],
+  [
+   "realize",
+   "הבין"
   ],
   [
    "reason",
@@ -3723,6 +3931,10 @@ window.UNIT_DATA_EN = {
    "לפתור, להחליט; נחישות"
   ],
   [
+   "respect",
+   "כבוד, לכבד"
+  ],
+  [
    "result",
    "תוצאה"
   ],
@@ -3769,6 +3981,10 @@ window.UNIT_DATA_EN = {
   [
    "scientist",
    "מדען"
+  ],
+  [
+   "seat",
+   "מושב, להושיב"
   ],
   [
    "section",
@@ -3819,8 +4035,24 @@ window.UNIT_DATA_EN = {
    "בפשטות"
   ],
   [
+   "situation",
+   "מצב, סיטואציה"
+  ],
+  [
+   "smoke",
+   "עשן, לעשן"
+  ],
+  [
    "social",
    "חברתי"
+  ],
+  [
+   "soul",
+   "נשמה"
+  ],
+  [
+   "South",
+   "דרום"
   ],
   [
    "spacious",
@@ -3837,6 +4069,14 @@ window.UNIT_DATA_EN = {
   [
    "standardize",
    "לתקנן"
+  ],
+  [
+   "star",
+   "כוכב, לככב"
+  ],
+  [
+   "stuck",
+   "תקוע"
   ],
   [
    "subject",
@@ -3869,6 +4109,10 @@ window.UNIT_DATA_EN = {
   [
    "summary",
    "סיכום, תמצית"
+  ],
+  [
+   "surprise",
+   "הפתעה"
   ],
   [
    "surround",
@@ -3911,6 +4155,10 @@ window.UNIT_DATA_EN = {
    "נסיון; משפט"
   ],
   [
+   "truck",
+   "משאית, קרון משא"
+  ],
+  [
    "turn",
    "לפנות, סיבוב"
   ],
@@ -3939,8 +4187,16 @@ window.UNIT_DATA_EN = {
    "להחזיק, לתמוך, לדגול"
   ],
   [
+   "victim",
+   "קורבן"
+  ],
+  [
    "volume",
    "נפח; כרך; עוצמת קול"
+  ],
+  [
+   "wall",
+   "קיר"
   ],
   [
    "war",
@@ -3973,6 +4229,10 @@ window.UNIT_DATA_EN = {
   [
    "wilderness",
    "ערבה, שממה"
+  ],
+  [
+   "wine",
+   "יין"
   ],
   [
    "wool",
@@ -9023,10 +9283,6 @@ window.UNIT_DATA_EN = {
    "בעל תפקיד מקביל, עמית, בן-זוג"
   ],
   [
-   "couple",
-   "זוג, לצמד"
-  ],
-  [
    "courage",
    "אומץ"
   ],
@@ -9367,10 +9623,6 @@ window.UNIT_DATA_EN = {
    "נאמן"
   ],
   [
-   "family",
-   "משפחה"
-  ],
-  [
    "fatal",
    "קטלני, ממית; הרה-אסון, גורלי"
   ],
@@ -9439,10 +9691,6 @@ window.UNIT_DATA_EN = {
    "מחווה"
   ],
   [
-   "given",
-   "נתון"
-  ],
-  [
    "grade",
    "כיתה; ציון, דרגה, מעמד; שיפוע"
   ],
@@ -9453,10 +9701,6 @@ window.UNIT_DATA_EN = {
   [
    "graduate",
    "לסיים לימודים"
-  ],
-  [
-   "grand",
-   "גדול, כולל, מרשים"
   ],
   [
    "granddaughter",
@@ -9477,10 +9721,6 @@ window.UNIT_DATA_EN = {
   [
    "grateful",
    "אסיר תודה"
-  ],
-  [
-   "guess",
-   "ניחוש, לנחש"
   ],
   [
    "guidance",
@@ -9521,10 +9761,6 @@ window.UNIT_DATA_EN = {
   [
    "heritage",
    "מורשת"
-  ],
-  [
-   "husband",
-   "בעל"
   ],
   [
    "illness",
@@ -9703,16 +9939,8 @@ window.UNIT_DATA_EN = {
    "מנהיגות"
   ],
   [
-   "lie",
-   "לשקר, שֶקֶר"
-  ],
-  [
    "lie, lay",
    "לשכב, שכב"
-  ],
-  [
-   "listen",
-   "להקשיב"
   ],
   [
    "loosely",
@@ -9729,10 +9957,6 @@ window.UNIT_DATA_EN = {
   [
    "luxury",
    "מותרות"
-  ],
-  [
-   "machine",
-   "מכונה"
   ],
   [
    "mandate",
@@ -9811,10 +10035,6 @@ window.UNIT_DATA_EN = {
    "לנווט"
   ],
   [
-   "nervous",
-   "עצבני, לחוץ, מתוח"
-  ],
-  [
    "nobility",
    "אצולה"
   ],
@@ -9891,10 +10111,6 @@ window.UNIT_DATA_EN = {
    "לעקוף, להשיג"
   ],
   [
-   "pain",
-   "כאב, להכאיב"
-  ],
-  [
    "passive",
    "סביל"
   ],
@@ -9953,10 +10169,6 @@ window.UNIT_DATA_EN = {
   [
    "pride",
    "גאווה"
-  ],
-  [
-   "prison",
-   "כלא"
   ],
   [
    "prop",
@@ -10259,10 +10471,6 @@ window.UNIT_DATA_EN = {
    "מאבק, מאמץ"
   ],
   [
-   "stuck",
-   "תקוע"
-  ],
-  [
    "suffer",
    "לסבול"
   ],
@@ -10277,10 +10485,6 @@ window.UNIT_DATA_EN = {
   [
    "supreme",
    "עליון"
-  ],
-  [
-   "surprise",
-   "הפתעה"
   ],
   [
    "swing",
@@ -10375,10 +10579,6 @@ window.UNIT_DATA_EN = {
    "טרופי"
   ],
   [
-   "truth",
-   "אמת"
-  ],
-  [
    "tube",
    "צינור"
   ],
@@ -10433,14 +10633,6 @@ window.UNIT_DATA_EN = {
   [
    "voyage",
    "מסע"
-  ],
-  [
-   "want",
-   "לרצות"
-  ],
-  [
-   "wanted",
-   "מבוקש"
   ],
   [
    "warmth",
@@ -11421,10 +11613,6 @@ window.UNIT_DATA_EN = {
    "נימוס"
   ],
   [
-   "marriage",
-   "נישואין"
-  ],
-  [
    "masculine",
    "גברי"
   ],
@@ -11593,10 +11781,6 @@ window.UNIT_DATA_EN = {
    "עונש; קנס"
   ],
   [
-   "people",
-   "אנשים"
-  ],
-  [
    "perpetuate",
    "להנציח"
   ],
@@ -11627,10 +11811,6 @@ window.UNIT_DATA_EN = {
   [
    "pole",
    "מוט; קוטב"
-  ],
-  [
-   "poor",
-   "עני, מסכן"
   ],
   [
    "poorly",
@@ -11749,10 +11929,6 @@ window.UNIT_DATA_EN = {
    "מוכנות"
   ],
   [
-   "realize",
-   "הבין"
-  ],
-  [
    "rearing",
    "גידול, טיפוח"
   ],
@@ -11847,10 +12023,6 @@ window.UNIT_DATA_EN = {
   [
    "resigned",
    "התפטר"
-  ],
-  [
-   "respect",
-   "כבוד, לכבד"
   ],
   [
    "respectfully",
@@ -12029,16 +12201,8 @@ window.UNIT_DATA_EN = {
    "לפתור"
   ],
   [
-   "soul",
-   "נשמה"
-  ],
-  [
    "sound",
    "קול; בריא"
-  ],
-  [
-   "special",
-   "מיוחד"
   ],
   [
    "spike",
@@ -12235,10 +12399,6 @@ window.UNIT_DATA_EN = {
   [
    "witness",
    "עד, להעיד"
-  ],
-  [
-   "worry",
-   "דאגה, לדאוג"
   ],
   [
    "zoo",
@@ -13091,10 +13251,6 @@ window.UNIT_DATA_EN = {
    "מצער, מעציב"
   ],
   [
-   "laugh",
-   "לצחוק"
-  ],
-  [
    "lend",
    "להלוות, להשאיל"
   ],
@@ -13287,10 +13443,6 @@ window.UNIT_DATA_EN = {
    "נורמה, תקן"
   ],
   [
-   "North",
-   "צפון"
-  ],
-  [
    "nose",
    "אף, חרטום"
   ],
@@ -13325,10 +13477,6 @@ window.UNIT_DATA_EN = {
   [
    "outweigh",
    "עולה על, שוקל יותר מ-"
-  ],
-  [
-   "owe",
-   "להיות חייב"
   ],
   [
    "oxygen",
@@ -13369,10 +13517,6 @@ window.UNIT_DATA_EN = {
   [
    "plead",
    "לעתור, להתחנן"
-  ],
-  [
-   "pleasure",
-   "תענוג, לענג"
   ],
   [
    "pledge",
@@ -13659,10 +13803,6 @@ window.UNIT_DATA_EN = {
    "כנות"
   ],
   [
-   "situation",
-   "מצב, סיטואציה"
-  ],
-  [
    "slaughterhouse",
    "בית מטבחיים"
   ],
@@ -13705,10 +13845,6 @@ window.UNIT_DATA_EN = {
   [
    "steer",
    "לנווט, להוביל"
-  ],
-  [
-   "step",
-   "צעד, לצעוד"
   ],
   [
    "storm",
@@ -13887,10 +14023,6 @@ window.UNIT_DATA_EN = {
    "דרך"
   ],
   [
-   "victim",
-   "קורבן"
-  ],
-  [
    "vie",
    "להתחרות"
   ],
@@ -13919,16 +14051,8 @@ window.UNIT_DATA_EN = {
    "מערב"
   ],
   [
-   "wine",
-   "יין"
-  ],
-  [
    "wonder",
    "לתהות, להטיל ספק; פלא"
-  ],
-  [
-   "wonderful",
-   "נפלא"
   ],
   [
    "wood",
@@ -13949,10 +14073,6 @@ window.UNIT_DATA_EN = {
   [
    "wrought",
    "מעוצב, מחושל"
-  ],
-  [
-   "young",
-   "צעיר"
   ]
  ],
  "10": [
@@ -14023,10 +14143,6 @@ window.UNIT_DATA_EN = {
   [
    "blade",
    "להב"
-  ],
-  [
-   "blame",
-   "להאשים"
   ],
   [
    "blanket",
@@ -14119,10 +14235,6 @@ window.UNIT_DATA_EN = {
   [
    "cloud",
    "ענן"
-  ],
-  [
-   "club",
-   "מועדון"
   ],
   [
    "cockroach",
@@ -14357,20 +14469,12 @@ window.UNIT_DATA_EN = {
    "פולקלור"
   ],
   [
-   "fool",
-   "טיפש, לשטות במישהו"
-  ],
-  [
    "footage",
    "קטע צילום"
   ],
   [
    "forest",
    "יער"
-  ],
-  [
-   "forgive",
-   "לסלוח"
   ],
   [
    "fork",
@@ -14419,10 +14523,6 @@ window.UNIT_DATA_EN = {
   [
    "gate",
    "שער"
-  ],
-  [
-   "gift",
-   "מתנה"
   ],
   [
    "glacier",
@@ -14495,10 +14595,6 @@ window.UNIT_DATA_EN = {
   [
    "harmony",
    "הרמוניה"
-  ],
-  [
-   "heart",
-   "לב"
   ],
   [
    "heartbeat",
@@ -14577,10 +14673,6 @@ window.UNIT_DATA_EN = {
    "ריצה, ג'וגינג, לרוץ"
   ],
   [
-   "joke",
-   "בדיחה"
-  ],
-  [
    "jug",
    "כד, קנקן"
   ],
@@ -14657,18 +14749,6 @@ window.UNIT_DATA_EN = {
    "נאמנות"
   ],
   [
-   "luck",
-   "מזל"
-  ],
-  [
-   "lunch",
-   "ארוחת צהריים"
-  ],
-  [
-   "made",
-   "עשה"
-  ],
-  [
    "magical",
    "קסום"
   ],
@@ -14735,10 +14815,6 @@ window.UNIT_DATA_EN = {
   [
    "mouse (mice)",
    "עכבר (עכברים)"
-  ],
-  [
-   "mouth",
-   "פה"
   ],
   [
    "nausea",
@@ -15013,10 +15089,6 @@ window.UNIT_DATA_EN = {
    "אורז"
   ],
   [
-   "ride",
-   "רכיבה, לרכוב"
-  ],
-  [
    "ring",
    "טבעת; זירה"
   ],
@@ -15071,14 +15143,6 @@ window.UNIT_DATA_EN = {
   [
    "seafood",
    "פירות ים"
-  ],
-  [
-   "seat",
-   "מושב, להושיב"
-  ],
-  [
-   "secret",
-   "סוד"
   ],
   [
    "sentiments",
@@ -15145,10 +15209,6 @@ window.UNIT_DATA_EN = {
    "ערפיח"
   ],
   [
-   "smoke",
-   "עשן, לעשן"
-  ],
-  [
    "smuggle",
    "להבריח"
   ],
@@ -15179,10 +15239,6 @@ window.UNIT_DATA_EN = {
   [
    "sold",
    "מכר"
-  ],
-  [
-   "South",
-   "דרום"
   ],
   [
    "southern",
@@ -15229,10 +15285,6 @@ window.UNIT_DATA_EN = {
    "גבעול, קנה; לעקוב/לארוב אחרי, להטריד"
   ],
   [
-   "star",
-   "כוכב, לככב"
-  ],
-  [
    "staunch",
    "נאמן, מסור, איתן בדעתו; לעצור זרימה/דימום"
   ],
@@ -15273,20 +15325,12 @@ window.UNIT_DATA_EN = {
    "פעלול"
   ],
   [
-   "stupid",
-   "טיפש"
-  ],
-  [
    "subtraction",
    "חיסור (חשבון)"
   ],
   [
    "sugar",
    "סוכר"
-  ],
-  [
-   "sweet",
-   "מתוק, ממתק"
   ],
   [
    "swept away",
@@ -15333,10 +15377,6 @@ window.UNIT_DATA_EN = {
    "אוהל"
   ],
   [
-   "thank",
-   "תודה, להודות"
-  ],
-  [
    "theater",
    "תיאטרון; בית קולנוע"
   ],
@@ -15353,16 +15393,8 @@ window.UNIT_DATA_EN = {
    "אצבעון (לתפירה)"
   ],
   [
-   "through",
-   "דרך, מבעד"
-  ],
-  [
    "throughout",
    "במשך, בכל"
-  ],
-  [
-   "throw",
-   "לזרוק, זריקה"
   ],
   [
    "ticket",
@@ -15429,10 +15461,6 @@ window.UNIT_DATA_EN = {
    "פי 3"
   ],
   [
-   "truck",
-   "משאית, קרון משא"
-  ],
-  [
    "tutor",
    "מורה פרטי, להדריך"
   ],
@@ -15451,10 +15479,6 @@ window.UNIT_DATA_EN = {
   [
    "unattractive",
    "לא מושך"
-  ],
-  [
-   "uncle",
-   "דוד"
   ],
   [
    "unconcerned",
@@ -15533,10 +15557,6 @@ window.UNIT_DATA_EN = {
    "תנועה (לשון)"
   ],
   [
-   "wall",
-   "קיר"
-  ],
-  [
    "wart",
    "יבלת"
   ],
@@ -15557,16 +15577,8 @@ window.UNIT_DATA_EN = {
    "נשק"
   ],
   [
-   "wear",
-   "ללבוש"
-  ],
-  [
    "weave",
    "לארוג, לשזור; להתפתל בין (בתנועה)"
-  ],
-  [
-   "wedding",
-   "חתונה"
   ],
   [
    "weekend",
@@ -15589,20 +15601,8 @@ window.UNIT_DATA_EN = {
    "סיטונאות"
   ],
   [
-   "wife",
-   "אישה, רעיה"
-  ],
-  [
-   "win",
-   "ניצחון, לנצח"
-  ],
-  [
    "wolf (wolves)",
    "זאב (זאבים)"
-  ],
-  [
-   "work",
-   "עבודה, לעבוד"
   ],
   [
    "worm",
