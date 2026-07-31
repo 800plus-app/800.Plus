@@ -133,16 +133,16 @@ const Store = {
       .eq('user_id', u.user.id).eq('lang', lang).eq('word_key', wordKey);
     return { ok: !error };
   },
+  /* Read through an RPC, not the table. The old select policy was `using (true)`, so any signed-in
+     account could pull every shared association ever written TOGETHER WITH its user_id — the text
+     is meant to be shared, the authorship behind it is not, and RLS cannot hide a column.
+     public.shared_assoc is SECURITY DEFINER and simply never returns user_id; it computes is_mine
+     server-side instead. The table's own select policy is now own-rows-only. */
   async listSharedAssoc(lang, wordKey) {
-    const { data: u } = await sb.auth.getUser();
-    const me = u && u.user ? u.user.id : null;
-    const { data, error } = await sb.from('assoc_shared')
-      .select('id,text,user_id,created_at')
-      .eq('lang', lang).eq('word_key', wordKey)
-      .order('created_at', { ascending: true }).limit(20);
+    const { data, error } = await sb.rpc('shared_assoc', { p_lang: lang, p_word_key: wordKey });
     if (error) return { ok: false, rows: [], mine: false };
-    return { ok: true, rows: (data || []).filter(r => r.user_id !== me),
-             mine: (data || []).some(r => r.user_id === me) };
+    const rows = data || [];
+    return { ok: true, rows: rows.filter(r => !r.is_mine), mine: rows.some(r => r.is_mine) };
   },
 
   /* Re-authentication. The password is verified BY SUPABASE against the stored hash —
