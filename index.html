@@ -109,6 +109,10 @@
   .tile .mini{margin-top:10px;height:6px;border-radius:3px;background:var(--paper-deep);overflow:hidden;display:flex}
   .tile .mini i{height:100%}
   .tile .mini .s{background:var(--green)} .tile .mini .w{background:var(--accent)} .tile .mini .n{background:var(--gold)}
+  /* fourth segment: words skipped after the level test. Without it the bar summed to
+     (total-skipped)/total and a unit read 44% empty at B1, 76% at C1 — for a learner who
+     had done nothing wrong. */
+  .tile .mini .k{background:var(--line)}
   .big-tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .big-tile{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;text-align:right;transition:.15s}
   .big-tile:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:var(--shadow)}
@@ -1210,14 +1214,14 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="supabase.min.js?v=82"></script>
-<script src="config.js?v=82"></script>
-<script src="store.js?v=82"></script>
-<script src="leveltest-he.js?v=82"></script>
-  <script src="leveltest.js?v=82"></script>
-<script src="enrank.js?v=82"></script>
-<script src="data.js?v=82"></script>
-<script src="data-en.js?v=82"></script>
-<script src="app.js?v=82"></script>
+<script src="supabase.min.js?v=83"></script>
+<script src="config.js?v=83"></script>
+<script src="store.js?v=83"></script>
+<script src="leveltest-he.js?v=83"></script>
+  <script src="leveltest.js?v=83"></script>
+<script src="enrank.js?v=83"></script>
+<script src="data.js?v=83"></script>
+<script src="data-en.js?v=83"></script>
+<script src="app.js?v=83"></script>
 </body>
 </html>

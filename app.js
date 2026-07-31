@@ -327,7 +327,13 @@ function weakCards(scope){
   arr.sort((a,b)=>lastOf(a.term)-lastOf(b.term));
   return arr;
 }
-function learnedCards(scope){ return uniqScope(scope).filter(w=>lvl(w.term)>=3); }
+/* `wasSkipped` guards were added to `classify` and `langSummary` today and NOT here, so the same
+   screen showed the legend "שלמדתי 0" beside a button reading "מילים שלמדתי 1,725" — and that
+   button drilled exactly the words the level test had promised would stop appearing.
+   Skipped words come back through ניהול מילים ← שחזור, which is the honest route. */
+function learnedCards(scope){
+  return uniqScope(scope).filter(w=>lvl(w.term)>=3 && !wasSkipped(w.term));
+}
 function allCards(scope){
   const w=uniqScope(scope).slice();
   shuffle(w);
@@ -567,7 +573,7 @@ function renderHome(){
     const el=document.createElement('button');
     el.className='tile';
     el.innerHTML=`<div class="num">${uid}</div><div class="lbl">${c.total} מילים</div>
-      <div class="mini"><i class="s" style="width:${pct(c.strong)}%"></i><i class="w" style="width:${pct(c.weak)}%"></i><i class="n" style="width:${pct(c.fresh)}%"></i></div>`;
+      <div class="mini"><i class="s" style="width:${pct(c.strong)}%"></i><i class="w" style="width:${pct(c.weak)}%"></i><i class="n" style="width:${pct(c.fresh)}%"></i><i class="k" style="width:${pct(c.skipped||0)}%"></i></div>`;
     el.onclick=()=>openScope('unit:'+uid);
     grid.appendChild(el);
   });
@@ -1045,6 +1051,7 @@ function manageItems(){
   return out;
 }
 let mOpen=new Set();      // which unit sections are expanded
+let mSearching=false;     // was the previous render a search? (so clearing can collapse again)
 /* Grouped by unit and collapsed by default. The old screen was one flat alphabetical list
    cut at `slice(0,400)` — so 3,500 of 3,900 words simply were not there, with nothing on
    screen saying so. Sections keep the DOM small without hiding anything. */
@@ -1058,7 +1065,12 @@ function renderManage(filter){
   const items=all.filter(hit);
   const byUnit=new Map();
   for(const w of items){ if(!byUnit.has(w.unit)) byUnit.set(w.unit,[]); byUnit.get(w.unit).push(w); }
-  if(raw) mOpen=new Set(byUnit.keys());       // searching should show what it found, not hide it
+  /* Searching opens the units it found; CLEARING the box has to close them again. Without the
+     else branch the expansion survived, so search-then-clear rendered all 3,900 rows at once —
+     exactly the DOM this screen was rebuilt to stop producing. */
+  if(raw) mOpen=new Set(byUnit.keys());
+  else if(mSearching) mOpen=new Set();
+  mSearching=!!raw;
 
   if(!items.length){
     list.innerHTML='<p class="msg" style="color:var(--ink-soft)">לא נמצאו מילים</p>';
@@ -2147,10 +2159,14 @@ function applyExtras(lang, ex){
 }
 
 let syncPending=false;
+/* Returns TRUE only when there is nothing left unsaved — either the write landed, or there was
+   nothing to write. Every bail-out returns FALSE, because signOutNow awaits this and then runs
+   localStorage.clear(): a flush that quietly failed used to look identical to one that
+   succeeded, and the only remaining copy of the session was erased a line later. */
 async function flushRemoteSync(){
-  if(!currentUser || !syncPending) return;
+  if(!currentUser || !syncPending) return true;
   clearTimeout(syncTimer);
-  if(LANG!=='he' && LANG!=='en') return;        // the row has no key to write to
+  if(LANG!=='he' && LANG!=='en') return false;  // the row has no key to write to
   /* The cache on this device belongs to exactly one account, and the row we are about to
      overwrite belongs to whoever the token says we are. If those two disagree, writing would
      copy one person's progress into another person's row. It has happened: a session can change
@@ -2161,7 +2177,7 @@ async function flushRemoteSync(){
     console.warn('sync aborted: cache owner !== session user');
     syncPending=false;
     bindCacheToUser(currentUser.id);
-    return;
+    return false;
   }
   const lang=LANG;
   /* pushProgress is a whole-row upsert, so EVERY write must be preceded by a read. An earlier
@@ -2170,9 +2186,9 @@ async function flushRemoteSync(){
      debounced save is a cheap price for not overwriting a paying user's work. */
   {
     let res=null;
-    try{ res=await Store.pullProgress(lang); }catch(e){ return; }
-    if(!res || res.ok!==true) return;            // a failed read is never followed by a write
-    if(lang!==LANG) return;                      // language changed while in flight
+    try{ res=await Store.pullProgress(lang); }catch(e){ return false; }
+    if(!res || res.ok!==true) return false;      // a failed read is never followed by a write
+    if(lang!==LANG) return false;                // language changed while in flight
     if(res.data){
       const merged=mergeProgress({assoc,stats,deleted:[...deleted],added,dir:direction}, res.data);
       assoc=merged.assoc; stats=merged.stats; deleted=new Set(merged.deleted); added=merged.added; direction=merged.dir;
@@ -2192,7 +2208,8 @@ async function flushRemoteSync(){
   try{
     await Store.pushProgress(lang, {assoc, stats, deleted:[...deleted], added, dir:direction,
                                     extras:collectExtras(lang)});
-  }catch(e){}
+    return true;
+  }catch(e){ return false; }
 }
 /* 1,500ms was shorter than the gap between two answers, so every single answer produced a full
    round trip — and pushProgress is a whole-row upsert preceded by a whole-row read. A learner
@@ -2604,17 +2621,22 @@ const signOutNow = async ()=>{
      destructive moment to do that, since localStorage.clear() below removes the only other
      copy. Routed through flushRemoteSync, which reads and merges first when this language has
      not been reconciled yet, and refuses to write at all after a failed read. */
+  /* If the save did not land, the device holds the ONLY copy — so it is not erased. Keeping it
+     is safe: bindCacheToUser() wipes the cache the moment a different account signs in, so the
+     next user still cannot see it, while this user keeps the round they just finished. */
+  let saved=true;
   try{
     if(currentUser && (LANG==='he' || LANG==='en')){
       syncPending=true;
-      await flushRemoteSync();
+      saved=await flushRemoteSync();
     }
-  }catch(e){}
+  }catch(e){ saved=false; }
   try{ await Store.signOut(); }catch(e){}
   hide($('#fbFab'));
   // the cached reminder names the previous learner's streak — it is account data, not an asset
   try{ if(window.caches) await caches.delete('hw-data'); }catch(e){}
-  localStorage.clear();          // the local cache belongs to this account; never let it bleed into the next login
+  if(saved) localStorage.clear(); // the cache belongs to this account; never let it bleed into the next login
+  else console.warn('sign-out: הסנכרון לא הושלם — המטמון המקומי נשמר כדי לא לאבד את הסבב האחרון');
   location.reload();
 };
 $('#signOutBtn').onclick  = signOutNow;
@@ -2995,18 +3017,25 @@ function subActive(r){ return hasAccess(r); }
 function subClass(r){
   if(r.role==='admin') return 'ok';
   if(r.sub_status==='past_due') return 'due';
-  if(r.sub_status==='canceled' || !subActive(r)) return 'off';
+  if(!hasAccess(r)) return 'off';
   return 'ok';
 }
+/* The label has to agree with the gate. It used to say "הגישה חסומה" for past_due and
+   "המנוי בוטל" for canceled regardless of the date — while hasAccess() correctly still lets
+   both in, one for the 3 grace days and the other through the period already paid for. The
+   same string is shown to the user on their own account screen, so it was telling paying
+   people they were cut off while they were not. */
 function subLabel(r){
   if(r.role==='admin') return 'אדמין · גישה מלאה';
   const until = r.sub_until ? ' · עד '+fmtDate(r.sub_until).split(' ')[0] : '';
+  const live = hasAccess(r);
   switch(r.sub_status){
-    case 'active':   return subActive(r) ? 'מנוי פעיל'+until : 'המנוי פג'+until;
+    case 'active':   return live ? 'מנוי פעיל'+until : 'המנוי פג'+until;
     case 'grace':    return 'גישה ידנית'+until;
-    case 'past_due': return 'חיוב נכשל — הגישה חסומה';
-    case 'canceled': return 'המנוי בוטל';
-    default:         return 'ללא מנוי';
+    case 'past_due': return live ? 'חיוב נכשל — הגישה פתוחה עוד מעט'+until
+                                 : 'חיוב נכשל — הגישה חסומה';
+    case 'canceled': return live ? 'בוטל — פעיל'+until : 'המנוי בוטל';
+    default:         return FREE_PHASE ? 'שלב חינמי · גישה פתוחה' : 'ללא מנוי';
   }
 }
 

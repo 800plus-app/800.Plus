@@ -1,0 +1,174 @@
+'use strict';
+/* Build a sandbox holding the real functions from app.js, running against the real word banks.
+ *
+ * WHY LIFT FUNCTIONS INSTEAD OF STUBBING A DOM AND LOADING THE WHOLE FILE
+ * ---------------------------------------------------------------------
+ * The alternative was a document/window/localStorage stub complete enough that `app.js` loads
+ * end to end. That was measured, not assumed (see tests/README.md): app.js binds ~90 element
+ * handlers at top level and also reaches for localStorage, matchMedia, navigator.serviceWorker,
+ * IntersectionObserver, fetch and Supabase before any function is callable. Every one of those
+ * is a thing a future edit can add to, and each addition breaks the stub — which means the
+ * suite would go red for reasons that have nothing to do with the behaviour under test, and
+ * the reflex would be to loosen the stub until it stops complaining.
+ *
+ * Lifting depends on exactly one property of app.js instead: that the function is still
+ * declared at top level under the same name. That is a smaller, more stable surface, and when
+ * it does break it breaks with a message naming the symbol (see extract.js) rather than with a
+ * TypeError from inside a fake DOM. It is also the approach the project already reached for by
+ * hand in scratchpad/nite_v1.js and nite_v3.js, so it is a hardening of a known-good technique
+ * rather than a new bet.
+ *
+ * The cost, stated plainly: anything that only exists inside an event handler or that talks to
+ * the DOM is NOT covered here and needs a browser. tests/README.md lists what that leaves out.
+ */
+
+const fs = require('fs');
+const path = require('path');
+const vm = require('vm');
+const { extractAll } = require('./extract.js');
+
+const ROOT = path.join(__dirname, '..', '..');
+const APP = path.join(ROOT, 'app.js');
+
+/* Every symbol the suite lifts out of app.js. Order is the order they are evaluated in; it only
+ * matters for declarations whose initialiser runs immediately, which is why the plain constants
+ * come first. */
+const SYMBOLS = [
+  // constants and coercion
+  'MAX_SESSIONS', 'ASSOC_MAX', 'isObj', 'int0', 'saneRec',
+  // normalisation
+  'NIQ', 'normEn', 'norm', 'K',
+  // Hebrew spelling variants
+  'HOLAM', 'YOD', 'Y_VOWELS', 'HE_LETTER', 'VAV',
+  'fullSpelling', 'pleneYod', 'pleneVav', 'heForms',
+  // bank + shared-gloss index
+  'UNIT_IDS', 'PREVIEW_UNIT', 'GLOSS_ALT', 'buildBank', 'glossKey', 'buildGlossIndex', 'glossAlts',
+  // stats model and the three practice buckets
+  'rec', 'scopeWords', 'lvl', 'lastOf', 'wasSkipped', 'seenCount',
+  'classify', 'uniqScope', 'newCards', 'weakCards', 'learnedCards',
+  'sess', 'commitSession',
+  // answer checking
+  'isCorrect', 'meaningSegs', 'meaningMatch', 'otherSenses',
+  // sync
+  'mergeProgress',
+  // access gate
+  'PAST_DUE_GRACE_DAYS', 'FREE_PHASE', 'hasAccess',
+];
+
+/* Symbols that must exist on the context afterwards. Superset of SYMBOLS: it also names the
+ * ones that ride along inside a grouped declaration (const HOLAM=…, QUBUTS=…, HIRIQ=…), so a
+ * rename of QUBUTS is caught even though QUBUTS is never extracted by name. */
+const REQUIRED = SYMBOLS.concat(['QUBUTS', 'HIRIQ', 'DAGESH']);
+
+let cachedSource = null;
+function appSource() {
+  if (cachedSource == null) cachedSource = fs.readFileSync(APP, 'utf8');
+  return cachedSource;
+}
+
+let cachedBanks = null;
+function banks() {
+  if (cachedBanks) return cachedBanks;
+  const w = {};
+  const load = f => {
+    const code = fs.readFileSync(path.join(ROOT, f), 'utf8');
+    vm.runInNewContext(code, { window: w });
+  };
+  load('data.js');
+  load('data-en.js');
+  cachedBanks = { he: w.UNIT_DATA, en: w.UNIT_DATA_EN };
+  return cachedBanks;
+}
+
+/* A fresh, isolated sandbox. Nothing is shared between calls except the immutable source text
+ * and the parsed banks, so tests cannot leak state into each other. */
+function loadApp(opts = {}) {
+  const lang = opts.lang || 'he';
+  const b = banks();
+
+  const ctx = {
+    console,
+    Math, Date, JSON, Set, Map, Array, Object, String, Number, Boolean, RegExp, Error,
+    isNaN, isFinite, parseInt, parseFloat,
+
+    // ---- module-level state of app.js, seeded to its post-boot shape ----
+    LANG: lang,
+    PREVIEW: false,
+    assoc: {}, stats: { words: {}, sessions: [] }, deleted: new Set(), added: [], direction: 'm2w',
+    BANK: [],
+    session: new Map(), sessionScope: 'global', sessionMode: 'all', committed: false,
+    isRetryRound: false,
+    currentUser: null,
+
+    // ---- side effects the lifted functions call but that are not under test ----
+    // Persistence and network. commitSession() calls both; neither changes what it computes.
+    saveStats() { ctx.__saved.stats++; return true; },
+    saveAssoc() { ctx.__saved.assoc++; return true; },
+    saveDeleted() { ctx.__saved.deleted++; return true; },
+    saveAdded() { ctx.__saved.added++; return true; },
+    queueRemoteSync() { },
+    flushRemoteSync() { },
+    toast(m) { ctx.__toasts.push(m); },
+    __saved: { stats: 0, assoc: 0, deleted: 0, added: 0 },
+    __toasts: [],
+  };
+  ctx.window = { UNIT_DATA: b.he, UNIT_DATA_EN: b.en };
+  ctx.globalThis = ctx;
+  vm.createContext(ctx);
+
+  const src = appSource();
+  for (const { name, code } of extractAll(src, SYMBOLS)) {
+    try { vm.runInContext(code, ctx, { filename: `app.js:${name}` }); }
+    catch (e) { throw new Error(`lifting ${name} out of app.js failed: ${e.message}\n---\n${code.slice(0, 400)}\n---`); }
+  }
+
+  const absent = REQUIRED.filter(n => ctx[n] === undefined);
+  if (absent.length) throw new Error('lifted from app.js but undefined afterwards: ' + absent.join(', '));
+
+  if (opts.bank !== false) ctx.buildBank();
+  return ctx;
+}
+
+/* ---- helpers for driving a practice round through the app's own scoring ----
+ *
+ * commitSession() is the real function, lifted. What is restated here is only the three lines
+ * finishCard() runs per card (app.js: `const e=sess(w); e.attempts++;` and the ok/!ok branch at
+ * app.js:756-758). Those three lines live inside a function that rewrites #feedback innerHTML
+ * and cannot be lifted without a DOM. This is the ONLY place the suite re-implements app logic;
+ * everything that decides a bucket, a level or a count is the real code.
+ *
+ * outcome: 'first'    answered correctly on the first attempt of the round
+ *          'struggle' answered correctly, but not on the first attempt
+ *          'wrong'    never got it in this round (or skipped)
+ */
+function answerCard(ctx, card, outcome) {
+  const e = ctx.sess(card);
+  if (outcome === 'first') { e.attempts++; e.mastered = true; if (e.attempts === 1) e.firstTry = true; }
+  else if (outcome === 'struggle') { e.attempts++; e.attempts++; e.mastered = true; }
+  else if (outcome === 'wrong') { e.attempts++; }
+  else throw new Error('unknown outcome ' + outcome);
+}
+
+/* Practise a list of [card, outcome] pairs as one round, then commit it the way the app does. */
+function practiseRound(ctx, pairs, { scope = 'global', mode = 'all', retry = false } = {}) {
+  ctx.session = new Map();
+  ctx.committed = false;
+  ctx.sessionScope = scope;
+  ctx.sessionMode = mode;
+  ctx.isRetryRound = !!retry;
+  for (const [card, outcome] of pairs) answerCard(ctx, card, outcome);
+  ctx.commitSession();
+}
+
+/* Values built INSIDE the sandbox belong to the vm's realm: an array made there does not share
+ * a prototype with an array made here, so assert.deepStrictEqual rejects them even when the
+ * contents are identical. Round-tripping through JSON brings a value back into this realm — and
+ * for anything mergeProgress returns that is also the more honest comparison, because JSON is
+ * exactly the form the value takes in localStorage and in Supabase. */
+function plain(v) { return JSON.parse(JSON.stringify(v)); }
+
+/* Cross-realm-safe type check: `x instanceof RegExp` is false for a regex literal evaluated in
+ * the sandbox, even though it is a perfectly good RegExp. */
+function tagOf(v) { return Object.prototype.toString.call(v); }
+
+module.exports = { loadApp, practiseRound, answerCard, banks, appSource, plain, tagOf, SYMBOLS, REQUIRED, ROOT };
