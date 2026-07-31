@@ -14,7 +14,7 @@
 
 const { test, describe } = require('node:test');
 const assert = require('node:assert');
-const { loadApp, practiseRound, expectNone } = require('./_harness/sandbox.js');
+const { loadApp, startRound, practiseRound, answerCard, expectNone } = require('./_harness/sandbox.js');
 
 const none = (list, msg) => expectNone(assert, list, msg);
 const SCOPE = 'unit:1';
@@ -162,6 +162,61 @@ describe("buckets — the tester's report: a practised word came back as new", (
       last = now;
       assert.ok(!keys(ctx, ctx.newCards(SCOPE)).has(ctx.K(card.term)), `back in "new" after "${outcome}"`);
     }
+  });
+});
+
+describe('buckets — a round interrupted part-way', () => {
+  /* commitSession() can legitimately run several times in one round: visibilitychange fires
+   * every time a notification pulls the learner away. The old code latched after the first
+   * commit and threw the rest of the round away — the results screen said 10/10 while storage
+   * held 3. The latch now guards only against applying the SAME entry twice.
+   *
+   * Both halves of that are silent when wrong, and both are about counts the learner is shown. */
+  test('committing twice does not charge a word twice', () => {
+    const ctx = fresh();
+    const [card] = ctx.uniqScope(SCOPE);
+    startRound(ctx, { scope: SCOPE });
+    answerCard(ctx, card, 'first');
+    ctx.commitSession();
+    const afterFirst = { seen: ctx.seenCount(card.term), level: ctx.lvl(card.term) };
+    ctx.commitSession();
+    ctx.commitSession();
+    assert.strictEqual(ctx.seenCount(card.term), afterFirst.seen, 'seen was incremented twice for one answer');
+    assert.strictEqual(ctx.lvl(card.term), afterFirst.level);
+  });
+
+  test('words answered AFTER an interruption are still recorded', () => {
+    const ctx = fresh();
+    const deck = ctx.uniqScope(SCOPE).slice(0, 6);
+    startRound(ctx, { scope: SCOPE });
+    for (const card of deck.slice(0, 3)) answerCard(ctx, card, 'first');
+    ctx.commitSession();                       // the learner is interrupted here
+    for (const card of deck.slice(3)) answerCard(ctx, card, 'first');
+    ctx.commitSession();                       // …and finishes the round
+    none(deck.filter(w => ctx.seenCount(w.term) === 0).map(w => w.term),
+      'answered in the second half of an interrupted round but never recorded:');
+  });
+
+  test('an interrupted round is ONE row in the session log, not several', () => {
+    const ctx = fresh();
+    const deck = ctx.uniqScope(SCOPE).slice(0, 9);
+    startRound(ctx, { scope: SCOPE });
+    for (const chunk of [deck.slice(0, 3), deck.slice(3, 6), deck.slice(6)]) {
+      for (const card of chunk) answerCard(ctx, card, 'first');
+      ctx.commitSession();
+    }
+    assert.strictEqual(ctx.stats.sessions.length, 1,
+      'a round interrupted twice was logged as three separate rounds — the trend chart draws that');
+    assert.strictEqual(ctx.stats.sessions[0].total, 9);
+    assert.strictEqual(ctx.stats.sessions[0].correct, 9);
+  });
+
+  test('a genuinely new round starts a new log row', () => {
+    const ctx = fresh();
+    const deck = ctx.uniqScope(SCOPE).slice(0, 4);
+    practiseRound(ctx, [[deck[0], 'first'], [deck[1], 'first']], { scope: SCOPE });
+    practiseRound(ctx, [[deck[2], 'first'], [deck[3], 'first']], { scope: SCOPE });
+    assert.strictEqual(ctx.stats.sessions.length, 2);
   });
 });
 

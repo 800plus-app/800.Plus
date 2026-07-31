@@ -3089,7 +3089,16 @@ function hasAccess(r){
   if(r.role==='admin') return true;
   if(r.sub_status===undefined) return true;            // columns not deployed
   if(FREE_PHASE && r.sub_status==='none') return true;
-  const until = r.sub_until ? new Date(r.sub_until) : null;
+  /* A `sub_until` that Date cannot parse used to evaluate as "expired" and lock the account.
+     That is the wrong direction for a fault we caused: a provider changing its date format
+     would lock EVERY active subscriber at once, silently, with nothing in the UI to explain it.
+     An unreadable end date is treated as no end date — the same fail-open rule the rest of this
+     gate follows, because a free day costs less than a paying learner shut out by our own bug. */
+  let until = r.sub_until ? new Date(r.sub_until) : null;
+  if(until && isNaN(until.getTime())){
+    console.error('sub_until לא ניתן לפענוח: '+r.sub_until+' — הגישה נשארת פתוחה');
+    until = null;
+  }
   const paidThrough = until ? until > new Date() : false;
   switch(r.sub_status){
     case 'active':

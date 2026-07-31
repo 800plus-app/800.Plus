@@ -52,7 +52,7 @@ const SYMBOLS = [
   // sync
   'mergeProgress',
   // access gate
-  'PAST_DUE_GRACE_DAYS', 'FREE_PHASE', 'hasAccess',
+  'PAST_DUE_GRACE_DAYS', 'FREE_PHASE', 'hasAccess', 'subActive',
 ];
 
 /* Symbols that must exist on the context afterwards. Superset of SYMBOLS: it also names the
