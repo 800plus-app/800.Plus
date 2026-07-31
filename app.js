@@ -2888,7 +2888,13 @@ async function afterAuthed(justSignedUp){
 $('#authForm').addEventListener('submit', async e=>{
   e.preventDefault();
   const email=$('#authEmail').value.trim(), pw=$('#authPassword').value, uname=$('#authUsername').value.trim();
-  const msg=$('#authMsg'); msg.classList.remove('hidden'); msg.className='au-msg';
+  /* This used to un-hide the message element BEFORE writing to it — so the text left over from
+     the previous attempt was revealed and sat there for the whole round trip. Signing up with a
+     fresh address flashed "אימייל או סיסמה שגויים" for a second before the real answer arrived.
+     Never reveal the box without also replacing what is in it. */
+  const msg=$('#authMsg'); msg.className='au-msg';
+  msg.textContent = authMode==='signup' ? 'יוצר חשבון…' : 'מתחבר…';
+  msg.classList.remove('hidden');
   const btn=$('#authSubmit'); btn.disabled=true;
   try{
     if(authMode==='signup'){
@@ -2896,8 +2902,12 @@ $('#authForm').addEventListener('submit', async e=>{
       if(r.error){ msg.className='au-msg err'; msg.textContent=translateAuthError(r.error); return; }
       if(!r.session){                                    // email confirmation required before login
         setAuthMode('signin', true);
-        msg.className='au-msg ok'; msg.textContent='📧 נשלח מייל אימות לכתובת שלך. אשר אותו — ואז התחבר כאן.';
-        $('#authPassword').value=''; return;
+        msg.className='au-msg ok'; msg.textContent='אשר את המייל, ואז התחבר כאן.';
+        $('#authPassword').value='';
+        // and say it where it cannot be missed: the confirmation click is the whole gate
+        $('#mailAskTo').textContent=email;
+        show($('#mailAsk'));
+        return;
       }
       currentUser=r.user; toast('ברוך הבא!'); afterAuthed(true);
     }else{
@@ -2907,6 +2917,18 @@ $('#authForm').addEventListener('submit', async e=>{
     }
   } finally { btn.disabled=false; }
 });
+$('#mailAskOk').onclick=()=>hide($('#mailAsk'));
+$('#mailAsk').onclick=e=>{ if(e.target===$('#mailAsk')) hide($('#mailAsk')); };
+$('#mailAskExisting').onclick=async e=>{
+  const to=$('#mailAskTo').textContent.trim(), m=$('#mailAskMsg');
+  if(!to) return;
+  e.target.disabled=true;
+  m.className='au-msg'; m.textContent='שולח…'; m.classList.remove('hidden');
+  try{ await Store.resetPasswordFor(to); m.className='au-msg ok';
+       m.textContent='נשלח. אם הכתובת רשומה, יגיע ממנה קישור לבחירת סיסמה חדשה.'; }
+  catch(err){ m.className='au-msg err'; m.textContent='שגיאה בשליחה — נסה שוב בעוד רגע.';
+              e.target.disabled=false; }
+};
 $('#authForgot').onclick=async ()=>{
   const email=$('#authEmail').value.trim();
   const msg=$('#authMsg'); msg.classList.remove('hidden');

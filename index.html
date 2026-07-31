@@ -359,19 +359,55 @@
        background:linear-gradient(180deg,var(--gold),var(--accent));color:#fff}
   .ask-cancel{margin-top:14px;background:transparent;border:none;color:var(--ink-soft);
        font-family:"Heebo";font-size:.85rem;text-decoration:underline}
+  /* the "check your mail" modal.
+     Above #auth, which is z-index 70 — every other .ask sits at 60 and opens over the app, but
+     this one is the only modal that opens while the login screen is still covering the page. */
+  #mailAsk{z-index:80}
+  .mail-box{text-align:center}
+  .mail-ico{font-size:2.6rem;line-height:1;margin-bottom:10px}
+  .mail-box p{margin-top:9px;font-size:.9rem;line-height:1.65;color:var(--ink-soft)}
+  .mail-box p b{color:var(--ink)}
+  .mail-to{font-family:"Heebo";font-weight:700;font-size:1rem!important;color:var(--accent)!important;
+       word-break:break-all;background:rgba(201,150,47,.1);border-radius:9px;padding:9px 10px}
+  .mail-tip{font-size:.8rem!important;border-top:1px solid var(--line);padding-top:11px;margin-top:14px!important}
+  .ask-go{margin-top:18px;width:100%;font-family:"Heebo";font-weight:700;font-size:1rem;
+       padding:15px;border-radius:12px;border:0;cursor:pointer;color:#fffdf8;
+       background:linear-gradient(180deg,var(--gold),var(--accent));
+       box-shadow:0 8px 18px -9px rgba(166,60,38,.6)}
 
   /* ===== auth — "ענבר": near-black walnut, a single amber glow, thin rules, generous air.
      Full-bleed so it escapes .wrap, and it owns its own dark palette regardless of the app's. ===== */
   /* Was near-black while every other screen is cream — the first thing a visitor saw looked
      like a different product from the one they landed in. Same palette now, and the orange
      stopped being the only bright thing on a dark field, so it can go back to being an accent. */
-  #auth{position:fixed;inset:0;z-index:70;overflow-y:auto;background:#f7f2e8;color:#2c2620;
+  /* The page was one flat cream field, so nothing on it could sit forward of anything else.
+     It now has a DIRECTION of light — warm from the top-right, a cooler blush at the lower
+     left — and the form rests on a surface that is lit by it. Still cream; just no longer flat. */
+  #auth{position:fixed;inset:0;z-index:70;overflow-y:auto;color:#2c2620;
        display:flex;flex-direction:column;justify-content:center;isolation:isolate;
-       padding:max(34px,env(safe-area-inset-top)) 26px max(34px,env(safe-area-inset-bottom))}
+       padding:max(34px,env(safe-area-inset-top)) 26px max(34px,env(safe-area-inset-bottom));
+       background:
+         radial-gradient(120% 80% at 88% -8%, rgba(214,164,74,.30), transparent 58%),
+         radial-gradient(100% 70% at -10% 108%, rgba(184,96,68,.20), transparent 60%),
+         linear-gradient(168deg,#fbf7ee 0%,#f4ecdd 52%,#efe5d3 100%)}
   #auth.hidden{display:none!important}
   .au-orb{position:absolute;width:min(620px,150vw);aspect-ratio:1;border-radius:50%;
        bottom:-42vh;inset-inline-end:-28vw;pointer-events:none;z-index:-1;filter:blur(60px);
        background:radial-gradient(circle,rgba(201,150,47,.20),transparent 62%)}
+  /* The card. Two shadows, not one: a tight contact shadow that says it is TOUCHING the page,
+     and a wide ambient one that says the light is far away. Both warm — a grey shadow on cream
+     reads as dirt. The inset top edge is the specular line: it is the single thing that makes
+     a flat rectangle look like a lit physical surface. */
+  .au-card{margin-top:26px;padding:6px 22px 22px;border-radius:22px;
+       background:linear-gradient(170deg,rgba(255,253,249,.96),rgba(252,247,238,.9));
+       border:1px solid rgba(255,255,255,.7);
+       box-shadow:
+         inset 0 1px 0 rgba(255,255,255,.95),
+         inset 0 -1px 0 rgba(166,60,38,.05),
+         0 1px 2px rgba(120,84,48,.10),
+         0 10px 24px -12px rgba(120,84,48,.22),
+         0 34px 60px -28px rgba(120,84,48,.30);
+       backdrop-filter:blur(2px)}
   .au-drift{position:absolute;inset:0;overflow:hidden;z-index:-1;pointer-events:none}
   .au-drift b{position:absolute;font-family:"Frank Ruhl Libre",serif;font-weight:700;
        white-space:nowrap;color:rgba(166,60,38,.09);animation:auRise linear infinite}
@@ -385,33 +421,54 @@
        line-height:1.06;margin-top:15px;letter-spacing:-.012em;text-wrap:balance}
   .au-title em{font-style:normal;color:#a63c26;font-weight:700}
   .au-sub{font-size:.84rem;line-height:1.68;margin-top:12px;color:#6f6558}
-  .au-tabs{display:flex;gap:0;margin:26px 0 20px}
+  /* A recessed track with one raised tab in it — the same physics as the fields, so the whole
+     card reads as a single lit object instead of a pile of unrelated treatments. */
+  .au-tabs{display:flex;gap:4px;margin:16px 0 18px;padding:4px;border-radius:14px;
+       background:rgba(232,222,203,.5);
+       box-shadow:inset 0 2px 4px rgba(120,84,48,.11),inset 0 -1px 0 rgba(255,255,255,.7)}
   .au-tabs button{flex:1;border:0;background:transparent;font-family:"Heebo";font-weight:500;
-       font-size:.86rem;padding:11px 0;color:#8d8274;border-bottom:1px solid #e2dac9;
+       font-size:.86rem;padding:11px 0;color:#8d8274;border-radius:11px;
        transition:.2s;cursor:pointer}
-  .au-tabs button.active{color:#2c2620;border-bottom-color:#a63c26;font-weight:700}
+  .au-tabs button.active{color:#2c2620;font-weight:700;background:#fffdf8;
+       box-shadow:0 1px 1px rgba(120,84,48,.10),0 4px 10px -4px rgba(120,84,48,.28),
+                  inset 0 1px 0 rgba(255,255,255,.95)}
   /* Signing in is the default, so the way IN for a new user has to stay visible on its own. */
   .au-tabs button.bright{color:#a63c26;font-weight:700}
-  .au-tabs button.bright.active{color:#fffdf8;background:#a63c26;border-radius:8px 8px 0 0}
-  .au-go.bright{background:#a63c26;color:#fffdf8;font-weight:700;border-color:#a63c26;
-    box-shadow:0 10px 26px -14px rgba(166,60,38,.6)}
+  .au-tabs button.bright.active{color:#fffdf8;
+       background:linear-gradient(180deg,#b8492e,#9d3520);
+       box-shadow:0 1px 1px rgba(120,40,20,.2),0 6px 14px -5px rgba(166,60,38,.55),
+                  inset 0 1px 0 rgba(255,255,255,.28)}
+  .au-go.bright{background:linear-gradient(180deg,#b8492e,#9d3520);color:#fffdf8;font-weight:700;
+    border-color:transparent;
+    box-shadow:0 1px 1px rgba(120,40,20,.18),0 12px 26px -12px rgba(166,60,38,.65),
+               inset 0 1px 0 rgba(255,255,255,.3)}
   .au-go.bright:hover{background:#8f3220}
   .au-slider{display:none}
   #authForm{display:flex;flex-direction:column;gap:12px}
   .au-field{position:relative;display:block}
   .au-field.hidden{display:none!important}
-  .au-field input{width:100%;font-family:"Heebo";font-size:1.02rem;padding:18px 2px 7px;
-       background:transparent;border:0;border-bottom:1px solid #ddd4c1;
-       color:#2c2620;outline:none;text-align:right;transition:.2s;border-radius:0}
-  .au-field input:focus{border-bottom-color:#a63c26}
-  .au-field span{position:absolute;inset-inline-start:2px;top:16px;font-size:.94rem;color:#8d8274;
+  /* Recessed wells, not hairlines. An empty field under a 1px rule barely reads as somewhere
+     you can type; carved into the card it is unmistakable, and the inset shadow is the same
+     light source as the card's own — so the depth is consistent rather than decorative. */
+  .au-field input{width:100%;font-family:"Heebo";font-size:1.02rem;padding:20px 14px 9px;
+       background:linear-gradient(180deg,rgba(238,229,213,.55),rgba(248,242,232,.35));
+       border:1px solid rgba(196,180,152,.45);border-radius:13px;
+       color:#2c2620;outline:none;text-align:right;transition:.2s;
+       box-shadow:inset 0 2px 4px rgba(120,84,48,.11),inset 0 -1px 0 rgba(255,255,255,.75)}
+  .au-field input:focus{border-color:#c07a52;
+       background:linear-gradient(180deg,rgba(255,252,246,.9),rgba(253,248,240,.7));
+       box-shadow:inset 0 2px 5px rgba(120,84,48,.08),0 0 0 3px rgba(201,150,47,.20)}
+  .au-field span{position:absolute;inset-inline-start:14px;top:17px;font-size:.94rem;color:#8d8274;
        pointer-events:none;transition:.16s cubic-bezier(.2,.8,.2,1);transform-origin:right top}
   .au-field input:focus + span,.au-field input:not(:placeholder-shown) + span{
-       top:0;transform:scale(.72)}
+       top:3px;transform:scale(.72)}
   .au-field input:focus + span{color:#a63c26}
-  .au-go{margin-top:9px;background:transparent;border:1px solid #c9962f;color:#8a6220;
-       font-family:"Heebo";font-weight:500;font-size:1rem;padding:17px;letter-spacing:.09em;
-       cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;transition:.22s}
+  .au-go{margin-top:9px;border:1px solid rgba(201,150,47,.75);color:#7d5718;border-radius:13px;
+       background:linear-gradient(180deg,rgba(255,251,242,.95),rgba(246,235,214,.9));
+       font-family:"Heebo";font-weight:600;font-size:1rem;padding:17px;letter-spacing:.09em;
+       cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;transition:.22s;
+       box-shadow:0 1px 1px rgba(120,84,48,.10),0 8px 18px -10px rgba(120,84,48,.4),
+                  inset 0 1px 0 rgba(255,255,255,.9)}
   .au-go i{font-style:normal;transition:.22s}
   .au-go:hover{background:#c9962f;color:#fffdf8}
   .au-go:hover i{transform:translateX(-5px)}
@@ -770,6 +827,9 @@
       <h1 class="au-title"><bdi>800+</bdi><br><em>אוצר מילים שנשאר איתך</em></h1>
       <p class="au-sub" id="authSub">1,719 מילים בעברית · 3,900 באנגלית.<br>חשבון אחד, וההתקדמות עוברת איתך לכל מכשיר.</p>
 
+      <!-- tabs and form share one lit surface: the fields used to float on the page with
+           nothing but a hairline under each, and an empty field did not read as a field -->
+      <div class="au-card">
       <div class="au-tabs" id="authTabs">
         <button data-tab="signin" class="active">התחברות</button>
         <button data-tab="signup" class="bright">הרשמה</button>
@@ -799,6 +859,7 @@
         <button type="button" class="au-link" id="authForgot">שכחתי סיסמה</button>
       </form>
       <p class="au-msg hidden" id="authMsg"></p>
+      </div>
     </div>
   </section>
 
@@ -1195,6 +1256,28 @@
 
 </div>
 
+<!-- ===== "we sent you a mail" — a modal, not a line of text =====
+     A one-line note under the form is read by whoever is already looking there. Someone who has
+     just pressed "צור חשבון" is looking at the button, and the single action that decides whether
+     they ever get in has to interrupt them. -->
+<div class="ask hidden" id="mailAsk">
+  <div class="ask-box mail-box">
+    <div class="mail-ico" aria-hidden="true">📬</div>
+    <h3>שלחנו לך מייל</h3>
+    <p class="mail-to" id="mailAskTo" dir="ltr"></p>
+    <p>פתח אותו ולחץ על <b>אישור הכתובת</b>. בלי זה לא נוכל להכניס אותך.</p>
+    <p class="mail-tip">לא הגיע תוך דקה? בדוק בספאם או בקידומי מכירות —
+      מיילים אוטומטיים נוחתים שם לפעמים.</p>
+    <button class="ask-go" id="mailAskOk">הבנתי, אני בודק</button>
+    <!-- The dead end this exists for: when the address is ALREADY registered, Supabase returns
+         the same success and sends nothing — deliberately, so nobody can probe which addresses
+         exist. The app therefore cannot tell the two cases apart, and without a way out the
+         person waits forever for a mail that was never sent. The reset link works either way. -->
+    <button class="ask-cancel" id="mailAskExisting">כבר נרשמתי פעם? שלח לי קישור לאיפוס סיסמה</button>
+    <p class="au-msg hidden" id="mailAskMsg"></p>
+  </div>
+</div>
+
 <!-- ===== how many words this round ===== -->
 <div class="ask hidden" id="sizeAsk">
   <div class="ask-box">
@@ -1278,14 +1361,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=99"></script>
-<script src="config.js?v=99"></script>
-<script src="store.js?v=99"></script>
-<script src="leveltest-he.js?v=99"></script>
-  <script src="leveltest.js?v=99"></script>
-<script src="enrank.js?v=99"></script>
-<script src="data.js?v=99"></script>
-<script src="data-en.js?v=99"></script>
-<script src="app.js?v=99"></script>
+<script src="supabase.min.js?v=100"></script>
+<script src="config.js?v=100"></script>
+<script src="store.js?v=100"></script>
+<script src="leveltest-he.js?v=100"></script>
+  <script src="leveltest.js?v=100"></script>
+<script src="enrank.js?v=100"></script>
+<script src="data.js?v=100"></script>
+<script src="data-en.js?v=100"></script>
+<script src="app.js?v=100"></script>
 </body>
 </html>
