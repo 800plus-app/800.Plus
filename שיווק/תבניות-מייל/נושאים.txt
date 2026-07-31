@@ -1,0 +1,4 @@
+Confirm signup          →  אישור כתובת · 800+
+Reset password          →  איפוס סיסמה · 800+
+Magic Link              →  קישור כניסה · 800+
+Change Email Address    →  אישור כתובת חדשה · 800+
