@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://oycypbnzcvtjliovfsxn.supabase.co; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#b5482e">
+<meta name="theme-color" content="#f7f2e8">
 <link rel="icon" href="icon-192.png">
 <title>800+ — אוצר מילים לפסיכומטרי</title>
 <link rel="manifest" href="manifest.webmanifest">
@@ -344,61 +344,64 @@
 
   /* ===== auth — "ענבר": near-black walnut, a single amber glow, thin rules, generous air.
      Full-bleed so it escapes .wrap, and it owns its own dark palette regardless of the app's. ===== */
-  #auth{position:fixed;inset:0;z-index:70;overflow-y:auto;background:#141210;color:#efe9e0;
+  /* Was near-black while every other screen is cream — the first thing a visitor saw looked
+     like a different product from the one they landed in. Same palette now, and the orange
+     stopped being the only bright thing on a dark field, so it can go back to being an accent. */
+  #auth{position:fixed;inset:0;z-index:70;overflow-y:auto;background:#f7f2e8;color:#2c2620;
        display:flex;flex-direction:column;justify-content:center;isolation:isolate;
        padding:max(34px,env(safe-area-inset-top)) 26px max(34px,env(safe-area-inset-bottom))}
   #auth.hidden{display:none!important}
   .au-orb{position:absolute;width:min(620px,150vw);aspect-ratio:1;border-radius:50%;
        bottom:-42vh;inset-inline-end:-28vw;pointer-events:none;z-index:-1;filter:blur(60px);
-       background:radial-gradient(circle,rgba(214,138,58,.22),transparent 62%)}
+       background:radial-gradient(circle,rgba(201,150,47,.20),transparent 62%)}
   .au-drift{position:absolute;inset:0;overflow:hidden;z-index:-1;pointer-events:none}
   .au-drift b{position:absolute;font-family:"Frank Ruhl Libre",serif;font-weight:700;
-       white-space:nowrap;color:rgba(214,138,58,.1);animation:auRise linear infinite}
+       white-space:nowrap;color:rgba(166,60,38,.09);animation:auRise linear infinite}
   @keyframes auRise{0%{transform:translateY(105%);opacity:0}14%{opacity:.5}
        70%{opacity:.5}100%{transform:translateY(-45%);opacity:0}}
-  @media(prefers-reduced-motion:reduce){.au-drift b{animation:none;opacity:.14}}
+  @media(prefers-reduced-motion:reduce){.au-drift b{animation:none;opacity:.5}}
   .au-inner{width:100%;max-width:392px;margin:0 auto}
   .au-mark{font-family:"Frank Ruhl Libre",serif;font-weight:400;font-size:.72rem;
-       letter-spacing:.44em;color:#8b8175}
+       letter-spacing:.44em;color:#9a8d7c}
   .au-title{font-family:"Frank Ruhl Libre",serif;font-size:clamp(2rem,8vw,2.5rem);font-weight:400;
        line-height:1.06;margin-top:15px;letter-spacing:-.012em;text-wrap:balance}
-  .au-title em{font-style:normal;color:#d68a3a;font-weight:700}
-  .au-sub{font-size:.8rem;line-height:1.62;margin-top:12px;color:#8b8175}
+  .au-title em{font-style:normal;color:#a63c26;font-weight:700}
+  .au-sub{font-size:.84rem;line-height:1.68;margin-top:12px;color:#6f6558}
   .au-tabs{display:flex;gap:0;margin:26px 0 20px}
   .au-tabs button{flex:1;border:0;background:transparent;font-family:"Heebo";font-weight:500;
-       font-size:.86rem;padding:11px 0;color:#6f665c;border-bottom:1px solid rgba(255,255,255,.08);
+       font-size:.86rem;padding:11px 0;color:#8d8274;border-bottom:1px solid #e2dac9;
        transition:.2s;cursor:pointer}
-  .au-tabs button.active{color:#efe9e0;border-bottom-color:#d68a3a}
+  .au-tabs button.active{color:#2c2620;border-bottom-color:#a63c26;font-weight:700}
   /* Signing in is the default, so the way IN for a new user has to stay visible on its own. */
-  .au-tabs button.bright{color:#d68a3a;font-weight:700}
-  .au-tabs button.bright.active{color:#141210;background:#d68a3a;border-radius:8px 8px 0 0}
-  .au-go.bright{background:#d68a3a;color:#141210;font-weight:700;
-    box-shadow:0 10px 26px -12px rgba(214,138,58,.75)}
-  .au-go.bright:hover{background:#e59c4c}
+  .au-tabs button.bright{color:#a63c26;font-weight:700}
+  .au-tabs button.bright.active{color:#fffdf8;background:#a63c26;border-radius:8px 8px 0 0}
+  .au-go.bright{background:#a63c26;color:#fffdf8;font-weight:700;border-color:#a63c26;
+    box-shadow:0 10px 26px -14px rgba(166,60,38,.6)}
+  .au-go.bright:hover{background:#8f3220}
   .au-slider{display:none}
   #authForm{display:flex;flex-direction:column;gap:12px}
   .au-field{position:relative;display:block}
   .au-field.hidden{display:none!important}
   .au-field input{width:100%;font-family:"Heebo";font-size:1.02rem;padding:18px 2px 7px;
-       background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.12);
-       color:#efe9e0;outline:none;text-align:right;transition:.2s;border-radius:0}
-  .au-field input:focus{border-bottom-color:#d68a3a}
-  .au-field span{position:absolute;inset-inline-start:2px;top:16px;font-size:.94rem;color:#6f665c;
+       background:transparent;border:0;border-bottom:1px solid #ddd4c1;
+       color:#2c2620;outline:none;text-align:right;transition:.2s;border-radius:0}
+  .au-field input:focus{border-bottom-color:#a63c26}
+  .au-field span{position:absolute;inset-inline-start:2px;top:16px;font-size:.94rem;color:#8d8274;
        pointer-events:none;transition:.16s cubic-bezier(.2,.8,.2,1);transform-origin:right top}
   .au-field input:focus + span,.au-field input:not(:placeholder-shown) + span{
        top:0;transform:scale(.72)}
-  .au-field input:focus + span{color:#d68a3a}
-  .au-go{margin-top:9px;background:transparent;border:1px solid #d68a3a;color:#d68a3a;
+  .au-field input:focus + span{color:#a63c26}
+  .au-go{margin-top:9px;background:transparent;border:1px solid #c9962f;color:#8a6220;
        font-family:"Heebo";font-weight:500;font-size:1rem;padding:17px;letter-spacing:.09em;
        cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;transition:.22s}
   .au-go i{font-style:normal;transition:.22s}
-  .au-go:hover{background:#d68a3a;color:#141210}
+  .au-go:hover{background:#c9962f;color:#fffdf8}
   .au-go:hover i{transform:translateX(-5px)}
   .au-go:disabled{opacity:.5;cursor:not-allowed}
-  .au-link{background:transparent;border:0;color:#6f665c;font-family:"Heebo";font-size:.8rem;
+  .au-link{background:transparent;border:0;color:#8d8274;font-family:"Heebo";font-size:.8rem;
        text-decoration:underline;cursor:pointer;margin-top:5px}
   .au-msg{margin-top:16px;font-size:.88rem;line-height:1.55;text-align:center}
-  .au-msg.err{color:#e8907f} .au-msg.ok{color:#8fce9d}
+  .au-msg.err{color:#a63c26} .au-msg.ok{color:#3f6b4a}
   .au-msg.hidden{display:none!important}
 
   .user-badge{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft);
@@ -1247,14 +1250,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=94"></script>
-<script src="config.js?v=94"></script>
-<script src="store.js?v=94"></script>
-<script src="leveltest-he.js?v=94"></script>
-  <script src="leveltest.js?v=94"></script>
-<script src="enrank.js?v=94"></script>
-<script src="data.js?v=94"></script>
-<script src="data-en.js?v=94"></script>
-<script src="app.js?v=94"></script>
+<script src="supabase.min.js?v=96"></script>
+<script src="config.js?v=96"></script>
+<script src="store.js?v=96"></script>
+<script src="leveltest-he.js?v=96"></script>
+  <script src="leveltest.js?v=96"></script>
+<script src="enrank.js?v=96"></script>
+<script src="data.js?v=96"></script>
+<script src="data-en.js?v=96"></script>
+<script src="app.js?v=96"></script>
 </body>
 </html>
