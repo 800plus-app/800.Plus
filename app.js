@@ -116,6 +116,46 @@ function loadLangState(){
   const dir=LS.get(KEY('hw_dir'), 'm2w');
   direction = (dir==='m2w'||dir==='w2m'||dir==='mixed') ? dir : 'm2w';
 }
+/* ===== two tabs =====
+   Every save writes the WHOLE object, so a second tab silently overwrote the first one's round:
+   measured at 20 words practised and 10 stored, with none of the first tab's surviving.
+   The `storage` event fires only in the OTHER tabs, so it is exactly the signal needed. It is
+   not acted on immediately — reloading state under a running round would swap the deck out from
+   under the learner. It raises a flag, and the next save reconciles before it writes.
+   The merge is mergeProgress(), the same function the cloud sync uses: counts take the max,
+   level comes from whichever record was written last, sessions dedupe on their own fields.
+   Reusing it matters — a second merge written by hand here would drift from that one. */
+let diskAhead=false;
+function absorbDisk(){
+  if(!diskAhead) return;
+  diskAhead=false;
+  const disk={ stats: LS.get(KEY('hw_stats'), null),
+               assoc: LS.get(KEY('hw_assoc'), null),
+               deleted: LS.get(KEY('hw_deleted'), null),
+               added: LS.get(KEY('hw_added'), null) };
+  if(!disk.stats && !disk.assoc && !disk.deleted && !disk.added) return;
+  const m=mergeProgress({assoc, stats, deleted:[...deleted], added, dir:direction},
+                        {assoc:disk.assoc||{}, stats:disk.stats||{words:{},sessions:[]},
+                         deleted:disk.deleted||[], added:disk.added||[], dir:direction});
+  assoc=m.assoc; stats=m.stats; deleted=new Set(m.deleted); added=m.added;
+}
+window.addEventListener('storage', e=>{
+  if(!e.key || e.key.indexOf('hw_')!==0) return;
+  /* A different account signed in elsewhere. Nothing in this tab is valid any more, and merging
+     one person's progress into another's is the exact failure the owner check exists to stop. */
+  if(e.key==='hw_owner'){ location.reload(); return; }
+  if(LANG!=='he' && LANG!=='en') return;
+  const mine=['hw_stats','hw_assoc','hw_deleted','hw_added'].map(KEY);
+  if(mine.indexOf(e.key)<0) return;
+  diskAhead=true;
+  // Idle: adopt the other tab's work now, so the screens are not showing yesterday's numbers.
+  if(session.size===0){
+    absorbDisk(); buildBank();
+    if(!$('#home').classList.contains('hidden')) renderHome();
+    if(!$('#welcome').classList.contains('hidden')) renderWelcome();
+  }
+});
+
 const DIRS_HE = [['m2w','פירוש → מילה'],['w2m','מילה → פירוש'],['mixed','מעורב']];
 const DIRS_EN = [['m2w','עברית → אנגלית'],['w2m','אנגלית → עברית'],['mixed','מעורב']];
 const DIRS = () => (LANG==='en' ? DIRS_EN : DIRS_HE);
@@ -137,11 +177,12 @@ function saveAssoc(){
     if(isObj(prev)) assoc=prev;
     return false;
   }
+  absorbDisk();
   const ok=LS.set(KEY('hw_assoc'), assoc); queueRemoteSync(); return ok;
 }
-const saveStats   = () => { const ok=LS.set(KEY('hw_stats'), stats); queueRemoteSync(); return ok; };
-const saveDeleted = () => { const ok=LS.set(KEY('hw_deleted'), [...deleted]); queueRemoteSync(); return ok; };
-const saveAdded   = () => { const ok=LS.set(KEY('hw_added'), added); queueRemoteSync(); return ok; };
+const saveStats   = () => { absorbDisk(); const ok=LS.set(KEY('hw_stats'), stats); queueRemoteSync(); return ok; };
+const saveDeleted = () => { absorbDisk(); const ok=LS.set(KEY('hw_deleted'), [...deleted]); queueRemoteSync(); return ok; };
+const saveAdded   = () => { absorbDisk(); const ok=LS.set(KEY('hw_added'), added); queueRemoteSync(); return ok; };
 
 /* canonical word key: same word with/without niqqud (or across units) is ONE word everywhere */
 const K = t => LANG==='en' ? normEn(t) : norm(t);
