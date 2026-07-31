@@ -944,10 +944,20 @@ $('#mDelete').onclick=()=>{
   saveDeleted(); saveAssoc(); saveStats(); buildBank();
   m.className='msg ok'; m.textContent=`נמחקו ${mSel.size} מילים.`; mSel=new Set(); renderManage($('#mSearch').value); renderHome();
 };
+/* Restores BOTH kinds of removal. The level test promised "תמיד אפשר להחזיר אותן דרך ניהול
+   מילים" and wrote a src:'lv' marker for exactly that purpose — and then nothing ever read it.
+   The undo was designed and never built, so the promise on that screen was false. */
 $('#mRestore').onclick=()=>{
-  if(deleted.size===0){ toast('אין מחיקות לשחזר'); return; }
-  if(!confirm(`לשחזר ${deleted.size} מילים שנמחקו?`)) return;
-  deleted=new Set(); saveDeleted(); buildBank(); renderManage($('#mSearch').value); renderHome(); toast('המחיקות שוחזרו');
+  const skipped=Object.keys(stats.words||{}).filter(k=>stats.words[k] && stats.words[k].src==='lv');
+  if(deleted.size===0 && !skipped.length){ toast('אין מה לשחזר'); return; }
+  const parts=[];
+  if(deleted.size) parts.push(`${deleted.size} מילים שנמחקו`);
+  if(skipped.length) parts.push(`${skipped.length} מילים שדילגת עליהן אחרי מבחן הרמה`);
+  if(!confirm('לשחזר '+parts.join(' ו-')+'?')) return;
+  if(deleted.size){ deleted=new Set(); saveDeleted(); }
+  if(skipped.length){ skipped.forEach(k=>{ delete stats.words[k]; }); saveStats(); }
+  buildBank(); renderManage($('#mSearch').value); renderHome();
+  toast('שוחזר: '+parts.join(' · '));
 };
 
 /* ===== ADD ===== */
@@ -1138,10 +1148,14 @@ function langSummary(lang){
   // Scope every count to the live bank. Counting raw stats keys instead would fold in
   // orphans left behind by deleted or renamed entries, so "practised" could exceed the
   // number of words that exist.
+  /* A word skipped after the level test carries src:'lv'. It is marked level:3 so it stays out
+     of "מילים חדשות", but it was never practised here and must NOT be counted as learned —
+     that is what made the dashboard jump by thousands after one placement test and report a
+     number nobody had earned. */
   let learned=0, practised=0;
   keys.forEach(k=>{ const r=words[k]; if(!isObj(r)) return;
-    if(int0(r.seen)>0) practised++;
-    if(int0(r.level)>=3) learned++; });
+    if(int0(r.seen)>0 && r.src!=='lv') practised++;
+    if(int0(r.level)>=3 && r.src!=='lv') learned++; });
   return {total:keys.size, learned, practised, pct: keys.size? Math.round(100*learned/keys.size):0};
 }
 /* ===== streak =====
@@ -1368,11 +1382,33 @@ function lvFinish(){
   }
   if(skippable>=40){
     show($('#lvOffer'));
-    $('#lvOfferText').innerHTML=`מצאתי <b>${skippable}</b> מילים באנגלית שברמה שלך כמעט בוודאי כבר מוכרות לך.
-      אפשר לסמן אותן כמילים שלמדת, כדי שלא יופיעו ב"מילים חדשות" ותתחיל ישר במה שבאמת חסר לך.
-      <br><span style="color:var(--ink-soft);font-size:.86rem">תמיד אפשר להחזיר אותן דרך ניהול מילים.</span>`;
-    $('#lvApply').onclick=()=>{ const n=lvApplyKnown(level); hide($('#lvOffer')); toast(`${n} מילים סומנו כמוכרות`); };
+    $('#lvOfferText').innerHTML=`מצאתי <b>${skippable}</b> מילים באנגלית שנמצאות הרבה מתחת לרמה שהדגמת
+      עכשיו, ולכן כמעט בוודאי כבר מוכרות לך.
+      <br><span style="color:var(--ink-soft);font-size:.86rem">מה זה עושה בפועל: המילים האלה יוצאות
+      מ"מילים חדשות" ולא יגיעו אליך בתרגול, כדי שתתחיל ישר במה שבאמת חסר לך. הן <b>לא</b> נמחקות
+      ו<b>לא</b> נספרות כמילים שלמדת — מספר הנלמדות שלך לא יזוז מזה.
+      להחזיר אותן: ניהול מילים ← שחזור.</span>`;
+    $('#lvApply').onclick=()=>{ const n=lvApplyKnown(level); hide($('#lvOffer'));
+      toast(`${n} מילים הוצאו מהתרגול · ניתן להחזיר בניהול מילים`); };
     $('#lvNoApply').onclick=()=>hide($('#lvOffer'));
+  } else if(LV_LANG==='he'){
+    /* Hebrew used to land here with an empty panel and no explanation at all. It cannot offer
+       the same thing English does: skipping is driven by a frequency rank, and there is no
+       Hebrew frequency source in the project. The unit number is the only signal available and
+       it is not a difficulty signal — so an offer built on it would be a claim the data does
+       not support. Say what happened instead of showing nothing. */
+    show($('#lvOffer'));
+    $('#lvOfferText').innerHTML=`התוצאה נשמרה ומשמשת את האפליקציה מכאן והלאה.
+      <br><span style="color:var(--ink-soft);font-size:.86rem">בעברית אין עדיין דילוג אוטומטי על
+      מילים שאתה כבר יודע — הדילוג באנגלית נשען על דירוג שכיחות, ולעברית אין מקור כזה. עד שיהיה,
+      אפשר להוציא מילים מוכרות ידנית דרך ניהול מילים.</span>`;
+    $('#lvApply').classList.add('hidden');
+    $('#lvNoApply').textContent='הבנתי';      // there is nothing here to decline
+    $('#lvNoApply').onclick=()=>hide($('#lvOffer'));
+  }
+  if(LV_LANG!=='he'){
+    $('#lvApply').classList.remove('hidden');
+    $('#lvNoApply').textContent='לא, אתרגל הכל';
   }
 }
 /* Only English has frequency ranks, so the skip offer applies to the English bank.
@@ -1382,11 +1418,23 @@ function lvFinish(){
    cover words that are far easier than the ceiling that was actually demonstrated. */
 const LV_CUT={A1:0, A2:0, B1:600, B2:2000, C1:5000, C2:10000};
 function lvRankOf(term){ const m=window.EN_RANK; return m ? m[normEn(term)] : null; }
+/* Counts what will ACTUALLY be marked, which is not the same as what is below the cut.
+   The old version counted every ranked word under the cut across the whole bank and ignored
+   history and deletions — so it advertised 2,470 while lvApplyKnown, which skips any word that
+   already has a record, would mark far fewer. A number on a confirmation screen has to be the
+   number the button produces, or the screen is lying about what you are agreeing to. */
 function lvCountKnown(level){
   const cut=LV_CUT[level]; if(!cut) return 0;
-  const data=window.UNIT_DATA_EN||{}; let n=0;
+  const data=window.UNIT_DATA_EN||{};
+  const raw=LS.get('hw_stats_en', null);
+  const words=(isObj(raw) && isObj(raw.words)) ? raw.words : {};
+  const gone=new Set(LS.get('hw_deleted_en', []) || []);
+  let n=0;
   for(const u in data) for(const p of (data[u]||[])){
-    const r=lvRankOf(p[0]); if(r && r<=cut) n++;
+    const r=lvRankOf(p[0]); if(!(r && r<=cut)) continue;
+    const k=normEn(p[0]);
+    if(!k || words[k] || gone.has(k)) continue;
+    n++;
   }
   return n;
 }
