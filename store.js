@@ -140,7 +140,13 @@ const Store = {
      server-side instead. The table's own select policy is now own-rows-only. */
   async listSharedAssoc(lang, wordKey) {
     const { data, error } = await sb.rpc('shared_assoc', { p_lang: lang, p_word_key: wordKey });
-    if (error) return { ok: false, rows: [], mine: false };
+    if (error) {
+      // 42883 = the function does not exist, i.e. migrations/9.sql was never run. Silence here
+      // meant the whole "what others wrote" feature simply never appeared, with no error anywhere.
+      console.warn('shared_assoc נכשלה' + (error.code === '42883'
+        ? ' — נראה ש-migrations/9.sql לא הורץ' : ': ' + error.message));
+      return { ok: false, rows: [], mine: false };
+    }
     const rows = data || [];
     return { ok: true, rows: rows.filter(r => !r.is_mine), mine: rows.some(r => r.is_mine) };
   },

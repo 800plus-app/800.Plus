@@ -126,6 +126,7 @@ function loadLangState(){
    level comes from whichever record was written last, sessions dedupe on their own fields.
    Reusing it matters — a second merge written by hand here would drift from that one. */
 let diskAhead=false;
+let bootTimedOut=false;   // the boot watchdog fired: afterAuthed may finish, but must not navigate
 /* Keys the user explicitly restored. Persisted, because the deletion it reverses is persisted
    too — a log that lived only in memory would let the next page load re-delete the word. An
    entry is dropped the moment the same word is deleted again, so the last explicit action by
@@ -654,7 +655,7 @@ function openScope(scope){
   const c=classify(scope);
   $('#donutTotal').textContent=c.total;
   const done=c.total||1;
-  const gs=100*c.strong/done, gw=100*c.weak/done, gk=100*(c.skipped||0)/done;
+  const gs=100*c.strong/done, gw=100*c.weak/done;
   $('#donut').style.background=`conic-gradient(var(--green) 0 ${gs}%, var(--accent) ${gs}% ${gs+gw}%,`+
     ` var(--gold) ${gs+gw}% ${gs+gw+100*c.fresh/done}%, var(--line) ${gs+gw+100*c.fresh/done}% 100%)`;
   $('#legend').innerHTML=
@@ -1078,7 +1079,7 @@ function openStats(scope){
      times and never known on sight scores 5. A word missed once and known first-try four times
      scores −3. One subtraction, and it explains itself in a sentence. */
   const score=w=>{ const r=stats.words[K(w.term)]; return r ? (int0(r.wrong)-int0(r.first)) : 0; };
-  const tier=s=> s>=3 ? 3 : s>=1 ? 2 : s>0 ? 1 : 0;
+  const tier=s=> s>=3 ? 3 : s>=1 ? 2 : 0;   // scores are whole numbers, so 0<s<1 cannot occur
   const fight=[], nearly=[], settled=[], instant=[];
   for(const w of arr){
     const r=stats.words[K(w.term)], s=score(w);
@@ -1147,8 +1148,13 @@ function manageItems(){
   for(const u of Object.keys(data).sort((a,b)=>+a-+b))
     for(const p of (data[u]||[])) if(Array.isArray(p))
       out.push({term:p[0], meaning:p[1], unit:u, gone:deleted.has(K(p[0]))});
-  for(const p of added) if(Array.isArray(p))
-    out.push({term:p[0], meaning:p[1], unit:'custom', gone:deleted.has(K(p[0]))});
+  /* buildBank folds a duplicate away (first unit wins); this screen did not, so a word the user
+     added by hand that also exists in a unit appeared twice here and once everywhere else. */
+  const seen=new Set(out.map(w=>K(w.term)));
+  for(const p of added) if(Array.isArray(p)){
+    const k=K(p[0]); if(!k || seen.has(k)) continue; seen.add(k);
+    out.push({term:p[0], meaning:p[1], unit:'custom', gone:deleted.has(k)});
+  }
   return out;
 }
 let mOpen=new Set();      // which unit sections are expanded
@@ -1220,7 +1226,22 @@ $('#mSearch').oninput=e=>renderManage(e.target.value);
 $('#mDelete').onclick=()=>{
   const m=$('#mMsg'); m.classList.remove('hidden'); m.className='msg';
   if(mSel.size===0){ m.textContent='לא נבחרו מילים.'; return; }
-  if(!confirm(`למחוק ${mSel.size} מילים? (ניתן לשחזר)`)){ m.classList.add('hidden'); return; }
+  /* The selection survives collapsing a unit and changing the search, so it was possible to tick
+     twenty words in unit 4, search for something else, press delete, and remove twenty words
+     that were nowhere on screen. The dialog said "delete 20 words?" and named none of them.
+     It names them now, and says plainly how many are out of view. */
+  const shown=new Set([...document.querySelectorAll('#manageList .m-row input')].map(c=>c.dataset.term));
+  const hidden=[...mSel].filter(t=>!shown.has(t));
+  const names=[...mSel].slice(0,8).join(' · ') + (mSel.size>8 ? ` ועוד ${mSel.size-8}` : '');
+  const warn = hidden.length ? `
+
+${hidden.length} מהן אינן מוצגות כרגע על המסך.` : '';
+  if(!confirm(`למחוק ${mSel.size} מילים?
+
+${names}${warn}
+
+(ניתן לשחזר דרך ניהול מילים)`)){
+    m.classList.add('hidden'); return; }
   mSel.forEach(t=>{ const k=K(t); deleted.add(k); markDeletedAgain(k); delete assoc[k]; delete stats.words[k]; });
   saveDeleted(); saveAssoc(); saveStats(); buildBank();
   m.className='msg ok'; m.textContent=`נמחקו ${mSel.size} מילים.`; mSel=new Set(); renderManage($('#mSearch').value); renderHome();
@@ -2087,9 +2108,15 @@ function exAnswer(ok, given, btn){
   exTimer=setTimeout(()=>{ exI++; exRender(); }, ok?420:1100);
 }
 /* any word in the unit that carries this exact gloss counts */
+/* `accept` is built per unit; practice accepts any word in the WHOLE bank carrying the same
+   gloss. A learner taught in practice that פֹּארָה answers "ענף" typed it in the exam and was
+   marked wrong — and that score is stored. Same question, two verdicts, and the stricter one
+   is the one that counts. Falls back to the bank-wide index only when the unit list misses. */
 function exWriteOk(v, q){
   const list = (q.accept && q.accept.length) ? q.accept : [q.answer];
-  return list.some(t=>isCorrect(v, t));
+  if(list.some(t=>isCorrect(v, t))) return true;
+  const alts=glossAlts(q.it || {term:q.answer, meaning:q.question});
+  return alts.length ? alts.some(t=>isCorrect(v, t)) : false;
 }
 $('#exSubmit').onclick=()=>{ const q=exQ[exI]; if(!q||$('#exInput').disabled) return;
   const v=$('#exInput').value; exAnswer(exWriteOk(v, q), v); };
@@ -2294,6 +2321,12 @@ async function flushRemoteSync(){
       const merged=mergeProgress({assoc,stats,deleted:[...deleted],added,dir:direction,undeleted:restoredMap()}, res.data);
       assoc=merged.assoc; stats=merged.stats; deleted=new Set(merged.deleted); added=merged.added; direction=merged.dir;
       saveAssoc(); saveStats(); saveDeleted(); saveAdded(); LS.set(KEY('hw_dir'),direction);
+      /* The merge can bring back a deletion or an addition made on another device, and BANK is
+         built from exactly those two. syncWithRemoteInner rebuilds; this path never did — and
+         since commitSession now flushes at the end of EVERY round, it is the common path.
+         A word deleted on the phone stayed in the deck on the laptop until the next reload. */
+      buildBank();
+      if(!$('#home').classList.contains('hidden')) renderHome();
       /* mergeProgress covers stats/assoc/deleted/added — it knows nothing about extras. Without
          this, collectExtras below read a device that had never seen the other one's exam
          history and pushed right over it. applyExtras is additive, so this only ever adds. */
@@ -2678,7 +2711,8 @@ async function afterAuthed(justSignedUp){
      learner back through a test they had already finished. The result is now fetched before
      the gate decides, and only a confirmed read counts. */
   // First run: offer the level test once. Everything else lands on the language picker.
-  if(!levelDone()){ hide($('#lvQuiz')); hide($('#lvResult')); show($('#lvIntro')); goto('level'); }
+  if(bootTimedOut){ renderWelcome(); }        // the watchdog already placed the user; do not move them
+  else if(!levelDone()){ hide($('#lvQuiz')); hide($('#lvResult')); show($('#lvIntro')); goto('level'); }
   else renderWelcome();
   // With email confirmation on, sign-up never yields a session — so the install offer has to
   // ride on the first successful sign-in, not on the sign-up call.
@@ -3372,6 +3406,12 @@ async function checkSessionAndBoot(){
   setTimeout(()=>{
     if($('#boot') && !$('#boot').classList.contains('hidden')){
       console.warn('[boot] הכניסה לא הסתיימה בזמן — ממשיך בלי המתנה');
+      /* Latch it. Only currentSession() is raced against a timeout; myProfile() and
+         pullAccountState() are not. If one of them was merely slow rather than dead, it wakes
+         up minutes later and afterAuthed carries on to its goto() — dragging the learner out of
+         a screen they had already started working in. From here on, afterAuthed may finish its
+         work but must not navigate. */
+      bootTimedOut=true;
       if(looksSignedIn() && currentUser){ renderWelcome(); goto('welcome'); }
       else fallbackToAuth();
     }
