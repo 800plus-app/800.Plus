@@ -126,6 +126,14 @@ function loadLangState(){
    level comes from whichever record was written last, sessions dedupe on their own fields.
    Reusing it matters — a second merge written by hand here would drift from that one. */
 let diskAhead=false;
+/* Keys the user explicitly restored. Persisted, because the deletion it reverses is persisted
+   too — a log that lived only in memory would let the next page load re-delete the word. An
+   entry is dropped the moment the same word is deleted again, so the last explicit action by
+   the person using the app is always the one that stands. */
+const undeletedKey = () => KEY('hw_undeleted');
+function markRestored(k){ const m=LS.get(undeletedKey(),{})||{}; m[k]=Date.now(); LS.set(undeletedKey(),m); }
+function markDeletedAgain(k){ const m=LS.get(undeletedKey(),{})||{}; if(m[k]){ delete m[k]; LS.set(undeletedKey(),m); } }
+const restoredMap = () => LS.get(undeletedKey(),{})||{};
 function absorbDisk(){
   if(!diskAhead) return;
   diskAhead=false;
@@ -134,7 +142,7 @@ function absorbDisk(){
                deleted: LS.get(KEY('hw_deleted'), null),
                added: LS.get(KEY('hw_added'), null) };
   if(!disk.stats && !disk.assoc && !disk.deleted && !disk.added) return;
-  const m=mergeProgress({assoc, stats, deleted:[...deleted], added, dir:direction},
+  const m=mergeProgress({assoc, stats, deleted:[...deleted], added, dir:direction, undeleted:restoredMap()},
                         {assoc:disk.assoc||{}, stats:disk.stats||{words:{},sessions:[]},
                          deleted:disk.deleted||[], added:disk.added||[], dir:direction});
   assoc=m.assoc; stats=m.stats; deleted=new Set(m.deleted); added=m.added;
@@ -1201,7 +1209,7 @@ function renderManage(filter){
      deleted forty words on purpose and one of them by mistake. */
   list.querySelectorAll('[data-undo]').forEach(b=>b.onclick=e=>{
     e.preventDefault();
-    deleted.delete(K(b.dataset.undo));
+    const uk=K(b.dataset.undo); deleted.delete(uk); markRestored(uk);
     saveDeleted(); buildBank(); renderManage($('#mSearch').value); renderHome();
     toast('הוחזרה: '+b.dataset.undo);
   });
@@ -1213,7 +1221,7 @@ $('#mDelete').onclick=()=>{
   const m=$('#mMsg'); m.classList.remove('hidden'); m.className='msg';
   if(mSel.size===0){ m.textContent='לא נבחרו מילים.'; return; }
   if(!confirm(`למחוק ${mSel.size} מילים? (ניתן לשחזר)`)){ m.classList.add('hidden'); return; }
-  mSel.forEach(t=>{ const k=K(t); deleted.add(k); delete assoc[k]; delete stats.words[k]; });
+  mSel.forEach(t=>{ const k=K(t); deleted.add(k); markDeletedAgain(k); delete assoc[k]; delete stats.words[k]; });
   saveDeleted(); saveAssoc(); saveStats(); buildBank();
   m.className='msg ok'; m.textContent=`נמחקו ${mSel.size} מילים.`; mSel=new Set(); renderManage($('#mSearch').value); renderHome();
 };
@@ -1227,7 +1235,7 @@ $('#mRestore').onclick=()=>{
   if(deleted.size) parts.push(`${deleted.size} מילים שנמחקו`);
   if(skipped.length) parts.push(`${skipped.length} מילים שדילגת עליהן אחרי מבחן הרמה`);
   if(!confirm('לשחזר '+parts.join(' ו-')+'?')) return;
-  if(deleted.size){ deleted=new Set(); saveDeleted(); }
+  if(deleted.size){ deleted.forEach(markRestored); deleted=new Set(); saveDeleted(); }
   if(skipped.length){ skipped.forEach(k=>{ delete stats.words[k]; }); saveStats(); }
   buildBank(); renderManage($('#mSearch').value); renderHome();
   toast('שוחזר: '+parts.join(' · '));
@@ -2283,7 +2291,7 @@ async function flushRemoteSync(){
     if(!res || res.ok!==true) return false;      // a failed read is never followed by a write
     if(lang!==LANG) return false;                // language changed while in flight
     if(res.data){
-      const merged=mergeProgress({assoc,stats,deleted:[...deleted],added,dir:direction}, res.data);
+      const merged=mergeProgress({assoc,stats,deleted:[...deleted],added,dir:direction,undeleted:restoredMap()}, res.data);
       assoc=merged.assoc; stats=merged.stats; deleted=new Set(merged.deleted); added=merged.added; direction=merged.dir;
       saveAssoc(); saveStats(); saveDeleted(); saveAdded(); LS.set(KEY('hw_dir'),direction);
       /* mergeProgress covers stats/assoc/deleted/added — it knows nothing about extras. Without
@@ -2368,8 +2376,20 @@ function mergeProgress(local, remote){
     .sort((x,y)=>(Number(x.t)||0)-(Number(y.t)||0))
     .slice(-MAX_SESSIONS);
   const mergedAssoc={...(isObj(remote.assoc)?remote.assoc:{}), ...(isObj(local.assoc)?local.assoc:{})};
+  /* Deletions merged as a plain union, which meant a RESTORE could never survive: the user
+     brought a word back, the cloud copy still listed it as deleted, and the next sync put it
+     straight back in the bin. "ניתן לשחזר" was true for about ninety seconds.
+     A union cannot express "this was un-deleted" — it has no way to tell a deletion this device
+     has not heard of yet from one it has deliberately reversed. So restores are recorded
+     explicitly and subtracted after the union.
+     Scope, stated honestly: the restore log is per-device. Another device that still lists the
+     word keeps its own copy deleted until it syncs its own restore. Making that symmetric needs
+     per-key deletion timestamps — tombstones — which is a change to the stored shape and a
+     migration, not a line here. This fixes the reported failure; the full fix is named. */
+  const restored=isObj(local.undeleted)?local.undeleted:{};
   const mergedDeleted=[...new Set([...(Array.isArray(remote.deleted)?remote.deleted:[]),
-                                    ...(Array.isArray(local.deleted)?local.deleted:[])])];
+                                    ...(Array.isArray(local.deleted)?local.deleted:[])])]
+                      .filter(k=>!restored[k]);
   const seenAdd=new Set(); const mergedAdded=[];
   for(const p of [...(Array.isArray(local.added)?local.added:[]), ...(Array.isArray(remote.added)?remote.added:[])]){
     if(!Array.isArray(p)||!p[0]) continue; const k=K(p[0]); if(seenAdd.has(k)) continue; seenAdd.add(k); mergedAdded.push(p);
