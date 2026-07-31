@@ -697,6 +697,15 @@ function openScope(scope){
   $('#pbNew').disabled = nc===0;
   $('#pbWeak').disabled = wc===0;
   $('#pbLearned').disabled = lc===0;
+  /* The end-of-round card tells you where the round left you. This tells you where you are
+     BEFORE you start — same numbers, same place in the flow, so the two agree by construction. */
+  const met=c.strong+c.weak;
+  const sp=$('#scopeProg');
+  if(sp) sp.innerHTML = c.total
+    ? `פגשת <b>${met}</b> מתוך ${c.total} מילים` +
+      (c.fresh ? ` · נשארו <b>${c.fresh}</b> שלא פגשת` : ' · פגשת את כולן ✓') +
+      (c.strong ? ` · <b>${c.strong}</b> יושבות` : '')
+    : '';
   const allN = (scope==='global'||scope==='random')?Math.min(30,c.total):c.total;
   $('#cntAll').textContent=allN;
   $('#pbAllSub').textContent = (scope==='global'||scope==='random')?'מדגם אקראי לתרגול מהיר':'כל מילות היחידה בערבוב';
@@ -719,13 +728,25 @@ function openScope(scope){
 $('#pbAll').onclick     = ()=> startRound(allCards(curScope), curScope, 'all');
 // NOTE: new/learned are shuffled BEFORE the cap — otherwise slicing an ordered list hands
 // back the very same 20 words every round, which reads as "the app keeps repeating itself".
-$('#pbWeak').onclick    = ()=> askSize(n=> startRound(cap(weakCards(curScope),n), curScope, 'weak'));
+$('#pbWeak').onclick    = ()=> askSize(n=> startRound(capSampled(weakCards(curScope),n), curScope, 'weak'));
 $('#pbNew').onclick     = ()=> askSize(n=> startRound(cap(shuffle(newCards(curScope)),n), curScope, 'new'));
 $('#pbLearned').onclick = ()=> askSize(n=> startRound(cap(shuffle(learnedCards(curScope)),n), curScope, 'learned'));
 $('#pbExam').onclick=()=>{ if(curScope.startsWith('unit:')) openExam(curScope.slice(5)); };
 $('#pbSheet').onclick=()=>{ if(curScope.startsWith('unit:')) printSheet(curScope.slice(5)); };
 $('#pbStats').onclick   = ()=> openStats(curScope);
 function cap(list,n){ if(n && list.length>n){ toast(`מתרגל ${n} מתוך ${list.length}`); return list.slice(0,n);} return list; }
+/* A survey respondent put it exactly: the same words keep coming back. shuffle() is a correct
+   Fisher-Yates, and that was never the problem — the SET was deterministic. weakCards is sorted
+   by least-recently-seen and then sliced, so two rounds in a row on an unchanged bank produced
+   the identical twenty words. Widening the window and sampling inside it keeps the
+   spaced-repetition intent (the oldest are still the candidates) while making consecutive
+   rounds differ. Window of 2n: with n=20 you draw 20 out of the 40 most overdue. */
+function capSampled(list, n){
+  if(!n || list.length<=n) return list;
+  const window=list.slice(0, Math.min(list.length, n*2));
+  toast(`מתרגל ${n} מתוך ${list.length}`);
+  return shuffle(window.slice()).slice(0, n);
+}
 
 /* ===== how many words this round? ===== */
 const SIZES=[20,30,50,0];                       // 0 = ללא הגבלה

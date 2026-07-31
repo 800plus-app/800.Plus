@@ -187,6 +187,8 @@
   /* If the animation cannot run, the ring must still read as "working", not as a broken circle. */
   @media (prefers-reduced-motion:reduce){.boot-ring{animation:none;border-top-color:var(--line)}}
   .legend b{margin-right:auto;font-weight:700}
+  .scope-prog{margin:2px 2px 14px;font-size:.88rem;color:var(--ink-soft);line-height:1.6}
+  .scope-prog b{color:var(--ink);font-weight:700}
   .practice-btns{display:flex;flex-direction:column;gap:11px}
   .pbtn{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 18px;text-align:right;transition:.15s;width:100%}
   .pbtn:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:var(--shadow)}
@@ -1014,6 +1016,7 @@
       <div class="donut" id="donut"><div class="ck"><b id="donutTotal">0</b><span>מילים</span></div></div>
       <div class="legend" id="legend"></div>
     </div>
+    <p class="scope-prog" id="scopeProg"></p>
     <div class="seg" id="dirSegScope" style="margin-bottom:14px"></div>
     <div class="practice-btns">
       <button class="pbtn" id="pbNew"><div class="ic">✨</div><div class="tx"><b>מילים חדשות</b><span>מילים שעוד לא תרגלת — ללמוד לראשונה</span></div><div class="cnt" id="cntNew">0</div></button>
@@ -1244,14 +1247,14 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="supabase.min.js?v=91"></script>
-<script src="config.js?v=91"></script>
-<script src="store.js?v=91"></script>
-<script src="leveltest-he.js?v=91"></script>
-  <script src="leveltest.js?v=91"></script>
-<script src="enrank.js?v=91"></script>
-<script src="data.js?v=91"></script>
-<script src="data-en.js?v=91"></script>
-<script src="app.js?v=91"></script>
+<script src="supabase.min.js?v=92"></script>
+<script src="config.js?v=92"></script>
+<script src="store.js?v=92"></script>
+<script src="leveltest-he.js?v=92"></script>
+  <script src="leveltest.js?v=92"></script>
+<script src="enrank.js?v=92"></script>
+<script src="data.js?v=92"></script>
+<script src="data-en.js?v=92"></script>
+<script src="app.js?v=92"></script>
 </body>
 </html>
