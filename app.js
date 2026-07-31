@@ -2630,7 +2630,10 @@ async function renderBuildTag(){
    A report without context is unusable, so the screen / language / build / device are captured
    automatically. If the feedback table isn't created yet, fall back to email rather than
    silently swallowing what the user just wrote. */
-const FB_TO='03hagay@gmail.com';
+/* The product's own address, not the owner's personal Gmail. Switched only after inbound mail
+   to admin@800-plus.com was confirmed arriving — this is the fallback that carries a bug report
+   when the database is unreachable, so a wrong address here loses reports silently. */
+const FB_TO='admin@800-plus.com';
 let fbKind='bug';
 
 function currentScreenId(){
