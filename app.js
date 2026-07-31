@@ -1935,6 +1935,18 @@ async function flushRemoteSync(){
   if(!currentUser || !syncPending) return;
   clearTimeout(syncTimer);
   if(LANG!=='he' && LANG!=='en') return;        // the row has no key to write to
+  /* The cache on this device belongs to exactly one account, and the row we are about to
+     overwrite belongs to whoever the token says we are. If those two disagree, writing would
+     copy one person's progress into another person's row. It has happened: a session can change
+     underneath a running page (a confirmation link opened in the same tab, a token refreshed
+     into a different account) and every save after that point wrote to the wrong owner.
+     Refuse instead of writing, and re-bind, so the next save is honest. */
+  if(LS.get('hw_owner', null) !== currentUser.id){
+    console.warn('sync aborted: cache owner !== session user');
+    syncPending=false;
+    bindCacheToUser(currentUser.id);
+    return;
+  }
   const lang=LANG;
   /* pushProgress is a whole-row upsert, so EVERY write must be preceded by a read. An earlier
      version merged once per language and then wrote blind for the rest of the page's life —
@@ -2468,6 +2480,9 @@ const NOTIF = {
   }
 };
 
+/* One switch decides whether the product is free. Everything else reads it. */
+const FREE_PHASE = true;
+
 /* ===== subscription gate =====
    Fails OPEN on purpose. If migrations/5.sql has not run the columns do not exist, and a gate
    that assumed the worst would lock every existing user out of an app they already paid
@@ -2481,6 +2496,13 @@ async function accessOk(){
      missing profile on purpose (adminDeleteUserData) now clears the row instead of deleting it. */
   if(!p || p.sub_status===undefined) return true;
   if(p.role==='admin') return true;
+  /* FREE PHASE. There is no payment mechanism yet and the app is deliberately free while it
+     collects users. A brand-new account is created with sub_status='none' (the column default),
+     so WITHOUT this line every tester who confirms their email lands straight on the locked
+     screen — which reads as "your email is blocked" and ends their session there.
+     'none' means "never paid", not "was cut off": past_due and canceled are explicit decisions
+     by you and stay locked. Flip this to false the day billing goes live. */
+  if(FREE_PHASE && p.sub_status==='none') return true;
   const live = (p.sub_status==='active' || p.sub_status==='grace')
             && (!p.sub_until || new Date(p.sub_until) > new Date());
   if(live) return true;
@@ -2811,9 +2833,20 @@ async function checkSessionAndBoot(){
     goto(LS.get('hw_seenIntro',0) ? 'auth' : 'intro');
   }
   try{
+    /* This used to read `if(s && s.user && !currentUser)` — it reacted to "nobody was signed in
+       yet" instead of to "who is signed in changed". A second account signing in on a page that
+       already had a session was therefore ignored completely: the screen kept the FIRST user's
+       name and local cache while every request went out with the SECOND user's token, and the
+       next save wrote one account's progress into the other's row.
+       Supabase can hand us a different user without any click here — a confirmation or
+       reset link opened in this tab carries its own session. Compare identity, not emptiness. */
     Store.onAuthChange((s)=>{
-      if(s && s.user && !currentUser){ currentUser=s.user; afterAuthed(false); }
-      else if(!s){ currentUser=null; }
+      const uid = s && s.user && s.user.id;
+      if(uid){
+        if(uid !== (currentUser && currentUser.id)){ currentUser=s.user; afterAuthed(false); }
+      } else {
+        currentUser=null;
+      }
     });
   }catch(e){}
 }
