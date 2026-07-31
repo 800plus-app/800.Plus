@@ -1366,7 +1366,7 @@ $('#mRestore').onclick=()=>{
   if(skipped.length) parts.push(`${skipped.length} מילים שדילגת עליהן אחרי מבחן הרמה`);
   if(!confirm('לשחזר '+parts.join(' ו-')+'?')) return;
   if(deleted.size){ deleted.forEach(markRestored); deleted=new Set(); saveDeleted(); }
-  if(skipped.length){ skipped.forEach(k=>{ delete stats.words[k]; }); saveStats(); }
+  if(skipped.length){ skipped.forEach(k=>{ delete stats.words[k]; markRestored(k); }); saveStats(); }
   buildBank(); renderManage($('#mSearch').value); renderHome();
   toast('שוחזר: '+parts.join(' · '));
 };
@@ -2413,7 +2413,11 @@ async function flushRemoteSync(){
   if(LS.get('hw_owner', null) !== currentUser.id){
     console.warn('sync aborted: cache owner !== session user');
     syncPending=false;
-    bindCacheToUser(currentUser.id);
+    /* Deliberately NOT bindCacheToUser here. That call can run wipeAccountKeys() and set
+       LANG=null — and this runs from a debounced background timer, so it could blank the
+       language underneath a learner mid-round. Refusing the write is the whole job; the owner
+       stamp is re-established on the next boot, and the `storage` listener already reloads the
+       page when hw_owner actually changes elsewhere. */
     return false;
   }
   const lang=LANG;
@@ -2494,7 +2498,13 @@ function mergeProgress(local, remote){
   const words={};
   const lw=isObj(local.stats)&&isObj(local.stats.words)?local.stats.words:{};
   const rw=isObj(remote.stats)&&isObj(remote.stats.words)?remote.stats.words:{};
+  /* Same failure as the deletions above, one layer down: restoring level-test skips DELETES the
+     local record, and a union over both key sets brought it straight back from the cloud. A
+     record can never be removed by a max-merge, so the restore has to be stated, not inferred —
+     inferring it from "absent locally" would wipe every skip the first time a new device synced. */
+  const restoredStats=isObj(local.undeleted)?local.undeleted:{};
   for(const k of new Set([...Object.keys(lw),...Object.keys(rw)])){
+    if(!lw[k] && rw[k] && rw[k].src==='lv' && restoredStats[k]) continue;   // explicitly un-skipped
     const a=saneRec(lw[k]), b=saneRec(rw[k]);
     /* The record that was written LAST wins. Taking Math.max per field looked safe but was not:
        a downgrade after a wrong answer could never survive, because the older copy still held

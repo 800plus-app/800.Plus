@@ -1092,7 +1092,7 @@
   <section id="quiz" class="hidden">
     <div class="topbar"><button class="back" id="quitQuiz">✕ יציאה</button><div class="sp"></div><div class="brand" id="quizScope"></div></div>
     <div class="prog"><i id="progBar"></i></div>
-    <div class="qmeta"><span id="qCount"></span><span id="qLive"></span></div>
+    <div class="qmeta"><span id="qCount"></span><span id="qLive" aria-live="polite" aria-atomic="true"></span></div>
     <div class="card">
       <div class="q-kind" id="qKind">מהו הפירוש? כתוב את המילה</div>
       <div class="q-row">
@@ -1106,7 +1106,7 @@
       </div>
       <button class="hint-btn" id="hintBtn">💡 רמז</button>
       <div class="hint-box hidden" id="hintBox"></div>
-      <div class="feedback hidden" id="feedback"></div>
+      <div class="feedback hidden" id="feedback" role="status" aria-live="polite" aria-atomic="true"></div>
     </div>
   </section>
 
@@ -1245,16 +1245,16 @@
   </div>
 </div>
 
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=92"></script>
-<script src="config.js?v=92"></script>
-<script src="store.js?v=92"></script>
-<script src="leveltest-he.js?v=92"></script>
-  <script src="leveltest.js?v=92"></script>
-<script src="enrank.js?v=92"></script>
-<script src="data.js?v=92"></script>
-<script src="data-en.js?v=92"></script>
-<script src="app.js?v=92"></script>
+<script src="supabase.min.js?v=93"></script>
+<script src="config.js?v=93"></script>
+<script src="store.js?v=93"></script>
+<script src="leveltest-he.js?v=93"></script>
+  <script src="leveltest.js?v=93"></script>
+<script src="enrank.js?v=93"></script>
+<script src="data.js?v=93"></script>
+<script src="data-en.js?v=93"></script>
+<script src="app.js?v=93"></script>
 </body>
 </html>
