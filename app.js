@@ -2789,9 +2789,7 @@ async function accessOk(){
      'none' means "never paid", not "was cut off": past_due and canceled are explicit decisions
      by you and stay locked. Flip this to false the day billing goes live. */
   if(FREE_PHASE && p.sub_status==='none') return true;
-  const live = (p.sub_status==='active' || p.sub_status==='grace')
-            && (!p.sub_until || new Date(p.sub_until) > new Date());
-  if(live) return true;
+  if(hasAccess(p)) return true;      // one definition, shared with the admin badge
   showLocked(p);
   return false;
 }
@@ -2826,7 +2824,6 @@ async function refreshFbBadge(){
   if(!isAdmin) return;
   const n=await Store.countOpenFeedback();
   if(n===null) return;                       // table missing or offline — leave the last known count
-  fbOpenCount=n;
   for(const id of ['#adminBtn','#adminBtn2']){
     const b=$(id); if(!b) continue;
     let s=b.querySelector('.adm-badge');
@@ -2949,11 +2946,38 @@ function renderAdminUsers(){
 }
 
 /* One place decides whether access is live, so the badge and the gate never disagree. */
-function subActive(r){
+/* ===== one definition of "has access", used by the gate AND by the admin badge =====
+   There were two implementations and a comment claiming there was one. Both got the same two
+   things wrong, and both would have cost money the day billing goes live:
+
+   · CANCELED locked the account the instant it was set. Someone who cancels on day 2 of a month
+     they already paid for lost the other 28 days. That is not a design choice, it is a refund
+     claim — and under חוק הגנת הצרכן, over-charging or cutting service short carries statutory
+     damages with no proof of loss required.
+   · PAST_DUE locked immediately too. A declined card is usually an expired card or a bank
+     blocking an unfamiliar merchant, not a decision to stop paying. Locking the app before the
+     retry has even run turns a bank glitch into a churned customer.
+
+   The model the whole system now shares: `sub_until` is PAID THROUGH, `sub_status` is the
+   billing state. Access follows the date; the status only decides how the date is read. */
+const PAST_DUE_GRACE_DAYS = 3;
+function hasAccess(r){
+  if(!r) return true;                                  // no profile row — fail open, as before
   if(r.role==='admin') return true;
-  if(r.sub_status!=='active' && r.sub_status!=='grace') return false;
-  return !r.sub_until || new Date(r.sub_until) > new Date();
+  if(r.sub_status===undefined) return true;            // columns not deployed
+  if(FREE_PHASE && r.sub_status==='none') return true;
+  const until = r.sub_until ? new Date(r.sub_until) : null;
+  const paidThrough = until ? until > new Date() : false;
+  switch(r.sub_status){
+    case 'active':
+    case 'grace':    return !until || paidThrough;      // no end date = open-ended access
+    case 'canceled': return paidThrough;                // cancelled, but the period was paid for
+    case 'past_due': return paidThrough ||
+      (!!until && (Date.now() - until.getTime()) < PAST_DUE_GRACE_DAYS*864e5);
+    default:         return false;                      // 'none' outside the free phase
+  }
 }
+function subActive(r){ return hasAccess(r); }
 function subClass(r){
   if(r.role==='admin') return 'ok';
   if(r.sub_status==='past_due') return 'due';
