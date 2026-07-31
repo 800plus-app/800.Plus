@@ -131,6 +131,25 @@
   /* דילגתי — words removed from the queue by the level test, not learned here. Deliberately
      the flattest colour in the legend: it is a state, not an achievement. */
   .legend .k{background:var(--line);border:1px solid var(--ink-soft)}
+  /* ===== word cloud on the stats screen =====
+     The old list gave every word the same weight, so the twelve words that keep beating you
+     looked exactly like the six hundred you got right first time. Size and colour carry the
+     struggle score, so the eye lands on the work before the reader has read anything. */
+  .cloud{display:flex;flex-wrap:wrap;gap:7px 9px;align-items:baseline;margin:4px 0 6px}
+  .cw{display:inline-flex;align-items:baseline;gap:5px;border-radius:9px;padding:3px 9px;
+      border:1px solid transparent;cursor:pointer;line-height:1.5;font-family:inherit;
+      background:transparent;transition:transform .12s ease,border-color .12s ease}
+  .cw:hover{transform:translateY(-2px)}
+  .cw em{font-style:normal;font-size:.66em;opacity:.6;font-variant-numeric:tabular-nums}
+  .cw.t3{font-size:1.62rem;font-weight:800;color:#a33f28;background:rgba(181,72,46,.10);border-color:rgba(181,72,46,.34)}
+  .cw.t2{font-size:1.24rem;font-weight:700;color:#8a6220;background:rgba(201,150,47,.10);border-color:rgba(201,150,47,.30)}
+  .cw.t1{font-size:1.02rem;font-weight:600;color:var(--ink)}
+  .cw.t0{font-size:.86rem;font-weight:500;color:var(--ink-soft)}
+  .cw-meaning{width:100%;font-size:.82rem;color:var(--ink-soft);margin:-2px 0 6px;padding-inline-start:4px}
+  .cloud-note{font-size:.8rem;color:var(--ink-soft);line-height:1.7;margin:0 0 10px}
+  .quiet-line{background:var(--card);border:1px solid var(--line);border-radius:12px;
+      padding:12px 14px;font-size:.88rem;color:var(--ink-soft)}
+  .quiet-line b{color:var(--ink);font-weight:700}
   .legend b{margin-right:auto;font-weight:700}
   .practice-btns{display:flex;flex-direction:column;gap:11px}
   .pbtn{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 18px;text-align:right;transition:.15s;width:100%}
@@ -1149,14 +1168,14 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="supabase.min.js?v=77"></script>
-<script src="config.js?v=77"></script>
-<script src="store.js?v=77"></script>
-<script src="leveltest-he.js?v=77"></script>
-  <script src="leveltest.js?v=77"></script>
-<script src="enrank.js?v=77"></script>
-<script src="data.js?v=77"></script>
-<script src="data-en.js?v=77"></script>
-<script src="app.js?v=77"></script>
+<script src="supabase.min.js?v=78"></script>
+<script src="config.js?v=78"></script>
+<script src="store.js?v=78"></script>
+<script src="leveltest-he.js?v=78"></script>
+  <script src="leveltest.js?v=78"></script>
+<script src="enrank.js?v=78"></script>
+<script src="data.js?v=78"></script>
+<script src="data-en.js?v=78"></script>
+<script src="app.js?v=78"></script>
 </body>
 </html>

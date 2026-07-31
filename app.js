@@ -920,7 +920,6 @@ document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState=
 
 /* ===== STATS screen ===== */
 function fmt(t){ const d=new Date(t); return d.toLocaleDateString('he-IL',{day:'2-digit',month:'2-digit'})+' · '+d.toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'}); }
-function dots(l){ let s='<span class="dots">'; for(let i=1;i<=5;i++)s+=`<i class="${i<=l?'on':''}"></i>`; return s+'</span>'; }
 function openStats(scope){
   $('#statsBrand').textContent=scopeTitle(scope);
   const body=$('#statsBody');
@@ -952,33 +951,65 @@ function openStats(scope){
   }else{
     html+=`<div class="section-t">היסטוריית משחקים</div><p class="msg" style="color:var(--ink-soft)">עדיין לא סיימת סבב מלא בתחום הזה.</p>`;
   }
-  // The full list is up to 3,694 rows (~44k DOM nodes) — far too heavy for a phone.
-  // Render a page at a time and let the user ask for more.
-  const row=w=>{
-    const r=stats.words[K(w.term)]; const isNew=(!r||r.seen===0); const lv=isNew?0:r.level;
-    const meta=isNew?'טרם תורגלה':`נראתה ${r.seen}× · ${r.first} ראשונה · ${r.wrong} טעויות`;
-    return `<div class="str-row${isNew?' is-new':''}"><div class="str-w"><b>${esc(w.term)}</b><span>${esc(w.meaning)}</span></div><div class="str-meter">${dots(lv)}<em>${meta}</em></div></div>`;
-  };
-  html+=`<div class="section-t">חוזק מילים · מהחלש לחזק</div>`;
-  if(!arr.length){
-    html+=`<p class="msg" style="color:var(--ink-soft)">עדיין לא תרגלת מילים בתחום הזה — תרגל סבב אחד והחוזק יופיע כאן.</p>`;
-  }else{
-    html+=`<p style="color:var(--ink-soft);font-size:.8rem;margin:0 0 8px">${arr.length} מילים שתרגלת`+
-          (untouched?` · ${untouched} עוד לא נפגשת איתן`:'')+`</p>`;
+  /* ===== the word cloud =====
+     The old screen was a flat list, weakest first, every row the same size — so the eleven words
+     that keep beating you looked exactly like the six hundred you got right on sight. The list
+     was accurate and unreadable, which is the same as unhelpful.
+     Score = wrong − first: how many times, NET, this word has beaten you. A word missed five
+     times and never known on sight scores 5. A word missed once and known first-try four times
+     scores −3. One subtraction, and it explains itself in a sentence. */
+  const score=w=>{ const r=stats.words[K(w.term)]; return r ? (int0(r.wrong)-int0(r.first)) : 0; };
+  const tier=s=> s>=3 ? 3 : s>=1 ? 2 : s>0 ? 1 : 0;
+  const fight=[], nearly=[], settled=[], instant=[];
+  for(const w of arr){
+    const r=stats.words[K(w.term)], s=score(w);
+    if(s>=3) fight.push(w);
+    else if(s>=1) nearly.push(w);
+    else if(int0(r.wrong)>0) settled.push(w);
+    else instant.push(w);
   }
-  html+=`<div class="strength-list" id="strList"></div>
-         <button class="btn btn-ghost btn-block hidden" id="strMore" style="margin-top:10px"></button>`;
+  const bySc=(a,b)=>score(b)-score(a);
+  fight.sort(bySc); nearly.sort(bySc);
+
+  const chip=(w,t)=>{ const r=stats.words[K(w.term)];
+    return `<button class="cw t${t}" data-w="${esc(w.term)}" title="נראתה ${int0(r.seen)}× · ${int0(r.first)} בפעם הראשונה · ${int0(r.wrong)} טעויות"
+      ><bdi>${esc(w.term)}</bdi>${int0(r.wrong)?`<em>${int0(r.wrong)}</em>`:''}</button>`; };
+  const cloud=(list,id)=>`<div class="cloud" id="${id}">${list.map(w=>chip(w,tier(score(w)))).join('')}</div>`;
+
+  html+=`<div class="section-t">איפה אתה נלחם</div>`;
+  if(!arr.length){
+    html+=`<p class="msg" style="color:var(--ink-soft)">עדיין לא תרגלת מילים בתחום הזה — תרגל סבב אחד והתמונה תופיע כאן.</p>`;
+  }else{
+    html+=`<p class="cloud-note">ככל שמילה גדולה וכהה יותר, כך היא הפילה אותך יותר פעמים.
+      המספר לידה הוא מספר הטעויות. לחיצה על מילה מראה את הפירוש.</p>`;
+    if(fight.length){
+      html+=`<p class="cloud-note" style="margin-bottom:2px"><b>${fight.length} מילים לא מוותרות לך.</b> כאן נמצאת העבודה.</p>`
+        + cloud(fight.slice(0,80),'cloudFight')
+        + `<button class="btn btn-primary btn-block" id="drillFight" style="margin:6px 0 18px">תרגל בדיוק את ${Math.min(fight.length,30)} המילים האלה ←</button>`;
+    }
+    if(nearly.length) html+=`<p class="cloud-note" style="margin-bottom:2px">${nearly.length} מילים כמעט יושבות.</p>`
+      + cloud(nearly.slice(0,80),'cloudNearly');
+    /* The two quiet groups get a line each and no cloud. Drawing six hundred words you already
+       know is exactly the noise this screen was rebuilt to remove. */
+    if(settled.length||instant.length){
+      html+=`<div class="quiet-line" style="margin-top:14px">`
+        + (settled.length?`<div>נאבקת ונסגר: <b>${settled.length}</b> מילים שטעית בהן בעבר וכבר יודע.</div>`:'')
+        + (instant.length?`<div style="margin-top:6px">ידעת מיד: <b>${instant.length}</b> מילים, בלי טעות אחת.</div>`:'')
+        + (untouched?`<div style="margin-top:6px">עוד לא נפגשתם: <b>${untouched}</b> מילים.</div>`:'')
+        + `</div>`;
+    }
+  }
   body.innerHTML=html;
-  const PAGE=150; let shown=0;
-  const listEl=$('#strList'), moreEl=$('#strMore');
-  const page=()=>{
-    listEl.insertAdjacentHTML('beforeend', arr.slice(shown, shown+PAGE).map(row).join(''));
-    shown=Math.min(shown+PAGE, arr.length);
-    const left=arr.length-shown;
-    moreEl.classList.toggle('hidden', left<=0);
-    if(left>0) moreEl.textContent=`הצג עוד ${Math.min(PAGE,left)} (נותרו ${left})`;
-  };
-  moreEl.onclick=page; page();
+  /* Tapping a word reveals its meaning under the row it sits in, and tapping again hides it.
+     A tooltip would be unreachable on the phones most of these learners use. */
+  body.querySelectorAll('.cw').forEach(b=>b.onclick=()=>{
+    const nx=b.nextElementSibling;
+    if(nx && nx.classList.contains('cw-meaning')){ nx.remove(); return; }
+    const w=byTerm.get(K(b.dataset.w)); if(!w) return;
+    b.insertAdjacentHTML('afterend', `<div class="cw-meaning"><b><bdi>${esc(w.term)}</bdi></b> — ${esc(w.meaning)}</div>`);
+  });
+  const drill=$('#drillFight');
+  if(drill) drill.onclick=()=>startRound(fight.slice(0,30), scope, 'weak');
   goto('stats');
 }
 $('#statsBack').onclick=()=>openScope(curScope);
