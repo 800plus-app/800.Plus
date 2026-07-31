@@ -495,6 +495,9 @@ function goto(id){
   });
   show($('#'+id)); window.scrollTo(0,0);
   if(id==='intro'){
+    /* The same screen serves two audiences. A visitor with no session must always get the two
+       CTAs back, even if a signed-in session on this device previously opened it read-only. */
+    if(!currentUser){ show($('#introCta')); hide($('#introTop')); }
     countUpIntro();
     // if the reveal animation has not finished by now it is never going to — show everything
     setTimeout(()=>{ const el=$('#intro'); if(el) el.classList.add('anim-done'); }, 1500);
@@ -2523,6 +2526,19 @@ $('#userBadge3').onclick = openAccount;
 $('#accBack').onclick = ()=>{ if(LANG==='he'||LANG==='en') goto('home'); else { renderWelcome(); goto('welcome'); } };
 $('#accInstall').onclick = ()=>promptInstall(true);
 $('#accSheet').onclick = ()=>toast('פותחים יחידה ואז "דף מבחן להדפסה" — הדף נבנה מהמילים של אותה יחידה');
+
+/* The survey's biggest finding was that eight capabilities people asked for ALREADY EXIST and
+   nobody knows about them. They are listed on the landing page — which is shown once, to people
+   who do not have an account yet, and is unreachable forever after. Every existing user signed
+   up before it existed and has never seen it. So the page is not missing; the way back to it is.
+   Reached while signed in, its two sign-up CTAs make no sense — hidden, with a way back instead. */
+function openWhatItDoes(){
+  hide($('#introCta'));
+  show($('#introTop'));
+  goto('intro');
+}
+$('#accWhat').onclick = openWhatItDoes;
+$('#introBack').onclick = ()=>{ hide($('#introTop')); openAccount(); };
 
 /* Reset asks twice, and the second time it asks you to TYPE something. A single confirm on an
    irreversible action is a mis-tap away from erasing months of work. */
