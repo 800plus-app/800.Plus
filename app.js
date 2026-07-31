@@ -489,7 +489,7 @@ function isCorrect(input, term){
 }
 
 /* ===== screens ===== */
-const SCREENS=['auth','welcome','level','home','scope','quiz','results','stats','manage','add','exam','admin','locked','intro','account'];
+const SCREENS=['auth','welcome','level','home','scope','quiz','results','stats','manage','add','exam','admin','locked','intro','account','boot'];
 /* Heavy lists left in hidden screens keep thousands of nodes alive for the whole session;
    drop them on the way out — they are always rebuilt when the screen is opened again. */
 const HEAVY = {stats:'#statsBody', manage:'#manageList', results:'#reviewList'};
@@ -3048,9 +3048,36 @@ $('#introAuth').onclick = ()=>{ LS.set('hw_seenIntro',1); setAuthMode('signin');
 $('#pvSignup').onclick  = ()=>endPreview();
 $('#authBack').onclick   = backFromAuth;
 
+/* Does this device hold a Supabase session? Answerable SYNCHRONOUSLY, straight off localStorage,
+   long before the network round trip that validates it. That one fact is the difference between
+   "רגע…" and a login form: a returning user must never be shown a password field on the way in.
+   Only used to word the splash — the real decision still waits for currentSession(). */
+function looksSignedIn(){
+  try{
+    for(let i=0;i<localStorage.length;i++){
+      const k=localStorage.key(i);
+      if(k && k.startsWith('sb-') && k.endsWith('-auth-token')) return true;
+    }
+  }catch(e){}
+  return false;
+}
+
 async function checkSessionAndBoot(){
+  const t0=Date.now();
+  $('#bootMsg').textContent = looksSignedIn() ? 'מחזיר אותך פנימה…' : 'רגע…';
   let sess=null;
-  try{ sess=await Store.currentSession(); }catch(e){}
+  /* Raced against a timeout. A hung request used to mean a login form appeared "eventually";
+     now it would mean a spinner forever, which is worse. Six seconds, then decide without it. */
+  try{
+    sess=await Promise.race([
+      Store.currentSession(),
+      new Promise(r=>setTimeout(()=>r(null), 6000))
+    ]);
+  }catch(e){}
+  /* Below ~400ms the splash reads as a flicker, which is its own kind of ugly. Above it, it
+     reads as the app starting. Only ever waits on a FAST answer — a slow one is already past. */
+  const wait=400-(Date.now()-t0);
+  if(wait>0) await new Promise(r=>setTimeout(r, wait));
   if(sess && sess.user){ currentUser=sess.user; await afterAuthed(false); }
   else {
     // a stranger meets the landing page, not a password field: the survey's clearest finding
@@ -3089,6 +3116,16 @@ async function checkSessionAndBoot(){
   // The auth screen is the only way in, so it must appear even if the session lookup throws.
   // checkSessionAndBoot is async — a plain try/catch would never see its rejection.
   const fallbackToAuth = ()=>{ SCREENS.forEach(s=>{const el=$('#'+s); if(el) hide(el);}); show($('#auth')); setAuthMode('signin'); };
+  /* Watchdog. The splash is now the first paint, so anything that hangs after it — a profile
+     read, the progress pull — would leave a spinner on screen with no way out. Twelve seconds,
+     then route by the one fact we can establish locally and let the user get on with it. */
+  setTimeout(()=>{
+    if($('#boot') && !$('#boot').classList.contains('hidden')){
+      console.warn('[boot] הכניסה לא הסתיימה בזמן — ממשיך בלי המתנה');
+      if(looksSignedIn() && currentUser){ renderWelcome(); goto('welcome'); }
+      else fallbackToAuth();
+    }
+  }, 12000);
   try{ Promise.resolve(checkSessionAndBoot()).catch(fallbackToAuth); }
   catch(e){ fallbackToAuth(); }
 })();

@@ -150,6 +150,16 @@
   .quiet-line{background:var(--card);border:1px solid var(--line);border-radius:12px;
       padding:12px 14px;font-size:.88rem;color:var(--ink-soft)}
   .quiet-line b{color:var(--ink);font-weight:700}
+  /* ===== boot splash ===== */
+  #boot{min-height:78vh;display:flex;align-items:center;justify-content:center}
+  .boot-in{text-align:center}
+  .boot-in .kicker{font-size:1.5rem;letter-spacing:.22em;color:var(--gold);margin-bottom:22px}
+  .boot-ring{width:34px;height:34px;margin:0 auto 16px;border-radius:50%;
+       border:3px solid var(--line);border-top-color:var(--gold);animation:bootSpin .9s linear infinite}
+  @keyframes bootSpin{to{transform:rotate(360deg)}}
+  #bootMsg{color:var(--ink-soft);font-size:.92rem}
+  /* If the animation cannot run, the ring must still read as "working", not as a broken circle. */
+  @media (prefers-reduced-motion:reduce){.boot-ring{animation:none;border-top-color:var(--line)}}
   .legend b{margin-right:auto;font-weight:700}
   .practice-btns{display:flex;flex-direction:column;gap:11px}
   .pbtn{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 18px;text-align:right;transition:.15s;width:100%}
@@ -663,7 +673,19 @@
   </div>
 
   <!-- ===== AUTH — required before anything else ===== -->
-  <section id="auth">
+  <!-- ===== BOOT SPLASH =====
+       The ONLY screen without `hidden`, so it is what the first paint shows. Before this, the
+       auth section held that position: every load painted a login form, and a signed-in user
+       was told to sign in again for as long as it took Supabase to answer. -->
+  <section id="boot">
+    <div class="boot-in">
+      <div class="kicker"><bdi>800+</bdi></div>
+      <div class="boot-ring"></div>
+      <p id="bootMsg">רגע…</p>
+    </div>
+  </section>
+
+  <section id="auth" class="hidden">
     <div class="topbar"><button class="back" id="authBack">→ חזרה</button><div class="sp"></div></div>
     <div class="au-drift" id="auDrift" aria-hidden="true"></div>
     <div class="au-orb" aria-hidden="true"></div>
@@ -1168,14 +1190,14 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="supabase.min.js?v=78"></script>
-<script src="config.js?v=78"></script>
-<script src="store.js?v=78"></script>
-<script src="leveltest-he.js?v=78"></script>
-  <script src="leveltest.js?v=78"></script>
-<script src="enrank.js?v=78"></script>
-<script src="data.js?v=78"></script>
-<script src="data-en.js?v=78"></script>
-<script src="app.js?v=78"></script>
+<script src="supabase.min.js?v=79"></script>
+<script src="config.js?v=79"></script>
+<script src="store.js?v=79"></script>
+<script src="leveltest-he.js?v=79"></script>
+  <script src="leveltest.js?v=79"></script>
+<script src="enrank.js?v=79"></script>
+<script src="data.js?v=79"></script>
+<script src="data-en.js?v=79"></script>
+<script src="app.js?v=79"></script>
 </body>
 </html>
