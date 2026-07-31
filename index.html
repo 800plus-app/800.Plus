@@ -274,6 +274,23 @@
   .m-row b{font-family:"Frank Ruhl Libre",serif;min-width:32%}
   .m-row span{color:var(--ink-soft);font-size:.82rem;flex:1}
   .m-row .u{font-size:.66rem;color:var(--gold);background:rgba(201,150,47,.1);border-radius:6px;padding:2px 7px;flex:0 0 auto}
+  /* grouped-by-unit manage list */
+  .m-group{margin-bottom:8px}
+  .m-head{display:flex;align-items:center;gap:10px;width:100%;text-align:start;cursor:pointer;
+      background:var(--card);border:1px solid var(--line);border-radius:11px;padding:11px 14px;
+      font-family:inherit;color:var(--ink)}
+  .m-head:hover{border-color:var(--gold)}
+  .m-head i{font-style:normal;color:var(--gold);font-size:.8rem;width:12px}
+  .m-head b{font-family:"Frank Ruhl Libre",serif;font-size:1.02rem}
+  .m-head span{margin-inline-start:auto;font-size:.78rem;color:var(--ink-soft)}
+  .m-head em{font-style:normal;color:var(--accent)}
+  .m-body{display:flex;flex-direction:column;gap:6px;padding:8px 0 4px}
+  /* a deleted word is still listed — this screen is the only way back for it */
+  .m-row.is-gone{opacity:.62;border-style:dashed}
+  .m-row.is-gone b{text-decoration:line-through}
+  .m-undo{flex:0 0 auto;font-family:inherit;font-size:.74rem;cursor:pointer;color:var(--green);
+      background:transparent;border:1px solid var(--line);border-radius:8px;padding:3px 9px}
+  .m-undo:hover{border-color:var(--green)}
   .search{width:100%;font-family:"Heebo";font-size:1rem;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 14px;outline:none;margin-top:8px}
   .search:focus{border-color:var(--gold)}
   .msg{margin-top:14px;text-align:center;font-size:.9rem;font-weight:500}
@@ -1190,14 +1207,14 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="supabase.min.js?v=79"></script>
-<script src="config.js?v=79"></script>
-<script src="store.js?v=79"></script>
-<script src="leveltest-he.js?v=79"></script>
-  <script src="leveltest.js?v=79"></script>
-<script src="enrank.js?v=79"></script>
-<script src="data.js?v=79"></script>
-<script src="data-en.js?v=79"></script>
-<script src="app.js?v=79"></script>
+<script src="supabase.min.js?v=80"></script>
+<script src="config.js?v=80"></script>
+<script src="store.js?v=80"></script>
+<script src="leveltest-he.js?v=80"></script>
+  <script src="leveltest.js?v=80"></script>
+<script src="enrank.js?v=80"></script>
+<script src="data.js?v=80"></script>
+<script src="data-en.js?v=80"></script>
+<script src="app.js?v=80"></script>
 </body>
 </html>

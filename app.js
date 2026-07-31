@@ -1017,14 +1017,75 @@ $('#statsBack').onclick=()=>openScope(curScope);
 /* ===== MANAGE ===== */
 function deleteWord(term){ const k=K(term); deleted.add(k); saveDeleted(); delete assoc[k]; saveAssoc(); delete stats.words[k]; saveStats(); buildBank(); }
 let mSel=new Set();
+/* Every entry in the language, INCLUDING the deleted ones. BANK cannot serve this screen: it
+   drops deleted words by design, so the one place that is supposed to bring them back never
+   listed them. Read from the raw data instead, and mark each row's state. */
+function manageItems(){
+  const data=(LANG==='en' ? window.UNIT_DATA_EN : window.UNIT_DATA) || {};
+  const out=[];
+  for(const u of Object.keys(data).sort((a,b)=>+a-+b))
+    for(const p of (data[u]||[])) if(Array.isArray(p))
+      out.push({term:p[0], meaning:p[1], unit:u, gone:deleted.has(K(p[0]))});
+  for(const p of added) if(Array.isArray(p))
+    out.push({term:p[0], meaning:p[1], unit:'custom', gone:deleted.has(K(p[0]))});
+  return out;
+}
+let mOpen=new Set();      // which unit sections are expanded
+/* Grouped by unit and collapsed by default. The old screen was one flat alphabetical list
+   cut at `slice(0,400)` — so 3,500 of 3,900 words simply were not there, with nothing on
+   screen saying so. Sections keep the DOM small without hiding anything. */
 function renderManage(filter){
-  const list=$('#manageList'); const f=norm(filter||'');
-  const items=BANK.filter(w=>!f || norm(w.term).includes(f) || (w.meaning&&w.meaning.replace(NIQ,'').includes(filter)));
-  list.innerHTML=items.slice(0,400).map(w=>{
-    const u=w.unit==='custom'?'שלי':w.unit;
-    return `<label class="m-row"><input type="checkbox" data-term="${esc(w.term)}" ${mSel.has(w.term)?'checked':''}><b>${esc(w.term)}</b><span>${esc(w.meaning)}</span><span class="u">${u}</span></label>`;
-  }).join('') || '<p class="msg" style="color:var(--ink-soft)">לא נמצאו מילים</p>';
-  list.querySelectorAll('input').forEach(c=>c.onchange=()=>{ c.checked?mSel.add(c.dataset.term):mSel.delete(c.dataset.term); $('#mCount').textContent=`${mSel.size} נבחרו`; });
+  const list=$('#manageList');
+  const raw=String(filter||'').trim();
+  const f=norm(raw);
+  const all=manageItems();
+  const hit=w=>!f || norm(w.term).includes(f) ||
+    (w.meaning && w.meaning.replace(NIQ,'').includes(raw));
+  const items=all.filter(hit);
+  const byUnit=new Map();
+  for(const w of items){ if(!byUnit.has(w.unit)) byUnit.set(w.unit,[]); byUnit.get(w.unit).push(w); }
+  if(raw) mOpen=new Set(byUnit.keys());       // searching should show what it found, not hide it
+
+  if(!items.length){
+    list.innerHTML='<p class="msg" style="color:var(--ink-soft)">לא נמצאו מילים</p>';
+    $('#mCount').textContent=`${mSel.size} נבחרו`;
+    return;
+  }
+  const rowHtml=w=>`<label class="m-row${w.gone?' is-gone':''}">
+      <input type="checkbox" data-term="${esc(w.term)}" ${mSel.has(w.term)?'checked':''} ${w.gone?'disabled':''}>
+      <b>${esc(w.term)}</b><span>${esc(w.meaning)}</span>
+      ${w.gone?`<button class="m-undo" data-undo="${esc(w.term)}" title="החזר מילה זו">↺ החזר</button>`:''}</label>`;
+
+  list.innerHTML=[...byUnit.entries()].map(([u,ws])=>{
+    const gone=ws.filter(w=>w.gone).length;
+    const open=mOpen.has(u);
+    const name=u==='custom'?'המילים שלי':'יחידה '+u;
+    return `<div class="m-group">
+      <button class="m-head" data-unit="${esc(u)}" aria-expanded="${open}">
+        <i>${open?'▾':'◂'}</i><b>${name}</b>
+        <span>${ws.length} מילים${gone?` · <em>${gone} נמחקו</em>`:''}</span>
+      </button>
+      <div class="m-body${open?'':' hidden'}">${open?ws.map(rowHtml).join(''):''}</div>
+    </div>`;
+  }).join('');
+
+  list.querySelectorAll('.m-head').forEach(b=>b.onclick=()=>{
+    const u=b.dataset.unit;
+    if(mOpen.has(u)) mOpen.delete(u); else mOpen.add(u);
+    renderManage($('#mSearch').value);
+  });
+  list.querySelectorAll('.m-row input').forEach(c=>c.onchange=()=>{
+    c.checked?mSel.add(c.dataset.term):mSel.delete(c.dataset.term);
+    $('#mCount').textContent=`${mSel.size} נבחרו`;
+  });
+  /* Per-word restore. "שחזר מחיקות" is all-or-nothing, which is the wrong tool when you
+     deleted forty words on purpose and one of them by mistake. */
+  list.querySelectorAll('[data-undo]').forEach(b=>b.onclick=e=>{
+    e.preventDefault();
+    deleted.delete(K(b.dataset.undo));
+    saveDeleted(); buildBank(); renderManage($('#mSearch').value); renderHome();
+    toast('הוחזרה: '+b.dataset.undo);
+  });
   $('#mCount').textContent=`${mSel.size} נבחרו`;
 }
 $('#manageBtn').onclick=()=>{ mSel=new Set(); $('#mSearch').value=''; $('#mMsg').classList.add('hidden'); renderManage(''); goto('manage'); };
