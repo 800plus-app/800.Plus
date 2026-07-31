@@ -154,6 +154,28 @@
   .quiet-line{background:var(--card);border:1px solid var(--line);border-radius:12px;
       padding:12px 14px;font-size:.88rem;color:var(--ink-soft)}
   .quiet-line b{color:var(--ink);font-weight:700}
+  /* ===== end-of-round unit progress =====
+     The round score alone says nothing about where you are. This puts the round back inside
+     the unit it came from, which is the difference between "I answered 20" and "I am 86% through". */
+  .up-card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+       padding:16px 18px;margin:18px 0 6px}
+  .up-top{display:flex;align-items:baseline;gap:8px;margin-bottom:4px}
+  .up-top b{font-family:"Frank Ruhl Libre",serif;font-size:1.12rem}
+  .up-top span{margin-inline-start:auto;font-size:.82rem;color:var(--ink-soft)}
+  .up-bar{display:flex;height:14px;border-radius:7px;overflow:hidden;background:var(--paper-deep);
+       margin:12px 0 10px}
+  .up-bar i{height:100%;transition:width .8s cubic-bezier(.22,.8,.3,1)}
+  .up-bar .s{background:linear-gradient(180deg,#6fae72,#4e8d55)}
+  .up-bar .w{background:linear-gradient(180deg,#e0a63f,#c9962f)}
+  .up-bar .n{background:var(--paper-deep)}
+  .up-bar .k{background:var(--line)}
+  .up-keys{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.8rem;color:var(--ink-soft)}
+  .up-keys i{width:9px;height:9px;border-radius:3px;display:inline-block;margin-inline-end:5px}
+  .up-keys b{color:var(--ink);font-weight:700}
+  .up-gain{margin-top:12px;font-size:.9rem;color:#3f6b4a;background:rgba(111,174,114,.12);
+       border-radius:10px;padding:9px 12px;line-height:1.6}
+  .up-done{margin-top:12px;font-size:.95rem;color:#8a6220;background:rgba(201,150,47,.14);
+       border-radius:10px;padding:11px 13px;line-height:1.6;font-weight:600}
   /* ===== boot splash ===== */
   #boot{min-height:78vh;display:flex;align-items:center;justify-content:center}
   .boot-in{text-align:center}
@@ -1093,6 +1115,7 @@
       <div class="score-num" id="finalScore">0</div>
       <div class="score-of" id="finalOf"></div>
     </div>
+    <div id="unitProg"></div>
     <div class="section-t">עבור על התשובות — לחץ ✓/✗ כדי לתקן</div>
     <div class="review-list" id="reviewList"></div>
     <p class="msg ok hidden" id="allGood">מושלם — ידעת את כולן! 🎉</p>
@@ -1221,14 +1244,14 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="supabase.min.js?v=90"></script>
-<script src="config.js?v=90"></script>
-<script src="store.js?v=90"></script>
-<script src="leveltest-he.js?v=90"></script>
-  <script src="leveltest.js?v=90"></script>
-<script src="enrank.js?v=90"></script>
-<script src="data.js?v=90"></script>
-<script src="data-en.js?v=90"></script>
-<script src="app.js?v=90"></script>
+<script src="supabase.min.js?v=91"></script>
+<script src="config.js?v=91"></script>
+<script src="store.js?v=91"></script>
+<script src="leveltest-he.js?v=91"></script>
+  <script src="leveltest.js?v=91"></script>
+<script src="enrank.js?v=91"></script>
+<script src="data.js?v=91"></script>
+<script src="data-en.js?v=91"></script>
+<script src="app.js?v=91"></script>
 </body>
 </html>

@@ -957,7 +957,61 @@ function finishRound(){
   $('#finalOf').textContent=`מתוך ${deck.length}`;
   $('#resScope').textContent='→ '+scopeTitle(sessionScope);
   renderReview();
+  renderUnitProgress();
   goto('results');
+}
+
+/* ===== where this round leaves you in the unit =====
+   The score alone answers "how did I do just now" and says nothing about "how far am I". A
+   learner could practise the same unit for a month without ever being told they had covered it.
+   Language-agnostic on purpose: classify() and scopeWords() already work off LANG, so Hebrew
+   and English get this from the same code and can never drift apart.
+   Counted BEFORE commitSession runs on this screen? No — commitSession has already run by the
+   time finishRound is reached, so these numbers include the round just finished. */
+function renderUnitProgress(){
+  const host=$('#unitProg'); if(!host) return;
+  const scope=sessionScope;
+  const c=classify(scope);
+  if(!c.total){ host.innerHTML=''; return; }
+  const met=c.strong+c.weak;                       // words this learner has actually faced
+  const pct=n=>c.total?(100*n/c.total):0;
+  const title=scope.startsWith('unit:') ? 'יחידה '+scope.slice(5) : scopeTitle(scope);
+
+  /* What THIS round moved. session still holds the round's entries at this point. */
+  let newlyMet=0, newlySolid=0;
+  for(const e of session.values()){
+    const r=stats.words[K(e.w.term)];
+    if(!r) continue;
+    if(int0(r.seen)===1) newlyMet++;               // first time ever faced
+    if(e.mastered && e.firstTry && int0(r.level)>=3) newlySolid++;
+  }
+  const gain=[];
+  if(newlyMet)   gain.push(`<b>${newlyMet}</b> מילים חדשות שלא פגשת לפני היום`);
+  if(newlySolid) gain.push(`<b>${newlySolid}</b> עלו לחוזק מלא`);
+
+  const allMet = c.fresh===0;
+  const allSolid = c.strong+ (c.skipped||0) === c.total;
+
+  host.innerHTML=`
+    <div class="up-card">
+      <div class="up-top"><b>${esc(title)}</b><span>${met} מתוך ${c.total} מילים פגשת</span></div>
+      <div class="up-bar">
+        <i class="s" style="width:${pct(c.strong)}%"></i>
+        <i class="w" style="width:${pct(c.weak)}%"></i>
+        <i class="k" style="width:${pct(c.skipped||0)}%"></i>
+        <i class="n" style="width:${pct(c.fresh)}%"></i>
+      </div>
+      <div class="up-keys">
+        <span><i style="background:#4e8d55"></i>יושבות <b>${c.strong}</b></span>
+        <span><i style="background:#c9962f"></i>בעבודה <b>${c.weak}</b></span>
+        ${c.skipped?`<span><i style="background:var(--line)"></i>דילגת <b>${c.skipped}</b></span>`:''}
+        <span><i style="background:var(--paper-deep);border:1px solid var(--line)"></i>לא פגשת <b>${c.fresh}</b></span>
+      </div>
+      ${gain.length?`<div class="up-gain">בסבב הזה: ${gain.join(' · ')}</div>`:''}
+      ${allSolid ? `<div class="up-done">🎉 סיימת את ${esc(title)} — כל המילים יושבות.</div>`
+        : allMet ? `<div class="up-done">✓ פגשת את כל ${c.total} המילים ב${esc(title)}. נשארו ${c.weak} לחזק.</div>`
+        : ''}
+    </div>`;
 }
 const verdictOf = term => { const e=session.get(K(term)); return !!(e && e.mastered); };
 function refreshResultCounts(){
