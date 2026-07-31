@@ -335,6 +335,18 @@
   .adm-top .mail{color:var(--ink-soft);font-size:.82rem;direction:ltr}
   .adm-tag{font-size:.62rem;letter-spacing:.06em;background:var(--accent);color:#fff;
        border-radius:5px;padding:2px 6px;font-weight:700}
+  /* open-report counter on the "בקרה" button. Sits inline rather than floating over the corner:
+     the topbar buttons are small and a corner dot would clip on narrow phones. */
+  .adm-badge{display:inline-flex;align-items:center;justify-content:center;min-width:19px;height:19px;
+       padding:0 5px;margin-inline-start:6px;border-radius:999px;background:#b5482e;color:#fff;
+       font-size:.68rem;font-weight:800;line-height:1;vertical-align:middle;
+       animation:badgePulse 1.7s ease-out 3}
+  /* The pulse animates only the outer ring, never scale or opacity. A scale-in entrance froze at
+     scale(0) when the badge was appended while its screen was still display:none — an invisible
+     counter is worse than no counter, so the resting state must not depend on the animation. */
+  @keyframes badgePulse{0%{box-shadow:0 0 0 0 rgba(181,72,46,.55)}
+       70%{box-shadow:0 0 0 9px rgba(181,72,46,0)}100%{box-shadow:0 0 0 0 rgba(181,72,46,0)}}
+  @media (prefers-reduced-motion:reduce){.adm-badge{animation:none}}
   .adm-meta{display:flex;gap:14px;flex-wrap:wrap;font-size:.76rem;color:var(--ink-soft);margin-top:6px}
   .adm-meta i{font-style:normal;color:var(--ink);font-weight:600}
   .adm-sub{margin-top:8px;display:inline-block;font-size:.72rem;padding:2px 9px;border-radius:999px;
@@ -1080,14 +1092,14 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="supabase.min.js?v=67"></script>
-<script src="config.js?v=67"></script>
-<script src="store.js?v=67"></script>
-<script src="leveltest-he.js?v=67"></script>
-  <script src="leveltest.js?v=67"></script>
-<script src="enrank.js?v=67"></script>
-<script src="data.js?v=67"></script>
-<script src="data-en.js?v=67"></script>
-<script src="app.js?v=67"></script>
+<script src="supabase.min.js?v=68"></script>
+<script src="config.js?v=68"></script>
+<script src="store.js?v=68"></script>
+<script src="leveltest-he.js?v=68"></script>
+  <script src="leveltest.js?v=68"></script>
+<script src="enrank.js?v=68"></script>
+<script src="data.js?v=68"></script>
+<script src="data-en.js?v=68"></script>
+<script src="app.js?v=68"></script>
 </body>
 </html>

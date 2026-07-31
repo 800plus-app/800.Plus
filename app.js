@@ -2506,7 +2506,32 @@ async function showAdminIfAllowed(){
   try{ const p=await Store.myProfile(); isAdmin = !!(p && p.role==='admin'); }catch(e){}
   $('#adminBtn').classList.toggle('hidden', !isAdmin);
   $('#adminBtn2').classList.toggle('hidden', !isAdmin);
+  if(isAdmin) refreshFbBadge();
 }
+
+/* ===== the open-reports badge =====
+   There is no email notification: a report lands in the feedback table and waits there silently.
+   So the count has to travel to where the eye already goes — the "בקרה" button on the topbar,
+   which is on screen every time the app opens. Zero means no badge at all; an empty circle
+   would train the eye to ignore it, and then a real report would be ignored with it. */
+async function refreshFbBadge(){
+  if(!isAdmin) return;
+  const n=await Store.countOpenFeedback();
+  if(n===null) return;                       // table missing or offline — leave the last known count
+  fbOpenCount=n;
+  for(const id of ['#adminBtn','#adminBtn2']){
+    const b=$(id); if(!b) continue;
+    let s=b.querySelector('.adm-badge');
+    if(!n){ if(s) s.remove(); continue; }
+    if(!s){ s=document.createElement('span'); s.className='adm-badge'; b.appendChild(s); }
+    s.textContent = n>99 ? '99+' : n;
+    s.title = n+' דיווחים שלא סומנו כטופלו';
+  }
+}
+/* A tester reports at 21:40 while the app is open in another tab. Without this the badge would
+   still read yesterday's number. Re-checking on tab focus costs one count query and means the
+   number is right whenever it is actually being looked at. */
+document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) refreshFbBadge(); });
 const fmtDate = t => t ? new Date(t).toLocaleDateString('he-IL',{day:'2-digit',month:'2-digit',year:'2-digit'})
                         +' '+new Date(t).toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'}) : '—';
 
@@ -2707,6 +2732,7 @@ async function renderAdminFeedback(){
       <b>migrations/4.sql</b> ב-SQL Editor. עד אז דיווחים נשלחים אליך במייל.</p>`;
     return;
   }
+  refreshFbBadge();                          // the list is open; make sure the badge agrees with it
   if(!rows.length){ host.innerHTML='<p class="msg" style="color:var(--ink-soft)">אין דיווחים.</p>'; return; }
   const open=rows.filter(r=>r.status!=='done').length;
   host.innerHTML=`<p style="font-size:.82rem;color:var(--ink-soft);margin-bottom:10px">

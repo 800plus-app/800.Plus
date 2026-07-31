@@ -89,6 +89,14 @@ const Store = {
     const { error } = await sb.from('feedback').update({ status }).eq('id', id);
     return !error;
   },
+  /* How many reports are still waiting. head:true asks Postgres for the count only —
+     no rows cross the wire, so this can run on every screen entry without costing anything.
+     status is NOT NULL default 'new', so neq('done') really does mean "not handled yet". */
+  async countOpenFeedback() {
+    const { count, error } = await sb.from('feedback')
+      .select('id', { count: 'exact', head: true }).neq('status', 'done');
+    return error ? null : (count || 0);
+  },
 
   /* ---------- admin ---------- */
   async adminListUsers() {
