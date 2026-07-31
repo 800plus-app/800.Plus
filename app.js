@@ -204,6 +204,16 @@ function pruneOrphans(){
   const live=new Set();
   for(const u in data) for(const p of data[u]){ const k=K(p[0]); if(k) live.add(k); }
   for(const p of added){ const k=K(p[0]); if(k) live.add(k); }
+  /* THE GUARD THAT WAS MISSING. `<script src="data.js">` has no onerror and nothing verified
+     that the bank actually arrived — and the service worker installs the data files
+     best-effort. One failed fetch plus an offline launch therefore produced an EMPTY bank,
+     and everything below read that as "every word the learner has is an orphan": all records,
+     all associations, deleted permanently, silently, and written straight to disk.
+     A bank this small is never a real state. Refuse to prune instead of trusting it. */
+  if(live.size < 50){
+    console.error('pruneOrphans בוטל: המאגר נטען חלקית ('+live.size+' מילים) — לא נמחק דבר');
+    return;
+  }
   let touched=false;
   for(const k in stats.words) if(!live.has(k)){ delete stats.words[k]; touched=true; }
   for(const k in assoc)       if(!live.has(k)){ delete assoc[k];       touched=true; }
@@ -656,6 +666,10 @@ $('#sizeAsk').onclick=e=>{ if(e.target===$('#sizeAsk')){ sizeCb=null; hide($('#s
 /* ===== QUIZ ENGINE ===== */
 let deck=[], idx=0, correct=0, missed=[], answered=false;
 let session=new Map(), sessionScope='global', sessionMode='all', committed=false;
+/* Which words of the CURRENT round have already been written to stats, and which log row this
+   round owns. Both exist because commitSession can now legitimately run several times per
+   round — visibilitychange fires every time a notification pulls the learner away. */
+let committedKeys=new Set(), sessionRowIdx=-1;
 
 function sess(w){ const k=K(w.term); if(!session.has(k)) session.set(k,{w,attempts:0,mastered:false,firstTry:false}); return session.get(k); }
 
@@ -663,7 +677,7 @@ let isRetryRound=false;
 function startRound(cards, scope, mode, retry){
   if(!Array.isArray(cards) || cards.length===0){ toast('אין מילים לתרגול כאן'); return; }
   if(!committed && session.size>0) commitSession();
-  session=new Map(); committed=false;
+  session=new Map(); committed=false; committedKeys=new Set(); sessionRowIdx=-1;
   sessionScope=scope; sessionMode=mode;
   // last line of defence: the same word can never appear twice inside one round
   const uniq=[], ks=new Set();
@@ -886,10 +900,19 @@ function renderReview(){
     };
   });
 }
+/* `committed` used to be a one-way latch, cleared only in startRound. But visibilitychange
+   commits mid-round — so on a phone, the first incoming notification committed the 3 words
+   answered so far and then LATCHED. Everything answered afterwards was thrown away: the
+   results screen said 10/10 while storage held 3, and the session log recorded {total:3}.
+   Committing mid-round is right; refusing to commit again is not. The latch now guards only
+   against committing the SAME session twice, and answering more words makes it a new state. */
 function commitSession(){
-  if(committed) return;
-  committed=true;                       // set first: a throw below must not cause a double-commit
-  const entries=[...session.values()]; if(!entries.length) return;
+  /* Only entries not yet applied. Re-applying one would increment r.seen a second time and
+     charge the learner twice for the same answer, which is the reason the old code latched. */
+  const entries=[...session.entries()].filter(([k])=>!committedKeys.has(k)).map(([,e])=>e);
+  if(!entries.length){ committed=true; return; }
+  entries.forEach(e=>committedKeys.add(K(e.w.term)));
+  committed=true;
   const now=Date.now(); let c=0,ft=0,st=0,nw=0;
   entries.forEach(e=>{
     const r=rec(e.w.term);
@@ -907,8 +930,23 @@ function commitSession(){
     else { r.wrong++; r.level=Math.max(0,r.level-1); }
     r.last=now;
   });
-  stats.sessions.push({t:now, scope:sessionScope, mode:sessionMode, total:entries.length, correct:c, firstTry:ft, struggled:st, newCount:nw});
-  if(stats.sessions.length>MAX_SESSIONS) stats.sessions=stats.sessions.slice(-MAX_SESSIONS);
+  /* One log row per ROUND, not per commit. A round interrupted twice used to be recorded as
+     three separate rounds of 3, 4 and 3 words, which is what the trend chart on the stats
+     screen then drew. The row is created on first commit and grown by every later one. */
+  const row=sessionRowIdx>=0 ? stats.sessions[sessionRowIdx] : null;
+  if(row){
+    row.t=now; row.total+=entries.length; row.correct+=c;
+    row.firstTry+=ft; row.struggled+=st; row.newCount+=nw;
+  } else {
+    stats.sessions.push({t:now, scope:sessionScope, mode:sessionMode,
+                         total:entries.length, correct:c, firstTry:ft, struggled:st, newCount:nw});
+    sessionRowIdx=stats.sessions.length-1;
+  }
+  if(stats.sessions.length>MAX_SESSIONS){
+    const cut=stats.sessions.length-MAX_SESSIONS;
+    stats.sessions=stats.sessions.slice(-MAX_SESSIONS);
+    sessionRowIdx=Math.max(-1, sessionRowIdx-cut);   // the row moved; keep pointing at it
+  }
   saveStats();
   /* The end of a round is the moment real progress exists, and the one moment worth spending a
      round trip on. Pushing here is what lets the per-answer debounce be long: a phone killed by
@@ -948,14 +986,20 @@ function openStats(scope){
   // Only words actually practiced — a list of words you have never met says nothing about
   // your strength. Weakest first, then the middle, then the ones you know.
   const all=[...byTerm.values()];
-  const arr=all.filter(w=>{ const r=stats.words[K(w.term)]; return r && r.seen>0; })
+  /* Words skipped after the level test carry seen:1 so the practice queue leaves them alone —
+     and this screen counted them under "ידעת מיד, בלי טעות אחת", for words the learner has
+     never been shown. Third screen today to inherit that bug from the same marker. */
+  const arr=all.filter(w=>{ const r=stats.words[K(w.term)]; return r && r.seen>0 && r.src!=='lv'; })
     .sort((a,b)=>{
       const ra=stats.words[K(a.term)], rb=stats.words[K(b.term)];
       if(ra.level!==rb.level) return ra.level-rb.level;      // 0 → 3
       if(rb.wrong!==ra.wrong) return rb.wrong-ra.wrong;      // more mistakes = weaker
       return rb.last-ra.last;                                // most recent first
     });
-  const untouched=all.length-arr.length;
+  /* Skipped words are neither practised nor unmet, so they get counted as themselves rather
+     than folded into "עוד לא נפגשתם" — which would have been the same lie in a quieter place. */
+  const skippedN=all.filter(w=>wasSkipped(w.term)).length;
+  const untouched=all.length-arr.length-skippedN;
   const sess=stats.sessions.filter(s=>s.scope===scope).slice(-8);
   let html='';
   if(sess.length){
@@ -1011,11 +1055,13 @@ function openStats(scope){
       + cloud(nearly.slice(0,80),'cloudNearly');
     /* The two quiet groups get a line each and no cloud. Drawing six hundred words you already
        know is exactly the noise this screen was rebuilt to remove. */
-    if(settled.length||instant.length){
+    if(settled.length||instant.length||skippedN){
       html+=`<div class="quiet-line" style="margin-top:14px">`
         + (settled.length?`<div>נאבקת ונסגר: <b>${settled.length}</b> מילים שטעית בהן בעבר וכבר יודע.</div>`:'')
         + (instant.length?`<div style="margin-top:6px">ידעת מיד: <b>${instant.length}</b> מילים, בלי טעות אחת.</div>`:'')
         + (untouched?`<div style="margin-top:6px">עוד לא נפגשתם: <b>${untouched}</b> מילים.</div>`:'')
+        + (skippedN?`<div style="margin-top:6px">דילגת אחרי מבחן הרמה: <b>${skippedN}</b> מילים.
+             <span style="opacity:.75">ניהול מילים ← שחזור.</span></div>`:'')
         + `</div>`;
     }
   }

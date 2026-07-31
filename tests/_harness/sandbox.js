@@ -91,12 +91,16 @@ function loadApp(opts = {}) {
     Math, Date, JSON, Set, Map, Array, Object, String, Number, Boolean, RegExp, Error,
     isNaN, isFinite, parseInt, parseFloat,
 
-    // ---- module-level state of app.js, seeded to its post-boot shape ----
+    /* ---- module-level state of app.js, seeded to its post-boot shape ----
+     * These are the `let`s the lifted functions close over. When app.js gains a new one, the
+     * lifted function throws `ReferenceError: <name> is not defined` naming it exactly — add it
+     * here. (That is not hypothetical: `committedKeys` and `sessionRowIdx` arrived this way.) */
     LANG: lang,
     PREVIEW: false,
     assoc: {}, stats: { words: {}, sessions: [] }, deleted: new Set(), added: [], direction: 'm2w',
     BANK: [],
     session: new Map(), sessionScope: 'global', sessionMode: 'all', committed: false,
+    committedKeys: new Set(), sessionRowIdx: -1,
     isRetryRound: false,
     currentUser: null,
 
@@ -149,13 +153,21 @@ function answerCard(ctx, card, outcome) {
   else throw new Error('unknown outcome ' + outcome);
 }
 
-/* Practise a list of [card, outcome] pairs as one round, then commit it the way the app does. */
-function practiseRound(ctx, pairs, { scope = 'global', mode = 'all', retry = false } = {}) {
+/* Begin a round. Mirrors the reset half of startRound() (app.js:679-681); the rest of that
+ * function shuffles a deck and touches the DOM, neither of which affects scoring. */
+function startRound(ctx, { scope = 'global', mode = 'all', retry = false } = {}) {
   ctx.session = new Map();
   ctx.committed = false;
+  ctx.committedKeys = new Set();
+  ctx.sessionRowIdx = -1;
   ctx.sessionScope = scope;
   ctx.sessionMode = mode;
   ctx.isRetryRound = !!retry;
+}
+
+/* Practise a list of [card, outcome] pairs as one round, then commit it the way the app does. */
+function practiseRound(ctx, pairs, opts = {}) {
+  startRound(ctx, opts);
   for (const [card, outcome] of pairs) answerCard(ctx, card, outcome);
   ctx.commitSession();
 }
@@ -171,4 +183,15 @@ function plain(v) { return JSON.parse(JSON.stringify(v)); }
  * the sandbox, even though it is a perfectly good RegExp. */
 function tagOf(v) { return Object.prototype.toString.call(v); }
 
-module.exports = { loadApp, practiseRound, answerCard, banks, appSource, plain, tagOf, SYMBOLS, REQUIRED, ROOT };
+/* assert.deepStrictEqual(sandboxArray, []) fails on the PROTOTYPE, not the contents — which
+ * reads as a mystery red with `actual: []  expected: []`. Every "this list must be empty"
+ * assertion in the suite goes through here so that trap cannot be stepped on again. */
+function expectNone(assert, list, message) {
+  const items = Array.from(list);                    // …and back into this realm
+  if (items.length === 0) return;
+  const shown = items.slice(0, 8).map(x => '  · ' + x).join('\n');
+  assert.fail(`${message}\n${shown}` + (items.length > 8 ? `\n  … and ${items.length - 8} more` : '') +
+    `\n(${items.length} total)`);
+}
+
+module.exports = { loadApp, startRound, practiseRound, answerCard, banks, appSource, plain, tagOf, expectNone, SYMBOLS, REQUIRED, ROOT };
