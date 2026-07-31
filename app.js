@@ -291,15 +291,20 @@ function scopeWords(scope){
 //   שלמדתי = counter >=3 (mastered / knew it on first sight)
 const lvl = term => (stats.words[K(term)]||{}).level || 0;
 const lastOf = term => (stats.words[K(term)]||{}).last || 0;
+/* A word skipped after the level test is stored at level 3 so the practice queue leaves it
+   alone — but it is not a word anyone learned here, and counting it under "שלמדתי" is the same
+   false claim the dashboard was just cured of. It gets its own bucket. */
+const wasSkipped = term => { const r=stats.words[K(term)]; return !!(r && r.src==='lv'); };
 function classify(scope){
-  const seen=new Set(); let strong=0,weak=0,fresh=0;
+  const seen=new Set(); let strong=0,weak=0,fresh=0,skipped=0;
   for(const w of scopeWords(scope)){
     const k=K(w.term);
     if(seen.has(k)) continue; seen.add(k);
+    if(wasSkipped(w.term)){ skipped++; continue; }
     const v=lvl(w.term);
     if(v>=3) strong++; else if(v>=1) weak++; else fresh++;
   }
-  return {total:seen.size, strong, weak, fresh};
+  return {total:seen.size, strong, weak, fresh, skipped};
 }
 function uniqScope(scope){ const seen=new Set(),out=[]; for(const w of scopeWords(scope)){ const k=K(w.term); if(!seen.has(k)){seen.add(k);out.push(w);} } return out; }
 function newCards(scope){ return uniqScope(scope).filter(w=>lvl(w.term)<1); }
@@ -564,12 +569,15 @@ function openScope(scope){
   const c=classify(scope);
   $('#donutTotal').textContent=c.total;
   const done=c.total||1;
-  const gs=100*c.strong/done, gw=100*c.weak/done;
-  $('#donut').style.background=`conic-gradient(var(--green) 0 ${gs}%, var(--accent) ${gs}% ${gs+gw}%, var(--gold) ${gs+gw}% 100%)`;
+  const gs=100*c.strong/done, gw=100*c.weak/done, gk=100*(c.skipped||0)/done;
+  $('#donut').style.background=`conic-gradient(var(--green) 0 ${gs}%, var(--accent) ${gs}% ${gs+gw}%,`+
+    ` var(--gold) ${gs+gw}% ${gs+gw+100*c.fresh/done}%, var(--line) ${gs+gw+100*c.fresh/done}% 100%)`;
   $('#legend').innerHTML=
     `<div><i class="s"></i> שלמדתי <b>${c.strong}</b></div>
      <div><i class="w"></i> לחיזוק <b>${c.weak}</b></div>
-     <div><i class="n"></i> חדשות <b>${c.fresh}</b></div>`;
+     <div><i class="n"></i> חדשות <b>${c.fresh}</b></div>`+
+    (c.skipped ? `<div title="דילגת עליהן אחרי מבחן הרמה. ניהול מילים ← שחזור"><i class="k"></i>
+       דילגתי <b>${c.skipped}</b></div>` : '');
   const nc=newCards(scope).length, wc=weakCards(scope).length, lc=learnedCards(scope).length;
   $('#cntNew').textContent=nc; $('#cntWeak').textContent=wc; $('#cntLearned').textContent=lc;
   $('#pbNew').disabled = nc===0;
