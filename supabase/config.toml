@@ -1,0 +1,21 @@
+# קונפיגורציית Supabase לפונקציות הקצה.
+#
+# ⚠ השורה verify_jwt = false היא השורה שבלעדיה שום דבר לא עובד, והכשל שהיא
+#   מונעת הוא הכשל השקט ביותר בכל ההטמעה:
+#   Supabase Edge Functions מאמתות JWT כברירת מחדל. ספק תשלומים לא שולח JWT.
+#   התוצאה היא 401 — הפונקציה שלנו לא רצה בכלל, אין שורה ב-billing_events,
+#   אין שגיאה בלוגים שלנו (כי לא הגענו לקוד), והלקוח **שילם וקיבל כלום**.
+#   התסמין היחיד הוא תלונה של לקוח, ימים אחר כך.
+#
+#   בדיקה שהשורה באמת נתפסה, אחרי כל deploy:
+#     curl -i https://<ref>.supabase.co/functions/v1/billing-webhook/health
+#   חייב לחזור 200 עם גוף JSON. אם חוזר 401 — verify_jwt עדיין דלוק.
+
+[functions.billing-webhook]
+verify_jwt = false
+
+[functions.create-checkout]
+verify_jwt = true
+# כאן דווקא כן: רק משתמש מחובר פותח checkout, וה-user_id שיחזור ב-webhook
+# נקבע בשרת מתוך ה-JWT ולא ע"י הדפדפן.
+# (הפונקציה עצמה עוד לא נכתבה — ראה supabase/README.md, "מה עוד חסר".)
