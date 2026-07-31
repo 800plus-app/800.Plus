@@ -242,6 +242,36 @@ function buildBank(){
     for(const pair of rows){ if(Array.isArray(pair)) add(pair[0], pair[1], uid); }
   }
   for(const pair of added) add(pair[0], pair[1], 'custom');   // unit copy always wins
+  buildGlossIndex();
+}
+
+/* ===== words that share a gloss =====
+   401 English entries and 47 Hebrew ones carry a gloss that is byte-identical to another
+   entry's. In the default direction the gloss IS the question, so "ענף" can only be answered
+   with זַלְזַל even though פֹּארָה is exactly as correct — and the learner who knows both is
+   told they are wrong. The exam already accepted every word carrying the same gloss, but only
+   within one unit and only in the exam; practice, where people spend their time, accepted one.
+   Built once per bank build: a scan per keystroke over 5,619 entries is not free. */
+let GLOSS_ALT = new Map();
+function glossKey(g){
+  return String(g||'').replace(/\s*\([^)]*\)/g,'')      // examples are not part of the meaning
+    .replace(/\s+/g,' ').replace(/[.,;·]+$/,'').trim().toLowerCase();
+}
+function buildGlossIndex(){
+  GLOSS_ALT=new Map();
+  for(const w of BANK){
+    const g=glossKey(w.meaning); if(g.length<2) continue;
+    let arr=GLOSS_ALT.get(g); if(!arr){ arr=[]; GLOSS_ALT.set(g,arr); }
+    arr.push(w.term);
+  }
+  for(const [g,arr] of GLOSS_ALT) if(arr.length<2) GLOSS_ALT.delete(g);
+}
+/* Every OTHER word that means the same thing as this card. */
+function glossAlts(card){
+  const arr=GLOSS_ALT.get(glossKey(card && card.meaning));
+  if(!arr) return [];
+  const own=K(card.term);
+  return arr.filter(t=>K(t)!==own);
 }
 
 /* ===== stats model ===== */
@@ -676,7 +706,19 @@ function meaningSegs(meaning){
   return String(meaning).replace(/\([^)]*\)/g,' ')
     .split(/[,;/|]|\s-\s/).map(norm).filter(Boolean);
 }
-function check(){ if(answered||!deck[idx]) return; const w=deck[idx]; const ok = w._dir==='w2m' ? meaningMatch($('#answerInput').value, w.meaning) : isCorrect($('#answerInput').value, w.term); finishCard(ok, false); }
+let acceptedAlt=null;      // set when the answer was a different word with the same gloss
+function check(){
+  if(answered||!deck[idx]) return;
+  const w=deck[idx], v=$('#answerInput').value;
+  acceptedAlt=null;
+  if(w._dir==='w2m'){ finishCard(meaningMatch(v, w.meaning), false); return; }
+  if(isCorrect(v, w.term)){ finishCard(true, false); return; }
+  /* Same meaning, different word. Accepted — and the card's own word is named in the feedback,
+     because the point of the round is still to learn THIS entry. */
+  const alt=glossAlts(w).find(t=>isCorrect(v, t));
+  if(alt){ acceptedAlt=alt; finishCard(true, false); return; }
+  finishCard(false, false);
+}
 function skip(){ if(answered||!deck[idx]) return; finishCard(false, true); }
 function finishCard(ok, skipped){
   const w=deck[idx]; if(!w) return;
@@ -700,6 +742,11 @@ function finishCard(ok, skipped){
        rest on a CORRECT answer is where it costs nothing and teaches something. */
     (ok && w2m ? (()=>{ const rest=otherSenses($('#answerInput').value, w.meaning);
        return rest.length ? `<div class="also">גם: <b>${esc(rest.join(' · '))}</b></div>` : ''; })() : '')+
+    /* Answered with a different word that carries the same gloss. Counting it wrong would be
+       false; counting it silently right would leave the card's own word unlearned. */
+    (ok && acceptedAlt
+      ? `<div class="also">גם <b><bdi>${esc(acceptedAlt)}</bdi></b> נכון לפירוש הזה.
+         הכרטיס הזה הוא <b><bdi>${esc(w.term)}</bdi></b>.</div>` : '')+
     (!ok?`<div class="reveal">${label}: <b><bdi>${esc(answer)}</bdi></b></div>`:'')+
     /* The prompt hid the word inside its own gloss, and in this direction the gloss is never
        shown again — so the example that made it worth reading would have been lost. Now that
