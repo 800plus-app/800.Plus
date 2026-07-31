@@ -339,6 +339,24 @@
        border:1px solid var(--line);background:var(--paper);color:var(--ink);transition:.15s}
   .ask-opts button:hover{border-color:var(--gold);transform:translateY(-2px)}
   .ask-opts button.active{background:linear-gradient(180deg,var(--gold),var(--accent));color:#fff;border-color:transparent}
+  /* five options in a two-column grid leaves the last one stranded beside a hole.
+     "everything" is the odd one out anyway, so it takes the full width. */
+  .ask-opts button.wide{grid-column:1/-1;font-size:.98rem}
+  /* "אחר" opens a field rather than a browser prompt(): prompt() is styled by the OS, breaks
+     the RTL layout, and is silently blocked in a standalone PWA on some Androids. */
+  .size-custom{display:flex;gap:9px;margin-top:10px}
+  .size-custom.hidden{display:none!important}
+  .size-custom input{flex:1;min-width:0;font-family:"Heebo";font-size:1.05rem;font-weight:700;
+       text-align:center;padding:14px 8px;border-radius:12px;border:1px solid var(--line);
+       background:var(--paper);color:var(--ink);outline:none}
+  .size-custom input:focus{border-color:var(--gold)}
+  /* the native spinner lands on the wrong side in RTL and is unusable with a thumb anyway */
+  .size-custom input::-webkit-outer-spin-button,
+  .size-custom input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .size-custom input{-moz-appearance:textfield}
+  .size-custom button{font-family:"Heebo";font-weight:700;font-size:1rem;padding:14px 18px;
+       border-radius:12px;border:1px solid transparent;cursor:pointer;
+       background:linear-gradient(180deg,var(--gold),var(--accent));color:#fff}
   .ask-cancel{margin-top:14px;background:transparent;border:none;color:var(--ink-soft);
        font-family:"Heebo";font-size:.85rem;text-decoration:underline}
 
@@ -760,11 +778,17 @@
 
       <form id="authForm" autocomplete="on">
         <label class="au-field" id="fUsername">
-          <input id="authUsername" placeholder=" " autocomplete="username" maxlength="40">
+          <!-- `nickname`, NOT `username`. This is a display name, and when it was marked
+               `username` the browser's password manager keyed the saved credential to it
+               instead of to the email — so a generated password came back paired with
+               "יוסי" and every later sign-in was rejected. -->
+          <input id="authUsername" placeholder=" " autocomplete="nickname" maxlength="40">
           <span>שם תצוגה</span>
         </label>
         <label class="au-field">
-          <input id="authEmail" type="email" placeholder=" " autocomplete="email" required>
+          <!-- the email IS the account identifier here, so it carries `username`;
+               type="email" already tells the browser what kind of string it is -->
+          <input id="authEmail" type="email" placeholder=" " autocomplete="username" required>
           <span>אימייל</span>
         </label>
         <label class="au-field">
@@ -1177,6 +1201,10 @@
     <h3>כמה מילים בסבב?</h3>
     <p>אפשר לשנות בכל פעם — הבחירה נשמרת כברירת מחדל.</p>
     <div class="ask-opts" id="sizeOpts"></div>
+    <div class="size-custom hidden" id="sizeCustom">
+      <input id="sizeCustomN" type="number" inputmode="numeric" min="1" max="999" placeholder="מספר מילים">
+      <button type="button" id="sizeCustomGo">התחל</button>
+    </div>
     <button class="ask-cancel" id="sizeCancel">ביטול</button>
   </div>
 </div>
@@ -1250,14 +1278,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=96"></script>
-<script src="config.js?v=96"></script>
-<script src="store.js?v=96"></script>
-<script src="leveltest-he.js?v=96"></script>
-  <script src="leveltest.js?v=96"></script>
-<script src="enrank.js?v=96"></script>
-<script src="data.js?v=96"></script>
-<script src="data-en.js?v=96"></script>
-<script src="app.js?v=96"></script>
+<script src="supabase.min.js?v=97"></script>
+<script src="config.js?v=97"></script>
+<script src="store.js?v=97"></script>
+<script src="leveltest-he.js?v=97"></script>
+  <script src="leveltest.js?v=97"></script>
+<script src="enrank.js?v=97"></script>
+<script src="data.js?v=97"></script>
+<script src="data-en.js?v=97"></script>
+<script src="app.js?v=97"></script>
 </body>
 </html>

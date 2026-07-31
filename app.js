@@ -728,9 +728,11 @@ function openScope(scope){
 $('#pbAll').onclick     = ()=> startRound(allCards(curScope), curScope, 'all');
 // NOTE: new/learned are shuffled BEFORE the cap — otherwise slicing an ordered list hands
 // back the very same 20 words every round, which reads as "the app keeps repeating itself".
-$('#pbWeak').onclick    = ()=> askSize(n=> startRound(capSampled(weakCards(curScope),n), curScope, 'weak'));
-$('#pbNew').onclick     = ()=> askSize(n=> startRound(cap(shuffle(newCards(curScope)),n), curScope, 'new'));
-$('#pbLearned').onclick = ()=> askSize(n=> startRound(cap(shuffle(learnedCards(curScope)),n), curScope, 'learned'));
+// the list is built ONCE, up front, so the sheet can show its size and the callback caps the
+// very same list — building it twice would let a background sync change it in between
+$('#pbWeak').onclick    = ()=>{ const l=weakCards(curScope);    askSize(l.length, n=> startRound(capSampled(l,n), curScope, 'weak')); };
+$('#pbNew').onclick     = ()=>{ const l=newCards(curScope);     askSize(l.length, n=> startRound(cap(shuffle(l),n), curScope, 'new')); };
+$('#pbLearned').onclick = ()=>{ const l=learnedCards(curScope); askSize(l.length, n=> startRound(cap(shuffle(l),n), curScope, 'learned')); };
 $('#pbExam').onclick=()=>{ if(curScope.startsWith('unit:')) openExam(curScope.slice(5)); };
 $('#pbSheet').onclick=()=>{ if(curScope.startsWith('unit:')) printSheet(curScope.slice(5)); };
 $('#pbStats').onclick   = ()=> openStats(curScope);
@@ -749,24 +751,54 @@ function capSampled(list, n){
 }
 
 /* ===== how many words this round? ===== */
-const SIZES=[20,30,50,0];                       // 0 = ללא הגבלה
-let sizeCb=null;
-function askSize(cb){
-  sizeCb=cb;
+const SIZES=[10,20,50];                         // 0 = the whole scope; -1 = "אחר", a typed number
+let sizeCb=null, sizeTotal=0;
+/* The count matters to the choice: picking between 20 and "everything" is a different decision
+   when everything is 24 than when it is 400, and the learner could not see which. So the caller
+   now hands over the size of the list it is about to cap. */
+function askSize(total, cb){
+  sizeCb=cb; sizeTotal=total||0;
   const last=LS.get(KEY('hw_size'), 20);
-  $('#sizeOpts').innerHTML=SIZES.map(n=>
-    `<button data-n="${n}" class="${n===last?'active':''}">${n||'ללא הגבלה'}</button>`).join('');
+  const custom = last>0 && SIZES.indexOf(last)<0 ? last : 0;   // a previously typed number
+  // "כל היחידה" is only true inside a unit — כל המאגר and אקראי are not units.
+  const allLabel = (curScope==='global'||curScope==='random' ? 'הכול' : 'כל היחידה')
+                 + (sizeTotal ? ' · '+sizeTotal : '');
+  const opts = SIZES.map(n=>({n, label:String(n)}))
+      .concat([{n:-1, label: custom ? 'אחר · '+custom : 'אחר'}, {n:0, label:allLabel}]);
+  $('#sizeOpts').innerHTML=opts.map(o=>{
+    const on = o.n===-1 ? !!custom : o.n===last;
+    const cls = (on?'active ':'') + (o.n===0?'wide':'');
+    return `<button data-n="${o.n}" class="${cls.trim()}">${esc(o.label)}</button>`;
+  }).join('');
+  $('#sizeCustomN').value = custom || '';
+  hide($('#sizeCustom'));
   show($('#sizeAsk'));
+}
+function chooseSize(n){
+  if(n>0) LS.set(KEY('hw_size'), n);            // 0 stays out of the default: it is a one-off
+  hide($('#sizeAsk')); hide($('#sizeCustom'));
+  const cb=sizeCb; sizeCb=null; if(cb) cb(n);
 }
 $('#sizeOpts').onclick=e=>{
   const b=e.target.closest('button[data-n]'); if(!b) return;
   const n=+b.dataset.n;
-  LS.set(KEY('hw_size'), n);
-  hide($('#sizeAsk'));
-  const cb=sizeCb; sizeCb=null; if(cb) cb(n);
+  if(n===-1){                                   // reveal the field instead of closing the sheet
+    show($('#sizeCustom'));
+    $('#sizeCustomN').focus(); $('#sizeCustomN').select();
+    return;
+  }
+  chooseSize(n);
 };
-$('#sizeCancel').onclick=()=>{ sizeCb=null; hide($('#sizeAsk')); };
-$('#sizeAsk').onclick=e=>{ if(e.target===$('#sizeAsk')){ sizeCb=null; hide($('#sizeAsk')); } };
+function customGo(){
+  const raw=parseInt($('#sizeCustomN').value,10);
+  if(!(raw>0)){ $('#sizeCustomN').focus(); return; }   // no number, no round: say nothing, wait
+  chooseSize(Math.min(raw, 999));
+}
+$('#sizeCustomGo').onclick=customGo;
+// Enter inside the field is the same as pressing התחל — on a phone that is the keyboard's own key
+$('#sizeCustomN').addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); customGo(); } });
+$('#sizeCancel').onclick=()=>{ sizeCb=null; hide($('#sizeCustom')); hide($('#sizeAsk')); };
+$('#sizeAsk').onclick=e=>{ if(e.target===$('#sizeAsk')){ sizeCb=null; hide($('#sizeCustom')); hide($('#sizeAsk')); } };
 
 /* ===== QUIZ ENGINE ===== */
 let deck=[], idx=0, correct=0, missed=[], answered=false;
@@ -2588,7 +2620,11 @@ async function syncWithRemoteInner(lang){
 function translateAuthError(err){
   const m=(err&&err.message)||'';
   if(/already registered|already exists/i.test(m)) return 'כבר יש חשבון עם המייל הזה — נסה להתחבר.';
-  if(/invalid login credentials/i.test(m)) return 'אימייל או סיסמה שגויים.';
+  /* Not just "wrong": the second sentence is the way out. Whoever let the browser generate a
+     password never saw it, so "נסה שוב" is advice they cannot act on — the reset link is the
+     only real path back in, and it has to be named here or it will not be found. */
+  if(/invalid login credentials/i.test(m))
+    return 'אימייל או סיסמה שגויים. אם הדפדפן יצר לך סיסמה ואינך יודע אותה — לחץ "שכחתי סיסמה" למטה.';
   if(/password.*(least|short|weak)/i.test(m)) return 'הסיסמה חייבת להיות לפחות 8 תווים.';
   if(/email.*invalid/i.test(m)) return 'כתובת אימייל לא תקינה.';
   if(/rate limit|too many/i.test(m)) return 'המערכת עמוסה כרגע — נסה שוב בעוד כמה דקות.';
