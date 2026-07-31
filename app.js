@@ -882,6 +882,10 @@ function commitSession(){
   stats.sessions.push({t:now, scope:sessionScope, mode:sessionMode, total:entries.length, correct:c, firstTry:ft, struggled:st, newCount:nw});
   if(stats.sessions.length>MAX_SESSIONS) stats.sessions=stats.sessions.slice(-MAX_SESSIONS);
   saveStats();
+  /* The end of a round is the moment real progress exists, and the one moment worth spending a
+     round trip on. Pushing here is what lets the per-answer debounce be long: a phone killed by
+     the OS without firing pagehide loses at most the round in progress, never a finished one. */
+  flushRemoteSync();
 }
 
 $('#checkBtn').onclick=check;
@@ -2076,12 +2080,21 @@ async function flushRemoteSync(){
                                     extras:collectExtras(lang)});
   }catch(e){}
 }
+/* 1,500ms was shorter than the gap between two answers, so every single answer produced a full
+   round trip — and pushProgress is a whole-row upsert preceded by a whole-row read. A learner
+   with real history carries a ~51KB row, so one answer moved ~100KB. Thirty testers practising
+   for an hour would have moved on the order of a gigabyte, against a 5GB monthly egress budget:
+   the ceiling here is bandwidth, not requests.
+   Twelve seconds instead. Nothing is risked by waiting: the save is already forced at every
+   point where the page can lose it — round end (commitSession), tab hidden, pagehide, language
+   switch and sign-out — and a queued save survives every early return in flushRemoteSync. */
+const SYNC_DEBOUNCE_MS = 12000;
 function queueRemoteSync(){
   if(!currentUser) return;
   if(LANG!=='he' && LANG!=='en') return;        // nothing to key the row by yet
   syncPending=true;
   clearTimeout(syncTimer);
-  syncTimer=setTimeout(flushRemoteSync, 1500);
+  syncTimer=setTimeout(flushRemoteSync, SYNC_DEBOUNCE_MS);
 }
 /* Every overlay could only be dismissed by locating its cancel button. Escape is the one key
    every user already knows, and it cost four lines. */
