@@ -202,7 +202,13 @@ describe('two writers — the same round, twice', () => {
      version of that same row — and the dedupe key is [t, scope, total, correct], so the two
      versions do not look like the same round to it. */
 
-  test('BUG: an interrupted round pushed mid-way is counted twice after the next sync', () => {
+  /* FIXED 2.8.2026. The row carries `rid` — the first commit's timestamp plus scope and mode —
+     and the merge dedupes on it. The old key was [t, scope, total, correct], every one of which
+     a SECOND commit of the same round changes, so the half-finished copy in the cloud and the
+     finished copy on the device looked like two different rounds. Ten answers logged as fifteen.
+     Note what the merge must do beyond deduping: the two copies are the same round at different
+     stages, so it keeps the FULLER one rather than whichever arrived first. */
+  test('an interrupted round pushed mid-way is still one row after the next sync', () => {
     const ctx = loadTime();
     const cards = ctx.BANK.slice(0, 10);
     ctx.at(T0);
@@ -218,27 +224,30 @@ describe('two writers — the same round, twice', () => {
 
     const merged = plain(ctx.mergeProgress(
       { assoc: ctx.assoc, stats: ctx.stats, deleted: [], added: [], dir: 'w2m' }, pushed));
-    assert.strictEqual(merged.stats.sessions.length, 2, 'after the merge it is two');
-    assert.strictEqual(merged.stats.sessions.reduce((s, x) => s + x.total, 0), 15,
-      'ten answers are logged as fifteen — the partial row and the full row both survive');
+    assert.strictEqual(merged.stats.sessions.length, 1, 'the half-finished copy came back as a second round');
+    assert.strictEqual(merged.stats.sessions[0].total, 10,
+      'the merge kept the staler copy — ten answers were played and the log must say ten');
   });
 
-  /* The fix belongs in commitSession(): give the row an id when it is created and dedupe on that
-     instead of on [t, scope, total, correct], which are all things a second commit changes. */
-  test.skip('an interrupted round should still be one row after a sync', () => {
+  test('the fuller copy wins whichever side it arrives from', () => {
+    // the same assertion with the arguments swapped: "keep the first" would pass one way only
     const ctx = loadTime();
     const cards = ctx.BANK.slice(0, 10);
     ctx.at(T0);
     startRound(ctx, { scope: 'unit:1' });
     for (let i = 0; i < 5; i++) answerCard(ctx, cards[i], 'first');
     ctx.commitSession();
-    const pushed = plain({ assoc: ctx.assoc, stats: ctx.stats, deleted: [], added: [], dir: 'w2m' });
+    const half = plain({ assoc: {}, stats: plain(ctx.stats), deleted: [], added: [], dir: 'w2m' });
     ctx.at(T0 + 120000);
     for (let i = 5; i < 10; i++) answerCard(ctx, cards[i], 'first');
     ctx.commitSession();
-    const merged = plain(ctx.mergeProgress(
-      { assoc: ctx.assoc, stats: ctx.stats, deleted: [], added: [], dir: 'w2m' }, pushed));
-    assert.strictEqual(merged.stats.sessions.length, 1);
+    const full = plain({ assoc: {}, stats: plain(ctx.stats), deleted: [], added: [], dir: 'w2m' });
+
+    for (const [a, b, who] of [[half, full, 'the fuller copy is remote'], [full, half, 'the fuller copy is local']]) {
+      const m = plain(ctx.mergeProgress(plain(a), plain(b)));
+      assert.strictEqual(m.stats.sessions.length, 1, who + ': not deduped');
+      assert.strictEqual(m.stats.sessions[0].total, 10, who + ': the emptier copy won');
+    }
   });
 
   test('BUG: a merge mid-round moves the row pointer, and the next commit lands on another round', () => {
@@ -250,32 +259,34 @@ describe('two writers — the same round, twice', () => {
     ctx.at(T0 + 5 * DAY);
     startRound(ctx, { scope: 'unit:2' });
     for (let i = 2; i < 5; i++) answerCard(ctx, cards[i], 'first');
-    ctx.commitSession();                                   // creates the row, sessionRowIdx = 2
-    assert.strictEqual(ctx.sessionRowIdx, 2);
+    ctx.commitSession();                                   // creates the row and its rid
+    const rid = plain(ctx.stats.sessions).find(r => r.scope === 'unit:2').rid;
+    assert.ok(rid, 'the row must carry an id, or nothing below is being tested');
+    assert.strictEqual(ctx.sessionRowId, rid);
 
-    /* Exactly what flushRemoteSync (app.js:2618-2619) does: replace `stats` with the merged
-       object. mergeProgress re-sorts by `t`, so a round the other device made on day 1 is
-       inserted BEFORE the row this one is pointing at. Nothing re-points sessionRowIdx. */
+    /* Exactly what flushRemoteSync does: replace `stats` with the merged object. mergeProgress
+       re-sorts by `t`, so a round the other device made on day 1 is inserted BEFORE this one —
+       and under the old numeric pointer that silently re-aimed it at a three-day-old round. */
     const remote = side({}, [srow(T0 + 1 * DAY, 'unit:9', 7)]);
     ctx.stats = ctx.mergeProgress(
       { assoc: ctx.assoc, stats: ctx.stats, deleted: [], added: [], dir: 'w2m' }, remote).stats;
-    assert.strictEqual(ctx.sessionRowIdx, 2, 'the pointer did not move…');
-    assert.strictEqual(plain(ctx.stats.sessions)[2].scope, 'unit:1', '…but the row under it did');
+    const movedTo = plain(ctx.stats.sessions).findIndex(r => r.rid === rid);
+    assert.notStrictEqual(movedTo, 2, 'fixture: the merge must actually move the row, or this proves nothing');
 
     ctx.at(T0 + 5 * DAY + 60000);
     for (let i = 5; i < 8; i++) answerCard(ctx, cards[i], 'first');
     ctx.commitSession();                                   // the learner finishes the round
 
     const rows = plain(ctx.stats.sessions);
-    const victim = rows[2];
-    assert.strictEqual(victim.scope, 'unit:1', 'the three answers were added to a THREE-DAY-OLD round');
-    assert.strictEqual(victim.total, 4, 'its total grew from 1 to 4');
-    assert.strictEqual(victim.t, T0 + 5 * DAY + 60000, 'and its date was moved to today');
-    assert.strictEqual(rows.find(r => r.scope === 'unit:2').total, 3,
-      'while the round actually being played stayed at three');
+    const mine = rows.find(r => r.rid === rid);
+    assert.strictEqual(mine.total, 6, 'the three new answers did not land on the round being played');
+    assert.strictEqual(mine.t, T0 + 5 * DAY + 60000);
+    const bystander = rows.find(r => r.scope === 'unit:1' && r.t === T0 + 3 * DAY);
+    assert.ok(bystander, 'the three-day-old round vanished — its date was dragged to today');
+    assert.strictEqual(bystander.total, 1, 'a bystander round grew');
   });
 
-  test('BUG: …and because that round\'s date moved, a practice day disappears from the streak', () => {
+  test('…and no practice day disappears from the streak', () => {
     const ctx = loadTime();
     const cards = ctx.BANK.slice(0, 20);
     ctx.at(T0);              practiseRound(ctx, [[cards[0], 'first']], { scope: 'unit:1' });
@@ -295,8 +306,9 @@ describe('two writers — the same round, twice', () => {
 
     const after = new Set(plain(ctx.stats.sessions).map(s => ctx.dayKey(s.t)));
     const lost = [...before].filter(d => !after.has(d));
-    assert.strictEqual(lost.length, 1, 'exactly one calendar day is no longer in the log');
-    assert.strictEqual(lost[0], ctx.dayKey(T0 + 3 * DAY), 'the day the overwritten round belonged to');
+    assert.deepStrictEqual(lost, [],
+      'a calendar day left the log because a round\'s date was dragged forward onto today — ' +
+      'that is a broken streak, and the learner has no way to tell what happened');
   });
 
   test('two devices practising different words offline both keep their work', () => {
@@ -351,7 +363,7 @@ describe('MAX_SESSIONS — what happens exactly at the ceiling', () => {
     assert.strictEqual(m.stats.sessions[199].scope, 'r200');
   });
 
-  test('commitSession keeps its own row pointer valid when ITS cap trims — this one is handled', () => {
+  test('commitSession still finds its own row after ITS cap trims', () => {
     const ctx = loadTime();
     const cards = ctx.BANK.slice(0, 5);
     ctx.stats.sessions = []; for (let i = 0; i < 200; i++) ctx.stats.sessions.push(srow(T0 + i * 60000, 'old' + i));
@@ -363,7 +375,8 @@ describe('MAX_SESSIONS — what happens exactly at the ceiling', () => {
     answerCard(ctx, cards[1], 'first');
     ctx.commitSession();                                  // must grow the SAME row
     assert.strictEqual(ctx.stats.sessions.length, 200, 'no second row was created');
-    const mine = ctx.stats.sessions[ctx.sessionRowIdx];
+    const mine = ctx.stats.sessions.find(r => r.rid === ctx.sessionRowId);
+    assert.ok(mine, 'the round lost its own row to the trim');
     assert.strictEqual(mine.scope, 'unit:7');
     assert.strictEqual(mine.total, 2);
   });

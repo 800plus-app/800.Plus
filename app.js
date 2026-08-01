@@ -895,7 +895,7 @@ let session=new Map(), sessionScope='global', sessionMode='all', committed=false
 /* Which words of the CURRENT round have already been written to stats, and which log row this
    round owns. Both exist because commitSession can now legitimately run several times per
    round — visibilitychange fires every time a notification pulls the learner away. */
-let committedKeys=new Set(), sessionRowIdx=-1;
+let committedKeys=new Set(), sessionRowId=null;
 
 function sess(w){ const k=K(w.term); if(!session.has(k)) session.set(k,{w,attempts:0,mastered:false,firstTry:false}); return session.get(k); }
 
@@ -903,7 +903,7 @@ let isRetryRound=false;
 function startRound(cards, scope, mode, retry){
   if(!Array.isArray(cards) || cards.length===0){ toast('אין מילים לתרגול כאן'); return; }
   if(!committed && session.size>0) commitSession();
-  session=new Map(); committed=false; committedKeys=new Set(); sessionRowIdx=-1;
+  session=new Map(); committed=false; committedKeys=new Set(); sessionRowId=null;
   sessionScope=scope; sessionMode=mode;
   // last line of defence: the same word can never appear twice inside one round
   const uniq=[], ks=new Set();
@@ -1323,20 +1323,32 @@ function commitSession(){
   /* One log row per ROUND, not per commit. A round interrupted twice used to be recorded as
      three separate rounds of 3, 4 and 3 words, which is what the trend chart on the stats
      screen then drew. The row is created on first commit and grown by every later one. */
-  const row=sessionRowIdx>=0 ? stats.sessions[sessionRowIdx] : null;
+  /* THE ROW IS FOUND BY ID, NOT BY POSITION.
+     This used to hold a numeric index into stats.sessions — and mergeProgress rebuilds that array
+     from scratch: it concatenates both sides, dedupes, SORTS by time and slices to the cap. A sync
+     landing mid-round therefore moved the row out from under the pointer, and the next commit of
+     the same round grew SOMEBODY ELSE'S round: adding today's answers to it and dragging its date
+     to today. One practice day vanishes from the log and the streak breaks — on a single device
+     with a perfectly correct clock. Two independent passes of house-check 2 found this.
+
+     `rid` is the first commit's timestamp plus the scope and mode, so it is derived rather than
+     random: deterministic for tests, stable across a merge, and unique in practice because a
+     round takes seconds and cannot start twice in the same millisecond under the same scope. */
+  const rid=sessionRowId;
+  const row=rid ? stats.sessions.find(s=>isObj(s) && s.rid===rid) : null;
   if(row){
     row.t=now; row.total+=entries.length; row.correct+=c;
     row.firstTry+=ft; row.struggled+=st; row.newCount+=nw;
   } else {
-    stats.sessions.push({t:now, scope:sessionScope, mode:sessionMode,
+    /* No row, either because this is the round's first commit or because the round's row has
+       already been trimmed out of history. Starting a fresh one is the honest answer to both:
+       the alternative — reviving an index — is what pointed at a stranger. */
+    sessionRowId=now+'|'+sessionScope+'|'+sessionMode;
+    stats.sessions.push({rid:sessionRowId, t:now, scope:sessionScope, mode:sessionMode,
                          total:entries.length, correct:c, firstTry:ft, struggled:st, newCount:nw});
-    sessionRowIdx=stats.sessions.length-1;
   }
-  if(stats.sessions.length>MAX_SESSIONS){
-    const cut=stats.sessions.length-MAX_SESSIONS;
-    stats.sessions=stats.sessions.slice(-MAX_SESSIONS);
-    sessionRowIdx=Math.max(-1, sessionRowIdx-cut);   // the row moved; keep pointing at it
-  }
+  // no index to repair afterwards: the trim can drop whatever it likes and the lookup still holds
+  if(stats.sessions.length>MAX_SESSIONS) stats.sessions=stats.sessions.slice(-MAX_SESSIONS);
   saveStats();
   /* The end of a round is the moment real progress exists, and the one moment worth spending a
      round trip on. Pushing here is what lets the per-answer debounce be long: a phone killed by
@@ -2823,9 +2835,26 @@ function mergeProgress(local, remote){
      doubled the history (3 -> 6 -> 12 -> 24) until the 200 cap filled with copies and real
      practice days fell out, shrinking the streak. Dedupe on the round's own fields, and sort,
      because the two lists are not necessarily in chronological order. */
-  const seenSess=new Set();
-  const sessions=[...rs,...ls].filter(isObj)
-    .filter(x=>{ const id=[x.t,x.scope,x.total,x.correct].join('|'); if(seenSess.has(id)) return false; seenSess.add(id); return true; })
+  /* Rows carry `rid` since 2.8.2026, and it is preferred over the composite key — but only when
+     BOTH sides have one, so a row written by an older build still dedupes the way it always did.
+     KEEPING THE FIRST COPY IS NOT ENOUGH once ids exist. The same round can be present on both
+     sides at different stages: the phone has 8 answers of it, the cloud copy has 5. They share a
+     rid, and dropping whichever arrives second would throw away three real answers half the time.
+     The fuller copy wins — more answers recorded is strictly more of what happened. */
+  const bySess=new Map(); const seenSess=new Set();
+  for(const x of [...rs,...ls].filter(isObj)){
+    if(!x.rid){                                          // legacy row: the old behaviour, unchanged
+      const id=[x.t,x.scope,x.total,x.correct].join('|');
+      if(seenSess.has(id)) continue;
+      seenSess.add(id); bySess.set('legacy:'+id, x); continue;
+    }
+    const k='r:'+x.rid, prev=bySess.get(k);
+    if(!prev){ bySess.set(k,x); continue; }
+    const better=(int0(x.total)!==int0(prev.total)) ? (int0(x.total)>int0(prev.total) ? x : prev)
+                                                   : (int0(x.t)>=int0(prev.t) ? x : prev);
+    bySess.set(k,better);
+  }
+  const sessions=[...bySess.values()]
     .sort((x,y)=>(Number(x.t)||0)-(Number(y.t)||0))
     .slice(-MAX_SESSIONS);
   const mergedAssoc={...(isObj(remote.assoc)?remote.assoc:{}), ...(isObj(local.assoc)?local.assoc:{})};
@@ -2964,6 +2993,29 @@ function fbContext(){
     ua: navigator.userAgent.slice(0,160)
   };
 }
+
+/* One plain-Hebrew name per field fbContext() sends. The privacy policy says these are "shown to
+   you in the form before sending", and for a while that was true of three of them: the screen,
+   the language and the build. The device string and the window size were collected and not
+   mentioned. Both are genuinely needed — a fault that only happens on an iPhone looks nothing
+   like the same fault on a desktop — so the answer was to name them, not to stop sending them.
+   The map is keyed by the payload's own keys and the sentence is built by walking the payload,
+   so adding a field to fbContext() without a label here cannot hide it: the raw key shows up in
+   the line, ugly and visible, instead of quietly going undisclosed. */
+const FB_CTX_LABELS={
+  screen:'המסך שהיית בו',
+  lang:'שפת התרגול',
+  build:'גרסת האפליקציה',
+  level:'הרמה שלך',
+  standalone:'אם פתחת כאפליקציה מותקנת',
+  viewport:'גודל החלון',
+  ua:'סוג הדפדפן והמכשיר'
+};
+function fbCtxSentence(ctx){
+  const parts=Object.keys(ctx).map(k=>FB_CTX_LABELS[k]||k);
+  const last=parts.pop();
+  return 'נשלח יחד עם הדיווח: '+parts.join(', ')+', ו'+last+'.';
+}
 function openFeedback(){
   fbKind='bug';
   $('#fbKinds').querySelectorAll('button').forEach(b=>b.classList.toggle('active', b.dataset.k==='bug'));
@@ -2973,10 +3025,12 @@ function openFeedback(){
      Fair question: `screen:results · lang:en · build:100 · 393×793` means nothing to her, and a
      form that shows you something you cannot understand reads as a form you might be breaking.
      It still travels with every report — it is what makes a report reproducible — it is just no
-     longer shown. One plain sentence takes its place, because silently attaching device details
-     would be worse than showing them. */
-  const c=fbContext();
-  $('#fbCtx').textContent=`נשלח יחד עם הדיווח: המסך שהיית בו, שפת התרגול וגרסת האפליקציה.`;
+     longer shown as raw values. One plain sentence takes its place, because silently attaching
+     device details would be worse than showing them.
+     The sentence that replaced it named three of the seven fields, which is how the privacy
+     policy came to promise a disclosure the form did not make. It is now GENERATED from the
+     payload, so the two cannot drift apart again. */
+  $('#fbCtx').textContent=fbCtxSentence(fbContext());
   show($('#fbAsk'));
   setTimeout(()=>$('#fbBody').focus(),60);
 }

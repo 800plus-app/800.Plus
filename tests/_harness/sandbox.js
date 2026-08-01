@@ -96,13 +96,13 @@ function loadApp(opts = {}) {
     /* ---- module-level state of app.js, seeded to its post-boot shape ----
      * These are the `let`s the lifted functions close over. When app.js gains a new one, the
      * lifted function throws `ReferenceError: <name> is not defined` naming it exactly — add it
-     * here. (That is not hypothetical: `committedKeys` and `sessionRowIdx` arrived this way.) */
+     * here. (That is not hypothetical: `committedKeys` and `sessionRowId` arrived this way.) */
     LANG: lang,
     PREVIEW: false,
     assoc: {}, stats: { words: {}, sessions: [] }, deleted: new Set(), added: [], direction: 'm2w',
     BANK: [],
     session: new Map(), sessionScope: 'global', sessionMode: 'all', committed: false,
-    committedKeys: new Set(), sessionRowIdx: -1,
+    committedKeys: new Set(), sessionRowId: null,
     isRetryRound: false,
     currentUser: null,
 
@@ -161,7 +161,7 @@ function startRound(ctx, { scope = 'global', mode = 'all', retry = false } = {})
   ctx.session = new Map();
   ctx.committed = false;
   ctx.committedKeys = new Set();
-  ctx.sessionRowIdx = -1;
+  ctx.sessionRowId = null;
   ctx.sessionScope = scope;
   ctx.sessionMode = mode;
   ctx.isRetryRound = !!retry;
