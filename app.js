@@ -1037,7 +1037,21 @@ function finishCard(ok, skipped){
      <button class="del-live" id="delLive">🗑 אני מכיר את המילה — מחק מהמאגר</button>
      <div class="actions" style="margin-top:14px"><button class="btn btn-primary" id="nextBtn">${idx+1<deck.length?'הבא ←':'לסיכום'}</button></div>`;
   fb.classList.remove('hidden');
-  let shareKnown=false;          // has the share state been read back successfully?
+  /* The line above disabled #answerInput while it held the focus, and HTML says focus on an
+     element that becomes disabled falls back to <body>. Measured: 6 Tab presses to get from
+     <body> back to "הבא ←", every one of them passing over 🗑 "מחק מהמאגר" on the way — a
+     destructive control standing between the learner and the only way forward, 20 times a round.
+     WHY #nextBtn AND NOT #feedback: the usual advice is to focus the container of the new
+     content so it gets read. Here that buys nothing — #feedback is already role="status"
+     aria-live="polite", and the audit verified in Chromium that the verdict reaches the
+     accessibility tree through it whether or not focus is inside. So the verdict is spoken
+     either way, and the focus can go where it is actually useful: the one control that
+     continues the round. Tab count drops from 6 to 0, "בעצם ידעתי" and the delete button move
+     BEHIND the caret (Shift+Tab) instead of in front of it, and Enter-Enter becomes the whole
+     loop. Enter cannot skip the feedback by accident: the keydown that submitted the answer was
+     preventDefault-ed on the input (app.js, #answerInput keydown), so it never reaches here. */
+  $('#nextBtn').focus();
+  let shareKnown=false;        // has the share state been read back successfully?
   function persist(){ const el=$('#assocInput'); if(!el) return; const v=el.value.trim().slice(0,ASSOC_MAX); if(v)assoc[K(w.term)]=v; else delete assoc[K(w.term)]; saveAssoc(); }
   $('#assocSave').onclick=async()=>{
     /* persist() silently slices to ASSOC_MAX. Someone who wrote a long note was told "נשמר ✓"
