@@ -562,6 +562,23 @@
        padding:5px 13px;font-family:"Heebo";font-size:.78rem;color:var(--ink-soft)}
   .adm-acts button:hover{border-color:var(--gold);color:var(--ink)}
   /* admin toolbar — search / sort / filter */
+  /* the top request, as the top action */
+  .weak-cta{display:flex;align-items:center;gap:12px;width:100%;margin:14px 0 4px;
+       padding:16px 18px;border-radius:16px;cursor:pointer;text-align:start;
+       border:1px solid rgba(166,60,38,.28);
+       background:linear-gradient(135deg,#fffdf8,#fdf3ea 60%,#fbeade);
+       box-shadow:0 1px 2px rgba(120,84,48,.08),0 10px 22px -14px rgba(166,60,38,.5),
+                  inset 0 1px 0 rgba(255,255,255,.9);transition:.2s}
+  .weak-cta.hidden{display:none!important}
+  .weak-cta:hover{transform:translateY(-2px);border-color:rgba(166,60,38,.5)}
+  .wc-tx{flex:1;min-width:0}
+  .wc-tx b{display:block;font-family:"Frank Ruhl Libre",serif;font-size:1.12rem;
+       font-weight:900;color:var(--ink)}
+  .wc-tx span{display:block;margin-top:3px;font-size:.82rem;color:var(--ink-soft)}
+  .wc-go{flex:none;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;
+       justify-content:center;font-size:1.1rem;color:#fffdf8;
+       background:linear-gradient(180deg,#b8492e,#9d3520);
+       box-shadow:0 4px 12px -5px rgba(166,60,38,.7)}
   /* the morning glance — five numbers, above the list, before any scrolling */
   .adm-glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px;
        margin:2px 0 14px}
@@ -1133,6 +1150,14 @@
       <div class="totalpill" id="totalPill">—</div>
     </div>
 
+    <!-- The single most-requested thing in the survey (52 of 66): keep drilling the words I
+         keep getting wrong. It existed — כל המאגר ← מילים לחיזוק — but three taps deep, which
+         for the top request is the same as not existing. -->
+    <button class="weak-cta hidden" id="homeWeak">
+      <div class="wc-tx"><b>המילים שאתה עדיין מפספס</b><span id="homeWeakSub"></span></div>
+      <div class="wc-go">←</div>
+    </button>
+
     <div class="section-t">כיוון התרגול</div>
     <div class="seg" id="dirSegHome"></div>
 
@@ -1450,14 +1475,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=107"></script>
-<script src="config.js?v=107"></script>
-<script src="store.js?v=107"></script>
-<script src="leveltest-he.js?v=107"></script>
-  <script src="leveltest.js?v=107"></script>
-<script src="enrank.js?v=107"></script>
-<script src="data.js?v=107"></script>
-<script src="data-en.js?v=107"></script>
-<script src="app.js?v=107"></script>
+<script src="supabase.min.js?v=108"></script>
+<script src="config.js?v=108"></script>
+<script src="store.js?v=108"></script>
+<script src="leveltest-he.js?v=108"></script>
+  <script src="leveltest.js?v=108"></script>
+<script src="enrank.js?v=108"></script>
+<script src="data.js?v=108"></script>
+<script src="data-en.js?v=108"></script>
+<script src="app.js?v=108"></script>
 </body>
 </html>

@@ -665,6 +665,16 @@ function renderHome(){
   const total=BANK.length;
   const uniqTerms=new Set(BANK.map(w=>w.term)).size;
   $('#totalPill').textContent = `${total} מילים · ${uniqTerms} ייחודיות`;
+  /* Weak words across the WHOLE language, ignoring units — the survey's top request by a wide
+     margin. Hidden rather than shown empty: on day one nothing is weak yet, and an offer to
+     drill zero words is a worse first impression than no offer at all. */
+  const weakAll = weakCards('global');
+  const cta = $('#homeWeak');
+  if(cta){
+    cta.classList.toggle('hidden', weakAll.length < 4);
+    $('#homeWeakSub').textContent =
+      `${weakAll.length} מילים לחיזוק — מכל היחידות, בלי לבחור אחת`;
+  }
   renderDirSegs();
   const grid=$('#unitGrid'); grid.innerHTML='';
   UNIT_IDS.forEach(uid=>{
@@ -737,6 +747,13 @@ $('#pbAll').onclick     = ()=> startRound(allCards(curScope), curScope, 'all');
 // back the very same 20 words every round, which reads as "the app keeps repeating itself".
 // the list is built ONCE, up front, so the sheet can show its size and the callback caps the
 // very same list — building it twice would let a background sync change it in between
+// same round as כל המאגר ← מילים לחיזוק, minus the two taps in between
+$('#homeWeak').onclick = ()=>{
+  curScope='global';
+  const l=weakCards('global');
+  if(!l.length){ toast('אין כרגע מילים לחיזוק — תרגל סבב ונראה'); return; }
+  askSize(l.length, n=> startRound(capSampled(l,n), 'global', 'weak'));
+};
 $('#pbWeak').onclick    = ()=>{ const l=weakCards(curScope);    askSize(l.length, n=> startRound(capSampled(l,n), curScope, 'weak')); };
 $('#pbNew').onclick     = ()=>{ const l=newCards(curScope);     askSize(l.length, n=> startRound(cap(shuffle(l),n), curScope, 'new')); };
 $('#pbLearned').onclick = ()=>{ const l=learnedCards(curScope); askSize(l.length, n=> startRound(cap(shuffle(l),n), curScope, 'learned')); };
