@@ -4,7 +4,7 @@
 צריך שתיצור את המאגר ב-GitHub (פעולה שדורשת אישור אנושי, לכן לא עשיתי אותה לבד).
 
 ## אפשרות א — הכי מהיר (שורת פקודה)
-ב-PowerShell רגיל, בתוך התיקייה `C:\Users\03hag\Claude projects\hebrew-words`:
+ב-PowerShell רגיל, בתוך התיקייה `C:\Users\03hag\Claude projects\800+`:
 
 ```powershell
 gh repo create milim --public --source=. --remote=origin --push
