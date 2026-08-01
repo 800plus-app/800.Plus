@@ -664,10 +664,18 @@ function countUpIntro(){
 function renderHome(){
   const total=BANK.length;
   const uniqTerms=new Set(BANK.map(w=>w.term)).size;
-  $('#totalPill').textContent = `${total} מילים · ${uniqTerms} ייחודיות`;
+  /* Was `1717 מילים · 1717 ייחודיות` — the same number twice, and "ייחודיות" explains nothing
+     to someone who has just arrived. The second half only ever differs when a duplicate slips
+     in, which is a thing for ME to see, not the learner. What they want to know is how much of
+     it is theirs. */
+  const done = classify('global');
+  $('#totalPill').textContent = done.strong
+    ? `${done.strong} מתוך ${total} מילים כבר בשליטה`
+    : `${total} מילים · עוד לא התחלת`;
   /* Weak words across the WHOLE language, ignoring units — the survey's top request by a wide
      margin. Hidden rather than shown empty: on day one nothing is weak yet, and an offer to
      drill zero words is a worse first impression than no offer at all. */
+  renderExamPill();
   const weakAll = weakCards('global');
   const cta = $('#homeWeak');
   if(cta){
@@ -1080,7 +1088,9 @@ function renderUnitProgress(){
 
   host.innerHTML=`
     <div class="up-card">
-      <div class="up-top"><b>${esc(title)}</b><span>${met} מתוך ${c.total} מילים פגשת</span></div>
+      <div class="up-top"><b>${esc(title)}</b><span>${met
+        ? `${met} מתוך ${c.total} מילים פגשת`
+        : `טרם התחלת · ${c.total} מילים`}</span></div>
       <div class="up-bar">
         <i class="s" style="width:${pct(c.strong)}%"></i>
         <i class="w" style="width:${pct(c.weak)}%"></i>
@@ -2540,7 +2550,9 @@ function collectExtras(lang){
     const k=localStorage.key(i);
     if(k && k.startsWith(pre)) exams[k.slice(pre.length)]=LS.get(k,[]);
   }
-  return { level:LS.get(levelKeyFor(lang),null), size:LS.get(sizeKeyFor(lang),null), exams };
+  // exam is per PERSON, not per language — it rides both rows and whichever syncs first wins
+  return { level:LS.get(levelKeyFor(lang),null), size:LS.get(sizeKeyFor(lang),null), exams,
+           exam:LS.get(EXAM_KEY,null) };
 }
 /* Same rule as mergeProgress: additive only. A local value already present is never replaced,
    so a device that is ahead can't be pulled backwards by an older row. */
@@ -2548,6 +2560,7 @@ function applyExtras(lang, ex){
   if(!isObj(ex)) return;
   if(ex.level && !LS.get(levelKeyFor(lang),null)) LS.set(levelKeyFor(lang), ex.level);
   if(ex.size!=null && LS.get(sizeKeyFor(lang),null)==null) LS.set(sizeKeyFor(lang), ex.size);
+  if(ex.exam && !LS.get(EXAM_KEY,null)) LS.set(EXAM_KEY, ex.exam);
   if(!isObj(ex.exams)) return;
   const pre=examPreFor(lang);
   for(const u of Object.keys(ex.exams)){
@@ -3141,6 +3154,7 @@ async function openAccount(){
   $('#accInstall').classList.toggle('hidden', isStandalone() || LS.get('hw_installed',0)===1);
   renderAccNotif();
   renderAccProgress();
+  renderAccExam();
   goto('account');
   try{
     const p=await Store.myProfile();
@@ -3154,6 +3168,50 @@ async function openAccount(){
 $('#userBadge2').onclick = openAccount;
 $('#userBadge3').onclick = openAccount;
 $('#accBack').onclick = ()=>{ if(LANG==='he'||LANG==='en') goto('home'); else { renderWelcome(); goto('welcome'); } };
+/* ===== the exam date =====
+   Stored per ACCOUNT, not per language — a person sits one psychometric exam. Kept in the
+   extras blob so it rides the existing cross-device sync instead of needing a column. */
+const EXAM_KEY='hw_examDate';
+const examDays = ()=>{
+  const v=LS.get(EXAM_KEY,'');
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(v)) return null;
+  const [y,m,d]=v.split('-').map(Number);
+  const t=new Date(y,m-1,d).setHours(23,59,59,999);
+  return { date:v, days: Math.ceil((t-Date.now())/864e5) };
+};
+function renderAccExam(){
+  const inp=$('#accExam'), sub=$('#accExamSub');
+  if(!inp) return;
+  const e=examDays();
+  inp.value = e ? e.date : '';
+  const today=new Date();
+  inp.min = today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'
+          + String(today.getDate()).padStart(2,'0');
+  sub.textContent = !e ? 'נוסיף ספירה לאחור למסך הבית'
+    : e.days > 0 ? `נשארו ${e.days} ימים`
+    : e.days === 0 ? 'המבחן היום. בהצלחה.'
+    : 'התאריך עבר — אפשר לעדכן למועד הבא';
+}
+$('#accExam').onchange = ()=>{
+  const v=$('#accExam').value;
+  if(v) LS.set(EXAM_KEY, v); else LS.del(EXAM_KEY);
+  renderAccExam();
+  if(typeof flushRemoteSync==='function') flushRemoteSync();
+};
+/* On the home screen: the number, and what is still untouched next to it. A countdown on its
+   own is pressure; a countdown beside the work left is a plan. */
+function renderExamPill(){
+  const host=$('#examPill'); if(!host) return;
+  const e=examDays();
+  if(!e || e.days < 0 || e.days > 400){ host.classList.add('hidden'); return; }
+  const c=classify('global');
+  const left=c.fresh+c.weak;
+  host.innerHTML = e.days===0
+    ? `<b>היום</b><span>המבחן היום. <em>בהצלחה.</em></span>`
+    : `<b>${e.days}</b><span>ימים למבחן · <em>${left}</em> מילים עוד לא יושבות`
+      + (e.days>0 ? ` · <em>${Math.ceil(left/e.days)}</em> ביום וסיימת` : '') + `</span>`;
+  host.classList.remove('hidden');
+}
 $('#accAdmin').onclick = ()=>openAdmin();
 $('#accInstall').onclick = ()=>promptInstall(true);
 
