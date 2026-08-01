@@ -37,7 +37,7 @@ const assert = require('node:assert');
 const fs = require('fs');
 const vm = require('vm');
 const path = require('path');
-const { loadApp, startRound, answerCard, practiseRound, plain, expectNone, ROOT } = require('./_harness/sandbox.js');
+const { loadApp, startRound, answerCard, practiseRound, plain, ROOT } = require('./_harness/sandbox.js');
 const { extractAll } = require('./_harness/extract.js');
 
 const DAY = 86400000;
@@ -435,51 +435,72 @@ describe('day boundaries — the streak', () => {
       '27 March never appears — one subtraction jumps clean over it');
   });
 
-  test('BUG: practising on the DST day and opening the app at 00:30 that night reads as no streak', () => {
+  test('practising on the DST day and opening the app at 00:30 that night keeps the streak', () => {
     const ctx = loadTime();
     withDays(ctx, [at(2026, 3, 27, 20)]);                    // practised on the 27th
     ctx.at(at(2026, 3, 28, 0, 30));
     const s = plain(ctx.streakInfo());
     assert.strictEqual(s.total, 1, 'the round IS in the log');
-    assert.strictEqual(s.n, 0, 'and the streak still reads zero');
-    expectNone(assert, s.week.filter(d => d.on).map(d => d.label),
-      'the seven-day strip shows no practice at all in the last week:');
-    // …and an hour and a half later, with no new data, the same call is right again
+    assert.strictEqual(s.n, 1, 'and the streak counts it');
+    assert.deepStrictEqual(s.week.filter(d => d.on).map(d => d.label), ['ו'],
+      'the seven-day strip shows the Friday that was practised');
+    // …and the answer does not change with the hour, which is what the bug used to do
     ctx.at(at(2026, 3, 28, 9, 0));
-    assert.strictEqual(plain(ctx.streakInfo()).n, 1, 'the bug window is 00:00–01:00 local, once a year');
+    assert.strictEqual(plain(ctx.streakInfo()).n, 1, 'same answer at 09:00 as at 00:30');
   });
 
-  test('BUG: DST spring-forward loses a day out of the middle of a running streak', () => {
+  test('DST spring-forward does not lose a day out of the middle of a running streak', () => {
     const ctx = loadTime();
     withDays(ctx, [at(2026, 3, 26, 20), at(2026, 3, 27, 20)]);
     ctx.at(at(2026, 3, 28, 0, 30));
-    assert.strictEqual(plain(ctx.streakInfo()).n, 1, 'two consecutive days read as one');
+    assert.strictEqual(plain(ctx.streakInfo()).n, 2, 'two consecutive days read as two');
     ctx.at(at(2026, 3, 28, 9, 0));
-    assert.strictEqual(plain(ctx.streakInfo()).n, 2);
+    assert.strictEqual(plain(ctx.streakInfo()).n, 2, 'and still two once the hour has passed');
   });
 
-  test('BUG: DST fall-back counts one day twice and reports a streak one too long', () => {
+  test('DST fall-back does not count the 25-hour day twice', () => {
     const ctx = loadTime();
     // Israel 2026: clocks go 02:00 → 01:00 on Sunday 25 October. That day is 25 hours long.
     withDays(ctx, [at(2026, 10, 23, 20), at(2026, 10, 24, 20), at(2026, 10, 25, 20)]);
     ctx.at(at(2026, 10, 25, 23, 30));
     const s = plain(ctx.streakInfo());
     assert.strictEqual(s.total, 3, 'three distinct days were practised');
-    assert.strictEqual(s.n, 4, 'the streak claims four');
+    assert.strictEqual(s.n, 3, 'and the streak says three');
   });
 
-  test('BUG: the seven-day strip repeats a weekday on the fall-back day', () => {
+  test('the seven-day strip shows seven distinct weekdays on the fall-back day', () => {
     const ctx = loadTime();
     withDays(ctx, [at(2026, 10, 25, 20)]);
     ctx.at(at(2026, 10, 25, 23, 30));
     const labels = plain(ctx.streakInfo()).week.map(d => d.label);
     assert.strictEqual(labels.length, 7);
-    assert.strictEqual(new Set(labels).size, 6, 'seven bars, six distinct weekdays');
+    assert.strictEqual(new Set(labels).size, 7, 'seven bars, seven distinct weekdays');
+    assert.strictEqual(labels[6], 'א', 'and the last one is the Sunday the clock went back on');
   });
 
-  /* The fix is to step by CALENDAR days instead of by 86,400,000ms — build the previous day with
-     `new Date(y, m, d - i)` and read dayKey off that. It is a three-line change in streakInfo. */
-  test.skip('the streak should step by calendar days, not by fixed 24-hour blocks', () => {
+  test('the streak walks calendar days across BOTH transitions, hour by hour', () => {
+    const ctx = loadTime();
+    /* The bug had a one-hour window: 00:30 gave one answer and 09:00 another, from the same
+       data. Pinning several hours of the same day makes that class of failure visible again
+       rather than only the single hour that happened to be picked. */
+    for (const h of [0, 1, 3, 12, 23]) {
+      const ctxH = loadTime();
+      withDays(ctxH, [at(2026, 3, 26, 20), at(2026, 3, 27, 20), at(2026, 3, 28, 10)]);
+      ctxH.at(at(2026, 3, 28, h, 30));
+      assert.strictEqual(plain(ctxH.streakInfo()).n, 3, 'spring-forward at ' + h + ':30');
+    }
+    for (const h of [0, 1, 2, 12, 23]) {
+      const ctxH = loadTime();
+      withDays(ctxH, [at(2026, 10, 23, 20), at(2026, 10, 24, 20), at(2026, 10, 25, 19)]);
+      ctxH.at(at(2026, 10, 25, h, 30));
+      assert.strictEqual(plain(ctxH.streakInfo()).n, 3, 'fall-back at ' + h + ':30');
+    }
+    void ctx;
+  });
+
+  /* The fix steps by CALENDAR days instead of by 86,400,000ms: a Date anchored at midday and
+     walked back with setDate(), which knows about the transition. Three lines in streakInfo. */
+  test('the streak steps by calendar days, not by fixed 24-hour blocks', () => {
     const ctx = loadTime();
     ctx.LS.set('hw_stats', { words: {}, sessions: [{ t: at(2026, 3, 26, 20) }, { t: at(2026, 3, 27, 20) }] });
     ctx.LS.set('hw_stats_en', { words: {}, sessions: [] });
