@@ -97,10 +97,35 @@ describe('sw — the worker only ever touches its own origin', () => {
 describe('sw — the rest of the file still agrees with itself', () => {
   /* REV names both the cache and every ?v= string. These two have drifted before, and the failure
    * is invisible online and a white screen offline. */
+  const REV = (src.match(/const REV\s*=\s*'([^']+)'/) || [])[1];
+
   test('every ?v= in sw.js matches REV', () => {
-    const rev = (src.match(/const REV\s*=\s*'([^']+)'/) || [])[1];
-    assert.ok(rev, 'REV is no longer a simple string literal in sw.js');
-    const bad = [...src.matchAll(/\?v=(\d+)/g)].map(m => m[1]).filter(v => v !== rev);
-    assert.deepStrictEqual(bad, [], `hardcoded ?v= values that do not match REV=${rev}`);
+    assert.ok(REV, 'REV is no longer a simple string literal in sw.js');
+    const bad = [...src.matchAll(/\?v=(\d+)/g)].map(m => m[1]).filter(v => v !== REV);
+    assert.deepStrictEqual(bad, [], `hardcoded ?v= values that do not match REV=${REV}`);
+  });
+
+  /* THE DRIFT THAT IS INVISIBLE ONLINE AND A WHITE SCREEN OFFLINE.
+   * sw.js precaches `./app.js?v=${REV}`; index.html requests `./app.js?v=NNN` written by hand.
+   * When those disagree the browser fetches the uncached URL from the network and everything
+   * looks fine — until the user is offline, when the request misses the cache entirely and the
+   * app loads a shell with no scripts. version.sh checks this, but only for app.js and only
+   * against the live site; this checks EVERY asset, locally, on every run. */
+  test('every ?v= in index.html matches sw.js REV', () => {
+    const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+    const found = [...html.matchAll(/\?v=(\d+)/g)].map(m => m[1]);
+    assert.ok(found.length > 0, 'index.html no longer version-stamps anything — is the cache-bust gone?');
+    assert.deepStrictEqual([...new Set(found)].filter(v => v !== REV), [],
+      `index.html asks for versions sw.js does not precache (REV=${REV}). Online this is ` +
+      `invisible; offline it is a blank screen.`);
+  });
+
+  test('every precached asset actually exists on disk', () => {
+    // a precache entry for a file that is not there fails the install, and only for the users
+    // whose connection made the install matter in the first place
+    const missing = [...src.matchAll(/'\.\/([^']+?)(?:\?v=\$\{REV\})?'/g)]
+      .map(m => m[1]).filter(f => f && !f.startsWith('#'))
+      .filter(f => !fs.existsSync(path.join(ROOT, f)));
+    assert.deepStrictEqual(missing, [], 'sw.js precaches files that do not exist');
   });
 });

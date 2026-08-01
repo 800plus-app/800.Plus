@@ -2,7 +2,7 @@
    ONE place to bump on every deploy: REV. It names the cache *and* the asset query strings,
    so the URLs precached here are byte-for-byte the URLs index.html requests. When those drift
    apart the app silently keeps serving an old build — which is exactly what used to happen. */
-const REV = '116';
+const REV = '117';
 const V = 'hw-v' + REV;
 /* App DATA must not live in a versioned cache. The personalised reminder text was written into
    hw-v<REV>, so the next deploy deleted it along with the assets — and it was never rewritten,
