@@ -53,7 +53,28 @@ self.addEventListener('activate', e => {
   );
 });
 
-const cacheable = res => res && res.status === 200 && (res.type === 'basic' || res.type === 'cors');
+/* The one question this worker must get right: is this a request it has any business touching?
+ *
+ * It used to ask only "is it a GET over http(s)", which meant every authenticated call to
+ * Supabase was cached and replayed. The cache key is the URL — the Authorization header is not
+ * part of it, and the responses carry no `Vary` — so a read by one signed-in user was served to
+ * the next. `GET /auth/v1/user` is the same URL for everybody.
+ *
+ * The rule is `origin`, not a list of paths like `/rest/v1/`. A path list is a list somebody has
+ * to remember to update; the origin is the actual boundary. This worker exists to serve OUR
+ * assets offline, and that is exactly what same-origin means. It is also read from the origin the
+ * worker is running on rather than a hardcoded domain, so the rule holds on localhost too — a
+ * rule that only works in production is a rule nobody can check before deploying. */
+function swHandles(url, origin) {
+  if (url.protocol !== 'http:' && url.protocol !== 'https:') return false;  // extension, data:, blob:
+  if (url.origin !== origin) return false;                                  // scheme+host+port, all three
+  return true;
+}
+
+/* 'cors' is deliberately gone. With swHandles in place a cross-origin response can no longer
+   reach this line, so dropping it changes nothing today — it is here so that if someone ever
+   loosens the origin rule, the second gate still refuses to store another host's reply. */
+const cacheable = res => res && res.status === 200 && res.type === 'basic';
 
 self.addEventListener('fetch', e => {
   const req = e.request;
@@ -61,7 +82,7 @@ self.addEventListener('fetch', e => {
 
   let url;
   try { url = new URL(req.url); } catch (_) { return; }
-  if (url.protocol !== 'http:' && url.protocol !== 'https:') return;   // never touch extension schemes
+  if (!swHandles(url, self.location.origin)) return;   // another host's reply is never ours to keep
 
   // A cache-busting probe must never be stored: renderBuildTag() asks for index.html with a
   // fresh ?probe= every render, and each one used to become its own permanent cache entry.
