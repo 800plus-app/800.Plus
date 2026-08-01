@@ -2622,6 +2622,11 @@ async function flushRemoteSync(){
          built from exactly those two. syncWithRemoteInner rebuilds; this path never did — and
          since commitSession now flushes at the end of EVERY round, it is the common path.
          A word deleted on the phone stayed in the deck on the laptop until the next reload. */
+      /* Prune AFTER the merge, exactly as syncWithRemoteInner does (app.js:2766) — this path had
+         no prune at all, and it is the COMMON one: commitSession flushes at the end of every
+         round. The merge is max-based, so every orphan the cloud still holds came straight back
+         and was pushed out again by the write below, which is what made them immortal. */
+      pruneOrphans();
       buildBank();
       if(!$('#home').classList.contains('hidden')) renderHome();
       /* mergeProgress covers stats/assoc/deleted/added — it knows nothing about extras. Without
@@ -2630,17 +2635,23 @@ async function flushRemoteSync(){
       applyExtras(lang, res.data.extras);
     }
   }
-  /* Cleared here and nowhere earlier. Clearing it at the top meant that a flush which bailed
-     out — no language chosen yet, or a read that failed — threw the pending save away, and
-     nothing ever retried it. Every early return above now leaves the save queued.
-     Awaited, not fire-and-forget: signOutNow calls this and then runs localStorage.clear(),
-     so returning before the write lands would erase the only other copy of the session. */
-  syncPending=false;
+  /* THE WRITE, AND WHY ITS RESULT IS READ
+     Store.pushProgress reports a refused write by RETURNING false, not by throwing (store.js:64).
+     This used to `await` it inside a try/catch and `return true` regardless, so only a thrown
+     error counted as failure — and a network error, an RLS refusal or an expired token all
+     return false. signOutNow (app.js:3132) reads that answer and runs localStorage.clear() on
+     it, erasing the only remaining copy of everything done since the last good sync. One word.
+
+     syncPending is cleared only once the write has actually landed. Clearing it before the
+     write — as this did — meant the one failure that can still lose data was also the one
+     failure nothing ever retried. Every path that returns false now leaves the save queued. */
+  let ok=false;
   try{
-    await Store.pushProgress(lang, {assoc, stats, deleted:[...deleted], added, dir:direction,
-                                    extras:collectExtras(lang)});
-    return true;
-  }catch(e){ return false; }
+    ok = await Store.pushProgress(lang, {assoc, stats, deleted:[...deleted], added, dir:direction,
+                                         extras:collectExtras(lang)}) === true;
+  }catch(e){ ok=false; }
+  if(ok) syncPending=false;
+  return ok;
 }
 /* 1,500ms was shorter than the gap between two answers, so every single answer produced a full
    round trip — and pushProgress is a whole-row upsert preceded by a whole-row read. A learner
