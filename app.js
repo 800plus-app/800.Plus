@@ -1915,7 +1915,10 @@ $('#lvDunno').onclick=()=>{
   lvAns.push({band:it.band, ok:false});
   $('#lvOpts').querySelectorAll('button').forEach(b=>{ b.disabled=true; if(b.textContent===it.a) b.classList.add('right'); });
   $('#lvDunno').disabled=true;
-  setTimeout(()=>{ lvIdx++; lvRender(); }, 900);
+  /* Store the id, exactly like lvPick() above: an unstored timer is a timer nothing can cancel.
+     clearTimeout(lvTimer) in #lvExit is the only thing standing between "left the test" and a
+     tick that walks into lvFinish() and writes hw_level — see app.js:2445-2448. */
+  lvTimer=setTimeout(()=>{ lvIdx++; lvRender(); }, 900);
 };
 
 /* The level is the highest band that cleared 5/6 — nothing is inferred from bands we
@@ -2085,7 +2088,11 @@ const lvStart = lang => { LV_LANG=lang;
 const lvBtn=$('#lvOpen');     if(lvBtn) lvBtn.onclick=()=>lvStart('en');
 const lvBtnHe=$('#lvOpenHe'); if(lvBtnHe) lvBtnHe.onclick=()=>lvStart('he');
 $('#lvSkip').onclick=()=>{ LS.set(lvKey(),'skipped'); renderWelcome(); };
-$('#lvExit').onclick=()=>{ if(confirm('לצאת מהמבחן? התוצאות לא יישמרו.')){ clearTimeout(lvTimer); renderWelcome(); } };
+/* ✕ יציאה יושב ב-topbar, מחוץ ל-#lvQuiz — כלומר הוא על המסך גם אחרי ש-lvFinish() כבר
+   כתב את הרמה ודחף אותה לענן. "התוצאות לא יישמרו" היה שקר בדיוק ברגע שבו הלומד הכי צריך
+   לסמוך על המשפט. הנוסח כאן אומר את הכלל עצמו, ולכן הוא נכון משלושת המסכים: מסך הפתיחה,
+   אמצע המבחן, ומסך התוצאות. */
+$('#lvExit').onclick=()=>{ if(confirm('לצאת ממבחן הרמה? רק מבחן שהושלם נשמר — מבחן שנעצר באמצע יתחיל מחדש בפעם הבאה.')){ clearTimeout(lvTimer); renderWelcome(); } };
 $('#lvDone').onclick=()=>renderWelcome();
 
 /* ===== הקראה קולית =====
@@ -2447,7 +2454,11 @@ $('#exDone').onclick=()=>openScope('unit:'+exUnit);
    and save the score anyway — and in the level test it wrote hw_level, which is the gate that
    decides whether the test is ever offered again. */
 let exTimer=null, lvTimer=null;
-$('#exExit').onclick=()=>{ if(!exAns.length || confirm('לצאת מהמבחן? התוצאה לא תישמר.')){ clearTimeout(exTimer); openScope('unit:'+exUnit); } };
+/* אותו דבר כאן: ✕ יציאה ב-topbar, מחוץ ל-#exQuiz, ולכן הוא נלחץ גם ממסך התוצאות —
+   ושם exFinish() כבר הוסיף את הציון ל-exKey() וקרא ל-queueRemoteSync(). התנאי
+   !exAns.length מדלג על השאלה כשאין מה לאבד, אבל ממסך התוצאות יש תשובות, ולכן הוא לא
+   הציל מהמשפט השקרי. */
+$('#exExit').onclick=()=>{ if(!exAns.length || confirm('לצאת מהמבחן? רק מבחן שהושלם נכנס להיסטוריית הציונים — מבחן שנעצר באמצע יתחיל מחדש בפעם הבאה.')){ clearTimeout(exTimer); openScope('unit:'+exUnit); } };
 
 /* ===== printable sheet =====
    No PDF library: the CSP allows scripts from this origin only, and pulling in a bundler-sized
