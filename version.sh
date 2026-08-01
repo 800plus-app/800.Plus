@@ -15,8 +15,17 @@ AHEAD=$(git rev-list --count @{u}..HEAD 2>/dev/null || echo '?')
 LIVE_V=$(curl -sS -H 'Cache-Control: no-cache' -H 'Pragma: no-cache' \
          "https://800-plus.com/index.html?probe=$RANDOM$(date +%s)" \
          | grep -oE 'app\.js\?v=[0-9]+' | head -1 | grep -oE '[0-9]+')
-LIVE_SHA=$(gh api repos/Hagay-BOT/milim/pages/builds/latest --jq '.commit' 2>/dev/null | cut -c1-7)
-LIVE_ST=$(gh api repos/Hagay-BOT/milim/pages/builds/latest --jq '.status' 2>/dev/null)
+# The repo is DERIVED from the remote, not hardcoded. It used to say Hagay-BOT/milim — a repo
+# this project no longer lives in — and because both calls swallow stderr, the live-SHA check
+# simply returned empty and nobody noticed. A check that reports nothing looks exactly like a
+# check that found nothing wrong.
+REPO=$(git remote get-url origin 2>/dev/null | sed -E 's#.*github\.com[:/]##; s#\.git$##')
+if [ -z "$REPO" ]; then echo "⚠ אין remote בשם origin — דילוג על בדיקת מה שבאוויר"; fi
+LIVE_SHA=$(gh api "repos/$REPO/pages/builds/latest" --jq '.commit' 2>/dev/null | cut -c1-7)
+LIVE_ST=$(gh api "repos/$REPO/pages/builds/latest" --jq '.status' 2>/dev/null)
+if [ -z "$LIVE_SHA" ] && [ -n "$REPO" ]; then
+  echo "⚠ לא התקבלה תשובה מ-GitHub על $REPO — הבדיקה מול מה שבאוויר לא רצה"
+fi
 
 echo
 echo "  ┌─ מקומי ────────────────────────────────"
