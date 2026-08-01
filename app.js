@@ -1714,11 +1714,16 @@ function langSummary(lang){
      of "מילים חדשות", but it was never practised here and must NOT be counted as learned —
      that is what made the dashboard jump by thousands after one placement test and report a
      number nobody had earned. */
-  let learned=0, practised=0;
+  let learned=0, practised=0, weak=0, skipped=0;
   keys.forEach(k=>{ const r=words[k]; if(!isObj(r)) return;
-    if(int0(r.seen)>0 && r.src!=='lv') practised++;
-    if(int0(r.level)>=3 && r.src!=='lv') learned++; });
-  return {total:keys.size, learned, practised, pct: keys.size? Math.round(100*learned/keys.size):0};
+    if(r.src==='lv'){ skipped++; return; }
+    if(int0(r.seen)>0) practised++;
+    if(int0(r.level)>=3) learned++;
+    else if(int0(r.seen)>0) weak++;      // met, not yet solid — the same rule classify() uses
+  });
+  return {total:keys.size, learned, practised, weak, skipped,
+          fresh: Math.max(0, keys.size-practised-skipped),
+          pct: keys.size? Math.round(100*learned/keys.size):0};
 }
 /* ===== streak =====
    Derived from the session log rather than a counter of its own, so it can't drift out of
@@ -3155,24 +3160,59 @@ $('#accInstall').onclick = ()=>promptInstall(true);
 /* Where am I — answered on the settings page, not only inside a language. Hidden entirely when
    no language has been entered yet: zeros across the board on a first visit read as a broken
    screen, not as a starting point. */
+/* A ring per language, not one strip for whichever language happens to be open.
+   The old version read classify('global'), which only ever sees the ACTIVE language — so
+   someone who had learned 244 Hebrew words and 300 English ones was shown 244 and no hint
+   that the other half existed. Both are always drawn now, and the one you are not in is
+   still a live button into it.
+
+   SVG and not a div-bar: the arc has to show three quantities at once (solid, working,
+   untouched) and stay legible at 120px on a phone. A stroke-dasharray on two concentric
+   circles does that in eight lines and animates for free. */
+function langRing(lang, s, active){
+  const R=52, C=2*Math.PI*R;
+  const solid = s.total? s.learned/s.total : 0;
+  const met   = s.total? (s.learned+s.weak)/s.total : 0;
+  const name  = lang==='en' ? 'אנגלית' : 'עברית';
+  const pct   = Math.round(solid*100);
+  return `<button class="lp-card${active?' on':''}" data-lang="${lang}">
+    <div class="lp-ring">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <circle class="lp-bg" cx="60" cy="60" r="${R}"/>
+        <circle class="lp-met" cx="60" cy="60" r="${R}"
+                stroke-dasharray="${(met*C).toFixed(1)} ${C.toFixed(1)}"/>
+        <circle class="lp-sol" cx="60" cy="60" r="${R}"
+                stroke-dasharray="${(solid*C).toFixed(1)} ${C.toFixed(1)}"/>
+      </svg>
+      <div class="lp-mid"><b>${pct}<i>%</i></b><span>${name}</span></div>
+    </div>
+    <div class="lp-legend">
+      <span><i class="s"></i>${s.learned} בשליטה</span>
+      <span><i class="w"></i>${s.weak} לחיזוק</span>
+      <span><i class="n"></i>${s.fresh} לא פגשת</span>
+    </div>
+    <div class="lp-foot">${s.total} מילים${active?' · אתה כאן':' · לחץ למעבר'}</div>
+  </button>`;
+}
 function renderAccProgress(){
   const host=$('#accProg'); if(!host) return;
-  if(LANG!=='he' && LANG!=='en'){ host.classList.add('hidden'); host.innerHTML=''; return; }
-  const c=classify('global');
-  if(!c.total){ host.classList.add('hidden'); host.innerHTML=''; return; }
-  const met=c.strong+c.weak;
-  const streak=streakInfo();
-  const cell=(n,label)=>`<div><b>${n}</b><span>${label}</span></div>`;
-  // "40 / 1717" in one cell breaks under bidi — the slash flips and it reads as 1717/40.
-  // Two numbers, two cells, no punctuation to reorder.
+  const he=langSummary('he'), en=langSummary('en');
+  if(!he.total && !en.total){ host.classList.add('hidden'); host.innerHTML=''; return; }
+  const st=streakInfo();
+  const days = st.week.map(d=>`<i class="${d.on?'on':''}${d.today?' today':''}"><em>${d.label}</em></i>`).join('');
   host.innerHTML =
-    cell(c.strong,'בשליטה') + cell(c.weak,'לחיזוק') +
-    cell(met,`פגשת מתוך ${c.total}`) +
-    cell(streak.n||0,'ימים ברצף');   // .n, not .current — the latter is undefined and prints 0 forever
+    `<div class="lp-grid">${langRing('he',he,LANG==='he')}${langRing('en',en,LANG==='en')}</div>` +
+    `<div class="lp-streak"><b>${st.n||0}</b><span>ימים ברצף</span><div class="lp-week">${days}</div></div>`;
   host.classList.remove('hidden');
+  host.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{
+    const l=b.dataset.lang;
+    if(l===LANG){ goto('home'); return; }
+    enterLang(l);
+  });
+  const weak = (LANG==='en'?en:he).weak;
   const sub=$('#accSheetSub');
-  if(sub) sub.textContent = c.weak>=8
-    ? `${c.weak} מילים לחיזוק מכל היחידות, כדף אחד להדפסה או ל-PDF`
+  if(sub) sub.textContent = weak>=8
+    ? `${weak} מילים לחיזוק מכל היחידות, כדף אחד להדפסה או ל-PDF`
     : 'צריך לפחות 8 מילים לחיזוק כדי לבנות דף';
 }
 

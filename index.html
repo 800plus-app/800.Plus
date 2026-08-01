@@ -562,14 +562,58 @@
        padding:5px 13px;font-family:"Heebo";font-size:.78rem;color:var(--ink-soft)}
   .adm-acts button:hover{border-color:var(--gold);color:var(--ink)}
   /* admin toolbar — search / sort / filter */
-  .acc-prog{display:grid;grid-template-columns:repeat(auto-fit,minmax(84px,1fr));gap:8px;
-       margin:6px 0 20px}
-  .acc-prog div{background:var(--card);border:1px solid var(--line);border-radius:12px;
-       padding:11px 8px;text-align:center}
-  .acc-prog b{display:block;font-family:"Frank Ruhl Libre",serif;font-size:1.45rem;
-       font-weight:900;color:var(--ink);line-height:1.1}
-  .acc-prog span{display:block;margin-top:3px;font-size:.72rem;color:var(--ink-soft)}
+  /* ===== progress, one ring per language =====
+     The ring carries three quantities at once: the filled arc is what is solid, the paler arc
+     behind it is everything met, and the track is the rest. Reading a percentage and a
+     breakdown off the same shape is the point — two numbers side by side do not say which
+     language is ahead, and a shape does it before you read a digit. */
+  .acc-prog{margin:6px 0 22px}
   .acc-prog.hidden{display:none!important}
+  .lp-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:330px){.lp-grid{grid-template-columns:1fr}}
+  .lp-card{display:block;width:100%;text-align:center;cursor:pointer;
+       background:var(--card);border:1px solid var(--line);border-radius:16px;
+       padding:16px 10px 13px;font-family:inherit;transition:.2s;
+       box-shadow:0 1px 2px rgba(120,84,48,.06)}
+  .lp-card:hover{transform:translateY(-2px);border-color:var(--gold)}
+  /* the language you are actually in */
+  .lp-card.on{border-color:var(--accent);
+       background:linear-gradient(180deg,#fffdf8,#fdf5ec);
+       box-shadow:0 1px 2px rgba(120,84,48,.08),0 10px 22px -14px rgba(166,60,38,.5)}
+  .lp-ring{position:relative;width:112px;height:112px;margin:0 auto}
+  .lp-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+  .lp-ring circle{fill:none;stroke-width:11;stroke-linecap:round}
+  .lp-bg{stroke:var(--paper-deep)}
+  .lp-met{stroke:var(--gold);opacity:.45;transition:stroke-dasharray .7s cubic-bezier(.2,.8,.2,1)}
+  .lp-sol{stroke:#4e8d55;transition:stroke-dasharray .7s cubic-bezier(.2,.8,.2,1) .1s}
+  .lp-mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+       justify-content:center;pointer-events:none}
+  .lp-mid b{font-family:"Frank Ruhl Libre",serif;font-size:1.75rem;font-weight:900;
+       color:var(--ink);line-height:1}
+  .lp-mid b i{font-style:normal;font-size:.85rem;color:var(--ink-soft);margin-inline-start:1px}
+  .lp-mid span{margin-top:2px;font-size:.74rem;color:var(--ink-soft)}
+  .lp-legend{margin-top:11px;display:flex;flex-direction:column;gap:3px;
+       font-size:.72rem;color:var(--ink-soft)}
+  .lp-legend span{display:flex;align-items:center;gap:5px;justify-content:center}
+  .lp-legend i{width:8px;height:8px;border-radius:50%;flex:none}
+  .lp-legend i.s{background:#4e8d55}
+  .lp-legend i.w{background:var(--gold)}
+  .lp-legend i.n{background:var(--paper-deep);border:1px solid var(--line)}
+  .lp-foot{margin-top:9px;padding-top:8px;border-top:1px solid var(--line);
+       font-size:.68rem;color:#a2968a}
+  /* the streak, under both — it belongs to the person, not to a language */
+  .lp-streak{margin-top:10px;display:flex;align-items:center;gap:10px;
+       background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+  .lp-streak b{font-family:"Frank Ruhl Libre",serif;font-size:1.5rem;font-weight:900;
+       color:var(--ink);line-height:1}
+  .lp-streak>span{font-size:.74rem;color:var(--ink-soft)}
+  .lp-week{margin-inline-start:auto;display:flex;gap:4px}
+  .lp-week i{width:17px;height:26px;border-radius:6px;background:var(--paper-deep);
+       display:flex;align-items:flex-end;justify-content:center;padding-bottom:2px}
+  .lp-week i.on{background:linear-gradient(180deg,var(--gold),var(--accent))}
+  .lp-week i.today{outline:2px solid var(--accent);outline-offset:1px}
+  .lp-week em{font-style:normal;font-size:.56rem;color:var(--ink-soft)}
+  .lp-week i.on em{color:#fffdf8}
   /* the top request, as the top action */
   .weak-cta{display:flex;align-items:center;gap:12px;width:100%;margin:14px 0 4px;
        padding:16px 18px;border-radius:16px;cursor:pointer;text-align:start;
@@ -1497,14 +1541,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=111"></script>
-<script src="config.js?v=111"></script>
-<script src="store.js?v=111"></script>
-<script src="leveltest-he.js?v=111"></script>
-  <script src="leveltest.js?v=111"></script>
-<script src="enrank.js?v=111"></script>
-<script src="data.js?v=111"></script>
-<script src="data-en.js?v=111"></script>
-<script src="app.js?v=111"></script>
+<script src="supabase.min.js?v=112"></script>
+<script src="config.js?v=112"></script>
+<script src="store.js?v=112"></script>
+<script src="leveltest-he.js?v=112"></script>
+  <script src="leveltest.js?v=112"></script>
+<script src="enrank.js?v=112"></script>
+<script src="data.js?v=112"></script>
+<script src="data-en.js?v=112"></script>
+<script src="app.js?v=112"></script>
 </body>
 </html>
