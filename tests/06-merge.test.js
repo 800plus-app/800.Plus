@@ -245,7 +245,10 @@ describe('merge — malformed input', () => {
   test('the direction falls back sensibly', () => {
     assert.strictEqual(merge(P({ dir: 'w2m' }), P({ dir: 'm2w' })).dir, 'w2m', 'local direction should win');
     assert.strictEqual(merge(P({ dir: null }), P({ dir: 'mixed' })).dir, 'mixed');
-    assert.strictEqual(merge(P({ dir: null }), P({ dir: null })).dir, 'm2w');
+    // asserted against the constant, not a literal: the default is a product decision that has
+    // moved once already (m2w → w2m) and a hardcoded copy here would have to move with it
+    assert.strictEqual(merge(P({ dir: null }), P({ dir: null })).dir, ctx.DEFAULT_DIR,
+      'with nothing saved on either side, the fallback is the app default');
   });
 
   test('a bad `added` row is skipped rather than stored', () => {

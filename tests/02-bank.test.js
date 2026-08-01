@@ -175,7 +175,35 @@ describe('Hebrew bank — one lexeme, one entry', () => {
    *
    * heForms is exactly the right instrument: it already knows which spellings are the same
    * word, because that is what it exists for. */
-  test('no two entries are reachable from each other through heForms', () => {
+  /* THE RULE (set by the owner, 1.8.2026): when one spelling carries two vocalisations with
+   * two meanings, both words belong in the bank and the NIQQUD is what tells them apart.
+   *
+   * So a collision is no longer automatically a fault. What decides is the VOWEL SEQUENCE:
+   *
+   *   עֹל /o/     vs עֹול /o/       same vowels → one word written twice → DUPLICATE
+   *   אִכּוּל /i,u/ vs אִיכּוּל /i,u/  same vowels → DUPLICATE
+   *   נֹגַהּ /o,a/  vs נוּגֶה /u,e/    different  → two real words → LEGAL
+   *
+   * Vowels, not the literal string, because plene spelling adds letters that carry no mark:
+   * the vav in עֹול and the yod in אִיכּוּל are maters, so both sides reduce to the same sound
+   * and the duplicate is caught. Dagesh is skipped as consonantal EXCEPT on vav, where it is
+   * the shuruq vowel — that single exception is what separates נוּגֶה from נֹגַהּ. */
+  const VOWEL = /[ְ-ׇֻ]/;
+  function vowels(term) {
+    const out = [];
+    const s = term.normalize('NFC');
+    for (let i = 0; i < s.length; i++) {
+      const c = s[i];
+      if (c === 'ּ') {                       // dagesh: a vowel only when it sits in a vav
+        if (s[i - 1] === 'ו' && !VOWEL.test(s[i + 1] || '')) out.push('u');
+        continue;
+      }
+      if (VOWEL.test(c)) out.push(c);
+    }
+    return out.join('');
+  }
+
+  test('colliding entries differ in vocalisation — no word is in the bank twice', () => {
     const ctx = loadApp({ lang: 'he' });
     const byKey = new Map();
     for (const w of ctx.BANK) byKey.set(ctx.K(w.term), w);
@@ -188,16 +216,40 @@ describe('Hebrew bank — one lexeme, one entry', () => {
         const other = byKey.get(k);
         if (!other) continue;
         const id = [w.term, other.term].sort().join(' ~ ');
-        if (!pairs.has(id)) {
-          pairs.set(id, `"${w.term}" [unit ${w.unit}] :: ${w.meaning.slice(0, 45)}\n` +
-            `        "${other.term}" [unit ${other.unit}] :: ${other.meaning.slice(0, 45)}`);
-        }
+        if (pairs.has(id)) continue;
+        // different vowels = two real words sharing a spelling. That is allowed now.
+        if (vowels(w.term) !== vowels(other.term)) continue;
+        pairs.set(id, `"${w.term}" [unit ${w.unit}] /${vowels(w.term)}/ :: ${w.meaning.slice(0, 40)}\n` +
+          `        "${other.term}" [unit ${other.unit}] /${vowels(other.term)}/ :: ${other.meaning.slice(0, 40)}`);
       }
     }
     none([...pairs.values()],
-      'these bank entries are the same word as far as the answer matcher is concerned.\n' +
-      'Each pair is either (a) one lexeme entered twice — merge the two rows in data.js — or\n' +
-      '(b) a genuine homograph, in which case a learner asked for one is marked correct for the\n' +
-      'other, which is the exact trade app.js:403 rejected when it reverted the tsere rule:');
+      'these two rows are the SAME word: same consonants and the same vowels, differing only\n' +
+      'in plene vs defective spelling. Keep one row — the plene spelling, which is the modern\n' +
+      'standard — and merge both glosses into it. A learner who meets the same word in two\n' +
+      'units builds progress on one that does not count for the other:');
+  });
+
+  /* The other half of the rule. Two words may share a spelling only if they are genuinely two
+   * words, and the gloss is the only thing the learner has to tell them apart — so if the two
+   * glosses are equal, the vocalisation difference is a typo rather than a distinction. */
+  test('a legal homograph pair carries two different meanings', () => {
+    const ctx = loadApp({ lang: 'he' });
+    const byKey = new Map();
+    for (const w of ctx.BANK) byKey.set(ctx.K(w.term), w);
+    const bad = new Set();
+    for (const w of ctx.BANK) {
+      const own = ctx.K(w.term);
+      for (const form of ctx.heForms(w.term)) {
+        const k = ctx.K(form);
+        if (!k || k === own) continue;
+        const other = byKey.get(k);
+        if (!other || vowels(w.term) === vowels(other.term)) continue;
+        if (w.meaning.trim() === other.meaning.trim())
+          bad.add(`"${w.term}" and "${other.term}" share one gloss: ${w.meaning.slice(0, 60)}`);
+      }
+    }
+    none([...bad], 'these are vocalised differently but mean the same thing, so nothing in the\n' +
+      'app distinguishes them for the learner:');
   });
 });

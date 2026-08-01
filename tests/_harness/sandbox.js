@@ -50,7 +50,7 @@ const SYMBOLS = [
   // answer checking
   'isCorrect', 'meaningSegs', 'meaningMatch', 'otherSenses',
   // sync
-  'mergeProgress',
+  'mergeProgress', 'DEFAULT_DIR',
   // access gate
   'PAST_DUE_GRACE_DAYS', 'FREE_PHASE', 'hasAccess', 'subActive',
 ];

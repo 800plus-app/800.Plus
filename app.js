@@ -96,7 +96,8 @@ const PREVIEW_UNIT = '1';
 const SUF = () => (LANG==='en' ? '_en' : '');  // Hebrew = legacy keys, English = *_en keys
 const KEY = base => base + SUF();
 
-let assoc={}, stats={words:{},sessions:[]}, deleted=new Set(), added=[], direction='m2w';
+const DEFAULT_DIR = 'w2m';        // the exam shows the word and asks the meaning — so do we
+let assoc={}, stats={words:{},sessions:[]}, deleted=new Set(), added=[], direction=DEFAULT_DIR;
 
 /* Anything read back from localStorage may be corrupt, hand-edited, or written by an
    older build. Coerce it into the exact shape the rest of the app assumes — otherwise a
@@ -141,8 +142,12 @@ function loadLangState(){
     ? ad.filter(p=>Array.isArray(p)&&typeof p[0]==='string'&&typeof p[1]==='string'&&p[0].trim()&&p[1].trim())
     : [];
 
-  const dir=LS.get(KEY('hw_dir'), 'm2w');
-  direction = (dir==='m2w'||dir==='w2m'||dir==='mixed') ? dir : 'm2w';
+  /* DEFAULT_DIR is w2m — word first, meaning second — because that is the direction the
+     psychometric exam itself asks in. Someone who never opens this setting should be
+     practising the way they will be tested, not the other way round. It is only a default:
+     a saved choice always wins, so nobody's existing setting moves. */
+  const dir=LS.get(KEY('hw_dir'), DEFAULT_DIR);
+  direction = (dir==='m2w'||dir==='w2m'||dir==='mixed') ? dir : DEFAULT_DIR;
 }
 /* ===== two tabs =====
    Every save writes the WHOLE object, so a second tab silently overwrote the first one's round:
@@ -193,8 +198,10 @@ window.addEventListener('storage', e=>{
   }
 });
 
-const DIRS_HE = [['m2w','פירוש → מילה'],['w2m','מילה → פירוש'],['mixed','מעורב']];
-const DIRS_EN = [['m2w','עברית → אנגלית'],['w2m','אנגלית → עברית'],['mixed','מעורב']];
+/* The default comes first. A picker whose first option is not the one you are actually in
+   reads as though the app chose oddly on your behalf. */
+const DIRS_HE = [['w2m','מילה → פירוש'],['m2w','פירוש → מילה'],['mixed','מעורב']];
+const DIRS_EN = [['w2m','אנגלית → עברית'],['m2w','עברית → אנגלית'],['mixed','מעורב']];
 const DIRS = () => (LANG==='en' ? DIRS_EN : DIRS_HE);
 function renderDirSegs(){
   ['#dirSegHome','#dirSegScope'].forEach(sel=>{
@@ -704,7 +711,7 @@ function openScope(scope){
   if(sp) sp.innerHTML = c.total
     ? `פגשת <b>${met}</b> מתוך ${c.total} מילים` +
       (c.fresh ? ` · נשארו <b>${c.fresh}</b> שלא פגשת` : ' · פגשת את כולן ✓') +
-      (c.strong ? ` · <b>${c.strong}</b> יושבות` : '')
+      (c.strong ? ` · <b>${c.strong}</b> בשליטה` : '')
     : '';
   const allN = (scope==='global'||scope==='random')?Math.min(30,c.total):c.total;
   $('#cntAll').textContent=allN;
@@ -1055,13 +1062,13 @@ function renderUnitProgress(){
         <i class="n" style="width:${pct(c.fresh)}%"></i>
       </div>
       <div class="up-keys">
-        <span><i style="background:#4e8d55"></i>יושבות <b>${c.strong}</b></span>
+        <span><i style="background:#4e8d55"></i>בשליטה <b>${c.strong}</b></span>
         <span><i style="background:#c9962f"></i>בעבודה <b>${c.weak}</b></span>
         ${c.skipped?`<span><i style="background:var(--line)"></i>דילגת <b>${c.skipped}</b></span>`:''}
         <span><i style="background:var(--paper-deep);border:1px solid var(--line)"></i>לא פגשת <b>${c.fresh}</b></span>
       </div>
       ${gain.length?`<div class="up-gain">בסבב הזה: ${gain.join(' · ')}</div>`:''}
-      ${allSolid ? `<div class="up-done">🎉 סיימת את ${esc(title)} — כל המילים יושבות.</div>`
+      ${allSolid ? `<div class="up-done">🎉 סיימת את ${esc(title)} — כל המילים בשליטה.</div>`
         : allMet ? `<div class="up-done">✓ פגשת את כל ${c.total} המילים ב${esc(title)}. נשארו ${c.weak} לחזק.</div>`
         : ''}
     </div>`;
@@ -1248,7 +1255,7 @@ function openStats(scope){
         + cloud(fight.slice(0,80),'cloudFight')
         + `<button class="btn btn-primary btn-block" id="drillFight" style="margin:6px 0 18px">תרגל בדיוק את ${Math.min(fight.length,30)} המילים האלה ←</button>`;
     }
-    if(nearly.length) html+=`<p class="cloud-note" style="margin-bottom:2px">${nearly.length} מילים כמעט יושבות.</p>`
+    if(nearly.length) html+=`<p class="cloud-note" style="margin-bottom:2px">${nearly.length} מילים כמעט בשליטה.</p>`
       + cloud(nearly.slice(0,80),'cloudNearly');
     /* The two quiet groups get a line each and no cloud. Drawing six hundred words you already
        know is exactly the noise this screen was rebuilt to remove. */
@@ -2579,7 +2586,7 @@ function mergeProgress(local, remote){
     if(!Array.isArray(p)||!p[0]) continue; const k=K(p[0]); if(seenAdd.has(k)) continue; seenAdd.add(k); mergedAdded.push(p);
   }
   return { assoc:mergedAssoc, stats:{words,sessions}, deleted:mergedDeleted, added:mergedAdded,
-           dir: local.dir || remote.dir || 'm2w' };
+           dir: local.dir || remote.dir || DEFAULT_DIR };
 }
 
 /* One merge at a time. Two of them interleaving means the second one's loadLangState()
@@ -2793,7 +2800,7 @@ function bindCacheToUser(uid, adopt){
   const owner = LS.get('hw_owner', null);
   if(owner && owner !== uid && !(adopt && owner === 'preview')){
     wipeAccountKeys();
-    assoc={}; stats={words:{},sessions:[]}; deleted=new Set(); added=[]; direction='m2w'; LANG=null;
+    assoc={}; stats={words:{},sessions:[]}; deleted=new Set(); added=[]; direction=DEFAULT_DIR; LANG=null;
   }
   LS.set('hw_owner', uid);
 }
@@ -3029,7 +3036,7 @@ $('#accReset').onclick = async ()=>{
        a reset that silently undoes itself is worse than one that fails loudly. */
     for(const lang of ['he','en'])
       await Store.pushProgress(lang, {assoc:{}, stats:{words:{},sessions:[]}, deleted:[], added:[],
-                                      dir:'m2w', extras:{}});
+                                      dir:DEFAULT_DIR, extras:{}});
     wipeAccountKeys();
     if(window.caches) try{ await caches.delete('hw-data'); }catch(e){}
     toast('ההתקדמות אופסה');

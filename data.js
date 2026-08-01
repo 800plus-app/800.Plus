@@ -1,4 +1,4 @@
-// Hebrew word bank: 1,719 entries in 10 units + a personal unit. One word = one entry, senses merged.
+// Hebrew word bank: 1,717 entries in 10 units + a personal unit. One word = one entry, senses merged.
 // Deduplicated, NFKC-normalised, and dictionary-audited. Provenance and the full audit trail: METHODOLOGY.md
 window.UNIT_DATA = {
  "1": [
@@ -2171,7 +2171,7 @@ window.UNIT_DATA = {
   ],
   [
    "אִיכּוּל",
-   "קורוזיה, הרס מתכת עקב התרכבות עם חמצן"
+   "קורוזיה, הרס מתכת עקב התרכבות עם חמצן; שריפה, בערה"
   ],
   [
    "אִימּוּם",
@@ -5494,10 +5494,6 @@ window.UNIT_DATA = {
    "ללא תכנון"
   ],
   [
-   "עֹל",
-   "מעמסה כבדה, חובה מכבידה, שעבוד; מסגרת עץ או מתכת הנחה על צוואר בהמת עבודה לרתימתה"
-  ],
-  [
    "עֶלֶם / עַלְמָה",
    "בחור צעיר / בחורה צעירה"
   ],
@@ -6276,10 +6272,6 @@ window.UNIT_DATA = {
   [
    "אִישׁ מָדוֹן / מְדָנִים",
    "סכסכן"
-  ],
-  [
-   "אִכּוּל",
-   "שריפה, בערה"
   ],
   [
    "אֲנֶקְדּוֹטָה",
