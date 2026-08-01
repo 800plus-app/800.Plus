@@ -1758,18 +1758,27 @@ function practiceDays(){
 }
 function streakInfo(){
   const days=practiceDays();
-  const DAY=86400000, now=Date.now();
+  const now=Date.now();
+  /* "The previous day" is a CALENDAR step, not 86,400,000ms. Israel moves its clock twice a
+     year, so one day is 23 hours long and one is 25, and subtracting a fixed day either jumps
+     clean over a date or lands on the same one twice. In March that read as a broken streak —
+     someone who practised on the transition day and opened the app that night saw 0 — and in
+     October it counted a day twice and claimed a streak one longer than it was.
+     setDate() knows about the transition; the anchor is midday so that even a transition at
+     midnight could not slide the date under it. */
+  const noon=new Date(now); noon.setHours(12,0,0,0);
+  const back=i=>{ const d=new Date(noon); d.setDate(d.getDate()-i); return d; };
   // today doesn't break a streak that ran through yesterday — it just hasn't been extended yet
-  let start = days.has(dayKey(now)) ? 0 : (days.has(dayKey(now-DAY)) ? 1 : -1);
+  let start = days.has(dayKey(now)) ? 0 : (days.has(dayKey(back(1))) ? 1 : -1);
   let n=0;
-  if(start>=0) for(let i=start;;i++){ if(!days.has(dayKey(now-i*DAY))) break; n++; }
+  if(start>=0) for(let i=start;;i++){ if(!days.has(dayKey(back(i)))) break; n++; }
   // the last seven days, each carrying its weekday letter so the strip explains itself:
   // five filled bars next to a streak of 1 looks like a contradiction until you see WHERE the gap is
   const HE_DAY=['א','ב','ג','ד','ה','ו','ש'];
   const week=[];
   for(let i=6;i>=0;i--){
-    const t=now-i*DAY;
-    week.push({on: days.has(dayKey(t)), label: HE_DAY[new Date(t).getDay()], today: i===0});
+    const t=back(i);
+    week.push({on: days.has(dayKey(t)), label: HE_DAY[t.getDay()], today: i===0});
   }
   return {n, today: days.has(dayKey(now)), week, total: days.size};
 }
@@ -3206,8 +3215,14 @@ const examDays = ()=>{
   const v=LS.get(EXAM_KEY,'');
   if(!/^\d{4}-\d{2}-\d{2}$/.test(v)) return null;
   const [y,m,d]=v.split('-').map(Number);
-  const t=new Date(y,m-1,d).setHours(23,59,59,999);
-  return { date:v, days: Math.ceil((t-Date.now())/864e5) };
+  /* A difference of CALENDAR days, not of milliseconds. Math.ceil over the fraction of a day
+     left until 23:59 of the exam date reported 1 all through the exam day itself and 0 on the
+     day after — the banner said "the exam is today" twenty-four hours late, every time.
+     Both ends are pinned to local midnight and rounded, so the 23- and 25-hour days that
+     daylight saving produces cannot push the answer off by one either. */
+  const t0=new Date(); t0.setHours(0,0,0,0);
+  const t=new Date(y,m-1,d); t.setHours(0,0,0,0);
+  return { date:v, days: Math.round((t.getTime()-t0.getTime())/864e5) };
 };
 function renderAccExam(){
   const inp=$('#accExam'), sub=$('#accExamSub');
