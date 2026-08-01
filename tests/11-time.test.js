@@ -491,10 +491,13 @@ describe('day boundaries — the streak', () => {
 // ---------------------------------------------------------------------------------------------
 
 describe('the exam countdown', () => {
-  /* app.js:3184-3185
+  /* FIXED. examDays() used to be:
        const t = new Date(y, m-1, d).setHours(23,59,59,999);
        days: Math.ceil((t - Date.now()) / 864e5)
-     Math.ceil over a fraction of a day, not a difference of calendar days. */
+     — Math.ceil over a fraction of a day, not a difference of calendar days, which put every
+     figure one too high: "1 day left" all through the exam day and "the exam is today" on the
+     day after it. It is now a difference between two local midnights. The three tests below
+     used to be named `BUG:` and pinned the off-by-one; they now pin the calendar answer. */
 
   const setExam = (ctx, v) => ctx.LS.set('hw_examDate', v);
 
@@ -505,40 +508,59 @@ describe('the exam countdown', () => {
     setExam(ctx, '2026-8-5');  assert.strictEqual(ctx.examDays(), null);
   });
 
-  test('BUG: on the morning of the exam the countdown says one day is left', () => {
+  test('on the morning of the exam the countdown reads 0 — "המבחן היום" all day', () => {
     const ctx = loadTime();
     setExam(ctx, '2026-08-05');
     ctx.at(at(2026, 8, 5, 8, 0));
-    assert.strictEqual(plain(ctx.examDays()).days, 1,
-      'renderExamPill only says "היום" at days===0, so it never says it on the day');
+    assert.strictEqual(plain(ctx.examDays()).days, 0,
+      'renderExamPill says "היום" at days===0, and the exam day is when it should');
     ctx.at(at(2026, 8, 5, 23, 30));
-    assert.strictEqual(plain(ctx.examDays()).days, 1, 'still 1 at half past eleven at night');
+    assert.strictEqual(plain(ctx.examDays()).days, 0, 'still 0 at half past eleven at night');
+    ctx.at(at(2026, 8, 5, 0, 1));
+    assert.strictEqual(plain(ctx.examDays()).days, 0, 'and one minute after midnight too');
   });
 
-  test('BUG: "the exam is today" is shown on the day AFTER the exam', () => {
+  test('the day after the exam the pill hides instead of wishing good luck', () => {
     const ctx = loadTime();
     setExam(ctx, '2026-08-05');
     ctx.at(at(2026, 8, 6, 8, 0));
-    assert.strictEqual(plain(ctx.examDays()).days, 0, 'days===0 → "המבחן היום. בהצלחה."');
+    assert.strictEqual(plain(ctx.examDays()).days, -1, 'renderExamPill hides on days < 0');
     ctx.at(at(2026, 8, 6, 23, 0));
-    assert.strictEqual(plain(ctx.examDays()).days, 0, 'all day, and the pill stays visible with it');
+    assert.strictEqual(plain(ctx.examDays()).days, -1, 'and stays hidden the whole of that day');
     ctx.at(at(2026, 8, 7, 8, 0));
-    assert.ok(plain(ctx.examDays()).days < 0, 'only on the second day does it admit the date passed');
+    assert.strictEqual(plain(ctx.examDays()).days, -2);
   });
 
-  test('BUG: every figure in the countdown is one higher than the number of days left', () => {
+  test('every figure in the countdown is the number of calendar days left', () => {
     const ctx = loadTime();
     ctx.at(at(2026, 8, 5, 10, 0));
-    for (const [date, shown] of [['2026-08-06', 2], ['2026-08-07', 3], ['2026-08-12', 8]]) {
+    for (const [date, shown] of [['2026-08-06', 1], ['2026-08-07', 2], ['2026-08-12', 7]]) {
       setExam(ctx, date);
       assert.strictEqual(plain(ctx.examDays()).days, shown);
     }
+    /* the figure must not depend on the time of day the learner happens to open the app */
+    for (const h of [0, 6, 13, 23]) {
+      ctx.at(at(2026, 8, 5, h, 30));
+      setExam(ctx, '2026-08-12');
+      assert.strictEqual(plain(ctx.examDays()).days, 7, 'same answer at ' + h + ':30');
+    }
+  });
+
+  test('the countdown does not slip a day across a daylight-saving transition', () => {
+    const ctx = loadTime();
+    // Israel 2026: 27 March is 23 hours long, 25 October is 25 hours long.
+    ctx.at(at(2026, 3, 25, 10, 0));
+    setExam(ctx, '2026-03-30');
+    assert.strictEqual(plain(ctx.examDays()).days, 5, 'five calendar days across spring-forward');
+    ctx.at(at(2026, 10, 23, 10, 0));
+    setExam(ctx, '2026-10-28');
+    assert.strictEqual(plain(ctx.examDays()).days, 5, 'five calendar days across fall-back');
   });
 
   /* Calendar-day arithmetic, matching what the sentence claims:
        const t0 = new Date(); t0.setHours(0,0,0,0);
        days: Math.round((new Date(y, m-1, d) - t0) / 864e5)                */
-  test.skip('the countdown should read 0 on the day of the exam and negative after it', () => {
+  test('the countdown reads 0 on the day of the exam and negative after it', () => {
     const ctx = loadTime();
     setExam(ctx, '2026-08-05');
     ctx.at(at(2026, 8, 5, 8, 0));

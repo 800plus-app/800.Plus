@@ -3181,8 +3181,14 @@ const examDays = ()=>{
   const v=LS.get(EXAM_KEY,'');
   if(!/^\d{4}-\d{2}-\d{2}$/.test(v)) return null;
   const [y,m,d]=v.split('-').map(Number);
-  const t=new Date(y,m-1,d).setHours(23,59,59,999);
-  return { date:v, days: Math.ceil((t-Date.now())/864e5) };
+  /* A difference of CALENDAR days, not of milliseconds. Math.ceil over the fraction of a day
+     left until 23:59 of the exam date reported 1 all through the exam day itself and 0 on the
+     day after — the banner said "the exam is today" twenty-four hours late, every time.
+     Both ends are pinned to local midnight and rounded, so the 23- and 25-hour days that
+     daylight saving produces cannot push the answer off by one either. */
+  const t0=new Date(); t0.setHours(0,0,0,0);
+  const t=new Date(y,m-1,d); t.setHours(0,0,0,0);
+  return { date:v, days: Math.round((t.getTime()-t0.getTime())/864e5) };
 };
 function renderAccExam(){
   const inp=$('#accExam'), sub=$('#accExamSub');
