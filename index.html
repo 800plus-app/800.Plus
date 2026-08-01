@@ -995,7 +995,12 @@
         <button type="submit" class="au-go" id="authSubmit">התחבר<i>←</i></button>
         <button type="button" class="au-link" id="authForgot">שכחתי סיסמה</button>
       </form>
-      <p class="au-msg hidden" id="authMsg"></p>
+      <!-- role="alert" and not role="status": this is the ONLY gate into the app, and a failed
+           sign-in interrupts the task rather than reporting on it. Without this the message was
+           painted on screen and never spoken — the learner typed a wrong password and heard
+           nothing at all, with no way to tell a bad password from a dead network. aria-live is
+           stated as well as implied so that swapping the role cannot quietly downgrade it. -->
+      <p class="au-msg hidden" id="authMsg" role="alert" aria-live="assertive"></p>
       </div>
     </div>
   </section>
@@ -1467,7 +1472,8 @@
     <div class="size-custom" style="margin-top:10px">
       <input id="delInput" type="email" autocomplete="off" dir="ltr" placeholder="הכתובת שלך">
     </div>
-    <p class="au-msg hidden" id="delMsg"></p>
+    <!-- Same paragraph, same silence — on the dialog that deletes the account irreversibly. -->
+    <p class="au-msg hidden" id="delMsg" role="alert" aria-live="assertive"></p>
     <button class="ask-go" id="delGo" disabled style="background:linear-gradient(180deg,#b8492e,#8f3220)">
       מחק את החשבון לצמיתות</button>
     <button class="ask-cancel" id="delCancel">ביטול — אני נשאר</button>
