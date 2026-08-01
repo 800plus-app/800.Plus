@@ -315,8 +315,8 @@ describe('property — a word only one side has ever seen', () => {
         for (const k of Object.keys(b.stats.words)) {
           if (a.stats.words[k] || restoredSkip(a, b, k)) continue;
           const want = b.stats.words[k], got = out.stats.words[k];
-          // last===0 is its own case, named and locked in the test at the end of this block
-          if (num(want.last) === 0) continue;
+          // last===0 used to be an exception here. It is not one any more — see the named test at
+          // the end of this block, which now locks the symmetric behaviour.
           if (!got) return `${k} exists only remotely and did not arrive at all`;
           for (const f of FIELDS) if (num(got[f]) !== num(want[f])) return `${k}.${f}: arrived as ${got[f]}, remote had ${want[f]}`;
         }
@@ -331,7 +331,6 @@ describe('property — a word only one side has ever seen', () => {
         for (const k of Object.keys(a.stats.words)) {
           if (b.stats.words[k]) continue;
           const want = a.stats.words[k], got = out.stats.words[k];
-          if (num(want.last) === 0) continue;                       // same named case as above
           if (!got) return `${k} exists only locally and was dropped`;
           for (const f of FIELDS) if (num(got[f]) !== num(want[f])) return `${k}.${f}: became ${got[f]}, local had ${want[f]}`;
         }
@@ -340,25 +339,110 @@ describe('property — a word only one side has ever seen', () => {
     });
   });
 
-  /* ---- the boundary the property above deliberately stops at ----
-   * With last===0 the same case is NOT symmetric, and this test states what actually happens
-   * rather than what should. saneRec turns an absent local record into a full zeroed one
-   * (app.js:111), which then enters the `a.last >= b.last` comparison as if it were real data
-   * and wins the tie at 0 — so a remote-only record with no timestamp arrives at level 0, while
-   * the mirror image keeps its level. No current write path produces last===0 (commitSession
-   * stamps r.last unconditionally, the level test writes last:stamp), so this is latent, not
-   * live: it needs a legacy or corrupted record to bite. Locked here so that if anyone changes
-   * the tie-break, this test tells them the asymmetry was known and deliberate to leave. */
-  test('with no timestamp at all the arrival is asymmetric — current behaviour, latent defect', () => {
+  /* ---- the boundary the property above used to stop at, now closed ----
+   * THE HISTORY IS KEPT ON PURPOSE, because a green line here should not read as "this was always
+   * fine". With last===0 the two directions were NOT symmetric. saneRec turns an absent local
+   * record into a full zeroed one (app.js:111), which then entered the `a.last >= b.last`
+   * comparison as if it were real data and won the tie at 0:
+   *
+   *     local absent | remote {level:3, last:0}  ->  level 0   WRONG
+   *     local {level:3, last:0} | remote absent  ->  level 3   right
+   *
+   * It was latent rather than live — no current write path produces last===0 (commitSession stamps
+   * r.last unconditionally, the level test writes last:stamp), so it needed a legacy or corrupted
+   * record to bite — and the mutation-score pass deliberately locked the BROKEN behaviour here, so
+   * that whoever changed the tie-break would know the asymmetry had been seen and named. This is
+   * that change, and this test now locks the fix instead.
+   *
+   * THE FIX: a side that does not hold the word at all no longer gets a vote. Presence is checked
+   * before the timestamps are compared, so the side that actually has the record wins outright and
+   * a zeroed placeholder can never outrank real data. Both directions now arrive whole. */
+  test('with no timestamp at all the arrival is symmetric — a zeroed placeholder gets no vote', () => {
     const P = o => Object.assign({ assoc: {}, stats: { words: {}, sessions: [] }, deleted: [], added: [], dir: 'm2w' }, o);
     const W = r => ({ stats: { words: { w: Object.assign({ seen: 9, first: 0, ever: 0, wrong: 0, level: 3, last: 0 }, r) }, sessions: [] } });
 
-    assert.strictEqual(merge(P({}), P(W({}))).stats.words.w.level, 0,
-      'remote-only with last:0 — if this is now 3, the tie-break was fixed: delete this test and keep the property above');
+    assert.strictEqual(merge(P({}), P(W({}))).stats.words.w.level, 3,
+      'remote-only with last:0 must arrive whole — an absent local side is not a record, and cannot win a tie');
     assert.strictEqual(merge(P(W({})), P({})).stats.words.w.level, 3,
       'local-only with last:0 must keep its level');
-    // and with any real timestamp at all, both directions are already correct
+    // and with any real timestamp at all, both directions were already correct
     assert.strictEqual(merge(P({}), P(W({ last: 1 }))).stats.words.w.level, 3);
+  });
+});
+
+describe('a stamp from the future cannot outrank the present', () => {
+  /* app.js:2697 resolves `level` by comparing `last`, and nothing anywhere validates `last` — it
+   * is whatever Date.now() said on the device that wrote it. app.js:2699 then keeps max(last), so
+   * a device whose clock runs fast does not merely win one conflict: its stamp STAYS in the record
+   * and goes on beating every honest answer until real time catches up. In the reported scenario
+   * the learner failed the word twelve more times over two days and it never left level 3 — it was
+   * counted as learned by classify (app.js:402) and dropped out of the practice queue entirely.
+   *
+   * The merge therefore refuses to rank any stamp above `now + a small slack`. Clamped, not
+   * rejected: the record still arrives whole, the stamp simply stops outranking the present.
+   *
+   * WHAT THE SLACK COSTS, STATED HONESTLY. It is not zero, and it cannot be. Honest clocks drift,
+   * the cloud copy was itself stamped by ANOTHER device's clock, and the round trip takes real
+   * time — at zero margin the merge would start discarding writes that were perfectly valid. The
+   * price is that a lying clock still wins for the length of the slack. What the fix removes is
+   * the DURATION: the poison expires in minutes instead of two days.
+   *
+   * These tests need time to pass between merges, so they drive the sandbox's clock. The fake Date
+   * is installed on ctx only for the duration of one call and always restored, because every other
+   * test in this file shares this context. */
+  const DAY = 86400000;
+  const T0 = 1780000000000;                 // a fixed "now" — these tests must not depend on today
+  const SLACK = 300000;                     // the margin app.js allows; 5 minutes
+  const P = o => Object.assign({ assoc: {}, stats: { words: {}, sessions: [] }, deleted: [], added: [], dir: 'm2w' }, o);
+  const W = r => ({ stats: { words: { w: Object.assign({ seen: 5, first: 2, ever: 5, wrong: 0, level: 0, last: 0 }, r) }, sessions: [] } });
+
+  const RealDate = ctx.Date;
+  function atClock(ms, fn) {
+    class FakeDate extends RealDate {
+      constructor(...a) { if (!a.length) super(ms); else super(...a); }
+      static now() { return ms; }
+    }
+    ctx.Date = FakeDate;
+    try { return fn(); } finally { ctx.Date = RealDate; }
+  }
+
+  test('the skewed stamp is not stored, so it cannot keep winning for two days', () => {
+    const laptop = P(W({ seen: 9, first: 4, ever: 8, wrong: 3, level: 0, last: T0 }));
+    const phone = P(W({ seen: 5, first: 5, ever: 5, wrong: 0, level: 3, last: T0 + 2 * DAY }));
+    const m = atClock(T0, () => merge(laptop, phone));
+    assert.ok(m.stats.words.w.last <= T0 + SLACK,
+      `the record kept a stamp ${m.stats.words.w.last - T0}ms in the future — it now outranks every honest answer until real time reaches it`);
+  });
+
+  test('an hour later the honest device takes the level back', () => {
+    /* The same conflict as above, then the learner fails the word again an hour on. Before the
+     * clamp this answer lost too, because the cloud still held T0+2d. */
+    const laptop = P(W({ level: 0, wrong: 3, last: T0 }));
+    const phone = P(W({ level: 3, wrong: 0, last: T0 + 2 * DAY }));
+    const afterFirst = atClock(T0, () => merge(laptop, phone));
+    const nextAnswer = P({ stats: { words: { w: Object.assign({}, afterFirst.stats.words.w, { level: 0, wrong: 4, last: T0 + 3600000 }) }, sessions: [] } });
+    const m = atClock(T0 + 3600000, () => merge(nextAnswer, afterFirst));
+    assert.strictEqual(m.stats.words.w.level, 0,
+      'an answer given an hour after the skewed one must be the one that counts');
+  });
+
+  test('the word the learner keeps failing goes back into the queue', () => {
+    /* The report's scenario, run end to end: twelve more failures over the two days the skewed
+     * stamp used to cover. The counts were always right; it was `level` that never moved. */
+    let cloud = { seen: 5, first: 5, ever: 5, wrong: 0, level: 3, last: T0 + 2 * DAY };
+    for (let i = 1; i <= 12; i++) {
+      const t = T0 + i * 3600000;
+      const local = P(W({ seen: 9 + i, first: 4, ever: 8, wrong: 3 + i, level: 0, last: t }));
+      cloud = atClock(t, () => merge(local, P(W(cloud)))).stats.words.w;
+    }
+    assert.strictEqual(cloud.wrong, 15, 'the mistakes were always counted');
+    assert.strictEqual(cloud.level, 0, 'and now the level follows them, so the word comes back');
+  });
+
+  test('ordinary drift still wins — the slack is not zero', () => {
+    const m = atClock(T0, () => merge(P(W({ level: 0, last: T0 - 60000 })), P(W({ level: 3, last: T0 + 30000 }))));
+    assert.strictEqual(m.stats.words.w.level, 3,
+      'a device half a minute ahead is drifting, not lying — it must still win');
   });
 });
 
