@@ -2705,8 +2705,14 @@ function mergeProgress(local, remote){
     /* The record that was written LAST wins. Taking Math.max per field looked safe but was not:
        a downgrade after a wrong answer could never survive, because the older copy still held
        the higher level — so a word the learner had just failed stayed marked as known. Counts
-       still take the max, since they only ever grow. */
-    const newer = (a.last >= b.last) ? a : b;
+       still take the max, since they only ever grow.
+       But "written last" is only a question when both sides actually WROTE something. saneRec
+       turns a missing record into a fully zeroed one, and that placeholder used to enter the
+       comparison as if it were data and win the tie at 0 — so a remote-only record stamped
+       last:0 arrived at level 0 while the mirror image kept its level. Presence first, then
+       timestamps: a side that does not hold the word at all does not get a vote. */
+    const hasA=isObj(lw[k]), hasB=isObj(rw[k]);
+    const newer = hasA!==hasB ? (hasA ? a : b) : (a.last >= b.last) ? a : b;
     words[k]={ seen:Math.max(a.seen,b.seen), first:Math.max(a.first,b.first), ever:Math.max(a.ever,b.ever),
                wrong:Math.max(a.wrong,b.wrong), level:newer.level, last:Math.max(a.last,b.last) };
     if(newer.src) words[k].src=newer.src;

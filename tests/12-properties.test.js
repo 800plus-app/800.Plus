@@ -315,8 +315,8 @@ describe('property — a word only one side has ever seen', () => {
         for (const k of Object.keys(b.stats.words)) {
           if (a.stats.words[k] || restoredSkip(a, b, k)) continue;
           const want = b.stats.words[k], got = out.stats.words[k];
-          // last===0 is its own case, named and locked in the test at the end of this block
-          if (num(want.last) === 0) continue;
+          // last===0 used to be an exception here. It is not one any more — see the named test at
+          // the end of this block, which now locks the symmetric behaviour.
           if (!got) return `${k} exists only remotely and did not arrive at all`;
           for (const f of FIELDS) if (num(got[f]) !== num(want[f])) return `${k}.${f}: arrived as ${got[f]}, remote had ${want[f]}`;
         }
@@ -331,7 +331,6 @@ describe('property — a word only one side has ever seen', () => {
         for (const k of Object.keys(a.stats.words)) {
           if (b.stats.words[k]) continue;
           const want = a.stats.words[k], got = out.stats.words[k];
-          if (num(want.last) === 0) continue;                       // same named case as above
           if (!got) return `${k} exists only locally and was dropped`;
           for (const f of FIELDS) if (num(got[f]) !== num(want[f])) return `${k}.${f}: became ${got[f]}, local had ${want[f]}`;
         }
@@ -340,24 +339,33 @@ describe('property — a word only one side has ever seen', () => {
     });
   });
 
-  /* ---- the boundary the property above deliberately stops at ----
-   * With last===0 the same case is NOT symmetric, and this test states what actually happens
-   * rather than what should. saneRec turns an absent local record into a full zeroed one
-   * (app.js:111), which then enters the `a.last >= b.last` comparison as if it were real data
-   * and wins the tie at 0 — so a remote-only record with no timestamp arrives at level 0, while
-   * the mirror image keeps its level. No current write path produces last===0 (commitSession
-   * stamps r.last unconditionally, the level test writes last:stamp), so this is latent, not
-   * live: it needs a legacy or corrupted record to bite. Locked here so that if anyone changes
-   * the tie-break, this test tells them the asymmetry was known and deliberate to leave. */
-  test('with no timestamp at all the arrival is asymmetric — current behaviour, latent defect', () => {
+  /* ---- the boundary the property above used to stop at, now closed ----
+   * THE HISTORY IS KEPT ON PURPOSE, because a green line here should not read as "this was always
+   * fine". With last===0 the two directions were NOT symmetric. saneRec turns an absent local
+   * record into a full zeroed one (app.js:111), which then entered the `a.last >= b.last`
+   * comparison as if it were real data and won the tie at 0:
+   *
+   *     local absent | remote {level:3, last:0}  ->  level 0   WRONG
+   *     local {level:3, last:0} | remote absent  ->  level 3   right
+   *
+   * It was latent rather than live — no current write path produces last===0 (commitSession stamps
+   * r.last unconditionally, the level test writes last:stamp), so it needed a legacy or corrupted
+   * record to bite — and the mutation-score pass deliberately locked the BROKEN behaviour here, so
+   * that whoever changed the tie-break would know the asymmetry had been seen and named. This is
+   * that change, and this test now locks the fix instead.
+   *
+   * THE FIX: a side that does not hold the word at all no longer gets a vote. Presence is checked
+   * before the timestamps are compared, so the side that actually has the record wins outright and
+   * a zeroed placeholder can never outrank real data. Both directions now arrive whole. */
+  test('with no timestamp at all the arrival is symmetric — a zeroed placeholder gets no vote', () => {
     const P = o => Object.assign({ assoc: {}, stats: { words: {}, sessions: [] }, deleted: [], added: [], dir: 'm2w' }, o);
     const W = r => ({ stats: { words: { w: Object.assign({ seen: 9, first: 0, ever: 0, wrong: 0, level: 3, last: 0 }, r) }, sessions: [] } });
 
-    assert.strictEqual(merge(P({}), P(W({}))).stats.words.w.level, 0,
-      'remote-only with last:0 — if this is now 3, the tie-break was fixed: delete this test and keep the property above');
+    assert.strictEqual(merge(P({}), P(W({}))).stats.words.w.level, 3,
+      'remote-only with last:0 must arrive whole — an absent local side is not a record, and cannot win a tie');
     assert.strictEqual(merge(P(W({})), P({})).stats.words.w.level, 3,
       'local-only with last:0 must keep its level');
-    // and with any real timestamp at all, both directions are already correct
+    // and with any real timestamp at all, both directions were already correct
     assert.strictEqual(merge(P({}), P(W({ last: 1 }))).stats.words.w.level, 3);
   });
 });
