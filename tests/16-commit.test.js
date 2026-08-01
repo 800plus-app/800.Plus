@@ -362,11 +362,12 @@ describe('commitSession — trimming the history', () => {
 
     assert.strictEqual(ctx.stats.sessions.length, ctx.MAX_SESSIONS, 'exactly at the ceiling');
     assert.strictEqual(ctx.stats.sessions, arrayBefore, 'the ceiling is not yet exceeded — nothing to trim');
-    assert.strictEqual(ctx.sessionRowIdx, ctx.MAX_SESSIONS - 1, 'the row is the last one');
+    assert.strictEqual(ctx.stats.sessions[ctx.MAX_SESSIONS - 1].rid, ctx.sessionRowId,
+      'the round just played must be the last row');
   });
 
   /* Past the ceiling the oldest rounds go and the pointer follows the row that is still there. */
-  test('past the ceiling the oldest rounds are dropped and the pointer follows the row', () => {
+  test('past the ceiling the oldest rounds are dropped and the round keeps its own row', () => {
     const ctx = fresh();
     const [a] = words(ctx, 1);
     ctx.stats.sessions = foreign(ctx.MAX_SESSIONS);
@@ -374,9 +375,9 @@ describe('commitSession — trimming the history', () => {
     practiseRound(ctx, [[a, 'first']], { scope: SCOPE });
 
     assert.strictEqual(ctx.stats.sessions.length, ctx.MAX_SESSIONS, 'the ceiling holds');
-    assert.strictEqual(ctx.sessionRowIdx, ctx.MAX_SESSIONS - 1);
-    assert.strictEqual(ctx.stats.sessions[ctx.sessionRowIdx].scope, SCOPE,
-      'the pointer must land on the round just played, not on a stranger');
+    const mine = ctx.stats.sessions.find(r => r.rid === ctx.sessionRowId);
+    assert.ok(mine, 'the round just played is no longer findable by its id');
+    assert.strictEqual(mine.scope, SCOPE, 'the id must resolve to the round just played, not to a stranger');
     assert.strictEqual(ctx.stats.sessions[0].t, 1001, 'the oldest row is the one that went');
   });
 
@@ -399,7 +400,7 @@ describe('commitSession — trimming the history', () => {
 
     answerCard(ctx, a, 'first');
     ctx.commitSession();
-    assert.strictEqual(ctx.sessionRowIdx, 0, 'the round opened the first row');
+    assert.strictEqual(ctx.stats.sessions[0].rid, ctx.sessionRowId, 'the round opened the first row');
     const myRow = ctx.stats.sessions[0];
 
     // a sync lands mid-round: a longer history from another device, this round's row still in it
@@ -410,8 +411,8 @@ describe('commitSession — trimming the history', () => {
 
     assert.strictEqual(ctx.stats.sessions.length, ctx.MAX_SESSIONS);
     assert.strictEqual(ctx.stats.sessions.includes(myRow), false, 'this round\'s row was trimmed away');
-    assert.strictEqual(ctx.sessionRowIdx, -1,
-      'the row is gone, so the pointer must say "no row" — any index here points at a stranger');
+    assert.strictEqual(ctx.stats.sessions.some(r => r.rid === ctx.sessionRowId), false,
+      'the row is gone, so no row may answer to this id — anything that does is a stranger');
 
     // and the next commit of the SAME round must open a fresh row rather than grow a stranger
     answerCard(ctx, c, 'first');
