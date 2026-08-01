@@ -256,3 +256,47 @@ describe('merge — malformed input', () => {
     assert.deepStrictEqual(out.added, [['ok', 'gloss']]);
   });
 });
+
+/* Found in production, not in a test: a Hebrew progress row holding 2,650 word records against
+ * a bank of 1,717. enterLang() prunes orphans and THEN syncs; the merge takes the maximum of
+ * both sides, so everything the cloud still held came straight back and the write at the end of
+ * the sync pushed it out again. Nothing errored. The learner saw inflated counts forever, and
+ * every device repeated the cycle.
+ *
+ * The rule these tests hold: after a sync has merged the cloud in, no record may survive for a
+ * word that is not in the bank. Pruning before the merge is not pruning. */
+describe('merge — an orphan the cloud still holds must not come back', () => {
+  const live = loadApp({ lang: 'he' });                 // this one has the real bank loaded
+  const realKey = () => live.K(live.BANK[0].term);
+
+  test('the merge itself does keep the orphan — that is why the prune has to follow it', () => {
+    const ghost = 'מילה-שכבר-לא-במאגר';
+    const out = merge(P({ stats: { words: {}, sessions: [] } }),
+                      P({ stats: { words: { [ghost]: R({ seen: 4 }) }, sessions: [] } }));
+    assert.ok(out.stats.words[ghost],
+      'max-based merge must not silently drop remote records — dropping them is how progress is lost');
+  });
+
+  test('pruning after the merge removes it, and leaves real words untouched', () => {
+    const ghost = 'מילה-שכבר-לא-במאגר';
+    const keep = realKey();
+    live.stats.words = { [ghost]: R({ seen: 4 }), [keep]: R({ seen: 2 }) };
+    live.assoc = { [ghost]: 'אסוציאציה יתומה', [keep]: 'אסוציאציה חיה' };
+    live.pruneOrphans();
+    assert.ok(!live.stats.words[ghost], 'the orphan record survived the prune');
+    assert.ok(!live.assoc[ghost], 'the orphan association survived the prune');
+    assert.ok(live.stats.words[keep], 'a word that IS in the bank was pruned — this deletes real progress');
+    assert.strictEqual(live.stats.words[keep].seen, 2, 'a surviving record must not be altered');
+  });
+
+  /* The English keys that an older cross-language write put into Hebrew rows are orphans by
+   * exactly this definition, so the same prune clears them. */
+  test('a key from the other language is an orphan in this row', () => {
+    const keep = realKey();
+    live.stats.words = { 'abandon': R({ seen: 9 }), [keep]: R({ seen: 1 }) };
+    live.pruneOrphans();
+    assert.ok(!live.stats.words['abandon'],
+      'an English key sitting in the Hebrew row must not survive');
+    assert.ok(live.stats.words[keep]);
+  });
+});

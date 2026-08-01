@@ -764,16 +764,25 @@ let sizeCb=null, sizeTotal=0;
    when everything is 24 than when it is 400, and the learner could not see which. So the caller
    now hands over the size of the list it is about to cap. */
 function askSize(total, cb){
-  sizeCb=cb; sizeTotal=total||0;
+  sizeTotal=total||0;
+  /* A preset that is not smaller than the list caps nothing — picking it gives the same round
+     as picking everything. When none of them is smaller, the sheet has one real answer, and
+     asking a question with one answer is just a tap the learner has to spend. Start the round. */
+  const usable = SIZES.filter(n => n < sizeTotal);
+  if(!usable.length){ sizeCb=null; cb(0); return; }
+  sizeCb=cb;
   const last=LS.get(KEY('hw_size'), 20);
-  const custom = last>0 && SIZES.indexOf(last)<0 ? last : 0;   // a previously typed number
+  const custom = last>0 && SIZES.indexOf(last)<0 && last<sizeTotal ? last : 0;   // a typed number
   // "כל היחידה" is only true inside a unit — כל המאגר and אקראי are not units.
   const allLabel = (curScope==='global'||curScope==='random' ? 'הכול' : 'כל היחידה')
                  + (sizeTotal ? ' · '+sizeTotal : '');
-  const opts = SIZES.map(n=>({n, label:String(n)}))
+  // only the presets that actually narrow the list — 50 beside a list of 12 is noise
+  const opts = usable.map(n=>({n, label:String(n)}))
       .concat([{n:-1, label: custom ? 'אחר · '+custom : 'אחר'}, {n:0, label:allLabel}]);
+  // when the saved size no longer fits, "everything" is what a tap would actually do — say so
+  const allIsEffective = !custom && usable.indexOf(last) < 0;
   $('#sizeOpts').innerHTML=opts.map(o=>{
-    const on = o.n===-1 ? !!custom : o.n===last;
+    const on = o.n===-1 ? !!custom : (o.n===0 ? allIsEffective : o.n===last);
     const cls = (on?'active ':'') + (o.n===0?'wide':'');
     return `<button data-n="${o.n}" class="${cls.trim()}">${esc(o.label)}</button>`;
   }).join('');
@@ -2612,6 +2621,13 @@ async function syncWithRemoteInner(lang){
     const before = added.length;
     const merged=mergeProgress({assoc,stats,deleted:[...deleted],added,dir:direction}, remote);
     assoc=merged.assoc; stats=merged.stats; deleted=new Set(merged.deleted); added=merged.added; direction=merged.dir;
+    /* Prune AFTER the merge, not only before it. enterLang() prunes and then syncs — and the
+       merge is max-based, so every orphan the cloud still holds comes straight back and is
+       pushed out again by the write below. The orphans were immortal: measured in production
+       as a Hebrew row carrying 2,650 word records against a bank of 1,717, which also swept
+       up the English keys an older cross-language write bug had put there. Pruning here is
+       the only point where the local state and the cloud state have already become one. */
+    pruneOrphans();
     saveAssoc(); saveStats(); saveDeleted(); saveAdded(); LS.set(KEY('hw_dir'),direction);
     buildBank(); renderDirSegs(); renderHome();
     if(added.length>before) toast('התקדמות ממכשיר אחר צורפה');
