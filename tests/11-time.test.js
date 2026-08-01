@@ -37,7 +37,7 @@ const assert = require('node:assert');
 const fs = require('fs');
 const vm = require('vm');
 const path = require('path');
-const { loadApp, startRound, answerCard, practiseRound, plain, expectNone, ROOT } = require('./_harness/sandbox.js');
+const { loadApp, startRound, answerCard, practiseRound, plain, ROOT } = require('./_harness/sandbox.js');
 const { extractAll } = require('./_harness/extract.js');
 
 const DAY = 86400000;
@@ -435,51 +435,72 @@ describe('day boundaries — the streak', () => {
       '27 March never appears — one subtraction jumps clean over it');
   });
 
-  test('BUG: practising on the DST day and opening the app at 00:30 that night reads as no streak', () => {
+  test('practising on the DST day and opening the app at 00:30 that night keeps the streak', () => {
     const ctx = loadTime();
     withDays(ctx, [at(2026, 3, 27, 20)]);                    // practised on the 27th
     ctx.at(at(2026, 3, 28, 0, 30));
     const s = plain(ctx.streakInfo());
     assert.strictEqual(s.total, 1, 'the round IS in the log');
-    assert.strictEqual(s.n, 0, 'and the streak still reads zero');
-    expectNone(assert, s.week.filter(d => d.on).map(d => d.label),
-      'the seven-day strip shows no practice at all in the last week:');
-    // …and an hour and a half later, with no new data, the same call is right again
+    assert.strictEqual(s.n, 1, 'and the streak counts it');
+    assert.deepStrictEqual(s.week.filter(d => d.on).map(d => d.label), ['ו'],
+      'the seven-day strip shows the Friday that was practised');
+    // …and the answer does not change with the hour, which is what the bug used to do
     ctx.at(at(2026, 3, 28, 9, 0));
-    assert.strictEqual(plain(ctx.streakInfo()).n, 1, 'the bug window is 00:00–01:00 local, once a year');
+    assert.strictEqual(plain(ctx.streakInfo()).n, 1, 'same answer at 09:00 as at 00:30');
   });
 
-  test('BUG: DST spring-forward loses a day out of the middle of a running streak', () => {
+  test('DST spring-forward does not lose a day out of the middle of a running streak', () => {
     const ctx = loadTime();
     withDays(ctx, [at(2026, 3, 26, 20), at(2026, 3, 27, 20)]);
     ctx.at(at(2026, 3, 28, 0, 30));
-    assert.strictEqual(plain(ctx.streakInfo()).n, 1, 'two consecutive days read as one');
+    assert.strictEqual(plain(ctx.streakInfo()).n, 2, 'two consecutive days read as two');
     ctx.at(at(2026, 3, 28, 9, 0));
-    assert.strictEqual(plain(ctx.streakInfo()).n, 2);
+    assert.strictEqual(plain(ctx.streakInfo()).n, 2, 'and still two once the hour has passed');
   });
 
-  test('BUG: DST fall-back counts one day twice and reports a streak one too long', () => {
+  test('DST fall-back does not count the 25-hour day twice', () => {
     const ctx = loadTime();
     // Israel 2026: clocks go 02:00 → 01:00 on Sunday 25 October. That day is 25 hours long.
     withDays(ctx, [at(2026, 10, 23, 20), at(2026, 10, 24, 20), at(2026, 10, 25, 20)]);
     ctx.at(at(2026, 10, 25, 23, 30));
     const s = plain(ctx.streakInfo());
     assert.strictEqual(s.total, 3, 'three distinct days were practised');
-    assert.strictEqual(s.n, 4, 'the streak claims four');
+    assert.strictEqual(s.n, 3, 'and the streak says three');
   });
 
-  test('BUG: the seven-day strip repeats a weekday on the fall-back day', () => {
+  test('the seven-day strip shows seven distinct weekdays on the fall-back day', () => {
     const ctx = loadTime();
     withDays(ctx, [at(2026, 10, 25, 20)]);
     ctx.at(at(2026, 10, 25, 23, 30));
     const labels = plain(ctx.streakInfo()).week.map(d => d.label);
     assert.strictEqual(labels.length, 7);
-    assert.strictEqual(new Set(labels).size, 6, 'seven bars, six distinct weekdays');
+    assert.strictEqual(new Set(labels).size, 7, 'seven bars, seven distinct weekdays');
+    assert.strictEqual(labels[6], 'א', 'and the last one is the Sunday the clock went back on');
   });
 
-  /* The fix is to step by CALENDAR days instead of by 86,400,000ms — build the previous day with
-     `new Date(y, m, d - i)` and read dayKey off that. It is a three-line change in streakInfo. */
-  test.skip('the streak should step by calendar days, not by fixed 24-hour blocks', () => {
+  test('the streak walks calendar days across BOTH transitions, hour by hour', () => {
+    const ctx = loadTime();
+    /* The bug had a one-hour window: 00:30 gave one answer and 09:00 another, from the same
+       data. Pinning several hours of the same day makes that class of failure visible again
+       rather than only the single hour that happened to be picked. */
+    for (const h of [0, 1, 3, 12, 23]) {
+      const ctxH = loadTime();
+      withDays(ctxH, [at(2026, 3, 26, 20), at(2026, 3, 27, 20), at(2026, 3, 28, 10)]);
+      ctxH.at(at(2026, 3, 28, h, 30));
+      assert.strictEqual(plain(ctxH.streakInfo()).n, 3, 'spring-forward at ' + h + ':30');
+    }
+    for (const h of [0, 1, 2, 12, 23]) {
+      const ctxH = loadTime();
+      withDays(ctxH, [at(2026, 10, 23, 20), at(2026, 10, 24, 20), at(2026, 10, 25, 19)]);
+      ctxH.at(at(2026, 10, 25, h, 30));
+      assert.strictEqual(plain(ctxH.streakInfo()).n, 3, 'fall-back at ' + h + ':30');
+    }
+    void ctx;
+  });
+
+  /* The fix steps by CALENDAR days instead of by 86,400,000ms: a Date anchored at midday and
+     walked back with setDate(), which knows about the transition. Three lines in streakInfo. */
+  test('the streak steps by calendar days, not by fixed 24-hour blocks', () => {
     const ctx = loadTime();
     ctx.LS.set('hw_stats', { words: {}, sessions: [{ t: at(2026, 3, 26, 20) }, { t: at(2026, 3, 27, 20) }] });
     ctx.LS.set('hw_stats_en', { words: {}, sessions: [] });
@@ -491,10 +512,13 @@ describe('day boundaries — the streak', () => {
 // ---------------------------------------------------------------------------------------------
 
 describe('the exam countdown', () => {
-  /* app.js:3184-3185
+  /* FIXED. examDays() used to be:
        const t = new Date(y, m-1, d).setHours(23,59,59,999);
        days: Math.ceil((t - Date.now()) / 864e5)
-     Math.ceil over a fraction of a day, not a difference of calendar days. */
+     — Math.ceil over a fraction of a day, not a difference of calendar days, which put every
+     figure one too high: "1 day left" all through the exam day and "the exam is today" on the
+     day after it. It is now a difference between two local midnights. The three tests below
+     used to be named `BUG:` and pinned the off-by-one; they now pin the calendar answer. */
 
   const setExam = (ctx, v) => ctx.LS.set('hw_examDate', v);
 
@@ -505,40 +529,59 @@ describe('the exam countdown', () => {
     setExam(ctx, '2026-8-5');  assert.strictEqual(ctx.examDays(), null);
   });
 
-  test('BUG: on the morning of the exam the countdown says one day is left', () => {
+  test('on the morning of the exam the countdown reads 0 — "המבחן היום" all day', () => {
     const ctx = loadTime();
     setExam(ctx, '2026-08-05');
     ctx.at(at(2026, 8, 5, 8, 0));
-    assert.strictEqual(plain(ctx.examDays()).days, 1,
-      'renderExamPill only says "היום" at days===0, so it never says it on the day');
+    assert.strictEqual(plain(ctx.examDays()).days, 0,
+      'renderExamPill says "היום" at days===0, and the exam day is when it should');
     ctx.at(at(2026, 8, 5, 23, 30));
-    assert.strictEqual(plain(ctx.examDays()).days, 1, 'still 1 at half past eleven at night');
+    assert.strictEqual(plain(ctx.examDays()).days, 0, 'still 0 at half past eleven at night');
+    ctx.at(at(2026, 8, 5, 0, 1));
+    assert.strictEqual(plain(ctx.examDays()).days, 0, 'and one minute after midnight too');
   });
 
-  test('BUG: "the exam is today" is shown on the day AFTER the exam', () => {
+  test('the day after the exam the pill hides instead of wishing good luck', () => {
     const ctx = loadTime();
     setExam(ctx, '2026-08-05');
     ctx.at(at(2026, 8, 6, 8, 0));
-    assert.strictEqual(plain(ctx.examDays()).days, 0, 'days===0 → "המבחן היום. בהצלחה."');
+    assert.strictEqual(plain(ctx.examDays()).days, -1, 'renderExamPill hides on days < 0');
     ctx.at(at(2026, 8, 6, 23, 0));
-    assert.strictEqual(plain(ctx.examDays()).days, 0, 'all day, and the pill stays visible with it');
+    assert.strictEqual(plain(ctx.examDays()).days, -1, 'and stays hidden the whole of that day');
     ctx.at(at(2026, 8, 7, 8, 0));
-    assert.ok(plain(ctx.examDays()).days < 0, 'only on the second day does it admit the date passed');
+    assert.strictEqual(plain(ctx.examDays()).days, -2);
   });
 
-  test('BUG: every figure in the countdown is one higher than the number of days left', () => {
+  test('every figure in the countdown is the number of calendar days left', () => {
     const ctx = loadTime();
     ctx.at(at(2026, 8, 5, 10, 0));
-    for (const [date, shown] of [['2026-08-06', 2], ['2026-08-07', 3], ['2026-08-12', 8]]) {
+    for (const [date, shown] of [['2026-08-06', 1], ['2026-08-07', 2], ['2026-08-12', 7]]) {
       setExam(ctx, date);
       assert.strictEqual(plain(ctx.examDays()).days, shown);
     }
+    /* the figure must not depend on the time of day the learner happens to open the app */
+    for (const h of [0, 6, 13, 23]) {
+      ctx.at(at(2026, 8, 5, h, 30));
+      setExam(ctx, '2026-08-12');
+      assert.strictEqual(plain(ctx.examDays()).days, 7, 'same answer at ' + h + ':30');
+    }
+  });
+
+  test('the countdown does not slip a day across a daylight-saving transition', () => {
+    const ctx = loadTime();
+    // Israel 2026: 27 March is 23 hours long, 25 October is 25 hours long.
+    ctx.at(at(2026, 3, 25, 10, 0));
+    setExam(ctx, '2026-03-30');
+    assert.strictEqual(plain(ctx.examDays()).days, 5, 'five calendar days across spring-forward');
+    ctx.at(at(2026, 10, 23, 10, 0));
+    setExam(ctx, '2026-10-28');
+    assert.strictEqual(plain(ctx.examDays()).days, 5, 'five calendar days across fall-back');
   });
 
   /* Calendar-day arithmetic, matching what the sentence claims:
        const t0 = new Date(); t0.setHours(0,0,0,0);
        days: Math.round((new Date(y, m-1, d) - t0) / 864e5)                */
-  test.skip('the countdown should read 0 on the day of the exam and negative after it', () => {
+  test('the countdown reads 0 on the day of the exam and negative after it', () => {
     const ctx = loadTime();
     setExam(ctx, '2026-08-05');
     ctx.at(at(2026, 8, 5, 8, 0));
