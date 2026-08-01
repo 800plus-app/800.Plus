@@ -139,33 +139,43 @@ describe('pullProgress — a failed read must never look like an empty cloud', (
     assert.strictEqual(q.single, 'maybe', 'single() would turn "no row yet" into an error');
   });
 
-  test('BUG: a row that comes back without its data column reads as an empty cloud', async () => {
-    /* The one hole left in the ok/data distinction. `select('data,updated_at')` is trusted to
-     * return both; when the row arrives without the payload — a column-level grant revoked, a
-     * proxy truncating the body, a migration that renamed the column and left a view behind —
-     * `data ? data.data : null` yields undefined, and store.js still says ok:true.
-     * Concrete: the row EXISTS and holds 1,700 practised words. The caller sees ok:true / no
-     * data, treats it as a new account, and pushes the local (possibly empty) state over it with
-     * an upsert. One request, everything gone.
-     * A fix: return ok:false when a row came back but its data field is absent. */
+  /* FIXED 2.8.2026 — house-check 2, finding #7. `select('data,updated_at')` was trusted to return
+   * both. When the row arrives without the payload — a column grant revoked, a proxy truncating
+   * the body, a migration that renamed the column and left a view behind — `data ? data.data :
+   * null` yielded undefined and store.js still said ok:true. The row EXISTS and holds 1,700
+   * practised words; the caller saw ok:true / no data, treated it as a new account, and upserted
+   * the local (possibly empty) state over it. One request, everything gone.
+   *
+   * Three states now, not two: no row (fill it), row with usable data (merge it), row we cannot
+   * read (refuse). Refusing to sync is recoverable; overwriting is not. */
+  test('a row that comes back without its data column is a failed read, not an empty cloud', async () => {
     const s = loadStore({ respond: { 'progress.select': { data: { updated_at: '2026-01-01T00:00:00Z' } } } });
     const res = await s.Store.pullProgress('he');
-    assert.strictEqual(res.ok, true, 'if this is now false the hole is closed — invert this test');
-    assert.ok(!res.data, 'a row that exists was reported as no data at all');
+    assert.strictEqual(res.ok, false,
+      'a row that exists but cannot be read was reported as ok — the caller answers that by ' +
+      'pushing the device over it');
+    assert.ok(!res.data);
   });
 
-  test('BUG: a half-projected row makes the app overwrite the cloud, end to end', async () => {
+  test('a row whose data is a string or a number is refused too, not coerced', () => {
+    // jsonb can hold a bare scalar; only an object is a progress payload
+    return Promise.all(['{}', 42, 'null', true].map(async junk => {
+      const s = loadStore({ respond: { 'progress.select': { data: { data: junk, updated_at: 'x' } } } });
+      assert.strictEqual((await s.Store.pullProgress('he')).ok, false, `data: ${JSON.stringify(junk)} was accepted`);
+    }));
+  });
+
+  // FIXED alongside the pullProgress test above — the same edit, seen from the caller's end.
+  test('a half-projected row stops the sync instead of being overwritten', async () => {
     const s = loadSyncLayer({
       respond: { 'progress.select': { data: { updated_at: '2026-01-01T00:00:00Z' } }, 'progress.upsert': {} },
     });
     s.ctx.stats = { words: {}, sessions: [] };            // a fresh device: nothing to lose locally
-    await s.ctx.flushRemoteSync();
-    const wrote = s.fake.of('progress', 'upsert');
-    assert.strictEqual(wrote.length, 1,
-      'pinned to the bug: today the app writes here. When pullProgress starts reporting this as a ' +
-      'failed read, this becomes 0 — invert the test then.');
-    assert.deepStrictEqual(plain(wrote[0].row.data.stats.words), {},
-      'the row that was pushed over the cloud is empty, which is the whole damage');
+    const saved = await s.ctx.flushRemoteSync();
+    none(s.fake.of('progress', 'upsert').map(c => c.row.lang),
+      'a row that could not be read was overwritten by an empty device:');
+    assert.strictEqual(saved, false, 'and the caller must hear that nothing was saved');
+    assert.strictEqual(s.ctx.syncPending, true, 'so the next flush tries again');
   });
 
   test('CONTRACT: a transport failure rejects instead of returning ok:false', async () => {
@@ -443,13 +453,12 @@ describe('identity — the account is resolved twice per sync, independently', (
       },
     });
     ref = s.ctx;
-    const secretOfA = s.ctx.K(s.ctx.BANK[0].term);
-    await s.ctx.flushRemoteSync();
-    const read = s.fake.of('progress', 'select')[0], wrote = s.fake.of('progress', 'upsert')[0];
-    assert.strictEqual(read.filters[0][2], 'u-1');
-    assert.strictEqual(wrote.row.user_id, 'u-2',
-      'pinned: the row read for u-1 was written back under u-2');
-    assert.ok(wrote.row.data.stats.words[secretOfA], 'and it carried u-1\'s progress with it');
+    const saved = await s.ctx.flushRemoteSync();
+    const read = s.fake.of('progress', 'select')[0];
+    assert.strictEqual(read.filters[0][2], 'u-1', 'sanity: the read really did resolve u-1');
+    none(s.fake.of('progress', 'upsert').map(c => c.row.user_id),
+      'the row read for one account was written back under another:');
+    assert.strictEqual(saved, false, 'and the caller must hear that nothing was saved');
   });
 
   test('a token that dies between the read and the write loses the round silently', async () => {
