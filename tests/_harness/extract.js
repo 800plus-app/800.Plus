@@ -69,4 +69,20 @@ function extractAll(src, names) {
   return out;
 }
 
-module.exports = { extractFunction, extractDecl, extractAll };
+/* Lift a top-level `$('#id').onclick = …` statement as source text.
+ *
+ * app.js binds ~90 handlers this way, and some of the app's most consequential decisions live
+ * only inside them — #lvExit deciding whether a pending timer still gets to write hw_level, for
+ * one. extractFunction/extractDecl cannot reach those: the handler has no name. Same contract as
+ * the two above — exactly one match, or throw by name. */
+function extractHandler(src, id, mask = codeMask(src)) {
+  const hits = codeMatches(src, new RegExp("\\$\\('#" + escapeName(id) + "'\\)\\.onclick\\s*="), mask);
+  if (!hits.length) throw new Error(`app.js no longer binds a top-level onclick for #${id}`);
+  if (hits.length > 1) throw new Error(`app.js binds #${id}.onclick ${hits.length} times — extraction is ambiguous`);
+  const start = hits[0].index;
+  const end = statementEnd(src, start, mask);
+  if (end < 0) throw new Error(`could not find the end of the #${id} handler in app.js`);
+  return src.slice(start, end + 1);
+}
+
+module.exports = { extractFunction, extractDecl, extractAll, extractHandler };
