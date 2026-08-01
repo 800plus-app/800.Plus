@@ -3917,7 +3917,9 @@ async function openAdmin(){
     let learnedHe=0, learnedEn=0, skipped=0, rounds=0, practised=0, last=u.last_seen, lastRound=0;
     try{
       for(const p of await Store.adminUserProgress(u.id)){
-        const st=(p.data&&p.data.stats)||{};
+        /* `stats` arrives as its own field: adminUserProgress projects it out of the jsonb and
+           deliberately never pulls the rest of the blob, so p.data does not exist here. */
+        const st=(p&&p.stats)||{};
         const w=st.words||{};
         let solid=0;
         for(const r of Object.values(w)){
