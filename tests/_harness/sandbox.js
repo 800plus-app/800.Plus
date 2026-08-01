@@ -41,6 +41,8 @@ const SYMBOLS = [
   // Hebrew spelling variants
   'HOLAM', 'YOD', 'Y_VOWELS', 'HE_LETTER', 'VAV',
   'fullSpelling', 'pleneYod', 'pleneVav', 'heForms',
+  // HTML escaping, and hiding the answer inside its own gloss (09-mask.test.js)
+  'esc', 'CLITIC', 'HSUF', 'heStems', 'maskTerm',
   // bank + shared-gloss index
   'UNIT_IDS', 'PREVIEW_UNIT', 'GLOSS_ALT', 'buildBank', 'glossKey', 'buildGlossIndex', 'glossAlts',
   // stats model and the three practice buckets
