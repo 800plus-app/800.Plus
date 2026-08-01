@@ -3113,7 +3113,10 @@ $('#signOutBtn4').onclick = signOutNow;
    Tapping your own name opens it. For an admin the same tap opens the control centre instead —
    an admin has no use for "install the app" and every use for the list of who signed up. */
 async function openAccount(){
-  if(isAdmin){ openAdmin(); return; }
+  /* Admins used to be bounced straight to the control panel, which meant the owner could never
+     reach his own settings — no reminder toggle, no progress, no weak-words sheet. He practises
+     too. The panel is now one row inside this screen instead of a redirect away from it. */
+  $('#accAdmin').classList.toggle('hidden', !isAdmin);
   const mail=(currentUser&&currentUser.email)||'—';
   $('#accName').textContent = (LS.get('hw_name','')||'').trim() || 'החשבון שלי';
   $('#accMail').textContent = mail;
@@ -3140,6 +3143,7 @@ async function openAccount(){
 $('#userBadge2').onclick = openAccount;
 $('#userBadge3').onclick = openAccount;
 $('#accBack').onclick = ()=>{ if(LANG==='he'||LANG==='en') goto('home'); else { renderWelcome(); goto('welcome'); } };
+$('#accAdmin').onclick = ()=>openAdmin();
 $('#accInstall').onclick = ()=>promptInstall(true);
 
 /* Where am I — answered on the settings page, not only inside a language. Hidden entirely when
