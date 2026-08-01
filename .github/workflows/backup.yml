@@ -1,0 +1,92 @@
+name: backup
+
+# A nightly copy of everything a user would lose if the database vanished, committed to a
+# private branch of this repo. Supabase's free tier keeps no point-in-time backup, so today
+# a bad migration or a wrong DELETE is unrecoverable.
+#
+# ONE secret is needed:
+#   SUPABASE_SERVICE_KEY  — Supabase → Project Settings → API → service_role
+#   Settings → Secrets and variables → Actions → New repository secret
+#
+# ⚠ That key can read and write everything. It belongs ONLY in GitHub Secrets — never in a
+#   file, never in a commit, never pasted into a chat. GitHub masks it in logs automatically.
+#
+# The dump goes to the `backups` branch, not to main: it is data, it changes nightly, and it
+# has no business in the history of the code.
+
+on:
+  schedule:
+    - cron: '0 1 * * *'      # 01:00 UTC = 04:00 Israel — after the day's last practice
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: backups
+          fetch-depth: 1
+        continue-on-error: true       # first ever run: the branch does not exist yet
+
+      - name: Prepare the branch
+        run: |
+          git config user.name  "backup-bot"
+          git config user.email "actions@github.com"
+          if ! git rev-parse --verify backups >/dev/null 2>&1; then
+            git checkout --orphan backups
+            git rm -rf . >/dev/null 2>&1 || true
+            echo "גיבויים יומיים של בסיס הנתונים. לא לערוך ידנית." > README.md
+          fi
+          mkdir -p data
+
+      - name: Pull every table
+        env:
+          URL: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "${KEY:-}" ]; then
+            echo "::error::SUPABASE_SERVICE_KEY is not set — nothing was backed up"
+            exit 1
+          fi
+          BASE="${URL:-https://oycypbnzcvtjliovfsxn.supabase.co}"
+          for t in profiles progress feedback subscription assoc_shared; do
+            out="data/$t.json"
+            code=$(curl -sS -o "$out" -w '%{http_code}' \
+              "$BASE/rest/v1/$t?select=*" \
+              -H "apikey: $KEY" -H "Authorization: Bearer $KEY")
+            if [ "$code" != "200" ]; then
+              # a table that does not exist is not a failure; a table that exists and
+              # refuses to answer is, and the difference must not be swallowed
+              if [ "$code" = "404" ]; then
+                echo "::notice::$t does not exist in this project — skipped"
+                rm -f "$out"
+                continue
+              fi
+              echo "::error::$t returned HTTP $code"
+              exit 1
+            fi
+            n=$(python3 -c "import json,sys;print(len(json.load(open('$out'))))")
+            echo "  $t: $n rows"
+            # A table that had rows yesterday and none today is the exact shape of a
+            # disaster. Refuse to overwrite a good backup with an empty one.
+            if [ "$n" = "0" ] && [ -s "data/$t.count" ] && [ "$(cat "data/$t.count")" != "0" ]; then
+              echo "::error::$t came back empty but had $(cat "data/$t.count") rows yesterday — refusing to overwrite"
+              exit 1
+            fi
+            echo "$n" > "data/$t.count"
+          done
+
+      - name: Commit
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "nothing changed today"
+            exit 0
+          fi
+          git commit -m "גיבוי $(date -u '+%Y-%m-%d')"
+          git push origin backups

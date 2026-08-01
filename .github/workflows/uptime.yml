@@ -1,0 +1,74 @@
+name: uptime
+
+# Checks that 800-plus.com is actually serving the app, every 15 minutes, and emails
+# when it is not. Until now the site could be down all night with nobody knowing —
+# the owner would find out from a user, which is the worst possible way.
+#
+# ONE secret is needed, and only for the alert mail:
+#   RESEND_API_KEY   — Settings → Secrets and variables → Actions → New repository secret
+# Without it the check still runs and still fails loudly in the Actions tab; it just
+# cannot send mail. That is deliberate: a monitor that silently stops monitoring
+# because a key expired is worse than no monitor.
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: uptime
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe the site
+        id: probe
+        run: |
+          set +e
+          URL="https://800-plus.com/"
+          # Three attempts before declaring it down. A single failed request is far more
+          # often a hiccup on the runner than an outage, and a monitor that cries wolf
+          # gets muted — which is the same as not having one.
+          for i in 1 2 3; do
+            body=$(curl -sS --max-time 20 -w '\n%{http_code}' "$URL" 2>/dev/null)
+            code=$(printf '%s' "$body" | tail -n1)
+            html=$(printf '%s' "$body" | sed '$d')
+            # 200 is not enough: a parked page or an error page also returns 200.
+            # The app is up only if the page it serves is actually the app.
+            if [ "$code" = "200" ] && printf '%s' "$html" | grep -q 'UNIT_DATA\|800+'; then
+              echo "ok=true"  >> "$GITHUB_OUTPUT"
+              echo "up on attempt $i (HTTP $code)"
+              exit 0
+            fi
+            echo "attempt $i: HTTP $code"
+            sleep 20
+          done
+          echo "ok=false" >> "$GITHUB_OUTPUT"
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Email the owner
+        if: steps.probe.outputs.ok == 'false'
+        env:
+          KEY: ${{ secrets.RESEND_API_KEY }}
+        run: |
+          if [ -z "$KEY" ]; then
+            echo "::warning::RESEND_API_KEY is not set — cannot send the alert mail"
+            exit 1
+          fi
+          curl -sS -X POST https://api.resend.com/emails \
+            -H "Authorization: Bearer $KEY" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "from": "800+ <admin@800-plus.com>",
+              "to": ["03hagay@gmail.com"],
+              "subject": "800-plus.com לא עונה",
+              "html": "<div dir=\"rtl\" style=\"font:16px/1.7 Arial,sans-serif;color:#2c2620\"><p><b>האתר לא ענה בשלוש בדיקות רצופות.</b></p><p>קוד אחרון: '"${{ steps.probe.outputs.code }}"'</p><p>מה לבדוק: GitHub Pages פעיל · הדומיין מפנה נכון · סופאבייס לא נפל.</p><p style=\"color:#8d8274;font-size:13px\">הבדיקה רצה כל 15 דקות. לא תישלח הודעה נוספת עד שהמצב ישתנה.</p></div>"
+            }'
+          echo "alert sent"
+
+      - name: Fail the run so it is visible in the Actions tab
+        if: steps.probe.outputs.ok == 'false'
+        run: exit 1
