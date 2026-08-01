@@ -2,7 +2,7 @@
    ONE place to bump on every deploy: REV. It names the cache *and* the asset query strings,
    so the URLs precached here are byte-for-byte the URLs index.html requests. When those drift
    apart the app silently keeps serving an old build — which is exactly what used to happen. */
-const REV = '110';
+const REV = '111';
 const V = 'hw-v' + REV;
 /* App DATA must not live in a versioned cache. The personalised reminder text was written into
    hw-v<REV>, so the next deploy deleted it along with the assets — and it was never rewritten,
@@ -109,8 +109,31 @@ self.addEventListener('fetch', e => {
    2. push        — needs a server holding VAPID keys. The handler is ready; nothing sends yet.
    3. the page itself, on open. The only path iOS Safari gives us today.
    All three end at the same renderer so the wording never diverges. */
+/* The page caches FACTS — {streak, learned, weak, last} — and the wording is decided here, at
+   the moment it fires. That ordering is the whole point: a message composed when permission was
+   granted and cached goes on announcing a streak that ended weeks ago, and greets someone who
+   has been away for a fortnight as though they practised yesterday.
+   A `title`/`body` payload is still honoured, because push (below) sends one. */
+function composeDaily(d) {
+  if (d && d.title && d.body) return d;
+  const f = d || {};
+  const DAY = 864e5;
+  const away = f.last ? Math.floor((Date.now() - f.last) / DAY) : -1;
+  if (away >= 14) return { title: 'המילים מחכות לך',
+    body: f.learned ? f.learned + ' מילים שלמדת עדיין כאן. סבב אחד מחזיר אותך לקצב.'
+                    : 'עוד לא התחלת באמת. עשר מילים זה חמש דקות.' };
+  if (away >= 2) return { title: 'יומיים בלי תרגול',
+    body: f.weak ? f.weak + ' מילים עדיין לא יושבות. עשר דקות והן נסגרות.'
+                 : 'סבב קצר היום שומר על מה שכבר למדת.' };
+  if (f.streak >= 3) return { title: 'זמן ללמוד מילים',
+    body: f.streak + ' ימים ברצף. חמש דקות היום שומרות על הרצף.' };
+  return { title: 'זמן ללמוד מילים',
+    body: f.learned > 0 ? 'למדת כבר ' + f.learned + ' מילים. עוד עשר היום?'
+                        : 'תרגול קצר של חמש דקות מספיק כדי להתחיל.' };
+}
+
 async function showDaily(payload) {
-  const d = payload || {};
+  const d = composeDaily(payload);
   const title = d.title || 'זמן ללמוד מילים';
   const body  = d.body  || 'תרגול קצר של חמש דקות שומר על הרצף.';
   return self.registration.showNotification(title, {
@@ -122,11 +145,17 @@ async function showDaily(payload) {
   });
 }
 
+const c0 = () => caches.open(DATA);
 self.addEventListener('periodicsync', e => {
   if (e.tag === 'daily-study') e.waitUntil(
     clients.matchAll({ type: 'window', includeUncontrolled: true }).then(async ws => {
       // if the app is already open the user is studying; a notification would be noise
       if (ws.some(w => w.visibilityState === 'visible')) return;
+      // and never twice in one day, whatever the platform decides to fire
+      const stamp = new Date().toDateString();
+      const seen = await c0().then(cc => cc.match('daily-sent')).then(r => r && r.text());
+      if (seen === stamp) return;
+      await c0().then(cc => cc.put('daily-sent', new Response(stamp)));
       const c = await caches.open(DATA);
       const r = await c.match('daily-msg');
       return showDaily(r ? await r.json() : null);

@@ -1262,6 +1262,12 @@ function commitSession(){
      round trip on. Pushing here is what lets the per-answer debounce be long: a phone killed by
      the OS without firing pagehide loses at most the round in progress, never a finished one. */
   flushRemoteSync();
+  /* Refresh the numbers the reminder is built from. Written after every round rather than once
+     when permission was granted — otherwise the worker keeps announcing a streak that ended and
+     the "two days away" rule can never fire, because `last` never moves. */
+  // guarded: committing a round is core, notifications are peripheral, and core must not throw
+  // because a peripheral is missing — which is exactly what happened to every bucket test
+  if(typeof NOTIF!=='undefined' && NOTIF.granted()) NOTIF.cacheMessage();
 }
 
 $('#checkBtn').onclick=check;
@@ -3332,26 +3338,56 @@ const NOTIF = {
 
   /* The service worker wakes up with no access to localStorage, so the message it should
      show is written into the cache while the page is alive. */
+  /* Caches FACTS, not a finished sentence.
+     It used to cache the composed text, and only at the moment permission was granted — so the
+     worker went on announcing "3 ימים ברצף" months after the streak had ended, and a learner
+     who had been away for a week was greeted as though they had practised yesterday. The
+     numbers are written after every round now, and the wording is decided when it fires. */
   async cacheMessage(){
     try{
-      // 'hw-data', not the versioned asset cache: the next deploy deletes that one, and this
-      // message is only ever written while asking for permission — which happens exactly once.
       const c = await caches.open('hw-data');
-      await c.put('daily-msg', new Response(JSON.stringify(this.compose()),
+      await c.put('daily-msg', new Response(JSON.stringify(this.facts()),
         { headers:{'Content-Type':'application/json'} }));
     }catch(e){}
   },
 
-  /* Progress, not nagging: the message states what the learner actually did. */
-  compose(){
+  facts(){
     const he=langSummary('he'), en=langSummary('en');
-    const st=streakInfo();
-    const learned=he.learned+en.learned;
-    const body =
-      st.n>=3   ? `${st.n} ימים ברצף. חמש דקות היום שומרות על הרצף.`
-    : learned>0 ? `למדת כבר ${learned} מילים. עוד עשר היום?`
-    :             'תרגול קצר של חמש דקות מספיק כדי להתחיל.';
-    return { title: 'זמן ללמוד מילים', body };
+    /* Straight off the session log. practiceDays() returns dayKey strings like "2026-8-1",
+       and Date.parse on an unpadded string is implementation-dependent — the raw `t` is
+       already a millisecond number, so there is nothing to parse. */
+    let last=0, weak=0;
+    for(const key of ['hw_stats','hw_stats_en']){
+      const s=LS.get(key,{});
+      if(!isObj(s)) continue;
+      const arr=Array.isArray(s.sessions)?s.sessions:[];
+      for(const x of arr){ const t=Number(isObj(x)&&x.t); if(t>last) last=t; }
+      const w=isObj(s.words)?s.words:{};
+      // weak = met, not yet solid, and not a level-test skip — the same rule the app uses
+      for(const r of Object.values(w))
+        if(isObj(r) && r.src!=='lv' && int0(r.seen)>0 && int0(r.level)<3) weak++;
+    }
+    return { streak: streakInfo().n, learned: he.learned+en.learned, weak, last };
+  },
+
+  /* Progress, not nagging: the message states what the learner actually did. */
+  compose(f){
+    const d = f || this.facts();
+    const DAY=864e5;
+    const away = d.last ? Math.floor((Date.now()-d.last)/DAY) : -1;
+    // The gap decides the words. Someone two days out does not need a streak reminder —
+    // they need a reason to come back and a job small enough to say yes to.
+    if(away >= 14) return { title:'המילים מחכות לך',
+      body: d.learned ? `${d.learned} מילים שלמדת עדיין כאן. סבב אחד מחזיר אותך לקצב.`
+                      : 'עוד לא התחלת באמת. עשר מילים זה חמש דקות.' };
+    if(away >= 2)  return { title:'יומיים בלי תרגול',
+      body: d.weak ? `${d.weak} מילים עדיין לא יושבות. עשר דקות והן נסגרות.`
+                   : 'סבב קצר היום שומר על מה שכבר למדת.' };
+    if(d.streak>=3) return { title:'זמן ללמוד מילים',
+      body:`${d.streak} ימים ברצף. חמש דקות היום שומרות על הרצף.` };
+    return { title:'זמן ללמוד מילים',
+      body: d.learned>0 ? `למדת כבר ${d.learned} מילים. עוד עשר היום?`
+                        : 'תרגול קצר של חמש דקות מספיק כדי להתחיל.' };
   },
 
   /* The path that works on iOS: the app reminds when opened in the morning with no
