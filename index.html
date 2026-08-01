@@ -359,6 +359,36 @@
        background:linear-gradient(180deg,var(--gold),var(--accent));color:#fff}
   .ask-cancel{margin-top:14px;background:transparent;border:none;color:var(--ink-soft);
        font-family:"Heebo";font-size:.85rem;text-decoration:underline}
+  /* ===== finishing a unit =====
+     Above everything, because it should not be possible to miss and there is nothing else to
+     do at that moment. The canvas sits BEHIND the card and ignores pointer events, so the
+     bursts read as happening in the room rather than on top of the message. */
+  .cheer{position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;
+       padding:24px;background:radial-gradient(120% 90% at 50% 0%,#fffdf7 0%,#f6efe0 55%,#efe4d0 100%);
+       animation:cheerIn .3s ease both}
+  .cheer.hidden{display:none!important}
+  @keyframes cheerIn{from{opacity:0}to{opacity:1}}
+  .cheer-cv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+  .cheer-box{position:relative;text-align:center;max-width:340px;width:100%;
+       animation:cheerRise .5s cubic-bezier(.2,.9,.25,1) .08s both}
+  @keyframes cheerRise{from{opacity:0;transform:translateY(16px) scale(.96)}
+                       to{opacity:1;transform:none}}
+  .cheer-ring{width:78px;height:78px;margin:0 auto 18px;border-radius:50%;
+       display:flex;align-items:center;justify-content:center;
+       background:linear-gradient(180deg,#5aa063,#3f7a4a);color:#fffdf8;font-size:2.1rem;
+       box-shadow:0 10px 26px -10px rgba(63,122,74,.7),inset 0 1px 0 rgba(255,255,255,.4);
+       animation:cheerPop .5s cubic-bezier(.2,1.5,.4,1) .18s both}
+  @keyframes cheerPop{from{transform:scale(0)}to{transform:scale(1)}}
+  .cheer-box h2{font-family:"Frank Ruhl Libre",serif;font-size:1.85rem;font-weight:900;
+       color:var(--ink);line-height:1.2}
+  .cheer-unit{margin-top:9px;font-size:.78rem;letter-spacing:.16em;color:var(--accent);
+       font-weight:700}
+  .cheer-sub{margin-top:12px;font-size:.95rem;line-height:1.7;color:var(--ink-soft)}
+  .cheer-box .ask-go{margin-top:24px}
+  @media(prefers-reduced-motion:reduce){
+    .cheer,.cheer-box,.cheer-ring{animation:none}
+  }
+
   /* the "check your mail" modal.
      Above #auth, which is z-index 70 — every other .ask sits at 60 and opens over the app, but
      this one is the only modal that opens while the login screen is still covering the page. */
@@ -1260,6 +1290,18 @@
      A one-line note under the form is read by whoever is already looking there. Someone who has
      just pressed "צור חשבון" is looking at the button, and the single action that decides whether
      they ever get in has to interrupt them. -->
+<!-- ===== closing a whole unit ===== -->
+<div class="cheer hidden" id="cheer">
+  <canvas class="cheer-cv" id="cheerCanvas" aria-hidden="true"></canvas>
+  <div class="cheer-box" role="status">
+    <div class="cheer-ring" aria-hidden="true"><span>✓</span></div>
+    <h2 id="cheerTitle"></h2>
+    <p class="cheer-unit" id="cheerUnit"></p>
+    <p class="cheer-sub" id="cheerSub"></p>
+    <button type="button" class="ask-go" id="cheerOk">אפשר להמשיך</button>
+  </div>
+</div>
+
 <div class="ask hidden" id="mailAsk">
   <div class="ask-box mail-box">
     <div class="mail-ico" aria-hidden="true">📬</div>
@@ -1361,14 +1403,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=102"></script>
-<script src="config.js?v=102"></script>
-<script src="store.js?v=102"></script>
-<script src="leveltest-he.js?v=102"></script>
-  <script src="leveltest.js?v=102"></script>
-<script src="enrank.js?v=102"></script>
-<script src="data.js?v=102"></script>
-<script src="data-en.js?v=102"></script>
-<script src="app.js?v=102"></script>
+<script src="supabase.min.js?v=103"></script>
+<script src="config.js?v=103"></script>
+<script src="store.js?v=103"></script>
+<script src="leveltest-he.js?v=103"></script>
+  <script src="leveltest.js?v=103"></script>
+<script src="enrank.js?v=103"></script>
+<script src="data.js?v=103"></script>
+<script src="data-en.js?v=103"></script>
+<script src="app.js?v=103"></script>
 </body>
 </html>

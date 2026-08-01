@@ -1081,6 +1081,86 @@ function renderUnitProgress(){
         : allMet ? `<div class="up-done">✓ פגשת את כל ${c.total} המילים ב${esc(title)}. נשארו ${c.weak} לחזק.</div>`
         : ''}
     </div>`;
+
+  /* Closing a whole unit is the biggest thing that happens in this app, and until now it was a
+     line of text inside a card the learner had to notice. Once — the first time a unit turns
+     solid — it gets the screen. Never again for that unit: a celebration that repeats every
+     visit stops being one, and starts being something to dismiss. */
+  if(allSolid) celebrateUnit(scope, title, c.total);
+}
+
+/* Written in the app's own palette rather than the usual confetti primaries: gold, rust and the
+   deep green the "בשליטה" key already uses. Fired from the two lower corners, the way real
+   fireworks are seen — from below. */
+const CHEERS = [
+  ['יחידה שלמה.', 'כל מילה כאן כבר שלך.'],
+  ['סגרת אותה.', 'זה נראה גדול מבחוץ, ואתה עברת את זה מילה-מילה.'],
+  ['הכול בשליטה.', 'היחידה הזאת כבר לא תפתיע אותך במבחן.'],
+  ['נגמרה היחידה.', 'מי שמגיע לכאן כבר לא מחפש קיצורי דרך.'],
+];
+function celebrateUnit(scope, title, total){
+  const seen = LS.get('hw_celebrated', {});
+  const key = (LANG||'he') + ':' + scope;
+  if(!isObj(seen) || seen[key]) return;             // one unit, one celebration, ever
+  const mark = isObj(seen) ? seen : {};
+  mark[key] = 1; LS.set('hw_celebrated', mark);
+
+  const [head, sub] = CHEERS[Math.floor(Math.random()*CHEERS.length)];
+  $('#cheerTitle').textContent = head;
+  $('#cheerSub').textContent   = sub;
+  $('#cheerUnit').textContent  = title + ' · ' + total + ' מילים';
+  show($('#cheer'));
+  // motion is decoration here; the message carries the meaning on its own
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches) fireworks($('#cheerCanvas'));
+}
+function fireworks(cv){
+  const dpr = Math.min(devicePixelRatio||1, 2);
+  const w = cv.clientWidth, h = cv.clientHeight;
+  cv.width = w*dpr; cv.height = h*dpr;
+  const g = cv.getContext('2d'); g.scale(dpr, dpr);
+  const COLS = ['#c9962f','#a63c26','#4e8d55','#d8a94a','#b8622f'];
+  const parts = [];
+  function burst(x, y, scale){
+    const col = COLS[Math.floor(Math.random()*COLS.length)];
+    const n = 46 + Math.floor(Math.random()*22);
+    for(let i=0;i<n;i++){
+      const a  = (Math.PI*2*i)/n + Math.random()*0.18;
+      // a ring, not a disc: real bursts are a shell, and varying the speed only slightly
+      // keeps that shape while the drag below softens it into a cloud
+      const sp = (2.5 + Math.random()*2.2) * scale;
+      parts.push({x, y, vx:Math.cos(a)*sp, vy:Math.sin(a)*sp, life:1, col,
+                  r: 1.6 + Math.random()*2.1});
+    }
+  }
+  let t = 0, raf = 0;
+  /* Spread across the full width and staggered in size: a volley, not a metronome. The last
+     one lands around frame 130, and the whole thing is over in roughly five seconds. */
+  const shots = [[0.20,0.26,1.00],[0.76,0.20,0.85],[0.50,0.13,1.15],[0.32,0.34,0.75],
+                 [0.86,0.38,0.80],[0.12,0.18,0.90],[0.62,0.30,1.05],[0.42,0.22,0.70]];
+  const EVERY = 16;
+  (function frame(){
+    t++;
+    // one burst every ~16 frames, then let the last shell fall and STOP — this is a moment,
+    // not an ambient effect, and a canvas that never stops drains a phone battery
+    const i = Math.floor((t-1)/EVERY);
+    if((t-1) % EVERY === 0 && i < shots.length) burst(w*shots[i][0], h*shots[i][1], shots[i][2]);
+    g.clearRect(0,0,w,h);
+    g.globalCompositeOperation = 'lighter';     // overlapping sparks brighten, as light does
+    for(const p of parts){
+      p.x += p.vx; p.y += p.vy; p.vy += 0.052; p.vx *= 0.988; p.vy *= 0.988;
+      p.life -= 0.0072;
+      if(p.life <= 0) continue;
+      const a = Math.max(0, p.life);
+      g.globalAlpha = a * a;                    // fade slowly, then fall away quickly
+      g.fillStyle = p.col;
+      g.beginPath(); g.arc(p.x, p.y, p.r * (0.55 + a*0.45), 0, Math.PI*2); g.fill();
+    }
+    g.globalCompositeOperation = 'source-over';
+    g.globalAlpha = 1;
+    for(let j=parts.length-1;j>=0;j--) if(parts[j].life<=0) parts.splice(j,1);
+    if(parts.length || i < shots.length) raf = requestAnimationFrame(frame);
+    else cancelAnimationFrame(raf);
+  })();
 }
 const verdictOf = term => { const e=session.get(K(term)); return !!(e && e.mastered); };
 function refreshResultCounts(){
@@ -2940,6 +3020,8 @@ $('#authForm').addEventListener('submit', async e=>{
     }
   } finally { btn.disabled=false; }
 });
+$('#cheerOk').onclick=()=>hide($('#cheer'));
+$('#cheer').onclick=e=>{ if(e.target===$('#cheer')) hide($('#cheer')); };
 $('#mailAskOk').onclick=()=>hide($('#mailAsk'));
 $('#mailAsk').onclick=e=>{ if(e.target===$('#mailAsk')) hide($('#mailAsk')); };
 $('#mailAskExisting').onclick=async e=>{
