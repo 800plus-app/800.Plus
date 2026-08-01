@@ -263,8 +263,50 @@ function remapHyphenKeys(){
   if(moved){ saveStats(); saveAssoc(); saveDeleted(); }
   return moved;
 }
+/* Did the migrated stats actually reach the disk? Read it back rather than trusting the three
+   save() return values, because what the next boot will see is the disk, not a boolean. */
+/* Did all three migrated stores actually reach the disk?
+ *
+ * ONE gate, not two. The first version of this checked the three save() return values AND read
+ * the disk back — and a mutation run showed the read-back could be gutted without a single test
+ * noticing, because the booleans were already answering. Two overlapping guards mean the weaker
+ * one is never exercised, which is the same thing as not having it. The disk is what the next
+ * boot will read, so the disk is the only thing asked.
+ *
+ * And it compares KEYS, not counts. The migration renames without changing how many there are —
+ * 60 raw keys become 60 normalised ones — so a disk still holding the old names has exactly the
+ * count memory has, and a count check calls that "landed". That is not a hypothetical: it is what
+ * the first draft of this function did, and the storage suite caught it. */
+function migrationLanded(){
+  const dS=LS.get(KEY('hw_stats'), null);
+  if(!isObj(dS) || !isObj(dS.words)) return false;
+  for(const k in stats.words) if(!(k in dS.words)) return false;
+  if(Object.keys(dS.words).length !== Object.keys(stats.words).length) return false;
+  // assoc and deleted are migrated by the same pass; a stamp that ignores them lets pruneOrphans
+  // delete whichever of the two did not land. Defaults cover the never-written-because-empty case.
+  const dA=LS.get(KEY('hw_assoc'), {});
+  if(!isObj(dA)) return false;
+  for(const k in assoc) if(!(k in dA)) return false;
+  const dD=LS.get(KEY('hw_deleted'), []);
+  if(!Array.isArray(dD)) return false;
+  for(const k of deleted) if(!dD.includes(k)) return false;
+  return true;
+}
 function migrateStores(){
-  if(LS.get(KEY('hw_migr'),0)===7){ remapHyphenKeys(); LS.set(KEY('hw_migr'),8); return; }
+  /* THE STAMP IS THE LAST THING WRITTEN, AND ONLY IF THE DATA IS REALLY THERE.
+     It used to be written unconditionally. saveStats() returns false when the write failed, and
+     `hw_migr` is nine bytes against a stats blob of tens of KB — so on a nearly full disk the
+     small write succeeds precisely when the large one did not. The result was the worst possible
+     pair of states: OLD KEYS ON DISK, plus "the migration is finished".
+     Next boot then reads the old keys, skips the migration because the stamp says 8, and
+     pruneOrphans — which cannot tell an un-migrated key from a word that left the bank — deletes
+     every one of them. Permanently, silently, and written straight back to disk.
+     Leaving the stamp unwritten costs one repeated migration. Writing it costs the account. */
+  if(LS.get(KEY('hw_migr'),0)===7){
+    remapHyphenKeys();
+    if(migrationLanded()) LS.set(KEY('hw_migr'),8);
+    return;
+  }
   if(LS.get(KEY('hw_migr'),0)>=8) return;
   const nw={};
   for(const t in stats.words){
@@ -279,7 +321,8 @@ function migrateStores(){
   const na={}; for(const t in assoc){ const k=K(t); if(k && assoc[t] && !na[k]) na[k]=assoc[t]; } assoc=na; saveAssoc();
   deleted=new Set([...deleted].map(K).filter(Boolean)); saveDeleted();
   remapHyphenKeys();
-  LS.set(KEY('hw_migr'),8);
+  if(migrationLanded()) LS.set(KEY('hw_migr'),8);
+  else console.error('migrateStores: הכתיבה לא הושלמה — החותמת לא נרשמה, המיגרציה תרוץ שוב באתחול הבא');
 }
 
 /* Housekeeping: drop records/associations/deletions for words that no longer exist in the

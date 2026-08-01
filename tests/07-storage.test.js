@@ -57,7 +57,7 @@ const SYMBOLS = [
   'undeletedKey', 'markRestored', 'markDeletedAgain', 'restoredMap',
   'mergeProgress', 'absorbDisk',
   'saveAssoc', 'saveStats', 'saveDeleted', 'saveAdded',
-  'remapHyphenKeys', 'migrateStores', 'pruneOrphans',
+  'remapHyphenKeys', 'migrationLanded', 'migrateStores', 'pruneOrphans',
   'levelKeyFor', 'examPreFor', 'sizeKeyFor', 'EXAM_KEY',
   'collectExtras', 'applyExtras', 'wipeAccountKeys', 'bindCacheToUser',
   'exKey', 'UNIT_IDS', 'PREVIEW_UNIT', 'GLOSS_ALT', 'buildBank', 'glossKey', 'buildGlossIndex',
@@ -733,29 +733,127 @@ describe('migrateStores / remapHyphenKeys — a one-way door', () => {
       'the association is now gone from disk too, permanently');
   });
 
-  test('FINDING: hw_migr is stamped done even when the write it depended on failed', () => {
-    /* migrateStores calls saveStats() and then LS.set(hw_migr, 8) without looking at what
-     * saveStats returned. On a disk with room for a 9-byte flag but not for a 40KB stats blob —
-     * the ordinary shape of a full quota — the stamp lands and the data does not. */
+  /* FIXED 2.8.2026 — house-check 2, finding #3. migrateStores called saveStats() and then
+   * LS.set(hw_migr, 8) without looking at what saveStats returned. On a disk with room for a
+   * 9-byte flag but not for a 40KB stats blob — the ordinary shape of a full quota — the stamp
+   * landed and the data did not.
+   *
+   * The stamp is now written only after the disk is READ BACK and agrees. Three save() return
+   * values would have been enough here, but what the next boot actually reads is the disk, not a
+   * boolean, so the disk is what gets asked. */
+  test('hw_migr is not stamped when the write it depended on failed', () => {
     const c = loadStorage({ blocked: k => k === 'hw_stats' });
     c.window.UNIT_DATA = fakeBank();
     c.stats = { words: { 'כֹּפֶר': R({ seen: 9, level: 3, last: 100 }) }, sessions: [] };
     c.ls.seed('hw_stats', plain(c.stats));
     c.migrateStores();
-    assert.strictEqual(c.ls.read('hw_migr'), 8,
-      'the stamp is now conditional on the save — good; invert this test and the report');
-    assert.ok(c.ls.read('hw_stats').words['כֹּפֶר'],
-      'the disk still holds the un-migrated key while the stamp says the migration is done');
+    assert.notStrictEqual(c.ls.read('hw_migr'), 8,
+      'the stamp says the migration is done while the disk still holds the un-migrated key — ' +
+      'the next boot will skip the migration and pruneOrphans will delete every one of them');
+    assert.ok(c.ls.read('hw_stats').words['כֹּפֶר'], 'sanity: the write really was blocked');
   });
 
-  test('FINDING: full scenario — a full disk on one boot erases every record on the next', () => {
-    /* The three findings above compose into total, silent, permanent loss:
-     *   boot 1  quota is tight. migrateStores normalises 60 records in memory, saveStats fails,
-     *           LS.set(hw_migr, 8) succeeds. Disk: old keys + "migration complete".
-     *   boot 2  space is free again. loadLangState reads the OLD keys. migrateStores sees 8 and
-     *           returns. pruneOrphans finds nothing in the bank under those keys and deletes
-     *           every one of them, then saves.
-     * Nothing throws. Nothing is logged. The learner opens the app and has never practised. */
+  /* One gate guards the stamp — migrationLanded() — so every clause in it needs its own way of
+   * failing, or the clause is decoration. These four exist because a mutation run removed each
+   * one in turn and the suite stayed green. They are the difference between a guard and a
+   * comment that looks like a guard. */
+  test('hw_migr is not stamped when the ASSOCIATION write failed', () => {
+    const c = loadStorage({ blocked: k => k === 'hw_assoc' });
+    c.window.UNIT_DATA = fakeBank();
+    c.assoc = { 'כֹּפֶר': 'אסוציאציה' };
+    c.stats = { words: { 'כֹּפֶר': R({ seen: 9, last: 100 }) }, sessions: [] };
+    c.ls.seed('hw_stats', plain(c.stats));
+    c.migrateStores();
+    assert.notStrictEqual(c.ls.read('hw_migr'), 8,
+      'the association did not reach the disk, and the stamp says the migration is complete — ' +
+      'pruneOrphans deletes what it finds under the un-migrated key on the next boot');
+  });
+
+  test('hw_migr is not stamped when the DELETION write failed', () => {
+    const c = loadStorage({ blocked: k => k === 'hw_deleted' });
+    c.window.UNIT_DATA = fakeBank();
+    c.deleted = new Set(['כֹּפֶר']);
+    c.stats = { words: {}, sessions: [] };
+    c.migrateStores();
+    assert.notStrictEqual(c.ls.read('hw_migr'), 8,
+      'the deletion list did not land — the next boot resurrects every word the learner removed');
+  });
+
+  test('a disk holding something that is not a stats object is refused, not walked', () => {
+    /* A truncated write, a half-parsed blob, an older schema — anything that is not {words:{…}}.
+     * Without the shape check the key comparison walks a string and throws a TypeError out of
+     * migrateStores, which is a crash at boot rather than a refusal to stamp. */
+    const c = loadStorage();
+    c.window.UNIT_DATA = fakeBank();
+    c.stats = { words: { 'כֹּפֶר': R({ seen: 1, last: 5 }) }, sessions: [] };
+    c.ls.seed('hw_stats', 'a string, not an object');
+    c.ls.blocked = k => k === 'hw_stats';     // and nothing can overwrite it during the migration
+    assert.doesNotThrow(() => c.migrateStores(), 'migrateStores threw on a disk it could not read');
+    assert.notStrictEqual(c.ls.read('hw_migr'), 8, 'and it stamped over a disk holding no usable stats');
+  });
+
+  test('the v7 shortcut checks the disk on the same terms as the full migration', () => {
+    /* migrateStores has a fast path for hw_migr===7 that only remaps hyphen keys, and it stamped
+     * unconditionally too. The consequence is identical: an un-remapped disk marked done.
+     * Memory and disk are deliberately given different words, which is the state the shortcut
+     * must refuse to bless however it arose. */
+    /* Everything is blocked EXCEPT hw_migr — the nine-byte flag fits where the blobs do not,
+       which is the exact shape of a full quota and the reason this bug was reachable. Blocking
+       hw_migr too would make the test pass for the wrong reason: the stamp could not be written
+       either way, so removing the guard would change nothing observable. */
+    const c = loadStorage({ blocked: k => k !== 'hw_migr' });
+    c.window.UNIT_DATA = fakeBank();
+    c.stats = { words: { 'כֹּפֶר': R({ seen: 4, last: 9 }) }, sessions: [] };
+    c.ls.seed('hw_stats', { words: { 'משהו-אחר': R({ seen: 1, last: 1 }) }, sessions: [] });
+    c.ls.seed('hw_migr', 7);
+    c.migrateStores();
+    assert.notStrictEqual(c.ls.read('hw_migr'), 8,
+      'the v7 shortcut stamped while memory and disk still hold different words');
+  });
+
+  test('a disk still holding the duplicates the migration folded is not stamped either', () => {
+    /* The direction the key comparison alone cannot see. migrateStores FOLDS duplicate keys, so
+       after a successful pass memory holds fewer records than the un-migrated disk. Every key in
+       memory is present on disk — the key check is satisfied — and the disk is still the old one.
+       Only the count disagrees, which is why the count is compared as well. */
+    const c = loadStorage({ blocked: k => k !== 'hw_migr' });
+    c.window.UNIT_DATA = fakeBank();
+    /* The surviving key must ALREADY be on disk, or the key comparison catches this first and the
+       count comparison is never the deciding clause — which is exactly what the first version of
+       this fixture did. 'כפר' is what both of these fold to, and it is one of the two. */
+    c.ls.seed('hw_stats', { words: { 'כפר': R({ seen: 4, last: 9 }), 'כפר ': R({ seen: 1, last: 2 }) }, sessions: [] });
+    c.loadLangState();
+    assert.strictEqual(Object.keys(c.stats.words).length, 2, 'fixture: the disk must start with both');
+    c.migrateStores();
+    assert.strictEqual(Object.keys(c.stats.words).length, 1, 'fixture: the two must fold into one');
+    assert.notStrictEqual(c.ls.read('hw_migr'), 8,
+      'the fold never reached the disk, and the stamp says the migration is done');
+  });
+
+  test('a migration that DID land still stamps, so it does not run forever', () => {
+    // the other half of the rule: refusing to stamp on success would re-migrate on every boot,
+    // and migrateStores SUMS duplicate counts — so a permanent retry inflates every counter
+    const c = loadStorage();
+    c.window.UNIT_DATA = fakeBank();
+    c.stats = { words: { 'כֹּפֶר': R({ seen: 9, level: 3, last: 100 }) }, sessions: [] };
+    c.ls.seed('hw_stats', plain(c.stats));
+    c.migrateStores();
+    assert.strictEqual(c.ls.read('hw_migr'), 8, 'a successful migration must record itself');
+  });
+
+  /* FIXED 2.8.2026 — the same edit, seen end to end. This was the scenario that made finding #3
+   * critical rather than untidy: three separately-reasonable behaviours composing into total,
+   * silent, permanent loss.
+   *   boot 1  quota is tight. migrateStores normalises 60 records in memory, saveStats fails,
+   *           LS.set(hw_migr, 8) succeeds. Disk: old keys + "migration complete".
+   *   boot 2  space is free again. loadLangState reads the OLD keys. migrateStores sees 8 and
+   *           returns. pruneOrphans cannot tell an un-migrated key from a word that left the
+   *           bank, deletes all 60, and writes that.
+   * Nothing threw. Nothing was logged. The learner opened the app and had never practised.
+   *
+   * Now boot 1 leaves the stamp unwritten, so boot 2 re-runs the migration and the records are
+   * still there when pruneOrphans looks. The cost of the fix is one repeated migration. */
+  test('full scenario — a full disk on one boot no longer erases every record on the next', () => {
     const words = {};
     const bank = fakeBank();
     for (const [term] of bank['1']) words[term + 'ֶ'] = R({ seen: 3, level: 2, last: 100 });  // pre-v8 raw keys
@@ -767,7 +865,7 @@ describe('migrateStores / remapHyphenKeys — a one-way door', () => {
     b1.loadLangState();
     assert.strictEqual(Object.keys(b1.stats.words).length, 60, 'fixture did not load');
     b1.migrateStores();
-    assert.strictEqual(b1.ls.read('hw_migr'), 8);
+    assert.notStrictEqual(b1.ls.read('hw_migr'), 8, 'boot 1 must not claim a migration it could not write');
     assert.strictEqual(Object.keys(b1.ls.read('hw_stats').words).length, 60, 'the disk was not updated');
 
     // ---- boot 2: the disk works again ----
@@ -778,11 +876,20 @@ describe('migrateStores / remapHyphenKeys — a one-way door', () => {
     b2.loadLangState();
     b2.migrateStores();
     b2.pruneOrphans();
-    assert.strictEqual(Object.keys(b2.stats.words).length, 0,
-      'records now survive this sequence — that is the fix; invert this test and the report');
-    assert.deepStrictEqual(plain(b2.ls.read('hw_stats')), { words: {}, sessions: [] },
-      'the empty state was written to disk, so there is nothing left to recover from');
-    assert.strictEqual(b2.__toasts.length, 0, 'still silent');
+    assert.strictEqual(Object.keys(b2.stats.words).length, 60,
+      'every record was deleted by the sequence that used to erase them — the migration must ' +
+      'have re-run on boot 2, which it only does if boot 1 refused to stamp');
+    assert.strictEqual(Object.keys(b2.ls.read('hw_stats').words).length, 60,
+      'the records survived in memory but not on disk, so the next boot loses them anyway');
+    /* Deliberately NOT asserting that boot 2 stamps. This fixture's disk is still tight — the
+       saves fail here too — and demanding a stamp would be demanding a successful write the
+       scenario does not grant. The stamp-on-success rule has its own test above, on a healthy
+       disk, which is where it can actually be observed. What matters here is only this: the
+       records are still there, because boot 1 refused to lie about having migrated them. */
+    assert.ok(!b2.ls.read('hw_migr') || b2.ls.read('hw_migr') < 8 ||
+      Object.keys(b2.ls.read('hw_stats').words).every(k => k in b2.stats.words),
+      'the stamp was written while the disk and memory still disagree — the next boot will skip ' +
+      'the migration and pruneOrphans will delete what it cannot recognise');
   });
 });
 
