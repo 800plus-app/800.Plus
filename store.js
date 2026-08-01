@@ -52,11 +52,30 @@ const Store = {
     const { data, error } = await sb.from('progress').select('data,updated_at')
       .eq('user_id', u.user.id).eq('lang', lang).maybeSingle();
     if (error) { console.warn('pullProgress failed', error.message); return { ok: false, data: null }; }
+    /* Three states, not two. `no row at all` is a genuinely empty cloud and the device may fill
+       it. `a row whose data is not an object` is a read we cannot trust — a renamed column, a
+       truncated response, a half-written row — and it must NOT look like an empty cloud, because
+       the caller answers an empty cloud by pushing the device up. On a fresh device that push is
+       `{}` written over a full row. Refusing to sync is recoverable; overwriting is not. */
+    if (data && !(data.data && typeof data.data === 'object')) {
+      console.warn('pullProgress: the row exists but carries no usable data — refusing to treat it as an empty cloud');
+      return { ok: false, data: null };
+    }
     return { ok: true, data: data ? data.data : null };
   },
-  async pushProgress(lang, payload) {
+  /* expectUserId is the account the CALLER believes it is writing for. The account is resolved
+     twice per sync — once by pullProgress, once here — and it can change in between: a
+     confirmation link opened in the same tab, a second tab signing in, a token refreshed into
+     another account. The read then merged A's row into local state and this wrote all of it into
+     B's row, under B's own RLS, entirely legally. RLS cannot see this; only the caller knows
+     which account it started with. */
+  async pushProgress(lang, payload, expectUserId) {
     const { data: u } = await sb.auth.getUser();
     if (!u || !u.user) return false;
+    if (expectUserId && u.user.id !== expectUserId) {
+      console.warn('pushProgress aborted: the account changed between the read and the write');
+      return false;
+    }
     const { error } = await sb.from('progress').upsert(
       { user_id: u.user.id, lang, data: payload, updated_at: new Date().toISOString() },
       { onConflict: 'user_id,lang' }

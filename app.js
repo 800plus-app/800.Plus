@@ -2647,8 +2647,11 @@ async function flushRemoteSync(){
      failure nothing ever retried. Every path that returns false now leaves the save queued. */
   let ok=false;
   try{
+    /* The owner check at the top of this function ran BEFORE the read. Passing the id here makes
+       store.js check it again immediately before the write, which is the only place that can
+       catch a session changing while the read was in flight. */
     ok = await Store.pushProgress(lang, {assoc, stats, deleted:[...deleted], added, dir:direction,
-                                         extras:collectExtras(lang)}) === true;
+                                         extras:collectExtras(lang)}, currentUser.id) === true;
   }catch(e){ ok=false; }
   if(ok) syncPending=false;
   return ok;
@@ -3397,9 +3400,16 @@ $('#accReset').onclick = async ()=>{
     /* The cloud row is emptied FIRST. Clearing the device and then failing to reach the server
        would leave the old progress in the cloud, and the next sync would pull it all back —
        a reset that silently undoes itself is worse than one that fails loudly. */
-    for(const lang of ['he','en'])
-      await Store.pushProgress(lang, {assoc:{}, stats:{words:{},sessions:[]}, deleted:[], added:[],
-                                      dir:DEFAULT_DIR, extras:{}});
+    /* The return value is READ. pushProgress reports a refusal by returning false, not by
+       throwing, so the catch below could never fire on the failure that matters: the device was
+       wiped while the cloud still held everything, the toast said "ההתקדמות אופסה", and the next
+       sync pulled it all back. A reset that silently undoes itself is worse than one that fails
+       loudly — which is the same reasoning the comment above already gives for the ordering. */
+    for(const lang of ['he','en']){
+      const ok = await Store.pushProgress(lang, {assoc:{}, stats:{words:{},sessions:[]}, deleted:[], added:[],
+                                                 dir:DEFAULT_DIR, extras:{}}, currentUser && currentUser.id);
+      if(ok!==true) throw new Error('reset: the cloud refused the write for ' + lang);
+    }
     wipeAccountKeys();
     if(window.caches) try{ await caches.delete('hw-data'); }catch(e){}
     toast('ההתקדמות אופסה');
