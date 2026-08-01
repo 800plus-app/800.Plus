@@ -81,10 +81,16 @@ function cssVar(name) {
   assert.ok(m, `index.html no longer declares --${name} as a hex literal`);
   return m[1];
 }
+/* index.html with CSS comments stripped. Rules are located by what precedes the selector, and a
+ * /* … *​/ sitting immediately above a rule is exactly the sort of thing this repo writes — the
+ * first draft of ruleDecl() anchored on `}` and stopped finding .au-go:hover the moment the fix
+ * was documented above it. Removing comments first makes the anchor mean what it says. */
+const css = html.replace(/\/\*[\s\S]*?\*\//g, '\n');
+
 /* Pull one declaration out of one rule, e.g. rule('.au-go:hover', 'background'). */
 function ruleDecl(selector, prop) {
   const sel = selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const m = html.match(new RegExp('(?:^|[},])\\s*' + sel + '\\s*\\{([^}]*)\\}'));
+  const m = css.match(new RegExp('(?:^|[\\n;},])\\s*' + sel + '\\s*\\{([^}]*)\\}'));
   assert.ok(m, `index.html has no rule for ${selector}`);
   const d = m[1].match(new RegExp('(?:^|;)\\s*' + prop + '\\s*:\\s*([^;}]+)'));
   return d ? d[1].trim() : null;
@@ -116,6 +122,52 @@ describe('contrast — the checker itself (control)', () => {
      * two tests are capable of going red. */
     assert.ok(contrast('#7d7365', '#f6f1e7') < AA_BODY, 'old --ink-soft must read as failing');
     assert.ok(contrast('#fffdf8', '#c9962f') < AA_BODY, 'white on gold must read as failing');
+  });
+});
+
+describe('A11Y-04a · --ink-soft passes AA on both surfaces it is painted on', () => {
+  /* The report counts ten interface rows that all resolve to --ink-soft on --paper: #qCount,
+   * #qLive, .section-t, .score-of, .topbar .back (x15), .btn-ghost, .qmeta, .w-sub, .tile .lbl,
+   * .m-head span. They stand or fall together on one variable, so one variable is tested. */
+  const ink = cssVar('ink-soft');
+  const paper = cssVar('paper');
+  const card = cssVar('card');
+
+  test(`--ink-soft ${ink} on --paper ${paper} reaches 4.5:1`, () => {
+    const c = contrast(ink, paper);
+    assert.ok(c >= AA_BODY, `--ink-soft on --paper is ${r2(c)}:1, needs ${AA_BODY}:1`);
+  });
+
+  test(`--ink-soft ${ink} on --card ${card} reaches 4.5:1`, () => {
+    const c = contrast(ink, card);
+    assert.ok(c >= AA_BODY, `--ink-soft on --card is ${r2(c)}:1, needs ${AA_BODY}:1`);
+  });
+
+  test('--ink-soft is still recognisably the same soft grey, not a black substitute', () => {
+    /* Guards the fix from the other side. "Make it pass" has a trivial wrong answer — set it to
+     * #000 — which would flatten the whole visual hierarchy the variable exists to create. */
+    const c = contrast(ink, paper);
+    assert.ok(c < 8, `--ink-soft on --paper is ${r2(c)}:1 — that is body-ink dark, not soft`);
+  });
+});
+
+describe('A11Y-04b · .au-go:hover is no longer white on gold', () => {
+  /* index.html:51 already documents this exact failure for .btn-primary ("white on gold measured
+   * 2.66:1, below AA") and fixed it there. .au-go:hover reintroduced it on the primary button of
+   * the auth card — the single gate into the app. */
+  test('the hover pair of the auth card\'s primary button reaches 4.5:1', () => {
+    const bg = ruleDecl('.au-go:hover', 'background');
+    const fg = ruleDecl('.au-go:hover', 'color');
+    assert.ok(bg && fg, '.au-go:hover must declare both background and color');
+    const c = contrast(fg, bg);
+    assert.ok(c >= AA_BODY, `.au-go:hover is ${fg} on ${bg} = ${r2(c)}:1, needs ${AA_BODY}:1`);
+  });
+
+  test('--gold is not used as a text-bearing background anywhere in .au-go', () => {
+    const gold = cssVar('gold').toLowerCase();
+    const bg = String(ruleDecl('.au-go:hover', 'background')).toLowerCase();
+    assert.notStrictEqual(bg, gold,
+      `--gold (${gold}) carries no readable text at any size on either surface (2.37 / 2.62)`);
   });
 });
 
