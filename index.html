@@ -1101,6 +1101,9 @@
     <button class="pbtn danger-tile" id="accReset"><div class="ic">⚠️</div><div class="tx"><b>איפוס התקדמות</b>
       <span>מוחק את כל ההיסטוריה שלך בשתי השפות — מילים שלמדת, ציונים, רצף ימים.
       החשבון עצמו נשאר. אין דרך לבטל.</span></div><div class="cnt">‹</div></button>
+    <button class="pbtn danger-tile" id="accDelete"><div class="ic">🗑</div><div class="tx"><b>מחיקת החשבון</b>
+      <span>מוחק את החשבון עצמו ואת כל מה שקשור אליו — התקדמות, דיווחים, הכתובת.
+      לא נשאר שום זכר, ואי אפשר לשחזר.</span></div><div class="cnt">‹</div></button>
 
     <p class="acc-soon">בהמשך יופיעו כאן הצהרת פרטיות ונגישות, ופרטי המנוי —
       איזו חבילה, מתי התחילה וכמה זמן נשאר.</p>
@@ -1302,6 +1305,26 @@
      A one-line note under the form is read by whoever is already looking there. Someone who has
      just pressed "צור חשבון" is looking at the button, and the single action that decides whether
      they ever get in has to interrupt them. -->
+<!-- ===== deleting the account =====
+     Typing the address is the gate, not a second "are you sure". A confirm dialog is dismissed
+     by the same reflex that opened it; typing your own email cannot be done by accident. -->
+<div class="ask hidden" id="delAsk">
+  <div class="ask-box">
+    <h3>למחוק את החשבון?</h3>
+    <p>נמחקים: ההתקדמות בשתי השפות, האסוציאציות שכתבת, הדיווחים ששלחת,
+      והכתובת עצמה. <b>אין שחזור</b> — גם לא על ידי.</p>
+    <p style="margin-top:12px">כדי לאשר, הקלד את כתובת המייל שלך:</p>
+    <p class="mail-to" id="delMail" dir="ltr"></p>
+    <div class="size-custom" style="margin-top:10px">
+      <input id="delInput" type="email" autocomplete="off" dir="ltr" placeholder="הכתובת שלך">
+    </div>
+    <p class="au-msg hidden" id="delMsg"></p>
+    <button class="ask-go" id="delGo" disabled style="background:linear-gradient(180deg,#b8492e,#8f3220)">
+      מחק את החשבון לצמיתות</button>
+    <button class="ask-cancel" id="delCancel">ביטול — אני נשאר</button>
+  </div>
+</div>
+
 <!-- ===== closing a whole unit ===== -->
 <div class="cheer hidden" id="cheer">
   <canvas class="cheer-cv" id="cheerCanvas" aria-hidden="true"></canvas>
@@ -1415,14 +1438,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=104"></script>
-<script src="config.js?v=104"></script>
-<script src="store.js?v=104"></script>
-<script src="leveltest-he.js?v=104"></script>
-  <script src="leveltest.js?v=104"></script>
-<script src="enrank.js?v=104"></script>
-<script src="data.js?v=104"></script>
-<script src="data-en.js?v=104"></script>
-<script src="app.js?v=104"></script>
+<script src="supabase.min.js?v=105"></script>
+<script src="config.js?v=105"></script>
+<script src="store.js?v=105"></script>
+<script src="leveltest-he.js?v=105"></script>
+  <script src="leveltest.js?v=105"></script>
+<script src="enrank.js?v=105"></script>
+<script src="data.js?v=105"></script>
+<script src="data-en.js?v=105"></script>
+<script src="app.js?v=105"></script>
 </body>
 </html>

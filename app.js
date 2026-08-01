@@ -3112,6 +3112,53 @@ $('#userBadge2').onclick = openAccount;
 $('#userBadge3').onclick = openAccount;
 $('#accBack').onclick = ()=>{ if(LANG==='he'||LANG==='en') goto('home'); else { renderWelcome(); goto('welcome'); } };
 $('#accInstall').onclick = ()=>promptInstall(true);
+
+/* ===== deleting the account =====
+   Two things this must not be: a confirm() that the same reflex dismisses, and a button that
+   only clears the DATA. The first is why the gate is typing your own address; the second is
+   why it goes through an Edge Function — see store.deleteMyAccount. */
+$('#accDelete').onclick = ()=>{
+  const mail=(currentUser&&currentUser.email)||'';
+  if(!mail){ toast('צריך להיות מחובר'); return; }
+  $('#delMail').textContent=mail;
+  $('#delInput').value='';
+  $('#delGo').disabled=true;
+  $('#delMsg').classList.add('hidden');
+  show($('#delAsk'));
+  setTimeout(()=>$('#delInput').focus(),60);
+};
+$('#delInput').oninput = ()=>{
+  const mail=((currentUser&&currentUser.email)||'').trim().toLowerCase();
+  $('#delGo').disabled = $('#delInput').value.trim().toLowerCase() !== mail || !mail;
+};
+const closeDel = ()=>hide($('#delAsk'));
+$('#delCancel').onclick = closeDel;
+$('#delAsk').onclick = e=>{ if(e.target===$('#delAsk')) closeDel(); };
+$('#delGo').onclick = async ()=>{
+  const btn=$('#delGo'), m=$('#delMsg');
+  btn.disabled=true; m.className='au-msg'; m.textContent='מוחק…'; m.classList.remove('hidden');
+  const r = await Store.deleteMyAccount();
+  if(!r.ok){
+    m.className='au-msg err';
+    m.textContent = r.notDeployed
+      ? 'המחיקה האוטומטית עוד לא פעילה. כתוב אליי ל-admin@800-plus.com ואמחק ידנית תוך יום.'
+      : (r.error && r.error.message) || 'המחיקה נכשלה — נסה שוב.';
+    btn.disabled=false; return;
+  }
+  /* The account is gone on the server. Everything local must go too, and the session with it —
+     leaving a stale token behind means the next load tries to use an identity that no longer
+     exists, and the error that comes back is unreadable. */
+  try{ await Store.signOut(); }catch(e){}
+  try{ localStorage.clear(); }catch(e){}
+  closeDel();
+  document.body.innerHTML = '<div style="min-height:100vh;display:flex;align-items:center;'
+    + 'justify-content:center;padding:32px;background:#f7f2e8;color:#2c2620;text-align:center;'
+    + 'font-family:Heebo,system-ui,sans-serif">'
+    + '<div><div style="font:700 30px/1 Georgia,serif;color:#c9962f" dir="ltr">800+</div>'
+    + '<p style="margin-top:18px;font-size:1.05rem;line-height:1.8">החשבון נמחק.<br>'
+    + 'לא נשאר אצלנו שום מידע עליך.</p>'
+    + '<p style="margin-top:14px;font-size:.85rem;color:#8d8274">בהצלחה במבחן.</p></div></div>';
+};
 $('#accSheet').onclick = ()=>toast('פותחים יחידה ואז "דף מבחן להדפסה" — הדף נבנה מהמילים של אותה יחידה');
 
 /* The survey's biggest finding was that eight capabilities people asked for ALREADY EXIST and

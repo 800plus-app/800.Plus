@@ -181,6 +181,36 @@ const Store = {
     return { ok: true };
   },
 
+  /* Self-service account deletion. Goes through an Edge Function and not through the table
+     API, because removing the row from auth.users needs service_role — a key that can never
+     be in a browser. Without that step the account still signs in, and "מחיקת החשבון" is a
+     button that lies.
+
+     Returns {ok} or {ok:false, error}. `notDeployed` distinguishes "the function is not
+     there yet" from "the deletion failed", because the two need different words on screen. */
+  async deleteMyAccount() {
+    const { data: s } = await sb.auth.getSession();
+    const token = s && s.session && s.session.access_token;
+    if (!token) return { ok: false, error: { message: 'אין חיבור פעיל — התחבר שוב ונסה' } };
+    let res;
+    try {
+      res = await fetch(window.SUPA_URL + '/functions/v1/delete-account', {
+        method: 'POST',
+        headers: { Authorization: 'Bearer ' + token, apikey: window.SUPA_KEY,
+                   'content-type': 'application/json' },
+        body: '{}',
+      });
+    } catch (e) {
+      return { ok: false, error: { message: 'אין חיבור לרשת' } };
+    }
+    if (res.status === 404) return { ok: false, notDeployed: true, error: { message: 'השירות אינו זמין כרגע' } };
+    let body = null;
+    try { body = await res.json(); } catch (e) { /* a non-JSON body is still a failure */ }
+    if (!res.ok || !body || body.ok !== true)
+      return { ok: false, error: { message: (body && body.error) || 'המחיקה נכשלה' } };
+    return { ok: true, removed: body.removed };
+  },
+
   /* status: none | grace | active | past_due | canceled */
   async adminSetSubscription(userId, { status, until, plan, note }) {
     const patch = { sub_status: status };
