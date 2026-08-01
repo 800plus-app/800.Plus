@@ -1915,7 +1915,10 @@ $('#lvDunno').onclick=()=>{
   lvAns.push({band:it.band, ok:false});
   $('#lvOpts').querySelectorAll('button').forEach(b=>{ b.disabled=true; if(b.textContent===it.a) b.classList.add('right'); });
   $('#lvDunno').disabled=true;
-  setTimeout(()=>{ lvIdx++; lvRender(); }, 900);
+  /* Store the id, exactly like lvPick() above: an unstored timer is a timer nothing can cancel.
+     clearTimeout(lvTimer) in #lvExit is the only thing standing between "left the test" and a
+     tick that walks into lvFinish() and writes hw_level — see app.js:2445-2448. */
+  lvTimer=setTimeout(()=>{ lvIdx++; lvRender(); }, 900);
 };
 
 /* The level is the highest band that cleared 5/6 — nothing is inferred from bands we
