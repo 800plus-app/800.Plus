@@ -691,32 +691,19 @@ function renderHome(){
     const pct=n=>c.total?(100*n/c.total):0;
     const el=document.createElement('button');
     el.className='tile';
-    // the exam tag, Hebrew only — see UNIT_EXAM_SHARE for why English has none
-    const share = LANG==='en' ? null : UNIT_EXAM_SHARE[uid];
-    const tag = share==null ? ''
-      : `<div class="tl-exam${share>=38?' hot':''}" title="חלק ממילות היחידה שהופיעו ב-20 מבחני נייט אמיתיים">${share}% במבחנים</div>`;
     el.innerHTML=`<div class="num">${uid}</div><div class="lbl">${c.total} מילים</div>
-      <div class="mini"><i class="s" style="width:${pct(c.strong)}%"></i><i class="w" style="width:${pct(c.weak)}%"></i><i class="n" style="width:${pct(c.fresh)}%"></i><i class="k" style="width:${pct(c.skipped||0)}%"></i></div>${tag}`;
+      <div class="mini"><i class="s" style="width:${pct(c.strong)}%"></i><i class="w" style="width:${pct(c.weak)}%"></i><i class="n" style="width:${pct(c.fresh)}%"></i><i class="k" style="width:${pct(c.skipped||0)}%"></i></div>`;
     el.onclick=()=>openScope('unit:'+uid);
     grid.appendChild(el);
   });
 }
 
 /* ===== SCOPE ===== */
-/* ===== how much of a unit actually shows up in the exam =====
-   Measured, not guessed: the share of each Hebrew unit's words that appear at least once
-   across 20 real NITE exams. Hagay asked for a difficulty/frequency tag; frequency won,
-   because difficulty would have been a proxy we invented while THIS is the thing a learner
-   is actually optimising for.
-
-   Hebrew only, and deliberately so. The English bank has EN_RANK, but that is a subtitles
-   corpus — already established (דוחות/שכיחות-עברית-תיקוף.md) as a poor stand-in for exam
-   relevance. A tag that means "appears in the exam" on one side and "is common in films" on
-   the other would be the same label over two different facts. English gets no tag until it is
-   measured the same way.
-
-   To update: rerun the measurement and replace the numbers. Nothing else reads them. */
-const UNIT_EXAM_SHARE = {'1':47,'2':41,'3':38,'4':40,'5':23,'6':24,'7':28,'8':26,'9':35,'10':32};
+/* A per-unit "X% appear in real exams" tag was built from the NITE measurement and then
+   removed on sight. The numbers are true — 47% down to 23% — but on a tile they read as
+   "77% of this unit is a waste of time", on seven units out of ten. A true number that
+   discourages the exact work it describes is the wrong number to show.
+   The measurement itself is kept: scratchpad/unit_examshare.json. */
 let curScope='global';
 const scopeTitle = s => s==='global'?'כל המאגר' : s==='random'?'אקראי' : 'יחידה '+s.slice(5);
 function openScope(scope){
