@@ -562,6 +562,18 @@
        padding:5px 13px;font-family:"Heebo";font-size:.78rem;color:var(--ink-soft)}
   .adm-acts button:hover{border-color:var(--gold);color:var(--ink)}
   /* admin toolbar — search / sort / filter */
+  /* the morning glance — five numbers, above the list, before any scrolling */
+  .adm-glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px;
+       margin:2px 0 14px}
+  .adm-g{background:var(--card);border:1px solid var(--line);border-radius:12px;
+       padding:12px 10px;text-align:center}
+  .adm-g b{display:block;font-family:"Frank Ruhl Libre",serif;font-size:1.6rem;
+       font-weight:900;color:var(--ink);line-height:1.1}
+  .adm-g span{display:block;margin-top:4px;font-size:.74rem;color:var(--ink-soft);line-height:1.4}
+  .adm-g i{display:block;margin-top:2px;font-size:.66rem;color:#a2968a;font-style:normal}
+  /* the only one that is bad news when it is high */
+  .adm-g.warn{border-color:rgba(166,60,38,.4);background:#fff8f4}
+  .adm-g.warn b{color:var(--accent)}
   .adm-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:2px 0 10px}
   .adm-tools input.adm-search,.adm-tools select{background:var(--card);border:1px solid var(--line);
        border-radius:999px;padding:8px 13px;font-family:"Heebo";color:var(--ink);min-width:0}
@@ -1438,14 +1450,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=105"></script>
-<script src="config.js?v=105"></script>
-<script src="store.js?v=105"></script>
-<script src="leveltest-he.js?v=105"></script>
-  <script src="leveltest.js?v=105"></script>
-<script src="enrank.js?v=105"></script>
-<script src="data.js?v=105"></script>
-<script src="data-en.js?v=105"></script>
-<script src="app.js?v=105"></script>
+<script src="supabase.min.js?v=106"></script>
+<script src="config.js?v=106"></script>
+<script src="store.js?v=106"></script>
+<script src="leveltest-he.js?v=106"></script>
+  <script src="leveltest.js?v=106"></script>
+<script src="enrank.js?v=106"></script>
+<script src="data.js?v=106"></script>
+<script src="data-en.js?v=106"></script>
+<script src="app.js?v=106"></script>
 </body>
 </html>

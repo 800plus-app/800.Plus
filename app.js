@@ -3409,7 +3409,9 @@ function renderAdminUsers(){
       <div class="adm-meta">
         <span>נרשם <i>${fmtDate(r.created_at)}</i></span>
         <span>פעילות אחרונה <i>${r.lastTs?fmtDate(r.last):'לא נכנס מעולם'}</i></span>
-        <span>למד <i>${r.learnedHe}</i> עברית · <i>${r.learnedEn}</i> אנגלית</span>
+        <span>תרגל <i>${r.practised}</i> מילים ב-<i>${r.rounds}</i> סבבים</span>
+        <span>יודע <i>${r.learnedHe}</i> עברית · <i>${r.learnedEn}</i> אנגלית</span>
+        ${r.skipped?`<span style="opacity:.7">דילג במבחן רמה <i>${r.skipped}</i></span>`:''}
       </div>
       <div class="adm-sub ${subClass(r)}">${subLabel(r)}</div>
       <div class="adm-acts">
@@ -3546,22 +3548,63 @@ async function openAdmin(){
   if(!users.length){ admUsers=[]; body.innerHTML='<p class="msg" style="color:var(--ink-soft)">עדיין אין משתמשים רשומים.</p>'; return; }
 
   admUsers=await Promise.all(users.map(async u=>{
-    let learnedHe=0, learnedEn=0, last=u.last_seen;
+    /* "למד" used to count every record with level>=3 — including the ones the LEVEL TEST
+       writes for words it decides the learner already knows (src:'lv'). A single level test
+       marks thousands at once, so the number said 2,477 for someone who had practised twice,
+       and it never moved afterwards. It measured a test, not learning.
+       Practised and skipped are now two separate numbers, because they answer two questions. */
+    let learnedHe=0, learnedEn=0, skipped=0, rounds=0, practised=0, last=u.last_seen, lastRound=0;
     try{
       for(const p of await Store.adminUserProgress(u.id)){
-        const w=(p.data&&p.data.stats&&p.data.stats.words)||{};
-        const n=Object.values(w).filter(r=>r&&Number(r.level)>=3).length;
-        if(p.lang==='en') learnedEn=n; else learnedHe=n;
+        const st=(p.data&&p.data.stats)||{};
+        const w=st.words||{};
+        let solid=0;
+        for(const r of Object.values(w)){
+          if(!r) continue;
+          if(r.src==='lv'){ skipped++; continue; }
+          if(Number(r.seen)>0) practised++;
+          if(Number(r.level)>=3) solid++;
+        }
+        if(p.lang==='en') learnedEn=solid; else learnedHe=solid;
+        const ses=Array.isArray(st.sessions)?st.sessions:[];
+        rounds+=ses.length;
+        // session.t is Date.now() — a number. Date.parse() on it returns NaN and every round
+        // would have looked like it never happened.
+        for(const s of ses){ const t=Number(s&&s.t); if(t>lastRound) lastRound=t; }
         if(!last || (p.updated_at && p.updated_at>last)) last=p.updated_at;
       }
     }catch(e){}
     const ts=last?Date.parse(last):NaN;
     return { id:u.id, username:u.username||'', email:u.email||'', role:u.role,
              created_at:u.created_at, last, lastTs:isNaN(ts)?0:ts,
-             learnedHe, learnedEn, learnedTotal:learnedHe+learnedEn };
+             learnedHe, learnedEn, learnedTotal:learnedHe+learnedEn,
+             skipped, rounds, practised, lastRound };
   }));
 
-  body.innerHTML=`<div class="adm-tools">
+  /* The morning glance. The list below answers "who is this person"; this answers the only
+     question worth asking every day — is anybody actually practising. Rounds, not logins:
+     signing up and confirming an email is a small effort, and opening the app and answering
+     a round is a different one. Conflating them is how a dead product looks alive. */
+  const DAY=864e5, now=Date.now();
+  const roundIn = d => admUsers.filter(u=>u.lastRound && now-u.lastRound < d*DAY).length;
+  const glance = {
+    today: roundIn(1), week: roundIn(7),
+    never: admUsers.filter(u=>!u.rounds).length,
+    words: admUsers.reduce((n,u)=>n+u.practised,0),
+    rounds: admUsers.reduce((n,u)=>n+u.rounds,0),
+  };
+  const gcard = (n, label, hint, warn) =>
+    `<div class="adm-g${warn&&n?' warn':''}"><b>${n}</b><span>${label}</span>`+
+    (hint?`<i>${hint}</i>`:'')+`</div>`;
+
+  body.innerHTML=`<div class="adm-glance">
+      ${gcard(glance.today,'תרגלו היום','')}
+      ${gcard(glance.week,'תרגלו השבוע','')}
+      ${gcard(glance.never,'נרשמו ולא תרגלו','אף פעם',true)}
+      ${gcard(glance.rounds,'סבבים בסך הכול','')}
+      ${gcard(glance.words,'מילים שתורגלו','בלי מבחן רמה')}
+    </div>
+    <div class="adm-tools">
       <input class="adm-search" id="admSearch" type="search" inputmode="search"
              placeholder="חיפוש לפי מייל או שם" value="${esc(admView.q)}" aria-label="חיפוש משתמשים">
       <select id="admSort" aria-label="מיון">
