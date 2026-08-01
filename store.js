@@ -124,8 +124,20 @@ const Store = {
     if (error) return { users: [], error };
     return { users: data, error: null };
   },
+  /* The admin panel counts practice; it must never receive what the learner wrote.
+     `data` is the whole blob — {assoc, stats, deleted, added, dir, extras} — and `assoc` is the
+     learner's own associations, written on the assumption nobody would read them. The privacy
+     policy promises the service owner does not see them; selecting `data` handed every one of
+     them to an admin screen on every panel load, whether or not anything rendered them.
+     So exactly one key is projected out of the jsonb, by name, PostgREST-side:
+     `stats:data->stats` reads the `stats` key and returns it under the alias `stats`.
+     `added` is excluded along with `assoc` on purpose: the policy allows knowing how much you
+     practised, and a word the learner typed in with the meaning they wrote for it is writing,
+     not a count. Nothing in the panel ever used it. Anything the panel needs later gets added
+     here by name — never by widening this back to the blob. */
   async adminUserProgress(userId) {
-    const { data } = await sb.from('progress').select('lang,data,updated_at').eq('user_id', userId);
+    const { data } = await sb.from('progress')
+      .select('lang,updated_at,stats:data->stats').eq('user_id', userId);
     return data || [];
   },
   async adminSendReset(email) { return this.resetPasswordFor(email); },
