@@ -2796,8 +2796,14 @@ function openFeedback(){
   $('#fbKinds').querySelectorAll('button').forEach(b=>b.classList.toggle('active', b.dataset.k==='bug'));
   $('#fbBody').value='';
   $('#fbMsg').classList.add('hidden');
+  /* The diagnostic line used to sit in the dialog in monospace, and a tester asked what it was.
+     Fair question: `screen:results · lang:en · build:100 · 393×793` means nothing to her, and a
+     form that shows you something you cannot understand reads as a form you might be breaking.
+     It still travels with every report — it is what makes a report reproducible — it is just no
+     longer shown. One plain sentence takes its place, because silently attaching device details
+     would be worse than showing them. */
   const c=fbContext();
-  $('#fbCtx').textContent=`screen:${c.screen} · lang:${c.lang} · build:${c.build} · ${c.viewport}`;
+  $('#fbCtx').textContent=`נשלח יחד עם הדיווח: המסך שהיית בו, שפת התרגול וגרסת האפליקציה.`;
   show($('#fbAsk'));
   setTimeout(()=>$('#fbBody').focus(),60);
 }
@@ -3614,6 +3620,8 @@ function backFromAuth(){
 
 $('#introTry').onclick  = ()=>{ LS.set('hw_seenIntro',1); startPreview(); };
 $('#introAuth').onclick = ()=>{ LS.set('hw_seenIntro',1); setAuthMode('signin'); buildAuthDrift(); goto('auth'); };
+// lands on the sign-up tab already open, so the decision the visitor already made is not re-asked
+$('#introSignup').onclick = ()=>{ LS.set('hw_seenIntro',1); setAuthMode('signup'); buildAuthDrift(); goto('auth'); };
 $('#pvSignup').onclick  = ()=>endPreview();
 $('#authBack').onclick   = backFromAuth;
 

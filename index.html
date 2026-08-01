@@ -716,6 +716,11 @@
 
   /* the CTA breathes rather than pulses: a shadow that swells, no size change, so nothing jumps */
   #introTry{position:relative;animation:breathe 3.6s ease-in-out 1.4s infinite}
+  /* side by side: neither is the main action — the primary button above is — and stacking two
+     more full-width buttons under it makes the page read as three equal choices */
+  .in-two{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}
+  .in-two .btn{width:100%;padding-inline:6px}
+  @media(max-width:340px){.in-two{grid-template-columns:1fr}}
   @keyframes breathe{
     0%,100%{box-shadow:0 8px 22px -12px rgba(181,72,46,.55)}
     50%    {box-shadow:0 14px 34px -12px rgba(181,72,46,.8)}
@@ -799,9 +804,10 @@
        background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px;
        outline:none;resize:vertical;color:var(--ink);text-align:right}
   #fbBody:focus{border-color:var(--gold)}
-  .fb-ctx{margin-top:9px;font-size:.7rem;color:var(--ink-soft);background:var(--paper-deep);
-       border-radius:8px;padding:8px 10px;line-height:1.5;font-family:"Cascadia Mono",Consolas,monospace;
-       direction:ltr;text-align:left;word-break:break-word}
+  /* Was a monospace LTR block that looked like a console. It is now one quiet Hebrew line —
+     the same information is still sent, it just no longer asks the reporter to parse it. */
+  .fb-ctx{margin-top:10px;font-size:.74rem;color:var(--ink-soft);line-height:1.6;
+       text-align:center;opacity:.8}
 
   /* install-to-home-screen */
   .install-box{max-width:380px}
@@ -927,7 +933,13 @@
     <div class="in-rise" id="introCta" style="animation-delay:.82s">
       <button class="btn btn-primary btn-block" id="introTry" style="margin-top:22px">התחל בלי הרשמה ←</button>
       <p class="w-foot" style="margin-top:10px">יחידה שלמה ומבחן רמה, בלי למסור שום פרט.</p>
-      <button class="btn btn-ghost btn-block" id="introAuth" style="margin-top:14px">כבר יש לי חשבון</button>
+      <!-- Two ways in existed — try it, or sign in — and no way to simply OPEN an account.
+           Someone who had already decided had to guess that "כבר יש לי חשבון" leads to a screen
+           with a הרשמה tab on it. The decided visitor is the valuable one; do not make them look. -->
+      <div class="in-two">
+        <button class="btn btn-ghost" id="introSignup">פתח חשבון חדש</button>
+        <button class="btn btn-ghost" id="introAuth">כבר יש לי חשבון</button>
+      </div>
     </div>
   </section>
 
@@ -1403,14 +1415,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=103"></script>
-<script src="config.js?v=103"></script>
-<script src="store.js?v=103"></script>
-<script src="leveltest-he.js?v=103"></script>
-  <script src="leveltest.js?v=103"></script>
-<script src="enrank.js?v=103"></script>
-<script src="data.js?v=103"></script>
-<script src="data-en.js?v=103"></script>
-<script src="app.js?v=103"></script>
+<script src="supabase.min.js?v=104"></script>
+<script src="config.js?v=104"></script>
+<script src="store.js?v=104"></script>
+<script src="leveltest-he.js?v=104"></script>
+  <script src="leveltest.js?v=104"></script>
+<script src="enrank.js?v=104"></script>
+<script src="data.js?v=104"></script>
+<script src="data-en.js?v=104"></script>
+<script src="app.js?v=104"></script>
 </body>
 </html>
