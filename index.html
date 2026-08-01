@@ -799,6 +799,21 @@
   #introTry{position:relative;animation:breathe 3.6s ease-in-out 1.4s infinite}
   /* side by side: neither is the main action — the primary button above is — and stacking two
      more full-width buttons under it makes the page read as three equal choices */
+  .exam-row{cursor:pointer}
+  .exam-row input{font-family:"Heebo";font-size:.86rem;border:1px solid var(--line);
+       border-radius:9px;padding:7px 9px;background:var(--paper);color:var(--ink);
+       flex:none;max-width:150px}
+  /* the countdown on the home screen */
+  .exam-pill{display:flex;align-items:center;gap:9px;margin:12px 0 2px;padding:12px 15px;
+       border-radius:14px;border:1px solid rgba(166,60,38,.25);
+       background:linear-gradient(135deg,#fffdf8,#fdf2e9);
+       box-shadow:0 1px 2px rgba(120,84,48,.07)}
+  .exam-pill.hidden{display:none!important}
+  .exam-pill b{font-family:"Frank Ruhl Libre",serif;font-size:1.6rem;font-weight:900;
+       color:var(--accent);line-height:1}
+  .exam-pill span{font-size:.82rem;color:var(--ink-soft);line-height:1.5}
+  .exam-pill em{font-style:normal;color:var(--ink);font-weight:700}
+  .w-note{margin-top:9px;font-size:.78rem;color:var(--ink-soft);opacity:.9}
   .in-two{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}
   .in-two .btn{width:100%;padding-inline:6px}
   @media(max-width:340px){.in-two{grid-template-columns:1fr}}
@@ -1013,7 +1028,8 @@
 
     <div class="in-rise" id="introCta" style="animation-delay:.82s">
       <button class="btn btn-primary btn-block" id="introTry" style="margin-top:22px">התחל בלי הרשמה ←</button>
-      <p class="w-foot" style="margin-top:10px">יחידה שלמה ומבחן רמה, בלי למסור שום פרט.</p>
+      <p class="w-foot" style="margin-top:10px">יחידה שלמה ומבחן רמה, בלי למסור שום פרט.<br>
+        <b style="color:var(--ink)">ההתקדמות שתעשה כאן תישמר לחשבון שתפתח.</b></p>
       <!-- Two ways in existed — try it, or sign in — and no way to simply OPEN an account.
            Someone who had already decided had to guess that "כבר יש לי חשבון" leads to a screen
            with a הרשמה tab on it. The decided visitor is the valuable one; do not make them look. -->
@@ -1053,6 +1069,10 @@
       <div class="kicker" id="greetKicker">ברוך הבא</div>
       <h1 class="w-title" id="greet">שלום!</h1>
       <p class="w-sub" id="greetSub">מוכן לתרגל? בחר את השפה שתרצה לתרגל היום</p>
+      <!-- Council item 2: the picker looked like a one-time structural decision. It is not —
+           each language keeps its own progress and you move between them freely. Saying so
+           costs one line and removes the hesitation before the first click. -->
+      <p class="w-note">לכל שפה התקדמות נפרדת, ואפשר לעבור ביניהן בכל רגע מלמעלה.</p>
     </div>
 
     <div class="dash-streak">
@@ -1183,6 +1203,13 @@
          panel is a row here, not a redirect that swallowed the whole account page. -->
     <button class="pbtn hidden" id="accAdmin"><div class="ic">🛠</div><div class="tx"><b>פאנל הבקרה</b>
       <span>משתמשים, דיווחים ומנויים</span></div><div class="cnt">‹</div></button>
+    <!-- Council item 4. The exam is the only deadline that matters to this audience, and the
+         app knew nothing about it. A date here turns "sometime in three months" into a number
+         that changes every morning — which is the honest kind of urgency, not an invented one. -->
+    <label class="pbtn exam-row" id="accExamRow"><div class="ic">📅</div>
+      <div class="tx"><b>מתי המבחן שלך?</b>
+        <span id="accExamSub">נוסיף ספירה לאחור למסך הבית</span></div>
+      <input type="date" id="accExam" aria-label="תאריך המבחן"></label>
     <button class="pbtn" id="accNotif"><div class="ic">🔔</div><div class="tx"><b>תזכורת יומית</b>
       <span id="accNotifSub">הודעה קצרה בבוקר שמזכירה לתרגל</span></div><div class="cnt" id="accNotifState">‹</div></button>
     <button class="pbtn" id="accInstall"><div class="ic">📲</div><div class="tx"><b>התקנה כאפליקציה</b>
@@ -1219,6 +1246,7 @@
     <!-- The single most-requested thing in the survey (52 of 66): keep drilling the words I
          keep getting wrong. It existed — כל המאגר ← מילים לחיזוק — but three taps deep, which
          for the top request is the same as not existing. -->
+    <div class="exam-pill hidden" id="examPill"></div>
     <button class="weak-cta hidden" id="homeWeak">
       <div class="wc-tx"><b>המילים שאתה עדיין מפספס</b><span id="homeWeakSub"></span></div>
       <div class="wc-go">←</div>
@@ -1229,8 +1257,8 @@
 
     <div class="section-t">מצב כללי</div>
     <div class="big-tiles">
-      <button class="big-tile" data-scope="global"><div class="emoji">📚</div><h3>כל המאגר</h3><p>סטטיסטיקה, חלשות וחדשות מכל היחידות</p></button>
-      <button class="big-tile" data-scope="random"><div class="emoji">🎲</div><h3>אקראי</h3><p>ערבוב מילים מכל היחידות לתרגול מהיר</p></button>
+      <button class="big-tile" data-scope="global"><div class="emoji">📚</div><h3>כל המאגר</h3><p>המצב שלך בכל היחידות יחד — ומשם לבחור מה לתרגל</p></button>
+      <button class="big-tile" data-scope="random"><div class="emoji">🎲</div><h3>אקראי</h3><p>סבב מהיר בלי לבחור כלום — מילים אקראיות מכל היחידות</p></button>
     </div>
 
     <div class="section-t">יחידות</div>
@@ -1541,14 +1569,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=112"></script>
-<script src="config.js?v=112"></script>
-<script src="store.js?v=112"></script>
-<script src="leveltest-he.js?v=112"></script>
-  <script src="leveltest.js?v=112"></script>
-<script src="enrank.js?v=112"></script>
-<script src="data.js?v=112"></script>
-<script src="data-en.js?v=112"></script>
-<script src="app.js?v=112"></script>
+<script src="supabase.min.js?v=113"></script>
+<script src="config.js?v=113"></script>
+<script src="store.js?v=113"></script>
+<script src="leveltest-he.js?v=113"></script>
+  <script src="leveltest.js?v=113"></script>
+<script src="enrank.js?v=113"></script>
+<script src="data.js?v=113"></script>
+<script src="data-en.js?v=113"></script>
+<script src="app.js?v=113"></script>
 </body>
 </html>
