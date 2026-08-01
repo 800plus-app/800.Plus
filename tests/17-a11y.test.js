@@ -223,3 +223,38 @@ describe('A11Y-01 · the new card is announced, and nothing else is', () => {
   });
 });
 
+describe('A11Y-03 · the auth error is announced', () => {
+  const msgs = [
+    ['authMsg', 'the only gate into the app — a wrong password is otherwise silent'],
+    ['delMsg', 'the same paragraph pattern, on the account-deletion dialog'],
+  ];
+
+  for (const [id, why] of msgs) {
+    test(`#${id} carries role="alert" — ${why}`, () => {
+      const tag = html.match(new RegExp('<[^>]*id="' + id + '"[^>]*>'));
+      assert.ok(tag, `no element with id="${id}"`);
+      assert.match(tag[0], /role="alert"/,
+        `#${id} has no role="alert": the message appears on screen and is never spoken`);
+    });
+
+    test(`#${id} is assertive, not polite`, () => {
+      /* A failed sign-in interrupts the task the user is doing; it is not an incidental status.
+       * role="alert" implies assertive, but the attribute is stated so an edit that swaps the
+       * role for role="status" cannot silently downgrade the urgency. */
+      const tag = html.match(new RegExp('<[^>]*id="' + id + '"[^>]*>'))[0];
+      assert.match(tag, /aria-live="assertive"/);
+    });
+  }
+
+  test('the error paragraph is still the element app.js writes to', () => {
+    /* Guards against the role being added to a decorative wrapper while the text goes elsewhere. */
+    assert.match(app, /\$\('#authMsg'\)/, 'app.js no longer addresses #authMsg');
+  });
+
+  test('control — an element known to have no role is reported as having none', () => {
+    /* Proves the matcher above is reading the tag it claims to read. #qCount is a bare span. */
+    const tag = html.match(/<[^>]*id="qCount"[^>]*>/);
+    assert.ok(tag, 'no element with id="qCount"');
+    assert.doesNotMatch(tag[0], /role="alert"/);
+  });
+});
