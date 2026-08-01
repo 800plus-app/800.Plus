@@ -946,6 +946,14 @@ function renderCard(){
     inp.placeholder = en ? 'the word…' : 'המילה…';
     inp.dir = en ? 'ltr' : 'rtl';
   }
+  /* ONE announcement per card, built from the three things the audit measured as silent: where
+     the learner is in the round, what they are being asked to do, and the word itself. Read off
+     the elements that were just set rather than rebuilt from `w`, so the announcement can never
+     drift from what is on screen (masking, direction, language all already applied).
+     Deliberately one write and not more: a live region that fires on every DOM touch is a reader
+     that never stops talking, and noise is worse than silence. renderCard runs once per card and
+     holds the only write to #cardLive in the whole file. */
+  $('#cardLive').textContent = `${$('#qCount').textContent} · ${$('#qKind').textContent} · ${$('#qText').textContent}`;
   clearTimeout(focusT);
   focusT=setTimeout(()=>{ if(!$('#quiz').classList.contains('hidden') && !answered) inp.focus(); },30);
 }

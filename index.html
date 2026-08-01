@@ -34,6 +34,11 @@
   }
   .wrap{max-width:640px;margin:0 auto;padding:22px 18px 60px}
   .hidden{display:none!important}
+  /* For text that only a screen reader should get. NOT display:none and NOT visibility:hidden —
+     both of those remove the node from the accessibility tree, which would make a live region
+     announce nothing at all. The clip-rect technique keeps it in the tree at zero visual size. */
+  .sr-only{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
+       clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
   h1,h2,h3{font-family:"Frank Ruhl Libre",serif}
   .kicker{font-size:.72rem;letter-spacing:.22em;color:var(--gold);font-weight:700;text-transform:uppercase}
   .rule{height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:10px 0 20px;border-radius:2px}
@@ -1356,7 +1361,15 @@
   <section id="quiz" class="hidden">
     <div class="topbar"><button class="back" id="quitQuiz">✕ יציאה</button><div class="sp"></div><div class="brand" id="quizScope"></div></div>
     <div class="prog"><i id="progBar"></i></div>
-    <div class="qmeta"><span id="qCount"></span><span id="qLive" aria-live="polite" aria-atomic="true"></span></div>
+    <!-- #qLive is the running score ("✓ 3"). It used to be the ONLY thing announced when a card
+         changed, which meant a screen-reader user heard the least useful fact on the screen and
+         never heard the word being asked. It stays visible; it stops being a live region, so it
+         no longer talks over #cardLive on every single card. -->
+    <div class="qmeta"><span id="qCount"></span><span id="qLive"></span></div>
+    <!-- The card itself, announced once per card: position in the round, what to do, and the
+         word. Same pattern as #feedback below (region declared here, filled from app.js), which
+         the accessibility audit verified does reach Chromium's accessibility tree. -->
+    <div class="sr-only" id="cardLive" aria-live="polite" aria-atomic="true"></div>
     <div class="card">
       <div class="q-kind" id="qKind">מהו הפירוש? כתוב את המילה</div>
       <div class="q-row">
