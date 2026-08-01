@@ -2440,8 +2440,13 @@ const SHEET_RIGHTS = `© ${SHEET_YEAR} <bdi>800+</bdi> · עיצוב הדף וה
    rather than a quiz, so those sheets go two-up: the answer is a single short word and two
    columns halve the page count. Hebrew sheets stay single-column — you cannot write a
    definition on half a line. */
+/* `uid` is normally a unit number. It can also be the string 'weak', which builds the same
+   sheet from the words the learner is still getting wrong ACROSS all units — the survey's top
+   request, and the one case where a printable page is worth more than a unit sheet: it is
+   exactly the list you would otherwise copy out by hand. */
 function buildSheet(uid, size){
-  const pool=exWords(uid);
+  const isWeak = uid === 'weak';
+  const pool = isWeak ? weakCards('global') : exWords(uid);
   // clear first: a refusal must not leave the previous unit's sheet sitting in the DOM
   $('#sheet').innerHTML='';
   if(pool.length<8) return false;
@@ -2458,8 +2463,10 @@ function buildSheet(uid, size){
   const a = it => askTerm ? it.meaning : it.term;
   $('#sheet').innerHTML=`
     <div class="sh-page">
-      <h1><bdi>800+</bdi> — מבחן ${langName}, יחידה ${uid}</h1>
-      <div class="sh-meta">${n===pool.length?`כל ${n} מילות היחידה`:`${n} מילים מתוך ${pool.length}`} · ${date} · <bdi>800+</bdi></div>
+      <h1><bdi>800+</bdi> — ${isWeak?`מילים לחיזוק · ${langName}`:`מבחן ${langName}, יחידה ${uid}`}</h1>
+      <div class="sh-meta">${isWeak
+        ? `${n} מילים שעדיין לא יושבות, מכל היחידות`
+        : (n===pool.length?`כל ${n} מילות היחידה`:`${n} מילים מתוך ${pool.length}`)} · ${date} · <bdi>800+</bdi></div>
       <div class="sh-fill"><span>שם:</span><span>תאריך:</span><span>ציון: ____ / ${n}</span></div>
       <div class="sh-inst">${askTerm
         ? 'כתוב את הפירוש של כל מילה. תשובה חלקית שמעבירה את המשמעות — נקודה מלאה.'
@@ -2469,7 +2476,7 @@ function buildSheet(uid, size){
       <div class="sh-foot">דף הפתרונות בסוף<br>${SHEET_RIGHTS}</div>
     </div>
     <div class="sh-page">
-      <h1>דף פתרונות — ${langName}, יחידה ${uid}</h1>
+      <h1>דף פתרונות — ${isWeak?`מילים לחיזוק · ${langName}`:`${langName}, יחידה ${uid}`}</h1>
       <div class="sh-meta">אותה הגרלה, אותו סדר · ${n} מילים</div>
       <div class="sh-key">${items.map((it,i)=>
         `<div>${i+1}. <b${askTerm?ltr:''}>${esc(q(it))}</b> — ${esc(a(it))}</div>`).join('')}</div>
@@ -2479,12 +2486,15 @@ function buildSheet(uid, size){
 }
 const SHEET_SIZES=[25,50,100,0];      // 0 = the whole unit
 function printSheet(uid){
-  const total=exWords(uid).length;
-  if(total<8){ toast('ביחידה הזאת אין מספיק מילים לדף מבחן'); return; }
+  const isWeak = uid === 'weak';
+  const total = (isWeak ? weakCards('global') : exWords(uid)).length;
+  if(total<8){ toast(isWeak ? 'צריך לפחות 8 מילים לחיזוק כדי לבנות דף' : 'ביחידה הזאת אין מספיק מילים לדף מבחן'); return; }
   const opts=SHEET_SIZES.filter(n=>!n || n<total);
   $('#sheetOpts').innerHTML=opts.map(n=>
-    `<button data-n="${n}">${n||'כל היחידה · '+total}</button>`).join('');
-  $('#sheetAskSub').textContent=`ביחידה ${total} מילים. הדף נפתח בחלון ההדפסה — משם אפשר להדפיס או לשמור כ-PDF.`;
+    `<button data-n="${n}">${n||(isWeak?'כולן · ':'כל היחידה · ')+total}</button>`).join('');
+  $('#sheetAskSub').textContent = (isWeak
+    ? `${total} מילים לחיזוק מכל היחידות. `
+    : `ביחידה ${total} מילים. `) + 'הדף נפתח בחלון ההדפסה — משם אפשר להדפיס או לשמור כ-PDF.';
   sheetUid=uid;
   show($('#sheetAsk'));
 }
@@ -3115,6 +3125,8 @@ async function openAccount(){
      hidden after a dismissal — the whole point of moving it here is that a settings page is
      where you go looking for something you said "not now" to. */
   $('#accInstall').classList.toggle('hidden', isStandalone() || LS.get('hw_installed',0)===1);
+  renderAccNotif();
+  renderAccProgress();
   goto('account');
   try{
     const p=await Store.myProfile();
@@ -3129,6 +3141,61 @@ $('#userBadge2').onclick = openAccount;
 $('#userBadge3').onclick = openAccount;
 $('#accBack').onclick = ()=>{ if(LANG==='he'||LANG==='en') goto('home'); else { renderWelcome(); goto('welcome'); } };
 $('#accInstall').onclick = ()=>promptInstall(true);
+
+/* Where am I — answered on the settings page, not only inside a language. Hidden entirely when
+   no language has been entered yet: zeros across the board on a first visit read as a broken
+   screen, not as a starting point. */
+function renderAccProgress(){
+  const host=$('#accProg'); if(!host) return;
+  if(LANG!=='he' && LANG!=='en'){ host.classList.add('hidden'); host.innerHTML=''; return; }
+  const c=classify('global');
+  if(!c.total){ host.classList.add('hidden'); host.innerHTML=''; return; }
+  const met=c.strong+c.weak;
+  const streak=streakInfo();
+  const cell=(n,label)=>`<div><b>${n}</b><span>${label}</span></div>`;
+  // "40 / 1717" in one cell breaks under bidi — the slash flips and it reads as 1717/40.
+  // Two numbers, two cells, no punctuation to reorder.
+  host.innerHTML =
+    cell(c.strong,'בשליטה') + cell(c.weak,'לחיזוק') +
+    cell(met,`פגשת מתוך ${c.total}`) +
+    cell(streak.n||0,'ימים ברצף');   // .n, not .current — the latter is undefined and prints 0 forever
+  host.classList.remove('hidden');
+  const sub=$('#accSheetSub');
+  if(sub) sub.textContent = c.weak>=8
+    ? `${c.weak} מילים לחיזוק מכל היחידות, כדף אחד להדפסה או ל-PDF`
+    : 'צריך לפחות 8 מילים לחיזוק כדי לבנות דף';
+}
+
+/* The reminder row states its own status instead of just offering. "Denied" is the state that
+   matters most: the browser will never ask again, and a row that keeps offering something it
+   cannot deliver is worse than one that says where the switch actually is. */
+function renderAccNotif(){
+  const sub=$('#accNotifSub'), st=$('#accNotifState'), row=$('#accNotif');
+  if(!sub||!row) return;
+  if(!NOTIF.supported()){
+    row.classList.add('hidden'); return;
+  }
+  row.classList.remove('hidden');
+  if(NOTIF.granted()){
+    sub.textContent='פעילה — תזכורת קצרה בבוקר עם ההתקדמות שלך';
+    st.textContent='✓'; st.style.color='#3f7a4a'; row.disabled=true;
+  } else if(NOTIF.askable()){
+    sub.textContent='הודעה קצרה בבוקר שמזכירה לתרגל';
+    st.textContent='‹'; st.style.color=''; row.disabled=false;
+  } else {
+    // permission is 'denied', or iOS in a tab where the API would throw
+    sub.textContent = isIOS() && !isStandalone()
+      ? 'זמינה אחרי שתתקין את האפליקציה למסך הבית'
+      : 'חסומה בדפדפן — אפשר להחזיר דרך הגדרות האתר בדפדפן';
+    st.textContent='—'; st.style.color=''; row.disabled=true;
+  }
+}
+$('#accNotif').onclick = async ()=>{
+  if(!NOTIF.askable()) return;
+  const ok=await NOTIF.ask();
+  renderAccNotif();
+  toast(ok ? 'מעולה — תקבל תזכורת בבוקר' : 'אפשר להפעיל דרך הגדרות האתר בדפדפן');
+};
 
 /* ===== deleting the account =====
    Two things this must not be: a confirm() that the same reflex dismisses, and a button that
@@ -3176,7 +3243,11 @@ $('#delGo').onclick = async ()=>{
     + 'לא נשאר אצלנו שום מידע עליך.</p>'
     + '<p style="margin-top:14px;font-size:.85rem;color:#8d8274">בהצלחה במבחן.</p></div></div>';
 };
-$('#accSheet').onclick = ()=>toast('פותחים יחידה ואז "דף מבחן להדפסה" — הדף נבנה מהמילים של אותה יחידה');
+// the account screen's own sheet is the cross-unit one; per-unit sheets live inside a unit
+$('#accSheet').onclick = ()=>{
+  if(LANG!=='he' && LANG!=='en'){ toast('בחר קודם שפה'); return; }
+  printSheet('weak');
+};
 
 /* The survey's biggest finding was that eight capabilities people asked for ALREADY EXIST and
    nobody knows about them. They are listed on the landing page — which is shown once, to people

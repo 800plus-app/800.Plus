@@ -562,6 +562,14 @@
        padding:5px 13px;font-family:"Heebo";font-size:.78rem;color:var(--ink-soft)}
   .adm-acts button:hover{border-color:var(--gold);color:var(--ink)}
   /* admin toolbar — search / sort / filter */
+  .acc-prog{display:grid;grid-template-columns:repeat(auto-fit,minmax(84px,1fr));gap:8px;
+       margin:6px 0 20px}
+  .acc-prog div{background:var(--card);border:1px solid var(--line);border-radius:12px;
+       padding:11px 8px;text-align:center}
+  .acc-prog b{display:block;font-family:"Frank Ruhl Libre",serif;font-size:1.45rem;
+       font-weight:900;color:var(--ink);line-height:1.1}
+  .acc-prog span{display:block;margin-top:3px;font-size:.72rem;color:var(--ink-soft)}
+  .acc-prog.hidden{display:none!important}
   /* the top request, as the top action */
   .weak-cta{display:flex;align-items:center;gap:12px;width:100%;margin:14px 0 4px;
        padding:16px 18px;border-radius:16px;cursor:pointer;text-align:start;
@@ -1117,12 +1125,22 @@
       <div class="acc-row"><span>נרשמת</span><b id="accSince">—</b></div>
       <div class="acc-row"><span>סטטוס גישה</span><b id="accSub">—</b></div>
     </div>
+    <!-- progress on the settings page, because this is where someone goes to ask
+         "where am I" — and until now the answer lived only inside a language -->
+    <div class="acc-prog hidden" id="accProg"></div>
+
 
     <h3 class="acc-h">כלים</h3>
+    <!-- The daily reminder lives HERE, not only as a card that appears on the home screen once
+         and is gone. A settings page is where you go looking for the thing you said "not now"
+         to — and a browser notification denial is permanent, so the second chance has to exist
+         somewhere findable. -->
+    <button class="pbtn" id="accNotif"><div class="ic">🔔</div><div class="tx"><b>תזכורת יומית</b>
+      <span id="accNotifSub">הודעה קצרה בבוקר שמזכירה לתרגל</span></div><div class="cnt" id="accNotifState">‹</div></button>
     <button class="pbtn" id="accInstall"><div class="ic">📲</div><div class="tx"><b>התקנה כאפליקציה</b>
       <span>פותח את 800+ ממסך הבית, גם בלי אינטרנט</span></div><div class="cnt">‹</div></button>
-    <button class="pbtn" id="accSheet"><div class="ic">🖨</div><div class="tx"><b>דף מבחן להדפסה</b>
-      <span>נפתח מתוך יחידה — כאן רק כדי שתדע שהוא קיים</span></div><div class="cnt">‹</div></button>
+    <button class="pbtn" id="accSheet"><div class="ic">🖨</div><div class="tx"><b>דף המילים שאתה מפספס</b>
+      <span id="accSheetSub">כל המילים לחיזוק מכל היחידות, כדף אחד להדפסה או ל-PDF</span></div><div class="cnt">‹</div></button>
     <button class="pbtn" id="accWhat"><div class="ic">❓</div><div class="tx"><b>מה האפליקציה יודעת לעשות</b>
       <span>שמונה יכולות שכבר קיימות — רובן אף אחד לא מוצא לבד</span></div><div class="cnt">‹</div></button>
 
@@ -1475,14 +1493,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=108"></script>
-<script src="config.js?v=108"></script>
-<script src="store.js?v=108"></script>
-<script src="leveltest-he.js?v=108"></script>
-  <script src="leveltest.js?v=108"></script>
-<script src="enrank.js?v=108"></script>
-<script src="data.js?v=108"></script>
-<script src="data-en.js?v=108"></script>
-<script src="app.js?v=108"></script>
+<script src="supabase.min.js?v=109"></script>
+<script src="config.js?v=109"></script>
+<script src="store.js?v=109"></script>
+<script src="leveltest-he.js?v=109"></script>
+  <script src="leveltest.js?v=109"></script>
+<script src="enrank.js?v=109"></script>
+<script src="data.js?v=109"></script>
+<script src="data-en.js?v=109"></script>
+<script src="app.js?v=109"></script>
 </body>
 </html>
