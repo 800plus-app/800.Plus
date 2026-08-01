@@ -1387,7 +1387,12 @@
     <div class="review-list" id="reviewList"></div>
     <p class="msg ok hidden" id="allGood">מושלם — ידעת את כולן! 🎉</p>
     <div class="actions" style="margin-top:22px">
-      <button class="btn btn-primary" id="retryMissedBtn">תרגל את מה שלא ידעתי (<span id="missCount">0</span>)</button>
+      <!-- "תרגל את מה שלא ידעתי" described the mechanism. This describes what happens to YOU:
+           the count is the point, and the arrow says it starts now. Typo tolerance was measured
+           and abandoned in favour of this button — over 5,617 words a one-edit rule makes 2,371
+           pairs indistinguishable (advice~advise, affect~effect), and this round is the honest
+           second chance: you meet the word again instead of being told you nearly had it. -->
+      <button class="btn btn-primary" id="retryMissedBtn">סגור את ה-<span id="missCount">0</span> שנשארו ←</button>
       <button class="btn btn-ghost" id="resBackBtn">חזרה</button>
     </div>
   </section>
@@ -1569,14 +1574,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=113"></script>
-<script src="config.js?v=113"></script>
-<script src="store.js?v=113"></script>
-<script src="leveltest-he.js?v=113"></script>
-  <script src="leveltest.js?v=113"></script>
-<script src="enrank.js?v=113"></script>
-<script src="data.js?v=113"></script>
-<script src="data-en.js?v=113"></script>
-<script src="app.js?v=113"></script>
+<script src="supabase.min.js?v=114"></script>
+<script src="config.js?v=114"></script>
+<script src="store.js?v=114"></script>
+<script src="leveltest-he.js?v=114"></script>
+  <script src="leveltest.js?v=114"></script>
+<script src="enrank.js?v=114"></script>
+<script src="data.js?v=114"></script>
+<script src="data-en.js?v=114"></script>
+<script src="app.js?v=114"></script>
 </body>
 </html>
