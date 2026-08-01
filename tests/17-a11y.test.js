@@ -151,3 +151,75 @@ describe('A11Y-02 · focus is moved deliberately after an answer, not dropped on
   });
 });
 
+describe('A11Y-01 · the new card is announced, and nothing else is', () => {
+  const render = fn('renderCard');
+
+  test('index.html carries a polite live region for the card', () => {
+    assert.match(html, /id="cardLive"[^>]*aria-live="polite"|aria-live="polite"[^>]*id="cardLive"/,
+      'no #cardLive region with aria-live="polite" in index.html');
+  });
+
+  test('#cardLive is atomic — the sentence is read as one unit, not word by word', () => {
+    const tag = html.match(/<[^>]*id="cardLive"[^>]*>/);
+    assert.ok(tag, 'no element with id="cardLive"');
+    assert.match(tag[0], /aria-atomic="true"/);
+  });
+
+  test('#cardLive is available to a screen reader but takes no visual space', () => {
+    const tag = html.match(/<[^>]*id="cardLive"[^>]*>/)[0];
+    assert.match(tag, /class="[^"]*\bsr-only\b/, '#cardLive must carry .sr-only');
+    /* display:none and visibility:hidden both remove a node from the accessibility tree, so a
+     * live region hidden that way announces nothing at all. The clip technique does not. */
+    const rule = html.match(/\.sr-only\s*\{([^}]*)\}/);
+    assert.ok(rule, 'index.html declares no .sr-only rule');
+    const css = rule[1].replace(/\s+/g, '');
+    assert.ok(!/display:none/.test(css) && !/visibility:hidden/.test(css),
+      '.sr-only uses display:none or visibility:hidden — that hides it from the reader too');
+    assert.match(css, /position:absolute/);
+    assert.match(css, /clip|clip-path/);
+  });
+
+  test('renderCard() fills #cardLive', () => {
+    assert.match(render, /\$\('#cardLive'\)\.textContent\s*=/,
+      'renderCard writes nothing to #cardLive — the new card stays silent');
+  });
+
+  test('the announcement carries all three facts the audit found missing', () => {
+    /* position in the round (#qCount), what to do (#qKind), and the word itself (#qText). */
+    const line = render.match(/\$\('#cardLive'\)\.textContent\s*=([^\n]*)/);
+    assert.ok(line, 'no #cardLive assignment to inspect');
+    for (const part of ['#qCount', '#qKind', '#qText']) {
+      assert.ok(line[1].includes(part),
+        `the announcement omits ${part} — the audit named all three as silent`);
+    }
+  });
+
+  test('it is written once per card, not once per keystroke', () => {
+    /* Noise is worse than silence: a live region rewritten on every DOM touch is a reader that
+     * never stops talking. renderCard runs once per card, and holds the only write. */
+    const inRender = (render.match(/\$\('#cardLive'\)\.textContent\s*=/g) || []).length;
+    assert.strictEqual(inRender, 1, 'renderCard writes #cardLive more than once');
+    const inApp = (app.match(/#cardLive'\)\.textContent\s*=/g) || []).length;
+    assert.strictEqual(inApp, 1, 'something outside renderCard also writes #cardLive');
+  });
+
+  test('#qLive — the score counter — is no longer the one thing that gets announced', () => {
+    /* Before the fix this was the ONLY announcement on a card change, and it carries "✓ 0":
+     * the least useful fact on the screen, spoken over the most useful one. It stays visible;
+     * it stops being a live region. */
+    const tag = html.match(/<[^>]*id="qLive"[^>]*>/);
+    assert.ok(tag, 'no element with id="qLive"');
+    assert.doesNotMatch(tag[0], /aria-live/,
+      '#qLive is still a live region — it will talk over #cardLive on every card');
+  });
+
+  test('#feedback keeps its live region (the verdict must still be announced)', () => {
+    /* The audit verified in Chromium that the verdict DOES reach the accessibility tree through
+     * this region. Nothing above is allowed to have cost that. */
+    const tag = html.match(/<[^>]*id="feedback"[^>]*>/);
+    assert.ok(tag, 'no element with id="feedback"');
+    assert.match(tag[0], /aria-live="polite"/);
+    assert.match(tag[0], /role="status"/);
+  });
+});
+
