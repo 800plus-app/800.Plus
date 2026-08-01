@@ -2687,9 +2687,21 @@ function mergeProgress(local, remote){
      record can never be removed by a max-merge, so the restore has to be stated, not inferred —
      inferring it from "absent locally" would wipe every skip the first time a new device synced. */
   const restoredStats=isObj(local.undeleted)?local.undeleted:{};
+  /* `last` is whatever Date.now() said on the device that wrote it, and nothing validates it. A
+     phone whose clock runs two days fast does not just win one conflict: max(last) below keeps its
+     stamp IN the record, so it goes on beating every honest answer until real time catches up — a
+     word the learner keeps failing stays pinned at level 3, counts as learned, and leaves the
+     practice queue. So a stamp is not allowed to rank above the present. Clamped, never discarded:
+     the record still arrives whole, it just stops outranking now.
+     Five minutes of slack, and it has to be non-zero. Honest clocks drift, the cloud copy was
+     itself stamped by ANOTHER device's clock, and the sync round trip takes real time — at zero
+     margin this would start losing writes that were perfectly valid. Five minutes covers all of
+     that while capping the damage from a lying clock at five minutes instead of two days. */
+  const stampCap=Date.now()+300000;
   for(const k of new Set([...Object.keys(lw),...Object.keys(rw)])){
     if(!lw[k] && rw[k] && rw[k].src==='lv' && restoredStats[k]) continue;   // explicitly un-skipped
     const a=saneRec(lw[k]), b=saneRec(rw[k]);
+    a.last=Math.min(a.last,stampCap); b.last=Math.min(b.last,stampCap);
     /* The record that was written LAST wins. Taking Math.max per field looked safe but was not:
        a downgrade after a wrong answer could never survive, because the older copy still held
        the higher level — so a word the learner had just failed stayed marked as known. Counts
