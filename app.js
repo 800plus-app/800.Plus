@@ -2079,7 +2079,7 @@ const LV_LABEL={A1:'רמה בסיסית',A2:'רמה יסודית',B1:'רמה ב�
    middle and walk toward the edge that keeps failing, which also keeps the test short:
    a typical run is 12–18 items instead of a flat 30. */
 const LV_ORDER=LV_BANDS.map(b=>b[0]);
-const LV_BLOCK=6, LV_PASS=5, LV_START='B1';
+const LV_BLOCK=5, LV_PASS=4, LV_START='B1';
 let lvDeck=[], lvIdx=0, lvAns=[];
 let lvBand=LV_START, lvBlock=[], lvBlockOk=0, lvPassed=null, lvFailedUp=false, lvSeen=new Set();
 

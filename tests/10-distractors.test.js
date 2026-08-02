@@ -60,8 +60,9 @@ const none = (list, msg) => expectNone(assert, list, msg);
 /* Symbols this file needs on top of _harness/sandbox.js's list. Same contract: a rename in
  * app.js throws out of extractAll BY NAME rather than leaving a test that quietly passes.
  * EX_LEN and LV_BLOCK are named alone on purpose — they ride in grouped declarations
- * (`const EX_LEN=20, EX_MIX=…`, `const LV_BLOCK=6, LV_PASS=5, LV_START=…`) so the whole group
- * arrives, and a rename of EX_MIX or LV_PASS still breaks extraction. */
+ * (`const EX_LEN=20, EX_MIX=…`, `const LV_BLOCK=…, LV_PASS=…, LV_START=…`) so the whole group
+ * arrives, and a rename of EX_MIX or LV_PASS still breaks extraction. Naming a second symbol
+ * from the same group would declare the group twice and throw SyntaxError. */
 const EXTRA = [
   'shuffle',
   'EX_LEN', 'exTestable', 'TRL', 'skel', 'isTranslit',
@@ -556,7 +557,10 @@ describe('the adaptive ladder — lvNextBand and lvEstimate', () => {
     const visited = [];
     for (const pass of pattern) {
       visited.push(en.lvBand);
-      vm.runInContext('lvBlockOk=' + (pass ? 5 : 4) + ';', en);
+      /* One short of LV_PASS is the weakest possible failure — if the ladder mishandles any
+         failing score it mishandles this one. Both numbers are read from app.js so that
+         retuning LV_BLOCK/LV_PASS cannot leave this file testing a threshold nobody uses. */
+      vm.runInContext('lvBlockOk=' + (pass ? en.LV_PASS : en.LV_PASS - 1) + ';', en);
       const nx = en.lvNextBand();
       if (nx == null) return { pattern, visited, ended: true, level: en.lvPassed };
       vm.runInContext('lvBand=' + JSON.stringify(nx) + ';', en);
@@ -577,25 +581,36 @@ describe('the adaptive ladder — lvNextBand and lvEstimate', () => {
   });
 
   test('no band is ever probed twice', () => {
-    /* lvPool() excludes words already seen, and each band holds ten items. A revisit would deal
-       four, and LV_PASS=5 of four is unreachable — the band would be silently unpassable. */
+    /* What makes a revisit impossible is the shape of the walk, not the size of the bank:
+       lvNextBand climbs only while passing and descends only while failing, and returns null
+       the moment the direction would reverse. This test is the guard on that property, because
+       lvPool() excludes words already seen — a second visit to a band would deal it whatever
+       items happen to be left over, and score it against the same LV_PASS. */
     none(runs.filter(r => r.ended && new Set(r.visited).size !== r.visited.length)
       .map(r => r.visited.join('>')), 'a band was probed twice in one run');
   });
 
-  test('a run is always 12–24 items, exactly as the intro screen claims', () => {
-    const bad = runs.filter(r => r.ended)
-      .map(r => ({ n: r.visited.length * en.LV_BLOCK, v: r.visited.join('>') }))
-      .filter(x => x.n < 12 || x.n > 24)
-      .map(x => `${x.v} = ${x.n} items`);
-    none(bad, 'index.html promises "12–24 מילים"');
+  test('the range promised on the intro screen is the range the ladder produces', () => {
+    /* The promise used to be copied into this file as two literals, so retuning LV_BLOCK moved
+       the real range and left both the screen and the test asserting the old one. The numbers
+       are read out of index.html instead: the only way this passes is if the sentence the user
+       reads is true of the code. */
+    const html = require('fs').readFileSync(
+      require('path').join(__dirname, '..', 'index.html'), 'utf8');
+    const m = html.match(/(\d+)–(\d+) מילים/);
+    assert.ok(m, 'the intro screen no longer states a range of words — nothing left to check');
+    const [lo, hi] = [+m[1], +m[2]];
+
+    const lens = runs.filter(r => r.ended).map(r => r.visited.length * en.LV_BLOCK);
+    assert.strictEqual(Math.min(...lens), lo, `index.html promises at least ${lo} words`);
+    assert.strictEqual(Math.max(...lens), hi, `index.html promises at most ${hi} words`);
   });
 
   test('all correct climbs to C2; all wrong bottoms out with no level at all', () => {
     const right = runs.find(r => r.ended && r.pattern.every(Boolean));
     assert.deepStrictEqual(Array.from(right.visited), ['B1', 'B2', 'C1', 'C2']);
     assert.strictEqual(right.level, 'C2');
-    assert.strictEqual(right.visited.length * en.LV_BLOCK, 24);
+    assert.strictEqual(right.visited.length * en.LV_BLOCK, 4 * en.LV_BLOCK);
 
     const wrong = runs.find(r => r.ended && r.pattern.every(p => !p));
     assert.deepStrictEqual(Array.from(wrong.visited), ['B1', 'A2', 'A1']);
@@ -603,15 +618,18 @@ describe('the adaptive ladder — lvNextBand and lvEstimate', () => {
       'nothing was cleared, so no band was earned — lvFinish stores the fallback "A1"');
   });
 
-  test('4 of 6 never promotes — the guessing floor', () => {
-    /* Four options, six items: 5/6 by luck is a ~4% event, 4/6 is not. The whole point of
-       LV_PASS is that a level has to be earned, so pin the boundary. */
+  test('one short of LV_PASS never promotes — the guessing floor', () => {
+    /* Four options, so a pure guesser clears LV_PASS of LV_BLOCK with probability 0.46% at 5/6
+       and 1.6% at 4/5 — either way far too rarely to climb four bands. The whole point of
+       LV_PASS is that a level has to be EARNED, so pin the boundary itself rather than the
+       particular numbers it currently sits at. */
+    const pass = en.LV_PASS;
     reset();
-    vm.runInContext('lvBlockOk=4;', en);
-    assert.strictEqual(en.lvNextBand(), 'A2', '4/6 in B1 must walk DOWN');
+    vm.runInContext('lvBlockOk=' + (pass - 1) + ';', en);
+    assert.strictEqual(en.lvNextBand(), 'A2', `${pass - 1}/${en.LV_BLOCK} in B1 must walk DOWN`);
     reset();
-    vm.runInContext('lvBlockOk=5;', en);
-    assert.strictEqual(en.lvNextBand(), 'B2', '5/6 in B1 must walk UP');
+    vm.runInContext('lvBlockOk=' + pass + ';', en);
+    assert.strictEqual(en.lvNextBand(), 'B2', `${pass}/${en.LV_BLOCK} in B1 must walk UP`);
   });
 
   test('lvEstimate always agrees with the ladder about the level reached', () => {
@@ -620,7 +638,8 @@ describe('the adaptive ladder — lvNextBand and lvEstimate', () => {
       if (!r.ended) continue;
       const ans = [];
       r.pattern.forEach((pass, i) => {
-        for (let j = 0; j < en.LV_BLOCK; j++) ans.push({ band: r.visited[i], ok: j < (pass ? 5 : 4) });
+        for (let j = 0; j < en.LV_BLOCK; j++)
+          ans.push({ band: r.visited[i], ok: j < (pass ? en.LV_PASS : en.LV_PASS - 1) });
       });
       vm.runInContext('lvAns=' + JSON.stringify(ans) + ';', en);
       const est = en.lvEstimate();
