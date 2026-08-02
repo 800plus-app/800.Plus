@@ -1219,6 +1219,17 @@ function renderUnitProgress(){
   if(newlyMet)   gain.push(`<b>${newlyMet}</b> מילים חדשות שלא פגשת לפני היום`);
   if(newlySolid) gain.push(`<b>${newlySolid}</b> עלו לחוזק מלא`);
 
+  /* ציון דרך. הסבב מספר כמה ידעת עכשיו, והפס מספר כמה נשאר — אבל אף אחד מהם לא אומר
+     "עברת נקודה שלא עברת קודם". זה מה שהופך שלושה חודשים של תרגול לרצף של רגעים ולא
+     לפס שזז לאט.
+     נבדק על המספר שלפני הסבב ואחריו, ולכן הוא נאמר פעם אחת בדיוק: מי שחצה 50 היום לא
+     יראה את זה שוב מחר. וזה נגזר מהמצב האמיתי — אין מונה נפרד שיכול לצאת מסנכרון עם
+     מה שהלומד באמת יודע.
+     בכוונה בתוך הכרטיס הקיים ולא כמסך חדש: מסך שקופץ באמצע נסגר מהר וגם מפריע. */
+  const solidNow=c.strong, solidBefore=c.strong-newlySolid;
+  const STEPS=[10,25,50,100,200,400,800];
+  const crossed=STEPS.filter(n=>solidBefore<n && solidNow>=n).pop();
+
   const allMet = c.fresh===0;
   const allSolid = c.strong+ (c.skipped||0) === c.total;
 
@@ -1239,6 +1250,7 @@ function renderUnitProgress(){
         ${c.skipped?`<span><i style="background:var(--line)"></i>דילגת <b>${c.skipped}</b></span>`:''}
         <span><i style="background:var(--paper-deep);border:1px solid var(--line)"></i>לא פגשת <b>${c.fresh}</b></span>
       </div>
+      ${crossed?`<div class="up-mile">🏅 <b>${crossed} מילים בשליטה</b> — עברת את הרף הזה עכשיו.</div>`:''}
       ${gain.length?`<div class="up-gain">בסבב הזה: ${gain.join(' · ')}</div>`:''}
       ${allSolid ? `<div class="up-done">🎉 סיימת את ${esc(title)} — כל המילים בשליטה.</div>`
         : allMet ? `<div class="up-done">✓ פגשת את כל ${c.total} המילים ב${esc(title)}. נשארו ${c.weak} לחזק.</div>`
