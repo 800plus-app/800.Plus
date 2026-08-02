@@ -1,128 +1,37 @@
-name: backup
+name: backup (הועבר)
 
-# גיבוי יומי של מסד הנתונים — אל ריפו פרטי נפרד.
+# הגיבוי כבר לא רץ מכאן. הוא חי ב-Hagay-BOT/800plus-backups.
 #
-# ההיסטוריה, כי היא מסבירה כל שורה כאן
+# למה
+# ----
+# הגרסה שרצה כאן דחפה dump של חמש טבלאות לענף `backups` של הריפו הזה, עם כותרת
+# שכתוב בה "ענף פרטי". ענף אינו גבול פרטיות. כל ענף של ריפו ציבורי הוא ציבורי,
+# והריפו הזה ציבורי — כי GitHub Pages מגיש ממנו את 800-plus.com. ריצה ידנית אחת
+# פרסמה 14 כתובות מייל, 16 בלובי התקדמות הכוללים אסוציאציות פרטיות, 3 דיווחים עם
+# User-Agent, ו-12 שורות אסוציאציות עם user_id. הענף נמחק ב-2.8.2026.
+#
+# להפוך את הריפו הזה לפרטי אינו פתרון: זה היה מוריד את האתר, כי Pages מריפו פרטי
+# דורש מנוי בתשלום.
+#
+# למה דווקא שם, ולא כאן עם דחיפה לשם
 # ------------------------------------
-# הגרסה הקודמת דחפה dump של חמש טבלאות לענף `backups` של הריפו הזה, וכתבה בכותרת
-# שזה "ענף פרטי". ענף אינו גבול פרטיות. כל ענף של ריפו ציבורי הוא ציבורי, והריפו הזה
-# ציבורי (אומת ללא הזדהות: ה-API מחזיר "private": false) כי GitHub Pages מגיש ממנו את
-# 800-plus.com. ריצה ידנית אחת פרסמה 14 כתובות מייל, 16 בלובי התקדמות הכוללים
-# אסוציאציות פרטיות, 3 דיווחים עם User-Agent, ו-12 שורות אסוציאציות עם user_id.
-# הענף נמחק ב-2.8.2026, והקובץ הזה מחליף אותו.
+# ה-workflow יושב באותו ריפו שאליו הוא כותב, ולכן ה-GITHUB_TOKEN המובנה מספיק לו.
+# הגרסה שרצה כאן הייתה זקוקה ל-Personal Access Token חוצה-ריפו — טוקן ארוך-חיים,
+# בהרשאה רחבה, ששוכב בסודות של ריפו ציבורי. פחות חלקים נעים, פחות מה שידלוף.
 #
-# להפוך את הריפו הזה לפרטי אינו פתרון: זה היה מוריד את 800-plus.com, כי Pages מריפו
-# פרטי דורש מנוי בתשלום.
+# הקובץ הזה נשאר כמצבה מכוונת: מי שיחפש כאן "איפה הגיבוי" ימצא תשובה, במקום
+# היסטוריית git ריקה.
 #
-# היעד עכשיו
-# -----------
-#   Hagay-BOT/800plus-backups — ריפו נפרד, פרטי, שאינו מגיש שום אתר.
-#
-# שני סודות דרושים ב-Settings → Secrets and variables → Actions של הריפו הזה:
-#
-#   SUPABASE_SERVICE_KEY  — Supabase → Project Settings → API → service_role
-#   BACKUP_REPO_TOKEN     — Personal Access Token עם הרשאת `repo` על ריפו הגיבויים.
-#                           GITHUB_TOKEN המובנה לא יכול לשמש: הוא מוגבל לריפו שרץ בו.
-#
-# ⚠ שני המפתחות האלה קוראים וכותבים הכול. מקומם רק ב-GitHub Secrets — לא בקובץ, לא
-#   בקומיט, לא בהודעה. GitHub מסתיר אותם בלוגים אוטומטית.
-#
-# הגנת העומק: הצעד הראשון בודק שהיעד באמת פרטי — לפני ה-checkout, ולפני שמפתח השירות
-# נכנס לסביבה בכלל. ריצה שאסור לה לקרות לא תגיע לידי החזקת המפתח. זו אותה טעות שקרתה,
-# מנוטרלת מבנית ולא רק מתועדת.
+#   הגדרות ותיעוד:  https://github.com/Hagay-BOT/800plus-backups
+#   הסוד היחיד שם:  SUPABASE_SERVICE_KEY
 
 on:
-  schedule:
-    - cron: '0 1 * * *'          # 01:00 UTC = 04:00 בישראל
   workflow_dispatch:
 
-permissions:
-  contents: read                 # אין כתיבה לריפו הזה. הכתיבה היא לריפו הגיבויים בלבד.
-
-env:
-  BACKUP_REPO: Hagay-BOT/800plus-backups
-
 jobs:
-  dump:
+  moved:
     runs-on: ubuntu-latest
     steps:
-      - name: Refuse to write user data anywhere public
-        env:
-          GH_TOKEN: ${{ secrets.BACKUP_REPO_TOKEN }}
-        run: |
-          if [ -z "${GH_TOKEN:-}" ]; then
-            echo "::error::BACKUP_REPO_TOKEN is not set — see the header of this file"
-            exit 1
-          fi
-          vis=$(gh repo view "$BACKUP_REPO" --json visibility --jq .visibility)
-          echo "destination $BACKUP_REPO visibility: $vis"
-          if [ "$vis" != "PRIVATE" ]; then
-            echo "::error::$BACKUP_REPO is $vis. Refusing to dump user data into it."
-            exit 1
-          fi
-
-      - name: Check out the backup repository
-        uses: actions/checkout@v4
-        with:
-          repository: Hagay-BOT/800plus-backups
-          token: ${{ secrets.BACKUP_REPO_TOKEN }}
-          fetch-depth: 1
-          path: backup
-
-      - name: Prepare
-        working-directory: backup
-        run: |
-          git config user.name  "backup-bot"
-          git config user.email "actions@github.com"
-          mkdir -p data
-          [ -f README.md ] || echo "גיבויים יומיים של מסד הנתונים של 800+. לא לערוך ידנית." > README.md
-
-      - name: Pull every table
-        working-directory: backup
-        env:
-          URL: ${{ secrets.SUPABASE_URL }}
-          KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
-        run: |
-          set -euo pipefail
-          if [ -z "${KEY:-}" ]; then
-            echo "::error::SUPABASE_SERVICE_KEY is not set — nothing was backed up"
-            exit 1
-          fi
-          BASE="${URL:-https://oycypbnzcvtjliovfsxn.supabase.co}"
-          for t in profiles progress feedback subscription assoc_shared; do
-            out="data/$t.json"
-            code=$(curl -sS -o "$out" -w '%{http_code}' \
-              "$BASE/rest/v1/$t?select=*" \
-              -H "apikey: $KEY" -H "Authorization: Bearer $KEY")
-            if [ "$code" != "200" ]; then
-              # טבלה שאינה קיימת אינה כישלון; טבלה שקיימת ומסרבת לענות — כן.
-              # ההבדל בין השניים לא ייבלע.
-              if [ "$code" = "404" ]; then
-                echo "::notice::$t does not exist in this project — skipped"
-                rm -f "$out"
-                continue
-              fi
-              echo "::error::$t returned HTTP $code"
-              exit 1
-            fi
-            n=$(python3 -c "import json;print(len(json.load(open('$out'))))")
-            echo "  $t: $n rows"
-            # טבלה שאתמול היו בה שורות והיום אין — זו בדיוק צורתה של תקלה.
-            # מסרב לדרוס גיבוי טוב בריק.
-            if [ "$n" = "0" ] && [ -s "data/$t.count" ] && [ "$(cat "data/$t.count")" != "0" ]; then
-              echo "::error::$t came back empty but had $(cat "data/$t.count") rows yesterday — refusing to overwrite"
-              exit 1
-            fi
-            echo "$n" > "data/$t.count"
-          done
-
-      - name: Commit
-        working-directory: backup
-        run: |
-          git add -A
-          if git diff --cached --quiet; then
-            echo "nothing changed today"
-            exit 0
-          fi
-          git commit -m "גיבוי $(date -u '+%Y-%m-%d')"
-          git push
+      - run: |
+          echo "::error::הגיבוי הועבר ל-Hagay-BOT/800plus-backups. אל תפעיל אותו מכאן."
+          exit 1
