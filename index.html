@@ -72,8 +72,6 @@
   .welcome-head{text-align:center;margin-bottom:30px}
   .w-title{font-size:clamp(2rem,7vw,2.9rem);font-weight:900;line-height:1.15;margin-top:4px}
   .w-sub{color:var(--ink-soft);font-size:.95rem;margin-top:8px}
-  .lv-open-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
-  @media (max-width:400px){ .lv-open-row{grid-template-columns:1fr} }
   .lang-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   @media(max-width:420px){.lang-cards{grid-template-columns:1fr}}
   .lang-card{
@@ -1184,10 +1182,9 @@
         </div>
       </button>
     </div>
-    <div class="lv-open-row">
-      <button class="btn btn-ghost" id="lvOpen">🎯 מבחן רמה באנגלית</button>
-      <button class="btn btn-ghost" id="lvOpenHe">🎯 מבחן רמה בעברית</button>
-    </div>
+    <!-- שני כפתורי מבחן הרמה ישבו כאן, במסך שנפתח בכל כניסה. מבחן רמה כותב תוצאה חדשה
+         על הקודמת ודוחף אותה לענן, ולכן הוא לא שייך למסך מעבר — הוא עבר להגדרות
+         (#accLevelHe / #accLevelEn) מאחורי דיאלוג אישור. -->
     <button class="install-cta hidden" id="notifCta">
       <span class="ic">🔔</span>
       <span class="tx"><b>תזכורת יומית בבוקר</b><em>הודעה קצרה שמזכירה לתרגל ומראה את ההתקדמות</em></span>
@@ -1312,6 +1309,13 @@
       <span id="accSheetSub">כל המילים לחיזוק מכל היחידות, כדף אחד להדפסה או ל-PDF</span></div><div class="cnt">‹</div></button>
     <button class="pbtn" id="accWhat"><div class="ic">❓</div><div class="tx"><b>מה האפליקציה יודעת לעשות</b>
       <span>שמונה יכולות שכבר קיימות — רובן אף אחד לא מוצא לבד</span></div><div class="cnt">‹</div></button>
+    <!-- מבחן הרמה הגיע לכאן ממסך בחירת השפה. שם הוא ישב על המסך שנפתח בכל כניסה, בזמן
+         שהוא כותב תוצאה חדשה על הקודמת ודוחף אותה לענן — ובאנגלית הוא גם המסלול היחיד
+         שמציע להוציא מילים מהתרגול. שתי השורות פותחות את #lvAsk ולא את המבחן עצמו. -->
+    <button class="pbtn" id="accLevelHe"><div class="ic">🎯</div><div class="tx"><b>מבחן רמה בעברית</b>
+      <span>12–24 מילים · המבחן מתאים את עצמו לרמה שלך</span></div><div class="cnt">‹</div></button>
+    <button class="pbtn" id="accLevelEn"><div class="ic">🎯</div><div class="tx"><b>מבחן רמה באנגלית</b>
+      <span>12–24 מילים · המבחן מתאים את עצמו לרמה שלך</span></div><div class="cnt">‹</div></button>
 
     <h3 class="acc-h">אזור מסוכן</h3>
     <!-- ההתנתקות עברה לכאן מהשורה העליונה: כפתור "יציאה" ליד "בקרה" ו"החלף שפה" נראה
@@ -1619,6 +1623,28 @@
   </div>
 </div>
 
+<!-- ===== מבחן רמה — האזהרה לפני ההתחלה =====
+     כל שורה כאן מתארת מה הקוד עושה, ולא מה שנשמע מסוכן:
+       · lvFinish() עושה LS.set(lvKey(), level) + queueRemoteSync() — התוצאה הקודמת מוחלפת
+         ונדחפת לענן, ולכן "מסתנכרנת לכלל המכשירים".
+       · שום דבר אחר לא נכתב — hw_stats, ציוני היחידות ורצף הימים לא נגעו, ולכן המשפט השני.
+       · ההצעה להוציא מילים מהתרגול קיימת רק באנגלית ורק כש-hasProgressIn('en') < 10
+         (app.js › lvFinish), ולכן #lvAskEn מוצג רק במסלול האנגלי ומנוסח כתנאי ולא כהבטחה.
+       · lvApplyKnown כותב src:'lv' ולעולם אינו דורס רשומה קיימת, ולכן "לא נמחקות" ו"ניתן
+         להחזיר" נכונים — #mRestore משחזר בדיוק את הרשומות האלה. -->
+<div class="ask hidden" id="lvAsk">
+  <div class="ask-box">
+    <div class="mail-ico" aria-hidden="true">🎯</div>
+    <h3>מבחן רמה ב<span id="lvAskLang">עברית</span>?</h3>
+    <p>התוצאה מחליפה את רמת ה<span id="lvAskLang2">עברית</span> ששמורה אצלך, ומסתנכרנת לכלל המכשירים.</p>
+    <p>מילים שכבר תרגלת, ציוני המבחנים ורצף הימים נשארים כמו שהם.</p>
+    <p class="mail-tip hidden" id="lvAskEn">בסיום, חשבון שכמעט לא תרגל אנגלית מקבל הצעה להוציא
+      מילים קלות מהתרגול. הן לא נמחקות — ניתן להחזיר אותן ב"ניהול מילים" ← "שחזר מחיקות".</p>
+    <button class="ask-go" id="lvAskGo">התחל מבחן רמה</button>
+    <button class="ask-cancel" id="lvAskNo">ביטול</button>
+  </div>
+</div>
+
 <div class="ask hidden" id="mailAsk">
   <div class="ask-box mail-box">
     <div class="mail-ico" aria-hidden="true">📬</div>
@@ -1729,14 +1755,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=137"></script>
-<script src="config.js?v=137"></script>
-<script src="store.js?v=137"></script>
-<script src="leveltest-he.js?v=137"></script>
-  <script src="leveltest.js?v=137"></script>
-<script src="enrank.js?v=137"></script>
-<script src="data.js?v=137"></script>
-<script src="data-en.js?v=137"></script>
-<script src="app.js?v=137"></script>
+<script src="supabase.min.js?v=138"></script>
+<script src="config.js?v=138"></script>
+<script src="store.js?v=138"></script>
+<script src="leveltest-he.js?v=138"></script>
+  <script src="leveltest.js?v=138"></script>
+<script src="enrank.js?v=138"></script>
+<script src="data.js?v=138"></script>
+<script src="data-en.js?v=138"></script>
+<script src="app.js?v=138"></script>
 </body>
 </html>

@@ -2331,8 +2331,33 @@ $('#lvStart').onclick=startLevelTest;
 const lvStart = lang => { LV_LANG=lang;
   $('#lvIntroLang').textContent = lang==='he' ? 'עברית' : 'אנגלית';
   hide($('#lvQuiz')); hide($('#lvResult')); show($('#lvIntro')); goto('level'); };
-const lvBtn=$('#lvOpen');     if(lvBtn) lvBtn.onclick=()=>lvStart('en');
-const lvBtnHe=$('#lvOpenHe'); if(lvBtnHe) lvBtnHe.onclick=()=>lvStart('he');
+/* ===== הכניסה למבחן הרמה =====
+   שני הכפתורים ישבו במסך בחירת השפה — המסך שנפתח בכל כניסה — ופתחו את המבחן בלחיצה אחת.
+   המבחן אינו פעולה ניטרלית: lvFinish() כותב את הרמה החדשה על הקודמת ודוחף אותה לענן,
+   ובמסלול האנגלי הוא גם המקום היחיד שמציע להוציא מילים מהתרגול. לכן הם עברו להגדרות,
+   ולכן הלחיצה פותחת את #lvAsk ולא את המבחן: lvStart רץ רק מ-#lvAskGo.
+   השפה נשמרת על ה-dataset של הדיאלוג ולא במשתנה מודול — כך כפתור האישור קורא את מה
+   שבאמת נפתח, וריצה שנייה אינה יורשת את השפה של הקודמת. */
+function lvAskOpen(lang){
+  const box=$('#lvAsk'); if(!box) return;
+  const name = lang==='he' ? 'עברית' : 'אנגלית';
+  box.dataset.lang=lang;
+  $('#lvAskLang').textContent=name;
+  $('#lvAskLang2').textContent=name;
+  // ההצעה להוציא מילים מהתרגול קיימת רק באנגלית — ראה lvFinish. אין מה להזהיר מפניה בעברית.
+  $('#lvAskEn').classList.toggle('hidden', lang!=='en');
+  show(box);
+}
+$('#accLevelHe').onclick=()=>lvAskOpen('he');
+$('#accLevelEn').onclick=()=>lvAskOpen('en');
+const lvAskClose=()=>hide($('#lvAsk'));
+$('#lvAskNo').onclick=lvAskClose;
+$('#lvAsk').onclick=e=>{ if(e.target===$('#lvAsk')) lvAskClose(); };
+$('#lvAskGo').onclick=()=>{
+  const lang=$('#lvAsk').dataset.lang==='he' ? 'he' : 'en';
+  lvAskClose();
+  lvStart(lang);
+};
 $('#lvSkip').onclick=()=>{ LS.set(lvKey(),'skipped'); renderWelcome(); };
 /* ✕ יציאה יושב ב-topbar, מחוץ ל-#lvQuiz — כלומר הוא על המסך גם אחרי ש-lvFinish() כבר
    כתב את הרמה ודחף אותה לענן. "התוצאות לא יישמרו" היה שקר בדיוק ברגע שבו הלומד הכי צריך
@@ -3852,7 +3877,10 @@ $('#delGo').onclick = async ()=>{
    תאריך המבחן שייך לפרופיל ולא להגדרות: הוא נתון על הלמידה, לא העדפה. */
 const ACC_TABS = {
   profile:  ['accProg','accReview','accLearnedSheet','accSheet','accExamRow'],
-  settings: ['accNotif','accInstall','accWhat','accAdmin','accSignOut','accReset','accDelete'],
+  /* מבחן הרמה נרשם כאן ולא בפרופיל: הוא פעולה שמשנה נתון, לא תצוגה שלו — ובעיקר, זו
+     הבקשה עצמה. שורה שלא נרשמת ברשימה הזאת נשארת גלויה בשתי הלשוניות. */
+  settings: ['accNotif','accInstall','accWhat','accLevelHe','accLevelEn','accAdmin',
+             'accSignOut','accReset','accDelete'],
 };
 let accTab='profile';
 function renderAccTab(){
