@@ -167,3 +167,51 @@ describe('mayAutoReload — התקציב שמונע לולאת ריענון', ()
     }
   });
 });
+
+describe('ציון המבחן — החשבון והתקרה', () => {
+  const app = appSource();
+
+  const pct = (ok, n) => (n ? Math.round(100 * ok / n) : 0);
+
+  test('אפס שאלות אינו מחזיר NaN', () => {
+    /* n=0 קורה כשיחידה ריקה או כשכל השאלות דולגו. NaN% היה מוצג ללומד כציון. */
+    assert.strictEqual(pct(0, 0), 0);
+  });
+
+  test('הקצוות מדויקים', () => {
+    assert.strictEqual(pct(10, 10), 100);
+    assert.strictEqual(pct(0, 10), 0);
+    assert.strictEqual(pct(1, 3), 33);
+    assert.strictEqual(pct(2, 3), 67);
+  });
+
+  test('הציון לעולם אינו חורג מ-0..100', () => {
+    for (let n = 1; n <= 60; n++)
+      for (let ok = 0; ok <= n; ok++) {
+        const p = pct(ok, n);
+        assert.ok(p >= 0 && p <= 100 && Number.isInteger(p), `${ok}/${n} → ${p}`);
+      }
+  });
+
+  test('היסטוריית המבחנים חסומה ב-20', () => {
+    /* בלי התקרה הרשומה גדלה בלי גבול ונדחפת לענן בכל מבחן. */
+    assert.ok(/slice\(-20\)/.test(app),
+      'תקרת היסטוריית המבחנים (slice(-20)) נעלמה — הרשומה תתפח בלי גבול');
+    const arr = Array.from({ length: 25 }, (_, i) => i);
+    assert.deepStrictEqual(arr.slice(-20)[0], 5, 'התקרה שומרת את האחרונים ולא את הראשונים');
+  });
+
+  test('exAnswer מנטרל את הפקדים לפני שהוא ממשיך', () => {
+    /* זה — ולא טיימר — מה שמונע תשובה כפולה. הנטרול קורה באותו handler סינכרוני,
+       ולכן לחיצה שנייה כבר פוגשת כפתור מנוטרל. אם מישהו יעביר אותו אחרי ה-setTimeout,
+       שתי לחיצות מהירות ייספרו כשתי תשובות והציון יהיה שגוי. */
+    const at = app.indexOf('function exAnswer');
+    assert.ok(at > 0, 'exAnswer נעלמה');
+    const body = app.slice(at, app.indexOf('setTimeout', at));
+    assert.ok(/disabled\s*=\s*true/.test(body),
+      'exAnswer אינה מנטרלת את הפקדים לפני ההמתנה — תשובה כפולה תיספר פעמיים');
+    assert.ok(body.indexOf('exAns.push') < body.lastIndexOf('disabled=true') ||
+              /disabled\s*=\s*true/.test(body),
+      'סדר הנטרול והרישום השתנה');
+  });
+});
