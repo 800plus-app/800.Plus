@@ -3928,6 +3928,16 @@ $('#accReset').onclick = async ()=>{
    - Reliable delivery while the app is CLOSED needs either periodicSync (Chrome, installed)
      or a push server holding VAPID keys. There is no push server yet, so the third path is
      the app itself: on open, if it is morning and today has no practice, remind. */
+/* applicationServerKey חייב להיות בתים גולמיים. מחרוזת base64url נבלעת בלי שגיאה
+   בחלק מהדפדפנים ומייצרת מנוי שלעולם לא יקבל דבר — כשל שקט, ולכן ההמרה מפורשת. */
+function urlB64ToBytes(s){
+  const p = String(s).replace(/-/g,'+').replace(/_/g,'/');
+  const bin = atob(p + '='.repeat((4 - (p.length % 4)) % 4));
+  const out = new Uint8Array(bin.length);
+  for(let i=0;i<bin.length;i++) out[i]=bin.charCodeAt(i);
+  return out;
+}
+
 const NOTIF = {
   supported(){ return typeof Notification !== 'undefined' && 'serviceWorker' in navigator; },
   askable(){
@@ -3943,8 +3953,29 @@ const NOTIF = {
     let p='denied';
     try{ p = await Notification.requestPermission(); }catch(e){ return false; }
     LS.set('hw_notifAsked', 1);
-    if(p==='granted'){ await this.registerPeriodic(); await this.cacheMessage(); }
+    if(p==='granted'){ await this.registerPeriodic(); await this.subscribePush(); await this.cacheMessage(); }
     return p==='granted';
+  },
+
+  /* Web Push — הערוץ היחיד שמגיע לאייפון כשהאפליקציה סגורה.
+     periodicSync למעלה הוא Chrome/אנדרואיד בלבד, ולכן על iOS ההתראה הגיעה עד היום רק
+     כשהאפליקציה נפתחה — כלומר רק למי שכבר חזר, ולא למי שהפסיק.
+
+     נכשל בשקט בכוונה: אין מפתח VAPID, אין רשת, הדפדפן אינו תומך — כל אלה אינם תקלה
+     שהלומד יכול לעשות איתה משהו, וההתראה עדיין תעבוד דרך שני הערוצים האחרים. */
+  async subscribePush(){
+    try{
+      if(!window.VAPID_PUBLIC || !currentUser) return false;
+      const reg = await navigator.serviceWorker.ready;
+      if(!reg.pushManager) return false;
+      const sub = await reg.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: urlB64ToBytes(window.VAPID_PUBLIC)
+      });
+      const j = sub.toJSON ? sub.toJSON() : null;
+      if(!j || !j.keys) return false;
+      return await Store.savePushSub(j.endpoint, j.keys.p256dh, j.keys.auth);
+    }catch(e){ return false; }
   },
 
   /* Chrome only, and only for an installed PWA. Silently unavailable elsewhere — that is

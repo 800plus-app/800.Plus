@@ -34,6 +34,19 @@ const Store = {
      Errors come back as a value rather than a throw, because the interesting one is routine:
      Supabase rate-limits this per address (the SMTP screen's "minimum interval per user"),
      so a second tap inside a minute is a 429 and the learner must be told that in words. */
+  /* מנוי Push אחד למכשיר. upsert על endpoint ולא insert: הדפדפן מחדש מנוי מדי פעם
+     מיוזמתו, ו-insert היה מייצר שורה נוספת לכל חידוש — כלומר אותו אדם היה מקבל את
+     אותה התראה פעמיים, ואז שלוש. */
+  async savePushSub(endpoint, p256dh, auth) {
+    try {
+      const { data: { user } } = await sb.auth.getUser();
+      if (!user) return false;
+      const { error } = await sb.from('push_sub')
+        .upsert({ user_id: user.id, endpoint, p256dh, auth }, { onConflict: 'endpoint' });
+      return !error;
+    } catch (e) { return false; }
+  },
+
   async resendConfirmation(email) {
     const to = String(email == null ? '' : email).trim();
     if (!to) return { ok: false, error: { message: 'no address' } };

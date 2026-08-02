@@ -2,7 +2,7 @@
    ONE place to bump on every deploy: REV. It names the cache *and* the asset query strings,
    so the URLs precached here are byte-for-byte the URLs index.html requests. When those drift
    apart the app silently keeps serving an old build — which is exactly what used to happen. */
-const REV = '132';
+const REV = '133';
 const V = 'hw-v' + REV;
 /* App DATA must not live in a versioned cache. The personalised reminder text was written into
    hw-v<REV>, so the next deploy deleted it along with the assets — and it was never rewritten,
@@ -127,8 +127,9 @@ self.addEventListener('fetch', e => {
 /* ===== notifications =====
    Three delivery paths, because no single one works everywhere:
    1. periodicSync — installed PWA on Chrome/Android. Fires while the app is closed.
-   2. push        — needs a server holding VAPID keys. The handler is ready; nothing sends yet.
-   3. the page itself, on open. The only path iOS Safari gives us today.
+   2. push        — supabase/functions/send-push signs VAPID and fires these. This is the ONLY
+                    path that reaches an installed PWA on iOS while it is closed.
+   3. the page itself, on open. The fallback when neither of the above is available.
    All three end at the same renderer so the wording never diverges. */
 /* The page caches FACTS — {streak, learned, weak, last} — and the wording is decided here, at
    the moment it fires. That ordering is the whole point: a message composed when permission was
@@ -184,10 +185,36 @@ self.addEventListener('periodicsync', e => {
   );
 });
 
+/* Push, and the reason it carries no payload.
+ *
+ * A payload on a Web Push message must be encrypted per RFC 8291 — ECDH against the
+ * subscriber's key, HKDF, then AES-128-GCM. That is a real amount of crypto to write and, far
+ * worse, to get subtly wrong: an encryption bug produces a push that silently never displays.
+ *
+ * It is also unnecessary here. The page already caches the FACTS under 'daily-msg', and
+ * composeDaily() decides the wording at fire time — that is how periodicSync above works. So
+ * the push only has to say "now", and the worker composes the same personal message from data
+ * it already holds. Nothing about the learner crosses the push service, which is the privacy
+ * answer too.
+ *
+ * A payload is still honoured if one ever arrives, because that costs one line. */
 self.addEventListener('push', e => {
-  let d = null;
-  try { d = e.data ? e.data.json() : null; } catch (_) {}
-  e.waitUntil(showDaily(d));
+  e.waitUntil((async () => {
+    let d = null;
+    try { d = e.data ? e.data.json() : null; } catch (_) {}
+    if (!d) {
+      const r = await caches.open(DATA).then(c => c.match('daily-msg'));
+      if (r) { try { d = await r.json(); } catch (_) {} }
+    }
+    /* Same once-a-day guard periodicSync uses. Without it a platform that retries delivery,
+       or both paths firing on the same device, shows the reminder twice. */
+    const stamp = new Date().toDateString();
+    const c = await caches.open(DATA);
+    const seen = await c.match('daily-sent').then(r => r && r.text());
+    if (seen === stamp) return;
+    await c.put('daily-sent', new Response(stamp));
+    return showDaily(d);
+  })());
 });
 
 self.addEventListener('notificationclick', e => {
