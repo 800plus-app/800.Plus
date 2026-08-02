@@ -741,6 +741,7 @@ function renderHome(){
       `${weakAll.length} מילים לחיזוק — מכל היחידות, בלי לבחור אחת`;
   }
   renderDirSegs();
+  renderWordCard();
   const grid=$('#unitGrid'); grid.innerHTML='';
   /* עשרה אריחים זהים, ואין שום סימן מאיפה מתחילים. הבחירה נופלת על הלומד ברגע שבו הוא
      יודע הכי פחות, וזה הרגע שבו אנשים סוגרים את הלשונית.
@@ -765,6 +766,45 @@ function renderHome(){
     el.onclick=()=>openScope('unit:'+uid);
     grid.appendChild(el);
   });
+}
+
+/* ===== כרטיס המילה במסך הבית =====
+   שתי משתמשות ביקשו "ג'אדג'ט", וההגדרה היא: הצעה למילה עם הפירוש שלה, אינטראקטיבית.
+   מה שזה פותר בפועל אינו קישוט — עשרה אריחים זהים דורשים מהלומד לבחור ברגע שבו הוא יודע
+   הכי פחות, וזה הרגע שבו נסגרת הלשונית. הכרטיס הוא הדבר האחד שאפשר ללחוץ עליו מיד.
+
+   הבחירה אינה אקראית. קודם מילה שכבר נפגשה ולא נקנתה — היא זו שעומדת ליפול מהזיכרון —
+   ורק אם אין כזו, מילה חדשה. אקראי גמור היה מציע מילה שהלומד כבר יודע, וזה מלמד אותו
+   להתעלם מהכרטיס.
+
+   האינדקס נגזר מהיום ולא מ-Math.random: מילה שמתחלפת בכל רענון אינה "מילת היום" אלא רעש,
+   ואי אפשר לחזור אליה. הלחצן "מילה אחרת" הוא הדרך המכוונת להחליף, והוא סופר קדימה — כך
+   שגם מי שמדלג מגיע למילים חדשות ולא מסתובב במעגל. */
+let wcOffset=0;
+function wcPool(){
+  const weak=weakCards('global');
+  return weak.length ? weak : newCards('global');
+}
+function wcPick(){
+  const pool=wcPool();
+  if(!pool.length) return null;
+  const day=Math.floor(Date.now()/86400000);
+  return { w: pool[(day+wcOffset)%pool.length], weak: weakCards('global').length>0, size: pool.length };
+}
+function renderWordCard(){
+  const card=$('#wordCard');
+  if(!card) return;
+  const p=wcPick();
+  /* אין מאגר, או שהכול נלמד — אין מה להציע, והכרטיס נעלם במקום להציג ריק. */
+  if(!p || !p.w){ card.classList.add('hidden'); return; }
+  card.classList.remove('hidden');
+  $('#wcKicker').textContent = p.weak ? 'מילה לחזק' : 'מילה חדשה להיום';
+  $('#wcTerm').textContent   = p.w.term;
+  $('#wcMean').textContent   = p.w.meaning || '—';
+  /* חוזר למצב מכוסה בכל רינדור: מסך בית שנטען עם הפירוש פתוח מלמד לדלג על הניחוש. */
+  $('#wcMean').classList.add('hidden');
+  $('#wcActs').classList.add('hidden');
+  $('#wcReveal').classList.remove('hidden');
 }
 
 /* ===== SCOPE ===== */
@@ -3428,6 +3468,30 @@ async function openAccount(){
     } else $('#accSub').textContent='פתוח';
   }catch(e){ $('#accSub').textContent='לא ידוע'; }
 }
+/* ===== כרטיס המילה — חיווט ===== */
+$('#wcReveal').onclick=()=>{
+  $('#wcReveal').classList.add('hidden');
+  $('#wcMean').classList.remove('hidden');
+  $('#wcActs').classList.remove('hidden');
+};
+$('#wcNext').onclick=()=>{ wcOffset++; renderWordCard(); };
+/* "תרגל מילים כאלה" פותח סבב מאותו סוג שהכרטיס הציג — חלשות אם הוא הציג חלשה, חדשות
+   אם חדשה. סבב של מילה בודדת אינו תרגול, והכרטיס הוא הזמנה ולא היעד. */
+$('#wcPractice').onclick=()=>{
+  const pool=wcPool();
+  if(!pool.length) return;
+  const p=wcPick();
+  /* המילה שעל המסך ראשונה בחפיסה: מי שלחץ עליה מצפה לפגוש אותה, ולא לגלות סבב שאין בו
+     שום קשר למה שהסתכל עליו רגע קודם. */
+  const rest=pool.filter(x=>x!==p.w);
+  startRound(cap([p.w, ...shuffle(rest)], 20), 'global', 'wcard');
+  /* startRound מערבב את החפיסה תמיד (app.js:977), ובצדק — סדר קבוע מלמד את הסדר במקום
+     את המילים. אבל מי שלחץ על מילה מסוימת מצפה לפגוש אותה, ולא סבב אקראי שאין לו קשר
+     נראה לעין למה שהסתכל עליו רגע קודם. במקום לשנות את startRound ולשבור את הערבוב לכל
+     המסלולים האחרים, המילה מוקפצת לראש החפיסה אחרי הערבוב — שינוי מקומי לנתיב הזה בלבד. */
+  const at=deck.findIndex(c=>K(c.term)===K(p.w.term));
+  if(at>0){ deck.unshift(deck.splice(at,1)[0]); idx=0; renderCard(); }
+};
 $('#userBadge2').onclick = openAccount;
 $('#userBadge3').onclick = openAccount;
 /* הדלת השנייה. הראשונה — לחיצה על השם — נשארת, כי מי שכבר מצא אותה לא צריך ללמוד מחדש;
