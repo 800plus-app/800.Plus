@@ -92,16 +92,17 @@ def body(name, n, days=None):
     # שם פרטי בלבד. "שלום פז אברהמי," קורא כמו מכתב מחברת ביטוח.
     first = (name or '').split()[0] if (name or '').strip() else ''
     hello = ('שלום %s,' % first) if first else 'שלום,'
-    exam_line = ''
     # "1 ימים" אינו עברית, ומספר שנכתב נכון הוא מה שמבדיל תזכורת אישית מהודעה אוטומטית.
-    if days == 0:
-        exam_line = ' <b style="color:#a63c26">המבחן היום.</b>'
-    elif days == 1:
-        exam_line = ' <b style="color:#a63c26">המבחן מחר.</b>'
-    elif days == 2:
-        exam_line = ' נשארו לך <b style="color:#a63c26">יומיים</b> עד המבחן.'
-    elif days:
-        exam_line = ' נשארו לך <b style="color:#a63c26">%d ימים</b> עד המבחן.' % days
+    if days == 0:      when = 'המבחן היום'
+    elif days == 1:    when = 'המבחן מחר'
+    elif days == 2:    when = 'נשארו לך יומיים עד המבחן'
+    elif days:         when = 'נשארו לך %d ימים עד המבחן' % days
+    else:              when = None
+    # שורה משלה ולא סיפא של פסקה. כשאין תאריך אין שורה, והמייל מסתיים במספר ובכפתור.
+    exam_line = '' if when is None else f"""  <tr><td style="padding:16px 30px 0;text-align:center">
+    <p style="margin:0;font-size:15px;font-weight:700;color:#a63c26">{when}</p>
+  </td></tr>
+"""
     return f"""<div dir="rtl" style="margin:0;padding:24px 12px;background:#f4ede2;
      font-family:'Segoe UI',system-ui,Arial,sans-serif">
 <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center"
@@ -129,15 +130,13 @@ def body(name, n, days=None):
     </table>
   </td></tr>
 
-  <tr><td style="padding:20px 30px 0;text-align:right">
-    <p style="margin:0;font-size:15px;line-height:1.75;color:#2c2823">
-      תרגלת אותן, והן טרם הגיעו לשליטה.{exam_line} סבב חיזוק אחד מכסה עד 20 מילים.</p>
-  </td></tr>
-
+{exam_line}
+  <!-- הכפתור בוהק ועם טקסט כהה ולא לבן. לבן על כתום בהיר יורד מתחת ליחס הניגודיות
+       הנדרש, ו"בוהק" שאי אפשר לקרוא אינו בוהק. הכהה על הבהיר נותן את שניהם. -->
   <tr><td style="padding:24px 30px 28px;text-align:center">
-    <a href="{APP}" style="background:#b5651d;color:#fffdf8;text-decoration:none;
-       font-size:15px;font-weight:600;padding:14px 34px;border-radius:12px;
-       display:inline-block">לתרגול חיזוק</a>
+    <a href="{APP}" style="background:#f6a51f;color:#3a2205;text-decoration:none;
+       font-size:17px;font-weight:700;padding:15px 40px;border-radius:12px;
+       display:inline-block">תרגל עכשיו</a>
   </td></tr>
 
   <tr><td style="padding:0 30px 24px">
