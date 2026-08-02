@@ -29,8 +29,10 @@ if not picked:
 # id=None ולכן שום שורה ב-profiles לא מסומנת: זו לא תזכורת, וספירת התזכורות לא זזה.
 PREVIEW = (os.environ.get('PREVIEW') or '').strip()
 if PREVIEW:
+    # days נישא הלאה. בלעדיו התצוגה המקדימה הייתה מציגה מייל בלי שורת המבחן ומאשרת
+    # נוסח שאיש לא יקבל — בדיוק סוג האישור שגרוע מאין אישור.
     picked = [{'id': None, 'email': PREVIEW, 'name': picked[0].get('name', ''),
-               'weak': picked[0]['weak'], 'count': 0}]
+               'weak': picked[0]['weak'], 'days': picked[0].get('days'), 'count': 0}]
     print('תצוגה מקדימה בלבד — נמען אחד: %s' % PREVIEW)
 
 def post(url, payload, headers):
@@ -49,13 +51,31 @@ def post(url, payload, headers):
     except urllib.error.HTTPError as e:
         return e.code, e.read().decode('utf-8', 'replace')
 
-def subject(n):
-    # "עומדות ליפול לך מהזיכרון" היה דימוי, ודימוי תופס את מקום המידע (HEB, חוק 1).
-    # "טרם הגיעו לשליטה" הוא בדיוק מה שנמדד: seen>0 ו-level<3.
+def subject(n, days=None):
+    """שורת הנושא.
+
+    "עומדות ליפול לך מהזיכרון" היה דימוי, ודימוי תופס את מקום המידע (HEB, חוק 1).
+    "לחיזוק" הוא המונח שהאפליקציה מציגה.
+
+    התאריך נכנס לכותרת ולא רק לגוף: הכותרת היא מה שנקרא לפני שמחליטים לפתוח, ושני
+    מספרים אמיתיים בה עושים את העבודה שמילת דחיפות אחת לא עושה. כשאין תאריך אין חצי
+    כותרת — יש כותרת אחרת.
+    """
+    if days == 0:
+        return '%d מילים לחיזוק · המבחן היום' % n
+    if days == 1:
+        return '%d מילים לחיזוק · המבחן מחר' % n
+    if days:
+        return '%d מילים לחיזוק · %d ימים עד המבחן' % (n, days)
     return '%d מילים שתרגלת טרם הגיעו לשליטה' % n
 
-def body(name, n):
+def body(name, n, days=None):
     """גוף המייל.
+
+    הלחץ שמזיז אדם הוא תאריך אמיתי שהוא בעצמו הזין, ולא ניסוח דחוף. days מגיע
+    מ-pick_nudges והוא None כשלא הוזן תאריך או כשהוא כבר עבר — ואז המשפט פשוט אינו שם.
+    זו הנקודה שבה קל להחליק ברירת מחדל, ומספר מומצא בשורה שכל תפקידה ללחוץ הוא הדרך
+    המהירה ביותר לאבד את האמון של מי שיודע מתי המבחן שלו.
 
     הניסוח נגזר מהסקיל HEB, ושלושה דברים בו אינם אקראיים:
 
@@ -69,7 +89,19 @@ def body(name, n):
     עיצוב: טבלה ולא div, כי Outlook מתעלם מ-flex ומ-max-width על div, ורוחב קבוע על
     טבלה הוא הדבר היחיד שכל לקוחות המייל מכבדים.
     """
-    hello = ('שלום %s,' % name) if name else 'שלום,'
+    # שם פרטי בלבד. "שלום פז אברהמי," קורא כמו מכתב מחברת ביטוח.
+    first = (name or '').split()[0] if (name or '').strip() else ''
+    hello = ('שלום %s,' % first) if first else 'שלום,'
+    exam_line = ''
+    # "1 ימים" אינו עברית, ומספר שנכתב נכון הוא מה שמבדיל תזכורת אישית מהודעה אוטומטית.
+    if days == 0:
+        exam_line = ' <b style="color:#a63c26">המבחן היום.</b>'
+    elif days == 1:
+        exam_line = ' <b style="color:#a63c26">המבחן מחר.</b>'
+    elif days == 2:
+        exam_line = ' נשארו לך <b style="color:#a63c26">יומיים</b> עד המבחן.'
+    elif days:
+        exam_line = ' נשארו לך <b style="color:#a63c26">%d ימים</b> עד המבחן.' % days
     return f"""<div dir="rtl" style="margin:0;padding:24px 12px;background:#f4ede2;
      font-family:'Segoe UI',system-ui,Arial,sans-serif">
 <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center"
@@ -81,6 +113,7 @@ def body(name, n):
 
   <tr><td style="padding:22px 30px 0;text-align:right">
     <p style="margin:0;font-size:15px;line-height:1.7;color:#2c2823">{hello}</p>
+    <p style="margin:4px 0 0;font-size:15px;line-height:1.7;color:#2c2823">שמנו לב שיש לך</p>
   </td></tr>
 
   <!-- המספר הוא הסיבה היחידה שהמייל הזה מוצדק. בלעדיו זו תזכורת גנרית, ותזכורת
@@ -98,7 +131,7 @@ def body(name, n):
 
   <tr><td style="padding:20px 30px 0;text-align:right">
     <p style="margin:0;font-size:15px;line-height:1.75;color:#2c2823">
-      תרגלת אותן, והן טרם סווגו כמילים בשליטה. סבב חיזוק אחד מכסה עד 20 מילים.</p>
+      תרגלת אותן, והן טרם הגיעו לשליטה.{exam_line} סבב חיזוק אחד מכסה עד 20 מילים.</p>
   </td></tr>
 
   <tr><td style="padding:24px 30px 28px;text-align:center">
@@ -119,13 +152,13 @@ def body(name, n):
 
 sent = failed = 0
 for x in picked:
-    subj = subject(x['weak'])
+    subj = subject(x['weak'], x.get('days'))
     if DRY:
         print('[יבש] %-34s | %s' % (x['email'], subj)); sent += 1; continue
     try:
         st, resp = post('https://api.resend.com/emails',
                         {'from': FROM, 'to': [x['email']], 'subject': subj,
-                         'html': body(x['name'], x['weak']),
+                         'html': body(x['name'], x['weak'], x.get('days')),
                          # כותרת תקנית שלקוחות מייל מציגים ככפתור "בטל הרשמה". היא אינה
                          # מחליפה את הקישור בגוף — חלק מהלקוחות לא מציגים אותה בכלל.
                          'headers': {'List-Unsubscribe': '<mailto:noreply@800-plus.com?subject=הסר>'}},

@@ -34,8 +34,15 @@ progress = json.load(open('progress.json', encoding='utf-8'))
 # כמה מילים "עומדות ליפול" לכל אדם: נפגשו, ועדיין לא ברמה 3. זה בדיוק המספר שהמייל
 # מבטיח, ולכן הוא נמדד מאותם נתונים שהאפליקציה מציגה ולא ממונה נפרד.
 weak = {}
+# תאריך המבחן רוכב על extras ומסונכרן לענן (app.js: collectExtras). הוא לכל אדם ולא לכל
+# שפה, ולכן מספיק למצוא אותו באחת השורות. בלעדיו אין משפט על המבחן — לא נחש ולא ברירת
+# מחדל: "נשארו לך X ימים" למי שלא הזין תאריך הוא מספר שהומצא.
+exam = {}
 for row in progress:
     uid = row.get('user_id')
+    ex = ((row.get('data') or {}).get('extras') or {}).get('exam')
+    if ex and uid not in exam:
+        exam[uid] = str(ex)
     words = ((row.get('data') or {}).get('stats') or {}).get('words') or {}
     n = 0
     for r in words.values():
@@ -70,7 +77,15 @@ for p in profiles:
     if n < 5:
         # פחות מחמש אינו "עומדות ליפול" אלא רעש, ומייל על שלוש מילים שוחק את המייל הבא.
         skip('רק %d מילים לחיזוק' % n);                       continue
-    picked.append({'id': p['id'], 'email': email,
+    # ימים עד המבחן. None כשאין תאריך, וגם כשהתאריך כבר עבר — "נשארו לך 4- ימים" הוא
+    # בדיוק סוג המשפט ששולח אדם למחוק את המייל ולסמן אותו כספאם.
+    days = None
+    d0 = ts(exam.get(p.get('id')))
+    if d0 is not None:
+        k = (d0.date() - NOW.date()).days
+        if 0 <= k <= 400:
+            days = k
+    picked.append({'id': p['id'], 'email': email, 'days': days,
                    'name': (p.get('username') or '').strip(), 'weak': n,
                    # נישא הלאה כדי שהשליחה תוכל להעלות אותו באחד. PostgREST אינו יודע
                    # להגדיל שדה במקום, ולכן הערך החדש מחושב כאן ולא בשרת.
