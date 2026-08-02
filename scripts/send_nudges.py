@@ -34,8 +34,8 @@ def body(name, n):
     # נמחקת. עם המספר זו עובדה על ההתקדמות של האדם עצמו.
     return f"""<div dir="rtl" style="font-family:system-ui,Segoe UI,Arial;line-height:1.7;color:#2c2823;max-width:520px">
   <p>{hello}</p>
-  <p><b>{n} מילים</b> שתרגלת כבר עומדות ליפול לך מהזיכרון — פגשת אותן, והן עדיין לא יושבות.</p>
-  <p>עשר דקות מספיקות כדי להחזיר אותן.</p>
+  <p><b>{n} מילים</b> שכבר תרגלת עומדות ליפול לך מהזיכרון — נפגשת איתן, והן טרם התבססו.</p>
+  <p>עשר דקות של חזרה ממוקדת מספיקות כדי להחזיר אותן.</p>
   <p style="margin:26px 0">
     <a href="{APP}" style="background:#b5651d;color:#fff;text-decoration:none;
        padding:13px 26px;border-radius:12px;display:inline-block">לחזור לתרגול</a>
