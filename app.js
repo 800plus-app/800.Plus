@@ -3350,7 +3350,17 @@ async function pullAccountState(){
        had that work overwritten by the cloud copy. */
     const empty = (k,isArr) => { const v=LS.get(k, null);
       return v==null || (isArr ? (!Array.isArray(v) || !v.length) : !Object.keys(isObj(v)?v:{}).length); };
-    if(isObj(d.stats))           LS.set('hw_stats'+sk,   d.stats);
+    /* יומן התרגול נספר כהתקדמות, בדיוק כמו המילים.
+       hasProgressIn סופרת רק מילים עם seen>0, ולכן היא מחזירה 0 גם למי שיש לו יומן
+       תרגול מלא — והשורה הזאת הייתה היחידה כאן בלי בדיקת empty, כך שהיומן נדרס.
+       המצב הזה אינו תיאורטי: מחיקה בכמות מוחקת את stats.words ואינה נוגעת ב-sessions.
+       מי שתרגל יחידה ואז מחק את המילים שלה נשאר בדיוק כך — יומן בלי מילים — והחיבור
+       הבא היה מוחק לו את ימי התרגול ואת הרצף.
+       כשיש יומן מקומי לא ממלאים כאן כלום: syncWithRemote תמזג כשנכנסים לשפה, וזה
+       הנתיב שיודע למזג באמת במקום להחליף צד אחד בשני. */
+    const lsRaw = LS.get('hw_stats'+sk, null);
+    const hasLog = isObj(lsRaw) && Array.isArray(lsRaw.sessions) && lsRaw.sessions.length>0;
+    if(isObj(d.stats) && !hasLog)  LS.set('hw_stats'+sk,   d.stats);
     if(isObj(d.assoc)   && empty('hw_assoc'+sk,false))   LS.set('hw_assoc'+sk,   d.assoc);
     if(Array.isArray(d.deleted) && empty('hw_deleted'+sk,true)) LS.set('hw_deleted'+sk, d.deleted);
     if(Array.isArray(d.added)   && empty('hw_added'+sk,true))   LS.set('hw_added'+sk,   d.added);
@@ -3373,13 +3383,23 @@ function setBadges(text){
 
 async function afterAuthed(justSignedUp){
   bindCacheToUser(currentUser.id, justSignedUp);   // a fresh account inherits the preview it came from
+  /* השם נקרא מהרשת, ולכן במצב טיסה הוא לא הגיע והוחלף בכתובת המייל — נמדד בטלפון
+     ב-2.8. זה נראה כאילו נכנסת לחשבון אחר, וזו ההרגשה הכי גרועה שאפשר לתת למי שפתח
+     את האפליקציה בלי רשת.
+     hw_name כבר נשמר כאן מאז ומעולם; פשוט אף אחד לא קרא אותו במסלול הכישלון. */
+  const cachedName = () => { const n=LS.get('hw_name',''); return (typeof n==='string' && n) ? n : ''; };
   try{
     const p=await Store.myProfile();
-    const nm = (p && p.username) || (currentUser.email||'').split('@')[0];
-    setBadges(p ? p.username : (currentUser.email||''));
-    LS.set('hw_name', nm);            // the dashboard greets by name before any network call returns
+    if(p && p.username){
+      setBadges(p.username);
+      LS.set('hw_name', p.username);  // the dashboard greets by name before any network call returns
+    } else {
+      /* אין פרופיל ואין שגיאה — משתמש חדש לפני שנוצרה לו שורה. השם השמור עדיף על
+         המייל, והמייל עדיף על ריק. */
+      setBadges(cachedName() || currentUser.email || '');
+    }
   }
-  catch(e){ setBadges(currentUser.email||''); }
+  catch(e){ setBadges(cachedName() || currentUser.email || ''); }
   await showAdminIfAllowed();
   /* BEFORE the subscription gate: a locked user can still press "יציאה", and sign-out writes to
      the cloud. Reaching that write with a device that never fetched the account meant the locked
@@ -3536,10 +3556,10 @@ const signOutNow = async ()=>{
   else console.warn('sign-out: הסנכרון לא הושלם — המטמון המקומי נשמר כדי לא לאבד את הסבב האחרון');
   location.reload();
 };
-$('#signOutBtn').onclick  = signOutNow;
-$('#signOutBtn2').onclick = signOutNow;
-$('#signOutBtn3').onclick = signOutNow;
-$('#signOutBtn4').onclick = signOutNow;
+/* מוקד אחד להתנתקות, באזור המסוכן שבהגדרות. קודם היו ארבעה כפתורי "יציאה" בארבע
+   שורות עליונות — ליד "בקרה" ו"החלף שפה", כלומר בין כפתורי ניווט, ובמרחק לחיצה אחת
+   בטעות ממסך התחברות. */
+$('#accSignOut').onclick = signOutNow;
 
 /* ===== account screen =====
    Tapping your own name opens it. For an admin the same tap opens the control centre instead —
@@ -3832,7 +3852,7 @@ $('#delGo').onclick = async ()=>{
    תאריך המבחן שייך לפרופיל ולא להגדרות: הוא נתון על הלמידה, לא העדפה. */
 const ACC_TABS = {
   profile:  ['accProg','accReview','accLearnedSheet','accSheet','accExamRow'],
-  settings: ['accNotif','accInstall','accWhat','accAdmin','accReset','accDelete'],
+  settings: ['accNotif','accInstall','accWhat','accAdmin','accSignOut','accReset','accDelete'],
 };
 let accTab='profile';
 function renderAccTab(){
