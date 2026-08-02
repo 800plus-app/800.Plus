@@ -22,6 +22,17 @@ picked = json.load(open('nudges.json', encoding='utf-8'))
 if not picked:
     print('אין למי לשלוח'); sys.exit(0)
 
+# PREVIEW — לקרוא את המייל בתיבה אמיתית לפני שהוא מגיע למישהו אחר.
+# ריצה יבשה מדפיסה נושא ושורה ראשונה, וזה מספיק כדי לתפוס שגיאת נוסח אבל לא כדי לראות
+# איך הכפתור נראה בג'ימייל, אם העברית לא נשברת, ואם זה נוחת בספאם. הכתובת מחליפה את כל
+# הרשימה — לא מתווספת אליה — כך שהמצב "גם תצוגה מקדימה וגם שליחה אמיתית" אינו קיים.
+# id=None ולכן שום שורה ב-profiles לא מסומנת: זו לא תזכורת, וספירת התזכורות לא זזה.
+PREVIEW = (os.environ.get('PREVIEW') or '').strip()
+if PREVIEW:
+    picked = [{'id': None, 'email': PREVIEW, 'name': picked[0].get('name', ''),
+               'weak': picked[0]['weak'], 'count': 0}]
+    print('תצוגה מקדימה בלבד — נמען אחד: %s' % PREVIEW)
+
 def post(url, payload, headers):
     req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'),
                                  headers=headers, method='POST')
@@ -61,6 +72,9 @@ for x in picked:
                         {'Authorization': 'Bearer ' + RESEND, 'Content-Type': 'application/json'})
         if st >= 300:
             print('✗ %s — HTTP %s %s' % (x['email'], st, resp[:120])); failed += 1; continue
+        # תצוגה מקדימה אינה תזכורת, ואין שורה לסמן.
+        if x.get('id') is None:
+            sent += 1; print('✓ %s (תצוגה מקדימה — לא נרשם)' % x['email']); continue
         # מסומן מיד, לא בסוף: ריצה שתיפול באמצע לא תשלח שוב למי שכבר קיבל.
         req = urllib.request.Request(
             '%s/rest/v1/profiles?id=eq.%s' % (BASE, x['id']),
