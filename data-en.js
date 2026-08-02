@@ -675,6 +675,10 @@ window.UNIT_DATA_EN = {
    "בעיקר"
   ],
   [
+   "make sure",
+   "להבטיח, לוודא"
+  ],
+  [
    "markedly",
    "בצורה ניכרת"
   ],
@@ -721,6 +725,10 @@ window.UNIT_DATA_EN = {
   [
    "next to",
    "ליד"
+  ],
+  [
+   "no longer",
+   "לא עוד"
   ],
   [
    "nonetheless",
@@ -14849,10 +14857,6 @@ window.UNIT_DATA_EN = {
    "מפואר, נהדר, מרהיב"
   ],
   [
-   "make sure",
-   "להבטיח, לוודא"
-  ],
-  [
    "makeup",
    "איפור"
   ],
@@ -14931,10 +14935,6 @@ window.UNIT_DATA_EN = {
   [
    "nickname",
    "כינוי"
-  ],
-  [
-   "no longer",
-   "לא עוד"
   ],
   [
    "nourish",
