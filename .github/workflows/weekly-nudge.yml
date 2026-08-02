@@ -1,0 +1,76 @@
+name: תזכורת שבועית
+
+# 13 מתוך 15 שנרשמו לא תרגלו מעולם. אין שום ערוץ שמגיע אליהם אחרי שסגרו את הלשונית:
+# התראות דחיפה דורשות הרשאה שרובם לא נתנו, והאפליקציה עצמה לא נפתחת. המייל הוא הערוץ
+# היחיד שיש לנו כתובת אליו — וזו הבעיה היחידה ברשימה שמסבירה את המספר הזה.
+#
+# מה שולט מי מקבל, ולמה כל תנאי
+# -------------------------------
+#   · לא ויתר                         — הסכמה. חובה חוקית, ובלעדיה זה ספאם.
+#   · לא קיבל בשבעת הימים האחרונים    — ריצה כפולה (retry, הפעלה ידנית) לא תשלח פעמיים.
+#   · לא נכנס בשבעת הימים האחרונים    — מי שכבר מתרגל לא צריך שיזכירו לו.
+#   · קיבל פחות מ-4 תזכורות           — מי שקיבל ארבע ולא חזר לא יחזור בגלל החמישית,
+#                                        וההמשך פוגע במוניטין הדומיין ולכן גם במי שכן.
+#   · יש לו מה לחזק                    — "12 מילים עומדות ליפול" חייב להיות מספר אמיתי.
+#                                        למי שאין, אין מה לומר, ומייל ריק גרוע משתיקה.
+#
+# DRY_RUN
+# --------
+# ברירת המחדל היא true. הריצה מחשבת הכול, מדפיסה את הרשימה ואינה שולחת דבר. מייל שיוצא
+# ל-15 אנשים אמיתיים הוא פעולה שאי אפשר לבטל — הרשימה נראית לפני ולא אחרי.
+# להפעלה אמיתית: Run workflow ← dry_run = false.
+#
+# שני סודות, שניהם כבר קיימים בריפו הזה:
+#   SUPABASE_SERVICE_KEY · RESEND_API_KEY
+
+on:
+  schedule:
+    - cron: '0 6 * * 0'          # ראשון 06:00 UTC = 09:00 בישראל
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'להריץ בלי לשלוח'
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  nudge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: מי אמור לקבל
+        id: pick
+        env:
+          URL: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          set -euo pipefail
+          [ -n "${KEY:-}" ] || { echo "::error::SUPABASE_SERVICE_KEY חסר"; exit 1; }
+          BASE="${URL:-https://oycypbnzcvtjliovfsxn.supabase.co}"
+          H=(-H "apikey: $KEY" -H "Authorization: Bearer $KEY")
+
+          code=$(curl -sS -o profiles.json -w '%{http_code}' "${H[@]}" \
+            "$BASE/rest/v1/profiles?select=id,email,username,last_seen,nudge_optout,nudge_last_sent,nudge_count")
+          # 42703 = עמודה לא קיימת. זו לא תקלה זמנית אלא מיגרציה שלא רצה, וההודעה חייבת
+          # לומר את זה במפורש — אחרת מישהו ינסה שוב מחר ויקבל את אותו כלום.
+          if [ "$code" != "200" ]; then
+            echo "::error::profiles החזירה HTTP $code"
+            grep -q 42703 profiles.json 2>/dev/null && \
+              echo "::error::migrations/15.sql טרם רצה — הרץ אותה ב-Supabase SQL Editor"
+            exit 1
+          fi
+          curl -sS -o progress.json "${H[@]}" "$BASE/rest/v1/progress?select=user_id,lang,data"
+          python3 scripts/pick_nudges.py
+
+      - name: שליחה
+        if: steps.pick.outputs.count != '0'
+        env:
+          DRY: ${{ inputs.dry_run == false && 'false' || 'true' }}
+          RESEND: ${{ secrets.RESEND_API_KEY }}
+          URL: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: python3 scripts/send_nudges.py

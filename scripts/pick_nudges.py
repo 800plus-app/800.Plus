@@ -1,0 +1,89 @@
+#!/usr/bin/env python3
+"""מי אמור לקבל את התזכורת השבועית, ולמה בדיוק.
+
+הבחירה יושבת כאן ולא ב-YAML בכוונה: היא הדבר היחיד ב-workflow הזה שאפשר לטעות בו בשקט.
+שאילתה שמחזירה יותר מדי אנשים שולחת מייל למי שביקש שלא, ושאילתה שמחזירה מעט מדי לא
+מפילה כלום ופשוט לא עושה כלום — וזה הכשל שלא מבחינים בו במשך חודשים.
+
+כל שורה שנפסלת מודפסת עם הסיבה. מי שיסתכל על הלוג ויראה 0 נמענים צריך לדעת אם זה כי
+כולם פעילים או כי הכול שבור.
+"""
+import json, os, sys
+from datetime import datetime, timezone, timedelta
+
+NOW = datetime.now(timezone.utc)
+QUIET_DAYS = 7      # לא נכנס שבוע
+COOLDOWN_DAYS = 7   # ולא קיבל מאיתנו שבוע
+MAX_NUDGES = 4      # וגם לא ארבע פעמים כבר
+
+def ts(v):
+    if not v:
+        return None
+    try:
+        return datetime.fromisoformat(str(v).replace('Z', '+00:00'))
+    except Exception:
+        return None
+
+def days_since(v):
+    t = ts(v)
+    return None if t is None else (NOW - t).days
+
+profiles = json.load(open('profiles.json', encoding='utf-8'))
+progress = json.load(open('progress.json', encoding='utf-8'))
+
+# כמה מילים "עומדות ליפול" לכל אדם: נפגשו, ועדיין לא ברמה 3. זה בדיוק המספר שהמייל
+# מבטיח, ולכן הוא נמדד מאותם נתונים שהאפליקציה מציגה ולא ממונה נפרד.
+weak = {}
+for row in progress:
+    uid = row.get('user_id')
+    words = ((row.get('data') or {}).get('stats') or {}).get('words') or {}
+    n = 0
+    for r in words.values():
+        if not isinstance(r, dict) or r.get('src') == 'lv':
+            continue
+        try:
+            if int(r.get('seen') or 0) > 0 and int(r.get('level') or 0) < 3:
+                n += 1
+        except (TypeError, ValueError):
+            continue
+    weak[uid] = weak.get(uid, 0) + n
+
+picked, skipped = [], {}
+def skip(why):
+    skipped[why] = skipped.get(why, 0) + 1
+
+for p in profiles:
+    email = (p.get('email') or '').strip()
+    if not email:
+        skip('אין כתובת');                                   continue
+    if p.get('nudge_optout'):
+        skip('ביקש לא לקבל');                                continue
+    if (p.get('nudge_count') or 0) >= MAX_NUDGES:
+        skip('כבר קיבל %d' % MAX_NUDGES);                    continue
+    d = days_since(p.get('nudge_last_sent'))
+    if d is not None and d < COOLDOWN_DAYS:
+        skip('קיבל לפני %d ימים' % d);                        continue
+    seen = days_since(p.get('last_seen'))
+    if seen is not None and seen < QUIET_DAYS:
+        skip('נכנס לפני %d ימים' % seen);                     continue
+    n = weak.get(p.get('id'), 0)
+    if n < 5:
+        # פחות מחמש אינו "עומדות ליפול" אלא רעש, ומייל על שלוש מילים שוחק את המייל הבא.
+        skip('רק %d מילים לחיזוק' % n);                       continue
+    picked.append({'id': p['id'], 'email': email,
+                   'name': (p.get('username') or '').strip(), 'weak': n,
+                   # נישא הלאה כדי שהשליחה תוכל להעלות אותו באחד. PostgREST אינו יודע
+                   # להגדיל שדה במקום, ולכן הערך החדש מחושב כאן ולא בשרת.
+                   'count': int(p.get('nudge_count') or 0)})
+
+picked.sort(key=lambda x: -x['weak'])
+json.dump(picked, open('nudges.json', 'w', encoding='utf-8'), ensure_ascii=False)
+
+print('נבחרו %d מתוך %d פרופילים' % (len(picked), len(profiles)))
+for why, n in sorted(skipped.items(), key=lambda kv: -kv[1]):
+    print('  נפסלו %3d — %s' % (n, why))
+for x in picked:
+    print('  → %s · %d מילים לחיזוק' % (x['email'], x['weak']))
+
+with open(os.environ.get('GITHUB_OUTPUT', os.devnull), 'a') as f:
+    f.write('count=%d\n' % len(picked))
