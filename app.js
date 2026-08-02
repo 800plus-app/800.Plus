@@ -442,6 +442,30 @@ function buildGlossIndex(){
   }
   for(const [g,arr] of GLOSS_ALT) if(arr.length<2) GLOSS_ALT.delete(g);
 }
+/* In the m2w direction the PROMPT is the gloss — so two entries sharing a gloss pose the same
+ * question twice. "מתחת" is below, beneath, under and underneath, all four of them in unit 1;
+ * 186 English glosses and 22 Hebrew ones serve more than one entry. A learner reported it as
+ * "מלא מילים שחוזרות על עצמן", which is exactly how it looks from the other side of the screen.
+ *
+ * Nothing was ever scored against them — isCorrect falls through to glossAlts() and accepts any
+ * word carrying the same gloss. The prompt was simply unanswerable as posed.
+ *
+ * The duplicate is FLIPPED, not dropped: `cards` arrives already capped, so dropping would
+ * shorten the round the learner asked for. In w2m the prompt is the word itself, which is
+ * unambiguous by construction, and the entry stays in the round.
+ *
+ * Only m2w cards claim a gloss. A w2m card poses its own word as the question, so letting it
+ * reserve the gloss would flip an m2w card for a collision that does not exist. */
+function oneCardPerGloss(cards){
+  const taken=new Set();
+  for(const c of cards){
+    if(c._dir!=='m2w') continue;
+    const g=glossKey(c.meaning);
+    if(g.length<2) continue;          // nothing but an example: not a key, and never shared
+    if(taken.has(g)) c._dir='w2m'; else taken.add(g);
+  }
+  return cards;
+}
 /* Every OTHER word that means the same thing as this card. */
 function glossAlts(card){
   const arr=GLOSS_ALT.get(glossKey(card && card.meaning));
@@ -1020,7 +1044,7 @@ function startRound(cards, scope, mode, retry){
   // last line of defence: the same word can never appear twice inside one round
   const uniq=[], ks=new Set();
   for(const c of cards){ const k=K(c.term); if(k && !ks.has(k)){ ks.add(k); uniq.push(c); } }
-  deck=shuffle(uniq).map(c=>({...c, _dir: direction==='mixed' ? (Math.random()<0.5?'m2w':'w2m') : direction}));
+  deck=oneCardPerGloss(shuffle(uniq).map(c=>({...c, _dir: direction==='mixed' ? (Math.random()<0.5?'m2w':'w2m') : direction})));
   if(!deck.length){ toast('אין מילים לתרגול כאן'); return; }
   idx=0; correct=0; missed=[]; isRetryRound=!!retry;
   $('#quizScope').textContent = scopeTitle(scope);
