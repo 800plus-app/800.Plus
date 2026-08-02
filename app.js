@@ -2699,9 +2699,17 @@ const SHEET_RIGHTS = `© ${SHEET_YEAR} <bdi>800+</bdi> · עיצוב הדף וה
    sheet from the words the learner is still getting wrong ACROSS all units — the survey's top
    request, and the one case where a printable page is worth more than a unit sheet: it is
    exactly the list you would otherwise copy out by hand. */
+/* שלושה סוגי דף, ולא שניים: יחידה · מילים לחיזוק · מילים שנלמדו. השלישי נוסף כי משתמש
+   ביקש לחזור על מה שכבר ידע, ודף חזרה הוא בדיוק אותו מבנה — שאלה, שורה, ודף פתרונות. */
+function sheetPool(uid){
+  return uid==='weak' ? weakCards('global')
+       : uid==='learned' ? learnedCards('global')
+       : exWords(uid);
+}
 function buildSheet(uid, size){
   const isWeak = uid === 'weak';
-  const pool = isWeak ? weakCards('global') : exWords(uid);
+  const isLearned = uid === 'learned';
+  const pool = sheetPool(uid);
   // clear first: a refusal must not leave the previous unit's sheet sitting in the DOM
   $('#sheet').innerHTML='';
   if(pool.length<8) return false;
@@ -2718,9 +2726,11 @@ function buildSheet(uid, size){
   const a = it => askTerm ? it.meaning : it.term;
   $('#sheet').innerHTML=`
     <div class="sh-page">
-      <h1><bdi>800+</bdi> — ${isWeak?`מילים לחיזוק · ${langName}`:`מבחן ${langName}, יחידה ${uid}`}</h1>
+      <h1><bdi>800+</bdi> — ${isWeak?`מילים לחיזוק · ${langName}`:isLearned?`מילים שלמדתי · ${langName}`:`מבחן ${langName}, יחידה ${uid}`}</h1>
       <div class="sh-meta">${isWeak
         ? `${n} מילים שעדיין לא יושבות, מכל היחידות`
+        : isLearned
+        ? `${n} מילים שכבר בשליטה, מכל יחידות הלימוד`
         : (n===pool.length?`כל ${n} מילות היחידה`:`${n} מילים מתוך ${pool.length}`)} · ${date} · <bdi>800+</bdi></div>
       <div class="sh-fill"><span>שם:</span><span>תאריך:</span><span>ציון: ____ / ${n}</span></div>
       <div class="sh-inst">${askTerm
@@ -2731,7 +2741,7 @@ function buildSheet(uid, size){
       <div class="sh-foot">דף הפתרונות בסוף<br>${SHEET_RIGHTS}</div>
     </div>
     <div class="sh-page">
-      <h1>דף פתרונות — ${isWeak?`מילים לחיזוק · ${langName}`:`${langName}, יחידה ${uid}`}</h1>
+      <h1>דף פתרונות — ${isWeak?`מילים לחיזוק · ${langName}`:isLearned?`מילים שלמדתי · ${langName}`:`${langName}, יחידה ${uid}`}</h1>
       <div class="sh-meta">אותה הגרלה, אותו סדר · ${n} מילים</div>
       <div class="sh-key">${items.map((it,i)=>
         `<div>${i+1}. <b${askTerm?ltr:''}>${esc(q(it))}</b> — ${esc(a(it))}</div>`).join('')}</div>
@@ -2742,13 +2752,18 @@ function buildSheet(uid, size){
 const SHEET_SIZES=[25,50,100,0];      // 0 = the whole unit
 function printSheet(uid){
   const isWeak = uid === 'weak';
-  const total = (isWeak ? weakCards('global') : exWords(uid)).length;
-  if(total<8){ toast(isWeak ? 'צריך לפחות 8 מילים לחיזוק כדי לבנות דף' : 'ביחידה הזאת אין מספיק מילים לדף מבחן'); return; }
+  const isLearned = uid === 'learned';
+  const total = sheetPool(uid).length;
+  if(total<8){ toast(isWeak ? 'צריך לפחות 8 מילים לחיזוק כדי לבנות דף'
+                    : isLearned ? 'צריך לפחות 8 מילים בשליטה כדי לבנות דף'
+                    : 'ביחידה הזאת אין מספיק מילים לדף מבחן'); return; }
   const opts=SHEET_SIZES.filter(n=>!n || n<total);
   $('#sheetOpts').innerHTML=opts.map(n=>
-    `<button data-n="${n}">${n||(isWeak?'כולן · ':'כל היחידה · ')+total}</button>`).join('');
+    `<button data-n="${n}">${n||((isWeak||isLearned)?'כולן · ':'כל היחידה · ')+total}</button>`).join('');
   $('#sheetAskSub').textContent = (isWeak
     ? `${total} מילים לחיזוק מכל היחידות. `
+    : isLearned
+    ? `${total} מילים בשליטה מכל יחידות הלימוד. `
     : `ביחידה ${total} מילים. `) + 'הדף נפתח בחלון ההדפסה — משם אפשר להדפיס או לשמור כ-PDF.';
   sheetUid=uid;
   show($('#sheetAsk'));
@@ -3692,6 +3707,19 @@ function renderAccProgress(){
     enterLang(l);
   });
   const weak = (LANG==='en'?en:he).weak;
+  /* langSummary מחזיר `learned`, לא `strong`. השדה השני קיים ב-classify() ולא כאן,
+     והבלבול ביניהם החזיר undefined בשקט — הכפתור הציג "עדיין אין מילים בשליטה"
+     ללומד עם 30 מילים. נתפס במדידה בדפדפן, לא בקריאה. */
+  const solid = (LANG==='en'?en:he).learned;
+  const rn=$('#accReviewN'); if(rn) rn.textContent = solid || '‹';
+  const rsub=$('#accReviewSub');
+  if(rsub) rsub.textContent = solid
+    ? `${solid} מילים בשליטה · תרגול חוזר מכל יחידות הלימוד`
+    : 'עדיין אין מילים בשליטה';
+  const lsub=$('#accLearnedSub');
+  if(lsub) lsub.textContent = solid>=8
+    ? `${solid} מילים בשליטה כדף אחד להדפסה או ל-PDF`
+    : 'צריך לפחות 8 מילים בשליטה כדי לבנות דף';
   const sub=$('#accSheetSub');
   if(sub) sub.textContent = weak>=8
     ? `${weak} מילים לחיזוק מכל היחידות, כדף אחד להדפסה או ל-PDF`
@@ -3776,6 +3804,19 @@ $('#delGo').onclick = async ()=>{
     + '<p style="margin-top:14px;font-size:.85rem;color:#8d8274">בהצלחה במבחן.</p></div></div>';
 };
 // the account screen's own sheet is the cross-unit one; per-unit sheets live inside a unit
+/* חזרה חוצת-יחידות. הכפתור בתוך יחידה מתרגל את מילות אותה יחידה בלבד, ומי שלמד לאורך
+   עשר יחידות לא יכול היה לחזור על הכול. אותו startRound ואותו askSize כמו כל שאר
+   המסלולים — סבב חזרה אינו סוג אחר של תרגול. */
+$('#accReview').onclick = ()=>{
+  if(LANG!=='he' && LANG!=='en'){ toast('בחר קודם שפה'); return; }
+  const l=learnedCards('global');
+  if(!l.length){ toast('עדיין אין מילים בשליטה לחזור עליהן'); return; }
+  askSize(l.length, n=> startRound(cap(shuffle(l),n), 'global', 'review'));
+};
+$('#accLearnedSheet').onclick = ()=>{
+  if(LANG!=='he' && LANG!=='en'){ toast('בחר קודם שפה'); return; }
+  printSheet('learned');
+};
 $('#accSheet').onclick = ()=>{
   if(LANG!=='he' && LANG!=='en'){ toast('בחר קודם שפה'); return; }
   printSheet('weak');
