@@ -3396,9 +3396,14 @@ async function afterAuthed(justSignedUp){
   // With email confirmation on, sign-up never yields a session — so the install offer has to
   // ride on the first successful sign-in, not on the sign-up call.
   if(justSignedUp || !LS.get('hw_instOffered',0)){ LS.set('hw_instOffered',1); setTimeout(()=>promptInstall(false),600); }
-  // asked after the third day of use, not on arrival: a prompt shown to a stranger gets denied,
-  // and a denial in the browser is permanent
-  setTimeout(()=>{ if(NOTIF.askable() && streakInfo().total>=2) $('#notifCta').classList.remove('hidden'); }, 1200);
+  /* שני דברים שונים, ולכן שני תנאים שונים.
+     ה-CTA הוא כפתור באפליקציה. לחיצה עליו היא מה שפונה לדפדפן, ולכן הצגתו למי שנכנס
+     היום אינה מסכנת כלום — מי שלא מעוניין פשוט לא לוחץ. קודם הוא הוסתר עד יומיים של
+     תרגול, וזה בדיוק מה שהוליד את הדיווח "לא ידעתי שיש התראות": התכונה הייתה קיימת
+     ובלתי נראית לכל מי שעדיין לא צבר רצף.
+     הדיאלוג (למטה) הוא ההפך — הוא שואל ביוזמתו, ותשובה שלילית בדפדפן היא לצמיתות.
+     הוא נשאר מאחורי יומיים. */
+  setTimeout(()=>{ if(NOTIF.askable()) $('#notifCta').classList.remove('hidden'); }, 1200);
   /* וגם, פעם אחת בלבד: דיאלוג ולא כפתור שורה. משתמשת שתרגלה שבועות דיווחה שלא ידעה
      שיש התראות — ה-CTA קיים, אבל מי שכבר התרגל למסך מפסיק לסרוק אותו. התנאי זהה
      (askable + שני ימי תרגול), כך שהיגיון "לא לשאול זר" נשמר; מה שמשתנה הוא רק
