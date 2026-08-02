@@ -3418,6 +3418,10 @@ async function openAccount(){
 }
 $('#userBadge2').onclick = openAccount;
 $('#userBadge3').onclick = openAccount;
+/* הדלת השנייה. הראשונה — לחיצה על השם — נשארת, כי מי שכבר מצא אותה לא צריך ללמוד מחדש;
+   היא פשוט הפסיקה להיות היחידה. משתמשת דיווחה שלא ידעה שיש הגדרות באפליקציה בכלל. */
+$('#setBtn').onclick  = openAccount;
+$('#setBtnW').onclick = openAccount;
 $('#accBack').onclick = ()=>{ if(LANG==='he'||LANG==='en') goto('home'); else { renderWelcome(); goto('welcome'); } };
 /* ===== the exam date =====
    Stored per ACCOUNT, not per language — a person sits one psychometric exam. Kept in the
