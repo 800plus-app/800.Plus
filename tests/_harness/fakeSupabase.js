@@ -238,6 +238,14 @@ function loadSyncLayer(opts = {}) {
   ctx.Store = st.Store;
   ctx.currentUser = opts.currentUser === undefined ? { id: 'u-1', email: 'learner@example.com' } : opts.currentUser;
   ctx.syncPending = true;
+  /* The default is a NORMALLY LOADED device — enterLang() has run and loadLangState() has moved
+   * this language's progress from localStorage into the globals. Every test here that predates
+   * the flag assumes exactly that, and it is the state the app is in whenever a learner is
+   * actually practising.
+   * tests/22-unloaded-sync.test.js turns it off on purpose: that is the welcome screen, where
+   * the globals are still at their declared defaults, and syncing from there overwrote a real
+   * learner's offline session with an older cloud copy. */
+  ctx.langLoaded = opts.langLoaded === undefined ? true : opts.langLoaded;
   ctx.syncTimer = null;
   ctx.syncBusy = false;
   ctx.setTimeout = setTimeout; ctx.clearTimeout = clearTimeout;
