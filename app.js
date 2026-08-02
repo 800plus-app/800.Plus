@@ -3119,9 +3119,21 @@ function setAuthMode(m, keepMsg){
   $('#authSubmit').innerHTML = (m==='signup' ? 'צור חשבון' : 'התחבר') + '<i>←</i>';
   $('#authSubmit').classList.toggle('bright', m==='signup');
   $('#authPassword').autocomplete = m==='signup' ? 'new-password' : 'current-password';
+  /* The age declaration belongs to sign-up alone. Leaving it visible on the sign-in tab would
+     block someone who already has an account with a box about a threshold they crossed long ago.
+     The tick is cleared on every mode change, not only on leaving: a declaration that survives a
+     tab switch is one the NEXT person on a shared device inherits without ever making it. */
+  $('#fAge').classList.toggle('hidden', m!=='signup');
+  $('#authAge').checked = false;
+  $('#authAge').setAttribute('aria-invalid','false');
   if(!keepMsg) $('#authMsg').classList.add('hidden');   // keepMsg: don't wipe a message we just wrote
 }
 document.querySelectorAll('#authTabs button').forEach(b=>b.onclick=()=>setAuthMode(b.dataset.tab));
+/* aria-invalid that is set and never unset makes a corrected field go on announcing an error
+   every time it is reached. Ticking the box IS the correction, so it is where the flag comes off. */
+$('#authAge').onchange=()=>{
+  if($('#authAge').checked) $('#authAge').setAttribute('aria-invalid','false');
+};
 
 /* The local cache belongs to exactly one account. A session can end without a click on
    "יציאה" (token expiry, cleared cookies, shared device) — and then the next person to sign
@@ -3258,6 +3270,18 @@ $('#authForm').addEventListener('submit', async e=>{
   const btn=$('#authSubmit'); btn.disabled=true;
   try{
     if(authMode==='signup'){
+      /* First, before the account is created. A check that runs afterwards reads like a gate
+         and enforces nothing — the account already exists by then, and refusing at that point
+         leaves an unconfirmed row behind for a person we just told we cannot serve.
+         Inside the signup branch, so an existing user signing in is never blocked by a box
+         that is hidden on their tab. */
+      if(!$('#authAge').checked){
+        msg.className='au-msg err';
+        msg.textContent='כדי לפתוח חשבון צריך לאשר את הצהרת הגיל.';
+        $('#authAge').setAttribute('aria-invalid','true');
+        $('#authAge').focus();
+        return;
+      }
       const r=await Store.signUp(email,pw,uname);
       if(r.error){ msg.className='au-msg err'; msg.textContent=translateAuthError(r.error); return; }
       if(!r.session){                                    // email confirmation required before login
