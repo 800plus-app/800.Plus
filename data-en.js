@@ -1,4 +1,4 @@
-// English word bank: 3,900 entries in 10 units, glossed in Hebrew. One word = one entry, senses merged.
+// English word bank: 3,945 entries in 10 units, glossed in Hebrew. One word = one entry, senses merged.
 // Deduplicated and dictionary-audited. Provenance and the full audit trail: METHODOLOGY.md
 window.UNIT_DATA_EN = {
  "1": [
@@ -12515,6 +12515,10 @@ window.UNIT_DATA_EN = {
    "מקצב; מכה, להכות"
   ],
   [
+   "benefit",
+   "תועלת, יתרון; הטבה; להפיק תועלת"
+  ],
+  [
    "biblical",
    "תנ\"כי"
   ],
@@ -12587,6 +12591,10 @@ window.UNIT_DATA_EN = {
    "קומי (מהמילה קומדיה)"
   ],
   [
+   "concede",
+   "להודות (בטעות או בתבוסה); לוותר, להיכנע"
+  ],
+  [
    "constituent",
    "מרכיב; בוחר"
   ],
@@ -12599,12 +12607,20 @@ window.UNIT_DATA_EN = {
    "שיעול, להשתעל"
   ],
   [
+   "county",
+   "מחוז, נפה"
+  ],
+  [
    "course",
    "מנה; קורס; מסלול"
   ],
   [
    "cousin",
    "בן-דוד"
+  ],
+  [
+   "covet",
+   "לחמוד, לחשוק ב-"
   ],
   [
    "cripple",
@@ -12651,8 +12667,20 @@ window.UNIT_DATA_EN = {
    "איל"
   ],
   [
+   "defiance",
+   "התרסה, מרי, סירוב לציית"
+  ],
+  [
+   "delicacy",
+   "מעדן, מאכל משובח; עדינות"
+  ],
+  [
    "demented",
    "משוגע, מטורף"
+  ],
+  [
+   "demise",
+   "קץ, סוף; מוות, פטירה"
   ],
   [
    "densely",
@@ -12667,8 +12695,16 @@ window.UNIT_DATA_EN = {
    "לתאר, להציג, לשרטט"
   ],
   [
+   "deplete",
+   "לדלדל, למצות, לרוקן"
+  ],
+  [
    "derision",
    "לעג"
+  ],
+  [
+   "designate",
+   "לייעד, להועיד; למנות; לציין"
   ],
   [
    "detail",
@@ -12681,6 +12717,10 @@ window.UNIT_DATA_EN = {
   [
    "devastated",
    "הרוס, מפורק"
+  ],
+  [
+   "diabetes",
+   "סוכרת"
   ],
   [
    "diet",
@@ -12707,6 +12747,10 @@ window.UNIT_DATA_EN = {
    "גועל, להגעיל"
   ],
   [
+   "dismantle",
+   "לפרק; לבטל, לפרק מוסד"
+  ],
+  [
    "disruption",
    "שיבוש, הפרעה"
   ],
@@ -12721,6 +12765,10 @@ window.UNIT_DATA_EN = {
   [
    "disuse",
    "חוסר שימוש"
+  ],
+  [
+   "divert",
+   "להסיט, להפנות לכיוון אחר; להסיח את הדעת"
   ],
   [
    "dose",
@@ -12795,8 +12843,16 @@ window.UNIT_DATA_EN = {
    "לחנוט, לשמר"
   ],
   [
+   "embark",
+   "לצאת לדרך, לפתוח ב-; לעלות על ספינה או מטוס"
+  ],
+  [
    "embarrass",
    "להביך"
+  ],
+  [
+   "embellish",
+   "לקשט, לייפות; להוסיף פרטים מומצאים"
   ],
   [
    "embitter",
@@ -12955,6 +13011,10 @@ window.UNIT_DATA_EN = {
    "לקוי, לא תקין"
   ],
   [
+   "feign",
+   "להעמיד פנים, להתחזות"
+  ],
+  [
    "fever",
    "חום (של מחלה)"
   ],
@@ -13023,6 +13083,10 @@ window.UNIT_DATA_EN = {
    "שוליים"
   ],
   [
+   "frivolous",
+   "קל דעת, לא רציני; חסר חשיבות"
+  ],
+  [
    "frugal",
    "חסכני"
   ],
@@ -13033,6 +13097,10 @@ window.UNIT_DATA_EN = {
   [
    "fuel",
    "דלק"
+  ],
+  [
+   "fugitive",
+   "נמלט, בורח מהחוק"
   ],
   [
    "fume",
@@ -13057,6 +13125,10 @@ window.UNIT_DATA_EN = {
   [
    "gene",
    "גן (תורשתי)"
+  ],
+  [
+   "generate",
+   "לייצר, להפיק, ליצור"
   ],
   [
    "genesis",
@@ -13135,6 +13207,10 @@ window.UNIT_DATA_EN = {
    "חיקוי"
   ],
   [
+   "inconspicuous",
+   "לא בולט, לא מושך תשומת לב"
+  ],
+  [
    "indigenous",
    "ילידי, מקומי, שמקורו במקום"
   ],
@@ -13153,6 +13229,10 @@ window.UNIT_DATA_EN = {
   [
    "infraction",
    "עבירה"
+  ],
+  [
+   "infrastructure",
+   "תשתית"
   ],
   [
    "ingest",
@@ -13203,6 +13283,10 @@ window.UNIT_DATA_EN = {
    "נצחי"
   ],
   [
+   "intestine",
+   "מעי"
+  ],
+  [
    "intimidate",
    "להפחיד"
   ],
@@ -13251,6 +13335,10 @@ window.UNIT_DATA_EN = {
    "מצער, מעציב"
   ],
   [
+   "laud",
+   "לשבח, להלל"
+  ],
+  [
    "lend",
    "להלוות, להשאיל"
   ],
@@ -13281,6 +13369,10 @@ window.UNIT_DATA_EN = {
   [
    "link",
    "קישור, לקשר, חוליה"
+  ],
+  [
+   "litter",
+   "אשפה, פסולת; ללכלך בפסולת; לזרוע, לפזר"
   ],
   [
    "lodge",
@@ -14765,6 +14857,10 @@ window.UNIT_DATA_EN = {
    "איפור"
   ],
   [
+   "manifestation",
+   "ביטוי, גילוי, התגלמות"
+  ],
+  [
    "marble",
    "שיש; גוּלָּה"
   ],
@@ -14817,6 +14913,10 @@ window.UNIT_DATA_EN = {
    "עכבר (עכברים)"
   ],
   [
+   "mundane",
+   "שגרתי, יומיומי, בנאלי"
+  ],
+  [
    "nausea",
    "בחילה"
   ],
@@ -14825,12 +14925,20 @@ window.UNIT_DATA_EN = {
    "רשלני"
   ],
   [
+   "nestle",
+   "לשכון בנוחות, להיות מוקם בחיק; להתכרבל"
+  ],
+  [
    "nickname",
    "כינוי"
   ],
   [
    "no longer",
    "לא עוד"
+  ],
+  [
+   "nourish",
+   "להזין, לספק מזון; לטפח"
   ],
   [
    "numerator",
@@ -14859,6 +14967,10 @@ window.UNIT_DATA_EN = {
   [
    "olive",
    "זית"
+  ],
+  [
+   "omniscient",
+   "יודע כול; מספר כל-יודע"
   ],
   [
    "onion",
@@ -14901,6 +15013,14 @@ window.UNIT_DATA_EN = {
    "סתירה, פרדוקס"
   ],
   [
+   "pastime",
+   "תחביב, בילוי, עיסוק לשעות הפנאי"
+  ],
+  [
+   "pasture",
+   "מרעה, אחו"
+  ],
+  [
    "pathology",
    "פתולוגיה, ענף ברפואה"
   ],
@@ -14941,6 +15061,10 @@ window.UNIT_DATA_EN = {
    "פיזי, גופני"
   ],
   [
+   "physician",
+   "רופא"
+  ],
+  [
    "physicist",
    "פיזיקאי"
   ],
@@ -14963,6 +15087,10 @@ window.UNIT_DATA_EN = {
   [
    "plaster",
    "טיח"
+  ],
+  [
+   "plummet",
+   "לצנוח, לצלול, לרדת בחדות"
   ],
   [
    "pool",
@@ -15017,6 +15145,10 @@ window.UNIT_DATA_EN = {
    "מדפסת, דַּפָּס"
   ],
   [
+   "procedure",
+   "הליך, נוהל"
+  ],
+  [
    "propaganda",
    "תעמולה"
   ],
@@ -15067,6 +15199,10 @@ window.UNIT_DATA_EN = {
   [
    "reincarnation",
    "גלגול נשמות"
+  ],
+  [
+   "resilience",
+   "חוסן, עמידות, כושר התאוששות"
   ],
   [
    "restaurant",
@@ -15135,6 +15271,10 @@ window.UNIT_DATA_EN = {
   [
    "savanna",
    "ערבה, סוואנה"
+  ],
+  [
+   "scribe",
+   "לבלר, סופר, מעתיק כתבים"
   ],
   [
    "script",
@@ -15269,6 +15409,10 @@ window.UNIT_DATA_EN = {
    "ספונטני, לא מתוכנן, מתרחש מאליו"
   ],
   [
+   "sprawling",
+   "משתרע על שטח נרחב; מתפשט ללא סדר"
+  ],
+  [
    "spread",
    "התפשטות, פיזור; ממרח, למרוח"
   ],
@@ -15283,6 +15427,14 @@ window.UNIT_DATA_EN = {
   [
    "stalk",
    "גבעול, קנה; לעקוב/לארוב אחרי, להטריד"
+  ],
+  [
+   "standstill",
+   "עצירה מוחלטת, קיפאון"
+  ],
+  [
+   "stature",
+   "קומה, גובה; מעמד, שיעור קומה"
   ],
   [
    "staunch",
@@ -15303,6 +15455,10 @@ window.UNIT_DATA_EN = {
   [
    "stove",
    "תנור, כיריים"
+  ],
+  [
+   "streamlined",
+   "יעיל וחסכוני; אווירודינמי, מעוצב לזרימה"
   ],
   [
    "stroke",
@@ -15397,6 +15553,10 @@ window.UNIT_DATA_EN = {
    "במשך, בכל"
   ],
   [
+   "thwart",
+   "לסכל, להכשיל"
+  ],
+  [
    "ticket",
    "כרטיס"
   ],
@@ -15407,6 +15567,10 @@ window.UNIT_DATA_EN = {
   [
    "tin",
    "בדיל, עשוי מפח"
+  ],
+  [
+   "tinker",
+   "להתעסק, לחטט, לנסות לשפר בשינויים קטנים"
   ],
   [
    "tiny",
@@ -15489,6 +15653,10 @@ window.UNIT_DATA_EN = {
    "לא ביקורתי"
   ],
   [
+   "undermine",
+   "לחתור תחת, לערער, להחליש"
+  ],
+  [
    "unearth",
    "לחשוף, לחפור"
   ],
@@ -15499,6 +15667,14 @@ window.UNIT_DATA_EN = {
   [
    "unholy",
    "לא קדוש, לא מוסרי"
+  ],
+  [
+   "unorthodox",
+   "לא שגרתי, לא מקובל"
+  ],
+  [
+   "unparalleled",
+   "שאין כמותו, חסר תקדים"
   ],
   [
    "unwanted",
@@ -15523,6 +15699,10 @@ window.UNIT_DATA_EN = {
   [
    "vacation",
    "חופשה"
+  ],
+  [
+   "vendor",
+   "מוכר, רוכל; ספק"
   ],
   [
    "vertebrate",
