@@ -506,7 +506,7 @@ function weakCards(scope){
 /* `wasSkipped` guards were added to `classify` and `langSummary` today and NOT here, so the same
    screen showed the legend "שלמדתי 0" beside a button reading "מילים שלמדתי 1,725" — and that
    button drilled exactly the words the level test had promised would stop appearing.
-   Skipped words come back through ניהול מילים ← שחזור, which is the honest route. */
+   Skipped words come back through "ניהול מילים" ← "שחזר מחיקות", which is the honest route. */
 function learnedCards(scope){
   return uniqScope(scope).filter(w=>lvl(w.term)>=3 && !wasSkipped(w.term));
 }
@@ -875,7 +875,7 @@ function openScope(scope){
     `<div><i class="s"></i> שלמדתי <b>${c.strong}</b></div>
      <div><i class="w"></i> לחיזוק <b>${c.weak}</b></div>
      <div><i class="n"></i> חדשות <b>${c.fresh}</b></div>`+
-    (c.skipped ? `<div title="דילגת עליהן אחרי מבחן הרמה. ניהול מילים ← שחזור"><i class="k"></i>
+    (c.skipped ? `<div title="דילגת עליהן אחרי מבחן הרמה. ניתן להחזיר ב&quot;ניהול מילים&quot; ← &quot;שחזר מחיקות&quot;"><i class="k"></i>
        דילגתי <b>${c.skipped}</b></div>` : '');
   const nc=newCards(scope).length, wc=weakCards(scope).length, lc=learnedCards(scope).length;
   $('#cntNew').textContent=nc; $('#cntWeak').textContent=wc; $('#cntLearned').textContent=lc;
@@ -1623,7 +1623,7 @@ function openStats(scope){
         + (instant.length?`<div style="margin-top:6px">ידעת מיד: <b>${instant.length}</b> מילים, בלי טעות אחת.</div>`:'')
         + (untouched?`<div style="margin-top:6px">עוד לא נפגשתם: <b>${untouched}</b> מילים.</div>`:'')
         + (skippedN?`<div style="margin-top:6px">דילגת אחרי מבחן הרמה: <b>${skippedN}</b> מילים.
-             <span style="opacity:.75">ניהול מילים ← שחזור.</span></div>`:'')
+             <span style="opacity:.75">ניתן להחזיר ב"ניהול מילים" ← "שחזר מחיקות"</span></div>`:'')
         + `</div>`;
     }
   }
@@ -2218,9 +2218,9 @@ function lvFinish(){
       <br><span style="color:var(--ink-soft);font-size:.86rem">מה זה עושה בפועל: המילים האלה יוצאות
       מ"מילים חדשות" ולא יגיעו אליך בתרגול, כדי שתתחיל ישר במה שבאמת חסר לך. הן <b>לא</b> נמחקות
       ו<b>לא</b> נספרות כמילים שלמדת — מספר הנלמדות שלך לא יזוז מזה.
-      להחזיר אותן: ניהול מילים ← שחזור.</span>`;
+      ניתן להחזיר אותן ב"ניהול מילים" ← "שחזר מחיקות".</span>`;
     $('#lvApply').onclick=()=>{ const n=lvApplyKnown(level); hide($('#lvOffer'));
-      toast(`${n} מילים הוצאו מהתרגול · ניתן להחזיר בניהול מילים`); };
+      toast(`${n} מילים הוצאו מהתרגול · ניתן להחזיר ב"ניהול מילים"`); };
     $('#lvNoApply').onclick=()=>hide($('#lvOffer'));
   } else if(LV_LANG==='he'){
     /* Hebrew used to land here with an empty panel and no explanation at all. It cannot offer
