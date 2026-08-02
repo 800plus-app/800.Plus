@@ -36,8 +36,14 @@ if PREVIEW:
 def post(url, payload, headers):
     req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'),
                                  headers=headers, method='POST')
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return r.status, r.read().decode('utf-8', 'replace')
+    # 4xx מגיע כחריגה, וגוף התשובה נזרק איתה. אצל Resend הגוף הוא כל האבחנה — "domain is
+    # not verified" ו"key has no permission" שניהם 403 ונראים זהה בלעדיו. הוא מוחזר כאן
+    # כדי שהלוג יגיד למה נכשל ולא רק שנכשל.
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return r.status, r.read().decode('utf-8', 'replace')
+    except urllib.error.HTTPError as e:
+        return e.code, e.read().decode('utf-8', 'replace')
 
 def body(name, n):
     hello = ('שלום %s,' % name) if name else 'שלום,'
@@ -71,7 +77,7 @@ for x in picked:
                          'headers': {'List-Unsubscribe': '<mailto:noreply@800-plus.com?subject=הסר>'}},
                         {'Authorization': 'Bearer ' + RESEND, 'Content-Type': 'application/json'})
         if st >= 300:
-            print('✗ %s — HTTP %s %s' % (x['email'], st, resp[:120])); failed += 1; continue
+            print('✗ %s — HTTP %s %s' % (x['email'], st, resp[:400])); failed += 1; continue
         # תצוגה מקדימה אינה תזכורת, ואין שורה לסמן.
         if x.get('id') is None:
             sent += 1; print('✓ %s (תצוגה מקדימה — לא נרשם)' % x['email']); continue
