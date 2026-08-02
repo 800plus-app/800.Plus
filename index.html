@@ -533,6 +533,13 @@
        background:transparent;border:1px solid transparent;border-radius:10px;padding:6px 10px;
        cursor:pointer;font-family:inherit}
   .user-badge:hover{border-color:var(--line);color:var(--ink)}
+  /* התג של "הבאה בתור". position:relative על האריח כדי שהתג ייצמד אליו, ו-overflow
+     גלוי כדי שלא ייחתך. הצבע הוא accent ולא ירוק: זו הצעה, לא הישג. */
+  .tile{position:relative}
+  .tile.next{border-color:var(--accent)}
+  .tile-tag{position:absolute;top:-9px;inset-inline-start:50%;transform:translateX(50%);
+       background:var(--accent);color:#fff;font-size:.62rem;line-height:1;white-space:nowrap;
+       padding:4px 8px;border-radius:999px;font-family:"Heebo";letter-spacing:.2px}
   /* משתמשת דיווחה שלא ידעה שיש הגדרות בכלל, כי הדרך היחידה פנימה הייתה ללחוץ על השם
      שלה. שם אינו נראה כמו כפתור. הגלגל נוסף לצדו ולא במקומו: מי שכבר למד את הדרך
      הישנה לא מאבד אותה. 44 פיקסלים כי זה נלחץ באגודל. */
@@ -1634,14 +1641,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=121"></script>
-<script src="config.js?v=121"></script>
-<script src="store.js?v=121"></script>
-<script src="leveltest-he.js?v=121"></script>
-  <script src="leveltest.js?v=121"></script>
-<script src="enrank.js?v=121"></script>
-<script src="data.js?v=121"></script>
-<script src="data-en.js?v=121"></script>
-<script src="app.js?v=121"></script>
+<script src="supabase.min.js?v=122"></script>
+<script src="config.js?v=122"></script>
+<script src="store.js?v=122"></script>
+<script src="leveltest-he.js?v=122"></script>
+  <script src="leveltest.js?v=122"></script>
+<script src="enrank.js?v=122"></script>
+<script src="data.js?v=122"></script>
+<script src="data-en.js?v=122"></script>
+<script src="app.js?v=122"></script>
 </body>
 </html>
