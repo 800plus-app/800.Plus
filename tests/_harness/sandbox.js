@@ -51,6 +51,9 @@ const SYMBOLS = [
   'sess', 'commitSession',
   // answer checking
   'isCorrect', 'meaningSegs', 'meaningMatch', 'otherSenses',
+  /* מילה עם כמה פירושים אינה נלמדת בפירוש אחד — sensesLeft היא מה שקובע את זה,
+     ו-commitSession קוראת לה כדי לחסום את הרמה. */
+  'senseCount', 'sensesLeft', 'noteSense',
   // sync
   'mergeProgress', 'DEFAULT_DIR', 'pruneOrphans',
   // access gate

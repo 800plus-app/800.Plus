@@ -115,7 +115,31 @@ function saneRec(r){
      the marker on the first load, which is exactly the information needed to undo a level test
      that was taken by the wrong person — the incident this field was added for. */
   if(r.src) out.src=String(r.src).slice(0,8);
+  /* אילו פירושים של המילה הלומד כבר כתב, כאינדקסים לתוך meaningSegs. משתמש דיווח שהוא
+     עונה פירוש אחד מתוך כמה, מקבל "נכון", ושוכח את השאר — האפליקציה אישרה לו שהוא יודע
+     את המילה בזמן שידע שליש ממנה.
+     מערך ולא מונה: צריך לדעת אילו, לא כמה, אחרת אותו פירוש ייענה שלוש פעמים וייחשב לשלושה.
+     תקרה של 8 כי מעבר לזה זה כבר לא מילה אלא ערך מילוני, ורשומה חייבת להישאר קטנה — היא
+     נדחפת לענן בכל סבב. */
+  if(Array.isArray(r.sens)){
+    /* אין slice כאן. int0(x,7) חוסם כל ערך ב-7, ואחרי הסרת כפילויות יש לכל היותר שמונה
+       ערכים שונים — התקרה נובעת מהחסימה עצמה. slice נוסף היה נראה כהגנה ולא היה יכול
+       לרוץ אף פעם, וזה בדיוק סוג השורה שמישהו מסיר בעתיד ולא קורה כלום, ולומד ממנה
+       שהתקרה לא חשובה. התקרה שכן נושאת משקל היא זו שב-noteSense. */
+    const s=[...new Set(r.sens.map(x=>int0(x,7)))].sort((x,y)=>x-y);
+    if(s.length) out.sens=s;
+  }
   return out;
+}
+/* כמה פירושים נפרדים יש למילה, וכמה מהם הלומד כבר כתב. שניהם נגזרים מאותו meaningSegs
+   שמכריע אם תשובה נכונה, ולכן אי אפשר שהמונה יימדד על חלוקה אחת והבדיקה על אחרת. */
+function senseCount(meaning){ return meaningSegs(meaning).length; }
+function sensesLeft(term, meaning){
+  const n=senseCount(meaning);
+  if(n<2) return 0;                       // מילה עם פירוש אחד — אין מה לדרוש
+  const r=stats.words[K(term)];
+  const got=(r && Array.isArray(r.sens)) ? r.sens.filter(i=>i<n).length : 0;
+  return Math.max(0, Math.min(n,2) - got);   // דורשים שניים, לא את כולם
 }
 /* Has loadLangState() actually moved this language's progress from localStorage into the
    globals above? Until it has, `stats`/`assoc`/`deleted` hold their declared defaults — an
@@ -1051,12 +1075,30 @@ function meaningSegs(meaning){
   return String(meaning).replace(/\([^)]*\)/g,' ')
     .split(/[,;/|]|\s-\s/).map(norm).filter(Boolean);
 }
+/* רושם את הפירוש שנכתב. saveStats לא נקרא כאן — commitSession שומר בסוף הסבב ממילא,
+   ושמירה לכל תשובה הייתה כותבת לדיסק עשרים פעם בסבב. */
+function noteSense(w, typed){
+  const segs=meaningSegs(w.meaning);
+  if(segs.length<2) return;
+  const a=norm(typed);
+  const i=segs.indexOf(a);
+  if(i<0) return;                          // נכון, אבל לא כאחד הפירושים הרשומים
+  const r=rec(w.term);
+  const s=Array.isArray(r.sens)?r.sens:[];
+  if(!s.includes(i)){ s.push(i); r.sens=s.slice(0,8); }
+}
 let acceptedAlt=null;      // set when the answer was a different word with the same gloss
 function check(){
   if(answered||!deck[idx]) return;
   const w=deck[idx], v=$('#answerInput').value;
   acceptedAlt=null;
-  if(w._dir==='w2m'){ finishCard(meaningMatch(v, w.meaning), false); return; }
+  if(w._dir==='w2m'){
+    const ok=meaningMatch(v, w.meaning);
+    /* נרשם כאן ולא ב-commitSession: כאן יש את מה שהלומד הקליד. commitSession רואה רק
+       "נכון/לא נכון", ומשם אי אפשר לדעת איזה פירוש הוא נתן. */
+    if(ok) noteSense(w, v);
+    finishCard(ok, false); return;
+  }
   if(isCorrect(v, w.term)){ finishCard(true, false); return; }
   /* Same meaning, different word. Accepted — and the card's own word is named in the feedback,
      because the point of the round is still to learn THIS entry. */
@@ -1086,7 +1128,14 @@ function finishCard(ok, skipped){
     /* One listed sense is a correct answer, but the word usually carries more. Showing the
        rest on a CORRECT answer is where it costs nothing and teaches something. */
     (ok && w2m ? (()=>{ const rest=otherSenses($('#answerInput').value, w.meaning);
-       return rest.length ? `<div class="also">גם: <b>${esc(rest.join(' · '))}</b></div>` : ''; })() : '')+
+       if(!rest.length) return '';
+       /* השורה השנייה קיימת כי הראשונה לבדה לא עבדה. "גם: X · Y" הוצג, הלומד קרא וסגר,
+          והמילה נספרה כנלמדה — בדיוק התלונה שהגיעה ממשתמש. עכשיו נאמר במפורש שהיא לא
+          נספרה, וכמה חסר. המספר הוא מה שהופך את זה מהערה לדרישה. */
+       const left=sensesLeft(w.term, w.meaning);
+       return `<div class="also">גם: <b>${esc(rest.join(' · '))}</b></div>`
+         + (left>0 ? `<div class="also">נדרש פירוש נוסף כדי שהמילה תיחשב נלמדה</div>` : '');
+     })() : '')+
     /* Answered with a different word that carries the same gloss. Counting it wrong would be
        false; counting it silently right would leave the card's own word unlearned. */
     (ok && acceptedAlt
@@ -1391,7 +1440,12 @@ function commitSession(){
       r.first++; r.ever++;
       // a retry of a word just missed proves short-term recall, not knowledge: credit it, but
       // never let it climb past where the word already stood before the round began
-      r.level = isRetryRound ? r.level : (wasNew ? 3 : Math.min(3, r.level+1));
+      /* התקרה. מילה עם כמה פירושים לא מגיעה לחוזק מלא על פירוש אחד — זו בדיוק התלונה:
+         "עונים פירוש אחד, מקבלים אוקיי, ושוכחים את השאר". החסימה היא ב-2 ולא ב-0, כדי
+         שהמילה תמשיך לעלות ותצא מ"חדשות" — היא פשוט לא תיחשב נלמדה עד שיינתן פירוש שני.
+         חל רק על כיוון מילה→פירוש: בכיוון ההפוך הלומד כותב את המילה, ואין לו במה לבחור. */
+      const cap = (e.w._dir==='w2m' && sensesLeft(e.w.term, e.w.meaning)>0) ? 2 : 3;
+      r.level = isRetryRound ? r.level : Math.min(cap, wasNew ? 3 : Math.min(3, r.level+1));
       ft++; c++;
     }
     else if(e.mastered){ r.ever++; r.wrong+=Math.max(0,e.attempts-1); r.level=Math.max(0,r.level-1); st++; c++; }
