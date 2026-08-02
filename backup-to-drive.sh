@@ -16,11 +16,16 @@ if [ ! -d "/g/האחסון שלי" ]; then
 fi
 
 mkdir -p "$DST"
-for d in "דוחות" migrations supabase tests; do
+# בחינות-נייט ושיווק נוספו אחרי ש-scripts/backup_status.py סימן אותן ✗: שתיהן ב-.gitignore
+# מסיבה טובה (זכויות יוצרים, וידאו כבד), והתוצאה הייתה שהן היו קיימות במקום אחד בעולם.
+# 41 מבחני נייט סרוקים אינם ניתנים לשחזור בכלל אם הדיסק הזה נעלם.
+for d in "דוחות" migrations supabase tests "בחינות-נייט" "שיווק"; do
   [ -d "$SRC/$d" ] && cp -r "$SRC/$d" "$DST/" && echo "  $d"
 done
 # .js so Drive does not treat it as code to run; it holds only the public anon key
 cp "$SRC/config.js" "$DST/config.js.txt" 2>/dev/null && echo "  config.js"
+# מסמכי ההקמה — הנוהל להקים את Supabase מאפס. בלעדיהם שחזור הוא ניחוש.
+cp "$SRC/supabase-setup.md" "$DST/supabase-setup.md" 2>/dev/null && echo "  supabase-setup.md"
 
 printf 'גובה: %s\n' "$(date '+%Y-%m-%d %H:%M')" > "$DST/מתי-גובה.txt"
 echo "done → $DST"
