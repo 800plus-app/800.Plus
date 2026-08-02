@@ -3272,18 +3272,9 @@ function setAuthMode(m, keepMsg){
      block someone who already has an account with a box about a threshold they crossed long ago.
      The tick is cleared on every mode change, not only on leaving: a declaration that survives a
      tab switch is one the NEXT person on a shared device inherits without ever making it. */
-  $('#fAge').classList.toggle('hidden', m!=='signup');
-  $('#authAge').checked = false;
-  $('#authAge').setAttribute('aria-invalid','false');
   if(!keepMsg) $('#authMsg').classList.add('hidden');   // keepMsg: don't wipe a message we just wrote
 }
 document.querySelectorAll('#authTabs button').forEach(b=>b.onclick=()=>setAuthMode(b.dataset.tab));
-/* aria-invalid that is set and never unset makes a corrected field go on announcing an error
-   every time it is reached. Ticking the box IS the correction, so it is where the flag comes off. */
-$('#authAge').onchange=()=>{
-  if($('#authAge').checked) $('#authAge').setAttribute('aria-invalid','false');
-};
-
 /* The local cache belongs to exactly one account. A session can end without a click on
    "יציאה" (token expiry, cleared cookies, shared device) — and then the next person to sign
    in here would have the previous user's progress merged into THEIR account. So the cache is
@@ -3434,18 +3425,8 @@ $('#authForm').addEventListener('submit', async e=>{
   const btn=$('#authSubmit'); btn.disabled=true;
   try{
     if(authMode==='signup'){
-      /* First, before the account is created. A check that runs afterwards reads like a gate
-         and enforces nothing — the account already exists by then, and refusing at that point
-         leaves an unconfirmed row behind for a person we just told we cannot serve.
-         Inside the signup branch, so an existing user signing in is never blocked by a box
-         that is hidden on their tab. */
-      if(!$('#authAge').checked){
-        msg.className='au-msg err';
-        msg.textContent='כדי לפתוח חשבון צריך לאשר את הצהרת הגיל.';
-        $('#authAge').setAttribute('aria-invalid','true');
-        $('#authAge').focus();
-        return;
-      }
+      /* תיבת הצהרת הגיל הוסרה ביוזמת בעל המוצר: היא אינה ניתנת לאכיפה, ותיבה שאיש
+         אינו קורא היא חיכוך בהרשמה בתמורה לכלום. סף הגיל נשאר בתנאי השימוש §2. */
       const r=await Store.signUp(email,pw,uname);
       if(r.error){ msg.className='au-msg err'; msg.textContent=translateAuthError(r.error); return; }
       if(!r.session){                                    // email confirmation required before login
@@ -4526,6 +4507,16 @@ async function checkSessionAndBoot(){
       new Promise(r=>setTimeout(()=>r(null), 6000))
     ]);
   }catch(e){}
+  /* פסק הזמן אינו "אין הפעלה". getSession() יוצאת לרשת כשה-token פג, ולכן רשת איטית,
+     מצב טיסה, או Supabase שמאחר — כל אחד מהם החזיר null, והאפליקציה הסיקה שהמשתמש
+     התנתק. זה מה שהוציא אנשים שוב ושוב ממכשירים שמעולם לא התנתקו בהם, וזה גם מה שהחליף
+     את השם במייל במצב טיסה: בלי הפעלה אין פרופיל לקרוא ממנו את השם.
+     ההפעלה השמורה נקראת מהדיסק בלי רשת. token שפג עדיין אומר מי המשתמש, וזה כל מה
+     שנדרש כדי לפתוח את החשבון הנכון ולטעון את ההתקדמות המקומית. */
+  if(!(sess && sess.user)){
+    const cached = (typeof Store.cachedSession==='function') ? Store.cachedSession() : null;
+    if(cached){ sess = cached; console.warn('session restored from disk — the network answer did not arrive'); }
+  }
   /* Below ~400ms the splash reads as a flicker, which is its own kind of ugly. Above it, it
      reads as the app starting. Only ever waits on a FAST answer — a slow one is already past. */
   const wait=400-(Date.now()-t0);
@@ -4544,11 +4535,15 @@ async function checkSessionAndBoot(){
        next save wrote one account's progress into the other's row.
        Supabase can hand us a different user without any click here — a confirmation or
        reset link opened in this tab carries its own session. Compare identity, not emptiness. */
-    Store.onAuthChange((s)=>{
+    Store.onAuthChange((s, evt)=>{
       const uid = s && s.user && s.user.id;
       if(uid){
         if(uid !== (currentUser && currentUser.id)){ currentUser=s.user; afterAuthed(false); }
-      } else {
+      } else if(evt === 'SIGNED_OUT' || evt === 'USER_DELETED'){
+        /* רק התנתקות מפורשת מנקה את המשתמש. קודם כל הפעלה ריקה עשתה זאת, ו-supabase-js
+           משדרת INITIAL_SESSION עם null בכל פעם שלא הצליחה לקרוא הפעלה — כלומר בכל
+           טעינה בלי רשת. התוצאה הייתה שהאתחול שחזר את המשתמש מהדיסק, והאירוע הזה מחק
+           אותו מיד אחר כך. */
         currentUser=null;
       }
     });

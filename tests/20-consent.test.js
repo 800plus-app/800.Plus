@@ -153,119 +153,31 @@ function authSubmitHandler() {
   return app.slice(hits[0].index, end + 1);
 }
 
-describe('FIX 2 · a required age declaration on sign-up', () => {
-  const tag = () => {
-    const m = html.match(/<input[^>]*id="authAge"[^>]*>/);
-    assert.ok(m, 'index.html has no <input id="authAge"> — the Terms §2 threshold has no control');
-    return m[0];
-  };
+/* FIX 2 — תיבת הצהרת הגיל — הוסרה ביוזמת בעל המוצר.
+ *
+ * הנימוק שלו, והוא נכון: אי אפשר לאכוף אותה. תיבה שמסמנים בלי לקרוא אינה שער, והיא כן
+ * חיכוך אמיתי בהרשמה — מחיר ודאי בתמורה להגנה מדומה.
+ *
+ * מה שנשאר נבדק כאן. הבדיקה השנייה היא החשובה מבין השתיים: הפיתוי להחזיר "שער אמיתי"
+ * בדמות תאריך לידה יחזור, ותאריך לידה הוא פריט מידע אישי נוסף להחזיק, להצדיק ולדלוף —
+ * בתמורה לתשובה שהתיבה כבר נתנה, ושגם היא לא הייתה אכיפה. */
+describe('FIX 2 · סף הגיל נשאר בתנאי השימוש, ולא בשדה נוסף', () => {
 
-  test('it is a checkbox, not a date of birth', () => {
-    assert.match(tag(), /type="checkbox"/, '#authAge is not a checkbox');
-  });
-
-  test('nothing anywhere asks for a birth date', () => {
-    /* A declaration is a tick. A birth date is a second piece of personal data to hold, to leak
-     * and to justify, for an answer the tick already gives. This is a decision, so it is pinned. */
+  test('שום מקום אינו מבקש תאריך לידה', () => {
     assert.ok(!/תאריך לידה/.test(html), 'index.html asks for a birth date');
     assert.ok(!/\bid="(dob|birth[A-Za-z]*|authDob|authBirth[A-Za-z]*)"/i.test(html),
       'index.html carries a birth-date field');
-    /* Scoped to the auth form on purpose. #accExam is a date input and a legitimate one — the
-     * date of the psychometric exam the learner is working towards. A blanket ban on type="date"
-     * would fail on it and say nothing about age. What must stay empty is the sign-up form. */
+    /* מצומצם לטופס ההרשמה בכוונה: #accExam הוא שדה תאריך לגיטימי — מועד המבחן. */
     const form = html.match(/<form id="authForm"[\s\S]*?<\/form>/);
     assert.ok(form, 'index.html no longer has <form id="authForm"> — rescope this test');
     assert.ok(!/type="date"/.test(form[0]), 'the sign-up form carries a date input');
   });
 
-  test('the checkbox has a real accessible name, not a floating paragraph beside it', () => {
-    /* Either wrapped in its own <label> (implicit) or pointed at by for= (explicit). A <p> next
-     * to a checkbox is read by a screen reader as an unlabelled checkbox. */
-    const wrapped = /<label[^>]*>(?:(?!<\/label>)[\s\S])*id="authAge"(?:(?!<\/label>)[\s\S])*<\/label>/
-      .test(html);
-    const explicit = /<label[^>]*for="authAge"/.test(html);
-    assert.ok(wrapped || explicit, '#authAge has no <label> — it is an unnamed checkbox');
-  });
-
-  test('the wording is one short line a 17-year-old will actually read', () => {
-    const m = html.match(/<label[^>]*id="fAge"[^>]*>[\s\S]*?<\/label>/);
-    assert.ok(m, 'no <label id="fAge"> wrapping the age declaration');
-    const text = m[0].replace(/<!--[\s\S]*?-->/g, '').replace(/<[^>]+>/g, ' ')
-                     .replace(/\s+/g, ' ').trim();
-    assert.ok(text.includes('16'), `the line never says 16: "${text}"`);
-    assert.ok(text.includes('18'), `the line never mentions the parental-consent age: "${text}"`);
-    assert.ok(text.length <= 90,
-      `the line is ${text.length} chars — a long legal sentence gets ticked unread, which is ` +
-      `the same as no gate at all: "${text}"`);
-  });
-
-  test('it is shown on sign-up and not on sign-in', () => {
-    assert.match(html, /<label[^>]*id="fAge"[^>]*class="[^"]*\bhidden\b/,
-      '#fAge is not hidden in the markup — sign-in, the default tab, would show it');
-    const src = fn('setAuthMode');
-    assert.match(src, /\$\('#fAge'\)\.classList\.toggle\('hidden',\s*m!=='signup'\)/,
-      "setAuthMode does not toggle #fAge on the signup tab only");
-  });
-
-  test('leaving the sign-up tab clears the tick', () => {
-    /* Otherwise a tick survives a tab switch and a reload of the form, and the next person on a
-     * shared device inherits a declaration they never made. */
-    assert.match(fn('setAuthMode'), /\$\('#authAge'\)\.checked\s*=\s*false/,
-      'setAuthMode never resets #authAge');
-  });
-
-  test('sign-up is refused when the box is unticked', () => {
-    const src = authSubmitHandler();
-    assert.match(src, /if\s*\(\s*!\s*\$\('#authAge'\)\.checked\s*\)/,
-      'the submit handler never reads #authAge.checked — the threshold is decorative');
-  });
-
-  test('the refusal happens BEFORE the account is created', () => {
-    /* A check that runs after Store.signUp() reads right and enforces nothing. */
-    const src = authSubmitHandler();
-    const gate = src.search(/if\s*\(\s*!\s*\$\('#authAge'\)\.checked\s*\)/);
-    const signUp = src.indexOf('Store.signUp');
-    assert.ok(gate >= 0 && signUp >= 0, 'gate or Store.signUp call not found in the handler');
-    assert.ok(gate < signUp, 'the age gate runs after Store.signUp — the account already exists');
-  });
-
-  test('the gate is inside the sign-up branch and cannot block a sign-in', () => {
-    const src = authSubmitHandler();
-    const branch = src.search(/if\s*\(\s*authMode\s*===\s*'signup'\s*\)/);
-    const gate = src.search(/if\s*\(\s*!\s*\$\('#authAge'\)\.checked\s*\)/);
-    assert.ok(branch >= 0, "the handler no longer branches on authMode==='signup'");
-    assert.ok(gate > branch,
-      'the age gate sits before the signup branch — an existing user signing in would be blocked ' +
-      'by a box that is hidden on their tab');
-  });
-
-  test('the refusal is announced through the existing #authMsg alert, not a new element', () => {
-    /* #authMsg already carries role="alert" (A11Y-03). Inventing a second error surface here
-     * would leave one of the two silent. */
-    const src = authSubmitHandler();
-    const gate = src.search(/if\s*\(\s*!\s*\$\('#authAge'\)\.checked\s*\)/);
-    const block = src.slice(gate, gate + 500);
-    assert.match(block, /msg\.textContent\s*=/, 'the gate writes no message — a dead button');
-    assert.match(block, /msg\.className\s*=\s*'au-msg err'/, 'the message is not styled as an error');
-    assert.match(html, /id="authMsg"[^>]*role="alert"/, '#authMsg lost its role="alert"');
-    assert.match(block, /return/, 'the gate does not return — execution falls through to sign-up');
-  });
-
-  test('the error is tied to the field it is about, and focus goes there', () => {
-    const src = authSubmitHandler();
-    const gate = src.search(/if\s*\(\s*!\s*\$\('#authAge'\)\.checked\s*\)/);
-    const block = src.slice(gate, gate + 500);
-    assert.match(block, /\$\('#authAge'\)\.focus\(\)/,
-      'focus is not moved to the box the learner has to tick');
-    assert.match(html, /<input[^>]*id="authAge"[^>]*aria-describedby="authMsg"/,
-      '#authAge is not described by #authMsg — the alert is spoken with no link to the control');
-    assert.match(block, /setAttribute\('aria-invalid','true'\)/,
-      '#authAge is never marked aria-invalid');
-  });
-
-  test('the invalid state is cleared once the box is ticked', () => {
-    /* aria-invalid that is set and never unset makes a corrected field keep announcing an error. */
-    assert.match(app, /\$\('#authAge'\)\.onchange\s*=/,
-      'nothing listens for the tick, so aria-invalid never comes off');
+  test('התיבה הוסרה משני הצדדים ולא רק מאחד', () => {
+    /* חצי הסרה היא המצב הגרוע מכולם: תיבה שנשארה ב-HTML בלי אכיפה נראית כשער ואיננה,
+       ואכיפה שנשארה בלי תיבה חוסמת הרשמה על שדה שאינו קיים. */
+    assert.ok(!/id="authAge"/.test(html), 'תיבת authAge עדיין קיימת ב-index.html');
+    assert.ok(!/authAge/.test(app), 'app.js עדיין מתייחס ל-authAge');
+    assert.ok(!/id="fAge"/.test(html), 'עטיפת fAge עדיין ב-index.html');
   });
 });
