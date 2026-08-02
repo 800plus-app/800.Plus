@@ -1125,8 +1125,7 @@
 
   <!-- ===== LOCKED (subscription lapsed) ===== -->
   <section id="locked" class="hidden">
-    <div class="topbar"><div class="sp"></div>
-      <button class="back" id="signOutBtn3" style="margin-inline-start:8px">יציאה</button></div>
+    <div class="topbar"><div class="sp"></div></div>
     <div class="welcome-head">
       <div class="kicker">הגישה מושהית</div>
       <h1 class="w-title">המנוי אינו פעיל</h1>
@@ -1146,8 +1145,7 @@
   <section id="welcome" class="hidden">
     <div class="topbar"><div class="sp"></div>
       <button class="user-badge" id="userBadge3" title="החשבון שלי"><b id="userBadgeW"></b></button><button class="gear-btn" id="setBtnW" title="הגדרות" aria-label="הגדרות">⚙</button>
-      <button class="back hidden" id="adminBtn2" style="margin-inline-start:8px">בקרה</button>
-      <button class="back" id="signOutBtn2" style="margin-inline-start:8px">יציאה</button></div>
+      <button class="back hidden" id="adminBtn2" style="margin-inline-start:8px">בקרה</button></div>
     <div class="welcome-head">
       <div class="kicker" id="greetKicker">ברוך הבא</div>
       <h1 class="w-title" id="greet">שלום!</h1>
@@ -1256,8 +1254,7 @@
        Reached by tapping your own name. Everything here is either rare (install, privacy) or
        dangerous (reset progress) — both are wrong on a screen you pass through every day. -->
   <section id="account" class="hidden">
-    <div class="topbar"><button class="back" id="accBack">→ חזרה</button><div class="sp"></div>
-      <button class="back" id="signOutBtn4" style="margin-inline-start:8px">יציאה</button></div>
+    <div class="topbar"><button class="back" id="accBack">→ חזרה</button><div class="sp"></div></div>
     <div class="welcome-head">
       <div class="kicker">החשבון שלי</div>
       <h1 class="w-title" id="accName">—</h1>
@@ -1317,6 +1314,12 @@
       <span>שמונה יכולות שכבר קיימות — רובן אף אחד לא מוצא לבד</span></div><div class="cnt">‹</div></button>
 
     <h3 class="acc-h">אזור מסוכן</h3>
+    <!-- ההתנתקות עברה לכאן מהשורה העליונה: כפתור "יציאה" ליד "בקרה" ו"החלף שפה" נראה
+         כמו ניווט ונלחץ בטעות, ומחירו הוא מסך התחברות במקום המילים. כאן הוא נקרא לפני
+         שלוחצים. ראשון מבין השלושה כי הוא היחיד מהם שאפשר לבטל — פשוט להתחבר שוב. -->
+    <button class="pbtn danger-tile" id="accSignOut"><div class="ic">⎋</div><div class="tx"><b>התנתקות</b>
+      <span>ההתקדמות נשמרת בענן וחוזרת בהתחברות הבאה. הנתונים השמורים במכשיר נמחקים,
+      ולכן עד ההתחברות הבאה האפליקציה לא תעבוד ללא אינטרנט.</span></div><div class="cnt">‹</div></button>
     <button class="pbtn danger-tile" id="accReset"><div class="ic">⚠️</div><div class="tx"><b>איפוס התקדמות</b>
       <span>מוחק את כל ההיסטוריה שלך בשתי השפות — מילים שלמדת, ציונים, רצף ימים.
       החשבון עצמו נשאר. אין דרך לבטל.</span></div><div class="cnt">‹</div></button>
@@ -1334,7 +1337,6 @@
          לתווית השם — שתי הדלתות לאותו מסך, זו לצד זו, בפינה אחת. -->
     <div class="topbar"><button class="back" id="switchLang" title="חזרה לבחירת שפה">🏠 חזרה</button><div class="sp"></div>
       <button class="back hidden" id="adminBtn">בקרה</button>
-      <button class="back" id="signOutBtn" style="margin-inline-start:8px">יציאה</button>
       <button class="user-badge" id="userBadge2" title="החשבון שלי" style="margin-inline-start:8px"><b id="userBadge"></b></button><button class="gear-btn" id="setBtn" title="הגדרות" aria-label="הגדרות">⚙</button></div>
     <div class="home-head">
       <div class="kicker"><bdi>800+</bdi></div>
@@ -1727,14 +1729,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=136"></script>
-<script src="config.js?v=136"></script>
-<script src="store.js?v=136"></script>
-<script src="leveltest-he.js?v=136"></script>
-  <script src="leveltest.js?v=136"></script>
-<script src="enrank.js?v=136"></script>
-<script src="data.js?v=136"></script>
-<script src="data-en.js?v=136"></script>
-<script src="app.js?v=136"></script>
+<script src="supabase.min.js?v=137"></script>
+<script src="config.js?v=137"></script>
+<script src="store.js?v=137"></script>
+<script src="leveltest-he.js?v=137"></script>
+  <script src="leveltest.js?v=137"></script>
+<script src="enrank.js?v=137"></script>
+<script src="data.js?v=137"></script>
+<script src="data-en.js?v=137"></script>
+<script src="app.js?v=137"></script>
 </body>
 </html>
