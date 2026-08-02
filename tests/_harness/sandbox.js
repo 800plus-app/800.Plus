@@ -99,6 +99,10 @@ function loadApp(opts = {}) {
      * here. (That is not hypothetical: `committedKeys` and `sessionRowId` arrived this way.) */
     LANG: lang,
     PREVIEW: false,
+    /* loadLangState() sets this on its way out, and the sync paths refuse to merge until it is
+     * true — an unloaded memory is empty, and merging an empty side is an overwrite, not a
+     * merge. Seeded false because that is what app.js declares. */
+    langLoaded: false,
     assoc: {}, stats: { words: {}, sessions: [] }, deleted: new Set(), added: [], direction: 'm2w',
     BANK: [],
     session: new Map(), sessionScope: 'global', sessionMode: 'all', committed: false,

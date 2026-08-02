@@ -144,7 +144,9 @@ function loadStorage(opts = {}) {
     PREVIEW: false,
     currentUser: opts.user || null,
     assoc: {}, stats: { words: {}, sessions: [] }, deleted: new Set(), added: [], direction: 'w2m',
-    BANK: [], diskAhead: false, session: new Map(),
+    /* loadLangState() arms this on its way out; the sync paths refuse to merge while it is
+       false, because an unloaded memory is empty and merging an empty side is an overwrite. */
+    BANK: [], diskAhead: false, langLoaded: false, session: new Map(),
     queueRemoteSync() { ctx.__syncs++; },
     toast(m) { ctx.__toasts.push(m); },
     __syncs: 0, __toasts: [], __errors: [],

@@ -117,6 +117,19 @@ function saneRec(r){
   if(r.src) out.src=String(r.src).slice(0,8);
   return out;
 }
+/* Has loadLangState() actually moved this language's progress from localStorage into the
+   globals above? Until it has, `stats`/`assoc`/`deleted` hold their declared defaults — an
+   EMPTY state that looks exactly like a brand-new device.
+   This matters because the welcome screen never calls loadLangState(): langSummary() reads
+   localStorage directly, so the screen shows correct numbers over an empty memory. pullIfStale()
+   fires on visibilitychange/online/focus and only checks `currentUser` and `LANG` — and LANG is
+   read from localStorage on the first line of this file, so it is already 'he'. The merge then
+   ran with an empty left-hand side, the cloud won every record by default, saveStats() wrote
+   that over the good disk copy, and pushProgress sent it back up.
+   Measured on a real device on 2.8.2026: a full offline session — 18 words, a practice round,
+   the streak and two word deletions — was gone after closing and reopening the app.
+   A merge whose local side was never loaded is not a merge. It is an overwrite. */
+let langLoaded=false;
 function loadLangState(){
   const a=LS.get(KEY('hw_assoc'), {});
   assoc={}; let aLen=2;
@@ -148,6 +161,7 @@ function loadLangState(){
      a saved choice always wins, so nobody's existing setting moves. */
   const dir=LS.get(KEY('hw_dir'), DEFAULT_DIR);
   direction = (dir==='m2w'||dir==='w2m'||dir==='mixed') ? dir : DEFAULT_DIR;
+  langLoaded=true;                      // from here on the globals mirror the disk
 }
 /* ===== two tabs =====
    Every save writes the WHOLE object, so a second tab silently overwrote the first one's round:
@@ -2683,6 +2697,8 @@ let syncPending=false;
    succeeded, and the only remaining copy of the session was erased a line later. */
 async function flushRemoteSync(){
   if(!currentUser || !syncPending) return true;
+  // same reason as syncWithRemoteInner: this path merges and writes too (app.js:2714)
+  if(!langLoaded) return false;
   clearTimeout(syncTimer);
   if(LANG!=='he' && LANG!=='en') return false;  // the row has no key to write to
   /* The cache on this device belongs to exactly one account, and the row we are about to
@@ -2891,6 +2907,14 @@ async function syncWithRemote(lang){
   try{ return await syncWithRemoteInner(lang); } finally { syncBusy=false; }
 }
 async function syncWithRemoteInner(lang){
+  /* THE GUARD. Everything below merges the globals with the cloud and then writes the result to
+     BOTH. If loadLangState() has not run, those globals are empty and this silently replaces a
+     full device with an older cloud copy. Refusing costs a sync that had nothing to contribute;
+     not refusing cost a real learner a full offline session. */
+  if(!langLoaded){
+    console.warn('sync skipped: the language state has not been loaded into memory yet');
+    return;
+  }
   let res=null;
   try{ res=await Store.pullProgress(lang); }catch(e){ return; }
   /* A failed read used to look exactly like an empty cloud, and the push below then wrote the
