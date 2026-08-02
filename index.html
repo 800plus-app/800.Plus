@@ -362,8 +362,13 @@
   .size-custom button{font-family:"Heebo";font-weight:700;font-size:1rem;padding:14px 18px;
        border-radius:12px;border:1px solid transparent;cursor:pointer;
        background:linear-gradient(180deg,var(--gold),var(--accent));color:#fff}
+  /* Styled as a text link, but it is a button and gets tapped with a thumb. Measured at
+     127×20 before min-height was added — half a finger. Nine buttons inherit this rule, and
+     one of them (#mailAskResend) is the only way out for somebody whose confirmation mail
+     never arrived. The padding grows the hit area without changing how it looks. */
   .ask-cancel{margin-top:14px;background:transparent;border:none;color:var(--ink-soft);
-       font-family:"Heebo";font-size:.85rem;text-decoration:underline}
+       font-family:"Heebo";font-size:.85rem;text-decoration:underline;
+       min-height:44px;padding:6px 12px}
   /* ===== finishing a unit =====
      Above everything, because it should not be possible to miss and there is nothing else to
      do at that moment. The canvas sits BEHIND the card and ignores pointer events, so the
@@ -1504,6 +1509,11 @@
     <p class="mail-tip">לא הגיע תוך דקה? בדוק בספאם או בקידומי מכירות —
       מיילים אוטומטיים נוחתים שם לפעמים.</p>
     <button class="ask-go" id="mailAskOk">הבנתי, אני בודק</button>
+    <!-- Ordered by what to try first. Two real users were stranded here: the mail was delivered
+         and sat unseen in spam, and signing up again sent nothing at all, so the screen was a
+         dead end that kept promising a mail. resend() is the only call that actually sends
+         another confirmation to an existing unconfirmed account. -->
+    <button class="ask-cancel" id="mailAskResend">לא קיבלתי — שלח שוב</button>
     <!-- The dead end this exists for: when the address is ALREADY registered, Supabase returns
          the same success and sends nothing — deliberately, so nobody can probe which addresses
          exist. The app therefore cannot tell the two cases apart, and without a way out the
@@ -1600,14 +1610,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=117"></script>
-<script src="config.js?v=117"></script>
-<script src="store.js?v=117"></script>
-<script src="leveltest-he.js?v=117"></script>
-  <script src="leveltest.js?v=117"></script>
-<script src="enrank.js?v=117"></script>
-<script src="data.js?v=117"></script>
-<script src="data-en.js?v=117"></script>
-<script src="app.js?v=117"></script>
+<script src="supabase.min.js?v=118"></script>
+<script src="config.js?v=118"></script>
+<script src="store.js?v=118"></script>
+<script src="leveltest-he.js?v=118"></script>
+  <script src="leveltest.js?v=118"></script>
+<script src="enrank.js?v=118"></script>
+<script src="data.js?v=118"></script>
+<script src="data-en.js?v=118"></script>
+<script src="app.js?v=118"></script>
 </body>
 </html>

@@ -166,6 +166,15 @@ function makeSupabase(opts = {}) {
       },
       async signOut() { authCalls.push({ m: 'signOut' }); if (opts.signOutThrows) throw opts.signOutThrows; return { error: null }; },
       async resetPasswordForEmail(email, o) { authCalls.push({ m: 'resetPasswordForEmail', email, options: o }); return opts.reset || { data: {}, error: null }; },
+      /* Re-sends the sign-up confirmation. Supabase rate-limits this per address (the SMTP
+       * screen's "minimum interval per user"), so the interesting case is not success — it is
+       * the 429 that comes back when somebody taps twice. */
+      async resend(args) {
+        authCalls.push({ m: 'resend', args });
+        // function form so a test can throw — a dropped connection is not an error value
+        if (typeof opts.resend === 'function') return opts.resend(args);
+        return opts.resend || { data: {}, error: null };
+      },
       onAuthStateChange(cb) { authListeners.push(cb); return { data: { subscription: { unsubscribe() { } } } }; },
     },
   };
