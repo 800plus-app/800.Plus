@@ -811,7 +811,13 @@ let wcOffset=0;
 /* ✕ סוגר את הכרטיס להיום ולא לתמיד. סגירה קבועה הייתה מוחקת את נקודת הכניסה היחידה
    במסך הבית על סמך לחיצה אחת, ובלי מסך הגדרות שמחזיר אותה — וזו לחיצה שאי אפשר לבטל.
    נשמר מספר היום, ולכן הכרטיס חוזר מחר עם מילה אחרת ממילא. */
-function wcToday(){ return Math.floor(Date.now()/86400000); }
+/* יום קלנדרי מקומי, לא יום UTC.
+   Math.floor(Date.now()/86400000) מתחלף בחצות UTC — כלומר ב-02:00 או 03:00 בישראל.
+   שתי תוצאות: "מילת היום" התחלפה באמצע הלילה, וסגירת הכרטיס ב-23:30 נפתחה מחדש
+   שעתיים וחצי אחר כך באותו לילה עצמו. קיזוז אזור הזמן מיישר את זה לאותו יום שבו
+   dayKey (app.js: הרצף) כבר משתמש — שתי הגדרות שונות של "היום" באותה אפליקציה הן
+   באג שמחכה לקרות. */
+function wcToday(){ const d=new Date(); return Math.floor((d.getTime() - d.getTimezoneOffset()*60000)/86400000); }
 function wcDismissed(){
   try{ return Number(localStorage.getItem('wcHide')) === wcToday(); }catch(e){ return false; }
 }
@@ -825,7 +831,7 @@ function wcPool(){
 function wcPick(){
   const pool=wcPool();
   if(!pool.length) return null;
-  const day=Math.floor(Date.now()/86400000);
+  const day=wcToday();   // אותו יום מקומי שהסגירה משתמשת בו
   return { w: pool[(day+wcOffset)%pool.length], weak: weakCards('global').length>0, size: pool.length };
 }
 function renderWordCard(){
@@ -1637,7 +1643,13 @@ function openStats(scope){
 $('#statsBack').onclick=()=>openScope(curScope);
 
 /* ===== MANAGE ===== */
-function deleteWord(term){ const k=K(term); deleted.add(k); saveDeleted(); delete assoc[k]; saveAssoc(); delete stats.words[k]; saveStats(); buildBank(); }
+/* markDeletedAgain אינו קישוט, והיעדרו כאן היה באג שקט.
+   markRestored כותב רשומה קבועה ב-hw_undeleted, ו-mergeProgress מסנן בדיוק את המפתחות
+   האלה מרשימת המחוקים — כך שמילה ששוחזרה פעם אחת ואז נמחקה מתוך סבב, נמחקה מקומית
+   וחזרה בסנכנון הבא. גם הרשומה ב-stats.words שבה, כי מיזוג-מקסימום יכול להסיר רשומה
+   רק כשהצד המקומי אומר שהיא נמחקה מחדש.
+   מחיקה בכמות (app.js: mDelete) עשתה את זה נכון מהיום הראשון; הכפתור שבתוך הסבב לא. */
+function deleteWord(term){ const k=K(term); deleted.add(k); markDeletedAgain(k); saveDeleted(); delete assoc[k]; saveAssoc(); delete stats.words[k]; saveStats(); buildBank(); }
 let mSel=new Set();
 /* Every entry in the language, INCLUDING the deleted ones. BANK cannot serve this screen: it
    drops deleted words by design, so the one place that is supposed to bring them back never
