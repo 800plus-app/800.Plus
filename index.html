@@ -533,6 +533,13 @@
        background:transparent;border:1px solid transparent;border-radius:10px;padding:6px 10px;
        cursor:pointer;font-family:inherit}
   .user-badge:hover{border-color:var(--line);color:var(--ink)}
+  /* משתמשת דיווחה שלא ידעה שיש הגדרות בכלל, כי הדרך היחידה פנימה הייתה ללחוץ על השם
+     שלה. שם אינו נראה כמו כפתור. הגלגל נוסף לצדו ולא במקומו: מי שכבר למד את הדרך
+     הישנה לא מאבד אותה. 44 פיקסלים כי זה נלחץ באגודל. */
+  .gear-btn{background:transparent;border:1px solid transparent;border-radius:10px;
+       min-width:44px;min-height:44px;font-size:1.05rem;line-height:1;color:var(--ink-soft);
+       cursor:pointer;margin-inline-start:4px}
+  .gear-btn:hover{border-color:var(--line);color:var(--ink)}
   /* account screen */
   .acc-card{background:var(--card);border:1px solid var(--line);border-radius:14px;
        padding:4px 16px;margin-bottom:22px}
@@ -1097,7 +1104,7 @@
   <!-- ===== WELCOME / LANGUAGE PICKER ===== -->
   <section id="welcome" class="hidden">
     <div class="topbar"><div class="sp"></div>
-      <button class="user-badge" id="userBadge3" title="החשבון שלי"><b id="userBadgeW"></b></button>
+      <button class="user-badge" id="userBadge3" title="החשבון שלי"><b id="userBadgeW"></b></button><button class="gear-btn" id="setBtnW" title="הגדרות" aria-label="הגדרות">⚙</button>
       <button class="back hidden" id="adminBtn2" style="margin-inline-start:8px">בקרה</button>
       <button class="back" id="signOutBtn2" style="margin-inline-start:8px">יציאה</button></div>
     <div class="welcome-head">
@@ -1268,7 +1275,7 @@
 
   <section id="home" class="hidden">
     <div class="topbar"><button class="back" id="switchLang">⇄ החלף שפה</button><div class="sp"></div>
-      <button class="user-badge" id="userBadge2" title="החשבון שלי"><b id="userBadge"></b></button>
+      <button class="user-badge" id="userBadge2" title="החשבון שלי"><b id="userBadge"></b></button><button class="gear-btn" id="setBtn" title="הגדרות" aria-label="הגדרות">⚙</button>
       <button class="back hidden" id="adminBtn" style="margin-inline-start:8px">בקרה</button>
       <button class="back" id="signOutBtn" style="margin-inline-start:8px">יציאה</button></div>
     <div class="home-head">
@@ -1627,14 +1634,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=120"></script>
-<script src="config.js?v=120"></script>
-<script src="store.js?v=120"></script>
-<script src="leveltest-he.js?v=120"></script>
-  <script src="leveltest.js?v=120"></script>
-<script src="enrank.js?v=120"></script>
-<script src="data.js?v=120"></script>
-<script src="data-en.js?v=120"></script>
-<script src="app.js?v=120"></script>
+<script src="supabase.min.js?v=121"></script>
+<script src="config.js?v=121"></script>
+<script src="store.js?v=121"></script>
+<script src="leveltest-he.js?v=121"></script>
+  <script src="leveltest.js?v=121"></script>
+<script src="enrank.js?v=121"></script>
+<script src="data.js?v=121"></script>
+<script src="data-en.js?v=121"></script>
+<script src="app.js?v=121"></script>
 </body>
 </html>
