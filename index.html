@@ -518,6 +518,13 @@
   .au-go:disabled{opacity:.5;cursor:not-allowed}
   .au-link{background:transparent;border:0;color:#8d8274;font-family:"Heebo";font-size:.8rem;
        text-decoration:underline;cursor:pointer;margin-top:5px}
+  /* הצהרת הגיל. align-items:flex-start כדי שהתיבה תיצמד לשורה הראשונה אם הטקסט נשבר,
+     ולא תרחף באמצע. 20px ו-min-height:44px כי זו תיבה שנלחצת באגודל — הכפתורים במסכי
+     ה-ask נמדדו 20 פיקסלים בדפדפן אמיתי, וזה חצי אצבע. */
+  .au-check{display:flex;align-items:flex-start;gap:9px;margin-top:14px;min-height:44px;
+       font-size:.82rem;line-height:1.5;color:#6b6155;cursor:pointer;text-align:right}
+  .au-check input{width:20px;height:20px;margin:2px 0 0;flex:0 0 auto;accent-color:#b5651d;cursor:pointer}
+  .au-check input[aria-invalid="true"]{outline:2px solid #a63c26;outline-offset:2px}
   .au-msg{margin-top:16px;font-size:.88rem;line-height:1.55;text-align:center}
   .au-msg.err{color:#a63c26} .au-msg.ok{color:#3f6b4a}
   .au-msg.hidden{display:none!important}
@@ -999,6 +1006,16 @@
         <label class="au-field">
           <input id="authPassword" type="password" placeholder=" " autocomplete="new-password" minlength="8" required>
           <span>סיסמה · 8 תווים לפחות</span>
+        </label>
+        <!-- תנאי השימוש §2 קובעים סף גיל, ועד היום שום דבר במסך לא שאל עליו. הצהרה, לא
+             יום הולדת: מועד מדויק הוא פיסת מידע אישי נוספת להחזיק, להדליף ולהצדיק —
+             בשביל תשובה שהסימון כבר נותן. הטקסט קצר בכוונה; משפט משפטי ארוך מסומן בלי שנקרא,
+             וזה זהה לאין שער בכלל.
+             aria-describedby מחבר את התיבה ל-#authMsg, שכבר נושא role="alert" — כך
+             הסירוב נאמר יחד עם השדה שהוא מדבר עליו, ולא כהודעה מרחפת. -->
+        <label id="fAge" class="au-check hidden">
+          <input type="checkbox" id="authAge" aria-describedby="authMsg">
+          <span>אני מעל גיל 16. מתחת ל-18 — באישור הורה.</span>
         </label>
         <button type="submit" class="au-go" id="authSubmit">התחבר<i>←</i></button>
         <button type="button" class="au-link" id="authForgot">שכחתי סיסמה</button>
@@ -1610,14 +1627,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=119"></script>
-<script src="config.js?v=119"></script>
-<script src="store.js?v=119"></script>
-<script src="leveltest-he.js?v=119"></script>
-  <script src="leveltest.js?v=119"></script>
-<script src="enrank.js?v=119"></script>
-<script src="data.js?v=119"></script>
-<script src="data-en.js?v=119"></script>
-<script src="app.js?v=119"></script>
+<script src="supabase.min.js?v=120"></script>
+<script src="config.js?v=120"></script>
+<script src="store.js?v=120"></script>
+<script src="leveltest-he.js?v=120"></script>
+  <script src="leveltest.js?v=120"></script>
+<script src="enrank.js?v=120"></script>
+<script src="data.js?v=120"></script>
+<script src="data-en.js?v=120"></script>
+<script src="app.js?v=120"></script>
 </body>
 </html>
