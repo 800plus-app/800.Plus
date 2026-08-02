@@ -742,13 +742,25 @@ function renderHome(){
   }
   renderDirSegs();
   const grid=$('#unitGrid'); grid.innerHTML='';
+  /* עשרה אריחים זהים, ואין שום סימן מאיפה מתחילים. הבחירה נופלת על הלומד ברגע שבו הוא
+     יודע הכי פחות, וזה הרגע שבו אנשים סוגרים את הלשונית.
+     "הבאה בתור" היא היחידה הראשונה שנותרו בה מילים חדשות — כלומר ההמשך הטבעי של מה
+     שכבר נעשה, ולא המלצה שנשלפה מהאוויר. אם כל היחידות התחילו, אין תג: תג על הכול הוא
+     תג על כלום. */
+  const nextUid = UNIT_IDS.find(u=>{
+    const cc=classify('unit:'+u);
+    return cc.total>0 && cc.fresh===cc.total;          // עוד לא נגעו בה בכלל
+  }) ?? UNIT_IDS.find(u=>{
+    const cc=classify('unit:'+u);
+    return cc.total>0 && cc.fresh>0;                   // התחילה אבל לא נגמרה
+  });
   UNIT_IDS.forEach(uid=>{
     const c=classify('unit:'+uid);
     if(c.total===0) return;
     const pct=n=>c.total?(100*n/c.total):0;
     const el=document.createElement('button');
-    el.className='tile';
-    el.innerHTML=`<div class="num">${uid}</div><div class="lbl">${c.total} מילים</div>
+    el.className='tile'+(uid===nextUid?' next':'');
+    el.innerHTML=`${uid===nextUid?'<div class="tile-tag">מומלץ להתחיל כאן</div>':''}<div class="num">${uid}</div><div class="lbl">${c.total} מילים</div>
       <div class="mini"><i class="s" style="width:${pct(c.strong)}%"></i><i class="w" style="width:${pct(c.weak)}%"></i><i class="n" style="width:${pct(c.fresh)}%"></i><i class="k" style="width:${pct(c.skipped||0)}%"></i></div>`;
     el.onclick=()=>openScope('unit:'+uid);
     grid.appendChild(el);
