@@ -3238,7 +3238,10 @@ $('#authForm').addEventListener('submit', async e=>{
       if(r.error){ msg.className='au-msg err'; msg.textContent=translateAuthError(r.error); return; }
       if(!r.session){                                    // email confirmation required before login
         setAuthMode('signin', true);
-        msg.className='au-msg ok'; msg.textContent='אשר את המייל, ואז התחבר כאן.';
+        /* Not a promise. The mail is genuinely sent and genuinely delivered — and twice now it
+           landed in spam and was never seen, while this line assured the learner it was on the
+           way. Say where to look, in the same breath as "we sent it". */
+        msg.className='au-msg ok'; msg.textContent='אשר את המייל, ואז התחבר כאן. אם הוא לא הגיע תוך דקה — בדוק בספאם.';
         $('#authPassword').value='';
         // and say it where it cannot be missed: the confirmation click is the whole gate
         $('#mailAskTo').textContent=email;
@@ -3257,6 +3260,30 @@ $('#cheerOk').onclick=()=>hide($('#cheer'));
 $('#cheer').onclick=e=>{ if(e.target===$('#cheer')) hide($('#cheer')); };
 $('#mailAskOk').onclick=()=>hide($('#mailAsk'));
 $('#mailAsk').onclick=e=>{ if(e.target===$('#mailAsk')) hide($('#mailAsk')); };
+/* The way out of the dead end. Supabase rate-limits resend per address, so the button is
+   disabled for the whole round trip and re-enabled only on failure — a success that re-enabled
+   it would invite the second tap that gets refused, and the learner would read the refusal as
+   "it is broken" rather than "it is already on its way". */
+$('#mailAskResend').onclick=async e=>{
+  const to=$('#mailAskTo').textContent.trim(), m=$('#mailAskMsg');
+  if(!to) return;
+  e.target.disabled=true;
+  m.className='au-msg'; m.textContent='שולח…'; m.classList.remove('hidden');
+  const r=await Store.resendConfirmation(to);
+  if(r.ok){
+    m.className='au-msg ok';
+    m.textContent='נשלח שוב. אם הוא לא מופיע — חפש בספאם ובקידומי מכירות את השולח noreply@800-plus.com.';
+  }else{
+    m.className='au-msg err';
+    /* The routine failure is the per-address interval, and "try again later" is the one thing
+       that actually helps. Anything else is reported plainly rather than guessed at. */
+    const raw=(r.error && r.error.message) || '';
+    m.textContent = /security purposes|rate|429|only request this after/i.test(raw)
+      ? 'נשלח לאחרונה ממש עכשיו — המתן דקה ונסה שוב. בינתיים בדוק בספאם.'
+      : 'לא הצלחנו לשלוח כרגע. נסה שוב בעוד רגע, או בקש קישור לאיפוס סיסמה למטה.';
+    e.target.disabled=false;
+  }
+};
 $('#mailAskExisting').onclick=async e=>{
   const to=$('#mailAskTo').textContent.trim(), m=$('#mailAskMsg');
   if(!to) return;

@@ -26,6 +26,25 @@ const Store = {
     return { user: data && data.user, session: data && data.session, error };
   },
   async signOut() { await sb.auth.signOut(); },
+  /* Re-sends the sign-up confirmation to an account that exists but was never confirmed.
+     This is NOT signUp() again: calling signUp with an address that is already registered
+     returns success and sends nothing — deliberately, so nobody can probe which addresses
+     exist. Two real users were stranded by exactly that: the first mail was delivered and
+     landed in spam, the retry sent nothing, and the screen kept promising a mail was coming.
+     Errors come back as a value rather than a throw, because the interesting one is routine:
+     Supabase rate-limits this per address (the SMTP screen's "minimum interval per user"),
+     so a second tap inside a minute is a 429 and the learner must be told that in words. */
+  async resendConfirmation(email) {
+    const to = String(email == null ? '' : email).trim();
+    if (!to) return { ok: false, error: { message: 'no address' } };
+    try {
+      const { error } = await sb.auth.resend({ type: 'signup', email: to });
+      return { ok: !error, error: error || null };
+    } catch (e) {
+      // a dropped connection must not leave the button disabled forever
+      return { ok: false, error: e };
+    }
+  },
   async resetPasswordFor(email) {
     return sb.auth.resetPasswordForEmail(email, { redirectTo: location.origin + location.pathname });
   },
