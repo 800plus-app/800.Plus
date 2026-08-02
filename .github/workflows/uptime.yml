@@ -1,8 +1,19 @@
 name: uptime
 
-# Checks that 800-plus.com is actually serving the app, every 15 minutes, and emails
-# when it is not. Until now the site could be down all night with nobody knowing —
-# the owner would find out from a user, which is the worst possible way.
+# Checks that 800-plus.com is actually serving the app, and emails when it is not.
+#
+# כמה זמן באמת עובר בין בדיקות — וזה לא מה שכתוב ב-cron
+# ------------------------------------------------------
+# ה-cron מבקש כל 15 דקות. GitHub אינו מתחייב לזה, ובמאגר הזה הוא לא עומד בו אפילו
+# בקירוב: 2.8.2026 נמדדו ריצות ב-16:04, 20:14, 23:41, 07:53 — פערים של 3.5 עד 8 שעות.
+# תזמונים תכופים ב-Actions הם "best effort" ונזרקים תחת עומס, וככל שמבקשים תכוף יותר
+# כך נזרקים יותר.
+#
+# המשמעות המעשית: האתר יכול ליפול ולהישאר נפול שמונה שעות לפני שהבדיקה הזאת תבחין.
+# זה עדיין טוב יותר מכלום, וזה אינו ניטור. ניטור אמיתי חייב לרוץ מחוץ ל-Actions —
+# migrations/16.sql מקים אותו על pg_cron בתוך Supabase, שם התזמון מובטח.
+#
+# השלב "כמה זמן עבר" מדפיס את הפער בפועל בכל ריצה, כדי שהמספר יהיה גלוי ולא הנחה.
 #
 # ONE secret is needed, and only for the alert mail:
 #   RESEND_API_KEY   — Settings → Secrets and variables → Actions → New repository secret
@@ -23,6 +34,22 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
+      # הפער בין הריצה הזאת לקודמת, מודפס. בלעדיו הטענה "כל 15 דקות" נשארת בקובץ
+      # ואיש לא מגלה שהיא לא נכונה עד שהאתר נופל.
+      - name: כמה זמן עבר מהבדיקה הקודמת
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          prev=$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/uptime.yml/runs?per_page=2" \
+                   --jq '.workflow_runs[1].created_at' 2>/dev/null)
+          if [ -n "$prev" ] && [ "$prev" != "null" ]; then
+            gap=$(( ( $(date -u +%s) - $(date -u -d "$prev" +%s) ) / 60 ))
+            echo "הבדיקה הקודמת רצה לפני $gap דקות (ה-cron מבקש 15)"
+            [ "$gap" -gt 60 ] && echo "::warning::פער של $gap דקות — GitHub מדלג על התזמון"
+          fi
+          exit 0
+
       - name: Probe the site
         id: probe
         run: |
@@ -65,7 +92,7 @@ jobs:
               "from": "800+ <admin@800-plus.com>",
               "to": ["03hagay@gmail.com"],
               "subject": "800-plus.com לא עונה",
-              "html": "<div dir=\"rtl\" style=\"font:16px/1.7 Arial,sans-serif;color:#2c2620\"><p><b>האתר לא ענה בשלוש בדיקות רצופות.</b></p><p>קוד אחרון: '"${{ steps.probe.outputs.code }}"'</p><p>מה לבדוק: GitHub Pages פעיל · הדומיין מפנה נכון · סופאבייס לא נפל.</p><p style=\"color:#8d8274;font-size:13px\">הבדיקה רצה כל 15 דקות. לא תישלח הודעה נוספת עד שהמצב ישתנה.</p></div>"
+              "html": "<div dir=\"rtl\" style=\"font:16px/1.7 Arial,sans-serif;color:#2c2620\"><p><b>האתר לא ענה בשלוש בדיקות רצופות.</b></p><p>קוד אחרון: '"${{ steps.probe.outputs.code }}"'</p><p>מה לבדוק: GitHub Pages פעיל · הדומיין מפנה נכון · סופאבייס לא נפל.</p><p style=\"color:#8d8274;font-size:13px\">הבדיקה רצה ב-GitHub Actions, שמדלג על תזמונים תכופים — הפער בפועל הוא שעות ולא דקות.</p></div>"
             }'
           echo "alert sent"
 
