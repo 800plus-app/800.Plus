@@ -3302,6 +3302,16 @@ async function afterAuthed(justSignedUp){
   // asked after the third day of use, not on arrival: a prompt shown to a stranger gets denied,
   // and a denial in the browser is permanent
   setTimeout(()=>{ if(NOTIF.askable() && streakInfo().total>=2) $('#notifCta').classList.remove('hidden'); }, 1200);
+  /* וגם, פעם אחת בלבד: דיאלוג ולא כפתור שורה. משתמשת שתרגלה שבועות דיווחה שלא ידעה
+     שיש התראות — ה-CTA קיים, אבל מי שכבר התרגל למסך מפסיק לסרוק אותו. התנאי זהה
+     (askable + שני ימי תרגול), כך שהיגיון "לא לשאול זר" נשמר; מה שמשתנה הוא רק
+     שהשאלה נשאלת פעם אחת במקום להמתין שיבחינו בה. */
+  setTimeout(()=>{
+    if(NOTIF.askable() && streakInfo().total>=2 && !LS.get('hw_notifOffered',0)){
+      LS.set('hw_notifOffered',1);
+      show($('#notifAsk'));
+    }
+  }, 2000);
   /* Refresh the cached reminder on every sign-in. It used to be written once, while asking for
      permission, and then never again — so the background worker kept announcing a streak the
      learner had left behind months earlier. */
@@ -3491,6 +3501,17 @@ $('#wcPractice').onclick=()=>{
      המסלולים האחרים, המילה מוקפצת לראש החפיסה אחרי הערבוב — שינוי מקומי לנתיב הזה בלבד. */
   const at=deck.findIndex(c=>K(c.term)===K(p.w.term));
   if(at>0){ deck.unshift(deck.splice(at,1)[0]); idx=0; renderCard(); }
+};
+/* ===== דיאלוג ההתראות ===== */
+/* "לא עכשיו" סוגר בלי לבקש הרשאה. זה מכוון: לחיצה על "לא" בדפדפן היא דחייה קבועה שאי
+   אפשר לבטל מהקוד, ולכן עדיף שהתשובה השלילית תישאר בתוך האפליקציה — ה-CTA במסך הבית
+   נשאר זמין למי שישנה את דעתו. */
+$('#notifAskNo').onclick=()=>hide($('#notifAsk'));
+$('#notifAsk').onclick=e=>{ if(e.target===$('#notifAsk')) hide($('#notifAsk')); };
+$('#notifAskYes').onclick=async()=>{
+  hide($('#notifAsk'));
+  try{ await NOTIF.ask(); }catch(e){}
+  if(NOTIF.granted()){ NOTIF.cacheMessage(); toast('נהדר — נזכיר לך מחר בבוקר'); $('#notifCta').classList.add('hidden'); }
 };
 $('#userBadge2').onclick = openAccount;
 $('#userBadge3').onclick = openAccount;

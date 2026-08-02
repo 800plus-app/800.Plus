@@ -1564,6 +1564,22 @@
   </div>
 </div>
 
+<!-- משתמשת דיווחה שלא ידעה שיש התראות באפליקציה בכלל. ה-CTA הקיים הוא כפתור שורה
+     במסך הבית, וקל מאוד לפספס אותו — במיוחד אצל מי שכבר התרגל למסך ולא סורק אותו יותר.
+     הדיאלוג הזה מוצג פעם אחת בלבד, ורק למי שכבר תרגל יומיים ומעלה. ההיגיון של "לא לשאול
+     זר" נשמר: דחייה בדפדפן היא לצמיתות, ובקשה שמוצגת למישהו שעוד לא הבין מה האפליקציה
+     עושה נדחית כמעט תמיד. מי שכבר תרגל אינו זר. -->
+<div class="ask hidden" id="notifAsk">
+  <div class="ask-box">
+    <div class="mail-ico" aria-hidden="true">🔔</div>
+    <h3>תזכורת יומית?</h3>
+    <p>הודעה קצרה בבוקר שמזכירה לתרגל ומראה כמה מילים עומדות ליפול מהזיכרון.</p>
+    <p class="mail-tip">אפשר לכבות בכל רגע מההגדרות.</p>
+    <button class="ask-go" id="notifAskYes">כן, הזכר לי</button>
+    <button class="ask-cancel" id="notifAskNo">לא עכשיו</button>
+  </div>
+</div>
+
 <div class="ask hidden" id="mailAsk">
   <div class="ask-box mail-box">
     <div class="mail-ico" aria-hidden="true">📬</div>
@@ -1674,14 +1690,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=123"></script>
-<script src="config.js?v=123"></script>
-<script src="store.js?v=123"></script>
-<script src="leveltest-he.js?v=123"></script>
-  <script src="leveltest.js?v=123"></script>
-<script src="enrank.js?v=123"></script>
-<script src="data.js?v=123"></script>
-<script src="data-en.js?v=123"></script>
-<script src="app.js?v=123"></script>
+<script src="supabase.min.js?v=124"></script>
+<script src="config.js?v=124"></script>
+<script src="store.js?v=124"></script>
+<script src="leveltest-he.js?v=124"></script>
+  <script src="leveltest.js?v=124"></script>
+<script src="enrank.js?v=124"></script>
+<script src="data.js?v=124"></script>
+<script src="data-en.js?v=124"></script>
+<script src="app.js?v=124"></script>
 </body>
 </html>
