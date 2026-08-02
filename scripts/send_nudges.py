@@ -49,27 +49,77 @@ def post(url, payload, headers):
     except urllib.error.HTTPError as e:
         return e.code, e.read().decode('utf-8', 'replace')
 
+def subject(n):
+    # "עומדות ליפול לך מהזיכרון" היה דימוי, ודימוי תופס את מקום המידע (HEB, חוק 1).
+    # "טרם הגיעו לשליטה" הוא בדיוק מה שנמדד: seen>0 ו-level<3.
+    return '%d מילים שתרגלת טרם הגיעו לשליטה' % n
+
 def body(name, n):
+    """גוף המייל.
+
+    הניסוח נגזר מהסקיל HEB, ושלושה דברים בו אינם אקראיים:
+
+    · "מילים בשליטה" הוא המונח שהאפליקציה עצמה משתמשת בו במסך הבית ("292 מתוך 3900
+      מילים כבר בשליטה"). מונח חדש למושג קיים מחייב את הקורא לתרגם.
+    · המספר אינו מופנה למסך מסוים. pick_nudges סוכם את שתי השפות, ומסך הבית מציג את
+      השפה הפתוחה בלבד — "תראה את זה שם" היה הבטחה שהמסך סותר.
+    · "סבב חיזוק אחד מכסה עד 20 מילים" ולא "עשר דקות מספיקות". 20 הוא cap()
+      ב-app.js; עשר דקות הוא ניחוש.
+
+    עיצוב: טבלה ולא div, כי Outlook מתעלם מ-flex ומ-max-width על div, ורוחב קבוע על
+    טבלה הוא הדבר היחיד שכל לקוחות המייל מכבדים.
+    """
     hello = ('שלום %s,' % name) if name else 'שלום,'
-    # המספר הוא הסיבה היחידה שהמייל הזה מוצדק. בלעדיו זו תזכורת גנרית, ותזכורת גנרית
-    # נמחקת. עם המספר זו עובדה על ההתקדמות של האדם עצמו.
-    return f"""<div dir="rtl" style="font-family:system-ui,Segoe UI,Arial;line-height:1.7;color:#2c2823;max-width:520px">
-  <p>{hello}</p>
-  <p><b>{n} מילים</b> שכבר תרגלת עומדות ליפול לך מהזיכרון — נפגשת איתן, והן טרם התבססו.</p>
-  <p>עשר דקות של חזרה ממוקדת מספיקות כדי להחזיר אותן.</p>
-  <p style="margin:26px 0">
-    <a href="{APP}" style="background:#b5651d;color:#fff;text-decoration:none;
-       padding:13px 26px;border-radius:12px;display:inline-block">לחזור לתרגול</a>
-  </p>
-  <p style="font-size:.8rem;color:#8d8274;border-top:1px solid #e8e2d8;padding-top:14px">
-    אפשר לכבות את התזכורת הזאת מ<a href="{APP}" style="color:#8d8274">ההגדרות באפליקציה</a>,
-    או להשיב למייל הזה במילה "הסר".
-  </p>
+    return f"""<div dir="rtl" style="margin:0;padding:24px 12px;background:#f4ede2;
+     font-family:'Segoe UI',system-ui,Arial,sans-serif">
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center"
+       width="520" style="width:520px;max-width:100%;background:#fffdf8;border:1px solid #e8ddcb;
+       border-radius:16px;overflow:hidden">
+  <tr><td style="padding:26px 30px 0;text-align:center">
+    <div style="font-size:15px;font-weight:700;letter-spacing:5px;color:#b5651d">800+</div>
+  </td></tr>
+
+  <tr><td style="padding:22px 30px 0;text-align:right">
+    <p style="margin:0;font-size:15px;line-height:1.7;color:#2c2823">{hello}</p>
+  </td></tr>
+
+  <!-- המספר הוא הסיבה היחידה שהמייל הזה מוצדק. בלעדיו זו תזכורת גנרית, ותזכורת
+       גנרית נמחקת. לכן הוא הדבר הראשון שנראה, ולא שורה בתוך פסקה. -->
+  <tr><td style="padding:18px 30px 0">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
+           style="background:#fdf2e6;border:1px solid #f0dcc4;border-radius:13px">
+      <tr><td style="padding:20px;text-align:center">
+        <div style="font-family:Georgia,'Times New Roman',serif;font-size:40px;line-height:1;
+             font-weight:700;color:#a63c26">{n}</div>
+        <div style="margin-top:7px;font-size:13px;letter-spacing:1px;color:#8d8274">מילים לחיזוק</div>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <tr><td style="padding:20px 30px 0;text-align:right">
+    <p style="margin:0;font-size:15px;line-height:1.75;color:#2c2823">
+      תרגלת אותן, והן טרם סווגו כמילים בשליטה. סבב חיזוק אחד מכסה עד 20 מילים.</p>
+  </td></tr>
+
+  <tr><td style="padding:24px 30px 28px;text-align:center">
+    <a href="{APP}" style="background:#b5651d;color:#fffdf8;text-decoration:none;
+       font-size:15px;font-weight:600;padding:14px 34px;border-radius:12px;
+       display:inline-block">לתרגול חיזוק</a>
+  </td></tr>
+
+  <tr><td style="padding:0 30px 24px">
+    <p style="margin:0;padding-top:16px;border-top:1px solid #eee4d5;
+       font-size:12px;line-height:1.7;color:#9a8f80;text-align:center">
+      ניתן לכבות את התזכורת ב<a href="{APP}" style="color:#9a8f80">הגדרות האפליקציה</a>
+      · להסרה מלאה השב למייל הזה במילה "הסר"
+    </p>
+  </td></tr>
+</table>
 </div>"""
 
 sent = failed = 0
 for x in picked:
-    subj = '%d מילים עומדות ליפול לך מהזיכרון' % x['weak']
+    subj = subject(x['weak'])
     if DRY:
         print('[יבש] %-34s | %s' % (x['email'], subj)); sent += 1; continue
     try:
