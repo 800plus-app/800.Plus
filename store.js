@@ -65,7 +65,30 @@ const Store = {
     const { data } = await sb.auth.getSession();
     return data && data.session;
   },
-  onAuthChange(cb) { sb.auth.onAuthStateChange((_evt, session) => cb(session)); },
+  /* הפעלה שמורה, נקראת מהדיסק בלבד — בלי רשת ובלי המתנה.
+     getSession() נראית מקומית ואינה: כשה-token פג היא יוצאת לרענון ברשת, וברשת איטית או
+     בלי רשת היא פשוט לא חוזרת. האתחול מריץ אותה במרוץ מול פסק זמן, ולכן התוצאה הייתה
+     "אין הפעלה" — כלומר מסך התחברות למי שמעולם לא התנתק. זה מה שהוציא את המשתמש שוב ושוב.
+     כאן קוראים ישירות את מה ש-supabase-js שמר. token שפג עדיין מזהה מי המשתמש, וזה כל מה
+     שנדרש כדי להציג את החשבון ולטעון את הנתונים המקומיים; autoRefreshToken יחדש אותו
+     ברקע כשתהיה רשת. */
+  cachedSession() {
+    try {
+      const ref = String(window.SUPA_URL || '').match(/https?:\/\/([^.]+)\./);
+      if (!ref) return null;
+      const raw = localStorage.getItem('sb-' + ref[1] + '-auth-token');
+      if (!raw) return null;
+      const s = JSON.parse(raw);
+      // supabase-js שמר בעבר גם בעטיפה {currentSession:…}. שתי הצורות נתמכות.
+      const sess = (s && s.currentSession) ? s.currentSession : s;
+      return (sess && sess.user && sess.user.id) ? sess : null;
+    } catch (e) { return null; }
+  },
+
+  /* האירוע מועבר הלאה ולא נבלע. "אין הפעלה" ו"המשתמש התנתק" הם שני מצבים שונים לגמרי:
+     supabase-js משדר INITIAL_SESSION עם null כשהיא לא הצליחה לקרוא הפעלה — למשל בלי רשת —
+     ומי שמתייחס לזה כאל התנתקות מוחק את המשתמש בדיוק אחרי שהאתחול שחזר אותו מהדיסק. */
+  onAuthChange(cb) { sb.auth.onAuthStateChange((evt, session) => cb(session, evt)); },
   async myProfile() {
     const { data } = await sb.auth.getUser();
     if (!data || !data.user) return null;
