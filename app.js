@@ -785,7 +785,10 @@ function renderHome(){
     const pct=n=>c.total?(100*n/c.total):0;
     const el=document.createElement('button');
     el.className='tile'+(uid===nextUid?' next':'');
-    el.innerHTML=`${uid===nextUid?'<div class="tile-tag">מומלץ להתחיל כאן</div>':''}<div class="num">${uid}</div><div class="lbl">${c.total} מילים</div>
+    /* התג "מומלץ להתחיל כאן" הוסר. הוא ישב מעל האריח, נחתך בקצה המסך בטלפון, וחזר על
+       מידע שהמסגרת הצבעונית כבר מוסרת בשקט. המסגרת נשארת — היא מסמנת את אותו אריח
+       בלי לתפוס שורה ובלי להיחתך. */
+    el.innerHTML=`<div class="num">${uid}</div><div class="lbl">${c.total} מילים</div>
       <div class="mini"><i class="s" style="width:${pct(c.strong)}%"></i><i class="w" style="width:${pct(c.weak)}%"></i><i class="n" style="width:${pct(c.fresh)}%"></i><i class="k" style="width:${pct(c.skipped||0)}%"></i></div>`;
     el.onclick=()=>openScope('unit:'+uid);
     grid.appendChild(el);
@@ -805,6 +808,16 @@ function renderHome(){
    ואי אפשר לחזור אליה. הלחצן "מילה אחרת" הוא הדרך המכוונת להחליף, והוא סופר קדימה — כך
    שגם מי שמדלג מגיע למילים חדשות ולא מסתובב במעגל. */
 let wcOffset=0;
+/* ✕ סוגר את הכרטיס להיום ולא לתמיד. סגירה קבועה הייתה מוחקת את נקודת הכניסה היחידה
+   במסך הבית על סמך לחיצה אחת, ובלי מסך הגדרות שמחזיר אותה — וזו לחיצה שאי אפשר לבטל.
+   נשמר מספר היום, ולכן הכרטיס חוזר מחר עם מילה אחרת ממילא. */
+function wcToday(){ return Math.floor(Date.now()/86400000); }
+function wcDismissed(){
+  try{ return Number(localStorage.getItem('wcHide')) === wcToday(); }catch(e){ return false; }
+}
+function wcDismiss(){
+  try{ localStorage.setItem('wcHide', String(wcToday())); }catch(e){}
+}
 function wcPool(){
   const weak=weakCards('global');
   return weak.length ? weak : newCards('global');
@@ -820,9 +833,12 @@ function renderWordCard(){
   if(!card) return;
   const p=wcPick();
   /* אין מאגר, או שהכול נלמד — אין מה להציע, והכרטיס נעלם במקום להציג ריק. */
-  if(!p || !p.w){ card.classList.add('hidden'); return; }
+  if(!p || !p.w || wcDismissed()){ card.classList.add('hidden'); return; }
   card.classList.remove('hidden');
   $('#wcKicker').textContent = p.weak ? 'מילה לחזק' : 'מילה חדשה להיום';
+  /* התווית נגזרת ממה שהכרטיס באמת הציג. "תרגל חולשות" על מילה חדשה היה מבטיח סבב
+     חיזוק ופותח סבב של מילים שטרם נפגשו — כפתור ששמו אינו מה שהוא עושה. */
+  $('#wcPractice').textContent = p.weak ? 'תרגל חולשות' : 'תרגל מילים חדשות';
   $('#wcTerm').textContent   = p.w.term;
   $('#wcMean').textContent   = p.w.meaning || '—';
   /* חוזר למצב מכוסה בכל רינדור: מסך בית שנטען עם הפירוש פתוח מלמד לדלג על הניחוש. */
@@ -3569,6 +3585,7 @@ $('#wcReveal').onclick=()=>{
   $('#wcActs').classList.remove('hidden');
 };
 $('#wcNext').onclick=()=>{ wcOffset++; renderWordCard(); };
+$('#wcClose').onclick=()=>{ wcDismiss(); renderWordCard(); };
 /* "תרגל מילים כאלה" פותח סבב מאותו סוג שהכרטיס הציג — חלשות אם הוא הציג חלשה, חדשות
    אם חדשה. סבב של מילה בודדת אינו תרגול, והכרטיס הוא הזמנה ולא היעד. */
 $('#wcPractice').onclick=()=>{
@@ -3649,9 +3666,9 @@ function renderExamPill(){
   const c=classify('global');
   const left=c.fresh+c.weak;
   host.innerHTML = e.days===0
-    ? `<b>היום</b><span>המבחן היום. <em>בהצלחה.</em></span>`
-    : `<b>${e.days}</b><span>ימים עד המבחן · <em>${left}</em> מילים שטרם תרגלת`
-      + (e.days>0 ? ` · תרגול <em>${Math.ceil(left/e.days)}</em> מילים ביום עד המבחן` : '') + `</span>`;
+    ? `<span>המבחן <em>היום</em> · בהצלחה</span>`
+    : `<span><em>${e.days}</em> ימים עד המבחן · <em>${left}</em> מילים שטרם תרגלת`
+      + ` · תרגול <em>${Math.ceil(left/e.days)}</em> מילים ביום עד המבחן</span>`;
   host.classList.remove('hidden');
 }
 $('#accAdmin').onclick = ()=>openAdmin();
