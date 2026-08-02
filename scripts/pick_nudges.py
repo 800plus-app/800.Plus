@@ -98,7 +98,10 @@ print('נבחרו %d מתוך %d פרופילים' % (len(picked), len(profiles)
 for why, n in sorted(skipped.items(), key=lambda kv: -kv[1]):
     print('  נפסלו %3d — %s' % (n, why))
 for x in picked:
-    print('  → %s · %d מילים לחיזוק' % (x['email'], x['weak']))
+    # התאריך מודפס גם כשהוא חסר. "אין תאריך" הוא המידע שמסביר למה המייל של אדם מסוים
+    # יצא בלי שורת המבחן, ובלעדיו ההבדל בין שני מיילים נראה כתקלה.
+    when = ('%d ימים עד המבחן' % x['days']) if x['days'] is not None else 'אין תאריך מבחן'
+    print('  → %s · %d מילים לחיזוק · %s' % (x['email'], x['weak'], when))
 
 with open(os.environ.get('GITHUB_OUTPUT', os.devnull), 'a') as f:
     f.write('count=%d\n' % len(picked))
