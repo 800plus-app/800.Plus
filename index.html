@@ -533,6 +533,14 @@
        background:transparent;border:1px solid transparent;border-radius:10px;padding:6px 10px;
        cursor:pointer;font-family:inherit}
   .user-badge:hover{border-color:var(--line);color:var(--ink)}
+  /* 37 פיקסלים נמדדו בדפדפן — מתחת לאצבע. .seg מעצב סרגלים שיושבים בתוך מסך תרגול
+     ונלחצים פעם אחת; זה סרגל ניווט שנלחץ הלוך ושוב. */
+  .acc-seg{margin:18px auto 4px;max-width:520px}
+  .acc-seg button{min-height:44px}
+  /* !important כי .pbtn מגדיר display:flex, ומחלקה שמסתירה חייבת לגבור עליו. הכלל
+     נפרד מ-.hidden בכוונה: accProg ו-accAdmin מוסתרים מסיבות משלהם, ולשונית שהייתה
+     מסירה את .hidden הייתה חושפת פאנל בקרה למי שאינו אדמין. */
+  .tab-off{display:none !important}
   /* ציון דרך בכרטיס הסיום. צבע חם ולא ירוק — ירוק כבר שייך ל"בשליטה" בפס שמעליו,
      ושני ירוקים באותו כרטיס קוראים כאותו דבר. */
   .up-mile{margin-top:12px;padding:9px 12px;border-radius:12px;text-align:center;
@@ -1251,6 +1259,14 @@
       <h1 class="w-title" id="accName">—</h1>
       <p class="w-sub" id="accMail"></p>
     </div>
+    <!-- משתמש דיווח שהגדרות והתקדמות מעורבבות במסך אחד. הפיצול הוא ללשוניות ולא לשני
+         מסכים: מסך שני היה מוסיף ניווט, כפתור חזרה משלו ומצב שאפשר ללכת בו לאיבוד, בשביל
+         הפרדה שאפשר לעשות בשורה אחת. הכניסה מהשם פותחת בפרופיל, הכניסה מ-⚙ בהגדרות —
+         כל דלת מגיעה למה שחיפשו דרכה. -->
+    <div class="seg acc-seg" id="accSeg" role="tablist">
+      <button data-tab="profile" class="on" role="tab" aria-selected="true">פרופיל</button>
+      <button data-tab="settings" role="tab" aria-selected="false">הגדרות</button>
+    </div>
 
     <div class="acc-card">
       <div class="acc-row"><span>מייל</span><b id="accMail2">—</b></div>
@@ -1263,7 +1279,7 @@
     <div class="acc-prog hidden" id="accProg"></div>
 
 
-    <h3 class="acc-h">כלים</h3>
+    <h3 class="acc-h" id="accToolsH">כלים</h3>
     <!-- The daily reminder lives HERE, not only as a card that appears on the home screen once
          and is gone. A settings page is where you go looking for the thing you said "not now"
          to — and a browser notification denial is permanent, so the second chance has to exist
@@ -1700,14 +1716,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=129"></script>
-<script src="config.js?v=129"></script>
-<script src="store.js?v=129"></script>
-<script src="leveltest-he.js?v=129"></script>
-  <script src="leveltest.js?v=129"></script>
-<script src="enrank.js?v=129"></script>
-<script src="data.js?v=129"></script>
-<script src="data-en.js?v=129"></script>
-<script src="app.js?v=129"></script>
+<script src="supabase.min.js?v=130"></script>
+<script src="config.js?v=130"></script>
+<script src="store.js?v=130"></script>
+<script src="leveltest-he.js?v=130"></script>
+  <script src="leveltest.js?v=130"></script>
+<script src="enrank.js?v=130"></script>
+<script src="data.js?v=130"></script>
+<script src="data-en.js?v=130"></script>
+<script src="app.js?v=130"></script>
 </body>
 </html>

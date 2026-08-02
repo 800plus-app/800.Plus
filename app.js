@@ -3530,7 +3530,10 @@ $('#signOutBtn4').onclick = signOutNow;
 /* ===== account screen =====
    Tapping your own name opens it. For an admin the same tap opens the control centre instead —
    an admin has no use for "install the app" and every use for the list of who signed up. */
-async function openAccount(){
+async function openAccount(tab){
+  /* הדלת קובעת את הלשונית: לחיצה על השם פותחת בפרופיל, ⚙ פותח בהגדרות. מי שלא ציין —
+     נשאר במה שהיה פתוח, כדי שחזרה למסך לא תזרוק אותו ללשונית אחרת. */
+  if(tab==='profile'||tab==='settings') accTab=tab;
   /* Admins used to be bounced straight to the control panel, which meant the owner could never
      reach his own settings — no reminder toggle, no progress, no weak-words sheet. He practises
      too. The panel is now one row inside this screen instead of a redirect away from it. */
@@ -3594,12 +3597,12 @@ $('#notifAskYes').onclick=async()=>{
   try{ await NOTIF.ask(); }catch(e){}
   if(NOTIF.granted()){ NOTIF.cacheMessage(); toast('נהדר — נזכיר לך מחר בבוקר'); $('#notifCta').classList.add('hidden'); }
 };
-$('#userBadge2').onclick = openAccount;
-$('#userBadge3').onclick = openAccount;
+$('#userBadge2').onclick = ()=>openAccount('profile');
+$('#userBadge3').onclick = ()=>openAccount('profile');
 /* הדלת השנייה. הראשונה — לחיצה על השם — נשארת, כי מי שכבר מצא אותה לא צריך ללמוד מחדש;
    היא פשוט הפסיקה להיות היחידה. משתמשת דיווחה שלא ידעה שיש הגדרות באפליקציה בכלל. */
-$('#setBtn').onclick  = openAccount;
-$('#setBtnW').onclick = openAccount;
+$('#setBtn').onclick  = ()=>openAccount('settings');
+$('#setBtnW').onclick = ()=>openAccount('settings');
 $('#accBack').onclick = ()=>{ if(LANG==='he'||LANG==='en') goto('home'); else { renderWelcome(); goto('welcome'); } };
 /* ===== the exam date =====
    Stored per ACCOUNT, not per language — a person sits one psychometric exam. Kept in the
@@ -3720,6 +3723,7 @@ function renderAccProgress(){
   if(lsub) lsub.textContent = solid>=8
     ? `${solid} מילים בשליטה כדף אחד להדפסה או ל-PDF`
     : 'צריך לפחות 8 מילים בשליטה כדי לבנות דף';
+  renderAccTab();
   const sub=$('#accSheetSub');
   if(sub) sub.textContent = weak>=8
     ? `${weak} מילים לחיזוק מכל היחידות, כדף אחד להדפסה או ל-PDF`
@@ -3807,6 +3811,34 @@ $('#delGo').onclick = async ()=>{
 /* חזרה חוצת-יחידות. הכפתור בתוך יחידה מתרגל את מילות אותה יחידה בלבד, ומי שלמד לאורך
    עשר יחידות לא יכול היה לחזור על הכול. אותו startRound ואותו askSize כמו כל שאר
    המסלולים — סבב חזרה אינו סוג אחר של תרגול. */
+/* ===== שתי הלשוניות של מסך החשבון =====
+   הרשימות הן מקור האמת היחיד, ולא מחלקה שמפוזרת על עשרה אלמנטים ב-HTML. אלמנט שנוסף
+   למסך ולא נרשם כאן נשאר גלוי בשתי הלשוניות — נראה לעין מיד, ולא נעלם בשקט.
+   תאריך המבחן שייך לפרופיל ולא להגדרות: הוא נתון על הלמידה, לא העדפה. */
+const ACC_TABS = {
+  profile:  ['accProg','accReview','accLearnedSheet','accSheet','accExamRow'],
+  settings: ['accNotif','accInstall','accWhat','accAdmin','accReset','accDelete'],
+};
+let accTab='profile';
+function renderAccTab(){
+  for(const [tab, ids] of Object.entries(ACC_TABS))
+    for(const id of ids){
+      const el=$('#'+id); if(!el) continue;
+      /* accProg ו-accAdmin מוסתרים מסיבות משלהם — ריק ולא-אדמין. הלשונית לא מבטלת את
+         ההסתרה הזאת, היא רק מוסיפה עליה. */
+      el.classList.toggle('tab-off', tab!==accTab);
+    }
+  const th=$('#accToolsH'); if(th) th.textContent = accTab==='profile' ? 'הלמידה שלי' : 'כלים והגדרות';
+  $('#accSeg').querySelectorAll('button').forEach(b=>{
+    const on = b.dataset.tab===accTab;
+    b.classList.toggle('on', on);
+    b.setAttribute('aria-selected', on ? 'true' : 'false');
+  });
+}
+$('#accSeg').onclick=e=>{
+  const b=e.target.closest('button[data-tab]'); if(!b) return;
+  accTab=b.dataset.tab; renderAccTab();
+};
 $('#accReview').onclick = ()=>{
   if(LANG!=='he' && LANG!=='en'){ toast('בחר קודם שפה'); return; }
   const l=learnedCards('global');
