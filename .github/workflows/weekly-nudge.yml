@@ -32,6 +32,10 @@ on:
         description: 'להריץ בלי לשלוח'
         type: boolean
         default: true
+      preview_to:
+        description: 'תצוגה מקדימה — כתובת אחת שתקבל את המייל במקום כל הרשימה'
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -69,7 +73,10 @@ jobs:
       - name: שליחה
         if: steps.pick.outputs.count != '0'
         env:
-          DRY: ${{ inputs.dry_run == false && 'false' || 'true' }}
+          # כתובת תצוגה מקדימה משביתה את הריצה היבשה: מי שביקש לראות את המייל בתיבה
+          # שלו התכוון שיישלח מייל אחד, ולא שתודפס עוד שורת לוג.
+          DRY: ${{ (inputs.dry_run == false || inputs.preview_to != '') && 'false' || 'true' }}
+          PREVIEW: ${{ inputs.preview_to }}
           RESEND: ${{ secrets.RESEND_API_KEY }}
           URL: ${{ secrets.SUPABASE_URL }}
           KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
