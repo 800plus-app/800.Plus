@@ -1,86 +1,84 @@
 name: backup
 
-# ⛔ DISABLED 1.8.2026 — house-check 2, finding #1. Do not re-enable without reading this.
+# גיבוי יומי של מסד הנתונים — אל ריפו פרטי נפרד.
 #
-# WHAT WENT WRONG
-# ---------------
-# The header used to say the dump went to "a private branch of this repo". A BRANCH IS NOT A
-# PRIVACY BOUNDARY. Every branch of a public repository is public, and this repository is public
-# (verified unauthenticated: the API returns "private": false) because GitHub Pages serves
-# 800-plus.com from it. So one manual run published 14 email addresses, 16 progress blobs
-# including private associations, 3 feedback rows with User-Agent strings, and 12 association
-# rows carrying user_id — to anyone who runs `git clone`.
+# ההיסטוריה, כי היא מסבירה כל שורה כאן
+# ------------------------------------
+# הגרסה הקודמת דחפה dump של חמש טבלאות לענף `backups` של הריפו הזה, וכתבה בכותרת
+# שזה "ענף פרטי". ענף אינו גבול פרטיות. כל ענף של ריפו ציבורי הוא ציבורי, והריפו הזה
+# ציבורי (אומת ללא הזדהות: ה-API מחזיר "private": false) כי GitHub Pages מגיש ממנו את
+# 800-plus.com. ריצה ידנית אחת פרסמה 14 כתובות מייל, 16 בלובי התקדמות הכוללים
+# אסוציאציות פרטיות, 3 דיווחים עם User-Agent, ו-12 שורות אסוציאציות עם user_id.
+# הענף נמחק ב-2.8.2026, והקובץ הזה מחליף אותו.
 #
-# The schedule is removed rather than commented out, so it cannot be re-armed by deleting a
-# `#`. The preflight step below now refuses to run at all unless the repository is private,
-# which makes the original mistake structurally impossible rather than merely documented.
+# להפוך את הריפו הזה לפרטי אינו פתרון: זה היה מוריד את 800-plus.com, כי Pages מריפו
+# פרטי דורש מנוי בתשלום.
 #
-# WHAT IS STILL WRONG UNTIL SOMEONE ACTS
-# --------------------------------------
-# The `backups` branch still exists and still holds that data:
-#     git push origin --delete backups
-# Disabling this workflow stops NEW dumps. It does not remove the one already published.
+# היעד עכשיו
+# -----------
+#   Hagay-BOT/800plus-backups — ריפו נפרד, פרטי, שאינו מגיש שום אתר.
 #
-# BEFORE RE-ENABLING — pick a destination, because each has a real cost:
-#   1. A separate PRIVATE repo + a PAT in Secrets. Cleanest. Needs a repo created by hand.
-#   2. Encrypt before committing (gpg --symmetric, passphrase in Secrets). No new repo — but a
-#      lost passphrase means an unrestorable backup, and "a backup that was never restored is
-#      not a backup, it is a promise" is the finding right next to this one.
-#   3. External object storage (S3 / Drive). Most work, fewest surprises.
-# Making THIS repo private is not on the list: it would take 800-plus.com down, because Pages
-# from a private repo requires a paid plan.
+# שני סודות דרושים ב-Settings → Secrets and variables → Actions של הריפו הזה:
 #
-# ONE secret is needed:
 #   SUPABASE_SERVICE_KEY  — Supabase → Project Settings → API → service_role
-#   Settings → Secrets and variables → Actions → New repository secret
+#   BACKUP_REPO_TOKEN     — Personal Access Token עם הרשאת `repo` על ריפו הגיבויים.
+#                           GITHUB_TOKEN המובנה לא יכול לשמש: הוא מוגבל לריפו שרץ בו.
 #
-# ⚠ That key can read and write everything. It belongs ONLY in GitHub Secrets — never in a
-#   file, never in a commit, never pasted into a chat. GitHub masks it in logs automatically.
+# ⚠ שני המפתחות האלה קוראים וכותבים הכול. מקומם רק ב-GitHub Secrets — לא בקובץ, לא
+#   בקומיט, לא בהודעה. GitHub מסתיר אותם בלוגים אוטומטית.
+#
+# הגנת העומק: הצעד הראשון בודק שהיעד באמת פרטי — לפני ה-checkout, ולפני שמפתח השירות
+# נכנס לסביבה בכלל. ריצה שאסור לה לקרות לא תגיע לידי החזקת המפתח. זו אותה טעות שקרתה,
+# מנוטרלת מבנית ולא רק מתועדת.
 
 on:
+  schedule:
+    - cron: '0 1 * * *'          # 01:00 UTC = 04:00 בישראל
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read                 # אין כתיבה לריפו הזה. הכתיבה היא לריפו הגיבויים בלבד.
+
+env:
+  BACKUP_REPO: Hagay-BOT/800plus-backups
 
 jobs:
   dump:
     runs-on: ubuntu-latest
     steps:
-      # The guard that should have existed from the first line of this file. It is deliberately
-      # the FIRST step, before the checkout and long before the service key is in the environment:
-      # a run that must not happen must not get as far as holding the key.
-      - name: Refuse to write user data into a public repository
+      - name: Refuse to write user data anywhere public
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.BACKUP_REPO_TOKEN }}
         run: |
-          vis=$(gh repo view ${{ github.repository }} --json visibility --jq .visibility)
-          echo "repository visibility: $vis"
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::error::BACKUP_REPO_TOKEN is not set — see the header of this file"
+            exit 1
+          fi
+          vis=$(gh repo view "$BACKUP_REPO" --json visibility --jq .visibility)
+          echo "destination $BACKUP_REPO visibility: $vis"
           if [ "$vis" != "PRIVATE" ]; then
-            echo "::error::${{ github.repository }} is $vis. A branch is not a privacy boundary —"
-            echo "::error::every branch of a public repo is public. Refusing to dump user data."
-            echo "::error::See the header of this file for the three destinations to choose from."
+            echo "::error::$BACKUP_REPO is $vis. Refusing to dump user data into it."
             exit 1
           fi
 
-      - uses: actions/checkout@v4
+      - name: Check out the backup repository
+        uses: actions/checkout@v4
         with:
-          ref: backups
+          repository: Hagay-BOT/800plus-backups
+          token: ${{ secrets.BACKUP_REPO_TOKEN }}
           fetch-depth: 1
-        continue-on-error: true       # first ever run: the branch does not exist yet
+          path: backup
 
-      - name: Prepare the branch
+      - name: Prepare
+        working-directory: backup
         run: |
           git config user.name  "backup-bot"
           git config user.email "actions@github.com"
-          if ! git rev-parse --verify backups >/dev/null 2>&1; then
-            git checkout --orphan backups
-            git rm -rf . >/dev/null 2>&1 || true
-            echo "גיבויים יומיים של בסיס הנתונים. לא לערוך ידנית." > README.md
-          fi
           mkdir -p data
+          [ -f README.md ] || echo "גיבויים יומיים של מסד הנתונים של 800+. לא לערוך ידנית." > README.md
 
       - name: Pull every table
+        working-directory: backup
         env:
           URL: ${{ secrets.SUPABASE_URL }}
           KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
@@ -97,8 +95,8 @@ jobs:
               "$BASE/rest/v1/$t?select=*" \
               -H "apikey: $KEY" -H "Authorization: Bearer $KEY")
             if [ "$code" != "200" ]; then
-              # a table that does not exist is not a failure; a table that exists and
-              # refuses to answer is, and the difference must not be swallowed
+              # טבלה שאינה קיימת אינה כישלון; טבלה שקיימת ומסרבת לענות — כן.
+              # ההבדל בין השניים לא ייבלע.
               if [ "$code" = "404" ]; then
                 echo "::notice::$t does not exist in this project — skipped"
                 rm -f "$out"
@@ -107,10 +105,10 @@ jobs:
               echo "::error::$t returned HTTP $code"
               exit 1
             fi
-            n=$(python3 -c "import json,sys;print(len(json.load(open('$out'))))")
+            n=$(python3 -c "import json;print(len(json.load(open('$out'))))")
             echo "  $t: $n rows"
-            # A table that had rows yesterday and none today is the exact shape of a
-            # disaster. Refuse to overwrite a good backup with an empty one.
+            # טבלה שאתמול היו בה שורות והיום אין — זו בדיוק צורתה של תקלה.
+            # מסרב לדרוס גיבוי טוב בריק.
             if [ "$n" = "0" ] && [ -s "data/$t.count" ] && [ "$(cat "data/$t.count")" != "0" ]; then
               echo "::error::$t came back empty but had $(cat "data/$t.count") rows yesterday — refusing to overwrite"
               exit 1
@@ -119,6 +117,7 @@ jobs:
           done
 
       - name: Commit
+        working-directory: backup
         run: |
           git add -A
           if git diff --cached --quiet; then
@@ -126,4 +125,4 @@ jobs:
             exit 0
           fi
           git commit -m "גיבוי $(date -u '+%Y-%m-%d')"
-          git push origin backups
+          git push
