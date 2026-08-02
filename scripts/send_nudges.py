@@ -34,6 +34,10 @@ if PREVIEW:
     print('תצוגה מקדימה בלבד — נמען אחד: %s' % PREVIEW)
 
 def post(url, payload, headers):
+    # User-Agent מפורש. ברירת המחדל של urllib היא "Python-urllib/3.x", ו-Cloudflare
+    # שיושב לפני api.resend.com חוסם אותה — 403 עם "error code: 1010", שנראה בדיוק כמו
+    # מפתח פסול או דומיין לא מאומת. אף אחד מהם לא היה השורש.
+    headers = dict(headers, **{'User-Agent': '800plus-nudge/1.0 (+https://800-plus.com)'})
     req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'),
                                  headers=headers, method='POST')
     # 4xx מגיע כחריגה, וגוף התשובה נזרק איתה. אצל Resend הגוף הוא כל האבחנה — "domain is
