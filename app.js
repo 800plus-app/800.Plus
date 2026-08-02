@@ -738,7 +738,7 @@ function renderHome(){
   if(cta){
     cta.classList.toggle('hidden', weakAll.length < 4);
     $('#homeWeakSub').textContent =
-      `${weakAll.length} מילים לחיזוק — מכל היחידות, בלי לבחור אחת`;
+      `${weakAll.length} מילים לחיזוק · מכל יחידות הלימוד`;
   }
   renderDirSegs();
   renderWordCard();
