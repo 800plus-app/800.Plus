@@ -3578,8 +3578,8 @@ function renderExamPill(){
   const left=c.fresh+c.weak;
   host.innerHTML = e.days===0
     ? `<b>היום</b><span>המבחן היום. <em>בהצלחה.</em></span>`
-    : `<b>${e.days}</b><span>ימים למבחן · <em>${left}</em> מילים עוד לא יושבות`
-      + (e.days>0 ? ` · <em>${Math.ceil(left/e.days)}</em> ביום וסיימת` : '') + `</span>`;
+    : `<b>${e.days}</b><span>ימים עד המבחן · <em>${left}</em> מילים שטרם תרגלת`
+      + (e.days>0 ? ` · תרגול <em>${Math.ceil(left/e.days)}</em> מילים ביום עד המבחן` : '') + `</span>`;
   host.classList.remove('hidden');
 }
 $('#accAdmin').onclick = ()=>openAdmin();
