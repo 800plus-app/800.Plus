@@ -1055,6 +1055,14 @@ function renderCard(){
   answered=false;
   if(idx<0 || idx>=deck.length){ finishRound(); return; }
   const w=deck[idx];
+  /* הכרטיס נרשם ברגע שהוא מוצג, ולא רק כשעונים עליו.
+     session היה מתמלא ב-finishCard בלבד, ולכן הכרטיס שהיה על המסך ברגע שהלומד יצא לא נספר
+     כלל — ו-newCards, שמסננת לפי seen===0, החזירה אותו כ"מילה שעוד לא תרגלתי". סימולציה של
+     סבבי תרגול אמיתיים (scratchpad/practice_sim.js) מדדה אפס חזרות בסבב שהושלם מול 60 חזרות
+     כשהסבב ננטש — הפרש של כרטיס אחד בדיוק לכל סבב, וזה הכרטיס הזה.
+     commitSession מבדילה בין רשומה כזאת (attempts===0) לבין תשובה, ולכן הרישום כאן אינו
+     מחשיב אותה טעות. */
+  sess(w);
   $('#progBar').style.width = (100*idx/deck.length)+'%';
   $('#qCount').textContent = `מילה ${idx+1} מתוך ${deck.length}`;
   $('#qLive').textContent = `✓ ${correct}`;
@@ -1482,7 +1490,11 @@ function commitSession(){
     const wasNew = r.seen===0;
     if(wasNew) nw++;
     r.seen++;
-    if(e.mastered && e.firstTry){                       // knew it (correct on first attempt of the round)
+    /* הוצג ולא נענה. הלומד נפגש עם המילה — ולכן seen עלה למעלה — אבל הוא לא ענה תשובה
+       שגויה, הוא לא ענה בכלל. לרשום כאן wrong ולהוריד level היה מעניש אותו על סגירת
+       האפליקציה ודוחף את המילה לרשימת החיזוק בלי שום ראיה שהיא חלשה. */
+    if(e.attempts===0){ r.last=now; return; }
+    if(e.mastered && e.firstTry){                     // knew it (correct on first attempt of the round)
       r.first++; r.ever++;
       // a retry of a word just missed proves short-term recall, not knowledge: credit it, but
       // never let it climb past where the word already stood before the round began
