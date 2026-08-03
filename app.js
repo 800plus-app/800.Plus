@@ -1065,7 +1065,14 @@ let session=new Map(), sessionScope='global', sessionMode='all', committed=false
    round — visibilitychange fires every time a notification pulls the learner away. */
 let committedKeys=new Set(), sessionRowId=null;
 
-function sess(w){ const k=K(w.term); if(!session.has(k)) session.set(k,{w,attempts:0,mastered:false,firstTry:false}); return session.get(k); }
+/* committed מסמן "אין עבודה שלא נשמרה". הוא קיבל true בשני מקומות והתאפס במקום אחד בלבד —
+   תחילת סבב — ולכן אחרי ההפרעה הראשונה (נעילת מסך, התראה שקפצה) הוא נשאר true לכל אורך
+   הסבב. שבעת אתרי הקומיט ששואלים `if(!committed && session.size>0)` דילגו, וכל מה שנענה
+   אחרי ההפרעה נזרק: 20 מילים, הפרעה אחרי 3, ורק 3 נשמרות.
+   ההערה שמעל commitSession מתארת בדיוק את התרחיש ומכריזה שהוא נסגר — מה שנבנה בפועל היה
+   committedKeys, שמגן מפני קומיט כפול של אותה מילה. הגנה נכונה, על בעיה אחרת.
+   האיפוס כאן בטוח בזכותה: קריאה נוספת על מילה שכבר נשמרה אינה מוסיפה לה דבר. */
+function sess(w){ const k=K(w.term); if(!session.has(k)){ session.set(k,{w,attempts:0,mastered:false,firstTry:false}); committed=false; } return session.get(k); }
 
 let isRetryRound=false;
 function startRound(cards, scope, mode, retry){
@@ -1223,6 +1230,11 @@ let acceptedAlt=null;      // set when the answer was a different word with the 
 function check(){
   if(answered||!deck[idx]) return;
   const w=deck[idx], v=$('#answerInput').value;
+  /* שדה ריק אינו תשובה. Enter מוחזק לחוץ: ההקשה הראשונה עונה, השנייה מגיעה ל-#nextBtn
+     שקיבל פוקוס ועוברת לכרטיס הבא, והשלישית נוחתת על #answerInput שהוחזר לו פוקוס אחרי
+     30ms — ומסמנת כרטיס כשגוי בלי שהלומד ראה אותו. isCorrect('') מחזיר false, ולא היה
+     שום שער לפניו. החזקת Enter שרפה כך חצי מהחפיסה. */
+  if(!String(v).trim()) return;
   acceptedAlt=null;
   if(w._dir==='w2m'){
     const ok=meaningMatch(v, w.meaning);
@@ -2328,7 +2340,10 @@ function lvFinish(){
   hide($('#lvQuiz')); show($('#lvResult'));
   $('#lvBadge').textContent=level||'A1−';
   $('#lvVerdict').textContent = level
-    ? LV_LABEL[level]+' — הרמה הגבוהה ביותר שעברת בה 5 מתוך 6.'
+    /* נגזר מהקבועים ולא כתוב כמספר. v141 הוריד את הבלוק מ-6/5 ל-5/4, עדכן את index.html
+       ושכח את המחרוזת הזאת — והמסך אמר "5 מתוך 6" בזמן שהטבלה שורה מתחתיו הדפיסה "4/5 ✓".
+       הכיול הבא לא יוכל להשאיר את המסך משקר. */
+    ? LV_LABEL[level]+` — הרמה הגבוהה ביותר שעברת בה ${LV_PASS} מתוך ${LV_BLOCK}.`
     : 'נתחיל מהבסיס — זה בדיוק מה שהאפליקציה נועדה לסגור.';
   $('#lvBands').innerHTML=LV_BANDS.map(([b,name])=>{
     const p=per[b]||{n:0,ok:0};
@@ -3204,6 +3219,17 @@ function mergeProgress(local, remote){
     words[k]={ seen:Math.max(a.seen,b.seen), first:Math.max(a.first,b.first), ever:Math.max(a.ever,b.ever),
                wrong:Math.max(a.wrong,b.wrong), level:newer.level, last:Math.max(a.last,b.last) };
     if(newer.src) words[k].src=newer.src;
+    /* saneRec ו-mergeProgress הן שתי רשימות לבנות נפרדות, ושדה שנוסף לאחת ולא לשנייה נמחק
+       בשקט בסנכרון הבא. כך אבדו כאן `sens` ו-`k0` — ולא בהתנגשות בין מכשירים, אלא בכל
+       סבב: flushRemoteSync ממזג בסופו, ו-absorbDisk ממזג בין שתי לשוניות.
+       הנזק היה שהמיזוג ביטל שני תיקונים שכבר נעשו — sens החזיר כל מילה רב-משמעית ל"לחיזוק"
+       לצמיתות, ו-k0 שנמחק בעוד src:'known' שרד הפך את ביטול הסימון למחיקת היסטוריה.
+       איחוד ל-sens, כי פירוש שנכתב במכשיר אחד נכתב; מקסימום ל-k0, כי הוא היסטוריה
+       ולהעדיף את הנמוך פירושו שסנכרון יכול להוריד רמה שהלומד השיג. */
+    const sens=[...new Set([...(Array.isArray(a.sens)?a.sens:[]), ...(Array.isArray(b.sens)?b.sens:[])])]
+                 .map(x=>int0(x,7)).sort((p,q)=>p-q);
+    if(sens.length) words[k].sens=[...new Set(sens)];
+    if(a.k0!==undefined || b.k0!==undefined) words[k].k0=Math.max(int0(a.k0), int0(b.k0));
   }
   const ls=Array.isArray(local.stats&&local.stats.sessions)?local.stats.sessions:[];
   const rs=Array.isArray(remote.stats&&remote.stats.sessions)?remote.stats.sessions:[];
@@ -3286,7 +3312,12 @@ async function syncWithRemoteInner(lang){
   if(remote) applyExtras(lang, remote.extras);   // level / exams / size are not language-loaded state
   if(remote && lang===LANG){
     const before = added.length;
-    const merged=mergeProgress({assoc,stats,deleted:[...deleted],added,dir:direction}, remote);
+    /* undeleted חסר כאן והיה קיים בשני מסלולי המיזוג האחרים. בלעדיו mergeProgress אינו יכול
+       לחסר את מה שהלומד שחזר, האיחוד מחזיר את המחיקה מהענן, saveDeleted כותב אותה לדיסק
+       ו-pushProgress דוחף אותה בחזרה — ואז המסלול הבא, שכן מעביר את היומן, משחזר שוב.
+       המילה מהבהבת פנימה והחוצה לפי מי סנכרן אחרון. pullIfStale רץ על focus, כך שמעבר
+       ללשונית אחרת וחזרה הספיק. */
+    const merged=mergeProgress({assoc,stats,deleted:[...deleted],added,dir:direction,undeleted:restoredMap()}, remote);
     assoc=merged.assoc; stats=merged.stats; deleted=new Set(merged.deleted); added=merged.added; direction=merged.dir;
     /* Prune AFTER the merge, not only before it. enterLang() prunes and then syncs — and the
        merge is max-based, so every orphan the cloud still holds comes straight back and is
@@ -3865,8 +3896,10 @@ function renderAccExam(){
   inp.min = today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'
           + String(today.getDate()).padStart(2,'0');
   sub.textContent = !e ? 'נוסיף ספירה לאחור למסך הבית'
-    : e.days > 0 ? `נשארו ${e.days} ימים`
     : e.days === 0 ? 'המבחן היום. בהצלחה.'
+    : e.days === 1 ? 'המבחן מחר'
+    : e.days === 2 ? 'נשארו יומיים'
+    : e.days > 0 ? `נשארו ${e.days} ימים`
     : 'התאריך עבר — אפשר לעדכן למועד הבא';
 }
 $('#accExam').onchange = ()=>{
@@ -3883,9 +3916,16 @@ function renderExamPill(){
   if(!e || e.days < 0 || e.days > 400){ host.classList.add('hidden'); return; }
   const c=classify('global');
   const left=c.fresh+c.weak;
-  host.innerHTML = e.days===0
-    ? `<span>המבחן <em>היום</em> · בהצלחה</span>`
-    : `<span><em>${e.days}</em> ימים עד המבחן · <em>${left}</em> מילים שטרם תרגלת`
+  /* "1 ימים" אינו עברית, וזה ההבדל בין ספירה אישית לבין מחרוזת שהורכבה במכונה — ביום
+     שלפני המבחן, הרגע הכי טעון. שורת "תרגול N מילים ביום" נעלמת ביום ובמחר: היא מחלקת
+     במספר הימים, וביום אחד היא מחזירה את כל המאגר ליום — ערך אבסורדי, ולכן אין שורה. */
+  const soon = e.days===0 ? `המבחן <em>היום</em> · בהצלחה`
+             : e.days===1 ? `המבחן <em>מחר</em> · <em>${left}</em> מילים שטרם תרגלת`
+             : null;
+  host.innerHTML = soon ? `<span>${soon}</span>`
+    : `<span>` + (e.days===2 ? `נשארו <em>יומיים</em> עד המבחן`
+                             : `<em>${e.days}</em> ימים עד המבחן`)
+      + ` · <em>${left}</em> מילים שטרם תרגלת`
       + ` · תרגול <em>${Math.ceil(left/e.days)}</em> מילים ביום עד המבחן</span>`;
   host.classList.remove('hidden');
 }
