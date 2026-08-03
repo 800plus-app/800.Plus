@@ -1222,8 +1222,17 @@ function creditSense(w, typed){
     segs.forEach((seg,k)=>{ const d=editDist(a,seg); if(d<bd){ bd=d; best=k; } });
     if(best>=0 && bd<=Math.max(1, Math.floor(segs[best].length/3))) i=best;
   }
-  if(i<0) i=segs.findIndex((_,k)=>!s.includes(k));   // הצהיר שידע — מזכים בפירוש שטרם ניתן
-  if(i<0) return;                                    // כולם כבר זוכו
+  /* אין שלב שלישי, ובכוונה. הגרסה הראשונה של הפונקציה הזאת זיכתה בפירוש הראשון שטרם ניתן
+     כשהטקסט לא התאים לאף פירוש — ומדידה הראתה שזה יוצר מצב הפוך לגמרי מהכוונה: לומד
+     שכותב שוב את הפירוש שהוא יודע אינו מזוכה בכלום (הפירוש כבר זוכה), ומי שכותב שטויות
+     כן מזוכה (שטויות אינן מתאימות לאף פירוש ולכן נפלו לשלב ההוא).
+     התיקון הנכון אינו לזכות גם על חזרה — שתי לחיצות היו פותחות את התקרה, והתקרה קיימת
+     בדיוק כדי שידיעת פירוש אחד לא תיחשב שליטה. זו הייתה בקשה מפורשת.
+     מי שיודע את המילה ורוצה שיפסיקו לשאול אותו עליה — יש לו "ידעתי" בניהול מילים (v147),
+     שמסמן ישירות ולא דרך ניחוש איזה פירוש התכוון אליו.
+     מה שנשאר כאן הוא הבאג המקורי בלבד: noteSense מזכה רק בהתאמה מדויקת, ולכן תשובה נכונה
+     עם שגיאת כתיב לא זוכתה לעולם. שלב 2 סוגר בדיוק את זה. */
+  if(i<0) return;
   if(!s.includes(i)){ s.push(i); r.sens=s.slice(0,8); }
 }
 let acceptedAlt=null;      // set when the answer was a different word with the same gloss
@@ -2657,7 +2666,7 @@ function exWords(uid){
 /* Distractors come from the same unit, so difficulty is uniform and a wrong option can never
    be "obviously from somewhere else". Anything that overlaps the real answer is discarded —
    two options that are both defensible make the item unanswerable, not hard. */
-function exDistract(pool, item, field, taken){
+function exDistract(pool, item, field, taken, wider){
   const right=item[field], rn=norm(right);
   // A candidate must differ from the item on BOTH fields, not just the one being shown.
   // Comparing only the displayed field was a real hole: the unit lists אביון, חלכאי, מך and רש
@@ -2677,6 +2686,16 @@ function exDistract(pool, item, field, taken){
   // solution a question early. In a unit small enough that the paper covers most of it there
   // is nothing else to draw on, so relax rather than fail to build the question at all.
   let ok=pool.filter(o=>usable(o) && !taken.has(norm(o[field])));
+  /* שכבת ביניים, שנוספה אחרי v148. ההקלה שמתחת נכתבה ליחידות קטנות שהמבחן מכסה כמעט
+     במלואן — אבל בורר "כל היחידה" הפך אותה לברירת המחדל בכל שאלה בכל יחידה: taken מכיל
+     אז את כל הבריכה, ולכן השורה הראשונה תמיד ריקה. נמדד: בגודל 20 — 0 מתוך 56 מסיחים הם
+     תשובה של שאלה אחרת; ב"כל היחידה" — 178 מתוך 532.
+     wider הוא שאר השפה, ולכן מסיח משם עדיין באותה שפה ובאותו סוג מילה, והוא אינו תשובה
+     של שום שאלה בטופס. רק כשגם הוא ריק חוזרים להקלה המקורית. */
+  if(ok.length<3 && Array.isArray(wider) && wider.length){
+    const seen=new Set(pool.map(o=>o.k));
+    ok=ok.concat(wider.filter(o=>!seen.has(o.k) && usable(o) && !taken.has(norm(o[field]))));
+  }
   if(ok.length<3) ok=pool.filter(usable);
   // Two distractors that differ only in vowel points or punctuation read as the same option
   // twice, which quietly turns a four-way question into a three-way one.
@@ -2732,16 +2751,26 @@ function exBuild(uid, want){
   };
   const goodProduce=it=>oneWord(it.term) && !isTranslit(it.meaning, it.term) && !glossIsAWord(it);
   picked.sort((a,b)=>(goodProduce(a)?1:0)-(goodProduce(b)?1:0));
+  /* בריכת הגיבוי: שאר מילות השפה, מחוץ ליחידה הזאת. נבנית פעם אחת למבחן ולא לכל שאלה. */
+  const nk=LANG==='en'?normEn:norm;
+  const inUnit=new Set(pool.map(o=>o.k));
+  const wider=[];
+  for(const w of BANK){
+    const k=nk(w.term);
+    if(!k || inUnit.has(k) || !w.meaning) continue;
+    if(!exTestable(w.term, w.meaning)) continue;
+    wider.push({term:w.term, meaning:w.meaning, k});
+  }
   // Every answer in the paper, so no distractor can leak one.
   const taken=new Set(picked.map(it=>norm(it.term)).concat(picked.map(it=>norm(it.meaning))));
   return picked.map((it,i)=>{
     const kind = i<nRec ? 'recognise' : i<nRec+nRet ? 'retrieve' : 'produce';
     if(kind==='recognise'){
-      const d=exDistract(pool,it,'meaning',taken);
+      const d=exDistract(pool,it,'meaning',taken,wider);
       return d.length<3 ? null : {kind, it, prompt:it.term, answer:it.meaning, opts:shuffle([it.meaning,...d])};
     }
     if(kind==='retrieve'){
-      const d=exDistract(pool,it,'term',taken);
+      const d=exDistract(pool,it,'term',taken,wider);
       return d.length<3 ? null : {kind, it, prompt:maskTerm(it.meaning,it.term), answer:it.term, opts:shuffle([it.term,...d])};
     }
     // A write-in has no options to disambiguate it, so if two words in the unit share a gloss
