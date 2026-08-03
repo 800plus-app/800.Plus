@@ -83,28 +83,37 @@
       <div class="row low"><b>מילולי</b><span class="bar"><i style="width:41%"></i></span><span class="n">104</span></div>
       <div class="row low"><b>אנגלית</b><span class="bar"><i style="width:38%"></i></span><span class="n">101</span></div>
     </div>
-    <div class="sub">הכמותי בסדר גמור, בעוד המילולי והאנגלית גוררים את הציון למטה…</div>
+    <div class="sub">הכמותי בסדר גמור · המילולי והאנגלית מורידים את הציון</div>
   </div>
 
   <div class="beat" id="b3">
     <div class="line">זה לא חוסר יכולת.<br><em>זה אוצר מילים.</em></div>
-    <div class="stat"><b>4 מתוך 6</b> פרקים בפסיכומטרי<br>נשענים על אוצר מילים.</div>
+    <div class="stat"><b>4 מתוך 6</b> פרקי הפסיכומטרי<br>נשענים על אוצר מילים</div>
   </div>
 
   <div class="beat" id="b4">
-    <div class="line" style="font-size:1.5rem">אז מה אנחנו מציעים?</div>
+    <!-- לא "מה יש ב-800+": ערבוב עברית עם ספרות ו-+ יוצא הפוך ברינדור, נמדד בפריים. -->
+    <div class="line" style="font-size:1.5rem">מה יש באפליקציה</div>
+    <!-- כל שורה כאן ניתנת לאימות מול הקוד. מבחן רמה: leveltest.js · מותאם אליך: newCards
+         ב-app.js · 10 יחידות מדורגות: METHODOLOGY.md, בניית v145 · כתיבת התשובה: check()
+         ב-app.js · דף להדפסה: exPrint · אופליין: sw.js -->
     <div class="mech">
-      <div class="m"><span>🎯</span><div>מבחן רמה שבוחן איפה אתה עומד</div></div>
-      <div class="m"><span>📈</span><div>לומדה אדפטיבית שמתכווננת ליכולות שלך</div></div>
-      <div class="m"><span>🔎</span><div>מיקוד במילים השכיחות במבחן</div></div>
-      <div class="m"><span>🧠</span><div>חשיבה אקטיבית על כל מילה — בלי שינון פסיבי</div></div>
-      <div class="m"><span>📄</span><div>מבחן מסכם לכל יחידה, גם בגרסה מודפסת</div></div>
-      <div class="m"><span>📶</span><div>עובד בלי אינטרנט, ומסתנכרן בין המכשירים</div></div>
+      <div class="m"><span>🎯</span><div>מבחן רמה מסתגל שבוחן מילים מכלל היחידות</div></div>
+      <div class="m"><span>📈</span><div>תרגול שמותאם אליך · מילה שטעית בה חוזרת</div></div>
+      <div class="m"><span>🔎</span><div>10 יחידות לימוד מדורגות לפי רמת קושי</div></div>
+      <div class="m"><span>🧠</span><div>כתיבת התשובה, לא בחירה מתוך רשימה</div></div>
+      <div class="m"><span>📄</span><div>מבחן מסכם לכל יחידה · גם כדף להדפסה</div></div>
+      <div class="m"><span>📶</span><div>מותקן כאפליקציה · עובד גם בלי אינטרנט</div></div>
     </div>
   </div>
 
   <div class="beat" id="b5">
-    <div class="huge">5,413</div>
+    <!-- המספר חייב להיות זהה למאגר בפועל. לאימות לפני כל רינדור מחדש:
+         node -e "global.window=global;require('./data.js');require('./data-en.js');
+         const c=o=>Object.values(o).reduce((a,b)=>a+b.length,0);
+         console.log(c(UNIT_DATA)+c(UNIT_DATA_EN))"
+         3.8.2026 → 5,662 (1,717 עברית + 3,945 אנגלית). הגרסה הקודמת אמרה 5,413 והתיישנה. -->
+    <div class="huge">5,662</div>
     <div class="sub">מילים בעברית ובאנגלית.<br>כמה מהן אתה באמת מכיר?</div>
   </div>
 
