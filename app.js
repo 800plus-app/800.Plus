@@ -3801,7 +3801,12 @@ const signOutNow = async ()=>{
   /* If the save did not land, the device holds the ONLY copy — so it is not erased. Keeping it
      is safe: bindCacheToUser() wipes the cache the moment a different account signs in, so the
      next user still cannot see it, while this user keeps the round they just finished. */
-  let saved=true;
+  /* בלי חשבון אין עותק בענן, ולכן אין מה "לשמור" לפני מחיקה — ו-localStorage.clear() למטה
+     הוא אובדן נקי. `saved` התחיל כ-true, ומצב הצצה מדלג על ה-if שמתחתיו, ולכן לחיצה על
+     "התנתקות" במסך ההגדרות מחקה בדיוק את ההתקדמות שהפס הזהוב מבטיח שתעבור לחשבון —
+     בלי שאלה ובלי דרך חזרה.
+     ה-else שכבר קיים למטה הוא התשובה הנכונה: מכשיר שמחזיק את העותק היחיד אינו נמחק. */
+  let saved=!!currentUser;
   try{
     if(currentUser && (LANG==='he' || LANG==='en')){
       syncPending=true;
@@ -4135,6 +4140,11 @@ function renderAccTab(){
          ההסתרה הזאת, היא רק מוסיפה עליה. */
       el.classList.toggle('tab-off', tab!==accTab);
     }
+  /* אזור מסוכן למי שאין לו חשבון. במצב הצצה PREVIEW מסנן את היחידות בלבד — כל השאר פתוח,
+     כולל "התנתקות", "אפס התקדמות" ו"מחק חשבון", למי שאין לו חשבון למחוק. שלושתם רק מוחקים
+     מקומית, ולכן הם לא פעולה שהוא יכול לרצות. */
+  if(PREVIEW) for(const id of ['accSignOut','accReset','accDelete'])
+    { const el=$('#'+id); if(el) el.classList.add('tab-off'); }
   const th=$('#accToolsH'); if(th) th.textContent = accTab==='profile' ? 'הלמידה שלי' : 'כלים והגדרות';
   $('#accSeg').querySelectorAll('button').forEach(b=>{
     const on = b.dataset.tab===accTab;
