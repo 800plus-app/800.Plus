@@ -32,6 +32,13 @@ const SERVICE_KEY  = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
 const VAPID_PUB    = Deno.env.get('VAPID_PUBLIC') ?? '';
 const VAPID_PRIV   = Deno.env.get('VAPID_PRIVATE') ?? '';
 const VAPID_SUB    = Deno.env.get('VAPID_SUBJECT') ?? 'mailto:admin@800-plus.com';
+/* שער הרשאה. verify_jwt של Supabase (ברירת מחדל) דורש רק JWT חתום — והמפתח האנונימי,
+   שמספיק לו, פומבי (config.js). כלומר כל מי שקורא את config.js יכול להפעיל בליץ' התראות
+   לכל המנויים. הסוד הזה, שרק המפעיל האוטומטי מחזיק, הוא ההרשאה האמיתית.
+   ⚠ פריסה: (1) הגדר PUSH_TRIGGER_SECRET ב-Supabase → Edge Functions → Secrets.
+             (2) עדכן את הקורא (cron/Action) לשלוח אותו ככותרת x-trigger-secret.
+   עד שהסוד יוגדר הפונקציה מסרבת לכולם — עדיף אפס התראות על פני פתוח לכל. */
+const TRIGGER_SECRET = Deno.env.get('PUSH_TRIGGER_SECRET') ?? '';
 
 /* base64url בלי ריפוד — הקידוד שכל תקני ה-Push וה-JWT משתמשים בו. */
 const b64url = (b: Uint8Array) =>
@@ -86,6 +93,12 @@ async function rest(path: string, init: RequestInit = {}) {
 }
 
 Deno.serve(async (req) => {
+  // ההרשאה האמיתית: סוד שרק המפעיל האוטומטי מחזיק. סוד לא מוגדר = סירוב לכולם (fail-closed).
+  if (!TRIGGER_SECRET || req.headers.get('x-trigger-secret') !== TRIGGER_SECRET) {
+    return new Response(JSON.stringify({ error: 'unauthorized' }),
+      { status: 401, headers: { 'Content-Type': 'application/json' } });
+  }
+
   if (!VAPID_PRIV || !VAPID_PUB) {
     // נכשל בקול. פונקציה ששולחת אפס התראות ומחזירה 200 היא בדיוק סוג התקלה שנמשכת חודשים.
     return new Response(JSON.stringify({ error: 'VAPID_PUBLIC/VAPID_PRIVATE חסרים' }),

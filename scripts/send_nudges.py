@@ -8,7 +8,7 @@ DRY_RUN הוא ברירת המחדל, וזה לא זהירות יתר: מייל 
 הרישום ב-profiles קורה אחרי כל שליחה ולא בסוף: אם הריצה תיפול באמצע, מי שכבר קיבל לא
 יקבל שוב בריצה הבאה. עדכון מרוכז בסוף היה מאבד את כל הרישום בכישלון אחד.
 """
-import json, os, sys, urllib.request, urllib.error
+import json, os, sys, html, urllib.request, urllib.error
 from datetime import datetime, timezone
 
 DRY = os.environ.get('DRY', 'true') != 'false'
@@ -90,8 +90,10 @@ def body(name, n, days=None):
     טבלה הוא הדבר היחיד שכל לקוחות המייל מכבדים.
     """
     # שם פרטי בלבד. "שלום פז אברהמי," קורא כמו מכתב מחברת ביטוח.
+    # השם נבחר על ידי המשתמש ונדחף לתוך HTML — html.escape מונע ש-< או " ישברו את המייל
+    # או יזריקו לתוכו תוכן.
     first = (name or '').split()[0] if (name or '').strip() else ''
-    hello = ('שלום %s,' % first) if first else 'שלום,'
+    hello = ('שלום %s,' % html.escape(first)) if first else 'שלום,'
     # "1 ימים" אינו עברית, ומספר שנכתב נכון הוא מה שמבדיל תזכורת אישית מהודעה אוטומטית.
     if days == 0:      when = 'המבחן היום'
     elif days == 1:    when = 'המבחן מחר'
