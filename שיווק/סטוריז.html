@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>800+ · שלושה סטוריז להקלטה</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* שלושה סטוריז, 1080×1920, בדיוק כמו שאינסטגרם רוצה.
+   השימוש: פותחים בדפדפן, לוחצים על סטורי, מקליטים מסך 15 שניות. הכפתורים והכותרת לא
+   נכנסים להקלטה — הם מחוץ לבמה.
+   כל מספר כאן נמדד מהקוד: 3,945 מילים באנגלית + 1,717 בעברית = 5,662, עשר יחידות בכל
+   שפה, ומבחן רמה של 10–20 שאלות. אין כאן מספר שאי אפשר לאמת. */
+:root{
+  --paper:#f6f1e7; --paper-deep:#efe7d6; --card:#fffdf8; --ink:#2c2620; --ink-soft:#736a5c;
+  --gold:#c9962f; --accent:#b5482e; --accent-deep:#8f3620; --green:#4e7d4e; --line:#e3d8c4;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#1a1712;font-family:"Heebo",sans-serif;color:#f6f1e7;
+     display:flex;flex-direction:column;align-items:center;gap:18px;padding:22px}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+.bar button{font-family:inherit;font-size:.9rem;padding:9px 18px;border-radius:999px;cursor:pointer;
+            border:1px solid #4a4238;background:#241f19;color:#e8e0d2}
+.bar button.on{background:var(--gold);border-color:var(--gold);color:#241f19;font-weight:700}
+.bar em{font-style:normal;color:#9a9082;font-size:.8rem}
+
+/* הבמה. 1080×1920 אמיתיים, מוקטנים לצפייה — ההקלטה נעשית ממסך מלא. */
+.stage{width:1080px;height:1920px;transform-origin:top center;position:relative;
+       background:var(--paper);overflow:hidden;border-radius:26px}
+.wrap-scale{height:calc(1920px * var(--k));width:calc(1080px * var(--k))}
+.scene{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;
+       padding:0 96px;gap:0}
+.scene.live{display:flex}
+
+/* נייר, לא גרדיאנט סגול. הרקע נבנה מאותה פלטה של האפליקציה עצמה, כדי שמי שיוריד אותה
+   יזהה מיד שהגיע למקום הנכון. */
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(circle at 18% 22%, rgba(201,150,47,.13), transparent 42%),
+                   radial-gradient(circle at 84% 78%, rgba(181,72,46,.11), transparent 46%)}
+.rule{height:3px;background:linear-gradient(90deg,var(--gold),transparent);border-radius:2px}
+
+.kick{font-size:30px;letter-spacing:.28em;color:var(--gold);font-weight:700}
+.big{font-family:"Frank Ruhl Libre",serif;font-weight:900;color:var(--ink);line-height:1.05}
+.s1{font-size:112px} .s2{font-size:86px}
+.num{font-family:"Frank Ruhl Libre",serif;font-weight:900;font-size:260px;line-height:.9;
+     color:var(--accent);letter-spacing:-.02em}
+.sub{font-size:42px;color:var(--ink-soft);line-height:1.45;font-weight:300}
+.tag{display:inline-flex;align-items:center;gap:14px;font-size:34px;color:var(--ink);
+     background:var(--card);border:2px solid var(--line);border-radius:999px;padding:16px 30px}
+.cta{margin-top:14px;background:var(--accent);color:#fff;font-size:44px;font-weight:700;
+     border-radius:20px;padding:28px 0;text-align:center;letter-spacing:.01em}
+.host{font-size:34px;color:var(--ink-soft);text-align:center;letter-spacing:.06em}
+
+/* הופעה מדורגת. עמוד שמגיע גמור נקרא כמו תמונה; עמוד שנבנה נקרא כמו סיפור — וזה מה
+   שמחזיק את האצבע מלגלול הלאה. */
+@keyframes rise{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.86)}to{opacity:1;transform:none}}
+@keyframes grow{from{width:0}to{width:var(--w)}}
+.scene.live>*{animation:rise .62s cubic-bezier(.2,.7,.3,1) both}
+.scene.live>*:nth-child(1){animation-delay:.05s}
+.scene.live>*:nth-child(2){animation-delay:.35s}
+.scene.live>*:nth-child(3){animation-delay:.75s}
+.scene.live>*:nth-child(4){animation-delay:1.15s}
+.scene.live>*:nth-child(5){animation-delay:1.55s}
+.scene.live>*:nth-child(6){animation-delay:2.05s}
+.scene.live .num{animation:pop .7s cubic-bezier(.2,.9,.3,1.2) both;animation-delay:.5s}
+.scene.live .rule{animation:grow .8s ease both;animation-delay:.2s}
+
+/* מד ההתקדמות של סטורי 3 — מתמלא בזמן אמת, כי זה מה שהמוצר עושה */
+.bars{display:flex;flex-direction:column;gap:26px;margin:14px 0 8px}
+.row{display:flex;align-items:center;gap:22px;font-size:34px;color:var(--ink-soft)}
+.track{flex:1;height:22px;background:var(--paper-deep);border-radius:999px;overflow:hidden}
+.fill{height:100%;border-radius:999px;width:0}
+.scene.live .fill{animation:grow 1.3s cubic-bezier(.3,.8,.3,1) both;animation-delay:1.1s}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <button data-s="1" class="on">1 · מאיפה להתחיל</button>
+  <button data-s="2">2 · המאגר</button>
+  <button data-s="3">3 · החיזוק</button>
+  <button id="again">▶ נגן שוב</button>
+  <em>1080×1920 · מקליטים מסך 15 שניות</em>
+</div>
+
+<div class="wrap-scale"><div class="stage" id="stage">
+  <div class="grain"></div>
+
+  <!-- 1 · מבחן הרמה. מסר אחד: אתה לא צריך לנחש מאיפה מתחילים. -->
+  <section class="scene live" data-s="1">
+    <div class="kick">לפסיכומטרי</div>
+    <div class="rule" style="--w:340px"></div>
+    <h1 class="big s1" style="margin-top:34px">איפה כדאי<br>לך להתחיל?</h1>
+    <p class="sub" style="margin-top:38px">מבחן רמה שמתאים את עצמו לתשובות שלך<br>ומחזיר יחידה להתחיל ממנה</p>
+    <div style="display:flex;gap:18px;margin-top:46px"><span class="tag">10–20 מילים</span><span class="tag">2–3 דקות</span></div>
+    <div class="cta">מבחן רמה חינם</div>
+    <p class="host" style="margin-top:30px">800-plus.com</p>
+  </section>
+
+  <!-- 2 · המאגר. מסר אחד: המספר. -->
+  <section class="scene" data-s="2">
+    <div class="kick">אוצר מילים</div>
+    <div class="rule" style="--w:340px"></div>
+    <div class="num" style="margin-top:40px">5,662</div>
+    <h2 class="big s2" style="margin-top:12px">מילים<br>בעברית ובאנגלית</h2>
+    <p class="sub" style="margin-top:40px">עשר יחידות בכל שפה · כל מילה עברה אימות מילוני<br>עובד גם בלי אינטרנט</p>
+    <div class="cta">התנסות ללא פרטים</div>
+    <p class="host" style="margin-top:30px">800-plus.com</p>
+  </section>
+
+  <!-- 3 · החיזוק. מסר אחד: אתה מתרגל את מה שאתה לא יודע, לא את מה שאתה כן. -->
+  <section class="scene" data-s="3">
+    <div class="kick">תרגול</div>
+    <div class="rule" style="--w:340px"></div>
+    <h2 class="big s2" style="margin-top:34px">לא לתרגל שוב<br>מה שכבר ידעת</h2>
+    <div class="bars">
+      <div class="row"><span style="width:210px">בשליטה</span><span class="track"><i class="fill" style="--w:78%;background:var(--green)"></i></span></div>
+      <div class="row"><span style="width:210px">לחיזוק</span><span class="track"><i class="fill" style="--w:34%;background:var(--accent)"></i></span></div>
+      <div class="row"><span style="width:210px">שטרם תרגלת</span><span class="track"><i class="fill" style="--w:58%;background:var(--gold)"></i></span></div>
+    </div>
+    <p class="sub">האפליקציה מזהה את המילים שנפלו ומחזירה אותן<br>סבב חיזוק אחד מכסה עד 20 מילים</p>
+    <div class="cta">תרגול מותאם אליך</div>
+    <p class="host" style="margin-top:30px">800-plus.com</p>
+  </section>
+</div></div>
+
+<script>
+/* הקנה מידה נגזר מהחלון בפועל. גובה קבוע היה חותך את הסטורי במסכים נמוכים, וחיתוך
+   בתצוגה המקדימה גורם לחשוב שהעיצוב עצמו שבור. */
+function fit(){
+  const k=Math.min((window.innerHeight-150)/1920,(window.innerWidth-40)/1080);
+  document.documentElement.style.setProperty('--k',k);
+  document.getElementById('stage').style.transform='scale('+k+')';
+}
+addEventListener('resize',fit); fit();
+
+const scenes=[...document.querySelectorAll('.scene')];
+const btns=[...document.querySelectorAll('.bar button[data-s]')];
+function show(n){
+  scenes.forEach(s=>s.classList.toggle('live', s.dataset.s===n));
+  btns.forEach(b=>b.classList.toggle('on', b.dataset.s===n));
+}
+btns.forEach(b=>b.onclick=()=>show(b.dataset.s));
+/* ניגון חוזר: מסירים את המחלקה ומחזירים אותה בפריים הבא, אחרת האנימציה לא מתחילה
+   מחדש — הדפדפן רואה את אותו מצב ולא עושה כלום. */
+document.getElementById('again').onclick=()=>{
+  const live=document.querySelector('.scene.live'); if(!live) return;
+  const n=live.dataset.s; live.classList.remove('live');
+  requestAnimationFrame(()=>requestAnimationFrame(()=>show(n)));
+};
+</script>
+</body>
+</html>
