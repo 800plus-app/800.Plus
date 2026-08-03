@@ -115,6 +115,9 @@ function saneRec(r){
      the marker on the first load, which is exactly the information needed to undo a level test
      that was taken by the wrong person — the incident this field was added for. */
   if(r.src) out.src=String(r.src).slice(0,8);
+  /* הרמה שהייתה לפני שהלומד סימן "ידעתי", כדי שביטול הסימון יחזיר אותה במקום לאפס.
+     בלי השדה הזה ביטול היה מוחק היסטוריית תרגול אמיתית — וזה בדיוק מה שהמאגר נזהר ממנו. */
+  if(r.k0!==undefined) out.k0=int0(r.k0);
   /* אילו פירושים של המילה הלומד כבר כתב, כאינדקסים לתוך meaningSegs. משתמש דיווח שהוא
      עונה פירוש אחד מתוך כמה, מקבל "נכון", ושוכח את השאר — האפליקציה אישרה לו שהוא יודע
      את המילה בזמן שידע שליש ממנה.
@@ -198,6 +201,35 @@ function loadLangState(){
    Reusing it matters — a second merge written by hand here would drift from that one. */
 let diskAhead=false;
 let bootTimedOut=false;   // the boot watchdog fired: afterAuthed may finish, but must not navigate
+/* "ידעתי" — המצב שבאמצע בין מחיקה לתרגול.
+ *
+ * דיווח משתמשת: "יצא לי לחפש האם יש אפשרות לסמן מילים שמכירים מתוך המאגר... כי אני כן רוצה
+ * לתרגל אותם אבל לא ללמוד מחדש".
+ *
+ * מחיקה מוציאה את המילה מהמאגר לגמרי — היא לא תופיע בשום סבב ולא בשום מבחן. זה יותר מדי.
+ * מה שנדרש הוא להוציא אותה מרשימת החיזוק ומ"מילים שעוד לא תרגלת", ולהשאיר אותה זמינה
+ * ב"תרגל הכל" וב"מילים שלמדתי".
+ *
+ * הסימון הוא src:'known', באותה שיטה שבה מבחן הרמה מסמן src:'lv' — כך הוא ניתן לזיהוי,
+ * לספירה ולביטול. הרמה הקודמת נשמרת ב-k0 ומוחזרת בביטול, כדי שסימון בטעות לא ימחק
+ * היסטוריית תרגול אמיתית.
+ *
+ * למה כן נספרת כ"בשליטה": הלומד הצהיר במפורש שהוא יודע אותה. זה שונה ממילה שמבחן הרמה
+ * דילג עליה על סמך הערכה סטטיסטית — ולכן wasSkipped נשאר מוגבל ל-'lv' בלבד. */
+const isKnown = term => { const r=stats.words[K(term)]; return !!(r && r.src==='known'); };
+function markKnown(term){
+  const r=rec(term);
+  if(r.src==='known') return false;
+  r.k0=int0(r.level);
+  r.src='known'; r.seen=Math.max(1,int0(r.seen)); r.level=3; r.last=Date.now();
+  return true;
+}
+function unmarkKnown(term){
+  const r=stats.words[K(term)];
+  if(!r || r.src!=='known') return false;
+  r.level=int0(r.k0); delete r.k0; delete r.src;
+  return true;
+}
 /* Keys the user explicitly restored. Persisted, because the deletion it reverses is persisted
    too — a log that lived only in memory would let the next page load re-delete the word. An
    entry is dropped the moment the same word is deleted again, so the last explicit action by
@@ -1784,7 +1816,11 @@ function renderManage(filter){
   const rowHtml=w=>`<label class="m-row${w.gone?' is-gone':''}">
       <input type="checkbox" data-term="${esc(w.term)}" ${mSel.has(w.term)?'checked':''} ${w.gone?'disabled':''}>
       <b>${esc(w.term)}</b><span>${esc(w.meaning)}</span>
-      ${w.gone?`<button class="m-undo" data-undo="${esc(w.term)}" title="החזר מילה זו">↺ החזר</button>`:''}</label>`;
+      ${w.gone?`<button class="m-undo" data-undo="${esc(w.term)}" title="החזר מילה זו">↺ החזר</button>`
+             :`<button class="m-known${isKnown(w.term)?' on':''}" data-known="${esc(w.term)}"
+                 title="${isKnown(w.term)?'בטל את הסימון — המילה תחזור לחיזוק'
+                                        :'מוציא מ"מילים לחיזוק", והמילה נשארת במאגר לתרגול'}"
+                 >${isKnown(w.term)?'✓ ידעתי':'ידעתי'}</button>`}</label>`;
 
   list.innerHTML=[...byUnit.entries()].map(([u,ws])=>{
     const gone=ws.filter(w=>w.gone).length;
@@ -1816,9 +1852,29 @@ function renderManage(filter){
     saveDeleted(); buildBank(); renderManage($('#mSearch').value); renderHome();
     toast('הוחזרה: '+b.dataset.undo);
   });
+  /* הכפתור יושב בתוך <label>, ולכן לחיצה עליו הייתה מסמנת את תיבת המחיקה שלצדו —
+     preventDefault הוא מה שמפריד בין "אני יודע את המילה" ל"מחק אותה". */
+  list.querySelectorAll('[data-known]').forEach(b=>b.onclick=e=>{
+    e.preventDefault();
+    const t=b.dataset.known;
+    const on=isKnown(t) ? !unmarkKnown(t) : markKnown(t);
+    saveStats(); queueRemoteSync();
+    renderManage($('#mSearch').value); renderHome();
+    toast(on ? `"${t}" סומנה כידועה` : `"${t}" חזרה לתרגול`);
+  });
   $('#mCount').textContent=`${mSel.size} נבחרו`;
 }
-$('#manageBtn').onclick=()=>{ mSel=new Set(); $('#mSearch').value=''; $('#mMsg').classList.add('hidden'); renderManage(''); goto('manage'); };
+/* פותח את ניהול המילים על יחידה אחת בלבד. בלי זה המסך נפתח סגור על כל עשר היחידות,
+   ומי שהגיע מיחידה 7 צריך לזכור לאיזו. */
+function openManage(unit){
+  mSel=new Set(); $('#mSearch').value=''; $('#mMsg').classList.add('hidden');
+  mOpen = unit ? new Set([String(unit)]) : new Set();
+  mSearching=false;
+  renderManage(''); goto('manage');
+}
+$('#manageBtn').onclick=()=>openManage(null);
+/* מהיחידה — נפתח על היחידה הזאת בלבד. curScope הוא 'unit:7' או 'global'/'random'. */
+$('#pbManage').onclick=()=>openManage(curScope.startsWith('unit:') ? curScope.slice(5) : null);
 $('#mSearch').oninput=e=>renderManage(e.target.value);
 $('#mDelete').onclick=()=>{
   const m=$('#mMsg'); m.classList.remove('hidden'); m.className='msg';

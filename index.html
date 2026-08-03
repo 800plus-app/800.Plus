@@ -304,6 +304,11 @@
   .m-row input{width:18px;height:18px;accent-color:var(--accent);flex:0 0 auto}
   .m-row b{font-family:"Frank Ruhl Libre",serif;min-width:32%}
   .m-row span{color:var(--ink-soft);font-size:.82rem;flex:1}
+  /* "ידעתי" — מצב שבאמצע בין מחיקה לתרגול, ולכן הוא נראה כמו מתג ולא כמו פעולה הרסנית.
+     flex:0 0 auto כדי שהוא לא יידחס כשהפירוש ארוך; הפירוש הוא שמתקצר, לא הכפתור. */
+  .m-known{flex:0 0 auto;background:none;border:1px solid var(--line);color:var(--ink-soft);
+           border-radius:999px;padding:4px 11px;font-size:.75rem;font-family:inherit;cursor:pointer}
+  .m-known.on{border-color:var(--green);color:var(--green);background:color-mix(in srgb,var(--green) 12%,transparent)}
   .m-row .u{font-size:.66rem;color:var(--gold);background:rgba(201,150,47,.1);border-radius:6px;padding:2px 7px;flex:0 0 auto}
   /* grouped-by-unit manage list */
   .m-group{margin-bottom:8px}
@@ -1413,6 +1418,7 @@
       <button class="pbtn" id="pbLearned"><div class="ic">🎓</div><div class="tx"><b>מילים שלמדתי</b><span>כל המילים שכבר נתקלת בהן — למבחן עצמי</span></div><div class="cnt" id="cntLearned">0</div></button>
       <button class="pbtn" id="pbAll"><div class="ic">🔀</div><div class="tx"><b>תרגל הכל</b><span id="pbAllSub">כל המילים בערבוב</span></div><div class="cnt" id="cntAll">0</div></button>
       <button class="pbtn" id="pbStats"><div class="ic">📊</div><div class="tx"><b>סטטיסטיקה מפורטת</b><span>חוזק כל מילה + היסטוריה</span></div><div class="cnt">‹</div></button>
+      <button class="pbtn" id="pbManage"><div class="ic">✏️</div><div class="tx"><b>ניהול מילות היחידה</b><span>סימון מילים שכבר ידועות · מחיקה ושחזור</span></div><div class="cnt">‹</div></button>
     </div>
     <div class="section-t" id="examSectionT">מבחן</div>
     <div class="practice-btns">
@@ -1755,14 +1761,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=146"></script>
-<script src="config.js?v=146"></script>
-<script src="store.js?v=146"></script>
-<script src="leveltest-he.js?v=146"></script>
-  <script src="leveltest.js?v=146"></script>
-<script src="enrank.js?v=146"></script>
-<script src="data.js?v=146"></script>
-<script src="data-en.js?v=146"></script>
-<script src="app.js?v=146"></script>
+<script src="supabase.min.js?v=147"></script>
+<script src="config.js?v=147"></script>
+<script src="store.js?v=147"></script>
+<script src="leveltest-he.js?v=147"></script>
+  <script src="leveltest.js?v=147"></script>
+<script src="enrank.js?v=147"></script>
+<script src="data.js?v=147"></script>
+<script src="data-en.js?v=147"></script>
+<script src="app.js?v=147"></script>
 </body>
 </html>
