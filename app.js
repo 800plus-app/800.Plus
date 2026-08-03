@@ -2581,6 +2581,20 @@ if(TTS.ok){
      retrieve   — meaning → word, 4 options
      produce    — meaning → write the word yourself (no options to lean on) */
 const EX_LEN=20, EX_MIX=[0.4,0.3,0.3];
+/* כמה שאלות במבחן היחידה — בקשת חגי: "כמו שאנחנו בוחרים כמה מילים לתרגל".
+ *
+ * 0 פירושו "כל היחידה", ולא "אפס" — כך אותה בחירה נשארת נכונה גם אחרי שהיחידה גדלה או
+ * קטנה, במקום לשמור מספר שיהפוך יום אחד לחלקי. הרצפה היא 8 כי exBuild מסרב לבנות מבחן
+ * מפחות מזה, והתקרה היא גודל היחידה עצמה — אין מאיפה לקחת עוד. */
+const EX_SIZES=[10,20,30,50];
+const exLenKey = () => 'hw_exLen'+(LANG==='en'?'_en':'');
+/* טהורה בכוונה — הקריאה מהאחסון נעשית אצל הקורא. פונקציה שקוראת בעצמה מ-LS אינה ניתנת
+   לבדיקה בלי לזייף את שכבת האחסון, וכלל החיתוך הוא בדיוק מה שצריך להיבדק. */
+function exTake(poolLen, want){
+  const w=int0(want);
+  return Math.max(8, Math.min(w>0 ? w : poolLen, poolLen));
+}
+const exChosen = poolLen => exTake(poolLen, LS.get(exLenKey(), EX_LEN));   // למסך בלבד
 let exQ=[], exI=0, exUnit=null, exAns=[];
 
 /* Not every dictionary entry can be a test item. Some entries are fine to learn from and
@@ -2659,10 +2673,13 @@ function exDistract(pool, item, field, taken){
   }
   return out;
 }
-function exBuild(uid){
+/* `want` הוא כמה שאלות. הוא מגיע כפרמטר ולא נקרא מהאחסון בפנים, כדי ש-exBuild תישאר
+   פונקציה של הקלט שלה — הבדיקות מריצות אותה על כל יחידה בשתי השפות, ופונקציה שקוראת
+   מ-LS הייתה מחייבת אותן לזייף את שכבת האחסון כדי לבדוק את בחירת המילים. */
+function exBuild(uid, want){
   const pool=exWords(uid);
   if(pool.length<8) return [];
-  const n=Math.min(EX_LEN, pool.length);
+  const n=exTake(pool.length, want===undefined ? EX_LEN : want);
   // Keep morphological relatives out of the same paper. "evaluate" and "evaluation" are two
   // distinct entries, so nothing here counts them as a duplicate — but sitting side by side
   // they cue each other and burn a slot that could have tested a different word.
@@ -2723,6 +2740,30 @@ function exBuild(uid){
 const EX_KIND={recognise:'מה הפירוש?', retrieve:'איזו מילה מתאימה לפירוש?', produce:'כתוב את המילה'};
 const exKey = uid => 'hw_exam'+(LANG==='en'?'_en':'')+':'+uid;
 
+/* הבורר, והפירוט שמתחתיו. שניהם מצוירים יחד כי הפירוט נגזר מהבחירה — לצייר אותם בנפרד
+   היה מאפשר להם להיפרד: מסך שמראה "20 שאלות" מעל בורר שעומד על 50. */
+function renderExSize(poolLen){
+  const chosen=exChosen(poolLen);
+  // רק גדלים שבאמת מקטינים. "50" ליד יחידה של 30 הוא אותה בחירה בשם אחר
+  const opts=EX_SIZES.filter(n=>n>=8 && n<poolLen).map(n=>({n,label:String(n)}))
+             .concat([{n:0, label:'כל היחידה · '+poolLen}]);
+  $('#exSizeSeg').innerHTML=opts.map(o=>{
+    const on = o.n===0 ? chosen===poolLen : o.n===chosen;
+    return `<button data-n="${o.n}" class="${on?'active':''}">${esc(o.label)}</button>`;
+  }).join('');
+  $('#exSizeSeg').querySelectorAll('button').forEach(b=>b.onclick=()=>{
+    LS.set(exLenKey(), +b.dataset.n);
+    renderExSize(poolLen);
+  });
+
+  const nRec=Math.round(chosen*EX_MIX[0]), nRet=Math.round(chosen*EX_MIX[1]);
+  $('#exSub').textContent=`${chosen} שאלות מתוך ${poolLen} מילים ביחידה, בהגרלה חדשה בכל פעם. `+
+    `המבחן לא משנה את ההתקדמות שלך — הוא רק מודד אותה.`;
+  $('#exParts').innerHTML=
+    `<div class="ex-part"><b>${nRec}</b><span>זיהוי — מילה ← פירוש, ארבע אפשרויות</span></div>
+     <div class="ex-part"><b>${nRet}</b><span>שליפה — פירוש ← מילה, ארבע אפשרויות</span></div>
+     <div class="ex-part"><b>${chosen-nRec-nRet}</b><span>כתיבה — פירוש ← לכתוב את המילה בעצמך</span></div>`;
+}
 function openExam(uid){
   exUnit=uid;
   const pool=exWords(uid);
@@ -2731,14 +2772,7 @@ function openExam(uid){
     $('#exSub').textContent='ביחידה הזאת פחות מ-8 מילים — אין ממה לבנות מבחן אמיתי.';
     $('#exParts').innerHTML=''; $('#exStart').disabled=true;
   }else{
-    const n=Math.min(EX_LEN,pool.length);
-    const nRec=Math.round(n*EX_MIX[0]), nRet=Math.round(n*EX_MIX[1]);
-    $('#exSub').textContent=`${n} שאלות מתוך ${pool.length} מילים ביחידה, בהגרלה חדשה בכל פעם. `+
-      `המבחן לא משנה את ההתקדמות שלך — הוא רק מודד אותה.`;
-    $('#exParts').innerHTML=
-      `<div class="ex-part"><b>${nRec}</b><span>זיהוי — מילה ← פירוש, ארבע אפשרויות</span></div>
-       <div class="ex-part"><b>${nRet}</b><span>שליפה — פירוש ← מילה, ארבע אפשרויות</span></div>
-       <div class="ex-part"><b>${n-nRec-nRet}</b><span>כתיבה — פירוש ← לכתוב את המילה בעצמך</span></div>`;
+    renderExSize(pool.length);
     $('#exStart').disabled=false;
   }
   const hist=LS.get(exKey(uid),[]);
@@ -2750,7 +2784,7 @@ function openExam(uid){
   goto('exam');
 }
 function startExam(){
-  exQ=exBuild(exUnit); exI=0; exAns=[];
+  exQ=exBuild(exUnit, LS.get(exLenKey(), EX_LEN)); exI=0; exAns=[];
   if(!exQ.length){ toast('לא הצלחתי לבנות מבחן ליחידה הזאת'); return; }
   hide($('#exIntro')); hide($('#exResult')); show($('#exQuiz'));
   exRender();

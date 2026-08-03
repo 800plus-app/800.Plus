@@ -66,7 +66,7 @@ const none = (list, msg) => expectNone(assert, list, msg);
 const EXTRA = [
   'shuffle',
   'EX_LEN', 'exTestable', 'TRL', 'skel', 'isTranslit',
-  'exWords', 'exDistract', 'exBuild', 'exWriteOk',
+  'exWords', 'exDistract', 'exBuild', 'exWriteOk', 'exTake',
   'LV_BANDS', 'LV_ORDER', 'LV_BLOCK', 'LV_LANG', 'lvDeck', 'lvBand', 'lvNextBand', 'lvEstimate',
 ];
 const MUST_EXIST = EXTRA.concat(['EX_MIX', 'LV_PASS', 'LV_START', 'lvIdx', 'lvAns',
