@@ -149,11 +149,18 @@ def body(name, n, days=None):
 </table>
 </div>"""
 
+def mask(e):
+    """ראה pick_nudges.mask — המאגר פומבי, ולוג פומבי הוא פרסום."""
+    e = str(e or '')
+    a, _, b = e.partition('@')
+    return (a[:3] + '***@' + b) if b else '***'
+
+
 sent = failed = 0
 for x in picked:
     subj = subject(x['weak'], x.get('days'))
     if DRY:
-        print('[יבש] %-34s | %s' % (x['email'], subj)); sent += 1; continue
+        print('[יבש] %-24s | %s' % (mask(x['email']), subj)); sent += 1; continue
     try:
         st, resp = post('https://api.resend.com/emails',
                         {'from': FROM, 'to': [x['email']], 'subject': subj,
@@ -163,10 +170,10 @@ for x in picked:
                          'headers': {'List-Unsubscribe': '<mailto:noreply@800-plus.com?subject=הסר>'}},
                         {'Authorization': 'Bearer ' + RESEND, 'Content-Type': 'application/json'})
         if st >= 300:
-            print('✗ %s — HTTP %s %s' % (x['email'], st, resp[:400])); failed += 1; continue
+            print('✗ %s — HTTP %s %s' % (mask(x['email']), st, resp[:400])); failed += 1; continue
         # תצוגה מקדימה אינה תזכורת, ואין שורה לסמן.
         if x.get('id') is None:
-            sent += 1; print('✓ %s (תצוגה מקדימה — לא נרשם)' % x['email']); continue
+            sent += 1; print('✓ %s (תצוגה מקדימה — לא נרשם)' % mask(x['email'])); continue
         # מסומן מיד, לא בסוף: ריצה שתיפול באמצע לא תשלח שוב למי שכבר קיבל.
         req = urllib.request.Request(
             '%s/rest/v1/profiles?id=eq.%s' % (BASE, x['id']),
@@ -180,11 +187,11 @@ for x in picked:
         except urllib.error.HTTPError as e:
             # השליחה הצליחה והרישום לא. זו בדיוק הדרך שבה מישהו מקבל שני מיילים, ולכן
             # היא נאמרת בקול ולא נבלעת.
-            print('::warning::נשלח ל-%s אך הרישום נכשל (%s) — עלול לקבל שוב' % (x['email'], e.code))
+            print('::warning::נשלח ל-%s אך הרישום נכשל (%s) — עלול לקבל שוב' % (mask(x['email']), e.code))
         sent += 1
-        print('✓ %s' % x['email'])
+        print('✓ %s' % mask(x['email']))
     except Exception as e:
-        print('✗ %s — %s' % (x['email'], e)); failed += 1
+        print('✗ %s — %s' % (mask(x['email']), e)); failed += 1
 
 print('\n%s: %d נשלחו, %d נכשלו' % ('ריצה יבשה' if DRY else 'נשלח', sent, failed))
 if failed and not DRY:

@@ -67,7 +67,11 @@ jobs:
               echo "::error::migrations/15.sql טרם רצה — הרץ אותה ב-Supabase SQL Editor"
             exit 1
           fi
-          curl -sS -o progress.json "${H[@]}" "$BASE/rest/v1/progress?select=user_id,lang,data"
+          # רק שני השדות שהבורר קורא. `data` המלא מכיל גם assoc — האסוציאציות הפרטיות
+          # שהלומד כתב לעצמו — ומשיכה שלו מורידה אותן לדיסק של runner ציבורי. הבדיקה
+          # ב-19-admin-privacy סורקת את store.js בלבד, ולכן הדלת הזאת נשארה מחוץ לשדה
+          # הראייה שלה. הנימוק שלה תקף גם כאן: שורה שהגיעה — נראתה.
+          curl -sS -o progress.json "${H[@]}"             "$BASE/rest/v1/progress?select=user_id,lang,stats:data->stats,exam:data->extras->exam"
           python3 scripts/pick_nudges.py
 
       - name: שליחה
