@@ -757,6 +757,11 @@ function goto(id){
     hide($('#'+s));
   });
   show($('#'+id)); window.scrollTo(0,0);
+  /* כפתור "אחורה" באנדרואיד. quiz ו-exam הם מסכים עמוקים שיציאה מהם באמצע מאבדת סבב.
+     דוחפים רשומת היסטוריה אחת בכניסה אליהם, כדי שהמאזין popstate למטה יוכל לקלוט את
+     "אחורה" ולהחזיר פנימה במקום לצאת. hwDeep מונע דחיפה כפולה — לכל היותר רשומה אחת. */
+  if((id==='quiz'||id==='exam') && !(history.state && history.state.hwDeep))
+    try{ history.pushState({hwDeep:true}, ''); }catch(e){}
   if(id==='intro'){
     /* The same screen serves two audiences. A visitor with no session must always get the two
        CTAs back, even if a signed-in session on this device previously opened it read-only. */
@@ -1115,6 +1120,7 @@ function renderCard(){
     $('#qKind').textContent = en ? 'כתוב את התרגום לעברית' : 'כתוב את הפירוש של המילה';
     $('#qText').textContent = w.term;
     $('#qText').dir = en ? 'ltr' : 'rtl';
+    $('#qText').lang = en ? 'en' : 'he';   // קורא מסך יבטא את המילה בשפה הנכונה
     inp.placeholder = en ? 'התרגום…' : 'הפירוש…';
     inp.dir='rtl';
     bindSay('#qSay', w.term);
@@ -1123,6 +1129,7 @@ function renderCard(){
     // the gloss becomes the question here, so the answer must not be inside it
     $('#qText').textContent = maskTerm(w.meaning, w.term);
     $('#qText').dir='rtl';
+    $('#qText').lang='he';   // הפירוש תמיד עברי, בשני מאגרי השפה
     // The English word IS the answer here, so it can only be read out after the card is
     // answered — otherwise the speaker button just gives it away.
     bindSay('#qSay', null);
@@ -1672,6 +1679,19 @@ $('#quitQuiz').onclick=()=>{ if(!committed&&session.size>0) commitSession(); ope
 $('#retryMissedBtn').onclick=()=>startRound(missed.slice(), sessionScope, sessionMode, true);
 $('#resBackBtn').onclick=()=>{ commitSession(); openScope(sessionScope); };
 $('#resScope').onclick=()=>{ commitSession(); openScope(sessionScope); };
+/* כפתור "אחורה" באנדרואיד. goto דחף רשומת היסטוריה אחת בכניסה ל-quiz/exam; כאן קולטים את
+   לחיצת ה"אחורה" ומחזירים למסך הבחירה במקום לסגור את האפליקציה. הסבב נשמר לפני החזרה.
+   מסך התוצאות נכלל: אליו מגיעים רק דרך quiz, ולכן הרשומה עדיין קיימת, ו"אחורה" משם שייך
+   למסך הבחירה. אם אף מסך עמוק אינו פתוח — התנהגות ברירת המחדל (יציאה) נשמרת. */
+window.addEventListener('popstate', ()=>{
+  if(!$('#quiz').classList.contains('hidden') || !$('#results').classList.contains('hidden')){
+    if(!committed && session.size>0) commitSession();
+    openScope(sessionScope); return;
+  }
+  if(!$('#exam').classList.contains('hidden')){
+    clearTimeout(exTimer); openScope('unit:'+exUnit); return;
+  }
+});
 // safety net: if the app is closed/backgrounded on the results screen, still record the round
 window.addEventListener('pagehide', ()=>{ if(!committed && session.size>0) commitSession(); });
 document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='hidden' && !committed && session.size>0) commitSession(); });
@@ -2298,6 +2318,10 @@ function lvRender(){
   $('#lvCount').textContent=`${lvBand} · ${lvIdx+1}/${lvDeck.length}`;
   $('#lvBar').style.width=(100*(lvAns.length)/(lvAns.length+lvDeck.length-lvIdx))+'%';
   $('#lvWord').textContent=it.w;
+  /* המילה במבחן הרמה היא באנגלית או בעברית לפי LV_LANG. ה-HTML קובע dir="ltr" כברירת מחדל,
+     ובמבחן העברי זה הפוך — מכאן הקביעה הדינמית, גם ל-dir וגם ל-lang לקורא מסך. */
+  $('#lvWord').dir = LV_LANG==='en' ? 'ltr' : 'rtl';
+  $('#lvWord').lang = LV_LANG;
   bindSay('#lvSay', LV_LANG==='en' ? it.w : null, true);
   $('#lvOpts').innerHTML=it.opts.map((o,i)=>`<button data-i="${i}">${esc(o)}</button>`).join('');
   $('#lvOpts').querySelectorAll('button').forEach(b=>{
@@ -2727,12 +2751,17 @@ function exBuild(uid, want){
     return i>=5;
   };
   let picked=[];
+  const glossTaken=new Set();
   for(const c of shuffle(pool)){
     if(picked.length>=n) break;
     if(picked.some(p=>related(p.term,c.term))) continue;
+    // אותו פירוש בשתי שאלות = אותה שאלה פעמיים. המקבילה ל-oneCardPerGloss שבתרגול.
+    const g=glossKey(c.meaning);
+    if(g.length>=2 && glossTaken.has(g)) continue;
+    if(g.length>=2) glossTaken.add(g);
     picked.push(c);
   }
-  if(picked.length<n) picked=shuffle(pool).slice(0,n);   // tiny unit — coverage beats polish
+  if(picked.length<n) picked=shuffle(pool).slice(0,n);   // tiny unit / "כל היחידה" — coverage beats polish
   const nRec=Math.round(n*EX_MIX[0]), nRet=Math.round(n*EX_MIX[1]);
   // Write-in items ask for the word with no options to lean on, so put the single-word terms
   // in those slots. Expecting someone to type a three-word idiom letter-perfect measures
@@ -2824,6 +2853,9 @@ function openExam(uid){
   const best=Array.isArray(hist)&&hist.length?Math.max(...hist.map(h=>int0(h.pct))):null;
   $('#exKicker').textContent = last
     ? `מבחן יחידה · אחרון ${last.pct}% · שיא ${best}%` : 'מבחן יחידה';
+  /* הפס והמונה יושבים ב-topbar, מחוץ ל-#exQuiz, ולכן הם גלויים גם כאן. בלי איפוס, מסך
+     הפתיחה מציג את ההתקדמות של מבחן קודם שננטש. מאפסים לפני שמציגים אותו. */
+  $('#exBar').style.width='0%'; $('#exCount').textContent='';
   hide($('#exQuiz')); hide($('#exResult')); show($('#exIntro'));
   goto('exam');
 }
@@ -3000,7 +3032,7 @@ function buildSheet(uid, size){
     <div class="sh-page">
       <h1><bdi>800+</bdi> — ${isWeak?`מילים לחיזוק · ${langName}`:isLearned?`מילים שלמדתי · ${langName}`:`מבחן ${langName}, יחידה ${uid}`}</h1>
       <div class="sh-meta">${isWeak
-        ? `${n} מילים שעדיין לא יושבות, מכל היחידות`
+        ? `${n} מילים לחיזוק, מכל יחידות הלימוד`
         : isLearned
         ? `${n} מילים שכבר בשליטה, מכל יחידות הלימוד`
         : (n===pool.length?`כל ${n} מילות היחידה`:`${n} מילים מתוך ${pool.length}`)} · ${date} · <bdi>800+</bdi></div>
@@ -4107,6 +4139,9 @@ $('#delGo').onclick = async ()=>{
      exists, and the error that comes back is unreadable. */
   try{ await Store.signOut(); }catch(e){}
   try{ localStorage.clear(); }catch(e){}
+  /* טקסט התזכורת האישי נכתב ל-Cache Storage תחת 'hw-data', לא ל-localStorage. בלי השורה
+     הזאת הוא שורד את המחיקה, ו-"לא נשאר אצלנו שום מידע עליך" הופך לשקר. */
+  if(window.caches) try{ await caches.delete('hw-data'); }catch(e){}
   closeDel();
   document.body.innerHTML = '<div style="min-height:100vh;display:flex;align-items:center;'
     + 'justify-content:center;padding:32px;background:#f7f2e8;color:#2c2620;text-align:center;'
@@ -4331,7 +4366,7 @@ const NOTIF = {
       body: d.learned ? `${d.learned} מילים שלמדת עדיין כאן. סבב אחד מחזיר אותך לקצב.`
                       : 'עוד לא התחלת באמת. עשר מילים זה חמש דקות.' };
     if(away >= 2)  return { title:'יומיים בלי תרגול',
-      body: d.weak ? `${d.weak} מילים עדיין לא יושבות. עשר דקות והן נסגרות.`
+      body: d.weak ? `${d.weak} מילים לחיזוק. סבב קצר היום מקדם אותן.`
                    : 'סבב קצר היום שומר על מה שכבר למדת.' };
     if(d.streak>=3) return { title:'זמן ללמוד מילים',
       body:`${d.streak} ימים ברצף. חמש דקות היום שומרות על הרצף.` };
