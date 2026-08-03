@@ -717,14 +717,34 @@ describe('feedback timers — nothing may outlive the exit button', () => {
    * in one of them, which is how the original wording became false in the first place. The
    * wording states the RULE instead: "only a completed test is saved" is true in all three, and
    * a learner on the result screen infers from it that theirs was kept. */
-  test('the exit prompt states the rule, not a state it cannot know', () => {
+  /* SUPERSEDED 3.8.2026 — the prompt moved out of #exExit into navTo, the single exit path that
+   * both the ✕ button and Android's Back now travel through (app.js, NAV_DEPTH model).
+   *
+   * That move dissolves the constraint this test was built around. The prompt is now raised only
+   * while #exQuiz is on screen, so it is no longer "one string read from three states" — it
+   * cannot be reached from the opening screen or the result screen at all. The gate is a stronger
+   * guarantee than careful wording, so it is what gets asserted; the wording check stays because
+   * a future edit could still reintroduce a promise the app cannot keep. */
+  test('the exit prompt cannot fire from a screen where the exam is already saved', () => {
+    const at = src.indexOf('function navTo');
+    assert.ok(at > 0, 'navTo is gone — the single exit path this rule depends on');
+    const body = src.slice(at, at + 900);
+
+    assert.match(body, /exQuiz'\)\.classList\.contains\('hidden'\)/,
+      'the prompt is not gated on #exQuiz being visible, so it can fire from the result screen ' +
+      'again — where the score has already been written');
+    assert.match(body, /רק מבחן שהושלם/,
+      'the prompt no longer states the rule');
+    assert.ok(!/לא תישמר|לא יישמרו/.test(body),
+      'the prompt promises the result is unsaved — on the result screen it has already been saved');
+  });
+
+  test('the ✕ button no longer carries a prompt of its own', () => {
+    /* Two prompts on one exit would ask the learner twice. The button delegates; navTo asks. */
     const exExit = codeMatches(src, /\$\('#exExit'\)\.onclick/, mask);
     assert.strictEqual(exExit.length, 1);
     const body = src.slice(exExit[0].index, statementEnd(src, exExit[0].index, mask) + 1);
-    assert.ok(!/לא תישמר|לא יישמרו/.test(body),
-      'the prompt promises the result is unsaved — on the result screen it has already been saved');
-    assert.match(body, /רק מבחן שהושלם/,
-      'the prompt no longer states the rule; whatever replaced it must be true from the opening ' +
-      'screen, mid-test AND the result screen, because one string is read from all three');
+    assert.ok(!/confirm\(/.test(body),
+      '#exExit confirms on its own AND navTo confirms — the learner is asked twice');
   });
 });

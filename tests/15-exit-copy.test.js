@@ -43,11 +43,19 @@ describe('מסכי היציאה — הנוסח חייב להיות נכון גם
     }
   });
 
+  /* 3.8.2026 — השאלה של המבחן עברה מ-#exExit אל navTo, נקודת היציאה היחידה שגם ✕ וגם
+     "אחורה" של אנדרואיד עוברים בה. שם היא מותנית ב-#exQuiz גלוי, ולכן היא כבר לא נקראת
+     ממסך התוצאות בכלל — חזק יותר מניסוח זהיר.
+     #lvExit לא הועבר במכוון: מבחן הרמה נפתח גם ממסך הפתיחה של משתמש חדש, ושם אין רשומת
+     היסטוריה להישען עליה — goBack היה מחזיר אותו למסך הטעינה. הוא שומר את השאלה שלו. */
+  const promptSource = (src, btn) =>
+    btn === 'exExit' ? src.slice(src.indexOf('function navTo'), src.indexOf('function navTo') + 900)
+                     : extractHandler(src, btn, codeMask(src));
+
   test('אף אחד משני המסכים לא מבטיח שהתוצאה לא תישמר', () => {
     const src = appSource();
-    const mask = codeMask(src);
     for (const { btn } of PAIRS) {
-      const code = extractHandler(src, btn, mask);
+      const code = promptSource(src, btn);
       assert.ok(/confirm\s*\(/.test(code), `#${btn} כבר לא שואל לפני יציאה`);
       assert.ok(!CLAIMS_NOT_SAVED.test(code),
         `#${btn} עדיין אומר ללומד שהתוצאה לא תישמר. ממסך התוצאות היא כבר נכתבה ל-localStorage ` +
@@ -55,13 +63,18 @@ describe('מסכי היציאה — הנוסח חייב להיות נכון גם
     }
   });
 
+  test('שאלת המבחן מותנית במסך השאלות, ולכן אינה נקראת ממסך התוצאות', () => {
+    const src = appSource();
+    assert.match(promptSource(src, 'exExit'), /exQuiz'\)\.classList\.contains\('hidden'\)/,
+      'השאלה כבר לא מותנית ב-#exQuiz גלוי — היא תחזור להישאל ממסך התוצאות');
+  });
+
   test('הנוסח החדש אומר את הכלל, ולכן נכון גם באמצע המבחן וגם בסוף', () => {
     // ההגנה מפני "תיקון" שרק הופך את השקר לשקר הפוך: משפט שמבטיח שהתוצאה כן נשמרה
     // יהיה שקרי באמצע המבחן, בדיוק כמו שהקודם היה שקרי בסופו.
     const src = appSource();
-    const mask = codeMask(src);
     for (const { btn } of PAIRS) {
-      const code = extractHandler(src, btn, mask);
+      const code = promptSource(src, btn);
       assert.ok(/מבחן שהושלם/.test(code),
         `#${btn} כבר לא מסביר מה נשמר. הנוסח צריך לומר את הכלל ("רק מבחן שהושלם נשמר"), ` +
         'כי אותו משפט נקרא משלושה מצבים שונים — לפני, באמצע ואחרי.');

@@ -751,17 +751,36 @@ const SCREENS=['auth','welcome','level','home','scope','quiz','results','stats',
 /* Heavy lists left in hidden screens keep thousands of nodes alive for the whole session;
    drop them on the way out — they are always rebuilt when the screen is opened again. */
 const HEAVY = {stats:'#statsBody', manage:'#manageList', results:'#reviewList'};
+
+/* ===== "אחורה" של המערכת =====
+   באנדרואיד "אחורה" הוא כפתור מערכת, ובלי היסטוריה פנימית לחיצה עליו סוגרת את
+   האפליקציה — גם באמצע סבב.
+
+   לכל מסך עומק. כניסה למסך עמוק יותר דוחפת רשומת היסטוריה; מעבר לאותו עומק או רדוד
+   יותר מחליף אותה. כך "אחורה" יורד שלב אחד בכל לחיצה, וברמה 0 יוצא מהאפליקציה כמצופה.
+
+   המפתח הוא ש-goBack — שאליו מחוברים כפתורי החזרה שבתוך האפליקציה — צורך את הרשומה
+   במקום להשאיר אותה. הגרסה הראשונה לא עשתה זאת, ולכן אחרי יציאה מסבב דרך ✕ נשארה
+   רשומה תלויה, ולחיצת "אחורה" הבאה נבלעה בלי שקרה כלום. */
+const NAV_DEPTH = { boot:0, intro:0, auth:0, welcome:0, locked:0, home:0,
+                    scope:1, account:1, level:1, admin:1,
+                    quiz:2, results:2, exam:2, stats:2, manage:2, add:2 };
+const navDepth = id => NAV_DEPTH[id] || 0;
+let navPop = false;   // אמת בזמן טיפול ב-popstate: הדפדפן כבר הזיז את ההיסטוריה
+
 function goto(id){
   SCREENS.forEach(s=>{
     if(s!==id && HEAVY[s] && !$('#'+s).classList.contains('hidden')){ const el=$(HEAVY[s]); if(el) el.innerHTML=''; }
     hide($('#'+s));
   });
   show($('#'+id)); window.scrollTo(0,0);
-  /* כפתור "אחורה" באנדרואיד. quiz ו-exam הם מסכים עמוקים שיציאה מהם באמצע מאבדת סבב.
-     דוחפים רשומת היסטוריה אחת בכניסה אליהם, כדי שהמאזין popstate למטה יוכל לקלוט את
-     "אחורה" ולהחזיר פנימה במקום לצאת. hwDeep מונע דחיפה כפולה — לכל היותר רשומה אחת. */
-  if((id==='quiz'||id==='exam') && !(history.state && history.state.hwDeep))
-    try{ history.pushState({hwDeep:true}, ''); }catch(e){}
+  if(!navPop){
+    const cur = history.state && history.state.scr;
+    try{
+      if(navDepth(id) > navDepth(cur)) history.pushState({scr:id}, '');
+      else history.replaceState({scr:id}, '');
+    }catch(e){}
+  }
   if(id==='intro'){
     /* The same screen serves two audiences. A visitor with no session must always get the two
        CTAs back, even if a signed-in session on this device previously opened it read-only. */
@@ -1671,26 +1690,50 @@ document.addEventListener('keydown',e=>{
   e.preventDefault(); const n=$('#nextBtn'); if(n) n.click();
 });
 $('#hintBtn').onclick=()=>{ const w=deck[idx]; if(!w) return; const a=assoc[K(w.term)]; const b=$('#hintBox'); b.textContent=a?('💡 '+a):'עדיין לא כתבת אסוציאציה למילה הזו — תוכל להוסיף אחרי שתענה.'; b.classList.remove('hidden'); };
-$('#quitQuiz').onclick=()=>{ if(!committed&&session.size>0) commitSession(); openScope(sessionScope); };
+/* שמירת הסבב עברה ל-navTo, שהוא המסלול שכל יציאה עוברת בו — כך "אחורה" של המערכת
+   וה-✕ שומרים בדיוק אותו דבר, ואי אפשר לתקן אחד ולשכוח את השני. */
+$('#quitQuiz').onclick=()=>goBack();
 /* Retrying the words you just missed must not undo the miss. startRound commits the (corrected)
    session first, so the retry begins with attempts===1 and counted as "knew it first try" —
    handing back the level the mistake had just taken away, ten seconds after the answer was
    shown on screen. The round is now flagged so the retry can restore at most what was lost. */
 $('#retryMissedBtn').onclick=()=>startRound(missed.slice(), sessionScope, sessionMode, true);
-$('#resBackBtn').onclick=()=>{ commitSession(); openScope(sessionScope); };
-$('#resScope').onclick=()=>{ commitSession(); openScope(sessionScope); };
-/* כפתור "אחורה" באנדרואיד. goto דחף רשומת היסטוריה אחת בכניסה ל-quiz/exam; כאן קולטים את
-   לחיצת ה"אחורה" ומחזירים למסך הבחירה במקום לסגור את האפליקציה. הסבב נשמר לפני החזרה.
-   מסך התוצאות נכלל: אליו מגיעים רק דרך quiz, ולכן הרשומה עדיין קיימת, ו"אחורה" משם שייך
-   למסך הבחירה. אם אף מסך עמוק אינו פתוח — התנהגות ברירת המחדל (יציאה) נשמרת. */
-window.addEventListener('popstate', ()=>{
+$('#resBackBtn').onclick=()=>goBack();
+$('#resScope').onclick=()=>goBack();
+/* מעבר למסך שהיסטוריית הדפדפן מצביעה עליו, עם כל הניקוי ששייך למסך שעוזבים.
+   זהו המסלול היחיד שדרכו יוצאים ממסך עמוק — גם ב"אחורה" של המערכת וגם בכפתורי
+   החזרה שבאפליקציה — ולכן שמירת הסבב נמצאת כאן, פעם אחת, ולא בכל כפתור בנפרד. */
+function navTo(id){
+  /* מבחן שהתחיל ולא הושלם הוא הדבר היחיד שיציאה ממנו מאבדת לגמרי, ולכן זו הפעם היחידה
+     שנעצור לשאול. התנאי הוא #exQuiz ולא #exam: הכפתור ✕ יושב ב-topbar, מחוץ ל-#exQuiz,
+     ולכן הוא נלחץ גם ממסך התוצאות — ושם המבחן כבר נשמר, והשאלה הייתה מטעה.
+     ביטלו? מחזירים את רשומת ההיסטוריה שנצרכה, ונשארים במקום. */
+  if(!$('#exQuiz').classList.contains('hidden') &&
+     !confirm('לצאת מהמבחן? רק מבחן שהושלם נכנס להיסטוריית הציונים — מבחן שנעצר באמצע יתחיל מחדש בפעם הבאה.')){
+    if(!navPop) return;                       // לחיצה על כפתור: ההיסטוריה לא זזה
+    try{ history.pushState({scr:'exam'}, ''); }catch(e){}
+    return;
+  }
   if(!$('#quiz').classList.contains('hidden') || !$('#results').classList.contains('hidden')){
     if(!committed && session.size>0) commitSession();
-    openScope(sessionScope); return;
   }
-  if(!$('#exam').classList.contains('hidden')){
-    clearTimeout(exTimer); openScope('unit:'+exUnit); return;
-  }
+  if(!$('#exam').classList.contains('hidden')) clearTimeout(exTimer);
+  if(!$('#level').classList.contains('hidden')) clearTimeout(lvTimer);
+  if(id==='scope'){ openScope(curScope||sessionScope); return; }
+  if(id==='home'){ renderHome(); goto('home'); return; }
+  goto(id);
+}
+/* כפתור "חזרה" שבתוך האפליקציה עושה בדיוק מה ש"אחורה" של המערכת עושה: צורך את רשומת
+   ההיסטוריה. אם הוא רק היה מצייר את המסך הקודם, הרשומה הייתה נשארת תלויה — והלחיצה
+   הבאה על "אחורה" הייתה נבלעת בלי שקרה כלום. */
+function goBack(){
+  if(navDepth(history.state && history.state.scr) > 0) history.back();
+  else { renderHome(); goto('home'); }
+}
+window.addEventListener('popstate', e=>{
+  navPop = true;
+  try{ navTo((e.state && e.state.scr) || 'home'); }
+  finally{ navPop = false; }
 });
 // safety net: if the app is closed/backgrounded on the results screen, still record the round
 window.addEventListener('pagehide', ()=>{ if(!committed && session.size>0) commitSession(); });
@@ -1798,7 +1841,7 @@ function openStats(scope){
   if(drill) drill.onclick=()=>startRound(fight.slice(0,30), scope, 'weak');
   goto('stats');
 }
-$('#statsBack').onclick=()=>openScope(curScope);
+$('#statsBack').onclick=()=>goBack();
 
 /* ===== MANAGE ===== */
 /* markDeletedAgain אינו קישוט, והיעדרו כאן היה באג שקט.
@@ -2969,8 +3012,8 @@ function exFinish(){
 }
 $('#exStart').onclick=startExam;
 $('#exAgain').onclick=()=>openExam(exUnit);
-$('#exCancel').onclick=()=>openScope('unit:'+exUnit);
-$('#exDone').onclick=()=>openScope('unit:'+exUnit);
+$('#exCancel').onclick=()=>goBack();
+$('#exDone').onclick=()=>goBack();
 /* confirm() blocks the queue but does not cancel timers: answering the LAST question and then
    confirming "leave, the result will not be saved" let the pending tick fire, reach exFinish()
    and save the score anyway — and in the level test it wrote hw_level, which is the gate that
@@ -2980,7 +3023,9 @@ let exTimer=null, lvTimer=null;
    ושם exFinish() כבר הוסיף את הציון ל-exKey() וקרא ל-queueRemoteSync(). התנאי
    !exAns.length מדלג על השאלה כשאין מה לאבד, אבל ממסך התוצאות יש תשובות, ולכן הוא לא
    הציל מהמשפט השקרי. */
-$('#exExit').onclick=()=>{ if(!exAns.length || confirm('לצאת מהמבחן? רק מבחן שהושלם נכנס להיסטוריית הציונים — מבחן שנעצר באמצע יתחיל מחדש בפעם הבאה.')){ clearTimeout(exTimer); openScope('unit:'+exUnit); } };
+/* השאלה עצמה עברה ל-navTo — נקודת היציאה היחידה — כדי ש"אחורה" של המערכת וה-✕
+   ישאלו אותו דבר. כאן נשאר רק המעבר. */
+$('#exExit').onclick=()=>goBack();
 
 /* ===== printable sheet =====
    No PDF library: the CSP allows scripts from this origin only, and pulling in a bundler-sized
