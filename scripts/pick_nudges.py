@@ -24,6 +24,15 @@ def ts(v):
     except Exception:
         return None
 
+def mask(e):
+    """הלוגים של Actions גלויים לכל מי שרואה את המאגר, והמאגר הזה פומבי. כתובת מלאה לצד
+    מספר המילים לחיזוק היא פרופיל התקדמות מקושר לזהות. שלושה תווים מספיקים כדי לזהות שורה
+    בזמן ניפוי, ואינם מספיקים כדי לכתוב למישהו."""
+    e = str(e or '')
+    a, _, b = e.partition('@')
+    return (a[:3] + '***@' + b) if b else '***'
+
+
 def days_since(v):
     t = ts(v)
     return None if t is None else (NOW - t).days
@@ -40,10 +49,13 @@ weak = {}
 exam = {}
 for row in progress:
     uid = row.get('user_id')
-    ex = ((row.get('data') or {}).get('extras') or {}).get('exam')
+    # השאילתה מושכת רק stats ו-extras.exam, ולא את data כולו — ראה weekly-nudge.yml.
+    # ה-fallback ל-data נשאר כדי שגיבוי ישן או הרצה ידנית מול קובץ מלא ימשיכו לעבוד.
+    ex = row.get('exam') or ((row.get('data') or {}).get('extras') or {}).get('exam')
     if ex and uid not in exam:
         exam[uid] = str(ex)
-    words = ((row.get('data') or {}).get('stats') or {}).get('words') or {}
+    st = row.get('stats') or (row.get('data') or {}).get('stats') or {}
+    words = st.get('words') or {}
     n = 0
     for r in words.values():
         if not isinstance(r, dict) or r.get('src') == 'lv':
@@ -101,7 +113,7 @@ for x in picked:
     # התאריך מודפס גם כשהוא חסר. "אין תאריך" הוא המידע שמסביר למה המייל של אדם מסוים
     # יצא בלי שורת המבחן, ובלעדיו ההבדל בין שני מיילים נראה כתקלה.
     when = ('%d ימים עד המבחן' % x['days']) if x['days'] is not None else 'אין תאריך מבחן'
-    print('  → %s · %d מילים לחיזוק · %s' % (x['email'], x['weak'], when))
+    print('  → %s · %d מילים לחיזוק · %s' % (mask(x['email']), x['weak'], when))
 
 with open(os.environ.get('GITHUB_OUTPUT', os.devnull), 'a') as f:
     f.write('count=%d\n' % len(picked))
