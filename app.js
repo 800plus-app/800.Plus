@@ -1141,6 +1141,52 @@ function noteSense(w, typed){
   const s=Array.isArray(r.sens)?r.sens:[];
   if(!s.includes(i)){ s.push(i); r.sens=s.slice(0,8); }
 }
+/* מרחק עריכה, על שני מיתרים קצרים בלבד — הפירושים של ערך אחד. */
+function editDist(a,b){
+  if(a===b) return 0;
+  const m=a.length, n=b.length;
+  if(!m||!n) return m||n;
+  let prev=Array.from({length:n+1},(_,j)=>j), cur=new Array(n+1);
+  for(let i=1;i<=m;i++){
+    cur[0]=i;
+    for(let j=1;j<=n;j++)
+      cur[j]=Math.min(prev[j]+1, cur[j-1]+1, prev[j-1]+(a[i-1]===b[j-1]?0:1));
+    [prev,cur]=[cur,prev];
+  }
+  return prev[n];
+}
+/* הזיכוי שמאחורי "בעצם ידעתי".
+ *
+ * noteSense מזכה רק בהתאמה מדויקת, ולכן שגיאת כתיב לא זוכתה לעולם. עבור 43% מהמילים
+ * באנגלית ו-65% בעברית — אלה שנושאות יותר מפירוש אחד — התקרה ב-commitSession נשארה 2,
+ * weakCards דורש 3, והמילה נתקעה ברשימת החיזוק לצמיתות. זה בדיוק מה שדווח: "לא יורד
+ * לאחר 3-4 פעמים למרות שכביכול אני כבר שולט בה".
+ *
+ * שלושה שלבים, מהמדויק למקל:
+ *   1. התאמה מדויקת — כמו noteSense.
+ *   2. הפירוש הקרוב ביותר במרחק עריכה, עד שליש מאורכו. הסיכון להתאמה שגויה זניח כאן
+ *      ולא כמו ברעיון "כמעט נכון" שנפסל בזמנו: המועמדים אינם המאגר כולו אלא שניים עד
+ *      ארבעה פירושים של אותו ערך.
+ *   3. אין קרבה — הפירוש הראשון שטרם זוכה. הלומד הצהיר שידע; לא לזכות אותו בכלום פירושו
+ *      לכלוא את המילה בלי שום מוצא, וזה הבאג עצמו.
+ *
+ * התקרה עצמה נשארת. מי שיודע פירוש אחד מתוך שלושה אינו שולט במילה — זו הייתה בקשה מפורשת. */
+function creditSense(w, typed){
+  const segs=meaningSegs(w.meaning);
+  if(segs.length<2) return;
+  const r=rec(w.term);
+  const s=Array.isArray(r.sens)?r.sens.slice():[];
+  const a=norm(typed||'');
+  let i=segs.indexOf(a);
+  if(i<0 && a){
+    let best=-1, bd=Infinity;
+    segs.forEach((seg,k)=>{ const d=editDist(a,seg); if(d<bd){ bd=d; best=k; } });
+    if(best>=0 && bd<=Math.max(1, Math.floor(segs[best].length/3))) i=best;
+  }
+  if(i<0) i=segs.findIndex((_,k)=>!s.includes(k));   // הצהיר שידע — מזכים בפירוש שטרם ניתן
+  if(i<0) return;                                    // כולם כבר זוכו
+  if(!s.includes(i)){ s.push(i); r.sens=s.slice(0,8); }
+}
 let acceptedAlt=null;      // set when the answer was a different word with the same gloss
 function check(){
   if(answered||!deck[idx]) return;
@@ -1278,7 +1324,10 @@ function finishCard(ok, skipped){
       : '<div class="oth empty">עוד אף אחד לא שיתף כאן. אתה יכול להיות הראשון.</div>';
   };
 
-  const wr=$('#wasRight'); if(wr) wr.onclick=()=>{ correct++; const i=missed.indexOf(w); if(i>=0)missed.splice(i,1); e.mastered=true; e.firstTry=(e.attempts===1); $('#qLive').textContent=`✓ ${correct}`; wr.remove(); document.querySelector('.verdict').textContent='סומן כנכון ✓'; document.querySelector('.verdict').className='verdict ok'; };
+  const wr=$('#wasRight'); if(wr) wr.onclick=()=>{ correct++; const i=missed.indexOf(w); if(i>=0)missed.splice(i,1); e.mastered=true; e.firstTry=(e.attempts===1);
+    /* בלי זה מילה רב-משמעית נשארת ברשימת החיזוק לצמיתות: התקרה ב-commitSession היא 2 כל עוד
+       sensesLeft>0, ו-weakCards דורש 3. ראה tests/35. */
+    if(w._dir==='w2m') creditSense(w, $('#answerInput').value); $('#qLive').textContent=`✓ ${correct}`; wr.remove(); document.querySelector('.verdict').textContent='סומן כנכון ✓'; document.querySelector('.verdict').className='verdict ok'; };
   $('#delLive').onclick=()=>{ const k=K(w.term); deleteWord(w.term); toast(`"${w.term}" נמחקה`); deck=deck.filter(c=>K(c.term)!==k); missed=missed.filter(c=>K(c.term)!==k); session.delete(k); if(deck.length===0){ finishRound(); return; } if(idx>=deck.length) idx=deck.length-1; next(true); };
 }
 function next(stay){
