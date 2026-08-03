@@ -2,7 +2,7 @@
    ONE place to bump on every deploy: REV. It names the cache *and* the asset query strings,
    so the URLs precached here are byte-for-byte the URLs index.html requests. When those drift
    apart the app silently keeps serving an old build — which is exactly what used to happen. */
-const REV = '151';
+const REV = '152';
 const V = 'hw-v' + REV;
 /* App DATA must not live in a versioned cache. The personalised reminder text was written into
    hw-v<REV>, so the next deploy deleted it along with the assets — and it was never rewritten,
@@ -19,7 +19,9 @@ const ASSETS = [
 
 /* Without these the app cannot start. Everything else is content that the fetch handler will
    pull in on demand. */
-const CORE = ['./', './index.html', `./app.js?v=${REV}`, `./store.js?v=${REV}`, `./config.js?v=${REV}`];
+/* supabase.min.js כאן ולא רק ב-ASSETS: store.js טוען דרכו את Supabase, ולכן הוא ליבה בדיוק
+   כמו store.js עצמו. בלעדיו install היה מצליח (best-effort) והאפליקציה נשברת באופליין. */
+const CORE = ['./', './index.html', `./app.js?v=${REV}`, `./store.js?v=${REV}`, `./config.js?v=${REV}`, `./supabase.min.js?v=${REV}`];
 
 self.addEventListener('install', e => {
   // cache:'reload' bypasses the HTTP cache, so a new REV can never precache a stale file
