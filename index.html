@@ -415,8 +415,16 @@
   .mail-tip{font-size:.8rem!important;border-top:1px solid var(--line);padding-top:11px;margin-top:14px!important}
   .ask-go{margin-top:18px;width:100%;font-family:"Heebo";font-weight:700;font-size:1rem;
        padding:15px;border-radius:12px;border:0;cursor:pointer;color:#fffdf8;
+       display:block;text-align:center;text-decoration:none;
        background:linear-gradient(180deg,var(--gold),var(--accent));
        box-shadow:0 8px 18px -9px rgba(166,60,38,.6)}
+  /* כפתור סגירה בפינה, כי חגי ביקש X מפורש להזמנת הוואטסאפ. inset-inline-end = שמאל ב-RTL,
+     המיקום המקובל ל-X. min 44px כדי שהאצבע תפגע בו. */
+  #waAsk .ask-box{position:relative}
+  .ask-x{position:absolute;top:8px;inset-inline-end:10px;background:transparent;border:0;
+       color:var(--ink-soft);font-size:1.1rem;line-height:1;cursor:pointer;
+       min-width:44px;min-height:44px;border-radius:10px}
+  .ask-x:hover{color:var(--ink)}
 
   /* ===== auth — "ענבר": near-black walnut, a single amber glow, thin rules, generous air.
      Full-bleed so it escapes .wrap, and it owns its own dark palette regardless of the app's. ===== */
@@ -1654,6 +1662,20 @@
   </div>
 </div>
 
+<!-- קבוצת הוואטסאפ: הזמנה קופצת שמוצגת פעם אחת לכל מכשיר (hw_waOffered). חגי ביקש שתקפוץ
+     לכולם בכניסה, וברגע שסוגרים אותה היא לא חוזרת — הכרטיס הקבוע במסך הכניסה (#waCta) נשאר
+     כאופציה. הכפתור הראשי הוא קישור <a> ולא <button>: הוא פותח את הוואטסאפ ישירות. -->
+<div class="ask hidden" id="waAsk">
+  <div class="ask-box">
+    <button class="ask-x" id="waAskX" aria-label="סגירה" title="סגירה">✕</button>
+    <div class="mail-ico" aria-hidden="true">💬</div>
+    <h3>קבוצת הוואטסאפ של 800+</h3>
+    <p>עדכונים על גרסאות חדשות, ומקום לדווח על תקלות ורעיונות.</p>
+    <a class="ask-go" id="waAskGo" href="https://chat.whatsapp.com/FxJIBhZ6AYu92bTk08Afgg" target="_blank" rel="noopener">הצטרף לקבוצה</a>
+    <button class="ask-cancel" id="waAskNo">לא עכשיו</button>
+  </div>
+</div>
+
 <!-- ===== מבחן רמה — האזהרה לפני ההתחלה =====
      כל שורה כאן מתארת מה הקוד עושה, ולא מה שנשמע מסוכן:
        · lvFinish() עושה LS.set(lvKey(), level) + queueRemoteSync() — התוצאה הקודמת מוחלפת
@@ -1786,14 +1808,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=155"></script>
-<script src="config.js?v=155"></script>
-<script src="store.js?v=155"></script>
-<script src="leveltest-he.js?v=155"></script>
-  <script src="leveltest.js?v=155"></script>
-<script src="enrank.js?v=155"></script>
-<script src="data.js?v=155"></script>
-<script src="data-en.js?v=155"></script>
-<script src="app.js?v=155"></script>
+<script src="supabase.min.js?v=156"></script>
+<script src="config.js?v=156"></script>
+<script src="store.js?v=156"></script>
+<script src="leveltest-he.js?v=156"></script>
+  <script src="leveltest.js?v=156"></script>
+<script src="enrank.js?v=156"></script>
+<script src="data.js?v=156"></script>
+<script src="data-en.js?v=156"></script>
+<script src="app.js?v=156"></script>
 </body>
 </html>

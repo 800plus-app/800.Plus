@@ -2276,7 +2276,23 @@ function renderWelcome(){
   : st.today   ? `כבר תרגלת היום — ${st.n} ${days(st.n)}. כל הכבוד.`
                : `${st.n} ${days(st.n)}. תרגול קצר היום שומר על הרצף.`;
   renderBuildTag();
+  maybeOfferWhatsapp();
   goto('welcome');
+}
+/* קבוצת הוואטסאפ: הזמנה חד-פעמית שקופצת בכניסה למסך השפות — המסך שכל משתמש רואה בכל
+   כניסה, ולכן ההזמנה מגיעה גם למי שכבר מחובר ולא נרשם מחדש. hw_waOffered נכתב ברגע ההצגה,
+   כך שהיא מופיעה פעם אחת בלבד ולא משנה איך סוגרים אותה. הדגל שמור מהניקוי בהחלפת חשבון
+   (wipeAccountKeys), בדיוק כמו הזמנת ההתקנה — הצטרפות לקבוצה היא פעולת מכשיר, לא נתון חשבון.
+   הכרטיס הקבוע במסך (#waCta) נשאר תמיד; זו רק ההופעה הקופצת. */
+function maybeOfferWhatsapp(){
+  if(LS.get('hw_waOffered',0)) return;
+  setTimeout(()=>{
+    if(LS.get('hw_waOffered',0)) return;                     // נפתח בינתיים ממסלול אחר
+    if($('#welcome').classList.contains('hidden')) return;   // המשתמש כבר עזב את מסך הכניסה
+    if(document.querySelector('.ask:not(.hidden)')) return;  // לא לערום על דיאלוג אחר שפתוח
+    LS.set('hw_waOffered',1);
+    show($('#waAsk'));
+  }, 900);
 }
 function enterLang(lang){
   if(!committed && session.size>0) commitSession();   // never lose an in-flight round
@@ -3646,7 +3662,7 @@ function wipeAccountKeys(){
   const doomed=[];
   for(let i=0;i<localStorage.length;i++){
     const k=localStorage.key(i);
-    if(k && k.startsWith('hw_') && k!=='hw_owner' && k!=='hw_seenIntro' && k!=='hw_instDismissed')
+    if(k && k.startsWith('hw_') && k!=='hw_owner' && k!=='hw_seenIntro' && k!=='hw_instDismissed' && k!=='hw_waOffered')
       doomed.push(k);
   }
   doomed.forEach(k=>LS.del(k));
@@ -3981,6 +3997,14 @@ $('#notifAskYes').onclick=async()=>{
   try{ await NOTIF.ask(); }catch(e){}
   if(NOTIF.granted()){ NOTIF.cacheMessage(); toast('נהדר — נזכיר לך מחר בבוקר'); $('#notifCta').classList.add('hidden'); }
 };
+/* ===== דיאלוג קבוצת הוואטסאפ ===== */
+/* הדגל hw_waOffered כבר נכתב ברגע ההצגה (maybeOfferWhatsapp), ולכן כל מסלול סגירה — X,
+   "לא עכשיו", לחיצה מחוץ לתיבה, או Escape — פשוט מסתיר בלי לגעת בדגל. הכפתור הראשי הוא
+   קישור <a> שפותח את הוואטסאפ מעצמו; ה-onclick רק סוגר את השכבה שמאחוריו. */
+$('#waAskNo').onclick=()=>hide($('#waAsk'));
+$('#waAskX').onclick=()=>hide($('#waAsk'));
+$('#waAskGo').onclick=()=>hide($('#waAsk'));
+$('#waAsk').onclick=e=>{ if(e.target===$('#waAsk')) hide($('#waAsk')); };
 $('#userBadge2').onclick = ()=>openAccount('profile');
 $('#userBadge3').onclick = ()=>openAccount('profile');
 /* הדלת השנייה. הראשונה — לחיצה על השם — נשארת, כי מי שכבר מצא אותה לא צריך ללמוד מחדש;
