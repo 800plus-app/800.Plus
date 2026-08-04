@@ -561,6 +561,10 @@
   .wc-x:hover{opacity:1;background:var(--line)}
   .wc-kicker{font-size:.66rem;letter-spacing:2px;color:var(--ink-soft);margin-bottom:6px}
   .wc-term{font-size:1.3rem;font-weight:700;line-height:1.35;margin-bottom:11px;color:var(--ink)}
+  /* המילה והרמקול באותה שורה. השוליים עוברים לשורה עצמה, אחרת margin-bottom של המילה
+     מזיז את הכפתור כלפי מעלה במקום ליישר אותו למרכזה. */
+  .wc-row{display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:11px}
+  .wc-row .wc-term{margin-bottom:0}
   .wc-reveal{background:transparent;border:1px dashed var(--line);border-radius:12px;
        min-height:44px;padding:8px 18px;font-family:"Heebo";font-size:.84rem;
        color:var(--ink-soft);cursor:pointer}
@@ -1224,7 +1228,7 @@
         <div class="q-kind">מה הפירוש?</div>
         <div class="q-row">
           <div class="q-text" id="lvWord" dir="ltr"></div>
-          <button class="say hidden" id="lvSay" title="השמע" aria-label="השמע">🔊</button>
+          <button class="say hidden" id="lvSay" title="השמע את המילה" aria-label="השמע את המילה">🔊</button>
         </div>
         <div class="lv-opts" id="lvOpts"></div>
         <button class="lv-dunno" id="lvDunno">לא יודע</button>
@@ -1365,7 +1369,13 @@
     <div class="wcard hidden" id="wordCard">
       <button class="wc-x" id="wcClose" title="סגירה להיום" aria-label="סגירת כרטיס המילה להיום">✕</button>
       <div class="wc-kicker" id="wcKicker"></div>
-      <div class="wc-term" id="wcTerm"></div>
+      <!-- הרמקול לצד המילה, כמו בתרגול ובשני המבחנים. הוא מתחיל hidden ו-bindSay מחליט:
+           הוא נדלק רק במאגר האנגלי וכשיש קול במכשיר. המילה עצמה כבר גלויה כאן, והפירוש
+           הוא זה שמוסתר — ולכן הקראה אינה מוסרת שום תשובה. -->
+      <div class="wc-row">
+        <div class="wc-term" id="wcTerm"></div>
+        <button class="say hidden" id="wcSay" title="השמע את המילה" aria-label="השמע את המילה">🔊</button>
+      </div>
       <button class="wc-reveal" id="wcReveal">גלה את הפירוש</button>
       <div class="wc-mean hidden" id="wcMean"></div>
       <div class="wc-acts hidden" id="wcActs">
@@ -1450,7 +1460,7 @@
         <div class="q-kind" id="exKind"></div>
         <div class="q-row">
           <div class="q-text" id="exPrompt"></div>
-          <button class="say hidden" id="exSay" title="השמע" aria-label="השמע">🔊</button>
+          <button class="say hidden" id="exSay" title="השמע את המילה" aria-label="השמע את המילה">🔊</button>
         </div>
         <div class="lv-opts" id="exOpts"></div>
         <div id="exWrite" class="hidden">
@@ -1762,14 +1772,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=153"></script>
-<script src="config.js?v=153"></script>
-<script src="store.js?v=153"></script>
-<script src="leveltest-he.js?v=153"></script>
-  <script src="leveltest.js?v=153"></script>
-<script src="enrank.js?v=153"></script>
-<script src="data.js?v=153"></script>
-<script src="data-en.js?v=153"></script>
-<script src="app.js?v=153"></script>
+<script src="supabase.min.js?v=154"></script>
+<script src="config.js?v=154"></script>
+<script src="store.js?v=154"></script>
+<script src="leveltest-he.js?v=154"></script>
+  <script src="leveltest.js?v=154"></script>
+<script src="enrank.js?v=154"></script>
+<script src="data.js?v=154"></script>
+<script src="data-en.js?v=154"></script>
+<script src="app.js?v=154"></script>
 </body>
 </html>
