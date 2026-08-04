@@ -561,10 +561,16 @@
   .wc-x:hover{opacity:1;background:var(--line)}
   .wc-kicker{font-size:.66rem;letter-spacing:2px;color:var(--ink-soft);margin-bottom:6px}
   .wc-term{font-size:1.3rem;font-weight:700;line-height:1.35;margin-bottom:11px;color:var(--ink)}
-  /* המילה והרמקול באותה שורה. השוליים עוברים לשורה עצמה, אחרת margin-bottom של המילה
-     מזיז את הכפתור כלפי מעלה במקום ליישר אותו למרכזה. */
-  .wc-row{display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:11px}
+  /* הרמקול נעוץ לשמאל למעלה כמו בתרגול (‏inset-inline-end ב-RTL הוא שמאל, בדיוק כמו
+     ב-.wc-x מעליו). נעוץ ולא flex: עם flex:1 המילה נדחקה ימינה בחצי רוחב הכפתור וחדלה
+     להיות ממורכזת מול הכותרת וכפתור "גלה את הפירוש" — נמדד. הריפוד הסימטרי שומר על
+     המרכוז וגם מונע ממילה ארוכה לרוץ מתחת לכפתור. */
+  .wc-row{position:relative;width:100%;padding-inline:45px;margin-bottom:11px}
   .wc-row .wc-term{margin-bottom:0}
+  /* 20% קטן מהרמקול שבמסכי התרגול: שם הוא לצד השאלה והוא הפעולה, כאן הוא כפתור משני
+     בכרטיס תצוגה. הערכים הם 0.8 מהמקור, כולל הפינה. */
+  .wc-row .say{position:absolute;inset-inline-end:0;top:0;
+    font-size:.84rem;padding:6px 8px;border-radius:8px}
   .wc-reveal{background:transparent;border:1px dashed var(--line);border-radius:12px;
        min-height:44px;padding:8px 18px;font-family:"Heebo";font-size:.84rem;
        color:var(--ink-soft);cursor:pointer}
