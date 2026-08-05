@@ -111,7 +111,10 @@ def body(name, n, days=None):
        width="520" style="width:520px;max-width:100%;background:#fffdf8;border:1px solid #e8ddcb;
        border-radius:16px;overflow:hidden">
   <tr><td style="padding:26px 30px 0;text-align:center">
-    <div style="font-size:15px;font-weight:700;letter-spacing:5px;color:#b5651d">800+</div>
+    <!-- dir="ltr": בתוך בלוק RTL הסימן + הוא תו נייטרלי ונדחף לצד השני, כך שהלוגו
+         יצא "‎+800" בכל מייל שנשלח עד היום. index.html פותר את זה ב-<bdi>, שאינו נתמך
+         אחיד בלקוחות מייל; dir הוא המקבילה שכולם מכבדים. -->
+    <div dir="ltr" style="font-size:15px;font-weight:700;letter-spacing:5px;color:#b5651d">800+</div>
   </td></tr>
 
   <tr><td style="padding:22px 30px 0;text-align:right">
