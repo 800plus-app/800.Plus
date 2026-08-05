@@ -5071,13 +5071,43 @@ async function renderAdminFeedback(){
         <p style="font-size:.94rem;line-height:1.55;margin:6px 0 8px;white-space:pre-wrap">${esc(r.body)}</p>
         <div class="fb-ctx">${esc(`${fmtDate(r.created_at)} · screen:${c.screen||'?'} · lang:${c.lang||'?'} · build:${c.build||'?'} · ${c.viewport||''} ${c.standalone?'· PWA':''}`)}</div>
         <div class="adm-acts"><button data-fb="${r.id}" data-st="${r.status==='done'?'new':'done'}">
-          ${r.status==='done'?'↩ החזר לפתוח':'✓ סמן כטופל'}</button></div>
+          ${r.status==='done'?'↩ החזר לפתוח':'✓ סמן כטופל'}</button>
+          ${r.status==='done' && r.email
+            ? `<button class="adm-reply" data-reply="${r.id}">✉ השב למדווח</button>` : ''}</div>
       </div>`;
     }).join('');
   host.querySelectorAll('[data-fb]').forEach(b=>b.onclick=async()=>{
     b.disabled=true;
     if(await Store.adminMarkFeedback(+b.dataset.fb, b.dataset.st)) renderAdminFeedback();
     else { b.disabled=false; toast('העדכון נכשל'); }
+  });
+  /* מענה למדווח.
+   *
+   * למה mailto ולא שליחה מהאפליקציה: מפתח Resend יושב רק בצד השרת, ובדפדפן הוא היה
+   * גלוי לכל מי שפותח את קוד המקור. mailto גם הופך את "רק אני שולח" למילולי — ההודעה
+   * נפתחת בתיבה של חגי והוא לוחץ שלח בעצמו. אותו דפוס כמו #lockContact.
+   *
+   * מוצג רק על דיווח שכבר סומן "טופל", כי הנוסח מבטיח "בדקתי, מצאתי ותיקנתי" —
+   * הבטחה כזאת על דיווח פתוח היא שקר, וזה הסוג שגורם למישהו להפסיק לדווח.
+   *
+   * "שלום," בלי שם: לטבלת הדיווחים אין שדה שם, ורק כתובת. לגזור שם פרטי מהכתובת היה
+   * מייצר "שלום paz123" — וזה גרוע מפנייה כללית תקינה (HEB §6). */
+  host.querySelectorAll('[data-reply]').forEach(b=>b.onclick=()=>{
+    const r=rows.find(x=>String(x.id)===b.dataset.reply); if(!r) return;
+    /* הנושא הוא ציטוט קצר של מה שהוא עצמו כתב — זה מה שיגרום לו לזהות במבט אחד על מה
+       מדובר, במקום "באג" שאינו אומר כלום שבועיים אחרי. */
+    const topic=String(r.body||'').split('\n')[0].trim().slice(0,50);
+    const subject='800+ · הדיווח שלך טופל';
+    const body=[
+      'שלום,','',
+      'הדיווח שלך על "'+topic+'" התקבל!',
+      'בדקתי, מצאתי ותיקנתי — והגרסה כבר עודכנה.','',
+      'תודה על הפידבק, תמשיך לדווח ❤️','',
+      'https://800-plus.com'
+    ].join('\n');
+    location.href='mailto:'+encodeURIComponent(r.email)
+      +'?subject='+encodeURIComponent(subject)
+      +'&body='+encodeURIComponent(body);
   });
 }
 $('#adminBtn').onclick=openAdmin;
