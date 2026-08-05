@@ -155,11 +155,12 @@ const BeatFact: React.FC = () => {
         })}
       </div>
 
-      {/* nowrap על "פרקי הרב-ברירה": בלעדיו המקף שובר את המילה לשתי שורות
-          ונקרא "הרב- / ברירה". הגודל הורד מ-92 ל-74 כדי שהשורה תיכנס שלמה. */}
-      <div style={{ fontFamily: "Frank Ruhl Libre, serif", fontWeight: 900, fontSize: 74, color: C.ink, textAlign: "center", lineHeight: 1.18 }}>
-        <span style={{ color: C.accent }}>4 מתוך 6</span>{" "}
-        <span style={{ whiteSpace: "nowrap" }}>פרקי הרב-ברירה</span>
+      {/* ⚠ הניסוח הוכרע על ידי חגי פעמיים: "4 מתוך 6 פרקים במבחן הפסיכומטרי".
+          ההסתייגות מתועדת ב-תסריט-סרטון-תדמית.md ולא חוזרת כאן. */}
+      <div style={{ fontFamily: "Frank Ruhl Libre, serif", fontWeight: 900, fontSize: 68, color: C.ink, textAlign: "center", lineHeight: 1.2 }}>
+        <span style={{ color: C.accent }}>4 מתוך 6</span> פרקים
+        <br />
+        במבחן הפסיכומטרי
         <br />
         נשענים על אוצר מילים
       </div>
