@@ -33,6 +33,15 @@
     padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
   .wrap{max-width:640px;margin:0 auto;padding:22px 18px 60px}
+  /* ספארי באייפון, כשהאפליקציה פתוחה כאתר ולא כאפליקציה מותקנת.
+     שורת הכתובת התחתונה של ספארי מרחפת מעל התוכן ואינה נכללת ב-env(safe-area-inset-bottom)
+     כשהיא מוצגת, ולכן 60px מלמטה לא הספיקו: הכפתור התחתון בתרגול — "הבא ←" — נחתך בדיוק
+     על ידה. דווח על ידי משתמש (5.8.2026).
+     המחלקה נקבעת ב-JS (isIOS && !isStandalone) ולא רק ב-@media (display-mode: browser),
+     כי אותה שאילתה אינה נתמכת בגרסאות iOS ישנות — ושם בדיוק הבעיה חיה.
+     ההוספה היא לגובה הגלילה בלבד: כך הגבול התחתון של הדף הוא מה שמסתתר מאחורי שורת
+     הכתובת, ולא הכפתור. */
+  body.ios-web .wrap{padding-bottom:calc(60px + 68px)}
   .hidden{display:none!important}
   /* For text that only a screen reader should get. NOT display:none and NOT visibility:hidden —
      both of those remove the node from the accessibility tree, which would make a live region
@@ -249,6 +258,9 @@
   .reveal b{font-family:"Frank Ruhl Libre",serif}
   .was-right{margin-top:12px;background:transparent;border:1px solid var(--line);color:var(--ink-soft);border-radius:999px;padding:7px 16px;font-family:"Heebo";font-size:.85rem}
   .was-right:hover{border-color:var(--green);color:var(--green)}
+  /* המצב המסומן. הכפתור הוא מתג ולא פעולה חד-כיוונית, ולכן הוא חייב להיראות שונה כשהוא
+     דלוק — אחרת "לחץ לביטול" הוא הרמז היחיד שמשהו קרה. */
+  .was-right.on{border-color:var(--green);color:var(--green);background:rgba(47,133,90,.08)}
   .assoc{margin-top:18px;text-align:right;border-top:1px dashed var(--line);padding-top:14px}
   .assoc label{display:block;font-weight:500;font-size:.86rem;color:var(--gold);margin-bottom:7px}
   .assoc textarea{width:100%;font-family:"Heebo";font-size:1rem;color:var(--ink);background:rgba(201,150,47,.06);border:1px solid var(--line);border-radius:10px;padding:9px 12px;resize:vertical;outline:none;line-height:1.5}
@@ -1808,14 +1820,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=156"></script>
-<script src="config.js?v=156"></script>
-<script src="store.js?v=156"></script>
-<script src="leveltest-he.js?v=156"></script>
-  <script src="leveltest.js?v=156"></script>
-<script src="enrank.js?v=156"></script>
-<script src="data.js?v=156"></script>
-<script src="data-en.js?v=156"></script>
-<script src="app.js?v=156"></script>
+<script src="supabase.min.js?v=157"></script>
+<script src="config.js?v=157"></script>
+<script src="store.js?v=157"></script>
+<script src="leveltest-he.js?v=157"></script>
+  <script src="leveltest.js?v=157"></script>
+<script src="enrank.js?v=157"></script>
+<script src="data.js?v=157"></script>
+<script src="data-en.js?v=157"></script>
+<script src="app.js?v=157"></script>
 </body>
 </html>
