@@ -976,12 +976,38 @@
   /* ספירה לסיום התקופה החינמית. פס ולא כרטיס: הוא נמצא מעל בחירת השפה, כלומר על המסלול
      של כל כניסה, ולכן הוא חייב להימסר במבט אחד ולא לתפוס את מקום התוכן.
      הזהב ולא האדום — זו תזכורת לתאריך, לא שגיאה. */
-  .paybar{display:flex;align-items:baseline;gap:10px;justify-content:center;flex-wrap:wrap;
-       margin-top:16px;padding:11px 16px;border-radius:14px;
-       background:rgba(201,150,47,.10);border:1px solid rgba(201,150,47,.45)}
+  /* הגרדיאנט הוא זה של הכפתור הראשי (.ask-go) ולא צבע חדש: הפס אמור למשוך את העין,
+     אבל אלמנט בצבע שאינו קיים בשום מקום אחר נקרא כפרסומת שהודבקה על האפליקציה.
+     המידות קטנות ב-8% מהגרסה הראשונה, לבקשת חגי — 11/16 → 10/15, והטיפוגרפיה יחד איתן. */
+  .paybar{display:flex;align-items:baseline;gap:9px;justify-content:center;flex-wrap:wrap;
+       position:relative;overflow:hidden;
+       margin-top:16px;padding:10px 15px;border-radius:13px;
+       background:linear-gradient(135deg,var(--gold),#f6b12a);
+       border:0;color:#3a2205;
+       box-shadow:0 6px 16px -8px rgba(166,60,38,.75);
+       animation:payBreath 2.8s ease-in-out infinite}
   .paybar.hidden{display:none!important}
-  .paybar b{font-family:"Frank Ruhl Libre",serif;font-weight:900;font-size:1.12rem;color:var(--accent-deep)}
-  .paybar span{font-size:.82rem;color:var(--ink-soft)}
+  /* טקסט כהה על זהב בוהק, ולא לבן. הגרסה הראשונה כאן הייתה לבן על גרדיאנט זהב→טרהקוטה,
+     ונמדד יחס ניגודיות 2.62 בקצה הזהב — מתחת לסף. זה בדיוק הלקח שכבר נלמד במייל
+     התזכורת: "בוהק שאי אפשר לקרוא אינו בוהק". הזוג הנוכחי נמדד 5.59 בקצה הגרוע. */
+  .paybar b{font-family:"Frank Ruhl Libre",serif;font-weight:900;font-size:1.03rem;
+       color:#3a2205;animation:payBeat 2.8s ease-in-out infinite}
+  .paybar span{font-size:.75rem;color:rgba(58,34,5,.78)}
+  /* ברק שעובר לאט. ::after ולא אלמנט נוסף, כדי שלא ייכנס לעץ הנגישות — הפס נושא
+     role="status", וקורא מסך אמור לשמוע את הטקסט בלבד. */
+  .paybar::after{content:'';position:absolute;top:0;bottom:0;width:38%;
+       background:linear-gradient(90deg,transparent,rgba(255,255,255,.26),transparent);
+       transform:skewX(-18deg);animation:paySheen 4.6s ease-in-out infinite;pointer-events:none}
+  @keyframes payBreath{0%,100%{box-shadow:0 6px 16px -8px rgba(166,60,38,.75)}
+                       50%   {box-shadow:0 8px 22px -8px rgba(166,60,38,.95)}}
+  @keyframes payBeat  {0%,100%{transform:scale(1)} 50%{transform:scale(1.07)}}
+  @keyframes paySheen {0%{inset-inline-start:-45%} 55%,100%{inset-inline-start:115%}}
+  /* מי שביקש מהמערכת פחות תנועה מקבל את הפס בלי אף אנימציה. הכיתוב אינו משתנה,
+     ולכן שום מידע אינו אובד. */
+  @media (prefers-reduced-motion: reduce){
+    .paybar,.paybar b{animation:none}
+    .paybar::after{display:none}
+  }
   .install-cta{display:flex;align-items:center;gap:13px;width:100%;margin-top:20px;
        background:var(--card);border:1px solid var(--gold);border-radius:16px;padding:14px 16px;
        text-align:right;transition:.18s;box-shadow:var(--shadow);font-family:"Heebo";
@@ -1847,14 +1873,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=162"></script>
-<script src="config.js?v=162"></script>
-<script src="store.js?v=162"></script>
-<script src="leveltest-he.js?v=162"></script>
-  <script src="leveltest.js?v=162"></script>
-<script src="enrank.js?v=162"></script>
-<script src="data.js?v=162"></script>
-<script src="data-en.js?v=162"></script>
-<script src="app.js?v=162"></script>
+<script src="supabase.min.js?v=163"></script>
+<script src="config.js?v=163"></script>
+<script src="store.js?v=163"></script>
+<script src="leveltest-he.js?v=163"></script>
+  <script src="leveltest.js?v=163"></script>
+<script src="enrank.js?v=163"></script>
+<script src="data.js?v=163"></script>
+<script src="data-en.js?v=163"></script>
+<script src="app.js?v=163"></script>
 </body>
 </html>

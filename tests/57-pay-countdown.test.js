@@ -105,6 +105,29 @@ describe('שעון העצר לתשלום', () => {
       assert.ok(!phraseFor(d).includes('—'), `מקף ארוך בניסוח של ${d}`);
   });
 
+  test('טקסט כהה על זהב בוהק, ולא לבן', () => {
+    /* הגרסה הראשונה של הפס הייתה לבן על גרדיאנט זהב→טרהקוטה. נמדד יחס ניגודיות 2.62
+       בקצה הזהב — מתחת לסף 4.5. זה בדיוק הלקח שכבר נלמד במייל התזכורת
+       ("בוהק שאי אפשר לקרוא אינו בוהק"), ולכן הוא נשמר כאן כבדיקה ולא כזיכרון.
+       הזוג הנוכחי, #3a2205 על #c9962f, נמדד 5.59 בקצה הגרוע. */
+    const css = html.slice(html.indexOf('.paybar{'), html.indexOf('.install-cta{'));
+    assert.ok(!/color:#fffdf8/.test(css), 'הטקסט חזר להיות לבן — הניגודיות תיפול מתחת לסף');
+    assert.match(css, /color:#3a2205/, 'צבע הטקסט הכהה נעלם');
+  });
+
+  test('מי שביקש פחות תנועה מקבל את הפס בלי אנימציה', () => {
+    const css = html.slice(html.indexOf('.paybar{'), html.indexOf('.install-cta{'));
+    assert.match(css, /prefers-reduced-motion: reduce/, 'אין כיבוד ל-prefers-reduced-motion');
+    const at = css.indexOf('prefers-reduced-motion');
+    assert.match(css.slice(at, at + 200), /animation:none/, 'האנימציות אינן מכובות');
+  });
+
+  test('הברק אינו נכנס לעץ הנגישות', () => {
+    /* הפס נושא role="status"; אלמנט תוכן נוסף היה נקרא בקול. ::after אינו נקרא. */
+    const css = html.slice(html.indexOf('.paybar{'), html.indexOf('.install-cta{'));
+    assert.match(css, /\.paybar::after\{content:''/, 'הברק אינו ::after');
+  });
+
   test('החישוב האמיתי מחזיר את המספר הנכון', () => {
     /* מריץ את נוסחת הימים עצמה מול תאריך ידוע. */
     const end = new Date('2026-09-01T00:00:00');
