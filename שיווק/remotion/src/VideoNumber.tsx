@@ -16,15 +16,30 @@ import { Frame } from "./Chrome";
  * המספר 5,662 הוא הנתון היחיד שנטען כאן כעובדה, והוא נספר מהקוד.
  */
 
+/**
+ * 84 מילים **ייחודיות**, נדגמו מיחידות 8 עד 10 של המאגר האמיתי.
+ *
+ * ⚠ למה רשימה קבועה ולא הגרלה מתוך מאגר קטן: בגרסה הראשונה המילים נבחרו
+ * באקראי מרשימה של 30, ו-"lucid" הופיעה פעמיים על אותו מסך. חגי תפס את זה.
+ * מילה כפולה בענן מילים היא בדיוק סוג הפרט שמסגיר שהתוכן לא אמיתי.
+ * מספר הפריטים כאן שווה לאורך הרשימה, ולכן כפילות אינה אפשרית.
+ */
 const POOL = [
-  "commemorate", "reluctant", "inevitable", "meticulous", "obsolete", "candid",
-  "deteriorate", "ambiguous", "profound", "scrutinize", "abandon", "coherent",
-  "diligent", "elaborate", "feasible", "genuine", "hostile", "implicit",
-  "lucid", "mitigate", "notorious", "obscure", "plausible", "resilient",
-  "scarce", "tedious", "utmost", "versatile", "wary", "yield",
+  "absorb", "affection", "appeal", "breed", "civil", "conserve", "crucial",
+  "descend", "dispose", "eager", "exaggerate", "fellow", "furthermore", "habitat",
+  "humiliate", "inevitable", "likewise", "maturity", "moist", "nursery", "overtake",
+  "plaster", "prohibit", "recur", "resemble", "salvation", "skinned", "superficial",
+  "treaty", "viper", "accentuate", "alienation", "apparatus", "augment", "circulate",
+  "conception", "counsel", "defer", "disciples", "dwelling", "essence", "familiarize",
+  "foster", "hasty", "incentive", "intervene", "legislation", "mischief", "noted",
+  "overdue", "pollutant", "prevalent", "pursuit", "renovate", "score", "spectacle",
+  "subsequent", "tremendous", "vessel", "abacus", "affinity", "ancestry", "attire",
+  "capitalize", "conceive", "congenital", "dampen", "depreciate", "devoid", "dissent",
+  "embark", "ensue", "facilitate", "fraternal", "goblet", "immersion", "inherent",
+  "leniency", "momentous", "obedience", "pastime", "plight", "pretext", "rearing",
 ];
 
-/** כמה מילים נשארות בסוף. אלה "המילים לחיזוק" של הלומד ההיפותטי. */
+/** כמה מילים נשארות בשלב הביניים. אלה "המילים לחיזוק" של הלומד ההיפותטי. */
 const KEEP = 6;
 
 export const VideoNumber: React.FC = () => {
@@ -33,10 +48,11 @@ export const VideoNumber: React.FC = () => {
 
   // הפיזור נקבע פעם אחת מזרע קבוע, אחרת כל פריים היה מגריל מחדש והמסך היה רועד.
   const items = useMemo(() => {
-    return new Array(84).fill(0).map((_, i) => {
+    // אחד לאחד מול הרשימה. אין הגרלה של הטקסט, ולכן אין כפילות.
+    return POOL.map((text, i) => {
       const seed = `w${i}`;
       return {
-        text: POOL[Math.floor(random(seed + "t") * POOL.length)],
+        text,
         x: 60 + random(seed + "x") * (width - 220),
         y: 300 + random(seed + "y") * (height - 900),
         size: 26 + random(seed + "s") * 26,
@@ -49,6 +65,15 @@ export const VideoNumber: React.FC = () => {
 
   const fadeStart = 7.4 * fps;
   const fadeEnd = 9.2 * fps;
+  // ניקוי מלא של המסך לפני משפט הסיום, בהוראת חגי (5.8).
+  // הנימוק: מילים שנשארות מאחורי הכיתוב מתחרות בו על העין, והמשפט הוא המסר.
+  const clearStart = 9.5 * fps;
+  const clearEnd = 10.2 * fps;
+  const clear = interpolate(frame, [clearStart, clearEnd], [1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.bezier(0.16, 1, 0.3, 1),
+  });
 
   return (
     <Frame footNote="השאלה אינה כמה. השאלה אילו">
@@ -78,7 +103,7 @@ export const VideoNumber: React.FC = () => {
                 fontSize: it.size,
                 fontWeight: it.keep ? 700 : 400,
                 color: it.keep ? C.accentDeep : C.inkSoft,
-                opacity: appear * fade,
+                opacity: appear * fade * clear,
                 rotate: `${it.rot}deg`,
                 whiteSpace: "nowrap",
               }}
@@ -126,21 +151,24 @@ export const VideoNumber: React.FC = () => {
             textAlign: "center",
             lineHeight: 1.14,
             padding: "0 90px",
-            opacity: interpolate(frame, [9.4 * fps, 10.4 * fps], [0, 1], {
+            opacity: interpolate(frame, [10.1 * fps, 11.1 * fps], [0, 1], {
               extrapolateLeft: "clamp",
               extrapolateRight: "clamp",
               easing: Easing.bezier(0.16, 1, 0.3, 1),
             }),
-            translate: interpolate(frame, [9.4 * fps, 10.4 * fps], ["0px 24px", "0px 0px"], {
+            translate: interpolate(frame, [10.1 * fps, 11.1 * fps], ["0px 24px", "0px 0px"], {
               extrapolateLeft: "clamp",
               extrapolateRight: "clamp",
               easing: Easing.bezier(0.16, 1, 0.3, 1),
             }),
           }}
         >
+          {/* ההדגשה על "שלך" בלבד, בהוראת חגי (5.8). קודם כל "בחולשות שלך" היה
+              מודגש, וההדגשה נפלה על החולשה. המילה שמבדילה אותנו היא ההתאמה
+              האישית, ולכן היא זו שצריכה לקבל את הצבע. */}
           התרגול מתמקד
           <br />
-          <span style={{ color: C.accent }}>בחולשות שלך</span>
+          בחולשות <span style={{ color: C.accent }}>שלך</span>
         </div>
       </AbsoluteFill>
     </Frame>

@@ -28,8 +28,12 @@ type Beat = {
 const BEATS: Beat[] = [
   { word: "inevitable", outcome: "ok", start: 0.6, duration: 4.0 },
   { word: "meticulous", outcome: "wrong", typedText: "metic", start: 4.8, duration: 4.4 },
-  { word: "obsolete", outcome: "ok", start: 9.4, duration: 3.6 },
+  // קוצר מ-3.6 ל-2.9 כדי לפנות מקום למשפט הסיום, שהוא עכשיו שיא הסרטון.
+  { word: "obsolete", outcome: "ok", start: 9.4, duration: 2.9 },
 ];
+
+/** השנייה שבה משפט הסיום נכנס. אחרי שהכרטיס האחרון יצא, לא מעליו. */
+const PUNCH_AT = 12.5;
 
 const BeatCard: React.FC<{ beat: Beat }> = ({ beat }) => {
   const frame = useCurrentFrame();
@@ -83,16 +87,67 @@ const BeatCard: React.FC<{ beat: Beat }> = ({ beat }) => {
   );
 };
 
+/**
+ * משפט הסיום. עלה מהשורה הקטנה בתחתית אל מרכז המסך בהוראת חגי, 5.8.
+ *
+ * הנימוק: זה המסר של הסרטון, ולא הערת שוליים. שורה קטנה מתחת לכתובת נקראת
+ * על ידי מי שכבר משוכנע. משפט שנכנס בגדול למרכז עוצר את מי שעדיין גולל.
+ *
+ * הכניסה משלבת קנה מידה ותנועה כלפי מעלה: תנועה מושכת את העין יותר מהופעה,
+ * וקנה מידה שמתחיל מתחת ל-1 קורא כמו משהו שנוחת ולא כמו משהו שהיה שם תמיד.
+ */
+const Punchline: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const t0 = PUNCH_AT * fps;
+
+  return (
+    <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", padding: "0 80px" }}>
+      <div
+        style={{
+          fontFamily: "Frank Ruhl Libre, serif",
+          fontWeight: 900,
+          fontSize: 88,
+          color: C.ink,
+          textAlign: "center",
+          lineHeight: 1.12,
+          opacity: interpolate(frame, [t0, t0 + 0.45 * fps], [0, 1], {
+            extrapolateLeft: "clamp",
+            extrapolateRight: "clamp",
+            easing: Easing.bezier(0.16, 1, 0.3, 1),
+          }),
+          scale: interpolate(frame, [t0, t0 + 0.7 * fps], [0.86, 1], {
+            extrapolateLeft: "clamp",
+            extrapolateRight: "clamp",
+            easing: Easing.bezier(0.16, 1, 0.3, 1),
+            output: "perceptual-scale",
+          }),
+          translate: interpolate(frame, [t0, t0 + 0.7 * fps], ["0px 40px", "0px 0px"], {
+            extrapolateLeft: "clamp",
+            extrapolateRight: "clamp",
+            easing: Easing.bezier(0.16, 1, 0.3, 1),
+          }),
+        }}
+      >
+        אתה מתרגל <span style={{ color: C.accent }}>רק</span>
+        <br />
+        את מה שאתה לא יודע
+      </div>
+    </AbsoluteFill>
+  );
+};
+
 export const VideoRound: React.FC = () => {
   const { fps } = useVideoConfig();
 
   return (
-    <Frame footNote="אתה מתרגל את מה שאתה לא יודע">
+    <Frame>
       {BEATS.map((b, i) => (
         <Sequence key={i} from={Math.round(b.start * fps)} durationInFrames={Math.round(b.duration * fps)} layout="none">
           <BeatCard beat={b} />
         </Sequence>
       ))}
+      <Punchline />
     </Frame>
   );
 };

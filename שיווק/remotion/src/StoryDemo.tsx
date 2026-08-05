@@ -68,10 +68,10 @@ export const StoryDemo: React.FC = () => {
           style={{
             fontFamily: "Frank Ruhl Libre, serif",
             fontWeight: 900,
-            fontSize: 76,
+            fontSize: 62,
             color: C.accent,
             textAlign: "center",
-            lineHeight: 1.1,
+            lineHeight: 1.16,
             opacity: interpolate(frame, [0.15 * fps, 0.9 * fps], [0, 1], {
               extrapolateLeft: "clamp",
               extrapolateRight: "clamp",
@@ -84,9 +84,11 @@ export const StoryDemo: React.FC = () => {
             }),
           }}
         >
-          אתה כותב.
+          {/* הניסוח של חגי, 5.8. "אתה כותב · לא בוחר מרשימה" תיאר את המנגנון;
+              זה מתאר את מה שקורה בראש, וזו הסיבה שמישהו לומד אחרת. */}
+          תפסיק לתרגל מילים מתוך שינון
           <br />
-          לא בוחר מרשימה.
+          תתחיל לשלוף מהראש
         </div>
       </AbsoluteFill>
 
