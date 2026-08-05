@@ -16,6 +16,12 @@ name: מייל הפעלה
 # שני סודות, שניהם כבר קיימים בריפו: SUPABASE_SERVICE_KEY · RESEND_API_KEY
 
 on:
+  # חגי אישר אוטומציה ב-5.8.2026. ראשון 07:00 UTC = 10:00 בישראל — שעה אחרי התזכורת
+  # השבועית (06:00 UTC), כדי ששני מיילים לא ייצאו באותו רגע לאותה תיבה.
+  # שני הקהלים אינם חופפים: הבורר כאן דורש last_seen ריק, והבורר של התזכורת דורש
+  # 5 מילים לחיזוק לפחות — ולמי שלא פתח מעולם אין אף אחת. אדם אחד לא יקבל את שניהם.
+  schedule:
+    - cron: '0 7 * * 0'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -60,7 +66,10 @@ jobs:
         env:
           # כתובת תצוגה מקדימה משביתה את הריצה היבשה: מי שביקש לראות את המייל בתיבה
           # שלו התכוון שיישלח מייל אחד, ולא שתודפס עוד שורת לוג.
-          DRY: ${{ (inputs.dry_run == false || inputs.preview_to != '') && 'false' || 'true' }}
+          # github.event_name במפורש, ולא הסתמכות על כך ש-inputs.dry_run ריק בריצה
+          # מתוזמנת ו-'' == false מתפרש כאמת. הכרעה בין "שולח" ל"לא שולח" לא צריכה
+          # להישען על המרת טיפוסים שקטה.
+          DRY: ${{ (github.event_name == 'schedule' || inputs.dry_run == false || inputs.preview_to != '') && 'false' || 'true' }}
           PREVIEW: ${{ inputs.preview_to }}
           RESEND: ${{ secrets.RESEND_API_KEY }}
           URL: ${{ secrets.SUPABASE_URL }}
