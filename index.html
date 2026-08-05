@@ -1677,6 +1677,21 @@
 <!-- קבוצת הוואטסאפ: הזמנה קופצת שמוצגת פעם אחת לכל מכשיר (hw_waOffered). חגי ביקש שתקפוץ
      לכולם בכניסה, וברגע שסוגרים אותה היא לא חוזרת — הכרטיס הקבוע במסך הכניסה (#waCta) נשאר
      כאופציה. הכפתור הראשי הוא קישור <a> ולא <button>: הוא פותח את הוואטסאפ ישירות. -->
+<!-- סרטון ההדרכה: אותה תבנית של הזמנת הוואטסאפ — קופץ פעם אחת לכל מכשיר, ונסגר לתמיד.
+     ההבדל היחיד הוא שכאן חגי ביקש במפורש את הנוסח "אל תראה לי את זה יותר", ולכן זה
+     כתוב על הכפתור ולא מרומז. הכפתור הראשי הוא קישור <a> שנפתח בלשונית נפרדת:
+     הסרטון אינו מוטמע בדף, כי הטמעה חיצונית דורשת פתיחת ה-CSP. -->
+<div class="ask hidden" id="vidAsk">
+  <div class="ask-box">
+    <button class="ask-x" id="vidAskX" aria-label="סגירה" title="סגירה">✕</button>
+    <div class="mail-ico" aria-hidden="true">🎬</div>
+    <h3>סרטון הדרכה קצר</h3>
+    <p>שתי דקות שמראות איך לתרגל, איך עובד מבחן היחידה ואיפה נמצאת ההתקדמות שלך.</p>
+    <a class="ask-go" id="vidAskGo" href="#" target="_blank" rel="noopener">צפה בסרטון</a>
+    <button class="ask-cancel" id="vidAskNo">אל תראה לי את זה יותר</button>
+  </div>
+</div>
+
 <div class="ask hidden" id="waAsk">
   <div class="ask-box">
     <button class="ask-x" id="waAskX" aria-label="סגירה" title="סגירה">✕</button>
@@ -1820,14 +1835,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=158"></script>
-<script src="config.js?v=158"></script>
-<script src="store.js?v=158"></script>
-<script src="leveltest-he.js?v=158"></script>
-  <script src="leveltest.js?v=158"></script>
-<script src="enrank.js?v=158"></script>
-<script src="data.js?v=158"></script>
-<script src="data-en.js?v=158"></script>
-<script src="app.js?v=158"></script>
+<script src="supabase.min.js?v=159"></script>
+<script src="config.js?v=159"></script>
+<script src="store.js?v=159"></script>
+<script src="leveltest-he.js?v=159"></script>
+  <script src="leveltest.js?v=159"></script>
+<script src="enrank.js?v=159"></script>
+<script src="data.js?v=159"></script>
+<script src="data-en.js?v=159"></script>
+<script src="app.js?v=159"></script>
 </body>
 </html>

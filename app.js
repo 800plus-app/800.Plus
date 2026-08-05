@@ -1358,7 +1358,7 @@ function finishCard(ok, skipped){
        the card is over it can only teach, so it is restored in full. */
     (!w2m && maskTerm(w.meaning,w.term)!==w.meaning
       ? `<div class="also">הפירוש המלא: <b>${esc(w.meaning)}</b></div>` : '')+
-    (!ok?`<button class="was-right" id="wasRight">בעצם ידעתי — סמן כנכון</button>`:'')+
+    (!ok?`<button class="was-right" id="wasRight">בעצם ידעתי · סמן כנכון</button>`:'')+
     `<div class="assoc">
        <label>💡 האסוציאציה שלי ל"${esc(w.term)}"</label>
        <textarea id="assocInput" rows="2" placeholder="קישור/תמונה שיעזרו לזכור…">${esc(assoc[K(w.term)]||'')}</textarea>
@@ -1462,7 +1462,7 @@ function finishCard(ok, skipped){
           sensBefore=(rec(w.term).sens||[]).slice();
           creditSense(w, $('#answerInput').value);
         }
-        wr.textContent='סומן כנכון ✓ — לחץ לביטול';
+        wr.textContent='סומן כנכון ✓ · לחץ לביטול';
         wr.classList.add('on');
         if(vd){ vd.textContent='סומן כנכון ✓'; vd.className='verdict ok'; }
       } else {
@@ -1470,7 +1470,7 @@ function finishCard(ok, skipped){
         if(!missed.includes(w)) missed.push(w);
         e.mastered=false; e.firstTry=false;
         if(sensBefore){ rec(w.term).sens=sensBefore.slice(); sensBefore=null; }
-        wr.textContent='בעצם ידעתי — סמן כנכון';
+        wr.textContent='בעצם ידעתי · סמן כנכון';
         wr.classList.remove('on');
         if(vd){ vd.textContent=vdText; vd.className=vdClass; }
       }
@@ -1516,9 +1516,25 @@ function renderUnitProgress(){
     if(int0(r.seen)===1) newlyMet++;               // first time ever faced
     if(e.mastered && e.firstTry && int0(r.level)>=3) newlySolid++;
   }
-  const gain=[];
-  if(newlyMet)   gain.push(`<b>${newlyMet}</b> מילים חדשות שלא פגשת לפני היום`);
-  if(newlySolid) gain.push(`<b>${newlySolid}</b> עלו לחוזק מלא`);
+  /* הניסוח שחגי ביקש (5.8.2026): "בסבב הזה היו X מילים חדשות שלא תרגלת לפני.
+     ב-X אתה כבר שולט."
+     "שולט" ולא "עלו לחוזק מלא" — "בשליטה" הוא המונח שהאפליקציה משתמשת בו בכל מקום אחר
+     (up-keys ממש מתחת), ומונח נרדף מחייב את הקורא לתרגם.
+     שלוש הרכבות ולא צירוף אחד: "בסבב הזה ב-3 אתה כבר שולט" אינו משפט, ולכן כשאין מילים
+     חדשות המשפט נבנה אחרת לגמרי במקום להידבק לרישא.
+     וצורת היחיד נכתבת במפורש — "1 מילים חדשות" הוא בדיוק ההבדל בין הודעה אישית
+     להודעה אוטומטית. */
+  let gainHtml='';
+  const newTxt   = newlyMet===1   ? 'מילה חדשה אחת שלא תרגלת לפני'
+                                  : `<b>${newlyMet}</b> מילים חדשות שלא תרגלת לפני`;
+  const solidTxt = newlySolid===1 ? 'במילה אחת אתה כבר שולט'
+                                  : `ב-<b>${newlySolid}</b> אתה כבר שולט`;
+  const opener = newlyMet===1 ? 'בסבב הזה הייתה ' : 'בסבב הזה היו ';
+  if(newlyMet && newlySolid) gainHtml = opener + newTxt + ' · ' + solidTxt;
+  else if(newlyMet)          gainHtml = opener + newTxt;
+  else if(newlySolid)        gainHtml = newlySolid===1
+    ? 'בסבב הזה מילה אחת עלתה לשליטה'
+    : `בסבב הזה <b>${newlySolid}</b> מילים עלו לשליטה`;
 
   /* ציון דרך. הסבב מספר כמה ידעת עכשיו, והפס מספר כמה נשאר — אבל אף אחד מהם לא אומר
      "עברת נקודה שלא עברת קודם". זה מה שהופך שלושה חודשים של תרגול לרצף של רגעים ולא
@@ -1551,9 +1567,9 @@ function renderUnitProgress(){
         ${c.skipped?`<span><i style="background:var(--line)"></i>דילגת <b>${c.skipped}</b></span>`:''}
         <span><i style="background:var(--paper-deep);border:1px solid var(--line)"></i>לא פגשת <b>${c.fresh}</b></span>
       </div>
-      ${crossed?`<div class="up-mile">🏅 <b>${crossed} מילים בשליטה</b> — עברת את הרף הזה עכשיו.</div>`:''}
-      ${gain.length?`<div class="up-gain">בסבב הזה: ${gain.join(' · ')}</div>`:''}
-      ${allSolid ? `<div class="up-done">🎉 סיימת את ${esc(title)} — כל המילים בשליטה.</div>`
+      ${crossed?`<div class="up-mile">🏅 <b>${crossed} מילים בשליטה</b> · עברת את הרף הזה עכשיו</div>`:''}
+      ${gainHtml?`<div class="up-gain">${gainHtml}</div>`:''}
+      ${allSolid ? `<div class="up-done">🎉 סיימת את ${esc(title)} · כל המילים בשליטה</div>`
         : allMet ? `<div class="up-done">✓ פגשת את כל ${c.total} המילים ב${esc(title)}. נשארו ${c.weak} לחזק.</div>`
         : ''}
     </div>`;
@@ -2372,6 +2388,7 @@ function renderWelcome(){
                : `${st.n} ${days(st.n)}. תרגול קצר היום שומר על הרצף.`;
   renderBuildTag();
   maybeOfferWhatsapp();
+  maybeOfferTutorial();
   goto('welcome');
 }
 /* קבוצת הוואטסאפ: הזמנה חד-פעמית שקופצת בכניסה למסך השפות — המסך שכל משתמש רואה בכל
@@ -2379,6 +2396,30 @@ function renderWelcome(){
    כך שהיא מופיעה פעם אחת בלבד ולא משנה איך סוגרים אותה. הדגל שמור מהניקוי בהחלפת חשבון
    (wipeAccountKeys), בדיוק כמו הזמנת ההתקנה — הצטרפות לקבוצה היא פעולת מכשיר, לא נתון חשבון.
    הכרטיס הקבוע במסך (#waCta) נשאר תמיד; זו רק ההופעה הקופצת. */
+/* כתובת סרטון ההדרכה. זה הערך היחיד לעדכן — ברגע שיש כתובת, הפופאפ מתחיל לקפוץ.
+   ריק בכוונה: סרטון ההדרכה הקיים (שיווק/סרטונים/סרטון-הדרכה-בודקים.mp4) אינו מועלה
+   לגיטהאב (‎.gitignore חוסם mp4 בתיקיית השיווק) ולכן אין לו כתובת חיה. פופאפ שמפנה
+   לקישור שבור גרוע מאין פופאפ, ולכן כל עוד המחרוזת ריקה הוא פשוט אינו מוצג. */
+const TUTORIAL_URL='';
+
+/* סרטון ההדרכה — אותה מכניקה של הזמנת הוואטסאפ, ובכוונה: המשתמש כבר למד מה עושה
+   חלון כזה, וכפילות של דפוס עדיפה על המצאת דפוס שני.
+   hw_vidOffered נכתב ברגע ההצגה, כך שכל דרך סגירה סוגרת אותו לתמיד — וחגי ביקש
+   במפורש שהכפתור יגיד "אל תראה לי את זה יותר", כלומר ההבטחה כתובה ולכן חייבת להתקיים.
+   הדגל שמור מ-wipeAccountKeys מאותו נימוק כמו hw_waOffered: צפייה בסרטון הדרכה היא
+   פעולת מכשיר, לא נתון של החשבון. */
+function maybeOfferTutorial(){
+  if(!TUTORIAL_URL) return;                                  // אין כתובת, אין הזמנה
+  if(LS.get('hw_vidOffered',0)) return;
+  setTimeout(()=>{
+    if(LS.get('hw_vidOffered',0)) return;
+    if($('#welcome').classList.contains('hidden')) return;
+    if(document.querySelector('.ask:not(.hidden)')) return;  // לא לערום על דיאלוג פתוח
+    LS.set('hw_vidOffered',1);
+    const a=$('#vidAskGo'); if(a) a.href=TUTORIAL_URL;
+    show($('#vidAsk'));
+  }, 1500);
+}
 function maybeOfferWhatsapp(){
   if(LS.get('hw_waOffered',0)) return;
   setTimeout(()=>{
@@ -3776,7 +3817,7 @@ function wipeAccountKeys(){
   const doomed=[];
   for(let i=0;i<localStorage.length;i++){
     const k=localStorage.key(i);
-    if(k && k.startsWith('hw_') && k!=='hw_owner' && k!=='hw_seenIntro' && k!=='hw_instDismissed' && k!=='hw_waOffered')
+    if(k && k.startsWith('hw_') && k!=='hw_owner' && k!=='hw_seenIntro' && k!=='hw_instDismissed' && k!=='hw_waOffered' && k!=='hw_vidOffered')
       doomed.push(k);
   }
   doomed.forEach(k=>LS.del(k));
@@ -4115,6 +4156,10 @@ $('#notifAskYes').onclick=async()=>{
 /* הדגל hw_waOffered כבר נכתב ברגע ההצגה (maybeOfferWhatsapp), ולכן כל מסלול סגירה — X,
    "לא עכשיו", לחיצה מחוץ לתיבה, או Escape — פשוט מסתיר בלי לגעת בדגל. הכפתור הראשי הוא
    קישור <a> שפותח את הוואטסאפ מעצמו; ה-onclick רק סוגר את השכבה שמאחוריו. */
+$('#vidAskNo').onclick=()=>hide($('#vidAsk'));
+$('#vidAskX').onclick=()=>hide($('#vidAsk'));
+$('#vidAskGo').onclick=()=>hide($('#vidAsk'));
+$('#vidAsk').onclick=e=>{ if(e.target===$('#vidAsk')) hide($('#vidAsk')); };
 $('#waAskNo').onclick=()=>hide($('#waAsk'));
 $('#waAskX').onclick=()=>hide($('#waAsk'));
 $('#waAskGo').onclick=()=>hide($('#waAsk'));
