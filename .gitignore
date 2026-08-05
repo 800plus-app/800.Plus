@@ -49,3 +49,7 @@ migrations/
 
 # גרף הידע — נבנה מקומית מהקוד, לא נכס של הפרויקט
 graphify-out/
+
+# Remotion · תלויות ופלט רינדור ביניים
+שיווק/remotion/node_modules/
+שיווק/remotion/out/
