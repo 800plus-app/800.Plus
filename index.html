@@ -661,6 +661,10 @@
   .adm-sub.due{border-color:var(--accent);color:var(--accent)}
   .adm-sub.off{border-color:var(--line);color:var(--ink-soft)}
   .adm-acts{margin-top:9px;display:flex;flex-wrap:wrap;gap:6px}
+  /* המענה למדווח — פעולה חיובית, ולכן ירוק ולא האדום של .danger. הוא מופיע רק על
+     דיווח שכבר סומן "טופל", ושם הוא הצעד הבא ולא אזהרה. */
+  .adm-acts button.adm-reply{border-color:rgba(78,125,78,.5);color:var(--green)}
+  .adm-acts button.adm-reply:hover{border-color:var(--green);background:rgba(78,125,78,.08)}
   .adm-acts button.danger{border-color:rgba(181,72,46,.45);color:var(--accent)}
   .adm-acts button.danger:hover{border-color:var(--accent);background:rgba(181,72,46,.07)}
   .adm-acts button{background:transparent;border:1px solid var(--line);border-radius:999px;
@@ -1873,14 +1877,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=163"></script>
-<script src="config.js?v=163"></script>
-<script src="store.js?v=163"></script>
-<script src="leveltest-he.js?v=163"></script>
-  <script src="leveltest.js?v=163"></script>
-<script src="enrank.js?v=163"></script>
-<script src="data.js?v=163"></script>
-<script src="data-en.js?v=163"></script>
-<script src="app.js?v=163"></script>
+<script src="supabase.min.js?v=164"></script>
+<script src="config.js?v=164"></script>
+<script src="store.js?v=164"></script>
+<script src="leveltest-he.js?v=164"></script>
+  <script src="leveltest.js?v=164"></script>
+<script src="enrank.js?v=164"></script>
+<script src="data.js?v=164"></script>
+<script src="data-en.js?v=164"></script>
+<script src="app.js?v=164"></script>
 </body>
 </html>
