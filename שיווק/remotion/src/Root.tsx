@@ -5,6 +5,7 @@ import { loadFont as loadHeebo } from "@remotion/google-fonts/Heebo";
 import { STORY } from "./brand";
 import { StoryDemo } from "./StoryDemo";
 import { VideoRound } from "./VideoRound";
+import { BrandFilm } from "./BrandFilm";
 
 /**
  * שני הגופנים של 800+, נטענים פעם אחת לכל הקומפוזיציות.
@@ -31,6 +32,17 @@ export const RemotionRoot: React.FC = () => {
         id="VideoRound"
         component={VideoRound}
         durationInFrames={Math.round(16.5 * STORY.fps)}
+        fps={STORY.fps}
+        width={STORY.width}
+        height={STORY.height}
+      />
+
+      {/* סרטון התדמית. 45 שניות, פתיחה קרה במילה עברית עירומה.
+          ⚠ הספירה מחושבת מ-EXAM_DATE ולכן נכונה ליום הרינדור בלבד. */}
+      <Composition
+        id="BrandFilm"
+        component={BrandFilm}
+        durationInFrames={45 * STORY.fps}
         fps={STORY.fps}
         width={STORY.width}
         height={STORY.height}
