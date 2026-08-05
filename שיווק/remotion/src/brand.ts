@@ -51,6 +51,21 @@ export const WORDS: Record<string, Word> = {
 export const TOTAL_WORDS = 5662;
 export const FREE_UNTIL = "2026-08-30";
 
+/**
+ * מועד הפסיכומטרי שאליו מכוונים. מסר חגי, 5.8.2026.
+ * ⚠ הספירה בסרטון התדמית מחושבת ממנו בזמן הרינדור ולכן היא נכונה ליום הרינדור
+ * בלבד. לפני כל העלאה מחדש צריך לרנדר מחדש, אחרת הסרטון מכריז מספר שהתיישן.
+ */
+export const EXAM_DATE = "2026-09-03";
+
+/** ימים שנותרו עד המועד, נכון לרגע הרינדור. */
+export const daysToExam = () => {
+  const exam = new Date(EXAM_DATE + "T00:00:00");
+  const now = new Date();
+  now.setHours(0, 0, 0, 0);
+  return Math.max(0, Math.round((exam.getTime() - now.getTime()) / 86400000));
+};
+
 export const freeUntilLabel = () => {
   const d = new Date(FREE_UNTIL + "T23:59:59");
   return `${d.getDate()}.${d.getMonth() + 1}`;
