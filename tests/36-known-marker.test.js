@@ -125,9 +125,15 @@ describe('מחובר למסך', () => {
        יחידות קודמות פתוחות, וזה בדיוק המסך שהמשתמשת התלוננה עליו. */
     const at = app.indexOf('function openManage');
     assert.ok(at > 0, 'openManage נעלמה');
-    const body = app.slice(at, at + 400);
+    /* 1000 ולא 400. ב-5.8.2026 נוספה ל-openManage השמת mOnly (ראה tests/53), ו-goto
+       הוסט ל-403 תווים מהעוגן — שלושה מעבר לחלון. הבדיקה נפלה על קוד תקין, שוב מפני
+       שהחלון מדד מרחק במקרה במקום התנהגות. */
+    const body = app.slice(at, at + 1000);
     assert.ok(/mOpen\s*=\s*unit\s*\?\s*new Set\(\[String\(unit\)\]\)\s*:\s*new Set\(\)/.test(body),
       'openManage אינה מציבה בדיוק את היחידה שהתבקשה');
     assert.ok(/goto\('manage'\)/.test(body), 'openManage אינה עוברת למסך');
+    /* ההיקף עצמו — לא רק מה נפתח, אלא מה מוצג. ראה tests/53. */
+    assert.ok(/mOnly\s*=\s*unit\s*\?\s*String\(unit\)\s*:\s*null/.test(body),
+      'openManage אינה מגבילה את המסך ליחידה שהתבקשה');
   });
 });

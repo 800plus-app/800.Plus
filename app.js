@@ -1198,8 +1198,33 @@ function otherSenses(input, meaning){
   return raw.filter(x=>norm(x)!==a).slice(0,4);
 }
 function meaningSegs(meaning){
-  return String(meaning).replace(/\([^)]*\)/g,' ')
-    .split(/[,;/|]|\s-\s/).map(norm).filter(Boolean);
+  /* מילות קישור שמקדימות פירוש נוסף ואינן תשובה בעצמן. אחרי הפיצול על ":" הן נשארות
+     כמקטע נפרד, ובלי הסינון הזה הקלדת "וגם" הייתה נחשבת תשובה נכונה.
+     בתוך הפונקציה ולא כקבוע חיצוני: ארגז החול של הבדיקות מרים פונקציות בודדות, וקבוע
+     שמוגדר מחוץ לפונקציה אינו נמצא בהיקף שלה כשהיא מורמת. */
+  const MARKER=/^(?:ו?גם|ו?בפרט|ו?בהשאלה|וכן|כגון|לדוגמה|למשל|להיפך|או)$/;
+  /* הפיצול כולל נקודה ונקודתיים, ולא רק פסיק ונקודה-פסיק.
+     נמדד על 5,662 הפירושים: 40 מכילים ":" ו-13 מכילים ".", והם נשאו פירוש שני אחרי
+     מילת קישור — "חלול, ריק. בהשאלה: ריקני, שטחי". בלי הפיצול המקטע היה
+     "ריק בהשאלה ריקני", ולכן גם "ריק" וגם "ריקני" נדחו למרות ששניהם נכונים.
+     ב"תַּתְרָן :: נטול חוש ריח. בהשאלה: חסר חוש הבחנה" נדחו *שתי* התשובות האפשריות,
+     כלומר המילה לא הייתה ניתנת לענייה בכלל. זו התלונה של חגי: "כתבתי תשובה נכונה
+     אבל היה צריך לכתוב פסיק ולהוסיף עוד מילה".
+     הנקודה מפוצלת רק כשהיא בודדת: (?<!\.)\.(?!\.) משאיר "..." שלם, שאם לא כן
+     "גם... וגם..." (הפירוש של both... and...) היה מתפרק.
+     מה שלא השתנה: הסוגריים עדיין נמחקות לפני הפיצול, ולכן "(להיפך: נדיר)" אינו הופך
+     את הניגוד לתשובה קבילה — וגם לא מתקבלת מילה בודדת שנשלפה מתוך פירוש ארוך. */
+  const parts=String(meaning).replace(/\([^)]*\)/g,' ')
+    .split(/[,;/|]|\s-\s|(?<!\.)\.(?!\.)|:/)
+    .map(s=>s.trim()).filter(Boolean);
+  /* מילת קישור נזרקת רק כשנשאר פירוש אחר מלבדה.
+     בלי התנאי הזה נשברו שש מילים באנגלית שהפירוש שלהן *הוא* מילת הקישור עצמה —
+     also→"גם", or→"או", vice versa→"להיפך", for example→"לדוגמה" — והן הפכו לחסרות
+     תשובה לחלוטין. בדיקה 28 ("כל ערך במאגר ניתן למענה") היא שתפסה את זה.
+     המסקנה: "וגם" הוא רעש כשהוא מקדים פירוש, והוא התשובה כשהוא לבדו. ההקשר מכריע,
+     לא המילה. */
+  const kept=parts.filter(s=>!MARKER.test(s));
+  return (kept.length?kept:parts).map(norm).filter(Boolean);
 }
 /* רושם את הפירוש שנכתב. saveStats לא נקרא כאן — commitSession שומר בסוף הסבב ממילא,
    ושמירה לכל תשובה הייתה כותבת לדיסק עשרים פעם בסבב. */
@@ -1925,6 +1950,11 @@ function manageItems(){
 }
 let mOpen=new Set();      // which unit sections are expanded
 let mSearching=false;     // was the previous render a search? (so clearing can collapse again)
+/* היחידה היחידה שמוצגת, כשנכנסים לניהול מהיחידה עצמה. null = כל המאגר.
+   קודם היחידה רק נפתחה (mOpen) ושאר תשע נשארו על המסך מקופלות — ומחיקה היא פעולה
+   שנעשית בסימון תיבות, כך שמספיק גלגל אחד של האצבע כדי לסמן מילה מיחידה אחרת.
+   חגי: "צריך שאראה רק את המילים של היחידה שלא אמחק בטעות מילים אחרות". */
+let mOnly=null;
 /* Grouped by unit and collapsed by default. The old screen was one flat alphabetical list
    cut at `slice(0,400)` — so 3,500 of 3,900 words simply were not there, with nothing on
    screen saying so. Sections keep the DOM small without hiding anything. */
@@ -1935,9 +1965,18 @@ function renderManage(filter){
   const all=manageItems();
   const hit=w=>!f || norm(w.term).includes(f) ||
     (w.meaning && w.meaning.replace(NIQ,'').includes(raw));
-  const items=all.filter(hit);
+  /* mOnly חוסם לפני החיפוש ולא אחריו: גם חיפוש בתוך יחידה לא יגרור מילים מיחידות אחרות
+     אל המסך, ולכן שום תיבת סימון שאינה של היחידה הזאת אינה קיימת בכלל. */
+  const items=all.filter(w=>(!mOnly || String(w.unit)===String(mOnly)) && hit(w));
   const byUnit=new Map();
   for(const w of items){ if(!byUnit.has(w.unit)) byUnit.set(w.unit,[]); byUnit.get(w.unit).push(w); }
+  /* הסדר בתוך יחידה: קודם מה שחלש, אחר כך מה שנלמד, ובסוף מה שטרם נפגש.
+     אלה בדיוק שלוש הקבוצות של classify(), ובאותו כלל — מילה שטעית בה אינה מילה שלא
+     פגשת. הנגישות היא כל הנקודה: המילים הקשות הן אלה שרוצים להגיע אליהן, והן היו
+     מפוזרות בין 190 שורות לפי סדר המאגר.
+     מילה שנמחקה יורדת לסוף בכל מקרה — היא כבר לא בתרגול, ורק תופסת מקום למעלה. */
+  const rank=w=> w.gone ? 3 : (lvl(w.term)>=3 ? 1 : (seenCount(w.term)>0 ? 0 : 2));
+  for(const ws of byUnit.values()) ws.sort((a,b)=>rank(a)-rank(b));
   /* Searching opens the units it found; CLEARING the box has to close them again. Without the
      else branch the expansion survived, so search-then-clear rendered all 3,900 rows at once —
      exactly the DOM this screen was rebuilt to stop producing. */
@@ -2006,6 +2045,9 @@ function renderManage(filter){
 function openManage(unit){
   mSel=new Set(); $('#mSearch').value=''; $('#mMsg').classList.add('hidden');
   mOpen = unit ? new Set([String(unit)]) : new Set();
+  /* חייב להתאפס כשנכנסים מ"ניהול מילים" הכללי. בלי ההשמה ל-null, מי שנכנס פעם אחת
+     מיחידה 7 היה נשאר נעול עליה לתמיד — גם אחרי יציאה וכניסה מחדש מהמסך הראשי. */
+  mOnly = unit ? String(unit) : null;
   mSearching=false;
   renderManage(''); goto('manage');
 }
@@ -2692,11 +2734,30 @@ const TTS = {
     return this.voice;
   },
   available(){ return !!(this.ok && (this.voice || this.pick())); },
+  /* מה שנשלח למנוע ההקראה אינו בהכרח מה שכתוב על הכרטיס.
+     נמדד על 3,945 המילים באנגלית: 20 ערכים מכילים תווים שמנוע ההקראה מבטא כרעש.
+       · 10 ערכי סדר בצורה "1st - first" — המנוע קורא את המקף, ואת "1st" הוא מבטא
+         "one-st". מה שרוצים לשמוע הוא הצורה המילולית שאחרי המקף, ולכן היא נבחרת.
+       · 9 ערכי ריבוי בצורה "knife (knives)" — הסוגריים הופכים לפסיק, כך שנשמעות שתי
+         הצורות עם הפסקה טבעית ביניהן במקום "פתח סוגריים".
+       · ערך אחד עם לוכסנים, "begin/an/un".
+     18 הערכים עם פסיק ("fight, fought") נשארים כמו שהם — שם הפסיק הוא הכוונה, ושתי
+     הצורות אמורות להישמע.
+     מוחל רק על ההקראה. הטקסט שעל המסך אינו משתנה: הלומד צריך לראות "1st - first". */
+  speakable(text){
+    let s=String(text||'');
+    const dash=s.split(' - ');
+    if(dash.length===2 && /\d/.test(dash[0])) s=dash[1];   // "1st - first" → "first"
+    s=s.replace(/\s*\(([^)]*)\)\s*/g, ', $1')              // "knife (knives)" → "knife, knives"
+       .replace(/\s*\/\s*/g, ', ')                          // "begin/an/un" → "begin, an, un"
+       .replace(/\s{2,}/g,' ').trim();
+    return s;
+  },
   say(text, btn){
     if(!this.available() || !text) return false;
     try{
       speechSynthesis.cancel();                       // never let two words overlap
-      const u=new SpeechSynthesisUtterance(String(text));
+      const u=new SpeechSynthesisUtterance(this.speakable(text));
       u.voice=this.voice; u.lang=this.voice.lang || 'en-US';
       u.rate=0.9;                                     // a touch slow: this is for learning
       if(btn){ btn.classList.add('on');
