@@ -1485,6 +1485,10 @@ function finishCard(ok, skipped){
         correct++;
         const i=missed.indexOf(w); if(i>=0) missed.splice(i,1);
         e.mastered=true; e.firstTry=(e.attempts===1);
+        /* הצהרת ידיעה מפורשת. commitSession מרים בזכותה את תקרת הפירושים — creditSense
+           לבדו אינו מספיק, כי הוא מזכה רק בהתאמה מדויקת או קרובה, ותשובה "נכונה אבל
+           אחרת" נופלת מחוץ לסף. ראה tests/62. */
+        e.declared=true;
         /* בלי זה מילה רב-משמעית נשארת ברשימת החיזוק לצמיתות: התקרה ב-commitSession היא 2
            כל עוד sensesLeft>0, ו-weakCards דורש 3. ראה tests/35. */
         if(w._dir==='w2m'){
@@ -1497,7 +1501,7 @@ function finishCard(ok, skipped){
       } else {
         correct=Math.max(0, correct-1);
         if(!missed.includes(w)) missed.push(w);
-        e.mastered=false; e.firstTry=false;
+        e.mastered=false; e.firstTry=false; e.declared=false;
         if(sensBefore){ rec(w.term).sens=sensBefore.slice(); sensBefore=null; }
         wr.textContent='בעצם ידעתי · סמן כנכון';
         wr.classList.remove('on');
@@ -1714,7 +1718,10 @@ function renderReview(){
       const row=chip.closest('.rev-row'); const term=row.dataset.t;
       const e=session.get(K(term)); if(!e) return;
       const nowOk=!e.mastered;
-      e.mastered=nowOk; e.firstTry=nowOk; if(nowOk && e.attempts<1) e.attempts=1;
+      /* אותה הצהרה בדיוק כמו "בעצם צדקתי", רק מהדלת השנייה — מסך הסיכום. בלי e.declared
+         כאן, תיקון שנעשה מכאן היה משאיר את המילה תחת תקרת הפירושים והיא הייתה חוזרת
+         לחיזוק, כלומר אותו באג עם שער אחר. ראה tests/62. */
+      e.mastered=nowOk; e.firstTry=nowOk; e.declared=nowOk; if(nowOk && e.attempts<1) e.attempts=1;
       row.classList.toggle('wrong', !nowOk);
       chip.className='rev-chip '+(nowOk?'ok':'no');
       chip.textContent=nowOk?'✓ ידעתי':'✗ לא ידעתי';
@@ -1753,7 +1760,12 @@ function commitSession(){
          "עונים פירוש אחד, מקבלים אוקיי, ושוכחים את השאר". החסימה היא ב-2 ולא ב-0, כדי
          שהמילה תמשיך לעלות ותצא מ"חדשות" — היא פשוט לא תיחשב נלמדה עד שיינתן פירוש שני.
          חל רק על כיוון מילה→פירוש: בכיוון ההפוך הלומד כותב את המילה, ואין לו במה לבחור. */
-      const cap = (e.w._dir==='w2m' && sensesLeft(e.w.term, e.w.meaning)>0) ? 2 : 3;
+      /* e.declared — הלומד לחץ "בעצם צדקתי" (או תיקן במסך הסיכום). זו הצהרת ידיעה מפורשת
+         ולא ניחוש על מה הוא התכוון, ולכן היא — ורק היא — מרימה את התקרה. בלי זה הכפתור
+         עובד חצי: correct עולה על המסך, אבל המילה נעצרת ב-2, weakCards דורש 3, והיא
+         חוזרת לחיזוק לנצח. creditSense אינו מציל אותה כי הוא מזכה רק בהתאמה מדויקת או
+         במרחק עריכה קצר — ותשובה "נכונה אבל אחרת" רחוקה מכך. ראה tests/62. */
+      const cap = (!e.declared && e.w._dir==='w2m' && sensesLeft(e.w.term, e.w.meaning)>0) ? 2 : 3;
       r.level = isRetryRound ? r.level : Math.min(cap, wasNew ? 3 : Math.min(3, r.level+1));
       ft++; c++;
     }
