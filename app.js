@@ -1410,10 +1410,48 @@ function finishCard(ok, skipped){
       : '<div class="oth empty">עוד אף אחד לא שיתף כאן. אתה יכול להיות הראשון.</div>';
   };
 
-  const wr=$('#wasRight'); if(wr) wr.onclick=()=>{ correct++; const i=missed.indexOf(w); if(i>=0)missed.splice(i,1); e.mastered=true; e.firstTry=(e.attempts===1);
-    /* בלי זה מילה רב-משמעית נשארת ברשימת החיזוק לצמיתות: התקרה ב-commitSession היא 2 כל עוד
-       sensesLeft>0, ו-weakCards דורש 3. ראה tests/35. */
-    if(w._dir==='w2m') creditSense(w, $('#answerInput').value); $('#qLive').textContent=`✓ ${correct}`; wr.remove(); document.querySelector('.verdict').textContent='סומן כנכון ✓'; document.querySelector('.verdict').className='verdict ok'; };
+  /* "בעצם ידעתי" הוא מתג, לא פעולה חד-כיוונית.
+     קודם הוא עשה wr.remove() — לחיצה אחת ונעלם, ומי שלחץ בטעות (או הבין רגע אחרי
+     שדווקא לא ידע) נשאר עם כרטיס מסומן כנכון בלי שום דרך לחזור. מסך הסיכום כבר איפשר
+     לתקן דרך .rev-chip, אבל רק אחרי שהסבב נגמר — והטעות קורית כאן.
+     הביטול חייב להחזיר את כל מה שהלחיצה שינתה, ולא רק את הטקסט:
+       · correct ו-missed — אחרת הניקוד על המסך והרשימה "מה פספסתי" מתפצלים מהאמת.
+       · e.mastered / e.firstTry — הם מה ש-commitSession קורא בפועל.
+       · r.sens — creditSense כותב לזיכרון הקבוע מיד, ולכן שומרים עותק לפני ומשחזרים
+         אותו. בלי זה ביטול היה משאיר פירוש מזוכה שהלומד מעולם לא נתן, והמילה הייתה
+         מטפסת לעבר "נלמדה" על סמך לחיצה שבוטלה. */
+  const wr=$('#wasRight');
+  if(wr){
+    const vd=document.querySelector('.verdict');
+    const vdText=vd?vd.textContent:'', vdClass=vd?vd.className:'verdict no';
+    let marked=false, sensBefore=null;
+    wr.onclick=()=>{
+      marked=!marked;
+      if(marked){
+        correct++;
+        const i=missed.indexOf(w); if(i>=0) missed.splice(i,1);
+        e.mastered=true; e.firstTry=(e.attempts===1);
+        /* בלי זה מילה רב-משמעית נשארת ברשימת החיזוק לצמיתות: התקרה ב-commitSession היא 2
+           כל עוד sensesLeft>0, ו-weakCards דורש 3. ראה tests/35. */
+        if(w._dir==='w2m'){
+          sensBefore=(rec(w.term).sens||[]).slice();
+          creditSense(w, $('#answerInput').value);
+        }
+        wr.textContent='סומן כנכון ✓ — לחץ לביטול';
+        wr.classList.add('on');
+        if(vd){ vd.textContent='סומן כנכון ✓'; vd.className='verdict ok'; }
+      } else {
+        correct=Math.max(0, correct-1);
+        if(!missed.includes(w)) missed.push(w);
+        e.mastered=false; e.firstTry=false;
+        if(sensBefore){ rec(w.term).sens=sensBefore.slice(); sensBefore=null; }
+        wr.textContent='בעצם ידעתי — סמן כנכון';
+        wr.classList.remove('on');
+        if(vd){ vd.textContent=vdText; vd.className=vdClass; }
+      }
+      $('#qLive').textContent=`✓ ${correct}`;
+    };
+  }
   $('#delLive').onclick=()=>{ const k=K(w.term); deleteWord(w.term); toast(`"${w.term}" נמחקה`); deck=deck.filter(c=>K(c.term)!==k); missed=missed.filter(c=>K(c.term)!==k); session.delete(k); if(deck.length===0){ finishRound(); return; } if(idx>=deck.length) idx=deck.length-1; next(true); };
 }
 function next(stay){
@@ -1587,7 +1625,15 @@ function refreshResultCounts(){
 function renderReview(){
   refreshResultCounts();
   const list=$('#reviewList');
-  list.innerHTML=deck.map(w=>{
+  /* מה שטעית בו — למעלה.
+     הרשימה הוצגה בסדר החפיסה, כלומר בסדר אקראי, והמילים שדורשות תשומת לב היו מפוזרות
+     בין עשרים שורות. בסבב של 20 מילים עם 3 טעויות, השלוש האלה הן כל תוכן המסך —
+     והן היו יכולות לשבת בשורות 7, 12 ו-19.
+     הסדר נקבע פעם אחת, כאן, ולא מתעדכן בלחיצה על .rev-chip: שורה שקופצת ממקומה בזמן
+     שהאצבע עליה היא בדיוק הדרך לגרום למישהו ללחוץ על השורה הלא נכונה. הצבע משתנה
+     במקום, המיקום נשאר. */
+  const ordered=[...deck].sort((a,b)=>(verdictOf(a.term)?1:0)-(verdictOf(b.term)?1:0));
+  list.innerHTML=ordered.map(w=>{
     const ok=verdictOf(w.term);
     return `<div class="rev-row ${ok?'':'wrong'}" data-t="${esc(w.term)}">
       <div class="rev-w"><b>${esc(w.term)}</b><span>${esc(w.meaning)}</span></div>
@@ -2140,6 +2186,13 @@ window.addEventListener('appinstalled', () => { installEvt = null; LS.set('hw_in
 const isStandalone = () =>
   window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
 const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
+
+/* שורת הכתובת של ספארי מרחפת מעל תחתית הדף ומכסה את הכפתור התחתון בתרגול. היא אינה
+   נכללת ב-safe-area-inset-bottom כשהיא מוצגת, ולכן ה-CSS לבדו אינו יכול לדעת עליה.
+   הסימון נעשה פעם אחת על <body>, וה-CSS (body.ios-web .wrap) מוסיף רווח גלילה.
+   רק כשהאפליקציה פתוחה כאתר: באפליקציה מותקנת אין שורת כתובת, ורווח נוסף שם הוא סתם
+   חור בתחתית המסך. */
+if (isIOS() && !isStandalone()) document.body.classList.add('ios-web');
 
 /* מציג את חלון ההתקנה. force=true מתעלם מ"אולי אחר כך" (לשימוש מכפתור מפורש). */
 function promptInstall(force){
