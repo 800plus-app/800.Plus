@@ -1,0 +1,68 @@
+name: מייל הפעלה
+
+# מייל חד-פעמי למי שנרשם ולא פתח את האפליקציה מעולם. קהל אחר מהתזכורת השבועית:
+# לתזכורת נכנס רק מי שיש לו "מילים לחיזוק", ולמי שלא פתח מעולם אין אף מילה — ולכן
+# היא מדלגת עליו לנצח. המייל כאן הוא הזמנה ראשונה, לא תזכורת.
+#
+# ידני בלבד — אין schedule בכוונה (חגי, 4.8.2026: "זה רק ידני זאת לא אוטומציה").
+# כשנחליט על אוטומציה, ההגנה שכבר בנויה בבורר (cooldown של 7 ימים על nudge_last_sent)
+# היא מה שימנע שליחה כפולה.
+#
+# סדר ההפעלה הבטוח:
+#   1. Run workflow כמו שהוא (dry_run=true) — רואים את הרשימה, שום דבר לא נשלח.
+#   2. Run workflow עם preview_to=<הכתובת שלך> — מייל אחד אליך, לבדוק עברית וספאם.
+#   3. Run workflow עם dry_run=false — שליחה אמיתית לכל הרשימה.
+#
+# שני סודות, שניהם כבר קיימים בריפו: SUPABASE_SERVICE_KEY · RESEND_API_KEY
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'להריץ בלי לשלוח'
+        type: boolean
+        default: true
+      preview_to:
+        description: 'תצוגה מקדימה — כתובת אחת שתקבל את המייל במקום כל הרשימה'
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+
+jobs:
+  activate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: מי אמור לקבל
+        id: pick
+        env:
+          URL: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          set -euo pipefail
+          [ -n "${KEY:-}" ] || { echo "::error::SUPABASE_SERVICE_KEY חסר"; exit 1; }
+          BASE="${URL:-https://oycypbnzcvtjliovfsxn.supabase.co}"
+          H=(-H "apikey: $KEY" -H "Authorization: Bearer $KEY")
+          # רק השדות שהבורר קורא — לא data המלא, מאותו נימוק כמו weekly-nudge:
+          # שורה שהגיעה ל-runner ציבורי — נראתה.
+          code=$(curl -sS -o profiles.json -w '%{http_code}' "${H[@]}" \
+            "$BASE/rest/v1/profiles?select=id,email,username,last_seen,nudge_optout,nudge_last_sent,nudge_count")
+          if [ "$code" != "200" ]; then
+            echo "::error::profiles החזירה HTTP $code"; exit 1
+          fi
+          python3 scripts/pick_inactive.py
+
+      - name: שליחה
+        if: steps.pick.outputs.count != '0'
+        env:
+          # כתובת תצוגה מקדימה משביתה את הריצה היבשה: מי שביקש לראות את המייל בתיבה
+          # שלו התכוון שיישלח מייל אחד, ולא שתודפס עוד שורת לוג.
+          DRY: ${{ (inputs.dry_run == false || inputs.preview_to != '') && 'false' || 'true' }}
+          PREVIEW: ${{ inputs.preview_to }}
+          RESEND: ${{ secrets.RESEND_API_KEY }}
+          URL: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: python3 scripts/send_activation.py
