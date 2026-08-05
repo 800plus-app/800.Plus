@@ -86,6 +86,46 @@ describe('מענה למדווח', () => {
     assert.match(h, /\.slice\(0,\s*50\)/, 'הציטוט אינו נחתך — נושא ארוך ישבור את השורה');
   });
 
+  test('השם נשלף מ-profiles לפי הכתובת', () => {
+    /* לטבלת הדיווחים אין שדה שם, ולכן הוא מגיע מ-profiles. */
+    const at = app.indexOf('async function renderAdminFeedback');
+    const body = app.slice(at, at + 1800);
+    assert.match(body, /Store\.adminListUsers\(\)/, 'השמות אינם נטענים מ-profiles');
+    assert.match(body, /fbNames\.set\(mail,\s*n\)/, 'לא נבנית מפת כתובת→שם');
+    assert.match(handler(), /fbNames\.get\(String\(r\.email\|\|''\)\.trim\(\)\.toLowerCase\(\)\)/,
+      'הפנייה אינה מחפשת את השם לפי הכתובת');
+    assert.match(handler(), /name \? 'שלום '\+name\+',' : 'שלום,'/,
+      'אין נפילה ל"שלום," כשאין שם');
+  });
+
+  test('firstNameOf — שם פרטי בלבד, ורק אם זה שם', () => {
+    /* מורם ומורץ, ולא נבדק בעין: שני השערים כאן הם מה שמונע פנייה שנראית אוטומטית. */
+    const at = app.indexOf('function firstNameOf');
+    const src = app.slice(at, app.indexOf('async function renderAdminFeedback'));
+    const fn = new Function('return ' + src.slice(src.indexOf('function firstNameOf')))();
+    assert.strictEqual(fn('דני כהן'), 'דני', 'שם מלא — נלקח רק הפרטי (HEB §6)');
+    assert.strictEqual(fn('Dana Levi'), 'Dana');
+    assert.strictEqual(fn('  יעל  '), 'יעל', 'רווחים מסביב לא נוקו');
+    /* הבאג המוכר: "השם שלי הפך למייל" (נספח FIXBUG). "שלום dana@example.com,"
+       מכריז שהמייל אוטומטי, וזה גרוע מפנייה כללית. */
+    assert.strictEqual(fn('dana@example.com'), '', 'כתובת מייל התקבלה כשם');
+    assert.strictEqual(fn('123'), '', 'מחרוזת בלי אותיות התקבלה כשם');
+    assert.strictEqual(fn('🙂'), '', 'אמוג׳י התקבל כשם');
+    for (const v of ['', '   ', null, undefined])
+      assert.strictEqual(fn(v), '', `ערך ריק (${JSON.stringify(v)}) לא הוחזר כריק`);
+  });
+
+  test('כישלון בטעינת השמות אינו שובר את הפאנל', () => {
+    /* profiles עלולה להיות חסומה ב-RLS. הפנייה תהיה "שלום," וזו פנייה תקינה — אבל
+       שגיאה לא מטופלת הייתה מונעת מרשימת הדיווחים כולה להיטען. */
+    const at = app.indexOf('async function renderAdminFeedback');
+    const body = app.slice(at, at + 1800);
+    const tryAt = body.indexOf('try{');
+    const usersAt = body.indexOf('Store.adminListUsers()');
+    assert.ok(tryAt > 0 && tryAt < usersAt, 'טעינת השמות אינה עטופה ב-try');
+    assert.match(body.slice(usersAt, usersAt + 400), /catch\(e\)\{\}/, 'אין catch');
+  });
+
   test('אין מקף ארוך בנוסח', () => {
     /* HEB §3א. המקף היחיד המותר כאן הוא זה שבתוך "תיקנתי — והגרסה", שהוא… */
     const h = handler();

@@ -5049,6 +5049,18 @@ async function openAdmin(){
 }
 
 const FB_KIND_HE={bug:'🐞 באג',idea:'💡 רעיון',other:'💬 אחר'};
+/* שם פרטי בלבד, ורק אם מה שיש בשדה הוא באמת שם.
+   שני שערים, ושניהם נדרשים:
+   · כתובת מייל בשדה השם היא באג מוכר במערכת הזאת ("השם שלי הפך למייל", נספח FIXBUG).
+     "שלום dana@example.com," גרוע מ"שלום," — הוא מכריז שהמייל אוטומטי.
+   · מחרוזת בלי אף אות (ספרות, אמוג'י, רווחים) אינה שם.
+   HEB §6: שם פרטי בלבד. "שלום דני כהן," קורא כמו מכתב מחברת ביטוח. */
+function firstNameOf(v){
+  const s=String(v||'').trim();
+  if(!s || s.includes('@')) return '';
+  const w=s.split(/\s+/)[0];
+  return /[A-Za-zא-ת]/.test(w) ? w : '';
+}
 async function renderAdminFeedback(){
   const host=$('#admFb'); if(!host) return;
   const { rows, error }=await Store.adminListFeedback();
@@ -5059,6 +5071,19 @@ async function renderAdminFeedback(){
   }
   refreshFbBadge();                          // the list is open; make sure the badge agrees with it
   if(!rows.length){ host.innerHTML='<p class="msg" style="color:var(--ink-soft)">אין דיווחים.</p>'; return; }
+  /* שם פרטי אמיתי למדווח. לטבלת הדיווחים אין שדה שם — רק כתובת — ולכן השם נשלף
+     מ-profiles לפי הכתובת. שאילתה אחת בפתיחת הפאנל, ל-30 שורות.
+     נכשל בשקט בכוונה: אם profiles אינה נגישה, הפנייה תהיה "שלום," וזו פנייה תקינה.
+     מייל שלא נמצא ברשימה (מדווח שמחק את חשבונו) נופל לאותה ברירת מחדל. */
+  const fbNames=new Map();
+  try{
+    const { users }=await Store.adminListUsers();
+    for(const u of (users||[])){
+      const mail=String(u.email||'').trim().toLowerCase();
+      const n=firstNameOf(u.username);
+      if(mail && n) fbNames.set(mail, n);
+    }
+  }catch(e){}
   const open=rows.filter(r=>r.status!=='done').length;
   host.innerHTML=`<p style="font-size:.82rem;color:var(--ink-soft);margin-bottom:10px">
       ${rows.length} דיווחים · <b style="color:var(--accent)">${open}</b> פתוחים</p>`
@@ -5098,8 +5123,9 @@ async function renderAdminFeedback(){
        מדובר, במקום "באג" שאינו אומר כלום שבועיים אחרי. */
     const topic=String(r.body||'').split('\n')[0].trim().slice(0,50);
     const subject='800+ · הדיווח שלך טופל';
+    const name=fbNames.get(String(r.email||'').trim().toLowerCase())||'';
     const body=[
-      'שלום,','',
+      name ? 'שלום '+name+',' : 'שלום,','',
       'הדיווח שלך על "'+topic+'" התקבל!',
       'בדקתי, מצאתי ותיקנתי — והגרסה כבר עודכנה.','',
       'תודה על הפידבק, תמשיך לדווח ❤️','',
