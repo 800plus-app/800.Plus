@@ -28,12 +28,14 @@ type Beat = {
 const BEATS: Beat[] = [
   { word: "inevitable", outcome: "ok", start: 0.6, duration: 4.0 },
   { word: "meticulous", outcome: "wrong", typedText: "metic", start: 4.8, duration: 4.4 },
-  // קוצר מ-3.6 ל-2.9 כדי לפנות מקום למשפט הסיום, שהוא עכשיו שיא הסרטון.
-  { word: "obsolete", outcome: "ok", start: 9.4, duration: 2.9 },
+  // ⚠ קוצר פעם אחת ל-2.9 כדי לפנות מקום למשפט הסיום, וחגי תפס מיד שהמילה
+  // נעלמת מהר מדי (5.8). הלקח: לא לגנוב זמן מביט קיים כדי לפנות מקום לחדש.
+  // הסרטון הוארך במקום זאת, והביט חזר לאורך שמאפשר לקרוא את התוצאה.
+  { word: "obsolete", outcome: "ok", start: 9.4, duration: 3.8 },
 ];
 
 /** השנייה שבה משפט הסיום נכנס. אחרי שהכרטיס האחרון יצא, לא מעליו. */
-const PUNCH_AT = 12.5;
+const PUNCH_AT = 13.4;
 
 const BeatCard: React.FC<{ beat: Beat }> = ({ beat }) => {
   const frame = useCurrentFrame();

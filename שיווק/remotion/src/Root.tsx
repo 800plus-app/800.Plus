@@ -5,7 +5,6 @@ import { loadFont as loadHeebo } from "@remotion/google-fonts/Heebo";
 import { STORY } from "./brand";
 import { StoryDemo } from "./StoryDemo";
 import { VideoRound } from "./VideoRound";
-import { VideoNumber } from "./VideoNumber";
 
 /**
  * שני הגופנים של 800+, נטענים פעם אחת לכל הקומפוזיציות.
@@ -17,35 +16,28 @@ loadHeebo();
 export const RemotionRoot: React.FC = () => {
   return (
     <>
-      {/* ס1 · ההדגמה החיה. 8 שניות. */}
+      {/* ס1 · ההדגמה החיה. ארבע מילים, 16 שניות. */}
       <Composition
         id="StoryDemo"
         component={StoryDemo}
-        durationInFrames={8 * STORY.fps}
+        durationInFrames={16 * STORY.fps}
         fps={STORY.fps}
         width={STORY.width}
         height={STORY.height}
       />
 
-      {/* ו1 · סבב תרגול מלא, כולל מילה שנכשלת. 15 שניות. */}
+      {/* ו1 · סבב תרגול מלא, כולל מילה שנכשלת. 16.5 שניות. */}
       <Composition
         id="VideoRound"
         component={VideoRound}
-        durationInFrames={15 * STORY.fps}
+        durationInFrames={Math.round(16.5 * STORY.fps)}
         fps={STORY.fps}
         width={STORY.width}
         height={STORY.height}
       />
 
-      {/* ו2 · המספר שאי אפשר לשנן. 20 שניות. */}
-      <Composition
-        id="VideoNumber"
-        component={VideoNumber}
-        durationInFrames={20 * STORY.fps}
-        fps={STORY.fps}
-        width={STORY.width}
-        height={STORY.height}
-      />
+      {/* ו2 "המספר" נמחק ב-5.8 בהחלטת חגי. הקוד נשמר בהיסטוריית git (b2655f8)
+          אם נרצה לחזור אליו. */}
     </>
   );
 };
