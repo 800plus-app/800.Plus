@@ -973,6 +973,15 @@
   .ds-week i.on::before{background:linear-gradient(90deg,var(--gold),var(--accent))}
   .ds-week i em{font-style:normal;font-size:.6rem;color:var(--ink-soft);line-height:1}
   .ds-week i.now em{color:var(--accent);font-weight:700}
+  /* ספירה לסיום התקופה החינמית. פס ולא כרטיס: הוא נמצא מעל בחירת השפה, כלומר על המסלול
+     של כל כניסה, ולכן הוא חייב להימסר במבט אחד ולא לתפוס את מקום התוכן.
+     הזהב ולא האדום — זו תזכורת לתאריך, לא שגיאה. */
+  .paybar{display:flex;align-items:baseline;gap:10px;justify-content:center;flex-wrap:wrap;
+       margin-top:16px;padding:11px 16px;border-radius:14px;
+       background:rgba(201,150,47,.10);border:1px solid rgba(201,150,47,.45)}
+  .paybar.hidden{display:none!important}
+  .paybar b{font-family:"Frank Ruhl Libre",serif;font-weight:900;font-size:1.12rem;color:var(--accent-deep)}
+  .paybar span{font-size:.82rem;color:var(--ink-soft)}
   .install-cta{display:flex;align-items:center;gap:13px;width:100%;margin-top:20px;
        background:var(--card);border:1px solid var(--gold);border-radius:16px;padding:14px 16px;
        text-align:right;transition:.18s;box-shadow:var(--shadow);font-family:"Heebo";
@@ -1189,6 +1198,9 @@
            costs one line and removes the hesitation before the first click. -->
       <p class="w-note">ההתקדמות בכל שפה נמדדת בנפרד, ניתן לעבור ביניהן בלחיצה על כפתור "חזרה" ובחירת השפה השנייה.</p>
     </div>
+
+    <!-- ספירה לסיום התקופה החינמית. נבנה ב-JS ונשאר ריק כשהתאריך עבר — ראה renderPayCountdown. -->
+    <div class="paybar hidden" id="payBar" role="status"></div>
 
     <div class="dash-streak">
       <div class="ds-left"><span class="ds-fire">🔥</span>
@@ -1835,14 +1847,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=159"></script>
-<script src="config.js?v=159"></script>
-<script src="store.js?v=159"></script>
-<script src="leveltest-he.js?v=159"></script>
-  <script src="leveltest.js?v=159"></script>
-<script src="enrank.js?v=159"></script>
-<script src="data.js?v=159"></script>
-<script src="data-en.js?v=159"></script>
-<script src="app.js?v=159"></script>
+<script src="supabase.min.js?v=160"></script>
+<script src="config.js?v=160"></script>
+<script src="store.js?v=160"></script>
+<script src="leveltest-he.js?v=160"></script>
+  <script src="leveltest.js?v=160"></script>
+<script src="enrank.js?v=160"></script>
+<script src="data.js?v=160"></script>
+<script src="data-en.js?v=160"></script>
+<script src="app.js?v=160"></script>
 </body>
 </html>
