@@ -465,14 +465,32 @@ function glossKey(g){
   return String(g||'').replace(/\s*\([^)]*\)/g,'')      // examples are not part of the meaning
     .replace(/\s+/g,' ').replace(/[.,;·]+$/,'').trim().toLowerCase();
 }
+/* הפירושים הבודדים של ערך, ולא המחרוזת כולה.
+   glossKey השווה מחרוזות שלמות, ולכן תפס accurate/precise (שניהם "מדויק") אבל פספס את
+   colossal="עצום" מול vast="עצום, נרחב, רחב ידיים" — 163 זוגות ביחידות 6-10 באנגלית
+   לבדן, מול 20 שנתפסו. שני הערכים חולקים פירוש שלם, והלומד נשאל עליו פעמיים.
+   meaningSegs הוא אותו פיצול שמחליט אילו תשובות מתקבלות, ולכן "שני ערכים חולקים
+   פירוש" ו"אותה תשובה מתקבלת לשניהם" נשארים בהכרח אותו דבר. מקור אמת אחד. */
+function glossSenses(g){
+  /* בלי סינון אורך. הגרסה הראשונה כאן דרשה שני תווים לפחות — כמו הבדיקה הישנה על
+     המחרוזת המלאה — אבל norm מסיר את המקף, ולכן הפירוש "מ-" הצטמצם לתו אחד ונזרק.
+     התוצאה: from ו-than הפסיקו להיחשב חולקי פירוש, ושניהם הוצגו באותו סבב עם אותו
+     פרומפט בדיוק. בדיקה 44 תפסה.
+     נמדד: ארבעה פירושים באורך תו אחד בכל המאגר, וכולם מיליות עברית אמיתיות —
+     "מ" (from/of/than) · "ש" (that/which/who) · "ב" (at/in) · "ו" (and). אלה בדיוק
+     המקרים שחייבים להיתפס, לא להיזרק.
+     meaningSegs כבר מסנן ריקים ומילות קישור, ולכן אין כאן מה להוסיף. */
+  return meaningSegs(g);
+}
 function buildGlossIndex(){
   GLOSS_ALT=new Map();
   for(const w of BANK){
-    const g=glossKey(w.meaning); if(g.length<2) continue;
-    let arr=GLOSS_ALT.get(g); if(!arr){ arr=[]; GLOSS_ALT.set(g,arr); }
-    arr.push(w.term);
+    for(const s of glossSenses(w.meaning)){
+      let arr=GLOSS_ALT.get(s); if(!arr){ arr=[]; GLOSS_ALT.set(s,arr); }
+      if(!arr.includes(w.term)) arr.push(w.term);   // ערך עם אותו פירוש פעמיים לא נספר פעמיים
+    }
   }
-  for(const [g,arr] of GLOSS_ALT) if(arr.length<2) GLOSS_ALT.delete(g);
+  for(const [s,arr] of GLOSS_ALT) if(arr.length<2) GLOSS_ALT.delete(s);
 }
 /* In the m2w direction the PROMPT is the gloss — so two entries sharing a gloss pose the same
  * question twice. "מתחת" is below, beneath, under and underneath, all four of them in unit 1;
@@ -489,21 +507,32 @@ function buildGlossIndex(){
  * Only m2w cards claim a gloss. A w2m card poses its own word as the question, so letting it
  * reserve the gloss would flip an m2w card for a collision that does not exist. */
 function oneCardPerGloss(cards){
+  /* כרטיס תופס את *כל* הפירושים שלו, ומתהפך אם אחד מהם כבר נתפס.
+     קודם הושווה הפירוש המלא, ולכן colossal="עצום" ו-vast="עצום, נרחב" נחשבו שונים
+     ושני הפרומפטים הוצגו — למרות ש"עצום" הוא התשובה לשניהם. */
   const taken=new Set();
   for(const c of cards){
     if(c._dir!=='m2w') continue;
-    const g=glossKey(c.meaning);
-    if(g.length<2) continue;          // nothing but an example: not a key, and never shared
-    if(taken.has(g)) c._dir='w2m'; else taken.add(g);
+    const senses=glossSenses(c.meaning);
+    if(!senses.length) continue;      // nothing but an example: not a key, and never shared
+    if(senses.some(s=>taken.has(s))) c._dir='w2m';
+    else senses.forEach(s=>taken.add(s));
   }
   return cards;
 }
 /* Every OTHER word that means the same thing as this card. */
 function glossAlts(card){
-  const arr=GLOSS_ALT.get(glossKey(card && card.meaning));
-  if(!arr) return [];
-  const own=K(card.term);
-  return arr.filter(t=>K(t)!==own);
+  /* איחוד על פני כל הפירושים של הכרטיס, ולא רק על המחרוזת המלאה.
+     זה הצד השני של אותו תיקון: אם הפרומפט "עצום" מוצג עבור vast, גם colossal היא
+     תשובה נכונה — ובלי האיחוד היא נדחתה, כי מחרוזות הפירוש אינן זהות.
+     הדחייה הזאת היא הפגיעה האמיתית: הלומד נתן מילה נרדפת נכונה וסומן כטועה. */
+  const own=K(card && card.term);
+  const out=new Set();
+  for(const s of glossSenses(card && card.meaning)){
+    const arr=GLOSS_ALT.get(s); if(!arr) continue;
+    for(const t of arr) if(K(t)!==own) out.add(t);
+  }
+  return [...out];
 }
 
 /* ===== stats model ===== */
