@@ -2652,15 +2652,18 @@ function lvFinish(){
   // offer to skip words below the tested level — only with explicit consent.
   // hide() first: without it a previous run's offer stays on screen with a stale count.
   hide($('#lvOffer'));
-  /* The offer is for someone STARTING OUT. Once an account holds practice history the test
-     is a measurement, not a setup step — and offering to rewrite that history is how a real
-     account lost 2,470 records. Ranks exist only for English, so Hebrew never qualifies. */
-  const already = hasProgressIn('en');
-  const skippable = (LV_LANG==='en' && already < 10) ? lvCountKnown(level) : 0;
-  if(LV_LANG==='en' && already >= 10){
-    $('#lvOfferText').innerHTML='';
-    console.info('[lv] הצעת הדילוג הושמטה — לחשבון כבר יש '+already+' מילים עם התקדמות');
-  }
+  /* ההצעה הייתה חסומה לגמרי לכל חשבון עם 10+ מילים שתורגלו. החסימה נוספה אחרי שחשבון
+     אמיתי איבד 2,470 רשומות, וזו הייתה הסיבה הנכונה — אבל הכלי היה גס מדי: מי שנכנס
+     להגדרות ועושה מבחן רמה בשנית לא קיבל הצעה בכלל, גם כשהיו לו מאות מילים מתחת לרמתו
+     שמעולם לא נגע בהן.
+     מה שמגן באמת הוא הסינון לכל מילה, והוא כבר קיים בשני המקומות שסופרים ומחילים:
+     lvCountKnown פוסל מילה עם רשומת סטטיסטיקה או מחיקה, ו-lvApplyKnown חוזר על אותו
+     תנאי לפני שהוא כותב ("any history at all — leave it alone"). כלומר מילה שכבר למדת
+     אינה יכולה להיכנס להצעה מלכתחילה — לא לספירה ולא לכתיבה.
+     לכן החסימה הרחבה יורדת, והשמירה נשארת: ההצעה מדברת מעכשיו רק על מילים שמעולם לא
+     נגעת בהן, וזה בדיוק "לשלב את המילים שכבר למדת לפני ההמלצה".
+     הדירוגים קיימים רק באנגלית, ולכן עברית לעולם אינה מגיעה לכאן. */
+  const skippable = (LV_LANG==='en') ? lvCountKnown(level) : 0;
   if(skippable>=40){
     show($('#lvOffer'));
     $('#lvOfferText').innerHTML=`מצאתי <b>${skippable}</b> מילים באנגלית שנמצאות הרבה מתחת לרמה שהדגמת
@@ -2668,6 +2671,7 @@ function lvFinish(){
       <br><span style="color:var(--ink-soft);font-size:.86rem">מה זה עושה בפועל: המילים האלה יוצאות
       מ"מילים חדשות" ולא יגיעו אליך בתרגול, כדי שתתחיל ישר במה שבאמת חסר לך. הן <b>לא</b> נמחקות
       ו<b>לא</b> נספרות כמילים שלמדת — מספר הנלמדות שלך לא יזוז מזה.
+      <br><b>מילים שכבר תרגלת אינן נכללות כאן</b>, וההתקדמות שלהן אינה נוגעת.
       ניתן להחזיר אותן ב"ניהול מילים" ← "שחזר מחיקות".</span>`;
     $('#lvApply').onclick=()=>{ const n=lvApplyKnown(level); hide($('#lvOffer'));
       toast(`${n} מילים הוצאו מהתרגול · ניתן להחזיר ב"ניהול מילים"`); };
