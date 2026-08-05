@@ -44,7 +44,7 @@ const SYMBOLS = [
   // HTML escaping, and hiding the answer inside its own gloss (09-mask.test.js)
   'esc', 'CLITIC', 'HSUF', 'heStems', 'maskTerm',
   // bank + shared-gloss index
-  'UNIT_IDS', 'PREVIEW_UNIT', 'GLOSS_ALT', 'buildBank', 'glossKey', 'buildGlossIndex', 'glossAlts',
+  'UNIT_IDS', 'PREVIEW_UNIT', 'GLOSS_ALT', 'buildBank', 'glossKey', 'glossSenses', 'buildGlossIndex', 'glossAlts',
   // stats model and the three practice buckets
   'rec', 'scopeWords', 'lvl', 'lastOf', 'wasSkipped', 'seenCount',
   'classify', 'uniqScope', 'newCards', 'weakCards', 'learnedCards',
