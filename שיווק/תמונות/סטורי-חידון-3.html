@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>800+ · סטורי חידון</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ס4 · סטורי החידון, 1080×1920.
+
+   המסר היחיד: כמה מילים אתה באמת מכיר.
+
+   למה זה שווה יותר מכל סטורי אחר בסדרה: תשובה בסטיקר חידון היא אינטראקציה,
+   ואינטראקציה מרימה את הסטורי הבא באלגוריתם. וזה גם המוצר עצמו כתוכן,
+   לא פרסומת עליו.
+
+   ⚠ שימוש: משאירים את שלוש התשובות ריקות בתמונה, ומדביקים מעליהן את סטיקר
+   החידון של אינסטגרם. שלושת המלבנים למטה נמצאים במידה ובמרווח של הסטיקר,
+   כדי שאפשר יהיה להניח אותו עליהם בלי שיישארו פינות מתות.
+
+   ⚠ המילה והפירוש נשלפים מ-data-en.js בזמן הרינדור. אין כאן מילה מומצאת:
+   מי שיפתח את האפליקציה אחרי הסטורי ימצא בדיוק אותה.
+
+   להחלפת המילה: לשנות את WORD למטה ולרנדר מחדש. */
+:root{
+  --paper:#f6f1e7; --card:#fffdf8; --ink:#2c2620; --ink-soft:#736a5c;
+  --gold:#c9962f; --accent:#b5482e; --accent-deep:#8f3620; --line:#e3d8c4;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#1a1712;font-family:"Heebo",sans-serif;display:flex;justify-content:center}
+
+.stage{width:1080px;height:1920px;position:relative;background:var(--paper);overflow:hidden;
+       display:flex;flex-direction:column;align-items:center;padding:110px 84px 0;text-align:center}
+
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.6;
+  background-image:radial-gradient(circle at 50% 10%, rgba(201,150,47,.20), transparent 44%),
+                   radial-gradient(circle at 86% 84%, rgba(181,72,46,.11), transparent 46%)}
+
+.mark{font-family:"Frank Ruhl Libre",serif;font-weight:900;font-size:56px;
+      letter-spacing:-.03em;color:var(--gold);position:relative;direction:ltr}
+
+.kick{font-size:29px;letter-spacing:.26em;color:var(--gold);font-weight:700;
+      margin-top:30px;position:relative}
+.head{font-family:"Frank Ruhl Libre",serif;font-weight:900;color:var(--accent);
+      font-size:92px;line-height:1.04;margin-top:16px;position:relative}
+
+.rule{height:4px;width:200px;background:linear-gradient(90deg,var(--gold),transparent);
+      border-radius:2px;margin:44px 0 0;position:relative}
+
+/* המילה שנשאלת. הגיבור של המסך. */
+.qbox{position:relative;margin-top:52px;background:var(--card);border:3px solid var(--line);
+      border-radius:34px;padding:46px 40px;align-self:stretch}
+.qkick{font-size:28px;color:var(--gold);font-weight:700;letter-spacing:.1em;margin-bottom:24px}
+.qword{font-family:"Frank Ruhl Libre",serif;font-weight:900;font-size:80px;color:var(--ink);
+       line-height:1.14}
+.qunit{font-size:29px;color:var(--ink-soft);margin-top:26px;font-weight:300}
+
+/* אזור הסטיקר. שלושה מלבנים ריקים במידת סטיקר החידון של אינסטגרם. */
+.slots{position:relative;margin-top:54px;align-self:stretch;display:flex;
+       flex-direction:column;gap:20px}
+.slot{height:104px;border:3px dashed var(--line);border-radius:22px;background:var(--card);
+      opacity:.55}
+.hint{position:relative;margin-top:26px;font-size:30px;color:var(--ink-soft);font-weight:300}
+
+.cta{position:relative;margin-top:auto;margin-bottom:150px;font-size:38px;color:var(--ink)}
+.cta b{font-family:"Frank Ruhl Libre",serif;font-weight:900;color:var(--accent-deep)}
+.host{position:relative;margin-bottom:120px;font-size:36px;color:var(--accent);font-weight:700;
+      letter-spacing:.06em;direction:ltr}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="grain"></div>
+
+  <div class="mark">800+</div>
+  <div class="kick">חידון אוצר מילים</div>
+  <div class="head">מכיר את המילה<br>הזאת?</div>
+  <div class="rule"></div>
+
+  <div class="qbox">
+    <div class="qkick">מה המילה באנגלית?</div>
+    <div class="qword" id="qword">—</div>
+    <div class="qunit" id="qunit"></div>
+  </div>
+
+  <!-- כאן מדביקים את סטיקר החידון של אינסטגרם -->
+  <div class="slots">
+    <div class="slot"></div>
+    <div class="slot"></div>
+    <div class="slot"></div>
+  </div>
+  <div class="hint">בחרו תשובה 👆</div>
+
+  <div class="cta"><b id="total">—</b> מילים כאלה מחכות לך</div>
+  <div class="host">800-plus.com</div>
+</div>
+
+<script src="../../data-en.js"></script>
+<script src="../../data.js"></script>
+<script>
+/* המילה שנשאלת. זה הערך היחיד להחליף בין גרסאות החידון. */
+const WORD = 'ambiguous';
+
+(function(){
+  const entry = Object.entries(window.UNIT_DATA_EN)
+    .flatMap(([unit, list]) => list.map(w => ({ unit, en: w[0], he: w[1] })))
+    .find(w => w.en === WORD);
+
+  /* אין ערך גיבוי בכוונה. אם המילה נעלמה מהמאגר עדיף שהסטורי יישבר גלויות
+     מאשר שיישאל על מילה שאינה קיימת באפליקציה. */
+  document.getElementById('qword').textContent = entry.he;
+  document.getElementById('qunit').textContent = 'יחידה ' + entry.unit;
+
+  const count = o => Object.values(o).reduce((a, u) => a + u.length, 0);
+  document.getElementById('total').textContent =
+    (count(window.UNIT_DATA_EN) + count(window.UNIT_DATA)).toLocaleString('en-US');
+})();
+</script>
+</body>
+</html>
