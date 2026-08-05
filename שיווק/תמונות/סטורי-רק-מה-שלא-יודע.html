@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>800+ · סטורי תרגול ממוקד</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* סטורי סטטי · תרגול ממוקד. 1080×1920.
+
+   המסר היחיד: אתה מתרגל רק את מה שאתה לא יודע.
+
+   זה הניסוח שחגי אישר בסרטון "סבב תרגול", והוא עובר לכאן כדי שהקמפיין
+   ידבר בקול אחד. מסר שחוזר בשני פורמטים נזכר; מסר שמנוסח מחדש בכל נכס נמחק.
+
+   ⚠ גרסה מוקדמת של הרעיון הזה נבנתה כענן של 84 מילים בסרטון, ונמחקה:
+   "מעורפל מאוד ולא ברור, המסר לא עבר". לכן כאן אין מסה של אלמנטים קטנים.
+   שלוש שורות בלבד, וההבדל ביניהן נמסר בגודל ובצבע ולא בכמות. */
+:root{
+  --paper:#f6f1e7; --card:#fffdf8; --ink:#2c2620; --ink-soft:#736a5c;
+  --gold:#c9962f; --accent:#b5482e; --accent-deep:#8f3620; --line:#e3d8c4;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#1a1712;font-family:"Heebo",sans-serif;display:flex;justify-content:center}
+.stage{width:1080px;height:1920px;position:relative;background:var(--paper);overflow:hidden;
+       display:flex;flex-direction:column;align-items:center;justify-content:center;
+       padding:0 88px;text-align:center}
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.6;
+  background-image:radial-gradient(circle at 50% 14%, rgba(201,150,47,.20), transparent 44%),
+                   radial-gradient(circle at 86% 86%, rgba(181,72,46,.12), transparent 46%)}
+.mark{position:absolute;top:104px;font-family:"Frank Ruhl Libre",serif;font-weight:900;
+      font-size:56px;letter-spacing:-.03em;color:var(--gold);direction:ltr}
+
+.kick{position:relative;font-size:30px;letter-spacing:.26em;color:var(--gold);font-weight:700;
+      margin-bottom:34px}
+/* המסר. הוא כמעט כל המסך, וזו הנקודה. */
+.head{position:relative;font-family:"Frank Ruhl Libre",serif;font-weight:900;font-size:110px;
+      color:var(--ink);line-height:1.08;letter-spacing:-.01em}
+.head em{color:var(--accent);font-style:normal}
+
+/* שתי שורות ההשוואה. הן מסבירות את ההבדל בלי לצייר אותו. */
+.cmp{position:relative;margin-top:66px;align-self:stretch;display:flex;
+     flex-direction:column;gap:18px}
+.line{display:flex;align-items:center;gap:22px;background:var(--card);
+      border:2px solid var(--line);border-radius:22px;padding:26px 32px;text-align:start}
+.line .ic{font-size:38px;flex:none;line-height:1}
+.line .tx{font-size:36px;color:var(--ink);line-height:1.3}
+.line.off .tx{color:var(--ink-soft)}
+
+.tag{position:relative;margin-top:52px;display:inline-flex;font-size:34px;color:var(--ink);
+     background:var(--card);border:2px solid var(--line);border-radius:999px;padding:18px 42px}
+.tag b{font-family:"Frank Ruhl Libre",serif;font-weight:900;color:var(--accent-deep);
+     /* רווח מפורש: מספר LTR צמוד למילה עברית נדבק אליה ונקרא "עד30.8" */
+     margin-inline-start:10px}
+.cta{position:relative;margin-top:40px;background:var(--accent);color:#fff;font-size:38px;
+     font-weight:700;border-radius:999px;width:300px;padding:24px 0}
+.host{position:relative;margin-top:22px;font-size:34px;color:var(--ink-soft);
+      letter-spacing:.08em;direction:ltr}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="grain"></div>
+  <div class="mark">800+</div>
+
+  <div class="kick">תרגול אדפטיבי</div>
+  <div class="head">אתה מתרגל <em>רק</em><br>את מה שאתה<br>לא יודע</div>
+
+  <div class="cmp">
+    <div class="line off"><div class="ic">🚫</div><div class="tx">מילה שכבר בשליטה לא תחזור אליך</div></div>
+    <div class="line"><div class="ic">🎯</div><div class="tx">מילה שנפלה חוזרת עד שהיא נכנסת</div></div>
+  </div>
+
+  <div class="tag">חינם עד <b id="freeDate"></b></div>
+  <div class="cta">להתנסות עכשיו</div>
+  <div class="host">800-plus.com</div>
+</div>
+
+<script>
+const FREE_UNTIL = '2026-08-30';
+(function(){
+  const end = new Date(FREE_UNTIL + 'T23:59:59');
+  document.getElementById('freeDate').textContent = end.getDate() + '.' + (end.getMonth() + 1);
+})();
+</script>
+</body>
+</html>
