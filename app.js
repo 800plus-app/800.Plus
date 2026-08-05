@@ -1255,6 +1255,56 @@ function meaningSegs(meaning){
   const kept=parts.filter(s=>!MARKER.test(s));
   return (kept.length?kept:parts).map(norm).filter(Boolean);
 }
+/* אותה חלוקה בדיוק, אבל בטקסט המקורי ולא מנורמל — לתצוגה בלבד.
+   האינדקסים חייבים להיות זהים לאלה של meaningSegs, כי r.sens שומר אינדקסים שלה: פירוש
+   שיוצג ירוק במקום הלא נכון גרוע מאין צבע בכלל. הזהות נאכפת ב-tests/63 על כל המאגר,
+   ולא נשמרת בזכות תשומת לב. `.filter(s=>norm(s))` הוא בן הזוג של `.filter(Boolean)` למעלה. */
+function meaningSegsRaw(meaning){
+  const MARKER=/^(?:ו?גם|ו?בפרט|ו?בהשאלה|וכן|כגון|לדוגמה|למשל|להיפך|או)$/;
+  const parts=String(meaning).replace(/\([^)]*\)/g,' ')
+    .split(/[,;/|]|\s-\s|(?<!\.)\.(?!\.)|:/)
+    .map(s=>s.trim()).filter(Boolean);
+  const kept=parts.filter(s=>!MARKER.test(s));
+  return (kept.length?kept:parts).filter(s=>norm(s));
+}
+/* כמה פירושים הלומד כבר נתן. sensesLeft מחזיר כמה חסר עד התקרה; זה החצי השני. */
+function sensesGot(term, meaning){
+  const n=senseCount(meaning); if(n<2) return 0;
+  const r=stats.words[K(term)];
+  return (r && Array.isArray(r.sens)) ? r.sens.filter(i=>i<n).length : 0;
+}
+/* הפירושים כשרשרת, מה שכבר נכתב בירוק והחסר בשחור.
+   זו התשובה ל"למה המילה הזאת עדיין ברשימת החיזוק" בלי לפתוח קטגוריה חדשה: רשימת
+   המילים כבר עמוסה, והצבע נושא את המידע במקום עוד תווית. מילה עם פירוש אחד מוחזרת
+   כטקסט רגיל — אין שם מה לצבוע, וצבע בלי משמעות מלמד להתעלם ממנו. */
+function senseChips(term, meaning){
+  const raw=meaningSegsRaw(meaning);
+  if(raw.length<2) return esc(meaning);
+  const r=stats.words[K(term)];
+  const got=(r && Array.isArray(r.sens)) ? r.sens : [];
+  return raw.map((s,i)=>`<span class="sns${got.includes(i)?' got':''}">${esc(s)}</span>`)
+            .join('<span class="snsep">·</span>');
+}
+/* הדרישה לשני פירושים, מוצגת **גם על תשובה שגויה** — וזה כל החידוש.
+   עד עכשיו היא הייתה עטופה ב-`ok`, כלומר מי שטעה לא ראה אותה אף פעם. ובדיוק הוא זה
+   שהמילה שלו נתקעת: 64.5% מהמילים בעברית ו-43% באנגלית נושאות שני פירושים ומעלה,
+   וביחידה 1 בעברית זה 113 מתוך 190. הלומד ראה מילים חוזרות לחיזוק בלי שום הסבר.
+
+   ההסבר המלא מוצג פעם אחת בלבד. חזרה עליו בכל כרטיס הופכת אותו לרעש שמדלגים עליו,
+   וזה גם מה שמייתר את הפעם הראשונה. */
+function senseNeedBlock(w){
+  if(sensesLeft(w.term, w.meaning)<=0) return '';
+  const line = sensesGot(w.term, w.meaning)>=1
+    ? 'עוד פירוש אחד והמילה תיחשב נלמדה'
+    : 'נדרשים שני פירושים כדי שהמילה תיחשב נלמדה';
+  let intro='';
+  if(!LS.get('hw_sense_intro', false)){
+    LS.set('hw_sense_intro', true);
+    intro='<div class="sense-intro">מילה עם כמה פירושים נחשבת נלמדה רק כששניים מהם ידועים.'
+        + ' <b>הירוק</b> הוא מה שכבר נתת</div>';
+  }
+  return `<div class="also sense-need" id="senseNeed">${line}${intro}</div>`;
+}
 /* רושם את הפירוש שנכתב. saveStats לא נקרא כאן — commitSession שומר בסוף הסבב ממילא,
    ושמירה לכל תשובה הייתה כותבת לדיסק עשרים פעם בסבב. */
 function noteSense(w, typed){
@@ -1372,16 +1422,19 @@ function finishCard(ok, skipped){
        /* השורה השנייה קיימת כי הראשונה לבדה לא עבדה. "גם: X · Y" הוצג, הלומד קרא וסגר,
           והמילה נספרה כנלמדה — בדיוק התלונה שהגיעה ממשתמש. עכשיו נאמר במפורש שהיא לא
           נספרה, וכמה חסר. המספר הוא מה שהופך את זה מהערה לדרישה. */
-       const left=sensesLeft(w.term, w.meaning);
-       return `<div class="also">גם: <b>${esc(rest.join(' · '))}</b></div>`
-         + (left>0 ? `<div class="also">נדרש פירוש נוסף כדי שהמילה תיחשב נלמדה</div>` : '');
+       /* שורת הדרישה עצמה עברה ל-senseNeedBlock, כי כאן היא הייתה עטופה ב-ok — כלומר
+          הלומד שטעה, בדיוק זה שהמילה שלו נתקעת תחת התקרה, לא ראה אותה מעולם. */
+       return `<div class="also">גם: <b>${esc(rest.join(' · '))}</b></div>`;
      })() : '')+
     /* Answered with a different word that carries the same gloss. Counting it wrong would be
        false; counting it silently right would leave the card's own word unlearned. */
     (ok && acceptedAlt
       ? `<div class="also">גם <b><bdi>${esc(acceptedAlt)}</bdi></b> נכון לפירוש הזה.
          הכרטיס הזה הוא <b><bdi>${esc(w.term)}</bdi></b>.</div>` : '')+
-    (!ok?`<div class="reveal">${label}: <b><bdi>${esc(answer)}</bdi></b></div>`:'')+
+    /* בכיוון מילה→פירוש התשובה הנכונה היא רשימת הפירושים, ולכן היא נצבעת: מה שכבר נתת
+       ירוק, מה שחסר שחור. בכיוון ההפוך התשובה היא מילה אחת ואין מה לפצל. */
+    (!ok?`<div class="reveal">${label}: <b><bdi>${w2m?senseChips(w.term,answer):esc(answer)}</bdi></b></div>`:'')+
+    (w2m ? senseNeedBlock(w) : '')+
     /* The prompt hid the word inside its own gloss, and in this direction the gloss is never
        shown again — so the example that made it worth reading would have been lost. Now that
        the card is over it can only teach, so it is restored in full. */
@@ -1497,6 +1550,9 @@ function finishCard(ok, skipped){
         }
         wr.textContent='סומן כנכון ✓ · לחץ לביטול';
         wr.classList.add('on');
+        /* מרגע ההצהרה התקרה הוסרה (ראה commitSession), ולכן "נדרשים שני פירושים" הפך
+           לשקר. להשאיר אותו על המסך היה סותר בדיוק את מה שהלחיצה עשתה. */
+        { const sn=$('#senseNeed'); if(sn) hide(sn); }
         if(vd){ vd.textContent='סומן כנכון ✓'; vd.className='verdict ok'; }
       } else {
         correct=Math.max(0, correct-1);
@@ -1505,6 +1561,7 @@ function finishCard(ok, skipped){
         if(sensBefore){ rec(w.term).sens=sensBefore.slice(); sensBefore=null; }
         wr.textContent='בעצם ידעתי · סמן כנכון';
         wr.classList.remove('on');
+        { const sn=$('#senseNeed'); if(sn) show(sn); }
         if(vd){ vd.textContent=vdText; vd.className=vdClass; }
       }
       $('#qLive').textContent=`✓ ${correct}`;
@@ -1710,7 +1767,7 @@ function renderReview(){
   list.innerHTML=ordered.map(w=>{
     const ok=verdictOf(w.term);
     return `<div class="rev-row ${ok?'':'wrong'}" data-t="${esc(w.term)}">
-      <div class="rev-w"><b>${esc(w.term)}</b><span>${esc(w.meaning)}</span></div>
+      <div class="rev-w"><b>${esc(w.term)}</b><span>${senseChips(w.term, w.meaning)}</span></div>
       <button class="rev-chip ${ok?'ok':'no'}">${ok?'✓ ידעתי':'✗ לא ידעתי'}</button></div>`;
   }).join('');
   list.querySelectorAll('.rev-chip').forEach(chip=>{

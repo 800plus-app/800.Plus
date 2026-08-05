@@ -253,6 +253,16 @@
     font-size:.82rem;line-height:1.5}
   .assoc-others .oth.empty{color:var(--ink-soft);background:transparent;padding:4px 0}
   .also{margin-top:8px;font-size:.85rem;color:var(--ink-soft)}
+  /* פירוש שכבר נכתב מול פירוש שחסר. שתי מחלקות ולא אחת, כדי שהכלל ינצח את
+     `.rev-w span{color:var(--ink-soft)}` בלי !important. */
+  /* לא var(--green). הירוק הכללי #4e7d4e נמדד 4.27:1 על רקע הכרטיס #f6f1e7 — מתחת לסף
+     4.5, והטקסט כאן קטן (0.8rem ברשימת הסיכום) ולכן פטור "טקסט גדול" אינו חל. #3f6a3f
+     נמדד 5.58:1 ונשאר מאותה משפחת צבע. הצבע הזה נושא מידע ולכן חייב להיקרא. */
+  .sns.got{color:#3f6a3f;font-weight:600}
+  .snsep{opacity:.35;margin:0 5px}
+  /* בולט מ-.also הרגיל: זו דרישה ולא הערת אגב, וזו הייתה הבקשה המפורשת. */
+  .sense-need{color:var(--accent-deep);font-weight:600}
+  .sense-intro{margin-top:5px;font-weight:400;color:var(--ink-soft);font-size:.8rem;line-height:1.6}
   .also b{color:var(--ink);font-weight:600}
   .reveal{margin-top:8px;font-size:1.05rem}
   .reveal b{font-family:"Frank Ruhl Libre",serif}
@@ -1887,14 +1897,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=167"></script>
-<script src="config.js?v=167"></script>
-<script src="store.js?v=167"></script>
-<script src="leveltest-he.js?v=167"></script>
-  <script src="leveltest.js?v=167"></script>
-<script src="enrank.js?v=167"></script>
-<script src="data.js?v=167"></script>
-<script src="data-en.js?v=167"></script>
-<script src="app.js?v=167"></script>
+<script src="supabase.min.js?v=168"></script>
+<script src="config.js?v=168"></script>
+<script src="store.js?v=168"></script>
+<script src="leveltest-he.js?v=168"></script>
+  <script src="leveltest.js?v=168"></script>
+<script src="enrank.js?v=168"></script>
+<script src="data.js?v=168"></script>
+<script src="data-en.js?v=168"></script>
+<script src="app.js?v=168"></script>
 </body>
 </html>
