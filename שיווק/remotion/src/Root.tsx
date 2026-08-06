@@ -5,7 +5,11 @@ import { loadFont as loadHeebo } from "@remotion/google-fonts/Heebo";
 import { STORY } from "./brand";
 import { StoryDemo } from "./StoryDemo";
 import { VideoRound } from "./VideoRound";
-import { BrandFilm } from "./BrandFilm";
+import {
+  FilmWords, FILM_WORDS_SEC,
+  FilmFact, FILM_FACT_SEC,
+  FilmWake, FILM_WAKE_SEC,
+} from "./Films";
 
 /**
  * שני הגופנים של 800+, נטענים פעם אחת לכל הקומפוזיציות.
@@ -14,6 +18,8 @@ import { BrandFilm } from "./BrandFilm";
 loadFrank();
 loadHeebo();
 
+const sec = (s: number) => Math.round(s * STORY.fps);
+
 export const RemotionRoot: React.FC = () => {
   return (
     <>
@@ -21,7 +27,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="StoryDemo"
         component={StoryDemo}
-        durationInFrames={16 * STORY.fps}
+        durationInFrames={sec(16)}
         fps={STORY.fps}
         width={STORY.width}
         height={STORY.height}
@@ -31,25 +37,42 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="VideoRound"
         component={VideoRound}
-        durationInFrames={Math.round(16.5 * STORY.fps)}
+        durationInFrames={sec(16.5)}
         fps={STORY.fps}
         width={STORY.width}
         height={STORY.height}
       />
 
-      {/* סרטון התדמית. 45 שניות, פתיחה קרה במילה עברית עירומה.
-          ⚠ הספירה מחושבת מ-EXAM_DATE ולכן נכונה ליום הרינדור בלבד. */}
+      {/* ── שלושת הסרטונים הקצרים, 6.8. מחליפים את BrandFilm של 45 שניות,
+             שנמחק כי "הפריימים ארוכים מדי". הקוד שלו בהיסטוריה (3b941aa).
+             ⚠ הספירה בסרטון 3 מחושבת מ-EXAM_DATE ומתיישנת כל יום. ── */}
+
       <Composition
-        id="BrandFilm"
-        component={BrandFilm}
-        durationInFrames={45 * STORY.fps}
+        id="FilmWords"
+        component={FilmWords}
+        durationInFrames={sec(FILM_WORDS_SEC)}
         fps={STORY.fps}
         width={STORY.width}
         height={STORY.height}
       />
 
-      {/* ו2 "המספר" נמחק ב-5.8 בהחלטת חגי. הקוד נשמר בהיסטוריית git (b2655f8)
-          אם נרצה לחזור אליו. */}
+      <Composition
+        id="FilmFact"
+        component={FilmFact}
+        durationInFrames={sec(FILM_FACT_SEC)}
+        fps={STORY.fps}
+        width={STORY.width}
+        height={STORY.height}
+      />
+
+      <Composition
+        id="FilmWake"
+        component={FilmWake}
+        durationInFrames={sec(FILM_WAKE_SEC)}
+        fps={STORY.fps}
+        width={STORY.width}
+        height={STORY.height}
+      />
     </>
   );
 };
