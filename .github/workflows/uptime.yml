@@ -55,10 +55,17 @@ jobs:
         run: |
           set +e
           URL="https://800-plus.com/"
-          # Three attempts before declaring it down. A single failed request is far more
-          # often a hiccup on the runner than an outage, and a monitor that cries wolf
-          # gets muted — which is the same as not having one.
-          for i in 1 2 3; do
+          # Five attempts, 45s apart — a three-minute window before declaring it down.
+          #
+          # ⚠ למה השתנה מ-3×20 (6.8.2026). הריצה של 16:16 נכשלה, והאתר לא היה נפול:
+          # באותה דקה בדיוק רצה פריסת Pages של קומיט חדש. חלון ה-redeploy ארוך
+          # מדקה, וההגדרה הישנה כיסתה 60 שניות בלבד — כלומר **כל פריסה** יכלה לשלוח
+          # התראת נפילה שקרית. מוניטור שצועק זאב נעשה מושתק, וזה זהה לאין מוניטור;
+          # זה כתוב כאן למעלה, והמדידה הראתה שההגדרה לא עמדה בזה.
+          #
+          # שלוש דקות אינן מאחרות גילוי אמיתי בשום צורה משמעותית: ה-cron עצמו מדלג
+          # ומייצר פערים של שעות, כפי שכתוב בראש הקובץ.
+          for i in 1 2 3 4 5; do
             body=$(curl -sS --max-time 20 -w '\n%{http_code}' "$URL" 2>/dev/null)
             code=$(printf '%s' "$body" | tail -n1)
             html=$(printf '%s' "$body" | sed '$d')
@@ -70,7 +77,7 @@ jobs:
               exit 0
             fi
             echo "attempt $i: HTTP $code"
-            sleep 20
+            sleep 45
           done
           echo "ok=false" >> "$GITHUB_OUTPUT"
           echo "code=$code" >> "$GITHUB_OUTPUT"
