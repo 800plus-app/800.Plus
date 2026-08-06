@@ -61,6 +61,8 @@ const SYMBOLS = [
   'mergeProgress', 'DEFAULT_DIR', 'pruneOrphans',
   // access gate
   'PAST_DUE_GRACE_DAYS', 'FREE_PHASE', 'hasAccess', 'subActive',
+  /* ההכרעה של השרת קודמת ל-hasAccess ואינה מחליפה אותה — tests/67 בודק את שתיהן. */
+  'ENT_KEY', 'entVerdict',
 ];
 
 /* Symbols that must exist on the context afterwards. Superset of SYMBOLS: it also names the
