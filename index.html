@@ -56,17 +56,17 @@
   /* top bar */
   .topbar{display:flex;align-items:center;gap:10px;margin-bottom:12px}
   .topbar .back{background:transparent;border:1px solid var(--line);border-radius:10px;padding:8px 14px;font-weight:500;color:var(--ink-soft)}
-  .topbar .back:hover{border-color:var(--ink-soft);color:var(--ink)}
+  @media (hover:hover) and (pointer:fine){.topbar .back:hover{border-color:var(--ink-soft);color:var(--ink)}}
   .topbar .sp{flex:1}
   .brand{font-family:"Frank Ruhl Libre",serif;font-weight:900;font-size:1.15rem}
 
   /* buttons */
   .btn{font-family:"Heebo";font-weight:700;font-size:1rem;border:none;border-radius:14px;padding:15px 22px;transition:.18s}
   .btn-primary{background:linear-gradient(180deg,var(--accent),var(--accent-deep));color:#fff;box-shadow:var(--shadow)}  /* not gold→rust: white on gold measured 2.66:1, below AA */
-  .btn-primary:hover{transform:translateY(-2px)}
+  @media (hover:hover) and (pointer:fine){.btn-primary:hover{transform:translateY(-2px)}}
   .btn-primary:disabled{opacity:.45;transform:none;box-shadow:none;cursor:not-allowed}
   .btn-ghost{background:transparent;border:1px solid var(--line);color:var(--ink-soft)}
-  .btn-ghost:hover{border-color:var(--ink-soft);color:var(--ink)}
+  @media (hover:hover) and (pointer:fine){.btn-ghost:hover{border-color:var(--ink-soft);color:var(--ink)}}
   .btn-danger{background:var(--accent);color:#fff}
   .btn-block{display:block;width:100%}
   .row{display:flex;gap:10px}
@@ -89,8 +89,8 @@
   }
   .lang-card::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--gold),var(--accent))}
   .lang-card.en::before{background:linear-gradient(90deg,#4e7d4e,#2f6f8f)}
-  .lang-card:hover{transform:translateY(-4px);border-color:var(--gold)}
-  .lang-card.en:hover{border-color:#2f6f8f}
+  @media (hover:hover) and (pointer:fine){.lang-card:hover{transform:translateY(-4px);border-color:var(--gold)}}
+  @media (hover:hover) and (pointer:fine){.lang-card.en:hover{border-color:#2f6f8f}}
   .lang-flag{font-size:1.6rem;line-height:1}
   .lang-card h2{font-size:1.35rem;font-weight:900}
   .lc-head{display:flex;align-items:center;gap:9px;margin-bottom:12px}
@@ -115,7 +115,7 @@
   .section-t{font-size:.78rem;font-weight:700;letter-spacing:.12em;color:var(--ink-soft);margin:24px 4px 12px;text-transform:uppercase}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:12px}
   .tile{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 12px 14px;text-align:center;transition:.15s;overflow:hidden}
-  .tile:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:var(--shadow)}
+  @media (hover:hover) and (pointer:fine){.tile:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:var(--shadow)}}
   .tile .num{font-family:"Frank Ruhl Libre",serif;font-size:1.9rem;font-weight:900;line-height:1}
   .tile .lbl{font-size:.72rem;color:var(--ink-soft);margin-top:3px}
   .tile .mini{margin-top:10px;height:6px;border-radius:3px;background:var(--paper-deep);overflow:hidden;display:flex}
@@ -127,7 +127,7 @@
   .tile .mini .k{background:var(--line)}
   .big-tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .big-tile{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;text-align:right;transition:.15s}
-  .big-tile:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:var(--shadow)}
+  @media (hover:hover) and (pointer:fine){.big-tile:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:var(--shadow)}}
   .big-tile .emoji{font-size:1.5rem}
   .big-tile h3{font-size:1.05rem;margin-top:6px}
   .big-tile p{font-size:.78rem;color:var(--ink-soft)}
@@ -155,7 +155,7 @@
   .cw{display:inline-flex;align-items:baseline;gap:5px;border-radius:9px;padding:3px 9px;
       border:1px solid transparent;cursor:pointer;line-height:1.5;font-family:inherit;
       background:transparent;transition:transform .12s ease,border-color .12s ease}
-  .cw:hover{transform:translateY(-2px)}
+  @media (hover:hover) and (pointer:fine){.cw:hover{transform:translateY(-2px)}}
   .cw em{font-style:normal;font-size:.66em;opacity:.6;font-variant-numeric:tabular-nums}
   .cw.t3{font-size:1.62rem;font-weight:800;color:#a33f28;background:rgba(181,72,46,.10);border-color:rgba(181,72,46,.34)}
   .cw.t2{font-size:1.24rem;font-weight:700;color:#8a6220;background:rgba(201,150,47,.10);border-color:rgba(201,150,47,.30)}
@@ -203,7 +203,7 @@
   .scope-prog b{color:var(--ink);font-weight:700}
   .practice-btns{display:flex;flex-direction:column;gap:11px}
   .pbtn{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 18px;text-align:right;transition:.15s;width:100%}
-  .pbtn:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:var(--shadow)}
+  @media (hover:hover) and (pointer:fine){.pbtn:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:var(--shadow)}}
   .pbtn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
   .pbtn .ic{font-size:1.4rem;flex:0 0 auto}
   .pbtn .tx{flex:1}
@@ -224,7 +224,7 @@
   .q-row .q-text{flex:1;min-width:0}
   .say{flex:0 0 auto;background:transparent;border:1px solid var(--line);border-radius:10px;
     font-size:1.05rem;line-height:1;padding:8px 10px;color:var(--ink-soft);transition:.15s}
-  .say:hover{border-color:var(--gold);color:var(--ink)}
+  @media (hover:hover) and (pointer:fine){.say:hover{border-color:var(--gold);color:var(--ink)}}
   .say.on{border-color:var(--gold);background:rgba(201,150,47,.12)}
   .say.hidden{display:none!important}
   .answer-input{width:100%;margin-top:22px;font-family:"Frank Ruhl Libre",serif;font-size:1.5rem;text-align:center;color:var(--ink);background:var(--paper);border:2px solid var(--line);border-radius:14px;padding:14px;outline:none;transition:.2s}
@@ -234,7 +234,7 @@
   .actions .btn{flex:1}
   .reveal-meaning{margin-top:20px;font-family:"Frank Ruhl Libre",serif;font-size:1.3rem;line-height:1.45;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px;animation:rise .25s ease}
   .hint-btn{display:block;margin:14px auto 0;background:transparent;border:1px solid var(--line);color:var(--gold);font-family:"Heebo";font-weight:500;font-size:.88rem;padding:8px 18px;border-radius:999px}
-  .hint-btn:hover{border-color:var(--gold);background:rgba(201,150,47,.08)}
+  @media (hover:hover) and (pointer:fine){.hint-btn:hover{border-color:var(--gold);background:rgba(201,150,47,.08)}}
   .hint-box{margin-top:12px;font-family:"Frank Ruhl Libre",serif;font-size:1.05rem;background:rgba(201,150,47,.1);border:1px dashed var(--gold);border-radius:12px;padding:12px}
   .feedback{margin-top:14px;animation:rise .3s ease}
   @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
@@ -246,7 +246,7 @@
   .assoc-peek{margin-top:8px;background:transparent;border:1px solid var(--line);
     border-radius:999px;padding:5px 12px;font-size:.76rem;color:var(--ink-soft);
     font-family:"Heebo";cursor:pointer}
-  .assoc-peek:hover{border-color:var(--gold);color:var(--ink)}
+  @media (hover:hover) and (pointer:fine){.assoc-peek:hover{border-color:var(--gold);color:var(--ink)}}
   .assoc-others{margin-top:9px;display:flex;flex-direction:column;gap:6px}
   .assoc-others.hidden{display:none!important}
   .assoc-others .oth{background:var(--paper-deep);border-radius:10px;padding:8px 11px;
@@ -267,7 +267,7 @@
   .reveal{margin-top:8px;font-size:1.05rem}
   .reveal b{font-family:"Frank Ruhl Libre",serif}
   .was-right{margin-top:12px;background:transparent;border:1px solid var(--line);color:var(--ink-soft);border-radius:999px;padding:7px 16px;font-family:"Heebo";font-size:.85rem}
-  .was-right:hover{border-color:var(--green);color:var(--green)}
+  @media (hover:hover) and (pointer:fine){.was-right:hover{border-color:var(--green);color:var(--green)}}
   /* המצב המסומן. הכפתור הוא מתג ולא פעולה חד-כיוונית, ולכן הוא חייב להיראות שונה כשהוא
      דלוק — אחרת "לחץ לביטול" הוא הרמז היחיד שמשהו קרה. */
   .was-right.on{border-color:var(--green);color:var(--green);background:rgba(47,133,90,.08)}
@@ -279,7 +279,7 @@
   .assoc-bar button{font-weight:700;font-size:.85rem;color:var(--ink);background:rgba(201,150,47,.18);border:1px solid var(--gold);border-radius:999px;padding:7px 18px}
   .assoc-bar .st{font-size:.82rem;color:var(--green);font-weight:500}
   .del-live{margin-top:16px;width:100%;background:transparent;border:1px dashed var(--accent);color:var(--accent);border-radius:12px;padding:10px;font-family:"Heebo";font-weight:500;font-size:.9rem}
-  .del-live:hover{background:rgba(181,72,46,.07)}
+  @media (hover:hover) and (pointer:fine){.del-live:hover{background:rgba(181,72,46,.07)}}
 
   /* RESULTS */
   .res-head{text-align:center}
@@ -337,7 +337,7 @@
   .m-head{display:flex;align-items:center;gap:10px;width:100%;text-align:start;cursor:pointer;
       background:var(--card);border:1px solid var(--line);border-radius:11px;padding:11px 14px;
       font-family:inherit;color:var(--ink)}
-  .m-head:hover{border-color:var(--gold)}
+  @media (hover:hover) and (pointer:fine){.m-head:hover{border-color:var(--gold)}}
   .m-head i{font-style:normal;color:var(--gold);font-size:.8rem;width:12px}
   .m-head b{font-family:"Frank Ruhl Libre",serif;font-size:1.02rem}
   .m-head span{margin-inline-start:auto;font-size:.78rem;color:var(--ink-soft)}
@@ -348,7 +348,7 @@
   .m-row.is-gone b{text-decoration:line-through}
   .m-undo{flex:0 0 auto;font-family:inherit;font-size:.74rem;cursor:pointer;color:var(--green);
       background:transparent;border:1px solid var(--line);border-radius:8px;padding:3px 9px}
-  .m-undo:hover{border-color:var(--green)}
+  @media (hover:hover) and (pointer:fine){.m-undo:hover{border-color:var(--green)}}
   .search{width:100%;font-family:"Heebo";font-size:1rem;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 14px;outline:none;margin-top:8px}
   .search:focus{border-color:var(--gold)}
   .msg{margin-top:14px;text-align:center;font-size:.9rem;font-weight:500}
@@ -367,7 +367,7 @@
   .ask-opts{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:16px}
   .ask-opts button{font-family:"Heebo";font-weight:700;font-size:1.05rem;padding:14px 8px;border-radius:12px;
        border:1px solid var(--line);background:var(--paper);color:var(--ink);transition:.15s}
-  .ask-opts button:hover{border-color:var(--gold);transform:translateY(-2px)}
+  @media (hover:hover) and (pointer:fine){.ask-opts button:hover{border-color:var(--gold);transform:translateY(-2px)}}
   .ask-opts button.active{background:linear-gradient(180deg,var(--gold),var(--accent));color:#fff;border-color:transparent}
   /* five options in a two-column grid leaves the last one stranded beside a hole.
      "everything" is the odd one out anyway, so it takes the full width. */
@@ -446,7 +446,7 @@
   .ask-x{position:absolute;top:8px;inset-inline-end:10px;background:transparent;border:0;
        color:var(--ink-soft);font-size:1.1rem;line-height:1;cursor:pointer;
        min-width:44px;min-height:44px;border-radius:10px}
-  .ask-x:hover{color:var(--ink)}
+  @media (hover:hover) and (pointer:fine){.ask-x:hover{color:var(--ink)}}
 
   /* ===== auth — "ענבר": near-black walnut, a single amber glow, thin rules, generous air.
      Full-bleed so it escapes .wrap, and it owns its own dark palette regardless of the app's. ===== */
@@ -515,7 +515,7 @@
     border-color:transparent;
     box-shadow:0 1px 1px rgba(120,40,20,.18),0 12px 26px -12px rgba(166,60,38,.65),
                inset 0 1px 0 rgba(255,255,255,.3)}
-  .au-go.bright:hover{background:#8f3220}
+  @media (hover:hover) and (pointer:fine){.au-go.bright:hover{background:#8f3220}}
   .au-slider{display:none}
   #authForm{display:flex;flex-direction:column;gap:12px}
   .au-field{position:relative;display:block}
@@ -546,8 +546,8 @@
   /* was background:#c9962f — white on gold is 2.62:1, the exact failure line 51 already documents
      and fixed for .btn-primary. #7d5718 is this button's own resting text colour, so hover now
      inverts the button into a colour it already wears: 6.36:1. */
-  .au-go:hover{background:#7d5718;color:#fffdf8}
-  .au-go:hover i{transform:translateX(-5px)}
+  @media (hover:hover) and (pointer:fine){.au-go:hover{background:#7d5718;color:#fffdf8}}
+  @media (hover:hover) and (pointer:fine){.au-go:hover i{transform:translateX(-5px)}}
   .au-go:disabled{opacity:.5;cursor:not-allowed}
   .au-link{background:transparent;border:0;color:#8d8274;font-family:"Heebo";font-size:.8rem;
        text-decoration:underline;cursor:pointer;margin-top:5px}
@@ -565,7 +565,7 @@
   .user-badge{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft);
        background:transparent;border:1px solid transparent;border-radius:10px;padding:6px 10px;
        cursor:pointer;font-family:inherit}
-  .user-badge:hover{border-color:var(--line);color:var(--ink)}
+  @media (hover:hover) and (pointer:fine){.user-badge:hover{border-color:var(--line);color:var(--ink)}}
   /* 37 פיקסלים נמדדו בדפדפן — מתחת לאצבע. .seg מעצב סרגלים שיושבים בתוך מסך תרגול
      ונלחצים פעם אחת; זה סרגל ניווט שנלחץ הלוך ושוב. */
   .acc-seg{margin:18px auto 4px;max-width:520px}
@@ -588,7 +588,7 @@
   .wc-x{position:absolute;top:0;inset-inline-end:0;width:44px;height:44px;
        background:transparent;border:0;border-radius:50%;font-size:.8rem;line-height:1;
        color:var(--ink-soft);opacity:.55;cursor:pointer}
-  .wc-x:hover{opacity:1;background:var(--line)}
+  @media (hover:hover) and (pointer:fine){.wc-x:hover{opacity:1;background:var(--line)}}
   .wc-kicker{font-size:.66rem;letter-spacing:2px;color:var(--ink-soft);margin-bottom:6px}
   .wc-term{font-size:1.3rem;font-weight:700;line-height:1.35;margin-bottom:11px;color:var(--ink)}
   /* הרמקול נעוץ לשמאל למעלה כמו בתרגול (‏inset-inline-end ב-RTL הוא שמאל, בדיוק כמו
@@ -604,7 +604,7 @@
   .wc-reveal{background:transparent;border:1px dashed var(--line);border-radius:12px;
        min-height:44px;padding:8px 18px;font-family:"Heebo";font-size:.84rem;
        color:var(--ink-soft);cursor:pointer}
-  .wc-reveal:hover{border-color:var(--accent);color:var(--ink)}
+  @media (hover:hover) and (pointer:fine){.wc-reveal:hover{border-color:var(--accent);color:var(--ink)}}
   .wc-mean{font-size:.92rem;line-height:1.55;color:var(--ink);margin-bottom:11px}
   .wc-acts{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
   /* wc-prac ולא wc-go — ראו את ההערה ב-#wcActs. שם מחלקה שחוזר פעמיים בגיליון אחד
@@ -627,7 +627,7 @@
   .gear-btn{background:transparent;border:1px solid transparent;border-radius:10px;
        min-width:44px;min-height:44px;font-size:1.05rem;line-height:1;color:var(--ink-soft);
        cursor:pointer;margin-inline-start:4px}
-  .gear-btn:hover{border-color:var(--line);color:var(--ink)}
+  @media (hover:hover) and (pointer:fine){.gear-btn:hover{border-color:var(--line);color:var(--ink)}}
   /* account screen */
   .acc-card{background:var(--card);border:1px solid var(--line);border-radius:14px;
        padding:4px 16px;margin-bottom:22px}
@@ -674,12 +674,12 @@
   /* המענה למדווח — פעולה חיובית, ולכן ירוק ולא האדום של .danger. הוא מופיע רק על
      דיווח שכבר סומן "טופל", ושם הוא הצעד הבא ולא אזהרה. */
   .adm-acts button.adm-reply{border-color:rgba(78,125,78,.5);color:var(--green)}
-  .adm-acts button.adm-reply:hover{border-color:var(--green);background:rgba(78,125,78,.08)}
+  @media (hover:hover) and (pointer:fine){.adm-acts button.adm-reply:hover{border-color:var(--green);background:rgba(78,125,78,.08)}}
   .adm-acts button.danger{border-color:rgba(181,72,46,.45);color:var(--accent)}
-  .adm-acts button.danger:hover{border-color:var(--accent);background:rgba(181,72,46,.07)}
+  @media (hover:hover) and (pointer:fine){.adm-acts button.danger:hover{border-color:var(--accent);background:rgba(181,72,46,.07)}}
   .adm-acts button{background:transparent;border:1px solid var(--line);border-radius:999px;
        padding:5px 13px;font-family:"Heebo";font-size:.78rem;color:var(--ink-soft)}
-  .adm-acts button:hover{border-color:var(--gold);color:var(--ink)}
+  @media (hover:hover) and (pointer:fine){.adm-acts button:hover{border-color:var(--gold);color:var(--ink)}}
   /* admin toolbar — search / sort / filter */
   /* ===== progress, one ring per language =====
      The ring carries three quantities at once: the filled arc is what is solid, the paler arc
@@ -694,7 +694,7 @@
        background:var(--card);border:1px solid var(--line);border-radius:16px;
        padding:16px 10px 13px;font-family:inherit;transition:.2s;
        box-shadow:0 1px 2px rgba(120,84,48,.06)}
-  .lp-card:hover{transform:translateY(-2px);border-color:var(--gold)}
+  @media (hover:hover) and (pointer:fine){.lp-card:hover{transform:translateY(-2px);border-color:var(--gold)}}
   /* the language you are actually in */
   .lp-card.on{border-color:var(--accent);
        background:linear-gradient(180deg,#fffdf8,#fdf5ec);
@@ -741,7 +741,7 @@
        box-shadow:0 1px 2px rgba(120,84,48,.08),0 10px 22px -14px rgba(166,60,38,.5),
                   inset 0 1px 0 rgba(255,255,255,.9);transition:.2s}
   .weak-cta.hidden{display:none!important}
-  .weak-cta:hover{transform:translateY(-2px);border-color:rgba(166,60,38,.5)}
+  @media (hover:hover) and (pointer:fine){.weak-cta:hover{transform:translateY(-2px);border-color:rgba(166,60,38,.5)}}
   .wc-tx{flex:1;min-width:0}
   .wc-tx b{display:block;font-family:"Frank Ruhl Libre",serif;font-size:1.12rem;
        font-weight:900;color:var(--ink)}
@@ -794,7 +794,7 @@
   .lv-opts button.wrong{background:rgba(181,72,46,.12);border-color:var(--accent)}
   .lv-dunno{display:block;margin:14px auto 0;background:transparent;border:1px solid var(--line);
        color:var(--ink-soft);border-radius:999px;padding:8px 20px;font-family:"Heebo";font-size:.88rem}
-  .lv-dunno:hover{border-color:var(--ink-soft);color:var(--ink)}
+  @media (hover:hover) and (pointer:fine){.lv-dunno:hover{border-color:var(--ink-soft);color:var(--ink)}}
   .lv-badge{font-family:"Frank Ruhl Libre",serif;font-size:3.4rem;font-weight:900;color:var(--accent);
        line-height:1;letter-spacing:.02em}
   .lv-bands{display:flex;flex-direction:column;gap:7px;margin-top:24px}
@@ -917,8 +917,8 @@
   .feat::before{content:"";position:absolute;inset-block:0;inset-inline-end:0;width:3px;
     background:linear-gradient(180deg,var(--gold),var(--accent));
     transform:scaleY(0);transform-origin:top;transition:transform .3s cubic-bezier(.22,.8,.3,1)}
-  .feat:hover{transform:translateY(-3px);border-color:#d8c8a8;box-shadow:var(--shadow)}
-  .feat:hover::before{transform:scaleY(1)}
+  @media (hover:hover) and (pointer:fine){.feat:hover{transform:translateY(-3px);border-color:#d8c8a8;box-shadow:var(--shadow)}}
+  @media (hover:hover) and (pointer:fine){.feat:hover::before{transform:scaleY(1)}}
   .feat i{flex:0 0 1.6rem;font-style:normal;font-size:1.15rem;line-height:1.35;opacity:.9}
   .feat div{display:flex;flex-direction:column;gap:3px;min-width:0}
   .feat b{font-family:"Frank Ruhl Libre",serif;font-size:1rem;font-weight:700}
@@ -1036,14 +1036,14 @@
        background:var(--card);border:1px solid var(--gold);border-radius:16px;padding:14px 16px;
        text-align:right;transition:.18s;box-shadow:var(--shadow);font-family:"Heebo";
        text-decoration:none;color:inherit}
-  .install-cta:hover{transform:translateY(-2px);background:rgba(201,150,47,.07)}
+  @media (hover:hover) and (pointer:fine){.install-cta:hover{transform:translateY(-2px);background:rgba(201,150,47,.07)}}
   .install-cta.hidden{display:none!important}
   .install-cta .ic{font-size:1.5rem;line-height:1;flex:0 0 auto}
   .install-cta .tx{flex:1;display:flex;flex-direction:column;gap:1px}
   .install-cta .tx b{font-family:"Frank Ruhl Libre",serif;font-size:1.02rem;font-weight:700;color:var(--ink)}
   .install-cta .tx em{font-style:normal;font-size:.76rem;color:var(--ink-soft)}
   .install-cta .ar{color:var(--gold);font-size:1.1rem;flex:0 0 auto;transition:.18s}
-  .install-cta:hover .ar{transform:translateX(-4px)}
+  @media (hover:hover) and (pointer:fine){.install-cta:hover .ar{transform:translateX(-4px)}}
 
   /* bug report — a small persistent affordance; MVP users need it one tap away */
   /* lifted while the update bar is up — the bar used to sit directly on top of it */
@@ -1052,7 +1052,7 @@
        z-index:55;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);
        background:var(--card);box-shadow:var(--shadow);font-size:1.28rem;line-height:1;
        display:flex;align-items:center;justify-content:center;transition:.18s;padding:0}
-  .fb-fab:hover{transform:translateY(-3px) rotate(-8deg);border-color:var(--gold)}
+  @media (hover:hover) and (pointer:fine){.fb-fab:hover{transform:translateY(-3px) rotate(-8deg);border-color:var(--gold)}}
   .fb-fab.hidden{display:none!important}
   .fb-box{max-width:400px;text-align:right}
   .fb-box h3{text-align:center}
@@ -1897,14 +1897,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=169"></script>
-<script src="config.js?v=169"></script>
-<script src="store.js?v=169"></script>
-<script src="leveltest-he.js?v=169"></script>
-  <script src="leveltest.js?v=169"></script>
-<script src="enrank.js?v=169"></script>
-<script src="data.js?v=169"></script>
-<script src="data-en.js?v=169"></script>
-<script src="app.js?v=169"></script>
+<script src="supabase.min.js?v=170"></script>
+<script src="config.js?v=170"></script>
+<script src="store.js?v=170"></script>
+<script src="leveltest-he.js?v=170"></script>
+  <script src="leveltest.js?v=170"></script>
+<script src="enrank.js?v=170"></script>
+<script src="data.js?v=170"></script>
+<script src="data-en.js?v=170"></script>
+<script src="app.js?v=170"></script>
 </body>
 </html>
