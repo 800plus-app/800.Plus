@@ -96,6 +96,21 @@ const Store = {
     return prof;
   },
 
+  /* ההכרעה על מנוי, חתוכה בשרת. מחזירה את ה-jsonb של my_entitlement או null.
+     null בכל מצב של כשל — אין רשת, אין הפעלה, או שהפונקציה לא נפרסה — ו-accessOk
+     נופלת חזרה לבדיקה המקומית. **לא לשנות את זה ל-throw**: השער הזה נכשל־פתוח
+     בכוונה, וחריגה כאן הייתה נועלת מכשיר שאין לו רשת. ראה app.js › entVerdict. */
+  async myEntitlement() {
+    const { data, error } = await sb.rpc('my_entitlement');
+    if (error) {
+      // 42883 = הפונקציה אינה קיימת, כלומר migrations/11.sql לא הורץ.
+      console.warn('my_entitlement נכשלה' + (error.code === '42883'
+        ? ' — נראה ש-migrations/11.sql לא הורץ' : ': ' + error.message));
+      return null;
+    }
+    return data || null;
+  },
+
   /* ---------- progress: one JSON blob per (user, lang) ---------- */
   /* Returns {ok, data}. A bare null could not tell "the request failed" apart from
      "there is no row yet", and the caller answered both by overwriting the cloud. */

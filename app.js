@@ -4841,7 +4841,47 @@ const FREE_PHASE = true;
    Fails OPEN on purpose. If migrations/5.sql has not run the columns do not exist, and a gate
    that assumed the worst would lock every existing user out of an app they already paid
    nothing for. Only an explicit blocked state closes the door. */
+/* ===== ההכרעה של השרת =====
+   hasAccess() משווה את sub_until ל-Date.now(), כלומר לשעון של הטלפון. מי שמזיז את
+   השעון אחורה מאריך לעצמו את המנוי. כל עוד אין תשלום זו בעיה תיאורטית; ביום שיהיה,
+   זו דלת פתוחה. my_entitlement() (migrations/11.sql) חותכת את זה בשרת ומחזירה גם
+   offline_until — **השרת אומר בעצמו** כמה זמן מותר לסמוך על התשובה בלי רשת.
+
+   שלושה ערכים ולא שניים. null אינו "אין גישה" אלא "לשרת אין תשובה עכשיו", ואז
+   חוזרים ל-hasAccess הקיימת. זה מהותי: השער הזה נכשל־פתוח בכוונה, והאפליקציה היא
+   PWA שחייבת לעבוד באוטובוס. שער שנועל מפני שאין רשת הוא בדיוק התקלה שכל ההערות
+   כאן מזהירות מפניה. ראה tests/67. */
+const ENT_KEY='hw_entitlement';
+function entVerdict(ent, now){
+  if(!ent || typeof ent.access!=='boolean') return null;
+  if(ent.offline_until){
+    const t=new Date(ent.offline_until).getTime();
+    /* תאריך שאי אפשר לפענח אינו נועל — אותו כלל שכבר חל על sub_until למטה. */
+    if(!isNaN(t) && now > t) return null;
+  }
+  return ent.access;
+}
+/* מושכת את התשובה מהשרת ושומרת אותה. נכשלת בשקט בכוונה: אין רשת, או שהפונקציה עוד
+   לא נפרסה (42883) — בשני המקרים המסלול הישן ממשיך לעבוד כאילו לא קרה דבר. */
+async function refreshEntitlement(){
+  try{
+    const ent = await Store.myEntitlement();
+    if(ent && typeof ent.access==='boolean'){ LS.set(ENT_KEY, ent); return ent; }
+  }catch(e){}
+  return LS.get(ENT_KEY, null);
+}
 async function accessOk(){
+  /* השרת קודם. רק אם אין לו תשובה תקפה — נופלים למסלול המקומי שמתחת. */
+  const ent = await refreshEntitlement();
+  const verdict = entVerdict(ent, Date.now());
+  if(verdict===true) return true;
+  if(verdict===false){
+    /* השרת הכריע. showLocked צריכה שדות מהפרופיל לניסוח הסיבה, ולכן היא עדיין
+       נמשכת — אבל היא כבר לא זו שמכריעה. */
+    let pr=null; try{ pr=await Store.myProfile(); }catch(e){}
+    showLocked(pr || { sub_status: ent && ent.status, sub_until: ent && ent.until });
+    return false;
+  }
   let p=null;
   try{ p=await Store.myProfile(); }catch(e){ return true; }
   /* Deliberately fail-open: a missing profile means the subscription columns aren't deployed
