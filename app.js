@@ -1805,12 +1805,23 @@ function renderReview(){
      שהאצבע עליה היא בדיוק הדרך לגרום למישהו ללחוץ על השורה הלא נכונה. הצבע משתנה
      במקום, המיקום נשאר. */
   const ordered=[...deck].sort((a,b)=>(verdictOf(a.term)?1:0)-(verdictOf(b.term)?1:0));
+  /* רמקול על מה שנטעה. הבקשה הייתה "שיהיה אפשר לשמוע את המילים שטעית בהן", ולכן הוא
+     נתלה רק על שורות שגויות: 20 רמקולים על 20 שורות היו מטביעים את השלוש שחשובות,
+     בדיוק כמו שהסדר האקראי הטביע אותן לפני שמוינו כאן.
+     LANG==='en' ולא TTS.available() לבדו — TTS.pick בוחר קול אנגלי בלבד, ובמאגר העברי
+     כפתור כזה היה מבטא מילה עברית באנגלית. אותו נימוק שכבר כתוב מעל bindSay.
+     כמו הסדר, גם הרמקול נקבע כאן פעם אחת ואינו זז בלחיצה על ה-chip. ראה tests/65. */
+  const canSay = LANG==='en' && TTS.available();
   list.innerHTML=ordered.map(w=>{
     const ok=verdictOf(w.term);
     return `<div class="rev-row ${ok?'':'wrong'}" data-t="${esc(w.term)}">
       <div class="rev-w"><b>${esc(w.term)}</b><span>${senseChips(w.term, w.meaning)}</span></div>
+      ${canSay && !ok ? '<button class="say rev-say" title="השמע את המילה" aria-label="השמע את המילה">🔊</button>' : ''}
       <button class="rev-chip ${ok?'ok':'no'}">${ok?'✓ ידעתי':'✗ לא ידעתי'}</button></div>`;
   }).join('');
+  list.querySelectorAll('.rev-say').forEach(btn=>{
+    btn.onclick=(e)=>{ e.preventDefault(); TTS.say(btn.closest('.rev-row').dataset.t, btn); };
+  });
   list.querySelectorAll('.rev-chip').forEach(chip=>{
     chip.onclick=()=>{
       const row=chip.closest('.rev-row'); const term=row.dataset.t;
