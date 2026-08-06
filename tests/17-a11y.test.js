@@ -90,7 +90,11 @@ const css = html.replace(/\/\*[\s\S]*?\*\//g, '\n');
 /* Pull one declaration out of one rule, e.g. rule('.au-go:hover', 'background'). */
 function ruleDecl(selector, prop) {
   const sel = selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const m = css.match(new RegExp('(?:^|[\\n;},])\\s*' + sel + '\\s*\\{([^}]*)\\}'));
+  /* `{` נוסף למחלקת התווים ב-6.8: 36 כללי :hover נעטפו ב-@media (hover:hover) כדי
+     שלא יידבקו במסך מגע, ומאותו רגע התו שלפני הסלקטור הוא `{` של שאילתת המדיה.
+     בלי זה הבדיקה לא מוצאת את הכלל ונופלת על קוד תקין — מתקנים את הבדיקה, לא את הקוד.
+     בטוח: סלקטור לעולם אינו מופיע בתוך גוף הצהרות, ולכן העוגן עדיין חד-משמעי. */
+  const m = css.match(new RegExp('(?:^|[\\n;},{])\\s*' + sel + '\\s*\\{([^}]*)\\}'));
   assert.ok(m, `index.html has no rule for ${selector}`);
   const d = m[1].match(new RegExp('(?:^|;)\\s*' + prop + '\\s*:\\s*([^;}]+)'));
   return d ? d[1].trim() : null;

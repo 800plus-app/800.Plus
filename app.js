@@ -2695,14 +2695,29 @@ function lvRender(){
   $('#lvWord').lang = LV_LANG;
   bindSay('#lvSay', LV_LANG==='en' ? it.w : null, true);
   $('#lvOpts').innerHTML=it.opts.map((o,i)=>`<button data-i="${i}">${esc(o)}</button>`).join('');
-  $('#lvOpts').querySelectorAll('button').forEach(b=>{
+  const opts=$('#lvOpts').querySelectorAll('button');
+  opts.forEach(b=>{
     b.onclick=()=>lvPick(it.opts[+b.dataset.i], b);
   });
+  /* innerHTML הורס את הכפתורים ובונה חדשים, ולכן הפוקוס נופל ל-<body> בכל שאלה.
+     מי שעונה בעכבר לא מרגיש; מי שעונה במקלדת מאבד את מקומו ונאלץ ללחוץ Tab מחדש
+     בכל שאלה מאפס. נמדד: document.activeElement היה BODY אחרי כל רינדור.
+
+     הפוקוס מוחזר **רק אם הוא כבר היה בין האפשרויות** — כלומר רק למי שניווט במקלדת.
+     בלי התנאי הזה כל לחיצת עכבר הייתה גוררת פוקוס לכפתור הראשון, קורא מסך היה מכריז
+     אותו בקול בכל שאלה, ומשתמש מגע היה מקבל טבעת פוקוס שלא ביקש. */
+  if(lvKeyboardNav && opts.length) opts[0].focus();
+  lvKeyboardNav=false;
   $('#lvDunno').disabled=false;
 }
+/* נקבע ב-lvPick לפני הרינדור הבא, ורק כשהבחירה עצמה הגיעה מהמקלדת. */
+let lvKeyboardNav=false;
 function lvPick(choice, btn){
   const it=lvDeck[lvIdx];
   const ok = choice===it.a;
+  /* :focus-visible אמת רק כשהדפדפן עצמו הכריע שהאינטראקציה הייתה מקלדתית — הוא כבר
+     מבחין בין Enter/רווח לבין קליק, ואין טעם לנחש את זה מחדש. */
+  if(btn && btn.matches && btn.matches(':focus-visible')) lvKeyboardNav=true;
   lvAns.push({band:it.band, ok}); if(ok) lvBlockOk++;
   // brief feedback so the test still teaches something
   $('#lvOpts').querySelectorAll('button').forEach(b=>{
