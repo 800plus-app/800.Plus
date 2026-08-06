@@ -188,13 +188,12 @@ export const BeatQuestion: React.FC<{ from: number; dur: number }> = ({ from, du
   const { fps } = useVideoConfig();
   const alive = useAlive(from, dur);
 
+  // ⚠ כאן ישבו שתי המילים (בְּרַם · superfluous) כתזכורת קטנה למעלה. הן הוסרו
+  // ב-6.8: בסרטון של 45 השניות הן היו הגיוניות, כי הצופה ראה אותן דקה קודם.
+  // אחרי הפיצול, סרטון 2 אינו מציג אותן כלל, והן הופיעו משום מקום. חגי תפס
+  // את זה מיד. **הלקח: כשמפצלים נכס, כל הפניה להקשר קודם הופכת לשארית.**
   return (
     <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", opacity: alive, padding: "0 80px" }}>
-      <div style={{ display: "flex", gap: 30, marginBottom: 60, alignItems: "center" }}>
-        <span style={{ fontFamily: "Frank Ruhl Libre, serif", fontWeight: 900, fontSize: 46, color: C.inkSoft }}>{HE_WORD.w}</span>
-        <span style={{ color: C.line, fontSize: 34 }}>·</span>
-        <span style={{ fontFamily: "Frank Ruhl Libre, serif", fontWeight: 900, fontSize: 46, color: C.inkSoft, direction: "ltr" }}>{EN_WORD.w}</span>
-      </div>
       <div
         style={{
           fontFamily: "Frank Ruhl Libre, serif", fontWeight: 900, fontSize: 86,
@@ -352,10 +351,11 @@ export const BeatClose: React.FC<{ from: number }> = ({ from }) => {
       <div style={{ fontSize: 46, color: C.accent, fontWeight: 700, direction: "ltr", letterSpacing: "0.06em", marginTop: 26 }}>
         800-plus.com
       </div>
-      {/* שתי עובדות, אחת מעל השנייה. הצופה עושה את החשבון בעצמו. */}
+      {/* ⚠ שורת "המבחן ב-3.9" הוסרה ב-6.8 בהוראת חגי: לא רלוונטית בשקופית
+          הסוגרת. היא נועדה לגרום לצופה לעשות את החשבון בעצמו, אבל בסוף
+          סרטון קצר היא רק מוסיפה תאריך שני ומטשטשת את הקריאה לפעולה. */}
       <div style={{ marginTop: 58, textAlign: "center" }}>
         <div style={{ fontSize: 46, fontWeight: 700, color: C.ink }}>גישה חינם עד {freeUntilLabel()}</div>
-        <div style={{ fontSize: 34, color: C.inkSoft, marginTop: 12, fontWeight: 300 }}>המבחן ב-3.9</div>
       </div>
     </AbsoluteFill>
   );
