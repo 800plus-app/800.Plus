@@ -300,6 +300,9 @@
   .rev-chip{flex:0 0 auto;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-family:"Heebo";font-weight:700;font-size:.82rem;transition:.15s;background:transparent}
   .rev-chip.ok{color:var(--green);border-color:var(--green);background:rgba(78,125,78,.09)}
   .rev-chip.no{color:var(--accent);border-color:var(--accent);background:rgba(181,72,46,.09)}
+  /* ⚠ הניסוח הראשון היה padding:6px 9px, והוא נמדד ב-375px כ-41×29 — יעד מגע נמוך מהסף.
+     הרמקול נשאר בגודל של .say, ומקבל רק מינימום מפורש כדי שהוא לא יתכווץ בשורה צפופה. */
+  .rev-say{min-width:40px;min-height:40px}
 
   /* strength list */
   .strength-list{display:flex;flex-direction:column;gap:7px;max-height:360px;overflow:auto;margin-top:8px}
@@ -1897,14 +1900,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=170"></script>
-<script src="config.js?v=170"></script>
-<script src="store.js?v=170"></script>
-<script src="leveltest-he.js?v=170"></script>
-  <script src="leveltest.js?v=170"></script>
-<script src="enrank.js?v=170"></script>
-<script src="data.js?v=170"></script>
-<script src="data-en.js?v=170"></script>
-<script src="app.js?v=170"></script>
+<script src="supabase.min.js?v=171"></script>
+<script src="config.js?v=171"></script>
+<script src="store.js?v=171"></script>
+<script src="leveltest-he.js?v=171"></script>
+  <script src="leveltest.js?v=171"></script>
+<script src="enrank.js?v=171"></script>
+<script src="data.js?v=171"></script>
+<script src="data-en.js?v=171"></script>
+<script src="app.js?v=171"></script>
 </body>
 </html>
