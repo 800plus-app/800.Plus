@@ -53,7 +53,7 @@ const SYMBOLS = [
   'isCorrect', 'meaningSegs', 'meaningMatch', 'otherSenses',
   /* מילה עם כמה פירושים אינה נלמדת בפירוש אחד — sensesLeft היא מה שקובע את זה,
      ו-commitSession קוראת לה כדי לחסום את הרמה. */
-  'senseCount', 'sensesLeft', 'noteSense',
+  'senseCount', 'sensesLeft', 'noteSense', 'particleMatch', 'PARTICLE_STOP',
   /* התצוגה של אותם פירושים. meaningSegsRaw חייבת להיות מורמת יחד עם meaningSegs — כל
      הערך של tests/63 הוא להשוות ביניהן על כל המאגר. */
   'meaningSegsRaw', 'sensesGot', 'senseChips',

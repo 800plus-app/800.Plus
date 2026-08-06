@@ -1214,7 +1214,43 @@ function meaningMatch(input, meaning){
      parenthetical example. "יגור :: פוחד, חושש (אשר יגורתי בא - הדבר ממנו חששתי קרה)"
      accepted "קרה", a different word entirely, and promoted the item to level 3.
      One whole listed sense is still enough; a word lifted out of an example is not. */
+  /* תחילית אחת אינה פירוש אחר. "נרתיק החרב" מול "נרתיק לחרב", "עובד בבית המרחץ" מול
+     "עובד בבית מרחץ" — אותה תשובה בדיוק, ורק ה"א הידיעה או אות יחס מבדילה. ראה
+     particleMatch להסבר למה זו השוואה סובלנית ולא גזירה. */
+  if(segs.some(s=>particleMatch(a, s))) return true;
   return false;
+}
+/* מילות יחס וקישור עצמאיות. הן אינן נושאות מידע כשהן מילה שלמה, ו"נרתיק של חרב" מול
+   "נרתיק חרב" הוא אותו פירוש. נזרקות משני הצדדים כאחד. */
+const PARTICLE_STOP=new Set(['של','את','עם','על','אל','מן','כל','זה','זאת','הוא','היא','אשר','או','גם','לפי']);
+/* השוואה סובלנית לתחילית אחת — **לא** גזירה של כל מילה.
+ *
+ * ההבדל הזה נמדד ואינו סגנוני. גזירה גורפת של ב/ל/כ/מ/ש הופכת את "מרחץ" ל"רחץ",
+ * ולכן דווקא *שוברת* את "עובד בבית המרחץ" מול "עובד בבית מרחץ" — ההתאמה שהיא באה
+ * לאפשר. השוואה סובלנית נוגעת רק בזוג המילים שנבדק ואינה מייצרת אף גזע חדש.
+ *
+ * מה שנמדד על כל 1,717 המילים בעברית (5.8.2026): פותר 2 מתוך 24 מקרים אמיתיים
+ * שחגי צילם, **אפס** מיזוג בין שני פירושים של אותו כרטיס, ו-10 זוגות פירושים בכל
+ * המאגר שהופכים לניתנים להחלפה — כולם, בשמם, אותו פירוש עם תחילית ובלעדיה
+ * ("שקט"/"בשקט", "החריף"/"חריף", "מראה"/"המראה"). אפס קבלות שגויות.
+ *
+ * להשוואה, הכלל המורפולוגי שנשקל ונדחה (גזירה לשלד עיצורי) קיפל 61.7% מאוצר המילים
+ * לגזעים מתנגשים ו-918 זוגות פירושים. ראה דוחות/מדידת-כלל-מורפולוגי.md.
+ *
+ * הסף length>3: "לב", "בו", "כן" הן מילים שלמות, ולא תחילית ועוד אות. */
+function particleMatch(a, seg){
+  const PARTICLE='הלבכו';
+  const cut=s=>String(s).split(/\s+/).filter(x=>x && !PARTICLE_STOP.has(x));
+  const A=cut(a), B=cut(seg);
+  if(!A.length || A.length!==B.length) return false;
+  const peel=w=>(w.length>3 && PARTICLE.includes(w[0])) ? w.slice(1) : null;
+  const eq=(x,y)=> x===y || peel(x)===y || x===peel(y) || (!!peel(x) && peel(x)===peel(y));
+  const used=B.map(()=>false);
+  return A.every(x=>{
+    const j=B.findIndex((y,i)=>!used[i] && eq(x,y));
+    if(j<0) return false;
+    used[j]=true; return true;
+  });
 }
 /* the senses a learner may legitimately answer with: comma/semicolon separated, and never
    the contents of a parenthesis, which explains rather than defines */
@@ -1311,7 +1347,12 @@ function noteSense(w, typed){
   const segs=meaningSegs(w.meaning);
   if(segs.length<2) return;
   const a=norm(typed);
-  const i=segs.indexOf(a);
+  /* נופל חזרה על אותה סובלנות לתחילית ש-meaningMatch מקבלת. בלי זה נוצר בדיוק הבאג
+     שתוקן ב-tests/62 מהכיוון השני: התשובה מתקבלת כנכונה, אבל אף פירוש אינו מזוכה,
+     ולכן sensesLeft נשאר גדול מאפס והמילה נשארת ברשימת החיזוק לנצח. מה שמתקבל
+     כנכון חייב להיות מזוכה. */
+  let i=segs.indexOf(a);
+  if(i<0) i=segs.findIndex(s=>particleMatch(a, s));
   if(i<0) return;                          // נכון, אבל לא כאחד הפירושים הרשומים
   const r=rec(w.term);
   const s=Array.isArray(r.sens)?r.sens:[];
