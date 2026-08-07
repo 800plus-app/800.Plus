@@ -2,6 +2,12 @@ name: uptime
 
 # Checks that 800-plus.com is actually serving the app, and emails when it is not.
 #
+# שתי שאלות נפרדות, ושתיהן נשאלות כאן:
+#   1. **זמינות** — האתר עונה, ומה שהוא מגיש הוא האפליקציה.
+#   2. **עדכניות** — ה-REV שהוא מגיש הוא ה-REV שבריפו. נוסף 7.8.2026 אחרי שהאתר
+#      קפא יותר מיממה על גרסה ישנה **ובדיקת הזמינות עברה בירוק כל אותו זמן.**
+# הפירוט המלא בהערה שמעל השלב "Is the live site the version in the repo".
+#
 # כמה זמן באמת עובר בין בדיקות — וזה לא מה שכתוב ב-cron
 # ------------------------------------------------------
 # ה-cron מבקש כל 15 דקות. GitHub אינו מתחייב לזה, ובמאגר הזה הוא לא עומד בו אפילו
@@ -89,6 +95,87 @@ jobs:
           echo "code=$code" >> "$GITHUB_OUTPUT"
           exit 0
 
+      # ⛔ 7.8.2026 — השער הזה נולד מכשל שהבדיקה שמעליו לא ראתה בכלל.
+      #
+      # מה שקרה: שש בניות Pages רצופות נכשלו ב-6.8 בין 15:47 ל-17:17 UTC (כולן
+      # duration 0, בזמן ההשבתה הגדולה של GitHub שהתחילה ב-15:22). Pages **אינו מנסה
+      # שוב ואינו מתריע**, ולכן האתר הגיש את קומיט 06314a80 יותר מיממה — עד שדחיפה
+      # חדשה הפעילה בנייה מוצלחת.
+      #
+      # ⚠⚠ ולמה "Probe the site" עבר בירוק כל אותו זמן: אתר מיושן **עונה 200 ומכיל
+      # UNIT_DATA**. הוא חי לגמרי. הוא פשוט לא הגרסה שנכתבה. זמינות ועדכניות הן שתי
+      # שאלות שונות, והמוניטור שאל רק את הראשונה.
+      #
+      # למה ההשוואה היא REV ולא תוכן: REV הוא סמן הגרסה היחיד שגם sw.js וגם ?v=
+      # ב-index.html נושאים, ו-tests/13 אוכף שהם עולים יחד. גרסה שנפרסה בפועל אינה
+      # יכולה להגיש REV ישן.
+      #
+      # למה נדרשת בדיקת גיל, ולמה בלעדיה זה מוניטור שצועק זאב: אחרי דחיפה יש חלון
+      # לגיטימי שבו האתר עדיין ישן — זמן הבנייה, ועוד max-age=600 של ה-CDN של Pages.
+      # פער בלי גיל היה מתריע על כל דחיפה תקינה. **30 דקות מכסות את שניהם בנוחות.**
+      # וזה גם מייתר sleep ארוך בתוך הריצה.
+      #
+      # ⚠ מה שהשער הזה **אינו** יכול לעשות: הוא רץ ב-Actions, ובהשבתה שהפילה את
+      # Pages גם Actions היה מושבת — כלומר הוא לא היה מתריע *בזמן* התקלה. מה שהוא כן
+      # עושה: בריצה הראשונה אחרי שהשירות חוזר, הוא הופך "שקט לנצח" ל"התרעה בתוך שעות".
+      # ניטור שאינו תלוי ב-GitHub חייב לרוץ מחוץ לו — ראה migrations/16.sql בראש הקובץ.
+      #
+      # אין צורך בטוקן: הריפו ציבורי, ושתי הקריאות אנונימיות. הכוונה היא שהשער לא
+      # ייפול בשקט בגלל הרשאה — אותו כשל שכבר תועד בפרויקטים אחרים.
+      - name: Is the live site the version in the repo
+        id: fresh
+        run: |
+          set +e
+          RAW="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/sw.js"
+          rev_of(){ curl -sS --max-time 20 "$1" | grep -m1 -oE "REV *= *'[0-9]+'" | grep -oE "[0-9]+"; }
+          repo=$(rev_of "$RAW")
+          live=$(rev_of "https://800-plus.com/sw.js?cb=$RANDOM")
+          echo "REV בריפו: ${repo:-?} · REV באוויר: ${live:-?}"
+          # ריק אינו פער. אם אחת הקריאות נכשלה אין מה להשוות, ו"לא ידוע" אינו "מיושן".
+          if [ -z "$repo" ] || [ -z "$live" ]; then
+            echo "::warning::לא ניתן לקרוא REV משני הצדדים — השער דילג, לא הכריע"
+            echo "stale=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if [ "$repo" = "$live" ]; then
+            echo "stale=false" >> "$GITHUB_OUTPUT"
+            echo "האתר מגיש את הגרסה שבריפו"; exit 0
+          fi
+          pushed=$(curl -sS --max-time 20 "https://api.github.com/repos/${GITHUB_REPOSITORY}/commits/main" \
+                     | grep -m1 -oE '"date": *"[^"]+"' | grep -oE '[0-9T:.Z-]{20,}')
+          age=999
+          [ -n "$pushed" ] && age=$(( ( $(date -u +%s) - $(date -u -d "$pushed" +%s) ) / 60 ))
+          echo "הקומיט האחרון נדחף לפני $age דקות"
+          if [ "$age" -lt 30 ]; then
+            echo "פער בן $age דקות — חלון פריסה לגיטימי, לא מתריע"
+            echo "stale=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          echo "stale=true" >> "$GITHUB_OUTPUT"
+          echo "repo=$repo" >> "$GITHUB_OUTPUT"
+          echo "live=$live" >> "$GITHUB_OUTPUT"
+          echo "age=$age" >> "$GITHUB_OUTPUT"
+          echo "::error::האתר מגיש REV $live בזמן שהריפו על $repo, $age דקות אחרי הדחיפה"
+          exit 0
+
+      - name: Email the owner — פריסה נתקעה
+        if: steps.fresh.outputs.stale == 'true'
+        env:
+          KEY: ${{ secrets.RESEND_API_KEY }}
+        run: |
+          if [ -z "$KEY" ]; then
+            echo "::warning::RESEND_API_KEY לא מוגדר — אי אפשר לשלוח את ההתרעה"
+            exit 1
+          fi
+          curl -sS -X POST https://api.resend.com/emails \
+            -H "Authorization: Bearer $KEY" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "from": "800+ <admin@800-plus.com>",
+              "to": ["03hagay@gmail.com"],
+              "subject": "800-plus.com מגיש גרסה ישנה",
+              "html": "<div dir=\"rtl\" style=\"font:16px/1.7 Arial,sans-serif;color:#2c2620\"><p><b>האתר חי — אבל הוא מגיש גרסה ישנה.</b></p><p>באוויר: REV '"${{ steps.fresh.outputs.live }}"' · בריפו: REV '"${{ steps.fresh.outputs.repo }}"' · '"${{ steps.fresh.outputs.age }}"' דקות מאז הדחיפה.</p><p>מה לבדוק, בסדר הזה:<br>1. <b>סטטוס הבנייה</b> — <code>gh api repos/800plus-app/800.Plus/pages/builds</code>. בנייה שנכשלה אינה מנסה שוב.<br>2. githubstatus.com — השבתה של Pages מפילה בניות בשקט.<br>3. אם הבנייה נכשלה: דחיפה חדשה כלשהי מפעילה בנייה מחדש.</p><p style=\"color:#8d8274;font-size:13px\">ב-6.8.2026 שש בניות רצופות נכשלו והאתר קפא יותר מיממה. בדיקת הזמינות עברה בירוק כל אותו זמן, מפני שאתר מיושן עונה 200.</p></div>"
+            }'
+          echo "alert sent"
+
       - name: Email the owner
         if: steps.probe.outputs.ok == 'false'
         env:
@@ -110,5 +197,5 @@ jobs:
           echo "alert sent"
 
       - name: Fail the run so it is visible in the Actions tab
-        if: steps.probe.outputs.ok == 'false'
+        if: steps.probe.outputs.ok == 'false' || steps.fresh.outputs.stale == 'true'
         run: exit 1
