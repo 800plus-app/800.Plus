@@ -237,7 +237,9 @@ function loadSyncLayer(opts = {}) {
 
   ctx.Store = st.Store;
   ctx.currentUser = opts.currentUser === undefined ? { id: 'u-1', email: 'learner@example.com' } : opts.currentUser;
-  ctx.syncPending = true;
+  /* דגל לכל שפה (app.js) — flushRemoteSync דוחף שפה אחת בכל קריאה, ולכן ניקוי הדגל
+   * חייב להיות ממוקד באותה שפה. שתיהן דלוקות כאן כדי לשמר את מה שהיה: "יש מה לשמור". */
+  ctx.syncPending = { he: true, en: true };
   /* The default is a NORMALLY LOADED device — enterLang() has run and loadLangState() has moved
    * this language's progress from localStorage into the globals. Every test here that predates
    * the flag assumes exactly that, and it is the state the app is in whenever a learner is

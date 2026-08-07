@@ -117,7 +117,7 @@ describe('pullProgress — a failed read must never look like an empty cloud', (
     assert.strictEqual(ok, false, 'a flush that never wrote must not report success');
     none(s.fake.of('progress', 'upsert').map(c => JSON.stringify(plain(c.row))),
       'a failed read was followed by a write — this is how a whole account is erased:');
-    assert.strictEqual(s.ctx.syncPending, true,
+    assert.strictEqual(s.ctx.syncPending.he, true,
       'the pending save was thrown away by a failed read; nothing would ever retry it');
   });
 
@@ -175,7 +175,7 @@ describe('pullProgress — a failed read must never look like an empty cloud', (
     none(s.fake.of('progress', 'upsert').map(c => c.row.lang),
       'a row that could not be read was overwritten by an empty device:');
     assert.strictEqual(saved, false, 'and the caller must hear that nothing was saved');
-    assert.strictEqual(s.ctx.syncPending, true, 'so the next flush tries again');
+    assert.strictEqual(s.ctx.syncPending.he, true, 'so the next flush tries again');
   });
 
   test('CONTRACT: a transport failure rejects instead of returning ok:false', async () => {
@@ -343,7 +343,7 @@ describe('flushRemoteSync — the round trip the app actually runs', () => {
       respond: { 'progress.select': { data: null }, 'progress.upsert': { error: ERRORS.down() } },
     });
     await s.ctx.flushRemoteSync();
-    assert.strictEqual(s.ctx.syncPending, true,
+    assert.strictEqual(s.ctx.syncPending.he, true,
       'the round is unsaved AND unqueued — nothing will ever retry it');
   });
 

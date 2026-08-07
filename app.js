@@ -3555,13 +3555,17 @@ function applyExtras(lang, ex){
   }
 }
 
-let syncPending=false;
+/* אחד לכל שפה, ולא דגל יחיד. flushRemoteSync דוחף תמיד שפה אחת בלבד (`lang` למטה), ולכן
+   דגל משותף נוקה על ידי שפה שלא הייתה זו שממתינה: סבב עברית שהדחיפה שלו נכשלה נשאר על
+   הדיסק בלבד, ואז flush מוצלח של אנגלית הכריז "אין מה לשמור". signOutNow קורא בדיוק את
+   התשובה הזאת לפני localStorage.clear() — כלומר הסבב העברי נמחק כאילו הגיע לענן. */
+const syncPending={he:false, en:false};
 /* Returns TRUE only when there is nothing left unsaved — either the write landed, or there was
    nothing to write. Every bail-out returns FALSE, because signOutNow awaits this and then runs
    localStorage.clear(): a flush that quietly failed used to look identical to one that
    succeeded, and the only remaining copy of the session was erased a line later. */
 async function flushRemoteSync(){
-  if(!currentUser || !syncPending) return true;
+  if(!currentUser || !syncPending[LANG]) return true;
   // same reason as syncWithRemoteInner: this path merges and writes too (app.js:2714)
   if(!langLoaded) return false;
   clearTimeout(syncTimer);
@@ -3574,7 +3578,7 @@ async function flushRemoteSync(){
      Refuse instead of writing, and re-bind, so the next save is honest. */
   if(LS.get('hw_owner', null) !== currentUser.id){
     console.warn('sync aborted: cache owner !== session user');
-    syncPending=false;
+    syncPending[LANG]=false;
     /* Deliberately NOT bindCacheToUser here. That call can run wipeAccountKeys() and set
        LANG=null — and this runs from a debounced background timer, so it could blank the
        language underneath a learner mid-round. Refusing the write is the whole job; the owner
@@ -3631,7 +3635,7 @@ async function flushRemoteSync(){
     ok = await Store.pushProgress(lang, {assoc, stats, deleted:[...deleted], added, dir:direction,
                                          extras:collectExtras(lang)}, currentUser.id) === true;
   }catch(e){ ok=false; }
-  if(ok) syncPending=false;
+  if(ok) syncPending[lang]=false;   // `lang`, not LANG: this is the row that was actually written
   return ok;
 }
 /* 1,500ms was shorter than the gap between two answers, so every single answer produced a full
@@ -3646,7 +3650,7 @@ const SYNC_DEBOUNCE_MS = 12000;
 function queueRemoteSync(){
   if(!currentUser) return;
   if(LANG!=='he' && LANG!=='en') return;        // nothing to key the row by yet
-  syncPending=true;
+  syncPending[LANG]=true;
   clearTimeout(syncTimer);
   syncTimer=setTimeout(flushRemoteSync, SYNC_DEBOUNCE_MS);
 }
@@ -4269,7 +4273,7 @@ const signOutNow = async ()=>{
   let saved=!!currentUser;
   try{
     if(currentUser && (LANG==='he' || LANG==='en')){
-      syncPending=true;
+      syncPending[LANG]=true;
       saved=await flushRemoteSync();
     }
   }catch(e){ saved=false; }
@@ -4277,8 +4281,14 @@ const signOutNow = async ()=>{
   hide($('#fbFab'));
   // the cached reminder names the previous learner's streak — it is account data, not an asset
   try{ if(window.caches) await caches.delete('hw-data'); }catch(e){}
-  if(saved) localStorage.clear(); // the cache belongs to this account; never let it bleed into the next login
-  else console.warn('sign-out: הסנכרון לא הושלם — המטמון המקומי נשמר כדי לא לאבד את הסבב האחרון');
+  /* flushRemoteSync דוחף את השפה הפעילה בלבד, אבל localStorage.clear() מוחק את שתיהן —
+     ולכן "נשמר" של שפה אחת מעולם לא היה רישיון למחוק את השנייה. התרחיש שנצפה בקוד:
+     סבב עברית שדחיפתו נכשלה (או בוטלה במעבר שפה, כשהגארד `lang!==LANG` עוצר אותה),
+     מעבר לאנגלית, ואז התנתקות — ה-flush האנגלי מצליח, `saved` הופך ל-true, והעותק
+     היחיד של הסבב העברי נמחק. הכלל שכבר כתוב כאן, "מכשיר שמחזיק את העותק היחיד אינו
+     נמחק", חייב לחול על **שתי** השפות ולא רק על הפעילה. */
+  if(saved && !syncPending.he && !syncPending.en) localStorage.clear(); // the cache belongs to this account; never let it bleed into the next login
+  else console.warn('sign-out: יש עבודה שלא הגיעה לענן — המטמון המקומי נשמר כדי לא לאבד אותה');
   location.reload();
 };
 /* מוקד אחד להתנתקות, באזור המסוכן שבהגדרות. קודם היו ארבעה כפתורי "יציאה" בארבע
