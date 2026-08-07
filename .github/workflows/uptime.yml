@@ -156,6 +156,85 @@ jobs:
           echo "::error::האתר מגיש REV $live בזמן שהריפו על $repo, $age דקות אחרי הדחיפה"
           exit 0
 
+      # ===== הצד הקורא של migrations/16.sql =====
+      #
+      # 16.sql מקים ניטור על pg_cron בתוך סופאבייס, וכותב בראשו: "ההתראה עצמה נשלחת
+      # מ-uptime.yml, שקורא את הטבלה הזאת". ⚠ **הקובץ הזה לא קרא אותה.** כלומר המיגרציה
+      # הייתה רושמת לוג שאיש אינו מסתכל בו — כלל שנכתב ולא רץ. נוסף 7.8.2026.
+      #
+      # ⭐ ולמה זה לא כפילות של "Probe the site": שם הבודק הוא Actions עצמו, והוא מדלג
+      # על תזמונים ומייצר פערים של שעות (כתוב בראש הקובץ). pg_cron רץ בתוך המסד כל 5
+      # דקות בפועל, ולכן הטבלה יודעת מה קרה **בין** ריצות Actions — כולל נפילה שהתחילה
+      # ונגמרה בזמן שאיש לא בדק.
+      #
+      # שתי שאלות נשאלות על הטבלה, והשנייה היא העיקר:
+      #   1. **מה היא מדווחת** — שלוש תוצאות אחרונות כושלות = האתר נפל.
+      #   2. **האם היא בכלל מתעדכנת** — שורה אחרונה בת יותר מ-30 דקות (שש ריצות שהוחמצו)
+      #      אומרת ש-**הבודק עצמו מת**, וזה בדיוק מה ש-16.sql מבקש לתפוס בהערה שלו
+      #      ("טבלה שיש בה רק הצלחות אינה יודעת להבדיל בין הכול תקין לבין הבודק מת").
+      #      מוניטור שהפסיק לנטר בשקט הוא הכשל שכל הקובץ הזה עוסק בו.
+      #
+      # הקריאה עוברת ב-PostgREST עם SUPABASE_SERVICE_KEY שכבר קיים בריפו. RLS דלוקה
+      # בלי מדיניות, ו-service_role עוקף אותה — ראה 16.sql.
+      # ⚠ מפתח service הוא קורא וכותב טבלאות **ואינו יכול להריץ DDL**, ולכן את המיגרציה
+      # עצמה חייב להריץ מי שיש לו גישה למסד. עד שזה יקרה, השלב מדלג ואומר זאת בקול.
+      # ה-checkout נדרש רק בשביל scripts/uptime_verdict.py. הוא מובא כאן ולא בראש
+      # ה-job כדי שבדיקת הזמינות שמעליו תישאר בלי תלות בכלום — היא צריכה לעבוד גם
+      # כשמשהו בריפו שבור.
+      - uses: actions/checkout@v4
+
+      - name: מה pg_cron מדווח
+        id: pgcron
+        env:
+          URL: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          set +e
+          echo "alert=" >> "$GITHUB_OUTPUT"
+          if [ -z "${KEY:-}" ]; then
+            echo "::warning::SUPABASE_SERVICE_KEY חסר — אי אפשר לקרוא את uptime_log"; exit 0
+          fi
+          BASE="${URL:-https://oycypbnzcvtjliovfsxn.supabase.co}"
+          code=$(curl -sS -o log.json -w '%{http_code}' \
+                   -H "apikey: $KEY" -H "Authorization: Bearer $KEY" \
+                   "$BASE/rest/v1/uptime_log?select=checked_at,ok,status,note&order=checked_at.desc&limit=12")
+          # טבלה שאינה קיימת אינה תקלה — היא אומרת שהמיגרציה עוד לא הורצה.
+          if [ "$code" = "404" ] || grep -q 'PGRST205\|does not exist' log.json 2>/dev/null; then
+            echo "::warning::uptime_log אינה קיימת — migrations/16.sql עוד לא הורץ. הניטור בתוך המסד אינו פעיל"
+            exit 0
+          fi
+          if [ "$code" != "200" ]; then
+            echo "::warning::uptime_log החזירה HTTP $code — השער דילג, לא הכריע"; exit 0
+          fi
+          # ההכרעה עצמה ב-scripts/uptime_verdict.py, כדי שתהיה ניתנת לבדיקה מקומית.
+          a=$(python3 scripts/uptime_verdict.py log.json)
+          if [ -n "$a" ]; then
+            echo "alert=$a" >> "$GITHUB_OUTPUT"
+            echo "::error::$a"
+          else
+            echo "pg_cron מדווח תקין"
+          fi
+
+      - name: Email the owner — pg_cron
+        if: steps.pgcron.outputs.alert != ''
+        env:
+          KEY: ${{ secrets.RESEND_API_KEY }}
+        run: |
+          if [ -z "$KEY" ]; then
+            echo "::warning::RESEND_API_KEY לא מוגדר — אי אפשר לשלוח את ההתרעה"
+            exit 1
+          fi
+          curl -sS -X POST https://api.resend.com/emails \
+            -H "Authorization: Bearer $KEY" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "from": "800+ <admin@800-plus.com>",
+              "to": ["03hagay@gmail.com"],
+              "subject": "800+ · הניטור שבתוך המסד מדווח תקלה",
+              "html": "<div dir=\"rtl\" style=\"font:16px/1.7 Arial,sans-serif;color:#2c2620\"><p><b>'"${{ steps.pgcron.outputs.alert }}"'</b></p><p>מה לבדוק: <code>select * from cron.job;</code> ו-<code>select * from public.uptime_log order by checked_at desc limit 20;</code> ב-SQL Editor.</p><p style=\"color:#8d8274;font-size:13px\">הבדיקה הזאת רצה כל 5 דקות בתוך סופאבייס, ולא ב-GitHub Actions שמדלג על תזמונים. ההודעה הזאת נשלחה מ-Actions, שקורא את הטבלה.</p></div>"
+            }'
+          echo "alert sent"
+
       - name: Email the owner — פריסה נתקעה
         if: steps.fresh.outputs.stale == 'true'
         env:
@@ -197,5 +276,5 @@ jobs:
           echo "alert sent"
 
       - name: Fail the run so it is visible in the Actions tab
-        if: steps.probe.outputs.ok == 'false' || steps.fresh.outputs.stale == 'true'
+        if: steps.probe.outputs.ok == 'false' || steps.fresh.outputs.stale == 'true' || steps.pgcron.outputs.alert != ''
         run: exit 1
