@@ -2901,6 +2901,9 @@ function lvApplyKnown(level){
      read, so a dropped request can't overwrite a real English row with this partial snapshot. */
   if(currentUser && window.Store){
     const snap={assoc, stats, deleted:[...deleted], added, dir:direction, extras:collectExtras('en')};
+    /* אותה סיבה כמו ב-syncWithRemoteInner: בין ה-pull ל-push החשבון יכול להתחלף, וזה
+       מסלול רקע ארוך במיוחד — הוא נפתח אחרי מבחן רמה ורץ בזמן שהמשתמש כבר ממשיך. */
+    const uid=currentUser.id;
     (async()=>{
       try{
         const res=await Store.pullProgress('en');
@@ -2913,7 +2916,7 @@ function lvApplyKnown(level){
           try{ m=mergeProgress(snap, res.data); } finally { LANG=here; }
           applyExtras('en', res.data.extras);
         }
-        await Store.pushProgress('en', {...m, extras:collectExtras('en')});
+        await Store.pushProgress('en', {...m, extras:collectExtras('en')}, uid);
       }catch(e){}
     })();
   }
