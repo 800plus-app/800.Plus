@@ -119,7 +119,7 @@ describe('סנכרון לפני טעינה — אסור שייכתב דבר', ()
 
   test('גם הנתיב השני, flushRemoteSync, מסרב', async () => {
     const { s } = atWelcomeScreen();
-    s.ctx.syncPending = true;
+    s.ctx.syncPending = { he: true, en: true };
     const ok = await s.ctx.flushRemoteSync();
     await new Promise(r => setImmediate(r));
     assert.strictEqual(ok, false, 'חייב לדווח כישלון: signOutNow מריץ localStorage.clear() על תשובה חיובית');
