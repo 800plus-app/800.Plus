@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Threshold Notation · Plate I</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;500;900&display=swap" rel="stylesheet">
+<style>
+/* THRESHOLD NOTATION · PLATE I
+   A4 at 300dpi — 2480 × 3508.
+
+   The field is not decoration. Every stroke is one entry in a real corpus:
+   twenty bands, one per unit, drawn at their true counts. The bands are
+   ordered by graded difficulty, and each band's ink weight follows that
+   grade — so the darkening down the plate is measured, not styled.
+   Total marks: 5,662.
+
+   The anchor is a hinge-word. It means *however*. A piece about the
+   interval before comprehension is anchored by the word that turns a
+   sentence around. */
+
+@font-face { font-family:"Geist Mono"; src:url("fonts/GeistMono-Regular.ttf") format("truetype"); font-weight:400 }
+@font-face { font-family:"Italiana";  src:url("fonts/Italiana-Regular.ttf")  format("truetype"); font-weight:400 }
+
+:root{
+  --paper:#efe9dc;
+  --paper-hi:#f6f2e8;
+  --ink:#1d1a16;
+  --ink-soft:#8b8175;
+  --rule:#cdc3b1;
+  --accent:#9c3a22;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#0d0c0a}
+body{display:flex;justify-content:center}
+
+.plate{
+  width:2480px;height:3508px;position:relative;overflow:hidden;
+  background:var(--paper);
+  padding:0 260px;
+}
+
+/* Pressed fibre. Two soft lights and a fine tooth, so the eye reads
+   material rather than screen. */
+.tooth{position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:
+    radial-gradient(ellipse 70% 45% at 50% 8%,  rgba(255,252,244,.85), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 82% 92%, rgba(156,58,34,.05),   transparent 62%);}
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.055;mix-blend-mode:multiply;
+  background-image:repeating-linear-gradient(0deg,#000 0 1px,transparent 1px 3px),
+                   repeating-linear-gradient(90deg,#000 0 1px,transparent 1px 3px);}
+
+/* ── apparatus ─────────────────────────────────────────────────────── */
+.head{position:absolute;top:250px;left:260px;right:260px;
+      display:flex;justify-content:space-between;align-items:flex-start}
+.mono{font-family:"Geist Mono",monospace;color:var(--ink-soft);
+      font-size:19px;letter-spacing:.36em;text-transform:uppercase}
+.head .title{font-family:"Italiana",serif;color:var(--ink);
+             font-size:64px;letter-spacing:.1em;line-height:1}
+.head .sub{margin-top:18px}
+
+.hairline{position:absolute;left:260px;right:260px;height:1px;background:var(--rule)}
+
+/* ── the field ─────────────────────────────────────────────────────── */
+#field{position:absolute;top:548px;left:260px;right:260px;height:1216px}
+/* ⚠ absolute, לא relative. אלמנט relative עם top מפורש נדחף מהמיקום שלו
+   *בזרימה*, ולכן כל פס קיבל ריווח כפול, הקו המפריד נחת באמצע קורפוס א,
+   והמילה נחתה על גבי הפסים. נתפס בבדיקת הלוח המרונדר. */
+.band{position:absolute;left:0;right:0;height:56px}
+.band .marks{position:absolute;top:0;left:0;height:36px}
+.band .num{position:absolute;top:6px;right:-92px;width:60px;text-align:right;
+           font-family:"Geist Mono",monospace;font-size:17px;color:var(--ink-soft);
+           letter-spacing:.1em}
+.band .cnt{position:absolute;top:6px;left:-104px;width:72px;text-align:left;
+           font-family:"Geist Mono",monospace;font-size:17px;color:var(--rule);
+           letter-spacing:.06em}
+.mark{position:absolute;bottom:0;width:1.7px;background:var(--ink);border-radius:.85px}
+
+.groupline{position:absolute;left:0;right:0;height:1px;background:var(--rule)}
+.grouplabel{position:absolute;font-family:"Geist Mono",monospace;font-size:17px;
+            letter-spacing:.34em;color:var(--ink-soft);text-transform:uppercase}
+
+/* ── the specimen ──────────────────────────────────────────────────── */
+/* ⚠ המיקום כאן הוא החלטה קומפוזיציונית, לא נוחות. השדה נגמר ב-1764 והקו
+   התחתון ב-3108. עם top=2040 נשארו 566 פיקסלים ריקים מתחת למילה מול 276
+   מעליה, והמילה נקראה כצפה. במיקום הזה היחס מתהפך: אוויר רחב אחרי הנתונים,
+   ואז המילה נחה מעל הקו. המרכז האופטי יושב מעל המרכז הגאומטרי. */
+.specimen{position:absolute;left:260px;right:260px;top:2264px;text-align:center}
+.specimen .tick{width:1px;height:64px;background:var(--rule);margin:0 auto 54px}
+.specimen .word{font-family:"Frank Ruhl Libre",serif;font-weight:500;
+                font-size:232px;line-height:1;color:var(--ink);direction:rtl;
+                letter-spacing:.02em}
+.specimen .gloss{margin-top:46px;font-family:"Italiana",serif;font-size:44px;
+                 color:var(--accent);letter-spacing:.2em}
+.specimen .cite{margin-top:34px}
+
+/* ── foot ──────────────────────────────────────────────────────────── */
+.foot{position:absolute;bottom:250px;left:260px;right:260px;
+      display:flex;justify-content:space-between;align-items:flex-end}
+.foot .n{font-family:"Italiana",serif;font-size:88px;color:var(--ink);letter-spacing:.06em;line-height:.9}
+.foot .nlab{margin-top:16px}
+.legend{text-align:right;line-height:2.4}
+</style>
+</head>
+<body>
+<div class="plate">
+  <div class="tooth"></div>
+  <div class="grain"></div>
+
+  <div class="head">
+    <div>
+      <div class="title">Threshold Notation</div>
+      <div class="mono sub">the interval before knowing</div>
+    </div>
+    <div style="text-align:right">
+      <div class="mono">Plate&nbsp;I</div>
+      <div class="mono" style="margin-top:18px">Fig.&nbsp;01&nbsp;—&nbsp;20</div>
+    </div>
+  </div>
+
+  <div class="hairline" style="top:430px"></div>
+
+  <div id="field"></div>
+
+  <div class="specimen">
+    <div class="tick"></div>
+    <div class="word">בְּרַם</div>
+    <div class="gloss">however</div>
+    <!-- הפניה אמיתית: המילה יושבת בקורפוס א, פס 10, הפס הכהה ביותר בלוח.
+         מציין מקום כמו "band xx" היה שובר את כל ההעמדה כתיעוד. -->
+    <div class="mono cite">corpus a · band 10 · unrecalled</div>
+  </div>
+
+  <div class="hairline" style="bottom:400px"></div>
+
+  <div class="foot">
+    <div>
+      <div class="n" id="total">5,662</div>
+      <div class="mono nlab">marks · one per entry</div>
+    </div>
+    <div class="legend">
+      <div class="mono">ink weight follows graded difficulty</div>
+      <div class="mono">band length follows true count</div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* Real structure. Hebrew bands vary because the corpus varies; English
+   bands are uniform because they were cut to uniform size. That contrast
+   is a fact about the material and is left visible. */
+const HE = [190,158,186,189,162,159,213,155,138,167];
+const EN = [395,395,395,395,395,395,395,395,395,390];
+
+const field = document.getElementById('field');
+const WIDTH = 1960;          /* 2480 − 260 − 260 */
+const PITCH = WIDTH / 395;   /* the widest band defines the pitch */
+
+/* Deterministic jitter. Without it the field reads as machined; with too
+   much it reads as noise. The amplitude here was settled by eye. */
+let s = 20260806;
+const rnd = () => (s = (s * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff;
+
+let y = 0;
+const band = (count, idx, grade, label) => {
+  const b = document.createElement('div');
+  b.className = 'band';
+  b.style.top = y + 'px';
+
+  const marks = document.createElement('div');
+  marks.className = 'marks';
+  marks.style.width = (count * PITCH) + 'px';
+
+  /* Ink weight rises with the difficulty grade of the unit. */
+  const alpha = 0.30 + grade * 0.062;
+
+  for (let i = 0; i < count; i++) {
+    const m = document.createElement('div');
+    m.className = 'mark';
+    m.style.left = (i * PITCH) + 'px';
+    m.style.height = (17 + rnd() * 19).toFixed(1) + 'px';
+    m.style.opacity = (alpha * (0.82 + rnd() * 0.18)).toFixed(3);
+    marks.appendChild(m);
+  }
+
+  const n = document.createElement('div');
+  n.className = 'num'; n.textContent = label;
+  const c = document.createElement('div');
+  c.className = 'cnt'; c.textContent = count;
+
+  b.appendChild(marks); b.appendChild(n); b.appendChild(c);
+  field.appendChild(b);
+  y += 56;
+};
+
+const gl = (text, top, align) => {
+  const d = document.createElement('div');
+  d.className = 'grouplabel'; d.textContent = text;
+  d.style.top = top + 'px';
+  if (align === 'r') d.style.right = '0'; else d.style.left = '0';
+  field.appendChild(d);
+};
+const gline = (top) => {
+  const d = document.createElement('div');
+  d.className = 'groupline'; d.style.top = top + 'px';
+  field.appendChild(d);
+};
+
+/* קורפוס א · עשרה פסים בספירתם האמיתית. */
+gl('corpus a', -40, 'l');
+HE.forEach((c, i) => band(c, i, i, String(i + 1).padStart(2, '0')));
+
+/* המפריד. 44 פיקסלים אוויר לפני הקו ו-44 אחריו, כדי ששני הקורפוסים
+   ייקראו כשני דברים ולא כרשימה אחת ארוכה. */
+y += 44; gline(y); gl('corpus b', y + 18, 'l'); y += 66;
+
+EN.forEach((c, i) => band(c, i, i, String(i + 1).padStart(2, '0')));
+
+/* The stated total is summed from the bands, never typed. */
+document.getElementById('total').textContent =
+  [...HE, ...EN].reduce((a, b) => a + b, 0).toLocaleString('en-US');
+</script>
+</body>
+</html>
