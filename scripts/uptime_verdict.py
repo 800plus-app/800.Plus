@@ -17,6 +17,7 @@ from datetime import datetime, timezone
 
 STALE_MIN = 30          # שש ריצות של 5 דקות. פחות מזה הוא רעש.
 NEED_BAD = 3            # שלוש תוצאות רצופות, כמו בבדיקת ה-probe שמעל
+MIN_ROWS = 6            # חלון שבו כבר אמורה להיות תוצאה אחת לפחות
 
 
 def parse(ts):
@@ -40,7 +41,15 @@ def verdict(rows, now=None):
     age = int((now - parse(rows[0].get('checked_at'))).total_seconds() // 60)
     if age > STALE_MIN:
         return 'pg_cron הפסיק לרשום — השורה האחרונה בת %d דקות' % age
-    res = [r for r in rows if r.get('note') == 'תוצאה'][:NEED_BAD]
+    allres = [r for r in rows if r.get('note') == 'תוצאה']
+    # ⚠ חור שנסגר: 16.sql רושם שורת בקשה בכל ריצה, ושורת תוצאה רק כשהתשובה הקודמת
+    # נמצאה ב-net._http_response. אם pg_net אינו מחזיר תשובות, הטבלה מתמלאת בבקשות
+    # בלבד — ok לעולם אינו אמת, אין שלוש תוצאות כושלות, **וההכרעה הייתה אומרת "תקין"
+    # על בודק שאינו בודק כלום.** חלון של MIN_ROWS שורות בלי אף תוצאה אינו התחלה, הוא
+    # תקלה. (MIN_ROWS ולא 1: בריצה הראשונה באמת אין עוד תוצאה, וזה תקין.)
+    if len(rows) >= MIN_ROWS and not allres:
+        return 'pg_cron רושם בקשות ואף תוצאה — pg_net אינו מחזיר תשובות'
+    res = allres[:NEED_BAD]
     if len(res) >= NEED_BAD and all(r.get('ok') is False for r in res):
         return 'האתר נפל לפי pg_cron — שלוש בדיקות רצופות כשלו'
     return ''
@@ -70,6 +79,8 @@ def selftest():
         ('שורות בקשה בלבד', [R(1, None, '812'), R(6, None, '811')], False),
         ('מיקרו-שניות חריגות',
          [{'checked_at': '2026-08-07T19:59:00.12345+00:00', 'ok': True, 'note': 'תוצאה'}], False),
+        ('בקשות בלבד · חלון מלא', [R(i * 5 + 1, None, str(900 + i)) for i in range(7)], True),
+        ('בקשות בלבד · רק שתיים', [R(1, None, '901'), R(6, None, '900')], False),
     ]
     bad = 0
     for name, rows, want in cases:
@@ -87,6 +98,9 @@ if __name__ == '__main__':
         sys.exit(selftest())
     rows = json.load(io.open(sys.argv[1] if len(sys.argv) > 1 else 'log.json', encoding='utf-8'))
     a = verdict(rows)
+    n_res = len([r for r in rows if r.get('note') == 'תוצאה'])
+    n_ok = len([r for r in rows if r.get('ok') is True])
+    sys.stderr.write('תוצאות: %d · מהן תקינות: %d\n' % (n_res, n_ok))
     if rows:
         age = int((datetime.now(timezone.utc) - parse(rows[0]['checked_at'])).total_seconds() // 60)
         sys.stderr.write('%d שורות · האחרונה בת %d דקות\n' % (len(rows), age))
