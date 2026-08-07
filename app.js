@@ -3795,6 +3795,11 @@ async function syncWithRemoteInner(lang){
     console.warn('sync skipped: the language state has not been loaded into memory yet');
     return;
   }
+  /* מי אנחנו לפני הקריאה. store.js:142 מקבל את זה בדיוק בשביל החלון שבין ה-pull ל-push:
+     החשבון יכול להתחלף באמצע (קישור אישור שנפתח באותה לשונית, טוקן שהתרענן לחשבון אחר),
+     והכתיבה למטה נושאת את המצב שמוזג מהחשבון הקודם. RLS לא רואה את זה — היא מאשרת כתיבה
+     חוקית לחלוטין לשורה של החשבון החדש. רק הקורא יודע עם מי הוא התחיל. */
+  const uid = currentUser && currentUser.id;
   let res=null;
   try{ res=await Store.pullProgress(lang); }catch(e){ return; }
   /* A failed read used to look exactly like an empty cloud, and the push below then wrote the
@@ -3828,7 +3833,7 @@ async function syncWithRemoteInner(lang){
      progress into the Hebrew row. */
   if(lang!==LANG) return;
   Store.pushProgress(lang, {assoc, stats, deleted:[...deleted], added, dir:direction,
-                            extras:collectExtras(lang)}).catch(()=>{});
+                            extras:collectExtras(lang)}, uid).catch(()=>{});
 }
 
 function translateAuthError(err){
