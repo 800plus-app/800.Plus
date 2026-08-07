@@ -10,6 +10,8 @@ import {
   FilmFact, FILM_FACT_SEC,
   FilmWake, FILM_WAKE_SEC,
 } from "./Films";
+import { ReelQuiz, REEL_QUIZ_SEC } from "./ReelQuiz";
+import { Carousel, CAROUSEL_SLIDES } from "./Carousel";
 
 /**
  * שני הגופנים של 800+, נטענים פעם אחת לכל הקומפוזיציות.
@@ -72,6 +74,28 @@ export const RemotionRoot: React.FC = () => {
         fps={STORY.fps}
         width={STORY.width}
         height={STORY.height}
+      />
+
+      {/* ר2 · ריל החידון. חמש מילים, שתי שניות ניחוש לכל אחת. */}
+      <Composition
+        id="ReelQuiz"
+        component={ReelQuiz}
+        durationInFrames={sec(REEL_QUIZ_SEC)}
+        fps={STORY.fps}
+        width={STORY.width}
+        height={STORY.height}
+      />
+
+      {/* פ1 · קרוסלה לאינסטגרם. **כל פריים הוא שקופית**, לא סרטון.
+          המידה 1080×1350 (4:5), ו-fps=1 כדי שמספר הפריים יהיה מספר השקופית.
+          לרינדור: רנדר-קרוסלה.ps1 */}
+      <Composition
+        id="Carousel"
+        component={Carousel}
+        durationInFrames={CAROUSEL_SLIDES}
+        fps={1}
+        width={1080}
+        height={1350}
       />
     </>
   );
