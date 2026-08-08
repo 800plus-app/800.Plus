@@ -1,0 +1,436 @@
+[
+ {
+  "w": "חנופה",
+  "opacity": 65,
+  "charge": 0,
+  "narrow": 10,
+  "note": "שבח מוגזם, התרפסות"
+ },
+ {
+  "w": "אביון",
+  "opacity": 65,
+  "charge": 5,
+  "narrow": 20,
+  "note": "עני מרוד, נזקק"
+ },
+ {
+  "w": "מעד",
+  "opacity": 50,
+  "charge": 0,
+  "narrow": 10,
+  "note": "החליק, כשל בצעד"
+ },
+ {
+  "w": "פקפק",
+  "opacity": 60,
+  "charge": 0,
+  "narrow": 10,
+  "note": "הטיל ספק, היסס"
+ },
+ {
+  "w": "הפקיר",
+  "opacity": 55,
+  "charge": 10,
+  "narrow": 35,
+  "note": "נטש, הותיר ללא הגנה"
+ },
+ {
+  "w": "קהה",
+  "opacity": 45,
+  "charge": 0,
+  "narrow": 25,
+  "note": "לא חד"
+ },
+ {
+  "w": "רפת",
+  "opacity": 55,
+  "charge": 0,
+  "narrow": 55,
+  "note": "מבנה לפרות חלב"
+ },
+ {
+  "w": "טלאי",
+  "opacity": 55,
+  "charge": 0,
+  "narrow": 45,
+  "note": "חתיכת בד מודבקת"
+ },
+ {
+  "w": "צורף",
+  "opacity": 65,
+  "charge": 0,
+  "narrow": 55,
+  "note": "בעל מלאכת תכשיטים"
+ },
+ {
+  "w": "סהר",
+  "opacity": 60,
+  "charge": 0,
+  "narrow": 40,
+  "note": "ירח, צורת חצי עיגול"
+ },
+ {
+  "w": "צידוק",
+  "opacity": 45,
+  "charge": 0,
+  "narrow": 10,
+  "note": "נימוק המצדיק מעשה"
+ },
+ {
+  "w": "תקרובת",
+  "opacity": 70,
+  "charge": 10,
+  "narrow": 55,
+  "note": "כיבוד קל באירוע"
+ },
+ {
+  "w": "דלה",
+  "opacity": 55,
+  "charge": 0,
+  "narrow": 15,
+  "note": "שאב, הוציא ממקור"
+ },
+ {
+  "w": "כילה",
+  "opacity": 55,
+  "charge": 25,
+  "narrow": 20,
+  "note": "השמיד לגמרי"
+ },
+ {
+  "w": "הלום",
+  "opacity": 70,
+  "charge": 30,
+  "narrow": 55,
+  "note": "המום, מוכה"
+ },
+ {
+  "w": "בליטה",
+  "opacity": 45,
+  "charge": 0,
+  "narrow": 40,
+  "note": "חלק הבולט כלפי חוץ"
+ },
+ {
+  "w": "יתד",
+  "opacity": 65,
+  "charge": 0,
+  "narrow": 50,
+  "note": "מוט נעוץ לחיזוק"
+ },
+ {
+  "w": "נוטר",
+  "opacity": 70,
+  "charge": 20,
+  "narrow": 55,
+  "note": "שומר; גם שומר טינה"
+ },
+ {
+  "w": "לצון",
+  "opacity": 65,
+  "charge": 0,
+  "narrow": 15,
+  "note": "לעג, התלוצצות"
+ },
+ {
+  "w": "שאננות",
+  "opacity": 65,
+  "charge": 0,
+  "narrow": 15,
+  "note": "שלווה מופרזת"
+ },
+ {
+  "w": "שתל",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "סנטימטר",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "מגבת",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "תלול",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "נורמה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "אבחון",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "דייר",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "צפוני",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "כבשה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "ריחני",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "פלח",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "מסרק",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "תכשיט",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "יסודיות",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "אופה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "דרומי",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "עלום",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "כפתור",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "החלמה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "בלם",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "אריג",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "סנדל",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "תירס",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "תקע",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "סקרנות",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "סיוט",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "דמם",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "פגז",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "ארנק",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "הדגשה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "תותח",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "שפך",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "תחתון",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "הקשיב",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "אדישות",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "דלי",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "תיש",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "מרפאה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "יפנית",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "איבר",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "שקיפות",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "קציר",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ }
+]
