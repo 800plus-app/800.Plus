@@ -92,9 +92,23 @@ async function rest(path: string, init: RequestInit = {}) {
   });
 }
 
+/* השוואה בזמן קבוע, זהה ל-safeEq של billing-webhook.
+   `!==` על מחרוזות יוצא ברגע שנמצא הבדל, ולכן משך ההשוואה מעיד כמה תווים
+   ראשונים נכונים. מול נקודת קצה שאפשר לקרוא לה שוב ושוב זה מאפשר לגלות את
+   הסוד תו אחרי תו במקום לנחש אותו בשלמותו.
+   הפער בין השניים כאן זעיר ורועש ברשת, ולכן זו הקשחה ולא סגירת חור פתוח —
+   אבל שתי נקודות הקצה משוות סוד באותו אופן, ואין סיבה שרק אחת מהן תעשה זאת
+   נכון. */
+function safeEq(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  let d = 0;
+  for (let i = 0; i < a.length; i++) d |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return d === 0;
+}
+
 Deno.serve(async (req) => {
   // ההרשאה האמיתית: סוד שרק המפעיל האוטומטי מחזיק. סוד לא מוגדר = סירוב לכולם (fail-closed).
-  if (!TRIGGER_SECRET || req.headers.get('x-trigger-secret') !== TRIGGER_SECRET) {
+  if (!TRIGGER_SECRET || !safeEq(req.headers.get('x-trigger-secret') ?? '', TRIGGER_SECRET)) {
     return new Response(JSON.stringify({ error: 'unauthorized' }),
       { status: 401, headers: { 'Content-Type': 'application/json' } });
   }
