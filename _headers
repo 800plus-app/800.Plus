@@ -1,0 +1,52 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# כותרות HTTP — כרגע רדום, ומחכה למעבר אחסון
+#
+# GitHub Pages אינו שולח כותרות מותאמות, ולכן הקובץ הזה אינו עושה כלום היום.
+# הוא כתוב מראש מפני שהחוסר שהוא סוגר אינו ניתן לסגירה בשום דרך אחרת:
+# frame-ancestors הוא ההנחיה היחידה ב-CSP שהדפדפן מתעלם ממנה כשהיא מגיעה
+# מתגית <meta>, וזו בדיוק ההנחיה שמונעת clickjacking. אין לה תחליף ב-meta,
+# ותחליף ה-frame-busting ב-JavaScript עקיף בשורה אחת וגם עלול לשבור הטמעה
+# לגיטימית של האפליקציה בעמוד שיווקי.
+#
+# הפורמט נקרא על ידי Cloudflare Pages ועל ידי Netlify כמות שהוא. ברגע שהאתר
+# יעבור לאחד מהם, הכותרות כאן נכנסות לתוקף בלי שינוי קוד. עד אז זהו קובץ
+# סטטי בלתי מזיק שאינו מכיל שום סוד.
+#
+# הקשר המלא והשוואת החלופות: ראה דוחות/ביקורת-אבטחה-2026-08-08.md
+# ═══════════════════════════════════════════════════════════════════════════
+
+/*
+  # זהה ל-CSP שב-index.html, בתוספת ההנחיה היחידה שלא יכולה לחיות ב-meta.
+  # שני העותקים נשארים בכוונה: העותק ב-meta נשמר במטמון ה-service worker יחד
+  # עם ה-HTML ולכן חל גם אופליין, בעוד שכותרת HTTP אינה נשמרת עם הגוף. כל
+  # שינוי במדיניות חייב להיעשות בשני המקומות.
+  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://oycypbnzcvtjliovfsxn.supabase.co; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+
+  # גיבוי ל-frame-ancestors עבור דפדפנים ישנים. במודרניים ה-CSP גובר עליו.
+  X-Frame-Options: DENY
+
+  # בלי includeSubDomains, ובכוונה: הוא היה חל גם על תת-דומיינים שאיני יודע
+  # אם קיימים ואם כולם על HTTPS, וההתחייבות היא לשנה. אפשר להוסיף אותו אחרי
+  # שהמעבר התייצב ונבדק שאין תת-דומיין שנשבר. אין preload — הוא חד-כיווני
+  # בפועל, והסרה ממנו אורכת חודשים.
+  Strict-Transport-Security: max-age=31536000
+
+  # מונע מהדפדפן לנחש סוג תוכן בניגוד ל-Content-Type שנשלח.
+  X-Content-Type-Options: nosniff
+
+  # כפילות מכוונת של <meta name="referrer"> שכבר קיים ב-index.html. הכותרת
+  # חלה גם על נכסים שאינם HTML, שאין להם meta.
+  Referrer-Policy: no-referrer
+
+  # האפליקציה אינה משתמשת באף אחת מהיכולות האלה. payment=() נשאר גם אחרי
+  # חיבור ספק תשלומים: התשלום מתבצע בעמוד של הספק, לא דרך Payment Request API.
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+  # מנתק את הקשר לחלונות שנפתחו ממנו או שפתחו אותו.
+  Cross-Origin-Opener-Policy: same-origin
+
+# קובצי הפונט אינם נושאים ?v= בכוונה — הם immutable, וההסבר המלא נמצא ליד
+# רשימת ה-ASSETS ב-sw.js. הכותרת הזאת אומרת את אותו הדבר ל-CDN ולדפדפן:
+# אין טעם לבדוק שוב, התוכן לא ישתנה. שם הקובץ משתנה אם הפונט משתנה.
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable

@@ -1,0 +1,436 @@
+[
+ {
+  "w": "ערער",
+  "opacity": 78,
+  "charge": 0,
+  "narrow": 70,
+  "note": "שיח מדברי"
+ },
+ {
+  "w": "תחינה",
+  "opacity": 45,
+  "charge": 10,
+  "narrow": 25,
+  "note": "בקשה נרגשת"
+ },
+ {
+  "w": "מיתר",
+  "opacity": 65,
+  "charge": 0,
+  "narrow": 55,
+  "note": "חוט מתוח בכלי"
+ },
+ {
+  "w": "זקף",
+  "opacity": 85,
+  "charge": 12,
+  "narrow": 90,
+  "note": "טעם קריאה במקרא"
+ },
+ {
+  "w": "הנעים",
+  "opacity": 55,
+  "charge": 0,
+  "narrow": 25,
+  "note": "גרם הנאה, שיעשע"
+ },
+ {
+  "w": "השביע",
+  "opacity": 60,
+  "charge": 12,
+  "narrow": 35,
+  "note": "החתים בשבועה; סיפק רעב"
+ },
+ {
+  "w": "פלס",
+  "opacity": 80,
+  "charge": 0,
+  "narrow": 65,
+  "note": "מאזני שקילה"
+ },
+ {
+  "w": "הדרן",
+  "opacity": 80,
+  "charge": 15,
+  "narrow": 70,
+  "note": "קריאת ביס; סיום מסכת"
+ },
+ {
+  "w": "יממה",
+  "opacity": 45,
+  "charge": 0,
+  "narrow": 15,
+  "note": "יום ולילה, 24 שעות"
+ },
+ {
+  "w": "זמם",
+  "opacity": 78,
+  "charge": 12,
+  "narrow": 55,
+  "note": "תכנן רעה"
+ },
+ {
+  "w": "דעתן",
+  "opacity": 55,
+  "charge": 0,
+  "narrow": 15,
+  "note": "בעל דעה נחרצת"
+ },
+ {
+  "w": "פסיפס",
+  "opacity": 45,
+  "charge": 0,
+  "narrow": 30,
+  "note": "תמונה מאבנים קטנות"
+ },
+ {
+  "w": "חובל",
+  "opacity": 55,
+  "charge": 10,
+  "narrow": 50,
+  "note": "מלח בספינה; מזיק"
+ },
+ {
+  "w": "מחל",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "מחוק",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "תכנן",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "תקרה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "עצבות",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "קופה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "נימוס",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "מקרן",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "להב",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "תגלית",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "התבטאות",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "נעלב",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "כימיה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "תזכורת",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "סלט",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "גסות",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "אפה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "ותק",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "ברז",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "נדיב",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "נתמך",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "קליל",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "אזעקה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "זנב",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "עוגה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "התלבט",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "נמר",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "קונצרט",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "התרגש",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "נחרב",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "לגימה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "חייט",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "זמרה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "יבשת",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "קפוא",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "מלצר",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "גלידה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "התמלא",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "שכנע",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "רותח",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "היסטוריון",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "מופע",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "לימון",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "התנצל",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "להקה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "שמיכה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "מקהלה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "מגבעת",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "פרפר",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ }
+]

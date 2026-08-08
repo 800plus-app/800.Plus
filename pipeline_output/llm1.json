@@ -1,0 +1,436 @@
+[
+ {
+  "w": "הדרגה",
+  "opacity": 55,
+  "charge": 0,
+  "narrow": 15,
+  "note": "עלייה בשלבים, הדרגתיות"
+ },
+ {
+  "w": "חרפה",
+  "opacity": 72,
+  "charge": 0,
+  "narrow": 5,
+  "note": "בושה, קלון"
+ },
+ {
+  "w": "מליצה",
+  "opacity": 65,
+  "charge": 0,
+  "narrow": 45,
+  "note": "ניסוח ספרותי מהודר"
+ },
+ {
+  "w": "צבוע",
+  "opacity": 55,
+  "charge": 5,
+  "narrow": 30,
+  "note": "חיה טורפת; כוזב פנים"
+ },
+ {
+  "w": "קנאות",
+  "opacity": 45,
+  "charge": 30,
+  "narrow": 20,
+  "note": "קיצוניות באמונה, להט יתר"
+ },
+ {
+  "w": "קלון",
+  "opacity": 78,
+  "charge": 0,
+  "narrow": 10,
+  "note": "בושה קשה, חרפה"
+ },
+ {
+  "w": "פסע",
+  "opacity": 45,
+  "charge": 0,
+  "narrow": 15,
+  "note": "צעד, פסיעה"
+ },
+ {
+  "w": "מפח",
+  "opacity": 80,
+  "charge": 0,
+  "narrow": 75,
+  "note": "אכזבה קשה"
+ },
+ {
+  "w": "משוא",
+  "opacity": 85,
+  "charge": 10,
+  "narrow": 60,
+  "note": "הטיה, העדפה לא הוגנת"
+ },
+ {
+  "w": "תפל",
+  "opacity": 60,
+  "charge": 0,
+  "narrow": 25,
+  "note": "חסר טעם, משעמם"
+ },
+ {
+  "w": "הפציר",
+  "opacity": 55,
+  "charge": 0,
+  "narrow": 15,
+  "note": "ביקש בתוקף, התחנן"
+ },
+ {
+  "w": "נמלך",
+  "opacity": 65,
+  "charge": 0,
+  "narrow": 40,
+  "note": "שינה דעתו, חזר בו"
+ },
+ {
+  "w": "עכור",
+  "opacity": 60,
+  "charge": 0,
+  "narrow": 20,
+  "note": "דלוח, לא צלול"
+ },
+ {
+  "w": "פלך",
+  "opacity": 85,
+  "charge": 10,
+  "narrow": 80,
+  "note": "מחוז מנהלי עתיק"
+ },
+ {
+  "w": "לפת",
+  "opacity": 70,
+  "charge": 0,
+  "narrow": 55,
+  "note": "ירק שורש"
+ },
+ {
+  "w": "מרפסת",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "היענות",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "תבלין",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "זריז",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "בקיאות",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "שכוח",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "חבוי",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "צלול",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "מנגינה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "תגבורת",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "נרגע",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "נצמד",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "טיח",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "הסתלק",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "לכלוך",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "לבטים",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "שכנוע",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "הכחיש",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "הורד",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "חמוץ",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "פנס",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "החלים",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "נוזל",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "סכר",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "שאלון",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "מנוף",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "אדריכל",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "קטין",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "יחף",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "מהנה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "פעוט",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "קשב",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "הרגיע",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "אובייקטיביות",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "צעדה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "ענווה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "לול",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "התריע",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "צנח",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "חריץ",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "מטע",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "שובע",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "סקרן",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "הצמיד",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "דפק",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "הפיל",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "קרש",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ }
+]

@@ -1,0 +1,436 @@
+[
+ {
+  "w": "רוה",
+  "opacity": 55,
+  "charge": 0,
+  "narrow": 30,
+  "note": "שבע, הרווה צמאונו"
+ },
+ {
+  "w": "השתאות",
+  "opacity": 55,
+  "charge": 0,
+  "narrow": 10,
+  "note": "תדהמה, פליאה רבה"
+ },
+ {
+  "w": "נגף",
+  "opacity": 55,
+  "charge": 0,
+  "narrow": 30,
+  "note": "מגפה; מכשול"
+ },
+ {
+  "w": "קלח",
+  "opacity": 55,
+  "charge": 0,
+  "narrow": 45,
+  "note": "גבעול צמח"
+ },
+ {
+  "w": "בציר",
+  "opacity": 50,
+  "charge": 0,
+  "narrow": 55,
+  "note": "קטיף ענבים"
+ },
+ {
+  "w": "מאסף",
+  "opacity": 65,
+  "charge": 0,
+  "narrow": 40,
+  "note": "אוסף כתבים; יחידת נסיגה"
+ },
+ {
+  "w": "מגל",
+  "opacity": 50,
+  "charge": 0,
+  "narrow": 35,
+  "note": "כלי חקלאי לקציר"
+ },
+ {
+  "w": "עליצות",
+  "opacity": 55,
+  "charge": 0,
+  "narrow": 15,
+  "note": "שמחה גדולה"
+ },
+ {
+  "w": "פתי",
+  "opacity": 55,
+  "charge": 0,
+  "narrow": 15,
+  "note": "תמים, קל להטעיה"
+ },
+ {
+  "w": "הדיר",
+  "opacity": 72,
+  "charge": 0,
+  "narrow": 20,
+  "note": "הרחיק, מנע השתתפות"
+ },
+ {
+  "w": "הפוגה",
+  "opacity": 50,
+  "charge": 0,
+  "narrow": 25,
+  "note": "הפסקה זמנית"
+ },
+ {
+  "w": "הפיח",
+  "opacity": 65,
+  "charge": 0,
+  "narrow": 15,
+  "note": "עורר תחושה"
+ },
+ {
+  "w": "אמתלה",
+  "opacity": 70,
+  "charge": 0,
+  "narrow": 10,
+  "note": "תירוץ מזויף"
+ },
+ {
+  "w": "אכסניה",
+  "opacity": 45,
+  "charge": 0,
+  "narrow": 30,
+  "note": "מקום לינה"
+ },
+ {
+  "w": "רפאים",
+  "opacity": 65,
+  "charge": 0,
+  "narrow": 30,
+  "note": "רוחות מתים"
+ },
+ {
+  "w": "נלכד",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "נעילה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "רגוע",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "מסעדה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "מדף",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "נקרע",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "פזמון",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "תנומה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "הלבשה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "הגזמה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "מעקה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "יריבות",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "נגן",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "הדלקה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "התרשם",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "מאפה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "צעיף",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "מחט",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "מסמר",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "השתתק",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "ליטר",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "הפתיע",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "תפר",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "נעול",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "אכיפה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "פחדן",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "נשפט",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "רחצה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "השתחרר",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "פציעה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "שכיחות",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "רחץ",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "הדביק",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "מספריים",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "שגיאה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "עפעף",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "דחיפות",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "כריכה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "זורם",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "קצף",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "תריס",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "אדמדם",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "סלל",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "מטלה",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "חומד",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "עדר",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ },
+ {
+  "w": "גפרור",
+  "opacity": 20,
+  "charge": 0,
+  "narrow": 10,
+  "note": ""
+ }
+]
