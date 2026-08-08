@@ -4061,9 +4061,6 @@ document.querySelectorAll('#authTabs button').forEach(b=>b.onclick=()=>setAuthMo
    "יציאה" (token expiry, cleared cookies, shared device) — and then the next person to sign
    in here would have the previous user's progress merged into THEIR account. So the cache is
    stamped with its owner, and any mismatch wipes it before a single byte is read. */
-const HW_KEYS = ['hw_assoc','hw_stats','hw_deleted','hw_added','hw_dir','hw_migr','hw_size',
-                 'hw_assoc_en','hw_stats_en','hw_deleted_en','hw_added_en','hw_dir_en','hw_migr_en','hw_size_en','hw_lang',
-                 'hw_name','hw_level'];
 /* Every hw_* key belongs to whoever was signed in when it was written. The old list was
    hand-maintained and did not know about keys built at runtime — hw_exam:3, hw_exam_en:7,
    hw_level_he — so exam scores and level results survived a change of account and were shown
