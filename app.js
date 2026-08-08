@@ -927,11 +927,18 @@ let wcOffset=0;
    dayKey (app.js: הרצף) כבר משתמש — שתי הגדרות שונות של "היום" באותה אפליקציה הן
    באג שמחכה לקרות. */
 function wcToday(){ const d=new Date(); return Math.floor((d.getTime() - d.getTimezoneOffset()*60000)/86400000); }
+/* מפתח לכל שפה, לא מפתח אחד משותף.
+   הכרטיס מציג מילה מהמאגר של השפה הפעילה — wcPick נשען על weakCards/newCards,
+   שקוראים את BANK — ולכן "מילת היום" בעברית ובאנגלית הן שתי מילים שונות. אבל
+   הסגירה נשמרה במפתח גולמי אחד, בלי KEY(), וכך לחיצה על ✕ בעברית סגרה להיום גם
+   את הכרטיס האנגלי: מילה שהלומד לא ראה, בכרטיס שלא הספיק להיפתח.
+   KEY() משאיר את עברית על 'wcHide' ונותן לאנגלית 'wcHide_en', בדיוק כמו שאר
+   מפתחות ההתקדמות — כלומר סגירות קיימות של משתמשים עברים ממשיכות לתפוס. */
 function wcDismissed(){
-  try{ return Number(localStorage.getItem('wcHide')) === wcToday(); }catch(e){ return false; }
+  try{ return Number(localStorage.getItem(KEY('wcHide'))) === wcToday(); }catch(e){ return false; }
 }
 function wcDismiss(){
-  try{ localStorage.setItem('wcHide', String(wcToday())); }catch(e){}
+  try{ localStorage.setItem(KEY('wcHide'), String(wcToday())); }catch(e){}
 }
 function wcPool(){
   const weak=weakCards('global');
