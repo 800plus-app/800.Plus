@@ -15,14 +15,39 @@
 <title>800+ — אוצר מילים לפסיכומטרי</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- crossorigin makes this a CORS request. Without it the response is opaque, the service
-     worker refuses to cache it (an opaque body can't be inspected), and the whole RTL
-     interface fell back to the system font the moment the device went offline — in an app
-     that advertises working offline. -->
-<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet" crossorigin>
 <style>
+  /* ═══ פונטים ═══
+     היו נטענים מ-Google. ההערה שעמדה כאן קודם תיארה תיקון crossorigin שנועד לאפשר
+     ל-service worker לשמור אותם — אבל sw.js דוחה כל בקשה חוצת-מקור בשני שערים
+     נפרדים (origin שונה, ו-type!=='basic'), ולכן הפונטים מעולם לא נשמרו והממשק
+     נפל לפונט מערכת בכל פתיחה אופליין. באפליקציה שמבטיחה עבודה אופליין.
+     עכשיו הם same-origin ונכנסים ל-cache בלי לגעת ב-fetch handler בכלל.
+
+     שישה קבצים, 152KB. פחות ממה שנראה, משתי סיבות:
+     · שניהם פונטים משתנים — קובץ אחד נושא את כל טווח המשקלים. Google הגישה בדיוק
+       את אותו קובץ לכל אחד מהמשקלים שביקשנו; 24 הצהרות היו 8 קבצים ייחודיים.
+     · Heebo 300 ו-Frank Ruhl Libre 500 נטענו ולא היו בשימוש באף כלל CSS. לא ירדו.
+     בונוס מהטווח הרציף: font-weight:600 בכפתור ההתחברות (‏.au-tabs) נטען היום כ-700
+     כי 600 לא הוזמן מעולם. עכשיו הוא מקבל 600 אמיתי.
+     math ו-symbols של Heebo לא ירדו — סימני מתמטיקה, אין להם תו באפליקציה. */
+  @font-face{font-family:'Frank Ruhl Libre';font-style:normal;font-weight:400 900;font-display:swap;
+    src:url(fonts/frank-ruhl-libre-hebrew.woff2) format('woff2');
+    unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;}
+  @font-face{font-family:'Frank Ruhl Libre';font-style:normal;font-weight:400 900;font-display:swap;
+    src:url(fonts/frank-ruhl-libre-latin-ext.woff2) format('woff2');
+    unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+  @font-face{font-family:'Frank Ruhl Libre';font-style:normal;font-weight:400 900;font-display:swap;
+    src:url(fonts/frank-ruhl-libre-latin.woff2) format('woff2');
+    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+  @font-face{font-family:'Heebo';font-style:normal;font-weight:400 700;font-display:swap;
+    src:url(fonts/heebo-hebrew.woff2) format('woff2');
+    unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;}
+  @font-face{font-family:'Heebo';font-style:normal;font-weight:400 700;font-display:swap;
+    src:url(fonts/heebo-latin-ext.woff2) format('woff2');
+    unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+  @font-face{font-family:'Heebo';font-style:normal;font-weight:400 700;font-display:swap;
+    src:url(fonts/heebo-latin.woff2) format('woff2');
+    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
   :root{
     --paper:#f6f1e7; --paper-deep:#efe7d6; --card:#fffdf8; --ink:#2c2620; --ink-soft:#736a5c;   /* was #7d7365 = 4.13:1 on --paper, 0.37 short of AA */
     --gold:#c9962f; --accent:#b5482e; --accent-deep:#8f3620; --green:#4e7d4e; --line:#e3d8c4;
@@ -1903,14 +1928,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=174"></script>
-<script src="config.js?v=174"></script>
-<script src="store.js?v=174"></script>
-<script src="leveltest-he.js?v=174"></script>
-  <script src="leveltest.js?v=174"></script>
-<script src="enrank.js?v=174"></script>
-<script src="data.js?v=174"></script>
-<script src="data-en.js?v=174"></script>
-<script src="app.js?v=174"></script>
+<script src="supabase.min.js?v=175"></script>
+<script src="config.js?v=175"></script>
+<script src="store.js?v=175"></script>
+<script src="leveltest-he.js?v=175"></script>
+  <script src="leveltest.js?v=175"></script>
+<script src="enrank.js?v=175"></script>
+<script src="data.js?v=175"></script>
+<script src="data-en.js?v=175"></script>
+<script src="app.js?v=175"></script>
 </body>
 </html>
