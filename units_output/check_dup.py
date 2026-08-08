@@ -29,6 +29,7 @@ sys.stderr.reconfigure(encoding='utf-8')
 HERE = os.path.dirname(os.path.abspath(__file__))
 WORDS = os.path.join(HERE, 'words-used.txt')
 ROOTS = os.path.join(HERE, 'roots-used.txt')
+EXC = os.path.join(HERE, 'root-exceptions.txt')
 NIQ = re.compile(r'[֑-ׇ]')
 
 
@@ -43,6 +44,22 @@ def load_set(path):
     if not os.path.exists(path):
         return set()
     return {norm(x) for x in io.open(path, encoding='utf-8').read().split('\n') if x.strip()}
+
+
+def load_exceptions():
+    """root-exceptions.txt — הכלל המרוכך (אישור חגי 2026-08-08):
+    שורש ברשימה פטור מחסימת-שורש, כשהמילים אינן נגזרות שקופות זו של זו.
+    פורמט שורה: שורש ⟵TAB⟶ תיעוד (הזוג + נימוק). שורות # הן הערות.
+    בדיקת המילה עצמה נשארת קשיחה תמיד."""
+    exc = set()
+    if not os.path.exists(EXC):
+        return exc
+    for ln in io.open(EXC, encoding='utf-8'):
+        ln = ln.strip()
+        if not ln or ln.startswith('#'):
+            continue
+        exc.add(norm(ln.split('\t')[0]))
+    return exc
 
 
 def load_tsv(path):
@@ -79,8 +96,10 @@ def main():
             used_words.add(w)
             used_roots.update(rs)
 
+    exceptions = load_exceptions()
     problems = []
     seen_w, seen_r = {}, {}
+    excused = 0
     if mode != '--init':
         for num, w, rs in rows:
             if w in used_words:
@@ -89,6 +108,11 @@ def main():
                 problems.append('שורה %s · המילה "%s" כפולה בתוך היחידה (גם בשורה %s)' % (num, w, seen_w[w]))
             seen_w.setdefault(w, num)
             for r in rs:
+                if r in exceptions:
+                    if r in used_roots or r in seen_r:
+                        excused += 1
+                    seen_r.setdefault(r, (num, w))
+                    continue
                 if r in used_roots:
                     problems.append('שורה %s · השורש "%s" (%s) כבר בשימוש' % (num, r, w))
                 if r in seen_r and seen_r[r][1] != w:
@@ -102,7 +126,8 @@ def main():
             sys.stdout.write('   %s\n' % p)
         sys.exit(1)
 
-    sys.stdout.write('בדיקת כפילויות: עברה (0 מילים, 0 שורשים) · %d פריטים\n' % len(rows))
+    tail = ' · %d חריגי-שורש מאושרים' % excused if excused else ''
+    sys.stdout.write('בדיקת כפילויות: עברה (0 מילים, 0 שורשים)%s · %d פריטים\n' % (tail, len(rows)))
 
     if mode in ('--commit', '--init'):
         with io.open(WORDS, 'a', encoding='utf-8', newline='\n') as f:
