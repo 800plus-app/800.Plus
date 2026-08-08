@@ -31,7 +31,14 @@ const SB_SERVICE  = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;  // service_role
 const SECRET      = Deno.env.get('BILLING_WEBHOOK_SECRET') ?? '';  // anon כפוף ל-RLS,
 const PROVIDER    = Deno.env.get('BILLING_PROVIDER')  ?? 'payplus'; // והכתיבה הייתה
 const ENV         = Deno.env.get('BILLING_ENV')       ?? 'test';     // נכשלת בשקט.
-const VERIFY_MODE = Deno.env.get('BILLING_VERIFY_MODE') ?? 'secret_url';
+/* ברירת המחדל היא החתימה, לא הסוד־שבכתובת. שני המסלולים היו מוכנים כאן מזמן,
+   וההבדל היחיד ביניהם הוא משתנה הסביבה הזה — כלומר מי ששוכח להגדיר אותו קיבל
+   דווקא את המסלול החלש. עכשיו השכחה מובילה למסלול החזק, ומי שרוצה secret_url
+   חייב לבקש אותו במפורש.
+   בטוח לשנות כרגע *כי עדיין אין ספק תשלומים מחובר*: hmac נכשל־סגור בלי סוד
+   (שורה 84), כך שהמצב בפועל לפני ואחרי זהה — הכול נדחה. אחרי שיחובר ספק במצב
+   secret_url, שינוי כזה ישבור webhooks חיים. */
+const VERIFY_MODE = Deno.env.get('BILLING_VERIFY_MODE') ?? 'hmac';
 const SIG_HEADER  = Deno.env.get('BILLING_SIG_HEADER')  ?? 'X-PayPlus-Signature';
 const SIG_SCHEME  = Deno.env.get('BILLING_SIG_SCHEME')  ?? 'raw';
 const REVERIFY    = (Deno.env.get('BILLING_REVERIFY') ?? 'true') === 'true';
@@ -111,8 +118,19 @@ async function verifyOrigin(req: Request, raw: string, url: URL): Promise<Verify
   // ולכן REVERIFY חייב להיות true במצב הזה.
   if (VERIFY_MODE === 'secret_url') {
     if (!SECRET) return { ok: false, method: 'secret_url', reason: 'אין סוד מוגדר' };
-    const given = url.searchParams.get('k')
-      ?? url.pathname.split('/').filter(Boolean).pop() ?? '';
+    /* הכותרת נבדקת ראשונה, והכתובת רק כנפילה אחורה.
+       ההבדל אינו בחוזק ההשוואה אלא בכמה עותקים של הסוד נשארים אחרי הבקשה: מה
+       שיושב ב-query string נכתב ליומן ה-gateway של Supabase, ליומן של כל proxy
+       בדרך וליומן היוצא של הספק — שלושה מקומות שאיש אינו מנקה, ושהגישה אליהם
+       רחבה בהרבה מהגישה לסוד עצמו. כותרת אינה נרשמת באף אחד מהם.
+       רוב הספקים מאפשרים כותרת מותאמת על כתובת ה-callback; מי שלא, ממשיך לעבוד
+       דרך ?k= בלי שינוי. לכן זו הוספה ולא החלפה.
+       מקטע הנתיב ירד: הוא היה נפילה אחורה שנייה שהשוותה את החלק האחרון של ה-URL
+       לסוד — כלומר גם את המחרוזת 'billing-webhook' עצמה. לא ניתן לניצול מול סוד
+       אקראי, אבל זה משטח השוואה שאיש לא ביקש, והוא הפך כל שינוי עתידי בנתיב
+       לשאלה אבטחתית. */
+    const given = req.headers.get('x-webhook-secret')
+      ?? url.searchParams.get('k') ?? '';
     return { ok: safeEq(given, SECRET), method: 'secret_url' };
   }
 
@@ -306,9 +324,14 @@ Deno.serve(async (req) => {
 
   // בדיקת חיים. קיימת בשביל דבר אחד: לוודא ש-verify_jwt=false באמת נתפס.
   // אם זה מחזיר 401 במקום 200 — הקונפיגורציה לא נפרסה, וכל webhook ייפול בשקט.
+  /* הגוף מצומצם ל-ok בלבד. הנתיב הזה פתוח בלי אימות — הוא חייב להיות, כי זה כל
+     תפקידו — ולכן כל שדה בו הוא מודיעין חינם לכל מי שסורק: verify_mode ו-reverify
+     אמרו לתוקף אם אנחנו על חתימה או על סוד־שבכתובת, ואם האימות החוזר דלוק. זה
+     בדיוק המידע שקובע אם כדאי לו לנסות בכלל, ולאיזה כיוון.
+     ה-200 עצמו נשאר — הוא מה שנוהל הפריסה בודק (supabase/README.md:47,82), והוא
+     עונה על השאלה היחידה שהנתיב נועד לה: האם verify_jwt=false באמת נתפס. */
   if (req.method === 'GET' && url.pathname.endsWith('/health')) {
-    return json({ ok: true, provider: PROVIDER, env: ENV,
-                  verify_mode: VERIFY_MODE, reverify: REVERIFY }, 200);
+    return json({ ok: true }, 200);
   }
 
   if (req.method !== 'POST') return new Response('method not allowed', { status: 405 });
