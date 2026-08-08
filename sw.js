@@ -2,7 +2,7 @@
    ONE place to bump on every deploy: REV. It names the cache *and* the asset query strings,
    so the URLs precached here are byte-for-byte the URLs index.html requests. When those drift
    apart the app silently keeps serving an old build — which is exactly what used to happen. */
-const REV = '175';
+const REV = '176';
 const V = 'hw-v' + REV;
 /* App DATA must not live in a versioned cache. The personalised reminder text was written into
    hw-v<REV>, so the next deploy deleted it along with the assets — and it was never rewritten,
@@ -17,7 +17,7 @@ const ASSETS = [
   './icon-192.png', './icon-512.png', './icon-maskable-512.png',
   /* הפונטים. בלי ?v= בכוונה, ושתי סיבות נפרדות מחייבות זאת:
      · ההתאמה ב-cache-first היא על ה-URL המדויק כולל ה-query. ה-@font-face ב-index.html
-       מפנה ל-fonts/x.woff2 בלי query, ולכן רשומה עם ?v=175 לא הייתה נענית לעולם —
+       מפנה ל-fonts/x.woff2 בלי query, ולכן רשומה עם ?v=${REV} לא הייתה נענית לעולם —
        הפונטים היו יורדים מהרשת בכל פעם, כלומר בדיוק הבאג שהמעבר הזה בא לתקן.
      · הקבצים immutable — התוכן שלהם לא משתנה בין דיפלויים. תלייתם ב-REV הייתה מכריחה
        הורדה חוזרת של 152KB בכל העלאת גרסה, בפרויקט שסופר רוחב פס.
