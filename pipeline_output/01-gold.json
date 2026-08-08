@@ -1,0 +1,13068 @@
+{
+ "held_out": [
+  "autumn_2022.txt",
+  "summer_2026.txt",
+  "winter_2023.txt",
+  "winter_2025.txt"
+ ],
+ "calibration": [
+  "autumn_2021.txt",
+  "autumn_2023.txt",
+  "autumn_2024.txt",
+  "autumn_2025.txt",
+  "spring_2022.txt",
+  "spring_2023.txt",
+  "spring_2024.txt",
+  "spring_2025.txt",
+  "spring_2026.txt",
+  "summer_2021.txt",
+  "summer_2022.txt",
+  "summer_2023.txt",
+  "summer_2024.txt",
+  "summer_2025.txt",
+  "winter_2021.txt",
+  "winter_2022.txt",
+  "winter_2024.txt"
+ ],
+ "profile": {
+  "n": 1056,
+  "books_p05": 639,
+  "books_p10": 1274,
+  "books_p25": 3975,
+  "books_p50": 17991,
+  "books_p75": 78300,
+  "books_p90": 239861,
+  "books_p95": 504658,
+  "pos_mix": {
+   "שם עצם": 53.8,
+   "פועל": 31.8,
+   "שם תואר": 14.4
+  },
+  "band_mix": {
+   "1": 73,
+   "2": 74,
+   "3": 51,
+   "4": 47,
+   "5": 31,
+   "6": 76,
+   "7": 156,
+   "8": 192,
+   "9": 239,
+   "10": 115
+  },
+  "floor_books": 14329,
+  "target_books": 21230
+ },
+ "gold": {
+  "רפת": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "גבינה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "מאפייה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "לחם": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 2.178
+  },
+  "אסם": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "תבואה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "כרם": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "יין": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "פרדס": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "תפוז": {
+   "exams": 2,
+   "pos": 0.0,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 1.556
+  },
+  "נוכח": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "איננו": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "צפוני": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "דרומי": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "דולק": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.667
+  },
+  "כבוי": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "קונה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "מוכר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "קפוא": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "רותח": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "אהוב": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "אהב": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "מזין": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "האכיל": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 2.8
+  },
+  "נרגע": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "נחוץ": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "הזדקק": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "נהדר": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "החמיא": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "עלווה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "עלה": {
+   "exams": 5,
+   "pos": 1.0,
+   "analogy": 5,
+   "infer": 6,
+   "weight": 7.379
+  },
+  "לבוש": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "חולצה": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 3.422
+  },
+  "צעדה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "צעד": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "סלט": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 3.422
+  },
+  "ירק": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 3.422
+  },
+  "שער": {
+   "exams": 3,
+   "pos": 1.0,
+   "analogy": 3,
+   "infer": 5,
+   "weight": 5.716
+  },
+  "שערה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "אופי": {
+   "exams": 3,
+   "pos": 1.0,
+   "analogy": 3,
+   "infer": 4,
+   "weight": 5.716
+  },
+  "עמדו על טיבו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "עמדו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "טיבו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "ברה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "קנסוהו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "כינוהו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "מקום": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "איתרוהו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "רמז": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.045
+  },
+  "פתרוהו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "איזה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "אילו": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "שניים": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "שתיים": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "איה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "יומיים": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "ימים": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.667
+  },
+  "הרשה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "רשות": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "ציווה": {
+   "exams": 3,
+   "pos": 1.0,
+   "analogy": 3,
+   "infer": 6,
+   "weight": 5.716
+  },
+  "פקודה": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.178
+  },
+  "חוקק": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "אכיפה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "ביקש": {
+   "exams": 3,
+   "pos": 0.8,
+   "analogy": 3,
+   "infer": 5,
+   "weight": 4.954
+  },
+  "הסכמה": {
+   "exams": 4,
+   "pos": 0.6,
+   "analogy": 4,
+   "infer": 6,
+   "weight": 4.84
+  },
+  "פטר": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "חובה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "רטוב": {
+   "exams": 3,
+   "pos": 1.0,
+   "analogy": 3,
+   "infer": 5,
+   "weight": 5.716
+  },
+  "קליל": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.667
+  },
+  "ארכני": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "ארוך": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "שביר": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.178
+  },
+  "שבור": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 2.178
+  },
+  "אדמדם": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "אדום": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "מופע": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "הדרן": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.045
+  },
+  "ספר": {
+   "exams": 5,
+   "pos": 0.8,
+   "analogy": 5,
+   "infer": 7,
+   "weight": 6.395
+  },
+  "נספח": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "תמונה": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 3.422
+  },
+  "מסגרת": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "מחזה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "מערכה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "שיר": {
+   "exams": 3,
+   "pos": 0.8,
+   "analogy": 3,
+   "infer": 6,
+   "weight": 4.954
+  },
+  "פזמון": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 2.8
+  },
+  "לפורר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "פירורים": {
+   "exams": 3,
+   "pos": 1.0,
+   "analogy": 3,
+   "infer": 6,
+   "weight": 5.716
+  },
+  "לרסק": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "רסק": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "לקלף": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 3.422
+  },
+  "קליפה": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 3.422
+  },
+  "להמליח": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מלח": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 3.422
+  },
+  "לנסר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "נסורת": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "כבש את יצרו": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.045
+  },
+  "כבש": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.045
+  },
+  "יצרו": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.045
+  },
+  "להתפתות": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "יצא בשן ועין": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "יצא": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "בשן": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "ועין": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "להיפגע": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "נמלך בדעתו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "נמלך": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "בדעתו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "להחליט": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "פתח סגור ליבו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "פתח": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "סגור": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "ליבו": {
+   "exams": 4,
+   "pos": 1.0,
+   "analogy": 5,
+   "infer": 7,
+   "weight": 6.6
+  },
+  "להסתיר": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "חשק שפתיו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "חשק": {
+   "exams": 3,
+   "pos": 1.0,
+   "analogy": 3,
+   "infer": 5,
+   "weight": 5.716
+  },
+  "שפתיו": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.045
+  },
+  "לדבר": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "הנה": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "חזית": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "אחורה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "ימין": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "ימינה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "תחת": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "מתחת": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "פנים": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "בתוך": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "סבוך": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 2.178
+  },
+  "להתיר": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "לתקן": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "חבוי": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.667
+  },
+  "למצוא": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "קטן": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "לכווץ": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "בולט": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "להבחין": {
+   "exams": 2,
+   "pos": 0.0,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 1.556
+  },
+  "מחבת": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 2.178
+  },
+  "לאכול": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "שמיכה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "לישון": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 2.178
+  },
+  "לקרוא": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 2.178
+  },
+  "מחט": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.178
+  },
+  "להשחיל": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "גרזן": {
+   "exams": 3,
+   "pos": 0.4,
+   "analogy": 3,
+   "infer": 4,
+   "weight": 3.429
+  },
+  "לחטוב": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.667
+  },
+  "מחל": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "נסלח": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "שתק": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "נאלם": {
+   "exams": 3,
+   "pos": 0.6,
+   "analogy": 6,
+   "infer": 11,
+   "weight": 4.192
+  },
+  "הסביר": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 2.8
+  },
+  "בואר": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "משך": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "נקרע": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "פשע": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.8
+  },
+  "נשפט": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "נורה": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.045
+  },
+  "כבויה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "פרח": {
+   "exams": 5,
+   "pos": 1.0,
+   "analogy": 5,
+   "infer": 7,
+   "weight": 7.379
+  },
+  "נבול": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "ברז": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "דולף": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "תריס": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 3.422
+  },
+  "פתוח": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "כתב": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "מחוק": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "קפץ": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "עגול": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "צנח": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "נמוך": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "זקף": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "ניצב": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "גבה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "נישא": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "ניבל את פיו": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "ניבל": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "פיו": {
+   "exams": 3,
+   "pos": 1.0,
+   "analogy": 3,
+   "infer": 5,
+   "weight": 5.716
+  },
+  "גסות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "הלבין את פניו": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "הלבין": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "פניו": {
+   "exams": 3,
+   "pos": 1.0,
+   "analogy": 4,
+   "infer": 6,
+   "weight": 5.716
+  },
+  "בושה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "חשק את שיניו": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "שיניו": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.667
+  },
+  "כעס": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.667
+  },
+  "דיבר על ליבו": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.667
+  },
+  "דיבר": {
+   "exams": 3,
+   "pos": 1.0,
+   "analogy": 4,
+   "infer": 5,
+   "weight": 5.716
+  },
+  "שכנוע": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "דיבר גבוהה גבוהה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "גבוהה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "מליצה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "רוגטקה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "אבן": {
+   "exams": 3,
+   "pos": 1.0,
+   "analogy": 4,
+   "infer": 6,
+   "weight": 5.716
+  },
+  "רובה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "הדק": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.8
+  },
+  "תותח": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "פגז": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "חרב": {
+   "exams": 3,
+   "pos": 0.6,
+   "analogy": 3,
+   "infer": 5,
+   "weight": 4.192
+  },
+  "נדן": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 3.422
+  },
+  "מטרה": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 3.422
+  },
+  "לדעוך": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "לקמול": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "מים": {
+   "exams": 4,
+   "pos": 1.0,
+   "analogy": 5,
+   "infer": 8,
+   "weight": 6.6
+  },
+  "להסתנוור": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "אור": {
+   "exams": 3,
+   "pos": 0.2,
+   "analogy": 3,
+   "infer": 5,
+   "weight": 2.667
+  },
+  "להתבהר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "ענן": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.178
+  },
+  "להתנדף": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "ריח": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.045
+  },
+  "משכיל": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 2.8
+  },
+  "ידע": {
+   "exams": 3,
+   "pos": 1.0,
+   "analogy": 3,
+   "infer": 4,
+   "weight": 5.716
+  },
+  "נהנתן": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 3.422
+  },
+  "הנאה": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 3.422
+  },
+  "כבד": {
+   "exams": 4,
+   "pos": 0.6,
+   "analogy": 4,
+   "infer": 8,
+   "weight": 4.84
+  },
+  "משקל": {
+   "exams": 4,
+   "pos": 0.6,
+   "analogy": 4,
+   "infer": 8,
+   "weight": 4.84
+  },
+  "עתיק": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 2.8
+  },
+  "זמן": {
+   "exams": 5,
+   "pos": 1.0,
+   "analogy": 5,
+   "infer": 9,
+   "weight": 7.379
+  },
+  "מוצף": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "הדיר רגליו": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "הדיר": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.045
+  },
+  "רגליו": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.045
+  },
+  "פוקד": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "כרה אוזנו": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "כרה": {
+   "exams": 3,
+   "pos": 0.6,
+   "analogy": 3,
+   "infer": 4,
+   "weight": 4.192
+  },
+  "אוזנו": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מקשיב": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 3.422
+  },
+  "ניער חוצנו": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "ניער": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "חוצנו": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מעורב": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "פשט ידו": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "פשט": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "ידו": {
+   "exams": 3,
+   "pos": 1.0,
+   "analogy": 3,
+   "infer": 6,
+   "weight": 5.716
+  },
+  "תורם": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 3.422
+  },
+  "סעד את ליבו": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "סעד": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "שבע": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "נתן": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "השאלה": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.045
+  },
+  "שתה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "לגימה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "ישן": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "תנומה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "חדל": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "הפוגה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "דחה": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "עיכוב": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "לסבור": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "לחשוד": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "להניח": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "להסיק": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "לדווח": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "להתלונן": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "לכעוס": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.667
+  },
+  "לזעום": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "לסכן": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "להזהיר": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "אכסניה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "מספרה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "הסתפר": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "מרפאה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "חלה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "מסעדה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "בישל": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "משתלה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "שתל": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 2.8
+  },
+  "היתר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "רשאי": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "סיוע": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "מתקשה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "אזהרה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "זהיר": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.045
+  },
+  "איסור": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "מוענש": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "מחויב": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "להב": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "פגיון": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "אקדח": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "פקק": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "בקבוק": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.8
+  },
+  "שערות": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "מכחול": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "מפחיד": {
+   "exams": 3,
+   "pos": 0.6,
+   "analogy": 3,
+   "infer": 5,
+   "weight": 4.192
+  },
+  "פחדן": {
+   "exams": 4,
+   "pos": 1.0,
+   "analogy": 4,
+   "infer": 6,
+   "weight": 6.6
+  },
+  "מוטל בספק": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "מוטל": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "בספק": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "ספקן": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "עשוי בקפידה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "בקפידה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "דקדקן": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "ראוי לשבח": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "ראוי": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "לשבח": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "גאוותן": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "משובב נפש": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "משובב": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "נפש": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 3,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "ללכוד": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "להיחלץ": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "לשבור": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "להתאחות": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "לפגוע": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "להתגונן": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "לשכוח": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "להיזכר": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "לבקש": {
+   "exams": 3,
+   "pos": 0.8,
+   "analogy": 3,
+   "infer": 3,
+   "weight": 4.954
+  },
+  "להיענות": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "עיר רפאים": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "עיר": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.667
+  },
+  "רפאים": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "תושבים": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מרושש": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "נכסים": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "עקר": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.667
+  },
+  "צאצאים": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "סגפן": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מותרות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "יחף": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "נעליים": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "גפרור": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "מאוורר": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "אוויר": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 2.8
+  },
+  "מזווה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "מזון": {
+   "exams": 4,
+   "pos": 0.6,
+   "analogy": 4,
+   "infer": 6,
+   "weight": 4.84
+  },
+  "סכר": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.045
+  },
+  "לסירוגין": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "רציפות": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "במשורה": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.8
+  },
+  "כמות": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "על רגל אחת": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "רגל": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.045
+  },
+  "יסודיות": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "בשוויון נפש": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "בשוויון": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "אדישות": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.178
+  },
+  "מילא": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "התפקע": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "הרס": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "נחרב": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "אפה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "נשרף": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "איחר": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "הוחמץ": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "הפיל": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "התנפץ": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "השיב פניו ריקם": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "השיב": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "ריקם": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "המרה פיו": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "המרה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "עמד על דעתו": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.667
+  },
+  "עמד": {
+   "exams": 4,
+   "pos": 1.0,
+   "analogy": 4,
+   "infer": 6,
+   "weight": 6.6
+  },
+  "דעתו": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.667
+  },
+  "שכנע": {
+   "exams": 3,
+   "pos": 0.6,
+   "analogy": 3,
+   "infer": 5,
+   "weight": 4.192
+  },
+  "הקביל את פניו": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "הקביל": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "הזמין": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "ריפה את ידיו": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "ריפה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "ידיו": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "עודד": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "שירון": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "שאלון": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "שאלה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "פסלון": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "פסל": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "פעוטון": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "פעוט": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "מקומון": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "תרחיש": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "להתרחש": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "מטלה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "להתבצע": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "תגלית": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "להתגלות": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "הבטחה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "לקיים": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "מועמד": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "להיבחר": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "הוא אחד מהם": {
+   "exams": 1,
+   "pos": 0.727,
+   "analogy": 0,
+   "infer": 1,
+   "weight": 0.859
+  },
+  "מהם": {
+   "exams": 1,
+   "pos": 0.727,
+   "analogy": 0,
+   "infer": 1,
+   "weight": 0.859
+  },
+  "צמחים": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 4.045
+  },
+  "מחניק": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "נשימה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "אפלולי": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "ראייה": {
+   "exams": 3,
+   "pos": 0.4,
+   "analogy": 3,
+   "infer": 3,
+   "weight": 3.429
+  },
+  "לוהט": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 3.422
+  },
+  "הזעה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "רעיל": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "אכילה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "מטונף": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "רחצה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "סנגור": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "זיכוי": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "רופא": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 5,
+   "infer": 6,
+   "weight": 2.178
+  },
+  "אבחון": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "תרופה": {
+   "exams": 3,
+   "pos": 0.2,
+   "analogy": 3,
+   "infer": 4,
+   "weight": 2.667
+  },
+  "טיפול": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "החלמה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "אלומה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "שיבולת": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "צעיף": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "צמר": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "משפחה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "ילד": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "מחברת": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.667
+  },
+  "ייתכן": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "אפשרות": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 3.422
+  },
+  "סליחה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "עלבון": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "הלוואי": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 3.422
+  },
+  "תקווה": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.667
+  },
+  "תוצאה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "בהצלחה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "איחול": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "שטח תחנוניו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "שטח": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "תחנוניו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "שידל": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "עמד בסירובו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "בסירובו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "פעל": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.045
+  },
+  "שינס מותניו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "שינס": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "מותניו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "בייש": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "המיט קלון": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "המיט": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.667
+  },
+  "קלון": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "אימץ": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "דחה על הסף": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "הסף": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "זורם": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מוזרם": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "טומן": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מוטמן": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "שומע": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מושמע": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "שותק": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מושתק": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "דואג": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מודאג": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "שחצן": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "להתרברב": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "עצלן": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "להתאמץ": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "רגשן": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "להתרגש": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "סכסכן": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "להסתכסך": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "להפחיד": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "תלונה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "התלבט": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 3.422
+  },
+  "החלטה": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 2.178
+  },
+  "שאל": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "תשובה": {
+   "exams": 4,
+   "pos": 0.6,
+   "analogy": 4,
+   "infer": 7,
+   "weight": 4.84
+  },
+  "בישר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "ידיעה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "טיעון": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "דבורה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "להמתיק": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "צורף": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "לקשט": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "חייט": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "לארוג": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 2.8
+  },
+  "סתת": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "לגור": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "כורם": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "לבצור": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "התלקח": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "לבעור": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "נטע": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "לקטוף": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 3.422
+  },
+  "דגר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "לבקוע": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "החלים": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "לחלות": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "לשתוק": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 3.422
+  },
+  "אובייקטיביות": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "משוא פנים": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "משוא": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "ענווה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "גבהות לב": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "גבהות": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "בזבזנות": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "פשיטת רגל": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "פשיטת": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "סבלנות": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "אורך רוח": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.045
+  },
+  "אורך": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.045
+  },
+  "רוח": {
+   "exams": 3,
+   "pos": 1.0,
+   "analogy": 3,
+   "infer": 5,
+   "weight": 5.716
+  },
+  "הצלחה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "צרות עין": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "צרות": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "עין": {
+   "exams": 5,
+   "pos": 1.0,
+   "analogy": 5,
+   "infer": 8,
+   "weight": 7.379
+  },
+  "תקרובת": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "באר": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "דלי": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "צוהר": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "נוף": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "מעבורת": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "גדה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "אקרן": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "סרט": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.667
+  },
+  "חיריק": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "לנקד": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "גוון": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "לצבוע": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "שלוש": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "להכפיל": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "מעיל": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.8
+  },
+  "לרכוס": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "קינמון": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "לתבל": {
+   "exams": 2,
+   "pos": 0.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 1.556
+  },
+  "עובד": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "חובל": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "חייל": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.8
+  },
+  "טירון": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.8
+  },
+  "שופט": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "עורך דין": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "עורך": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "דין": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.178
+  },
+  "סוהר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "אסיר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "בור": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 2.8
+  },
+  "שתיל": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 2.8
+  },
+  "אוכל": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 2.8
+  },
+  "הדביק": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 2.8
+  },
+  "דבק": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "צייר": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 2.8
+  },
+  "ציור": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "החליש": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "מיגר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "עמעם": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "כיבה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "עלעל": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "רפרף": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 3.422
+  },
+  "ערער": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "הסכים": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "עפעף": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 3.422
+  },
+  "פלבל": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "תחינה": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.667
+  },
+  "ליבו נכמר": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "נכמר": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "פשרה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "נאבק": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "תזכורת": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "נזכר": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "צידוק": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "הצטדק": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "תשלום": {
+   "exams": 3,
+   "pos": 0.8,
+   "analogy": 3,
+   "infer": 4,
+   "weight": 4.954
+  },
+  "התמקח": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "גירד": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "ציפורן": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "ליקק": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "לשון": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "סטר": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "לחי": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "מצמץ": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "ענד": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "תנוך": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "מידע": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.667
+  },
+  "סקרן": {
+   "exams": 3,
+   "pos": 0.8,
+   "analogy": 3,
+   "infer": 4,
+   "weight": 4.954
+  },
+  "עמדות": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "דעתן": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "כסף": {
+   "exams": 3,
+   "pos": 0.2,
+   "analogy": 3,
+   "infer": 5,
+   "weight": 2.667
+  },
+  "בזבזן": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "תאווה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "חמדן": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "הישגים": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "שאפתן": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "להיחפז": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "לזרז": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "להימלט": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "לרדוף": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.8
+  },
+  "להקשיב": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "להאזין": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.8
+  },
+  "להיזהר": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 2.8
+  },
+  "להתריע": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.8
+  },
+  "להיעזר": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "להזדקק": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "מחלפות": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מספריים": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "חיטה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מגל": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מאכלת": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "סכין": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מסור": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מנומר": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "חברבורה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "מכופתר": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "כפתור": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "כדורי": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "כדור": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "פרחוני": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "מגולען": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "גלעין": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "ערג": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "כיסופים": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "התעמר": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "ייסורים": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "התבדה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "אשליות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "התעודד": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.667
+  },
+  "ניחומים": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "התחבט": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "לבטים": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "לענוד": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "תכשיט": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "לתלות": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "קולב": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.8
+  },
+  "להטליא": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "טלאי": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "לשרוך": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "שרוך": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "לחבוש": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "כובע": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "לכפתר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "רכוס": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "ערב": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "להעפיל": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 2.178
+  },
+  "תלול": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 2.178
+  },
+  "קריא": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "לרוקן": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "ריק": {
+   "exams": 4,
+   "pos": 0.4,
+   "analogy": 4,
+   "infer": 6,
+   "weight": 3.96
+  },
+  "בגפו": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "בן לוויה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "לוויה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "אבו": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "ראשית": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "באקראי": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "תכנון": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "מידה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "בדיעבד": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.667
+  },
+  "מעשה": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.667
+  },
+  "כילה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "נעקץ": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "אזעקה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "פרץ": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "מעקה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "נפל": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "אצבעון": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "תפר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "רשת": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "נלכד": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "מחוגים": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "שעון": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "פנס": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "כריכה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "חוטים": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "שטרות": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "ארנק": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "דלה מידע": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "דלה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "סקרנות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "נפלו פניו": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "נפלו": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "עצבות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "נפל בפח": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "בפח": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "עורמה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "עלה על יצועו": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "יצועו": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "עייפות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "העלה ארוכה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "העלה": {
+   "exams": 4,
+   "pos": 1.0,
+   "analogy": 4,
+   "infer": 5,
+   "weight": 6.6
+  },
+  "ארוכה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "פציעה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "חוקי": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "צפוי": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "הפתיע": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "מסוכן": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "הזהיר": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "תיקן": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.045
+  },
+  "חשוב": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "זלזל": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "תובעני": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "מאמץ": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "יקר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "אצטבה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "על גבי": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "גבי": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "גדר": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "סביב": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "דלת": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "לתוך": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "קופסה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "תקרה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "מעל": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "נשמר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "נוטר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "נקרא": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "כותב": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "נתמך": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "סועד": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 3.422
+  },
+  "נזקק": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "נטווה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "אורג": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "אין עליו עוררין": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "עליו": {
+   "exams": 3,
+   "pos": 1.0,
+   "analogy": 3,
+   "infer": 5,
+   "weight": 5.716
+  },
+  "עוררין": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "שנוי במחלוקת": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "שנוי": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "במחלוקת": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "אין לו דורש": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "דורש": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "אין לאל ידו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "לאל": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "מסוגל": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "אין לו זכר": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "זכר": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "נעלם": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "אין לעמוד בפניו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "לעמוד": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "בפניו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "מתפתה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "בנה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "חורבות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "רחץ": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.667
+  },
+  "לכלוך": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "גדם": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "פסע": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "עקבות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "אכל": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "לפחד": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "רגזן": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "להתעצבן": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "צייתן": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "לצוות": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "מיומן": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "להתאמן": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "ללמוד": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "רוה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "דכדוך": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "חולי": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "הזכיר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "שכחה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "התמלא": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "עומס": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "ירכתיים": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "חרטום": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "בניין": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "גלגלים": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "הגה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "שורש": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.8
+  },
+  "צמרת": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.8
+  },
+  "רגליים": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "ידיים": {
+   "exams": 3,
+   "pos": 0.8,
+   "analogy": 3,
+   "infer": 3,
+   "weight": 4.954
+  },
+  "היגר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "הוגלה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "מעד": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "נחבל": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "גידף": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "נעלב": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "הפקיר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "ננטש": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "הסתגר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "נכלא": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "נדיר": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "שכיחות": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "איטי": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "מהירות": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "קבוע": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "ארעיות": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "קטין": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "בגרות": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "הסתכנות": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "כלימה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "המיט עליו חרפה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "חרפה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מפח נפש": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מפח": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "הפיח בו תקווה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "הפיח": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "קשיות עורף": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "קשיות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "עורף": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.667
+  },
+  "קורת רוח": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "קורת": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "השביע את רצונו": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "השביע": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "רצונו": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מובן מאליו": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "מובן": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "מאליו": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "להסביר": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "נעול": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "להיכנס": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "חינם": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "לשלם": {
+   "exams": 3,
+   "pos": 0.4,
+   "analogy": 3,
+   "infer": 5,
+   "weight": 3.429
+  },
+  "מקורי": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "לזייף": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "סודי": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "לגלות": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "לשאול": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.8
+  },
+  "להתנצל": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "מחילה": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.178
+  },
+  "לחטוא": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "עונש": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "להחמיא": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "חנופה": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 3.422
+  },
+  "להתלבט": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "חברבורות": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "נמר": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "פסים": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "זברה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "חטים": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "פיל": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "פרסות": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "סוס": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "קשקשים": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "לפת": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.045
+  },
+  "אחז": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.045
+  },
+  "גדע": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "גזם": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "הלם": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "דפק": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "חתך": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "פרס": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "נשא": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "סחב": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "תגבורת": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "כוח אדם": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "כוח": {
+   "exams": 5,
+   "pos": 1.0,
+   "analogy": 6,
+   "infer": 9,
+   "weight": 7.379
+  },
+  "אדם": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "תבלין": {
+   "exams": 3,
+   "pos": 1.0,
+   "analogy": 3,
+   "infer": 6,
+   "weight": 5.716
+  },
+  "טעם": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "הדגשה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "חשיבות": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "צעקה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "קול": {
+   "exams": 3,
+   "pos": 0.8,
+   "analogy": 3,
+   "infer": 4,
+   "weight": 4.954
+  },
+  "ארכה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "אזמל": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "קהה": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "מסרק": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "סתור": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "בגד": {
+   "exams": 3,
+   "pos": 1.0,
+   "analogy": 3,
+   "infer": 4,
+   "weight": 5.716
+  },
+  "מוכתם": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "מנוע": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "דומם": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.667
+  },
+  "בית ספר": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "בית": {
+   "exams": 3,
+   "pos": 1.0,
+   "analogy": 4,
+   "infer": 4,
+   "weight": 5.716
+  },
+  "השכלה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "חדר הלבשה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "חדר": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 5,
+   "infer": 5,
+   "weight": 2.8
+  },
+  "הלבשה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "בגדים": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 2.8
+  },
+  "חדר ישיבות": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "ישיבות": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "ישיבה": {
+   "exams": 2,
+   "pos": 0.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 1.556
+  },
+  "חדר אוכל": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "חדר כושר": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "כושר": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "צמח": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "לימון": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "פרי": {
+   "exams": 3,
+   "pos": 0.4,
+   "analogy": 3,
+   "infer": 4,
+   "weight": 3.429
+  },
+  "זחל": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "פרפר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "נחל": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 2.178
+  },
+  "זנב": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "חיה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "לשכור": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "לדרוש": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "לקחת": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "לגנוב": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 2.8
+  },
+  "לגבות": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "לתת": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "למכור": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "מתמיה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "תמיהה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "מתיש": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "תשישות": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "מועיל": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "תועלת": {
+   "exams": 3,
+   "pos": 1.0,
+   "analogy": 3,
+   "infer": 4,
+   "weight": 5.716
+  },
+  "מצחין": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "צחנה": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "מדויק": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "דייקנות": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.667
+  },
+  "העלה מתהום הנשייה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מתהום": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "הנשייה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "שכוח": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "חנן": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "אסור": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "ספן": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "פקפק": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מאמין": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "הכניע": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מנוצח": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "ירד מנכסיו": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "ירד": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "מנכסיו": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "רכוש": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.8
+  },
+  "נגזר דינו": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "נגזר": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "דינו": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "בא אל קיצו": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "קיצו": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "תש כוחו": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "כוחו": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "יצר": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "אדריכל": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.667
+  },
+  "דייר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "מלצר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "מנצח": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "נגן": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "נהג": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "נוסע": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "מחזאי": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "צופה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "חלוקים": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "שוני": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "זהים": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "אחריות": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "ערבים": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "מפגש": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "מצטלבים": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "חפות": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "מורשעים": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "חימם": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "הפחיד": {
+   "exams": 3,
+   "pos": 0.6,
+   "analogy": 3,
+   "infer": 5,
+   "weight": 4.192
+  },
+  "עייף": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מותש": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "ניפץ": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מנופץ": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "להלשין": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "להתוודות": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "לבייש": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "להתבייש": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "להתפאר": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "לסכסך": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "להתווכח": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "להעניק": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "לקבל": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "לשמוע": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "לדרוך": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "מיתר": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "לפרוט": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "לחפור": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "רגש": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "עצב": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "נהר": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "סלון": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "עדר": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "כבשה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "שמלה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "מושלם": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "דופי": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "מבוסס": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.045
+  },
+  "יסוד": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "פשוט": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "עצום": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "גודל": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "תוכן": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "להעליל": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 3.422
+  },
+  "להאשים": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "להניא": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "להימנע": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "להשלות": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "להבטיח": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "להפריך": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "להוכיח": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "להשעות": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "לפטר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "לא נקף אצבע": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "נקף": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "אצבע": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.045
+  },
+  "ותרן": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "הקשה עורפו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "הקשה": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "עורפו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "גרגרן": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "לא ידע שובע": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "שובע": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "אשם": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.045
+  },
+  "רחץ בניקיון כפיו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "בניקיון": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "כפיו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "הדהים": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "השתאות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "הסכין": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "השלמה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "הפציר": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "היענות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "הרנין": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "עליצות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "התריע": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "שאננות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "להיווכח": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "שתיקה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "להשתיק": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "המלצה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "להמליץ": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "זהירות": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 3.422
+  },
+  "מתכנת": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "תוכנה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "חשמלאי": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "חשמל": {
+   "exams": 3,
+   "pos": 1.0,
+   "analogy": 3,
+   "infer": 4,
+   "weight": 5.716
+  },
+  "אופה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "מאפה": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 2.8
+  },
+  "טייס": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "מטוס": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.178
+  },
+  "זקנה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "ינקות": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "שמאל": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 3.422
+  },
+  "הקדמה": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.045
+  },
+  "גרמים": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "יממה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "שעות": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "נוזל": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "שנתות": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "זווית": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מעלות": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מספר": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 3.422
+  },
+  "ספרות": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "ברח": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "שרבט": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "ציר": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "האיר": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "הבזיק": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "זרם": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "שצף": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "עורר את חמתו": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "עורר": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "חמתו": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "שם נפשו בכפו": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "נפשו": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "בכפו": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "נתן בכוס עינו": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "בכוס": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "עינו": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "שתיין": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "נדיב": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "הרמת ידיים": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "הרמת": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "כניעה": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 2.8
+  },
+  "פיהוק": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "שינה": {
+   "exams": 4,
+   "pos": 0.6,
+   "analogy": 4,
+   "infer": 5,
+   "weight": 4.84
+  },
+  "הנהון": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "עיטוש": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "הצטננות": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "חיוך": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "שמחה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "לצותת": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "הקשיב": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "לאיים": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "הרתיע": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "לקח": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "להרביץ": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "הכה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "נמלט": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.86
+  },
+  "ארון בגדים": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "ארון": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "תבנית": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "עוגה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "מלון": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "גינה": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.8
+  },
+  "חניון": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.8
+  },
+  "מכונית": {
+   "exams": 3,
+   "pos": 0.4,
+   "analogy": 3,
+   "infer": 4,
+   "weight": 3.429
+  },
+  "מגובב": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "סדר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "מוצפן": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "פשר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "תזזיתי": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "מנוחה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "אלמותי": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "חיים": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.045
+  },
+  "צעיר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "גיל": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 3.422
+  },
+  "התיילד": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "מבוגר": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "התרושש": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.045
+  },
+  "עשיר": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "הכחיש": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "הבליג": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "כועס": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "התחלה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "בריא": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "בנקל": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "קושי": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "טיפין טיפין": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "טיפין": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "הדרגה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "להרף עין": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "להרף": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "פרק זמן": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "פרק": {
+   "exams": 3,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 5.716
+  },
+  "כלאחר יד": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "כלאחר": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "תשומת לב": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "תשומת": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מחושב": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "שיקול דעת": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "שיקול": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "דעת": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 2.178
+  },
+  "סבלן": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "כובד ראש": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "כובד": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "ראש": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "אביון": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "אוזלת יד": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "אוזלת": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "פזרן": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "רוחב לב": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "רוחב": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "לברא": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "לשאוב": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "נעל": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "לחלוץ": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "אריג": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "מזרק": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "לחסן": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "דרך": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "מהמורה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "גשם": {
+   "exams": 3,
+   "pos": 0.4,
+   "analogy": 3,
+   "infer": 4,
+   "weight": 3.429
+  },
+  "בצורת": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "גשר": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "תהום": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "תקר": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "עדשה": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 2.8
+  },
+  "שריטה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "מהנה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "פחד": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מקנא": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "קנאה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "קשב": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "הדיר את רגליו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "פקד": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "חשק את שפתיו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "העלה חרס בידו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "חרס": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "בידו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "נכשל": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "נמלט בעור שיניו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "בעור": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "ניצל": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "מרט את עצביו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "מרט": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "עצביו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "הרגיע": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "לולייני": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "סליל": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "מחודד": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "כידון": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "סגלגל": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "ביצה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "מקורזל": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "גבשושי": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "בליטה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "צרידות": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "דיבור": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 2.178
+  },
+  "עיוורון": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "קירחות": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "סירוק": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "סיוט": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "צליעה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "הליכה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "אופניים": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.178
+  },
+  "קטנוע": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "משאית": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "דאון": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "ספינה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "צוללת": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "מריצה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "עגלה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "הלך בעקבותיו": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "הלך": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "בעקבותיו": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "הוביל": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "זרה חול בעיניו": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "זרה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "חול": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "בעיניו": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "טעה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "בא בצל קורתו": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "בצל": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "קורתו": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "אירח": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "בא כשמן בעצמותיו": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "כשמן": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "בעצמותיו": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "הנעים": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "לנקז": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "מרזב": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "לייעד": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "לצלם": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "להרתיע": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "איום": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "להציע": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "צמחייה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "נגנים": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "תזמורת": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "דגים": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "דגה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "שוטרים": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "משטרה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "ציפורים": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "להקה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "מסיס": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "ממו סס": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "ממו": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "דליק": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "פתיר": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "פותר": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "זריז": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מזרז": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מקל": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "תכולה": {
+   "exams": 2,
+   "pos": 0.4,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 2.8
+  },
+  "סוטה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "נורמה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "קירח": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "טמפרטורה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "פשרנות": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 2.178
+  },
+  "להתערטל": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "עירום": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "להתעמר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "סובל": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "להתעבר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "עובר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "עלום": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "להתבסם": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "שתוי": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "לדוג": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "אפות": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "להקפיא": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "גלידה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "קמין": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "תנור": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "ילקוט": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "תיק": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "סנדל": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מגף": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "אהיל": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מנורה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מצקת": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "סיר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "רמקול": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "אוזניות": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "ספסל": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "כיסא": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "מקלדת": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "מקרן": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "מסך": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "שמשייה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "מטרייה": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "הסתלק": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "סילק": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "נצמד": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "הצמיד": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "התחבק": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "חיבק": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "הצטווה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "נזהר": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "מתנצל": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "מקבל": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "תודה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "מחפש": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "אבדה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "מעפיל": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "פסגה": {
+   "exams": 2,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 2.178
+  },
+  "שואל": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "הבהוב": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "טפטוף": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "זמזום": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "פטפוט": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "נדנוד": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "תנועה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "ספק": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.667
+  },
+  "לשווא": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "אכזבה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "דחיפות": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "לאל תר": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "סיכום": {
+   "exams": 3,
+   "pos": 1.0,
+   "analogy": 3,
+   "infer": 5,
+   "weight": 5.716
+  },
+  "להלן": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "סגפנות": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "תענוג": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "גרגרנות": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.667
+  },
+  "חלקלקות": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "שאפתנות": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "הישג": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "סכנה": {
+   "exams": 2,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 3.422
+  },
+  "תחום": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "תמחר": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "מחיר": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "גידר": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "שילם": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "אימת": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "אמת": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "בית מידות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מידות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "אוקיינוס": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.667
+  },
+  "חלקה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "שדה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "סרטון": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "גלקסיה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "כוכב": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "לבשל": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "מרק": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "לכתוב": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "מכתב": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "למספר": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "לרפד": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "ריפוד": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "מפתח": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "נעילה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "פריטה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "מתג": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 3,
+   "weight": 1.54
+  },
+  "הדלקה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "רמזור": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "נסיעה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "פרימה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "שקיפות": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "מקהלה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "זמרה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "מגלשה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "שיפוע": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "מכבסה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "ניקיון": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "מגבעת": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "חבישה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "התפורר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "רוצף": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מרצפות": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "התקמט": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "קמטים": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "התאייד": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "אדים": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "חורר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "חורים": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "בוטניקה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "שפה": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "בלשנות": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "הוגה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "פילוסופיה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "אומנות": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "מבחנה": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.667
+  },
+  "כימיה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "פלך": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "קציר": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "רחיים": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "בציר": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "יקב": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "מסיק": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "שמן": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "אסיף": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "מטע": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "בעל שני מצבים": {
+   "exams": 1,
+   "pos": 0.636,
+   "analogy": 0,
+   "infer": 1,
+   "weight": 0.795
+  },
+  "בעל": {
+   "exams": 1,
+   "pos": 0.636,
+   "analogy": 0,
+   "infer": 1,
+   "weight": 0.795
+  },
+  "מצבים": {
+   "exams": 1,
+   "pos": 0.636,
+   "analogy": 0,
+   "infer": 1,
+   "weight": 0.795
+  },
+  "סככה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "כספת": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "חממה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "מחיצה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "הפרדה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "השתתק": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "התלבש": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "לפשוט": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "התנצל": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "למחול": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "השתעמם": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "לעניין": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "התעורר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "להאניש": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "אנושיות": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "לקנות": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "קניין": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "אשמה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "להפריז": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "הגזמה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "מהימן": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "לבטוח": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "נחשק": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "לרצות": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "ממושמע": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "לציית": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "מיותר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "לוותר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "מבואר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "לפרש": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "מרוהט": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "רהיט": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "מחולק": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "חלק": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.045
+  },
+  "מחורץ": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "חריץ": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "מרומז": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "בסיס": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "פדנטיות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "קנאות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מסירות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "רעבתנות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "למדנות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "בקיאות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "ענוותנות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "גאוותנות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "חד עין": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "הבחין": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "רב רושם": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "רושם": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "התרשם": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "בן חורין": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "חורין": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "השתחרר": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "רך לבב": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "לבב": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "חם מזג": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "מזג": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "התרגז": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "מעלת צלזיוס": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "מעלת": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "צלזיוס": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "מדחום": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "מאזניים": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "סנטימטר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "סרגל": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "ליטר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "שנייה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "דיווח": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "הלשין": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "תכנן": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "זמם": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "הוקיע": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "קלקל": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "חיבל": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "הפריך": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "אבן משחזת": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "משחזת": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מנוף": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מאובק": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מטלית": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "ישר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "פלס": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "גזום": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מזמרה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "אבד עליו הכלח": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "אבד": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "הכלח": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "רלוונטיות": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "נשבר מטה לחמו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "נשבר": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "מטה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "לחמו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "פרנסה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "ניטל עוקצו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "ניטל": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "עוקצו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "תפלות": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "סכר את פיו": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "התבטאות": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "הברה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "אוצר מילים": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "אוצר": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "מילים": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.667
+  },
+  "תכונה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "יער": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "איבר": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "אוכלוסייה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "מנגינה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "נוגעות לנתון הבא": {
+   "exams": 1,
+   "pos": 0.5,
+   "analogy": 0,
+   "infer": 2,
+   "weight": 0.7
+  },
+  "נוגעות": {
+   "exams": 1,
+   "pos": 0.5,
+   "analogy": 0,
+   "infer": 2,
+   "weight": 0.7
+  },
+  "לנתון": {
+   "exams": 1,
+   "pos": 0.5,
+   "analogy": 0,
+   "infer": 2,
+   "weight": 0.7
+  },
+  "הבא": {
+   "exams": 1,
+   "pos": 0.5,
+   "analogy": 0,
+   "infer": 2,
+   "weight": 0.7
+  },
+  "בקופסה שישה חרוזים": {
+   "exams": 1,
+   "pos": 0.5,
+   "analogy": 0,
+   "infer": 2,
+   "weight": 0.7
+  },
+  "בקופסה": {
+   "exams": 1,
+   "pos": 0.5,
+   "analogy": 0,
+   "infer": 2,
+   "weight": 0.7
+  },
+  "שישה": {
+   "exams": 1,
+   "pos": 0.5,
+   "analogy": 0,
+   "infer": 2,
+   "weight": 0.7
+  },
+  "חרוזים": {
+   "exams": 1,
+   "pos": 0.5,
+   "analogy": 0,
+   "infer": 2,
+   "weight": 0.7
+  },
+  "פלח": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "תירס": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "קלח": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "מדף": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "רובע": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "שמים": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "קרא": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "טפטף": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "שפך": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "הבין": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "תמצת": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "סיכם": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "כביש": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "סלל": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "יתד": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "תקע": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "סלע": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "סיתת": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "כורעת ללדת": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "כורעת": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "ללדת": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "ילדה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "נוח לכעוס": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "נוח": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "מחשב להישבר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "מחשב": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "להישבר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "מפליא מכותיו": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "מפליא": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "מכותיו": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "הוכה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "חומד לצון": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "חומד": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "לצון": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "התלוצץ": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "בעלי חיים": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "בעלי": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "חרקים": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "מאכלים": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "תבשילים": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "אגמים": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "משפטים": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "ציפורניים": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "תפל": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "חמוץ": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מתק תק": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מתק": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "צלול": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "עכור": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "ענוג": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "דהוי": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "צבוע": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מזוודה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "לארוז": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "קלסר": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "לתייק": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "שידה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "לרהט": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "מתנה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "לעטוף": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "עגן": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "חנה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "נסע": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "נחת": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "המריא": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "בלם": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "דיווש": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "דומים": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "דמיון": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "מתחרים": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "יריבות": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "עמיתים": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "מקצוע": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "אדיבים": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "נימוס": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "נשואים": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "חתונה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "יצירת ביכורים": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "יצירת": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "ביכורים": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "שירת הברבור": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "שירת": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "הברבור": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "מנה עיקרית": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "מנה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "עיקרית": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "קינוח": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "קונצרט": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "יורה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "מלקוש": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "אמתלה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "נימוק": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "בקשה": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "הצהרה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "גינוי": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "תגובה": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.667
+  },
+  "עלילה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "האשמה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "נגיש": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "להגיע": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "תשוש": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "להתעייף": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "נדוש": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "לחדש": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "ניכר": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "שבב": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "אבקה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "גרגר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "חרצן": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "פירור": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "טיפה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "דגל לבן": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "דגל": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "לבן": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "אבן נגף": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "נגף": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "הכשלה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "מחיאות כף": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "מחיאות": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "שבח": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "משיכת כתף": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "משיכת": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "כתף": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "טביעת אצבע": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "טביעת": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "זהות": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "התפרסם": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "אנונימיות": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "התפכח": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "צלילות": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "החלטיות": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "התנגד": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "התרפא": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "מחלה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "מתרגם": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "מתווך": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "עסקה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "חלפן": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "מטבע": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "מיסיונר": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "מדובב": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "איש אשכולות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "איש": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "אשכולות": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "פסיפס": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "סחורה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "כולבו": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "תחנת כוח": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 4.667
+  },
+  "תחנת": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 3,
+   "infer": 3,
+   "weight": 4.667
+  },
+  "מרפד": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "מרדים": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "מטעה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "שגיאה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "מתקדם": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "הגעה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "מנקד": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "קריאה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "אי שם": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "תמיד": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "לעיתים": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "היום": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "אתמול": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "מזמן": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "אי אז": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "עכשיו": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "מתישהו": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "אטב": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "חבל כביסה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "חבל": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "כביסה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "מגהץ": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "קרש גיהוץ": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "קרש": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "גיהוץ": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "מסמר": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "קיר": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "שולחן כתיבה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "שולחן": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "כתיבה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "הערים": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "הולך שולל": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "הולך": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "שולל": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "ליהג": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "דמם": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "דובב": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "היסה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "ססגוני": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "צבע": {
+   "exams": 2,
+   "pos": 0.8,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.045
+  },
+  "כוחני": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "ריחני": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "מפורט": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "פרט": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "מנומק": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "ניצן": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 3,
+   "weight": 4.667
+  },
+  "מקור": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "ציפור": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "מבוא": {
+   "exams": 2,
+   "pos": 1.0,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 4.667
+  },
+  "פנקס": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "גדי": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "תיש": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "מגבת": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "מיטה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "חולה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "אמבט": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "נקי": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "עונה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "חורף": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "סהר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "ירח": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "שנה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "חודש": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "סוודר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "יבשת": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "אסיה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "לטוות": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "לתפור": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "לסתת": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "לבנות": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "לדובב": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "להשקות": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "לרוות": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "למאן": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "דלק": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 2,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "תחנת דלק": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "ביצים": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "לול": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "כרטיסים": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "קופה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "ספרים": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "ספרייה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "עקב אכילס": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "עקב": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "אכילס": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "חולשה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "קו פרשת המים": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "פרשת": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "המים": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "מפנה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "בבת העין": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "בבת": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "העין": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "נקודת המבט": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "נקודת": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "המבט": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "מר אה": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "חלק הארי": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "הארי": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "הורד": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "הרעיש": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "הוסה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "הצליח": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "הוכשל": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "שיפץ": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "הוחרב": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "פישט": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "סובך": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "לדווש": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "חצוצרה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "לנשוף": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "זכוכית": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "לנפח": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "קומקום": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "לחמם": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "מקטרת": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "לעשן": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "כבד פה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "רהיטות": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "קל דעת": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "פזיזות": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "קל תפיסה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "תפיסה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "הסבר": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "קשה לב": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "קשה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 2,
+   "infer": 4,
+   "weight": 1.54
+  },
+  "תחנונים": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "קשה עורף": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "הענקה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "השעיה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "פיטורין": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "השכרה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "דיבוב": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "תרגום": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "שידוך": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "נישואין": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "מצרים": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מצרימה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "עתה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "שמאלה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "הלום": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "תחתון": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "למטה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "רגוע": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "התעצל": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "התחמם": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "חמים": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "תקין": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "אל נכון": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "נכון": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "הפסקה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "ביוקר": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "לחינם": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "במזיד": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "כוונה": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "ראשן": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "צפרדע": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "אישון": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "גבעה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.1
+  },
+  "אלסטיות": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "גומייה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "פזרנות": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "כילי": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "בהירות": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "תמימות": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "פתי": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.54
+  },
+  "הזדקן": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 1.98
+  },
+  "התרגש": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "ללא הינד עפעף": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "הינד": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "ללא הכר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "הכר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "הפסיק": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "ללא הרף": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "הרף": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "ניסה": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "ללא הועיל": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "הועיל": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "ללא חת": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.42
+  },
+  "פעל תן": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "לפעול": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "טרדן": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "להציק": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "בדחן": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "לצחוק": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "לדעת": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "ביישן": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "להביך": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 2.86
+  },
+  "זואולוג": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "עטלף": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "היסטוריון": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "עבר": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "כימאי": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "מרפסת": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "בלשן": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "יפנית": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 1,
+   "weight": 3.3
+  },
+  "חלוץ": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "מאסף": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "דממה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "המולה": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "מרדף": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "מצוד": {
+   "exams": 1,
+   "pos": 0.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.1
+  },
+  "כלי דם": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "כלי": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "אונייה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "רכבת": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "מסילה": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "רכבל": {
+   "exams": 1,
+   "pos": 0.2,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.54
+  },
+  "זול": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "פזיז": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "ותק": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "מנו סה": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "מנו": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "עומק": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "רדוד": {
+   "exams": 1,
+   "pos": 0.4,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 1.98
+  },
+  "דברי חלקות": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "דברי": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "חלקות": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "החניף": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מרד": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "הסית": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "שקר": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "כיזב": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "מיאן": {
+   "exams": 1,
+   "pos": 0.6,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.42
+  },
+  "לבד": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "סתם": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "לשם": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "בדיוק": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "בערך": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "מותר": {
+   "exams": 1,
+   "pos": 0.8,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 2.86
+  },
+  "מטויח": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "טיח": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "מתובל": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "מזוגג": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "זיגוג": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "מוקצף": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "קצף": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "מעושן": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "עשן": {
+   "exams": 1,
+   "pos": 1.0,
+   "analogy": 1,
+   "infer": 2,
+   "weight": 3.3
+  },
+  "פרק ראשון": {
+   "exams": 1,
+   "pos": 0.5,
+   "analogy": 0,
+   "infer": 1,
+   "weight": 0.7
+  },
+  "ראשון": {
+   "exams": 1,
+   "pos": 0.5,
+   "analogy": 0,
+   "infer": 1,
+   "weight": 0.7
+  },
+  "בשנה החולפת": {
+   "exams": 1,
+   "pos": 0.5,
+   "analogy": 0,
+   "infer": 1,
+   "weight": 0.7
+  },
+  "בשנה": {
+   "exams": 1,
+   "pos": 0.5,
+   "analogy": 0,
+   "infer": 1,
+   "weight": 0.7
+  },
+  "החולפת": {
+   "exams": 1,
+   "pos": 0.5,
+   "analogy": 0,
+   "infer": 1,
+   "weight": 0.7
+  }
+ },
+ "stats": {
+  "analogy_items": 204,
+  "infer_items": 1177
+ }
+}
