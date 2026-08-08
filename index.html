@@ -4,7 +4,10 @@
 <meta charset="utf-8">
 <!-- Locked down for public release: scripts may only come from this origin, so no injected
      markup can ever execute, and nothing can be exfiltrated to a third-party endpoint. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://oycypbnzcvtjliovfsxn.supabase.co; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'">
+<!-- הפונטים ירדו לריפו, ולכן שני המקורות החיצוניים היחידים שנשארו כאן ירדו מה-CSP:
+     fonts.googleapis.com מ-style-src ו-fonts.gstatic.com מ-font-src. מה שנשאר חיצוני
+     הוא פרויקט ה-Supabase בלבד. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://oycypbnzcvtjliovfsxn.supabase.co; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f7f2e8">
