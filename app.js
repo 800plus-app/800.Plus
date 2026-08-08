@@ -2616,6 +2616,17 @@ function maybeOfferWhatsapp(){
 function enterLang(lang){
   if(!committed && session.size>0) commitSession();   // never lose an in-flight round
   if(lang!=='he' && lang!=='en') return;
+  /* אותו איפוס בדיוק ש-startRound עושה (app.js:1141), ומאותה סיבה: מכאן והלאה הגלובלים
+     שייכים לשפה אחרת. בלעדיו נשאר "סשן רפאים" — ה-Map של השפה הקודמת עם size>0 — עד
+     שהלומד יתחיל סבב חדש.
+     מה זה שובר בפועל: המאזין ב-storage (app.js:264) מאמץ עבודה מלשונית אחרת רק כאשר
+     `session.size===0`. סשן הרפאים מחזיק את התנאי הזה כוזב, ולכן טאב שני שסיים סבב מרים
+     את diskAhead ו-absorbDisk לא רץ — מסך הבית של השפה החדשה ממשיך להציג מספרים ישנים.
+     deck מתאפס יחד איתם. הוא נבנה מחדש בכל startRound ולכן איש אינו קורא אותו בינתיים,
+     אבל הוא מחזיק את אובייקטי הקלפים של השפה הקודמת — והדרישה כאן היא הפרדה מלאה.
+     sessionRowId נכלל כי הוא חלק מאותה יחידת מצב; הוא לבדו אינו באג, שכן startRound מאפס
+     אותו לפני כל שימוש, ו-commitSession יוצא מוקדם על entries ריק (app.js:1854). */
+  session=new Map(); committed=false; committedKeys=new Set(); sessionRowId=null; deck=[];
   LANG=lang; LS.set('hw_lang',lang);
   loadLangState();
   migrateStores();
