@@ -2613,9 +2613,29 @@ function maybeOfferWhatsapp(){
     show($('#waAsk'));
   }, 900);
 }
-function enterLang(lang){
+/* גג להמתנה שלמטה. מעבר שפה אינו פעולה שהלומד מוכן לחכות לה, ורשת סלולרית גרועה
+   יכולה למתוח pull+push לשניות רבות. אחרי הגג ממשיכים בלי לחכות — וזה בטוח, כי הסבב
+   כבר על הדיסק ו-syncPending נשאר דלוק, כלומר המצב הגרוע ביותר כאן זהה בדיוק להתנהגות
+   שהייתה כאן קודם. */
+const LANG_SWITCH_FLUSH_MS = 4000;
+async function enterLang(lang){
   if(!committed && session.size>0) commitSession();   // never lose an in-flight round
   if(lang!=='he' && lang!=='en') return;
+  /* הדחיפה של הסבב האחרון בוטלה בשקט לפני התיקון הזה.
+     commitSession מסיים ב-flushRemoteSync() בלי await, וזו נעצרת על pullProgress. בזמן
+     ההמתנה הזאת enterLang המשיך וקבע LANG=lang סינכרונית — ולכן הגארד `lang!==LANG`
+     (app.js:3601) תפס את ה-flush בחזרתו והחזיר false. הגארד עצמו נכון וחייב להישאר:
+     loadLangState כבר החליף את assoc/stats/deleted/added לשפה החדשה, וכתיבה בנקודה הזאת
+     הייתה מעתיקה את נתוני השפה החדשה לשורה של הישנה.
+     לכן הדחיפה חייבת להסתיים *לפני* שהגלובלים מתחלפים, וזה מחייב await.
+     הנתונים לא אבדו גם קודם — syncPending נשאר דלוק וההתנתקות כבר לא מוחקת (app.js:4298).
+     מה שכן קרה: הענן נשאר מיושן עד שהלומד יחזור לשפה הזאת על המכשיר הזה. */
+  if(currentUser && lang!==LANG && syncPending[LANG]){
+    await Promise.race([
+      flushRemoteSync().catch(()=>false),
+      new Promise(res=>setTimeout(res, LANG_SWITCH_FLUSH_MS))
+    ]);
+  }
   /* אותו איפוס בדיוק ש-startRound עושה (app.js:1141), ומאותה סיבה: מכאן והלאה הגלובלים
      שייכים לשפה אחרת. בלעדיו נשאר "סשן רפאים" — ה-Map של השפה הקודמת עם size>0 — עד
      שהלומד יתחיל סבב חדש.
