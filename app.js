@@ -4314,6 +4314,24 @@ const signOutNow = async ()=>{
     if(currentUser && (LANG==='he' || LANG==='en')){
       syncPending[LANG]=true;
       saved=await flushRemoteSync();
+      /* ועכשיו השפה השנייה.
+         flushRemoteSync דוחפת תמיד את LANG בלבד, ולכן עבודה ממתינה בשפה השנייה הייתה
+         *חוסמת* את הניקוי למטה בלי להיפתר לעולם: הבדיקה `!syncPending.he && !syncPending.en`
+         שומרת עליה מפני מחיקה — וזה נכון — אבל היא נשארה תקועה על המכשיר הזה בלבד, בלתי
+         נראית לכל מכשיר אחר, והמטמון של חשבון שהתנתקנו ממנו נשאר שוכב עליו.
+         כאן זה המקום היחיד שבו מותר להחליף את LANG ולטעון מצב אחר מתחת לרגליים, כי השורה
+         האחרונה בפונקציה היא location.reload() — אין קוד שימשיך לרוץ על הגלובלים האלה.
+         ה-try הפנימי בולע: כישלון כאן אינו הופך את saved לכוזב, כי saved עונה על שאלה
+         אחרת (האם השפה הפעילה נשמרה). הכישלון מטופל ממילא בשער שלמטה — syncPending[other]
+         נשאר דלוק, ולכן המטמון לא יימחק, בדיוק כמו קודם.
+         זה כן מרחיב את המקרים שבהם המחיקה כן קורית, וזו הכוונה: flushRemoteSync מחזירה
+         true רק אחרי ש-Store.pushProgress אישרה שהכתיבה נחתה. */
+      const other = LANG==='he' ? 'en' : 'he';
+      if(syncPending[other]){
+        LANG=other;
+        loadLangState();
+        try{ await flushRemoteSync(); }catch(e){}
+      }
     }
   }catch(e){ saved=false; }
   try{ await Store.signOut(); }catch(e){}
