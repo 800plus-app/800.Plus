@@ -60,7 +60,11 @@ def main():
             continue
         disp, gloss = m.group(2).strip(), m.group(3).strip()
         w = key(disp)
-        ents = lex.get(w) or lexf.get(fold(disp)) or []
+        ents = lex.get(w)
+        approx = False
+        if not ents:
+            ents = lexf.get(fold(disp)) or []
+            approx = bool(ents)      # התאמה בקיפול כתיב — עלולה להיות מילה אחרת
         print('### %d | %s' % (i, disp))
         print('שורש: %s | מוצא: %s' % (roots[i - 1] if i <= len(roots) else '?',
                                        status.get((u, i), '?')))
@@ -68,6 +72,8 @@ def main():
         if not ents:
             nmiss += 1
             print('⚑ אין בלקסיקון — נדרש מילוג')
+        elif approx:
+            print('⚠ התאמה משוערת בלבד (כתיב שונה) — ודא שזו אותה מילה, אחרת התעלם ואמת במילוג')
         for e in ents[:3]:
             head = e.get('vocalized', '')
             pos = e.get('pos', '')
