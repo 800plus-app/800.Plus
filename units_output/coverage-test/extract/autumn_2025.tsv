@@ -9,7 +9,7 @@
 רעיל	רעיל	analogy	close	רעל
 אכילה	אכילה	analogy	close	כלה
 מטונף	מטונף	analogy	miss	
-רחצה	רחצה	analogy	miss	
+רחצה	רחצה	analogy	close	רחצ
 סנגור	סנגור	analogy	full	סנגור
 זיכוי	זיכוי	analogy	miss	
 רופא	רופא	analogy	close	רפא
@@ -95,7 +95,7 @@
 אובייקטיביות	אובייקטיביות	analogy	close	אבק
 משוא פנים	משוא פנים	analogy	full	משוא פנים
 ענווה	ענווה	analogy	miss	
-גבהות לב	גבהות לב	analogy	miss	
+גבהות לב	גבהות לב	analogy	full	גבהות לב
 בזבזנות	בזבזנות	analogy	miss	
 פשיטת רגל	פשיטת רגל	analogy	close	פשט
 סבלנות	סבלנות	analogy	close	בלנ
@@ -139,7 +139,7 @@
 הטבע	הטבע	completion	full	טבע
 מצבן	מצבן	completion	miss	
 הציפורים	הציפורים	completion	full	צפיר
-בארץ	בארץ	completion	close	ארצ
+בארץ	בארץ	completion	close	באר
 החמור	החמור	completion	miss	
 הותיר	הותיר	completion	full	התיר
 המשרד	המשרד	completion	miss	
@@ -153,7 +153,7 @@
 השר"	השר"	completion	miss	
 תימנע	תימנע	completion	miss	
 קטסטרופה	קטסטרופה	completion	close	רפה
-ייכחדו	ייכחדו	completion	close	כחד
+ייכחדו	ייכחדו	completion	close	יכח
 המעודד	המעודד	completion	miss	
 לשמח	לשמח	completion	miss	
 שוחרי	שוחרי	completion	close	שחר
@@ -164,7 +164,7 @@
 חיוך	חיוך	completion	full	חך
 פניהם	פניהם	completion	close	פנה
 בהחלט	בהחלט	completion	miss	
-בשורה	בשורה	completion	close	שרה
+בשורה	בשורה	completion	close	בשר
 טובה	טובה	completion	miss	
 בידינו	בידינו	completion	miss	
 להכחיד	להכחיד	completion	close	כחד
@@ -177,7 +177,7 @@
 מעוגת	מעוגת	completion	miss	
 התפוחים	התפוחים	completion	full	תפח
 שהצעתי	שהצעתי	completion	miss	
-ידעתי	ידעתי	completion	close	ידע
+ידעתי	ידעתי	completion	close	דעת
 שנדב	שנדב	completion	miss	
 נמנע	נמנע	completion	miss	
 מלאכול	מלאכול	completion	close	מלא
@@ -222,7 +222,7 @@
 משכנעות	משכנעות	completion	close	שכנ
 פניהן	פניהן	completion	close	פנה
 ספורים	ספורים	completion	full	ספר
-מתקבלות	מתקבלות	completion	close	מתק
+מתקבלות	מתקבלות	completion	close	קבל
 הנמנע	הנמנע	completion	miss	
 שהגיש	שהגיש	completion	miss	
 מבוססות	מבוססות	completion	close	בסס

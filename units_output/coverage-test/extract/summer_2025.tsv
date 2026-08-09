@@ -10,7 +10,7 @@
 רובע	רובע	analogy	miss	
 שמים	שמים	analogy	full	שומם
 ענן	ענן	analogy	miss	
-שרבט	שרבט	analogy	full	שרביט
+שרבט	שרבט	analogy	full	שרבט
 צייר	צייר	analogy	full	צור
 רפרף	רפרף	analogy	miss	
 קרא	קרא	analogy	miss	
@@ -41,7 +41,7 @@
 חומד לצון	חומד לצון	analogy	full	חמד לצון
 התלוצץ	התלוצץ	analogy	close	התל
 חרקים	חרקים	analogy	miss	
-מאכלים	מאכלים	analogy	close	אכל
+מאכלים	מאכלים	analogy	close	כלמ
 תבשילים	תבשילים	analogy	close	בשל
 ימים	ימים	analogy	full	יומם
 אגמים	אגמים	analogy	miss	
@@ -89,9 +89,9 @@
 נשואים	נשואים	analogy	full	נשיא
 חתונה	חתונה	analogy	miss	
 יצירת ביכורים	יצירת ביכורים	analogy	close	בכר
-שירת הברבור	שירת הברבור	analogy	miss	
+שירת הברבור	שירת הברבור	analogy	full	שירת הברבור
 הקדמה	הקדמה	analogy	close	דמה
-מנה עיקרית	מנה עיקרית	analogy	close	עקר
+מנה עיקרית	מנה עיקרית	analogy	close	קרת
 קינוח	קינוח	analogy	miss	
 קונצרט	קונצרט	analogy	close	נצר
 הדרן	הדרן	analogy	full	הדרן
@@ -100,7 +100,7 @@
 אמתלה	אמתלה	analogy	full	אמתלה
 נימוק	נימוק	analogy	full	נמק
 תחינה	תחינה	analogy	full	תחינה
-בקשה	בקשה	analogy	close	בקש
+בקשה	בקשה	analogy	close	קשה
 מסר	מסר	analogy	miss	
 הצהרה	הצהרה	analogy	close	צהר
 גינוי	גינוי	analogy	miss	
@@ -112,7 +112,7 @@
 טובים	טובים	completion	miss	
 תמיד	תמיד	completion	miss	
 פלא	פלא	completion	close	פלא
-שכאשר	שכאשר	completion	miss	
+שכאשר	שכאשר	completion	close	אשר
 גורמת	גורמת	completion	close	גרמ
 המשיך	המשיך	completion	close	משכ
 לדבוק	לדבוק	completion	full	דבק
@@ -121,21 +121,21 @@
 מקבל	מקבל	completion	close	קבל
 קיווה	קיווה	completion	miss	
 שאינה	שאינה	completion	close	שאנ
-המתרפסים	המתרפסים	completion	close	תרפ
+המתרפסים	המתרפסים	completion	close	רפס
 לממש	לממש	completion	miss	
 שועה	שועה	completion	full	שעה
 השתוקק	השתוקק	completion	miss	
 שלעולם	שלעולם	completion	close	עלמ
-מתרפסת	מתרפסת	completion	close	תרפ
+מתרפסת	מתרפסת	completion	close	רפס
 לסגת	לסגת	completion	miss	
 ייחל	ייחל	completion	close	יחל
 הידועה	הידועה	completion	close	ידע
-כמלחכת	כמלחכת	completion	close	לחכ
+כמלחכת	כמלחכת	completion	close	מלח
 פנכה	פנכה	completion	full	פנכה
 נוהג	נוהג	completion	miss	
 בניגוד	בניגוד	completion	close	נגד
 חשש	חשש	completion	miss	
-שההתרפסות	שההתרפסות	completion	close	תרפ
+שההתרפסות	שההתרפסות	completion	close	רפס
 טבע	טבע	completion	full	טבע
 לחזור	לחזור	completion	full	חיזר
 הדגש	הדגש	completion	miss	
@@ -163,7 +163,7 @@
 מלשון	מלשון	completion	miss	
 אוצרות	אוצרות	completion	full	אצר
 ללשון	ללשון	completion	miss	
-שתתבסס	שתתבסס	completion	close	שתת
+שתתבסס	שתתבסס	completion	close	בסס
 להבין	להבין	completion	miss	
 תפיסתו	תפיסתו	completion	miss	
 כרצון	כרצון	completion	miss	
@@ -202,7 +202,7 @@
 לחיזוק	לחיזוק	completion	miss	
 המגמה	המגמה	completion	miss	
 השמרנית	השמרנית	completion	close	שמר
-קבלה	קבלה	completion	close	בלה
+קבלה	קבלה	completion	close	קבל
 האדישות	האדישות	completion	miss	
 הפוליטית	הפוליטית	completion	close	פלט
 לבטא	לבטא	completion	close	לבט
@@ -210,8 +210,8 @@
 עמדתם	עמדתם	completion	close	עמד
 ביתר	ביתר	completion	full	ביתר
 תקיפות	תקיפות	completion	miss	
-ביקשה	ביקשה	completion	close	בקש
-לבטל	לבטל	completion	close	בטל
+ביקשה	ביקשה	completion	close	קשה
+לבטל	לבטל	completion	close	לבט
 השינויים	השינויים	completion	close	השני
 המתוכננים	המתוכננים	completion	close	תכנ
 במתכונתו	במתכונתו	completion	close	תכנ
@@ -231,7 +231,7 @@
 ואכן	ואכן	completion	miss	
 היווצרות	היווצרות	completion	close	הצר
 פער	פער	completion	full	פעור
-הסטנדרטים	הסטנדרטים	completion	close	נדר
+הסטנדרטים	הסטנדרטים	completion	miss	
 הכמותיים	הכמותיים	completion	miss	
 היותר	היותר	completion	full	התיר
 לשמור	לשמור	completion	close	שמר
@@ -241,7 +241,7 @@
 להתפתח	להתפתח	completion	close	תפת
 ולהעלות	ולהעלות	completion	miss	
 תעוכב	תעוכב	completion	miss	
-ישרור	ישרור	completion	close	שרר
+ישרור	ישרור	completion	close	ישר
 החשש	החשש	completion	miss	
 עדיין	עדיין	completion	close	עדנ
 לייצר	לייצר	completion	miss	

@@ -37,14 +37,14 @@
 קופה	קופה	analogy	miss	
 ספרים	ספרים	analogy	full	ספר
 ספרייה	ספרייה	analogy	close	ספר
-עקב אכילס	עקב אכילס	analogy	close	עקב
+עקב אכילס	עקב אכילס	analogy	full	עקב אכילס
 חולשה	חולשה	analogy	miss	
-קו פרשת המים	קו פרשת המים	analogy	close	פרשת
+קו פרשת המים	קו פרשת המים	analogy	close	פרש
 מפנה	מפנה	analogy	close	פנה
 בבת העין	בבת העין	analogy	close	בבת
 נקודת המבט	נקודת המבט	analogy	close	נקד
 מר אה	מר אה	analogy	miss	
-חלק הארי	חלק הארי	analogy	close	חלק
+חלק הארי	חלק הארי	analogy	full	חלק הארי
 העלה	העלה	analogy	close	עלה
 הורד	הורד	analogy	miss	
 הרעיש	הרעיש	analogy	miss	
@@ -75,9 +75,9 @@
 קשה עורף	קשה עורף	analogy	full	קשה עורף
 פשרנות	פשרנות	analogy	close	פשר
 הענקה	הענקה	analogy	close	ענק
-השעיה	השעיה	analogy	full	שעה
+השעיה	השעיה	analogy	full	השעה
 פיטורין	פיטורין	analogy	close	פטר
-השכרה	השכרה	analogy	close	כרה
+השכרה	השכרה	analogy	close	שכר
 תשלום	תשלום	analogy	miss	
 דיבוב	דיבוב	analogy	full	דובב
 שידוך	שידוך	analogy	miss	
@@ -89,7 +89,7 @@
 שמאל	שמאל	analogy	miss	
 שמאלה	שמאלה	analogy	miss	
 הלום	הלום	analogy	full	הלם
-הנה	הנה	analogy	full	נוה
+הנה	הנה	analogy	full	הונה
 תחתון	תחתון	analogy	miss	
 למטה	למטה	analogy	miss	
 נרגע	נרגע	analogy	miss	
@@ -117,12 +117,12 @@
 מסחרר	מסחרר	completion	close	חרר
 ממש	ממש	completion	miss	
 להיחשב	להיחשב	completion	miss	
-למסתורין	למסתורין	completion	close	סתר
+למסתורין	למסתורין	completion	close	תרנ
 גמור	גמור	completion	close	גמר
 מדי	מדי	completion	miss	
 להתבצע	להתבצע	completion	close	בצע
 כעניין	כעניין	completion	miss	
-שבשגרה	שבשגרה	completion	close	שגר
+שבשגרה	שבשגרה	completion	close	גרה
 מהיר	מהיר	completion	close	מהר
 לבצע	לבצע	completion	full	בצע
 סטודנט	סטודנט	completion	miss	
@@ -184,10 +184,10 @@
 כנראה	כנראה	completion	miss	
 מוצלח	מוצלח	completion	close	צלח
 במיוחד	במיוחד	completion	miss	
-מוצלחים	מוצלחים	completion	close	צלח
+מוצלחים	מוצלחים	completion	close	לחמ
 הקולנוע	הקולנוע	completion	close	הקל
 ההונגרי	ההונגרי	completion	close	נגר
-נהנה	נהנה	completion	miss	
+נהנה	נהנה	completion	close	הנה
 מפריחה	מפריחה	completion	close	פרח
 כה	כה	completion	miss	
 מרשימה	מרשימה	completion	miss	
@@ -209,7 +209,7 @@
 למצוא	למצוא	completion	close	מצא
 חן	חן	completion	miss	
 בעיניי	בעיניי	completion	miss	
-מעריצה	מעריצה	completion	close	ערצ
+מעריצה	מעריצה	completion	close	רצה
 מסתייגת	מסתייגת	completion	miss	
 מהסרט	מהסרט	completion	miss	
 להעיד	להעיד	completion	miss	
@@ -229,7 +229,7 @@
 עיוות	עיוות	completion	full	עווית
 דין	דין	completion	miss	
 חיבור	חיבור	completion	miss	
-חדשנות	חדשנות	completion	close	דשנ
+חדשנות	חדשנות	completion	close	שנת
 פרי	פרי	completion	close	פרי
 עטו	עטו	completion	miss	
 כותב	כותב	completion	miss	
@@ -249,7 +249,7 @@
 מעבורת	מעבורת	completion	close	עבר
 קלינסקי"	קלינסקי"	completion	close	נסק
 חלק	חלק	completion	close	חלק
-הארי	הארי	completion	miss	
+הארי	הארי	completion	close	הארי
 נחל	נחל	completion	full	נחל
 כישלון	כישלון	completion	close	כשל
 להשעות	להשעות	completion	close	שעת
@@ -283,7 +283,7 @@
 להמשיך	להמשיך	completion	close	משכ
 הקולות	הקולות	completion	close	הקל
 המעטים	המעטים	completion	full	המעיט
-שגרסו	שגרסו	completion	close	שגר
+שגרסו	שגרסו	completion	close	גרס
 המסע	המסע	completion	miss	
 נכשל	נכשל	completion	close	כשל
 שכנעו	שכנעו	completion	close	שכנ

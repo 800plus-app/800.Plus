@@ -20,7 +20,7 @@
 הסכמה	הסכמה	analogy	close	סכמ
 בסדר	בסדר	analogy	miss	
 אמינות	אמינות	analogy	close	אמנ
-בהן צדק	בהן צדק	analogy	close	צדק
+בהן צדק	בהן צדק	analogy	full	בהן צדק
 לסתת	לסתת	analogy	full	סתת
 בנייה	בנייה	analogy	miss	
 ללוש	ללוש	analogy	full	ליש
@@ -65,7 +65,7 @@
 פס	פס	analogy	miss	
 מנומש	מנומש	analogy	miss	
 נמש	נמש	analogy	miss	
-מרוהט	מרוהט	analogy	close	מרה
+מרוהט	מרוהט	analogy	close	רהט
 רהיט	רהיט	analogy	full	רהוט
 שרירי	שרירי	analogy	close	שרר
 שריר	שריר	analogy	full	שרר
@@ -88,10 +88,10 @@
 תחרות	תחרות	analogy	miss	
 נשואים	נשואים	analogy	full	נשיא
 חתונה	חתונה	analogy	miss	
-תלמידים	תלמידים	analogy	close	תלמ
+תלמידים	תלמידים	analogy	close	למד
 שיעור	שיעור	analogy	miss	
 חזון נפרץ	חזון נפרץ	analogy	full	חזון נפרץ
-נדיר	נדיר	analogy	close	נדר
+נדיר	נדיר	analogy	miss	
 מוכלל	מוכלל	analogy	close	כלל
 כלול	כלול	analogy	close	כלל
 מרובב	מרובב	analogy	close	רבב
@@ -109,19 +109,19 @@
 שתלטן	שתלטן	analogy	miss	
 ציות	ציות	analogy	full	צי
 שכחן	שכחן	analogy	miss	
-תזכורת	תזכורת	analogy	miss	
+תזכורת	תזכורת	analogy	close	זכר
 יממש	יממש	completion	miss	
 עושה	עושה	completion	close	עשה
-שביכולתו	שביכולתו	completion	close	בכל
+שביכולתו	שביכולתו	completion	close	שבכ
 להימנע	להימנע	completion	miss	
-מתחלופת	מתחלופת	completion	close	חלפ
+מתחלופת	מתחלופת	completion	close	לפת
 עובדים	עובדים	completion	miss	
 ישנה	ישנה	completion	miss	
 לעצמו	לעצמו	completion	close	עצמ
 כיעד	כיעד	completion	miss	
 לצמצם	לצמצם	completion	miss	
 האפשר	האפשר	completion	close	פשר
-תחלופת	תחלופת	completion	close	חלפ
+תחלופת	תחלופת	completion	close	לפת
 העובדים	העובדים	completion	miss	
 יחזור	יחזור	completion	close	חזר
 מאפשר	מאפשר	completion	close	פשר
@@ -143,10 +143,10 @@
 שב	שב	completion	miss	
 בדיעבד	בדיעבד	completion	full	בדיעבד
 מצרה	מצרה	completion	miss	
-יתרה	יתרה	completion	close	תרה
+יתרה	יתרה	completion	close	יתר
 מזאת	מזאת	completion	close	זאת
 ספק	ספק	completion	close	ספק
-נותנים	נותנים	completion	miss	
+נותנים	נותנים	completion	close	נתנ
 דעתם	דעתם	completion	close	דעת
 הנאה	הנאה	completion	close	נאה
 מרובה	מרובה	completion	miss	
@@ -155,7 +155,7 @@
 עושים	עושים	completion	miss	
 הרי	הרי	completion	close	הרי
 שבויים	שבויים	completion	close	שבי
-נתנה	נתנה	completion	miss	
+נתנה	נתנה	completion	close	נתנ
 רשות	רשות	completion	full	רש
 להלחנת	להלחנת	completion	miss	
 שיריה	שיריה	completion	close	שרה
@@ -164,9 +164,9 @@
 טעות	טעות	completion	miss	
 שאי	שאי	completion	miss	
 לומר	לומר	completion	miss	
-הפחות	הפחות	completion	full	הפיח
+הפחות	הפחות	completion	full	פיח
 יוצאים	יוצאים	completion	close	יצא
-נשכרים	נשכרים	completion	close	נשכ
+נשכרים	נשכרים	completion	full	נשכר
 ההאזנה	ההאזנה	completion	miss	
 תנאי	תנאי	completion	miss	
 מהותי	מהותי	completion	miss	
@@ -175,14 +175,14 @@
 רחמים	רחמים	completion	full	ריחיים
 אלירז	אלירז	completion	miss	
 רשאי	רשאי	completion	miss	
-לבטל	לבטל	completion	close	בטל
+לבטל	לבטל	completion	close	לבט
 החוזה	החוזה	completion	close	חזה
 שעליו	שעליו	completion	close	שעל
 חתמו	חתמו	completion	miss	
 צורך	צורך	completion	close	צרכ
 להחליט	להחליט	completion	miss	
 לנוכח	לנוכח	completion	full	נוכח
-העמידה	העמידה	completion	close	העמ
+העמידה	העמידה	completion	close	עמד
 חשובה	חשובה	completion	close	שבה
 במקרה	במקרה	completion	close	קרה
 מתכוון	מתכוון	completion	close	תכנ

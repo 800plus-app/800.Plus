@@ -14,7 +14,7 @@
 חובל	חובל	analogy	close	חבל
 מלח	מלח	analogy	full	מלח
 חייל	חייל	analogy	full	חיל
-טירון	טירון	analogy	miss	
+טירון	טירון	analogy	full	טירון
 שופט	שופט	analogy	miss	
 עורך דין	עורך דין	analogy	miss	
 סוהר	סוהר	analogy	full	סהר
@@ -43,8 +43,8 @@
 ליבו נכמר	ליבו נכמר	analogy	close	לבו
 פשרה	פשרה	analogy	close	שרה
 נאבק	נאבק	analogy	close	אבק
-תזכורת	תזכורת	analogy	miss	
-נזכר	נזכר	analogy	miss	
+תזכורת	תזכורת	analogy	close	זכר
+נזכר	נזכר	analogy	close	זכר
 צידוק	צידוק	analogy	close	צדק
 הצטדק	הצטדק	analogy	miss	
 תשלום	תשלום	analogy	miss	
@@ -53,7 +53,7 @@
 יציב	יציב	analogy	miss	
 שלג דאשתקד	שלג דאשתקד	analogy	close	אשתקד
 מעניין	מעניין	analogy	miss	
-עקב אכילס	עקב אכילס	analogy	close	עקב
+עקב אכילס	עקב אכילס	analogy	full	עקב אכילס
 חסין	חסין	analogy	full	חסין
 עלה תאנה	עלה תאנה	analogy	close	תאנה
 מביך	מביך	analogy	miss	
@@ -86,11 +86,11 @@
 להקשיב	להקשיב	analogy	close	להק
 להאזין	להאזין	analogy	miss	
 להיזהר	להיזהר	analogy	close	זהר
-להתריע	להתריע	analogy	close	התר
+להתריע	להתריע	analogy	full	התריע
 להיעזר	להיעזר	analogy	miss	
 להזדקק	להזדקק	analogy	miss	
-מחלפות	מחלפות	analogy	close	חלפ
-מספריים	מספריים	analogy	close	פרי
+מחלפות	מחלפות	analogy	close	לפת
+מספריים	מספריים	analogy	close	ספר
 נדן	נדן	analogy	full	נדן
 חרב	חרב	analogy	full	חרב
 חיטה	חיטה	analogy	miss	
@@ -156,11 +156,11 @@
 גינה	גינה	completion	close	גנה
 חקיקת	חקיקת	completion	close	חקק
 המחאה	המחאה	completion	miss	
-אישר	אישר	completion	miss	
+אישר	אישר	completion	close	אשר
 הפגנות	הפגנות	completion	full	פגיון
 מאורגנות	מאורגנות	completion	close	רגנ
 רכישת	רכישת	completion	miss	
-ההשכלה	ההשכלה	completion	close	כלה
+ההשכלה	ההשכלה	completion	close	השכל
 תמך	תמך	completion	close	תמכ
 הקמת	הקמת	completion	miss	
 אוניברסיטאות	אוניברסיטאות	completion	close	נבר
@@ -187,7 +187,7 @@
 הממעט	הממעט	completion	close	מעט
 שהציבור	שהציבור	completion	miss	
 נבחריו	נבחריו	completion	miss	
-שיחוקקו	שיחוקקו	completion	close	שחק
+שיחוקקו	שיחוקקו	completion	close	חקק
 חוקי	חוקי	completion	miss	
 חובה	חובה	completion	miss	
 ונוסף	ונוסף	completion	miss	
@@ -196,13 +196,13 @@
 מחוקקים	מחוקקים	completion	close	חקק
 נבחרו	נבחרו	completion	miss	
 וזאת	וזאת	completion	close	זאת
-שכאשר	שכאשר	completion	miss	
+שכאשר	שכאשר	completion	close	אשר
 מחלוקת	מחלוקת	completion	close	חלק
 המחוקקים	המחוקקים	completion	close	חקק
-מתקבלות	מתקבלות	completion	close	מתק
+מתקבלות	מתקבלות	completion	close	קבל
 ורק	ורק	completion	miss	
 בהתאם	בהתאם	completion	miss	
-לדעתו	לדעתו	completion	close	דעתו
+לדעתו	לדעתו	completion	close	דעת
 יושב	יושב	completion	close	ישב
 בית	בית	completion	miss	
 נעשית	נעשית	completion	close	עשת

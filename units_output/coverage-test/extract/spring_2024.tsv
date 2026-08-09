@@ -16,7 +16,7 @@
 דכדוך	דכדוך	analogy	full	דכדוך
 הדביק	הדביק	analogy	full	דבק
 חולי	חולי	analogy	miss	
-הזכיר	הזכיר	analogy	miss	
+הזכיר	הזכיר	analogy	close	זכר
 שכחה	שכחה	analogy	miss	
 התמלא	התמלא	analogy	close	מלא
 עומס	עומס	analogy	miss	
@@ -28,7 +28,7 @@
 הגה	הגה	analogy	full	הגה
 שורש	שורש	analogy	miss	
 צמרת	צמרת	analogy	close	מרת
-רגליים	רגליים	analogy	close	גלי
+רגליים	רגליים	analogy	close	גלמ
 ידיים	ידיים	analogy	close	ידי
 היגר	היגר	analogy	full	יגור
 הוגלה	הוגלה	analogy	full	הוגלה
@@ -40,7 +40,7 @@
 ננטש	ננטש	analogy	close	נטש
 הסתגר	הסתגר	analogy	close	תגר
 נכלא	נכלא	analogy	close	נכל
-נדיר	נדיר	analogy	close	נדר
+נדיר	נדיר	analogy	miss	
 שכיחות	שכיחות	analogy	full	שכיח
 איטי	איטי	analogy	miss	
 קבוע	קבוע	analogy	full	קובע
@@ -54,9 +54,9 @@
 מפח נפש	מפח נפש	analogy	full	מפח נפש
 הפיח בו תקווה	הפיח בו תקווה	analogy	close	הפיח
 קשיות עורף	קשיות עורף	analogy	close	קשת
-עמד על דעתו	עמד על דעתו	analogy	close	עמד
+עמד על דעתו	עמד על דעתו	analogy	full	עמד על דעתו
 אומץ לב	אומץ לב	analogy	close	אמצ
-הפיל עליו את חיתתו	הפיל עליו את חיתתו	analogy	close	חתת
+הפיל עליו את חיתתו	הפיל עליו את חיתתו	analogy	full	הפיל עליו את חיתתו
 קורת רוח	קורת רוח	analogy	full	קורת רוח
 השביע את רצונו	השביע את רצונו	analogy	close	השביע
 מובן מאליו	מובן מאליו	analogy	miss	
@@ -89,7 +89,7 @@
 סוס	סוס	analogy	full	סייס
 קשקשים	קשקשים	analogy	miss	
 דג	דג	analogy	miss	
-לפת	לפת	analogy	full	לפת
+לפת	לפת	analogy	full	פת
 אחז	אחז	analogy	close	אחז
 גדע	גדע	analogy	full	גדע
 גזם	גזם	analogy	close	גזמ
@@ -147,7 +147,7 @@
 התחבורה	התחבורה	completion	miss	
 שיניתי	שיניתי	completion	close	שנת
 דעתי	דעתי	completion	close	דעת
-אתנגד	אתנגד	completion	close	נגד
+אתנגד	אתנגד	completion	close	אתנ
 להצעתה	להצעתה	completion	miss	
 להעניק	להעניק	completion	close	ענק
 הצעה	הצעה	completion	miss	
@@ -182,7 +182,7 @@
 הצעתה	הצעתה	completion	miss	
 מקובלת	מקובלת	completion	close	קבל
 עליי	עליי	completion	full	עלי
-ההקבלה	ההקבלה	completion	close	בלה
+ההקבלה	ההקבלה	completion	close	קבל
 שעולה	שעולה	completion	close	עלה
 מדברי	מדברי	completion	close	דבר
 השרה	השרה	completion	full	השרה
@@ -192,11 +192,11 @@
 משקל	משקל	completion	miss	
 לייחס	לייחס	completion	close	יחס
 טעויות	טעויות	completion	miss	
-מועטה	מועטה	completion	close	עטה
+מועטה	מועטה	completion	close	מעט
 מרובה	מרובה	completion	miss	
 זיהוי	זיהוי	completion	miss	
 נכון	נכון	completion	miss	
-היכחדותם	היכחדותם	completion	close	כחד
+היכחדותם	היכחדותם	completion	close	יכח
 הידלדלות	הידלדלות	completion	close	דלת
 הצמחייה	הצמחייה	completion	close	מחה
 בקרבת	בקרבת	completion	miss	
@@ -233,7 +233,7 @@
 לעומתם	לעומתם	completion	miss	
 למעט	למעט	completion	close	מעט
 מיועדים	מיועדים	completion	miss	
-ובכללם	ובכללם	completion	close	כלל
+ובכללם	ובכללם	completion	close	בכל
 דומה	דומה	completion	close	דמה
 תיאורי	תיאורי	completion	miss	
 החפצים	החפצים	completion	full	חפץ
@@ -257,7 +257,7 @@
 ייחודי	ייחודי	completion	miss	
 ומשום	ומשום	completion	miss	
 חוסר	חוסר	completion	close	חסר
-הפרופורציה	הפרופורציה	completion	close	פרצ
+הפרופורציה	הפרופורציה	completion	close	רצה
 לוקה	לוקה	completion	full	לקה
 מוכרים	מוכרים	completion	miss	
 מהיומיום	מהיומיום	completion	miss	

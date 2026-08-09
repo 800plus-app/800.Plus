@@ -1,11 +1,11 @@
 # חילוץ גולמי spring_2025 · זוגות-אנלוגיה=59 · אפשרויות-השלמה=24
 פריט	מנורמל	סוג	תוצאה	התאמה
 בית ספר	בית ספר	analogy	close	ספר
-השכלה	השכלה	analogy	close	כלה
+השכלה	השכלה	analogy	close	השכל
 חדר הלבשה	חדר הלבשה	analogy	miss	
 בגדים	בגדים	analogy	close	גדמ
 חדר ישיבות	חדר ישיבות	analogy	close	ישב
-ישיבה	ישיבה	analogy	close	ישב
+ישיבה	ישיבה	analogy	close	שבה
 חדר אוכל	חדר אוכל	analogy	close	אכל
 רעב	רעב	analogy	miss	
 חדר כושר	חדר כושר	analogy	close	כושר
@@ -19,7 +19,7 @@
 זנב	זנב	analogy	miss	
 חיה	חיה	analogy	miss	
 לשאול	לשאול	analogy	miss	
-לשכור	לשכור	analogy	miss	
+לשכור	לשכור	analogy	close	שכר
 לבקש	לבקש	analogy	close	בקש
 לדרוש	לדרוש	analogy	miss	
 לקחת	לקחת	analogy	close	לקח
@@ -35,12 +35,12 @@
 כל הכבוד	כל הכבוד	analogy	close	כבד
 הצלחה	הצלחה	analogy	close	צלח
 מתמיה	מתמיה	analogy	close	תמה
-תמיהה	תמיהה	analogy	close	תמה
+תמיהה	תמיהה	analogy	close	מהה
 מתיש	מתיש	analogy	miss	
 תשישות	תשישות	analogy	full	תשש
 מועיל	מועיל	analogy	full	מעל
 תועלת	תועלת	analogy	miss	
-מצחין	מצחין	analogy	close	צחנ
+מצחין	מצחין	analogy	close	מצח
 צחנה	צחנה	analogy	full	צחנה
 מדויק	מדויק	analogy	miss	
 דייקנות	דייקנות	analogy	full	דיוקן
@@ -58,13 +58,13 @@
 רכוש	רכוש	analogy	miss	
 נגזר דינו	נגזר דינו	analogy	close	גזר
 דין	דין	analogy	miss	
-בא אל קיצו	בא אל קיצו	analogy	miss	
+בא אל קיצו	בא אל קיצו	analogy	full	בא אל קיצו
 קץ	קץ	analogy	full	קץ
-תש כוחו	תש כוחו	analogy	miss	
+תש כוחו	תש כוחו	analogy	full	תש כוחו
 כוח	כוח	analogy	miss	
-כבש את יצרו	כבש את יצרו	analogy	close	כבש
+כבש את יצרו	כבש את יצרו	analogy	full	כבש את יצרו
 יצר	יצר	analogy	miss	
-אדריכל	אדריכל	analogy	close	רכל
+אדריכל	אדריכל	analogy	close	אדר
 דייר	דייר	analogy	full	דיר
 מלצר	מלצר	analogy	close	מלצ
 סועד	סועד	analogy	full	סועד
@@ -78,7 +78,7 @@
 חלוקים	חלוקים	analogy	close	חלק
 שוני	שוני	analogy	miss	
 זהים	זהים	analogy	miss	
-אחריות	אחריות	analogy	close	אחרי
+אחריות	אחריות	analogy	close	אחר
 ערבים	ערבים	analogy	full	ערב
 מפגש	מפגש	analogy	miss	
 מצטלבים	מצטלבים	analogy	miss	
@@ -115,7 +115,7 @@
 לציבור	לציבור	completion	miss	
 לשתות	לשתות	completion	full	שותת
 מיץ	מיץ	completion	full	מוץ
-לבונה"	לבונה"	completion	close	לבנ
+לבונה"	לבונה"	completion	close	לבנה
 ברקת"	ברקת"	completion	miss	
 הודגשה	הודגשה	completion	miss	
 הוויטמינים	הוויטמינים	completion	close	טמנ
@@ -139,14 +139,14 @@
 ברורה	ברורה	completion	miss	
 לאף	לאף	completion	miss	
 מבשנה	מבשנה	completion	close	בשנ
-שקדמה	שקדמה	completion	close	שקד
+שקדמה	שקדמה	completion	close	דמה
 והעלות	והעלות	completion	full	עול
 לצמצם	לצמצם	completion	miss	
 הוצאותיהם	הוצאותיהם	completion	miss	
 נמנעו	נמנעו	completion	miss	
 האפשר	האפשר	completion	close	פשר
 מלהגיע	מלהגיע	completion	close	להג
-נדרשו	נדרשו	completion	close	נדר
+נדרשו	נדרשו	completion	miss	
 ליותר	ליותר	completion	close	יתר
 טיפולים	טיפולים	completion	full	טפל
 יקרים	יקרים	completion	close	יקר
@@ -180,7 +180,7 @@
 להרתיע	להרתיע	completion	full	הרתיע
 פושעים	פושעים	completion	miss	
 פוטנציאליים	פוטנציאליים	completion	close	אלמ
-ניתן	ניתן	completion	miss	
+ניתן	ניתן	completion	close	נתנ
 פומבי	פומבי	completion	miss	
 מתבקש	מתבקש	completion	close	בקש
 לחשוב	לחשוב	completion	miss	
@@ -205,7 +205,7 @@
 הכרחית	הכרחית	completion	close	כרח
 באדם	באדם	completion	close	אדמ
 שפשע	שפשע	completion	miss	
-וההרתעה	וההרתעה	completion	close	תעה
+וההרתעה	וההרתעה	completion	close	רתע
 תוצר	תוצר	completion	miss	
 לוואי	לוואי	completion	miss	
 הנו	הנו	completion	miss	
@@ -265,7 +265,7 @@
 מנסים	מנסים	completion	miss	
 לייצר	לייצר	completion	miss	
 חלופה	חלופה	completion	close	חלפ
-מלאכותית	מלאכותית	completion	close	מלא
+מלאכותית	מלאכותית	completion	close	כתת
 לדופמין	לדופמין	completion	miss	
 שתוכל	שתוכל	completion	miss	
 לעבור	לעבור	completion	close	עבר

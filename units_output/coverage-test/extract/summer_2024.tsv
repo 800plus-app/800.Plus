@@ -9,7 +9,7 @@
 מטרייה	מטרייה	analogy	miss	
 גשם	גשם	analogy	close	גשמ
 מחיצה	מחיצה	analogy	close	מחצ
-הפרדה	הפרדה	analogy	close	פרד
+הפרדה	הפרדה	analogy	close	רדה
 השתתק	השתתק	analogy	close	שתת
 לדבר	לדבר	analogy	full	דביר
 התלבש	התלבש	analogy	close	התל
@@ -24,11 +24,11 @@
 אנושיות	אנושיות	analogy	close	אנש
 לקנות	לקנות	analogy	miss	
 קניין	קניין	analogy	full	קונן
-להעליל	להעליל	analogy	close	עלל
+להעליל	להעליל	analogy	full	העליל
 אשמה	אשמה	analogy	close	אשמ
 להפריז	להפריז	analogy	full	הפריז
 הגזמה	הגזמה	analogy	full	גוזמה
-להתריע	להתריע	analogy	close	התר
+להתריע	להתריע	analogy	full	התריע
 סכנה	סכנה	analogy	close	סכנ
 מהימן	מהימן	analogy	miss	
 לבטוח	לבטוח	analogy	close	בטח
@@ -40,7 +40,7 @@
 לוותר	לוותר	analogy	close	ותר
 מבואר	מבואר	analogy	close	באר
 לפרש	לפרש	analogy	close	פרש
-מרוהט	מרוהט	analogy	close	מרה
+מרוהט	מרוהט	analogy	close	רהט
 רהיט	רהיט	analogy	full	רהוט
 מחולק	מחולק	analogy	close	חלק
 חלק	חלק	analogy	close	חלק
@@ -58,7 +58,7 @@
 גרגרנות	גרגרנות	analogy	full	גרגרן
 למדנות	למדנות	analogy	full	למדנות
 בקיאות	בקיאות	analogy	full	בקיאות
-ענוותנות	ענוותנות	analogy	miss	
+ענוותנות	ענוותנות	analogy	close	נתנ
 גאוותנות	גאוותנות	analogy	close	אתנ
 חד עין	חד עין	analogy	close	עין
 הבחין	הבחין	analogy	miss	
@@ -86,7 +86,7 @@
 הוקיע	הוקיע	analogy	full	הוקיע
 קלקל	קלקל	analogy	full	קלוקל
 חיבל	חיבל	analogy	close	חבל
-הפריך	הפריך	analogy	full	הפריך
+הפריך	הפריך	analogy	full	פריך
 הכחיש	הכחיש	analogy	full	כחוש
 קהה	קהה	analogy	full	קהה
 אבן משחזת	אבן משחזת	analogy	close	אבן
@@ -101,9 +101,9 @@
 רלוונטיות	רלוונטיות	analogy	miss	
 נשבר מטה לחמו	נשבר מטה לחמו	analogy	close	שבר
 פרנסה	פרנסה	analogy	miss	
-ניטל עוקצו	ניטל עוקצו	analogy	miss	
+ניטל עוקצו	ניטל עוקצו	analogy	full	ניטל עוקצו
 תפלות	תפלות	analogy	full	תפל
-הפיל עליו את חיתתו	הפיל עליו את חיתתו	analogy	close	חתת
+הפיל עליו את חיתתו	הפיל עליו את חיתתו	analogy	full	הפיל עליו את חיתתו
 שלווה	שלווה	analogy	full	שלה
 סכר את פיו	סכר את פיו	analogy	close	סכר
 התבטאות	התבטאות	analogy	miss	
@@ -131,7 +131,7 @@
 רוגע	רוגע	completion	miss	
 שביקר	שביקר	completion	miss	
 בעיר	בעיר	completion	full	בער
-מעולם	מעולם	completion	close	מעל
+מעולם	מעולם	completion	close	עלמ
 היסודי	היסודי	completion	miss	
 שפקד	שפקד	completion	close	פקד
 בית	בית	completion	miss	
@@ -187,7 +187,7 @@
 להמוני	להמוני	completion	close	מני
 בהתאם	בהתאם	completion	miss	
 בחירות	בחירות	completion	miss	
-חשאיות	חשאיות	completion	close	שאת
+חשאיות	חשאיות	completion	close	חשא
 משמשות	משמשות	completion	miss	
 לכלל	לכלל	completion	close	כלל
 התושבים	התושבים	completion	miss	
@@ -200,7 +200,7 @@
 לבחון	לבחון	completion	miss	
 מחדש	מחדש	completion	miss	
 השקפותיו	השקפותיו	completion	close	שקפ
-ולשנותן	ולשנותן	completion	close	שנת
+ולשנותן	ולשנותן	completion	close	נתנ
 מיאן	מיאן	completion	full	מאן
 בתוקף	בתוקף	completion	miss	
 המוצקות	המוצקות	completion	miss	
@@ -216,7 +216,7 @@
 התקבעו	התקבעו	completion	close	קבע
 הוסיף	הוסיף	completion	miss	
 חדל	חדל	completion	full	חדל
-נקרשו	נקרשו	completion	close	קרש
+נקרשו	נקרשו	completion	close	נקר
 החל	החל	completion	full	חיל
 מבזלת	מבזלת	completion	miss	
 לל	לל	completion	miss	

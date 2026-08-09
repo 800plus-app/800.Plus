@@ -88,9 +88,9 @@
 קליפה	קליפה	analogy	miss	
 להמליח	להמליח	analogy	close	מלח
 מלח	מלח	analogy	full	מלח
-לנסר	לנסר	analogy	miss	
-נסורת	נסורת	analogy	miss	
-כבש את יצרו	כבש את יצרו	analogy	close	כבש
+לנסר	לנסר	analogy	close	נסר
+נסורת	נסורת	analogy	full	נסורת
+כבש את יצרו	כבש את יצרו	analogy	full	כבש את יצרו
 להתפתות	להתפתות	analogy	close	תפת
 יצא בשן ועין	יצא בשן ועין	analogy	full	יצא בשן ועין
 להיפגע	להיפגע	analogy	miss	
@@ -98,12 +98,12 @@
 להחליט	להחליט	analogy	miss	
 פתח סגור ליבו	פתח סגור ליבו	analogy	close	סגור
 להסתיר	להסתיר	analogy	close	סתר
-חשק שפתיו	חשק שפתיו	analogy	close	חשק
+חשק שפתיו	חשק שפתיו	analogy	full	חשק שפתיו
 לדבר	לדבר	analogy	full	דביר
 כאן	כאן	analogy	miss	
-הנה	הנה	analogy	full	נוה
+הנה	הנה	analogy	full	הונה
 חזית	חזית	analogy	miss	
-אחורה	אחורה	analogy	close	חרה
+אחורה	אחורה	analogy	close	אחר
 ימין	ימין	analogy	miss	
 ימינה	ימינה	analogy	miss	
 פנים	פנים	analogy	full	פן
@@ -131,24 +131,24 @@
 לשבח	לשבח	completion	miss	
 בוז	בוז	completion	full	בוז
 רמות	רמות	completion	miss	
-נדיר	נדיר	completion	close	נדר
+נדיר	נדיר	completion	miss	
 חיזיון	חיזיון	completion	full	חיזיון
 רגיל	רגיל	completion	miss	
 להשמיץ	להשמיץ	completion	close	שמצ
-הערצה	הערצה	completion	close	ערצ
+הערצה	הערצה	completion	close	רצה
 ובמחיאות	ובמחיאות	completion	miss	
 כפיים	כפיים	completion	full	כף
 ללגלג	ללגלג	completion	miss	
 משסבר	משסבר	completion	close	סבר
 חש	חש	completion	full	חיש
 ועד	ועד	completion	close	ועד
-ארוחת	ארוחת	completion	close	ארח
+ארוחת	ארוחת	completion	close	רחת
 הצהריים	הצהריים	completion	full	צוהר
 נותר	נותר	completion	full	ניתר
 ממהר	ממהר	completion	close	מהר
 מועט	מועט	completion	close	מעט
 שמחה	שמחה	completion	close	מחה
-לחכות	לחכות	completion	full	ליחך
+לחכות	לחכות	completion	full	חך
 הארוחה	הארוחה	completion	full	אורחה
 מפגר	מפגר	completion	miss	
 קצר	קצר	completion	close	קצר
@@ -178,13 +178,13 @@
 בעשורים	בעשורים	completion	miss	
 האחרונים	האחרונים	completion	close	אחר
 להצטמק	להצטמק	completion	miss	
-התממשה	התממשה	completion	close	תממ
+התממשה	התממשה	completion	close	משה
 העלייה	העלייה	completion	close	עלה
 אליה	אליה	completion	miss	
 וכמו	וכמו	completion	miss	
 גדל	גדל	completion	full	גדיל
 לגדול	לגדול	completion	full	גדיל
-הירידה	הירידה	completion	close	רדה
+הירידה	הירידה	completion	close	ירד
 ירד	ירד	completion	close	ירד
 באותן	באותן	completion	close	אתנ
 מאמין	מאמין	completion	close	אמנ

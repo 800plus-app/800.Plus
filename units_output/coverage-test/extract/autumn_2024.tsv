@@ -37,7 +37,7 @@
 ראוי לשבח	ראוי לשבח	analogy	miss	
 גאוותן	גאוותן	analogy	close	אתנ
 משובב נפש	משובב נפש	analogy	full	משובב נפש
-נהנתן	נהנתן	analogy	miss	
+נהנתן	נהנתן	analogy	full	נהנתן
 ללכוד	ללכוד	analogy	full	לכד
 להיחלץ	להיחלץ	analogy	close	חלצ
 לשבור	לשבור	analogy	close	שבר
@@ -45,7 +45,7 @@
 לפגוע	לפגוע	analogy	miss	
 להתגונן	להתגונן	analogy	miss	
 לשכוח	לשכוח	analogy	full	שכיח
-להיזכר	להיזכר	analogy	miss	
+להיזכר	להיזכר	analogy	close	זכר
 לבקש	לבקש	analogy	close	בקש
 להיענות	להיענות	analogy	miss	
 עיר רפאים	עיר רפאים	analogy	close	עיר
@@ -79,20 +79,20 @@
 מילא	מילא	analogy	close	מלא
 התפקע	התפקע	analogy	close	פקע
 הרס	הרס	analogy	miss	
-נחרב	נחרב	analogy	close	חרב
+נחרב	נחרב	analogy	close	נחר
 אפה	אפה	analogy	full	איפה
 נשרף	נשרף	analogy	close	נשר
 איחר	איחר	analogy	close	אחר
 הוחמץ	הוחמץ	analogy	full	החמיץ
 הפיל	הפיל	analogy	miss	
 התנפץ	התנפץ	analogy	close	נפצ
-השיב פניו ריקם	השיב פניו ריקם	analogy	miss	
+השיב פניו ריקם	השיב פניו ריקם	analogy	full	השיב פניו ריקם
 ביקש	ביקש	analogy	close	בקש
 המרה פיו	המרה פיו	analogy	close	המרה
 ציווה	ציווה	analogy	full	ציה
-עמד על דעתו	עמד על דעתו	analogy	close	עמד
+עמד על דעתו	עמד על דעתו	analogy	full	עמד על דעתו
 שכנע	שכנע	analogy	close	שכנ
-הקביל את פניו	הקביל את פניו	analogy	close	קבל
+הקביל את פניו	הקביל את פניו	analogy	full	הקביל את פניו
 הזמין	הזמין	analogy	close	הזמנ
 ריפה את ידיו	ריפה את ידיו	analogy	full	ריפה את ידיו
 עודד	עודד	analogy	miss	
@@ -141,7 +141,7 @@
 ודל	ודל	completion	miss	
 מיטיב	מיטיב	completion	miss	
 תמיד	תמיד	completion	miss	
-שהפליאה	שהפליאה	completion	close	לאה
+שהפליאה	שהפליאה	completion	close	פלא
 לתאר	לתאר	completion	miss	
 מצליח	מצליח	completion	close	צלח
 אולי	אולי	completion	miss	
@@ -150,14 +150,14 @@
 בניגוד	בניגוד	completion	close	נגד
 למה	למה	completion	miss	
 שחושב	שחושב	completion	miss	
-יודעת	יודעת	completion	close	ידע
+יודעת	יודעת	completion	close	דעת
 שאם	שאם	completion	miss	
 אנסה	אנסה	completion	miss	
 לשנות	לשנות	completion	close	שנת
 רעה	רעה	completion	close	רעה
 מכפי	מכפי	completion	miss	
 כדאי	כדאי	completion	miss	
-שתזכור	שתזכור	completion	miss	
+שתזכור	שתזכור	completion	close	זכר
 שאף	שאף	completion	miss	
 עניין	עניין	completion	miss	
 שתשנה	שתשנה	completion	miss	
@@ -172,7 +172,7 @@
 אותך	אותך	completion	miss	
 לדבוק	לדבוק	completion	full	דבק
 לעולם	לעולם	completion	full	עלום
-נטולת	נטולת	completion	miss	
+נטולת	נטולת	completion	close	נטל
 היגיון	היגיון	completion	full	הגון
 שאומר	שאומר	completion	close	אמר
 עליך	עליך	completion	miss	
@@ -237,24 +237,24 @@
 חשובים	חשובים	completion	miss	
 ודחופים	ודחופים	completion	miss	
 מצדדת	מצדדת	completion	close	צדד
-למגינת	למגינת	completion	close	למגנת
+למגינת	למגינת	completion	miss	
 ליבי	ליבי	completion	miss	
 מכירים	מכירים	completion	miss	
 בעובדה	בעובדה	completion	close	בדה
 מצריכה	מצריכה	completion	close	צרכ
 הקצאת	הקצאת	completion	close	הקצ
 משאבים	משאבים	completion	miss	
-מאמציהם	מאמציהם	completion	close	מצה
+מאמציהם	מאמציהם	completion	close	אמצ
 הכבירים	הכבירים	completion	full	כביר
 ארגונים	ארגונים	completion	close	רגנ
 וצעד	וצעד	completion	close	צעד
 חשוב	חשוב	completion	miss	
-מיעטה	מיעטה	completion	close	עטה
+מיעטה	מיעטה	completion	close	מעט
 להשתנות	להשתנות	completion	miss	
 לאורך	לאורך	completion	close	ארכ
 ההיסטוריה	ההיסטוריה	completion	miss	
 חלק	חלק	completion	close	חלק
-מהנהגים	מהנהגים	completion	close	הגמ
+מהנהגים	מהנהגים	completion	close	הנה
 ינהגו	ינהגו	completion	close	ינה
 לפתע	לפתע	completion	close	לפת
 חוקי	חוקי	completion	miss	

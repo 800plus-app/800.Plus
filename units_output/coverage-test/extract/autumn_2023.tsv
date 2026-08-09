@@ -47,15 +47,15 @@
 ניצב	ניצב	analogy	full	נציב
 גבה	גבה	analogy	miss	
 נישא	נישא	analogy	full	נשיא
-ניבל את פיו	ניבל את פיו	analogy	miss	
+ניבל את פיו	ניבל את פיו	analogy	full	ניבל את פיו
 גסות	גסות	analogy	miss	
 הלבין את פניו	הלבין את פניו	analogy	close	לבנ
 בושה	בושה	analogy	miss	
 חשק את שיניו	חשק את שיניו	analogy	close	חשק
 כעס	כעס	analogy	miss	
-דיבר על ליבו	דיבר על ליבו	analogy	close	דיבר
+דיבר על ליבו	דיבר על ליבו	analogy	full	דיבר על ליבו
 שכנוע	שכנוע	analogy	close	שכנ
-דיבר גבוהה גבוהה	דיבר גבוהה גבוהה	analogy	close	דיבר
+דיבר גבוהה גבוהה	דיבר גבוהה גבוהה	analogy	full	דיבר גבוהה גבוהה
 מליצה	מליצה	analogy	full	מליצה
 רוגטקה	רוגטקה	analogy	miss	
 אבן	אבן	analogy	full	אביון
@@ -76,24 +76,24 @@
 ענן	ענן	analogy	miss	
 להתנדף	להתנדף	analogy	close	נדפ
 ריח	ריח	analogy	full	רווח
-משכיל	משכיל	analogy	close	שכל
+משכיל	משכיל	analogy	close	משכ
 ידע	ידע	analogy	close	ידע
-נהנתן	נהנתן	analogy	miss	
+נהנתן	נהנתן	analogy	full	נהנתן
 הנאה	הנאה	analogy	close	נאה
 כבד	כבד	analogy	full	כיבד
 משקל	משקל	analogy	miss	
 עתיק	עתיק	analogy	close	עתק
 מוצף	מוצף	analogy	miss	
-הדיר רגליו	הדיר רגליו	analogy	close	הדיר
+הדיר רגליו	הדיר רגליו	analogy	full	הדיר רגליו
 פוקד	פוקד	analogy	full	פקד
-כרה אוזנו	כרה אוזנו	analogy	close	כרה
+כרה אוזנו	כרה אוזנו	analogy	full	כרה אוזנו
 מקשיב	מקשיב	analogy	miss	
 ניער חוצנו	ניער חוצנו	analogy	full	ניער חוצנו
 מעורב	מעורב	analogy	close	ערב
-פשט ידו	פשט ידו	analogy	close	פשט
+פשט ידו	פשט ידו	analogy	full	פשט ידו
 תורם	תורם	analogy	miss	
 סעד את ליבו	סעד את ליבו	analogy	full	סעד את ליבו
-נתן	נתן	analogy	miss	
+נתן	נתן	analogy	close	נתנ
 שתה	שתה	analogy	miss	
 לגימה	לגימה	analogy	close	לגמ
 ישן	ישן	analogy	miss	
@@ -114,8 +114,8 @@
 שלום	שלום	completion	miss	
 שפתח	שפתח	completion	close	שפת
 במאבק	במאבק	completion	close	אבק
-אלים	אלים	completion	full	אולם
-נגדם	נגדם	completion	close	נגד
+אלים	אלים	completion	full	אויל
+נגדם	נגדם	completion	close	גדמ
 בכוח	בכוח	completion	miss	
 הזרוע	הזרוע	completion	miss	
 פנה	פנה	completion	close	פנה
@@ -125,13 +125,13 @@
 השתמש	השתמש	completion	miss	
 האמצעים	האמצעים	completion	close	אמצ
 שעלו	שעלו	completion	close	שעל
-בדעתו	בדעתו	completion	close	בדעתו
+בדעתו	בדעתו	completion	close	דעת
 החל	החל	completion	full	חיל
 לשקול	לשקול	completion	miss	
 מכך	מכך	completion	close	מככ
-שהנהג	שהנהג	completion	miss	
+שהנהג	שהנהג	completion	close	הנה
 שפגע	שפגע	completion	miss	
-ברכבי	ברכבי	completion	close	רכב
+ברכבי	ברכבי	completion	close	ברכ
 במדינה	במדינה	completion	miss	
 ביקרתי	ביקרתי	completion	close	קרת
 שידעתי	שידעתי	completion	close	דעת
@@ -143,7 +143,7 @@
 הופתעתי	הופתעתי	completion	miss	
 המשיך	המשיך	completion	close	משכ
 בנסיעה	בנסיעה	completion	miss	
-נדיר	נדיר	completion	close	נדר
+נדיר	נדיר	completion	miss	
 עצר	עצר	completion	close	עצר
 נסיעתו	נסיעתו	completion	miss	
 במלחמה	במלחמה	completion	close	לחמ
@@ -156,7 +156,7 @@
 תבוסה	תבוסה	completion	miss	
 ובמיוחד	ובמיוחד	completion	miss	
 הובסו	הובסו	completion	miss	
-בארץ	בארץ	completion	close	ארצ
+בארץ	בארץ	completion	close	באר
 מוצאם	מוצאם	completion	close	מצא
 קרמיטיה	קרמיטיה	completion	close	קרמ
 הקרמיטית	הקרמיטית	completion	close	קרמ
@@ -184,10 +184,10 @@
 הנשקף	הנשקף	completion	close	שקפ
 מחלונך"	מחלונך"	completion	close	מחל
 חולק	חולק	completion	close	חלק
-ספינה	ספינה	completion	close	פנה
+ספינה	ספינה	completion	close	ספנ
 מאוישת	מאוישת	completion	miss	
 עודנה	עודנה	completion	full	עדנה
-ספינה"	ספינה"	completion	close	פנה
+ספינה"	ספינה"	completion	close	ספנ
 רואה	רואה	completion	miss	
 עימו	עימו	completion	close	עמו
 עין	עין	completion	full	עוין
@@ -209,9 +209,9 @@
 ערך	ערך	completion	miss	
 ניסוי	ניסוי	completion	miss	
 ובו	ובו	completion	miss	
-נתן	נתן	completion	miss	
+נתן	נתן	completion	close	נתנ
 עודף	עודף	completion	miss	
-המפחיתה	המפחיתה	completion	close	חתה
+המפחיתה	המפחיתה	completion	close	מפח
 וכפי	וכפי	completion	miss	
 שציפה	שציפה	completion	close	שצפ
 הפסיקו	הפסיקו	completion	miss	
@@ -241,7 +241,7 @@
 מפקפק	מפקפק	completion	close	פקפק
 בחפותו	בחפותו	completion	close	חפת
 עומדת	עומדת	completion	close	עמד
-כרעי	כרעי	completion	close	כרע
+כרעי	כרעי	completion	close	כרעי
 תרנגולת	תרנגולת	completion	close	תרנ
 מוצקות	מוצקות	completion	miss	
 הודה	הודה	completion	miss	
@@ -255,7 +255,7 @@
 מתקשה	מתקשה	completion	close	קשה
 להאמין	להאמין	completion	close	אמנ
 דלות	דלות	completion	close	דלת
-ונתונות	ונתונות	completion	close	ונתנ
+ונתונות	ונתונות	completion	close	נתנ
 לפרשנות	לפרשנות	completion	close	פרש
 נוטה	נוטה	completion	close	נטה
 מפוקפקת	מפוקפקת	completion	close	פקפק

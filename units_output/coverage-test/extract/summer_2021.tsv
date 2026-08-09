@@ -4,7 +4,7 @@
 כניעה	כניעה	analogy	close	כנע
 פיהוק	פיהוק	analogy	miss	
 שינה	שינה	analogy	miss	
-הנהון	הנהון	analogy	miss	
+הנהון	הנהון	analogy	close	הנה
 הסכמה	הסכמה	analogy	close	סכמ
 עיטוש	עיטוש	analogy	miss	
 הצטננות	הצטננות	analogy	miss	
@@ -62,7 +62,7 @@
 שיקול דעת	שיקול דעת	analogy	close	דעת
 סבלן	סבלן	analogy	close	בלנ
 אורך רוח	אורך רוח	analogy	full	אורך רוח
-משכיל	משכיל	analogy	close	שכל
+משכיל	משכיל	analogy	close	משכ
 כובד ראש	כובד ראש	analogy	full	כבד ראש
 אביון	אביון	analogy	full	אביון
 אוזלת יד	אוזלת יד	analogy	full	אזלת יד
@@ -78,7 +78,7 @@
 לארוג	לארוג	analogy	full	ארג
 מזרק	מזרק	analogy	close	מזר
 לחסן	לחסן	analogy	full	חסין
-מהמורה	מהמורה	analogy	close	המרה
+מהמורה	מהמורה	analogy	close	מרה
 גשם	גשם	analogy	close	גשמ
 בצורת	בצורת	analogy	close	בצר
 גשר	גשר	analogy	miss	
@@ -87,14 +87,14 @@
 תקר	תקר	analogy	miss	
 עדשה	עדשה	analogy	miss	
 שריטה	שריטה	analogy	close	רטה
-מהנה	מהנה	analogy	miss	
+מהנה	מהנה	analogy	close	הנה
 הנאה	הנאה	analogy	close	נאה
-מצחין	מצחין	analogy	close	צחנ
+מצחין	מצחין	analogy	close	מצח
 צחנה	צחנה	analogy	full	צחנה
 מפחיד	מפחיד	analogy	close	מפח
 פחד	פחד	analogy	miss	
 מקנא	מקנא	analogy	close	קנא
-קנאה	קנאה	analogy	close	נאה
+קנאה	קנאה	analogy	close	קנא
 מקשיב	מקשיב	analogy	miss	
 קשב	קשב	analogy	miss	
 הדיר את רגליו	הדיר את רגליו	analogy	close	הדיר
@@ -145,7 +145,7 @@
 יריבים	יריבים	completion	miss	
 כמולגים	כמולגים	completion	close	לגמ
 המאמצים	המאמצים	completion	close	אמצ
-נדיר	נדיר	completion	close	נדר
+נדיר	נדיר	completion	miss	
 כוחם	כוחם	completion	miss	
 במעורבות	במעורבות	completion	close	ערב
 האלינדית	האלינדית	completion	miss	
@@ -215,7 +215,7 @@
 לחידוש	לחידוש	completion	miss	
 קנייתו	קנייתו	completion	miss	
 הוראתה	הוראתה	completion	miss	
-המתנגדים	המתנגדים	completion	close	נגד
+המתנגדים	המתנגדים	completion	close	גדמ
 למציאת	למציאת	completion	close	מצא
 חלופה	חלופה	completion	close	חלפ
 לשעון	לשעון	completion	miss	
@@ -235,7 +235,7 @@
 המצביעים	המצביעים	completion	close	צבע
 היעדר	היעדר	completion	miss	
 לתמוך	לתמוך	completion	close	תמכ
-מקבלים	מקבלים	completion	close	בלמ
+מקבלים	מקבלים	completion	close	קבל
 המוכיחים	המוכיחים	completion	miss	
 לאמץ	לאמץ	completion	close	אמצ
 המצדדים	המצדדים	completion	full	מצודד

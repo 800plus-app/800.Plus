@@ -10,7 +10,7 @@
 שרוך	שרוך	analogy	full	שרך
 לחבוש	לחבוש	analogy	full	חבש
 כובע	כובע	analogy	miss	
-לכפתר	לכפתר	analogy	close	לכפ
+לכפתר	לכפתר	analogy	close	כפת
 רכוס	רכוס	analogy	full	רכס
 להאזין	להאזין	analogy	miss	
 ערב	ערב	analogy	full	ערב
@@ -52,7 +52,7 @@
 נפלו פניו	נפלו פניו	analogy	full	נפלו פניו
 עצבות	עצבות	analogy	miss	
 נפל בפח	נפל בפח	analogy	close	נפל
-עורמה	עורמה	analogy	close	ערמ
+עורמה	עורמה	analogy	close	רמה
 עלה על יצועו	עלה על יצועו	analogy	close	יצע
 עייפות	עייפות	analogy	miss	
 העלה ארוכה	העלה ארוכה	analogy	full	העלה ארוכה
@@ -93,19 +93,19 @@
 תורם	תורם	analogy	miss	
 נטווה	נטווה	analogy	close	נטה
 אורג	אורג	analogy	full	ארג
-אין עליו עוררין	אין עליו עוררין	analogy	close	ערר
+אין עליו עוררין	אין עליו עוררין	analogy	full	אין עליו עוררין
 שנוי במחלוקת	שנוי במחלוקת	analogy	close	חלק
-אין לו דורש	אין לו דורש	analogy	miss	
+אין לו דורש	אין לו דורש	analogy	full	אין לו דורש
 רוצה	רוצה	analogy	close	רצה
 אין לאל ידו	אין לאל ידו	analogy	full	אין לאל ידו
 מסוגל	מסוגל	analogy	close	סגל
-אין לו זכר	אין לו זכר	analogy	miss	
+אין לו זכר	אין לו זכר	analogy	full	אין לו זכר
 נעלם	נעלם	analogy	close	עלמ
 אין לעמוד בפניו	אין לעמוד בפניו	analogy	close	עמד
-מתפתה	מתפתה	analogy	close	תפת
+מתפתה	מתפתה	analogy	close	פתה
 בנה	בנה	analogy	miss	
 חורבות	חורבות	analogy	full	חרב
-רחץ	רחץ	analogy	miss	
+רחץ	רחץ	analogy	close	רחצ
 לכלוך	לכלוך	analogy	close	לכל
 נטע	נטע	analogy	full	נטע
 גדם	גדם	analogy	full	גידם
@@ -138,7 +138,7 @@
 ליבו	ליבו	completion	close	לבו
 הרחב	הרחב	completion	close	רחב
 ברכה	ברכה	completion	close	ברכ
-לבטלה	לבטלה	completion	close	בטל
+לבטלה	לבטלה	completion	close	לבט
 להשקיע	להשקיע	completion	miss	
 משאבים	משאבים	completion	miss	
 השקיעו	השקיעו	completion	miss	
@@ -180,7 +180,7 @@
 חתול	חתול	completion	miss	
 צבע	צבע	completion	full	צבוע
 בהשיבכם	בהשיבכם	completion	close	שבכ
-מנתונים	מנתונים	completion	miss	
+מנתונים	מנתונים	completion	close	נתנ
 בשאלות	בשאלות	completion	miss	
 מגבלתו	מגבלתו	completion	miss	
 לחדור	לחדור	completion	miss	
@@ -202,7 +202,7 @@
 מקור	מקור	completion	miss	
 עשיר	עשיר	completion	miss	
 ובר	ובר	completion	full	בור
-סמכא	סמכא	completion	close	סמכ
+סמכא	סמכא	completion	close	סמכא
 להבנת	להבנת	completion	miss	
 מבנה	מבנה	completion	miss	
 אישיותו	אישיותו	completion	miss	
@@ -221,7 +221,7 @@
 המורדים	המורדים	completion	full	מרוד
 הפידלים	הפידלים	completion	miss	
 כמי	כמי	completion	miss	
-שלוחמים	שלוחמים	completion	close	שלח
+שלוחמים	שלוחמים	completion	close	לחמ
 מלחמתם	מלחמתם	completion	close	לחמ
 כולם	כולם	completion	close	כלמ
 שהרי	שהרי	completion	close	הרי

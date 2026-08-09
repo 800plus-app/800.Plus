@@ -11,12 +11,12 @@
 מחזאי	מחזאי	analogy	miss	
 שחקן	שחקן	analogy	close	שחק
 בא	בא	analogy	miss	
-הדיר רגליו	הדיר רגליו	analogy	close	הדיר
+הדיר רגליו	הדיר רגליו	analogy	full	הדיר רגליו
 הבחין	הבחין	analogy	miss	
 נעלם מעיניו	נעלם מעיניו	analogy	close	עלמ
 דיבר	דיבר	analogy	full	דביר
 נצר לשונו	נצר לשונו	analogy	full	נצר לשונו
-היה לאל ידו	היה לאל ידו	analogy	close	לאל
+היה לאל ידו	היה לאל ידו	analogy	full	היה לאל ידו
 התרושש	התרושש	analogy	full	התרושש
 פשט יד	פשט יד	analogy	close	פשט
 אבקה	אבקה	analogy	full	אבוקה
@@ -71,7 +71,7 @@
 מאוכזב	מאוכזב	analogy	close	כזב
 התבטל	התבטל	analogy	full	התבטל
 בטלן	בטלן	analogy	close	בטל
-התרענן	התרענן	analogy	close	התר
+התרענן	התרענן	analogy	close	תרע
 רענן	רענן	analogy	miss	
 היסס	היסס	analogy	miss	
 הססן	הססן	analogy	miss	
@@ -79,7 +79,7 @@
 פרשן	פרשן	analogy	close	פרש
 הרגיז	הרגיז	analogy	miss	
 רגזן	רגזן	analogy	miss	
-בזעיר אנפין	בזעיר אנפין	analogy	miss	
+בזעיר אנפין	בזעיר אנפין	analogy	full	בזעיר אנפין
 בלאט	בלאט	analogy	full	בלאט
 רעש	רעש	analogy	miss	
 בלית ברירה	בלית ברירה	analogy	miss	
@@ -114,7 +114,7 @@
 שינה	שינה	completion	miss	
 משובחת	משובחת	completion	miss	
 משמימה	משמימה	completion	close	שממ
-פשטני	פשטני	completion	close	פשט
+פשטני	פשטני	completion	close	שטנ
 לקלקל	לקלקל	completion	full	קלוקל
 לגמרי	לגמרי	completion	close	גמר
 מצב	מצב	completion	miss	
@@ -122,7 +122,7 @@
 מורכבת	מורכבת	completion	close	מרכ
 ומפריך	ומפריך	completion	close	פרכ
 עלוב	עלוב	completion	miss	
-לאושר	לאושר	completion	miss	
+לאושר	לאושר	completion	close	אשר
 עילאי	עילאי	completion	miss	
 יפה	יפה	completion	close	יפה
 וסותר	וסותר	completion	full	סתור
@@ -146,13 +146,13 @@
 מורד	מורד	completion	full	מרוד
 בהוריו	בהוריו	completion	miss	
 הולך	הולך	completion	full	הילך
-בתלם	בתלם	completion	close	תלמ
+בתלם	בתלם	completion	close	בתלמ
 מרבית	מרבית	completion	miss	
 הנוער	הנוער	completion	close	נער
 מקצת	מקצת	completion	miss	
-התעקשותך	התעקשותך	completion	close	עקש
+התעקשותך	התעקשותך	completion	close	קשת
 ורק	ורק	completion	miss	
-תמוהה	תמוהה	completion	close	תמה
+תמוהה	תמוהה	completion	close	מהה
 בעיניי	בעיניי	completion	miss	
 למצוא	למצוא	completion	close	מצא
 עניין	עניין	completion	miss	
@@ -200,13 +200,13 @@
 פחתה	פחתה	completion	close	חתה
 שביעות	שביעות	completion	close	שבע
 רצון	רצון	completion	miss	
-שכרו	שכרו	completion	close	שכרו
+שכרו	שכרו	completion	close	שכר
 הביולוג	הביולוג	completion	full	הבליג
 מבאירופה	מבאירופה	completion	close	רפה
 המערבית	המערבית	completion	close	ערב
 להתנחם	להתנחם	completion	close	נחמ
 בעובדה	בעובדה	completion	close	בדה
-ששכרו	ששכרו	completion	close	שכרו
+ששכרו	ששכרו	completion	close	שכר
 הישראלי	הישראלי	completion	close	ישר
 מקופח	מקופח	completion	close	קפח
 מבחינה	מבחינה	completion	miss	
@@ -215,13 +215,13 @@
 באירופה	באירופה	completion	close	רפה
 מוטב	מוטב	completion	miss	
 ביולוג	ביולוג	completion	close	בלג
-שכר	שכר	completion	miss	
+שכר	שכר	completion	close	שכר
 הביולוגים	הביולוגים	completion	full	הבליג
 למסיים	למסיים	completion	miss	
 לימודי	לימודי	completion	close	למד
 הביולוגיה	הביולוגיה	completion	close	הבל
 ממתינה	ממתינה	completion	close	מתנ
-משכורת	משכורת	completion	close	משכ
-מהמשכורת	מהמשכורת	completion	close	משכ
+משכורת	משכורת	completion	close	שכר
+מהמשכורת	מהמשכורת	completion	close	שכר
 שירוויח	שירוויח	completion	miss	
 עמיתו	עמיתו	completion	miss	

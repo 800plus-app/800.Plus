@@ -16,19 +16,19 @@
 משאית	משאית	analogy	close	משאת
 דאון	דאון	analogy	miss	
 מטוס	מטוס	analogy	miss	
-ספינה	ספינה	analogy	close	פנה
+ספינה	ספינה	analogy	close	ספנ
 צוללת	צוללת	analogy	close	צלל
 מריצה	מריצה	analogy	close	רצה
-עגלה	עגלה	analogy	close	גלה
+עגלה	עגלה	analogy	close	עגל
 הלך בעקבותיו	הלך בעקבותיו	analogy	close	הלך
 הוביל	הוביל	analogy	full	הבל
 זרה חול בעיניו	זרה חול בעיניו	analogy	close	זרה
 טעה	טעה	analogy	miss	
-דיבר על ליבו	דיבר על ליבו	analogy	close	דיבר
+דיבר על ליבו	דיבר על ליבו	analogy	full	דיבר על ליבו
 שכנע	שכנע	analogy	close	שכנ
-בא בצל קורתו	בא בצל קורתו	analogy	close	קרת
+בא בצל קורתו	בא בצל קורתו	analogy	full	בא בצל קורתו
 אירח	אירח	analogy	full	אורח
-בא כשמן בעצמותיו	בא כשמן בעצמותיו	analogy	close	צמת
+בא כשמן בעצמותיו	בא כשמן בעצמותיו	analogy	full	בא כשמן בעצמותיו
 הנעים	הנעים	analogy	miss	
 לנקז	לנקז	analogy	miss	
 מרזב	מרזב	analogy	full	מרזב
@@ -117,7 +117,7 @@
 חיבק	חיבק	analogy	miss	
 הצטווה	הצטווה	analogy	miss	
 ציווה	ציווה	analogy	full	ציה
-נזהר	נזהר	analogy	close	זהר
+נזהר	נזהר	analogy	close	נזה
 הזהיר	הזהיר	analogy	close	זהר
 רצוי	רצוי	completion	miss	
 שאלו	שאלו	completion	miss	
@@ -173,7 +173,7 @@
 חיוניים	חיוניים	completion	miss	
 נהגתי	נהגתי	completion	miss	
 להאריך	להאריך	completion	close	ארכ
-בדברים	בדברים	completion	close	דבר
+בדברים	בדברים	completion	close	ברמ
 יתר	יתר	completion	close	יתר
 המידה	המידה	completion	miss	
 שהניב	שהניב	completion	miss	
@@ -190,13 +190,13 @@
 בלפתן	בלפתן	completion	close	לפת
 שהכין	שהכין	completion	miss	
 ענבים	ענבים	completion	miss	
-סגולים	סגולים	completion	close	גלמ
+סגולים	סגולים	completion	close	סגל
 שזיפים	שזיפים	completion	full	שזף
 וענבים	וענבים	completion	miss	
 ירוקים	ירוקים	completion	miss	
 שאביו	שאביו	completion	miss	
 ניסח	ניסח	completion	miss	
-בקשתו	בקשתו	completion	close	בקש
+בקשתו	בקשתו	completion	close	קשת
 חד	חד	completion	miss	
 משמעי	משמעי	completion	close	משמעי
 דומה	דומה	completion	close	דמה
@@ -216,7 +216,7 @@
 שגה	שגה	completion	close	שגה
 בפירושה	בפירושה	completion	close	פרש
 ושזיפים	ושזיפים	completion	full	שזף
-שהבקשה	שהבקשה	completion	close	בקש
+שהבקשה	שהבקשה	completion	close	קשה
 השכיל	השכיל	completion	full	השכיל
 למלא	למלא	completion	close	מלא
 ליישמו	ליישמו	completion	close	ישמ
@@ -228,7 +228,7 @@
 בפשרה	בפשרה	completion	close	שרה
 איש	איש	completion	miss	
 המדון	המדון	completion	full	מדון
-המרוצה	המרוצה	completion	close	המר
+המרוצה	המרוצה	completion	close	רצה
 עישון	עישון	completion	miss	
 להיפטר	להיפטר	completion	full	הפטיר
 הנגמל	הנגמל	completion	close	גמל
@@ -244,10 +244,10 @@
 זניח	זניח	completion	full	זנח
 חסרונותיה	חסרונותיה	completion	close	חסר
 ואין	ואין	completion	miss	
-יתרונותיה	יתרונותיה	completion	close	תרנ
+יתרונותיה	יתרונותיה	completion	close	יתר
 מתפלא	מתפלא	completion	close	תפל
 לשמוע	לשמוע	completion	miss	
-שבעקבות	שבעקבות	completion	close	שבע
+שבעקבות	שבעקבות	completion	close	עקב
 אכילת	אכילת	completion	close	אכל
 פרחים	פרחים	completion	close	פרח
 אתמול	אתמול	completion	miss	
