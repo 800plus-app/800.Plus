@@ -20,7 +20,8 @@ sys.stdout.reconfigure(encoding='utf-8')
 HERE = os.path.dirname(os.path.abspath(__file__))
 UNITS = os.path.dirname(HERE)                                  # units_output
 EXAMS = os.path.join(os.path.dirname(UNITS), 'בחינות-נייט', 'normalized')
-OUTX = os.path.join(HERE, 'extract')
+HELDOUT_MODE = '--heldout' in sys.argv   # ולידציה סופית: 4 מבחני ה-held-out בלבד
+OUTX = os.path.join(HERE, 'extract-heldout' if HELDOUT_MODE else 'extract')
 os.makedirs(OUTX, exist_ok=True)
 
 SEED = 800
@@ -30,6 +31,10 @@ all_stems = sorted(f[:-4] for f in os.listdir(EXAMS) if f.endswith('.txt'))
 pool = [s for s in all_stems if s != 'spring_2026']
 held = sorted(random.Random(SEED).sample(pool, 4))
 measure = [s for s in pool if s not in held]
+if HELDOUT_MODE:
+    # קבוצת המדידה מוחלפת ב-held-out; רשימת העצירה חייבת להיות הקפואה
+    assert os.path.exists(os.path.join(HERE, 'stopwords.txt')), 'stopwords.txt הקפוא חסר'
+    measure = held
 io.open(os.path.join(HERE, 'heldout.txt'), 'w', encoding='utf-8').write(
     'SEED=%d\nheld-out (לא נמדדו, לא נקראו):\n%s\n' % (SEED, '\n'.join(held)))
 
@@ -384,7 +389,8 @@ for stem in measure:
     L.append('**%s** (%d): %s' % (stem, len(misses), ' · '.join(misses)))
     L.append('')
 
-io.open(os.path.join(HERE, 'דוח-כיסוי.md'), 'w', encoding='utf-8').write('\n'.join(L))
+REPORT = 'דוח-held-out.md' if HELDOUT_MODE else 'דוח-כיסוי.md'
+io.open(os.path.join(HERE, REPORT), 'w', encoding='utf-8').write('\n'.join(L))
 print('\nמצטבר: %d פריטים · מלא %.1f%% · מלא+קרוב %.1f%%' %
       (tot['n'], 100.0 * tot['f'] / tot['n'], 100.0 * (tot['f'] + tot['c']) / tot['n']))
 print('דוח: units_output/coverage-test/דוח-כיסוי.md')
