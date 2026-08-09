@@ -105,11 +105,13 @@ def check(rows):
         # אינו מעגלי. מוחרגות מבדיקת המעגליות.
         wtoks = {fold(t) for t in word.split() if len(t) >= 3 and t not in FUNC}
         froot = fold(root) if root and '-' not in root and len(root) >= 3 else None
-        for t in re.findall(r'[א-ת]{3,}', defn):
-            ft = fold(t)
-            if ft in wtoks:
-                bad('circular', u, i, disp, 'ההגדרה מכילה את המילה: %s' % t)
-                break
+        hits = {fold(t) for t in re.findall(r'[א-ת]{3,}', defn)} & wtoks
+        # בניב, מילת-ליבה משותפת אחת היא נוהג מילוני תקין ("גשם זלעפות" ⟵
+        # "גשם עז וסוחף"). מעגליות אמיתית = ההגדרה משחזרת את כל הצירוף.
+        limit = 1 if len(wtoks) <= 1 else len(wtoks)
+        if len(hits) >= limit:
+            bad('circular', u, i, disp,
+                'ההגדרה מכילה את המילה: %s' % ', '.join(sorted(hits)))
         else:
             # נגזרת-שורש: אזהרה לסקירה, לא כשל חוסם (מכאוב↔כאב הוא נרדף לגיטימי)
             for t in re.findall(r'[א-ת]{3,}', defn):
