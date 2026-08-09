@@ -40,6 +40,23 @@ def norm(s):
     return ' '.join(s.split()).strip()
 
 
+FINALS = str.maketrans('ךםןףץ', 'כמנפצ')
+
+
+def fold(s):
+    """קיפול כתיב מלא/חסר לאיתור וריאנטים (קבורת↔קיבורת): כפולות וו/יי→בודדת,
+    הסרת ו/י פנימיות, אותיות סופיות→רגילות. אזהרה בלבד — לא חוסם."""
+    out = []
+    for w in norm(s).split():
+        w = w.translate(FINALS)
+        w = re.sub(r'וו+', 'ו', w)
+        w = re.sub(r'יי+', 'י', w)
+        if len(w) > 2:
+            w = w[0] + re.sub(r'[וי]', '', w[1:-1]) + w[-1]
+        out.append(w)
+    return ' '.join(out)
+
+
 def load_set(path):
     if not os.path.exists(path):
         return set()
@@ -98,12 +115,22 @@ def main():
 
     exceptions = load_exceptions()
     problems = []
+    warnings = []
     seen_w, seen_r = {}, {}
     excused = 0
+    used_fold = {}
+    for uw in used_words:
+        used_fold.setdefault(fold(uw), uw)
     if mode != '--init':
         for num, w, rs in rows:
             if w in used_words:
                 problems.append('שורה %s · המילה "%s" כבר בשימוש ביחידה קודמת' % (num, w))
+            else:
+                fw = fold(w)
+                if fw in used_fold:
+                    warnings.append('שורה %s · ⚠ וריאנט-כתיב אפשרי: "%s" ↔ "%s" (קיימת)'
+                                    % (num, w, used_fold[fw]))
+                used_fold.setdefault(fw, w)
             if w in seen_w:
                 problems.append('שורה %s · המילה "%s" כפולה בתוך היחידה (גם בשורה %s)' % (num, w, seen_w[w]))
             seen_w.setdefault(w, num)
@@ -128,6 +155,8 @@ def main():
 
     tail = ' · %d חריגי-שורש מאושרים' % excused if excused else ''
     sys.stdout.write('בדיקת כפילויות: עברה (0 מילים, 0 שורשים)%s · %d פריטים\n' % (tail, len(rows)))
+    for wmsg in warnings:
+        sys.stdout.write('   %s\n' % wmsg)
 
     if mode in ('--commit', '--init'):
         with io.open(WORDS, 'a', encoding='utf-8', newline='\n') as f:
