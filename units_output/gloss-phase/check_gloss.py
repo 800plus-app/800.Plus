@@ -153,7 +153,9 @@ def check(rows):
             if re.match(r'^ו[א-ת]', s) and len(s.split()) <= 4:
                 bad('fragment', u, i, disp, 'מקטע נפתח בוי"ו: %s' % s)
 
-        if NIQ.search(g):
+        # מקף עברי (U+05BE) יושב בתוך טווח הניקוד אך הוא תו מחבר לגיטימי
+        # ("אי־נוחות", "זמן־מה") — מנוטרל לפני בדיקת הניקוד.
+        if NIQ.search(g.replace('־', '-')):
             bad('niqqud', u, i, disp, 'ניקוד בתוך הפירוש')
 
     return problems
