@@ -47,11 +47,11 @@ def main():
         if not segs:
             problems.append(('unanswerable', u, i, w, 'אין מקטע-משמעות אחרי הסרת סוגריים'))
             continue
-        for s in segs:
+        for k, s in enumerate(segs):
             if len(s) < 2:
                 problems.append(('unanswerable', u, i, w, 'מקטע קצר מדי: %r' % s))
-            if re.match(r'^ו[א-ת]', s) and len(s.split()) <= 4:
-                problems.append(('fragment', u, i, w, 'מקטע נפתח בוי"ו: %s' % s))
+            if k and re.match(r'^ו[א-ת]', s) and len(s.split()) <= 4:
+                problems.append(('fragment', u, i, w, 'מקטע-המשך נפתח בוי"ו: %s' % s))
             if s.startswith(('או ', 'גם ', 'אך ')):
                 problems.append(('fragment', u, i, w, 'מקטע נפתח במילת קישור: %s' % s))
             if s in seg_owner and seg_owner[s] != w:
