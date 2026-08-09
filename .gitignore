@@ -68,3 +68,4 @@ graphify-out/
 scripts/__pycache__/
 __pycache__/
 *.pyc
+units_output/gloss-phase/hewiktionary.xml.bz2
