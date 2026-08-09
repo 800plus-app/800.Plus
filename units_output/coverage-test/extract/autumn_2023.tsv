@@ -76,7 +76,7 @@
 ענן	ענן	analogy	miss	
 להתנדף	להתנדף	analogy	close	נדפ
 ריח	ריח	analogy	full	רווח
-משכיל	משכיל	analogy	close	משכ
+משכיל	משכיל	analogy	close	שכל
 ידע	ידע	analogy	close	ידע
 נהנתן	נהנתן	analogy	miss	
 הנאה	הנאה	analogy	close	נאה
@@ -115,7 +115,7 @@
 שפתח	שפתח	completion	close	שפת
 במאבק	במאבק	completion	close	אבק
 אלים	אלים	completion	full	אולם
-נגדם	נגדם	completion	close	גדמ
+נגדם	נגדם	completion	close	נגד
 בכוח	בכוח	completion	miss	
 הזרוע	הזרוע	completion	miss	
 פנה	פנה	completion	close	פנה
@@ -131,7 +131,7 @@
 מכך	מכך	completion	close	מככ
 שהנהג	שהנהג	completion	miss	
 שפגע	שפגע	completion	miss	
-ברכבי	ברכבי	completion	close	ברכ
+ברכבי	ברכבי	completion	close	רכב
 במדינה	במדינה	completion	miss	
 ביקרתי	ביקרתי	completion	close	קרת
 שידעתי	שידעתי	completion	close	דעת
@@ -146,7 +146,7 @@
 נדיר	נדיר	completion	close	נדר
 עצר	עצר	completion	close	עצר
 נסיעתו	נסיעתו	completion	miss	
-במלחמה	במלחמה	completion	close	מלח
+במלחמה	במלחמה	completion	close	לחמ
 שאסרו	שאסרו	completion	miss	
 יריביהם	יריביהם	completion	miss	
 חסידי	חסידי	completion	close	חסד
@@ -156,11 +156,11 @@
 תבוסה	תבוסה	completion	miss	
 ובמיוחד	ובמיוחד	completion	miss	
 הובסו	הובסו	completion	miss	
-בארץ	בארץ	completion	close	באר
+בארץ	בארץ	completion	close	ארצ
 מוצאם	מוצאם	completion	close	מצא
 קרמיטיה	קרמיטיה	completion	close	קרמ
 הקרמיטית	הקרמיטית	completion	close	קרמ
-אבדה	אבדה	completion	close	בדה
+אבדה	אבדה	completion	close	אבד
 כליל	כליל	completion	close	כלל
 כוכבה	כוכבה	completion	miss	
 ניצחו	ניצחו	completion	close	נצח
@@ -169,7 +169,7 @@
 עברה	עברה	completion	full	עברה
 העולם	העולם	completion	full	עלום
 והובסו	והובסו	completion	miss	
-משלה	משלה	completion	close	משל
+משלה	משלה	completion	close	שלה
 בכיפה	בכיפה	completion	miss	
 דעך	דעך	completion	full	דעך
 קיים	קיים	completion	miss	
@@ -248,10 +248,10 @@
 הנאשם	הנאשם	completion	close	אשמ
 נותר	נותר	completion	full	ניתר
 ספק	ספק	completion	close	ספק
-באשמתו	באשמתו	completion	close	אשמ
+באשמתו	באשמתו	completion	close	באש
 רצופת	רצופת	completion	miss	
 סתירות	סתירות	completion	full	סתור
-משכנעות	משכנעות	completion	close	משכ
+משכנעות	משכנעות	completion	close	שכנ
 מתקשה	מתקשה	completion	close	קשה
 להאמין	להאמין	completion	close	אמנ
 דלות	דלות	completion	close	דלת

@@ -114,12 +114,12 @@
 שינה	שינה	completion	miss	
 משובחת	משובחת	completion	miss	
 משמימה	משמימה	completion	close	שממ
-פשטני	פשטני	completion	close	שטנ
+פשטני	פשטני	completion	close	פשט
 לקלקל	לקלקל	completion	full	קלוקל
 לגמרי	לגמרי	completion	close	גמר
 מצב	מצב	completion	miss	
 הרוח	הרוח	completion	full	רווח
-מורכבת	מורכבת	completion	close	רכב
+מורכבת	מורכבת	completion	close	מרכ
 ומפריך	ומפריך	completion	close	פרכ
 עלוב	עלוב	completion	miss	
 לאושר	לאושר	completion	miss	
@@ -136,7 +136,7 @@
 להיענות	להיענות	completion	miss	
 היענות	היענות	completion	miss	
 להשתתף	להשתתף	completion	close	שתת
-פעמים	פעמים	completion	close	עממ
+פעמים	פעמים	completion	close	פעמ
 דחיית	דחיית	completion	miss	
 לסרב	לסרב	completion	miss	
 נמנע	נמנע	completion	miss	
@@ -150,7 +150,7 @@
 מרבית	מרבית	completion	miss	
 הנוער	הנוער	completion	close	נער
 מקצת	מקצת	completion	miss	
-התעקשותך	התעקשותך	completion	close	קשת
+התעקשותך	התעקשותך	completion	close	עקש
 ורק	ורק	completion	miss	
 תמוהה	תמוהה	completion	close	תמה
 בעיניי	בעיניי	completion	miss	
@@ -189,20 +189,20 @@
 לשיאה	לשיאה	completion	close	שאה
 רגשות	רגשות	completion	miss	
 מעורבים	מעורבים	completion	close	ערב
-ירדה	ירדה	completion	close	רדה
+ירדה	ירדה	completion	close	ירד
 קרנה	קרנה	completion	close	קרנ
-ירידה	ירידה	completion	close	רדה
+ירידה	ירידה	completion	close	ירד
 עלתה	עלתה	completion	close	עלתה
 במידת	במידת	completion	miss	
 קורת	קורת	completion	close	קרת
 דעך	דעך	completion	full	דעך
 כוכבה	כוכבה	completion	miss	
 פחתה	פחתה	completion	close	חתה
-שביעות	שביעות	completion	close	בעת
+שביעות	שביעות	completion	close	שבע
 רצון	רצון	completion	miss	
 שכרו	שכרו	completion	close	שכרו
 הביולוג	הביולוג	completion	full	הבליג
-מבאירופה	מבאירופה	completion	close	באר
+מבאירופה	מבאירופה	completion	close	רפה
 המערבית	המערבית	completion	close	ערב
 להתנחם	להתנחם	completion	close	נחמ
 בעובדה	בעובדה	completion	close	בדה
@@ -212,14 +212,14 @@
 מבחינה	מבחינה	completion	miss	
 כספית	כספית	completion	close	כספ
 מעמיתיו	מעמיתיו	completion	miss	
-באירופה	באירופה	completion	close	באר
+באירופה	באירופה	completion	close	רפה
 מוטב	מוטב	completion	miss	
 ביולוג	ביולוג	completion	close	בלג
 שכר	שכר	completion	miss	
 הביולוגים	הביולוגים	completion	full	הבליג
 למסיים	למסיים	completion	miss	
 לימודי	לימודי	completion	close	למד
-הביולוגיה	הביולוגיה	completion	close	בלג
+הביולוגיה	הביולוגיה	completion	close	הבל
 ממתינה	ממתינה	completion	close	מתנ
 משכורת	משכורת	completion	close	משכ
 מהמשכורת	מהמשכורת	completion	close	משכ

@@ -5,7 +5,7 @@
 מקבל	מקבל	analogy	close	קבל
 תודה	תודה	analogy	miss	
 מחפש	מחפש	analogy	miss	
-אבדה	אבדה	analogy	close	בדה
+אבדה	אבדה	analogy	close	אבד
 מעפיל	מעפיל	analogy	close	עפל
 פסגה	פסגה	analogy	miss	
 שואל	שואל	analogy	miss	
@@ -69,14 +69,14 @@
 מיתר	מיתר	analogy	miss	
 פריטה	פריטה	analogy	close	רטה
 מתג	מתג	analogy	miss	
-הדלקה	הדלקה	analogy	close	דלק
+הדלקה	הדלקה	analogy	close	לקה
 רמזור	רמזור	analogy	close	מזר
 נסיעה	נסיעה	analogy	miss	
 מחט	מחט	analogy	miss	
 פרימה	פרימה	analogy	close	פרמ
 עדשה	עדשה	analogy	miss	
 שקיפות	שקיפות	analogy	close	שקפ
-מקהלה	מקהלה	analogy	close	קהל
+מקהלה	מקהלה	analogy	close	הלה
 זמרה	זמרה	analogy	close	זמר
 מגלשה	מגלשה	analogy	close	מגל
 שיפוע	שיפוע	analogy	miss	
@@ -106,7 +106,7 @@
 גז	גז	analogy	full	גז
 פלך	פלך	analogy	full	פלך
 קציר	קציר	analogy	close	קצר
-רחיים	רחיים	analogy	full	רווח
+רחיים	רחיים	analogy	full	ריחיים
 בציר	בציר	analogy	full	בצר
 יקב	יקב	analogy	miss	
 מסיק	מסיק	analogy	full	מסק
@@ -138,7 +138,7 @@
 תחשוב	תחשוב	completion	miss	
 בוודאי	בוודאי	completion	miss	
 שיכולת	שיכולת	completion	close	שכל
-השכלת	השכלת	completion	close	השכל
+השכלת	השכלת	completion	close	שכל
 התחל	התחל	completion	close	תחל
 עכשיו	עכשיו	completion	miss	
 שמאמינים	שמאמינים	completion	close	אמנ
@@ -160,7 +160,7 @@
 לחזות	לחזות	completion	miss	
 מצפונם	מצפונם	completion	close	צפנ
 לבסוף	לבסוף	completion	miss	
-הפרשנות	הפרשנות	completion	close	פרש
+הפרשנות	הפרשנות	completion	close	שנת
 המקובלת	המקובלת	completion	close	קבל
 יסרבו	יסרבו	completion	close	יסר
 טען	טען	completion	miss	
@@ -225,7 +225,7 @@
 שצר	שצר	completion	miss	
 נענתה	נענתה	completion	miss	
 בחיוב	בחיוב	completion	miss	
-שנקבע	שנקבע	completion	close	נקב
+שנקבע	שנקבע	completion	close	שנק
 בדיוק	בדיוק	completion	close	בדק
 ליום	ליום	completion	miss	
 התרגשותו	התרגשותו	completion	close	התר
@@ -273,7 +273,7 @@
 וטענו	וטענו	completion	close	ענו
 ותיקים	ותיקים	completion	miss	
 המנסים	המנסים	completion	miss	
-להיגמל	להיגמל	completion	close	הגמ
+להיגמל	להיגמל	completion	close	להג
 מעישון	מעישון	completion	miss	
 מחו	מחו	completion	miss	
 בחריפות	בחריפות	completion	close	חרפ
@@ -281,7 +281,7 @@
 תקווה	תקווה	completion	miss	
 שצעד	שצעד	completion	close	צעד
 להמשיך	להמשיך	completion	close	משכ
-הלוחמים	הלוחמים	completion	close	חממ
+הלוחמים	הלוחמים	completion	close	לחמ
 המאבק	המאבק	completion	close	אבק
 בעישון	בעישון	completion	miss	
 קבלו	קבלו	completion	close	קבל

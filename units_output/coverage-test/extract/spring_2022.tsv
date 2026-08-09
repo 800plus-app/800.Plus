@@ -89,8 +89,8 @@
 להתריע	להתריע	analogy	close	התר
 להיעזר	להיעזר	analogy	miss	
 להזדקק	להזדקק	analogy	miss	
-מחלפות	מחלפות	analogy	close	לפת
-מספריים	מספריים	analogy	close	ספר
+מחלפות	מחלפות	analogy	close	חלפ
+מספריים	מספריים	analogy	close	פרי
 נדן	נדן	analogy	full	נדן
 חרב	חרב	analogy	full	חרב
 חיטה	חיטה	analogy	miss	
@@ -137,7 +137,7 @@
 מהמקור	מהמקור	completion	miss	
 נראה	נראה	completion	miss	
 הכרחיים	הכרחיים	completion	close	כרח
-להתרחשותה	להתרחשותה	completion	close	התר
+להתרחשותה	להתרחשותה	completion	close	רחש
 הסיבה	הסיבה	completion	miss	
 להתבגרות	להתבגרות	completion	miss	
 הפסיכולוגית	הפסיכולוגית	completion	close	סכל
@@ -187,7 +187,7 @@
 הממעט	הממעט	completion	close	מעט
 שהציבור	שהציבור	completion	miss	
 נבחריו	נבחריו	completion	miss	
-שיחוקקו	שיחוקקו	completion	close	חקק
+שיחוקקו	שיחוקקו	completion	close	שחק
 חוקי	חוקי	completion	miss	
 חובה	חובה	completion	miss	
 ונוסף	ונוסף	completion	miss	
@@ -199,10 +199,10 @@
 שכאשר	שכאשר	completion	miss	
 מחלוקת	מחלוקת	completion	close	חלק
 המחוקקים	המחוקקים	completion	close	חקק
-מתקבלות	מתקבלות	completion	close	קבל
+מתקבלות	מתקבלות	completion	close	מתק
 ורק	ורק	completion	miss	
 בהתאם	בהתאם	completion	miss	
-לדעתו	לדעתו	completion	close	דעת
+לדעתו	לדעתו	completion	close	דעתו
 יושב	יושב	completion	close	ישב
 בית	בית	completion	miss	
 נעשית	נעשית	completion	close	עשת

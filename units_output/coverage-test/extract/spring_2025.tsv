@@ -5,7 +5,7 @@
 חדר הלבשה	חדר הלבשה	analogy	miss	
 בגדים	בגדים	analogy	close	גדמ
 חדר ישיבות	חדר ישיבות	analogy	close	ישב
-ישיבה	ישיבה	analogy	close	שבה
+ישיבה	ישיבה	analogy	close	ישב
 חדר אוכל	חדר אוכל	analogy	close	אכל
 רעב	רעב	analogy	miss	
 חדר כושר	חדר כושר	analogy	close	כושר
@@ -40,11 +40,11 @@
 תשישות	תשישות	analogy	full	תשש
 מועיל	מועיל	analogy	full	מעל
 תועלת	תועלת	analogy	miss	
-מצחין	מצחין	analogy	close	מצח
+מצחין	מצחין	analogy	close	צחנ
 צחנה	צחנה	analogy	full	צחנה
 מדויק	מדויק	analogy	miss	
 דייקנות	דייקנות	analogy	full	דיוקן
-העלה מתהום הנשייה	העלה מתהום הנשייה	analogy	close	העלה
+העלה מתהום הנשייה	העלה מתהום הנשייה	analogy	close	עלה
 שכוח	שכוח	analogy	full	שכיח
 חנן	חנן	analogy	close	חננ
 אסור	אסור	analogy	miss	
@@ -64,7 +64,7 @@
 כוח	כוח	analogy	miss	
 כבש את יצרו	כבש את יצרו	analogy	close	כבש
 יצר	יצר	analogy	miss	
-אדריכל	אדריכל	analogy	close	אדר
+אדריכל	אדריכל	analogy	close	רכל
 דייר	דייר	analogy	full	דיר
 מלצר	מלצר	analogy	close	מלצ
 סועד	סועד	analogy	full	סועד
@@ -78,7 +78,7 @@
 חלוקים	חלוקים	analogy	close	חלק
 שוני	שוני	analogy	miss	
 זהים	זהים	analogy	miss	
-אחריות	אחריות	analogy	close	אחר
+אחריות	אחריות	analogy	close	אחרי
 ערבים	ערבים	analogy	full	ערב
 מפגש	מפגש	analogy	miss	
 מצטלבים	מצטלבים	analogy	miss	
@@ -164,7 +164,7 @@
 לקנות	לקנות	completion	miss	
 חדשות	חדשות	completion	miss	
 פנו	פנו	completion	miss	
-פעמים	פעמים	completion	close	עממ
+פעמים	פעמים	completion	close	פעמ
 ורק	ורק	completion	miss	
 סובל	סובל	completion	full	סביל
 ביקרו	ביקרו	completion	miss	
@@ -193,7 +193,7 @@
 שישיג	שישיג	completion	miss	
 מטרה	מטרה	completion	miss	
 גדל	גדל	completion	full	גדיל
-היגיון	היגיון	completion	full	יגון
+היגיון	היגיון	completion	full	הגון
 תמיד	תמיד	completion	miss	
 עומד	עומד	completion	close	עמד
 במבחן	במבחן	completion	miss	
@@ -224,7 +224,7 @@
 סבורה	סבורה	completion	close	סבר
 שחשובה	שחשובה	completion	close	שבה
 מסוכן	מסוכן	completion	close	מסכ
-מתנגדת	מתנגדת	completion	close	מתנ
+מתנגדת	מתנגדת	completion	close	נגד
 לולא	לולא	completion	full	לולא
 משקרת	משקרת	completion	close	קרת
 מחפש	מחפש	completion	miss	
@@ -251,7 +251,7 @@
 למחלת	למחלת	completion	close	מחל
 הפרקינסון	הפרקינסון	completion	close	פרק
 מבוססות	מבוססות	completion	close	בסס
-הפחתת	הפחתת	completion	close	הפח
+הפחתת	הפחתת	completion	close	חתת
 ייצור	ייצור	completion	miss	
 האצטילכולין	האצטילכולין	completion	close	לכל
 לפרקינסון	לפרקינסון	completion	close	פרק

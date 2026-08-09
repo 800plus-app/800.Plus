@@ -35,7 +35,7 @@
 נוח לכעוס	נוח לכעוס	analogy	full	נוח לכעוס
 כעס	כעס	analogy	miss	
 מחשב להישבר	מחשב להישבר	analogy	close	שבר
-נשבר	נשבר	analogy	close	נשב
+נשבר	נשבר	analogy	close	שבר
 מפליא מכותיו	מפליא מכותיו	analogy	close	פלא
 הוכה	הוכה	analogy	close	הכה
 חומד לצון	חומד לצון	analogy	full	חמד לצון
@@ -100,7 +100,7 @@
 אמתלה	אמתלה	analogy	full	אמתלה
 נימוק	נימוק	analogy	full	נמק
 תחינה	תחינה	analogy	full	תחינה
-בקשה	בקשה	analogy	close	קשה
+בקשה	בקשה	analogy	close	בקש
 מסר	מסר	analogy	miss	
 הצהרה	הצהרה	analogy	close	צהר
 גינוי	גינוי	analogy	miss	
@@ -130,7 +130,7 @@
 לסגת	לסגת	completion	miss	
 ייחל	ייחל	completion	close	יחל
 הידועה	הידועה	completion	close	ידע
-כמלחכת	כמלחכת	completion	close	מלח
+כמלחכת	כמלחכת	completion	close	לחכ
 פנכה	פנכה	completion	full	פנכה
 נוהג	נוהג	completion	miss	
 בניגוד	בניגוד	completion	close	נגד
@@ -210,8 +210,8 @@
 עמדתם	עמדתם	completion	close	עמד
 ביתר	ביתר	completion	full	ביתר
 תקיפות	תקיפות	completion	miss	
-ביקשה	ביקשה	completion	close	קשה
-לבטל	לבטל	completion	close	לבט
+ביקשה	ביקשה	completion	close	בקש
+לבטל	לבטל	completion	close	בטל
 השינויים	השינויים	completion	close	השני
 המתוכננים	המתוכננים	completion	close	תכנ
 במתכונתו	במתכונתו	completion	close	תכנ
@@ -236,7 +236,7 @@
 היותר	היותר	completion	full	התיר
 לשמור	לשמור	completion	close	שמר
 התוצאה	התוצאה	completion	miss	
-הבלתי	הבלתי	completion	close	בלתי
+הבלתי	הבלתי	completion	close	הבל
 נמנעת	נמנעת	completion	miss	
 להתפתח	להתפתח	completion	close	תפת
 ולהעלות	ולהעלות	completion	miss	

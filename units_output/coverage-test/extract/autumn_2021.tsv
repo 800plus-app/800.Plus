@@ -32,7 +32,7 @@
 עלווה	עלווה	analogy	close	עלה
 לבוש	לבוש	analogy	full	בוש
 חולצה	חולצה	analogy	close	חלצ
-צעדה	צעדה	analogy	close	עדה
+צעדה	צעדה	analogy	close	צעד
 צעד	צעד	analogy	close	צעד
 סלט	סלט	analogy	miss	
 ירק	ירק	analogy	miss	
@@ -64,11 +64,11 @@
 רטוב	רטוב	analogy	miss	
 קליל	קליל	analogy	miss	
 קל	קל	analogy	miss	
-ארכני	ארכני	analogy	close	ארכ
+ארכני	ארכני	analogy	close	רכנ
 ארוך	ארוך	analogy	close	ארכ
 שביר	שביר	analogy	close	שבר
 שבור	שבור	analogy	close	שבר
-אדמדם	אדמדם	analogy	close	דמדמ
+אדמדם	אדמדם	analogy	close	אדמ
 אדום	אדום	analogy	close	אדמ
 מופע	מופע	analogy	miss	
 הדרן	הדרן	analogy	full	הדרן
@@ -91,7 +91,7 @@
 לנסר	לנסר	analogy	miss	
 נסורת	נסורת	analogy	miss	
 כבש את יצרו	כבש את יצרו	analogy	close	כבש
-להתפתות	להתפתות	analogy	close	פתת
+להתפתות	להתפתות	analogy	close	תפת
 יצא בשן ועין	יצא בשן ועין	analogy	full	יצא בשן ועין
 להיפגע	להיפגע	analogy	miss	
 נמלך בדעתו	נמלך בדעתו	analogy	close	נמלך
@@ -103,7 +103,7 @@
 כאן	כאן	analogy	miss	
 הנה	הנה	analogy	full	נוה
 חזית	חזית	analogy	miss	
-אחורה	אחורה	analogy	close	אחר
+אחורה	אחורה	analogy	close	חרה
 ימין	ימין	analogy	miss	
 ימינה	ימינה	analogy	miss	
 פנים	פנים	analogy	full	פן
@@ -135,7 +135,7 @@
 חיזיון	חיזיון	completion	full	חיזיון
 רגיל	רגיל	completion	miss	
 להשמיץ	להשמיץ	completion	close	שמצ
-הערצה	הערצה	completion	close	רצה
+הערצה	הערצה	completion	close	ערצ
 ובמחיאות	ובמחיאות	completion	miss	
 כפיים	כפיים	completion	full	כף
 ללגלג	ללגלג	completion	miss	
@@ -174,7 +174,7 @@
 לחבל	לחבל	completion	close	חבל
 שסופה	שסופה	completion	miss	
 בחוסר	בחוסר	completion	close	חסר
-שביעות	שביעות	completion	close	בעת
+שביעות	שביעות	completion	close	שבע
 בעשורים	בעשורים	completion	miss	
 האחרונים	האחרונים	completion	close	אחר
 להצטמק	להצטמק	completion	miss	
@@ -201,4 +201,4 @@
 ברור	ברור	completion	miss	
 חזקה	חזקה	completion	miss	
 יעלה	יעלה	completion	close	עלה
-הדעת	הדעת	completion	close	הדעת
+הדעת	הדעת	completion	close	דעת

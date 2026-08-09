@@ -64,7 +64,7 @@
 להפחיד	להפחיד	analogy	close	הפח
 קבל	קבל	analogy	full	קבל
 תלונה	תלונה	analogy	miss	
-התלבט	התלבט	analogy	close	התל
+התלבט	התלבט	analogy	close	לבט
 החלטה	החלטה	analogy	miss	
 שאל	שאל	analogy	miss	
 תשובה	תשובה	analogy	close	שבה
@@ -82,7 +82,7 @@
 לגור	לגור	analogy	miss	
 כורם	כורם	analogy	miss	
 לבצור	לבצור	analogy	full	בצר
-התלקח	התלקח	analogy	close	התל
+התלקח	התלקח	analogy	close	לקח
 לבעור	לבעור	analogy	full	בער
 נטע	נטע	analogy	full	נטע
 לקטוף	לקטוף	analogy	close	לקט
@@ -139,7 +139,7 @@
 הטבע	הטבע	completion	full	טבע
 מצבן	מצבן	completion	miss	
 הציפורים	הציפורים	completion	full	צפיר
-בארץ	בארץ	completion	close	באר
+בארץ	בארץ	completion	close	ארצ
 החמור	החמור	completion	miss	
 הותיר	הותיר	completion	full	התיר
 המשרד	המשרד	completion	miss	
@@ -152,8 +152,8 @@
 בלשכת	בלשכת	completion	miss	
 השר"	השר"	completion	miss	
 תימנע	תימנע	completion	miss	
-קטסטרופה	קטסטרופה	completion	close	טרפ
-ייכחדו	ייכחדו	completion	close	יכח
+קטסטרופה	קטסטרופה	completion	close	רפה
+ייכחדו	ייכחדו	completion	close	כחד
 המעודד	המעודד	completion	miss	
 לשמח	לשמח	completion	miss	
 שוחרי	שוחרי	completion	close	שחר
@@ -175,7 +175,7 @@
 יעלה	יעלה	completion	close	עלה
 להציל	להציל	completion	miss	
 מעוגת	מעוגת	completion	miss	
-התפוחים	התפוחים	completion	full	התייפח
+התפוחים	התפוחים	completion	full	תפח
 שהצעתי	שהצעתי	completion	miss	
 ידעתי	ידעתי	completion	close	ידע
 שנדב	שנדב	completion	miss	
@@ -187,7 +187,7 @@
 סירב	סירב	completion	miss	
 לטעום	לטעום	completion	close	טעמ
 לולא	לולא	completion	full	לולא
-מתפלאת	מתפלאת	completion	close	פלא
+מתפלאת	מתפלאת	completion	close	תפל
 התכבד	התכבד	completion	close	כבד
 בפרוסה	בפרוסה	completion	close	פרס
 עבה	עבה	completion	miss	
@@ -204,7 +204,7 @@
 היחיד	היחיד	completion	miss	
 צריכים	צריכים	completion	close	צרכ
 ללמוד	ללמוד	completion	close	למד
-המוסכמות	המוסכמות	completion	close	סכמ
+המוסכמות	המוסכמות	completion	close	מסכ
 החברתיות	החברתיות	completion	miss	
 החינוך	החינוך	completion	miss	
 הבוגר	הבוגר	completion	miss	
@@ -219,10 +219,10 @@
 טענות	טענות	completion	miss	
 התביעה	התביעה	completion	miss	
 שהוגשה	שהוגשה	completion	miss	
-משכנעות	משכנעות	completion	close	משכ
+משכנעות	משכנעות	completion	close	שכנ
 פניהן	פניהן	completion	close	פנה
 ספורים	ספורים	completion	full	ספר
-מתקבלות	מתקבלות	completion	close	קבל
+מתקבלות	מתקבלות	completion	close	מתק
 הנמנע	הנמנע	completion	miss	
 שהגיש	שהגיש	completion	miss	
 מבוססות	מבוססות	completion	close	בסס

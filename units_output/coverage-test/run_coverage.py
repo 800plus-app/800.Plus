@@ -343,6 +343,19 @@ for stem in measure:
 L += ['', '**מצטבר: %d פריטים · כיסוי מלא %.1f%% · מלא+קרוב %.1f%%**' %
       (tot['n'], 100.0 * tot['f'] / tot['n'], 100.0 * (tot['f'] + tot['c']) / tot['n']), '']
 
+# --- כיסוי אנלוגיות בלבד (בלי השלמות) ---
+L += ['## כיסוי לפי מבחן — אנלוגיות בלבד', '',
+      '| מבחן | פריטים | מלא | מלא % | +קרוב % | חסרים |', '|---|---|---|---|---|---|']
+atot = {'n': 0, 'f': 0, 'c': 0}
+for stem in measure:
+    res = [r for r in per_exam[stem] if r[2] == 'analogy']
+    n = len(res); nf = sum(1 for r in res if r[3] == 'full'); nc = sum(1 for r in res if r[3] == 'close')
+    atot['n'] += n; atot['f'] += nf; atot['c'] += nc
+    L.append('| %s | %d | %d | %.1f%% | %.1f%% | %d |' %
+             (stem, n, nf, 100.0 * nf / n if n else 0, 100.0 * (nf + nc) / n if n else 0, n - nf - nc))
+L += ['', '**מצטבר אנלוגיות: %d פריטים · כיסוי מלא %.1f%% · מלא+קרוב %.1f%%**' %
+      (atot['n'], 100.0 * atot['f'] / atot['n'], 100.0 * (atot['f'] + atot['c']) / atot['n']), '']
+
 # פירוט לפי סוג פריט ולפי מקור
 for kind_he, kind in (('מילים בודדות', 'מילה'), ('ניבים/צירופים', 'צירוף')):
     rows = [(it, c) for it, c in agg_miss.items() if agg_miss_kind[it][0] == kind]

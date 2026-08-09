@@ -9,7 +9,7 @@
 מטרייה	מטרייה	analogy	miss	
 גשם	גשם	analogy	close	גשמ
 מחיצה	מחיצה	analogy	close	מחצ
-הפרדה	הפרדה	analogy	close	רדה
+הפרדה	הפרדה	analogy	close	פרד
 השתתק	השתתק	analogy	close	שתת
 לדבר	לדבר	analogy	full	דביר
 התלבש	התלבש	analogy	close	התל
@@ -40,7 +40,7 @@
 לוותר	לוותר	analogy	close	ותר
 מבואר	מבואר	analogy	close	באר
 לפרש	לפרש	analogy	close	פרש
-מרוהט	מרוהט	analogy	close	רהט
+מרוהט	מרוהט	analogy	close	מרה
 רהיט	רהיט	analogy	full	רהוט
 מחולק	מחולק	analogy	close	חלק
 חלק	חלק	analogy	close	חלק
@@ -86,7 +86,7 @@
 הוקיע	הוקיע	analogy	full	הוקיע
 קלקל	קלקל	analogy	full	קלוקל
 חיבל	חיבל	analogy	close	חבל
-הפריך	הפריך	analogy	full	פריך
+הפריך	הפריך	analogy	full	הפריך
 הכחיש	הכחיש	analogy	full	כחוש
 קהה	קהה	analogy	full	קהה
 אבן משחזת	אבן משחזת	analogy	close	אבן
@@ -99,7 +99,7 @@
 מזמרה	מזמרה	analogy	full	מזמרה
 אבד עליו הכלח	אבד עליו הכלח	analogy	full	אבד עליו הכלח
 רלוונטיות	רלוונטיות	analogy	miss	
-נשבר מטה לחמו	נשבר מטה לחמו	analogy	close	נשב
+נשבר מטה לחמו	נשבר מטה לחמו	analogy	close	שבר
 פרנסה	פרנסה	analogy	miss	
 ניטל עוקצו	ניטל עוקצו	analogy	miss	
 תפלות	תפלות	analogy	full	תפל
@@ -123,7 +123,7 @@
 בבית	בבית	completion	close	בבת
 חם	חם	completion	miss	
 ותומך	ותומך	completion	close	תמכ
-מלחמה	מלחמה	completion	close	מלח
+מלחמה	מלחמה	completion	close	לחמ
 בתקופה	בתקופה	completion	miss	
 שלום	שלום	completion	miss	
 ושלווה	ושלווה	completion	full	שלה
@@ -131,7 +131,7 @@
 רוגע	רוגע	completion	miss	
 שביקר	שביקר	completion	miss	
 בעיר	בעיר	completion	full	בער
-מעולם	מעולם	completion	close	עלמ
+מעולם	מעולם	completion	close	מעל
 היסודי	היסודי	completion	miss	
 שפקד	שפקד	completion	close	פקד
 בית	בית	completion	miss	
@@ -144,7 +144,7 @@
 מגזעים	מגזעים	completion	miss	
 הביאו	הביאו	completion	close	באו
 מאלפם	מאלפם	completion	close	אלפ
-המסקנה	המסקנה	completion	close	מסק
+המסקנה	המסקנה	completion	close	קנה
 הרבים	הרבים	completion	miss	
 נכשלו	נכשלו	completion	close	כשל
 ניכרו	ניכרו	completion	close	נכר
@@ -187,14 +187,14 @@
 להמוני	להמוני	completion	close	מני
 בהתאם	בהתאם	completion	miss	
 בחירות	בחירות	completion	miss	
-חשאיות	חשאיות	completion	close	חשא
+חשאיות	חשאיות	completion	close	שאת
 משמשות	משמשות	completion	miss	
 לכלל	לכלל	completion	close	כלל
 התושבים	התושבים	completion	miss	
 במדינה	במדינה	completion	miss	
 בניגוד	בניגוד	completion	close	נגד
 אליהם	אליהם	completion	miss	
-עקרונות	עקרונות	completion	close	עקר
+עקרונות	עקרונות	completion	close	קרנ
 דמוקרטיים	דמוקרטיים	completion	close	קרט
 אמיתיים	אמיתיים	completion	close	אמת
 לבחון	לבחון	completion	miss	

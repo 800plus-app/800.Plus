@@ -43,7 +43,7 @@
 צמחים	צמחים	analogy	miss	
 צמחייה	צמחייה	analogy	close	מחה
 נגנים	נגנים	analogy	miss	
-תזמורת	תזמורת	analogy	close	מרת
+תזמורת	תזמורת	analogy	close	זמר
 דגים	דגים	analogy	miss	
 דגה	דגה	analogy	miss	
 שוטרים	שוטרים	analogy	close	טרמ
@@ -73,7 +73,7 @@
 עירום	עירום	analogy	close	ערמ
 להתעמר	להתעמר	analogy	full	התעמר
 סובל	סובל	analogy	full	סביל
-להתעבר	להתעבר	analogy	close	עבר
+להתעבר	להתעבר	analogy	close	תעב
 עובר	עובר	analogy	close	עבר
 להתגלות	להתגלות	analogy	miss	
 עלום	עלום	analogy	full	עלום
@@ -117,7 +117,7 @@
 חיבק	חיבק	analogy	miss	
 הצטווה	הצטווה	analogy	miss	
 ציווה	ציווה	analogy	full	ציה
-נזהר	נזהר	analogy	close	נזה
+נזהר	נזהר	analogy	close	זהר
 הזהיר	הזהיר	analogy	close	זהר
 רצוי	רצוי	completion	miss	
 שאלו	שאלו	completion	miss	
@@ -190,7 +190,7 @@
 בלפתן	בלפתן	completion	close	לפת
 שהכין	שהכין	completion	miss	
 ענבים	ענבים	completion	miss	
-סגולים	סגולים	completion	close	סגל
+סגולים	סגולים	completion	close	גלמ
 שזיפים	שזיפים	completion	full	שזף
 וענבים	וענבים	completion	miss	
 ירוקים	ירוקים	completion	miss	
@@ -216,7 +216,7 @@
 שגה	שגה	completion	close	שגה
 בפירושה	בפירושה	completion	close	פרש
 ושזיפים	ושזיפים	completion	full	שזף
-שהבקשה	שהבקשה	completion	close	קשה
+שהבקשה	שהבקשה	completion	close	בקש
 השכיל	השכיל	completion	full	השכיל
 למלא	למלא	completion	close	מלא
 ליישמו	ליישמו	completion	close	ישמ
@@ -228,7 +228,7 @@
 בפשרה	בפשרה	completion	close	שרה
 איש	איש	completion	miss	
 המדון	המדון	completion	full	מדון
-המרוצה	המרוצה	completion	close	רצה
+המרוצה	המרוצה	completion	close	המר
 עישון	עישון	completion	miss	
 להיפטר	להיפטר	completion	full	הפטיר
 הנגמל	הנגמל	completion	close	גמל
@@ -244,10 +244,10 @@
 זניח	זניח	completion	full	זנח
 חסרונותיה	חסרונותיה	completion	close	חסר
 ואין	ואין	completion	miss	
-יתרונותיה	יתרונותיה	completion	close	יתר
-מתפלא	מתפלא	completion	close	פלא
+יתרונותיה	יתרונותיה	completion	close	תרנ
+מתפלא	מתפלא	completion	close	תפל
 לשמוע	לשמוע	completion	miss	
-שבעקבות	שבעקבות	completion	close	עקב
+שבעקבות	שבעקבות	completion	close	שבע
 אכילת	אכילת	completion	close	אכל
 פרחים	פרחים	completion	close	פרח
 אתמול	אתמול	completion	miss	
@@ -270,6 +270,6 @@
 גורמת	גורמת	completion	close	גרמ
 לחלות	לחלות	completion	full	חיל
 מונעת	מונעת	completion	miss	
-מהמלך	מהמלך	completion	close	המלכ
+מהמלך	מהמלך	completion	close	מלכ
 נפל	נפל	completion	full	נפיל
 למשכב	למשכב	completion	close	משכ

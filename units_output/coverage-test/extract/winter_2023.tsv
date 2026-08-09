@@ -46,7 +46,7 @@
 פגישה	פגישה	analogy	miss	
 נועד	נועד	analogy	miss	
 התלקחות	התלקחות	analogy	close	לקח
-התלקח	התלקח	analogy	close	התל
+התלקח	התלקח	analogy	close	לקח
 מפלה	מפלה	analogy	miss	
 הובס	הובס	analogy	miss	
 התפייסות	התפייסות	analogy	miss	
@@ -65,7 +65,7 @@
 פס	פס	analogy	miss	
 מנומש	מנומש	analogy	miss	
 נמש	נמש	analogy	miss	
-מרוהט	מרוהט	analogy	close	רהט
+מרוהט	מרוהט	analogy	close	מרה
 רהיט	רהיט	analogy	full	רהוט
 שרירי	שרירי	analogy	close	שרר
 שריר	שריר	analogy	full	שרר
@@ -114,14 +114,14 @@
 עושה	עושה	completion	close	עשה
 שביכולתו	שביכולתו	completion	close	בכל
 להימנע	להימנע	completion	miss	
-מתחלופת	מתחלופת	completion	close	לפת
+מתחלופת	מתחלופת	completion	close	חלפ
 עובדים	עובדים	completion	miss	
 ישנה	ישנה	completion	miss	
 לעצמו	לעצמו	completion	close	עצמ
 כיעד	כיעד	completion	miss	
 לצמצם	לצמצם	completion	miss	
 האפשר	האפשר	completion	close	פשר
-תחלופת	תחלופת	completion	close	לפת
+תחלופת	תחלופת	completion	close	חלפ
 העובדים	העובדים	completion	miss	
 יחזור	יחזור	completion	close	חזר
 מאפשר	מאפשר	completion	close	פשר
@@ -143,7 +143,7 @@
 שב	שב	completion	miss	
 בדיעבד	בדיעבד	completion	full	בדיעבד
 מצרה	מצרה	completion	miss	
-יתרה	יתרה	completion	close	יתר
+יתרה	יתרה	completion	close	תרה
 מזאת	מזאת	completion	close	זאת
 ספק	ספק	completion	close	ספק
 נותנים	נותנים	completion	miss	
@@ -175,7 +175,7 @@
 רחמים	רחמים	completion	full	ריחיים
 אלירז	אלירז	completion	miss	
 רשאי	רשאי	completion	miss	
-לבטל	לבטל	completion	close	לבט
+לבטל	לבטל	completion	close	בטל
 החוזה	החוזה	completion	close	חזה
 שעליו	שעליו	completion	close	שעל
 חתמו	חתמו	completion	miss	

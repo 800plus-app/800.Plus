@@ -10,7 +10,7 @@
 שרוך	שרוך	analogy	full	שרך
 לחבוש	לחבוש	analogy	full	חבש
 כובע	כובע	analogy	miss	
-לכפתר	לכפתר	analogy	close	כפת
+לכפתר	לכפתר	analogy	close	לכפ
 רכוס	רכוס	analogy	full	רכס
 להאזין	להאזין	analogy	miss	
 ערב	ערב	analogy	full	ערב
@@ -43,7 +43,7 @@
 פנס	פנס	analogy	miss	
 כריכה	כריכה	analogy	close	כרכ
 ספר	ספר	analogy	full	ספר
-חוטים	חוטים	analogy	full	חוטם
+חוטים	חוטים	analogy	full	חט
 בד	בד	analogy	miss	
 שטרות	שטרות	analogy	miss	
 ארנק	ארנק	analogy	miss	
@@ -52,7 +52,7 @@
 נפלו פניו	נפלו פניו	analogy	full	נפלו פניו
 עצבות	עצבות	analogy	miss	
 נפל בפח	נפל בפח	analogy	close	נפל
-עורמה	עורמה	analogy	close	רמה
+עורמה	עורמה	analogy	close	ערמ
 עלה על יצועו	עלה על יצועו	analogy	close	יצע
 עייפות	עייפות	analogy	miss	
 העלה ארוכה	העלה ארוכה	analogy	full	העלה ארוכה
@@ -114,7 +114,7 @@
 אכל	אכל	analogy	close	אכל
 פירורים	פירורים	analogy	miss	
 מרגיעה	מרגיעה	completion	close	געה
-ירדה	ירדה	completion	close	רדה
+ירדה	ירדה	completion	close	ירד
 שלווה	שלווה	completion	full	שלה
 ורוגע	ורוגע	completion	miss	
 ממריצה	ממריצה	completion	close	רצה
@@ -193,7 +193,7 @@
 לעבודתו	לעבודתו	completion	close	דתו
 מקורות	מקורות	completion	close	קרת
 מהימנים	מהימנים	completion	miss	
-להסתמך	להסתמך	completion	close	תמכ
+להסתמך	להסתמך	completion	close	סתמ
 עליהם	עליהם	completion	close	עלה
 בניסיונו	בניסיונו	completion	miss	
 לפענח	לפענח	completion	miss	
@@ -222,7 +222,7 @@
 הפידלים	הפידלים	completion	miss	
 כמי	כמי	completion	miss	
 שלוחמים	שלוחמים	completion	close	שלח
-מלחמתם	מלחמתם	completion	close	מלח
+מלחמתם	מלחמתם	completion	close	לחמ
 כולם	כולם	completion	close	כלמ
 שהרי	שהרי	completion	close	הרי
 העצמאות	העצמאות	completion	close	עצמ
@@ -237,7 +237,7 @@
 מליבו	מליבו	completion	close	לבו
 להמעיט	להמעיט	completion	full	המעיט
 חשובה	חשובה	completion	close	שבה
-להיקלע	להיקלע	completion	close	קלע
+להיקלע	להיקלע	completion	close	הקל
 רווחתו	רווחתו	completion	close	רחת
 החומרית	החומרית	completion	close	מרת
 להחריף	להחריף	completion	close	חרפ

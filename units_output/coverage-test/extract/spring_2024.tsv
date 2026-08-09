@@ -28,7 +28,7 @@
 הגה	הגה	analogy	full	הגה
 שורש	שורש	analogy	miss	
 צמרת	צמרת	analogy	close	מרת
-רגליים	רגליים	analogy	close	גלמ
+רגליים	רגליים	analogy	close	גלי
 ידיים	ידיים	analogy	close	ידי
 היגר	היגר	analogy	full	יגור
 הוגלה	הוגלה	analogy	full	הוגלה
@@ -147,7 +147,7 @@
 התחבורה	התחבורה	completion	miss	
 שיניתי	שיניתי	completion	close	שנת
 דעתי	דעתי	completion	close	דעת
-אתנגד	אתנגד	completion	close	אתנ
+אתנגד	אתנגד	completion	close	נגד
 להצעתה	להצעתה	completion	miss	
 להעניק	להעניק	completion	close	ענק
 הצעה	הצעה	completion	miss	
@@ -171,7 +171,7 @@
 מקוממת	מקוממת	completion	miss	
 שהוכח	שהוכח	completion	miss	
 קריאתה	קריאתה	completion	miss	
-משולה	משולה	completion	close	משל
+משולה	משולה	completion	close	שלה
 לתמיכה	לתמיכה	completion	close	תמכ
 שהשימוש	שהשימוש	completion	miss	
 חוסך	חוסך	completion	miss	
@@ -192,11 +192,11 @@
 משקל	משקל	completion	miss	
 לייחס	לייחס	completion	close	יחס
 טעויות	טעויות	completion	miss	
-מועטה	מועטה	completion	close	מעט
+מועטה	מועטה	completion	close	עטה
 מרובה	מרובה	completion	miss	
 זיהוי	זיהוי	completion	miss	
 נכון	נכון	completion	miss	
-היכחדותם	היכחדותם	completion	close	יכח
+היכחדותם	היכחדותם	completion	close	כחד
 הידלדלות	הידלדלות	completion	close	דלת
 הצמחייה	הצמחייה	completion	close	מחה
 בקרבת	בקרבת	completion	miss	
@@ -208,7 +208,7 @@
 לדוג	לדוג	completion	miss	
 הדגים	הדגים	completion	miss	
 שהצבים	שהצבים	completion	miss	
-אוכלים	אוכלים	completion	close	כלמ
+אוכלים	אוכלים	completion	close	אכל
 התמעטות	התמעטות	completion	close	מעט
 הדגה	הדגה	completion	miss	
 המשמשת	המשמשת	completion	miss	
@@ -217,7 +217,7 @@
 דיג	דיג	completion	miss	
 המוגבר	המוגבר	completion	close	גבר
 המסמכים	המסמכים	completion	close	סמכ
-שבמגירה	שבמגירה	completion	close	מגר
+שבמגירה	שבמגירה	completion	close	גרה
 אמורים	אמורים	completion	full	אמיר
 להיגרס	להיגרס	completion	close	גרס
 המסומנים	המסומנים	completion	miss	
@@ -233,7 +233,7 @@
 לעומתם	לעומתם	completion	miss	
 למעט	למעט	completion	close	מעט
 מיועדים	מיועדים	completion	miss	
-ובכללם	ובכללם	completion	close	בכל
+ובכללם	ובכללם	completion	close	כלל
 דומה	דומה	completion	close	דמה
 תיאורי	תיאורי	completion	miss	
 החפצים	החפצים	completion	full	חפץ
@@ -257,7 +257,7 @@
 ייחודי	ייחודי	completion	miss	
 ומשום	ומשום	completion	miss	
 חוסר	חוסר	completion	close	חסר
-הפרופורציה	הפרופורציה	completion	close	רצה
+הפרופורציה	הפרופורציה	completion	close	פרצ
 לוקה	לוקה	completion	full	לקה
 מוכרים	מוכרים	completion	miss	
 מהיומיום	מהיומיום	completion	miss	

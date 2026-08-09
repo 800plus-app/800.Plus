@@ -122,7 +122,7 @@
 מדי	מדי	completion	miss	
 להתבצע	להתבצע	completion	close	בצע
 כעניין	כעניין	completion	miss	
-שבשגרה	שבשגרה	completion	close	גרה
+שבשגרה	שבשגרה	completion	close	שגר
 מהיר	מהיר	completion	close	מהר
 לבצע	לבצע	completion	full	בצע
 סטודנט	סטודנט	completion	miss	
@@ -209,7 +209,7 @@
 למצוא	למצוא	completion	close	מצא
 חן	חן	completion	miss	
 בעיניי	בעיניי	completion	miss	
-מעריצה	מעריצה	completion	close	רצה
+מעריצה	מעריצה	completion	close	ערצ
 מסתייגת	מסתייגת	completion	miss	
 מהסרט	מהסרט	completion	miss	
 להעיד	להעיד	completion	miss	
@@ -218,7 +218,7 @@
 למרבה	למרבה	completion	miss	
 הפלא	הפלא	completion	full	הפליא
 רעיון	רעיון	completion	miss	
-היגיון	היגיון	completion	full	יגון
+היגיון	היגיון	completion	full	הגון
 נקודת	נקודת	completion	close	נקד
 התורפה	התורפה	completion	full	תורפה
 התאוריה	התאוריה	completion	close	ארה
@@ -283,7 +283,7 @@
 להמשיך	להמשיך	completion	close	משכ
 הקולות	הקולות	completion	close	הקל
 המעטים	המעטים	completion	full	המעיט
-שגרסו	שגרסו	completion	close	גרס
+שגרסו	שגרסו	completion	close	שגר
 המסע	המסע	completion	miss	
 נכשל	נכשל	completion	close	כשל
 שכנעו	שכנעו	completion	close	שכנ

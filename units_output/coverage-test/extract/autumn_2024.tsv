@@ -3,7 +3,7 @@
 אכסניה	אכסניה	analogy	miss	
 לן	לן	analogy	full	לן
 הסתפר	הסתפר	analogy	miss	
-מרפאה	מרפאה	analogy	close	רפא
+מרפאה	מרפאה	analogy	close	פאה
 חלה	חלה	analogy	miss	
 מסעדה	מסעדה	analogy	close	סעד
 בישל	בישל	analogy	full	בשל
@@ -32,7 +32,7 @@
 פחדן	פחדן	analogy	miss	
 מוטל בספק	מוטל בספק	analogy	close	ספק
 ספקן	ספקן	analogy	close	ספק
-עשוי בקפידה	עשוי בקפידה	analogy	close	קפד
+עשוי בקפידה	עשוי בקפידה	analogy	close	פדה
 דקדקן	דקדקן	analogy	miss	
 ראוי לשבח	ראוי לשבח	analogy	miss	
 גאוותן	גאוותן	analogy	close	אתנ
@@ -57,7 +57,7 @@
 סגפן	סגפן	analogy	full	סגפן
 מותרות	מותרות	analogy	miss	
 יחף	יחף	analogy	miss	
-נעליים	נעליים	analogy	close	עלי
+נעליים	נעליים	analogy	close	עלמ
 תריס	תריס	analogy	close	תרס
 אור	אור	analogy	miss	
 גפרור	גפרור	analogy	miss	
@@ -79,7 +79,7 @@
 מילא	מילא	analogy	close	מלא
 התפקע	התפקע	analogy	close	פקע
 הרס	הרס	analogy	miss	
-נחרב	נחרב	analogy	close	נחר
+נחרב	נחרב	analogy	close	חרב
 אפה	אפה	analogy	full	איפה
 נשרף	נשרף	analogy	close	נשר
 איחר	איחר	analogy	close	אחר
@@ -106,7 +106,7 @@
 מקומון	מקומון	analogy	miss	
 מקום	מקום	analogy	miss	
 תרחיש	תרחיש	analogy	close	רחש
-להתרחש	להתרחש	analogy	close	התר
+להתרחש	להתרחש	analogy	close	רחש
 מטלה	מטלה	analogy	miss	
 להתבצע	להתבצע	analogy	close	בצע
 תגלית	תגלית	analogy	miss	
@@ -141,7 +141,7 @@
 ודל	ודל	completion	miss	
 מיטיב	מיטיב	completion	miss	
 תמיד	תמיד	completion	miss	
-שהפליאה	שהפליאה	completion	close	פלא
+שהפליאה	שהפליאה	completion	close	לאה
 לתאר	לתאר	completion	miss	
 מצליח	מצליח	completion	close	צלח
 אולי	אולי	completion	miss	
@@ -173,7 +173,7 @@
 לדבוק	לדבוק	completion	full	דבק
 לעולם	לעולם	completion	full	עלום
 נטולת	נטולת	completion	miss	
-היגיון	היגיון	completion	full	יגון
+היגיון	היגיון	completion	full	הגון
 שאומר	שאומר	completion	close	אמר
 עליך	עליך	completion	miss	
 להבין	להבין	completion	miss	
@@ -194,7 +194,7 @@
 בזכות	בזכות	completion	miss	
 במידה	במידה	completion	miss	
 המצדיקה	המצדיקה	completion	close	צדק
-שמתפלא	שמתפלא	completion	close	פלא
+שמתפלא	שמתפלא	completion	close	תפל
 אפילו	אפילו	completion	close	אפל
 העידו	העידו	completion	miss	
 שהחיסכון	שהחיסכון	completion	close	סכנ
@@ -207,7 +207,7 @@
 שהכסף	שהכסף	completion	close	כספ
 שחסכו	שחסכו	completion	miss	
 עקב	עקב	completion	close	עקב
-להתפלא	להתפלא	completion	close	פלא
+להתפלא	להתפלא	completion	close	תפל
 נמנעו	נמנעו	completion	miss	
 מלעבור	מלעבור	completion	close	עבר
 שהיה	שהיה	completion	full	שהה
@@ -218,11 +218,11 @@
 מעמד	מעמד	completion	close	עמד
 האישה	האישה	completion	full	אוושה
 שהצעד	שהצעד	completion	close	צעד
-במלחמה	במלחמה	completion	close	מלח
+במלחמה	במלחמה	completion	close	לחמ
 בעוני	בעוני	completion	miss	
 צריך	צריך	completion	close	צרכ
 חולקת	חולקת	completion	close	חלק
-לדאבוני	לדאבוני	completion	close	דאב
+לדאבוני	לדאבוני	completion	close	אבנ
 עדיין	עדיין	completion	close	עדנ
 הפנימו	הפנימו	completion	close	פנמ
 שאומנם	שאומנם	completion	close	אמנ
@@ -244,12 +244,12 @@
 מצריכה	מצריכה	completion	close	צרכ
 הקצאת	הקצאת	completion	close	הקצ
 משאבים	משאבים	completion	miss	
-מאמציהם	מאמציהם	completion	close	אמצ
+מאמציהם	מאמציהם	completion	close	מצה
 הכבירים	הכבירים	completion	full	כביר
 ארגונים	ארגונים	completion	close	רגנ
 וצעד	וצעד	completion	close	צעד
 חשוב	חשוב	completion	miss	
-מיעטה	מיעטה	completion	close	מעט
+מיעטה	מיעטה	completion	close	עטה
 להשתנות	להשתנות	completion	miss	
 לאורך	לאורך	completion	close	ארכ
 ההיסטוריה	ההיסטוריה	completion	miss	
@@ -266,7 +266,7 @@
 הסלע	הסלע	completion	close	סלע
 לאיטם	לאיטם	completion	close	אטמ
 בסופו	בסופו	completion	miss	
-נשבר	נשבר	completion	close	נשב
+נשבר	נשבר	completion	close	שבר
 מהסכסוכים	מהסכסוכים	completion	close	סכמ
 בהיסטוריה	בהיסטוריה	completion	miss	
 פרצו	פרצו	completion	close	פרצ

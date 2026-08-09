@@ -62,7 +62,7 @@
 שיקול דעת	שיקול דעת	analogy	close	דעת
 סבלן	סבלן	analogy	close	בלנ
 אורך רוח	אורך רוח	analogy	full	אורך רוח
-משכיל	משכיל	analogy	close	משכ
+משכיל	משכיל	analogy	close	שכל
 כובד ראש	כובד ראש	analogy	full	כבד ראש
 אביון	אביון	analogy	full	אביון
 אוזלת יד	אוזלת יד	analogy	full	אזלת יד
@@ -78,7 +78,7 @@
 לארוג	לארוג	analogy	full	ארג
 מזרק	מזרק	analogy	close	מזר
 לחסן	לחסן	analogy	full	חסין
-מהמורה	מהמורה	analogy	close	מרה
+מהמורה	מהמורה	analogy	close	המרה
 גשם	גשם	analogy	close	גשמ
 בצורת	בצורת	analogy	close	בצר
 גשר	גשר	analogy	miss	
@@ -89,7 +89,7 @@
 שריטה	שריטה	analogy	close	רטה
 מהנה	מהנה	analogy	miss	
 הנאה	הנאה	analogy	close	נאה
-מצחין	מצחין	analogy	close	מצח
+מצחין	מצחין	analogy	close	צחנ
 צחנה	צחנה	analogy	full	צחנה
 מפחיד	מפחיד	analogy	close	מפח
 פחד	פחד	analogy	miss	
@@ -141,7 +141,7 @@
 שביניהם	שביניהם	completion	miss	
 צמצום	צמצום	completion	miss	
 חילוקי	חילוקי	completion	close	חלק
-הדעות	הדעות	completion	close	הדעת
+הדעות	הדעות	completion	close	דעת
 יריבים	יריבים	completion	miss	
 כמולגים	כמולגים	completion	close	לגמ
 המאמצים	המאמצים	completion	close	אמצ
@@ -163,7 +163,7 @@
 עושה	עושה	completion	close	עשה
 מחייבת	מחייבת	completion	miss	
 עשיית	עשיית	completion	close	עשת
-מסתמכת	מסתמכת	completion	close	תמכ
+מסתמכת	מסתמכת	completion	close	סתמ
 בעוד	בעוד	completion	miss	
 הדיווח	הדיווח	completion	full	הדיח
 דורש	דורש	completion	miss	
@@ -215,7 +215,7 @@
 לחידוש	לחידוש	completion	miss	
 קנייתו	קנייתו	completion	miss	
 הוראתה	הוראתה	completion	miss	
-המתנגדים	המתנגדים	completion	close	מתנ
+המתנגדים	המתנגדים	completion	close	נגד
 למציאת	למציאת	completion	close	מצא
 חלופה	חלופה	completion	close	חלפ
 לשעון	לשעון	completion	miss	
@@ -240,4 +240,4 @@
 לאמץ	לאמץ	completion	close	אמצ
 המצדדים	המצדדים	completion	full	מצודד
 המפריכים	המפריכים	completion	close	פרכ
-המסכימים	המסכימים	completion	close	סכמ
+המסכימים	המסכימים	completion	close	מסכ
