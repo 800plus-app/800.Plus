@@ -224,7 +224,7 @@
   "t": "לשבט לא היה תיעוד כתוב; ואולם זקניו יכלו **להיזכר** בכל שם בשושלת המשפחה בלי טעות אחת."
  },
  {
-  "s": "The soup needs salt and a little pepper; likewise, a spoon of vinegar will ___ the flavor of the beans.",
+  "s": "The beans need salt and a little pepper; in addition, a spoon of vinegar will ___ their flavor.",
   "o": [
    "enhance",
    "enlarge",
@@ -234,7 +234,7 @@
   "a": 0,
   "k": "addition",
   "w": [
-   "likewise"
+   "in addition"
   ],
   "e": "‏enhance the flavor הוא הצירוף להשבחת טעם. enlarge הוא הגדלה בגודל פיזי, וטעם אינו גודל. exaggerate הוא הגזמה בדיבור וחל על טענה, לא על מאכל. inflate הוא ניפוח באוויר או העלאה מלאכותית של מספר.",
   "g": [
@@ -249,10 +249,10 @@
    "exaggerate הוא הגזמה בדיבור וחל על טענה, ולא על מאכל.",
    "inflate הוא ניפוח באוויר או העלאה מלאכותית של מספר."
   ],
-  "t": "המרק זקוק למלח ולמעט פלפל; באותה מידה, כף חומץ **תעצים** את טעם השעועית."
+  "t": "השעועית זקוקה למלח ולמעט פלפל; נוסף על כך, כף חומץ **תעצים** את טעמה."
  },
  {
-  "s": "Because the two maps came from one survey, their coastlines should ___; where they ___, a clerk has made a copying error.",
+  "s": "Because the two maps came from one survey, their coastlines should ___ when one sheet is laid over the other; where they ___, a clerk has made a copying error.",
   "o": [
    [
     "align",
@@ -284,11 +284,11 @@
    "combine = לצרף, לשלב · differ = להיבדל"
   ],
   "r": [
-   "align · differ הוא הסדר שהמשפט מחייב: מקור אחד מוליד התאמה, וטעות העתקה מולידה פער.",
+   "align · differ הוא הסדר שהמשפט מחייב: גיליון על גיליון מוליד התיישרות, וטעות העתקה מולידה פער.",
    "הסדר הפוך: מקור אחד אינו מוליד differ, וטעות העתקה אינה מולידה align.",
    "combine הוא איחוד שני דברים לאחד, ולא פער שנוצר מטעות, ולכן נופל בחריץ השני.",
    "combine נופל בחריץ הראשון: מפות אינן מתאחדות מעצמן, והחריץ מתאר התאמה."
   ],
-  "t": "מפני ששתי המפות באו מסקר אחד, קווי החוף שלהן אמורים **להתיישר** זה עם זה; ובמקום שהם **נבדלים**, פקיד עשה טעות בהעתקה."
+  "t": "מפני ששתי המפות באו מסקר אחד, קווי החוף שלהן אמורים **להתיישר** זה עם זה כשגיליון אחד מונח על האחר; ובמקום שהם **נבדלים**, פקיד עשה טעות בהעתקה."
  }
 ]

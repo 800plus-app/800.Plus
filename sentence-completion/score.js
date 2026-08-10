@@ -23,9 +23,17 @@ const key = fs.readFileSync(path.join(__dirname, `blind.key${TAG}.tsv`), 'utf8')
   .trim().split('\n').slice(1).map(l => l.split('\t'));
 const K = new Map(key.map(([q, level, n, a]) => [+q, { level, n, a }]));
 
-const runs = process.argv.slice(2).map(s => {
+/* מקבל **גם נתיב קובץ וגם מחרוזת**.
+   ⚠ הגרסה הראשונה קיבלה מחרוזת בלבד, ולכן `node score.js runs/x.txt` פירסר את
+   **שם הקובץ** כתשובות והחזיר 0. הפיצול היה גם על רווחים, כך ש-`1: D` עם רווח
+   נשבר לשני אסימונים ואיבד את התשובה. עכשיו הפרסור הוא שורה-שורה. */
+const runs = process.argv.slice(2).map(arg => {
+  const src = fs.existsSync(arg) ? fs.readFileSync(arg, 'utf8') : arg;
   const m = new Map();
-  s.trim().split(/\s+/).forEach(t => { const [q, a] = t.split(':'); if (q && a) m.set(+q, a.trim().toUpperCase()); });
+  src.split(/\r?\n|\s{2,}/).forEach(line => {
+    const mm = String(line).match(/(\d+)\s*[:.]\s*([A-Da-d])\b/);
+    if (mm) m.set(+mm[1], mm[2].toUpperCase());
+  });
   return m;
 });
 if (!runs.length) { console.error('אין תשובות. העבר מחרוזת אחת לפחות.'); process.exit(2); }
