@@ -466,6 +466,31 @@
   .mail-to{font-family:"Heebo";font-weight:700;font-size:1rem!important;color:var(--accent)!important;
        word-break:break-all;background:rgba(201,150,47,.1);border-radius:9px;padding:9px 10px}
   .mail-tip{font-size:.8rem!important;border-top:1px solid var(--line);padding-top:11px;margin-top:14px!important}
+  /* ===== willingness-to-pay survey =====
+     Reuses .ask / .ask-box for the shell so it cannot drift from the other dialogs. What it adds
+     is a right-aligned body (the rest of .ask-box is centred, and a question with a free-text
+     answer under it reads badly centred) and a five-across price row.
+     Five across and not the two-column .ask-opts grid: the buckets are an ordered scale, and a
+     scale broken over three rows stops looking like one. They fit 375px because the labels are
+     two characters and a shekel sign. */
+  .wtp-box{max-width:392px;text-align:right;max-height:88vh;overflow-y:auto;position:relative}
+  .wtp-box .kicker{display:block;margin-bottom:6px}
+  .wtp-box h3{margin:0 0 20px;font-size:1.16rem;line-height:1.35;padding-inline-end:26px}
+  .wtp-x{position:absolute;inset-inline-start:10px;top:10px;background:transparent;border:none;
+       color:var(--ink-soft);font-size:1.15rem;line-height:1;padding:8px 10px;border-radius:8px;min-height:38px}
+  @media (hover:hover) and (pointer:fine){.wtp-x:hover{background:var(--paper-deep)}}
+  .wtp-q{font-size:.92rem;font-weight:700;margin:0 0 9px;color:var(--ink)}
+  .wtp-q span{font-weight:400;color:var(--ink-soft);font-size:.82rem}
+  .wtp-prices{display:flex;gap:7px;margin-bottom:17px}
+  .wtp-prices button{flex:1;min-width:0;font-family:"Heebo";font-weight:700;font-size:.92rem;
+       padding:12px 3px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+       border-radius:11px;transition:.15s}
+  @media (hover:hover) and (pointer:fine){.wtp-prices button:hover{border-color:var(--gold)}}
+  .wtp-prices button.active{background:linear-gradient(180deg,var(--gold),var(--accent));color:#fff;border-color:transparent}
+  .wtp-box textarea{width:100%;font-family:"Heebo";font-size:.9rem;color:var(--ink);background:var(--paper);
+       border:1px solid var(--line);border-radius:11px;padding:10px 12px;resize:none;margin-bottom:16px;outline:none}
+  .wtp-box textarea::placeholder{color:#a89e8d}
+  .wtp-box textarea:focus{border-color:var(--gold)}
   .ask-go{margin-top:18px;width:100%;font-family:"Heebo";font-weight:700;font-size:1rem;
        padding:15px;border-radius:12px;border:0;cursor:pointer;color:#fffdf8;
        display:block;text-align:center;text-decoration:none;
@@ -1739,6 +1764,43 @@
   </div>
 </div>
 
+<!-- ===== willingness-to-pay survey =====
+     Shown once per learner, two seconds after the first completed round, over the results screen.
+     The delay is the whole point of the placement: the score is what the learner came for, and a
+     dialog that lands on top of it before it has been read turns the best moment in the app into
+     an interruption. Two seconds is long enough to read a number and short enough that the card
+     still belongs to the same moment.
+     The condition is "the round was finished", with no accuracy floor. Whoever struggled is
+     exactly the person who can answer "what would make you stop", and filtering on score would
+     have left a sample of the satisfied. -->
+<div class="ask hidden" id="wtpAsk">
+  <div class="ask-box wtp-box">
+    <button class="wtp-x" id="wtpX" aria-label="סגור">✕</button>
+    <div class="kicker">שלוש שאלות</div>
+    <h3>עוזר לי להחליט מה יהיה אחרי 30.8</h3>
+
+    <!-- A sum, never "would you pay?". A hypothetical with no price attached collects a polite
+         yes from somebody who would not spend a shekel, and '0' is a real answer: without it
+         whoever would not pay just closes the card and the sample keeps only the happy ones. -->
+    <p class="wtp-q">כמה היית משלם לחודש?</p>
+    <div class="wtp-prices" id="wtpPrices">
+      <button data-v="0">0</button>
+      <button data-v="10">10 ₪</button>
+      <button data-v="20">20 ₪</button>
+      <button data-v="30">30 ₪</button>
+      <button data-v="more">יותר</button>
+    </div>
+
+    <p class="wtp-q">מה הכי עזר לך עד עכשיו? <span>· לא חובה</span></p>
+    <textarea id="wtpHelped" rows="2" placeholder="במשפט אחד" maxlength="300"></textarea>
+
+    <p class="wtp-q">מה היה גורם לך להפסיק להשתמש? <span>· לא חובה</span></p>
+    <textarea id="wtpStop" rows="2" placeholder="במשפט אחד" maxlength="300"></textarea>
+
+    <button class="ask-go" id="wtpGo" disabled>שלח תשובה</button>
+  </div>
+</div>
+
 <!-- ===== closing a whole unit ===== -->
 <div class="cheer hidden" id="cheer">
   <canvas class="cheer-cv" id="cheerCanvas" aria-hidden="true"></canvas>
@@ -1928,14 +1990,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=176"></script>
-<script src="config.js?v=176"></script>
-<script src="store.js?v=176"></script>
-<script src="leveltest-he.js?v=176"></script>
-  <script src="leveltest.js?v=176"></script>
-<script src="enrank.js?v=176"></script>
-<script src="data.js?v=176"></script>
-<script src="data-en.js?v=176"></script>
-<script src="app.js?v=176"></script>
+<script src="supabase.min.js?v=177"></script>
+<script src="config.js?v=177"></script>
+<script src="store.js?v=177"></script>
+<script src="leveltest-he.js?v=177"></script>
+  <script src="leveltest.js?v=177"></script>
+<script src="enrank.js?v=177"></script>
+<script src="data.js?v=177"></script>
+<script src="data-en.js?v=177"></script>
+<script src="app.js?v=177"></script>
 </body>
 </html>
