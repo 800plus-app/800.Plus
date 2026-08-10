@@ -1,4 +1,4 @@
-// English word bank: 3,945 entries in 10 units, glossed in Hebrew. One word = one entry, senses merged.
+// English word bank: 3,946 entries in 10 units, glossed in Hebrew. One word = one entry, senses merged.
 // Deduplicated and dictionary-audited. Provenance and the full audit trail: METHODOLOGY.md
 window.UNIT_DATA_EN = {
  "1": [
@@ -13865,6 +13865,10 @@ window.UNIT_DATA_EN = {
   [
    "quantify",
    "לכמת"
+  ],
+  [
+   "ratify",
+   "לאשרר, לאשר הסכם או חוזה"
   ],
   [
    "rationalize",
