@@ -2688,6 +2688,7 @@ async function enterLang(lang){
   $('#homeSub').textContent   = lang==='en' ? 'English vocabulary · 10 יחידות' : 'המילון הרשמי · 10 יחידות';
   renderHome();
   goto('home');
+  if(lang==='en') loadExSentData();   // fire-and-forget: ready before the first feedback
   syncWithRemote(lang);   // fire-and-forget: pulls any progress from another device and merges it in
 }
 document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>enterLang(b.dataset.lang));
@@ -5539,6 +5540,24 @@ function loadSentData(){
     document.head.appendChild(el);
   });
   return sentLoading;
+}
+
+/* משפטי הדוגמה של הפידבק (EX_SENT_EN). אותו דפוס בדיוק כמו loadSentData ומאותה
+   סיבה: 300KB שנטענים בכל עליית דף היו מס על מי שמתרגל רק עברית. נטען בכניסה
+   לאנגלית; אם הפידבק הראשון מקדים את הטעינה — המשפט פשוט לא מוצג לכרטיס ההוא. */
+let exSentLoading = null;
+function loadExSentData(){
+  if(window.EX_SENT_EN) return Promise.resolve(true);
+  if(exSentLoading) return exSentLoading;
+  exSentLoading = new Promise(res=>{
+    const el = document.createElement('script');
+    const v = sentBuildV();
+    el.src = './data-en-sentences.js' + (v ? '?v='+v : '');
+    el.onload  = ()=> res(!!window.EX_SENT_EN);
+    el.onerror = ()=>{ exSentLoading = null; res(false); };
+    document.head.appendChild(el);
+  });
+  return exSentLoading;
 }
 
 const sentDone = ()=> new Set(LS.get(SENT_KEY, []));
