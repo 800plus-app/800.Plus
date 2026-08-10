@@ -36,6 +36,12 @@ concurrency:
   group: uptime
   cancel-in-progress: false
 
+permissions:
+  contents: read
+  # נדרש בגלל הקריאה ל-actions/workflows/uptime.yml/runs בצעד "ריצה קודמת".
+  # contents: read לבדו היה מחזיר 403 ומפיל את הצעד.
+  actions: read
+
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -181,7 +187,15 @@ jobs:
       # ה-checkout נדרש רק בשביל scripts/uptime_verdict.py. הוא מובא כאן ולא בראש
       # ה-job כדי שבדיקת הזמינות שמעליו תישאר בלי תלות בכלום — היא צריכה לעבוד גם
       # כשמשהו בריפו שבור.
-      - uses: actions/checkout@v4
+      # מוצמד ל-SHA ולא לתג. תג הוא מצביע שהמתחזק יכול להזיז, ו-CVE-2025-30066
+      # הראה בדיוק את זה: גרסה זדונית נדחפה לתג קיים ושפכה את זיכרון ה-Runner —
+      # כולל סודות — ללוגי הבנייה. הריפו הזה ציבורי, ולוגים של ריפו ציבורי גלויים לכל.
+      # לעדכון: gh api repos/actions/checkout/git/ref/tags/v4 --jq .object.sha
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262   # v4.4.0
+        with:
+          # ה-job הזה קורא בלבד ואינו דוחף חזרה. בלי זה הטוקן נשאר כתוב
+          # ב-.git/config לאורך כל הריצה, זמין לכל צעד שבא אחריו.
+          persist-credentials: false
 
       - name: מה pg_cron מדווח
         id: pgcron
