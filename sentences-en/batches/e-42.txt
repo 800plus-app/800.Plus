@@ -1,0 +1,80 @@
+9	dispatch	לשגר
+9	displacement	עקירה
+9	disprove	להפריך
+9	dispute	מחלוקת; לערער
+9	disruption	שיבוש, הפרעה
+9	dissection	חיתוך, ביתור
+9	divert	להסיט, להפנות לכיוון אחר; להסיח את הדעת
+9	draw	תיקו, שוויון; לצייר
+9	drought	בצורת
+9	durable	עמיד, בר-קיימא, מחזיק מעמד
+9	dwell	להתגורר
+9	dwelling	משכן, בית
+9	eel	צלופח
+9	elaborate	לפרט, להרחיב; (ת׳) מורכב, משוכלל, מפורט
+9	elusive	חמקמק
+9	emergence	הופעה, היווצרות
+9	emission	פליטה
+9	emit	לפלוט, להוציא
+9	emulate	לחקות, להתחרות
+9	enlist	להתגייס
+9	envision	לחזות, לצפות
+9	equates	להשוות, להתאים
+9	erroneous	שגוי
+9	erupt	התפרץ
+9	essence	מהות, תמצית
+9	esteemed	מכובד
+9	evade	התחמק
+9	eventual	סופי, בסופו של דבר
+9	exceed	לעלות על, לחרוג
+9	excel	להצטיין
+9	excessively	בצורה מוגזמת
+9	expectancy	תוחלת, ציפייה
+9	expendable	שניתן לוותר עליו
+9	expenditure	הוצאה
+9	exploitation	ניצול
+9	extortion	סחיטה
+9	familiarize	להתוודע
+9	famine	רעב קשה
+9	fascinate	לרתק
+9	fast	צום; מהיר
+9	fertile	פורה
+9	flatter	להחמיא; שטוח יותר
+9	flight	בריחה, מנוסה; טיסה
+9	flock	לנהור, עדר, המון
+9	flourish	לשגשג, לפרוח
+9	fluency	שטף
+9	fond	חובב, מחבב
+9	forfeit	לוותר, להפסיד
+9	fortify	לחזק, לבצר
+9	foster	לטפח, לעודד, לקדם; (הורה/ילד) אומן
+9	friction	חיכוך
+9	fugitive	נמלט, בורח מהחוק
+9	garment	בגד, לבוש
+9	glimpse	הצצה, מבט חטוף
+9	glorify	להאדיר
+9	gracious	חינני, אדיב
+9	gradual	הדרגתי
+9	grim	קודר, עגום
+9	groom	חתן; לטפח, לטפל
+9	harvest	קציר, יבול; לקצור
+9	hasten	למהר, להחפז
+9	hasty	מהיר, בהול
+9	haul	לגרור
+9	hazard	סכנה, מפגע
+9	hectic	קדחתני
+9	heir	יורש
+9	humility	ענוה
+9	hypocrisy	צביעות
+9	i.e.	כלומר, דהיינו, זאת אומרת
+9	illicit	אסור, בלתי חוקי
+9	illiterate	בור, אנאלפבית
+9	illuminate	להאיר
+9	immense	כביר, עצום
+9	impair	לפגום, להחליש
+9	impartial	אוביקטיבי, ללא צד
+9	in due time	בבוא העת
+9	in order	תקין, מסודר
+9	incentive	תמריץ
+9	incomprehensible	לא מובן
+9	incorporate	לכלול, לשתף, לאגד

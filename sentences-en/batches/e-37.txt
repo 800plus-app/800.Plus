@@ -1,0 +1,80 @@
+8	eager	נלהב, משתוקק, כמה
+8	edible	אכיל
+8	embrace	לחבק, לאמץ לקרבו
+8	emerge	להגיח, להופיע
+8	emigrate	להגר
+8	enchant	לכשף, להקסים
+8	endurance	כוח סבל
+8	endure	לסבול, להחזיק מעמד
+8	enhance	להעצים
+8	enthusiast	חובב נלהב
+8	Equator	קו המשווה
+8	estate	אחוזה; נכס
+8	exaggerate	להגזים
+8	excessive	יתר, מוגזם
+8	exhale	לנשוף
+8	exhaust	לרוקן, למצות, להתיש; (ש״ע) גזי פליטה, צינור מפלט
+8	exile	להגלות, לגרש
+8	expel	לגרש, לסלק, להרחיק; לפלוט (אוויר)
+8	exploit	פעולות, מעשים; לנצל, להפיק תועלת
+8	extensive	נרחב
+8	extinction	הכחדה
+8	fabric	בד
+8	fatigue	עייפות, תשישות; לעייף
+8	fellow	חבר, עמית
+8	fetus	עובר (ברחם)
+8	fine	קטן, עדין, דקיק; משביע רצון; משובח, מצוין; קנס
+8	firm	מוצק; נחוש, תקיף; חברה (פירמה)
+8	footage	קטע צילום
+8	for the sake of	למען
+8	forceful	תקיף, נמרץ, בעל עוצמה
+8	foresee	לצפות מראש
+8	forth	הלאה, קדימה
+8	fraction	שבר
+8	fracture	שבר
+8	fragrance	ניחוח
+8	fundraiser	מגייס כספים
+8	fungus	פטרייה
+8	furthermore	זאת ועוד
+8	genesis	ספר בראשית; היווצרות, התהוות
+8	glacier	קרחון
+8	glance	מבט חטוף
+8	goods	סחורה, טובין
+8	grace	חסד, חינניות
+8	graceful	חינני, אלגנטי
+8	grant	להעניק, מענק
+8	grasp	לתפוס, להבין; אחיזה
+8	grief	יגון, צער
+8	groundbreaking	פורץ דרך
+8	growled	נהם
+8	habitat	סביבת מגורים
+8	halve	לחלק לשניים, להקטין בחצי
+8	hardly	בקושי
+8	hatch	לבקוע (מביצה); פתח, צוהר
+8	hazardous	מסוכן
+8	hence	לפיכך, לכן
+8	herd	לאסוף; עדר, לרעות
+8	heritage	מורשת
+8	hibernate	לישון שנת חורף
+8	hive	כוורת
+8	hollow	חלול
+8	hospitality	הכנסת אורחים
+8	hostility	עוינות
+8	howl	יללה, לילל
+8	humiliate	להשפיל
+8	ignite	להצית
+8	ignorance	בורות
+8	ignorant	בור, חסר השכלה
+8	imitate	לחקות
+8	implications	השלכות, משמעות
+8	imply	לרמוז
+8	impose	לכפות
+8	imprisoned	כלוא
+8	impulsively	ללא שיקול דעת
+8	in light of	לאור
+8	inadequate	לקוי, לא מספיק
+8	incidentally	דרך אגב
+8	incompetence	חוסר יכולת
+8	indebted	חייב ל-, אסיר תודה
+8	indefinitely	ללא הגבלה
+8	inevitable	בלתי נמנע

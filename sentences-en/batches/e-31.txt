@@ -1,0 +1,80 @@
+7	blink	למצמץ
+7	bloom	לפרוח; פריחה
+7	brainwash	לשטוף את המוח
+7	broaden	להרחיב
+7	canal	תעלה
+7	careless	לא זהיר, רשלני
+7	caution	זהירות; להזהיר
+7	certify	להצהיר, לאשר
+7	circuit	מסלול, להקיף; מעגל חשמלי
+7	clarify	להבהיר
+7	classify	לסווג, מסווג
+7	cloak	גלימה, מעטה; מסווה, להסוות
+7	coastline	קו/רצועת חוף
+7	coincidence	צירוף מקרים
+7	collaborate	לשתף פעולה
+7	collision	התנגשות
+7	combine	לצרף, לשלב
+7	commentary	פרשנות
+7	commerce	מסחר
+7	comparison	השוואה
+7	compensate	לפצות
+7	complication	סיבוך
+7	compost	זבל אורגני
+7	comprehension	הבנה
+7	compress	לדחוס
+7	conclude	לסיים; להסיק
+7	confront	להתעמת, לעמת
+7	confrontation	עימות
+7	conquer	לכבוש
+7	conscious	מודע
+7	consequence	תוצאה
+7	consideration	שיקול, שיקול דעת; מכלול שיקולים; התחשבות
+7	consistent	עקבי
+7	consistently	בעקביות
+7	consume	לצרוך
+7	consumers	צרכנים
+7	continuous	מתמשך
+7	contribute	לתרום
+7	convoy	שיירה
+7	cope	להתמודד
+7	cord	חבל דק, חוט; כבל (חשמלי)
+7	cornerstone	אבן פינה
+7	costly	יקר
+7	county	מחוז, נפה
+7	courageous	אמיץ
+7	craftsmen	אומן, בעל מלאכה
+7	crop	לקצץ; יבול
+7	currency	מטבע
+7	custom	מנהג; מותאם אישית
+7	dagger	פגיון
+7	dairy	מחלבה
+7	decade	עשור
+7	declaration	הכרזה, הצהרה
+7	definite	ברור, מוגדר; ודאי
+7	deform	לעוות
+7	demonstrate	להדגים; להפגין
+7	denial	הכחשה
+7	dense	צפוף, סמיך
+7	desirable	נחשק
+7	desperation	ייאוש
+7	devastated	הרוס, מפורק
+7	diabetes	סוכרת
+7	diagnose	לאבחן
+7	dialect	ניב
+7	dictate	להכתיב, לפקד
+7	differentiate	להבדיל, להבחין
+7	dim	עמום, קלוש, מעורפל; לעמעם
+7	disapproving	לא מאשר, לא מסכים, לא מרוצה
+7	disciplined	חינך, העניש; ממושמע
+7	discrimination	אפליה; הבחנה
+7	disgust	גועל, להגעיל
+7	disobey	להפר, לא לציית
+7	disorder	אי-סדר, ערבוביה; מהומה, אי-שקט; הפרעה (רפואית)
+7	disrupt	להפריע, לשבש
+7	distinction	הבחנה, הבדל; מצוינות, הצטיינות
+7	distinguish	להבדיל, להבחין
+7	distract	להסיח את הדעת
+7	distribute	להפיץ
+7	distribution	הפצה
+7	disturbance	הפרעה

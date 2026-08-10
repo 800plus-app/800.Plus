@@ -1,0 +1,80 @@
+10	candid	כנה, ישיר
+10	canvass	לבדוק, לסקור
+10	capitalize	לנצל
+10	caste	מעמד חברתי
+10	chiefly	בעיקר
+10	coincide	להקביל, לחפוף
+10	commemorate	להנציח, לציין זכר
+10	commendably	באופן ראוי לשבח
+10	commends	לציין לשבח
+10	commute	להמתיק (עונש); להחליף, להמיר; לנסוע בקביעות לעבודה
+10	comprise	לכלול
+10	compulsory	מהווה חובה
+10	concede	להודות (בטעות או בתבוסה); לוותר, להיכנע
+10	conceive	להגות, לתפוס, להעלות על הדעת; להרות
+10	concerted	מתואם
+10	concise	תמציתי, תכליתי
+10	concur	להסכים
+10	concurrence	הסכמה, הסכמה משותפת; התרחשות בו-זמנית
+10	condone	לסלוח, למחול
+10	confer	להתייעץ, לדון; להעניק (תואר, כבוד)
+10	confide	לשתף, לספר (סוד)
+10	confinement	מאסר, ריתוק
+10	conform	להתאים, להסתגל
+10	congenial	נעים, ידידותי
+10	congenital	מולד
+10	congregate	להתקהל, להתאסף, להתכנס
+10	conjecture	סברה, לשער
+10	consonant	עיצור (לשון)
+10	conspicuous	בולט
+10	constituent	מרכיב; בוחר
+10	contend	להתמודד, לטעון, להיאבק
+10	convene	לכנס
+10	coop	לול; לכלוא
+10	correspondent	כתב; מתכתב
+10	covet	לחמוד, לחשוק ב-
+10	croak	קרקור
+10	culminate	הגיע לשיא
+10	dampen	לדכא
+10	dandy	גנדרני
+10	date	תמר; יציאה, פגישה, דייט; תאריך
+10	deem	לראות כ-, לחשוב ל-
+10	defiance	התרסה, מרי, סירוב לציית
+10	deliberation	דיון
+10	delicacy	מעדן, מאכל משובח; עדינות
+10	delinquent	עבריין; מזניח חובה, בפיגור (בתשלום)
+10	delve	לחפור, להעמיק
+10	demean	להנמיך, להשפיל
+10	demise	קץ, סוף; מוות, פטירה
+10	denominator	מכנה (של שבר)
+10	depiction	תיאור, הצגה
+10	deplete	לדלדל, למצות, לרוקן
+10	depreciate	לרדת בערך, לפחות מערכו; להפחית ערך, להמעיט בערך
+10	derision	לעג
+10	descendant	צאצא
+10	designate	לייעד, להועיד; למנות; לציין
+10	desolate	הרוס; שומם, נטוש
+10	deteriorate	להידרדר
+10	detract	להפחית, לגרוע
+10	detrimental	מזיק
+10	devastate	להחריב
+10	deviant	סוטה
+10	devise	לתכנן, להמציא
+10	devoid	חסר, נטול
+10	die (dice)	קובייה (קוביות)
+10	diminish	לצמצם
+10	disarmament	פירוק מנשק
+10	discord	סכסוך, מחלוקת, צרימה
+10	discrepancy	סתירה, פער
+10	disdain	זלזול, בוז
+10	dislocate	לפרוק, לנקוע
+10	dismantle	לפרק; לבטל, לפרק מוסד
+10	disparage	לזלזל, להמעיט בערך
+10	disparagement	זלזול
+10	dissect	לנתח, לבתר
+10	disseminate	להפיץ
+10	dissemination	הפצה, תפוצת מידע
+10	dissent	להתנגד, חילוקי דעות
+10	diurnal	פעיל ביום (הפך ל-nocturnal); יומי, יומיומי
+10	diverge	לסטות
+10	divinity	אלוהות

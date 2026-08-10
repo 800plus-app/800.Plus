@@ -1,0 +1,80 @@
+3	describe	לתאר
+3	described	מתואר
+3	description	תיאור
+3	deserve	מגיע (לו)
+3	dessert	קינוח
+3	destiny	גורל
+3	develop	לפתח
+3	development	התפתחות, פיתוח
+3	device	מכשיר
+3	director	במאי; מנהל
+3	disappear	להעלם
+3	disaster	אסון
+3	discuss	לדון, להתווכח
+3	disease	מחלה
+3	display	להציג
+3	disturb	להפריע
+3	drag	לגרור
+3	dump	לשפוך
+3	during	תוך כדי, במשך
+3	eagle	נשר
+3	economy	כלכלה
+3	editor	עורך
+3	education	השכלה
+3	effect	תוצאה, אפקט; רושם, השפעה
+3	effective	יעיל, אפקטיבי
+3	effort	מאמץ
+3	electricity	חשמל
+3	emotion	רגש
+3	engineer	מהנדס, להנדס
+3	entertainment	בידור
+3	entrance	כניסה
+3	environment	סביבה
+3	equipment	ציוד
+3	especially	במיוחד
+3	exact	מדויק
+3	except	מלבד, חוץ מ-
+3	except for	למעט
+3	exchange	להחליף, חלופה
+3	excitement	התרגשות
+3	exercise	תרגיל; להתאמן; לממש, ליישם
+3	exist	קיים
+3	expect	לצפות
+3	experiment	ניסוי, להתנסות
+3	extraordinary	בלתי רגיל
+3	failure	כשלון
+3	fan	מעריץ, אוהד; מאוורר, לאוורר
+3	farmer	חוואי
+3	fault	פגם, תקלה; אשמה
+3	fever	חום (של מחלה)
+3	field	תחום, שדה
+3	financial	כספי
+3	fishing	דיג
+3	fit	בכושר; להתאים
+3	flat	שטוח; דירה
+3	flew	עף
+3	flip	לזרוק, להעיף; סלטה; להפוך צד
+3	fool	טיפש, לשטות במישהו
+3	for instance	לדוגמה
+3	foreign	חוץ; זר, נוכרי
+3	forgive	לסלוח
+3	form	צורה; ליצור, להקים
+3	frame	מסגרת, למסגר
+3	friendship	חברות
+3	function	תפקוד, לתפקד
+3	garbage	זבל
+3	gene	גן (תורשתי)
+3	generation	דור
+3	gentle	עדין
+3	governor	מושל
+3	grade	כיתה; ציון, דרגה, מעמד; שיפוע
+3	grandson	נכד
+3	guide	להדריך
+3	guilty	אשם
+3	hall	מסדרון; היכל
+3	harm	לפגוע, להזיק
+3	heat	חום, לחמם
+3	height	גובה
+3	highway	כביש ראשי
+3	hill	גבעה
+3	honest	הגון

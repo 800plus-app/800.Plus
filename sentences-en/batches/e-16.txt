@@ -1,0 +1,80 @@
+4	analyze	לנתח
+4	ancient	קדום, עתיק
+4	apart	בנפרד
+4	appear	להופיע; נראה ש-
+4	architecture	אדריכלות, ארכיטקטורה
+4	aristocrat	אציל, אריסטוקרט
+4	arrest	מעצר, לעצור
+4	artistic	אמנותי
+4	as many as	רבים כמו (מספר גדול)
+4	as proof of	כהוכחה ל-
+4	aside from	חוץ מ-
+4	attitude	גישה
+4	audience	קהל
+4	aura	הילה
+4	author	סופר, מחבר
+4	authority	סמכות
+4	automobile	כלי רכב, אוטו
+4	avoid	להתחמק, להימנע
+4	aware	מודע
+4	backward	לאחור
+4	bacteria	חיידקים
+4	beg	להתחנן
+4	belong	שייך
+4	benefit	תועלת, יתרון; הטבה; להפיק תועלת
+4	besides	בכל מקרה; בנוסף על; מלבד, חוץ מ-
+4	best-seller	רב-מכר
+4	beyond	מעבר
+4	bicycle	אופניים
+4	breathe	לנשום
+4	bright	בהיר, זוהר; חכם, מבריק
+4	brilliant	מבריק
+4	bullet	קליע
+4	butterfly	פרפר
+4	by now	עד עתה
+4	calculate	לחשב
+4	calculator	מחשבון
+4	campaign	מערכה, מסע
+4	cast	להשליך, לגרש; צוות שחקנים
+4	casual	אגבי, רגיל, יומיומי
+4	cave	מערה
+4	caviar	קוויאר
+4	century	מאה שנים
+4	certain	בטוח; מסוים
+4	character	אות, תו; דמות; אופי
+4	charge	לגבות; להאשים; להסתער; לחייב
+4	chief	ראשי, בכיר, מנהיג; צ'יף
+4	citrus	פרי הדר
+4	claim	טענה, טוען; תביעה
+4	class	מעמד; סוג; כיתה
+4	clever	פיקח
+4	coach	מאמן, לאמן, להדריך; קרון נוסעים, כרכרה, מחלקת תיירים (במטוס)
+4	coast	חוף
+4	cognitive	קוגניטיבי, הכרתי
+4	common	נפוץ, משותף
+4	compete	להתחרות, להתמודד
+4	components	חלקים, מרכיבים
+4	conference	ועידה
+4	confuse	לבלבל
+4	confusion	בלבול
+4	consider	לקחת בחשבון, לשקול
+4	context	הקשר
+4	continuation	המשך
+4	contract	ללקות, להידבק (במחלה); חוזה, הסכם; להתכווץ
+4	contrast	ניגוד; להוות ניגוד
+4	convince	לשכנע
+4	coordination	קואורדינציה, תיאום
+4	coordinator	מתאם
+4	copies	עותקים
+4	cosmopolitan	קוסמופוליטי, רב-תרבותי, בעל אופי בין-לאומי
+4	count	לספור; רוזן
+4	course	מנה; קורס; מסלול
+4	crack	סדק, לסדוק
+4	creator	יוצר
+4	creature	יצור
+4	curse	קללה, לקלל
+4	customize	להתאים באופן אישי
+4	dare	להעיז, תעוזה; אתגר
+4	decorative	קישוטי, דקורטיבי
+4	deeply	מאוד, במידה רבה
+4	deer	איל

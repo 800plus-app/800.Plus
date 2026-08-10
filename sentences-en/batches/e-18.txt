@@ -1,0 +1,80 @@
+4	hybrid	כלאיים, היברידי
+4	iceberg	קרחון
+4	illusion	אשליה
+4	importance	חשיבות
+4	improve	לשפר
+4	in addition	בנוסף
+4	in particular	במיוחד
+4	incident	תקרית
+4	indeed	בהחלט
+4	independence	עצמאות
+4	innocent	תמים; חף מפשע
+4	insect	חרק
+4	inspire	לעורר השראה
+4	instantly	מיד
+4	instrument	כלי
+4	insurance	ביטוח
+4	interact	ליצור אינטראקציה, לתקשר, להשפיע הדדית
+4	introduction	הקדמה, מבוא, היכרות
+4	irregular	לא רגיל
+4	issue	נושא, עניין, סוגיה; להוציא לאור, להפיץ; גיליון
+4	label	תגית; לתייג
+4	laboratory	מעבדה
+4	layer	שכבה
+4	lead, led	להוביל, הוביל
+4	leadership	מנהיגות
+4	leaf (leaves)	עלה (עלים)
+4	legend	אגדה; מקרא מפה
+4	length	אורך
+4	likely	סביר
+4	load	להעמיס
+4	logic	הגיון
+4	loyalty	נאמנות
+4	major	סולם מז'ור (במוזיקה); מסלול לימודים; ראשי, עיקרי
+4	march	לצעוד
+4	marketing	שיווק, לשווק
+4	mass	המון, המוני; מסה
+4	mate	בן זוג, חבר; להזדווג
+4	maximize	למקסם
+4	mercy	רחמים
+4	mind	לשים לב, לשמור; שכל; אכפת
+4	minimize	למזער
+4	minister	שר (בממשלה)
+4	miracle	נס, פלא
+4	missile	טיל
+4	mode	מצב, אופן, צורה; אופנה, מודה
+4	monument	אנדרטה
+4	motif	מוטיב
+4	motivate	לדרבן
+4	mountaintop	פסגת הר
+4	mouse (mice)	עכבר (עכברים)
+4	narrow	צר
+4	navigate	לנווט
+4	nickname	כינוי
+4	not only... but also...	לא רק... אלא גם...
+4	not... but...	לא... אלא...
+4	numeric	מספרי
+4	nut	אגוז
+4	object	פריט, אובייקט; להתנגד
+4	olive	זית
+4	on one hand...on the other hand	מצד אחד... מצד שני
+4	operation	ניתוח; מבצע, פעולה
+4	opposition	אופוזיציה, התנגדות
+4	organize	לארגן
+4	otherwise	אחרת
+4	overall	כולל, באופן כללי
+4	owe	להיות חייב
+4	painter	צייר
+4	pardon	לחון, חנינה; סליחה, לסלוח
+4	party	מפלגה; מסיבה
+4	pathology	פתולוגיה, ענף ברפואה
+4	penalty	עונש; קנס
+4	pigment	פיגמנט, צבען
+4	post	להציב, למנות ; עמדה, משרה, תפקיד; עמוד; לפרסם ; פרסום; לשלוח בדואר ; דואר
+4	prank	מתיחה
+4	predator	טורף
+4	pregnancy	הריון
+4	preparation for	הכנות לקראת
+4	presence	נוכחות
+4	pretend	להעמיד פנים
+4	previously	הקודם, לפני-כן

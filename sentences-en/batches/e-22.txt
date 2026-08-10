@@ -1,0 +1,80 @@
+5	debate	ויכוח, דיון
+5	defeat	להביס, לנצח; תבוסה, הבסה
+5	defeated	הובס
+5	define	להגדיר
+5	degree	מעלה (מדידה); תואר אקדמי; דרגה; מידה, במידה מסוימת
+5	demand	לדרוש, דרישה
+5	dental	שקשור בשיניים
+5	dentist	רופא שיניים
+5	deny	לסרב; להכחיש
+5	depart	לעזוב
+5	destination	יעד
+5	destructive	הרסני
+5	detect	לאתר, לגלות
+5	diary	יומן
+5	disappoint	לאכזב
+5	distant	מרוחק
+5	district	מחוז
+5	donor	תורם
+5	dose	מנה, מינון
+5	double standard	מוסר כפול
+5	Dutch	הולנדי
+5	ease	להקל, קלוּת
+5	efficient	יעיל
+5	elderly	זקן
+5	eliminate	לחסל, לפסול
+5	embarrass	להביך
+5	employ	להעסיק; להשתמש ב-, לנקוט
+5	employer	מעסיק, מעביד
+5	encourage	לעודד
+5	entertain	לשעשע, לבדר
+5	envy	קנאה, לקנא
+5	equally	במידה שווה
+5	era	עידן
+5	erase	למחוק
+5	essential	חיוני
+5	evolved	התפתח
+5	exception	יוצא מהכלל
+5	execute	להוציא לפועל; להוציא להורג
+5	existence	קיום
+5	expand	להרחיב
+5	expansion	הרחבה, התרחבות, התפשטות
+5	expense	הוצאות
+5	express	מהיר; לבטא
+5	expression	ביטוי
+5	extend	להאריך, להרחיב
+5	extension	הארכה, הרחבה; תוספת (מבנה); שלוחה (טלפון)
+5	facial	שקשור בפנים
+5	feature	להציג; סרט באורך מלא; תכונה, מאפיין
+5	feminine	נשי
+5	fisherman	דייג
+5	flame	להבה
+5	flood	שיטפון
+5	footprints	עקבות, טביעות רגל
+5	forbid	לאסור
+5	foundation	יסוד
+5	frequently	לעיתים קרובות
+5	frightening	מפחיד
+5	fuel	דלק
+5	fund	קרן; לממן
+5	funds	כסף, הון, מקור מימון
+5	gain	להרוויח, להוסיף
+5	gap	פער
+5	gasoline	בנזין
+5	gather	אסף
+5	glove	כפפה
+5	granddaughter	נכדה
+5	greet	לברך, לקבל פנים
+5	growth	צמיחה, גדילה
+5	guarantee	להבטיח, ערבות
+5	habit	הרגל
+5	heavily	מאוד, במידה רבה
+5	hike	הליכה, טיול
+5	homeland	מולדת
+5	identify	לזהות
+5	illness	מחלה
+5	imagination	דמיון
+5	impatient	חסר סבלנות
+5	impress	להרשים
+5	imprisonment	מאסר, כליאה
+5	in comparison	בהשוואה

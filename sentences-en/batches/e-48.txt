@@ -1,0 +1,80 @@
+10	industrious	חרוץ, שקדן
+10	infancy	ינקות
+10	infraction	עבירה
+10	inhabit	לגור ב-, לשכון ב-, לאכלס
+10	inherent	טבוע, מובנה
+10	innate	מולד
+10	instill	להחדיר, להשריש
+10	insurmountable	שאין להתגבר עליו
+10	insurrection	התקוממות
+10	interjection	הערה, הפרעה לשיחה
+10	interminable	נצחי
+10	invariably	תמיד, בכל פעם, ללא יוצא מן הכלל
+10	invertebrate	חסר-חוליות
+10	jagged	משונן
+10	keep	לשמור; חלק מהמצודה
+10	keystone	אבן מפתח
+10	lackluster	חסר ברק, עמום, לא מרשים
+10	lamentable	מצער, מעציב
+10	lapse	מעידה, פליטת פה; פרק זמן, פקיעה, סיום
+10	laud	לשבח, להלל
+10	legible	קריא
+10	leisurely	נינוח, רגוע
+10	leniency	ותרנות, מתינות, הקלה בעונש
+10	limber	גמיש
+10	lineage	ייחוס, שושלת
+10	loathe	לתעב
+10	lucrative	ריווחי
+10	manifestation	ביטוי, גילוי, התגלמות
+10	maritime	ימי
+10	markedly	בצורה ניכרת
+10	marsupial	חיית כיס
+10	mediate	לגשר, לתווך
+10	meticulous	קפדני
+10	misconception	דעה מוטעית
+10	mitigate	למתן, להפחית
+10	momentous	הרה גורל
+10	morose	קודר, עגמומי
+10	myriad	רב, הרבה
+10	nationalize	להלאים
+10	negligence	הזנחה, רשלנות
+10	negligible	זניח
+10	nestle	לשכון בנוחות, להיות מוקם בחיק; להתכרבל
+10	nocturnal	לילי
+10	notwithstanding	למרות, על אף
+10	nourish	להזין, לספק מזון; לטפח
+10	nuisance	מטרד
+10	numerator	מונה (של שבר)
+10	obedience	ציות
+10	obedient	צייתן
+10	obscure	סתום, לא ידוע; לטשטש
+10	obstinate	עקשן
+10	ode	שיר הלל
+10	officiate	לכהן, לערוך
+10	omission	השמטה, הזנחה
+10	omit	להשמיט, להזניח
+10	omniscient	יודע כול; מספר כל-יודע
+10	oppressive	אכזרי; מדכא, מעיק
+10	outspoken	מדבר גלויות, ישיר
+10	overhaul	שיפוץ, אוברול
+10	owing to	בגלל, עקב, בשל
+10	paramount	בעל חשיבות עליונה
+10	pastime	תחביב, בילוי, עיסוק לשעות הפנאי
+10	pasture	מרעה, אחו
+10	peddler	רוכל, סוחר
+10	penned	כָּתַב
+10	perch	ענף; נח, ישב על ענף
+10	perpetually	ללא הרף, כל הזמן, תמידית; לנצח
+10	perpetuate	להנציח
+10	persecution	רדיפה, התעללות (על רקע דת, גזע או פוליטיקה)
+10	pervasive	מתפשט, מחלחל
+10	plausible	סביר, מתקבל על הדעת
+10	playwright	מחזאי
+10	plight	צרה, סכנה
+10	plummet	לצנוח, לצלול, לרדת בחדות
+10	poacher	מסיג גבול, צייד לא מורשה
+10	poignant	נוגע ללב, מרגש, מכמיר לב; חריף, נוקב
+10	populous	מאוכלס בצפיפות
+10	postage	דמי משלוח, דמי דואר; בולים
+10	posterity	הדורות הבאים
+10	pothole	מהמורה, בור

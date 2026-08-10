@@ -1,0 +1,80 @@
+7	immigrate	להגר
+7	immune	חסין
+7	implement	ליישם, להוציא לפועל
+7	implementation	מימוש, יישום, ביצוע
+7	impulse	דחף
+7	inconsistent	לא עקבי
+7	infectious	מדבק
+7	inferior	נחות
+7	infrastructure	תשתית
+7	ingredient	מרכיב
+7	initiated	יזם, התחיל, אִתְחֵל
+7	insight	תובנה
+7	inspect	לבחון, לבדוק
+7	insure	לבטח; להבטיח, לוודא
+7	intentional	מכוון
+7	interfere	להתערב, להפריע
+7	interior	פנימי
+7	interpret	לפרש; לתרגם
+7	interpretation	פרשנות
+7	invade	לחדור, לפלוש
+7	invaders	פולשים
+7	invasion	פלישה
+7	invasive	פולשני, חודרני
+7	inventory	מצאי
+7	jewel	תכשיט
+7	junkyard	מגרש גרוטאות
+7	just as... so...	בדיוק כמו... גם
+7	kite	עפיפון
+7	knot	קשר
+7	laborer	פועל
+7	landscape	נוף
+7	legacy	מורשת, ירושה
+7	lens	עדשה
+7	lethal	קטלני
+7	literature	ספרות
+7	malfunction	כשל, ליקוי
+7	manufacture	ייצר
+7	margin	שוליים, מרווח
+7	masculine	גברי
+7	masterpiece	יצירת מופת
+7	maze	מבוך
+7	medicinal	רפואי, מרפא
+7	merchandise	מוצרים, סחורה
+7	merge	למזג, לחבר
+7	milestone	אבן דרך, ציון דרך
+7	misbehave	להתנהג בצורה לא הולמת
+7	monarch	מלך
+7	morale	מורל
+7	mosquito	יתוש
+7	narration	קריינות
+7	negotiation	משא ומתן
+7	obligation	התחייבות
+7	observer	משקיף
+7	obtain	להשיג
+7	occasional	מדי פעם, מקרי
+7	occasionally	מידי פעם
+7	occasions	הזדמנויות, מקרים
+7	offender	פושע, פוגע
+7	offense	עבירה; פגיעה
+7	ongoing	מתמשך
+7	orderly	מסודר
+7	outcome	תוצאה
+7	outlaw	להוציא אל מחוץ לחוק; פורע חוק
+7	outpost	מוצב, נקודת קצה
+7	overdo	להפריז, להגזים
+7	overlaps	חופף
+7	overly	יותר מידי
+7	paragraph	פִסקה
+7	partial	חלקי
+7	participate	השתתף
+7	peek	להציץ
+7	performer	מבצע, מציג
+7	petroleum	נפט
+7	pigeon	יונה
+7	poll	סקר, הצבעה
+7	pollution	זיהום
+7	populate	לאכלס
+7	postpone	לדחות
+7	precision	דיוק
+7	predict	לצפות מראש

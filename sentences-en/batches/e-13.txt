@@ -1,0 +1,80 @@
+3	honor	לכבד, כבוד
+3	host	מארח
+3	however	למרות זאת; בכל דרך
+3	hunger	רעב
+3	hunt	לצוד, ציד
+3	hunter	צייד
+3	ignore	להתעלם
+3	ill	חולה
+3	illegal	לא חוקי
+3	image	דמות, תמונה
+3	imagine	לדמיין
+3	immediately	מיד
+3	impact	השפעה; התנגשות
+3	impressive	מרשים
+3	in general	באופן כללי
+3	include	לכלול
+3	incredible	מדהים
+3	independent	עצמאי
+3	individual	יחיד, אינדיבידואל
+3	influence	השפעה, להשפיע
+3	injury	פציעה
+3	inner	פנימי
+3	instant	מיידי; בהרף עין
+3	instead	במקום זאת, תחת זאת
+3	instead of	במקום
+3	intelligence	אינטליגנציה; מודיעין
+3	intense	עז, אינטנסיבי
+3	introduce	להציג, לעשות היכרות
+3	investigate	לחקור
+3	invisible	בלתי נראה
+3	judge	לשפוט; שופט
+3	kingdom	ממלכה
+3	kitchen	מטבח
+3	knees	ברכיים
+3	knowledge	יֶדַע
+3	known	ידוע
+3	lake	אגם
+3	lawyer	עורך-דין
+3	lecture	הרצאה
+3	led to	הוביל ל-
+3	license	רישיון; לאשר, להתיר
+3	limit	גבול, לשים גבול, מוגבל
+3	lip	שפה
+3	lower	להנמיך
+3	manage	לנהל; להצליח, להסתדר (___ to)
+3	management	ניהול
+3	mark	לסמן
+3	marriage	נישואין
+3	material	חומר, חומרני
+3	medicine	רפואה, תרופה
+3	mention	להזכיר, לאזכר
+3	method	שיטה
+3	military	צבא, צבאי
+3	mirror	מראה
+3	monitor	להשגיח, מוניטור
+3	mostly	לרוב
+3	movement	תנועה
+3	mystery	תעלומה
+3	nation	אומה
+3	nearby	ליד, קרוב
+3	necessary	הכרחי
+3	neighborhood	שכונה
+3	nervous	עצבני, לחוץ, מתוח
+3	no longer	לא עוד
+3	noon	צהריים (12:00)
+3	note	הערה, פתק; לציין
+3	notice	לשים לב; התראה
+3	nuclear	גרעיני
+3	obviously	ברור
+3	opportunity	הזדמנות
+3	opposite	מנוגד, ממול
+3	organization	ארגון
+3	pair	זוג
+3	passion	תשוקה
+3	patience	סבלנות
+3	patient	סבלני; חולה
+3	patients	מטופלים
+3	peaceful	שָׁלֵו, שקט
+3	per	לכל
+3	performance	ביצוע; הופעה

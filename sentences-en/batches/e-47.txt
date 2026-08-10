@@ -1,0 +1,80 @@
+10	docile	צייתן, כנוע, נח
+10	dovecote	שובך
+10	draw (drew)	לשלוף, שלף
+10	drench	להרטיב, להספיג
+10	dwindle	הידלדל, התמעט
+10	eloquent	רהוט
+10	elude	לברוח, להתחמק
+10	embalm	לחנוט, לשמר
+10	embark	לצאת לדרך, לפתוח ב-; לעלות על ספינה או מטוס
+10	embellish	לקשט, לייפות; להוסיף פרטים מומצאים
+10	embitter	גורם התמרמרות
+10	eminent	בולט, בכיר
+10	enact	לחוקק
+10	enclose	לצרף
+10	enclosing	לסגור, להקיף
+10	enclosure	סגירה, כיתור, שטח מגודר
+10	encroach	להסיג גבול, לפלוש
+10	endeavor	מאמץ, מיזם; לשאוף
+10	engrave	לחרוט
+10	ensue	להתרחש בעקבות, לבוא כתוצאה, להתחולל
+10	epitomize	לייצג, לאפיין
+10	evocative	מעורר, מעלה, מזכיר
+10	evoke	לעורר, להעלות
+10	exert	להתאמץ; להפעיל
+10	expatriate	גולה, מי שחי מחוץ למולדתו; לגרש/להגלות מהמולדת
+10	expedite	לזרז
+10	expend	לגמור, לבזבז, לפזר
+10	exquisite	מצוין; חד, מעודן, אנין
+10	extrapolate	לאמוד על סמך מידע קיים
+10	fabricate	לבדות
+10	facilitate	לסייע, לעזור, להקל
+10	fad	אופנה חולפת
+10	feat	מעשה גבורה, הישג
+10	feign	להעמיד פנים, להתחזות
+10	figurative	ציורי, מטאפורי, מושאל (לא מילולי)
+10	flagrant	בוטה
+10	flattery	חנופה
+10	flimsy	רעוע, דל, שביר; קלוש, בלתי משכנע (תירוץ/ראיה)
+10	fluctuation	חוסר יציבות
+10	foil	לסכל
+10	foremost	ראשון במעלה, בעיקר
+10	forerunner	מבשר, קודם, חלוץ; אות, סימן מקדים
+10	formidable	אדיר, מאיים
+10	forsake	לזנוח
+10	fraternal	אחוותי, של אחים
+10	fringes	שוליים
+10	frivolous	קל דעת, לא רציני; חסר חשיבות
+10	frugal	חסכני
+10	fume	אדים, עשן
+10	furnish	לרהט
+10	futile	חסר תוחלת, נטול סיכוי
+10	gauge	למדוד, להעריך, מידה
+10	genial	ידידותי
+10	genus	סוג, מין
+10	gland	בלוטה
+10	glaze	זיגוג
+10	goblet	גביע
+10	granted (that)	בהנחה ש-, נתון ש-
+10	gratify	לספק, להשביע רצון, לענג
+10	grievance	טרוניה, התמרמרות
+10	grit	גרגרי חול, חצץ, לכלוך; נחישות, אומץ לב
+10	hail	לשבח; ברד
+10	harness	לרתום
+10	hearsay	שמועה
+10	heed	לשים לב
+10	hegemony	הגמוניה
+10	herald	לבשר; מבשר
+10	heredity	תורשה
+10	heresy	כפירה
+10	hinder	לעכב
+10	icicle	נטיף קרח
+10	immersion	טבילה, שיקוע (במים); שקיעה מוחלטת, מעורבות עמוקה (בנושא)
+10	impart	להעביר, להקנות
+10	impartially	באופן הוגן, ללא אפליה
+10	implicate	לסבך, לערב
+10	implore	להתחנן, להפציר
+10	inadvertently	בלי משים, בלי כוונה
+10	incidence	כמות, הִקָּרוּת (משהו שקורה)
+10	incline	שיפוע, מדרון; לנטות, להטות
+10	inconspicuous	לא בולט, לא מושך תשומת לב

@@ -1,0 +1,80 @@
+8	bear	לסבול, לשאת; דוב
+8	beneficial	מועיל, רווחי
+8	beware	היזהר
+8	blood vessel	כלי דם
+8	boundary	גבול
+8	breed	מין, גזע; להרביע, להפרות
+8	briefly	בקצרה
+8	burial	קבורה
+8	capacity	יכולת, סמכות, תפקיד; קיבולת
+8	cater	לספק
+8	caterpillar	זחל
+8	cattle	בקר
+8	cautious	זהיר
+8	cemetery	בית קברות
+8	certainty	וודאות
+8	chamber	חדר, לשכה; תא
+8	characteristic	מאפיין
+8	civil	אדיב; אזרחי
+8	cockroach	מקק, ג'וק
+8	coffin	ארון מתים
+8	collide	להתנגש
+8	cologne	קולון, בושם (של גבר)
+8	colossal	עצום
+8	compile	לאסוף, לקבץ
+8	comply	להסכים, לציית
+8	conduct	לנהל, לקיים; התנהגות (ש״ע); להוליך (חשמל)
+8	conductor	מנצח (תזמורת); מוליך (חשמל/חום); כרטיסן
+8	conquest	כיבוש
+8	conquistador	כובש
+8	conservation	שימור
+8	conserve	לשמר
+8	considering	בהתחשב ב-, לאור; (כפועל) שוקל
+8	contagious	מדבק
+8	continuity	המשכיות, רצף הגיוני
+8	contradiction	סתירה
+8	controversial	שנוי במחלוקת
+8	controversy	מחלוקת
+8	conveniently	באופן נוח
+8	convention	מוסכמה; ועידה, כנס
+8	convict	אסיר; להרשיע
+8	cougar	פומה, סוג של טורף
+8	courtesy	נימוס, אדיבות
+8	credibility	אמינות, מהימנות
+8	cripple	להטיל מום
+8	crucial	מכריע, קריטי
+8	cucumber	מלפפון
+8	damp	לח
+8	dart	חץ
+8	dealt	עסק ב, חולק (קלפים, ניירת)
+8	decay	ריקבון
+8	decline	לרדת; לדחות; ירידה
+8	dedicate	להקדיש
+8	deflate	להוציא אוויר מ-
+8	delegate	להאציל, להסמיך; נציג, ציר
+8	delight	תענוג
+8	demented	משוגע, מטורף
+8	density	צפיפות
+8	descend	ירד, הדרדר
+8	despair	להתייאש
+8	despise	לתעב
+8	detach	לנתק, להפריד
+8	determined	נחוש, נחרץ
+8	devote	להקדיש
+8	discontent	חוסר שביעות רצון
+8	discourage	לשכנע שלא לעשות משהו
+8	disgrace	בושה
+8	dismiss	לבטל, לפטר, לשחרר
+8	disposable	חד-פעמי
+8	dispose	להיפטר
+8	disregard	להתעלם
+8	dissolve	להתמוסס
+8	distinct	ברור, נפרד
+8	distinctive	מיוחד
+8	distress	מצוקה
+8	disuse	חוסר שימוש
+8	diverse	מגוון
+8	divine	אלוהי
+8	drawback	חיסרון, מגרעת
+8	dread	פחד, לפחד
+8	due	צריך להיעשות, זמנו הגיע; בשל

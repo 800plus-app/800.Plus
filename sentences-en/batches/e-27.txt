@@ -1,0 +1,80 @@
+6	determine	לקבוע
+6	differ	להיבדל, לחלוק
+6	discipline	תחום לימוד/מחקר; להעניש, לחנך, משמעת
+6	discomfort	אי-נוחות
+6	disguise	תחפושת
+6	disloyal	לא נאמן
+6	domestic	ביתי; מקומי, פנים-ארצי; מבוית (חיה)
+6	doorstep	מפתן הדלת
+6	dozen	תריסר
+6	draft	גיוס; טיוטה; משיכה; רוח פרצים
+6	dull	סתום; משעמם; עמום
+6	duplicate	לשכפל
+6	e.g.	לדוגמה
+6	eccentric	מוזר, אקסצנטרי
+6	educate	לחנך
+6	elsewhere	במקום אחר
+6	embryo	עוּבָּר
+6	encounter	להיתקל ב-, לפגוש; מפגש, היתקלות
+6	endanger	לסכן
+6	endangered	בסכנת הכחדה
+6	engage	להעסיק, ליצור מגע
+6	engagement	התחייבות; אירוסין
+6	enjoyable	מהנה
+6	enormous	עצום
+6	ensure	להבטיח
+6	enthusiastic	נלהב
+6	entirely	לחלוטין
+6	entitled	זכאי
+6	envelope	מעטפה
+6	equality	שוויון
+6	equip	לצייד
+6	eraser	מחק
+6	establish	לייסד
+6	every now and then	לפעמים
+6	evolutionary	התפתחותי
+6	exclusively	באופן בלעדי, רק
+6	expose	לחשוף, להעמיד בפני
+6	eyesight	ראייה, חוש הראייה
+6	facility	מתקן
+6	fade	לדהות, לדעוך
+6	faint	להתעלף; קלוש
+6	fame	תהילה, פרסום
+6	fancy	מחבב; מגונדר
+6	faulty	לקוי, לא תקין
+6	favored	מועדף
+6	figure	גזרה, צורה; ספרה, מספר; דמות; לחשב, להניח, להסיק
+6	finalize	לסכם, לגבש
+6	folk	עממי
+6	for the most part	בדרך-כלל
+6	forecast	תחזית
+6	forgettable	שאפשר לשכוח אותו
+6	former	קודם, לשעבר
+6	formulate	לנסח
+6	fort	מצודה, מבצר
+6	fortunate	בעל מזל
+6	fraud	מרמה, הונאה
+6	fulfill	להגשים
+6	fur	פרווה
+6	gamble	הימר
+6	generous	נדיב
+6	genuine	אמיתי, מקורי
+6	gesture	מחווה
+6	given that	בהתחשב בכך
+6	graduate	לסיים לימודים
+6	gross	ברוטו, גלמי; ענק, דוחה
+6	guillotine	גיליוטינה
+6	gunpowder	אבק שריפה
+6	gymnasium	אולם ספורט
+6	halt	לעצור,להפסיק, עצירה
+6	hardly ever	כמעט אף פעם
+6	harmless	שאינו מזיק
+6	harsh	נוקשה, אכזרי
+6	hierarchy	היררכיה, מדרג
+6	hilarious	מצחיק
+6	horrific	אָיוֹם
+6	hospitalize	לאשפז
+6	illustrator	מאייר
+6	imaginative	בעל דמיון עשיר, יצירתי, מלא דמיון
+6	immoral	לא מוסרי
+6	import	לייבא

@@ -1,0 +1,80 @@
+1	in	ב-, בתוך
+1	in a moment	בעוד רגע
+1	in fact	למעשה
+1	in front of	בחזית של, מול
+1	in order to	על-מנת, כדי
+1	information	מידע
+1	inside	בתוך, פנים
+1	into	אל תוך
+1	island	אי
+1	Jew	יהודי
+1	join	להצטרף, לחבר
+1	joke	בדיחה
+1	jump	לקפוץ
+1	kill	להרוג, לחסל, הרג
+1	king	מלך
+1	know, knew	לדעת, ידע
+1	large	גדול
+1	late	מאוחר, לאחר
+1	later	מאוחר יותר
+1	laugh	לצחוק
+1	law	חוק
+1	left	שמאלה
+1	less	פחות
+1	lie	לשקר, שֶקֶר
+1	light	אור; קל
+1	like	כמו; לחבב, להעדיף
+1	link	קישור, לקשר, חוליה
+1	list	רשימה, להכין רשימה
+1	listen	להקשיב
+1	luck	מזל
+1	lunch	ארוחת צהריים
+1	machine	מכונה
+1	made	עשה
+1	make sure	להבטיח, לוודא
+1	maybe	אולי
+1	media	מדיה, תקשורת
+1	meeting	פגישה
+1	memory	זיכרון, לזכר
+1	message	הודעה
+1	middle	אמצע
+1	milk	חלב, לחלוב
+1	mistake	טעות
+1	mix	לערבב, ערבוב
+1	model	דגם, מודל, דוגמן
+1	money	כסף
+1	monster	מפלצת
+1	most	רוב; הכי
+1	mountain	הר
+1	mouth	פה
+1	move	לזוז, לעבור
+1	must	חייב, חובה, הכרח
+1	near	קרוב
+1	need	צריך, צורך
+1	never	אף פעם
+1	new	חדש
+1	next	הבא
+1	next to	ליד
+1	North	צפון
+1	nose	אף, חרטום
+1	not only	לא רק
+1	now	עכשיו
+1	number	מספר
+1	ocean	אוקיינוס
+1	of	של, מ-
+1	of course	כמובן, בוודאי
+1	offer	הצעה, להציע
+1	often	לעיתים קרובות
+1	on	על
+1	once	ברגע ש-; פעם (בעבר); פעם אחת
+1	only	רק
+1	open	לפתוח, פתוח
+1	or	או
+1	organic	אורגני
+1	outside	חוץ; בחוץ
+1	over	על, מעל; מחדש, שוב
+1	own	משלו; בעלות על משהו
+1	pain	כאב, להכאיב
+1	part	חלק
+1	pass	לעבור, לחלוף; להעביר, למסור; לוותר (___ on)
+1	past	עבר, שעבר

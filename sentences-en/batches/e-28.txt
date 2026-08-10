@@ -1,0 +1,80 @@
+6	improvise	לאלתר
+6	in a word	במילה אחת
+6	in contrast to	בניגוד ל-
+6	in favor of	לטובת
+6	in spite of	למרות
+6	inactivity	חוסר פעילות
+6	inclusive	כולל
+6	index	מדד; מפתח (רשימת ערכים אלפביתית בסוף ספר)
+6	indicate	להצביע על
+6	inexpensive	לא יקר, זול
+6	influential	רב-השפעה
+6	inject	להזריק
+6	injure	לפצוע
+6	innovative	חדשני
+6	insert	להכניס
+6	insist	להתעקש
+6	instruction	הוראה, הדרכה
+6	integrate	לשלב
+6	interest	עניין; ריבית
+6	interface	ממשק
+6	inventor	ממציא
+6	investing	להשקיע
+6	investor	משקיע
+6	involve	לערב
+6	jog	ריצה, ג'וגינג, לרוץ
+6	joint	משותף; מפרק, חיבור
+6	joyous	שמח, עליז
+6	judgment	שיפוט
+6	just	מדויק, אמיתי; רק, בלבד; צודק, הוגן
+6	lane	מסלול
+6	launch	לשגר, להוציא לדרך; להשיק, להתחיל
+6	league	מידת אורך קדומה; ליגה
+6	legalize	להפוך חוקי, לאשר
+6	lend	להלוות, להשאיל
+6	lengthy	ארוך, מייגע
+6	leopard	נמר
+6	limitation	מגבלה
+6	linguistic	לשוני
+6	literal	מילולי, כפשוטו
+6	lobby	לשדל; לובי, מבואה
+6	loudspeaker	רמקול
+6	luggage	מזוודות
+6	lyric	מילות שיר; לירי
+6	magnificent	מפואר, נהדר, מרהיב
+6	mailman	דוור
+6	maintain	לשמור על, לתחזק; לטעון, לגרוס
+6	mandate	מנדט, ייפוי כוח
+6	manner	התנהגות, אופן
+6	manners	נימוס
+6	marine	ימי
+6	mathematician	מתמטיקאי
+6	mayor	ראש עיר
+6	memorial	אנדרטה, מונומנט הנצחה; אזכרה; של זיכרון
+6	memorize	לשנן, לזכור בעל-פה
+6	midair	באוויר
+6	migrate	להגר
+6	migration	הגירה; נדידה
+6	minority	מיעוט
+6	modernize	להפוך למודרני
+6	modify	לשנות, להתאים
+6	monk	נזיר
+6	monumental	גדול, אדיר
+6	mountainside	מדרון
+6	narcotic	סם
+6	narrative	סיפור, נרטיב
+6	nationality	לאום
+6	negotiate	לשאת ולתת
+6	noble	אציל, אצילי
+6	nominated	מועמד
+6	not to mention	שלא לדבר על
+6	novel	רומן, סיפור; חדש
+6	objection	התנגדות
+6	occasion	אירוע, סיבה, הזדמנות
+6	occur	קרה, התרחש
+6	octopus	תמנון
+6	odd	מוזר; אי זוגי
+6	old-fashioned	מיושן
+6	on the contrary	להפך, אדרבא, נהפוך הוא
+6	once in a while	מידי פעם
+6	onion	בצל

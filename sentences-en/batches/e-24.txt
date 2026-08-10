@@ -1,0 +1,80 @@
+5	practical	מעשי
+5	primary	יסודי, עיקרי
+5	principle	עיקרון, כלל יסוד
+5	privilege	זכות יתר, פריווילגיה
+5	produce	לייצר; תוצר, ירקות ופירות
+5	profession	מקצוע
+5	promotion	קידום
+5	proposal	הצעה
+5	propose	להציע; להציע נישואין
+5	provoke	להתגרות, להסית
+5	publisher	מוציא לאור
+5	purse	ארנק
+5	radiation	קרינה
+5	rapidly	במהירות
+5	rarely	לעיתים נדירות
+5	raw	חי, נא (בשר); גולמי, גס
+5	razor	סכין גילוח
+5	reasonable	הגיוני
+5	rebellion	מרד
+5	recipe	מתכון
+5	recognition	הכרה
+5	recover	להתאושש
+5	reference	התייחסות, הפניה
+5	region	מחוז, אזור
+5	registration	הרשמה
+5	reject	לדחות
+5	relative	קרוב-משפחה; יחסי
+5	relatively	יחסית, באופן יחסי
+5	reliable	אמין, שניתן לסמוך עליו
+5	reputation	שם, מוניטין
+5	require	לדרוש, דרישה
+5	reserve	עתודה, מילואים; לשמור; שמורה
+5	resident	תושב, דייר
+5	resist	להתנגד
+5	resistance	התנגדות, מחתרת
+5	resort	אתר נופש; לנקוט באמצעים
+5	restore	לשקם, לשחזר
+5	retirement	פרישה
+5	reveal	לחשוף
+5	rising	זריחה; עולה
+5	ritual	טקס, פולחן
+5	rival	יריב
+5	roast	לצלות, לקלות; צלי
+5	robbery	שוד
+5	rub	לשפשף
+5	rubber	גומי
+5	ruins	הריסות, עיי חורבות
+5	rumor	שמועה
+5	sailor	ימאי
+5	satellite	לווין
+5	satisfaction	שביעות רצון
+5	satisfy	לרצות, לספק
+5	sculpture	פסל
+5	secure	להבטיח, לשמור, להגן
+5	sequence	רצף
+5	servant	משרת
+5	session	מושב
+5	sheet	סדין; דף
+5	shell	קליפה, מעטפת; פגז
+5	shelter	מקלט
+5	shiny	נוצץ, בוהק
+5	shrink	לכווץ ,כיווץ
+5	significant	משמעותי
+5	silk	משי
+5	sink	כיור; לשקוע
+5	sketch	שרטוט, איור, סקיצה
+5	specifically	באופן ספציפי, ליתר דיוק, במפורש
+5	spill	לשפוך
+5	spiritual	רוחני
+5	spoil	לקלקל; לפנק; לבזוז, שלל; להרוס
+5	spotlight	זרקור
+5	stable	יציב
+5	stack	ערמה
+5	staircase	גרם מדרגות
+5	stamp	בול, חותמת
+5	starve	לרעוב
+5	statue	פסל
+5	steel	פלדה
+5	sticky	דביק
+5	straighten	ליישר

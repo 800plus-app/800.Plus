@@ -1,0 +1,80 @@
+crowd	OK
+damage	OK
+danger	OK
+darkness	OK
+decide	OK
+defense	OK
+delete	OK
+depression	OK
+design	OK
+designer	OK
+destroy	OK
+detail	OK
+diagram	OK
+dictator	OK
+dilemma	FIX	She faced a difficult dilemma between pursuing her dream and staying.	"between...or" should be "between...and"
+direct	OK
+direction	FIX	The map shows the direction we need to walk to reach our destination.	incomplete; "reach" needs an object
+discover	OK
+distance	OK
+document	OK
+dominant	OK
+drastic	FIX	Implementing drastic measures will make huge changes across the entire system.	original uses synonym "extreme" to define drastic
+drug	OK
+earlier	OK
+easily	FIX	My brother solved the puzzle easily without needing help.	redundant phrasing: "so easy...easily" repeats the same sense
+echo	OK
+ecological	OK
+edit	OK
+elastic	OK
+elephant	FIX	The elephant used its long trunk to reach leaves high up.	"reach leaves high" is awkward; needs "up"
+empire	OK
+empty	FIX	The theater was completely empty after the audience left.	"all the audiences" is awkward; use singular
+enemy	FIX	During the war, enemy soldiers crossed the border into our territory.	incomplete; "into territory" needs a possessive
+engine	OK
+enter	OK
+episode	OK
+error	OK
+escape	FIX	The prisoner managed to escape through a hole in the fence.	missing article "a" before "fence"
+ethnic	OK
+even though	OK
+event	OK
+example	OK
+excellent	OK
+exotic	OK
+expensive	OK
+expert	OK
+explanation	OK
+explode	OK
+extreme	OK
+factory	OK
+fail	OK
+false	OK
+farm	OK
+fashion	OK
+file	FIX	Please save your work in the computer file on the desktop.	missing article "the"; "on desktop" is incomplete
+filter	OK
+finger	OK
+flow	OK
+flower	FIX	The flower opened with bright yellow petals in the morning sun.	"bloomed bright yellow" is awkward; use "opened" or "showed"
+focus	OK
+for	FIX	I stayed inside for most of the day because of the snow.	"because snow" is incomplete; needs "of the"
+for example	OK
+forest	FIX	The forest was so thick that sunlight barely touched the ground.	missing article "the" before "ground"
+formula	OK
+found	OK
+freeze, froze	OK
+friendly	FIX	My neighbor is friendly and always waves when we meet.	"when I see" is incomplete; needs object
+frog	OK
+front	OK
+garden	FIX	She grows vegetables in her garden every summer.	"every summer season" is redundant; use one
+gate	FIX	The gate was locked, so we had to climb over it.	"climb over" needs object
+genes	OK
+genetic	OK
+genius	OK
+giant	FIX	The giant statue stood over thirty meters tall.	"tall and proud" is nonsensical; statues cannot be proud
+glad	OK
+global	OK
+goal	OK
+golden	OK
+grandfather	OK

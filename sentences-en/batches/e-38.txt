@@ -1,0 +1,80 @@
+8	infiltrate	להסתנן
+8	inflate	לנפח
+8	inhabitants	תושבים
+8	inherit	לרשת
+8	inn	פונדק
+8	innovate	לחדש, להמציא
+8	intact	ללא פגע
+8	intersection	צומת, הצטלבות
+8	intervention	התערבות
+8	intimidate	להפחיד
+8	irresistible	שלא ניתן לעמוד בפניו
+8	isle	אי
+8	ivory	שנהב
+8	janitor	שרת
+8	kettle	קומקום
+8	laid	מונח
+8	lean	להישען
+8	lie, lay	לשכב, שכב
+8	likewise	כמו-כן, באותו אופן
+8	limb	גף, איבר; קצה
+8	literary	ספרותי
+8	lurking	אורב, מתגנב
+8	magnitude	גודל, חשיבות
+8	mammal	יונק
+8	manuscript	כתב יד
+8	marble	שיש; גוּלָּה
+8	martial	צבאי, קרבי
+8	massacre	טֶבַח
+8	mastery	מומחיות
+8	match	גפרור; התאמה, להתאים
+8	maturity	בגרות
+8	mechanize	למכן, להתקין מכונות
+8	medieval	מתקופת ימי הביניים
+8	merely	רק, לא יותר מ-
+8	merger	מיזוג
+8	merit	ערך, הישג
+8	mild	מתון, עדין
+8	mimic	לחקות
+8	miserable	אומלל
+8	misty	מעורפל
+8	mock	ללעוג
+8	moderate	מתון, ממוצע; למתן, לרסן; לנהל/להנחות (דיון)
+8	modest	צנוע
+8	moist	לח, לחלוחי, טחוב
+8	mole	חפרפרת; שומה
+8	moreover	זאת ועוד
+8	mortality	תמותה
+8	mourning	אבל, מתאבל
+8	mutually	באופן שווה/הדדי
+8	naval	ימי
+8	neglect	להזניח, הזנחה
+8	neither... nor...	לא... ולא...
+8	nevertheless	למרות זאת
+8	newscaster	מגיש חדשות
+8	nobility	אצולה
+8	notion	רעיון, מושג, נטיה
+8	numb	רדום, חסר תחושה
+8	numerous	מרובה
+8	nursery	חדר ילדים, פעוטון; משתלה
+8	nutrition	תזונה
+8	oath	שבועה
+8	obey	לציית
+8	obstacle	מכשול
+8	occupy	להעסיק; לתפוס, לאכלס
+8	occurrence	התרחשות
+8	odor	ריח, ניחוח
+8	offshore	מול החוף, בלב ים, הרחק מהחוף; מעבר לים (חשבון/חברה)
+8	oriented	מכוון, מונחה
+8	ornament	קישוט
+8	outbreak	התפרצות
+8	outline	תוואי, מתאר, קווים כלליים
+8	oversee	לפקח
+8	overtake	לעקוף, להשיג
+8	pace	קצב
+8	paddle	משוט; מחבט (טניס שולחן); לחתור, לשכשך
+8	pedestrian	הולך רגל
+8	perception	תפיסה, תחושה
+8	persist	להתמיד, להתעקש
+8	persuade	לשכנע
+8	pest	מטרד, מזיק (חרקים)
