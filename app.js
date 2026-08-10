@@ -776,7 +776,7 @@ function isCorrect(input, term){
 }
 
 /* ===== screens ===== */
-const SCREENS=['auth','welcome','level','home','scope','quiz','results','stats','manage','add','exam','admin','locked','intro','account','boot'];
+const SCREENS=['auth','welcome','level','home','scope','quiz','results','stats','manage','add','exam','admin','locked','intro','account','boot','sent'];
 /* Heavy lists left in hidden screens keep thousands of nodes alive for the whole session;
    drop them on the way out — they are always rebuilt when the screen is opened again. */
 const HEAVY = {stats:'#statsBody', manage:'#manageList', results:'#reviewList'};
@@ -793,7 +793,7 @@ const HEAVY = {stats:'#statsBody', manage:'#manageList', results:'#reviewList'};
    רשומה תלויה, ולחיצת "אחורה" הבאה נבלעה בלי שקרה כלום. */
 const NAV_DEPTH = { boot:0, intro:0, auth:0, welcome:0, locked:0, home:0,
                     scope:1, account:1, level:1, admin:1,
-                    quiz:2, results:2, exam:2, stats:2, manage:2, add:2 };
+                    quiz:2, results:2, exam:2, stats:2, manage:2, add:2, sent:2 };
 const navDepth = id => NAV_DEPTH[id] || 0;
 let navPop = false;   // אמת בזמן טיפול ב-popstate: הדפדפן כבר הזיז את ההיסטוריה
 
@@ -875,6 +875,25 @@ function renderHome(){
   }
   renderDirSegs();
   renderWordCard();
+  /* השלמת משפטים · אנגלית בלבד. הקורפוס אנגלי, ובצד העברי הכפתור היה מוביל
+     לתרגול בשפה אחרת מזו שנפתחה.
+     ⚠ המספר על הכפתור מוצג רק אחרי שקובץ הנתונים נטען, ולא לפניו: הצגתו מיד
+     הייתה מחייבת להוריד 190KB בכל עליית דף, גם למי שלא נוגע בתרגול. עד אז
+     הכפתור נושא ‹›, בדיוק כמו שאר הכפתורים שמובילים למסך. */
+  const sentOn = LANG==='en';
+  $('#sentSectionT')?.classList.toggle('hidden', !sentOn);
+  $('#sentBands')?.classList.toggle('hidden', !sentOn);
+  if(sentOn && window.SENT_EN){
+    const done = sentDone();
+    let all=0, left=0;
+    Object.values(window.SENT_EN).forEach(arr=>{
+      all += arr.length; left += arr.filter(it=>!done.has(it.src)).length;
+    });
+    $('#cntSent').textContent = left || all;
+    $('#pbSentSub').textContent = left
+      ? `${left} משפטים שטרם פתרת · מתוך ${all}`
+      : `כל ${all} המשפטים נפתרו · ניתן לחזור עליהם`;
+  }
   const grid=$('#unitGrid'); grid.innerHTML='';
   /* עשרה אריחים זהים, ואין שום סימן מאיפה מתחילים. הבחירה נופלת על הלומד ברגע שבו הוא
      יודע הכי פחות, וזה הרגע שבו אנשים סוגרים את הלשונית.
@@ -1491,6 +1510,10 @@ function finishCard(ok, skipped){
        the card is over it can only teach, so it is restored in full. */
     (!w2m && maskTerm(w.meaning,w.term)!==w.meaning
       ? `<div class="also">הפירוש המלא: <b>${esc(w.meaning)}</b></div>` : '')+
+    /* מוצג רק כאן, אחרי שהכרטיס נסגר: בכיוון פירוש→מילה המשפט מכיל את התשובה,
+       ולכן לפני המענה הוא היה מסגיר אותה. bdi+dir כי משפט אנגלי בתוך מסך RTL. */
+    (LANG==='en' && (window.EX_SENT_EN||{})[w.term]
+      ? `<div class="also">משפט לדוגמה: <bdi lang="en" dir="ltr">${esc(window.EX_SENT_EN[w.term])}</bdi></div>` : '')+
     (!ok?`<button class="was-right" id="wasRight">בעצם ידעתי · סמן כנכון</button>`:'')+
     `<div class="assoc">
        <label>💡 האסוציאציה שלי ל"${esc(w.term)}"</label>
@@ -5464,6 +5487,216 @@ $('#lockContact').onclick=()=>{
   const mail=(currentUser&&currentUser.email)||'';
   location.href='mailto:03hagay@gmail.com?subject='+encodeURIComponent('חידוש מנוי — 800+')
     +'&body='+encodeURIComponent('החשבון שלי: '+mail);
+};
+
+/* ===== השלמת משפטים =====
+   תרגול שני באפליקציה, לצד תרגול המילים. הלומד מקבל משפט אנגלי עם חסר וארבע
+   אפשרויות, וכשהוא עונה נפתח ההסבר בפורמט שנקבע: פירוש ארבע האפשרויות, תרגום
+   המשפט לעברית כשהתשובה מושלמת ומודגשת, ואז נימוק לבחירה שלו ולתשובה הנכונה.
+   הפירוט המלא של הפורמט והנימוק לכל חלק בו: sentence-completion/FORMAT-BRIEF.md.
+
+   ⚠ הנתונים נטענים **בהשהיה**, ולא מ-index.html
+   -------------------------------------------
+   data-sent-en.js שוקל מעל 190KB, ורוב הכניסות לאפליקציה אינן נוגעות בתרגול הזה.
+   טעינה בתג <script> קבוע הייתה מוסיפה את המשקל הזה לכל עלייה של כל משתמש. לכן
+   הוא נטען בכניסה למסך, פעם אחת לסשן, וה-service worker מטמן אותו לפי דרישה
+   (הוא אינו ב-ASSETS, וזה מכוון: sw.js מנמק שם שכל מה שאינו ליבה נשלף on demand).
+   ⚠ המשמעות: מי שלא נכנס לתרגול הזה בעודו מחובר לרשת, לא יקבל אותו באופליין.
+
+   ⚠ ההתקדמות מקומית בלבד (LS), ואין לה טבלה בבסיס הנתונים. זו החלטה מכוונת
+   לגרסה הראשונה: ישות חדשה ב-Supabase דורשת סכימה, RLS ומיגרציה, וזה סיכון גדול
+   בהרבה מהתועלת של שמירת התקדמות בין מכשירים בתרגול שרק עולה לאוויר. מה שכן
+   נשמר: אילו פריטים נענו, כדי שסבב חדש יעדיף פריטים שטרם נראו. */
+const SENT_ROUND = 10;                       // פריטים בסבב
+const SENT_KEY   = 'hw_sent_done';           // מזהי הפריטים שנענו
+let sentQ = [], sentI = 0, sentOk = 0, sentAnswered = false, sentBand = '';
+
+const sEsc = s => String(s==null?'':s)
+  .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+/* `**…**` הוא סימון ההדגשה בשדה t. נהפך ל-<b> **אחרי** ההחלטה, ולכן ההחלטה חלה
+   על התוכן והתג נוסף בסוף. */
+const sBold = s => sEsc(s).replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>');
+const sLabel = o => Array.isArray(o) ? o.join(' + ') : String(o);
+
+/* גרסת הבנייה נשלפת מתג הסקריפט של app.js עצמו, ולא נכתבת ביד: מספר גרסה כתוב
+   ביד הוא מספר גרסה שיישכח בדיפלוי הבא, והקובץ היה נשלף מהמטמון לנצח. */
+function sentBuildV(){
+  const src = Array.from(document.scripts).map(x=>x.src||'').find(x=>/app\.js\?v=/.test(x));
+  return (src && src.match(/[?&]v=(\d+)/) || [])[1] || '';
+}
+let sentLoading = null;
+function loadSentData(){
+  if(window.SENT_EN) return Promise.resolve(true);
+  if(sentLoading) return sentLoading;
+  sentLoading = new Promise(res=>{
+    const el = document.createElement('script');
+    const v = sentBuildV();
+    el.src = './data-sent-en.js' + (v ? '?v='+v : '');
+    el.onload  = ()=> res(!!window.SENT_EN);
+    /* ⚠ מאפסים את ההבטחה בכשל. בלי זה נסיון שני היה מקבל את ההבטחה הכבויה
+       ומחזיר false לנצח, גם אחרי שהרשת חזרה. */
+    el.onerror = ()=>{ sentLoading = null; res(false); };
+    document.head.appendChild(el);
+  });
+  return sentLoading;
+}
+
+const sentDone = ()=> new Set(LS.get(SENT_KEY, []));
+function markSentDone(src){
+  const s = sentDone(); s.add(src); LS.set(SENT_KEY, Array.from(s));
+}
+
+/* ===== בורר הרצועות ===== */
+function renderSentPick(){
+  const list = $('#sentPickList'); if(!list) return;
+  const S = window.SENT_EN || {};
+  const done = sentDone();
+  list.innerHTML = '';
+  const IC = {'בסיס':'🌱','בינוני':'📗','מתקדם':'📘','אקדמי':'🎓'};
+  Object.keys(S).forEach(band=>{
+    const all = S[band] || [];
+    const left = all.filter(it=>!done.has(it.src)).length;
+    const b = document.createElement('button');
+    b.className = 'pbtn';
+    /* §5: מספר אמיתי. "נותרו" הוא מה שבאמת נשאר, ואחרי סיום הרצועה השורה אומרת
+       שהיא הושלמה ולא מציגה 0. */
+    b.innerHTML = `<div class="ic">${IC[band]||'✍️'}</div><div class="tx"><b>${sEsc(band)}</b>`
+      + `<span>${left ? left+' משפטים שטרם פתרת · מתוך '+all.length : 'הושלמה · '+all.length+' משפטים לחזרה'}</span></div>`
+      + `<div class="cnt">${left||all.length}</div>`;
+    b.onclick = ()=> startSentRound(band);
+    list.appendChild(b);
+  });
+  $('#sentBrand').textContent = 'השלמת משפטים';
+  $('#sentCount').textContent = '';
+  $('#sentScore').textContent = '';
+  $('#sentBar').style.width = '0%';
+}
+
+/* ===== סבב ===== */
+function startSentRound(band){
+  const all = (window.SENT_EN||{})[band] || [];
+  const done = sentDone();
+  /* פריטים שטרם נראו קודם. נגמרו — חוזרים על הכול, כדי שהתרגול לא ייגמר בקיר. */
+  let pool = all.filter(it=>!done.has(it.src));
+  if(pool.length < SENT_ROUND) pool = pool.concat(shuffle(all.filter(it=>done.has(it.src))));
+  /* מערבבים גם את סדר הפריטים וגם את סדר האפשרויות **בתוך** כל פריט. */
+  sentQ = shuffle(pool.slice()).slice(0, Math.min(SENT_ROUND, all.length)).map(sentShuffled);
+  sentI = 0; sentOk = 0; sentBand = band;
+  $('#sentPick').classList.add('hidden');
+  $('#sentDone').classList.add('hidden');
+  $('#sentCard').classList.remove('hidden');
+  renderSentCard();
+}
+
+/* ⛔ הבאג החוסם שנתפס בבדיקה בדפדפן, לפני העלייה
+   -------------------------------------------
+   **כל 204 הפריטים נשמרים עם `a:0`.** זה מכוון בקורפוס — הכותבים מציבים את
+   התשובה ראשונה וההסבר נכתב מולה — ו-assemble.js אף מזהיר על כך בכותרת הקובץ:
+   "המגיש חייב לערבב". השערים החיצוניים אכן ערבבו (blind_export.js), אבל
+   האפליקציה **היא** מגיש, ובגרסה הראשונה שלה כאן היא לא ערבבה. התוצאה: התשובה
+   הנכונה הייתה תמיד הכפתור הראשון, ולומד היה מגלה את זה בשאלה השלישית ומפסיק
+   לקרוא את המשפטים.
+   ⚠ הערבוב חייב למפות מחדש **שלושה** מערכים יחד: o, g ו-r. מיפוי של o בלבד היה
+   מצמיד לכל מילה את הפירוש והנימוק של מילה אחרת, וזה כשל גרוע מהמקורי כי הוא
+   שקט. */
+function sentShuffled(it){
+  const idx = shuffle(it.o.map((_,i)=>i));
+  return {
+    ...it,
+    o: idx.map(i=>it.o[i]),
+    g: (it.g||[]).length ? idx.map(i=>it.g[i]) : it.g,
+    r: (it.r||[]).length ? idx.map(i=>it.r[i]) : it.r,
+    a: idx.indexOf(it.a),
+  };
+}
+
+function renderSentCard(){
+  const it = sentQ[sentI]; if(!it) return finishSentRound();
+  sentAnswered = false;
+  $('#sentBrand').textContent = sentBand;
+  $('#sentCount').textContent = `שאלה ${sentI+1} מתוך ${sentQ.length}`;
+  $('#sentScore').textContent = sentOk ? `✓ ${sentOk}` : '';
+  $('#sentBar').style.width = (100*sentI/sentQ.length)+'%';
+  $('#sentText').innerHTML = sEsc(it.s).replace(/_{2,}/g,'<span class="bl">___</span>');
+  const box = $('#sentOpts'); box.innerHTML = '';
+  it.o.forEach((o,j)=>{
+    const b = document.createElement('button');
+    b.className = 's-opt'; b.type = 'button';
+    b.textContent = sLabel(o);
+    b.onclick = ()=> answerSent(j);
+    box.appendChild(b);
+  });
+  $('#sentExp').classList.add('hidden');
+  $('#sentActions').classList.add('hidden');
+  $('#sentLive').textContent = `שאלה ${sentI+1} מתוך ${sentQ.length}. ${it.s.replace(/_{2,}/g,'חסר')}`;
+}
+
+function answerSent(pick){
+  if(sentAnswered) return;                   // הגנה מהקלקה כפולה
+  sentAnswered = true;
+  const it = sentQ[sentI];
+  const right = pick === it.a;
+  if(right) sentOk++;
+  markSentDone(it.src);
+  Array.from($('#sentOpts').children).forEach((b,j)=>{
+    b.disabled = true;
+    if(j === it.a){ b.classList.add('is-right'); b.insertAdjacentHTML('afterbegin','<span class="mk">✓</span>'); }
+    else if(j === pick){ b.classList.add('is-wrong'); b.insertAdjacentHTML('afterbegin','<span class="mk">✗</span>'); }
+  });
+  $('#sentScore').textContent = sentOk ? `✓ ${sentOk}` : '';
+
+  /* ההסבר, בשלושת החלקים ובסדר שנקבע. הלומד רואה **שני** נימוקים בלבד: של
+     הבחירה שלו ושל התשובה הנכונה. הצגת כל הארבעה היא בדיוק מה שהתבקש לקצר. */
+  const g = (it.g||[]).map((x,j)=>
+    `<div class="s-g${j===it.a?' key':''}">${j===it.a?'✓ ':''}${sEsc(x)}</div>`).join('');
+  const r = it.r || [];
+  const why = right
+    ? `<p class="vd ok">בחרת <code>${sEsc(sLabel(it.o[pick]))}</code> וצדקת</p><p>${sEsc(r[pick]||'')}</p>`
+    : `<p class="vd bad">בחרת <code>${sEsc(sLabel(it.o[pick]))}</code></p><p>${sEsc(r[pick]||'')}</p>`
+      + `<p class="vd ok">התשובה: <code>${sEsc(sLabel(it.o[it.a]))}</code></p><p>${sEsc(r[it.a]||'')}</p>`;
+  $('#sentExp').innerHTML =
+      `<section><h4>המילים</h4>${g}</section>`
+    + `<section><h4>המשפט</h4><p class="s-tr">${sBold(it.t)}</p></section>`
+    + `<section class="s-why"><h4>${right?'למה זה נכון':'למה הבחירה שלך אינה נכונה'}</h4>${why}</section>`;
+  $('#sentExp').classList.remove('hidden');
+  $('#sentNext').textContent = (sentI+1 >= sentQ.length) ? 'סיום ←' : 'הבא ←';
+  $('#sentActions').classList.remove('hidden');
+}
+
+function finishSentRound(){
+  $('#sentCard').classList.add('hidden');
+  $('#sentBar').style.width = '100%';
+  const n = sentQ.length;
+  $('#sentDone').innerHTML =
+      `<div class="num">${sentOk}</div><div>מתוך ${n} משפטים</div>`
+    + `<div class="actions" style="margin-top:22px;justify-content:center">`
+    + `<button class="btn btn-primary" id="sentAgain">סבב נוסף</button>`
+    + `<button class="btn btn-ghost" id="sentBack">בחירת רצועה</button></div>`;
+  $('#sentDone').classList.remove('hidden');
+  $('#sentAgain').onclick = ()=> startSentRound(sentBand);
+  $('#sentBack').onclick  = ()=> openSentPick();
+  renderHome();                               // הכפתור בבית מציג את מה שנותר
+}
+
+function openSentPick(){
+  $('#sentCard').classList.add('hidden');
+  $('#sentDone').classList.add('hidden');
+  $('#sentPick').classList.remove('hidden');
+  renderSentPick();
+}
+
+$('#sentNext').onclick = ()=>{ sentI++; renderSentCard(); };
+$('#sentExit').onclick = ()=>{ goBack(); };
+
+$('#pbSent').onclick = async ()=>{
+  const btn = $('#pbSent'), sub = $('#pbSentSub'), was = sub.textContent;
+  btn.disabled = true; sub.textContent = 'טוען את המשפטים…';
+  const ok = await loadSentData();
+  btn.disabled = false; sub.textContent = was;
+  /* §10: הודעת שגיאה חייבת לומר מה עכשיו. */
+  if(!ok){ toast('לא ניתן לטעון את המשפטים. בדוק את החיבור לרשת ונסה שוב'); return; }
+  openSentPick();
+  goto('sent');
 };
 
 /* ===== preview =====
