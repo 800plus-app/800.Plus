@@ -56,8 +56,16 @@ const Frame: React.FC<{ children: React.ReactNode; footer?: string }> = ({ child
       800+
     </div>
     {children}
+    {/* ⚠ המונה חייב direction:ltr, אחרת המסגרת ה-RTL הופכת את "1 / 10" ל-"10 / 1"
+        והקרוסלה סופרת אחורה. **הגרסה שפורסמה ב-9.8 יצאה עם הבאג הזה.** התוקן
+        כאן ב-10.8; לרנדר מחדש לפני כל שימוש חוזר בפ1. הכיתוב "החליקו ←" נשאר RTL. */}
     {footer ? (
-      <div style={{ position: "absolute", bottom: 62, fontSize: 30, color: C.inkSoft, fontWeight: 300 }}>
+      <div
+        style={{
+          position: "absolute", bottom: 62, fontSize: 30, color: C.inkSoft, fontWeight: 300,
+          direction: /^\d/.test(footer) ? "ltr" : "rtl",
+        }}
+      >
         {footer}
       </div>
     ) : null}
