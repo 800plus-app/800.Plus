@@ -86,6 +86,16 @@ for (const b of B.BANDS.map(x => x.name)) {
 lines.push('};', '');
 fs.writeFileSync(path.join(__dirname, 'sentences-en-v3.js'), lines.join('\n'), 'utf8');
 
+/* ⚠ קובץ הייצור נבנה כאן ולא בפקודה נפרדת. שני צעדים שצריך לזכור להריץ בסדר הנכון
+   הם צעד אחד שיישכח, והתוצאה היא אפליקציה שמגישה קורפוס ישן בלי שאף שער יצעק. */
+try {
+  require('child_process').execFileSync(process.execPath,
+    [path.join(__dirname, 'build_ship.js')], { stdio: 'inherit' });
+} catch (e) {
+  console.error('⛔ בניית קובץ הייצור נכשלה — data-sent-en.js לא עודכן.');
+  process.exitCode = 1;
+}
+
 const kept = Object.values(byBand).reduce((a, v) => a + v.length, 0);
 console.log('מנות: ' + files.join(', '));
 console.log('נקראו: ' + total + ' · נכנסו: ' + kept + ' · נדחו: ' + rejected.length);

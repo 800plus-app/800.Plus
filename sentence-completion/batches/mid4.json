@@ -140,7 +140,7 @@
   "t": "אף שאחיה הפר את ההבטחה פעמיים, היא בחרה **לסלוח** לו ולא הזכירה את העניין שוב."
  },
  {
-  "s": "The wedding hall was small; moreover, my parents invited every ___ who lived within a day's drive.",
+  "s": "The wedding hall was small; yet my parents invited every ___ who lived within a day's drive.",
   "o": [
    "relative",
    "neighbor",
@@ -148,9 +148,9 @@
    "visitor"
   ],
   "a": 0,
-  "k": "addition",
+  "k": "contrast",
   "w": [
-   "moreover"
+   "yet"
   ],
   "e": "‏relative הוא בן משפחה בדם או בנישואין, וזה מי שהורים מזמינים לחתונה. neighbor הוא מי שגר בסמוך, והמשפט מודד מרחק של יום נסיעה, ההפוך משכנות, ושכן גם אינו קרוב משפחה. colleague הוא עמית לעבודה. visitor הוא מי שכבר בא, ולכן אי אפשר להזמין 'כל אורח': הוא תוצאת ההזמנה ולא מי שמוזמן.",
   "g": [
@@ -165,7 +165,7 @@
    "colleague הוא עמית לעבודה, ולא בן משפחה שמזמינים לחתונה.",
    "visitor הוא מי שכבר בא, ולכן הוא תוצאת ההזמנה ולא מי שמוזמן."
   ],
-  "t": "אולם החתונה היה קטן; בנוסף, הורי הזמינו כל **קרוב משפחה** שגר במרחק של עד יום נסיעה."
+  "t": "אולם החתונה היה קטן, ובכל זאת הוריי הזמינו כל **קרוב משפחה** שגר במרחק של עד יום נסיעה."
  },
  {
   "s": "Since the pupil read a page aloud every evening, her teacher noticed clear ___ in her spoken English by spring.",
@@ -196,7 +196,7 @@
   "t": "מאחר שהתלמידה קראה עמוד בקול בכל ערב, מורתה הבחינה ב**התקדמות** ברורה באנגלית המדוברת שלה עד האביב."
  },
  {
-  "s": "Speed alone does not win a long race; likewise, running hour after hour demands ___ that no short sprint ever tests.",
+  "s": "Speed alone does not win a long race, because running hour after hour demands ___ that no short sprint ever tests.",
   "o": [
    "stamina",
    "strength",
@@ -204,9 +204,9 @@
    "talent"
   ],
   "a": 0,
-  "k": "addition",
+  "k": "cause",
   "w": [
-   "likewise"
+   "because"
   ],
   "e": "‏stamina הוא היכולת להחזיק מאמץ לאורך זמן, וזה מה ש-hour after hour מחייב. strength הוא כוח למאמץ בודד, וספרינט דווקא כן בודק אותו, ולכן הוא נופל על no short sprint ever tests. muscle הוא רקמה בגוף ולא יכולת, ולרצי ספרינט יש שרירים. talent הוא מתת טבעית שקיימת מראש ואינה שייכת דווקא לסבולת.",
   "g": [
@@ -221,7 +221,7 @@
    "muscle הוא רקמה בגוף ולא יכולת, ולרצי ספרינט יש שרירים.",
    "talent הוא כשרון טבעי שקיים מראש, ואינו היכולת להחזיק מאמץ לאורך זמן."
   ],
-  "t": "מהירות לבדה אינה מנצחת במרוץ ארוך; באותה מידה, ריצה שעה אחר שעה דורשת **סיבולת** שאף ספרינט קצר אינו בודק."
+  "t": "מהירות לבדה אינה מנצחת במרוץ ארוך, מפני שריצה שעה אחר שעה דורשת **סיבולת** שאף ספרינט קצר אינו בודק."
  },
  {
   "s": "Unless the pain returns before noon, the nurse will not give the patient a second ___ of the syrup.",
