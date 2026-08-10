@@ -44,7 +44,15 @@ jobs:
   nudge:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      # מוצמד ל-SHA ולא לתג. תג הוא מצביע שהמתחזק יכול להזיז, ו-CVE-2025-30066
+      # הראה בדיוק את זה: גרסה זדונית נדחפה לתג קיים ושפכה את זיכרון ה-Runner —
+      # כולל סודות — ללוגי הבנייה. הריפו הזה ציבורי, ולוגים של ריפו ציבורי גלויים לכל.
+      # לעדכון: gh api repos/actions/checkout/git/ref/tags/v4 --jq .object.sha
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262   # v4.4.0
+        with:
+          # ה-job הזה קורא בלבד ואינו דוחף חזרה. בלי זה הטוקן נשאר כתוב
+          # ב-.git/config לאורך כל הריצה, זמין לכל צעד שבא אחריו.
+          persist-credentials: false
 
       - name: מי אמור לקבל
         id: pick

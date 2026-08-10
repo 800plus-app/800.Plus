@@ -28,6 +28,9 @@ name: backup (הועבר)
 on:
   workflow_dispatch:
 
+# ה-job הזה רק מדפיס שגיאה ויוצא. אפס הרשאות הוא בדיוק מה שמגיע לו.
+permissions: {}
+
 jobs:
   moved:
     runs-on: ubuntu-latest
