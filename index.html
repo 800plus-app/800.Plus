@@ -239,6 +239,44 @@
   .pbtn .tx span{font-size:.78rem;color:var(--ink-soft)}
   .pbtn .cnt{background:var(--paper-deep);border-radius:999px;padding:3px 11px;font-weight:700;font-size:.85rem;flex:0 0 auto}
 
+  /* SENTENCE COMPLETION · השלמת משפטים
+     המשפט עצמו באנגלית ולכן ltr, ההסבר עברית ולכן rtl. שני הכיוונים באותו כרטיס.
+     ⚠ המשפט מיושר לשמאל ולא ממורכז: משפט בן שתי שורות שממורכז נקרא כשיר, והעין
+     מאבדת את תחילת השורה השנייה. */
+  .s-sent{direction:ltr;text-align:left;font-family:"Frank Ruhl Libre",serif;
+    font-size:clamp(1.05rem,3.4vw,1.3rem);line-height:1.7;margin-bottom:20px}
+  .s-sent .bl{color:var(--accent);font-weight:700;letter-spacing:.06em}
+  .s-opts{display:flex;flex-direction:column;gap:9px}
+  .s-opt{direction:ltr;text-align:left;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:13px 16px;font-family:"Heebo",sans-serif;font-size:1rem;
+    color:var(--ink);width:100%;transition:.15s}
+  @media (hover:hover) and (pointer:fine){.s-opt:not(:disabled):hover{border-color:var(--gold)}}
+  .s-opt:disabled{cursor:default}
+  .s-opt.is-right{border-color:var(--green);background:#eef5ee;font-weight:700}
+  .s-opt.is-wrong{border-color:var(--accent);background:#faeeeb}
+  .s-opt .mk{float:left;margin-inline-start:8px;font-weight:700}
+  .s-opt.is-right .mk{color:var(--green)}
+  .s-opt.is-wrong .mk{color:var(--accent)}
+  /* ההסבר. שלושה חלקים בסדר שנקבע: פירוש האפשרויות, תרגום המשפט, ואז הנימוק. */
+  .s-exp{margin-top:20px;padding-top:18px;border-top:1px solid var(--line);text-align:right}
+  .s-exp h4{font-size:.7rem;letter-spacing:.12em;color:var(--gold);font-weight:700;
+    text-transform:uppercase;margin-bottom:7px}
+  .s-exp section{margin-bottom:16px}
+  .s-exp section:last-child{margin-bottom:0}
+  .s-g{direction:ltr;text-align:left;font-size:.9rem;color:var(--ink-soft);padding:2px 0}
+  .s-g.key{color:var(--ink);font-weight:700}
+  .s-tr{font-size:1rem;line-height:1.7}
+  .s-tr b{color:var(--green)}
+  .s-why p{font-size:.94rem;line-height:1.65;margin-bottom:9px}
+  .s-why p:last-child{margin-bottom:0}
+  .s-why .vd{font-weight:700}
+  .s-why .vd.bad{color:var(--accent)}
+  .s-why .vd.ok{color:var(--green)}
+  .s-why code{direction:ltr;display:inline-block;font-family:"Heebo",sans-serif;font-weight:700;
+    background:var(--paper-deep);border-radius:5px;padding:0 5px}
+  .s-done{text-align:center;padding:6vh 0}
+  .s-done .num{font-family:"Frank Ruhl Libre",serif;font-size:3.4rem;font-weight:700;color:var(--gold)}
+
   /* QUIZ */
   .prog{height:6px;background:var(--paper-deep);border-radius:3px;overflow:hidden;margin-bottom:6px}
   .prog i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--accent));transition:.3s}
@@ -1556,6 +1594,13 @@
     <div class="section-t">יחידות</div>
     <div class="grid" id="unitGrid"></div>
 
+    <!-- השלמת משפטים. מוצג באנגלית בלבד: הקורפוס אנגלי, וה-JS מסתיר את המקטע
+         כולו כשהשפה הפתוחה היא עברית. -->
+    <div class="section-t hidden" id="sentSectionT">השלמת משפטים</div>
+    <div class="practice-btns hidden" id="sentBands">
+      <button class="pbtn" id="pbSent"><div class="ic">✍️</div><div class="tx"><b>השלמת משפטים</b><span id="pbSentSub">בחירת המילה שמתאימה למשפט · הסבר מלא אחרי כל תשובה</span></div><div class="cnt" id="cntSent">›</div></button>
+    </div>
+
     <div class="section-t">כלים</div>
     <div class="row">
       <button class="btn btn-ghost" id="manageBtn">🗑 ניהול מילים</button>
@@ -1674,6 +1719,31 @@
       <div class="hint-box hidden" id="hintBox"></div>
       <div class="feedback hidden" id="feedback" role="status" aria-live="polite" aria-atomic="true"></div>
     </div>
+  </section>
+
+  <!-- ===== SENTENCE COMPLETION ===== -->
+  <section id="sent" class="hidden">
+    <div class="topbar"><button class="back" id="sentExit">✕ יציאה</button><div class="sp"></div>
+      <div class="brand" id="sentBrand"></div></div>
+    <div class="prog"><i id="sentBar"></i></div>
+    <div class="qmeta"><span id="sentCount"></span><span id="sentScore"></span></div>
+    <!-- אזור מדווח לקורא מסך, באותו דפוס של #cardLive בתרגול המילים: מוכרז פעם
+         אחת לכל שאלה, ומוסר את המקום בסבב ואת המשפט. -->
+    <div class="sr-only" id="sentLive" aria-live="polite" aria-atomic="true"></div>
+    <!-- בחירת הרצועה. יושבת **בתוך** המסך ולא בדף הבית, כי המספרים מגיעים מקובץ
+         הנתונים ששוקל מעל 190KB. הצגתם בבית הייתה מחייבת לטעון אותו בכל עליית דף,
+         גם למי שלא נוגע בתרגול הזה. כאן הוא נטען פעם אחת, בכניסה. -->
+    <div id="sentPick"><div class="practice-btns" id="sentPickList"></div></div>
+    <div class="card hidden" id="sentCard">
+      <div class="q-kind">השלם את החסר</div>
+      <p class="s-sent" id="sentText"></p>
+      <div class="s-opts" id="sentOpts"></div>
+      <div class="s-exp hidden" id="sentExp"></div>
+      <div class="actions hidden" id="sentActions" style="margin-top:18px">
+        <button class="btn btn-primary" id="sentNext">הבא ←</button>
+      </div>
+    </div>
+    <div class="s-done hidden" id="sentDone"></div>
   </section>
 
   <!-- ===== RESULTS ===== -->
@@ -1990,14 +2060,15 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=177"></script>
-<script src="config.js?v=177"></script>
-<script src="store.js?v=177"></script>
-<script src="leveltest-he.js?v=177"></script>
-  <script src="leveltest.js?v=177"></script>
-<script src="enrank.js?v=177"></script>
-<script src="data.js?v=177"></script>
-<script src="data-en.js?v=177"></script>
-<script src="app.js?v=177"></script>
+<script src="supabase.min.js?v=178"></script>
+<script src="config.js?v=178"></script>
+<script src="store.js?v=178"></script>
+<script src="leveltest-he.js?v=178"></script>
+  <script src="leveltest.js?v=178"></script>
+<script src="enrank.js?v=178"></script>
+<script src="data.js?v=178"></script>
+<script src="data-en.js?v=178"></script>
+<script src="data-en-sentences.js?v=178"></script>
+<script src="app.js?v=178"></script>
 </body>
 </html>
