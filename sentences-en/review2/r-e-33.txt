@@ -1,0 +1,80 @@
+immigrate	להגר	She decided to immigrate to Canada for better job opportunities.
+immune	חסין	After recovering from the virus, she was immune to that strain.
+implement	ליישם, להוציא לפועל	The company will implement new safety rules next month.
+implementation	מימוש, יישום, ביצוע	The implementation of the plan took three weeks to complete.
+impulse	דחף	She bought the expensive shoes on impulse without thinking.
+inconsistent	לא עקבי	His work quality was inconsistent; some days were great, others terrible.
+infectious	מדבק	The infectious disease spread quickly through the crowded hospital.
+inferior	נחות	This cheaper brand is inferior in quality to the original.
+infrastructure	תשתית	Poor infrastructure made it difficult to build roads in the region.
+ingredient	מרכיב	Sugar is a key ingredient in this chocolate cake recipe.
+initiated	יזם, התחיל, אִתְחֵל	The manager initiated the new training program last week.
+insight	תובנה	Her insight into the problem helped us find a solution.
+inspect	לבחון, לבדוק	The building inspector will inspect the house for safety issues.
+insure	לבטח; להבטיח, לוודא	You must insure your car before driving it on public roads.
+intentional	מכוון	His intentional rudeness hurt her feelings very much.
+interfere	להתערב, להפריע	I don't want to interfere with your personal decisions.
+interior	פנימי	The interior of the house was beautifully decorated.
+interpret	לפרש; לתרגם	She will interpret the words of the speaker for the audience.
+interpretation	פרשנות	His interpretation of the song was different from the original.
+invade	לחדור, לפלוש	Troops planned to invade the island under cover of darkness.
+invaders	פולשים	The invaders conquered the city and took control.
+invasion	פלישה	The invasion shocked the nation and started a war.
+invasive	פולשני, חודרני	The invasive plant species spread throughout the entire garden.
+inventory	מצאי	The store needs to check its inventory before ordering more items.
+jewel	תכשיט	She wore a beautiful jewel around her neck.
+junkyard	מגרש גרוטאות	Old cars were piled high in the dirty junkyard.
+just as... so...	בדיוק כמו... גם	Just as birds have wings, so fish have fins.
+kite	עפיפון	The child flew a colorful kite in the windy park.
+knot	קשר	He tied a strong knot to hold the rope.
+laborer	פועל	The laborer worked all day building the new bridge.
+landscape	נוף	The beautiful mountain landscape took our breath away.
+legacy	מורשת, ירושה	His grandfather's legacy included a valuable family business.
+lens	עדשה	The camera lens focused on the distant mountain.
+lethal	קטלני	The lethal poison killed the rat almost instantly.
+literature	ספרות	She studied English literature at university for four years.
+malfunction	כשל, ליקוי	The engine malfunction forced the plane to make an emergency landing.
+manufacture	ייצר	The factory manufactures thousands of cars every single month.
+margin	שוליים, מרווח	Write your notes in the margin of the paper.
+masculine	גברי	His deep voice was very masculine and strong.
+masterpiece	יצירת מופת	This painting is considered a masterpiece of Renaissance art.
+maze	מבוך	The children got lost in the corn maze for hours.
+medicinal	רפואי, מרפא	This medicinal herb helps reduce fever and body pain.
+merchandise	מוצרים, סחורה	The store displays its merchandise on shelves near the entrance.
+merge	למזג, לחבר	The two companies will merge into one large corporation.
+milestone	אבן דרך, ציון דרך	Graduating from school was an important milestone in her life.
+misbehave	להתנהג בצורה לא הולמת	The child will misbehave if you don't give him attention.
+monarch	מלך	The monarch ruled the country for many years wisely.
+morale	מורל	The team morale was low after losing the game.
+mosquito	יתוש	A mosquito bit me and left an itchy red bump.
+narration	קריינות	The narration in the movie was done by a famous actor.
+negotiation	משא ומתן	The negotiation between the workers and boss lasted three days.
+obligation	התחייבות	He felt an obligation to help his elderly mother.
+observer	משקיף	An observer watched the experiment carefully to record all results.
+obtain	להשיג	She worked hard to obtain her university degree.
+occasional	מדי פעם, מקרי	We have occasional visits from my aunt during the year.
+occasionally	מידי פעם	She occasionally drinks coffee but prefers tea usually.
+occasions	הזדמנויות, מקרים	There were special occasions when we went to fancy restaurants.
+offender	פושע, פוגע	The offender was caught and taken to the police station.
+offense	עבירה; פגיעה	The offense was serious and required a court appearance.
+ongoing	מתמשך	The ongoing construction made it impossible to sleep.
+orderly	מסודר	She kept her desk orderly and organized at all times.
+outcome	תוצאה	The outcome of the election surprised everyone in the country.
+outlaw	להוציא אל מחוץ לחוק; פורע חוק	The government decided to outlaw smoking in public places.
+outpost	מוצב, נקודת קצה	The military outpost was located far from the main base.
+overdo	להפריז, להגזים	Don't overdo the salt in the soup or it will taste bad.
+overlaps	חופף	The two rectangles overlap in the middle of the diagram.
+overly	יותר מידי	He was overly worried about making a small mistake.
+paragraph	פִסקה	The first paragraph of the book introduces the main character.
+partial	חלקי	We achieved only a partial solution to the complex problem.
+participate	השתתף	Many students will participate in the school sports competition.
+peek	להציץ	Don't peek at your birthday present before the party.
+performer	מבצע, מציג	The skilled performer danced beautifully on the stage.
+petroleum	נפט	Petroleum is a valuable resource that powers many industries.
+pigeon	יונה	A pigeon landed on the park bench near me.
+poll	סקר, הצבעה	The poll showed that most people support the new policy.
+pollution	זיהום	Air pollution in the city makes it hard to breathe.
+populate	לאכלס	Settlers began to populate the remote regions of the territory.
+postpone	לדחות	The company decided to postpone the meeting until next week.
+precision	דיוק	A surgeon works with great precision during delicate operations.
+predict	לצפות מראש	Scientists predict that temperatures will rise in the coming years.

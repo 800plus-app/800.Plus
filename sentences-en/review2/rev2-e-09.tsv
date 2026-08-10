@@ -1,0 +1,80 @@
+option	OK
+orchestra	OK
+order	OK
+organism	OK
+original	OK
+owner	OK
+package	OK
+painting	FIX	The artist added thick brushstrokes of blue and gold to finish the painting.
+panic	OK
+paradox	OK
+parent	OK
+path	OK
+pause	OK
+pepper	OK
+percent	OK
+pet	OK
+philosophical	OK
+philosophy	OK
+phobia	FIX	Her phobia of spiders made her scream and cry even at harmless pictures of them.
+photograph	OK
+physical	OK
+pick	FIX	She picked ripe strawberries from the garden before breakfast every summer morning.
+pilot	OK
+potential	OK
+powerful	OK
+prehistoric	OK
+prepare	FIX	She prepared carefully for the interview by reviewing notes and practicing answers.
+presentation	OK
+price	OK
+professional	OK
+program	OK
+puzzle	OK
+quality	OK
+question	FIX	The teacher questioned whether the young student had actually finished her homework alone.
+rainbow	OK
+random	OK
+rat	OK
+reality	OK
+receive	OK
+reflex	OK
+relevant	OK
+remove	OK
+repeat	OK
+respond	OK
+responsibility	OK
+responsible	OK
+result	FIX	The result of her hard work was finally getting the promotion she wanted.
+revolution	FIX	The industrial revolution transformed farming societies into factories and modern cities forever.
+ring, rang	OK
+risk	OK
+river	OK
+rocket	OK
+role	OK
+roof	OK
+root	OK
+rope	OK
+rule	FIX	The king ruled the entire kingdom for nearly forty peaceful years.
+saga	OK
+scan	OK
+science	OK
+scientist	OK
+seem	OK
+sense	FIX	He had enough sense to check the weather before starting the long mountain hike.
+series	OK
+serve	FIX	She served on the local charity's board of directors for many years.
+set up	OK
+shape	FIX	The cookie cutter pressed the dough into the shape of a heart.
+sharp	OK
+shield	FIX	The soccer goalie used his body as a shield to block the ball.
+shoulder	OK
+silent	OK
+silver	OK
+size	OK
+skill	OK
+skin	OK
+slave	OK
+smoke	OK
+soccer	OK
+social	OK
+sold	OK

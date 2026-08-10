@@ -1,0 +1,80 @@
+analyze	לנתח	Scientists must analyze the test data to understand why the bridge failed.
+ancient	קדום, עתיק	Archaeologists discovered ancient coins buried deep under the old stone temple.
+apart	בנפרד	The twins refused to sit apart during dinner and stayed close together.
+appear	להופיע; נראה ש-	Dark clouds appear on the horizon just before a big storm hits.
+architecture	אדריכלות, ארכיטקטורה	The city's modern architecture uses glass and steel instead of old brick.
+aristocrat	אציל, אריסטוקרט	The young aristocrat inherited a fortune and several large estates from his grandmother.
+arrest	מעצר, לעצור	Police will arrest anyone caught stealing merchandise from the store without paying.
+artistic	אמנותי	Her artistic talent impressed everyone at the photography exhibition last week.
+as many as	רבים כמו (מספר גדול)	As many as fifty people waited in line for concert tickets yesterday.
+as proof of	כהוכחה ל-	He showed the receipt as proof of his purchase at the store.
+aside from	חוץ מ-	Aside from coffee, I don't drink any other hot beverages regularly.
+attitude	גישה	Her positive attitude helped her succeed despite many serious obstacles.
+audience	קהל	The audience applauded loudly when the singer finished the final song.
+aura	הילה	The champion had an aura of confidence that intimidated all his rivals.
+author	סופר, מחבר	The famous author wrote novels that became bestsellers throughout the world.
+authority	סמכות	The government has the authority to make new laws for everyone.
+automobile	כלי רכב, אוטו	She bought a new automobile to replace her old broken-down car.
+avoid	להתחמק, להימנע	Doctors tell patients to avoid sugar and processed foods completely.
+aware	מודע	He was not aware that his friend had secretly moved away.
+backward	לאחור	The dancer moved backward across the stage with surprising grace and skill.
+bacteria	חיידקים	Bacteria grow quickly in warm wet places like bathrooms and kitchens.
+beg	להתחנן	The child began to beg for ice cream at the grocery store.
+belong	שייך	These books belong to me and I want them returned immediately.
+benefit	תועלת, יתרון; הטבה; להפיק תועלת	Regular exercise will benefit your heart and your overall health greatly.
+besides	בכל מקרה; בנוסף על; מלבד, חוץ מ-	Besides being smart, the student was also kind and helpful to others.
+best-seller	רב-מכר	That novel became an instant best-seller in bookstores across the world.
+beyond	מעבר	The mountains stretched far beyond where we could see clearly today.
+bicycle	אופניים	She rode her bicycle to school instead of taking the bus.
+breathe	לנשום	You must breathe deeply and slowly to calm your racing mind.
+bright	בהיר, זוהר; חכם, מבריק	The bright sun shone through the window and lit the room.
+brilliant	מבריק	His brilliant solution to the problem surprised everyone at the meeting.
+bullet	קליע	The bullet pierced through the wooden door with great force.
+butterfly	פרפר	A colorful butterfly landed on the flower in the garden.
+by now	עד עתה	By now you should have finished all your homework assignments.
+calculate	לחשב	Engineers must calculate the exact weight before building the bridge.
+calculator	מחשבון	He grabbed his calculator to solve the complex math problem.
+campaign	מערכה, מסע	The political campaign lasted six months before the election.
+cast	להשליך, לגרש; צוות שחקנים	The director chose a talented cast for the new movie.
+casual	אגבי, רגיל, יומיומי	He wore casual clothes like jeans and a t-shirt to work.
+cave	מערה	Explorers discovered ancient paintings inside a dark cave.
+caviar	קוויאר	The expensive caviar cost more than a week of groceries.
+century	מאה שנים	That castle was built more than a century ago.
+certain	בטוח; מסוים	I am certain that you will succeed if you try hard.
+character	אות, תו; דמות; אופי	The main character in the book was brave and determined.
+charge	לגבות; להאשים; להסתער; לחייב	The doctor charged five hundred dollars for the surgery.
+chief	ראשי, בכיר, מנהיג; צ'יף	The chief decided to move the tribe to better hunting grounds.
+citrus	פרי הדר	Orange and lemon are citrus fruits full of vitamin C.
+claim	טענה, טוען; תביעה	He claimed he was innocent despite the evidence against him.
+class	מעמד; סוג; כיתה	The teacher taught the class about World War history today.
+clever	פיקח	The clever fox outsmarted the hunter and escaped the trap.
+coach	מאמן, לאמן, להדריך; קרון נוסעים, כרכרה, מחלקת תיירים (במטוס)	The basketball coach taught the team new strategies every practice.
+coast	חוף	The rocky coast had huge waves crashing against the cliffs.
+cognitive	קוגניטיבי, הכרתי	Cognitive development is important in children's early years of life.
+common	נפוץ, משותף	Blue eyes are common among people from northern European countries.
+compete	להתחרות, להתמודד	Many athletes compete to win the gold medal at Olympics.
+components	חלקים, מרכיבים	The computer has many components that work together inside.
+conference	ועידה	Business leaders attended the conference to discuss global economic issues.
+confuse	לבלבל	His unclear explanations confused most of the students in the class.
+confusion	בלבול	There was total confusion when three trains arrived at once.
+consider	לקחת בחשבון, לשקול	You should consider his offer before making your final decision.
+context	הקשר	The context of the sentence helped me understand the difficult word.
+continuation	המשך	The sequel was a continuation of the story from the first film.
+contract	ללקות, להידבק (במחלה); חוזה, הסכם; להתכווץ	He signed a contract with the company to work there.
+contrast	ניגוד; להוות ניגוד	The white paint was in stark contrast to the dark walls.
+convince	לשכנע	Her evidence was strong enough to convince the jury of her innocence.
+coordination	קואורדינציה, תיאום	Good coordination between your hands and eyes is essential for sports.
+coordinator	מתאם	The coordinator organized the event and made sure everything worked.
+copies	עותקים	She made copies of the important documents before leaving the office.
+cosmopolitan	קוסמופוליטי, רב-תרבותי, בעל אופי בין-לאומי	New York is a cosmopolitan city with people from many countries.
+count	לספור; רוזן	Let me count the money to make sure we have enough.
+course	מנה; קורס; מסלול	The dinner had three courses: soup, fish, and dessert.
+crack	סדק, לסדוק	A crack appeared in the wall after the small earthquake.
+creator	יוצר	The creator of the video game became very rich and famous.
+creature	יצור	A strange creature emerged from the dark forest at night.
+curse	קללה, לקלל	The old man's curse was said to bring bad luck forever.
+customize	להתאים באופן אישי	He customized his bike by painting it blue and adding new handlebars.
+dare	להעיז, תעוזה; אתגר	I dare you to eat five hot peppers without water.
+decorative	קישוטי, דקורטיבי	The decorative frame made the simple picture look more elegant.
+deeply	מאוד, במידה רבה	She was deeply in love with him despite their differences.
+deer	איל	A deer jumped across the road in front of the car.

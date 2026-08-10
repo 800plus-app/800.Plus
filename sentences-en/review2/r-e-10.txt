@@ -1,0 +1,80 @@
+solution	פתרון	The solution to the equation required several algebraic steps to find.
+solve	לפתור	The detectives worked for months to solve the crime by analyzing evidence.
+sort	למיין	Sort these files alphabetically before uploading them to the archive.
+speak, spoke	לדבר, דיבר	The witness spoke calmly during the trial, describing what she saw.
+speed	מהירות	The runner's speed increased to fifteen miles per hour by the final lap.
+sperm	זרע	The sperm traveled through the reproductive system to reach the egg.
+spicy	פיקנטי	The sauce was so spicy it burned my mouth for an hour.
+spider	עכביש	A large spider had built its web in the corner of the room.
+sponsor	נותן חסות	Our company will sponsor the local sports team this year.
+spontaneous	ספונטני, לא מתוכנן, מתרחש מאליו	Her spontaneous decision to leave town surprised everyone who knew her.
+spray	לרסס, לפזר	You must spray pesticide on the plants to stop the insects.
+spy	מרגל, לרגל	During the Cold War, the government caught a foreign spy stealing secrets.
+steal	לגנוב	The thief tried to steal jewelry from the museum at midnight.
+stereotype	סטריאוטיפ	That movie relies on harmful stereotypes about people from certain countries.
+stone	אבן	Ancient builders carved temples from massive blocks of stone and marble.
+storm	סערה	A violent storm brought heavy rain and wind to the city overnight.
+strategy	אסטרטגיה	Their marketing strategy focused on reaching young customers through social media.
+stress	להדגיש; מתח, לחץ, מצוקה	Work stress caused him to develop health problems over several years.
+stuff	דברים; למלא, לפחלץ	She packed all her stuff into one suitcase for the trip.
+success	הצלחה	His success in business came after years of hard work and persistence.
+such as	כמו למשל	Many animals, such as dogs and cats, can see in the dark.
+suggest	להציע	I suggest we wait until tomorrow to make this important decision.
+suicide	התאבדות	The documentary examined the tragedy of suicide and its effect on families.
+sunlight	אור שמש, קרינת השמש	Plants need sunlight to grow, so place them near a window.
+survival	הישרדות	Their survival in the wilderness depended on finding food and clean water.
+sword	חרב	The medieval warrior drew his sword from its sheath before battle.
+symbol	סמל	The dove is a symbol of peace in many cultures worldwide.
+syrup	סירופ	Pour warm maple syrup over the pancakes for a delicious breakfast.
+talent	כשרון	Her musical talent was recognized when she was just five years old.
+tax	מס	Citizens must pay tax on their income to support government services.
+think, thought	לחשוב, חשב	She thought about the problem for a long time before deciding.
+thriller	מותחן	The spy thriller kept audiences on the edge of their seats.
+tiny	קטנטן	The newborn baby was so tiny that she fit in one hand.
+tone	טון	His tone of voice made it clear that he was very angry.
+tour	סיור	We took a guided tour of the ancient Roman ruins yesterday.
+tourist	תייר	Thousands of tourists visit the Eiffel Tower every single day.
+tower	מגדל	The tall tower could be seen from miles away across the plain.
+town	עיר, עיירה	The small town had one grocery store and a few restaurants.
+toxic	רעיל	That chemical is toxic and can cause serious illness if ingested.
+tragic	טרגי	The tragic accident claimed the lives of five young people.
+treasure	אוצר, לנצור	The family treasured the old photograph because it showed their ancestors.
+triple	פי 3	His salary tripled after he got promoted to the senior position.
+twins	תאומים	The twins looked so identical that nobody could tell them apart.
+type	להקליד; סוג	Please type your password carefully so you don't make a mistake.
+ugly	מכוער	The building was considered ugly by most of the city's residents.
+uncle	דוד	My uncle came to visit us from overseas for a month.
+unique	יחיד במינו, ייחודי; מיוחד	Every person has unique fingerprints that are different from everyone else.
+unit	יחידה	The military unit was stationed near the border for protection.
+unlock	לפתוח, לשחרר	You must unlock the door with the correct key or code.
+unsafe	לא בטוח	The building was declared unsafe and everyone had to evacuate immediately.
+update	עדכון, לעדכן	The software update fixed several bugs that were causing crashes.
+upgrade	לשדרג	We decided to upgrade our computer system to handle more work.
+use	תועלת, תכלית; לנצל; להשתמש	I use this app every day to track my exercise and calories.
+vacation	חופשה	We spent our vacation at the beach swimming and relaxing.
+vegetarian	צמחוני	A vegetarian diet contains no meat, chicken, or fish of any kind.
+versions	גרסאות	The company released three different versions of the software for users.
+victory	ניצחון	Their victory in the final game made them the champions.
+virtual	מדומה, וירטואלי	The company held a virtual meeting because people were working remotely.
+vote	קול, הצבעה, להצביע	Every citizen has the right to vote in democratic elections.
+warning	אזהרה	The warning label on the bottle said the chemical was dangerous.
+wave	גל	A large wave crashed onto the shore during the storm.
+weapon	נשק	The soldier carried a rifle as his primary weapon into battle.
+weight	משקל	His weight increased after he stopped exercising and ate more.
+while	בזמן ש-, בעוד ש-; ואילו, אף על פי ש-; כל עוד	While she worked on her laptop, he watched TV in the living room.
+wise	חכם, פיקח	The wise old man gave advice to anyone who would listen.
+wolf (wolves)	זאב (זאבים)	The wolf howled at the moon from deep in the forest.
+wood	עץ	The deck was built from treated wood that would resist weather.
+worldwide	כלל עולמי, בכל העולם	The company operates stores worldwide and employs thousands of people.
+worry	דאגה, לדאוג	Don't worry about the test; if you studied, you will do well.
+zone	אזור	The warehouse was in a commercial zone near the airport.
+ability	יכולת	Her ability to speak five languages impressed everyone at the conference.
+above all	מעל לכל	Above all, we must ensure that everyone stays safe and healthy.
+absurd	מגוחך, לא סביר	His excuse for being late was so absurd that nobody believed him.
+accept	לקבל	She finally decided to accept the job offer from the company.
+accident	תאונה	The car accident happened at the busy intersection during rush hour.
+according	לפי	According to the weather forecast, it will rain heavily tomorrow.
+across	בצד השני, לרוחב	The bridge stretches across the river, connecting the two towns.
+active	פעיל	She was very active in sports and exercise throughout high school.
+actress	שחקנית (בהצגה או סרט)	The actress won an award for her performance in the film.
+adult	מבוגר	As an adult, she had to make important decisions about her future.

@@ -1,0 +1,80 @@
+dispatch	לשגר	The warehouse will dispatch your order by tomorrow.
+displacement	עקירה	The earthquake caused massive displacement of families from their homes.
+disprove	להפריך	Scientists worked to disprove the false claims about vaccines.
+dispute	מחלוקת; לערער	The long dispute between neighbors finally ended last month.
+disruption	שיבוש, הפרעה	The strike caused major disruption to public transportation service.
+dissection	חיתוך, ביתור	The biology students completed a careful dissection of the frog.
+divert	להסיט, להפנות לכיוון אחר; להסיח את הדעת	Police had to divert traffic around the accident scene.
+draw	תיקו, שוויון; לצייר	The final chess match ended in a draw.
+drought	בצורת	The severe drought left farmers without water for months.
+durable	עמיד, בר-קיימא, מחזיק מעמד	These durable shoes will last many years with care.
+dwell	להתגורר	My grandparents dwell in a small village by the coast.
+dwelling	משכן, בית	The old dwelling on the hill belonged to the family.
+eel	צלופח	The eel swims through the river searching for small fish.
+elaborate	לפרט, להרחיב; (ת׳) מורכב, משוכלל, מפורט	Can you elaborate on what you mean by that statement?
+elusive	חמקמק	The criminal remained elusive despite the police investigation.
+emergence	הופעה, היווצרות	The emergence of new technologies changed how we work.
+emission	פליטה	The factory reduced its carbon emissions through better equipment.
+emit	לפלוט, להוציא	The volcano began to emit smoke and ash immediately.
+emulate	לחקות, להתחרות	Young athletes often emulate their favorite professional players.
+enlist	להתגייס	He decided to enlist in the military after graduation.
+envision	לחזות, לצפות	She could clearly envision a bright future for her children.
+equates	להשוות, להתאים	Success equates to hard work and dedication for most.
+erroneous	שגוי	The erroneous report led the team to wrong conclusions.
+erupt	התפרץ	The volcano will erupt and destroy everything nearby.
+essence	מהות, תמצית	The essence of their friendship was mutual trust and honesty.
+esteemed	מכובד	The esteemed professor has won many international awards.
+evade	התחמק	The suspect tried to evade capture by running away.
+eventual	סופי, בסופו של דבר	Their eventual goal was to open a successful restaurant.
+exceed	לעלות על, לחרוג	Our company sales this year will exceed all expectations.
+excel	להצטיין	She began to excel in mathematics during high school.
+excessively	בצורה מוגזמת	He drank excessively and seriously damaged his physical health.
+expectancy	תוחלת, ציפייה	Life expectancy has increased due to modern medicine.
+expendable	שניתן לוותר עליו	Many workers felt expendable after the company cuts.
+expenditure	הוצאה	The government cut military expenditure by ten percent.
+exploitation	ניצול	The exploitation of workers was common in old factories.
+extortion	סחיטה	The criminal demanded money through extortion and threats.
+familiarize	להתוודע	She spent time to familiarize herself with the new system.
+famine	רעב קשה	The terrible famine left millions of people desperately hungry.
+fascinate	לרתק	The magician's tricks always fascinate the young audience members.
+fast	צום; מהיר	She decided to fast for religious reasons during the holiday.
+fertile	פורה	The fertile soil in the valley grew excellent crops.
+flatter	להחמיא; שטוח יותר	Don't try to flatter me with false empty compliments.
+flight	בריחה, מנוסה; טיסה	Their flight from the dangerous city saved their lives.
+flock	לנהור, עדר, המון	Thousands of tourists flock to the beaches every summer.
+flourish	לשגשג, לפרוח	The flowers begin to flourish in the warm spring.
+fluency	שטף	Her fluency in three languages impressed the entire committee.
+fond	חובב, מחבב	She was very fond of her old teddy bear.
+forfeit	לוותר, להפסיד	The injured team had to forfeit the game.
+fortify	לחזק, לבצר	They worked hard to fortify the city walls.
+foster	לטפח, לעודד, לקדם; (הורה/ילד) אומן	The teachers foster creativity in all their young students.
+friction	חיכוך	There was friction between the two team members.
+fugitive	נמלט, בורח מהחוק	The fugitive hid in the forest for many days.
+garment	בגד, לבוש	The blue garment hung in the back of the closet.
+glimpse	הצצה, מבט חטוף	I caught only a glimpse of the famous singer.
+glorify	להאדיר	The movie tries to glorify violence and street crime.
+gracious	חינני, אדיב	The gracious host welcomed all guests very warmly.
+gradual	הדרגתי	The gradual changes to the system happened slowly.
+grim	קודר, עגום	The grim news about the accident shocked everyone.
+groom	חתן; לטפח, לטפל	The groom smiled as he waited for his bride.
+harvest	קציר, יבול; לקצור	The harvest of wheat filled all the storage.
+hasten	למהר, להחפז	We had to hasten our departure due to weather.
+hasty	מהיר, בהול	His hasty decision caused many serious problems later.
+haul	לגרור	They had to haul the heavy boxes upstairs.
+hazard	סכנה, מפגע	The icy roads became a serious hazard for drivers.
+hectic	קדחתני	Her hectic schedule left no time for rest.
+heir	יורש	The heir to the family fortune studied law.
+humility	ענוה	Her humility and kindness made her widely loved.
+hypocrisy	צביעות	His hypocrisy was clear when his actions contradicted his words.
+i.e.	כלומר, דהיינו, זאת אומרת	She loves biology, i.e., the study of living things.
+illicit	אסור, בלתי חוקי	The illicit trade in endangered animals is growing.
+illiterate	בור, אנאלפבית	Many illiterate people struggle to read and write.
+illuminate	להאיר	The streetlight began to illuminate the dark road.
+immense	כביר, עצום	The immense forest stretched across hundreds of miles.
+impair	לפגום, להחליש	The accident would impair his ability to work.
+impartial	אוביקטיבי, ללא צד	The judge must remain impartial during the trial.
+in due time	בבוא העת	We will receive the money in due time.
+in order	תקין, מסודר	Everything is finally in order for the event.
+incentive	תמריץ	The bonus was a good incentive to work hard.
+incomprehensible	לא מובן	The dense academic text was completely incomprehensible to me.
+incorporate	לכלול, לשתף, לאגד	The new design will incorporate all customer feedback.

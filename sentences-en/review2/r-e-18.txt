@@ -1,0 +1,80 @@
+hybrid	כלאיים, היברידי	The car is a hybrid that runs on both electricity and gasoline.
+iceberg	קרחון	The ship avoided the massive iceberg floating in the Arctic waters.
+illusion	אשליה	The magician created an illusion that made the coin disappear.
+importance	חשיבות	The teacher stressed the importance of studying for the exam.
+improve	לשפר	Daily practice will improve your skills significantly over time.
+in addition	בנוסף	We need coffee. In addition, we should buy some bread.
+in particular	במיוחד	I like many vegetables, in particular carrots and broccoli.
+incident	תקרית	The car accident was a minor incident with no injuries.
+indeed	בהחלט	That movie was indeed one of the best I have seen.
+independence	עצמאות	The country declared its independence from colonial rule.
+innocent	תמים; חף מפשע	The innocent child did not understand the complicated situation.
+insect	חרק	A tiny insect crawled across the garden path this morning.
+inspire	לעורר השראה	Her success story will inspire many young people to pursue dreams.
+instantly	מיד	The light appeared instantly when I switched on the electricity.
+instrument	כלי	The guitar is a musical instrument that requires practice.
+insurance	ביטוח	Having car insurance protects you from expensive repairs.
+interact	ליצור אינטראקציה, לתקשר, להשפיע הדדית	Students interact with each other during group projects in class.
+introduction	הקדמה, מבוא, היכרות	The book's introduction explains the author's main ideas clearly.
+irregular	לא רגיל	His heartbeat was irregular, so he visited his doctor.
+issue	נושא, עניין, סוגיה; להוציא לאור, להפיץ; גיליון	Climate change is an important issue that affects everyone globally.
+label	תגית; לתייג	Each bottle has a label that shows the contents and price.
+laboratory	מעבדה	The scientist conducted experiments in the laboratory each day.
+layer	שכבה	A thick layer of snow covered the ground after the storm.
+lead, led	להוביל, הוביל	The teacher led the students through the museum tour.
+leadership	מנהיגות	Strong leadership is essential for running any successful company.
+leaf (leaves)	עלה (עלים)	A single green leaf fell from the tree in autumn.
+legend	אגדה; מקרא מפה	The legend says that a dragon once guarded this mountain.
+length	אורך	The length of the rope was exactly ten feet.
+likely	סביר	It is likely to rain tomorrow based on the weather forecast.
+load	להעמיס	Workers load the truck with boxes before departure.
+logic	הגיון	Her logic for choosing that option made perfect sense.
+loyalty	נאמנות	The dog showed great loyalty to its owner.
+major	סולם מז'ור (במוזיקה); מסלול לימודים; ראשי, עיקרי	Economics is a major factor in international relations today.
+march	לצעוד	Soldiers march in formation down the street during the parade.
+marketing	שיווק, לשווק	The marketing department created a new advertisement campaign.
+mass	המון, המוני; מסה	A mass of people gathered outside the stadium for the concert.
+mate	בן זוג, חבר; להזדווג	My mate helped me study for the chemistry test.
+maximize	למקסם	We should maximize our profits by reducing unnecessary costs.
+mercy	רחמים	The judge showed mercy by reducing the criminal's sentence.
+mind	לשים לב, לשמור; שכל; אכפת	Mind the gap when you exit the train.
+minimize	למזער	Try to minimize the damage by acting quickly now.
+minister	שר (בממשלה)	The minister of education announced new policies today.
+miracle	נס, פלא	Scientists called the patient's recovery a true medical miracle.
+missile	טיל	The military tested the new missile system yesterday.
+mode	מצב, אופן, צורה; אופנה, מודה	The camera has a mode for taking photos in darkness.
+monument	אנדרטה	The monument stands in the center of the town square.
+motif	מוטיב	The flower motif appears throughout the entire wallpaper.
+motivate	לדרבן	Good teachers motivate their students to work hard.
+mountaintop	פסגת הר	From the mountaintop, you could see for miles around.
+mouse (mice)	עכבר (עכברים)	A mouse ran quickly across the kitchen floor.
+narrow	צר	The narrow hallway required us to walk single file.
+navigate	לנווט	I used my phone to navigate through the unfamiliar city.
+nickname	כינוי	His nickname was Tiger because he was so competitive.
+not only... but also...	לא רק... אלא גם...	She is not only intelligent but also very kind.
+not... but...	לא... אלא...	The wall is not gray but a very light shade of blue.
+numeric	מספרי	The numeric code on the package contains important information.
+nut	אגוז	She cracked the nut with a special metal tool.
+object	פריט, אובייקט; להתנגד	An unknown object floated in the swimming pool.
+olive	זית	The olive trees grew throughout the Mediterranean region.
+on one hand...on the other hand	מצד אחד... מצד שני	On one hand it pays well; on the other it is stressful.
+operation	ניתוח; מבצע, פעולה	She needs an operation to fix her injured knee.
+opposition	אופוזיציה, התנגדות	Strong opposition arose to the new government policy.
+organize	לארגן	We need to organize these files by date and topic.
+otherwise	אחרת	Study hard, otherwise you will fail the exam.
+overall	כולל, באופן כללי	The overall quality of the meal was excellent.
+owe	להיות חייב	I owe my friend twenty dollars from our lunch yesterday.
+painter	צייר	The famous painter displayed his work at the gallery.
+pardon	לחון, חנינה; סליחה, לסלוח	I beg your pardon, I did not hear what you said.
+party	מפלגה; מסיבה	The winning party announced its new campaign platform.
+pathology	פתולוגיה, ענף ברפואה	Pathology is the science that studies disease in humans.
+penalty	עונש; קנס	The referee gave a penalty kick to the other team.
+pigment	פיגמנט, צבען	Red pigment is used to color this type of paint.
+post	להציב, למנות ; עמדה, משרה, תפקיד; עמוד; לפרסם ; פרסום; לשלוח בדואר ; דואר	She accepted a post as director of the new department.
+prank	מתיחה	The students played a prank on their teacher today.
+predator	טורף	The lion is a fierce predator that hunts zebras.
+pregnancy	הריון	She experienced morning sickness during her pregnancy.
+preparation for	הכנות לקראת	Preparation for the concert required weeks of hard practice.
+presence	נוכחות	Her presence in the room made everyone feel calm.
+pretend	להעמיד פנים	Children pretend to be superheroes during playtime.
+previously	הקודם, לפני-כן	We previously discussed this issue at last month's meeting.

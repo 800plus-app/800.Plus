@@ -1,0 +1,80 @@
+star	OK
+start	OK
+station	OK
+step	OK
+still	OK
+store	OK
+strange	OK
+strong	OK
+studio	OK
+stupid	OK
+suddenly	OK
+sugar	OK
+summer	OK
+support	OK
+surprise	OK
+sweet	OK
+system	OK
+taste	OK
+team	OK
+teeth, tooth	OK
+than	OK
+thank	OK
+thanks to	OK
+that	OK
+theater	OK
+then	OK
+theory	FIX	Scientists developed a new theory to explain how the universe began.
+there	FIX	We searched the whole house, but the cat wasn't there.
+thousand	OK
+through	OK
+ticket	OK
+time	OK
+together with	OK
+too	OK
+touch	OK
+trust	OK
+truth	OK
+turn	OK
+under	OK
+understand	OK
+until	OK
+until now	OK
+up	OK
+usually	OK
+village	FIX	The small village has only one school and a small market.
+visit	OK
+voice	OK
+wait	OK
+wall	OK
+want	OK
+war	FIX	The war between the two countries lasted for several years.
+watch	OK
+way	OK
+weekend	OK
+West	OK
+what	OK
+when	OK
+where	OK
+which	OK
+who	OK
+why	OK
+wide	OK
+wife	OK
+win	OK
+wine	OK
+winter	OK
+wish	OK
+with	OK
+without	OK
+wonderful	OK
+work	OK
+worse	OK
+writer	OK
+young	OK
+zoo	OK
+10th - tenth	OK
+4th - fourth	OK
+5th - fifth	OK
+6th - sixth	OK
+7th - seventh	FIX	Saturday is the seventh day of the week.
