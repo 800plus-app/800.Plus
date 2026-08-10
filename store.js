@@ -187,6 +187,42 @@ const Store = {
     return error ? null : (count || 0);
   },
 
+  /* ---------- willingness-to-pay survey (one shot per learner) ---------- */
+  /* Asked once, ever. The flag lives in the table and not only in localStorage, because a
+     learner who switches phone or clears storage would otherwise be asked a second time —
+     and a survey that reappears reads as nagging rather than as a question.
+     Returns true = already asked (answered or dismissed) → do not show.
+     On any error, including the table not existing yet (42P01), returns true: never show a
+     card whose submit would fail. */
+  async wtpAsked() {
+    const { data: u } = await sb.auth.getUser();
+    const user = u && u.user;
+    if (!user) return true;                       // signed out — nothing to write to
+    /* head:true returns the count and no rows — `data` is null here, so the answer has to come
+       from `count`. Reading data.length instead would always say "never asked". */
+    const { count, error } = await sb.from('wtp_survey')
+      .select('user_id', { count: 'exact', head: true }).eq('user_id', user.id);
+    if (error) return true;
+    return (count || 0) > 0;
+  },
+  /* dismissed:true is written for a ✕ with no answer. It is a real data point — the ratio of
+     dismissals to answers says how much appetite there was for the question at all — and it is
+     also what stops the card from coming back. */
+  async wtpSave(row) {
+    const { data: u } = await sb.auth.getUser();
+    const user = u && u.user;
+    if (!user) return { ok: false };
+    const { error } = await sb.from('wtp_survey').insert({
+      user_id: user.id,
+      price_bucket: row.price_bucket || null,
+      what_helped: row.what_helped || null,
+      what_would_stop: row.what_would_stop || null,
+      dismissed: !!row.dismissed
+    });
+    if (error) return { ok: false, missingTable: error.code === '42P01', error };
+    return { ok: true };
+  },
+
   /* ---------- admin ---------- */
   async adminListUsers() {
     const { data, error } = await sb.from('profiles')
