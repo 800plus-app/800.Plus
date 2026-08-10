@@ -1,0 +1,758 @@
+<meta charset="utf-8">
+<title>השלמת משפטים · מדגם 59 מתוך 204 · פסק דין לפי שער</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+@font-face{font-family:FRL;src:url('../fonts/frank-ruhl-libre-hebrew.woff2') format('woff2');unicode-range:U+0590-05FF,U+FB1D-FB4F;font-display:swap}
+@font-face{font-family:FRL;src:url('../fonts/frank-ruhl-libre-latin.woff2') format('woff2');unicode-range:U+0000-00FF;font-display:swap}
+:root{--paper:#f4f1ea;--ink:#1a1714;--ink2:#5c554c;--rule:#d5cec1;--red:#a8332a;--green:#2f5d43;--amber:#8a6a1f;
+--b0:#4a6fa5;--b1:#2f7d5f;--b2:#9a6a2a;--b3:#8c3d5e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:FRL,Georgia,serif;direction:rtl;line-height:1.65;
+background-image:radial-gradient(circle at 12% 6%,rgba(168,51,42,.035),transparent 42%),radial-gradient(circle at 90% 94%,rgba(47,93,67,.04),transparent 45%);background-attachment:fixed}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.3;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+.wrap{max-width:960px;margin:0 auto;padding:clamp(22px,5vw,64px) clamp(16px,4vw,40px) 90px}
+header{border-bottom:2.5px solid var(--ink);padding-bottom:13px;display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+h1{font-size:clamp(24px,4vw,38px);margin:0;font-weight:700;letter-spacing:-.02em;line-height:1.12}
+h1 small{display:block;font-size:.44em;font-weight:400;color:var(--ink2);letter-spacing:.15em;margin-bottom:7px}
+.stamp{font-size:12px;letter-spacing:.12em;border:1.5px solid var(--amber);color:var(--amber);padding:7px 12px;transform:rotate(-1.4deg);font-weight:700;white-space:nowrap}
+.meta{display:flex;gap:22px;flex-wrap:wrap;font-size:13px;color:var(--ink2);border-bottom:1px solid var(--rule);padding:10px 0 20px;margin-bottom:26px;animation:rise .7s .05s cubic-bezier(.2,.7,.2,1) both}
+.meta b{color:var(--ink)}
+.warn{border-right:3px solid var(--amber);background:rgba(138,106,31,.07);padding:11px 15px;font-size:14px;margin-bottom:26px}
+.bar{display:flex;gap:0;flex-wrap:wrap;border-bottom:1px solid var(--rule);margin-bottom:28px;animation:rise .7s .1s cubic-bezier(.2,.7,.2,1) both}
+.bar button{background:none;border:0;border-bottom:2.5px solid transparent;font-family:inherit;font-size:15px;color:var(--ink2);padding:9px 16px;cursor:pointer;margin-bottom:-1px;transition:color .18s,border-color .18s}
+.bar button[aria-pressed=true]{color:var(--ink);border-bottom-color:var(--red);font-weight:700}
+@media(hover:hover){.bar button:hover{color:var(--ink)}}
+.item{border:1px solid var(--rule);background:rgba(255,255,255,.44);padding:20px 22px 18px;margin-bottom:14px;position:relative;animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
+.item::before{content:attr(data-id);position:absolute;top:-1px;right:-1px;background:var(--ink);color:var(--paper);font-size:10.5px;padding:4px 9px;letter-spacing:.05em;font-weight:700}
+.item.miss{border-color:var(--red);border-width:2px}
+.item.t3{border-right:3px solid var(--amber)}
+.sent{direction:ltr;text-align:left;font-size:clamp(15.5px,2.1vw,18px);line-height:1.75;margin:4px 0 15px;padding-right:52px}
+.bl{border-bottom:2px solid var(--red);padding:0 24px;margin:0 3px}
+.fill{color:var(--green);font-weight:700;border-bottom:2px solid var(--green);padding:0 4px}
+.fill.bad{color:var(--red);border-color:var(--red);text-decoration:line-through}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:7px}
+.opt{direction:ltr;text-align:left;font-family:inherit;font-size:14.5px;background:rgba(255,255,255,.7);border:1px solid var(--rule);padding:8px 12px;cursor:pointer;transition:border-color .16s,background .16s,transform .16s}
+@media(hover:hover) and (pointer:fine){.opt:hover:not(.done){border-color:var(--ink);transform:translateY(-1px)}}
+.opt.ok{border-color:var(--green);border-width:2px;background:rgba(47,93,67,.1)}
+.opt.no{border-color:var(--red);background:rgba(168,51,42,.07);opacity:.7}
+.opt.done{cursor:default}
+.exp{border-right:2.5px solid var(--amber);padding:9px 13px;margin-top:13px;font-size:14px;color:var(--ink2);background:rgba(138,106,31,.05)}
+.exp b{color:var(--ink)}
+.hid{display:none}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;font-size:11.5px;letter-spacing:.04em}
+.c{border:1px solid var(--rule);padding:3px 9px;color:var(--ink2);white-space:nowrap}
+.c.b0{border-color:var(--b0);color:var(--b0)}.c.b1{border-color:var(--b1);color:var(--b1)}
+.c.b2{border-color:var(--b2);color:var(--b2)}.c.b3{border-color:var(--b3);color:var(--b3)}
+.c.g{border-color:var(--green);color:var(--green);font-weight:700}
+.c.r{border-color:var(--red);color:var(--red);font-weight:700}
+.c.a{border-color:var(--amber);color:var(--amber);font-weight:700}
+.pref{direction:ltr;text-align:left;font-size:13px;color:var(--red);margin-top:9px;padding:7px 11px;background:rgba(168,51,42,.06);border-right:2.5px solid var(--red)}
+.note{font-size:13.5px;color:var(--ink2);border-top:1px solid var(--rule);margin-top:40px;padding-top:16px}
+.note b{color:var(--ink)}.note ul{padding-right:19px;margin:7px 0}
+@keyframes rise{from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:none}}
+</style>
+<div class="wrap">
+<header>
+  <h1><small>800+ · אנגלית · מנה 2 · פסק דין לפי שער</small>מדגם 59 מתוך 204</h1>
+  <div class="stamp">29% מהקורפוס</div>
+</header>
+<div class="meta">
+  <span>רב-ברירה <b>59/59</b></span>
+  <span>כיסוי הקשר <b>39</b> עברו · <b>12</b> גבוליים · <b class="miss">8</b> נפסלו</span>
+  <span>הקשר רופף <b>9</b></span>
+  <span>נאותות <b>59/59</b> נקי</span>
+</div>
+<div class="warn">⚠ <b>זה מדגם, לא הקורפוס.</b> 145 פריטים לא נדגמו, ולכן <b>לא נבדקו</b> בשערי הבוטים. מה שכתוב כאן הוא הערכה לאיכות הקורפוס, ואינו תעודה לכל פריט בו.</div>
+
+<div class="bar">
+  <button aria-pressed="true" data-f="all">הכול · 59</button>
+  <button aria-pressed="false" data-f="miss">⛔ נפסלו · 8</button>
+  <button aria-pressed="false" data-f="t3">⚠ גבוליים · 12</button>
+  <button aria-pressed="false" data-f="loose">הקשר רופף · 9</button>
+  <button aria-pressed="false" data-f="ok">✅ נקיים · 36</button>
+</div>
+
+<div class="item ok" data-id="בסיס · base#1" data-a="0" data-o='[&quot;solve&quot;,&quot;answer&quot;,&quot;explain&quot;,&quot;correct&quot;]'>
+  <div class="sent">Everyone understood the rules and nobody found a mistake in them, but no child could <span class="bl" data-b="0"></span> the puzzle.</div>
+  <div class="opts"><button class="opt" data-i="0">solve</button><button class="opt" data-i="1">answer</button><button class="opt" data-i="2">explain</button><button class="opt" data-i="3">correct</button></div>
+  <div class="exp hid"><b>ניגוד</b> · but — חידה פותרים (solve a puzzle) הוא הצירוף הקנוני. answer נשלל בצירוף: עונים על שאלה, לא על חידה. explain נשלל בגוף המשפט, נמסר שכולם הבינו את הכללים, ולכן אין מה להסביר. correct נשלל בגוף המשפט, נמסר שאף אחד לא מצא טעות, ולכן אין מה לתקן.</div>
+  
+  <div class="chips">
+    <span class="c b0">בסיס</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="מתקדם · v2#3" data-a="0" data-o='[&quot;withdraw&quot;,&quot;abandon&quot;,&quot;reject&quot;,&quot;dismiss&quot;]'>
+  <div class="sent">He did not give up the theory; he chose only to <span class="bl" data-b="0"></span> it from the journal until the new data arrived.</div>
+  <div class="opts"><button class="opt" data-i="0">withdraw</button><button class="opt" data-i="1">abandon</button><button class="opt" data-i="2">reject</button><button class="opt" data-i="3">dismiss</button></div>
+  <div class="exp hid"><b>ניגוד</b> · did not · only — המשפט שולל נטישה במפורש ומגביל בזמן, ולכן abandon, reject ו-dismiss נופלים, שלושתם סופיים. רק withdraw הוא הסרה זמנית שניתן לחזור ממנה.</div>
+  
+  <div class="chips">
+    <span class="c b2">מתקדם</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item miss" data-id="מתקדם · adv4#13" data-a="0" data-o='[[&quot;halt&quot;,&quot;withstand&quot;],[&quot;withstand&quot;,&quot;halt&quot;],[&quot;halt&quot;,&quot;absorb&quot;],[&quot;absorb&quot;,&quot;withstand&quot;]]'>
+  <div class="sent">Although both come from one workshop, the valve must <span class="bl" data-b="0"></span> the flow at once and the pipe must <span class="bl" data-b="1"></span> pressure for years.</div>
+  <div class="opts"><button class="opt" data-i="0">halt … withstand</button><button class="opt" data-i="1">withstand … halt</button><button class="opt" data-i="2">halt … absorb</button><button class="opt" data-i="3">absorb … withstand</button></div>
+  <div class="exp hid"><b>ניגוד</b> · although — ‏at once דורש עצירה מלאה של הזרימה (halt the flow) ו-for years דורש עמידות מול לחץ, שהיא withstand pressure. הסדר ההפוך [withstand, halt] נופל בשני החריצים: שסתום אינו מחזיק מעמד מול הזרימה אלא חוסם אותה, וצינור אינו עוצר לחץ אלא עומד מולו לאורך זמן. [halt, absorb] נופל בחריץ השני (absorb) הוא ספיחה של נוזל או של כוח אל תוך הגוף, והצינור צריך דווקא לא לתת ללחץ להיכנס. [absorb, withstand] נופל בחריץ הראשון, שסתום אינו סופח את הזרימה, ו-at once מחייב חסימה מיידית.</div>
+  <div class="pref">הפותרים העדיפו: <b>stop+withstand / stop+withstand</b> &nbsp;·&nbsp; המפתח: halt+withstand</div>
+  <div class="chips">
+    <span class="c b2">מתקדם</span>
+    <span class="c r">כיסוי הקשר: נפסל</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    <span class="c r">שני חסרים</span>
+  </div></div><div class="item ok" data-id="בסיס · base#6" data-a="0" data-o='[&quot;pay&quot;,&quot;spend&quot;,&quot;sell&quot;,&quot;save&quot;]'>
+  <div class="sent">Until the office finds a new sponsor, it cannot <span class="bl" data-b="0"></span> the water bill, and the service will stop.</div>
+  <div class="opts"><button class="opt" data-i="0">pay</button><button class="opt" data-i="1">spend</button><button class="opt" data-i="2">sell</button><button class="opt" data-i="3">save</button></div>
+  <div class="exp hid"><b>תנאי וזמן</b> · until — חשבון משלמים (pay the bill) הוא הצירוף הקנוני. spend חל על כסף שמוציאים על משהו, ואין אומרים spend a bill. sell הוא הכיוון ההפוך, נתינת סחורה תמורת כסף. save הוא שמירת הכסף אצלך, והמשפט דורש שהכסף ייצא, אחרת השירות נפסק.</div>
+  
+  <div class="chips">
+    <span class="c b0">בסיס</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="בסיס · base2#7" data-a="0" data-o='[&quot;escape&quot;,&quot;jump&quot;,&quot;run&quot;,&quot;fall&quot;]'>
+  <div class="sent">If someone leaves the gate of the zoo open, a monkey can <span class="bl" data-b="0"></span> and never come back.</div>
+  <div class="opts"><button class="opt" data-i="0">escape</button><button class="opt" data-i="1">jump</button><button class="opt" data-i="2">run</button><button class="opt" data-i="3">fall</button></div>
+  <div class="exp hid"><b>תנאי וזמן</b> · if — יציאה ממקום סגור בלי לחזור היא escape, וה-never come back הוא הרמז. jump היא תנועה אחת למעלה, ואפשר לקפוץ בתוך הגן בלי לצאת ממנו. run הוא ריצה, ואפשר לרוץ בתוך הגן, הריצה עצמה אינה אומרת שהחיה יצאה. fall היא ירידה מכוח המשקל, ואינה יציאה ממקום.</div>
+  
+  <div class="chips">
+    <span class="c b0">בסיס</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="אקדמי · aca2#2" data-a="0" data-o='[&quot;revoke&quot;,&quot;suspend&quot;,&quot;restrict&quot;,&quot;cancel&quot;]'>
+  <div class="sent">Because the trader kept selling goods barred by the new rule, the office moved to <span class="bl" data-b="0"></span> his permit for good.</div>
+  <div class="opts"><button class="opt" data-i="0">revoke</button><button class="opt" data-i="1">suspend</button><button class="opt" data-i="2">restrict</button><button class="opt" data-i="3">cancel</button></div>
+  <div class="exp hid"><b>סיבה ותוצאה</b> · because — revoke a permit הוא הצירוף הקנוני לביטול היתר שניתן, בהחלטה של הרשות שהנפיקה אותו. suspend נשלל בגוף המשפט: for good הוא לתמיד, והשעיה היא זמנית מעצם הגדרתה. restrict מצמצם את תנאי ההיתר וההיתר נשאר בתוקף, ואילו כאן הוא נלקח כליל. cancel חל על אירוע או על הזמנה שתוכננו, פגישה, משלוח, ולא על זכות שהוקנתה לאדם ברישיון.</div>
+  
+  <div class="chips">
+    <span class="c b3">אקדמי</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="מתקדם · adv3#5" data-a="0" data-o='[&quot;conduct&quot;,&quot;transmit&quot;,&quot;absorb&quot;,&quot;reflect&quot;]'>
+  <div class="sent">Because the handle must stay cool in the hand, the maker chose plastic: bare metal would <span class="bl" data-b="0"></span> the heat straight to the fingers.</div>
+  <div class="opts"><button class="opt" data-i="0">conduct</button><button class="opt" data-i="1">transmit</button><button class="opt" data-i="2">absorb</button><button class="opt" data-i="3">reflect</button></div>
+  <div class="exp hid"><b>סיבה ותוצאה</b> · because — conduct heat הוא הצירוף הקנוני להעברת חום דרך גוף מוצק, וזה מה שמייחסים למתכת. transmit חל על אות, על מסר או על מחלה שעוברים דרך מתווך, לא על חום בתוך מתכת. absorb הוא לספוח ולהחזיק בתוך, ואז החום לא היה מגיע לאצבעות, וזה סותר את straight to the fingers שבמשפט. reflect הוא החזרה של קרינה ממשטח בחזרה לכיוון שממנו באה, והמשפט מתאר חום שעובר דרך הידית והלאה.</div>
+  
+  <div class="chips">
+    <span class="c b2">מתקדם</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="מתקדם · adv#6" data-a="0" data-o='[&quot;compensate&quot;,&quot;reward&quot;,&quot;refund&quot;,&quot;insure&quot;]'>
+  <div class="sent">Because the storm ruined a whole year of fruit, the growers asked the council to <span class="bl" data-b="0"></span> them for the loss.</div>
+  <div class="opts"><button class="opt" data-i="0">compensate</button><button class="opt" data-i="1">reward</button><button class="opt" data-i="2">refund</button><button class="opt" data-i="3">insure</button></div>
+  <div class="exp hid"><b>סיבה ותוצאה</b> · because — ‏compensate somebody for a loss הוא הצירוף לתשלום על נזק שנגרם. reward הוא תשלום על הישג או על מעשה ראוי, ואין כאן הישג אלא נזק. refund הוא החזר לקונה על מה ששילם, ולא נקנה כאן דבר. insure נעשה מראש נגד נזק אפשרי, והמשפט מוסר שהנזק כבר קרה.</div>
+  
+  <div class="chips">
+    <span class="c b2">מתקדם</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="בינוני · mid3#11" data-a="0" data-o='[&quot;ingredients&quot;,&quot;material&quot;,&quot;product&quot;,&quot;substance&quot;]'>
+  <div class="sent">The old recipe uses only local <span class="bl" data-b="0"></span>, for instance wheat from the valley and olives from the hill behind the house.</div>
+  <div class="opts"><button class="opt" data-i="0">ingredients</button><button class="opt" data-i="1">material</button><button class="opt" data-i="2">product</button><button class="opt" data-i="3">substance</button></div>
+  <div class="exp hid"><b>דוגמה</b> · for instance — ‏recipe uses מחייב את הרכיבים שנכנסים לתבשיל, ו-local ingredients הוא הצירוף. material הוא חומר גלם לייצור, עץ, בד, מתכת, ולא רכיב מזון. product הוא התוצר הסופי שיוצא ונמכר, כלומר ההפך ממה שנכנס לתבשיל. substance הוא חומר במובן כימי או פיזיקלי, ואינו משמש למרכיבי מאכל במטבח.</div>
+  
+  <div class="chips">
+    <span class="c b1">בינוני</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="אקדמי · aca#1" data-a="0" data-o='[&quot;amend&quot;,&quot;correct&quot;,&quot;repair&quot;,&quot;restore&quot;]'>
+  <div class="sent">Since the wording is not wrong, only out of date, the council agrees to <span class="bl" data-b="0"></span> the clause rather than replace it entirely.</div>
+  <div class="opts"><button class="opt" data-i="0">amend</button><button class="opt" data-i="1">correct</button><button class="opt" data-i="2">repair</button><button class="opt" data-i="3">restore</button></div>
+  <div class="exp hid"><b>סיבה ותוצאה</b> · since — amend הוא הצירוף הקנוני לשינוי נוסח של סעיף (a clause is amended). correct נשלל בגוף המשפט: נאמר במפורש שהניסוח אינו שגוי, ולכן אין מה לתקן. repair חל על דבר שנשבר או ניזוק פיזית, לא על ניסוח. restore הוא החזרה למצב קודם, והמשפט מבקש עדכון קדימה מפני שהנוסח מיושן, לא שחזור.</div>
+  
+  <div class="chips">
+    <span class="c b3">אקדמי</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item t3" data-id="מתקדם · adv2#10" data-a="0" data-o='[[&quot;refuse&quot;,&quot;grant&quot;],[&quot;grant&quot;,&quot;refuse&quot;],[&quot;refuse&quot;,&quot;permit&quot;],[&quot;ignore&quot;,&quot;grant&quot;]]'>
+  <div class="sent">Although the two boards use one rulebook, the stricter of them may <span class="bl" data-b="0"></span> a request that the other would <span class="bl" data-b="1"></span> without debate.</div>
+  <div class="opts"><button class="opt" data-i="0">refuse … grant</button><button class="opt" data-i="1">grant … refuse</button><button class="opt" data-i="2">refuse … permit</button><button class="opt" data-i="3">ignore … grant</button></div>
+  <div class="exp hid"><b>ניגוד</b> · although — הצירופים הם refuse a request ו-grant a request. המילה stricter קובעת את הכיוון: הגוף המחמיר הוא שמסרב, ולכן הסדר ההפוך [grant, refuse] נופל בגוף המשפט, גוף מחמיר אינו זה שמאשר. [refuse, permit] נופל בחריץ השני: permit חל על פעולה שמותר לעשות, ואין permit a request באנגלית; בקשה מאשרים ב-grant. [ignore, grant] נופל בחריץ הראשון: המשפט מציב שתי הכרעות מנוגדות באותה בקשה, והתעלמות אינה הכרעה אלא היעדר טיפול.</div>
+  <div class="pref">הפותרים העדיפו: <b>reject+approve / refuse+grant</b> &nbsp;·&nbsp; המפתח: refuse+grant</div>
+  <div class="chips">
+    <span class="c b2">מתקדם</span>
+    <span class="c a">כיסוי הקשר: גבולי</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    <span class="c r">שני חסרים</span>
+  </div></div><div class="item loose" data-id="מתקדם · adv#3" data-a="0" data-o='[&quot;illustrate&quot;,&quot;demonstrate&quot;,&quot;decorate&quot;,&quot;exaggerate&quot;]'>
+  <div class="sent">The lecture was clear and well ordered; furthermore, the speaker used simple diagrams to <span class="bl" data-b="0"></span> each new term.</div>
+  <div class="opts"><button class="opt" data-i="0">illustrate</button><button class="opt" data-i="1">demonstrate</button><button class="opt" data-i="2">decorate</button><button class="opt" data-i="3">exaggerate</button></div>
+  <div class="exp hid"><b>הוספה</b> · furthermore — ‏תרשים שמבהיר מונח (illustrate) הוא הצירוף. demonstrate חל על תהליך או על מיומנות שמראים בפעולה, לא על משמעות של מילה. decorate נוגע למראה ולא להבנה, והמשפט מדגיש בהירות וסדר. exaggerate הוא הגזמה, וזה סותר את clear and well ordered.</div>
+  
+  <div class="chips">
+    <span class="c b2">מתקדם</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c a">הקשר רופף</span>
+    
+  </div></div><div class="item t3" data-id="בינוני · mid#8" data-a="0" data-o='[&quot;equipment&quot;,&quot;material&quot;,&quot;device&quot;,&quot;machine&quot;]'>
+  <div class="sent">Climbers carry heavy <span class="bl" data-b="0"></span>, such as ropes, metal hooks and a lamp for the last hours of the night.</div>
+  <div class="opts"><button class="opt" data-i="0">equipment</button><button class="opt" data-i="1">material</button><button class="opt" data-i="2">device</button><button class="opt" data-i="3">machine</button></div>
+  <div class="exp hid"><b>דוגמה</b> · such as — ‏החריץ הוא heavy ___ בלי תווית, ולכן רק equipment, שם עצם קולקטיבי בלתי ספיר, מתאים בו. device ו-machine ספירים ודורשים a, ומכונה גם מחייבת חלקים נעים ומקור כוח: חבל ואנקול אינם כאלה. material הוא החומר שממנו עשוי דבר, לא הכלים עצמם.</div>
+  <div class="pref">הפותרים העדיפו: <b>gear / equipment</b> &nbsp;·&nbsp; המפתח: equipment</div>
+  <div class="chips">
+    <span class="c b1">בינוני</span>
+    <span class="c a">כיסוי הקשר: גבולי</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="אקדמי · aca3#9" data-a="0" data-o='[&quot;saturated&quot;,&quot;dense&quot;,&quot;full&quot;,&quot;pure&quot;]'>
+  <div class="sent">Stirring adds nothing once no further crystal will dissolve; at that point the liquid is fully <span class="bl" data-b="0"></span> and the reading may be taken.</div>
+  <div class="opts"><button class="opt" data-i="0">saturated</button><button class="opt" data-i="1">dense</button><button class="opt" data-i="2">full</button><button class="opt" data-i="3">pure</button></div>
+  <div class="exp hid"><b>תנאי וזמן</b> · once — saturated הוא בדיוק המצב שבו הנוזל מכיל את הכמות המומסת המקסימלית, וזה מה שהמשפט מוסר, אין עוד גביש שיימס. dense הוא צפיפות המסה ביחס לנפח, ונוזל יכול להיות צפוף בלי להיות רווי. full חל על המכל שהתמלא עד שפתו, והמשפט אינו עוסק במפלס אלא ביכולת ההמסה. pure הוא נקי מכל חומר אחר, וזה ההפוך: תמיסה רוויה מכילה חומר מומס בכמות מקסימלית.</div>
+  
+  <div class="chips">
+    <span class="c b3">אקדמי</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item t3 loose" data-id="מתקדם · adv5#13" data-a="0" data-o='[&quot;dialect&quot;,&quot;vocabulary&quot;,&quot;nationality&quot;,&quot;literature&quot;]'>
+  <div class="sent">Words for everyday things, such as a bucket or a lane, still mark a speaker's <span class="bl" data-b="0"></span> within a single language.</div>
+  <div class="opts"><button class="opt" data-i="0">dialect</button><button class="opt" data-i="1">vocabulary</button><button class="opt" data-i="2">nationality</button><button class="opt" data-i="3">literature</button></div>
+  <div class="exp hid"><b>דוגמה</b> · such as — ‏dialect הוא הגרסה האזורית שבתוך שפה אחת, וזה מה ש-within a single language מחייב. vocabulary הוא אוצר המילים עצמו, ולכן המילים היו מסמנות את עצמן, והמשפט מבקש את מה שהן חושפות. nationality הוא השתייכות למדינה, והמשפט ממקם את ההבדל בתוך שפה אחת ולא בין עמים. literature הוא גוף הכתיבה, לא אופן דיבור.</div>
+  <div class="pref">הפותרים העדיפו: <b>dialect / origin</b> &nbsp;·&nbsp; המפתח: dialect</div>
+  <div class="chips">
+    <span class="c b2">מתקדם</span>
+    <span class="c a">כיסוי הקשר: גבולי</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c a">הקשר רופף</span>
+    
+  </div></div><div class="item t3 loose" data-id="מתקדם · adv3#3" data-a="0" data-o='[&quot;erosion&quot;,&quot;damage&quot;,&quot;decay&quot;,&quot;pollution&quot;]'>
+  <div class="sent">The river cut into the bank every winter; moreover, the loss of the tree roots increased the <span class="bl" data-b="0"></span> of the whole slope.</div>
+  <div class="opts"><button class="opt" data-i="0">erosion</button><button class="opt" data-i="1">damage</button><button class="opt" data-i="2">decay</button><button class="opt" data-i="3">pollution</button></div>
+  <div class="exp hid"><b>הוספה</b> · moreover — erosion הוא שחיקה הדרגתית של קרקע בידי מים, וזה בדיוק מה שהמשפט מוסר, חתירה שחוזרת every winter. damage נשלל בצירוף: damage נוטל תמיד to (damage to the slope) ולא the damage of, והוא גם נזק חד-פעמי לרכוש ולא תהליך שנחל חוזר עליו כל חורף. decay הוא ריקבון של חומר אורגני, ומדרון של אדמה ואבן אינו נרקב. pollution הוא זיהום, תוספת של חומר מזיק, והמשפט מתאר חומר שנלקח מהמדרון ולא חומר שמתווסף אליו.</div>
+  <div class="pref">הפותרים העדיפו: <b>instability / erosion</b> &nbsp;·&nbsp; המפתח: erosion</div>
+  <div class="chips">
+    <span class="c b2">מתקדם</span>
+    <span class="c a">כיסוי הקשר: גבולי</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c a">הקשר רופף</span>
+    
+  </div></div><div class="item ok" data-id="מתקדם · adv3#1" data-a="0" data-o='[&quot;diagnose&quot;,&quot;detect&quot;,&quot;predict&quot;,&quot;treat&quot;]'>
+  <div class="sent">The patient described every symptom in detail, yet only the new scan let the clinic <span class="bl" data-b="0"></span> the rare disorder before treatment began.</div>
+  <div class="opts"><button class="opt" data-i="0">diagnose</button><button class="opt" data-i="1">detect</button><button class="opt" data-i="2">predict</button><button class="opt" data-i="3">treat</button></div>
+  <div class="exp hid"><b>ניגוד</b> · yet — diagnose a disorder הוא הצירוף הקנוני, לקבוע איזו מחלה זו מתוך הראיות. detect הוא לגלות נוכחות של דבר נסתר, והמשפט מוסר שכל הסימנים כבר תוארו בפירוט, ולכן הנוכחות כבר ידועה; מה שחסר הוא השם. predict הוא לומר מה יקרה בעתיד, והמחלה כבר כאן. treat נשלל בגוף המשפט, נאמר במפורש before treatment began, ולכן הטיפול עוד לא התחיל וזה לא מה שהסריקה איפשרה.</div>
+  
+  <div class="chips">
+    <span class="c b2">מתקדם</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item miss loose" data-id="בינוני · mid3#9" data-a="0" data-o='[&quot;boil&quot;,&quot;roast&quot;,&quot;melt&quot;,&quot;burn&quot;]'>
+  <div class="sent">Wash the wild leaves twice; in addition, <span class="bl" data-b="0"></span> them in plenty of water before you add any salt or oil.</div>
+  <div class="opts"><button class="opt" data-i="0">boil</button><button class="opt" data-i="1">roast</button><button class="opt" data-i="2">melt</button><button class="opt" data-i="3">burn</button></div>
+  <div class="exp hid"><b>הוספה</b> · in addition — ‏in plenty of water הוא שמכריע: boil הוא הבישול במים רותחים. roast הוא צלייה בחום יבש בתנור או על אש, ואינה נעשית בתוך מים. melt דורש מוצק שנהפך לנוזל בחום, ועלים אינם נמסים. burn הוא לשרוף, כלומר לקלקל את המאכל, וגם אינו אפשרי כשהעלים מכוסים במים.</div>
+  <div class="pref">הפותרים העדיפו: <b>soak / soak</b> &nbsp;·&nbsp; המפתח: boil</div>
+  <div class="chips">
+    <span class="c b1">בינוני</span>
+    <span class="c r">כיסוי הקשר: נפסל</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c a">הקשר רופף</span>
+    
+  </div></div><div class="item ok" data-id="אקדמי · aca5#10" data-a="0" data-o='[&quot;heed&quot;,&quot;obey&quot;,&quot;follow&quot;,&quot;observe&quot;]'>
+  <div class="sent">Every officer had read the warning twice, and yet no one would <span class="bl" data-b="0"></span> it before the second engine finally failed.</div>
+  <div class="opts"><button class="opt" data-i="0">heed</button><button class="opt" data-i="1">obey</button><button class="opt" data-i="2">follow</button><button class="opt" data-i="3">observe</button></div>
+  <div class="exp hid"><b>ניגוד</b> · yet — heed a warning הוא הצירוף הקנוני, לתת לאזהרה משקל ולפעול לפיה. obey נאמר על פקודה, על כלל או על אדם בעל סמכות, ואזהרה אינה הוראה שמצייתים לה. follow נאמר על הוראות או על עצה (follow instructions) ולא על אזהרה. observe במשמעות של קיום נאמר על כלל, חוק או מנהג, ובמשמעות של התבוננות הוא נשלל בגוף המשפט, שכן נאמר שכולם קראו את האזהרה פעמיים.</div>
+  
+  <div class="chips">
+    <span class="c b3">אקדמי</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="מתקדם · adv5#3" data-a="0" data-o='[&quot;accompany&quot;,&quot;imitate&quot;,&quot;echo&quot;,&quot;replace&quot;]'>
+  <div class="sent">The choir sang the first verse alone; moreover, a quiet harp then began to <span class="bl" data-b="0"></span> the voices without repeating their notes.</div>
+  <div class="opts"><button class="opt" data-i="0">accompany</button><button class="opt" data-i="1">imitate</button><button class="opt" data-i="2">echo</button><button class="opt" data-i="3">replace</button></div>
+  <div class="exp hid"><b>הוספה</b> · moreover — ‏נגינה יחד עם זמרה היא accompany, וזה הצירוף המוזיקלי הקנוני. imitate הוא לחזור על אותם צלילים, ונשלל בגוף המשפט (without repeating their notes). echo הוא החזרה של צליל שכבר נשמע, ולכן הוא גם חוזר וגם בא אחרי, ושני הדברים נשללים. replace הוא לבוא במקומן, והמשפט מוסר שהקולות ממשיכים והנבל מצטרף אליהם.</div>
+  
+  <div class="chips">
+    <span class="c b2">מתקדם</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="בינוני · mid2#8" data-a="0" data-o='[&quot;apply&quot;,&quot;register&quot;,&quot;volunteer&quot;,&quot;compete&quot;]'>
+  <div class="sent">Unless the deadline is moved, teachers who want the new post must <span class="bl" data-b="0"></span> before Friday afternoon.</div>
+  <div class="opts"><button class="opt" data-i="0">apply</button><button class="opt" data-i="1">register</button><button class="opt" data-i="2">volunteer</button><button class="opt" data-i="3">compete</button></div>
+  <div class="exp hid"><b>תנאי וזמן</b> · unless — ‏apply for a post הוא הצירוף להגשת מועמדות למשרה, ו-deadline מחייב הגשה. register הוא רישום שמך ברשימה רשמית, ואין בו מועמדות ואין בו הכרעה מי ייבחר. volunteer הוא להציע את עצמך לעבודה בלי תמורה, והמשפט מוסר משרה. compete הוא להתמודד מול אחרים, וזה קורה אחרי ההגשה ולא לפני המועד האחרון.</div>
+  
+  <div class="chips">
+    <span class="c b1">בינוני</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item loose" data-id="בינוני · mid4#3" data-a="0" data-o='[&quot;assignment&quot;,&quot;lecture&quot;,&quot;task&quot;,&quot;duty&quot;]'>
+  <div class="sent">The exam covers three chapters; in addition, every student must hand in a written <span class="bl" data-b="0"></span> by the end of the month.</div>
+  <div class="opts"><button class="opt" data-i="0">assignment</button><button class="opt" data-i="1">lecture</button><button class="opt" data-i="2">task</button><button class="opt" data-i="3">duty</button></div>
+  <div class="exp hid"><b>הוספה</b> · in addition — ‏hand in an assignment הוא הצירוף לעבודה שמורה מטיל ושתלמיד מגיש בתאריך. lecture נמסר בפה על ידי המרצה, ותלמיד אינו מגיש הרצאה כתובה. task הוא מטלה כללית בלי ההקשר הלימודי, ואין אומרים hand in a task. duty היא חובה שנובעת מתפקיד, לא פריט עבודה שמוגש.</div>
+  
+  <div class="chips">
+    <span class="c b1">בינוני</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c a">הקשר רופף</span>
+    
+  </div></div><div class="item ok" data-id="אקדמי · aca2#4" data-a="0" data-o='[&quot;convene&quot;,&quot;assemble&quot;,&quot;gather&quot;,&quot;invite&quot;]'>
+  <div class="sent">Unless the chair agrees to <span class="bl" data-b="0"></span> the council before the recess, the trade measure will wait another full year.</div>
+  <div class="opts"><button class="opt" data-i="0">convene</button><button class="opt" data-i="1">assemble</button><button class="opt" data-i="2">gather</button><button class="opt" data-i="3">invite</button></div>
+  <div class="exp hid"><b>תנאי וזמן</b> · unless — convene a council הוא הצירוף הקנוני לכינוס גוף רשמי למושב. assemble הוא איסוף פיזי של חלקים או של קהל למקום אחד, ואינו פותח מושב של מוסד. gather הוא התכנסות בלתי-פורמלית או איסוף של דברים, ואין בו הסמכות הפורמלית שהמשפט מייחס ליושב הראש. invite הוא הזמנה של אנשים להגיע, והזמנה אינה פותחת מושב, המשפט מוסר שבלי הפעולה הזאת אי אפשר לדון בהצעה כלל.</div>
+  
+  <div class="chips">
+    <span class="c b3">אקדמי</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="מתקדם · adv5#12" data-a="0" data-o='[[&quot;emphasize&quot;,&quot;mention&quot;],[&quot;mention&quot;,&quot;emphasize&quot;],[&quot;emphasize&quot;,&quot;quote&quot;],[&quot;outline&quot;,&quot;mention&quot;]]'>
+  <div class="sent">A good abstract must <span class="bl" data-b="0"></span> the main claim and merely <span class="bl" data-b="1"></span> the side results; hers, however, did exactly the opposite.</div>
+  <div class="opts"><button class="opt" data-i="0">emphasize … mention</button><button class="opt" data-i="1">mention … emphasize</button><button class="opt" data-i="2">emphasize … quote</button><button class="opt" data-i="3">outline … mention</button></div>
+  <div class="exp hid"><b>ניגוד</b> · however — ‏הטענה המרכזית מקבלת משקל (emphasize) והתוצאות הצדדיות נזכרות בקצרה, mention, וזה מה ש-merely מסמן. הסדר ההפוך [mention, emphasize] הופך את סדר החשיבות שהמשפט קובע, ו-merely אינו יכול לחול על הדגשה. [emphasize, quote] נופל בחריץ השני: ציטוט הוא שחזור מדויק של הנוסח, ואילו merely דורש אזכור קצר. [outline, mention] נופל בחריץ הראשון: outline פורש את כל החלקים בשווה ולכן אינו מעניק לטענה משקל עודף.</div>
+  
+  <div class="chips">
+    <span class="c b2">מתקדם</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    <span class="c r">שני חסרים</span>
+  </div></div><div class="item t3 loose" data-id="בינוני · mid3#12" data-a="0" data-o='[&quot;stream&quot;,&quot;flood&quot;,&quot;pipe&quot;,&quot;wave&quot;]'>
+  <div class="sent">Unless the old spring is cleared of dead leaves, only a thin <span class="bl" data-b="0"></span> of water will reach the fields below.</div>
+  <div class="opts"><button class="opt" data-i="0">stream</button><button class="opt" data-i="1">flood</button><button class="opt" data-i="2">pipe</button><button class="opt" data-i="3">wave</button></div>
+  <div class="exp hid"><b>תנאי וזמן</b> · unless — ‏a thin stream of water הוא הצירוף לפלג מים צר שזורם בערוץ, וזה מה שמגיע אל השדות. flood נשלל במפורש על ידי thin: הצפה היא כמות עצומה, ההפך מדק. pipe הוא צינור, מבנה מלאכותי שאדם מתקין, והמשפט מוסר מעיין טבעי שנחסם בעלים; a pipe of water גם אינו צירוף. wave הוא גל, תנועה חד-פעמית על פני מים פתוחים, ואינו מוליך מים אל שדה.</div>
+  <div class="pref">הפותרים העדיפו: <b>trickle / trickle</b> &nbsp;·&nbsp; המפתח: stream</div>
+  <div class="chips">
+    <span class="c b1">בינוני</span>
+    <span class="c a">כיסוי הקשר: גבולי</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c a">הקשר רופף</span>
+    
+  </div></div><div class="item ok" data-id="מתקדם · adv#1" data-a="0" data-o='[&quot;suspend&quot;,&quot;postpone&quot;,&quot;cancel&quot;,&quot;abandon&quot;]'>
+  <div class="sent">The match had already begun and two goals had been scored, yet the referee agreed to <span class="bl" data-b="0"></span> play until the storm passed.</div>
+  <div class="opts"><button class="opt" data-i="0">suspend</button><button class="opt" data-i="1">postpone</button><button class="opt" data-i="2">cancel</button><button class="opt" data-i="3">abandon</button></div>
+  <div class="exp hid"><b>ניגוד</b> · yet — ‏suspend play הוא הצירוף לעצירה זמנית של משחק שנמצא באמצעו. postpone חל על מה שעוד לא התחיל, והמשפט מוסר במפורש שהמשחק כבר החל ושני שערים נכבשו. cancel ו-abandon הם ביטול סופי, והמשפט קובע חזרה מותנית (until the storm passed).</div>
+  
+  <div class="chips">
+    <span class="c b2">מתקדם</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item t3" data-id="מתקדם · adv4#2" data-a="0" data-o='[&quot;collapse&quot;,&quot;descend&quot;,&quot;decline&quot;,&quot;sink&quot;]'>
+  <div class="sent">Because the supporting wall had been removed, the whole ceiling began to <span class="bl" data-b="0"></span> within a single week.</div>
+  <div class="opts"><button class="opt" data-i="0">collapse</button><button class="opt" data-i="1">descend</button><button class="opt" data-i="2">decline</button><button class="opt" data-i="3">sink</button></div>
+  <div class="exp hid"><b>סיבה ותוצאה</b> · because — ‏קיר תומך שהוסר מוליד נפילה של המבנה אל תוך עצמו, וזה collapse. descend הוא ירידה מבוקרת, במדרגות, במטוס, ואינו כשל מבני. decline הוא ירידה בכמות או באיכות, או סירוב, ולא נפילה פיזית. sink הוא שקיעה לתוך נוזל או קרקע רכה, ומתחת לתקרה אין לא זה ולא זה.</div>
+  <div class="pref">הפותרים העדיפו: <b>sag / sag</b> &nbsp;·&nbsp; המפתח: collapse</div>
+  <div class="chips">
+    <span class="c b2">מתקדם</span>
+    <span class="c a">כיסוי הקשר: גבולי</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item miss" data-id="אקדמי · aca#7" data-a="0" data-o='[&quot;concede&quot;,&quot;surrender&quot;,&quot;forfeit&quot;,&quot;abandon&quot;]'>
+  <div class="sent">He had defended the figure for a whole hour; even so, once the audit proved him wrong, he agreed to <span class="bl" data-b="0"></span> the argument.</div>
+  <div class="opts"><button class="opt" data-i="0">concede</button><button class="opt" data-i="1">surrender</button><button class="opt" data-i="2">forfeit</button><button class="opt" data-i="3">abandon</button></div>
+  <div class="exp hid"><b>ניגוד</b> · even so — concede an argument הוא הצירוף הקנוני להודאה שהצד השני צדק. surrender חל על נשק, על צבא או על שטח. forfeit הוא אובדן זכות, משחק או פיקדון בשל כלל או עונש, לא בשל הפרכה. abandon הוא נטישה של דבר שלא הושלם, והמשפט מוסר שהעניין דווקא הוכרע: הביקורת הפריכה אותו, ולכן הוא מודה ולא פשוט הולך.</div>
+  <div class="pref">הפותרים העדיפו: <b>abandon / drop</b> &nbsp;·&nbsp; המפתח: concede</div>
+  <div class="chips">
+    <span class="c b3">אקדמי</span>
+    <span class="c r">כיסוי הקשר: נפסל</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="בינוני · mid#2" data-a="0" data-o='[&quot;reject&quot;,&quot;deny&quot;,&quot;forbid&quot;,&quot;resist&quot;]'>
+  <div class="sent">Although the plan was reasonable, the council decided to <span class="bl" data-b="0"></span> it after a single short debate.</div>
+  <div class="opts"><button class="opt" data-i="0">reject</button><button class="opt" data-i="1">deny</button><button class="opt" data-i="2">forbid</button><button class="opt" data-i="3">resist</button></div>
+  <div class="exp hid"><b>ניגוד</b> · although — ‏although מול reasonable מחייב הכרעה שלילית, ו-reject a plan הוא הצירוף להכרעה על הצעה שהוגשה. deny חל על טענה או על בקשה, לא על תוכנית; forbid אוסר פעולה עתידית ולא מכריע לגבי מסמך; resist הוא לעמוד בפני לחץ, והמועצה היא זו שבידה ההחלטה.</div>
+  
+  <div class="chips">
+    <span class="c b1">בינוני</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item t3" data-id="בינוני · mid4#8" data-a="0" data-o='[&quot;stamina&quot;,&quot;strength&quot;,&quot;muscle&quot;,&quot;talent&quot;]'>
+  <div class="sent">Speed alone does not win a long race; likewise, running hour after hour demands <span class="bl" data-b="0"></span> that no short sprint ever tests.</div>
+  <div class="opts"><button class="opt" data-i="0">stamina</button><button class="opt" data-i="1">strength</button><button class="opt" data-i="2">muscle</button><button class="opt" data-i="3">talent</button></div>
+  <div class="exp hid"><b>הוספה</b> · likewise — ‏stamina הוא היכולת להחזיק מאמץ לאורך זמן, וזה מה ש-hour after hour מחייב. strength הוא כוח למאמץ בודד, וספרינט דווקא כן בודק אותו, ולכן הוא נופל על no short sprint ever tests. muscle הוא רקמה בגוף ולא יכולת, ולרצי ספרינט יש שרירים. talent הוא מתת טבעית שקיימת מראש ואינה שייכת דווקא לסבולת.</div>
+  <div class="pref">הפותרים העדיפו: <b>endurance / endurance</b> &nbsp;·&nbsp; המפתח: stamina</div>
+  <div class="chips">
+    <span class="c b1">בינוני</span>
+    <span class="c a">כיסוי הקשר: גבולי</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="מתקדם · adv#5" data-a="0" data-o='[&quot;hibernate&quot;,&quot;migrate&quot;,&quot;retreat&quot;,&quot;settle&quot;]'>
+  <div class="sent">Food vanishes from the high meadow in winter, and several small mammals, such as the ground squirrel, <span class="bl" data-b="0"></span> rather than move to lower ground.</div>
+  <div class="opts"><button class="opt" data-i="0">hibernate</button><button class="opt" data-i="1">migrate</button><button class="opt" data-i="2">retreat</button><button class="opt" data-i="3">settle</button></div>
+  <div class="exp hid"><b>דוגמה</b> · such as — ‏hibernate הוא שינה לאורך כל החורף במקום עזיבת המקום. שלושת האחרים הם פעלי תנועה, והמשפט שולל תנועה במפורש (rather than move to lower ground): migrate הוא נדידה עונתית, retreat הוא נסיגה מהמקום, ו-settle הוא התיישבות במקום חדש.</div>
+  
+  <div class="chips">
+    <span class="c b2">מתקדם</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="אקדמי · aca3#13" data-a="0" data-o='[&quot;elusive&quot;,&quot;obscure&quot;,&quot;rare&quot;,&quot;hidden&quot;]'>
+  <div class="sent">Teams have hunted for the particle for thirty years with better and better tools, but it remains as <span class="bl" data-b="0"></span> as ever.</div>
+  <div class="opts"><button class="opt" data-i="0">elusive</button><button class="opt" data-i="1">obscure</button><button class="opt" data-i="2">rare</button><button class="opt" data-i="3">hidden</button></div>
+  <div class="exp hid"><b>ניגוד</b> · but — remains elusive הוא הצירוף הקנוני למטרה שמחמיקה מחיפוש ממושך. obscure הוא בלתי מוכר או קשה להבנה, והמשפט מוסר שצוותים רבים מחפשים אותו שנים, כלומר הוא מוכר היטב, והקושי הוא בתפיסה ולא בהבנה. rare הוא טענה על מספר מופעים, והמשפט אינו מוסר כמה מהם יש אלא שהחיפוש נכשל. hidden מחייב הסתרה או מקום מחבוא, ואין במשפט גורם שמסתיר; יש רק חמקנות מול מאמץ.</div>
+  
+  <div class="chips">
+    <span class="c b3">אקדמי</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item miss" data-id="אקדמי · aca2#13" data-a="0" data-o='[[&quot;administer&quot;,&quot;specify&quot;],[&quot;specify&quot;,&quot;administer&quot;],[&quot;administer&quot;,&quot;assess&quot;],[&quot;oversee&quot;,&quot;specify&quot;]]'>
+  <div class="sent">Although the office may <span class="bl" data-b="0"></span> the fund day to day, paying each bill itself, only the council can <span class="bl" data-b="1"></span> how much goes to housing.</div>
+  <div class="opts"><button class="opt" data-i="0">administer … specify</button><button class="opt" data-i="1">specify … administer</button><button class="opt" data-i="2">administer … assess</button><button class="opt" data-i="3">oversee … specify</button></div>
+  <div class="exp hid"><b>ניגוד</b> · although — המשרד מנהל את הקרן (administer the fund) והמועצה קובעת במדויק (specify how much goes to housing). הזוג ההפוך specify/administer נופל בשני החריצים: אין מפרטים קרן מיום ליום, ו-administer לוקח דבר או תוכנית כמושא ולא פסוקית how much. assess בחריץ השני נשלל כי הוא אמדן של גודל או של שווי, והמועצה מחליטה על החלק ואינה מעריכה אותו. oversee בחריץ הראשון נשלל בגוף המשפט: פיקוח הוא השגחה על עבודה שאחרים עושים, והמשפט מוסר paying each bill itself, כלומר המשרד עושה את העבודה בעצמו.</div>
+  <div class="pref">הפותרים העדיפו: <b>administer+decide / administer+decide</b> &nbsp;·&nbsp; המפתח: administer+specify</div>
+  <div class="chips">
+    <span class="c b3">אקדמי</span>
+    <span class="c r">כיסוי הקשר: נפסל</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    <span class="c r">שני חסרים</span>
+  </div></div><div class="item ok" data-id="בינוני · mid2#2" data-a="0" data-o='[&quot;valid&quot;,&quot;legal&quot;,&quot;formal&quot;,&quot;absolute&quot;]'>
+  <div class="sent">Once the stamp is added by the clerk, the parking card stays <span class="bl" data-b="0"></span> until the end of the year.</div>
+  <div class="opts"><button class="opt" data-i="0">valid</button><button class="opt" data-i="1">legal</button><button class="opt" data-i="2">formal</button><button class="opt" data-i="3">absolute</button></div>
+  <div class="exp hid"><b>תנאי וזמן</b> · once — ‏המשפט מוסר תקופת תוקף (until the end of the year) ורק valid נושא תוקף שנגמר בתאריך; a card stays valid הוא הצירוף. legal נוגע לשאלה אם פעולה מפרה את החוק, וכרטיס חנייה אינו לא-חוקי. formal חל על צורה או על סגנון רשמי, לא על תוקף. absolute פירושו מוחלט ובלי הגבלה, והמשפט דווקא מגביל בזמן.</div>
+  
+  <div class="chips">
+    <span class="c b1">בינוני</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="מתקדם · v2#5" data-a="0" data-o='[&quot;cure&quot;,&quot;treat&quot;,&quot;relieve&quot;,&quot;remedy&quot;]'>
+  <div class="sent">The drug does not merely ease the symptoms for a few hours; taken daily, it can actually <span class="bl" data-b="0"></span> the illness.</div>
+  <div class="opts"><button class="opt" data-i="0">cure</button><button class="opt" data-i="1">treat</button><button class="opt" data-i="2">relieve</button><button class="opt" data-i="3">remedy</button></div>
+  <div class="exp hid"><b>ניגוד</b> · not merely — המשפט שולל במפורש הקלה זמנית, ולכן treat ו-relieve נופלים, הם בדיוק מה שנשלל. remedy חל על מצב או על פגם, לא על מחלה. רק cure הוא חיסול המחלה עצמה.</div>
+  
+  <div class="chips">
+    <span class="c b2">מתקדם</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="אקדמי · aca2#12" data-a="0" data-o='[[&quot;negotiate&quot;,&quot;enact&quot;],[&quot;enact&quot;,&quot;negotiate&quot;],[&quot;negotiate&quot;,&quot;confirm&quot;],[&quot;draft&quot;,&quot;enact&quot;]]'>
+  <div class="sent">Because the ministers may only <span class="bl" data-b="0"></span> the terms with the other side, an assembly alone can <span class="bl" data-b="1"></span> them into law.</div>
+  <div class="opts"><button class="opt" data-i="0">negotiate … enact</button><button class="opt" data-i="1">enact … negotiate</button><button class="opt" data-i="2">negotiate … confirm</button><button class="opt" data-i="3">draft … enact</button></div>
+  <div class="exp hid"><b>סיבה ותוצאה</b> · because — השרים מנהלים משא ומתן (negotiate the terms with the other side) והבית המחוקק חוקק אותם (enact them into law). הזוג ההפוך enact/negotiate נופל בשני החריצים: אין מנהלים משא ומתן על נוסח כדי להפוך אותו לחוק, ו-enact אינו לוקח with the other side, כי חקיקה נעשית בבית אחד ולא מול צד. confirm בחריץ השני נשלל כי אישור קובע שדבר תקף או נכון, ואינו יוצר תוקף חוקי חדש, והמשפט מוסר into law, כלומר יצירת החוק עצמה. draft בחריץ הראשון נשלל בגוף המשפט: ניסוח טיוטה נעשה לבד, ואילו הרמז with the other side מחייב פעולה מול צד שני.</div>
+  
+  <div class="chips">
+    <span class="c b3">אקדמי</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    <span class="c r">שני חסרים</span>
+  </div></div><div class="item ok" data-id="אקדמי · aca4#1" data-a="0" data-o='[&quot;decipher&quot;,&quot;translate&quot;,&quot;interpret&quot;,&quot;restore&quot;]'>
+  <div class="sent">The clay tablet is whole and every mark on it is sharp, yet no scholar has managed to <span class="bl" data-b="0"></span> the writing it carries.</div>
+  <div class="opts"><button class="opt" data-i="0">decipher</button><button class="opt" data-i="1">translate</button><button class="opt" data-i="2">interpret</button><button class="opt" data-i="3">restore</button></div>
+  <div class="exp hid"><b>ניגוד</b> · yet — decipher הוא הצירוף לפענוח כתב שאין יודעים לקרוא אותו (decipher a script). translate נשלל בגוף המשפט: תרגום מחייב שהלשון כבר מוכרת, והמשפט מוסר שאף חוקר לא הצליח בשלב הקודם לתרגום. interpret הוא פירוש המשמעות של טקסט שאפשר לקרוא, וכאן אפילו הקריאה לא צלחה. restore נשלל בגוף המשפט: הלוח שלם וכל סימן חד, ולכן אין מה לשחזר פיזית.</div>
+  
+  <div class="chips">
+    <span class="c b3">אקדמי</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item t3" data-id="אקדמי · aca4#4" data-a="0" data-o='[&quot;articulate&quot;,&quot;utter&quot;,&quot;convey&quot;,&quot;denote&quot;]'>
+  <div class="sent">The learners do produce both sounds, but they run them together, and only a few can <span class="bl" data-b="0"></span> the two vowels separately.</div>
+  <div class="opts"><button class="opt" data-i="0">articulate</button><button class="opt" data-i="1">utter</button><button class="opt" data-i="2">convey</button><button class="opt" data-i="3">denote</button></div>
+  <div class="exp hid"><b>ניגוד</b> · but — articulate הוא הפקה מובחנת ומדויקת של צליל דיבור, וזה מה שחסר. utter נשלל בגוף המשפט: נאמר במפורש שהלומדים כן מפיקים את שני הצלילים, ולכן ההפקה עצמה אינה החסר אלא ההבחנה ביניהם; ועוד, utter נוטה למושא של מילה או של קריאה, לא של תנועה בודדת. convey הוא העברת מידע או משמעות לנמען, לא ייצור צליל. denote הוא סימון משמעות, סימן או מילה מסמנים דבר, ודובר אינו 'מסמן' תנועה.</div>
+  <div class="pref">הפותרים העדיפו: <b>pronounce / pronounce</b> &nbsp;·&nbsp; המפתח: articulate</div>
+  <div class="chips">
+    <span class="c b3">אקדמי</span>
+    <span class="c a">כיסוי הקשר: גבולי</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="בינוני · mid#3" data-a="0" data-o='[&quot;budget&quot;,&quot;cost&quot;,&quot;price&quot;,&quot;expense&quot;]'>
+  <div class="sent">The hall was too small; furthermore, the <span class="bl" data-b="0"></span> the club set for the season did not allow renting a larger one.</div>
+  <div class="opts"><button class="opt" data-i="0">budget</button><button class="opt" data-i="1">cost</button><button class="opt" data-i="2">price</button><button class="opt" data-i="3">expense</button></div>
+  <div class="exp hid"><b>הוספה</b> · furthermore — ‏set a budget הוא הצירוף, ורק תקציב הוא סכום שגוף קובע מראש לתקופה, ולכן רק הוא יכול לא לאפשר. cost, price ו-expense הם הסכום שמשלמים עבור דבר מסוים: המועדון אינו קובע אותם לעונה שלמה, והם לא מתירים ולא אוסרים דבר.</div>
+  
+  <div class="chips">
+    <span class="c b1">בינוני</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="מתקדם · adv2#1" data-a="0" data-o='[&quot;appeal&quot;,&quot;objection&quot;,&quot;protest&quot;,&quot;petition&quot;]'>
+  <div class="sent">The panel had heard every witness and closed the file; even so, the losing side was still entitled to one formal <span class="bl" data-b="0"></span>.</div>
+  <div class="opts"><button class="opt" data-i="0">appeal</button><button class="opt" data-i="1">objection</button><button class="opt" data-i="2">protest</button><button class="opt" data-i="3">petition</button></div>
+  <div class="exp hid"><b>ניגוד</b> · even so — הצירוף הקנוני הוא an appeal against a decision, בקשה מוסדרת לגוף אחר לבטל הכרעה שכבר ניתנה, וזה מה שההקשר מחייב אחרי שכל העדים נשמעו והתיק נסגר. objection נופל בגוף המשפט: התנגדות מועלית תוך כדי הדיון ולפני ההכרעה, והדיון כאן כבר הסתיים. protest הוא הבעת מחאה פומבית, אין לה מעמד מול הפאנל והיא אינה זכות שמוקנית לצד. petition הוא בקשה מוסדרת לרשות בעניין חדש, בדרך כלל בשם רבים, ואינו הכלי לתקיפת הכרעה בתיק שנדון.</div>
+  
+  <div class="chips">
+    <span class="c b2">מתקדם</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="בסיס · base3#4" data-a="0" data-o='[&quot;bridge&quot;,&quot;gate&quot;,&quot;path&quot;,&quot;tower&quot;]'>
+  <div class="sent">The old road ends at the river, and the new <span class="bl" data-b="0"></span> over it is also closed until the summer.</div>
+  <div class="opts"><button class="opt" data-i="0">bridge</button><button class="opt" data-i="1">gate</button><button class="opt" data-i="2">path</button><button class="opt" data-i="3">tower</button></div>
+  <div class="exp hid"><b>הוספה</b> · also — גשר הוא מה שעובר מעל נהר, ו-over the river הוא שמכריע. gate נפתח בכניסה לחצר או לעיר ואינו חוצה נהר. path הוא מסלול הליכה על הקרקע, ואינו נבנה מעל מים. tower עומד במקום אחד ואינו מעביר איש מצד לצד.</div>
+  
+  <div class="chips">
+    <span class="c b0">בסיס</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item miss" data-id="מתקדם · adv3#10" data-a="0" data-o='[[&quot;melt&quot;,&quot;rise&quot;],[&quot;rise&quot;,&quot;melt&quot;],[&quot;melt&quot;,&quot;drain&quot;],[&quot;freeze&quot;,&quot;rise&quot;]]'>
+  <div class="sent">Because the ice on the high ridge begins to <span class="bl" data-b="0"></span> each spring, the streams below <span class="bl" data-b="1"></span> and flood the low fields.</div>
+  <div class="opts"><button class="opt" data-i="0">melt … rise</button><button class="opt" data-i="1">rise … melt</button><button class="opt" data-i="2">melt … drain</button><button class="opt" data-i="3">freeze … rise</button></div>
+  <div class="exp hid"><b>סיבה ותוצאה</b> · because — הקרח נמס (melt) והמים שנוספים מעלים את מפלס הנחלים (rise). הסדר ההפוך [rise, melt] נופל בשני החריצים: קרח על רכס אינו עולה, ונחל אינו נמס, רק מוצק נמס. [melt, drain] נופל בחריץ השני: drain הוא התרוקנות וירידת מפלס, וזה סותר את flood the low fields שבסוף המשפט. [freeze, rise] נופל בחריץ הראשון: קפיאה סותרת את each spring ואת התחלת ההפשרה, וקרח שקופא אינו משחרר מים אלא כובל אותם.</div>
+  <div class="pref">הפותרים העדיפו: <b>melt+swell / melt+swell</b> &nbsp;·&nbsp; המפתח: melt+rise</div>
+  <div class="chips">
+    <span class="c b2">מתקדם</span>
+    <span class="c r">כיסוי הקשר: נפסל</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    <span class="c r">שני חסרים</span>
+  </div></div><div class="item loose" data-id="בסיס · base2#3" data-a="0" data-o='[&quot;mix&quot;,&quot;join&quot;,&quot;connect&quot;,&quot;cross&quot;]'>
+  <div class="sent">Because the sugar must go into every part of the bread, you have to <span class="bl" data-b="0"></span> it with the milk first.</div>
+  <div class="opts"><button class="opt" data-i="0">mix</button><button class="opt" data-i="1">join</button><button class="opt" data-i="2">connect</button><button class="opt" data-i="3">cross</button></div>
+  <div class="exp hid"><b>סיבה ותוצאה</b> · because — mix הוא פיזור חומר בתוך חומר עד שאינם נפרדים, וזה בדיוק go into every part. join הוא חיבור שני דברים שלמים כך שכל אחד נשאר מה שהוא, והסוכר צריך להיעלם בתוך הבצק. connect קושר שני דברים שנשארים נפרדים זה מזה, והסוכר אינו קושר דבר. cross הוא מעבר מצד אל צד, לא הפיכה לגוף אחד.</div>
+  
+  <div class="chips">
+    <span class="c b0">בסיס</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c a">הקשר רופף</span>
+    
+  </div></div><div class="item t3 loose" data-id="אקדמי · aca2#1" data-a="0" data-o='[&quot;overhaul&quot;,&quot;amend&quot;,&quot;revise&quot;,&quot;repair&quot;]'>
+  <div class="sent">Although a few clauses still work well, the committee voted to <span class="bl" data-b="0"></span> the entire tax code rather than patch it again.</div>
+  <div class="opts"><button class="opt" data-i="0">overhaul</button><button class="opt" data-i="1">amend</button><button class="opt" data-i="2">revise</button><button class="opt" data-i="3">repair</button></div>
+  <div class="exp hid"><b>ניגוד</b> · although — overhaul הוא הצירוף לשינוי מערכת שלמה מהיסוד (to overhaul a code). amend נשלל בגוף המשפט: הוא חל על סעיף בודד או על נוסח מסוים, והמשפט מוסר במפורש שמחליפים את הקוד כולו ולא מטליאים אותו שוב. revise הוא עיבוד מחדש של נוסח כתוב (revise a draft), ולכן שינוי טקסטואלי חלקי, ו-rather than patch it again פוסל אותו מאותה סיבה. repair חל על דבר שנשבר או ניזוק פיזית, והמשפט מוסר שכמה סעיפים דווקא עובדים היטב, אין כאן קלקול לתקן.</div>
+  <div class="pref">הפותרים העדיפו: <b>rewrite / replace</b> &nbsp;·&nbsp; המפתח: overhaul</div>
+  <div class="chips">
+    <span class="c b3">אקדמי</span>
+    <span class="c a">כיסוי הקשר: גבולי</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c a">הקשר רופף</span>
+    
+  </div></div><div class="item ok" data-id="אקדמי · aca2#6" data-a="0" data-o='[&quot;uphold&quot;,&quot;defend&quot;,&quot;preserve&quot;,&quot;support&quot;]'>
+  <div class="sent">Although the wording of the old rule is clumsy, the tribunal chose to <span class="bl" data-b="0"></span> the earlier ruling instead of setting it aside.</div>
+  <div class="opts"><button class="opt" data-i="0">uphold</button><button class="opt" data-i="1">defend</button><button class="opt" data-i="2">preserve</button><button class="opt" data-i="3">support</button></div>
+  <div class="exp hid"><b>ניגוד</b> · although — uphold a ruling הוא הצירוף הקנוני להחלטה של גוף שופט להשאיר הכרעה קודמת על כנה. defend הוא טיעון בעד דבר מול תקיפה, ומי שמגן הוא צד למחלוקת; הטריבונל אינו צד, הוא המכריע. preserve הוא שמירה על דבר מפני אובדן או קלקול לאורך זמן, וההכרעה כאן אינה בסכנת אובדן אלא בסכנת ביטול. support הוא מתן גיבוי או עזרה, והמשפט דורש פעולה משפטית מחייבת שמשאירה את ההכרעה בתוקף, לא הבעת תמיכה בה.</div>
+  
+  <div class="chips">
+    <span class="c b3">אקדמי</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="אקדמי · aca4#3" data-a="0" data-o='[&quot;legible&quot;,&quot;apparent&quot;,&quot;distinct&quot;,&quot;obscure&quot;]'>
+  <div class="sent">Once the damp is drawn out of the paper, the faded entries become <span class="bl" data-b="0"></span> again, and a clerk can copy them by hand.</div>
+  <div class="opts"><button class="opt" data-i="0">legible</button><button class="opt" data-i="1">apparent</button><button class="opt" data-i="2">distinct</button><button class="opt" data-i="3">obscure</button></div>
+  <div class="exp hid"><b>תנאי וזמן</b> · once — legible הוא הצירוף לכתב שאפשר לקרוא אותו, וזה בדיוק מה שהמשפט מחייב, פקיד שמעתיק את הרשומות ביד. apparent חל על עובדה או על מצב שנעשים ברורים לתפיסה, לא על אות שאפשר לקרוא. distinct הוא הבחנה בין דבר לדבר, צורה שמובדלת מרקע, ואינו אומר דבר על יכולת קריאה. obscure הוא ההיפך הגמור: סתום או מטושטש, והמשפט מוסר שהלחות הוסרה וההעתקה חזרה להיות אפשרית.</div>
+  
+  <div class="chips">
+    <span class="c b3">אקדמי</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="בינוני · mid#4" data-a="0" data-o='[&quot;achieve&quot;,&quot;win&quot;,&quot;earn&quot;,&quot;gain&quot;]'>
+  <div class="sent">Because the team trained through the winter, it was able to <span class="bl" data-b="0"></span> every goal it had set in autumn.</div>
+  <div class="opts"><button class="opt" data-i="0">achieve</button><button class="opt" data-i="1">win</button><button class="opt" data-i="2">earn</button><button class="opt" data-i="3">gain</button></div>
+  <div class="exp hid"><b>סיבה ותוצאה</b> · because — ‏achieve a goal הוא הצירוף. win דורש יריב או תחרות, והמשפט מוסר יעד שהקבוצה קבעה לעצמה; earn הוא לקבל בתמורה למאמץ (כסף, כבוד, אמון), לא להשיג יעד; gain הוא תוספת למשהו שכבר קיים (משקל, ניסיון), לא השלמת מטרה.</div>
+  
+  <div class="chips">
+    <span class="c b1">בינוני</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item t3" data-id="מתקדם · adv3#9" data-a="0" data-o='[&quot;fragile&quot;,&quot;delicate&quot;,&quot;hollow&quot;,&quot;stiff&quot;]'>
+  <div class="sent">Some rocks, such as slate and thin marble, are so <span class="bl" data-b="0"></span> that one light blow along the grain splits them.</div>
+  <div class="opts"><button class="opt" data-i="0">fragile</button><button class="opt" data-i="1">delicate</button><button class="opt" data-i="2">hollow</button><button class="opt" data-i="3">stiff</button></div>
+  <div class="exp hid"><b>דוגמה</b> · such as — fragile הוא נשבר בקלות, וזה מה שהמשפט מוסר, מכה אחת קלה מפצלת. delicate מתאר דבר עדין ומעודן שדורש טיפול זהיר בשל דקות העשייה שלו (בד, מנגנון, איזון), ולוח אבן גס אינו עדין. hollow הוא חלול, ריק מבפנים, והמשפט מתאר אבן מלאה שנשברת לאורך גרעין החומר. stiff הוא נוקשה, כלומר אינו מתכופף, וזו תכונה של חוסר גמישות, לא של נטייה להישבר; יש דברים נוקשים שאינם נשברים כלל.</div>
+  <div class="pref">הפותרים העדיפו: <b>brittle / brittle</b> &nbsp;·&nbsp; המפתח: fragile</div>
+  <div class="chips">
+    <span class="c b2">מתקדם</span>
+    <span class="c a">כיסוי הקשר: גבולי</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item miss loose" data-id="מתקדם · adv5#6" data-a="0" data-o='[[&quot;formulate&quot;,&quot;clarify&quot;],[&quot;clarify&quot;,&quot;formulate&quot;],[&quot;formulate&quot;,&quot;quote&quot;],[&quot;simplify&quot;,&quot;clarify&quot;]]'>
+  <div class="sent">The committee asked him to <span class="bl" data-b="0"></span> the rule in one sentence; moreover, a footnote had to <span class="bl" data-b="1"></span> every term it used.</div>
+  <div class="opts"><button class="opt" data-i="0">formulate … clarify</button><button class="opt" data-i="1">clarify … formulate</button><button class="opt" data-i="2">formulate … quote</button><button class="opt" data-i="3">simplify … clarify</button></div>
+  <div class="exp hid"><b>הוספה</b> · moreover — ‏formulate a rule הוא הצירוף לניסוח כלל מאפס, ו-clarify a term הוא הצירוף להבהרת מונח. הסדר ההפוך [clarify, formulate] נופל בשני החריצים: אין מה להבהיר בכלל שעדיין לא נוסח, והערת שוליים אינה מנסחת את הכלל, בשלב הזה הוא כבר קיים. [formulate, quote] נופל בחריץ השני: ציטוט משחזר נוסח מדויק בלי להוסיף הבהרה, והמשפט דורש שהמונחים יוסברו. [simplify, clarify] נופל בחריץ הראשון: simplify מניח נוסח קיים שקשה מדי, והמשפט מבקש להעמיד את הכלל במשפט אחד לראשונה.</div>
+  <div class="pref">הפותרים העדיפו: <b>summarize+define / state+define</b> &nbsp;·&nbsp; המפתח: formulate+clarify</div>
+  <div class="chips">
+    <span class="c b2">מתקדם</span>
+    <span class="c r">כיסוי הקשר: נפסל</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c a">הקשר רופף</span>
+    <span class="c r">שני חסרים</span>
+  </div></div><div class="item ok" data-id="אקדמי · aca2#8" data-a="0" data-o='[&quot;withhold&quot;,&quot;refuse&quot;,&quot;deny&quot;,&quot;retain&quot;]'>
+  <div class="sent">The regions sent their reports on time; moreover, the ministry has no right to <span class="bl" data-b="0"></span> the promised funds after the forms arrive.</div>
+  <div class="opts"><button class="opt" data-i="0">withhold</button><button class="opt" data-i="1">refuse</button><button class="opt" data-i="2">deny</button><button class="opt" data-i="3">retain</button></div>
+  <div class="exp hid"><b>הוספה</b> · moreover — withhold funds הוא הצירוף הקנוני לעיכוב כסף שמגיע למקבל. refuse הוא אמירת לא לבקשה, והמשפט אינו מוסר בקשה אלא כסף שהובטח מראש. deny הוא הכחשה של עובדה, או מנע גישה או היתר, ולא החזקה של סכום שכבר יוחד. retain הוא שמירה של מה ששייך לך; הכספים כאן הובטחו למחוזות, ולכן החזקתם אצל המשרד היא עיכוב ולא שמירה.</div>
+  
+  <div class="chips">
+    <span class="c b3">אקדמי</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="אקדמי · aca3#1" data-a="0" data-o='[&quot;undermine&quot;,&quot;impair&quot;,&quot;shatter&quot;,&quot;negate&quot;]'>
+  <div class="sent">The odd reading does not overturn the accepted rule, yet it is enough to <span class="bl" data-b="0"></span> the confidence that once surrounded it.</div>
+  <div class="opts"><button class="opt" data-i="0">undermine</button><button class="opt" data-i="1">impair</button><button class="opt" data-i="2">shatter</button><button class="opt" data-i="3">negate</button></div>
+  <div class="exp hid"><b>ניגוד</b> · yet — undermine confidence הוא הצירוף הקנוני להחלשה הדרגתית של ביטחון מלמטה, בלי לבטל אותו. shatter נשלל בגוף המשפט: הוא ריסוק פתאומי ומלא, והמשפט מוסר במפורש שהכלל לא הופל ושהקריאה רק הספיקה לפגוע. negate הוא ביטול גמור של תוקף או של השפעה, ולכן נופל מאותה סיבה, כאן נותר ביטחון, רק פחות. impair חל על תפקוד או על יכולת (שמיעה, שיפוט, ביצוע) ולא על ביטחון, ולכן הוא נפסל בצירוף.</div>
+  
+  <div class="chips">
+    <span class="c b3">אקדמי</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="אקדמי · aca#6" data-a="0" data-o='[&quot;discrepancy&quot;,&quot;mistake&quot;,&quot;conflict&quot;,&quot;contradiction&quot;]'>
+  <div class="sent">Each clerk counted the crates twice and made no error; furthermore, neither of them could explain the <span class="bl" data-b="0"></span> between the two totals.</div>
+  <div class="opts"><button class="opt" data-i="0">discrepancy</button><button class="opt" data-i="1">mistake</button><button class="opt" data-i="2">conflict</button><button class="opt" data-i="3">contradiction</button></div>
+  <div class="exp hid"><b>הוספה</b> · furthermore — הצירוף הקנוני הוא discrepancy between two totals, פער בין שני מספרים שאמורים היו לצאת זהים. mistake נשלל בגוף המשפט: נאמר במפורש שלא נעשתה טעות. conflict הוא התנגשות בין אנשים או בין אינטרסים. contradiction חל על טענות ועל אמירות, לא על סכומים.</div>
+  
+  <div class="chips">
+    <span class="c b3">אקדמי</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item t3" data-id="מתקדם · adv2#13" data-a="0" data-o='[&quot;acknowledge&quot;,&quot;admit&quot;,&quot;confess&quot;,&quot;declare&quot;]'>
+  <div class="sent">The office never answered the letter itself; however, a clerk did <span class="bl" data-b="0"></span> that the papers had arrived safely on the right desk.</div>
+  <div class="opts"><button class="opt" data-i="0">acknowledge</button><button class="opt" data-i="1">admit</button><button class="opt" data-i="2">confess</button><button class="opt" data-i="3">declare</button></div>
+  <div class="exp hid"><b>ניגוד</b> · however — acknowledge הוא לאשר קבלה של דבר או להכיר בקיומו, וזה הצירוף (acknowledge that the papers had arrived). admit חל על דבר לא נוח או על אשמה, והמשפט מוסר הגעה תקינה של מסמכים ואין בה מה להודות בו. confess הוא הודאה באשמה של עצמך, וקבלת מסמכים אינה אשמה. declare הוא הצהרה פומבית ורשמית על עמדה או על עובדה, והמשפט מוסר פקיד שמאשר פרט קטן ולא מצהיר הצהרה.</div>
+  <div class="pref">הפותרים העדיפו: <b>confirm / confirm</b> &nbsp;·&nbsp; המפתח: acknowledge</div>
+  <div class="chips">
+    <span class="c b2">מתקדם</span>
+    <span class="c a">כיסוי הקשר: גבולי</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item miss" data-id="אקדמי · aca#5" data-a="0" data-o='[&quot;alleviate&quot;,&quot;eliminate&quot;,&quot;cure&quot;,&quot;suppress&quot;]'>
+  <div class="sent">The grant cannot remove the shortage of housing; moreover, it is far too small to <span class="bl" data-b="0"></span> the crowding in the older districts.</div>
+  <div class="opts"><button class="opt" data-i="0">alleviate</button><button class="opt" data-i="1">eliminate</button><button class="opt" data-i="2">cure</button><button class="opt" data-i="3">suppress</button></div>
+  <div class="exp hid"><b>הוספה</b> · moreover — המשפט שולל הסרה מלאה במפורש (cannot remove) ולכן eliminate נופל, הוא בדיוק אותה הסרה מלאה שנשללה. cure חל על מחלה, לא על צפיפות דיור. suppress חל על מרד, על רגש או על מידע. alleviate הוא ההקלה החלקית, וזה כל מה שמענק קטן יכול לעשות.</div>
+  <div class="pref">הפותרים העדיפו: <b>relieve / ease</b> &nbsp;·&nbsp; המפתח: alleviate</div>
+  <div class="chips">
+    <span class="c b3">אקדמי</span>
+    <span class="c r">כיסוי הקשר: נפסל</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item t3" data-id="אקדמי · aca#2" data-a="0" data-o='[&quot;hinder&quot;,&quot;prevent&quot;,&quot;halt&quot;,&quot;block&quot;]'>
+  <div class="sent">The fog did not stop the search altogether; even so, it was enough to <span class="bl" data-b="0"></span> the volunteers, who reached the ridge two hours late.</div>
+  <div class="opts"><button class="opt" data-i="0">hinder</button><button class="opt" data-i="1">prevent</button><button class="opt" data-i="2">halt</button><button class="opt" data-i="3">block</button></div>
+  <div class="exp hid"><b>ניגוד</b> · even so — המשפט מוסר במפורש שהחיפוש לא נעצר ושהמתנדבים כן הגיעו לרכס, רק באיחור. לכן prevent, halt ו-block נופלים כולם בגוף המשפט, שלושתם עצירה מלאה של הפעולה, וזה בדיוק מה שנשלל. hinder הוא הכבדה והאטה בלי עצירה, וזה מה שקרה.</div>
+  <div class="pref">הפותרים העדיפו: <b>delay / delay</b> &nbsp;·&nbsp; המפתח: hinder</div>
+  <div class="chips">
+    <span class="c b3">אקדמי</span>
+    <span class="c a">כיסוי הקשר: גבולי</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="בינוני · mid2#9" data-a="0" data-o='[&quot;purchase&quot;,&quot;order&quot;,&quot;deal&quot;,&quot;exchange&quot;]'>
+  <div class="sent">Although the shop had cut every price in half, she made only one small <span class="bl" data-b="0"></span> and walked out again.</div>
+  <div class="opts"><button class="opt" data-i="0">purchase</button><button class="opt" data-i="1">order</button><button class="opt" data-i="2">deal</button><button class="opt" data-i="3">exchange</button></div>
+  <div class="exp hid"><b>ניגוד</b> · although — ‏make a purchase הוא הצירוף לקנייה בודדת בחנות. order הוא הזמנת סחורה לאספקה עתידית וצירופו אחר (place an order) והמשפט מתאר קנייה מהמדף. deal הוא הסכם שצדדים מנהלים ביניהם, ובחנות שכל מחיריה קבועים ומוזלים אין מה לנהל. exchange הוא החלפה של דבר בדבר, וכאן משולם כסף.</div>
+  
+  <div class="chips">
+    <span class="c b1">בינוני</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item miss" data-id="אקדמי · aca5#9" data-a="0" data-o='[[&quot;oblige&quot;,&quot;abide&quot;],[&quot;abide&quot;,&quot;oblige&quot;],[&quot;oblige&quot;,&quot;comply&quot;],[&quot;oblige&quot;,&quot;adhere&quot;]]'>
+  <div class="sent">The charter does not <span class="bl" data-b="0"></span> members to attend every session, but once a vote is taken each one must <span class="bl" data-b="1"></span> by it.</div>
+  <div class="opts"><button class="opt" data-i="0">oblige … abide</button><button class="opt" data-i="1">abide … oblige</button><button class="opt" data-i="2">oblige … comply</button><button class="opt" data-i="3">oblige … adhere</button></div>
+  <div class="exp hid"><b>תנאי וזמן</b> · once — oblige somebody to do something הוא הצירוף הקנוני להטלת חובה על אדם, ו-abide by a vote הוא הצירוף הקנוני לקבלת הכרעה שהתקבלה. הזוג ההפוך abide/oblige נופל בשני החריצים: abide אינו לוקח מושא ישיר, ואין אומרים abide members to attend; ו-oblige אינו לוקח by, ולכן oblige by it אינו דקדוקי. comply נשלל בחריץ השני מפני שהוא דורש with ולא by (comply with a decision), והמשפט כבר קבע את מילת היחס by. adhere נשלל מאותו טעם בדיוק, שכן הוא דורש to (adhere to a decision) ולא by.</div>
+  <div class="pref">הפותרים העדיפו: <b>require+abide / require+abide</b> &nbsp;·&nbsp; המפתח: oblige+abide</div>
+  <div class="chips">
+    <span class="c b3">אקדמי</span>
+    <span class="c r">כיסוי הקשר: נפסל</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    <span class="c r">שני חסרים</span>
+  </div></div><div class="item ok" data-id="בסיס · base#2" data-a="0" data-o='[&quot;destroy&quot;,&quot;damage&quot;,&quot;break&quot;,&quot;burn&quot;]'>
+  <div class="sent">Because the river rose for days, nothing of the old bridge was left; the water managed to <span class="bl" data-b="0"></span> it completely.</div>
+  <div class="opts"><button class="opt" data-i="0">destroy</button><button class="opt" data-i="1">damage</button><button class="opt" data-i="2">break</button><button class="opt" data-i="3">burn</button></div>
+  <div class="exp hid"><b>סיבה ותוצאה</b> · because — הרמז בגוף המשפט הוא שלא נשאר דבר מן הגשר, ולכן damage נופל, נזק הוא פגיעה חלקית בדבר שעדיין קיים. break הוא פיצול לחלקים, וגשר שנשבר עדיין נמצא שם; כאן לא נשאר כלום. burn נשלל בגוף המשפט: הגורם הוא מים, ומים אינם שורפים. רק destroy הוא חיסול מלא.</div>
+  
+  <div class="chips">
+    <span class="c b0">בסיס</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div><div class="item ok" data-id="בינוני · mid3#6" data-a="0" data-o='[&quot;sink&quot;,&quot;flood&quot;,&quot;fall&quot;,&quot;break&quot;]'>
+  <div class="sent">Although the small boat was already full of water, it did not <span class="bl" data-b="0"></span> until the last passenger reached the shore.</div>
+  <div class="opts"><button class="opt" data-i="0">sink</button><button class="opt" data-i="1">flood</button><button class="opt" data-i="2">fall</button><button class="opt" data-i="3">break</button></div>
+  <div class="exp hid"><b>ניגוד</b> · although — ‏sink הוא לשקוע מתחת לפני המים, וזה מה ש-full of water מוביל אליו. flood נשלל במפורש בגוף המשפט: הסירה already full of water, כלומר ההצפה כבר קרתה. fall דורש נפילה ממקום גבוה, וסירה שצפה על המים אינה נופלת. break הוא כשל מבני, והמשפט מוסר סירה מוצפת ושלמה.</div>
+  
+  <div class="chips">
+    <span class="c b1">בינוני</span>
+    <span class="c g">כיסוי הקשר: עבר</span>
+    <span class="c g">רב-ברירה: נכון</span>
+    <span class="c g">הקשר מהודק</span>
+    
+  </div></div>
+
+<div class="note">
+<b>מה כל שער מודד, ומה הוא לא.</b>
+<ul>
+<li><b>רב-ברירה</b> ⟵ 59/59. ⚠ <b>רווי, ולכן אינו מודד קושי</b> — הוא מוכיח רק שהפריט חד-משמעי. גם גרסה שבורה קיבלה כאן 100%.</li>
+<li><b>כיסוי הקשר</b> ⟵ המדידה שקובעת. הפותר מקבל את המשפט <b>בלי האפשרויות</b> וכותב מילה. אם הוא לא מגיע למפתח, ההקשר אינו מכריע אותו. זה מבטל אלימינציה לגמרי.</li>
+<li><b>נאותות אדוורסרית</b> ⟵ 59/59 נקי. שואל אם מסיח קרוב נפסל ברמז מפורש או בצירוף קנוני, או שהוא סתם "קצת לא".</li>
+<li>⚠ <b>מה שאף שער לא מודד: קושי אמיתי.</b> בוט חזק פותר את כל הרצועות, ולכן העקומה שטוחה. קושי נמדד רק על משתמשים באפליקציה.</li>
+<li>⚠ <b>שניים מהנפסלים הם באשמתי</b> ולא של הכותבים: הוריתי למַפְתֵּח מחדש שני פריטים כדי לפתור כפילות מפתח, והתיקון דחף אותם למילה פחות טבעית.</li>
+<li><b>הדפוס שחוזר בכל הנפסלים:</b> ההקשר בוחר את המילה <b>השכיחה</b>. stop &gt; halt · relieve &gt; alleviate · abandon &gt; concede · require &gt; oblige.</li>
+</ul>
+</div>
+</div>
+<script>
+document.querySelectorAll('.bar button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.bar button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  const f=b.dataset.f;
+  document.querySelectorAll('.item').forEach(it=>{
+    it.style.display = (f==='all'||it.classList.contains(f)) ? '' : 'none';
+  });
+});
+document.querySelectorAll('.item').forEach(item=>{
+  const a=+item.dataset.a, o=JSON.parse(item.dataset.o), opts=[...item.querySelectorAll('.opt')];
+  opts.forEach(b=>b.onclick=()=>{
+    if(b.classList.contains('done'))return;
+    const pick=+b.dataset.i, right=pick===a;
+    opts.forEach(x=>{x.classList.add('done'); if(+x.dataset.i===a)x.classList.add('ok'); else if(x===b)x.classList.add('no');});
+    const words=[].concat(o[pick]);
+    item.querySelectorAll('.bl').forEach((bl,j)=>{bl.outerHTML='<span class="fill'+(right?'':' bad')+'">'+words[j]+'</span>';});
+    item.querySelector('.exp').classList.remove('hid');
+  });
+});
+</script>

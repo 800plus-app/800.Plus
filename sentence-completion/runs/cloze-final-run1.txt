@@ -1,0 +1,25 @@
+1: audit, scrutinize, examine
+2: withhold, retain, delay
+3: administer+allocate, manage+determine
+4: accumulate+deplete, build+spend
+5: contaminate+exclude, spoil+omit
+6: predict, derive, deduce
+7: engrave+gild, carve+gild
+8: concur+dissent, agree+differ
+9: impartial, objective, unbiased
+10: memorable, eloquent, quotable
+11: enhance, sharpen, brighten
+12: coincide+diverge, match+differ
+13: retain, keep, reserve
+14: brittle, fragile, flimsy
+15: melt+rise, thaw+swell
+16: wrap+fasten, pack+secure
+17: stop+withstand, halt+endure
+18: accompany, complement, support
+19: distract, disturb, interrupt
+20: repetition, refrain, repetitiveness
+21: skill, craft, trade
+22: question, query, riddle
+23: boil, simmer, steep
+24: relative, guest, cousin
+25: endurance, stamina, persistence

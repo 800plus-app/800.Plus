@@ -1,0 +1,356 @@
+# 59 sentence-completion items. Choose the ONE option that best completes each sentence.
+# "___ ... ___" means two blanks: the option supplies both words, in order.
+
+1. Everyone understood the rules and nobody found a mistake in them, but no child could ___ the puzzle.
+   A) explain
+   B) solve
+   C) correct
+   D) answer
+
+2. He did not give up the theory; he chose only to ___ it from the journal until the new data arrived.
+   A) abandon
+   B) withdraw
+   C) dismiss
+   D) reject
+
+3. Although both come from one workshop, the valve must ___ the flow at once and the pipe must ___ pressure for years.
+   A) halt … withstand
+   B) withstand … halt
+   C) absorb … withstand
+   D) halt … absorb
+
+4. Until the office finds a new sponsor, it cannot ___ the water bill, and the service will stop.
+   A) sell
+   B) pay
+   C) spend
+   D) save
+
+5. If someone leaves the gate of the zoo open, a monkey can ___ and never come back.
+   A) escape
+   B) run
+   C) fall
+   D) jump
+
+6. Because the trader kept selling goods barred by the new rule, the office moved to ___ his permit for good.
+   A) suspend
+   B) revoke
+   C) cancel
+   D) restrict
+
+7. Because the handle must stay cool in the hand, the maker chose plastic: bare metal would ___ the heat straight to the fingers.
+   A) conduct
+   B) reflect
+   C) transmit
+   D) absorb
+
+8. Because the storm ruined a whole year of fruit, the growers asked the council to ___ them for the loss.
+   A) compensate
+   B) reward
+   C) insure
+   D) refund
+
+9. The old recipe uses only local ___, for instance wheat from the valley and olives from the hill behind the house.
+   A) material
+   B) ingredients
+   C) product
+   D) substance
+
+10. Since the wording is not wrong, only out of date, the council agrees to ___ the clause rather than replace it entirely.
+   A) correct
+   B) amend
+   C) repair
+   D) restore
+
+11. Although the two boards use one rulebook, the stricter of them may ___ a request that the other would ___ without debate.
+   A) grant … refuse
+   B) refuse … permit
+   C) refuse … grant
+   D) ignore … grant
+
+12. The lecture was clear and well ordered; furthermore, the speaker used simple diagrams to ___ each new term.
+   A) demonstrate
+   B) illustrate
+   C) exaggerate
+   D) decorate
+
+13. Climbers carry heavy ___, such as ropes, metal hooks and a lamp for the last hours of the night.
+   A) equipment
+   B) device
+   C) machine
+   D) material
+
+14. Stirring adds nothing once no further crystal will dissolve; at that point the liquid is fully ___ and the reading may be taken.
+   A) full
+   B) saturated
+   C) pure
+   D) dense
+
+15. Words for everyday things, such as a bucket or a lane, still mark a speaker's ___ within a single language.
+   A) vocabulary
+   B) literature
+   C) nationality
+   D) dialect
+
+16. The river cut into the bank every winter; moreover, the loss of the tree roots increased the ___ of the whole slope.
+   A) pollution
+   B) erosion
+   C) damage
+   D) decay
+
+17. The patient described every symptom in detail, yet only the new scan let the clinic ___ the rare disorder before treatment began.
+   A) predict
+   B) treat
+   C) detect
+   D) diagnose
+
+18. Wash the wild leaves twice; in addition, ___ them in plenty of water before you add any salt or oil.
+   A) roast
+   B) burn
+   C) melt
+   D) boil
+
+19. Every officer had read the warning twice, and yet no one would ___ it before the second engine finally failed.
+   A) observe
+   B) obey
+   C) heed
+   D) follow
+
+20. The choir sang the first verse alone; moreover, a quiet harp then began to ___ the voices without repeating their notes.
+   A) replace
+   B) imitate
+   C) echo
+   D) accompany
+
+21. Unless the deadline is moved, teachers who want the new post must ___ before Friday afternoon.
+   A) apply
+   B) compete
+   C) volunteer
+   D) register
+
+22. The exam covers three chapters; in addition, every student must hand in a written ___ by the end of the month.
+   A) duty
+   B) assignment
+   C) lecture
+   D) task
+
+23. Unless the chair agrees to ___ the council before the recess, the trade measure will wait another full year.
+   A) convene
+   B) assemble
+   C) invite
+   D) gather
+
+24. A good abstract must ___ the main claim and merely ___ the side results; hers, however, did exactly the opposite.
+   A) emphasize … quote
+   B) emphasize … mention
+   C) mention … emphasize
+   D) outline … mention
+
+25. Unless the old spring is cleared of dead leaves, only a thin ___ of water will reach the fields below.
+   A) stream
+   B) pipe
+   C) wave
+   D) flood
+
+26. The match had already begun and two goals had been scored, yet the referee agreed to ___ play until the storm passed.
+   A) suspend
+   B) abandon
+   C) postpone
+   D) cancel
+
+27. Because the supporting wall had been removed, the whole ceiling began to ___ within a single week.
+   A) collapse
+   B) decline
+   C) sink
+   D) descend
+
+28. He had defended the figure for a whole hour; even so, once the audit proved him wrong, he agreed to ___ the argument.
+   A) forfeit
+   B) surrender
+   C) concede
+   D) abandon
+
+29. Although the plan was reasonable, the council decided to ___ it after a single short debate.
+   A) deny
+   B) forbid
+   C) resist
+   D) reject
+
+30. Speed alone does not win a long race; likewise, running hour after hour demands ___ that no short sprint ever tests.
+   A) strength
+   B) stamina
+   C) talent
+   D) muscle
+
+31. Food vanishes from the high meadow in winter, and several small mammals, such as the ground squirrel, ___ rather than move to lower ground.
+   A) migrate
+   B) settle
+   C) hibernate
+   D) retreat
+
+32. Teams have hunted for the particle for thirty years with better and better tools, but it remains as ___ as ever.
+   A) elusive
+   B) rare
+   C) hidden
+   D) obscure
+
+33. Although the office may ___ the fund day to day, paying each bill itself, only the council can ___ how much goes to housing.
+   A) administer … assess
+   B) specify … administer
+   C) administer … specify
+   D) oversee … specify
+
+34. Once the stamp is added by the clerk, the parking card stays ___ until the end of the year.
+   A) absolute
+   B) legal
+   C) valid
+   D) formal
+
+35. The drug does not merely ease the symptoms for a few hours; taken daily, it can actually ___ the illness.
+   A) remedy
+   B) relieve
+   C) treat
+   D) cure
+
+36. Because the ministers may only ___ the terms with the other side, an assembly alone can ___ them into law.
+   A) enact … negotiate
+   B) negotiate … confirm
+   C) negotiate … enact
+   D) draft … enact
+
+37. The clay tablet is whole and every mark on it is sharp, yet no scholar has managed to ___ the writing it carries.
+   A) restore
+   B) interpret
+   C) decipher
+   D) translate
+
+38. The learners do produce both sounds, but they run them together, and only a few can ___ the two vowels separately.
+   A) utter
+   B) convey
+   C) articulate
+   D) denote
+
+39. The hall was too small; furthermore, the ___ the club set for the season did not allow renting a larger one.
+   A) expense
+   B) price
+   C) cost
+   D) budget
+
+40. The panel had heard every witness and closed the file; even so, the losing side was still entitled to one formal ___.
+   A) appeal
+   B) objection
+   C) protest
+   D) petition
+
+41. The old road ends at the river, and the new ___ over it is also closed until the summer.
+   A) tower
+   B) path
+   C) gate
+   D) bridge
+
+42. Because the ice on the high ridge begins to ___ each spring, the streams below ___ and flood the low fields.
+   A) rise … melt
+   B) melt … drain
+   C) melt … rise
+   D) freeze … rise
+
+43. Because the sugar must go into every part of the bread, you have to ___ it with the milk first.
+   A) mix
+   B) cross
+   C) join
+   D) connect
+
+44. Although a few clauses still work well, the committee voted to ___ the entire tax code rather than patch it again.
+   A) overhaul
+   B) revise
+   C) amend
+   D) repair
+
+45. Although the wording of the old rule is clumsy, the tribunal chose to ___ the earlier ruling instead of setting it aside.
+   A) preserve
+   B) defend
+   C) uphold
+   D) support
+
+46. Once the damp is drawn out of the paper, the faded entries become ___ again, and a clerk can copy them by hand.
+   A) distinct
+   B) obscure
+   C) legible
+   D) apparent
+
+47. Because the team trained through the winter, it was able to ___ every goal it had set in autumn.
+   A) achieve
+   B) win
+   C) gain
+   D) earn
+
+48. Some rocks, such as slate and thin marble, are so ___ that one light blow along the grain splits them.
+   A) delicate
+   B) fragile
+   C) hollow
+   D) stiff
+
+49. The committee asked him to ___ the rule in one sentence; moreover, a footnote had to ___ every term it used.
+   A) clarify … formulate
+   B) formulate … quote
+   C) formulate … clarify
+   D) simplify … clarify
+
+50. The regions sent their reports on time; moreover, the ministry has no right to ___ the promised funds after the forms arrive.
+   A) refuse
+   B) retain
+   C) withhold
+   D) deny
+
+51. The odd reading does not overturn the accepted rule, yet it is enough to ___ the confidence that once surrounded it.
+   A) undermine
+   B) impair
+   C) negate
+   D) shatter
+
+52. Each clerk counted the crates twice and made no error; furthermore, neither of them could explain the ___ between the two totals.
+   A) conflict
+   B) contradiction
+   C) discrepancy
+   D) mistake
+
+53. The office never answered the letter itself; however, a clerk did ___ that the papers had arrived safely on the right desk.
+   A) admit
+   B) confess
+   C) declare
+   D) acknowledge
+
+54. The grant cannot remove the shortage of housing; moreover, it is far too small to ___ the crowding in the older districts.
+   A) cure
+   B) suppress
+   C) eliminate
+   D) alleviate
+
+55. The fog did not stop the search altogether; even so, it was enough to ___ the volunteers, who reached the ridge two hours late.
+   A) hinder
+   B) halt
+   C) block
+   D) prevent
+
+56. Although the shop had cut every price in half, she made only one small ___ and walked out again.
+   A) order
+   B) deal
+   C) purchase
+   D) exchange
+
+57. The charter does not ___ members to attend every session, but once a vote is taken each one must ___ by it.
+   A) abide … oblige
+   B) oblige … abide
+   C) oblige … comply
+   D) oblige … adhere
+
+58. Because the river rose for days, nothing of the old bridge was left; the water managed to ___ it completely.
+   A) break
+   B) damage
+   C) destroy
+   D) burn
+
+59. Although the small boat was already full of water, it did not ___ until the last passenger reached the shore.
+   A) fall
+   B) flood
+   C) break
+   D) sink

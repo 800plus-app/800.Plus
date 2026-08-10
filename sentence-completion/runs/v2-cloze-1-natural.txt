@@ -1,0 +1,8 @@
+1: fault, break, flaw
+2: wasteland, badland, desert
+3: sincerity, remorse, contrition
+4: authenticate, validate, certify
+5: renege on, break, abandon
+6: determine, identify, ascertain
+7: cure, reverse, eradicate
+8: defuse, resolve, settle

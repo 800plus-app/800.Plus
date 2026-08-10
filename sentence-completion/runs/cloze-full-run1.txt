@@ -1,0 +1,204 @@
+1: eloquent, memorable, moving
+2: withdraw, retract, remove
+3: legible, readable, clear
+4: reinforce, strengthen, brace
+5: pay, settle, cover
+6: recite, recall, list
+7: confirm, verify, reconfirm
+8: echo, reverberation, ring
+9: inherit, claim, receive
+10: offset, compensate, correct
+11: error, mistake, slip
+12: commodity, material, metal
+13: budget, allowance, funds
+14: postpone, delay, defer
+15: frustration, despair, exasperation
+16: indifference, apathy, disinterest
+17: mediate, settle, arbitrate
+18: defer, yield, submit
+19: improvement, progress, gains
+20: delay, hinder, slow
+21: break, renege, abandon
+22: precedent, basis, standing
+23: diffuse, soften, filter
+24: nest, young, chicks
+25: hatch, develop, mature
+26: dissolve, disappear, melt
+27: emphasize + mention, stress + note, highlight + summarize
+28: distract, disturb, interrupt
+29: catch, seize, snatch
+30: undermine, weaken, erode
+31: carve + gild, engrave + paint, cut + coat
+32: escape, flee, wander
+33: permission, authorization, consent
+34: inspect, examine, check
+35: saturated, saturate, complete
+36: cancel, postpone, abandon
+37: agree + dissent, concur + differ, side + depart
+38: distance, gap, journey
+39: repetition, refrain, rhythm
+40: ban, prohibit, forbid
+41: summarize, condense, encapsulate
+42: outweigh, outnumber, override
+43: ratify, approve, register
+44: traffic, congestion, crowding
+45: allocate, assign, apportion
+46: hibernate, sleep, burrow
+47: decay, rot, deteriorate
+48: elusive, mysterious, invisible
+49: convene, summon, assemble
+50: incentive, motivation, reason
+51: forfeit, surrender, lose
+52: vacant, empty, available
+53: retain, keep, use
+54: uphold, affirm, confirm
+55: wrap + nail, pack + seal, bed + screw
+56: repeat, reproduce, perpetuate
+57: preserve + ruin, protect + destroy, keep + spoil
+58: cure, heal, eradicate
+59: instability, erosion, weakness
+60: yield + harvest, produce + gather, give + reap
+61: suspend, halt, stop
+62: amend, revise, update
+63: prey, victim, quarry
+64: support + distort, justify + skew, warrant + bias
+65: desert, wasteland, wilderness
+66: pronounce, distinguish, articulate
+67: valid, usable, current
+68: concise, substantive, dense
+69: depict, show, include
+70: derive, predict, calculate
+71: pronounce, repeat, say
+72: shatter, break, smash
+73: condone, tolerate, excuse
+74: endurance, stamina, patience
+75: relieve, ease, reduce
+76: solve, finish, crack
+77: bridge, crossing, span
+78: envy, resentment, jealousy
+79: determine, identify, establish
+80: sag, collapse, buckle
+81: reject, dismiss, drop
+82: opponent, rival, player
+83: bias, distortion, flaw
+84: qualify, register, practise
+85: luggage, baggage, bag
+86: neutral, impartial, noncommittal
+87: skill, craft, technique
+88: conduct, transfer, carry
+89: shortage, scarcity, lack
+90: price, cost, charge
+91: confirm, acknowledge, verify
+92: compensate, reimburse, repay
+93: discrepancy, difference, gap
+94: mandatory, compulsory, obligatory
+95: negotiate + enact, discuss + pass, agree + write
+96: negligence, carelessness, neglect
+97: heed, acknowledge, admit
+98: exhaustion, fatigue, sleeplessness
+99: match + differ, agree + diverge, coincide + disagree
+100: diagnose, identify, detect
+101: soak, boil, rinse
+102: illegal, unlawful, unauthorized
+103: charity, shelter, kitchen
+104: predator, hunter, bird
+105: freeze, harden, set
+106: rot, spoil, decay
+107: achieve, meet, attain
+108: boundary, border, division
+109: rehearse, practise, perform
+110: suggest + infer, indicate + deduce, hint + conclude
+111: refute, overturn, disprove
+112: burden, bill, load
+113: storm, gale, weather
+114: sink, capsize, founder
+115: guess, estimate, invent
+116: muscle, joint, tendon
+117: disprove, refute, break
+118: transfer, shift, move
+119: illustrate, explain, clarify
+120: protect, shield, insulate
+121: sincerity, honesty, remorse
+122: habit, compulsion, ritual
+123: destroy, demolish, remove
+124: state + define, summarize + explain, formulate + clarify
+125: detach, remove, unscrew
+126: compact, dense, solid
+127: abandon, drop, concede
+128: revise, update, correct
+129: relative, cousin, guest
+130: lock, secure, fasten
+131: contaminate + discard, spoil + destroy, infect + reject
+132: salary, wage, pay
+133: replace, rewrite, repeal
+134: damage, harm, rot
+135: revoke, cancel, withdraw
+136: wood, timber, pine
+137: draft + approve, prepare + endorse, write + ratify
+138: appeal, hearing, protest
+139: dose, spoon, measure
+140: obstacle, barrier, hindrance
+141: responsibility, duty, obligation
+142: apply, register, enrol
+143: restore, return, repaint
+144: decipher, read, translate
+145: ignore, disregard, defy
+146: administer + decide, manage + determine, run + rule
+147: melt + swell, thaw + rise, soften + overflow
+148: assemble, build, install
+149: shift, turn, watch
+150: expand + contract, lengthen + shrink, grow + narrow
+151: regain, recover, rebuild
+152: fault, flaw, break
+153: impose, add, charge
+154: span, roof, cover
+155: stop + withstand, cut + resist, halt + bear
+156: delegate, entrust, assign
+157: mix, dissolve, blend
+158: subject, course, discipline
+159: forgive, pardon, excuse
+160: comfort, relief, reassurance
+161: determine, establish, confirm
+162: equipment, gear, tools
+163: rainfall, snowfall, rain
+164: assignment, essay, report
+165: destination, island, stop
+166: match + differ, agree + change, repeat + vary
+167: explain + grasp, present + master, teach + absorb
+168: purchase, buy, order
+169: reputation, standing, authority
+170: deposit, security, guarantee
+171: route, road, detour
+172: unease, dread, anxiety
+173: commemorate, recall, mark
+174: sense, track, awareness
+175: thrive, survive, flourish
+176: require + abide, oblige + stand, compel + hold
+177: grass, crop, wheat
+178: plausible, circumstantial, speculative
+179: accumulate + spend, build + draw, save + use
+180: region, origin, dialect
+181: accompany, support, follow
+182: cliff, drop, precipice
+183: rule, regulation, ban
+184: oath, pledge, vow
+185: questions, items, facts
+186: notify, inform, alert
+187: negligible, tiny, insignificant
+188: withhold, delay, refuse
+189: audit, examine, review
+190: enhance, sharpen, improve
+191: preserve, cure, keep
+192: wait, sit, stay
+193: brittle, fragile, soft
+194: refuse + grant, reject + approve, deny + allow
+195: bind, stabilize, hold
+196: weave, make, plait
+197: ingredients, produce, foods
+198: understand, grasp, see
+199: specify, prescribe, define
+200: invalid, ambiguous, void
+201: diligent + frugal, industrious + thrifty, hardworking + careful
+202: tame, subdue, suppress
+203: ratify, approve, sign
+204: trickle, stream, flow
