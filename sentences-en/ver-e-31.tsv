@@ -14,8 +14,67 @@ coastline	OK
 coincidence	OK
 collaborate	OK
 collision	OK
-combine	FIX	Combine the flour and sugar.	"Mix and combine" is redundant
-commentary	FIX	The sports commentary explained each play in detail.	"quite perfectly" is redundant; "every single" repeated pattern
-classif... wait I need to recount carefully.
-
-Let me start over and write this more carefully. This format is critical.
+combine	FIX	You need to combine the flour and sugar together.	"Mix and combine" are redundant synonyms
+commentary	FIX	The sports commentary explained every play in detail.	"quite perfectly" is redundant phrasing
+commerce	OK
+comparison	OK
+compensate	OK
+complication	OK
+compost	OK
+comprehension	OK
+compress	OK
+conclude	OK
+confront	OK
+confrontation	OK
+conquer	OK
+conscious	OK
+consequence	OK
+consideration	OK
+consistent	OK
+consistently	FIX	He has consistently arrived late to every meeting.	"every single" pattern repeated multiple times
+consume	FIX	Most people consume vast amounts of water daily.	"every single day" pattern repeated multiple times
+consumers	OK
+continuous	OK
+contribute	OK
+convoy	OK
+cope	OK
+cord	OK
+cornerstone	OK
+costly	OK
+county	OK
+courageous	OK
+craftsmen	OK
+crop	OK
+currency	FIX	The currency exchange rate changes significantly daily.	"every single day" pattern repeated throughout batch
+custom	OK
+dagger	OK
+dairy	OK
+decade	FIX	Technology has changed dramatically over the past decade.	Stray "here" at sentence end creates confusion
+declaration	FIX	Americans celebrate the declaration of independence each year.	"annually every single year" is redundant
+definite	OK
+deform	OK
+demonstrate	OK
+denial	OK
+dense	OK
+desirable	OK
+desperation	OK
+devastated	FIX	The entire building was devastated by the explosion.	"devastated completely" is semantic redundancy
+diabetes	OK
+diagnose	OK
+dialect	OK
+dictate	OK
+differentiate	FIX	She had to differentiate between the two designs.	"differentiate" plus "different" in same sentence is redundant
+dim	OK
+disapproving	OK
+disciplined	FIX	The coach will discipline players who break the rules.	Uses adjective; gloss's first sense is the verb
+discrimination	OK
+disgust	FIX	The rotting trash filled everyone with immediate disgust.	Confusing "disgusting" and "disgust"; awkward "absolutely"
+disobey	FIX	Young children often disobey their parents on purpose.	"quite often here" is awkward and unclear
+disorder	OK
+disrupt	FIX	Unexpected loud noise might disrupt the entire meeting.	Awkward "very loud noise"; stray "here" at end
+distinction	OK
+distinguish	OK
+distract	FIX	The bright flashlight distracted him from his task.	"distract your attention" construction is semantically redundant
+distribute	OK
+distribution	OK
+disturbance	OK
