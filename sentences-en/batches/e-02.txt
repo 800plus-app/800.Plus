@@ -1,0 +1,80 @@
+1	different from	שונה מ-
+1	difficult	קשה
+1	dirty	מלוכלך
+1	done	גמור, עשוי
+1	down	למטה
+1	dream	חלום, לחלום
+1	drink	לשתות, משקה
+1	early	מוקדם
+1	earth	אדמה; כדור הארץ
+1	East	מזרח
+1	energy	אנרגיה, כוח
+1	enjoy	ליהנות
+1	enough	מספיק
+1	even if	גם אם
+1	evening	ערב
+1	every day	כל יום
+1	exactly	בדיוק
+1	excuse	תירוץ; לסלוח
+1	experience	ניסיון, לחוות
+1	explain	להסביר
+1	face	פנים; לפנות אל, לעמוד מול; להתמודד עם, לעמוד בפני
+1	fact	עובדה
+1	fall	ליפול, נפילה; ירידה; סתיו
+1	family	משפחה
+1	famous	מפורסם
+1	father	אבא
+1	fear	פחד, לפחד
+1	feel	להרגיש
+1	feeling	הרגשה
+1	few	מעט
+1	fight, fought	להילחם, להיאבק; לריב
+1	finally	לבסוף, סוף סוף
+1	find	למצוא
+1	fire	אש, להצית; לירות; לפטר
+1	first of all	ראשית
+1	fix	לתקן
+1	fly	זבוב; לעוף
+1	follow	לעקוב, לציית
+1	force	לכפות; כוח
+1	forever	לנצח, לתמיד
+1	forget	לשכוח
+1	forward	קדימה, לפנים
+1	friend	חבר
+1	from	מ-
+1	fruit	פרי
+1	full	מלא, למלא
+1	future	עתיד
+1	General	גנרל (דרגה צבאית); כללי
+1	gift	מתנה
+1	glass	כוס; זכוכית
+1	government	ממשל
+1	great	גדול, מעולה
+1	ground	בסיס, אדמה
+1	group	קבוצה, לקבץ
+1	grow up	להתבגר, לגדול
+1	guess	ניחוש, לנחש
+1	half	חצי
+1	hand	יד; למסור
+1	harder	קשה יותר
+1	health	בריאות
+1	hear	לשמוע
+1	heart	לב
+1	heavy	כבד
+1	here	כאן
+1	hope	תקווה, לקוות
+1	horse	סוס
+1	hospital	בית חולים
+1	hot	חם; חריף
+1	house	לשכן; בית
+1	how	איך, כיצד
+1	huge	עצום, ענק
+1	human	אנושי
+1	human being	בן-אדם, אנוש
+1	hundred	מאה
+1	husband	בעל
+1	ice cream	גלידה
+1	idea	רעיון
+1	If	אם
+1	important	חשוב
+1	impossible	בלתי אפשרי

@@ -1,0 +1,80 @@
+6	oppose	להתנגד ל-, להתייצב נגד
+6	orchestrate	לתאם, לתזמר
+6	ordinary	רגיל
+6	organ	אורגן (כלי נגינה); איבר
+6	orientation	התמצאות
+6	originality	מקוריות
+6	outdated	מיושן
+6	overcome	להתגבר
+6	palm	דקל; כף יד
+6	parenting	הורות
+6	particular	מסוים, ספציפי; מיוחד; (about) קפדן, בררן
+6	passive	סביל
+6	patiently	בסבלנות
+6	patrol	סיור; לסייר
+6	permit	אישור, רישיון; להרשות
+6	phase	שלב, דרגה
+6	physicist	פיזיקאי
+6	pit	בור
+6	plague	מגפה
+6	plot	עלילה; חלקה (חלקת אדמה); להכין תרשים; לזמום, לקשור קשר
+6	pole	מוט; קוטב
+6	polish	פולני; להבריק, לצחצח
+6	possession	בעלות, חזקה
+6	poverty	עוני
+6	praise	לשבח
+6	precise	מדויק
+6	preferable	עדיף
+6	prestigious	יוקרתי
+6	prevention	מניעה
+6	prey	טרף, לטרוף
+6	prior	קודם
+6	prior to	קודם ל-, לפני
+6	procedure	הליך, נוהל
+6	profitable	רווחי
+6	progressive	מתקדם ומתמשך
+6	property	תכונה; רכוש
+6	publication	פרסום; מאמר/כתב עת שפורסם; הוצאה לאור
+6	quantity	כמות
+6	radical	קיצוני; שורשי
+6	radically	באופן קיצוני
+6	rather	עדיף; למדי
+6	recall	להיזכר; להחזיר, להשיב צלצול
+6	refund	החזר
+6	refusal	סירוב
+6	refuse	אשפה, זבל; לסרב
+6	remains	נשאר, עדיין; שרידים
+6	remarkable	ראוי לציון, יוצא דופן
+6	renew	לחדש
+6	reservation	שמורה; שריון מקום
+6	residence	מגורים
+6	respectfully	בכבוד
+6	result in	הסתיים ב-
+6	retire	לפרוש
+6	retreat	לסגת, נסיגה
+6	revolutionary	מהפכני
+6	rubbish	זבל; שטויות
+6	sacred	קדוש
+6	sanction	סנקציה, עונש; לאשר, להתיר, לתת גושפנקה
+6	scale	מאזניים; לעלות, לטפס; סולם, סקלה
+6	season	לתבל; עונה
+6	sensitivity	רגישות
+6	sequel	המשך
+6	severe	חמור
+6	shortly	בקרוב, בעוד זמן קצר; בקצרה
+6	shuffle	לערבב; לגרור רגליים
+6	similarly	באופן דומה
+6	simplify	לפשט
+6	simulate	לדמות, לחקות
+6	skepticism	ספקנות
+6	slight	קל, מעט
+6	snap	להישבר; במהירות (סלנג)
+6	sober	פיכח
+6	sophisticated	מתוחכם
+6	spare	רזרבי, חלופי, פנוי (___ time); עודף; לחסוך, לחוס על
+6	specialize	להתמחות
+6	species	מין, זן
+6	spectacular	מדהים
+6	spontaneously	ללא תכנון
+6	spring	מעיין; אביב
+6	stability	יציבות

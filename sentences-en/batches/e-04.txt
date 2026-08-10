@@ -1,0 +1,80 @@
+1	pay	לשלם
+1	peace	שלום
+1	people	אנשים
+1	perfect	להשלים, לשפר; מושלם
+1	perhaps	אולי
+1	person	אדם
+1	personal	אישי
+1	picture	תמונה, לצלם; לדמיין
+1	place	מקום, למקם
+1	plan	תכנית; לתכנן
+1	plane	מטוס; מישור
+1	planet	כוכב לכת
+1	play	משחק, לשחק; מחזה
+1	pool	בריכה
+1	poor	עני, מסכן
+1	possible	אפשרי
+1	potato	תפוח אדמה
+1	present	להציג; מתנה; הווה, נוכח, קיים
+1	president	נשיא
+1	printer	מדפסת, דַּפָּס
+1	private	פרטי
+1	probably	כנראה, קרוב לוודאי
+1	problem	בעיה
+1	promise	הבטחה, להבטיח
+1	protect	להגן
+1	queen	מלכה
+1	quick	זריז
+1	quiet	שקט
+1	rain	גשם
+1	reason	סיבה; הגיון
+1	record	רשומה; לתעד; להקליט; שיא
+1	relationship	מערכת יחסים
+1	relax	להירגע
+1	report	דיווח, לדווח
+1	respect	כבוד, לכבד
+1	restaurant	מסעדה
+1	rice	אורז
+1	rich	עשיר
+1	ride	רכיבה, לרכוב
+1	right	ימינה; זכות
+1	ring	טבעת; זירה
+1	road	דרך
+1	run, ran	לרוץ, רץ
+1	safe	בטוח
+1	salt	מלח
+1	save	להציל; לחסוך, לחסוך מ-; לשמור
+1	saw, see	ראה, לראות
+1	scene	סצנה; זירה
+1	school	בית-ספר
+1	search	חיפוש, לחפש
+1	secret	סוד
+1	sell	למכור
+1	send	לשלוח
+1	serious	רציני, חמור
+1	service	שירות
+1	shop	חנות; לקנות
+1	short	קצר
+1	show	הופעה; להראות
+1	side	צד, לצודד, לתמוך
+1	sign	לחתום; שֶׁלֶט; סימן, לסמן
+1	simple	פשוט
+1	since	מכיוון ש-; מאז
+1	singer	זמר
+1	single	רווק; יחיד
+1	sir	אדון, תואר אצולה אנגלי
+1	situation	מצב, סיטואציה
+1	sky	שמיים, רקיע
+1	sleep	שינה; לישון
+1	slow	איטי, לאט
+1	snake	נחש
+1	snow	שלג
+1	so	אז, כך ש-, ולכן; כל-כך, מאוד
+1	so that	כך ש-
+1	soldier	חייל
+1	sometimes	לעיתים, לפעמים
+1	soon	בהקדם, מוקדם
+1	South	דרום
+1	special	מיוחד
+1	spend	לבזבז, לפזר; לבלות, להעביר
+1	stand	לעמוד

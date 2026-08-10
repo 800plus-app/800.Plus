@@ -1,0 +1,80 @@
+2	8th - eighth	שמיני
+2	9th - ninth	תשיעי
+2	above	מעל
+2	academic	אקדמי
+2	actor	שחקן
+2	address	כתובת; לפנות, לטפל
+2	afraid	מפחד
+2	after all	אחרי הכל
+2	agenda	סדר יום
+2	aggressive	תוקפני, אלים
+2	ahead of	לפני, לפנים
+2	airplane	אווירון, מטוס
+2	alien	זר, נוכרי; לא מוכר, מוזר; חייזר
+2	alive	חי
+2	allergic	אלרגי
+2	along	לאורך
+2	along with	יחד עם
+2	although	למרות ש-
+2	architect	ארכיטקט
+2	artist	אמן
+2	as if	כאילו
+2	as long as	כל עוד
+2	as soon as	כאשר, ברגע ש-
+2	as well as	כמו גם
+2	asked for	ביקש
+2	astronomy	אסטרונומיה
+2	at last	סוף סוף
+2	authentic	מקורי, אותנטי
+2	background	רקע
+2	band	להקה; לחבוש, תחבושת, רצועה
+2	base	בסיס
+2	based on	מבוסס על
+2	bath	אמבטיה, להתרחץ
+2	beach	חוף ים
+2	beast	חיה, מפלצת
+2	beauty	יופי
+2	bedroom	חדר שינה
+2	bee	דבורה
+2	begin/an/un	להתחיל / התחיל / התחיל
+2	boring	משעמם
+2	both... and...	גם... וגם...
+2	bottle	בקבוק
+2	bread	לחם
+2	bridge	גשר, לגשר
+2	build	מבנה; לבנות
+2	cable	כבל
+2	cancel	לבטל
+2	candy	ממתק
+2	care	לחבב; לדאוג, לטפל
+2	case	תיבה; מקרה, טיעון
+2	casino	קזינו
+2	catalogue	קטלוג, רשימת פריטים
+2	catch, caught	לתפוס, תפס
+2	cause	מטרה; גורם, סיבה
+2	celebrate	לחגוג
+2	change	שינוי, לשנות; עודף
+2	cheap	זול
+2	cheat	לרמות, לבגוד
+2	chemical	כימיקל, כימי
+2	choose	לבחור
+2	chronic	כרוני
+2	circle	להקיף בעיגול; מעגל
+2	clock	שעון
+2	cloud	ענן
+2	collect	לאסוף
+2	comic	קומי (מהמילה קומדיה)
+2	connect	לחבר
+2	container	מיכל, קונטיינר
+2	conversation	שיחה
+2	copy	להעתיק
+2	correct	לתקן; נכון
+2	country	ארץ; כפר, אזור
+2	couple	זוג, לצמד
+2	coupon	קופון
+2	cousin	בן-דוד
+2	cow	פרה
+2	crash	להתנגש, התנגשות
+2	create	ליצור
+2	criteria	אמות מידה, קריטריונים
+2	cross	לחצות; צלב, להצליב

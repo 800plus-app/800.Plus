@@ -1,0 +1,80 @@
+9	indifference	אדישות
+9	indigenous	ילידי, מקומי, שמקורו במקום
+9	induce	לגרום, לייצר
+9	inevitably	בהכרח, באופן בלתי נמנע
+9	inferred	נגזר, משתמע
+9	inflammation	דלקת
+9	ingest	להכניס משהו לגוף דרך הפה
+9	inhibit	לרסן
+9	inquire	לשאול, לברר, להתעניין
+9	inquiry	חקירה
+9	insulate	לבודד
+9	intermediary	מתווך, אמצעי
+9	intervene	להתערב
+9	intestine	מעי
+9	intoxicate	להרעיל, לשכר; להלהיב
+9	intrigue	לסקרן; תככים
+9	intrusive	פולשני
+9	invoke	לעורר, לזמן
+9	irrigation	השקיה
+9	jug	כד, קנקן
+9	landmark	אבן דרך
+9	latter	שני, אחרון
+9	launder	לכבס
+9	legislate	לחוקק
+9	legislation	חקיקה
+9	leisure	פנאי
+9	linger	להתעכב, להשתהות
+9	literacy	אוריינות, ידיעת קרוא וכתוב
+9	literate	יודע קרוא וכתוב; בקיא, בעל אוריינות
+9	litter	אשפה, פסולת; ללכלך בפסולת; לזרוע, לפזר
+9	lodge	להתאכסן, אכסנייה
+9	loosely	באופן רפוי
+9	lumber	עצי בניין, קרשים, עצה מנוסרת
+9	luminous	זוהר, בוהק
+9	malformation	עיוות, פגם
+9	malnutrition	תת-תזונה
+9	mediocre	בינוני (במובן שלילי)
+9	mere	רק, לא יותר מ-
+9	mischief	נזק, מעשה קונדס
+9	mobilize	לנייד, להניע
+9	mold	לעצב; עובש
+9	moth	עש
+9	mundane	שגרתי, יומיומי, בנאלי
+9	mutual	הדדי
+9	namely	כלומר, דהיינו, והם
+9	nausea	בחילה
+9	negate	לשלול
+9	negligent	רשלני
+9	nonetheless	למרות זאת
+9	notable	ראוי לציון, בולט, יוצא דופן
+9	notably	בייחוד, בפרט; באופן בולט
+9	noted	ידוע, מפורסם
+9	nurture	לטפח, להזין, לחנך
+9	nutrient	חומר מזין
+9	oblige	לחייב, להכריח
+9	obsolete	מיושן
+9	offset	לקזז
+9	ordinarily	בדרך-כלל
+9	orient	להתמצא
+9	originate	התחיל, התהווה
+9	outrage	זעם; לזעזע
+9	outweigh	עולה על, שוקל יותר מ-
+9	overdue	שעבר זמן ההגשה שלו
+9	overlooked	לא הבחין, פספס, החמיץ; התעלם; (גם: צפה על מגבוה)
+9	overwhelm	להכריע, להציף, לגבור על; להמם
+9	particle	חלקיק
+9	particulars	פרטים, פרטי מידע
+9	perceive	להבחין, לראות
+9	persuasion	שכנוע
+9	persuasive	משכנע
+9	physician	רופא
+9	pivot	ציר, לסובב על ציר
+9	plunge	לצלול, לצנוח, לשקוע; צניחה חדה
+9	pollutant	מזהם
+9	portray	לתאר, לצייר
+9	pose	להציב, להוות; תנוחה
+9	posture	יציבה, תנוחה
+9	potent	חזק, בעל כוח השפעה
+9	potter	קדר
+9	pottery	קדרות

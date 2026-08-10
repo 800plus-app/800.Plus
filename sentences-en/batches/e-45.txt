@@ -1,0 +1,80 @@
+9	surpass	להצטיין, לעלות על
+9	swept away	נסחף
+9	sympathetic	אוהד
+9	tainted	מוכתם, מזוהם
+9	testimony	עדות
+9	thrive	לשגשג
+9	timber	עץ
+9	timid	ביישן
+9	tremendous	עצום
+9	twig	ענף קטן, זרד
+9	undergo	לעבור, להתנסות, לחוות
+9	undermine	לחתור תחת, לערער, להחליש
+9	undertake	לקחת על עצמך
+9	unearth	לחשוף, לחפור
+9	unfold	נפרש, נפתח, התגלה; לפתוח קיפול
+9	unparalleled	שאין כמותו, חסר תקדים
+9	upbringing	גידול, חינוך
+9	uprising	התקוממות, מרד
+9	vagueness	עמימות, ערפול
+9	vain	לשווא; שחצן
+9	venture	מיזם, מפעל (עסקי); הרפתקה מסוכנת; להעז, להסתכן
+9	verse	בית בשיר; שירה
+9	vessel	כלי שיט
+9	viable	בר-קיימא, ישים
+9	virtue	מעלה
+9	vivid	חד, בהיר, ססגוני, חי, מוחשי
+9	vowel	תנועה (לשון)
+9	ward	מחלקה
+9	wart	יבלת
+9	whereas	בעוד ש-
+9	wholesale	סיטונאות
+9	wickedly	ברשעות
+9	wilderness	ערבה, שממה
+9	wind	למתוח; רוח
+9	wound	מתוח, נמתח; פצע
+9	yield	להיכנע, לוותר, לסגת; להניב, להפיק
+10	abacus	חשבונייה
+10	abhor	לשנוא, לתעב
+10	abide	לציית
+10	abrupt	פתאומי
+10	abstain	להתנזר, להימנע ממשהו
+10	acclaim	להריע, לשבח
+10	accomplices	שותף לדבר עבירה
+10	accomplished	מומחה, מעולה
+10	adhesive	דבק; דביק
+10	adorn	לקשט
+10	advent	הופעה, בוא
+10	adverse	שלילי
+10	affinity	זיקה, קירבה; משיכה
+10	affluence	שפע
+10	affluent	שופע, עשיר
+10	agitate	להסעיר, לזעזע, לעצבן
+10	agonize	להתייסר, לסבול ייסורים; להתלבט קשות
+10	albeit	אף על פי ש, אם כי
+10	alleviate	להקל, להפיג
+10	allure	קסם, משיכה; לפתות
+10	allusion	אזכור, רמיזה
+10	alternately	לסירוגין
+10	amass	לצבור, לערום
+10	ancestry	מוצא
+10	antler	קרן מסועפת של אייל/צבי
+10	appease	לפייס
+10	appraise	להעריך (שווי), לאמוד
+10	arable	מתאים לעיבוד
+10	articulate	להביע; רהוט
+10	ascertain	לוודא
+10	aspiration	שאיפה, חלום
+10	aspire	לשאוף, להתאוות
+10	astonishment	תדהמה, השתאות
+10	astound	להדהים
+10	atrocity	זוועה
+10	attire	לבוש
+10	avert	להסיט, להפנות, למנוע
+10	baffled	מבולבל
+10	bashful	ביישן
+10	benefactors	נדבנים, תורמים
+10	bland	תפל
+10	bleak	עגום
+10	bolster	לתמוך
+10	cadaver	גופה

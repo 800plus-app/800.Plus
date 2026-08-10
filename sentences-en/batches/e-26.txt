@@ -1,0 +1,80 @@
+6	argue	לטעון, לגרוס; להתווכח, להתדיין
+6	argument	טיעון, נימוק; ויכוח, מחלוקת
+6	arm	לחמש; זרוע
+6	arrogant	יהיר, שחצן
+6	as far as	לגבי, בכל הנוגע ל-
+6	aside	הצידה; במאמר מוסגר, מלבד
+6	associate	לקשר
+6	assume	להניח
+6	attend	להשתתף, להיות נוכח
+6	attorney	עורך-דין
+6	auction	מכירה פומבית
+6	bargain	להתמקח; מציאה, עסקה
+6	barn	אסם
+6	bat	מחבט; עטלף
+6	belief	אמונה
+6	bend	לכופף
+6	beneath	מתחת
+6	bent	כופף
+6	berry	גרגרי יער
+6	betray	לבגוד
+6	biblical	תנ"כי
+6	blame	להאשים
+6	blanket	שמיכה
+6	blew	נשב (רוח), ניפח, פוצץ
+6	blow, blew	לנשוף, נשף; לפוצץ, פוצץ
+6	blur	טשטוש, לטשטש
+6	bold	אמיץ, חצוף; מודגש
+6	borrow	לשאול, ללוות (מ-)
+6	brief	קצר, תמציתי; תדריך, לתדרך
+6	broad	נרחב
+6	broadcast	לשדר
+6	butcher	קצב; לשחוט
+6	candidate	מועמד
+6	capable	מסוגל, יכול
+6	capital	עיר בירה; אות גדולה; ראשי, משמעותי; הון
+6	categorize	לקטלג, למיין, לסווג
+6	ceremony	טקס, מסכת
+6	clash	התנגשות
+6	clay	חימר
+6	closure	סגירה; סיום
+6	cloth	בד, אריג; מטלית
+6	coal	פחם
+6	cognition	קוגניציה, הכרה
+6	collapse	להתמוטט
+6	colonial	קולוניאלי
+6	colony	מושבה
+6	committee	ועדה
+6	companion	בן לוויה, מלווה, רֵע
+6	compatible	תואם, מתיישב עם, מתאים (זה לזה)
+6	compromise	להתפשר
+6	concern	דאגה, עניין
+6	conclusion	מסקנה
+6	concrete	בטון; קונקרטי, מוחשי
+6	confess	להודות
+6	confession	וידוי
+6	construct	לבנות
+6	contest	תחרות; לערער על, לחלוק על; להתמודד על
+6	contrary	להפך, בניגוד ל-
+6	convenient	נוח
+6	copper	נחושת
+6	correlate	לתאם, לקשר
+6	correlation	מתאם, קשר סטטיסטי
+6	corruption	שחיתות
+6	council	מועצה
+6	criticize	לבקר
+6	critique	ביקורת
+6	crossroad	צומת
+6	culinary	קולינרי, של בישול
+6	dawn	שחר
+6	daydream	לחלום בהקיץ
+6	debt	חוב
+6	declare	להכריז
+6	decorate	לקשט
+6	decrease	ירידה, הפחתה; להפחית, לצמצם
+6	dedicated	מסור; מוקדש ל-
+6	delicate	עדין
+6	demographic	דמוגרפי
+6	department-store	חנות כלבו
+6	deposit	להפקיד, פיקדון
+6	desert	מדבר; לנטוש

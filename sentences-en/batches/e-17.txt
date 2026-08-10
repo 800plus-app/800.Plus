@@ -1,0 +1,80 @@
+4	deliver	למסור, לספק; לשאת (נאום); ליילד
+4	depend on	תלוי ב-
+4	desire	תשוקה, חשק, לחפוץ
+4	desperate	נואש
+4	despite	למרות
+4	dimension	מימד
+4	disadvantage	חסרון
+4	disagreement	חוסר הסכמה
+4	discoveries	תגליות
+4	divide	לחלק
+4	divorce	גירושין
+4	dominate	לשלוט
+4	donate	לתרום
+4	doubt	ספק, להטיל ספק
+4	due to	בגלל, לאור
+4	dust	אבק, לאבק
+4	duty	תפקיד, חובה
+4	earn	להרוויח
+4	earthquake	רעידת אדמה
+4	edge	קצה, שוליים; יתרון; להב (של סכין)
+4	either... or...	או... או...
+4	empathy	הזדהות, אמפתיה
+4	emperor	שליט, קיסר
+4	enable	לאפשר
+4	enzyme	אנזים
+4	epic	אפוס; אפי
+4	epidemic	מגיפה, אפידמיה
+4	ethical	אתי, מוסרי
+4	even	אפילו; זוגי (מספר); ליישר, להשוות
+4	even so	אף על פי כן
+4	eventually	לבסוף
+4	evidence	ראיה
+4	evolve	להתפתח
+4	examination	בחינה, בדיקה
+4	examine	לבחון
+4	excite	לרגש, לעורר
+4	exclusive	בלעדי
+4	expectations	ציפיות
+4	explore	לחקור, ללמוד
+4	explosive	חומר נפץ
+4	export	ייצוא
+4	external	חיצוני
+4	factor	גורם
+4	fairy	פיה
+4	fairytale	אגדה
+4	faith	אמונה; אמון
+4	fall apart	להתפרק
+4	familiar	מוכר
+4	fatal	קטלני, ממית; הרה-אסון, גורלי
+4	fate	גורל, חרץ גורל
+4	favor	טובה; להעדיף
+4	fiction	בדיון, לא אמיתי
+4	filmmaker	יוצר סרטים
+4	fingerprint	טביעת אצבע
+4	flavor	לתבל; טעם
+4	flexible	גמיש
+4	folklore	פולקלור
+4	fork	מזלג
+4	formal	רשמי
+4	fortune	מזל; עושר
+4	from time to time	מפעם לפעם
+4	frustration	תסכול
+4	fundamental	בסיסי (פונדמנטלי)
+4	further	יותר, נוסף, רחוק יותר; לקדם
+4	generally	באופן כללי
+4	generate	לייצר, להפיק, ליצור
+4	generated	יצר
+4	genre	ז'אנר, סוגה
+4	given	נתון
+4	glitch	תקלה, הפרעה
+4	grammatical	דקדוקי
+4	grand	גדול, כולל, מרשים
+4	Gulf War	מלחמת המפרץ
+4	handle	להתמודד
+4	heartbeat	דופק, פעימות לב
+4	hint	רמז
+4	historian	היסטוריון
+4	hold back	לעכב, למנוע
+4	horn	צופר; קרן (של בע"ח)
+4	humorous	מצחיק, הומוריסטי

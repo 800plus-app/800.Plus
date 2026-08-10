@@ -1,0 +1,80 @@
+2	grandmother	סבתא
+2	grow	לגדול, לגדל
+2	guard	שומר, לשמור
+2	gym	אולם ספורט
+2	harmony	הרמוניה
+2	hero	גיבור
+2	hid from	התחבא מ-
+2	hidden	חבוי, נסתר
+2	hobby	תחביב
+2	horror	אימה
+2	ideal	אידיאל, אידיאלי
+2	in case	למקרה ש-, שמא; אם במקרה
+2	in other words	במילים אחרות
+2	in that case	במקרה הזה
+2	in the same way	באותו אופן
+2	including	כולל
+2	installation	התקנה
+2	intellectual	אינטלקטואלי
+2	international	בינלאומי
+2	interview	לראיין, ראיון
+2	intuition	אינטואיציה
+2	invite	להזמין
+2	ironic	אירוני
+2	journey	מסע
+2	juice	מיץ
+2	jungle	ג'ונגל
+2	just as	בדיוק כמו
+2	kick	לבעוט, בעיטה
+2	kind	סוג; טוב לב, אדיב, נעים
+2	knife (knives)	סכין (סכינים)
+2	language	שפה
+2	largest	הגדול ביותר
+2	last	אחרון; המשיך, החזיק מעמד
+2	leader	מנהיג
+2	legal	משפטי; חוקי
+2	level	לאזן, להשוות; רמה, דרגה, מפלס
+2	liberal	ליברלי, מתירני
+2	library	ספריה
+2	lifestyle	אורח חיים
+2	local	מקומי
+2	lock	מנעול, לנעול
+2	losing	מפסיד
+2	loud	רועש, קולני, רם
+2	magical	קסום
+2	mail	דואר
+2	main	עיקרי
+2	makeup	איפור
+2	male	זכר
+2	manipulation	מניפולציה, תמרון
+2	map	מפה, למפות
+2	market	שוק
+2	master	להתמחות, לשלוט; אדון, שליט
+2	member	חבר (בקבוצה מסוימת)
+2	mental	נפשי
+2	mentor	מדריך רוחני
+2	metal	מתכת, מתכתי
+2	miss	להתגעגע; לפספס
+2	mission	משימה
+2	molecule	מולקולה
+2	monkey	קוף
+2	mood	מצב רוח
+2	muscle	שריר
+2	mutation	מוטציה
+2	natural	טבעי
+2	nature	טבע
+2	neck	צוואר
+2	negative	שלילי
+2	neighbor	שכן
+2	network	רשת
+2	neutral	ניטרלי
+2	newspaper	עיתון
+2	noise	רעש
+2	norm	נורמה, תקן
+2	nurse	אחות
+2	obsession	אובססיה, דיבוק
+2	of course... but...	כמובן... אך...
+2	official	רשמי, מאושר
+2	oil	נפט, שמן, לשמן
+2	on top of	על, מעל
+2	opinion	דעה

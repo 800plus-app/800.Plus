@@ -1,0 +1,80 @@
+9	attribute	לייחס, לקשר; תכונה, מאפיין
+9	augment	להרחיב
+9	awe	יראת כבוד
+9	backdrop	רקע, תפאורה
+9	basin	אגן, כיור
+9	bead	חרוז
+9	beak	מקור
+9	beam	קרן; קורה
+9	behalf	מטעם, בשם
+9	being that	מכיוון ש-
+9	bias	הטיה, משוא פנים
+9	bizarre	מוזר
+9	botanist	בוטנאי
+9	burden	עול
+9	burglar	פורץ
+9	by no means	בשום אופן לא, כלל לא
+9	capital punishment	עונש מוות
+9	carve	לגלף, לחטוב; לחתוך (בשר); לחרוט
+9	cavity	חור
+9	characterize	לאפיין
+9	chariot	מרכבה
+9	circulate	להפיץ; לנוע במחזוריות
+9	circumstance	מצב, תנאי, נסיבות
+9	coexist	להתקיים זה בצד זה, לחיות יחד בשלום
+9	coexistence	דו-קיום
+9	commence	להתחיל
+9	commodity	סחורה, מצרך
+9	communal	משותף, ציבורי
+9	comparable	בר-השוואה
+9	comparatively	באופן יחסי
+9	compel	לאלץ, לחייב
+9	composed	רגוע, שלֵו, שולט בעצמו; הלחין, חיבר
+9	comprehend	להבין
+9	conceal	להסתיר
+9	conception	תפיסה
+9	conclusively	סופית, באופן החלטי
+9	condemned	לגנות; נידון ל-
+9	condense	לתמצת, לצמצם; לדחוס, לרכז; לעבות (גז לנוזל)
+9	confiscate	להחרים
+9	consequently	כתוצאה מכך
+9	considerable	הרבה, רבות
+9	consist	מורכב מ-
+9	consolidate	לאחד, לגבש
+9	constitute	מהווים; להקים, לייסד
+9	contaminate	לזהם
+9	contemporary	עכשווי, מודרני; בן-זמנו, בן-תקופה
+9	contradictory	סותר
+9	conversely	לעומת זאת
+9	convey	למסור, להעביר
+9	correspond	להתכתב; להתאים
+9	correspondence	התכתבות
+9	correspondingly	בהתאמה
+9	counsel	לייעץ, להדריך; פרקליט, יועץ
+9	counterpart	בעל תפקיד מקביל, עמית, בן-זוג
+9	coupled with	יחד עם
+9	courteous	אדיב
+9	crave	להשתוקק
+9	crude	וולגרי, גס; גולמי
+9	cuisine	מטבח, בישול
+9	cultivate	לעבד, לטפח
+9	czar	צאר (שליט רוסי)
+9	deceased	נפטר
+9	deceive	להונות
+9	decipher	לפענח
+9	deduce	להסיק
+9	defer	לעכב, לדחות
+9	deficiency	מחסור
+9	deformity	מום, עיוות
+9	degenerate	להתנוון
+9	deliberate	מכוון; לשקול, לבחון, לדון
+9	delusions	אשליות, הזיות
+9	denote	לציין, לסמן
+9	densely	בצפיפות
+9	depict	לתאר, להציג, לשרטט
+9	derive	לשאוב, להפיק, לגזור מ-
+9	differences	חילוקי דעות
+9	disciples	תלמידים
+9	disclose	לגלות, לחשוף
+9	discriminate	להפלות; להבחין, להבדיל (between)
+9	disinfection	חיטוי

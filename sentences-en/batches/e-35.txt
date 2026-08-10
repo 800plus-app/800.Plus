@@ -1,0 +1,80 @@
+7	summarize	לסכם
+7	summits	פסגות
+7	superb	מעולה (איכותי)
+7	supervise	לפקח
+7	suppress	לדכא, לכבוש
+7	surround	להקיף
+7	survey	לבחון, לסקור; סקר
+7	suspend	להשעות
+7	suspicion	חשד
+7	swift	מהיר
+7	tempt	לפתות
+7	terrain	שטח
+7	terrify	להפחיד, להבעית
+7	tilt	להטות, שיפוע
+7	tolerance	סובלנות
+7	transaction	עסקה
+7	transmit	לשדר
+7	transmitter	משדר
+7	trim	לגזום
+7	triumph	ניצחון
+7	troop	יחידה צבאית; חייל
+7	tutor	מורה פרטי, להדריך
+7	unaware	לא מודע
+7	unconcerned	לא מודאג
+7	unconventional	לא שיגרתי
+7	uncover	לחשוף, לגלות
+7	unemployed	מובטל
+7	unholy	לא קדוש, לא מוסרי
+7	unify	לאחד
+7	urban	עירוני
+7	utilize	השתמש
+7	validate	אימת, נתן תוקף
+7	valve	שסתום
+7	vanish	להיעלם
+7	vary	משתנה
+7	vendor	מוכר, רוכל; ספק
+7	vest	אפודה
+7	vocabulary	אוצר מילים
+7	voyage	מסע
+7	wander	להסתובב, לשוטט
+7	whether... or...	בין אם... או...
+7	widely	בצורה נרחבת
+7	widen	להרחיב
+7	wool	צמר
+7	yawn	לפהק, פיהוק
+8	absorb	לספוג
+8	accompany	ללוות
+8	accomplish	להשלים, להשיג
+8	accomplishment	הישג
+8	accordingly	בהתאם
+8	acknowledge	להכיר ב-, להודות ב-; לאשר קבלה
+8	acquire	לרכוש, להשיג
+8	adequate	מספיק, מספק; הולם
+8	adjust	להתרגל; לכוונן
+8	admirable	נערץ, ראוי להערצה
+8	advancement	התקדמות; מקדמה
+8	advocate	תומך, מצדד; פרקליט; לדגול ב-, לתמוך בגלוי ב-
+8	affection	חיבה
+8	afford	יכול לעמוד בהוצאות, להרשות לעצמו
+8	agriculture	חקלאות
+8	airborne	נישא באוויר
+8	allowance	דמי כיס, הקצבה
+8	alter	שינה ,לשנות
+8	alternate	חלופי; התחלף, עבר מדבר אחד לשני וחזרה
+8	ambassador	שגריר
+8	ancestor	אב קדמון
+8	annihilate	להשמיד
+8	anxious	להוט; חרד
+8	appeal	לבקש; מדבר אל, מושך; לערער
+8	applaud	מחא כפיים, הריע
+8	appreciation	הערכה
+8	approximately	בערך, בקירוב
+8	arise	להופיע, לעלות
+8	arousing	מעורר
+8	assemble	להרכיב, להתאסף
+8	assumption	הנחה
+8	audit	ביקורת
+8	bail	ערבות, לשחרר בערבות
+8	bare	חשוף, ריק, לחשוף
+8	barely	בקושי

@@ -1,0 +1,80 @@
+3	sin	חטא
+3	slow down	להאט
+3	soul	נשמה
+3	source	מקור
+3	southern	דרומי
+3	space	חלל; רווח
+3	speech	נאום; דיבור, כושר דיבור
+3	spell	כישוף, קסם; איות, לאיית
+3	spirit	כוונה, רוח הדברים; רוח רפאים, נפש
+3	square	ריבוע; כיכר
+3	stage	שלב; במה; לביים, לארגן (הפגנה)
+3	standard	רמה, תקן, מקובל
+3	state	מצב; מדינה; לציין, להצהיר, לקבוע
+3	stomach	בטן, קיבה
+3	strength	חוזק
+3	structure	מבנה, לבנות
+3	stuck	תקוע
+3	suffer	לסבול
+3	supply	אספקה
+3	surely	ללא ספק
+3	surgery	ניתוח
+3	surrender	להיכנע
+3	survive	לשרוד
+3	switch	מתג; להחליף
+3	tale	סיפור, אגדה
+3	target	מטרה
+3	task	משימה
+3	tent	אוהל
+3	theme	נושא
+3	thief	גנב
+3	threat	איום
+3	throw	לזרוק, זריקה
+3	tie	לקשור, קשר; עניבה
+3	title	כותרת
+3	tongue	לשון
+3	totally	לחלוטין
+3	track	מסילה, מסלול; לעקוב
+3	tradition	מסורת
+3	traffic	תנועה
+3	train	רכבת; להכשיר, לאמן
+3	transfer	העברה; להעביר
+3	transport	להוביל; הובלה
+3	trap	מלכודת
+3	treatment	טיפול
+3	truck	משאית, קרון משא
+3	truly	באמת
+3	tube	צינור
+3	unbelievable	לא יאמן
+3	unfair	לא הוגן
+3	unfortunately	למרבה הצער
+3	unusual	בלתי רגיל, יוצא דופן
+3	useful	שימושי
+3	useless	חסר תועלת
+3	usual	רגיל
+3	value	ערך, להעריך
+3	violence	אלימות
+3	violent	אלים
+3	visitor	אורח, מבקר
+3	visual	חזותי
+3	warn	להזהיר
+3	wear	ללבוש
+3	weather	מזג אוויר
+3	wedding	חתונה
+3	wild	פראי, טבע
+3	wing	כנף
+4	activist	פעיל, אקטיביסט
+4	actually	למעשה
+4	additionally	בנוסף
+4	advantage	יתרון
+4	advertisement	מודעה, פרסום
+4	advice	עצה
+4	aesthetic	אסתטי; אסתטיקה
+4	air conditioner	מזגן
+4	airline	חברת תעופה
+4	all in all	בסך הכל
+4	amateur	חובבן
+4	amaze	להדהים
+4	among	בקרב, בין
+4	amount	כמות
+4	analog	אנלוגי (ההיפך מדיגיטלי)

@@ -1,0 +1,80 @@
+10	poultry	עוף
+10	predecessors	קודמים
+10	predestined	נקבע מראש
+10	preside	לנהל
+10	pretext	אמתלה, תואנה
+10	prevalence	שכיחות
+10	proliferate	התפשט במהירות
+10	prolific	פורה, שופע
+10	prompt	לגרום, לעורר; מיידי
+10	prompted	הביא לידי
+10	prop	תמיכה, אביזר; לתמוך
+10	proponent	תומך
+10	prowess	מיומנות, יכולת
+10	punctuate	לפסק, לשים סימני פיסוק; לקטוע שוב ושוב; להדגיש
+10	quarrelsome	וכחני
+10	quench	לספק, להרוות
+10	rearing	גידול, טיפוח
+10	reassurance	הבטחה, הרגעה
+10	rebuttal	הפרכה, סתירה
+10	reciprocal	הדדי; (במתמטיקה) מספר הופכי
+10	reciprocate	לגמול, להשיב כגמול, להחזיר באותה מטבע
+10	reconcile	להתפייס; ליישב (סתירות), לגשר בין, להתאים
+10	refute	להפריך
+10	reigned	משל, שלט
+10	reinvigorate	לרענן, להמריץ מחדש
+10	relapse	הדרדר, הישנות
+10	relegated	הורד בדרגה
+10	render	להפוך ל-, לגרום; להגיש
+10	renown	תהילה, פרסום, מוניטין
+10	resent	לחוש טינה, להתרעם על
+10	respective	שייך בהתאמה
+10	respectively	בהתאמה
+10	resumption	חידוש
+10	resurgence	תחייה
+10	revoke	לבטל, לשלול
+10	rotary	נע על ציר סיבובי
+10	rudimentary	יסודי, בסיסי
+10	sarcophagus	ארון קבורה קדום
+10	scales	קשקשים (של דג)
+10	scorn	בוז, זלזול; לבוז, לזלזל
+10	scribe	לבלר, סופר, מעתיק כתבים
+10	scrutinize	בדק, בחן
+10	sensations	חדשות מרעישות
+10	sheer	מוחלט, לחלוטין; שקוף; משופע, תלול
+10	shingles	רעף
+10	shroud	תכריך, עטיפה
+10	slander	השמצה, להשמיץ
+10	slant	אלכסון, נטייה
+10	slate	להכניס מישהו לרשימה; רעף, לוח
+10	smuggle	להבריח
+10	snarl	לנהום בחשיפת שיניים, לרטון בכעס; סבך/פקק
+10	snicker	גיחוך
+10	soar	להמריא
+10	solicit	לשדל / להדיח; לבקש/לחפש בתחינה
+10	solitude	בדידות
+10	speck	גרגר זעיר, נקודה זעירה, פירור
+10	spewing	פולט/מתיז בעוצמה, מקיא
+10	splendor	פאר
+10	sprang	קפץ, זינק; נבע, צמח (עבר של spring)
+10	sprawling	משתרע על שטח נרחב; מתפשט ללא סדר
+10	staple	מצרך יסוד, מוצר בסיסי; עיקרי; סיכת הידוק
+10	stark	בוטה, מוחלט, גמור; שומם, עזוב
+10	stature	קומה, גובה; מעמד, שיעור קומה
+10	staunch	נאמן, מסור, איתן בדעתו; לעצור זרימה/דימום
+10	streamlined	יעיל וחסכוני; אווירודינמי, מעוצב לזרימה
+10	stricken	מוכה
+10	strife	מאבק, עימות
+10	stronghold	מעוז, מבצר; מרכז כוח, מוקד שליטה
+10	subdue	להכניע
+10	superfluous	מיותר, עודף
+10	suppression	דיכוי
+10	susceptibility	רגישות, פגיעות
+10	susceptible	רגיש ל-, חשוף ל-, נוטה ל-
+10	swindler	רמאי
+10	syllable	הברה
+10	taint	לזהם; להכתים, להכפיש
+10	tangible	מוחשי
+10	tentative	זמני, לא סופי, מהוסס
+10	thereby	ובכך, על ידי כך, ולכן
+10	thimble	אצבעון (לתפירה)

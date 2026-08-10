@@ -1,0 +1,80 @@
+2	crowd	קהל; להצטופף
+2	damage	נזק, לגרום נזק
+2	danger	סכנה, לסכן
+2	darkness	חשיכה
+2	decide	להחליט
+2	defense	הגנה
+2	delete	למחוק
+2	depression	דיכאון
+2	design	תכנית, דוגמה, תרשים; לתכנן, לעצב
+2	designer	מעצב
+2	destroy	להרוס
+2	detail	פרט, לפרט
+2	diagram	תרשים, דיאגרמה
+2	dictator	עריץ, דיקטטור
+2	dilemma	דילמה, בעיה
+2	direct	ישיר, כנה; לכוון; לביים
+2	direction	כיוון
+2	discover	לגלות
+2	distance	מרחק
+2	document	מסמך; לתעד
+2	dominant	דומיננטי, שולט
+2	drastic	דרסטי
+2	drug	סם, תרופה, לסמם
+2	earlier	קודם לכן
+2	easily	בקלות
+2	echo	הד
+2	ecological	אקולוגי
+2	edit	לערוך
+2	elastic	גמיש, אלסטי, גומיה
+2	elephant	פיל
+2	empire	אימפריה
+2	empty	ריק, לרוקן
+2	enemy	אויב
+2	engine	מנוע
+2	enter	נכנס
+2	episode	פרק
+2	error	שגיאה
+2	escape	לברוח, בריחה
+2	ethnic	אתני
+2	even though	למרות ש-
+2	event	אירוע
+2	example	דוגמה
+2	excellent	מצוין
+2	exotic	אקזוטי, מארץ זרה
+2	expensive	יקר
+2	expert	מומחה
+2	explanation	הסבר
+2	explode	להתפוצץ
+2	extreme	קיצוני
+2	factory	מפעל, בית חרושת
+2	fail	להיכשל
+2	false	שקרי, כוזב, לא נכון; מזויף
+2	farm	חווה
+2	fashion	אופנה; לעצב
+2	file	תיק, קובץ
+2	filter	פילטר, מסנן
+2	finger	אצבע
+2	flow	זרם
+2	flower	פרח
+2	focus	להתמקד, מיקוד
+2	for	מפני ש-; עבור
+2	for example	לדוגמה
+2	forest	יער
+2	formula	נוסחה, פורמולה
+2	found	מצא, גילה; לייסד
+2	freeze, froze	להקפיא, הקפיא
+2	friendly	ידידותי
+2	frog	צפרדע
+2	front	חזית, להתעמת
+2	garden	גן
+2	gate	שער
+2	genes	גנים
+2	genetic	תורשתי, גנטי
+2	genius	גאון
+2	giant	ענק
+2	glad	שמח
+2	global	עולמי, גלובאלי
+2	goal	מטרה
+2	golden	מוזהב
+2	grandfather	סבא
