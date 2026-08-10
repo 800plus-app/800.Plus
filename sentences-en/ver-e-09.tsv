@@ -1,0 +1,77 @@
+option	FIX	When buying a new phone, you have the option to pay in installments or upfront.	"choices" fits equally well; context doesn't force "option"
+orchestra	FIX	An orchestra combines dozens of different instruments playing together under one conductor.	Swap test: "ensemble," "band," "group" all work; meaning not distinctive
+order	FIX	She arranged her books in order by color and size on the wooden shelf.	"arrangement" or "sequence" work; doesn't show why "order" specifically
+organism	FIX	Every organism that lives in the ocean depends on salt water to survive.	Swap test: "creature," "being," "animal," "life form" all fit equally
+original	OK	The artist's original painting sold for much more than copies could cost.	Context (contrasted with copies) forces "original" meaning
+owner	FIX	The house owner held the exclusive right to decide what happens on the land.	"occupant," "resident," "tenant" could substitute; meaning too weak
+package	FIX	The delivery driver left the package at the door while nobody was home.	"box," "parcel," "container" fit just as well; nothing specific to "package"
+painting	FIX	The colorful painting on the museum wall depicted a stormy seascape with dramatic clouds.	Swap test: "picture," "artwork," "canvas" would work; meaning unclear
+panic	OK	When the fire alarm rang, the crowd began to panic and scream.	Context (sudden alarm) shows panic as fear/loss of control, not just running
+paradox	FIX	The paradox is that spending money on exercise gear made her too broke to exercise.	Grammar: "It is a paradox that" is awkward; swap test fails
+parent	FIX	A parent must provide food, shelter, education, and emotional support to their children.	Swap test: "guardian," "caregiver" could work; doesn't show what "parent" means
+path	FIX	She followed the narrow forest path as it wound between ancient tall trees.	"trail," "route," "way" all work; doesn't distinguish "path" specifically
+pause	OK	She hit pause on the movie to answer the urgent phone call quickly.	"stop" or "halt" don't capture the temporary nature of "pause"
+pepper	FIX	The chef sprinkled hot pepper into the soup to add heat and spice.	"spice," "seasoning," "chili" all fit; doesn't show "pepper" specifically
+percent	FIX	Eighty percent of the students passed the test because they studied well.	"share," "portion," "fraction" fit; doesn't show "percent" means 1/100ths
+pet	FIX	She kept a dog as a pet and took it for walks every morning.	Swap test: "animal," "companion" work; meaning too generic
+philosophical	FIX	His philosophical approach examined fundamental truths and the nature of human existence.	Swap test: "thoughtful," "deep," "intellectual" all fit; meaning not distinctive
+philosophy	FIX	She studied philosophy to learn what ethics, knowledge, and truth really mean.	Swap test: "ethics," "wisdom," "spirituality" could work; too vague otherwise
+phobia	FIX	His phobia of heights was so intense he couldn't even use stairs.	Swap test: "fear," "terror" work; needs to show irrational/extreme aspect
+photograph	FIX	The photographer captured a stunning photograph using a slow shutter and bright light.	Swap test: "picture," "photo," "image" all work; meaning not forced
+physical	FIX	Physical education includes running, jumping, sports, and exercises for the body.	Grammar: "more healthy" should be "healthier"; swap test fails
+pick	FIX	She was allowed to pick any book she wanted from the library shelf.	Swap test: "select," "choose," "grab" all work; meaning too generic
+pilot	FIX	The pilot controlled the plane's speed, direction, and altitude before landing.	Swap test: "captain," "operator," "driver" might work; doesn't show "pilot" specifically
+potential	FIX	The young athlete showed potential to become an Olympic champion within five years.	Swap test: "promise," "ability," "capability" all fit; meaning not distinctive
+powerful	FIX	The powerful storm knocked down trees and shattered windows across town.	Swap test: "strong," "fierce," "intense" work; doesn't show "powerful" means force/strength
+prehistoric	FIX	Prehistoric people used stone tools to hunt animals and gather wild plants.	Swap test: "ancient," "early," "primitive" all work; doesn't show pre-written-history sense
+prepare	FIX	She prepared carefully for the exam by reviewing notes and taking practice tests.	Swap test: "studied," "revised," "readied" all fit; meaning too general
+presentation	FIX	Her presentation used slides and statistics to convince the audience about climate.	Swap test: "speech," "talk," "lecture" would work; meaning too generic
+price	FIX	The high price of that designer shirt made me decide not to buy it.	Swap test: "cost," "expense," "amount" all work; meaning not distinctive
+professional	FIX	The professional chef trained for years to master cooking techniques and flavors.	Swap test: "experienced," "expert," "skilled" fit; meaning too generic
+program	FIX	The after-school program teaches music, art, and sports to interested children.	Swap test: "class," "activity," "course" would work; doesn't show "program" specifically
+puzzle	FIX	The crossword puzzle had difficult clues that required knowledge and patience.	Swap test: "challenge," "problem," "riddle" fit; meaning not forced
+quality	FIX	The quality of that restaurant's food impressed everyone with its taste and freshness.	Grammar: "excellent and truly very delicious" is redundant; meaning too vague
+question	OK	The reporter questioned the politician about the controversial new government policy.	"Questioned" (doubt/challenge sense) is forced by context; can't substitute "asked"
+rainbow	FIX	A colorful rainbow appeared in the sky after the rain, spanning the entire horizon.	Swap test: "arc," "spectrum," "band of light" could work; meaning not distinctive
+random	FIX	She picked random students to answer questions, with no particular system or pattern.	Swap test: "arbitrary," "haphazard," "unsystematic" work; doesn't show "random" clearly
+rat	FIX	The large gray rat scurried across the kitchen and disappeared into a wall.	Swap test: "mouse," "rodent," "creature" all fit; meaning too generic
+reality	FIX	The reality of the situation was harsh; working hard alone cannot guarantee success.	Swap test: "truth," "fact," "situation" work; meaning too vague
+receive	FIX	She will receive her diploma when she completes all required courses.	Swap test: "get," "obtain," "be given" all work; meaning not distinctive
+reflex	FIX	When he touched the hot stove his arm jerked back without any conscious decision.	Swap test: "reaction," "response," "instinct" could work; needs to show automaticity
+relevant	FIX	Her comment was relevant because it directly addressed the main point of the debate.	Swap test: "pertinent," "applicable," "related" all work; meaning too generic
+remove	FIX	Please remove your shoes before stepping onto the clean white carpet inside.	Grammar: "immediately upon arrival" awkward; swap test: "take off," "pull off" work
+repeat	FIX	The teacher asked the confused student to repeat her answer more slowly and loudly.	Swap test: "rephrase," "restate," "reiterate" fit; though context helps somewhat
+respond	FIX	He did not respond to her message because he was too busy working.	Swap test: "reply," "answer," "text back" all work; meaning too generic
+responsibility	FIX	A parent's main responsibility is feeding, sheltering, and protecting their children.	Swap test: "duty," "obligation," "role" all fit; meaning not distinctive
+responsible	FIX	The responsible student completed her homework, studied hard, and never skipped class.	Swap test: "diligent," "reliable," "dutiful" all work; meaning not distinctive
+result	FIX	The result of her hard work was finally passing the difficult exam.	Grammar: awkward structure "was that she passed...easily"; meaning too generic
+revolution	FIX	The revolution overthrew the old government and transformed how people lived and governed.	Grammar: "completely forever" is redundant; swap test: "upheaval," "transformation" work
+ring, rang	FIX	The telephone rang loudly three times before she rushed to pick it up.	Swap test: "buzzed," "chimed," "sounded," "rang out" all work; meaning not distinctive
+risk	FIX	He chose to risk his savings by investing in an untested new business idea.	Swap test: "gamble," "invest," "stake" fit; though context does help show danger
+river	FIX	The river flows downward from the mountains, eventually reaching the vast ocean.	Swap test: "stream," "waterway," "current" all work; meaning too generic
+rocket	FIX	The rocket launched vertically through the clouds carrying astronauts to the space station.	Swap test: "ship," "spacecraft," "vessel," "craft" would work; meaning not forced
+role	FIX	She played the role of the evil queen and received praise from the audience.	Swap test: "character," "part," "persona," "part" all fit; meaning not distinctive
+roof	OK	The roof of the house needs new shingles and some structural repairs.	Context (shingles) shows it's the top structure; meaning is specific
+root	OK	The tree's root system grows deep underground to find water and nutrients.	Context (underground, finding water) shows it's plant-specific; meaning is forced
+rope	FIX	She tied the rope tightly to the boat so it would not drift away.	Swap test: "cord," "line," "cable," "string" all work; meaning not distinctive
+rule	FIX	The school rule requires that all students arrive at least ten minutes early.	Grammar: "each and every day" redundant; swap test: "regulation," "policy" fit
+saga	FIX	The saga of the family's troubles spanned multiple generations and decades.	Grammar: awkward phrasing; swap test: "story," "tale," "history" all work
+scan	FIX	She scanned the crowd quickly with her eyes to find her friend.	Swap test: "examined," "looked through," "searched," "surveyed" all work; meaning too generic
+science	FIX	Science uses careful experiments and observation to understand how nature works.	Swap test: "study," "inquiry," "research" all fit; defining rather than showing
+scientist	FIX	The scientist conducted experiments in her lab to test her new medical theory.	Swap test: "researcher," "investigator," "expert" all work; meaning not distinctive
+seem	FIX	The movie seemed dull at first but became more interesting as it progressed.	Grammar: "at the very first" awkward; swap test: "appeared," "felt," "looked" work
+sense	FIX	She felt a deep sense of pride watching her daughter graduate from college.	Swap test: "feeling," "emotion," "awareness" all work; meaning too generic
+series	FIX	She watched the entire series of episodes about the detective in just two days.	Swap test: "set," "sequence," "collection" all work; meaning not distinctive
+serve	FIX	The waiter served the hot food to the hungry customers at their table.	Swap test: "handed," "delivered," "brought," "presented" all work; using "serve" food sense; need to show meaning
+shield	FIX	The metal shield protected the ancient warrior from arrows and sword blows.	Swap test: "armor," "protection," "defense" all work; meaning too generic
+shoulder	OK	He put his arm around her shoulder to comfort her during the difficult time.	Body part is specific; "back" or "arm" don't work the same way contextually
+silent	FIX	The library was silent so that everyone could study and read without noise.	Swap test: "quiet," "hushed," "noiseless," "soundless" all fit; nearly synonymous
+silver	FIX	Her grandmother gave her a delicate silver bracelet for her eighteenth birthday.	Grammar issue in original; swap test: "gold," "metal," "jewelry" could work
+size	FIX	The size of the shoes was too large and they slipped off her feet constantly.	Grammar: "did not fit...properly...at all" redundant; meaning too generic
+skill	FIX	Playing the piano requires years of practice to build genuine musical skill.	Swap test: "ability," "talent," "proficiency," "technique" all fit; meaning too generic
+skin	OK	Sunscreen protects your skin from damage caused by strong ultraviolet rays.	Context (outer protection from UV) shows specific meaning; fairly distinctive
+slave	FIX	The slave had no freedom and could be bought or sold like property.	Swap test: "servant," "laborer," "prisoner" all fit; meaning not specific enough
+smoke	FIX	Gray smoke rose from the chimney as the wood fire burned inside.	Swap test: "steam," "mist," "vapor," "fumes" all work; meaning not distinctive
+soccer	FIX	The soccer team scored three goals and won the championship game.	Swap test: "football," "sports team," "athletic team" work in some dialects; meaning not forced
+social	FIX	She avoided social gatherings because she felt anxious around large groups of people.	Grammar: awkward phrasing; swap test: "public," "group," "communal" fit; meaning too generic
+sold	FIX	She sold her old car to a young couple last summer.	Grammar: "finally" at end is odd placement; swap test: "gave," "traded," "transferred" work

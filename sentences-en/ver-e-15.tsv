@@ -1,0 +1,80 @@
+sin	OK
+slow down	OK
+soul	OK
+source	OK
+southern	OK
+space	OK
+speech	OK
+spell	OK
+spirit	OK
+square	OK
+stage	OK
+standard	OK
+state	OK
+stomach	FIX	Her stomach hurt badly after eating too much pizza.	"aching badly" is unnatural; use "hurt" or "ached"
+strength	OK
+structure	OK
+stuck	OK
+suffer	OK
+supply	OK
+surely	OK
+surgery	OK
+surrender	OK
+survive	OK
+switch	OK
+tale	OK
+target	OK
+task	OK
+tent	OK
+theme	FIX	The theme of the book concerns the power of forgiveness.	"is about" is redundant after "theme"
+thief	OK
+threat	OK
+throw	OK
+tie	OK
+title	FIX	The title of the movie intrigued viewers despite being confusing.	"to readers" mismatches "movie"; viewers/audiences watch films
+tongue	OK
+totally	OK
+track	OK
+tradition	OK
+traffic	OK
+train	OK
+transfer	OK
+transport	OK
+trap	OK
+treatment	OK
+truck	OK
+truly	OK
+tube	OK
+unbelievable	OK
+unfair	OK
+unfortunately	OK
+unusual	OK
+useful	OK
+useless	OK
+usual	OK
+value	OK
+violence	OK
+violent	OK
+visitor	OK
+visual	OK
+warn	OK
+wear	FIX	She wore her favorite blue jeans to the concert last night.	"yesterday night" is not idiomatic English
+weather	OK
+wedding	OK
+wild	OK
+wing	OK
+activist	OK
+actually	OK
+additionally	FIX	The recipe needs flour, sugar, butter, and vanilla extract.	"and additionally" is awkward; remove redundancy or restructure
+advantage	OK
+advertisement	OK
+advice	OK
+aesthetic	FIX	The aesthetic appeal of the ancient temple amazed all the visitors.	"aesthetic beauty" is tautological; use "appeal" or drop "aesthetic"
+air conditioner	OK
+airline	OK
+all in all	OK
+amateur	OK
+amaze	FIX	The magician's trick will amaze the entire audience.	"in the large audience" is awkward phrasing
+among	OK
+amount	FIX	The total amount of rainfall this month was unusually high.	"unusually very" is redundant; use one intensifier
+analog	OK

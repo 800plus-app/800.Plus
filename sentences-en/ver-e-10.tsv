@@ -1,0 +1,80 @@
+solution	FIX	The solution to the equation required several algebraic steps to find.	"answer" fits equally well
+solve	FIX	The detectives worked for months to solve the crime by analyzing evidence.	"figure out" fits; needs specific context
+sort	FIX	Sort these files alphabetically before uploading them to the archive.	"organize" fits; needs action-specific context
+speak, spoke	FIX	The witness spoke calmly during the trial, describing what she saw.	"addressed," "told," "testified" fit
+speed	FIX	The runner's speed increased to fifteen miles per hour by the final lap.	"velocity," "pace" fit
+sperm	OK		Biological term is specific enough; swap test narrow
+spider	OK		No viable synonym in natural English
+spicy	FIX	The sauce was so spicy it burned my mouth for an hour.	"hot," "peppery" fit equally; emphasize sensation
+sponsor	FIX	Our company will fund the local sports team's equipment this year.	"fund," "back," "support" all fit
+spontaneous	FIX	Her impulsive decision to leave town surprised everyone who knew her.	Wait—this reverses the problem. Try: Her spontaneous laugh revealed she was actually happy.	Better: needs context showing unplanned nature
+spray	FIX	You must spray pesticide on the plants to stop the insects.	"mist," "sprinkle" fit
+spy	FIX	During the Cold War, a foreign agent stole government secrets.	"agent," "informant," "operative" fit
+steal	FIX	The thief planned to rob the museum of its most valuable paintings.	"take," "pilfer" fit; "rob" + object works differently
+stereotype	FIX	That film relies on the false generalization that all athletes are unintelligent.	"prejudice," "generalization" fit
+stone	FIX	Ancient builders carved temples from massive blocks of stone and marble.	"rock" fits equally
+storm	FIX	A violent tempest brought heavy rain and wind to the city overnight.	"tempest," "downpour" fit
+strategy	FIX	Their marketing approach focused on young customers through social media.	"plan," "tactic," "approach" all fit
+stress	FIX	Work pressure caused him serious health problems over several years.	"tension," "pressure," "anxiety" fit
+stuff	FIX	She packed all her belongings into one suitcase for the trip.	"things," "items," "belongings" fit
+success	FIX	His achievement in business came after years of hard work.	"achievement," "accomplishment," "triumph" fit
+such as	OK		Set phrase for introducing examples; no swap
+suggest	FIX	I recommend we wait until tomorrow to make this important decision.	"recommend," "propose," "advise" fit
+suicide	OK		Context and gravity make the word necessary
+sunlight	FIX	Plants need direct light to grow, so place them by a window.	"sunlight," "light," "rays" fit in this context
+survival	OK		Hard to find a true synonym that fits the same way
+sword	OK		No viable natural-English synonym
+symbol	FIX	The dove represents peace and innocence in many cultures worldwide.	"emblem," "representation," "sign" fit
+syrup	OK	Pour warm maple syrup over the pancakes for a delicious breakfast.	"Maple syrup" is specific idiomatic collocation
+talent	FIX	Her musical gift was recognized when she was just five years old.	"gift," "ability," "skill," "talent" nearly interchangeable
+tax	FIX	Citizens must pay duties on their income to support government services.	"tax," "duty," "levy," "fee" fit
+think, thought	FIX	She considered the problem for a long time before deciding.	"considered," "pondered," "reflected on" fit
+thriller	OK	The spy thriller kept audiences on the edge of their seats.	Genre term "thriller" adds sufficient meaning
+tiny	FIX	The newborn baby was so small she fit in one hand.	"tiny," "small," "little" all fit for size
+tone	FIX	His manner of speaking made it clear he was very angry.	"tone," "manner," "voice," "attitude" fit
+tour	FIX	We took a guided visit of the ancient Roman ruins yesterday.	"tour," "visit," "trip," "excursion" fit
+tourist	FIX	Thousands of visitors walk by the Eiffel Tower every single day.	"tourist," "visitor," "traveler" fit
+tower	FIX	The tall structure could be seen from miles away across the plain.	"tower," "building," "structure" fit; need height emphasis
+town	FIX	The small village had one grocery store and a few restaurants.	"town," "village," "hamlet," "settlement" fit
+toxic	FIX	That chemical is poisonous and can cause serious illness if ingested.	"toxic," "poisonous," "dangerous," "harmful" fit
+tragic	FIX	The terrible accident claimed the lives of five young people.	"tragic," "terrible," "devastating," "sad" fit
+treasure	FIX	The family valued the old photograph because it showed their ancestors.	"treasured," "valued," "cherished," "prized" fit
+triple	OK	His salary tripled after he got promoted to the senior position.	Multiplier sense is specific enough
+twins	OK		Hard to replace without changing reference
+type	OK	Please type your password carefully so you don't make a mistake.	"Type" on keyboard is specific usage
+ugly	FIX	The building was considered unattractive by most city residents.	"ugly," "unattractive," "unsightly" fit
+uncle	OK	My uncle came to visit us from overseas for a month.	Specific family relation; no swap
+unique	FIX	Every person has distinct fingerprints that are different from everyone else.	"unique," "distinct," "individual" fit
+unit	FIX	The military team was stationed near the border for protection.	"unit," "squad," "team," "division" fit
+unlock	OK	You must unlock the door with the correct key or code.	"Unlock" implies lock mechanism; hard to swap naturally
+unsafe	FIX	The building was declared dangerous and everyone had to evacuate immediately.	"unsafe," "dangerous," "hazardous," "risky" fit
+update	FIX	The software patch fixed several bugs that were causing crashes.	"update," "patch," "upgrade," "improvement" fit
+upgrade	FIX	We decided to improve our computer system to handle more work.	"upgrade," "improve," "enhance," "update" fit
+use	FIX	I employ this app every day to track my exercise and calories.	"use," "utilize," "employ," "apply" fit
+vacation	FIX	We spent our holiday at the beach swimming and relaxing.	"vacation," "break," "holiday," "time off" fit
+vegetarian	FIX	A plant-based diet contains no meat, chicken, or fish of any kind.	"vegetarian," "plant-based," "meat-free" fit
+versions	FIX	The company released three different editions of the software for users.	"versions," "editions," "variants," "releases" fit
+victory	FIX	Their triumph in the final game made them the champions.	"victory," "win," "triumph," "success" fit
+virtual	FIX	The company held an online meeting because people were working remotely.	"virtual," "online," "remote," "digital" fit
+vote	OK	Every citizen has the right to vote in democratic elections.	"Vote" is sufficiently specific to democratic context
+warning	FIX	The label on the bottle showed a caution about the chemical's danger.	"warning," "alert," "caution," "notice" fit
+wave	FIX	A large surge crashed onto the shore during the storm.	"wave," "surge," "swell," "breaker" fit
+weapon	FIX	The soldier carried a rifle as his primary arm into battle.	"weapon," "gun," "firearm," "arm" fit
+weight	FIX	His mass increased after he stopped exercising and ate more.	"weight," "mass," "heaviness," "bulk" fit
+while	FIX	As she worked on her laptop, he watched TV in the living room.	"while," "as," "when," "during" fit
+wise	FIX	The intelligent old man gave advice to anyone who would listen.	"wise," "intelligent," "clever," "smart," "learned" fit
+wolf (wolves)	OK	The wolf howled at the moon from deep in the forest.	No natural synonym in English
+wood	FIX	The deck was built from treated timber that would resist weather.	"wood," "timber," "lumber," "material" fit
+worldwide	FIX	The company operates stores globally and employs thousands of people.	"worldwide," "globally," "internationally," "everywhere" fit
+worry	FIX	Don't be anxious about the test; if you studied, you will do well.	"worry," "fret," "stress," "be anxious" fit
+zone	FIX	The warehouse was in a commercial district near the airport.	"zone," "area," "district," "sector," "region" fit
+ability	FIX	Her capacity to speak five languages impressed everyone at the conference.	"ability," "capacity," "skill," "talent," "capability" fit
+above all	OK	Above all, we must ensure that everyone stays safe and healthy.	Idiom; no swap
+absurd	FIX	His excuse for being late was so ridiculous that nobody believed him.	"absurd," "ridiculous," "preposterous," "implausible" fit
+accept	FIX	She finally decided to take the job offer from the company.	"accept," "take," "receive," "agree to" fit
+accident	FIX	The crash happened at the busy intersection during rush hour.	"accident," "crash," "collision," "incident" fit
+according	FIX	Based on the weather forecast, it will rain heavily tomorrow.	"according," "based on," "per" fit
+across	FIX	The bridge stretches over the river, connecting the two towns.	"across," "over," "through," "spanning" fit
+active	FIX	She was very involved in sports and exercise throughout high school.	"active," "involved," "participatory," "engaged," "busy" fit
+actress	FIX	The performer won an award for her role in the film.	"actress," "performer," "actor," "star" fit
+adult	FIX	As a grown-up, she had to make important decisions about her future.	"adult," "grown-up," "person" fit
