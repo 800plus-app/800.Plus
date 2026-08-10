@@ -1,0 +1,11 @@
+# RFC 9116 · https://www.rfc-editor.org/rfc/rfc9116
+# בלי הקובץ הזה, חוקר שמוצא בעיה ב-800-plus.com צריך לנחש כתובת. הניחוש הנפוץ
+# הוא "לפרסם ולראות מה קורה". ארבע שורות מחליפות את זה בערוץ מוגדר.
+#
+# ⚠ Expires הוא שדה חובה בתקן, וקובץ שפג נחשב לא תקף. מועד החידוש נמצא
+#   באותה תזכורת רבעונית שבודקת את changelog של supabase-js.
+
+Contact: mailto:admin@800-plus.com
+Expires: 2027-08-10T00:00:00.000Z
+Preferred-Languages: he, en
+Canonical: https://800-plus.com/.well-known/security.txt
