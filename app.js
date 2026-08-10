@@ -1631,6 +1631,7 @@ function finishRound(){
   renderReview();
   renderUnitProgress();
   goto('results');
+  maybeAskWtp();
 }
 
 /* ===== where this round leaves you in the unit =====
@@ -4662,6 +4663,69 @@ $('#delGo').onclick = async ()=>{
     + 'לא נשאר אצלנו שום מידע עליך.</p>'
     + '<p style="margin-top:14px;font-size:.85rem;color:#8d8274">בהצלחה במבחן.</p></div></div>';
 };
+
+/* ===== willingness-to-pay survey =====
+   Asked once per learner, ever, two seconds after the first round they finish. Everything here
+   is written to fail closed: any error, any missing table, anybody signed out, and the card
+   simply never appears. A survey is worth nothing next to a practice screen that breaks. */
+let wtpPrice = null, wtpShown = false;
+function maybeAskWtp(){
+  if(wtpShown) return;                      // once per page load, whatever else happens
+  if(!currentUser) return;                  // signed out: there is no row to write
+  wtpShown = true;
+  setTimeout(async ()=>{
+    /* Still on the results screen? Two seconds is enough time to press "חזרה", and a dialog
+       that opens over a screen the learner has already left is pure interruption. */
+    if($('#results').classList.contains('hidden')) return;
+    let asked = true;
+    try{ asked = await Store.wtpAsked(); }catch(e){}
+    if(asked) return;
+    if($('#results').classList.contains('hidden')) return;   // re-checked after the await
+    wtpPrice = null;
+    document.querySelectorAll('#wtpPrices button').forEach(b=>b.classList.remove('active'));
+    $('#wtpHelped').value=''; $('#wtpStop').value='';
+    $('#wtpGo').disabled = true;
+    show($('#wtpAsk'));
+  }, 2000);
+}
+if($('#wtpAsk')){
+  document.querySelectorAll('#wtpPrices button').forEach(b=>{
+    b.onclick = ()=>{
+      document.querySelectorAll('#wtpPrices button').forEach(o=>o.classList.remove('active'));
+      b.classList.add('active');
+      wtpPrice = b.dataset.v;
+      $('#wtpGo').disabled = false;         // the two open questions stay optional
+    };
+  });
+  /* ✕ counts as "asked" and is written as dismissed:true. It is a data point of its own — how
+     many people did not want the question at all — and it is also what stops the card coming
+     back on the next round. Closing must never block the screen, so the write is not awaited. */
+  const closeWtp = ()=>{
+    hide($('#wtpAsk'));
+    try{ Store.wtpSave({ dismissed:true }); }catch(e){}
+  };
+  $('#wtpX').onclick = closeWtp;
+  $('#wtpAsk').onclick = e=>{ if(e.target===$('#wtpAsk')) closeWtp(); };
+  $('#wtpGo').onclick = async ()=>{
+    const btn=$('#wtpGo');
+    btn.disabled=true; btn.textContent='שולח…';
+    let ok=false;
+    try{
+      const r = await Store.wtpSave({
+        price_bucket: wtpPrice,
+        what_helped: $('#wtpHelped').value.trim(),
+        what_would_stop: $('#wtpStop').value.trim()
+      });
+      ok = r && r.ok;
+    }catch(e){}
+    hide($('#wtpAsk'));
+    btn.textContent='שלח תשובה';
+    /* Thanked either way. A learner who answered honestly should not be told the write failed —
+       there is nothing they can do about it, and the round they just finished is the screen
+       they came back to. The failure is ours to see in the empty table, not theirs. */
+    toast(ok ? 'תודה · זה עוזר לי מאוד' : 'תודה');
+  };
+}
 // the account screen's own sheet is the cross-unit one; per-unit sheets live inside a unit
 /* חזרה חוצת-יחידות. הכפתור בתוך יחידה מתרגל את מילות אותה יחידה בלבד, ומי שלמד לאורך
    עשר יחידות לא יכול היה לחזור על הכול. אותו startRound ואותו askSize כמו כל שאר
