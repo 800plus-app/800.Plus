@@ -1,0 +1,80 @@
+diversity	OK
+downhill	OK
+drain	OK
+drift	OK
+drip	OK
+duel	OK
+dwarf	OK
+dye	OK
+dynasty	OK
+edition	OK
+elect	OK
+emblem	OK
+emphasis	OK
+emphasize	OK
+enforce	OK
+enlarge	OK
+enrage	FIX	His rude behavior enraged her that night.	Awkward "so much that night" construction; needed restructure
+enrich	OK
+enroll	OK
+enthusiasm	OK
+envious	OK
+equivalent	OK
+erosion	OK
+essentially	OK
+estimate	OK
+evaluate	OK
+evaluation	OK
+evenly	FIX	Spread the paint evenly across the entire wall.	Missing article "the" before "wall"
+evident	OK
+exceptional	OK
+exclude	OK
+exhausting	OK
+exhibit	OK
+exhibition	OK
+expedition	OK
+expertise	OK
+explicit	OK
+exposure	OK
+exterior	OK
+extinct	OK
+extract	OK
+faithful	OK
+farther	OK
+fasten	OK
+fiber	FIX	Vegetables contain lots of fiber which aids digestion.	"helps digestion well" is unnatural phrasing; corrected to "aids digestion"
+fierce	OK
+findings	FIX	The findings of the research showed surprising patterns.	"show surprising results" is redundant (findings=results); "here" at end is awkward
+flaw	OK
+flee, fled	OK
+fluent	OK
+fluid	FIX	Pour the fluid slowly into the container to prevent spillage.	"to avoid spill" is grammatically incorrect; should be "to prevent spillage"
+fossil	OK
+fragile	FIX	The fragile glass vase broke when dropped on the floor.	Missing article "the" before "floor"
+frequency	OK
+frequent	OK
+fury	OK
+garlic	OK
+govern	OK
+gradually	OK
+grain	OK
+grapes	OK
+grateful	OK
+grave	OK
+grocery	OK
+guidance	OK
+handful	OK
+handicap	OK
+harass	OK
+harmful	OK
+herb	OK
+heroine	OK
+hesitate	OK
+housemaid	OK
+humble	OK
+hypothesis	OK
+identical	OK
+identically	OK
+idolize	OK
+illustrate	OK
+imitation	OK

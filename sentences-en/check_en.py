@@ -13,7 +13,8 @@ BANNED = ('delve', 'tapestry', 'testament to', 'a myriad of', 'in the realm',
           'in today’s world', "in today's world", '—')
 
 # נטיות לא-רגולריות שמבחן-הגזע לא תופס. התדריך מתיר הטיה, אז אלה חוקיות.
-IRREG = {'wear': ('wore', 'worn'), 'buy': ('bought',), 'catch': ('caught',),
+IRREG = {'undergo': ('underwent', 'undergone'), 'forsake': ('forsook', 'forsaken'), 'uphold': ('upheld',), 'withdraw': ('withdrew', 'withdrawn'), 'withstand': ('withstood',), 'overcome': ('overcame',), 'overtake': ('overtook', 'overtaken'), 'undertake': ('undertook', 'undertaken'),
+         'wear': ('wore', 'worn'), 'buy': ('bought',), 'catch': ('caught',),
          'teach': ('taught',), 'think': ('thought',), 'bring': ('brought',),
          'fight': ('fought',), 'seek': ('sought',), 'go': ('went', 'gone'),
          'eat': ('ate',), 'fall': ('fell',), 'see': ('saw', 'seen'),
@@ -101,7 +102,7 @@ for nb in names:
                 probs.append('אורך %d' % n)
             low = sent.lower()
             for b in BANNED:
-                if b in low or b in sent:
+                if (b in low or b in sent) and b.strip().lower() not in w_in.lower():
                     probs.append('אסור: %s' % b.strip())
             if not word_in(w_in, sent):
                 probs.append('המילה לא במשפט')

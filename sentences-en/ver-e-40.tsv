@@ -1,0 +1,80 @@
+subtraction	OK
+superficial	OK
+supplement	OK
+surrounding	OK
+sustain	OK
+tame	OK
+tendency	OK
+tender	OK
+testify	OK
+tin	OK
+toad	OK
+tolerate	OK
+trait	OK
+transcript	OK
+transplant	OK
+treaty	OK
+unbearable	OK
+undoubtedly	OK
+unrest	OK
+urge	FIX	I urge you to start the project before the deadline arrives tomorrow.	no exam context per brief
+urine	OK
+vacant	OK
+validity	OK
+vast	OK
+verdict	OK
+vice versa	OK
+vinegar	OK
+violate	FIX	If you violate the traffic laws, you will receive a heavy fine.	school context too close to exam-prep app
+violation	OK
+viper	OK
+virtually	OK
+wage	OK
+wanted	OK
+wardrobe	OK
+warfare	OK
+wasp	OK
+weave	OK
+welfare	OK
+widespread	OK
+withstand	OK
+abduct	OK
+abundance	OK
+accentuate	OK
+accommodate	OK
+accumulate	OK
+accustomed	OK
+acquisition	OK
+acquitted	OK
+adhere	OK
+adjacent to	OK
+administer	OK
+adolescence	OK
+aisle	OK
+algae	OK
+alienation	OK
+allocate	OK
+alterations	OK
+ambiguous	FIX	The instructions were ambiguous, so the students asked for clarification.	no exam context per brief
+amend	OK
+amid	OK
+ample	OK
+amputation	OK
+anesthesia	OK
+annually	FIX	The conference occurs annually, bringing together researchers from around the world.	redundant annual/annually; awkward construction
+anticipate	FIX	Scientists anticipate that temperatures will rise significantly over the coming decades.	incomplete sentence "rise in years"
+anxiety	OK
+apparatus	OK
+apparent	OK
+appoint	OK
+appropriately	OK
+arguably	OK
+arise, arose	OK
+ark	OK
+array	OK
+assert	OK
+assertion	OK
+assess	OK
+at your disposal	OK
+attain	OK
+attendant	OK

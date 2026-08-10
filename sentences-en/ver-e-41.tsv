@@ -1,0 +1,80 @@
+attribute	OK
+augment	OK
+awe	OK
+backdrop	OK
+basin	FIX	She filled the ceramic basin with cool water for washing.	"to wash" is an incomplete infinitive; should specify object or use "for washing"
+bead	OK
+beak	OK
+beam	OK
+behalf	OK
+being that	OK
+bias	OK
+bizarre	OK
+botanist	OK
+burden	OK
+burglar	OK
+by no means	OK
+capital punishment	OK
+carve	OK
+cavity	OK
+characterize	OK
+chariot	OK
+circulate	FIX	The memo was promptly circulated to all employees this morning.	Awkward word order; "this morning promptly" should be "promptly this morning"
+circumstance	OK
+coexist	OK
+coexistence	OK
+commence	OK
+commodity	OK
+communal	OK
+comparable	OK
+comparatively	OK
+compel	OK
+composed	OK
+comprehend	OK
+conceal	OK
+conception	FIX	Their conception of success differed greatly from ours.	"differed greatly from ours entirely" is redundant; one adverb suffices
+conclusively	OK
+condemned	OK
+condense	OK
+confiscate	OK
+consequently	OK
+considerable	OK
+consist	OK
+consolidate	OK
+constitute	OK
+contaminate	OK
+contemporary	OK
+contradictory	FIX	His latest statement is contradictory to what he claimed previously.	Entry word is adjective "contradictory", not verb "contradicts"; sentence must use the entry form
+conversely	OK
+convey	OK
+correspond	OK
+correspondence	FIX	Their correspondence spanned more than forty years.	"of communication" is redundant; correspondence already implies written exchange
+correspondingly	OK
+counsel	OK
+counterpart	OK
+coupled with	OK
+courteous	OK
+crave	OK
+crude	OK
+cuisine	OK
+cultivate	OK
+czar	OK
+deceased	OK
+deceive	OK
+decipher	FIX	I struggled to decipher his almost illegible handwriting.	"completely" is redundant after "almost illegible"
+deduce	OK
+defer	OK
+deficiency	OK
+deformity	FIX	The injury resulted in a permanent leg deformity.	"for him" at the end is awkward; sentence is complete without it
+degenerate	OK
+deliberate	FIX	The jury will deliberate for several hours before announcing a verdict.	"before announcing" is incomplete; must specify what is announced
+delusions	OK
+denote	FIX	A red light denotes danger and signals drivers to stop.	"commands complete vehicle stopping" is verbose and unnatural phrasing
+densely	FIX	The mountainous region is densely populated with forests.	"Forests densely populate" is awkward; passive form is more natural
+depict	OK
+derive	OK
+differences	OK
+disciples	OK
+disclose	OK
+discriminate	FIX	Laws prohibit employers from discriminating based on age.	"unfairly" is redundant; discriminating inherently means treating unfairly
+disinfection	OK
