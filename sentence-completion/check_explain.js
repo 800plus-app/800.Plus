@@ -45,6 +45,41 @@ const heWords = s => (String(s).match(/[֐-׿]+/g) || []).filter(w => !STOP.has(
    משווים בלי אותיות שימוש פותחות, כדי לא לפסול נטייה לגיטימית. */
 const stem = w => w.replace(/^[להומשוכב]{1,2}/, '').slice(0, 3);
 
+/* ⛔ הוכחת שיניים. השער הראשון כאן דיווח "0 דגלים" בזמן שהתנאי שלו קרס לשקר
+   תמיד, וחמש מנות נבדקו לשווא. מכאן שכל טענת "נקי" מחייבת קודם הדגמה שהשער
+   **כן** יורה על מקרה שאמור להיפסל.
+
+     node sentence-completion/check_explain.js --selftest
+
+   שותלים שלושה פירושים פסולים על פריט אמיתי ובודקים שכל אחד נתפס. אם אחד מהם
+   עובר, השער שבור ואין להסתמך על שום ריצה שלו. */
+if (process.argv.includes('--selftest')) {
+  const first = JSON.parse(fs.readFileSync(path.join(dir, 'base.json'), 'utf8'))[0];
+  const w = wordsOf(first.o[0])[0], bank = GLOSS[norm(w)];
+  const cases = [
+    { name: 'פירוש מומצא שאינו בבנק', g: `${w} = לרקוד בגשם`, want: 'flag' },
+    { name: 'מקף ארוך', g: `${w} = ${bank} — הסבר`, want: 'err' },
+    { name: 'אינו מציג את המילה', g: `= ${bank}`, want: 'err' },
+    { name: 'פירוש הבנק עצמו', g: `${w} = ${bank}`, want: 'clean' },
+  ];
+  let fail = 0;
+  for (const c of cases) {
+    const e = [], f = [];
+    if (/[—–]/.test(c.g)) e.push('מקף');
+    if (!hasWord(c.g, w)) e.push('חסרה המילה');
+    if (bank) {
+      const bs = new Set(heWords(bank).map(stem));
+      for (const hw of heWords(c.g)) if (!bs.has(stem(hw))) { f.push(hw); break; }
+    }
+    const got = e.length ? 'err' : (f.length ? 'flag' : 'clean');
+    const ok = got === c.want;
+    if (!ok) fail++;
+    console.log(`${ok ? '✅' : '⛔'} ${c.name.padEnd(28)} ציפייה ${c.want} · קיבל ${got}`);
+  }
+  console.log(fail ? `\n⛔ ${fail} מקרים נכשלו — אין להסתמך על השער` : '\n✅ לשער יש שיניים. המקרים הפסולים נתפסו והתקין עבר.');
+  process.exit(fail ? 1 : 0);
+}
+
 const err = [], flag = [];
 let n = 0, doneT = 0, doneR = 0, doneG = 0;
 const files = fs.readdirSync(dir).filter(x => x.endsWith('.json')).filter(f => !only || f === only);
@@ -63,14 +98,42 @@ for (const f of files) {
       it.g.forEach((g, j) => {
         if (!g || /⛔/.test(g)) { E(`g[${j}] ריק או חסר פירוש בבנק`); ok = false; return; }
         if (/[—–]/.test(g)) { E(`g[${j}] מקף ארוך (HEB §3א)`); ok = false; }
+        /* ⛔ תוקן ב-10.8, אחרי שהריצה הראשונה של השער המתוקן הפיקה 184 דגלים
+           ו**רובם היו שקריים**. בפריט זוג `g[j]` מחזיק שני פירושים מופרדים ב-`·`:
+               "yield = להפיק · harvest = לקצור"
+           הגרסה הקודמת בדקה כל מילה עברית בכל המחרוזת מול הפירוש של **כל אחת**
+           מהמילים לחוד, ולכן הכריזה ש"לקצור" אינו בפירוש של `yield` — נכון, והוא
+           שייך ל-`harvest`. כל מילה נבדקת עכשיו מול המקטע שלה בלבד.
+           ⚠ הלקח חוזר בפעם השלישית באותו פרויקט: שער שיורה אינו שער שצודק. */
+        const segs = String(g).split('·').map(x => x.trim());
         wordsOf(it.o[j]).forEach(w => {
           if (!hasWord(g, w)) { E(`g[${j}] אינו מציג את "${w}"`); ok = false; }
           const bank = GLOSS[norm(w)];
           if (!bank) return;
-          /* כל מילת תוכן בקיצור חייבת להיות מהפירוש בבנק. */
+          /* המקטע של המילה הזאת. פירוש בודד — המחרוזת כולה.
+             ⚠ **משתנה מקומי, לא דריסה של `g`.** הגרסה הראשונה של התיקון כתבה
+             `g = seg`, וזה היה מצמצם את `g` כבר במילה הראשונה של הזוג ומשאיר את
+             השנייה נבדקת מול המקטע הלא שלה. */
+          const seg = segs.find(s => hasWord(s, w));
+          if (!seg) return;
+          /* כל מילת תוכן בקיצור חייבת להיות מהפירוש בבנק.
+           *
+           * ⛔ תוקן ב-10.8 אחרי שכותב רצועת האקדמיה קרא את השער ולא הסתמך עליו.
+           * הגרסה הראשונה נשאה איבר שני שמעולם לא היה יכול להיות אמת:
+           *     !wordsOf(it.o[j]).some(x => hasWord(w, x))
+           * `w` הוא תמיד חבר ב-`wordsOf(it.o[j])`, ולכן `hasWord(w, w)` אמת,
+           * `.some` אמת, והשלילה שקר. התנאי כולו קרס לשקר תמיד ו**הדגל מעולם לא
+           * נורה**. חמש מנות דיווחו "0 דגלים" והמספר הזה לא העיד על דבר.
+           *
+           * ⚠ זה אותו כשל שכבר תועד ב-fix_dashes.js: שער שנראה עובד, מדווח נקי,
+           * ולא בודק את מה שהוא מצהיר עליו. מכאן שכל שער חדש חייב **הוכחת
+           * שיניים** — הרצה על פירוש שתול שאמור להיפסל. ראה `--selftest`.
+           *
+           * האיבר המחוק היה מיותר מלכתחילה: `heWords` מסנן לאותיות עבריות בלבד,
+           * ולכן המילה האנגלית עצמה כלל אינה נכנסת ללולאה. */
           const bankStems = new Set(heWords(bank).map(stem));
-          for (const hw of heWords(g)) {
-            if (!bankStems.has(stem(hw)) && !wordsOf(it.o[j]).some(x => hasWord(w, x))) {
+          for (const hw of heWords(seg)) {
+            if (!bankStems.has(stem(hw))) {
               F(`g[${j}] "${hw}" אינו בפירוש הבנק של ${w} ("${bank}")`); break;
             }
           }

@@ -64,6 +64,11 @@ for (const [level, items] of Object.entries(SENT)) {
     if (seenSentences.has(key)) E(id, `משפט כפול · זהה ל-${seenSentences.get(key)}`);
     else seenSentences.set(key, id);
     if (!it.e || !it.e.trim()) E(id, 'אין הסבר e');
+    /* ⚠ נוסף ב-10.8 אחרי שכותב רצועת האקדמיה הצביע על כך שהאיסור על מקף ארוך
+       חל על ההסבר ולא על גוף המשפט. נמדד: פריט **אחד** מ-204 הכיל אותו
+       (`lean one way — a clear ___`), ותוקן לנקודתיים. המקף הארוך הוא סממן
+       מזהה של AI גם באנגלית, ואין סיבה שהוא יהיה מותר בפריט מבחן. */
+    if (/[—–]/.test(it.s)) E(id, 'מקף ארוך בגוף המשפט — נקודתיים או פסיק');
     const flat = it.o.flat();
     if (new Set(flat.map(normEn)).size !== new Set(it.o.map(o => JSON.stringify(o))).size && !pair)
       E(id, 'מסיחים כפולים');
