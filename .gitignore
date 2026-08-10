@@ -69,3 +69,7 @@ scripts/__pycache__/
 __pycache__/
 *.pyc
 units_output/gloss-phase/hewiktionary.xml.bz2
+
+# טקסט מלא של מבחנים — לעולם לא במאגר הציבורי (כמו בחינות-נייט/)
+exams/normalized/
+exams/txt/
