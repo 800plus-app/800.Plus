@@ -38,7 +38,7 @@
 אבוד	אבוד	analogy	close	אבד
 מקום	מקום	analogy	miss	
 רווק	רווק	analogy	miss	
-נישואין	נישואין	analogy	close	שאנ
+נישואין	נישואין	analogy	close	נשא
 הלבין פניו	הלבין פניו	analogy	close	לבנ
 נכלם	נכלם	analogy	full	נכלם
 ציווה	ציווה	analogy	full	ציה
@@ -46,7 +46,7 @@
 הלאה	הלאה	analogy	full	לאה
 עייף	עייף	analogy	miss	
 דיבר טובות	דיבר טובות	analogy	close	דיבר
-מהלל	מהלל	analogy	close	מהל
+מהלל	מהלל	analogy	close	הלל
 ראה שחורות	ראה שחורות	analogy	close	שחר
 קודר	קודר	analogy	full	קודר
 פיקח	פיקח	analogy	miss	
@@ -71,7 +71,7 @@
 פחד	פחד	analogy	miss	
 בעתה	בעתה	analogy	close	בעת
 אשמה	אשמה	analogy	close	אשמ
-חרטה	חרטה	analogy	close	רטה
+חרטה	חרטה	analogy	close	חרט
 מצוקה	מצוקה	analogy	miss	
 שוועה	שוועה	analogy	full	שוועה
 כעס	כעס	analogy	miss	
@@ -97,7 +97,7 @@
 העניש	העניש	analogy	miss	
 התגונן	התגונן	analogy	miss	
 נפגע	נפגע	analogy	miss	
-גבעול	גבעול	analogy	close	גבע
+גבעול	גבעול	analogy	close	בעל
 זר	זר	analogy	miss	
 ארון	ארון	analogy	miss	
 ריהוט	ריהוט	analogy	full	רהוט
@@ -127,9 +127,9 @@
 מאזיניה	מאזיניה	completion	miss	
 לשתות	לשתות	completion	full	שותת
 לפחות	לפחות	completion	full	פיח
-כוסות	כוסות	completion	full	כס
+כוסות	כוסות	completion	full	כסות
 לולא	לולא	completion	full	לולא
-ידעתי	ידעתי	completion	close	ידע
+ידעתי	ידעתי	completion	close	דעת
 רוויים	רוויים	completion	miss	
 מתפלאת	מתפלאת	completion	close	פלא
 קרינת	קרינת	completion	close	קרנ
@@ -169,7 +169,7 @@
 עברית	עברית	completion	close	עבר
 היינו	היינו	completion	miss	
 בעיניו	בעיניו	completion	close	ענו
-תחליף	תחליף	completion	close	תחל
+תחליף	תחליף	completion	close	חלפ
 לתפקידו	לתפקידו	completion	close	פקד
 המבקר	המבקר	completion	miss	
 לטענתו	לטענתו	completion	miss	
@@ -182,7 +182,7 @@
 רמת	רמת	completion	miss	
 יצירתם	יצירתם	completion	close	רתמ
 ביקורתיות	ביקורתיות	completion	close	קרת
-הכרחית	הכרחית	completion	close	כרח
+הכרחית	הכרחית	completion	close	רחת
 לאפשר	לאפשר	completion	close	פשר
 לעולם	לעולם	completion	full	עלום
 היצירה	היצירה	completion	close	הצר
@@ -260,7 +260,7 @@
 ירדו	ירדו	completion	close	ירד
 שווים	שווים	completion	miss	
 נפש	נפש	completion	close	נפש
-יקרים	יקרים	completion	close	קרמ
+יקרים	יקרים	completion	close	יקר
 במיוחד	במיוחד	completion	miss	
 עלו	עלו	completion	miss	
 נמוכים	נמוכים	completion	miss	

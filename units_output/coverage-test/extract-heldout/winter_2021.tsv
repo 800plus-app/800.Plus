@@ -23,7 +23,7 @@
 דגל לבן	דגל לבן	analogy	close	דגל
 כניעה	כניעה	analogy	close	כנע
 אבן נגף	אבן נגף	analogy	full	אבן נגף
-הכשלה	הכשלה	analogy	close	שלה
+הכשלה	הכשלה	analogy	close	כשל
 מחיאות כף	מחיאות כף	analogy	miss	
 שבח	שבח	analogy	miss	
 משיכת כתף	משיכת כתף	analogy	close	משיכת
@@ -38,7 +38,7 @@
 החלטיות	החלטיות	analogy	miss	
 התנגד	התנגד	analogy	close	נגד
 הסכמה	הסכמה	analogy	close	סכמ
-התרפא	התרפא	analogy	close	תרפ
+התרפא	התרפא	analogy	close	התר
 מחלה	מחלה	analogy	close	מחל
 מתרגם	מתרגם	analogy	miss	
 מתווך	מתווך	analogy	miss	
@@ -168,7 +168,7 @@
 מזערית	מזערית	completion	miss	
 שאף	שאף	completion	miss	
 להאמין	להאמין	completion	close	אמנ
-למעללים	למעללים	completion	close	עלל
+למעללים	למעללים	completion	close	מעל
 המתוארים	המתוארים	completion	miss	
 תיעלמנה	תיעלמנה	completion	close	עלמ
 הסכנות	הסכנות	completion	full	הסכין
@@ -192,7 +192,7 @@
 הריפוי	הריפוי	completion	miss	
 המתוארות	המתוארות	completion	miss	
 מידלדל	מידלדל	completion	miss	
-מתקשות	מתקשות	completion	close	קשת
+מתקשות	מתקשות	completion	close	מתק
 בהשגת	בהשגת	completion	miss	
 נשחקות	נשחקות	completion	close	שחק
 מיומנים	מיומנים	completion	miss	
@@ -214,7 +214,7 @@
 שנדון	שנדון	completion	close	נדנ
 בערכאה	בערכאה	completion	close	ערכאה
 יאפשר	יאפשר	completion	close	פשר
-עקרון	עקרון	completion	close	עקר
+עקרון	עקרון	completion	close	קרנ
 ההתערבות	ההתערבות	completion	close	תער
 מחייב	מחייב	completion	miss	
 בבית	בבית	completion	close	בבת
@@ -227,7 +227,7 @@
 דין	דין	completion	miss	
 וידרבן	וידרבן	completion	close	דרבנ
 הנמצא	הנמצא	completion	close	מצא
-בסמכותה	בסמכותה	completion	close	סמכ
+בסמכותה	בסמכותה	completion	close	בסמ
 הבלעדית	הבלעדית	completion	close	בלע
 ערכאה	ערכאה	completion	full	ערכאה
 ויעודד	ויעודד	completion	close	ועד
@@ -235,7 +235,7 @@
 חוליו	חוליו	completion	miss	
 וחזר	וחזר	completion	full	חיזר
 הרי	הרי	completion	close	הרי
-הנה	הנה	completion	full	נוה
+הנה	הנה	completion	full	הונה
 יוסי	יוסי	completion	miss	
 שכח	שכח	completion	full	שכיח
 צער	צער	completion	full	צוער
@@ -254,11 +254,11 @@
 באפס	באפס	completion	close	אפס
 מעשה	מעשה	completion	full	מעושה
 עושה	עושה	completion	close	עשה
-שביכולתו	שביכולתו	completion	close	שבכ
+שביכולתו	שביכולתו	completion	close	בכל
 להירפא	להירפא	completion	close	רפא
 פוקד	פוקד	completion	full	פקד
 תדיר	תדיר	completion	full	תדיר
-כבראשונה	כבראשונה	completion	close	ראש
+כבראשונה	כבראשונה	completion	close	כבר
 מנסה	מנסה	completion	miss	
 למצוא	למצוא	completion	close	מצא
 מזור	מזור	completion	full	מזור
@@ -267,8 +267,8 @@
 שיעזרו	שיעזרו	completion	miss	
 ממהר	ממהר	completion	close	מהר
 להתייאש	להתייאש	completion	miss	
-שבעתיים	שבעתיים	completion	close	בעת
+שבעתיים	שבעתיים	completion	close	שבע
 חרף	חרף	completion	full	חרף
 תקוותו	תקוותו	completion	miss	
-אצלם	אצלם	completion	close	צלמ
+אצלם	אצלם	completion	close	אצל
 ישועה	ישועה	completion	close	ישע
