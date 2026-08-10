@@ -1,0 +1,289 @@
+# winter_2022 · fmt=A · analogy=109 · completion=178
+פריט	מנורמל	סוג	פרק	שאלה	תפקיד	תוצאה	התאמה
+מגבת	מגבת	analogy	1	1	רגל	miss	
+רטוב	רטוב	analogy	1	1	רגל	miss	
+מחבת	מחבת	analogy	1	1	מסיח 1	miss	
+רעב	רעב	analogy	1	1	מסיח 1	miss	
+מיטה	מיטה	analogy	1	1	מסיח 2	miss	
+ישן	ישן	analogy	1	1	מסיח 2	miss	
+חולה	חולה	analogy	1	1	מסיח 3	miss	
+אמבט	אמבט	analogy	1	1	מסיח 4	miss	
+נקי	נקי	analogy	1	1	מסיח 4	close	נקי
+עונה	עונה	analogy	1	2	רגל	miss	
+סהר	סהר	analogy	1	2	מסיח 1	full	סהר
+ירח	ירח	analogy	1	2	מסיח 1	miss	
+חודש	חודש	analogy	1	2	מסיח 2	miss	
+חולצה	חולצה	analogy	1	2	מסיח 3	close	חלצ
+סוודר	סוודר	analogy	1	2	מסיח 3	full	סודר
+יבשת	יבשת	analogy	1	2	מסיח 4	miss	
+אסיה	אסיה	analogy	1	2	מסיח 4	miss	
+לטוות	לטוות	analogy	1	3	רגל	miss	
+לתפור	לתפור	analogy	1	3	רגל	miss	
+לסתת	לסתת	analogy	1	3	מסיח 1	full	סתת
+לבנות	לבנות	analogy	1	3	מסיח 1	full	ליבן
+לדובב	לדובב	analogy	1	3	מסיח 2	full	דובב
+לשתוק	לשתוק	analogy	1	3	מסיח 2	miss	
+להשקות	להשקות	analogy	1	3	מסיח 3	close	שקת
+לרוות	לרוות	analogy	1	3	מסיח 3	miss	
+לבקש	לבקש	analogy	1	3	מסיח 4	close	בקש
+למאן	למאן	analogy	1	3	מסיח 4	full	מאן
+דלק	דלק	analogy	1	4	רגל	full	דלק
+תחנת דלק	תחנת דלק	analogy	1	4	רגל	close	דלק
+חשמל	חשמל	analogy	1	4	מסיח 1	miss	
+תחנת כוח	תחנת כוח	analogy	1	4	מסיח 1	miss	
+ביצים	ביצים	analogy	1	4	מסיח 2	miss	
+לול	לול	analogy	1	4	מסיח 2	miss	
+כרטיסים	כרטיסים	analogy	1	4	מסיח 3	miss	
+קופה	קופה	analogy	1	4	מסיח 3	miss	
+ספרים	ספרים	analogy	1	4	מסיח 4	full	ספר
+ספרייה	ספרייה	analogy	1	4	מסיח 4	close	ספר
+עקב אכילס	עקב אכילס	analogy	1	5	רגל	full	עקב אכילס
+חולשה	חולשה	analogy	1	5	רגל	miss	
+קו פרשת המים	קו פרשת המים	analogy	1	5	מסיח 1	close	פרש
+מפנה	מפנה	analogy	1	5	מסיח 1	close	פנה
+בבת העין	בבת העין	analogy	1	5	מסיח 2	close	בבת
+נקודת המבט	נקודת המבט	analogy	1	5	מסיח 3	close	נקד
+מר אה	מר אה	analogy	1	5	מסיח 3	miss	
+חלק הארי	חלק הארי	analogy	1	5	מסיח 4	full	חלק הארי
+העלה	העלה	analogy	1	6	רגל	close	עלה
+הורד	הורד	analogy	1	6	רגל	miss	
+הרעיש	הרעיש	analogy	1	6	מסיח 1	miss	
+הוסה	הוסה	analogy	1	6	מסיח 1	full	הסה
+הצליח	הצליח	analogy	1	6	מסיח 2	full	צלח
+הוכשל	הוכשל	analogy	1	6	מסיח 2	close	כשל
+שיפץ	שיפץ	analogy	1	6	מסיח 3	miss	
+הוחרב	הוחרב	analogy	1	6	מסיח 3	close	חרב
+פישט	פישט	analogy	1	6	מסיח 4	close	פשט
+סובך	סובך	analogy	1	6	מסיח 4	full	סבוך
+אופניים	אופניים	analogy	2	1	רגל	close	פנמ
+לדווש	לדווש	analogy	2	1	רגל	full	דש
+חצוצרה	חצוצרה	analogy	2	1	מסיח 1	close	חצצ
+לנשוף	לנשוף	analogy	2	1	מסיח 1	full	נשף
+זכוכית	זכוכית	analogy	2	1	מסיח 2	close	זככ
+לנפח	לנפח	analogy	2	1	מסיח 2	full	נפח
+קומקום	קומקום	analogy	2	1	מסיח 3	miss	
+לחמם	לחמם	analogy	2	1	מסיח 3	full	חמום
+מקטרת	מקטרת	analogy	2	1	מסיח 4	miss	
+לעשן	לעשן	analogy	2	1	מסיח 4	miss	
+כבד פה	כבד פה	analogy	2	2	רגל	full	כבד פה
+רהיטות	רהיטות	analogy	2	2	רגל	full	רהוט
+קל דעת	קל דעת	analogy	2	2	מסיח 1	full	קל דעת
+פזיזות	פזיזות	analogy	2	2	מסיח 1	full	פזיז
+קל תפיסה	קל תפיסה	analogy	2	2	מסיח 2	miss	
+הסבר	הסבר	analogy	2	2	מסיח 2	full	סבר
+תחנונים	תחנונים	analogy	2	2	מסיח 3	close	חננ
+קשה עורף	קשה עורף	analogy	2	2	מסיח 4	full	קשה עורף
+פשרנות	פשרנות	analogy	2	2	מסיח 4	close	פשר
+הענקה	הענקה	analogy	2	3	רגל	close	ענק
+השעיה	השעיה	analogy	2	3	מסיח 1	full	שעה
+פיטורין	פיטורין	analogy	2	3	מסיח 1	close	פטר
+השכרה	השכרה	analogy	2	3	מסיח 2	close	כרה
+תשלום	תשלום	analogy	2	3	מסיח 2	miss	
+דיבוב	דיבוב	analogy	2	3	מסיח 3	full	דובב
+שידוך	שידוך	analogy	2	3	מסיח 4	miss	
+נישואין	נישואין	analogy	2	3	מסיח 4	close	נשא
+מצרים	מצרים	analogy	2	4	רגל	full	מצר
+מצרימה	מצרימה	analogy	2	4	רגל	close	רמה
+עת	עת	analogy	2	4	מסיח 1	full	עווית
+עתה	עתה	analogy	2	4	מסיח 1	miss	
+שמאל	שמאל	analogy	2	4	מסיח 2	miss	
+שמאלה	שמאלה	analogy	2	4	מסיח 2	miss	
+הלום	הלום	analogy	2	4	מסיח 3	full	הלם
+הנה	הנה	analogy	2	4	מסיח 3	full	הונה
+תחתון	תחתון	analogy	2	4	מסיח 4	miss	
+למטה	למטה	analogy	2	4	מסיח 4	miss	
+נרגע	נרגע	analogy	2	5	מסיח 1	miss	
+רגוע	רגוע	analogy	2	5	מסיח 1	miss	
+התעצל	התעצל	analogy	2	5	מסיח 2	miss	
+עצל	עצל	analogy	2	5	מסיח 2	miss	
+התחמם	התחמם	analogy	2	5	מסיח 3	close	חממ
+חמים	חמים	analogy	2	5	מסיח 3	full	חמום
+תיקן	תיקן	analogy	2	5	מסיח 4	miss	
+תקין	תקין	analogy	2	5	מסיח 4	miss	
+אל נכון	אל נכון	analogy	2	6	רגל	full	אל נכון
+ספק	ספק	analogy	2	6	רגל	close	ספק
+לסירוגין	לסירוגין	analogy	2	6	מסיח 1	full	לסירוגין
+ביוקר	ביוקר	analogy	2	6	מסיח 2	miss	
+חינם	חינם	analogy	2	6	מסיח 2	miss	
+לחינם	לחינם	analogy	2	6	מסיח 3	miss	
+תועלת	תועלת	analogy	2	6	מסיח 3	miss	
+במזיד	במזיד	analogy	2	6	מסיח 4	miss	
+כוונה	כוונה	analogy	2	6	מסיח 4	miss	
+איטי	איטי	completion	1	7	אפשרות 1	miss	
+לשמש	לשמש	completion	1	7	אפשרות 1	miss	
+אתגר	אתגר	completion	1	7	אפשרות 1	close	תגר
+למנוסים	למנוסים	completion	1	7	אפשרות 1	miss	
+שבמדענים	שבמדענים	completion	1	7	אפשרות 1	miss	
+מסחרר	מסחרר	completion	1	7	אפשרות 2	close	חרר
+ממש	ממש	completion	1	7	אפשרות 2	miss	
+להיחשב	להיחשב	completion	1	7	אפשרות 2	miss	
+למסתורין	למסתורין	completion	1	7	אפשרות 2	close	תרנ
+גמור	גמור	completion	1	7	אפשרות 2	close	גמר
+מדי	מדי	completion	1	7	אפשרות 3	miss	
+להתבצע	להתבצע	completion	1	7	אפשרות 3	close	בצע
+כעניין	כעניין	completion	1	7	אפשרות 3	miss	
+שבשגרה	שבשגרה	completion	1	7	אפשרות 3	close	שגר
+מהיר	מהיר	completion	1	7	אפשרות 4	close	מהר
+לבצע	לבצע	completion	1	7	אפשרות 4	full	בצע
+סטודנט	סטודנט	completion	1	7	אפשרות 4	miss	
+מתחיל	מתחיל	completion	1	7	אפשרות 4	close	תחל
+המוזיקה	המוזיקה	completion	1	7	אפשרות 4	miss	
+הקצבית	הקצבית	completion	1	7	אפשרות 4	close	הקצ
+שהושמעה	שהושמעה	completion	1	7	אפשרות 4	miss	
+שלמה	שלמה	completion	1	7	אפשרות 4	miss	
+אורי	אורי	completion	1	7	אפשרות 4	miss	
+סבל	סבל	completion	1	8	אפשרות 1	full	סביל
+להתנחם	להתנחם	completion	1	8	אפשרות 1	close	נחמ
+אלרגי	אלרגי	completion	1	8	אפשרות 1	miss	
+חובב	חובב	completion	1	8	אפשרות 2	miss	
+מושבע	מושבע	completion	1	8	אפשרות 2	close	שבע
+התלהב	התלהב	completion	1	8	אפשרות 3	close	התל
+להתאכזב	להתאכזב	completion	1	8	אפשרות 3	close	כזב
+סלוצקי	סלוצקי	completion	1	8	אפשרות 4	miss	
+הגורס	הגורס	completion	1	8	אפשרות 4	full	גרס
+יצירה	יצירה	completion	1	8	אפשרות 4	miss	
+ספרותית	ספרותית	completion	1	8	אפשרות 4	close	ספר
+קיימים	קיימים	completion	1	8	אפשרות 4	miss	
+קווים	קווים	completion	1	8	אפשרות 4	miss	
+המעידים	המעידים	completion	1	8	אפשרות 4	miss	
+אישיותו	אישיותו	completion	1	8	אפשרות 4	miss	
+המחבר	המחבר	completion	1	8	אפשרות 4	miss	
+ברומברג	ברומברג	completion	1	8	אפשרות 4	close	ברמ
+לעומת	לעומת	completion	1	9	אפשרות 1	miss	
+טוען	טוען	completion	1	9	אפשרות 1	miss	
+להפריד	להפריד	completion	1	9	אפשרות 1	close	פרד
+מחברת	מחברת	completion	1	9	אפשרות 1	miss	
+מדגיש	מדגיש	completion	1	9	אפשרות 2	miss	
+הדמיון	הדמיון	completion	1	9	אפשרות 2	close	דמנ
+דמותו	דמותו	completion	1	9	אפשרות 2	miss	
+קיום	קיום	completion	1	9	אפשרות 3	miss	
+מעדיף	מעדיף	completion	1	9	אפשרות 4	miss	
+הדגים	הדגים	completion	1	10	אפשרות 1	miss	
+שבאקווריום	שבאקווריום	completion	1	10	אפשרות 1	close	קרמ
+וגודלו	וגודלו	completion	1	10	אפשרות 1	close	גדל
+האקווריום	האקווריום	completion	1	10	אפשרות 1	close	קרמ
+נותר	נותר	completion	1	10	אפשרות 1	full	ניתר
+כשהיה	כשהיה	completion	1	10	אפשרות 1	close	שהה
+כשהוגדל	כשהוגדל	completion	1	10	אפשרות 2	close	גדל
+השתנתה	השתנתה	completion	1	10	אפשרות 2	miss	
+הצפיפות	הצפיפות	completion	1	10	אפשרות 2	miss	
+גדל	גדל	completion	1	10	אפשרות 3	full	גדיל
+חדל	חדל	completion	1	10	אפשרות 4	full	חדל
+להשפיע	להשפיע	completion	1	10	אפשרות 4	miss	
+גרועים	גרועים	completion	2	12	אפשרות 1	full	גרע
+שלילית	שלילית	completion	2	12	אפשרות 1	close	שלל
+בעשור	בעשור	completion	2	12	אפשרות 1	miss	
+האחרון	האחרון	completion	2	12	אפשרות 1	close	אחר
+התדרדרה	התדרדרה	completion	2	12	אפשרות 1	close	תדר
+איכותם	איכותם	completion	2	12	אפשרות 1	close	כתמ
+הסרטים	הסרטים	completion	2	12	אפשרות 1	miss	
+ההונגריים	ההונגריים	completion	2	12	אפשרות 1	close	נגר
+אפילו	אפילו	completion	2	12	אפשרות 1	close	אפל
+הגרוע	הגרוע	completion	2	12	אפשרות 1	full	גרע
+שבהם	שבהם	completion	2	12	אפשרות 1	close	שבה
+כנראה	כנראה	completion	2	12	אפשרות 1	miss	
+מוצלח	מוצלח	completion	2	12	אפשרות 1	close	צלח
+במיוחד	במיוחד	completion	2	12	אפשרות 1	miss	
+מוצלחים	מוצלחים	completion	2	12	אפשרות 2	close	צלח
+הקולנוע	הקולנוע	completion	2	12	אפשרות 2	close	הקל
+ההונגרי	ההונגרי	completion	2	12	אפשרות 2	close	נגר
+נהנה	נהנה	completion	2	12	אפשרות 2	close	הנה
+מפריחה	מפריחה	completion	2	12	אפשרות 2	close	פרח
+כה	כה	completion	2	12	אפשרות 2	miss	
+מרשימה	מרשימה	completion	2	12	אפשרות 2	miss	
+סרט	סרט	completion	2	12	אפשרות 2	miss	
+הונגרי	הונגרי	completion	2	12	אפשרות 2	close	נגר
+בינוני	בינוני	completion	2	12	אפשרות 2	miss	
+ראוי	ראוי	completion	2	12	אפשרות 2	miss	
+לצפייה	לצפייה	completion	2	12	אפשרות 2	miss	
+חיובית	חיובית	completion	2	12	אפשרות 3	miss	
+חמוטל	חמוטל	completion	2	12	אפשרות 3	miss	
+סולדת	סולדת	completion	2	12	אפשרות 3	close	סלד
+מהקולנוע	מהקולנוע	completion	2	12	אפשרות 3	close	הקל
+תשובה	תשובה	completion	2	12	אפשרות 3	close	שבה
+כזו	כזו	completion	2	12	אפשרות 3	miss	
+מפיה	מפיה	completion	2	12	אפשרות 3	miss	
+משמעה	משמעה	completion	2	12	אפשרות 3	miss	
+שהסרט	שהסרט	completion	2	12	אפשרות 3	miss	
+עשוי	עשוי	completion	2	12	אפשרות 3	miss	
+למצוא	למצוא	completion	2	12	אפשרות 3	close	מצא
+חן	חן	completion	2	12	אפשרות 3	miss	
+בעיניי	בעיניי	completion	2	12	אפשרות 3	miss	
+מעריצה	מעריצה	completion	2	12	אפשרות 4	close	רצה
+מסתייגת	מסתייגת	completion	2	12	אפשרות 4	miss	
+מהסרט	מהסרט	completion	2	12	אפשרות 4	miss	
+להעיד	להעיד	completion	2	12	אפשרות 4	miss	
+טיבו	טיבו	completion	2	12	אפשרות 4	miss	
+שמץ	שמץ	completion	2	12	אפשרות 4	full	שמץ
+למרבה	למרבה	completion	2	12	אפשרות 4	miss	
+הפלא	הפלא	completion	2	12	אפשרות 4	full	הפליא
+רעיון	רעיון	completion	2	13	אפשרות 1	miss	
+היגיון	היגיון	completion	2	13	אפשרות 1	full	יגון
+נקודת	נקודת	completion	2	13	אפשרות 1	close	נקד
+התורפה	התורפה	completion	2	13	אפשרות 1	full	תורפה
+התאוריה	התאוריה	completion	2	13	אפשרות 1	close	ארה
+עונש	עונש	completion	2	13	אפשרות 2	miss	
+צדק	צדק	completion	2	13	אפשרות 2	close	צדק
+תוצאה	תוצאה	completion	2	13	אפשרות 2	miss	
+שכיחה	שכיחה	completion	2	13	אפשרות 2	miss	
+עיוות	עיוות	completion	2	13	אפשרות 2	full	עווית
+דין	דין	completion	2	13	אפשרות 2	miss	
+חיבור	חיבור	completion	2	13	אפשרות 3	miss	
+חדשנות	חדשנות	completion	2	13	אפשרות 3	close	שנת
+פרי	פרי	completion	2	13	אפשרות 3	close	פרי
+עטו	עטו	completion	2	13	אפשרות 3	miss	
+כותב	כותב	completion	2	13	אפשרות 3	miss	
+שמרני	שמרני	completion	2	13	אפשרות 3	close	שמר
+שאפתנות	שאפתנות	completion	2	13	אפשרות 4	miss	
+תוצר	תוצר	completion	2	13	אפשרות 4	miss	
+ישיר	ישיר	completion	2	13	אפשרות 4	close	ישר
+החינוך	החינוך	completion	2	13	אפשרות 4	miss	
+ההישגי	ההישגי	completion	2	13	אפשרות 4	miss	
+החליט	החליט	completion	2	13	אפשרות 4	miss	
+המומחים	המומחים	completion	2	13	אפשרות 4	miss	
+בסוכנות	בסוכנות	completion	2	13	אפשרות 4	close	סכנ
+החלל	החלל	completion	2	13	אפשרות 4	full	חולל
+הלאומית	הלאומית	completion	2	13	אפשרות 4	close	אמת
+סברו	סברו	completion	2	13	אפשרות 4	close	סבר
+שמסעה	שמסעה	completion	2	13	אפשרות 4	miss	
+מעבורת	מעבורת	completion	2	13	אפשרות 4	close	עבר
+קלינסקי"	קלינסקי"	completion	2	13	אפשרות 4	close	נסק
+חלק	חלק	completion	2	14	אפשרות 1	close	חלק
+הארי	הארי	completion	2	14	אפשרות 1	close	הארי
+נחל	נחל	completion	2	14	אפשרות 1	full	נחל
+כישלון	כישלון	completion	2	14	אפשרות 1	close	כשל
+להשעות	להשעות	completion	2	14	אפשרות 1	close	שעת
+לעת	לעת	completion	2	14	אפשרות 1	full	עווית
+עתה	עתה	completion	2	14	אפשרות 1	miss	
+המשך	המשך	completion	2	14	אפשרות 1	close	משכ
+ישמע	ישמע	completion	2	14	אפשרות 1	close	ישמ
+דעת	דעת	completion	2	14	אפשרות 1	close	דעת
+המיעוט	המיעוט	completion	2	14	אפשרות 1	full	המעיט
+יוסיף	יוסיף	completion	2	14	אפשרות 1	miss	
+לתמוך	לתמוך	completion	2	14	אפשרות 1	close	תמכ
+בפרויקט	בפרויקט	completion	2	14	אפשרות 1	close	פרק
+מיעוט	מיעוט	completion	2	14	אפשרות 2	close	מעט
+מבוטל	מבוטל	completion	2	14	אפשרות 2	close	בטל
+מקרב	מקרב	completion	2	14	אפשרות 2	miss	
+להפסיק	להפסיק	completion	2	14	אפשרות 2	miss	
+ספק	ספק	completion	2	14	אפשרות 2	close	ספק
+בדבר	בדבר	completion	2	14	אפשרות 2	close	דבר
+טעותם	טעותם	completion	2	14	אפשרות 2	miss	
+מומחים	מומחים	completion	2	14	אפשרות 2	miss	
+מעטים	מעטים	completion	2	14	אפשרות 2	close	מעט
+הוכתר	הוכתר	completion	2	14	אפשרות 3	miss	
+בהצלחה	בהצלחה	completion	2	14	אפשרות 3	close	צלח
+לעכב	לעכב	completion	2	14	אפשרות 3	miss	
+ולו	ולו	completion	2	14	אפשרות 3	miss	
+לרגע	לרגע	completion	2	14	אפשרות 3	miss	
+מייחס	מייחס	completion	2	14	אפשרות 3	miss	
+משקל	משקל	completion	2	14	אפשרות 3	miss	
+מועט	מועט	completion	2	14	אפשרות 3	close	מעט
+לדעתם	לדעתם	completion	2	14	אפשרות 3	close	דעת
+להמשיך	להמשיך	completion	2	14	אפשרות 4	close	משכ
+הקולות	הקולות	completion	2	14	אפשרות 4	close	הקל
+המעטים	המעטים	completion	2	14	אפשרות 4	full	המעיט
+שגרסו	שגרסו	completion	2	14	אפשרות 4	close	שגר
+המסע	המסע	completion	2	14	אפשרות 4	miss	
+נכשל	נכשל	completion	2	14	אפשרות 4	close	כשל
+שכנעו	שכנעו	completion	2	14	אפשרות 4	close	כנע

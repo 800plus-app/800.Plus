@@ -1,0 +1,196 @@
+# winter_2023 · fmt=A · analogy=108 · completion=86
+פריט	מנורמל	סוג	פרק	שאלה	תפקיד	תוצאה	התאמה
+עוגן	עוגן	analogy	1	1	רגל	full	עגן
+להפליג	להפליג	analogy	1	1	רגל	close	פלג
+תריס	תריס	analogy	1	1	מסיח 1	close	תרס
+להחשיך	להחשיך	analogy	1	1	מסיח 1	close	חשכ
+קשר	קשר	analogy	1	1	מסיח 2	close	קשר
+להתיר	להתיר	analogy	1	1	מסיח 2	full	התיר
+לנעול	לנעול	analogy	1	1	מסיח 3	miss	
+פקק	פקק	analogy	1	1	מסיח 4	miss	
+למזוג	למזוג	analogy	1	1	מסיח 4	miss	
+מגהץ	מגהץ	analogy	1	2	רגל	miss	
+חלק	חלק	analogy	1	2	רגל	close	חלק
+סרגל	סרגל	analogy	1	2	מסיח 1	close	סרג
+כרית	כרית	analogy	1	2	מסיח 2	miss	
+רך	רך	analogy	1	2	מסיח 2	miss	
+סולם	סולם	analogy	1	2	מסיח 3	miss	
+מגבת	מגבת	analogy	1	2	מסיח 4	miss	
+יבש	יבש	analogy	1	2	מסיח 4	miss	
+הסכמה	הסכמה	analogy	1	3	מסיח 2	close	סכמ
+בסדר	בסדר	analogy	1	3	מסיח 2	miss	
+אמינות	אמינות	analogy	1	3	מסיח 4	close	אמנ
+בהן צדק	בהן צדק	analogy	1	3	מסיח 4	full	בהן צדק
+לסתת	לסתת	analogy	1	4	רגל	full	סתת
+בנייה	בנייה	analogy	1	4	רגל	miss	
+ללוש	ללוש	analogy	1	4	מסיח 1	full	ליש
+אפייה	אפייה	analogy	1	4	מסיח 1	full	איפה
+לבצר	לבצר	analogy	1	4	מסיח 2	full	בצר
+כיבוש	כיבוש	analogy	1	4	מסיח 2	full	כבש
+לחטוב	לחטוב	analogy	1	4	מסיח 3	full	חוטב
+כריתה	כריתה	analogy	1	4	מסיח 3	miss	
+לפהק	לפהק	analogy	1	4	מסיח 4	miss	
+שינה	שינה	analogy	1	4	מסיח 4	miss	
+דוכי	דוכי	analogy	1	5	רגל	miss	
+גלים	גלים	analogy	1	5	רגל	close	גלמ
+תקתוק	תקתוק	analogy	1	5	מסיח 2	miss	
+שעון	שעון	analogy	1	5	מסיח 2	miss	
+הד	הד	analogy	1	5	מסיח 3	full	הוד
+מערה	מערה	analogy	1	5	מסיח 3	close	ערה
+קור	קור	analogy	1	5	מסיח 4	miss	
+שלג	שלג	analogy	1	5	מסיח 4	miss	
+התנצחות	התנצחות	analogy	1	6	רגל	full	התנצח
+התנצח	התנצח	analogy	1	6	רגל	full	התנצח
+פגישה	פגישה	analogy	1	6	מסיח 1	miss	
+נועד	נועד	analogy	1	6	מסיח 1	miss	
+התלקחות	התלקחות	analogy	1	6	מסיח 2	close	לקח
+התלקח	התלקח	analogy	1	6	מסיח 2	close	לקח
+מפלה	מפלה	analogy	1	6	מסיח 3	miss	
+הובס	הובס	analogy	1	6	מסיח 3	miss	
+התפייסות	התפייסות	analogy	1	6	מסיח 4	miss	
+פייס	פייס	analogy	1	6	מסיח 4	miss	
+פרי הדר	פרי הדר	analogy	2	1	רגל	close	פרי
+פרי	פרי	analogy	2	1	רגל	close	פרי
+סגן שר	סגן שר	analogy	2	1	מסיח 1	miss	
+שר	שר	analogy	2	1	מסיח 1	full	שור
+בית מלאכה	בית מלאכה	analogy	2	1	מסיח 2	close	מלא
+בית חרושת	בית חרושת	analogy	2	1	מסיח 2	close	חרש
+כלי נשיפה	כלי נשיפה	analogy	2	1	מסיח 3	close	כלי
+כלי נגינה	כלי נגינה	analogy	2	1	מסיח 3	close	כלי
+שעון יד	שעון יד	analogy	2	1	מסיח 4	miss	
+שעון קיר	שעון קיר	analogy	2	1	מסיח 4	miss	
+מפוספס	מפוספס	analogy	2	2	רגל	miss	
+פס	פס	analogy	2	2	רגל	miss	
+מנומש	מנומש	analogy	2	2	מסיח 1	miss	
+נמש	נמש	analogy	2	2	מסיח 1	miss	
+מרוהט	מרוהט	analogy	2	2	מסיח 2	close	מרה
+רהיט	רהיט	analogy	2	2	מסיח 2	full	רהוט
+שרירי	שרירי	analogy	2	2	מסיח 3	close	שרר
+שריר	שריר	analogy	2	2	מסיח 3	full	שרר
+מנומר	מנומר	analogy	2	2	מסיח 4	full	מנומר
+נמר	נמר	analogy	2	2	מסיח 4	close	נמר
+להעמיס	להעמיס	analogy	2	3	רגל	close	העמ
+קרס	קרס	analogy	2	3	רגל	miss	
+להשחיז	להשחיז	analogy	2	3	מסיח 1	full	השחיז
+קהה	קהה	analogy	2	3	מסיח 1	full	קהה
+לרדוף	לרדוף	analogy	2	3	מסיח 2	miss	
+תפס	תפס	analogy	2	3	מסיח 2	miss	
+להאביס	להאביס	analogy	2	3	מסיח 3	close	אבס
+אכל	אכל	analogy	2	3	מסיח 3	close	אכל
+למתוח	למתוח	analogy	2	3	מסיח 4	miss	
+פקע	פקע	analogy	2	3	מסיח 4	close	פקע
+ניצים	ניצים	analogy	2	4	רגל	miss	
+קטטה	קטטה	analogy	2	4	רגל	miss	
+עדים	עדים	analogy	2	4	מסיח 1	miss	
+מתמודדים	מתמודדים	analogy	2	4	מסיח 2	miss	
+תחרות	תחרות	analogy	2	4	מסיח 2	miss	
+נשואים	נשואים	analogy	2	4	מסיח 3	full	נשיא
+חתונה	חתונה	analogy	2	4	מסיח 3	miss	
+תלמידים	תלמידים	analogy	2	4	מסיח 4	close	תלמ
+שיעור	שיעור	analogy	2	4	מסיח 4	miss	
+חזון נפרץ	חזון נפרץ	analogy	2	5	רגל	full	חזון נפרץ
+נדיר	נדיר	analogy	2	5	רגל	miss	
+מוכלל	מוכלל	analogy	2	5	מסיח 1	close	כלל
+כלול	כלול	analogy	2	5	מסיח 1	close	כלל
+מרובב	מרובב	analogy	2	5	מסיח 2	close	רבב
+נקי	נקי	analogy	2	5	מסיח 2	close	נקי
+מיושן	מיושן	analogy	2	5	מסיח 3	miss	
+ישן	ישן	analogy	2	5	מסיח 3	miss	
+מושלם	מושלם	analogy	2	5	מסיח 4	close	משל
+דופי	דופי	analogy	2	5	מסיח 4	full	דופי
+עצלן	עצלן	analogy	2	6	רגל	miss	
+עמל	עמל	analogy	2	6	רגל	full	עמל
+זהיר	זהיר	analogy	2	6	מסיח 1	close	זהר
+סכנה	סכנה	analogy	2	6	מסיח 1	close	סכנ
+חולני	חולני	analogy	2	6	מסיח 2	miss	
+בריאות	בריאות	analogy	2	6	מסיח 2	miss	
+שתלטן	שתלטן	analogy	2	6	מסיח 3	miss	
+ציות	ציות	analogy	2	6	מסיח 3	full	צי
+שכחן	שכחן	analogy	2	6	מסיח 4	miss	
+תזכורת	תזכורת	analogy	2	6	מסיח 4	close	זכר
+יממש	יממש	completion	1	10	אפשרות 1	miss	
+עושה	עושה	completion	1	10	אפשרות 1	close	עשה
+שביכולתו	שביכולתו	completion	1	10	אפשרות 1	close	בכל
+להימנע	להימנע	completion	1	10	אפשרות 1	miss	
+מתחלופת	מתחלופת	completion	1	10	אפשרות 1	close	תחל
+עובדים	עובדים	completion	1	10	אפשרות 1	miss	
+ישנה	ישנה	completion	1	10	אפשרות 2	miss	
+לעצמו	לעצמו	completion	1	10	אפשרות 2	close	עצמ
+כיעד	כיעד	completion	1	10	אפשרות 2	miss	
+לצמצם	לצמצם	completion	1	10	אפשרות 2	miss	
+האפשר	האפשר	completion	1	10	אפשרות 2	close	פשר
+תחלופת	תחלופת	completion	1	10	אפשרות 2	close	תחל
+העובדים	העובדים	completion	1	10	אפשרות 2	miss	
+יחזור	יחזור	completion	1	10	אפשרות 3	close	חזר
+מאפשר	מאפשר	completion	1	10	אפשרות 3	close	פשר
+חופש	חופש	completion	1	10	אפשרות 3	miss	
+בחירה	בחירה	completion	1	10	אפשרות 3	close	חרה
+לעובדיו	לעובדיו	completion	1	10	אפשרות 3	miss	
+מעסיק	מעסיק	completion	1	10	אפשרות 4	miss	
+ורק	ורק	completion	1	10	אפשרות 4	miss	
+המעוניינים	המעוניינים	completion	1	10	אפשרות 4	miss	
+בתפקידם	בתפקידם	completion	1	10	אפשרות 4	close	פקד
+מצטערת	מצטערת	completion	1	11	אפשרות 1	miss	
+כמוה	כמוה	completion	1	11	אפשרות 1	full	כמה
+חושבת	חושבת	completion	1	11	אפשרות 1	miss	
+מייחסים	מייחסים	completion	1	11	אפשרות 1	miss	
+רבה	רבה	completion	1	11	אפשרות 1	miss	
+נהנים	נהנים	completion	1	11	אפשרות 1	miss	
+הערך	הערך	completion	1	11	אפשרות 1	miss	
+המוסף	המוסף	completion	1	11	אפשרות 1	miss	
+שב	שב	completion	1	11	אפשרות 1	miss	
+בדיעבד	בדיעבד	completion	1	11	אפשרות 2	full	בדיעבד
+מצרה	מצרה	completion	1	11	אפשרות 2	miss	
+יתרה	יתרה	completion	1	11	אפשרות 2	close	יתר
+מזאת	מזאת	completion	1	11	אפשרות 2	close	זאת
+ספק	ספק	completion	1	11	אפשרות 2	close	ספק
+נותנים	נותנים	completion	1	11	אפשרות 2	close	נתנ
+דעתם	דעתם	completion	1	11	אפשרות 2	close	דעת
+הנאה	הנאה	completion	1	11	אפשרות 2	close	נאה
+מרובה	מרובה	completion	1	11	אפשרות 2	miss	
+שמחה	שמחה	completion	1	11	אפשרות 3	close	שמחה
+תוהה	תוהה	completion	1	11	אפשרות 3	full	תהה
+עושים	עושים	completion	1	11	אפשרות 3	miss	
+הרי	הרי	completion	1	11	אפשרות 3	close	הרי
+שבויים	שבויים	completion	1	11	אפשרות 3	close	שבי
+נתנה	נתנה	completion	1	11	אפשרות 4	close	נתנ
+רשות	רשות	completion	1	11	אפשרות 4	full	רש
+להלחנת	להלחנת	completion	1	11	אפשרות 4	miss	
+שיריה	שיריה	completion	1	11	אפשרות 4	close	שרה
+סבורה	סבורה	completion	1	11	אפשרות 4	close	סבר
+שהייתה	שהייתה	completion	1	11	אפשרות 4	miss	
+טעות	טעות	completion	1	11	אפשרות 4	miss	
+שאי	שאי	completion	1	11	אפשרות 4	miss	
+לומר	לומר	completion	1	11	אפשרות 4	miss	
+הפחות	הפחות	completion	1	11	אפשרות 4	full	הפיח
+יוצאים	יוצאים	completion	1	11	אפשרות 4	close	יצא
+נשכרים	נשכרים	completion	1	11	אפשרות 4	close	נשכר
+ההאזנה	ההאזנה	completion	1	11	אפשרות 4	miss	
+תנאי	תנאי	completion	1	11	אפשרות 4	miss	
+מהותי	מהותי	completion	1	11	אפשרות 4	miss	
+בחוזה	בחוזה	completion	1	11	אפשרות 4	close	חזה
+מצד	מצד	completion	1	11	אפשרות 4	miss	
+רחמים	רחמים	completion	1	11	אפשרות 4	full	ריחיים
+אלירז	אלירז	completion	1	11	אפשרות 4	miss	
+רשאי	רשאי	completion	1	11	אפשרות 4	miss	
+לבטל	לבטל	completion	1	11	אפשרות 4	close	בטל
+החוזה	החוזה	completion	1	11	אפשרות 4	close	חזה
+שעליו	שעליו	completion	1	11	אפשרות 4	close	שעל
+חתמו	חתמו	completion	1	11	אפשרות 4	miss	
+צורך	צורך	completion	1	11	אפשרות 4	close	צרכ
+להחליט	להחליט	completion	1	11	אפשרות 4	miss	
+לנוכח	לנוכח	completion	1	12	אפשרות 1	full	נוכח
+העמידה	העמידה	completion	1	12	אפשרות 1	close	העמ
+חשובה	חשובה	completion	1	12	אפשרות 1	close	שבה
+במקרה	במקרה	completion	1	12	אפשרות 1	close	קרה
+מתכוון	מתכוון	completion	1	12	אפשרות 1	close	תכנ
+לקיים	לקיים	completion	1	12	אפשרות 1	miss	
+חרף	חרף	completion	1	12	אפשרות 2	full	חרף
+חיונית	חיונית	completion	1	12	אפשרות 2	miss	
+רוצה	רוצה	completion	1	12	אפשרות 2	close	רצה
+ההפרה	ההפרה	completion	1	12	אפשרות 3	miss	
+נחוצה	נחוצה	completion	1	12	אפשרות 3	miss	
+שוקל	שוקל	completion	1	12	אפשרות 3	miss	
+מיותרת	מיותרת	completion	1	12	אפשרות 4	miss	
+מעוניין	מעוניין	completion	1	12	אפשרות 4	miss	
+בביטול	בביטול	completion	1	12	אפשרות 4	close	בטל

@@ -1,0 +1,195 @@
+# 2020_summer · fmt=B · analogy=114 · completion=79
+פריט	מנורמל	סוג	פרק	שאלה	תפקיד	תוצאה	התאמה
+קרחת יער	קרחת יער	analogy	1	1	רגל	close	רחת
+יער	יער	analogy	1	1	רגל	close	יער
+בריכה	בריכה	analogy	1	1	מסיח 1	close	ברכ
+ענן	ענן	analogy	1	1	מסיח 2	miss	
+שמיים	שמיים	analogy	1	1	מסיח 2	full	שומם
+הר	הר	analogy	1	1	מסיח 3	miss	
+רכס	רכס	analogy	1	1	מסיח 3	full	רכס
+דחה	דחה	analogy	1	2	רגל	close	דחה
+קיבל	קיבל	analogy	1	2	רגל	full	קבל
+שב	שב	analogy	1	2	מסיח 1	miss	
+עזב	עזב	analogy	1	2	מסיח 1	close	עזב
+רדף	רדף	analogy	1	2	מסיח 2	miss	
+ברח	ברח	analogy	1	2	מסיח 2	full	בריח
+סירב	סירב	analogy	1	2	מסיח 3	miss	
+פקד	פקד	analogy	1	2	מסיח 3	full	פקד
+התעקש	התעקש	analogy	1	2	מסיח 4	close	עקש
+ויתר	ויתר	analogy	1	2	מסיח 4	close	ותר
+עומד בניסיון	עומד בניסיון	analogy	1	3	רגל	close	עמד
+לפתות	לפתות	analogy	1	3	רגל	full	פת
+עומד מלכת	עומד מלכת	analogy	1	3	מסיח 1	close	עמד
+לעצור	לעצור	analogy	1	3	מסיח 1	close	עצר
+עומד בדיבורו	עומד בדיבורו	analogy	1	3	מסיח 2	close	עמד
+להבטיח	להבטיח	analogy	1	3	מסיח 2	close	בטח
+עומד בעינו	עומד בעינו	analogy	1	3	מסיח 3	close	עמד
+לשנות	לשנות	analogy	1	3	מסיח 3	close	שנת
+עומד מנגד	עומד מנגד	analogy	1	3	מסיח 4	full	עמד מנגד
+לעזור	לעזור	analogy	1	3	מסיח 4	close	לעז
+התבקש	התבקש	analogy	1	4	רגל	close	בקש
+ביקש	ביקש	analogy	1	4	רגל	close	בקש
+התאהב	התאהב	analogy	1	4	מסיח 1	miss	
+אהב	אהב	analogy	1	4	מסיח 1	miss	
+התנער	התנער	analogy	1	4	מסיח 2	full	התנער
+ניער	ניער	analogy	1	4	מסיח 2	close	נער
+התארח	התארח	analogy	1	4	מסיח 3	close	ארח
+אירח	אירח	analogy	1	4	מסיח 3	full	אורח
+התלווה	התלווה	analogy	1	4	מסיח 4	close	התל
+ליווה	ליווה	analogy	1	4	מסיח 4	miss	
+ציפורן	ציפורן	analogy	1	5	רגל	close	צפר
+ציפורניים	ציפורניים	analogy	1	5	רגל	close	צפר
+כפל	כפל	analogy	1	5	מסיח 1	miss	
+כפליים	כפליים	analogy	1	5	מסיח 1	close	פלמ
+חוטם	חוטם	analogy	1	5	מסיח 2	full	חוטם
+נחיריים	נחיריים	analogy	1	5	מסיח 2	full	ניחר
+ברירה	ברירה	analogy	1	5	מסיח 3	miss	
+חלופות	חלופות	analogy	1	5	מסיח 3	full	חולף
+שער	שער	analogy	1	5	מסיח 4	miss	
+שערות	שערות	analogy	1	5	מסיח 4	miss	
+השניא	השניא	analogy	1	6	רגל	miss	
+שונא	שונא	analogy	1	6	רגל	miss	
+הכפיש	הכפיש	analogy	1	6	מסיח 1	miss	
+מושמץ	מושמץ	analogy	1	6	מסיח 1	close	שמצ
+הכפיף	הכפיף	analogy	1	6	מסיח 2	full	כפף
+ממונה	ממונה	analogy	1	6	מסיח 2	miss	
+הסית	הסית	analogy	1	6	מסיח 3	miss	
+מותקף	מותקף	analogy	1	6	מסיח 3	close	מתק
+העדיף	העדיף	analogy	1	6	מסיח 4	miss	
+רצוי	רצוי	analogy	1	6	מסיח 4	miss	
+ברדלס	ברדלס	analogy	2	1	רגל	miss	
+טורף	טורף	analogy	2	1	רגל	full	טרף
+להבה	להבה	analogy	2	1	מסיח 1	miss	
+שרפה	שרפה	analogy	2	1	מסיח 1	close	רפה
+שחקן	שחקן	analogy	2	1	מסיח 2	close	שחק
+חולצה	חולצה	analogy	2	1	מסיח 3	close	חלצ
+בגד	בגד	analogy	2	1	מסיח 3	miss	
+רהיט	רהיט	analogy	2	1	מסיח 4	full	רהוט
+ריהוט	ריהוט	analogy	2	1	מסיח 4	full	רהוט
+לחדד	לחדד	analogy	2	2	רגל	miss	
+לכוון	לכוון	analogy	2	2	מסיח 1	full	כן
+לנגן	לנגן	analogy	2	2	מסיח 1	miss	
+לתבל	לתבל	analogy	2	2	מסיח 2	full	תבל
+לאכול	לאכול	analogy	2	2	מסיח 2	close	אכל
+לשייף	לשייף	analogy	2	2	מסיח 3	miss	
+להחליק	להחליק	analogy	2	2	מסיח 3	close	חלק
+לתפור	לתפור	analogy	2	2	מסיח 4	miss	
+ללבוש	ללבוש	analogy	2	2	מסיח 4	miss	
+תדיר	תדיר	analogy	2	3	רגל	full	תדיר
+שכיחות	שכיחות	analogy	2	3	רגל	full	שכיח
+כשיר	כשיר	analogy	2	3	מסיח 1	full	כישור
+יכולת	יכולת	analogy	2	3	מסיח 1	miss	
+זניח	זניח	analogy	2	3	מסיח 2	full	זנח
+דחוס	דחוס	analogy	2	3	מסיח 3	miss	
+צפיפות	צפיפות	analogy	2	3	מסיח 3	miss	
+מנומס	מנומס	analogy	2	3	מסיח 4	miss	
+התנהגות	התנהגות	analogy	2	3	מסיח 4	miss	
+לוליין	לוליין	analogy	2	4	רגל	miss	
+אוהל קרקס	אוהל קרקס	analogy	2	4	רגל	close	אוהל
+נהג	נהג	analogy	2	4	מסיח 1	miss	
+מוסך	מוסך	analogy	2	4	מסיח 1	full	מסך
+צנחן	צנחן	analogy	2	4	מסיח 2	miss	
+מטוס	מטוס	analogy	2	4	מסיח 2	miss	
+מחזאי	מחזאי	analogy	2	4	מסיח 3	miss	
+תיאטרון	תיאטרון	analogy	2	4	מסיח 3	close	אטר
+אצן	אצן	analogy	2	4	מסיח 4	miss	
+אצטדיון	אצטדיון	analogy	2	4	מסיח 4	miss	
+מזוודה	מזוודה	analogy	2	5	רגל	miss	
+ארז	ארז	analogy	2	5	רגל	miss	
+מטען	מטען	analogy	2	5	מסיח 1	miss	
+שינע	שינע	analogy	2	5	מסיח 1	miss	
+משאית	משאית	analogy	2	5	מסיח 2	close	שאת
+טען	טען	analogy	2	5	מסיח 2	miss	
+מעלית	מעלית	analogy	2	5	מסיח 3	close	מעל
+העלה	העלה	analogy	2	5	מסיח 3	close	עלה
+מכונית	מכונית	analogy	2	5	מסיח 4	miss	
+תדלק	תדלק	analogy	2	5	מסיח 4	close	דלק
+בא על פתרונו	בא על פתרונו	analogy	2	6	רגל	close	תרנ
+משבר	משבר	analogy	2	6	רגל	full	משבר
+הגיע לפרקו	הגיע לפרקו	analogy	2	6	מסיח 1	close	פרק
+בוגר	בוגר	analogy	2	6	מסיח 1	miss	
+בא קצו	בא קצו	analogy	2	6	מסיח 2	miss	
+סוף	סוף	analogy	2	6	מסיח 2	miss	
+יישר את ההדורים	יישר את ההדורים	analogy	2	6	מסיח 3	close	ישר
+סכסוך	סכסוך	analogy	2	6	מסיח 3	miss	
+העלה ארוכה	העלה ארוכה	analogy	2	6	מסיח 4	full	העלה ארוכה
+פצע	פצע	analogy	2	6	מסיח 4	close	פצע
+מוגבלת	מוגבלת	completion	1	7	אפשרות ?	miss	
+מאילוצים	מאילוצים	completion	1	7	אפשרות ?	miss	
+להשפיע	להשפיע	completion	1	7	אפשרות ?	miss	
+אביו	אביו	completion	1	8	אפשרות ?	miss	
+העריץ	העריץ	completion	1	8	אפשרות ?	full	עריץ
+עליונה	עליונה	completion	1	8	אפשרות ?	miss	
+לשמירה	לשמירה	completion	1	8	אפשרות ?	close	מרה
+משכיל	משכיל	completion	1	8	אפשרות ?	close	משכ
+ורחב	ורחב	completion	1	8	אפשרות ?	close	רחב
+אופקים	אופקים	completion	1	8	אפשרות ?	full	אפיק
+עשויים	עשויים	completion	1	9	אפשרות 1	miss	
+מעידה	מעידה	completion	1	9	אפשרות 1	close	עדה
+דומה	דומה	completion	1	9	אפשרות 1	close	דמה
+נוטים	נוטים	completion	1	9	אפשרות 3	miss	
+לאינה	לאינה	completion	1	9	אפשרות 3	close	אנה
+מאינה	מאינה	completion	1	9	אפשרות 4	close	אנה
+בלתי	בלתי	completion	2	11	אפשרות 1	close	בלתי
+נשלט	נשלט	completion	2	11	אפשרות 1	close	נשל
+להיחשף	להיחשף	completion	2	11	אפשרות 1	miss	
+מבטאים	מבטאים	completion	2	11	אפשרות 1	miss	
+כאבם	כאבם	completion	2	11	אפשרות 1	close	כאב
+לחשוף	לחשוף	completion	2	11	אפשרות 1	miss	
+צערו	צערו	completion	2	11	אפשרות 1	close	צער
+להסתירו	להסתירו	completion	2	11	אפשרות 1	close	סתר
+מדויק	מדויק	completion	2	11	אפשרות 2	miss	
+להתפרש	להתפרש	completion	2	11	אפשרות 2	close	פרש
+שגוי	שגוי	completion	2	11	אפשרות 2	miss	
+מפענחים	מפענחים	completion	2	11	אפשרות 2	close	נחמ
+לעדן	לעדן	completion	2	11	אפשרות 2	close	עדנ
+להחריף	להחריף	completion	2	11	אפשרות 2	close	חרפ
+עמדותיו	עמדותיו	completion	2	11	אפשרות 2	close	עמד
+מהימן	מהימן	completion	2	11	אפשרות 3	miss	
+תמיד	תמיד	completion	2	11	אפשרות 3	miss	
+מסוגלים	מסוגלים	completion	2	11	אפשרות 3	close	סגל
+לשקר	לשקר	completion	2	11	אפשרות 3	miss	
+לומר	לומר	completion	2	11	אפשרות 3	miss	
+אמת	אמת	completion	2	11	אפשרות 3	close	אמת
+שקר	שקר	completion	2	11	אפשרות 3	miss	
+רצוני	רצוני	completion	2	11	אפשרות 4	miss	
+להתגלות	להתגלות	completion	2	11	אפשרות 4	miss	
+נכון	נכון	completion	2	11	אפשרות 4	miss	
+לדבר	לדבר	completion	2	11	אפשרות 4	full	דביר
+להחריש	להחריש	completion	2	11	אפשרות 4	close	חרש
+חיה	חיה	completion	2	12	אפשרות 1	miss	
+הסנדלר	הסנדלר	completion	2	12	אפשרות 1	miss	
+הולך	הולך	completion	2	12	אפשרות 1	full	הילך
+יחף״	יחף"	completion	2	12	אפשרות 1	miss	
+יצאתי	יצאתי	completion	2	12	אפשרות 1	close	יצא
+גבולות	גבולות	completion	2	12	אפשרות 1	miss	
+איני	איני	completion	2	12	אפשרות 1	miss	
+נגדית	נגדית	completion	2	12	אפשרות 2	close	נגד
+נהנה	נהנה	completion	2	12	אפשרות 2	close	הנה
+שקרוב	שקרוב	completion	2	12	אפשרות 2	miss	
+לצלחת״	לצלחת"	completion	2	12	אפשרות 2	close	צלח
+השגתי	השגתי	completion	2	12	אפשרות 2	miss	
+כרטיסי	כרטיסי	completion	2	12	אפשרות 2	miss	
+טיסה	טיסה	completion	2	12	אפשרות 2	miss	
+חינם	חינם	completion	2	12	אפשרות 2	miss	
+בשבילי	בשבילי	completion	2	12	אפשרות 2	close	בלי
+בשביל	בשביל	completion	2	12	אפשרות 2	close	שבל
+משפחתי	משפחתי	completion	2	12	אפשרות 2	miss	
+נתקלתי	נתקלתי	completion	2	12	אפשרות 3	close	נתק
+באדם	באדם	completion	2	12	אפשרות 3	close	אדמ
+שנוסע	שנוסע	completion	2	12	אפשרות 3	miss	
+לחוץ	לחוץ	completion	2	12	אפשרות 3	full	חיץ
+לארץ	לארץ	completion	2	12	אפשרות 3	close	ארצ
+ממני	ממני	completion	2	12	אפשרות 3	close	מני
+החמצתי	החמצתי	completion	2	12	אפשרות 4	close	חמצ
+הזדמנות	הזדמנות	completion	2	12	אפשרות 4	close	דמנ
+לתת	לתת	completion	2	12	אפשרות 4	miss	
+לבני	לבני	completion	2	12	אפשרות 4	close	לבנ
+הופתעתי	הופתעתי	completion	2	13	אפשרות 1	miss	
+תלמידתי	תלמידתי	completion	2	13	אפשרות 1	close	תלמ
+מעניקה	מעניקה	completion	2	13	אפשרות 1	close	ענק
+סובלת	סובלת	completion	2	13	אפשרות 1	close	סבל
+מעודד	מעודד	completion	2	13	אפשרות 1	miss	
+מעניק	מעניק	completion	2	13	אפשרות 2	close	ענק
+תלמידי	תלמידי	completion	2	13	אפשרות 3	close	תלמ
+סובל	סובל	completion	2	13	אפשרות 3	full	סביל

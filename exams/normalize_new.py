@@ -26,6 +26,9 @@ def normalize(text):
 for pdf in sorted(glob.glob(os.path.join(BASE, '*.pdf'))):
     stem = os.path.basename(pdf)[:-4]
     d = fitz.open(pdf)
+    # בלי sort=True בכוונה: sort הופך את סדר המילים בשורה ושובר את כותרות
+    # הפרקים ואת זוגות האנלוגיה. אפשרויות-השלמה שנקרעו מהסמן נתפסות ב-mine.py
+    # לפי מפריד ה-'/' של אפשרויות ההשלמה (נמדד ב-2019_spring).
     text = normalize('\n'.join(p.get_text() for p in d))
     open(os.path.join(NORM, stem + '.txt'), 'w', encoding='utf-8').write(text)
     heb = len(re.findall(r'[א-ת]', text))

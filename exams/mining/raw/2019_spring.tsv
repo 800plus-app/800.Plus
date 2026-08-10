@@ -1,0 +1,217 @@
+# 2019_spring · fmt=B · analogy=109 · completion=106
+פריט	מנורמל	סוג	פרק	שאלה	תפקיד	תוצאה	התאמה
+מושלם	מושלם	analogy	1	1	רגל	close	משל
+פגם	פגם	analogy	1	1	רגל	miss	
+תתרן	תתרן	analogy	1	1	לא-זוהה	full	תתרן
+חמוץ	חמוץ	analogy	1	1	לא-זוהה	close	חמצ
+סוכר	סוכר	analogy	1	1	לא-זוהה	full	סכר
+עקור	עקור	analogy	1	1	לא-זוהה	full	עקר
+שורשים	שורשים	analogy	1	1	לא-זוהה	miss	
+תוכן	תוכן	analogy	1	1	לא-זוהה	close	תכנ
+לשכנע	לשכנע	analogy	1	2	רגל	close	כנע
+לטעון	לטעון	analogy	1	2	רגל	miss	
+להציג	להציג	analogy	1	2	לא-זוהה	miss	
+להסתיר	להסתיר	analogy	1	2	לא-זוהה	close	סתר
+להסמיק	להסמיק	analogy	1	2	לא-זוהה	close	סמק
+להביך	להביך	analogy	1	2	לא-זוהה	miss	
+לקלוע	לקלוע	analogy	1	2	לא-זוהה	close	קלע
+לזרוק	לזרוק	analogy	1	2	לא-זוהה	miss	
+לשאול	לשאול	analogy	1	2	לא-זוהה	miss	
+לענות	לענות	analogy	1	2	לא-זוהה	full	עוין
+הסתפק	הסתפק	analogy	1	3	רגל	miss	
+מספיק	מספיק	analogy	1	3	רגל	close	ספק
+הרצין	הרצין	analogy	1	3	לא-זוהה	miss	
+רציני	רציני	analogy	1	3	לא-זוהה	miss	
+הגזים	הגזים	analogy	1	3	לא-זוהה	full	גז
+מוגזם	מוגזם	analogy	1	3	לא-זוהה	close	גזמ
+העדיף	העדיף	analogy	1	3	לא-זוהה	miss	
+עדיף	עדיף	analogy	1	3	לא-זוהה	miss	
+הבטיח	הבטיח	analogy	1	3	לא-זוהה	close	בטח
+מובטח	מובטח	analogy	1	3	לא-זוהה	close	בטח
+כמוסה	כמוסה	analogy	1	4	רגל	close	מסה
+מזרק	מזרק	analogy	1	4	רגל	close	מזר
+דף	דף	analogy	1	4	לא-זוהה	miss	
+ספר	ספר	analogy	1	4	לא-זוהה	full	ספר
+פטיש	פטיש	analogy	1	4	לא-זוהה	miss	
+מסור	מסור	analogy	1	4	לא-זוהה	miss	
+פתח	פתח	analogy	1	4	לא-זוהה	miss	
+אשנב	אשנב	analogy	1	4	לא-זוהה	full	אשנב
+גפרור	גפרור	analogy	1	4	לא-זוהה	miss	
+מצית	מצית	analogy	1	4	לא-זוהה	miss	
+תו	תו	analogy	1	5	רגל	miss	
+סימפוניה	סימפוניה	analogy	1	5	רגל	close	פנה
+ספרה	ספרה	analogy	1	5	לא-זוהה	close	ספר
+מתמטיקה	מתמטיקה	analogy	1	5	לא-זוהה	miss	
+אות	אות	analogy	1	5	לא-זוהה	miss	
+ניקוד	ניקוד	analogy	1	5	לא-זוהה	full	נוקד
+רומן	רומן	analogy	1	5	לא-זוהה	miss	
+התגושש	התגושש	analogy	1	6	רגל	close	גשש
+התגוששות	התגוששות	analogy	1	6	רגל	close	גשש
+חיתן	חיתן	analogy	1	6	לא-זוהה	miss	
+חתונה	חתונה	analogy	1	6	לא-זוהה	miss	
+התייעץ	התייעץ	analogy	1	6	לא-זוהה	miss	
+ייעוץ	ייעוץ	analogy	1	6	לא-זוהה	close	יעצ
+נפגש	נפגש	analogy	1	6	לא-זוהה	miss	
+מפגש	מפגש	analogy	1	6	לא-זוהה	miss	
+רדף	רדף	analogy	1	6	לא-זוהה	miss	
+מרדף	מרדף	analogy	1	6	לא-זוהה	miss	
+למחול	למחול	analogy	2	1	רגל	full	מחל
+בלתי נסלח	בלתי נסלח	analogy	2	1	רגל	close	בלתי
+לגבור	לגבור	analogy	2	1	לא-זוהה	full	גביר
+בלתי מנוצח	בלתי מנוצח	analogy	2	1	לא-זוהה	close	בלתי
+בלתי ראוי	בלתי ראוי	analogy	2	1	לא-זוהה	close	בלתי
+לנחש	לנחש	analogy	2	1	לא-זוהה	miss	
+בלתי ידוע	בלתי ידוע	analogy	2	1	לא-זוהה	close	בלתי
+לקרות	לקרות	analogy	2	1	לא-זוהה	close	קרת
+בלתי נמנע	בלתי נמנע	analogy	2	1	לא-זוהה	close	בלתי
+חיריק	חיריק	analogy	2	2	רגל	miss	
+נקודה	נקודה	analogy	2	2	רגל	close	נקד
+תרמיל	תרמיל	analogy	2	2	לא-זוהה	miss	
+צידה	צידה	analogy	2	2	לא-זוהה	full	צידה
+בצק	בצק	analogy	2	2	לא-זוהה	miss	
+מאפה	מאפה	analogy	2	2	לא-זוהה	miss	
+היכל	היכל	analogy	2	2	לא-זוהה	miss	
+יציע	יציע	analogy	2	2	לא-זוהה	full	יציע
+תורן	תורן	analogy	2	2	לא-זוהה	full	תורן
+מוט	מוט	analogy	2	2	לא-זוהה	miss	
+להקהיל	להקהיל	analogy	2	3	רגל	full	הקהיל
+זרדים	זרדים	analogy	2	3	לא-זוהה	full	זרד
+לקושש	לקושש	analogy	2	3	לא-זוהה	full	קושש
+פירות	פירות	analogy	2	3	לא-זוהה	full	פור
+לסחוט	לסחוט	analogy	2	3	לא-זוהה	miss	
+צמות	צמות	analogy	2	3	לא-זוהה	close	צמת
+להשקות	להשקות	analogy	2	3	לא-זוהה	close	שקת
+רצף	רצף	analogy	2	4	רגל	miss	
+טאטא	טאטא	analogy	2	4	רגל	miss	
+חפף	חפף	analogy	2	4	לא-זוהה	close	חפפ
+חייט	חייט	analogy	2	4	לא-זוהה	full	חט
+כיבס	כיבס	analogy	2	4	לא-זוהה	miss	
+טבח	טבח	analogy	2	4	לא-זוהה	miss	
+הדיח	הדיח	analogy	2	4	לא-זוהה	full	הדיח
+חובש	חובש	analogy	2	4	לא-זוהה	full	חבש
+חיטא	חיטא	analogy	2	4	לא-זוהה	close	חטא
+הלחיץ	הלחיץ	analogy	2	5	רגל	miss	
+הזיע	הזיע	analogy	2	5	רגל	full	זע
+הסתנוור	הסתנוור	analogy	2	5	לא-זוהה	miss	
+מצמץ	מצמץ	analogy	2	5	לא-זוהה	miss	
+הצחיק	הצחיק	analogy	2	5	לא-זוהה	miss	
+צחק	צחק	analogy	2	5	לא-זוהה	miss	
+הרגיז	הרגיז	analogy	2	5	לא-זוהה	miss	
+כעס	כעס	analogy	2	5	לא-זוהה	miss	
+שעמם	שעמם	analogy	2	5	לא-זוהה	close	עממ
+פיהק	פיהק	analogy	2	5	לא-זוהה	miss	
+רם	רם	analogy	2	6	רגל	miss	
+גובה	גובה	analogy	2	6	רגל	miss	
+מעניין	מעניין	analogy	2	6	לא-זוהה	miss	
+עניין	עניין	analogy	2	6	לא-זוהה	miss	
+יכולת	יכולת	analogy	2	6	לא-זוהה	miss	
+טעים	טעים	analogy	2	6	לא-זוהה	close	טעמ
+טעם	טעם	analogy	2	6	לא-זוהה	close	טעמ
+ממושך	ממושך	analogy	2	6	לא-זוהה	close	משכ
+משך	משך	analogy	2	6	לא-זוהה	close	משכ
+פחותה	פחותה	completion	1	12	אפשרות ?	close	חתה
+שיחסית	שיחסית	completion	1	12	אפשרות ?	miss	
+מעט	מעט	completion	1	12	אפשרות ?	close	מעט
+שבדומה	שבדומה	completion	1	12	אפשרות ?	close	דמה
+אילולא	אילולא	completion	1	12	אפשרות ?	close	ללא
+טובה	טובה	completion	1	12	אפשרות ?	miss	
+שכמו	שכמו	completion	1	12	אפשרות ?	close	שכמ
+מרוצה	מרוצה	completion	1	13	אפשרות ?	close	רצה
+מתפקודו	מתפקודו	completion	1	13	אפשרות ?	close	פקד
+עקביות	עקביות	completion	1	13	אפשרות ?	close	עקב
+בסיס	בסיס	completion	1	13	אפשרות ?	full	בוסס
+הבטחתו	הבטחתו	completion	1	13	אפשרות ?	close	בטח
+יחזור	יחזור	completion	1	13	אפשרות ?	close	חזר
+מפתיע	מפתיע	completion	1	13	אפשרות ?	miss	
+הנגזרת	הנגזרת	completion	1	13	אפשרות ?	close	גזר
+תתחיל	תתחיל	completion	1	13	אפשרות ?	close	תחל
+לחפש	לחפש	completion	1	13	אפשרות ?	miss	
+מחליף	מחליף	completion	1	13	אפשרות ?	close	מחל
+בהקדם	בהקדם	completion	1	13	אפשרות ?	close	בהק
+הפכפכות	הפכפכות	completion	1	13	אפשרות ?	full	הפכפך
+תמהני	תמהני	completion	1	13	אפשרות ?	full	תמהוני
+הסתייגותה	הסתייגותה	completion	1	13	אפשרות ?	miss	
+שאינה	שאינה	completion	1	13	אפשרות ?	close	אנה
+בקנה	בקנה	completion	1	13	אפשרות ?	close	קנה
+תומכת	תומכת	completion	1	13	אפשרות ?	close	תמכ
+במדיניותו	במדיניותו	completion	1	13	אפשרות ?	miss	
+סייג	סייג	completion	1	13	אפשרות ?	miss	
+ששאינה	ששאינה	completion	1	13	אפשרות 4	close	אנה
+חסרי	חסרי	completion	1	14	אפשרות ?	close	חסר
+השכלה	השכלה	completion	1	14	אפשרות ?	close	שכל
+מקצועית	מקצועית	completion	1	14	אפשרות ?	close	קצע
+המקצועיים	המקצועיים	completion	1	14	אפשרות ?	close	קצע
+מיעוט	מיעוט	completion	1	14	אפשרות ?	close	מעט
+שבמיעוט	שבמיעוט	completion	1	14	אפשרות ?	close	מעט
+מקרב	מקרב	completion	1	14	אפשרות ?	miss	
+העובדים	העובדים	completion	1	14	אפשרות ?	miss	
+הזרים	הזרים	completion	1	14	אפשרות ?	miss	
+כנהוג	כנהוג	completion	1	14	אפשרות ?	miss	
+משכילים	משכילים	completion	1	14	אפשרות ?	close	כלמ
+ומיומנים	ומיומנים	completion	1	14	אפשרות ?	miss	
+מקצועיים	מקצועיים	completion	1	14	אפשרות ?	close	קצע
+היחידים	היחידים	completion	1	14	אפשרות ?	miss	
+הזוכים	הזוכים	completion	1	14	אפשרות ?	full	זך
+רישיון	רישיון	completion	1	14	אפשרות ?	miss	
+הכשרה	הכשרה	completion	1	14	אפשרות ?	close	שרה
+עובדים	עובדים	completion	1	14	אפשרות ?	miss	
+שירדו	שירדו	completion	2	13	אפשרות ?	miss	
+מנכסיהם	מנכסיהם	completion	2	13	אפשרות ?	close	כסה
+חמלה	חמלה	completion	2	13	אפשרות ?	full	חמלה
+להושיט	להושיט	completion	2	13	אפשרות ?	miss	
+יד	יד	completion	2	13	אפשרות ?	miss	
+לעזרה	לעזרה	completion	2	13	אפשרות ?	close	זרה
+נוטה	נוטה	completion	2	13	אפשרות ?	close	נטה
+לשים	לשים	completion	2	13	אפשרות ?	full	ליש
+זולתו	זולתו	completion	2	13	אפשרות ?	miss	
+ישקע	ישקע	completion	2	13	אפשרות ?	miss	
+נהנים	נהנים	completion	2	13	אפשרות ?	miss	
+מפירות	מפירות	completion	2	13	אפשרות ?	miss	
+עמלם	עמלם	completion	2	13	אפשרות ?	close	עמל
+תקווה	תקווה	completion	2	13	אפשרות ?	miss	
+להצלחתו	להצלחתו	completion	2	13	אפשרות ?	close	צלח
+לשנס	לשנס	completion	2	13	אפשרות ?	miss	
+מותניים	מותניים	completion	2	13	אפשרות ?	full	מתון
+חסר	חסר	completion	2	13	אפשרות ?	close	חסר
+רוח	רוח	completion	2	13	אפשרות ?	full	רווח
+יאחז	יאחז	completion	2	13	אפשרות ?	close	אחז
+הייאוש	הייאוש	completion	2	13	אפשרות ?	close	יאש
+להתנתק	להתנתק	completion	2	13	אפשרות ?	close	נתק
+מאותם	מאותם	completion	2	13	אפשרות ?	miss	
+חברים	חברים	completion	2	13	אפשרות ?	close	ברמ
+לבל	לבל	completion	2	13	אפשרות ?	full	לבל
+יחזה	יחזה	completion	2	13	אפשרות ?	close	חזה
+בהצלחתם	בהצלחתם	completion	2	13	אפשרות ?	close	צלח
+צר	צר	completion	2	13	אפשרות ?	full	צור
+עין	עין	completion	2	13	אפשרות ?	full	עוין
+שעסקיהם	שעסקיהם	completion	2	13	אפשרות ?	miss	
+עולים	עולים	completion	2	13	אפשרות ?	full	עול
+כפורחים	כפורחים	completion	2	13	אפשרות ?	close	פרח
+קנאה	קנאה	completion	2	13	אפשרות ?	close	נאה
+עזה	עזה	completion	2	13	אפשרות ?	miss	
+שופכים	שופכים	completion	2	13	אפשרות ?	miss	
+כספם	כספם	completion	2	13	אפשרות ?	close	כספ
+לריק	לריק	completion	2	13	אפשרות ?	miss	
+ושוקעים	ושוקעים	completion	2	13	אפשרות ?	miss	
+בחובות	בחובות	completion	2	13	אפשרות ?	miss	
+פחד	פחד	completion	2	13	אפשרות ?	miss	
+שגורלו	שגורלו	completion	2	13	אפשרות ?	close	שגר
+כגורלם	כגורלם	completion	2	13	אפשרות ?	miss	
+לכלכל	לכלכל	completion	2	13	אפשרות ?	full	כלכל
+מעשיו	מעשיו	completion	2	13	אפשרות ?	miss	
+בתבונה	בתבונה	completion	2	13	אפשרות ?	close	תבנ
+יזנח	יזנח	completion	2	13	אפשרות ?	close	זנח
+מנהג	מנהג	completion	2	13	אפשרות ?	miss	
+חבריו	חבריו	completion	2	13	אפשרות ?	miss	
+ויחזור	ויחזור	completion	2	13	אפשרות ?	close	חזר
+לסורו	לסורו	completion	2	13	אפשרות ?	miss	
+מתקשה	מתקשה	completion	2	13	אפשרות ?	close	קשה
+לדבוק	לדבוק	completion	2	13	אפשרות ?	full	דבק
+בהחלטותיו	בהחלטותיו	completion	2	13	אפשרות ?	miss	
+פלא	פלא	completion	2	14	אפשרות ?	close	פלא
+מחזיק	מחזיק	completion	2	14	אפשרות ?	miss	
+בדעה	בדעה	completion	2	14	אפשרות ?	miss	
+תגדיל	תגדיל	completion	2	14	אפשרות ?	close	גדל
+מתמיה	מתמיה	completion	2	14	אפשרות ?	close	תמה
+חולק	חולק	completion	2	14	אפשרות ?	close	חלק
+הטענה	הטענה	completion	2	14	אפשרות ?	miss	

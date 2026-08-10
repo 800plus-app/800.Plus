@@ -1,0 +1,198 @@
+# autumn_2021 · fmt=A · analogy=101 · completion=95
+פריט	מנורמל	סוג	פרק	שאלה	תפקיד	תוצאה	התאמה
+רפת	רפת	analogy	1	1	רגל	miss	
+גבינה	גבינה	analogy	1	1	רגל	close	גבנ
+מאפייה	מאפייה	analogy	1	1	מסיח 1	miss	
+לחם	לחם	analogy	1	1	מסיח 1	close	לחמ
+אסם	אסם	analogy	1	1	מסיח 2	full	אסם
+תבואה	תבואה	analogy	1	1	מסיח 2	miss	
+כרם	כרם	analogy	1	1	מסיח 3	miss	
+יין	יין	analogy	1	1	מסיח 3	miss	
+פרדס	פרדס	analogy	1	1	מסיח 4	close	פרד
+תפוז	תפוז	analogy	1	1	מסיח 4	miss	
+נוכח	נוכח	analogy	1	2	רגל	full	נוכח
+איננו	איננו	analogy	1	2	רגל	close	אננ
+צפוני	צפוני	analogy	1	2	מסיח 1	close	צפנ
+דרומי	דרומי	analogy	1	2	מסיח 1	miss	
+דולק	דולק	analogy	1	2	מסיח 2	full	דלק
+כבוי	כבוי	analogy	1	2	מסיח 2	miss	
+קונה	קונה	analogy	1	2	מסיח 3	full	קנה
+מוכר	מוכר	analogy	1	2	מסיח 3	miss	
+קפוא	קפוא	analogy	1	2	מסיח 4	close	קפא
+רותח	רותח	analogy	1	2	מסיח 4	miss	
+אהוב	אהוב	analogy	1	3	רגל	miss	
+אהב	אהב	analogy	1	3	רגל	miss	
+נרגע	נרגע	analogy	1	3	מסיח 2	miss	
+נחוץ	נחוץ	analogy	1	3	מסיח 3	miss	
+הזדקק	הזדקק	analogy	1	3	מסיח 3	miss	
+נהדר	נהדר	analogy	1	3	מסיח 4	close	הדר
+החמיא	החמיא	analogy	1	3	מסיח 4	miss	
+עלווה	עלווה	analogy	1	4	רגל	close	עלה
+לבוש	לבוש	analogy	1	4	מסיח 1	full	בוש
+חולצה	חולצה	analogy	1	4	מסיח 1	close	חלצ
+סלט	סלט	analogy	1	4	מסיח 3	miss	
+ירק	ירק	analogy	1	4	מסיח 3	miss	
+אופי	אופי	analogy	1	5	רגל	miss	
+עמדו על טיבו	עמדו על טיבו	analogy	1	5	רגל	close	עמד
+עברה	עברה	analogy	1	5	מסיח 1	full	עברה
+קנסוהו	קנסוהו	analogy	1	5	מסיח 1	miss	
+כינוהו	כינוהו	analogy	1	5	מסיח 2	miss	
+מקום	מקום	analogy	1	5	מסיח 3	miss	
+איתרוהו	איתרוהו	analogy	1	5	מסיח 3	close	תרה
+רמז	רמז	analogy	1	5	מסיח 4	miss	
+פתרוהו	פתרוהו	analogy	1	5	מסיח 4	close	תרה
+איה	איה	analogy	1	6	מסיח 3	miss	
+יומיים	יומיים	analogy	1	6	מסיח 4	full	יומם
+ימים	ימים	analogy	1	6	מסיח 4	full	יומם
+הרשה	הרשה	analogy	2	1	רגל	miss	
+רשות	רשות	analogy	2	1	רגל	full	רש
+ציווה	ציווה	analogy	2	1	מסיח 1	full	ציה
+פקודה	פקודה	analogy	2	1	מסיח 1	close	פקד
+חוקק	חוקק	analogy	2	1	מסיח 2	full	חקוק
+אכיפה	אכיפה	analogy	2	1	מסיח 2	close	אכפ
+ביקש	ביקש	analogy	2	1	מסיח 3	close	בקש
+הסכמה	הסכמה	analogy	2	1	מסיח 3	close	סכמ
+פטר	פטר	analogy	2	1	מסיח 4	close	פטר
+חובה	חובה	analogy	2	1	מסיח 4	miss	
+לח	לח	analogy	2	2	רגל	full	לח
+רטוב	רטוב	analogy	2	2	רגל	miss	
+קליל	קליל	analogy	2	2	מסיח 1	miss	
+קל	קל	analogy	2	2	מסיח 1	miss	
+ארכני	ארכני	analogy	2	2	מסיח 2	close	ארכ
+ארוך	ארוך	analogy	2	2	מסיח 2	close	ארכ
+שביר	שביר	analogy	2	2	מסיח 3	close	שבר
+שבור	שבור	analogy	2	2	מסיח 3	close	שבר
+אדמדם	אדמדם	analogy	2	2	מסיח 4	close	דמדמ
+אדום	אדום	analogy	2	2	מסיח 4	close	אדמ
+מופע	מופע	analogy	2	3	רגל	miss	
+הדרן	הדרן	analogy	2	3	רגל	full	הדרן
+ספר	ספר	analogy	2	3	מסיח 1	full	ספר
+נספח	נספח	analogy	2	3	מסיח 1	close	ספח
+תמונה	תמונה	analogy	2	3	מסיח 2	miss	
+מסגרת	מסגרת	analogy	2	3	מסיח 2	close	סגר
+מחזה	מחזה	analogy	2	3	מסיח 3	close	חזה
+מערכה	מערכה	analogy	2	3	מסיח 3	miss	
+שיר	שיר	analogy	2	3	מסיח 4	full	שור
+פזמון	פזמון	analogy	2	3	מסיח 4	miss	
+לפורר	לפורר	analogy	2	4	רגל	miss	
+פירורים	פירורים	analogy	2	4	רגל	miss	
+לרסק	לרסק	analogy	2	4	מסיח 1	miss	
+רסק	רסק	analogy	2	4	מסיח 1	miss	
+לקלף	לקלף	analogy	2	4	מסיח 2	miss	
+קליפה	קליפה	analogy	2	4	מסיח 2	miss	
+להמליח	להמליח	analogy	2	4	מסיח 3	close	מלח
+מלח	מלח	analogy	2	4	מסיח 3	full	מלח
+לנסר	לנסר	analogy	2	4	מסיח 4	close	נסר
+נסורת	נסורת	analogy	2	4	מסיח 4	full	נסורת
+כבש את יצרו	כבש את יצרו	analogy	2	5	רגל	full	כבש את יצרו
+להתפתות	להתפתות	analogy	2	5	רגל	close	תפת
+יצא בשן ועין	יצא בשן ועין	analogy	2	5	מסיח 1	full	יצא בשן ועין
+להיפגע	להיפגע	analogy	2	5	מסיח 1	miss	
+נמלך בדעתו	נמלך בדעתו	analogy	2	5	מסיח 2	close	נמלך
+להחליט	להחליט	analogy	2	5	מסיח 2	miss	
+פתח סגור ליבו	פתח סגור ליבו	analogy	2	5	מסיח 3	close	סגור
+להסתיר	להסתיר	analogy	2	5	מסיח 3	close	סתר
+חשק שפתיו	חשק שפתיו	analogy	2	5	מסיח 4	full	חשק שפתיו
+לדבר	לדבר	analogy	2	5	מסיח 4	full	דביר
+כאן	כאן	analogy	2	6	רגל	miss	
+הנה	הנה	analogy	2	6	רגל	full	הונה
+חזית	חזית	analogy	2	6	מסיח 1	miss	
+אחורה	אחורה	analogy	2	6	מסיח 1	close	אחר
+ימין	ימין	analogy	2	6	מסיח 2	miss	
+ימינה	ימינה	analogy	2	6	מסיח 2	miss	
+פנים	פנים	analogy	2	6	מסיח 4	full	פן
+תומכי	תומכי	completion	1	10	אפשרות 1	close	תמכ
+לברך	לברך	completion	1	10	אפשרות 1	close	ברכ
+שטחית	שטחית	completion	1	10	אפשרות 1	miss	
+ומגמתית	ומגמתית	completion	1	10	אפשרות 1	close	מתת
+מבקרי	מבקרי	completion	1	10	אפשרות 2	close	בקרי
+תועלת	תועלת	completion	1	10	אפשרות 2	miss	
+רבה	רבה	completion	1	10	אפשרות 2	miss	
+מקצועית	מקצועית	completion	1	10	אפשרות 2	close	קצע
+לתמוה	לתמוה	completion	1	10	אפשרות 3	close	תמה
+יסודית	יסודית	completion	1	10	אפשרות 3	miss	
+ומעמיקה	ומעמיקה	completion	1	10	אפשרות 3	miss	
+טעם	טעם	completion	1	10	אפשרות 4	close	טעמ
+לפגם	לפגם	completion	1	10	אפשרות 4	close	לפגמ
+חובבנית	חובבנית	completion	1	10	אפשרות 4	miss	
+גרידא	גרידא	completion	1	10	אפשרות 4	full	גרידא
+הופתעתי	הופתעתי	completion	1	11	אפשרות 1	miss	
+התלהבות	התלהבות	completion	1	11	אפשרות 1	close	התל
+ובתשואות	ובתשואות	completion	1	11	אפשרות 1	close	שאת
+ממושכות	ממושכות	completion	1	11	אפשרות 1	close	משכ
+מחזה	מחזה	completion	1	11	אפשרות 1	close	חזה
+נפוץ	נפוץ	completion	1	11	אפשרות 1	full	ניפץ
+לשבח	לשבח	completion	1	11	אפשרות 1	miss	
+בוז	בוז	completion	1	11	אפשרות 2	full	בוז
+רמות	רמות	completion	1	11	אפשרות 2	miss	
+נדיר	נדיר	completion	1	11	אפשרות 2	miss	
+חיזיון	חיזיון	completion	1	11	אפשרות 3	full	חיזיון
+רגיל	רגיל	completion	1	11	אפשרות 3	miss	
+להשמיץ	להשמיץ	completion	1	11	אפשרות 3	close	שמצ
+הערצה	הערצה	completion	1	11	אפשרות 4	close	רצה
+ובמחיאות	ובמחיאות	completion	1	11	אפשרות 4	miss	
+כפיים	כפיים	completion	1	11	אפשרות 4	full	כף
+ללגלג	ללגלג	completion	1	11	אפשרות 4	miss	
+משסבר	משסבר	completion	1	11	אפשרות 4	close	סבר
+חש	חש	completion	1	11	אפשרות 4	full	חיש
+ועד	ועד	completion	1	11	אפשרות 4	close	ועד
+ארוחת	ארוחת	completion	1	11	אפשרות 4	close	ארח
+הצהריים	הצהריים	completion	1	11	אפשרות 4	full	צוהר
+נותר	נותר	completion	1	11	אפשרות 4	full	ניתר
+ממהר	ממהר	completion	1	12	אפשרות 1	close	מהר
+מועט	מועט	completion	1	12	אפשרות 1	close	מעט
+שמחה	שמחה	completion	1	12	אפשרות 1	close	שמחה
+לחכות	לחכות	completion	1	12	אפשרות 1	full	חך
+הארוחה	הארוחה	completion	1	12	אפשרות 1	full	אורחה
+מפגר	מפגר	completion	1	12	אפשרות 2	miss	
+קצר	קצר	completion	1	12	אפשרות 2	close	קצר
+הקלה	הקלה	completion	1	12	אפשרות 2	close	קלה
+לאכול	לאכול	completion	1	12	אפשרות 2	close	אכל
+בשעות	בשעות	completion	1	12	אפשרות 2	close	שעת
+הקרובות	הקרובות	completion	1	12	אפשרות 2	miss	
+לטעום	לטעום	completion	1	12	אפשרות 3	close	טעמ
+ולו	ולו	completion	1	12	אפשרות 3	miss	
+כזית	כזית	completion	1	12	אפשרות 3	full	כזית
+הקרוב	הקרוב	completion	1	12	אפשרות 3	miss	
+ממושך	ממושך	completion	1	12	אפשרות 4	close	משכ
+אכזבה	אכזבה	completion	1	12	אפשרות 4	close	כזב
+להתאפק	להתאפק	completion	1	12	אפשרות 4	close	אפק
+כה	כה	completion	1	12	אפשרות 4	miss	
+ארוך	ארוך	completion	1	12	אפשרות 4	close	ארכ
+סמכו	סמכו	completion	2	12	אפשרות 1	close	סמכ
+הצפויה	הצפויה	completion	2	12	אפשרות 1	miss	
+לפגוע	לפגוע	completion	2	12	אפשרות 1	miss	
+שאינה	שאינה	completion	2	12	אפשרות 2	close	אנה
+צפויה	צפויה	completion	2	12	אפשרות 2	miss	
+העתידה	העתידה	completion	2	12	אפשרות 3	close	עתד
+לחבל	לחבל	completion	2	12	אפשרות 3	close	חבל
+שסופה	שסופה	completion	2	12	אפשרות 4	miss	
+בחוסר	בחוסר	completion	2	12	אפשרות 4	close	חסר
+שביעות	שביעות	completion	2	12	אפשרות 4	close	בעת
+בעשורים	בעשורים	completion	2	12	אפשרות 4	miss	
+האחרונים	האחרונים	completion	2	12	אפשרות 4	close	אחר
+להצטמק	להצטמק	completion	2	13	אפשרות 1	miss	
+התממשה	התממשה	completion	2	13	אפשרות 1	close	משה
+העלייה	העלייה	completion	2	13	אפשרות 1	close	עלה
+אליה	אליה	completion	2	13	אפשרות 1	miss	
+וכמו	וכמו	completion	2	13	אפשרות 1	miss	
+גדל	גדל	completion	2	13	אפשרות 1	full	גדיל
+לגדול	לגדול	completion	2	13	אפשרות 2	full	גדיל
+הירידה	הירידה	completion	2	13	אפשרות 2	close	רדה
+ירד	ירד	completion	2	13	אפשרות 2	close	ירד
+באותן	באותן	completion	2	13	אפשרות 4	close	אתנ
+מאמין	מאמין	completion	2	13	אפשרות 4	close	אמנ
+שהרוח	שהרוח	completion	2	13	אפשרות 4	miss	
+סבור	סבור	completion	2	13	אפשרות 4	full	סבר
+מניעיהם	מניעיהם	completion	2	13	אפשרות 4	miss	
+חומריים	חומריים	completion	2	13	אפשרות 4	miss	
+תמיד	תמיד	completion	2	13	אפשרות 4	miss	
+אמיר	אמיר	completion	2	14	אפשרות 1	full	אמיר
+יוסף	יוסף	completion	2	14	אפשרות 1	miss	
+טועים	טועים	completion	2	14	אפשרות 1	close	טעמ
+חלשה	חלשה	completion	2	14	אפשרות 1	miss	
+אינני	אינני	completion	2	14	אפשרות 2	close	אננ
+ברור	ברור	completion	2	14	אפשרות 2	miss	
+חזקה	חזקה	completion	2	14	אפשרות 2	miss	
+יעלה	יעלה	completion	2	14	אפשרות 3	close	עלה
+הדעת	הדעת	completion	2	14	אפשרות 3	close	הדעת
