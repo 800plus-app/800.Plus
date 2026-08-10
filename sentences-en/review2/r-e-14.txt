@@ -1,0 +1,80 @@
+period	נקודה; משך זמן, מחזור; תקופה	A hockey period lasts twenty minutes of actual game play.
+permanent	קבוע	He got a permanent tattoo on his arm that would never fade.
+permission	רשות, היתר	You need permission from your parents to stay out late.
+personality	אישיות	Her bubbly personality made her popular with everyone at work.
+piece	יצירה; חתיכה, חלק	She performed a beautiful piano piece at the concert.
+pipe	צינור	Water flows through the metal pipe under the street.
+plant	צמח; לשתול; מפעל (power ___)	The green plant on her desk needed water every other day.
+plate	צלחת, לוח	She placed the clean plate back in the cupboard.
+pleasure	תענוג, לענג	Reading a good book brings him great pleasure and joy.
+polite	מנומס	It is polite to say thank you when someone helps you.
+position	מיקום, למקם; תנוחה; תפקיד, משרה	She adjusted her position on the chair to be more comfortable.
+pot	סיר, קדרה	I boil water in a large pot before cooking the pasta.
+practice	לתרגל, תרגול	She practices the piano for one hour every single day.
+precious	יקר	This precious diamond was passed down from my grandmother.
+pregnant	הרה (בהריון)	She was pregnant and due to give birth next month.
+prevent	למנוע	Wearing a seatbelt can prevent serious injury in a car crash.
+previous	קודם	His previous job was at a bank downtown.
+pride	גאווה	He took pride in his work and always did it well.
+priority	עדיפות	Your health should be your top priority in life.
+prison	כלא	The criminal was sent to prison for five years.
+prize	פרס	She won first prize in the science competition.
+process	לעכל, לעבד; תהליך	It takes time to process all the information you receive.
+product	מוצר	The company tested their new product for quality issues.
+profit	רווח	The company made a large profit from selling those products.
+progress	התקדמות, להתקדם	She was making progress in her English class every week.
+project	לתכנן; פרוייקט, מיזם; להשליך, להקרין	Their engineering project to build a bridge took three years.
+proof	הוכחה, ראיה; חסין, עמיד (סיומת)	Do you have proof that he stole the money?
+protest	למחות, הפגנה	Thousands of people gathered to protest the new law.
+public	ציבורי	The public library is free for all city residents.
+pump	משאבה, לשאוב	The heart pumps blood throughout your entire body.
+punish	להעניש	Teachers must punish students who break the school rules.
+pure	טהור	This is pure orange juice with no added sugar.
+purpose	כוונה, מטרה	The purpose of school is to prepare you for life.
+quarter	רבע	A quarter is twenty-five cents in American money.
+rage	זעם	His rage was so intense he threw things across the room.
+raise	להעלות	They raise the flag at the beginning of school.
+react	להגיב	How did your family react when you told them the news?
+reaction	תגובה	His reaction to the surprise was complete shock and joy.
+realize	הבין	I realized that I had forgotten my keys at home.
+recent	שארע לאחרונה	The recent earthquake caused damage to several buildings.
+recently	לאחרונה	I recently moved to a new apartment across town.
+recognize	לזהות	I recognize that woman from my chemistry class last year.
+recommend	להמליץ	I recommend this restaurant because the food is excellent.
+register	להירשם	You must register for the class before the deadline.
+release	לשחרר	They will release the new movie next Friday night.
+religion	דת	People of different religions celebrate different holidays and customs.
+religious	דתי	My grandmother is a very religious person who prays daily.
+remote	מרוחק	They live in a remote village without electricity or roads.
+repair	לתקן	We need to repair the broken window before winter.
+replace	להחליף	Can you replace these old batteries with new ones?
+reporter	עיתונאי	The reporter asked the politician many difficult questions.
+represent	לייצג, מייצג	She represents our country in the international swimming competition.
+request	בקשה, לבקש	The teacher requested that all students submit their homework.
+rescue	להציל	The firefighters rescued the cat from the tall tree.
+research	מחקר	Scientists conduct research to find new cures for diseases.
+review	ביקורת; לסקור, סקירה	She wrote a harsh review of the new film.
+reward	פרס, לתגמל	As a reward for good behavior, the class got free time.
+ridiculous	מגוחך	That idea is ridiculous and nobody would ever believe it.
+rise	עליה, לעלות	The sun rises in the east every single morning.
+route	מסלול, דרך	This is the fastest route to get to the airport.
+safety	בטיחות	Wearing a helmet is important for your safety on a bike.
+salary	שכר	His salary increased after he got promoted to manager.
+sample	מדגם, דגימה, דוגמה	The scientist took a sample of the water for testing.
+scare	פחד, להפחיד	The loud noise scared the children and made them cry.
+schedule	לוח זמנים	What is your work schedule for the entire week?
+screen	לסרוק; מסך, צג, וילון; לסנן	Security screened all bags before passengers entered the building.
+script	תסריט	The actor memorized the script before filming started.
+seat	מושב, להושיב	I found an empty seat on the train and sat down.
+section	יחידה, חלק	The children's section of the library has colorful pictures.
+senior	בכיר; זקן	The senior students get to leave school a half hour early.
+sensitive	רגיש	Her sensitive skin reacts badly to most harsh chemicals.
+sentence	משפט; גזר דין	Please read the sentence aloud and tell me what it means.
+shadow	צל, להאפיל	The tree shadow covered the entire yard on sunny days.
+shave	גילוח, לגלח	He shaves every morning before going to work.
+ship	לשלוח; אוניה	We will ship your package tomorrow morning by courier.
+shy	ביישן	The shy child hid behind her mother when strangers came.
+signal	אות, סימן, לאותת	The red light is a signal that you must stop.
+signature	חתימה	Please write your signature at the bottom of the form.
+similar	דומה	The two houses are very similar in color and size.
+simply	בפשטות	She simply smiled and walked out of the room.

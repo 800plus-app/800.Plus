@@ -1,0 +1,80 @@
+indifference	אדישות	She showed complete indifference to the prize, feeling nothing at all.
+indigenous	ילידי, מקומי, שמקורו במקום	The indigenous people of the island have lived there for centuries.
+induce	לגרום, לייצר	The new policy will induce significant changes in workplace procedures.
+inevitably	בהכרח, באופן בלתי נמנע	As winter approaches, the days inevitably become shorter and colder.
+inferred	נגזר, משתמע	The researchers inferred the disease's cause from the patient's symptoms.
+inflammation	דלקת	The doctor prescribed medicine to reduce the inflammation in her knee.
+ingest	להכניס משהו לגוף דרך הפה	Young children should not ingest peanuts due to serious allergic reactions.
+inhibit	לרסן	The strict dress code seemed to inhibit students' self-expression and creativity.
+inquire	לשאול, לברר, להתעניין	She decided to inquire about the job opening at the company.
+inquiry	חקירה	The police conducted a thorough inquiry into the mysterious disappearance.
+insulate	לבודד	The thick walls insulate the building from external noise and cold.
+intermediary	מתווך, אמצעי	The lawyer acted as an intermediary between the two parties.
+intervene	להתערב	The referee had to intervene when the players started fighting.
+intestine	מעי	The small intestine is where most nutrient absorption occurs.
+intoxicate	להרעיל, לשכר; להלהיב	Alcohol will intoxicate the body and impair physical coordination.
+intrigue	לסקרן; תככים	The mysterious letter managed to intrigue even the skeptical old man.
+intrusive	פולשני	His intrusive questions about my personal finances made me uncomfortable.
+invoke	לעורר, לזמן	The music managed to invoke powerful emotions in the listeners.
+irrigation	השקיה	The farmer used modern irrigation systems to water all his crops.
+jug	כד, קנקן	She poured cold milk from the ceramic jug into small cups.
+landmark	אבן דרך	Graduating from university was a landmark achievement in her academic journey.
+latter	שני, אחרון	Between coffee and tea, I prefer the latter beverage.
+launder	לכבס	I need to launder these dirty clothes before tomorrow.
+legislate	לחוקק	The government decided to legislate new environmental protection standards.
+legislation	חקיקה	New legislation was passed to regulate the tech industry's practices.
+leisure	פנאי	She spent her leisure time reading books and gardening.
+linger	להתעכב, להשתהות	The wonderful aroma seemed to linger in the kitchen.
+literacy	אוריינות, ידיעת קרוא וכתוב	Improving literacy rates in developing countries remains a global education priority.
+literate	יודע קרוא וכתוב; בקיא, בעל אוריינות	Every child deserves access to education to become literate.
+litter	אשפה, פסולת; ללכלך בפסולת; לזרוע, לפזר	Please don't litter the park with your trash and waste.
+lodge	להתאכסן, אכסנייה	We decided to lodge at the small hotel near the mountain.
+loosely	באופן רפוי	The shirt fit loosely and hung somewhat awkwardly on him.
+lumber	עצי בניין, קרשים, עצה מנוסרת	The construction site stored heavy lumber needed for building.
+luminous	זוהר, בוהק	The luminous glow of the lantern guided them through darkness.
+malformation	עיוות, פגם	The doctor detected a malformation in the baby during the scan.
+malnutrition	תת-תזונה	Malnutrition is a serious health problem affecting millions of children.
+mediocre	בינוני (במובן שלילי)	The critic gave the film a mediocre review, calling it forgettable.
+mere	רק, לא יותר מ-	He dismissed her concerns as mere exaggeration and completely refused to listen.
+mischief	נזק, מעשה קונדס	The children's mischief involved secretly hiding their teacher's car keys.
+mobilize	לנייד, להניע	The government decided to mobilize troops to address the security crisis.
+mold	לעצב; עובש	Parents should mold their children's character through positive role modeling.
+moth	עש	A large moth flew through the window and landed on the lamp.
+mundane	שגרתי, יומיומי, בנאלי	Despite the mundane office tasks, she found joy in simple routines.
+mutual	הדדי	Their mutual love and respect formed the foundation of a strong marriage.
+namely	כלומר, דהיינו, והם	She enjoyed many winter sports, namely skiing and ice skating.
+nausea	בחילה	The strong chemical smell caused immediate nausea and dizziness.
+negate	לשלול	His good deeds cannot negate all the harm he caused.
+negligent	רשלני	The negligent driver caused an accident by ignoring traffic signals.
+nonetheless	למרות זאת	The project faced many obstacles; nonetheless, the team completed it successfully.
+notable	ראוי לציון, בולט, יוצא דופן	Her notable contribution to science earned her international recognition.
+notably	בייחוד, בפרט; באופן בולט	The temperature dropped notably during the night reaching record lows.
+noted	ידוע, מפורסם	The noted author gave a fascinating lecture about her writing.
+nurture	לטפח, להזין, לחנך	Parents should nurture their children's talents and encourage development.
+nutrient	חומר מזין	Fish contains important nutrients like omega-3 fatty acids for health.
+oblige	לחייב, להכריח	The new rules oblige employees to attend safety training.
+obsolete	מיושן	That old computer is now completely obsolete and nonfunctional.
+offset	לקזז	The company's profits help offset the losses from the new division.
+ordinarily	בדרך-כלל	She ordinarily wakes up early but today slept until noon.
+orient	להתמצא	It took him several minutes to orient himself after arriving.
+originate	התחיל, התהווה	The tradition originated centuries ago and continues to the present.
+outrage	זעם; לזעזע	The scandal caused outrage among the citizens demanding accountability.
+outweigh	עולה על, שוקל יותר מ-	The benefits of the new system outweigh the initial costs.
+overdue	שעבר זמן ההגשה שלו	The library sent a notice that my book was overdue.
+overlooked	לא הבחין, פספס, החמיץ; התעלם; (גם: צפה על מגבוה)	I overlooked that important detail when I first read it.
+overwhelm	להכריע, להציף, לגבור על; להמם	The sheer number of tasks seemed to overwhelm her.
+particle	חלקיק	A single dust particle floating in the sunbeam caught her attention.
+particulars	פרטים, פרטי מידע	She requested the particulars of the contract before signing.
+perceive	להבחין, לראות	He could perceive the subtle hint of sadness in her smile.
+persuasion	שכנוע	Through gentle persuasion, she convinced him to reconsider his decision.
+persuasive	משכנע	His persuasive argument successfully convinced the committee about the proposal.
+physician	רופא	The physician examined the patient thoroughly before the diagnosis.
+pivot	ציר, לסובב על ציר	The door swings on a pivot and opens both ways.
+plunge	לצלול, לצנוח, לשקוע; צניחה חדה	He took a deep breath and decided to plunge into water.
+pollutant	מזהם	The factory released a dangerous pollutant that contaminated water.
+portray	לתאר, לצייר	The documentary portrays the life of an ordinary person.
+pose	להציב, להוות; תנוחה	Heavy traffic poses a serious safety risk for pedestrians.
+posture	יציבה, תנוחה	Good posture while sitting at a desk prevents back pain.
+potent	חזק, בעל כוח השפעה	That potent medicine can only be prescribed by physicians.
+potter	קדר	The potter shaped the wet clay on the spinning wheel.
+pottery	קדרות	The ancient pottery found in excavation provided clues about culture.

@@ -1,0 +1,80 @@
+debate	ויכוח, דיון	The two politicians engaged in a heated debate about the tax policy.
+defeat	להביס, לנצח; תבוסה, הבסה	Their opponents defeated them, shocking everyone who believed in their chances.
+defeated	הובס	After being defeated twice before, she finally won the championship.
+define	להגדיר	Can you define what you mean by a successful business?
+degree	מעלה (מדידה); תואר אקדמי; דרגה; מידה, במידה מסוימת	The temperature dropped twenty degrees overnight during the storm.
+demand	לדרוש, דרישה	Her job demands careful attention to detail and accuracy.
+dental	שקשור בשיניים	My dental appointment is scheduled for next Tuesday morning.
+dentist	רופא שיניים	The dentist cleaned my teeth and fixed one small cavity.
+deny	לסרב; להכחיש	He denied being at the store when it was robbed.
+depart	לעזוב	The train will depart from platform five in fifteen minutes.
+destination	יעד	Our destination was a small village in the mountains.
+destructive	הרסני	The storm caused destructive winds that damaged hundreds of homes.
+detect	לאתר, לגלות	Scientists can detect earthquakes before they reach the surface.
+diary	יומן	She wrote in her diary every evening before sleeping.
+disappoint	לאכזב	I hope our performance does not disappoint the audience tonight.
+distant	מרוחק	The distant mountains looked beautiful in the evening light.
+district	מחוז	The school serves students from the entire downtown district.
+donor	תורם	The blood donor sat quietly while the nurse took blood.
+dose	מנה, מינון	Take one dose of medicine every eight hours.
+double standard	מוסר כפול	Punishing him but not her is a clear double standard.
+Dutch	הולנדי	My Dutch friend taught me how to make stroopwafels.
+ease	להקל, קלוּת	This software will ease the burden of data entry.
+efficient	יעיל	An efficient system saves time and reduces waste.
+elderly	זקן	The elderly man slowly walked across the street.
+eliminate	לחסל, לפסול	We need to eliminate all the plastic waste from offices.
+embarrass	להביך	He would not want to embarrass himself in front of everyone.
+employ	להעסיק; להשתמש ב-, לנקוט	The factory employs over five hundred workers in production.
+employer	מעסיק, מעביד	My employer offered me a raise after my good performance.
+encourage	לעודד	Teachers encourage students to ask questions during the lesson.
+entertain	לשעשע, לבדר	The comedian tried to entertain the audience with stories.
+envy	קנאה, לקנא	She felt envy when her friend got the promotion.
+equally	במידה שווה	Both students performed equally well on the final exam.
+era	עידן	We study the Victorian era in history class.
+erase	למחוק	Can you erase that word from the board please?
+essential	חיוני	Water is essential for all life on Earth.
+evolved	התפתח	Fish evolved from earlier sea creatures millions of years ago.
+exception	יוצא מהכלל	Everyone has to work on Saturday with no exception.
+execute	להוציא לפועל; להוציא להורג	The team will execute the plan next Monday morning.
+existence	קיום	The existence of dinosaurs was proven through fossil evidence.
+expand	להרחיב	The company plans to expand into three new countries.
+expansion	הרחבה, התרחבות, התפשטות	The expansion of the airport will take about two years.
+expense	הוצאות	Travel is a major expense when living abroad.
+express	מהיר; לבטא	We took the express train to save three hours of travel.
+expression	ביטוי	Her happy expression told us she had good news.
+extend	להאריך, להרחיב	Can we extend the deadline for the project please?
+extension	הארכה, הרחבה; תוספת (מבנה); שלוחה (טלפון)	The extension of the meeting lasted only five more minutes.
+facial	שקשור בפנים	She got a facial treatment at the spa yesterday.
+feature	להציג; סרט באורך מלא; תכונה, מאפיין	This month's magazine features stories about unusual animals.
+feminine	נשי	Her feminine style with jewelry and soft colors was elegant.
+fisherman	דייג	The fisherman caught three large fish in the river.
+flame	להבה	A bright flame danced in the dark fireplace.
+flood	שיטפון	Heavy rains caused a terrible flood in the village.
+footprints	עקבות, טביעות רגל	Police found footprints in the mud near the house.
+forbid	לאסור	Parents forbid their children from playing violent video games.
+foundation	יסוד	A strong foundation is essential for any building.
+frequently	לעיתים קרובות	She frequently visits her grandmother on weekend afternoons.
+frightening	מפחיד	The frightening movie gave her nightmares all week.
+fuel	דלק	The car runs on fuel from the gas pump.
+fund	קרן; לממן	The government fund helps students pay for college tuition.
+funds	כסף, הון, מקור מימון	The company lacks funds to expand right now.
+gain	להרוויח, להוסיף	She hopes to gain valuable experience this summer.
+gap	פער	There is a gap between the two buildings.
+gasoline	בנזין	We need to buy gasoline before the long drive.
+gather	אסף	Everyone will gather at the park for the picnic.
+glove	כפפה	He wore a glove to protect his injured hand.
+granddaughter	נכדה	My granddaughter loves to visit me every summer.
+greet	לברך, לקבל פנים	Teachers greet students warmly when they arrive at school.
+growth	צמיחה, גדילה	The city saw rapid growth in the last decade.
+guarantee	להבטיח, ערבות	The store will guarantee the quality of the product.
+habit	הרגל	Drinking coffee is a daily habit for her.
+heavily	מאוד, במידה רבה	It rained heavily all night and flooded the streets.
+hike	הליכה, טיול	We took a long hike through the forest yesterday.
+homeland	מולדת	Many refugees dream of returning to their homeland.
+identify	לזהות	Can you identify the person in this old photograph?
+illness	מחלה	His illness kept him in the hospital for weeks.
+imagination	דמיון	Children use their imagination when playing pretend games.
+impatient	חסר סבלנות	The impatient customer complained about the slow service.
+impress	להרשים	She wanted to impress her new boss at work.
+imprisonment	מאסר, כליאה	His imprisonment lasted twenty years for the crime.
+in comparison	בהשוואה	In comparison to last year, sales have doubled significantly.
