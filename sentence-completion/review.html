@@ -1,0 +1,841 @@
+<meta charset="utf-8">
+<title>השלמת משפטים · גיליון בחינה · שלב 0</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+@font-face{font-family:FRL;src:url('../fonts/frank-ruhl-libre-hebrew.woff2') format('woff2');unicode-range:U+0590-05FF,U+FB1D-FB4F;font-display:swap}
+@font-face{font-family:FRL;src:url('../fonts/frank-ruhl-libre-latin.woff2') format('woff2');unicode-range:U+0000-00FF;font-display:swap}
+:root{
+  --paper:#f4f1ea; --ink:#1a1714; --ink2:#5c554c; --rule:#d5cec1;
+  --red:#a8332a; --green:#2f5d43; --amber:#8a6a1f;
+  --band0:#4a6fa5; --band1:#2f7d5f; --band2:#9a6a2a; --band3:#8c3d5e;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:FRL,Georgia,serif;
+  direction:rtl;line-height:1.65;
+  background-image:radial-gradient(circle at 15% 8%,rgba(168,51,42,.035),transparent 42%),
+                   radial-gradient(circle at 88% 92%,rgba(47,93,67,.04),transparent 45%);
+  background-attachment:fixed}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.32;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+.wrap{max-width:920px;margin:0 auto;padding:clamp(24px,5vw,72px) clamp(18px,4vw,44px) 96px}
+
+header{border-bottom:2.5px solid var(--ink);padding-bottom:14px;margin-bottom:6px;
+  display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+h1{font-size:clamp(26px,4.4vw,42px);font-weight:700;margin:0;letter-spacing:-.02em;line-height:1.12}
+h1 small{display:block;font-size:.42em;font-weight:400;color:var(--ink2);letter-spacing:.16em;
+  margin-bottom:8px;text-transform:none}
+.stamp{font-size:12px;letter-spacing:.14em;border:1.5px solid var(--green);color:var(--green);
+  padding:7px 13px;transform:rotate(-1.6deg);white-space:nowrap;font-weight:700}
+.meta{display:flex;gap:26px;flex-wrap:wrap;font-size:13px;color:var(--ink2);
+  border-bottom:1px solid var(--rule);padding:10px 0 22px;margin-bottom:38px;
+  animation:rise .7s .06s cubic-bezier(.2,.7,.2,1) both}
+.meta b{color:var(--ink);font-weight:700}
+
+.tabs{display:flex;gap:0;margin-bottom:34px;border-bottom:1px solid var(--rule);
+  animation:rise .7s .12s cubic-bezier(.2,.7,.2,1) both}
+.tab{background:none;border:0;border-bottom:2.5px solid transparent;font-family:inherit;
+  font-size:16px;color:var(--ink2);padding:10px 20px;cursor:pointer;margin-bottom:-1px;
+  transition:color .18s,border-color .18s}
+.tab[aria-selected=true]{color:var(--ink);border-bottom-color:var(--red);font-weight:700}
+@media(hover:hover){.tab:hover{color:var(--ink)}}
+
+.lvhead{display:flex;align-items:center;gap:14px;margin:44px 0 20px}
+.lvhead:first-child{margin-top:0}
+.lvhead h2{font-size:20px;margin:0;font-weight:700;white-space:nowrap}
+.lvhead .ln{flex:1;height:1px;background:var(--rule)}
+.lvhead .cap{font-size:12px;color:var(--ink2);letter-spacing:.08em;white-space:nowrap}
+
+.item{border:1px solid var(--rule);background:rgba(255,255,255,.42);padding:22px 24px;
+  margin-bottom:16px;position:relative}
+.item::before{content:attr(data-n);position:absolute;top:-1px;right:-1px;background:var(--ink);
+  color:var(--paper);font-size:11px;padding:4px 9px;letter-spacing:.06em;font-weight:700}
+.sent{direction:ltr;text-align:left;font-size:clamp(16px,2.2vw,19px);line-height:1.75;
+  margin:6px 0 18px;padding-right:44px}
+.sent .bl{border-bottom:2px solid var(--red);padding:0 26px;margin:0 3px}
+.sent .cw{background:linear-gradient(transparent 62%,rgba(168,51,42,.18) 62%);font-weight:700}
+.sent .fill{color:var(--green);font-weight:700;border-bottom:2px solid var(--green);padding:0 4px}
+.sent .fill.bad{color:var(--red);border-color:var(--red);text-decoration:line-through}
+
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:8px;margin-bottom:4px}
+.opt{direction:ltr;text-align:left;font-family:inherit;font-size:15px;background:rgba(255,255,255,.7);
+  border:1px solid var(--rule);padding:9px 13px;cursor:pointer;position:relative;
+  transition:border-color .16s,background .16s,transform .16s}
+@media(hover:hover) and (pointer:fine){.opt:hover:not(.done){border-color:var(--ink);transform:translateY(-1px)}}
+.opt .r{position:absolute;top:3px;left:6px;font-size:10px;color:var(--ink2);direction:ltr;
+  font-variant-numeric:tabular-nums}
+.opt.ok{border-color:var(--green);border-width:2px;background:rgba(47,93,67,.09)}
+.opt.no{border-color:var(--red);background:rgba(168,51,42,.07);opacity:.72}
+.opt.done{cursor:default}
+.exp{border-right:2.5px solid var(--amber);padding:9px 14px;margin-top:14px;font-size:14.5px;
+  color:var(--ink2);background:rgba(138,106,31,.05)}
+.exp b{color:var(--ink)}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;font-size:11.5px;letter-spacing:.05em}
+.tag{border:1px solid var(--rule);padding:3px 9px;color:var(--ink2)}
+.tag.b0{border-color:var(--band0);color:var(--band0)}
+.tag.b1{border-color:var(--band1);color:var(--band1)}
+.tag.b2{border-color:var(--band2);color:var(--band2)}
+.tag.b3{border-color:var(--band3);color:var(--band3)}
+.tag.fl{border-color:var(--amber);color:var(--amber)}
+.tag.two{border-color:var(--red);color:var(--red);font-weight:700}
+.hid{display:none}
+
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px}
+th{text-align:right;font-size:11.5px;letter-spacing:.07em;color:var(--ink2);font-weight:400;
+  border-bottom:1.5px solid var(--ink);padding:7px 9px;white-space:nowrap}
+td{border-bottom:1px solid var(--rule);padding:8px 9px;vertical-align:top}
+tbody tr:nth-child(even){background:rgba(255,255,255,.34)}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+td.en{direction:ltr;text-align:left;font-size:13px}
+.ok-c{color:var(--green);font-weight:700}
+.note{font-size:13.5px;color:var(--ink2);border-top:1px solid var(--rule);margin-top:44px;padding-top:18px}
+.note b{color:var(--ink)}
+.note ul{padding-right:20px;margin:8px 0}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.item{animation:rise .55s cubic-bezier(.2,.7,.2,1) both}
+</style>
+<div class="wrap">
+<header>
+  <h1><small>800+ · אנגלית · שלב 0 · הוכחת היתכנות</small>השלמת משפטים</h1>
+  <div class="stamp">השער עבר · 0 כשלים</div>
+</header>
+<div class="meta">
+  <span><b>40</b> פריטים</span>
+  <span><b>4</b> רמות · 10 לכל אחת</span>
+  <span>דו־חסר: <b>5</b></span>
+  <span>דגלים: <b>12</b></span>
+  <span>הרמה <b>נגזרת</b> מ־EN_RANK, לא מוצהרת</span>
+</div>
+
+<div class="tabs" role="tablist">
+  <button class="tab" role="tab" aria-selected="true" data-v="practice">תרגול — תבחן את הפריטים</button>
+  <button class="tab" role="tab" aria-selected="false" data-v="proof">גיליון מלא — כל הנתונים</button>
+</div>
+
+<div id="practice"><div class="lvhead"><h2>בסיס</h2><span class="ln"></span>
+    <span class="cap">עד 2,000 · max EN_RANK על המסיחים</span></div><div class="item" data-n="בסיס#1" data-a="0" style="animation-delay:0ms">
+        <div class="sent">Although she studied all night, she still could not <span class="bl" data-b="0"></span> the last question.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">1</span>explain</button><button class="opt" data-i="1"><span class="r">4</span>consider</button><button class="opt" data-i="2"><span class="r">3</span>recognize</button><button class="opt" data-i="3"><span class="r">2</span>prepare</button></div>
+        <div class="exp hid"><b>ניגוד</b> · although — although פותח ניגוד: למרות הלימוד — התוצאה הפוכה.</div>
+        <div class="tags">
+          <span class="tag b0">נגזרת: בינוני · max 4</span>
+          <span class="tag">נשיאה: 2</span>
+          
+          
+        </div></div><div class="item" data-n="בסיס#2" data-a="0" style="animation-delay:40ms">
+        <div class="sent">The road was closed because a heavy <span class="bl" data-b="0"></span> had blocked the bridge.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">2</span>stone</button><button class="opt" data-i="1"><span class="r">3</span>signal</button><button class="opt" data-i="2"><span class="r">1</span>memory</button><button class="opt" data-i="3"><span class="r">3</span>pleasure</button></div>
+        <div class="exp hid"><b>סיבה ותוצאה</b> · because — because מחייב סיבה פיזית שחוסמת. רק stone יכול לחסום גשר.</div>
+        <div class="tags">
+          <span class="tag b0">נגזרת: בינוני · max 3</span>
+          <span class="tag">נשיאה: 2</span>
+          
+          
+        </div></div><div class="item" data-n="בסיס#3" data-a="0" style="animation-delay:80ms">
+        <div class="sent">The new medicine reduced the pain, and it also helped patients <span class="bl" data-b="0"></span> more easily.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">4</span>breathe</button><button class="opt" data-i="1"><span class="r">6</span>blame</button><button class="opt" data-i="2"><span class="r">2</span>destroy</button><button class="opt" data-i="3"><span class="r">4</span>owe</button></div>
+        <div class="exp hid"><b>הוספה</b> · also — also ממשיך באותו כיוון חיובי; רק breathe הוא שיפור רפואי.</div>
+        <div class="tags">
+          <span class="tag b0">נגזרת: מתקדם · max 6</span>
+          <span class="tag">נשיאה: 3</span>
+          
+          <span class="tag fl">⚠ מילת נשיאה ברצועת בינוני</span>
+        </div></div><div class="item" data-n="בסיס#4" data-a="0" style="animation-delay:120ms">
+        <div class="sent">You will not <span class="bl" data-b="0"></span> the trip unless you book the tickets today.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">8</span>afford</button><button class="opt" data-i="1"><span class="r">2</span>invite</button><button class="opt" data-i="2"><span class="r">1</span>record</button><button class="opt" data-i="3"><span class="r">3</span>carry</button></div>
+        <div class="exp hid"><b>תנאי וזמן</b> · unless — unless מציב תנאי: בלי הזמנה מוקדמת הנסיעה לא תהיה בהישג יד.</div>
+        <div class="tags">
+          <span class="tag b0">נגזרת: מתקדם · max 8</span>
+          <span class="tag">נשיאה: 6</span>
+          
+          <span class="tag fl">⚠ מילת נשיאה ברצועת מתקדם</span>
+        </div></div><div class="item" data-n="בסיס#5" data-a="0" style="animation-delay:160ms">
+        <div class="sent">Simple daily habits, such as walking and drinking milk, help you <span class="bl" data-b="0"></span> your health.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">1</span>support</button><button class="opt" data-i="1"><span class="r">2</span>destroy</button><button class="opt" data-i="2"><span class="r">6</span>blame</button><button class="opt" data-i="3"><span class="r">4</span>owe</button></div>
+        <div class="exp hid"><b>דוגמה</b> · such as — such as מביא דוגמאות חיוביות, ולכן הפועל חייב להיות באותו כיוון.</div>
+        <div class="tags">
+          <span class="tag b0">נגזרת: מתקדם · max 6</span>
+          <span class="tag">נשיאה: 3</span>
+          
+          <span class="tag fl">⚠ מילת נשיאה ברצועת בינוני</span>
+        </div></div><div class="item" data-n="בסיס#6" data-a="0" style="animation-delay:200ms">
+        <div class="sent">The engine looked perfect, but the mechanic found a small <span class="bl" data-b="0"></span> in the design.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">3</span>fault</button><button class="opt" data-i="1"><span class="r">1</span>chance</button><button class="opt" data-i="2"><span class="r">1</span>group</button><button class="opt" data-i="3"><span class="r">6</span>trip</button></div>
+        <div class="exp hid"><b>ניגוד</b> · but — but הופך את הכיוון: נראה מושלם — ובפועל נמצא פגם.</div>
+        <div class="tags">
+          <span class="tag b0">נגזרת: מתקדם · max 6</span>
+          <span class="tag">נשיאה: 2</span>
+          
+          
+        </div></div><div class="item" data-n="בסיס#7" data-a="0" style="animation-delay:240ms">
+        <div class="sent">Since the prison had no free <span class="bl" data-b="0"></span>, the new inmate waited in the hallway.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">3</span>cell</button><button class="opt" data-i="1"><span class="r">1</span>wall</button><button class="opt" data-i="2"><span class="r">1</span>light</button><button class="opt" data-i="3"><span class="r">2</span>engine</button></div>
+        <div class="exp hid"><b>סיבה ותוצאה</b> · since — since מציין סיבה; בכלא cell הוא המקום שאליו מכניסים אדם.</div>
+        <div class="tags">
+          <span class="tag b0">נגזרת: בינוני · max 3</span>
+          <span class="tag">נשיאה: 3</span>
+          
+          <span class="tag fl">⚠ מילת נשיאה ברצועת בינוני</span>
+        </div></div><div class="item" data-n="בסיס#8" data-a="0" style="animation-delay:280ms">
+        <div class="sent">The teacher explained the rule, and she also gave the class a short <span class="bl" data-b="0"></span> to practice at home.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">2</span>question</button><button class="opt" data-i="1"><span class="r">3</span>castle</button><button class="opt" data-i="2"><span class="r">2</span>forest</button><button class="opt" data-i="3"><span class="r">4</span>divorce</button></div>
+        <div class="exp hid"><b>הוספה</b> · also — also מוסיף עוד דבר מאותו סוג — משימה לימודית, לא מקום.</div>
+        <div class="tags">
+          <span class="tag b0">נגזרת: בינוני · max 4</span>
+          <span class="tag">נשיאה: 4</span>
+          
+          <span class="tag fl">⚠ מילת נשיאה ברצועת בינוני</span>
+        </div></div><div class="item" data-n="בסיס#9" data-a="0" style="animation-delay:320ms">
+        <div class="sent">Once the alarm stopped, everyone in the building felt <span class="bl" data-b="0"></span> again.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">1</span>quiet</button><button class="opt" data-i="1"><span class="r">3</span>guilty</button><button class="opt" data-i="2"><span class="r">1</span>heavy</button><button class="opt" data-i="3"><span class="r">1</span>slow</button></div>
+        <div class="exp hid"><b>תנאי וזמן</b> · once — once מסמן רצף בזמן: אחרי שהאזעקה נפסקה חוזרת השלווה.</div>
+        <div class="tags">
+          <span class="tag b0">נגזרת: בינוני · max 3</span>
+          <span class="tag">נשיאה: 3</span>
+          
+          <span class="tag fl">⚠ מילת נשיאה ברצועת בינוני</span>
+        </div></div><div class="item" data-n="בסיס#10" data-a="0" style="animation-delay:360ms">
+        <div class="sent">The plan was cheap; however, it was much harder to <span class="bl" data-b="0"></span> than anyone expected.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">4</span>handle</button><button class="opt" data-i="1"><span class="r">2</span>invite</button><button class="opt" data-i="2"><span class="r">4</span>owe</button><button class="opt" data-i="3"><span class="r">2</span>copy</button></div>
+        <div class="exp hid"><b>ניגוד</b> · however — however הופך כיוון: זול מצד אחד, קשה לביצוע מצד שני.</div>
+        <div class="tags">
+          <span class="tag b0">נגזרת: בינוני · max 4</span>
+          <span class="tag">נשיאה: 3</span>
+          
+          <span class="tag fl">⚠ מילת נשיאה ברצועת בינוני</span>
+        </div></div><div class="lvhead"><h2>בינוני</h2><span class="ln"></span>
+    <span class="cap">2,001–5,000 · max EN_RANK על המסיחים</span></div><div class="item" data-n="בינוני#1" data-a="0" style="animation-delay:0ms">
+        <div class="sent">Although the company had a strong <span class="bl" data-b="0"></span>, sales fell sharply last year.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">5</span>reputation</button><button class="opt" data-i="1"><span class="r">6</span>confession</button><button class="opt" data-i="2"><span class="r">5</span>conspiracy</button><button class="opt" data-i="3"><span class="r">5</span>rumor</button></div>
+        <div class="exp hid"><b>ניגוד</b> · although — although פותח ניגוד: מוניטין חזק מול ירידה במכירות.</div>
+        <div class="tags">
+          <span class="tag b1">נגזרת: מתקדם · max 6</span>
+          <span class="tag">נשיאה: 2</span>
+          
+          
+        </div></div><div class="item" data-n="בינוני#2" data-a="0" style="animation-delay:40ms">
+        <div class="sent">The farmers could not grow enough wheat because the <span class="bl" data-b="0"></span> was poor.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">8</span>soil</button><button class="opt" data-i="1"><span class="r">5</span>statue</button><button class="opt" data-i="2"><span class="r">4</span>wagon</button><button class="opt" data-i="3"><span class="r">6</span>envelope</button></div>
+        <div class="exp hid"><b>סיבה ותוצאה</b> · because — because מצביע על הסיבה החקלאית — רק soil מסביר יבול דל.</div>
+        <div class="tags">
+          <span class="tag b1">נגזרת: מתקדם · max 8</span>
+          <span class="tag">נשיאה: 5</span>
+          
+          
+        </div></div><div class="item" data-n="בינוני#3" data-a="0" style="animation-delay:80ms">
+        <div class="sent">The new law protects workers; moreover, it lets them <span class="bl" data-b="0"></span> a dangerous order without losing their job.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">3</span>ignore</button><button class="opt" data-i="1"><span class="r">8</span>embrace</button><button class="opt" data-i="2"><span class="r">5</span>spoil</button><button class="opt" data-i="3"><span class="r">5</span>approve</button></div>
+        <div class="exp hid"><b>הוספה</b> · moreover — moreover מוסיף עוד הגנה באותו כיוון — הזכות לא לציית להוראה מסוכנת.</div>
+        <div class="tags">
+          <span class="tag b1">נגזרת: מתקדם · max 8</span>
+          <span class="tag">נשיאה: 8</span>
+          
+          <span class="tag fl">⚠ מילת נשיאה ברצועת מתקדם</span>
+        </div></div><div class="item" data-n="בינוני#4" data-a="0" style="animation-delay:120ms">
+        <div class="sent">The bank will release the <span class="bl" data-b="0"></span> provided that both partners sign the document.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">6</span>deposit</button><button class="opt" data-i="1"><span class="r">5</span>illness</button><button class="opt" data-i="2"><span class="r">2</span>jungle</button><button class="opt" data-i="3"><span class="r">3</span>beard</button></div>
+        <div class="exp hid"><b>תנאי וזמן</b> · provided that — provided that מציב תנאי חוקי; רק deposit הוא דבר שבנק משחרר.</div>
+        <div class="tags">
+          <span class="tag b1">נגזרת: מתקדם · max 6</span>
+          <span class="tag">נשיאה: 3</span>
+          
+          
+        </div></div><div class="item" data-n="בינוני#5" data-a="0" style="animation-delay:160ms">
+        <div class="sent">Practical skills matter: for instance, a worker who can <span class="bl" data-b="0"></span> a conflict is valuable to any team.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">2</span>solve</button><button class="opt" data-i="1"><span class="r">5</span>spoil</button><button class="opt" data-i="2"><span class="r">3</span>scare</button><button class="opt" data-i="3"><span class="r">3</span>drag</button></div>
+        <div class="exp hid"><b>דוגמה</b> · for instance — for instance מביא דוגמה שמדגימה את הכלל — כישור מעשי חיובי.</div>
+        <div class="tags">
+          <span class="tag b1">נגזרת: בינוני · max 5</span>
+          <span class="tag">נשיאה: 5</span>
+          
+          
+        </div></div><div class="item" data-n="בינוני#6" data-a="0" style="animation-delay:200ms">
+        <div class="sent">Despite the heavy <span class="bl" data-b="0"></span>, the ambassador continued his visit as planned.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">3</span>threat</button><button class="opt" data-i="1"><span class="r">3</span>pride</button><button class="opt" data-i="2"><span class="r">3</span>noon</button><button class="opt" data-i="3"><span class="r">2</span>bee</button></div>
+        <div class="exp hid"><b>ניגוד</b> · despite — despite פותח ניגוד: איום כבד מול המשך הביקור.</div>
+        <div class="tags">
+          <span class="tag b1">נגזרת: בינוני · max 3</span>
+          <span class="tag">נשיאה: 8</span>
+          
+          <span class="tag fl">⚠ מילת נשיאה ברצועת מתקדם</span>
+        </div></div><div class="item" data-n="בינוני#7" data-a="0" style="animation-delay:240ms">
+        <div class="sent">The factory dumped fuel into the river, and as a result the whole <span class="bl" data-b="0"></span> was poisoned.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">5</span>territory</button><button class="opt" data-i="1"><span class="r">4</span>conference</button><button class="opt" data-i="2"><span class="r">3</span>kingdom</button><button class="opt" data-i="3"><span class="r">8</span>estate</button></div>
+        <div class="exp hid"><b>סיבה ותוצאה</b> · as a result — as a result גורר תוצאה ישירה של הזיהום — השטח כולו.</div>
+        <div class="tags">
+          <span class="tag b1">נגזרת: מתקדם · max 8</span>
+          <span class="tag">נשיאה: 5</span>
+          
+          
+        </div></div><div class="item" data-n="בינוני#8" data-a="0" style="animation-delay:280ms">
+        <div class="sent">The school raised money for books; in addition, it asked local shops to <span class="bl" data-b="0"></span> the project.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">1</span>support</button><button class="opt" data-i="1"><span class="r">5</span>bury</button><button class="opt" data-i="2"><span class="r">3</span>warn</button><button class="opt" data-i="3"><span class="r">3</span>dump</button></div>
+        <div class="exp hid"><b>הוספה</b> · in addition — in addition מוסיף פעולה באותו כיוון חיובי — לתמוך.</div>
+        <div class="tags">
+          <span class="tag b1">נגזרת: בינוני · max 5</span>
+          <span class="tag">נשיאה: 5</span>
+          
+          
+        </div></div><div class="item" data-n="בינוני#9" data-a="0" style="animation-delay:320ms">
+        <div class="sent">The medicine will not <span class="bl" data-b="0"></span> the illness unless the patient takes it daily.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">5</span>defeat</button><button class="opt" data-i="1"><span class="r">3</span>describe</button><button class="opt" data-i="2"><span class="r">5</span>demand</button><button class="opt" data-i="3"><span class="r">4</span>deliver</button></div>
+        <div class="exp hid"><b>תנאי וזמן</b> · unless — unless מציב תנאי; רק defeat מתאים למחלה שמנוצחת.</div>
+        <div class="tags">
+          <span class="tag b1">נגזרת: בינוני · max 5</span>
+          <span class="tag">נשיאה: 6</span>
+          
+          <span class="tag fl">⚠ מילת נשיאה ברצועת מתקדם</span>
+        </div></div><div class="item" data-n="בינוני#10" data-a="0" style="animation-delay:360ms">
+        <div class="sent">His courage was obvious, yet his <span class="bl" data-b="0"></span> of the danger was completely wrong.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">3</span>knowledge</button><button class="opt" data-i="1"><span class="r">5</span>charity</button><button class="opt" data-i="2"><span class="r">4</span>wagon</button><button class="opt" data-i="3"><span class="r">6</span>tribe</button></div>
+        <div class="exp hid"><b>ניגוד</b> · yet — yet הופך כיוון: אומץ מצד אחד, הבנה שגויה מצד שני.</div>
+        <div class="tags">
+          <span class="tag b1">נגזרת: מתקדם · max 6</span>
+          <span class="tag">נשיאה: 6</span>
+          
+          <span class="tag fl">⚠ מילת נשיאה ברצועת מתקדם</span>
+        </div></div><div class="lvhead"><h2>מתקדם</h2><span class="ln"></span>
+    <span class="cap">5,001–10,000 · max EN_RANK על המסיחים</span></div><div class="item" data-n="מתקדם#1" data-a="0" style="animation-delay:0ms">
+        <div class="sent">The evidence was weak; nevertheless, the scholar refused to <span class="bl" data-b="0"></span> his theory.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">6</span>withdraw</button><button class="opt" data-i="1"><span class="r">7</span>conquer</button><button class="opt" data-i="2"><span class="r">8</span>rehearse</button><button class="opt" data-i="3"><span class="r">7</span>relieve</button></div>
+        <div class="exp hid"><b>ניגוד</b> · nevertheless — nevertheless פותח ניגוד: ראיות חלשות — ובכל זאת סירב לחזור בו.</div>
+        <div class="tags">
+          <span class="tag b2">נגזרת: מתקדם · max 8</span>
+          <span class="tag">נשיאה: 8</span>
+          
+          
+        </div></div><div class="item" data-n="מתקדם#2" data-a="0" style="animation-delay:40ms">
+        <div class="sent">The lens was cracked; hence the laboratory could not <span class="bl" data-b="0"></span> the sample properly.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">4</span>examine</button><button class="opt" data-i="1"><span class="r">7</span>conquer</button><button class="opt" data-i="2"><span class="r">5</span>depart</button><button class="opt" data-i="3"><span class="r">7</span>trim</button></div>
+        <div class="exp hid"><b>סיבה ותוצאה</b> · hence — hence גורר תוצאה: עדשה סדוקה מונעת בדיקה מדויקת.</div>
+        <div class="tags">
+          <span class="tag b2">נגזרת: מתקדם · max 7</span>
+          <span class="tag">נשיאה: 8</span>
+          
+          
+        </div></div><div class="item" data-n="מתקדם#3" data-a="0" style="animation-delay:80ms">
+        <div class="sent">The first trial failed, and likewise the second could not <span class="bl" data-b="0"></span> the result.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">5</span>justify</button><button class="opt" data-i="1"><span class="r">7</span>hesitate</button><button class="opt" data-i="2"><span class="r">5</span>bounce</button><button class="opt" data-i="3"><span class="r">8</span>glance</button></div>
+        <div class="exp hid"><b>הוספה</b> · likewise — likewise מוסיף מקרה זהה בכיוון: גם השני לא הצליח להצדיק.</div>
+        <div class="tags">
+          <span class="tag b2">נגזרת: מתקדם · max 8</span>
+          <span class="tag">נשיאה: 8</span>
+          
+          
+        </div></div><div class="item" data-n="מתקדם#4" data-a="0" style="animation-delay:120ms">
+        <div class="sent">The council will not <span class="bl" data-b="0"></span> the request unless every document is valid.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">5</span>satisfy</button><button class="opt" data-i="1"><span class="r">7</span>conquer</button><button class="opt" data-i="2"><span class="r">8</span>rehearse</button><button class="opt" data-i="3"><span class="r">5</span>bounce</button></div>
+        <div class="exp hid"><b>תנאי וזמן</b> · unless — unless מציב תנאי: בלי מסמכים תקפים הבקשה לא תסופק.</div>
+        <div class="tags">
+          <span class="tag b2">נגזרת: מתקדם · max 8</span>
+          <span class="tag">נשיאה: 6</span>
+          
+          
+        </div></div><div class="item" data-n="מתקדם#5" data-a="0" style="animation-delay:160ms">
+        <div class="sent">Some traditions survive for centuries — a wedding <span class="bl" data-b="0"></span>, for instance, rarely changes.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">5</span>ritual</button><button class="opt" data-i="1"><span class="r">5</span>luxury</button><button class="opt" data-i="2"><span class="r">5</span>dentist</button><button class="opt" data-i="3"><span class="r">6</span>onion</button></div>
+        <div class="exp hid"><b>דוגמה</b> · for instance — for instance מביא דוגמה למסורת — ritual הוא הטקס עצמו.</div>
+        <div class="tags">
+          <span class="tag b2">נגזרת: מתקדם · max 6</span>
+          <span class="tag">נשיאה: 5</span>
+          
+          
+        </div></div><div class="item" data-n="מתקדם#6" data-a="0" style="animation-delay:200ms">
+        <div class="sent">The northern province is fertile, whereas the south is almost a <span class="bl" data-b="0"></span>.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">9</span>wilderness</button><button class="opt" data-i="1"><span class="r">4</span>stadium</button><button class="opt" data-i="2"><span class="r">4</span>laboratory</button><button class="opt" data-i="3"><span class="r">7</span>exhibition</button></div>
+        <div class="exp hid"><b>ניגוד</b> · whereas — whereas מציב ניגוד גיאוגרפי: פורה מול שממה.</div>
+        <div class="tags">
+          <span class="tag b2">נגזרת: אקדמי · max 9</span>
+          <span class="tag">נשיאה: 9</span>
+          
+          <span class="tag fl">⚠ מילת נשיאה ברצועת אקדמי</span>
+        </div></div><div class="item" data-n="מתקדם#7" data-a="0" style="animation-delay:240ms">
+        <div class="sent">The tourists hesitated because the path ahead looked <span class="bl" data-b="0"></span>.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">9</span>bizarre</button><button class="opt" data-i="1"><span class="r">1</span>organic</button><button class="opt" data-i="2"><span class="r">5</span>facial</button><button class="opt" data-i="3"><span class="r">8</span>naval</button></div>
+        <div class="exp hid"><b>סיבה ותוצאה</b> · because — because מסביר את ההיסוס — מסלול שנראה מוזר.</div>
+        <div class="tags">
+          <span class="tag b2">נגזרת: אקדמי · max 9</span>
+          <span class="tag">נשיאה: 2</span>
+          
+          
+        </div></div><div class="item" data-n="מתקדם#8" data-a="0" style="animation-delay:280ms">
+        <div class="sent">The scholar published widely; moreover, his insight helped others <span class="bl" data-b="0"></span> the whole field.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">4</span>analyze</button><button class="opt" data-i="1"><span class="r">7</span>conquer</button><button class="opt" data-i="2"><span class="r">5</span>depart</button><button class="opt" data-i="3"><span class="r">7</span>drip</button></div>
+        <div class="exp hid"><b>הוספה</b> · moreover — moreover מוסיף תרומה נוספת באותו כיוון — יכולת לנתח.</div>
+        <div class="tags">
+          <span class="tag b2">נגזרת: מתקדם · max 7</span>
+          <span class="tag">נשיאה: 8</span>
+          
+          
+        </div></div><div class="item" data-n="מתקדם#9" data-a="0" style="animation-delay:320ms">
+        <div class="sent">Once the crew managed to <span class="bl" data-b="0"></span> the storm, the voyage finally resumed.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">8</span>endure</button><button class="opt" data-i="1"><span class="r">5</span>sketch</button><button class="opt" data-i="2"><span class="r">8</span>rehearse</button><button class="opt" data-i="3"><span class="r">8</span>adjust</button></div>
+        <div class="exp hid"><b>תנאי וזמן</b> · once — once מסמן רצף: רק לאחר שעמדו בסערה ההפלגה מתחדשת.</div>
+        <div class="tags">
+          <span class="tag b2">נגזרת: מתקדם · max 8</span>
+          <span class="tag">נשיאה: 7</span>
+          
+          
+        </div></div><div class="item" data-n="מתקדם#10" data-a="0" style="animation-delay:360ms">
+        <div class="sent">The recipe seemed simple; however, the result was far more <span class="bl" data-b="0"></span> than the author claimed.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">6</span>sophisticated</button><button class="opt" data-i="1"><span class="r">6</span>convenient</button><button class="opt" data-i="2"><span class="r">1</span>organic</button><button class="opt" data-i="3"><span class="r">8</span>naval</button></div>
+        <div class="exp hid"><b>ניגוד</b> · however — however הופך כיוון: פשוט למראה, מתוחכם בפועל.</div>
+        <div class="tags">
+          <span class="tag b2">נגזרת: מתקדם · max 8</span>
+          <span class="tag">נשיאה: 5</span>
+          
+          
+        </div></div><div class="lvhead"><h2>אקדמי</h2><span class="ln"></span>
+    <span class="cap">מעל 10,000 · max EN_RANK על המסיחים</span></div><div class="item" data-n="אקדמי#1" data-a="0" style="animation-delay:0ms">
+        <div class="sent">Although the report seemed <span class="bl" data-b="0"></span>, the committee found its conclusions entirely <span class="bl" data-b="1"></span>.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">10/9</span>articulate … incomprehensible</button><button class="opt" data-i="1"><span class="r">10/8</span>articulate … widespread</button><button class="opt" data-i="2"><span class="r">6/9</span>passive … incomprehensible</button><button class="opt" data-i="3"><span class="r">6/8</span>passive … widespread</button></div>
+        <div class="exp hid"><b>ניגוד</b> · although — although דורש ניגוד בין שני החסרים: מסודר למראה — ובלתי מובן בתוכן.</div>
+        <div class="tags">
+          <span class="tag b3">נגזרת: אקדמי · max 10</span>
+          <span class="tag">נשיאה: 6</span>
+          <span class="tag two">שני חסרים</span>
+          
+        </div></div><div class="item" data-n="אקדמי#2" data-a="0" style="animation-delay:40ms">
+        <div class="sent">Because the dialect was nearly <span class="bl" data-b="0"></span>, the linguist could not <span class="bl" data-b="1"></span> the old inscription.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">4/9</span>unclear … decipher</button><button class="opt" data-i="1"><span class="r">4/8</span>unclear … imitate</button><button class="opt" data-i="2"><span class="r">6/9</span>passive … decipher</button><button class="opt" data-i="3"><span class="r">6/8</span>passive … imitate</button></div>
+        <div class="exp hid"><b>סיבה ותוצאה</b> · because — because מקשר סיבה לתוצאה: ניב עמום — ולכן אי אפשר לפענח.</div>
+        <div class="tags">
+          <span class="tag b3">נגזרת: אקדמי · max 9</span>
+          <span class="tag">נשיאה: 7</span>
+          <span class="tag two">שני חסרים</span>
+          
+        </div></div><div class="item" data-n="אקדמי#3" data-a="0" style="animation-delay:80ms">
+        <div class="sent">Because the government wants growth, the new rule will <span class="bl" data-b="0"></span> local commerce; similarly, it will <span class="bl" data-b="1"></span> the confidence of foreign investors.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">8/7</span>stimulate … stabilize</button><button class="opt" data-i="1"><span class="r">8/4</span>stimulate … minimize</button><button class="opt" data-i="2"><span class="r">8/7</span>neglect … stabilize</button><button class="opt" data-i="3"><span class="r">8/4</span>neglect … minimize</button></div>
+        <div class="exp hid"><b>הוספה</b> · similarly · because — similarly דורש שני חסרים באותו כיוון, והמשפט קובע שהכיוון חיובי — צמיחה.</div>
+        <div class="tags">
+          <span class="tag b3">נגזרת: מתקדם · max 8</span>
+          <span class="tag">נשיאה: 7</span>
+          <span class="tag two">שני חסרים</span>
+          
+        </div></div><div class="item" data-n="אקדמי#4" data-a="0" style="animation-delay:120ms">
+        <div class="sent">Unless the committee can <span class="bl" data-b="0"></span> the document, its <span class="bl" data-b="1"></span> will remain in doubt.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">7/7</span>authorize … accuracy</button><button class="opt" data-i="1"><span class="r">7/9</span>authorize … mischief</button><button class="opt" data-i="2"><span class="r">7/7</span>harass … accuracy</button><button class="opt" data-i="3"><span class="r">7/9</span>harass … mischief</button></div>
+        <div class="exp hid"><b>תנאי וזמן</b> · unless — unless מציב תנאי: בלי אישור רשמי, הדיוק נשאר בספק.</div>
+        <div class="tags">
+          <span class="tag b3">נגזרת: אקדמי · max 9</span>
+          <span class="tag">נשיאה: 6</span>
+          <span class="tag two">שני חסרים</span>
+          
+        </div></div><div class="item" data-n="אקדמי#5" data-a="0" style="animation-delay:160ms">
+        <div class="sent">The critic praised the film's aesthetic, yet called its plot utterly <span class="bl" data-b="0"></span>.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">9</span>mediocre</button><button class="opt" data-i="1"><span class="r">8</span>irresistible</button><button class="opt" data-i="2"><span class="r">9</span>esteemed</button><button class="opt" data-i="3"><span class="r">7</span>disciplined</button></div>
+        <div class="exp hid"><b>ניגוד</b> · yet — yet הופך כיוון: שיבח את הצד החזותי — ופסל את העלילה.</div>
+        <div class="tags">
+          <span class="tag b3">נגזרת: אקדמי · max 9</span>
+          <span class="tag">נשיאה: 6</span>
+          
+          
+        </div></div><div class="item" data-n="אקדמי#6" data-a="0" style="animation-delay:200ms">
+        <div class="sent">Because the epidemic spread so fast, the ministry had to <span class="bl" data-b="0"></span> new limits on travel.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">8</span>impose</button><button class="opt" data-i="1"><span class="r">4</span>minimize</button><button class="opt" data-i="2"><span class="r">8</span>imitate</button><button class="opt" data-i="3"><span class="r">8</span>exaggerate</button></div>
+        <div class="exp hid"><b>סיבה ותוצאה</b> · because — because גורר תגובה מוסדית — הטלת הגבלות.</div>
+        <div class="tags">
+          <span class="tag b3">נגזרת: מתקדם · max 8</span>
+          <span class="tag">נשיאה: 9</span>
+          
+          
+        </div></div><div class="item" data-n="אקדמי#7" data-a="0" style="animation-delay:240ms">
+        <div class="sent">Some habits reveal character — a person who will <span class="bl" data-b="0"></span> a promise, for instance, is rarely trusted again.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">10</span>forsake</button><button class="opt" data-i="1"><span class="r">7</span>clarify</button><button class="opt" data-i="2"><span class="r">6</span>visualize</button><button class="opt" data-i="3"><span class="r">7</span>elect</button></div>
+        <div class="exp hid"><b>דוגמה</b> · for instance — for instance מדגים את הכלל; מי שנוטש הבטחה מאבד אמון.</div>
+        <div class="tags">
+          <span class="tag b3">נגזרת: אקדמי · max 10</span>
+          <span class="tag">נשיאה: 5</span>
+          
+          
+        </div></div><div class="item" data-n="אקדמי#8" data-a="0" style="animation-delay:280ms">
+        <div class="sent">The activist was expelled from the union; furthermore, the newspaper questioned her <span class="bl" data-b="0"></span> altogether.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">8</span>sincerity</button><button class="opt" data-i="1"><span class="r">7</span>commerce</button><button class="opt" data-i="2"><span class="r">7</span>dialect</button><button class="opt" data-i="3"><span class="r">8</span>glacier</button></div>
+        <div class="exp hid"><b>הוספה</b> · furthermore — furthermore מוסיף מהלך נוסף באותו כיוון שלילי — ערעור על היושרה.</div>
+        <div class="tags">
+          <span class="tag b3">נגזרת: מתקדם · max 8</span>
+          <span class="tag">נשיאה: 8</span>
+          
+          
+        </div></div><div class="item" data-n="אקדמי#9" data-a="0" style="animation-delay:320ms">
+        <div class="sent">Provided that the trait is <span class="bl" data-b="0"></span>, breeders can transmit it to the next generation.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">7</span>continuous</button><button class="opt" data-i="1"><span class="r">9</span>reluctant</button><button class="opt" data-i="2"><span class="r">8</span>rural</button><button class="opt" data-i="3"><span class="r">6</span>biblical</button></div>
+        <div class="exp hid"><b>תנאי וזמן</b> · provided that — provided that מציב תנאי ביולוגי — תכונה רציפה עוברת בהורשה.</div>
+        <div class="tags">
+          <span class="tag b3">נגזרת: אקדמי · max 9</span>
+          <span class="tag">נשיאה: 8</span>
+          
+          
+        </div></div><div class="item" data-n="אקדמי#10" data-a="0" style="animation-delay:360ms">
+        <div class="sent">The village looked <span class="bl" data-b="0"></span> at sundown, but by dawn the streets were <span class="bl" data-b="1"></span> with traders.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">10/9</span>desolate … hectic</button><button class="opt" data-i="1"><span class="r">9/10</span>hectic … desolate</button><button class="opt" data-i="2"><span class="r">10/8</span>desolate … damp</button><button class="opt" data-i="3"><span class="r">7/8</span>orderly … damp</button></div>
+        <div class="exp hid"><b>ניגוד</b> · but — but דורש ניגוד בין שני החסרים: שומם בערב — הומה בבוקר. אפשרות 2 היא אותן מילים בסדר הפוך — המלכודת המתועדת ב-§1.4.</div>
+        <div class="tags">
+          <span class="tag b3">נגזרת: אקדמי · max 10</span>
+          <span class="tag">נשיאה: 6</span>
+          <span class="tag two">שני חסרים</span>
+          
+        </div></div></div>
+
+<div id="proof" class="hid">
+<table><thead><tr>
+  <th>פריט</th><th>רמה נגזרת</th><th>max</th><th>נשיאה</th><th>סוג</th><th>קישור</th>
+  <th>המשפט</th><th>תשובה</th><th>מסיחים</th>
+</tr></thead><tbody>
+<tr>
+    <td class="num">בסיס#1</td>
+    <td>בינוני <span style="color:var(--red)">≠</span></td>
+    <td class="num">4</td>
+    <td class="num" >2</td>
+    <td>ניגוד</td><td class="en">although</td>
+    <td class="en">Although she studied all night, she still could not ___ the last question.</td>
+    <td class="en ok-c">explain</td>
+    <td class="en">consider · recognize · prepare</td></tr><tr>
+    <td class="num">בסיס#2</td>
+    <td>בינוני <span style="color:var(--red)">≠</span></td>
+    <td class="num">3</td>
+    <td class="num" >2</td>
+    <td>סיבה ותוצאה</td><td class="en">because</td>
+    <td class="en">The road was closed because a heavy ___ had blocked the bridge.</td>
+    <td class="en ok-c">stone</td>
+    <td class="en">signal · memory · pleasure</td></tr><tr>
+    <td class="num">בסיס#3</td>
+    <td>מתקדם <span style="color:var(--red)">≠</span></td>
+    <td class="num">6</td>
+    <td class="num " style="color:var(--amber);font-weight:700">3</td>
+    <td>הוספה</td><td class="en">also</td>
+    <td class="en">The new medicine reduced the pain, and it also helped patients ___ more easily.</td>
+    <td class="en ok-c">breathe</td>
+    <td class="en">blame · destroy · owe</td></tr><tr>
+    <td class="num">בסיס#4</td>
+    <td>מתקדם <span style="color:var(--red)">≠</span></td>
+    <td class="num">8</td>
+    <td class="num " style="color:var(--amber);font-weight:700">6</td>
+    <td>תנאי וזמן</td><td class="en">unless</td>
+    <td class="en">You will not ___ the trip unless you book the tickets today.</td>
+    <td class="en ok-c">afford</td>
+    <td class="en">invite · record · carry</td></tr><tr>
+    <td class="num">בסיס#5</td>
+    <td>מתקדם <span style="color:var(--red)">≠</span></td>
+    <td class="num">6</td>
+    <td class="num " style="color:var(--amber);font-weight:700">3</td>
+    <td>דוגמה</td><td class="en">such as</td>
+    <td class="en">Simple daily habits, such as walking and drinking milk, help you ___ your health.</td>
+    <td class="en ok-c">support</td>
+    <td class="en">destroy · blame · owe</td></tr><tr>
+    <td class="num">בסיס#6</td>
+    <td>מתקדם <span style="color:var(--red)">≠</span></td>
+    <td class="num">6</td>
+    <td class="num" >2</td>
+    <td>ניגוד</td><td class="en">but</td>
+    <td class="en">The engine looked perfect, but the mechanic found a small ___ in the design.</td>
+    <td class="en ok-c">fault</td>
+    <td class="en">chance · group · trip</td></tr><tr>
+    <td class="num">בסיס#7</td>
+    <td>בינוני <span style="color:var(--red)">≠</span></td>
+    <td class="num">3</td>
+    <td class="num " style="color:var(--amber);font-weight:700">3</td>
+    <td>סיבה ותוצאה</td><td class="en">since</td>
+    <td class="en">Since the prison had no free ___, the new inmate waited in the hallway.</td>
+    <td class="en ok-c">cell</td>
+    <td class="en">wall · light · engine</td></tr><tr>
+    <td class="num">בסיס#8</td>
+    <td>בינוני <span style="color:var(--red)">≠</span></td>
+    <td class="num">4</td>
+    <td class="num " style="color:var(--amber);font-weight:700">4</td>
+    <td>הוספה</td><td class="en">also</td>
+    <td class="en">The teacher explained the rule, and she also gave the class a short ___ to practice at home.</td>
+    <td class="en ok-c">question</td>
+    <td class="en">castle · forest · divorce</td></tr><tr>
+    <td class="num">בסיס#9</td>
+    <td>בינוני <span style="color:var(--red)">≠</span></td>
+    <td class="num">3</td>
+    <td class="num " style="color:var(--amber);font-weight:700">3</td>
+    <td>תנאי וזמן</td><td class="en">once</td>
+    <td class="en">Once the alarm stopped, everyone in the building felt ___ again.</td>
+    <td class="en ok-c">quiet</td>
+    <td class="en">guilty · heavy · slow</td></tr><tr>
+    <td class="num">בסיס#10</td>
+    <td>בינוני <span style="color:var(--red)">≠</span></td>
+    <td class="num">4</td>
+    <td class="num " style="color:var(--amber);font-weight:700">3</td>
+    <td>ניגוד</td><td class="en">however</td>
+    <td class="en">The plan was cheap; however, it was much harder to ___ than anyone expected.</td>
+    <td class="en ok-c">handle</td>
+    <td class="en">invite · owe · copy</td></tr><tr>
+    <td class="num">בינוני#1</td>
+    <td>מתקדם <span style="color:var(--red)">≠</span></td>
+    <td class="num">6</td>
+    <td class="num" >2</td>
+    <td>ניגוד</td><td class="en">although</td>
+    <td class="en">Although the company had a strong ___, sales fell sharply last year.</td>
+    <td class="en ok-c">reputation</td>
+    <td class="en">confession · conspiracy · rumor</td></tr><tr>
+    <td class="num">בינוני#2</td>
+    <td>מתקדם <span style="color:var(--red)">≠</span></td>
+    <td class="num">8</td>
+    <td class="num" >5</td>
+    <td>סיבה ותוצאה</td><td class="en">because</td>
+    <td class="en">The farmers could not grow enough wheat because the ___ was poor.</td>
+    <td class="en ok-c">soil</td>
+    <td class="en">statue · wagon · envelope</td></tr><tr>
+    <td class="num">בינוני#3</td>
+    <td>מתקדם <span style="color:var(--red)">≠</span></td>
+    <td class="num">8</td>
+    <td class="num " style="color:var(--amber);font-weight:700">8</td>
+    <td>הוספה</td><td class="en">moreover</td>
+    <td class="en">The new law protects workers; moreover, it lets them ___ a dangerous order without losing their job.</td>
+    <td class="en ok-c">ignore</td>
+    <td class="en">embrace · spoil · approve</td></tr><tr>
+    <td class="num">בינוני#4</td>
+    <td>מתקדם <span style="color:var(--red)">≠</span></td>
+    <td class="num">6</td>
+    <td class="num" >3</td>
+    <td>תנאי וזמן</td><td class="en">provided that</td>
+    <td class="en">The bank will release the ___ provided that both partners sign the document.</td>
+    <td class="en ok-c">deposit</td>
+    <td class="en">illness · jungle · beard</td></tr><tr>
+    <td class="num">בינוני#5</td>
+    <td>בינוני</td>
+    <td class="num">5</td>
+    <td class="num" >5</td>
+    <td>דוגמה</td><td class="en">for instance</td>
+    <td class="en">Practical skills matter: for instance, a worker who can ___ a conflict is valuable to any team.</td>
+    <td class="en ok-c">solve</td>
+    <td class="en">spoil · scare · drag</td></tr><tr>
+    <td class="num">בינוני#6</td>
+    <td>בינוני</td>
+    <td class="num">3</td>
+    <td class="num " style="color:var(--amber);font-weight:700">8</td>
+    <td>ניגוד</td><td class="en">despite</td>
+    <td class="en">Despite the heavy ___, the ambassador continued his visit as planned.</td>
+    <td class="en ok-c">threat</td>
+    <td class="en">pride · noon · bee</td></tr><tr>
+    <td class="num">בינוני#7</td>
+    <td>מתקדם <span style="color:var(--red)">≠</span></td>
+    <td class="num">8</td>
+    <td class="num" >5</td>
+    <td>סיבה ותוצאה</td><td class="en">as a result</td>
+    <td class="en">The factory dumped fuel into the river, and as a result the whole ___ was poisoned.</td>
+    <td class="en ok-c">territory</td>
+    <td class="en">conference · kingdom · estate</td></tr><tr>
+    <td class="num">בינוני#8</td>
+    <td>בינוני</td>
+    <td class="num">5</td>
+    <td class="num" >5</td>
+    <td>הוספה</td><td class="en">in addition</td>
+    <td class="en">The school raised money for books; in addition, it asked local shops to ___ the project.</td>
+    <td class="en ok-c">support</td>
+    <td class="en">bury · warn · dump</td></tr><tr>
+    <td class="num">בינוני#9</td>
+    <td>בינוני</td>
+    <td class="num">5</td>
+    <td class="num " style="color:var(--amber);font-weight:700">6</td>
+    <td>תנאי וזמן</td><td class="en">unless</td>
+    <td class="en">The medicine will not ___ the illness unless the patient takes it daily.</td>
+    <td class="en ok-c">defeat</td>
+    <td class="en">describe · demand · deliver</td></tr><tr>
+    <td class="num">בינוני#10</td>
+    <td>מתקדם <span style="color:var(--red)">≠</span></td>
+    <td class="num">6</td>
+    <td class="num " style="color:var(--amber);font-weight:700">6</td>
+    <td>ניגוד</td><td class="en">yet</td>
+    <td class="en">His courage was obvious, yet his ___ of the danger was completely wrong.</td>
+    <td class="en ok-c">knowledge</td>
+    <td class="en">charity · wagon · tribe</td></tr><tr>
+    <td class="num">מתקדם#1</td>
+    <td>מתקדם</td>
+    <td class="num">8</td>
+    <td class="num" >8</td>
+    <td>ניגוד</td><td class="en">nevertheless</td>
+    <td class="en">The evidence was weak; nevertheless, the scholar refused to ___ his theory.</td>
+    <td class="en ok-c">withdraw</td>
+    <td class="en">conquer · rehearse · relieve</td></tr><tr>
+    <td class="num">מתקדם#2</td>
+    <td>מתקדם</td>
+    <td class="num">7</td>
+    <td class="num" >8</td>
+    <td>סיבה ותוצאה</td><td class="en">hence</td>
+    <td class="en">The lens was cracked; hence the laboratory could not ___ the sample properly.</td>
+    <td class="en ok-c">examine</td>
+    <td class="en">conquer · depart · trim</td></tr><tr>
+    <td class="num">מתקדם#3</td>
+    <td>מתקדם</td>
+    <td class="num">8</td>
+    <td class="num" >8</td>
+    <td>הוספה</td><td class="en">likewise</td>
+    <td class="en">The first trial failed, and likewise the second could not ___ the result.</td>
+    <td class="en ok-c">justify</td>
+    <td class="en">hesitate · bounce · glance</td></tr><tr>
+    <td class="num">מתקדם#4</td>
+    <td>מתקדם</td>
+    <td class="num">8</td>
+    <td class="num" >6</td>
+    <td>תנאי וזמן</td><td class="en">unless</td>
+    <td class="en">The council will not ___ the request unless every document is valid.</td>
+    <td class="en ok-c">satisfy</td>
+    <td class="en">conquer · rehearse · bounce</td></tr><tr>
+    <td class="num">מתקדם#5</td>
+    <td>מתקדם</td>
+    <td class="num">6</td>
+    <td class="num" >5</td>
+    <td>דוגמה</td><td class="en">for instance</td>
+    <td class="en">Some traditions survive for centuries — a wedding ___, for instance, rarely changes.</td>
+    <td class="en ok-c">ritual</td>
+    <td class="en">luxury · dentist · onion</td></tr><tr>
+    <td class="num">מתקדם#6</td>
+    <td>אקדמי <span style="color:var(--red)">≠</span></td>
+    <td class="num">9</td>
+    <td class="num " style="color:var(--amber);font-weight:700">9</td>
+    <td>ניגוד</td><td class="en">whereas</td>
+    <td class="en">The northern province is fertile, whereas the south is almost a ___.</td>
+    <td class="en ok-c">wilderness</td>
+    <td class="en">stadium · laboratory · exhibition</td></tr><tr>
+    <td class="num">מתקדם#7</td>
+    <td>אקדמי <span style="color:var(--red)">≠</span></td>
+    <td class="num">9</td>
+    <td class="num" >2</td>
+    <td>סיבה ותוצאה</td><td class="en">because</td>
+    <td class="en">The tourists hesitated because the path ahead looked ___.</td>
+    <td class="en ok-c">bizarre</td>
+    <td class="en">organic · facial · naval</td></tr><tr>
+    <td class="num">מתקדם#8</td>
+    <td>מתקדם</td>
+    <td class="num">7</td>
+    <td class="num" >8</td>
+    <td>הוספה</td><td class="en">moreover</td>
+    <td class="en">The scholar published widely; moreover, his insight helped others ___ the whole field.</td>
+    <td class="en ok-c">analyze</td>
+    <td class="en">conquer · depart · drip</td></tr><tr>
+    <td class="num">מתקדם#9</td>
+    <td>מתקדם</td>
+    <td class="num">8</td>
+    <td class="num" >7</td>
+    <td>תנאי וזמן</td><td class="en">once</td>
+    <td class="en">Once the crew managed to ___ the storm, the voyage finally resumed.</td>
+    <td class="en ok-c">endure</td>
+    <td class="en">sketch · rehearse · adjust</td></tr><tr>
+    <td class="num">מתקדם#10</td>
+    <td>מתקדם</td>
+    <td class="num">8</td>
+    <td class="num" >5</td>
+    <td>ניגוד</td><td class="en">however</td>
+    <td class="en">The recipe seemed simple; however, the result was far more ___ than the author claimed.</td>
+    <td class="en ok-c">sophisticated</td>
+    <td class="en">convenient · organic · naval</td></tr><tr>
+    <td class="num">אקדמי#1</td>
+    <td>אקדמי</td>
+    <td class="num">10</td>
+    <td class="num" >6</td>
+    <td>ניגוד</td><td class="en">although</td>
+    <td class="en">Although the report seemed ___, the committee found its conclusions entirely ___.</td>
+    <td class="en ok-c">articulate … incomprehensible</td>
+    <td class="en">articulate…widespread · passive…incomprehensible · passive…widespread</td></tr><tr>
+    <td class="num">אקדמי#2</td>
+    <td>אקדמי</td>
+    <td class="num">9</td>
+    <td class="num" >7</td>
+    <td>סיבה ותוצאה</td><td class="en">because</td>
+    <td class="en">Because the dialect was nearly ___, the linguist could not ___ the old inscription.</td>
+    <td class="en ok-c">unclear … decipher</td>
+    <td class="en">unclear…imitate · passive…decipher · passive…imitate</td></tr><tr>
+    <td class="num">אקדמי#3</td>
+    <td>מתקדם <span style="color:var(--red)">≠</span></td>
+    <td class="num">8</td>
+    <td class="num" >7</td>
+    <td>הוספה</td><td class="en">similarly, because</td>
+    <td class="en">Because the government wants growth, the new rule will ___ local commerce; similarly, it will ___ the confidence of foreign investors.</td>
+    <td class="en ok-c">stimulate … stabilize</td>
+    <td class="en">stimulate…minimize · neglect…stabilize · neglect…minimize</td></tr><tr>
+    <td class="num">אקדמי#4</td>
+    <td>אקדמי</td>
+    <td class="num">9</td>
+    <td class="num" >6</td>
+    <td>תנאי וזמן</td><td class="en">unless</td>
+    <td class="en">Unless the committee can ___ the document, its ___ will remain in doubt.</td>
+    <td class="en ok-c">authorize … accuracy</td>
+    <td class="en">authorize…mischief · harass…accuracy · harass…mischief</td></tr><tr>
+    <td class="num">אקדמי#5</td>
+    <td>אקדמי</td>
+    <td class="num">9</td>
+    <td class="num" >6</td>
+    <td>ניגוד</td><td class="en">yet</td>
+    <td class="en">The critic praised the film's aesthetic, yet called its plot utterly ___.</td>
+    <td class="en ok-c">mediocre</td>
+    <td class="en">irresistible · esteemed · disciplined</td></tr><tr>
+    <td class="num">אקדמי#6</td>
+    <td>מתקדם <span style="color:var(--red)">≠</span></td>
+    <td class="num">8</td>
+    <td class="num" >9</td>
+    <td>סיבה ותוצאה</td><td class="en">because</td>
+    <td class="en">Because the epidemic spread so fast, the ministry had to ___ new limits on travel.</td>
+    <td class="en ok-c">impose</td>
+    <td class="en">minimize · imitate · exaggerate</td></tr><tr>
+    <td class="num">אקדמי#7</td>
+    <td>אקדמי</td>
+    <td class="num">10</td>
+    <td class="num" >5</td>
+    <td>דוגמה</td><td class="en">for instance</td>
+    <td class="en">Some habits reveal character — a person who will ___ a promise, for instance, is rarely trusted again.</td>
+    <td class="en ok-c">forsake</td>
+    <td class="en">clarify · visualize · elect</td></tr><tr>
+    <td class="num">אקדמי#8</td>
+    <td>מתקדם <span style="color:var(--red)">≠</span></td>
+    <td class="num">8</td>
+    <td class="num" >8</td>
+    <td>הוספה</td><td class="en">furthermore</td>
+    <td class="en">The activist was expelled from the union; furthermore, the newspaper questioned her ___ altogether.</td>
+    <td class="en ok-c">sincerity</td>
+    <td class="en">commerce · dialect · glacier</td></tr><tr>
+    <td class="num">אקדמי#9</td>
+    <td>אקדמי</td>
+    <td class="num">9</td>
+    <td class="num" >8</td>
+    <td>תנאי וזמן</td><td class="en">provided that</td>
+    <td class="en">Provided that the trait is ___, breeders can transmit it to the next generation.</td>
+    <td class="en ok-c">continuous</td>
+    <td class="en">reluctant · rural · biblical</td></tr><tr>
+    <td class="num">אקדמי#10</td>
+    <td>אקדמי</td>
+    <td class="num">10</td>
+    <td class="num" >6</td>
+    <td>ניגוד</td><td class="en">but</td>
+    <td class="en">The village looked ___ at sundown, but by dawn the streets were ___ with traders.</td>
+    <td class="en ok-c">desolate … hectic</td>
+    <td class="en">hectic…desolate · desolate…damp · orderly…damp</td></tr>
+</tbody></table>
+</div>
+
+<div class="note">
+<b>מה הגיליון הזה מוכיח, ומה לא.</b>
+<ul>
+<li><b>הרמה נגזרת ולא מוצהרת.</b> ⟵ העמודה "נגזרת" מחושבת מ-EN_RANK על ארבעת המסיחים. אם היא הייתה מוקלדת ביד, לא היה כאן שום מנגנון.</li>
+<li><b>⚠ שינוי מהתוכנית.</b> §6.3 גייט 2 דורש שכל מילה במשפט תהיה ב-EN_RANK. EN_RANK הוא 3,175 מונחי מאגר ולא אנגלית כללית — <code>the</code>, <code>they</code>, <code>months</code> חסרות, והמשפט לדוגמה של §3 נכשל בשער של §6.3 בשבע מילים. לכן הרמה נגזרת מהמסיחים, ומילות הנשיאה מדווחות בעמודה נפרדת כדגל לעין אנושית.</li>
+<li><b>⚠ מה שאי אפשר לאמת כאן.</b> אין במאגר רשימת תדירות של אנגלית כללית, ולכן <b>אין דרך אוטומטית לאמת שמשפט הנשיאה מתאים לרמה</b>. שבעת הדגלים הם כל מה שיש.</li>
+<li><b>⚠ גייט 4 לא נבדק.</b> חד-משמעיות (§6.3) דורשת קריאת LLM שפותרת את השאלה בלי לדעת את התשובה. זה השער היחיד שתופס "שני מסיחים שסבירים שניהם", וזו גם התקלה הקשה ביותר בהשלמת משפטים. הוא לא מיושם, והסקריפט אומר את זה במקום לשתוק.</li>
+<li><b>הרצועה האקדמית צרה.</b> 694 מונחי מאגר מעל 10,000, ומהם צריך ארבעה מסיחים דקדוקיים לכל פריט. חמש חפיפות בין פריטים נתפסו ותוקנו — ב-1,000 פריטים זה יהיה החסם האמיתי, לא העלות.</li>
+</ul>
+</div>
+</div>
+<script>
+const D=[{"a":0,"o":["explain","consider","recognize","prepare"]},{"a":0,"o":["stone","signal","memory","pleasure"]},{"a":0,"o":["breathe","blame","destroy","owe"]},{"a":0,"o":["afford","invite","record","carry"]},{"a":0,"o":["support","destroy","blame","owe"]},{"a":0,"o":["fault","chance","group","trip"]},{"a":0,"o":["cell","wall","light","engine"]},{"a":0,"o":["question","castle","forest","divorce"]},{"a":0,"o":["quiet","guilty","heavy","slow"]},{"a":0,"o":["handle","invite","owe","copy"]},{"a":0,"o":["reputation","confession","conspiracy","rumor"]},{"a":0,"o":["soil","statue","wagon","envelope"]},{"a":0,"o":["ignore","embrace","spoil","approve"]},{"a":0,"o":["deposit","illness","jungle","beard"]},{"a":0,"o":["solve","spoil","scare","drag"]},{"a":0,"o":["threat","pride","noon","bee"]},{"a":0,"o":["territory","conference","kingdom","estate"]},{"a":0,"o":["support","bury","warn","dump"]},{"a":0,"o":["defeat","describe","demand","deliver"]},{"a":0,"o":["knowledge","charity","wagon","tribe"]},{"a":0,"o":["withdraw","conquer","rehearse","relieve"]},{"a":0,"o":["examine","conquer","depart","trim"]},{"a":0,"o":["justify","hesitate","bounce","glance"]},{"a":0,"o":["satisfy","conquer","rehearse","bounce"]},{"a":0,"o":["ritual","luxury","dentist","onion"]},{"a":0,"o":["wilderness","stadium","laboratory","exhibition"]},{"a":0,"o":["bizarre","organic","facial","naval"]},{"a":0,"o":["analyze","conquer","depart","drip"]},{"a":0,"o":["endure","sketch","rehearse","adjust"]},{"a":0,"o":["sophisticated","convenient","organic","naval"]},{"a":0,"o":[["articulate","incomprehensible"],["articulate","widespread"],["passive","incomprehensible"],["passive","widespread"]]},{"a":0,"o":[["unclear","decipher"],["unclear","imitate"],["passive","decipher"],["passive","imitate"]]},{"a":0,"o":[["stimulate","stabilize"],["stimulate","minimize"],["neglect","stabilize"],["neglect","minimize"]]},{"a":0,"o":[["authorize","accuracy"],["authorize","mischief"],["harass","accuracy"],["harass","mischief"]]},{"a":0,"o":["mediocre","irresistible","esteemed","disciplined"]},{"a":0,"o":["impose","minimize","imitate","exaggerate"]},{"a":0,"o":["forsake","clarify","visualize","elect"]},{"a":0,"o":["sincerity","commerce","dialect","glacier"]},{"a":0,"o":["continuous","reluctant","rural","biblical"]},{"a":0,"o":[["desolate","hectic"],["hectic","desolate"],["desolate","damp"],["orderly","damp"]]}];
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',x===t));
+  practice.classList.toggle('hid',t.dataset.v!=='practice');
+  proof.classList.toggle('hid',t.dataset.v!=='proof');
+});
+document.querySelectorAll('.item').forEach(item=>{
+  const a=+item.dataset.a, opts=[...item.querySelectorAll('.opt')];
+  opts.forEach(b=>b.onclick=()=>{
+    if(b.classList.contains('done'))return;
+    const pick=+b.dataset.i, right=pick===a;
+    opts.forEach(o=>{o.classList.add('done');
+      if(+o.dataset.i===a)o.classList.add('ok'); else if(o===b)o.classList.add('no');});
+    const words=[].concat(D[[...document.querySelectorAll('.item')].indexOf(item)].o[pick]);
+    item.querySelectorAll('.bl').forEach((bl,j)=>{
+      bl.outerHTML='<span class="fill'+(right?'':' bad')+'">'+words[j]+'</span>';});
+    item.querySelector('.exp').classList.remove('hid');
+  });
+});
+</script>
