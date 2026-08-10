@@ -33,7 +33,7 @@
 שינה	שינה	analogy	miss	
 ללא הכר	ללא הכר	analogy	miss	
 הפסיק	הפסיק	analogy	miss	
-ללא הרף	ללא הרף	analogy	miss	
+ללא הרף	ללא הרף	analogy	close	הרפ
 ניסה	ניסה	analogy	miss	
 ללא הועיל	ללא הועיל	analogy	miss	
 הפחיד	הפחיד	analogy	close	הפח
@@ -53,12 +53,12 @@
 עבר	עבר	analogy	close	עבר
 כימאי	כימאי	analogy	miss	
 מבחנה	מבחנה	analogy	miss	
-אדריכל	אדריכל	analogy	close	אדר
+אדריכל	אדריכל	analogy	close	רכל
 מרפסת	מרפסת	analogy	close	רפס
-בלשן	בלשן	analogy	miss	
+בלשן	בלשן	analogy	close	בלש
 יפנית	יפנית	analogy	miss	
 חלוץ	חלוץ	analogy	close	חלצ
-מאסף	מאסף	analogy	miss	
+מאסף	מאסף	analogy	close	אספ
 שיר	שיר	analogy	full	שור
 פזמון	פזמון	analogy	miss	
 דממה	דממה	analogy	close	דממ
@@ -87,7 +87,7 @@
 דברי חלקות	דברי חלקות	analogy	full	דברי חלקות
 החניף	החניף	analogy	close	חנפ
 מרד	מרד	analogy	full	מרוד
-הסית	הסית	analogy	miss	
+הסית	הסית	analogy	full	הסית
 שקר	שקר	analogy	miss	
 כיזב	כיזב	analogy	close	כזב
 בקשה	בקשה	analogy	close	בקש
@@ -103,7 +103,7 @@
 מטויח	מטויח	analogy	miss	
 טיח	טיח	analogy	miss	
 מתובל	מתובל	analogy	close	תבל
-תבלין	תבלין	analogy	close	תבל
+תבלין	תבלין	analogy	close	בלנ
 מזוגג	מזוגג	analogy	miss	
 זיגוג	זיגוג	analogy	miss	
 מוקצף	מוקצף	analogy	close	קצפ
@@ -131,8 +131,8 @@
 ראוי	ראוי	completion	miss	
 נקל	נקל	completion	miss	
 להבין	להבין	completion	miss	
-שאימצה	שאימצה	completion	close	מצה
-עמדתו	עמדתו	completion	close	דתו
+שאימצה	שאימצה	completion	close	אמצ
+עמדתו	עמדתו	completion	close	עמד
 לייחד	לייחד	completion	miss	
 חלק	חלק	completion	close	חלק
 להצגת	להצגת	completion	miss	
@@ -144,7 +144,7 @@
 מפליא	מפליא	completion	close	פלא
 שהייתה	שהייתה	completion	miss	
 שותפה	שותפה	completion	miss	
-לעמדתו	לעמדתו	completion	close	דתו
+לעמדתו	לעמדתו	completion	close	עמד
 חשש	חשש	completion	miss	
 בצדק	בצדק	completion	close	בצד
 ירידה	ירידה	completion	close	רדה
@@ -193,7 +193,7 @@
 לכת	לכת	completion	miss	
 הבסיסיות	הבסיסיות	completion	close	בסס
 באישיותו	באישיותו	completion	close	באש
-במהלך	במהלך	completion	close	הלכ
+במהלך	במהלך	completion	close	מהל
 חייו	חייו	completion	miss	
 מתחוללים	מתחוללים	completion	close	תחל
 והן	והן	completion	miss	
@@ -201,7 +201,7 @@
 ולראיה	ולראיה	completion	miss	
 מציין	מציין	completion	miss	
 מבחן	מבחן	completion	miss	
-הגמר	הגמר	completion	close	הגמ
+הגמר	הגמר	completion	close	גמר
 בהצלחה	בהצלחה	completion	close	צלח
 אחיה	אחיה	completion	full	איחה
 שפעת	שפעת	completion	miss	
@@ -211,8 +211,8 @@
 מסכים	מסכים	completion	full	מסך
 הגם	הגם	completion	close	הגמ
 שאז	שאז	completion	miss	
-בריאה	בריאה	completion	miss	
-הבריאה	הבריאה	completion	miss	
+בריאה	בריאה	completion	close	ברא
+הבריאה	הבריאה	completion	close	ברא
 ממחלת	ממחלת	completion	close	מחל
 עוברת	עוברת	completion	close	עבר
 חולק	חולק	completion	close	חלק
@@ -230,7 +230,7 @@
 עבודתו	עבודתו	completion	close	דתו
 סטודנט	סטודנט	completion	miss	
 מתחיל	מתחיל	completion	close	תחל
-מתקרבת	מתקרבת	completion	close	תקרב
+מתקרבת	מתקרבת	completion	close	מתק
 תוצר	תוצר	completion	miss	
 לצפות	לצפות	completion	miss	
 שיכתוב	שיכתוב	completion	miss	

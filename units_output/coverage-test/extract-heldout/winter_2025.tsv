@@ -8,7 +8,7 @@
 לבנה	לבנה	analogy	close	לבנ
 לחם	לחם	analogy	close	לחמ
 קמח	קמח	analogy	miss	
-עגלה	עגלה	analogy	close	עגל
+עגלה	עגלה	analogy	close	גלה
 גלגל	גלגל	analogy	close	גלגל
 הגירה	הגירה	analogy	close	גרה
 מדינה	מדינה	analogy	miss	
@@ -57,7 +57,7 @@
 אוזניות	אוזניות	analogy	miss	
 מוזיאון	מוזיאון	analogy	miss	
 תערוכה	תערוכה	analogy	close	תער
-בית מרקחת	בית מרקחת	analogy	close	מרק
+בית מרקחת	בית מרקחת	analogy	close	רקח
 הוצאה לאור	הוצאה לאור	analogy	miss	
 ספר	ספר	analogy	full	ספר
 בית קולנוע	בית קולנוע	analogy	miss	
@@ -72,19 +72,19 @@
 להלחין	להלחין	analogy	miss	
 לחן	לחן	analogy	miss	
 לתבל	לתבל	analogy	full	תבל
-תבלין	תבלין	analogy	close	תבל
+תבלין	תבלין	analogy	close	בלנ
 כו בה	כו בה	analogy	miss	
 דולק	דולק	analogy	full	דלק
 הוכחש	הוכחש	analogy	close	כחש
 נכון	נכון	analogy	miss	
 הוזהר	הוזהר	analogy	close	זהר
-מסוכן	מסוכן	analogy	close	מסכ
+מסוכן	מסוכן	analogy	close	סכנ
 הופלל	הופלל	analogy	close	פלל
 אשם	אשם	analogy	close	אשמ
 הותר	הותר	analogy	full	התיר
 אסור	אסור	analogy	miss	
 עקשן	עקשן	analogy	close	עקש
-לשכנע	לשכנע	analogy	close	שכנ
+לשכנע	לשכנע	analogy	close	כנע
 מוג לב	מוג לב	analogy	full	מוג לב
 להעז	להעז	analogy	miss	
 יקר המציאות	יקר המציאות	analogy	full	יקר המציאות
@@ -196,7 +196,7 @@
 תוסיף	תוסיף	completion	miss	
 להתפתח	להתפתח	completion	close	תפת
 שימוש	שימוש	completion	miss	
-בכלי	בכלי	completion	close	בכל
+בכלי	בכלי	completion	close	כלי
 עזר	עזר	completion	miss	
 המבטלים	המבטלים	completion	close	בטל
 מגבלות	מגבלות	completion	miss	
@@ -228,7 +228,7 @@
 תמיד	תמיד	completion	miss	
 לפשרה	לפשרה	completion	close	שרה
 ולשימוש	ולשימוש	completion	miss	
-בדרכי	בדרכי	completion	close	דרכ
+בדרכי	בדרכי	completion	close	בדרכ
 נועם	נועם	completion	miss	
 נהפוך	נהפוך	completion	close	הפכ
 למעשה	למעשה	completion	full	מעושה

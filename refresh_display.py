@@ -11,7 +11,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(ROOT, 'units_output')
 DST = os.path.join(ROOT, 'יחידות')
 ROW = re.compile(r'^\|\s*\d+\s*\|')
-EXPECTED = 2013
+EXPECTED = 2073
 
 
 def is_work_line(ln):

@@ -21,7 +21,7 @@
 דלת	דלת	analogy	close	דלת
 חדר	חדר	analogy	miss	
 הדום	הדום	analogy	full	הדום
-רגליים	רגליים	analogy	close	גלי
+רגליים	רגליים	analogy	close	גלמ
 כר	כר	analogy	full	כור
 צעיף	צעיף	analogy	miss	
 צוואר	צוואר	analogy	miss	
@@ -38,7 +38,7 @@
 אבוד	אבוד	analogy	close	אבד
 מקום	מקום	analogy	miss	
 רווק	רווק	analogy	miss	
-נישואין	נישואין	analogy	close	נשא
+נישואין	נישואין	analogy	close	שאנ
 הלבין פניו	הלבין פניו	analogy	close	לבנ
 נכלם	נכלם	analogy	full	נכלם
 ציווה	ציווה	analogy	full	ציה
@@ -97,7 +97,7 @@
 העניש	העניש	analogy	miss	
 התגונן	התגונן	analogy	miss	
 נפגע	נפגע	analogy	miss	
-גבעול	גבעול	analogy	close	בעל
+גבעול	גבעול	analogy	close	גבע
 זר	זר	analogy	miss	
 ארון	ארון	analogy	miss	
 ריהוט	ריהוט	analogy	full	רהוט
@@ -122,16 +122,16 @@
 חריג	חריג	completion	miss	
 שתיית	שתיית	completion	full	שותת
 קפה	קפה	completion	miss	
-מסוכנת	מסוכנת	completion	close	מסכ
-לבריאות	לבריאות	completion	miss	
+מסוכנת	מסוכנת	completion	close	סכנ
+לבריאות	לבריאות	completion	full	ברא
 מאזיניה	מאזיניה	completion	miss	
 לשתות	לשתות	completion	full	שותת
 לפחות	לפחות	completion	full	פיח
 כוסות	כוסות	completion	full	כסות
 לולא	לולא	completion	full	לולא
-ידעתי	ידעתי	completion	close	דעת
+ידעתי	ידעתי	completion	close	ידע
 רוויים	רוויים	completion	miss	
-מתפלאת	מתפלאת	completion	close	פלא
+מתפלאת	מתפלאת	completion	close	תפל
 קרינת	קרינת	completion	close	קרנ
 השמש	השמש	completion	miss	
 מזיקה	מזיקה	completion	miss	
@@ -160,7 +160,7 @@
 גיל	גיל	completion	miss	
 זרה	זרה	completion	full	זרה
 חוג	חוג	completion	full	חג
-צרפתית	צרפתית	completion	close	צרפ
+צרפתית	צרפתית	completion	close	פתת
 המיועד	המיועד	completion	miss	
 לילדים	לילדים	completion	close	ילד
 בגילאי	בגילאי	completion	miss	
@@ -206,7 +206,7 @@
 נקל	נקל	completion	miss	
 להבין	להבין	completion	miss	
 טענתו	טענתו	completion	miss	
-בדבר	בדבר	completion	close	דבר
+בדבר	בדבר	completion	close	בדבר
 ההשפעה	ההשפעה	completion	close	פעה
 השלילית	השלילית	completion	close	שלל
 יצירה	יצירה	completion	miss	
@@ -242,7 +242,7 @@
 למנוע	למנוע	completion	miss	
 זכתה	זכתה	completion	miss	
 לתשבחות	לתשבחות	completion	miss	
-נרתעה	נרתעה	completion	close	רתע
+נרתעה	נרתעה	completion	close	תעה
 מקום	מקום	completion	miss	
 לפקפק	לפקפק	completion	full	פקפק
 ביסוד	ביסוד	completion	miss	

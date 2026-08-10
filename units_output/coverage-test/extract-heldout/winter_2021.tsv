@@ -28,7 +28,7 @@
 שבח	שבח	analogy	miss	
 משיכת כתף	משיכת כתף	analogy	close	משיכת
 תגובה	תגובה	analogy	miss	
-טביעת אצבע	טביעת אצבע	analogy	close	בעת
+טביעת אצבע	טביעת אצבע	analogy	close	טבע
 זהות	זהות	analogy	miss	
 התפרסם	התפרסם	analogy	close	פרס
 אנונימיות	אנונימיות	analogy	close	אננ
@@ -38,13 +38,13 @@
 החלטיות	החלטיות	analogy	miss	
 התנגד	התנגד	analogy	close	נגד
 הסכמה	הסכמה	analogy	close	סכמ
-התרפא	התרפא	analogy	close	התר
+התרפא	התרפא	analogy	close	רפא
 מחלה	מחלה	analogy	close	מחל
 מתרגם	מתרגם	analogy	miss	
 מתווך	מתווך	analogy	miss	
 עסקה	עסקה	analogy	miss	
 חלפן	חלפן	analogy	close	חלפ
-מטבע	מטבע	analogy	close	טבע
+מטבע	מטבע	analogy	close	מטבע
 מיסיונר	מיסיונר	analogy	miss	
 דת	דת	analogy	miss	
 מדובב	מדובב	analogy	close	דבב
@@ -59,7 +59,7 @@
 חשמל	חשמל	analogy	miss	
 תחנת כוח	תחנת כוח	analogy	miss	
 מרפד	מרפד	analogy	miss	
-ישיבה	ישיבה	analogy	close	שבה
+ישיבה	ישיבה	analogy	close	ישב
 מרדים	מרדים	analogy	full	מרוד
 שינה	שינה	analogy	miss	
 מטעה	מטעה	analogy	miss	
@@ -96,8 +96,8 @@
 כוח	כוח	analogy	miss	
 ריחני	ריחני	analogy	miss	
 ריח	ריח	analogy	full	רווח
-מפורט	מפורט	analogy	miss	
-פרט	פרט	analogy	miss	
+מפורט	מפורט	analogy	close	פרט
+פרט	פרט	analogy	close	פרט
 מנומק	מנומק	analogy	miss	
 נימוק	נימוק	analogy	full	נמק
 ניצן	ניצן	analogy	miss	
@@ -110,7 +110,7 @@
 מחברת	מחברת	analogy	miss	
 גדי	גדי	analogy	miss	
 תיש	תיש	analogy	miss	
-סניגוריו	סניגוריו	completion	close	נגר
+סניגוריו	סניגוריו	completion	close	סנגר
 חשש	חשש	completion	miss	
 פן	פן	completion	full	פן
 יביאו	יביאו	completion	close	באו
@@ -143,7 +143,7 @@
 שמוסכם	שמוסכם	completion	close	סכמ
 הכול	הכול	completion	miss	
 שאר	שאר	completion	close	שאר
-התזמורת	התזמורת	completion	close	זמר
+התזמורת	התזמורת	completion	close	מרת
 סבורים	סבורים	completion	full	סבר
 הוכחה	הוכחה	completion	miss	
 נוספת	נוספת	completion	miss	
@@ -177,7 +177,7 @@
 להזיק	להזיק	completion	miss	
 למי	למי	completion	miss	
 שמאמין	שמאמין	completion	close	אמנ
-באמיתותם	באמיתותם	completion	close	מתת
+באמיתותם	באמיתותם	completion	close	אמת
 מאמין	מאמין	completion	close	אמנ
 שהסכנה	שהסכנה	completion	close	סכנ
 להתייחס	להתייחס	completion	miss	
@@ -185,11 +185,11 @@
 לשום	לשום	completion	miss	
 מקרה	מקרה	completion	close	קרה
 מהמקרים	מהמקרים	completion	close	קרמ
-מסוכנים	מסוכנים	completion	close	מסכ
+מסוכנים	מסוכנים	completion	close	סכנ
 להוסיף	להוסיף	completion	miss	
 ולחקות	ולחקות	completion	full	חווק
 דרכי	דרכי	completion	close	דרכ
-הריפוי	הריפוי	completion	miss	
+הריפוי	הריפוי	completion	close	הרפ
 המתוארות	המתוארות	completion	miss	
 מידלדל	מידלדל	completion	miss	
 מתקשות	מתקשות	completion	close	מתק
@@ -212,7 +212,7 @@
 נגזר	נגזר	completion	close	גזר
 יימנע	יימנע	completion	miss	
 שנדון	שנדון	completion	close	נדנ
-בערכאה	בערכאה	completion	close	ערכאה
+בערכאה	בערכאה	completion	close	בער
 יאפשר	יאפשר	completion	close	פשר
 עקרון	עקרון	completion	close	קרנ
 ההתערבות	ההתערבות	completion	close	תער
@@ -227,7 +227,7 @@
 דין	דין	completion	miss	
 וידרבן	וידרבן	completion	close	דרבנ
 הנמצא	הנמצא	completion	close	מצא
-בסמכותה	בסמכותה	completion	close	בסמ
+בסמכותה	בסמכותה	completion	close	סמכ
 הבלעדית	הבלעדית	completion	close	בלע
 ערכאה	ערכאה	completion	full	ערכאה
 ויעודד	ויעודד	completion	close	ועד
@@ -247,7 +247,7 @@
 עזרה	עזרה	completion	close	זרה
 מתייאש	מתייאש	completion	miss	
 הולך	הולך	completion	full	הילך
-שינסו	שינסו	completion	miss	
+שינסו	שינסו	completion	close	שנס
 להיטיב	להיטיב	completion	close	להט
 מצבו	מצבו	completion	miss	
 יושב	יושב	completion	close	ישב
@@ -255,10 +255,10 @@
 מעשה	מעשה	completion	full	מעושה
 עושה	עושה	completion	close	עשה
 שביכולתו	שביכולתו	completion	close	בכל
-להירפא	להירפא	completion	close	רפא
+להירפא	להירפא	completion	close	הרפ
 פוקד	פוקד	completion	full	פקד
 תדיר	תדיר	completion	full	תדיר
-כבראשונה	כבראשונה	completion	close	כבר
+כבראשונה	כבראשונה	completion	close	ראש
 מנסה	מנסה	completion	miss	
 למצוא	למצוא	completion	close	מצא
 מזור	מזור	completion	full	מזור
@@ -270,5 +270,5 @@
 שבעתיים	שבעתיים	completion	close	שבע
 חרף	חרף	completion	full	חרף
 תקוותו	תקוותו	completion	miss	
-אצלם	אצלם	completion	close	אצל
+אצלם	אצלם	completion	close	צלמ
 ישועה	ישועה	completion	close	ישע
