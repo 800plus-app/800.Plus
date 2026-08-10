@@ -12,7 +12,45 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 BANNED = ('delve', 'tapestry', 'testament to', 'a myriad of', 'in the realm',
           'in today’s world', "in today's world", '—')
 
+# נטיות לא-רגולריות שמבחן-הגזע לא תופס. התדריך מתיר הטיה, אז אלה חוקיות.
+IRREG = {'wear': ('wore', 'worn'), 'buy': ('bought',), 'catch': ('caught',),
+         'teach': ('taught',), 'think': ('thought',), 'bring': ('brought',),
+         'fight': ('fought',), 'seek': ('sought',), 'go': ('went', 'gone'),
+         'eat': ('ate',), 'fall': ('fell',), 'see': ('saw', 'seen'),
+         'take': ('took',), 'give': ('gave',), 'come': ('came',),
+         'run': ('ran',), 'sit': ('sat',), 'stand': ('stood',),
+         'win': ('won',), 'lose': ('lost',), 'say': ('said',),
+         'tell': ('told',), 'sell': ('sold',), 'hold': ('held',),
+         'keep': ('kept',), 'sleep': ('slept',), 'feel': ('felt',),
+         'leave': ('left',), 'meet': ('met',), 'get': ('got',),
+         'find': ('found',), 'fly': ('flew', 'flown'), 'draw': ('drew', 'drawn'),
+         'grow': ('grew', 'grown'), 'know': ('knew', 'known'),
+         'throw': ('threw', 'thrown'), 'speak': ('spoke', 'spoken'),
+         'break': ('broke', 'broken'), 'choose': ('chose', 'chosen'),
+         'write': ('wrote', 'written'), 'ride': ('rode', 'ridden'),
+         'rise': ('rose', 'risen'), 'drive': ('drove', 'driven'),
+         'sing': ('sang', 'sung'), 'drink': ('drank', 'drunk'),
+         'swim': ('swam', 'swum'), 'begin': ('began', 'begun'),
+         'pay': ('paid',), 'lay': ('laid',), 'hear': ('heard',),
+         'make': ('made',), 'build': ('built',), 'send': ('sent',),
+         'spend': ('spent',), 'lend': ('lent',), 'bend': ('bent',),
+         'shoot': ('shot',), 'stick': ('stuck',), 'strike': ('struck',),
+         'hang': ('hung',), 'shake': ('shook', 'shaken'), 'steal': ('stole', 'stolen'),
+         'freeze': ('froze', 'frozen'), 'forget': ('forgot', 'forgotten'),
+         'understand': ('understood',), 'mean': ('meant',), 'deal': ('dealt',),
+         'sweep': ('swept',), 'weep': ('wept',), 'feed': ('fed',),
+         'lead': ('led',), 'read': ('read',), 'blow': ('blew', 'blown'),
+         'wake': ('woke', 'woken'), 'tear': ('tore', 'torn'),
+         'swear': ('swore', 'sworn'), 'bear': ('bore', 'borne'),
+         'bite': ('bit', 'bitten'), 'hide': ('hid', 'hidden'),
+         'shine': ('shone',), 'dig': ('dug',), 'spin': ('spun',),
+         'fell': ('felled',), 'flee': ('fled',), 'cling': ('clung',),
+         'swing': ('swung',), 'sink': ('sank', 'sunk'), 'shrink': ('shrank', 'shrunk'),
+         'spring': ('sprang', 'sprung'), 'sting': ('stung',), 'string': ('strung',)}
+
 def match_tok(t, x):
+    if t in IRREG and x in IRREG[t]:
+        return True
     """התאמת-גזע רכה: זהות, או שהאחד תחילית של השני (owns~own, decided~decide)."""
     if t == x:
         return True
