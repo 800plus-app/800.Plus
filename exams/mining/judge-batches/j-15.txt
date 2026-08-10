@@ -1,0 +1,80 @@
+חיבור	חיבור	completion	1	1	0.0	winter_2022·פרק2·ש13·אפשרות 3	miss
+חיבל	חיבל	analogy	1	1	3.0	summer_2024·פרק2·ש3·מסיח 3	close:חבל
+חיוניים	חיוניים	completion	1	1	0.0	summer_2022·פרק1·ש9·אפשרות 3	miss
+חיזוק	חיזוק	analogy	1	1	6.0	2019_winter·פרק2·ש6·מסיח 1	miss
+חיזק	חיזק	completion	1	1	0.0	2020_winter·פרק2·ש10·אפשרות 3	miss
+חיטא	חיטא	analogy	1	1	4.0	2019_spring·פרק2·ש4·לא-זוהה	close:חטא
+חיטה	חיטה	analogy	1	1	4.0	spring_2022·פרק2·ש4·מסיח 2	miss
+חייבת	חייבת	completion	1	1	0.0	2020_spring·פרק2·ש9·אפשרות 2	miss
+חייכנות	חייכנות	analogy	1	1	6.0	2020_winter·פרק1·ש6·מסיח 1	miss
+חירף את נפשו	חירף את נפשו	analogy	1	1	5.0	2020_spring·פרק2·ש5·מסיח 3	close:חירף
+חיתן	חיתן	analogy	1	1	6.0	2019_spring·פרק1·ש6·לא-זוהה	miss
+חלה	חלה	analogy	1	1	1.0	autumn_2024·פרק1·ש1·מסיח 2	miss
+חלוק	חלוק	analogy	1	1	3.0	2020_spring·פרק1·ש3·מסיח 3	close:חלק
+חלוקים	חלוקים	analogy	1	1	3.0	spring_2025·פרק2·ש3·רגל	close:חלק
+חלקה	חלקה	analogy	1	1	6.0	summer_2023·פרק1·ש6·מסיח 2	close:לקה
+חלקלקות	חלקלקות	analogy	1	1	4.0	summer_2023·פרק1·ש4·מסיח 2	close:חלק
+חלשה	חלשה	completion	1	1	0.0	autumn_2021·פרק2·ש14·אפשרות 1	miss
+חם מזג	חם מזג	analogy	1	1	1.0	summer_2024·פרק2·ש1·מסיח 4	miss
+חמוטל	חמוטל	completion	1	1	0.0	winter_2022·פרק2·ש12·אפשרות 3	miss
+חמור	חמור	completion	1	1	0.0	spring_2025·פרק1·ש12·אפשרות 1	miss
+חממה	חממה	analogy	1	1	1.0	summer_2024·פרק1·ש1·מסיח 2	close:חממ
+חמצמץ	חמצמץ	analogy	1	1	4.0	2020_autumn·פרק1·ש4·מסיח 3	close:חמצ
+חן	חן	completion	1	1	0.0	winter_2022·פרק2·ש12·אפשרות 3	miss
+חנה	חנה	analogy	1	1	2.0	summer_2025·פרק2·ש2·מסיח 1	miss
+חניון	חניון	analogy	1	1	3.0	summer_2021·פרק1·ש3·מסיח 4	close:חננ
+חנן	חנן	analogy	1	1	6.0	spring_2025·פרק1·ש6·מסיח 1	close:חננ
+חסך	חסך	completion	1	1	0.0	2019_winter·פרק1·ש14·אפשרות ?	miss
+חסכו	חסכו	completion	1	1	0.0	autumn_2024·פרק2·ש12·אפשרות 1	miss
+חף מפשע	חף מפשע	analogy	1	1	5.0	summer_2026·פרק1·ש5·רגל	miss
+חפף	חפף	analogy	1	1	4.0	2019_spring·פרק2·ש4·לא-זוהה	close:חפפ
+חצוף	חצוף	analogy	1	1	1.0	summer_2026·פרק2·ש1·מסיח 3	miss
+חצוצרה	חצוצרה	analogy	1	1	1.0	winter_2022·פרק2·ש1·מסיח 1	close:חצצ
+חצייה	חצייה	analogy	1	1	6.0	2020_spring·פרק2·ש6·מסיח 4	miss
+חציר	חציר	analogy	1	1	3.0	2020_autumn·פרק1·ש3·מסיח 2	miss
+חריג	חריג	analogy	1	1	6.0	2019_winter·פרק1·ש6·מסיח 4	miss
+חרקים	חרקים	analogy	1	1	5.0	summer_2025·פרק1·ש5·רגל	miss
+חשובים	חשובים	completion	1	1	0.0	autumn_2024·פרק2·ש13·אפשרות 2	miss
+חשיבותו	חשיבותו	completion	1	1	0.0	summer_2023·פרק2·ש16·אפשרות 3	miss
+חשמל	חשמל	analogy	1	1	4.0	winter_2022·פרק1·ש4·מסיח 1	miss
+חשק את שיניו	חשק את שיניו	analogy	1	1	6.0	autumn_2023·פרק1·ש6·מסיח 2	close:חשק
+חשק את שפתיו	חשק את שפתיו	analogy	1	1	5.0	summer_2021·פרק2·ש5·מסיח 1	close:חשק
+חתול	חתול	completion	1	1	0.0	spring_2023·פרק1·ש13·אפשרות 4	miss
+חתמו	חתמו	completion	1	1	0.0	winter_2023·פרק1·ש11·אפשרות 4	miss
+טאטא	טאטא	analogy	1	1	4.0	2019_spring·פרק2·ש4·רגל	miss
+טובים	טובים	completion	1	1	0.0	summer_2025·פרק1·ש14·אפשרות 1	miss
+טומן	טומן	analogy	1	1	6.0	autumn_2025·פרק1·ש6·מסיח 1	close:טמנ
+טועה	טועה	completion	1	1	0.0	summer_2023·פרק2·ש17·אפשרות 2	miss
+טוען	טוען	completion	1	1	0.0	winter_2022·פרק1·ש9·אפשרות 1	miss
+טיבו	טיבו	completion	1	1	0.0	winter_2022·פרק2·ש12·אפשרות 4	miss
+טיגן	טיגן	analogy	1	1	5.0	2020_spring·פרק1·ש5·מסיח 4	miss
+טינף	טינף	analogy	1	1	4.0	2020_spring·פרק2·ש4·מסיח 2	miss
+טיסה	טיסה	completion	1	1	0.0	2020_summer·פרק2·ש12·אפשרות 2	miss
+טיעון	טיעון	analogy	1	1	2.0	autumn_2025·פרק2·ש2·מסיח 4	miss
+טכני	טכני	completion	1	1	0.0	spring_2022·פרק1·ש9·אפשרות 1	miss
+טמפרטורה	טמפרטורה	analogy	1	1	1.0	summer_2022·פרק2·ש1·מסיח 3	miss
+טעה	טעה	analogy	1	1	3.0	summer_2022·פרק1·ש3·מסיח 1	miss
+טעויות	טעויות	completion	1	1	0.0	spring_2024·פרק1·ש18·אפשרות 1	miss
+טעות	טעות	completion	1	1	0.0	winter_2023·פרק1·ש11·אפשרות 4	miss
+טעותם	טעותם	completion	1	1	0.0	winter_2022·פרק2·ש14·אפשרות 2	miss
+טעים	טעים	analogy	1	1	6.0	2019_spring·פרק2·ש6·לא-זוהה	close:טעמ
+טעיתי	טעיתי	completion	1	1	0.0	spring_2022·פרק2·ש16·אפשרות 1	miss
+טענות	טענות	completion	1	1	0.0	autumn_2025·פרק2·ש15·אפשרות 4	miss
+טענת	טענת	completion	1	1	0.0	summer_2025·פרק1·ש16·אפשרות 2	miss
+טענתם	טענתם	completion	1	1	0.0	autumn_2024·פרק2·ש12·אפשרות 4	miss
+טפטוף	טפטוף	analogy	1	1	2.0	summer_2023·פרק1·ש2·מסיח 1	miss
+טפטף	טפטף	analogy	1	1	2.0	summer_2025·פרק1·ש2·מסיח 2	miss
+יבוא	יבוא	completion	1	1	0.0	summer_2025·פרק1·ש16·אפשרות 1	miss
+יבשת	יבשת	analogy	1	1	2.0	winter_2022·פרק1·ש2·מסיח 4	miss
+יד	יד	completion	1	1	0.0	2019_spring·פרק2·ש13·אפשרות ?	miss
+ידו לא הייתה משגת	ידו לא הייתה משגת	analogy	1	1	6.0	2020_winter·פרק2·ש6·מסיח 1	close:ידו
+ידיעה	ידיעה	analogy	1	1	2.0	autumn_2025·פרק2·ש2·מסיח 3	close:ידע
+ידע	ידע	analogy	1	1	3.0	autumn_2023·פרק2·ש3·רגל	close:ידע
+יהיו	יהיו	completion	1	1	0.0	autumn_2024·פרק2·ש14·אפשרות 2	miss
+יואב	יואב	completion	1	1	0.0	summer_2023·פרק2·ש15·אפשרות 4	miss
+יומית	יומית	completion	1	1	0.0	summer_2025·פרק1·ש16·אפשרות 4	miss
+יוסיף	יוסיף	completion	1	1	0.0	winter_2022·פרק2·ש14·אפשרות 1	miss
+יוסף	יוסף	completion	1	1	0.0	autumn_2021·פרק2·ש14·אפשרות 1	miss
+יחף	יחף	analogy	1	1	6.0	autumn_2024·פרק1·ש6·מסיח 4	miss
+יחף"	יחף״	completion	1	1	0.0	2020_summer·פרק2·ש12·אפשרות 1	miss
+ייחד	ייחד	completion	1	1	0.0	2020_winter·פרק1·ש7·אפשרות 4	miss

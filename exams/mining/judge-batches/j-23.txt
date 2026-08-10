@@ -1,0 +1,80 @@
+מעפיל	מעפיל	analogy	1	1	1.0	summer_2023·פרק1·ש1·מסיח 3	close:עפל
+מעצתו	מעצתו	completion	1	1	0.0	2020_spring·פרק1·ש11·אפשרות 4	miss
+מערה	מערה	analogy	1	1	5.0	winter_2023·פרק1·ש5·מסיח 3	close:ערה
+מערכה	מערכה	analogy	1	1	3.0	autumn_2021·פרק2·ש3·מסיח 3	miss
+מעשיו	מעשיו	completion	1	1	0.0	2019_spring·פרק2·ש13·אפשרות ?	miss
+מעתה	מעתה	completion	1	1	0.0	2020_winter·פרק1·ש8·אפשרות 4	miss
+מפוספס	מפוספס	analogy	1	1	2.0	winter_2023·פרק2·ש2·רגל	miss
+מפורר	מפורר	analogy	1	1	6.0	summer_2026·פרק2·ש6·מסיח 3	miss
+מפותח	מפותח	completion	1	1	0.0	summer_2021·פרק1·ש10·אפשרות 1	miss
+מפיה	מפיה	completion	1	1	0.0	winter_2022·פרק2·ש12·אפשרות 3	miss
+מפיקים	מפיקים	completion	1	1	0.0	summer_2026·פרק2·ש12·אפשרות 4	miss
+מפירות	מפירות	completion	1	1	0.0	2019_spring·פרק2·ש13·אפשרות ?	miss
+מפלה	מפלה	analogy	1	1	6.0	winter_2023·פרק1·ש6·מסיח 3	miss
+מפליא מכותיו	מפליא מכותיו	analogy	1	1	4.0	summer_2025·פרק1·ש4·מסיח 3	close:פלא
+מפנה	מפנה	analogy	1	1	5.0	winter_2022·פרק1·ש5·מסיח 1	close:פנה
+מפעל	מפעל	analogy	1	1	6.0	2020_spring·פרק1·ש6·מסיח 2	miss
+מצב	מצב	completion	1	1	0.0	summer_2026·פרק1·ש8·אפשרות 2	miss
+מצבן	מצבן	completion	1	1	0.0	autumn_2025·פרק1·ש10·אפשרות 4	miss
+מצד	מצד	completion	1	1	0.0	winter_2023·פרק1·ש11·אפשרות 4	miss
+מצטלבים	מצטלבים	analogy	1	1	3.0	spring_2025·פרק2·ש3·מסיח 3	miss
+מציג	מציג	completion	1	1	0.0	summer_2022·פרק1·ש9·אפשרות 2	miss
+מצית	מצית	analogy	1	1	4.0	2019_spring·פרק1·ש4·לא-זוהה	miss
+מצקת	מצקת	analogy	1	1	4.0	summer_2022·פרק2·ש4·מסיח 4	miss
+מצרה	מצרה	completion	1	1	0.0	winter_2023·פרק1·ש11·אפשרות 2	miss
+מצרימה	מצרימה	analogy	1	1	4.0	winter_2022·פרק2·ש4·רגל	close:רמה
+מקומון	מקומון	analogy	1	1	5.0	autumn_2024·פרק2·ש5·מסיח 4	miss
+מקוממת	מקוממת	completion	1	1	0.0	spring_2024·פרק1·ש17·אפשרות 2	miss
+מקור	מקור	completion	1	1	0.0	spring_2023·פרק2·ש7·אפשרות 2	miss
+מקורזל	מקורזל	analogy	1	1	6.0	summer_2021·פרק2·ש6·מסיח 3	miss
+מקורי	מקורי	analogy	1	1	1.0	spring_2024·פרק2·ש1·מסיח 3	miss
+מקטרת	מקטרת	analogy	1	1	1.0	winter_2022·פרק2·ש1·מסיח 4	miss
+מקל	מקל	analogy	1	1	6.0	summer_2022·פרק1·ש6·מסיח 4	miss
+מקלדת	מקלדת	analogy	1	1	5.0	summer_2022·פרק2·ש5·מסיח 2	miss
+מקנא	מקנא	analogy	1	1	4.0	summer_2021·פרק2·ש4·מסיח 3	close:קנא
+מקרוב	מקרוב	completion	1	1	0.0	summer_2025·פרק2·ש7·אפשרות 4	miss
+מקריאה	מקריאה	completion	1	1	0.0	summer_2026·פרק2·ש12·אפשרות 4	miss
+מקרן	מקרן	analogy	1	1	5.0	summer_2022·פרק2·ש5·מסיח 3	close:קרנ
+מר אה	מר אה	analogy	1	1	5.0	winter_2022·פרק1·ש5·מסיח 3	miss
+מרגיש	מרגיש	completion	1	1	0.0	summer_2024·פרק2·ש11·אפשרות 2	miss
+מרדף	מרדף	analogy	1	1	6.0	2019_spring·פרק1·ש6·לא-זוהה	miss
+מרובב	מרובב	analogy	1	1	5.0	winter_2023·פרק2·ש5·מסיח 2	close:רבב
+מרוחק	מרוחק	analogy	1	1	3.0	2020_spring·פרק1·ש3·מסיח 4	close:מרח
+מרומז	מרומז	analogy	1	1	5.0	summer_2024·פרק1·ש5·מסיח 3	miss
+מרושש	מרושש	analogy	1	1	6.0	autumn_2024·פרק1·ש6·מסיח 1	close:רשש
+מרחק	מרחק	analogy	1	1	1.0	2020_autumn·פרק1·ש1·מסיח 1	close:מרח
+מרט את עצביו	מרט את עצביו	analogy	1	1	5.0	summer_2021·פרק2·ש5·מסיח 4	close:מרט
+מריצה	מריצה	analogy	1	1	2.0	summer_2022·פרק1·ש2·מסיח 4	close:רצה
+מרפאה	מרפאה	analogy	1	1	1.0	autumn_2024·פרק1·ש1·מסיח 2	close:פאה
+מרצונו	מרצונו	completion	1	1	0.0	summer_2025·פרק1·ש16·אפשרות 1	miss
+מרצי	מרצי	completion	1	1	0.0	2020_winter·פרק1·ש8·אפשרות 3	miss
+מרצפות	מרצפות	analogy	1	1	4.0	summer_2023·פרק2·ש4·מסיח 1	miss
+מרשימה	מרשימה	completion	1	1	0.0	winter_2022·פרק2·ש12·אפשרות 2	miss
+משאל	משאל	completion	1	1	0.0	summer_2024·פרק2·ש9·אפשרות 3	miss
+משובחת	משובחת	completion	1	1	0.0	summer_2026·פרק1·ש8·אפשרות 1	miss
+משחק	משחק	analogy	1	1	4.0	2020_spring·פרק1·ש4·מסיח 3	close:שחק
+משטרה	משטרה	analogy	1	1	5.0	summer_2022·פרק1·ש5·מסיח 3	miss
+משי	משי	analogy	1	1	1.0	2020_spring·פרק2·ש1·מסיח 3	miss
+משימה	משימה	completion	1	1	0.0	summer_2024·פרק1·ש15·אפשרות 4	miss
+משמעה	משמעה	completion	1	1	0.0	winter_2022·פרק2·ש12·אפשרות 3	miss
+משמעית	משמעית	completion	1	1	0.0	summer_2022·פרק1·ש10·אפשרות 3	miss
+משמשות	משמשות	completion	1	1	0.0	summer_2024·פרק2·ש9·אפשרות 4	miss
+משמשת	משמשת	completion	1	1	0.0	summer_2024·פרק2·ש9·אפשרות 1	miss
+משני	משני	completion	1	1	0.0	spring_2025·פרק1·ש10·אפשרות 2	miss
+משעשע	משעשע	completion	1	1	0.0	spring_2022·פרק1·ש9·אפשרות 4	miss
+משפחתי	משפחתי	completion	1	1	0.0	2020_summer·פרק2·ש12·אפשרות 2	miss
+משפטים	משפטים	analogy	1	1	5.0	summer_2025·פרק1·ש5·מסיח 3	miss
+משקה	משקה	analogy	1	1	1.0	2020_spring·פרק2·ש1·מסיח 1	close:שקה
+משתוקק	משתוקק	analogy	1	1	2.0	2020_spring·פרק1·ש2·רגל	miss
+משתתק	משתתק	analogy	1	1	3.0	2019_winter·פרק2·ש3·מסיח 3	close:שתת
+מתאפיין	מתאפיין	completion	1	1	0.0	summer_2021·פרק1·ש11·אפשרות 4	miss
+מתברר	מתברר	completion	1	1	0.0	spring_2025·פרק1·ש12·אפשרות 4	miss
+מתג	מתג	analogy	1	1	2.0	summer_2023·פרק2·ש2·מסיח 2	miss
+מתורגמים	מתורגמים	completion	1	1	0.0	spring_2023·פרק1·ש13·אפשרות 3	miss
+מתחייבת	מתחייבת	completion	1	1	0.0	2020_winter·פרק1·ש8·אפשרות 4	miss
+מתחרים	מתחרים	analogy	1	1	3.0	summer_2025·פרק2·ש3·מסיח 1	miss
+מתיישבים	מתיישבים	completion	1	1	0.0	summer_2022·פרק1·ש8·אפשרות 3	miss
+מתיש	מתיש	analogy	1	1	5.0	spring_2025·פרק1·ש5·מסיח 1	miss
+מתמודדים	מתמודדים	analogy	1	1	4.0	winter_2023·פרק2·ש4·מסיח 2	miss
+מתמטיקה	מתמטיקה	analogy	1	1	5.0	2019_spring·פרק1·ש5·לא-זוהה	miss
+מתמקדת	מתמקדת	completion	1	1	0.0	autumn_2024·פרק1·ש13·אפשרות 1	miss

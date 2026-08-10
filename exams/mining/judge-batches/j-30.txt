@@ -1,0 +1,80 @@
+שופכים	שופכים	completion	1	1	0.0	2019_spring·פרק2·ש13·אפשרות ?	miss
+שוקל	שוקל	completion	1	1	0.0	winter_2023·פרק1·ש12·אפשרות 3	miss
+שורשים	שורשים	analogy	1	1	1.0	2019_spring·פרק1·ש1·לא-זוהה	miss
+שותפה	שותפה	completion	1	1	0.0	spring_2025·פרק2·ש14·אפשרות 1	miss
+שותק	שותק	analogy	1	1	6.0	autumn_2025·פרק1·ש6·מסיח 3	miss
+שחבריו	שחבריו	completion	1	1	0.0	spring_2022·פרק2·ש17·אפשרות 4	miss
+שחסכו	שחסכו	completion	1	1	0.0	autumn_2024·פרק2·ש12·אפשרות 3	miss
+שט	שט	analogy	1	1	2.0	summer_2025·פרק2·ש2·רגל	miss
+שטח תחנוניו	שטח תחנוניו	analogy	1	1	5.0	autumn_2025·פרק1·ש5·רגל	close:חננ
+שטחית	שטחית	completion	1	1	0.0	autumn_2021·פרק1·ש10·אפשרות 1	miss
+שטעיתי	שטעיתי	completion	1	1	0.0	spring_2022·פרק2·ש16·אפשרות 2	miss
+שטרות	שטרות	analogy	1	1	5.0	spring_2023·פרק1·ש5·מסיח 4	miss
+שיבח	שיבח	analogy	1	1	5.0	2020_spring·פרק2·ש5·רגל	miss
+שיבחו	שיבחו	completion	1	1	0.0	summer_2022·פרק1·ש9·אפשרות 2	miss
+שידוך	שידוך	analogy	1	1	3.0	winter_2022·פרק2·ש3·מסיח 4	miss
+שיזם	שיזם	completion	1	1	0.0	2020_spring·פרק1·ש11·אפשרות 2	miss
+שיחסית	שיחסית	completion	1	1	0.0	2019_spring·פרק1·ש12·אפשרות ?	miss
+שיטת	שיטת	completion	1	1	0.0	2020_winter·פרק2·ש11·אפשרות 3	miss
+שייט	שייט	analogy	1	1	2.0	2020_autumn·פרק2·ש2·מסיח 2	miss
+שילם	שילם	analogy	1	1	5.0	summer_2023·פרק1·ש5·מסיח 3	miss
+שימוש	שימוש	completion	1	1	0.0	summer_2021·פרק1·ש11·אפשרות 4	miss
+שימנע	שימנע	completion	1	1	0.0	summer_2023·פרק2·ש16·אפשרות 4	miss
+שינע	שינע	analogy	1	1	5.0	2020_summer·פרק2·ש5·מסיח 1	miss
+שיעור	שיעור	analogy	1	1	4.0	winter_2023·פרק2·ש4·מסיח 4	miss
+שיער	שיער	analogy	1	1	5.0	2019_winter·פרק1·ש5·מסיח 2	miss
+שיפוע	שיפוע	analogy	1	1	3.0	summer_2023·פרק2·ש3·מסיח 2	miss
+שיפץ	שיפץ	analogy	1	1	6.0	winter_2022·פרק1·ש6·מסיח 3	miss
+שיקול דעת	שיקול דעת	analogy	1	1	1.0	summer_2021·פרק2·ש1·רגל	close:דעת
+שיקל	שיקל	completion	1	1	0.0	2020_winter·פרק1·ש8·אפשרות 2	miss
+שירדו	שירדו	completion	1	1	0.0	2019_spring·פרק2·ש13·אפשרות ?	miss
+שירוויח	שירוויח	completion	1	1	0.0	summer_2026·פרק2·ש14·אפשרות 4	miss
+שירון	שירון	analogy	1	1	5.0	autumn_2024·פרק2·ש5·רגל	miss
+שישיג	שישיג	completion	1	1	0.0	spring_2025·פרק1·ש12·אפשרות 2	miss
+שיתוף	שיתוף	completion	1	1	0.0	summer_2021·פרק1·ש11·אפשרות 1	miss
+שכבות	שכבות	completion	1	1	0.0	summer_2024·פרק2·ש9·אפשרות 2	miss
+שכוחם	שכוחם	completion	1	1	0.0	summer_2025·פרק1·ש16·אפשרות 1	miss
+שכונה	שכונה	analogy	1	1	6.0	summer_2026·פרק1·ש6·מסיח 1	close:שכנ
+שכחה	שכחה	analogy	1	1	2.0	spring_2024·פרק1·ש2·מסיח 3	miss
+שכחן	שכחן	analogy	1	1	6.0	winter_2023·פרק2·ש6·מסיח 4	miss
+שכיחה	שכיחה	completion	1	1	0.0	winter_2022·פרק2·ש13·אפשרות 2	miss
+שכנוע	שכנוע	analogy	1	1	6.0	autumn_2023·פרק1·ש6·מסיח 3	close:כנע
+שכר	שכר	completion	1	1	0.0	summer_2026·פרק2·ש14·אפשרות 3	miss
+שלג	שלג	analogy	1	1	5.0	winter_2023·פרק1·ש5·מסיח 4	miss
+שלגביו	שלגביו	completion	1	1	0.0	summer_2025·פרק1·ש14·אפשרות 3	miss
+שלמה	שלמה	completion	1	1	0.0	winter_2022·פרק1·ש7·אפשרות 4	miss
+שלרוב	שלרוב	completion	1	1	0.0	spring_2023·פרק2·ש7·אפשרות 3	miss
+שלשם	שלשם	completion	1	1	0.0	summer_2023·פרק2·ש16·אפשרות 1	miss
+שמא	שמא	completion	1	1	0.0	spring_2025·פרק2·ש15·אפשרות 3	miss
+שמאל	שמאל	analogy	1	1	4.0	winter_2022·פרק2·ש4·מסיח 2	miss
+שמאלה	שמאלה	analogy	1	1	4.0	winter_2022·פרק2·ש4·מסיח 2	miss
+שמגע	שמגע	completion	1	1	0.0	summer_2025·פרק1·ש16·אפשרות 4	miss
+שמועות	שמועות	analogy	1	1	6.0	2020_autumn·פרק1·ש6·מסיח 3	miss
+שמחו	שמחו	completion	1	1	0.0	summer_2023·פרק2·ש17·אפשרות 4	miss
+שמחתם	שמחתם	completion	1	1	0.0	summer_2026·פרק2·ש13·אפשרות 1	miss
+שמיכה	שמיכה	analogy	1	1	2.0	autumn_2023·פרק1·ש2·מסיח 1	miss
+שמכיוון	שמכיוון	completion	1	1	0.0	autumn_2024·פרק1·ש15·אפשרות 4	miss
+שמסעה	שמסעה	completion	1	1	0.0	winter_2022·פרק2·ש13·אפשרות 4	miss
+שמקורו	שמקורו	completion	1	1	0.0	autumn_2024·פרק2·ש12·אפשרות 2	miss
+שמשייה	שמשייה	analogy	1	1	5.0	summer_2022·פרק2·ש5·מסיח 4	close:משה
+שן	שן	analogy	1	1	4.0	spring_2022·פרק2·ש4·מסיח 4	miss
+שנדב	שנדב	completion	1	1	0.0	autumn_2025·פרק1·ש11·אפשרות 4	miss
+שנהוג	שנהוג	completion	1	1	0.0	summer_2022·פרק2·ש15·אפשרות 4	miss
+שנוי במחלוקת	שנוי במחלוקת	analogy	1	1	5.0	spring_2023·פרק2·ש5·רגל	close:מחל
+שנוסע	שנוסע	completion	1	1	0.0	2020_summer·פרק2·ש12·אפשרות 3	miss
+שנעשו	שנעשו	completion	1	1	0.0	2020_winter·פרק2·ש11·אפשרות 2	miss
+שסופה	שסופה	completion	1	1	0.0	autumn_2021·פרק2·ש12·אפשרות 4	miss
+שעון יד	שעון יד	analogy	1	1	1.0	winter_2023·פרק2·ש1·מסיח 4	miss
+שעון קיר	שעון קיר	analogy	1	1	1.0	winter_2023·פרק2·ש1·מסיח 4	miss
+שעמם	שעמם	analogy	1	1	5.0	2019_spring·פרק2·ש5·לא-זוהה	close:עממ
+שעסקיהם	שעסקיהם	completion	1	1	0.0	2019_spring·פרק2·ש13·אפשרות ?	miss
+שפגע	שפגע	completion	1	1	0.0	autumn_2023·פרק1·ש13·אפשרות 4	miss
+שפך	שפך	analogy	1	1	2.0	summer_2025·פרק1·ש2·מסיח 2	miss
+שפשע	שפשע	completion	1	1	0.0	spring_2025·פרק1·ש12·אפשרות 3	miss
+שציון	שציון	completion	1	1	0.0	summer_2024·פרק2·ש10·אפשרות 4	miss
+שצר	שצר	completion	1	1	0.0	summer_2023·פרק2·ש16·אפשרות 1	miss
+שקט	שקט	completion	1	1	0.0	spring_2023·פרק1·ש12·אפשרות 3	miss
+שקיפות	שקיפות	analogy	1	1	3.0	summer_2023·פרק2·ש3·רגל	close:שקפ
+שקר	שקר	completion	1	1	0.0	2020_summer·פרק2·ש11·אפשרות 3	miss
+שקראו	שקראו	completion	1	1	0.0	2020_winter·פרק2·ש10·אפשרות 3	miss
+שקרוב	שקרוב	completion	1	1	0.0	2020_summer·פרק2·ש12·אפשרות 2	miss

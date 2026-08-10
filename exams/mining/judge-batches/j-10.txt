@@ -1,0 +1,80 @@
+האוויר	האוויר	completion	1	1	0.0	spring_2024·פרק1·ש17·אפשרות 3	miss
+האופן	האופן	completion	1	1	0.0	2020_autumn·פרק1·ש12·אפשרות 2	miss
+האי	האי	completion	1	1	0.0	2020_autumn·פרק2·ש16·אפשרות 3	miss
+האידיאלית	האידיאלית	completion	1	1	0.0	spring_2024·פרק2·ש11·אפשרות 4	miss
+האיזון	האיזון	completion	1	1	0.0	spring_2025·פרק2·ש16·אפשרות 3	miss
+האין	האין	completion	1	1	0.0	2020_winter·פרק2·ש11·אפשרות 1	miss
+האכיל	האכיל	analogy	1	1	3.0	spring_2022·פרק1·ש3·מסיח 2	close:אכל
+האלינדית	האלינדית	completion	1	1	0.0	summer_2021·פרק1·ש11·אפשרות 4	miss
+האשים	האשים	analogy	1	1	2.0	2020_autumn·פרק1·ש2·מסיח 2	close:אשמ
+האשמה	האשמה	analogy	1	1	6.0	summer_2025·פרק2·ש6·מסיח 4	close:אשמ
+הבא	הבא	completion	1	1	0.0	spring_2023·פרק1·ש13·אפשרות 4	miss
+הבבונג	הבבונג	completion	1	1	0.0	summer_2022·פרק2·ש16·אפשרות 4	miss
+הבהוב	הבהוב	analogy	1	1	2.0	summer_2023·פרק1·ש2·רגל	miss
+הבוגר	הבוגר	completion	1	1	0.0	autumn_2025·פרק2·ש?·אפשרות 4	miss
+הבטחה	הבטחה	analogy	1	1	6.0	autumn_2024·פרק2·ש6·מסיח 3	close:בטח
+הבטיח	הבטיח	analogy	1	1	3.0	2019_spring·פרק1·ש3·לא-זוהה	close:בטח
+הביט	הביט	analogy	1	1	1.0	2020_winter·פרק1·ש1·מסיח 4	miss
+הבינה	הבינה	completion	1	1	0.0	summer_2023·פרק2·ש16·אפשרות 4	miss
+הביצות	הביצות	completion	1	1	0.0	spring_2023·פרק2·ש8·אפשרות 4	miss
+הבנת	הבנת	completion	1	1	0.0	autumn_2025·פרק2·ש?·אפשרות 1	miss
+הברה	הברה	analogy	1	1	6.0	summer_2024·פרק2·ש6·רגל	miss
+הבריא	הבריא	completion	1	1	0.0	summer_2022·פרק2·ש15·אפשרות 3	miss
+הג	הג	completion	1	1	0.0	spring_2025·פרק1·ש12·אפשרות 3	miss
+הגיע לפרקו	הגיע לפרקו	analogy	1	1	6.0	2020_summer·פרק2·ש6·מסיח 1	close:פרק
+הדבקה	הדבקה	analogy	1	1	1.0	2020_autumn·פרק1·ש1·מסיח 2	close:דבק
+הדגה	הדגה	completion	1	1	0.0	spring_2024·פרק2·ש9·אפשרות 3	miss
+הדגש	הדגש	completion	1	1	0.0	summer_2025·פרק1·ש16·אפשרות 1	miss
+הדיג	הדיג	completion	1	1	0.0	2020_autumn·פרק2·ש16·אפשרות 1	miss
+הדיר את רגליו	הדיר את רגליו	analogy	1	1	5.0	summer_2021·פרק2·ש5·רגל	close:הדיר
+הדלקה	הדלקה	analogy	1	1	2.0	summer_2023·פרק2·ש2·מסיח 2	close:דלק
+הדרגה	הדרגה	analogy	1	1	6.0	summer_2021·פרק1·ש6·מסיח 1	close:הדר
+הדשא	הדשא	completion	1	1	0.0	summer_2021·פרק2·ש10·אפשרות 2	miss
+הדתי	הדתי	completion	1	1	0.0	summer_2023·פרק1·ש9·אפשרות 4	miss
+ההאזנה	ההאזנה	completion	1	1	0.0	winter_2023·פרק1·ש11·אפשרות 4	miss
+ההווה	ההווה	completion	1	1	0.0	autumn_2025·פרק2·ש?·אפשרות 1	miss
+ההוצאות	ההוצאות	completion	1	1	0.0	spring_2023·פרק1·ש13·אפשרות 4	miss
+ההיסטוריה	ההיסטוריה	completion	1	1	0.0	autumn_2024·פרק2·ש14·אפשרות 1	miss
+ההיסטוריון	ההיסטוריון	completion	1	1	0.0	summer_2022·פרק2·ש15·אפשרות 4	miss
+ההישגי	ההישגי	completion	1	1	0.0	winter_2022·פרק2·ש13·אפשרות 4	miss
+ההפרה	ההפרה	completion	1	1	0.0	winter_2023·פרק1·ש12·אפשרות 3	miss
+הובס	הובס	analogy	1	1	6.0	winter_2023·פרק1·ש6·מסיח 3	miss
+הובסו	הובסו	completion	1	1	0.0	autumn_2023·פרק1·ש15·אפשרות 1	miss
+הודגש	הודגש	completion	1	1	0.0	spring_2025·פרק1·ש10·אפשרות 2	miss
+הודגשה	הודגשה	completion	1	1	0.0	spring_2025·פרק1·ש10·אפשרות 1	miss
+הודה	הודה	completion	1	1	0.0	autumn_2023·פרק2·ש15·אפשרות 2	miss
+הוחרב	הוחרב	analogy	1	1	6.0	winter_2022·פרק1·ש6·מסיח 3	close:חרב
+הוכה	הוכה	analogy	1	1	4.0	summer_2025·פרק1·ש4·מסיח 3	close:הכה
+הוכשל	הוכשל	analogy	1	1	6.0	winter_2022·פרק1·ש6·מסיח 2	close:כשל
+הוכתר	הוכתר	completion	1	1	0.0	winter_2022·פרק2·ש14·אפשרות 3	miss
+הוסיף	הוסיף	completion	1	1	0.0	summer_2024·פרק2·ש10·אפשרות 2	miss
+הוצאות	הוצאות	completion	1	1	0.0	spring_2023·פרק1·ש13·אפשרות 2	miss
+הוצאותיהם	הוצאותיהם	completion	1	1	0.0	spring_2025·פרק1·ש11·אפשרות 1	miss
+הוראתה	הוראתה	completion	1	1	0.0	summer_2021·פרק2·ש11·אפשרות 2	miss
+הורד	הורד	analogy	1	1	6.0	winter_2022·פרק1·ש6·רגל	miss
+הזדקק	הזדקק	analogy	1	1	3.0	autumn_2021·פרק1·ש3·מסיח 3	miss
+הזכיר	הזכיר	analogy	1	1	2.0	spring_2024·פרק1·ש2·מסיח 3	close:זכר
+הזמין	הזמין	analogy	1	1	4.0	autumn_2024·פרק2·ש4·מסיח 3	close:הזמנ
+הזעה	הזעה	analogy	1	1	1.0	autumn_2025·פרק1·ש1·מסיח 2	miss
+הזרוע	הזרוע	completion	1	1	0.0	autumn_2023·פרק1·ש13·אפשרות 2	miss
+הזרים	הזרים	completion	1	1	0.0	2019_spring·פרק1·ש14·אפשרות ?	miss
+החבוי	החבוי	completion	1	1	0.0	autumn_2023·פרק2·ש13·אפשרות 4	miss
+החברתיות	החברתיות	completion	1	1	0.0	autumn_2025·פרק2·ש?·אפשרות 3	miss
+החברתית	החברתית	completion	1	1	0.0	summer_2025·פרק2·ש7·אפשרות 1	miss
+החדשה	החדשה	completion	1	1	0.0	spring_2024·פרק1·ש17·אפשרות 1	miss
+החוף	החוף	completion	1	1	0.0	spring_2024·פרק2·ש9·אפשרות 1	miss
+החופים	החופים	completion	1	1	0.0	2020_autumn·פרק2·ש16·אפשרות 2	miss
+החושפים	החושפים	completion	1	1	0.0	spring_2023·פרק2·ש7·אפשרות 4	miss
+החי	החי	completion	1	1	0.0	spring_2024·פרק2·ש9·אפשרות 1	miss
+החלטתה	החלטתה	completion	1	1	0.0	summer_2023·פרק2·ש16·אפשרות 2	miss
+החמור	החמור	completion	1	1	0.0	autumn_2025·פרק1·ש11·אפשרות 1	miss
+החמיא	החמיא	analogy	1	1	3.0	autumn_2021·פרק1·ש3·מסיח 4	miss
+החרמה	החרמה	analogy	1	1	3.0	2020_spring·פרק2·ש3·מסיח 4	close:רמה
+החשובות	החשובות	completion	1	1	0.0	summer_2022·פרק1·ש9·אפשרות 1	miss
+הטכניים	הטכניים	completion	1	1	0.0	summer_2022·פרק1·ש9·אפשרות 3	miss
+היבטים	היבטים	completion	1	1	0.0	summer_2022·פרק1·ש9·אפשרות 4	miss
+היחיד	היחיד	completion	1	1	0.0	autumn_2025·פרק2·ש?·אפשרות 2	miss
+היחידים	היחידים	completion	1	1	0.0	2019_spring·פרק1·ש14·אפשרות ?	miss
+היינו	היינו	completion	1	1	0.0	2020_spring·פרק1·ש11·אפשרות 3	miss
+היכל	היכל	analogy	1	1	2.0	2019_spring·פרק2·ש2·לא-זוהה	miss
+היכרותי	היכרותי	completion	1	1	0.0	summer_2024·פרק1·ש16·אפשרות 4	miss

@@ -1,0 +1,80 @@
+טובות	טובות	completion	2	2	0.0	autumn_2025·פרק1·ש10·אפשרות 1 ; summer_2024·פרק2·ש11·אפשרות 2	miss
+טען	טען	analogy+completion	2	2	5.0	summer_2023·פרק1·ש10·אפשרות 4 ; 2020_summer·פרק2·ש5·מסיח 2	miss
+יבש	יבש	analogy+completion	2	2	2.0	winter_2023·פרק1·ש2·מסיח 4 ; 2020_spring·פרק1·ש9·אפשרות 4	miss
+יכולת	יכולת	analogy	2	2	4.5	2019_spring·פרק2·ש6·לא-זוהה ; 2020_summer·פרק2·ש3·מסיח 1	miss
+יקב	יקב	analogy	2	2	6.0	summer_2023·פרק2·ש6·מסיח 2 ; 2020_spring·פרק1·ש6·רגל	miss
+ירוקים	ירוקים	completion	2	2	0.0	spring_2023·פרק1·ש13·אפשרות 4 ; summer_2022·פרק1·ש10·אפשרות 1	miss
+ירק	ירק	analogy	2	2	3.5	autumn_2021·פרק1·ש4·מסיח 3 ; autumn_2025·פרק1·ש3·מסיח 3	miss
+כאילו	כאילו	completion	2	2	0.0	autumn_2023·פרק2·ש13·אפשרות 3 ; summer_2024·פרק2·ש10·אפשרות 1	miss
+כאן	כאן	analogy	2	2	4.5	autumn_2021·פרק2·ש6·רגל ; 2019_winter·פרק1·ש3·מסיח 2	miss
+כבוי	כבוי	analogy	2	2	1.5	autumn_2021·פרק1·ש2·מסיח 2 ; 2019_winter·פרק2·ש1·מסיח 3	miss
+כוכבה	כוכבה	completion	2	2	0.0	autumn_2023·פרק1·ש15·אפשרות 1 ; summer_2026·פרק2·ש13·אפשרות 4	miss
+כועס	כועס	analogy	2	2	3.5	summer_2021·פרק1·ש5·מסיח 3 ; 2020_spring·פרק1·ש2·מסיח 1	miss
+כורם	כורם	analogy	2	2	4.5	autumn_2025·פרק2·ש3·מסיח 4 ; 2020_spring·פרק1·ש6·רגל	miss
+כותב	כותב	analogy+completion	2	2	4.0	spring_2023·פרק2·ש4·מסיח 1 ; winter_2022·פרק2·ש13·אפשרות 3	miss
+כריכה	כריכה	analogy	2	2	4.5	spring_2023·פרק1·ש5·מסיח 2 ; 2019_winter·פרק2·ש4·מסיח 3	close:כרכ
+לגהץ	לגהץ	analogy	2	2	2.0	2019_winter·פרק2·ש2·מסיח 3 ; 2020_winter·פרק1·ש2·מסיח 4	miss
+לגור	לגור	analogy	2	2	2.5	autumn_2025·פרק2·ש3·מסיח 3 ; 2020_spring·פרק2·ש2·רגל	miss
+לגייס	לגייס	analogy+completion	2	2	5.0	autumn_2025·פרק1·ש11·אפשרות 1 ; 2019_winter·פרק1·ש5·מסיח 3	miss
+לגנוב	לגנוב	analogy	2	2	2.5	spring_2025·פרק1·ש3·מסיח 2 ; summer_2021·פרק1·ש2·מסיח 2	miss
+לדוג	לדוג	analogy+completion	2	2	3.0	spring_2024·פרק2·ש9·אפשרות 2 ; summer_2022·פרק2·ש3·רגל	miss
+לדווח	לדווח	analogy	2	2	4.5	autumn_2023·פרק2·ש6·מסיח 2 ; 2020_winter·פרק2·ש3·רגל	miss
+לדחות	לדחות	completion	2	2	0.0	summer_2023·פרק2·ש16·אפשרות 3 ; 2020_spring·פרק1·ש10·אפשרות 1	miss
+להבחין	להבחין	analogy	2	2	2.0	autumn_2023·פרק1·ש1·מסיח 4 ; 2020_autumn·פרק2·ש3·רגל	miss
+להבנת	להבנת	completion	2	2	0.0	autumn_2025·פרק2·ש?·אפשרות 1 ; spring_2023·פרק2·ש7·אפשרות 2	miss
+להוכיח	להוכיח	analogy+completion	2	2	6.0	autumn_2023·פרק2·ש13·אפשרות 4 ; 2020_autumn·פרק1·ש6·רגל	miss
+להושיט	להושיט	completion	2	2	0.0	2019_spring·פרק2·ש13·אפשרות ? ; 2020_spring·פרק1·ש11·אפשרות 4	miss
+להזיק	להזיק	completion	2	2	0.0	autumn_2024·פרק1·ש15·אפשרות 3 ; 2020_spring·פרק2·ש7·אפשרות 1	miss
+להחליט	להחליט	analogy+completion	2	2	5.0	autumn_2021·פרק2·ש5·מסיח 2 ; winter_2023·פרק1·ש11·אפשרות 4	miss
+להחליק	להחליק	analogy	2	2	2.0	2020_summer·פרק2·ש2·מסיח 3 ; 2020_winter·פרק1·ש2·מסיח 4	close:חלק
+להחמיא	להחמיא	analogy	2	2	2.5	spring_2024·פרק2·ש2·מסיח 3 ; 2020_winter·פרק2·ש3·מסיח 3	miss
+להיזהר	להיזהר	analogy	2	2	4.0	spring_2022·פרק2·ש3·מסיח 3 ; 2020_autumn·פרק2·ש5·מסיח 3	close:זהר
+להלשין	להלשין	analogy	2	2	4.0	spring_2025·פרק2·ש5·רגל ; 2020_winter·פרק2·ש3·רגל	miss
+להמליח	להמליח	analogy	2	2	3.0	autumn_2021·פרק2·ש4·מסיח 3 ; 2019_winter·פרק1·ש2·מסיח 4	close:מלח
+להסביר	להסביר	analogy	2	2	1.0	spring_2024·פרק2·ש1·רגל ; 2019_winter·פרק2·ש1·מסיח 1	close:סבר
+להעיד	להעיד	completion	2	2	0.0	winter_2022·פרק2·ש12·אפשרות 4 ; 2020_winter·פרק2·ש9·אפשרות 1	miss
+להעלות	להעלות	completion	2	2	0.0	summer_2025·פרק2·ש9·אפשרות 4 ; 2020_autumn·פרק1·ש14·אפשרות 2	miss
+להפחיד	להפחיד	analogy	2	2	1.5	autumn_2025·פרק2·ש1·מסיח 4 ; 2019_winter·פרק1·ש2·מסיח 2	close:הפח
+להפסיק	להפסיק	completion	2	2	0.0	summer_2023·פרק2·ש17·אפשרות 3 ; winter_2022·פרק2·ש14·אפשרות 2	miss
+להקשיב	להקשיב	analogy	2	2	3.0	spring_2022·פרק2·ש3·מסיח 2 ; 2020_winter·פרק2·ש3·מסיח 1	close:להק
+להשמיץ	להשמיץ	analogy+completion	2	2	3.0	autumn_2021·פרק1·ש11·אפשרות 3 ; 2020_winter·פרק2·ש3·מסיח 3	close:שמצ
+להשקות	להשקות	analogy	2	2	3.0	winter_2022·פרק1·ש3·מסיח 3 ; 2019_spring·פרק2·ש3·לא-זוהה	close:שקת
+להתבצע	להתבצע	analogy+completion	2	2	6.0	autumn_2024·פרק2·ש6·מסיח 1 ; winter_2022·פרק1·ש7·אפשרות 3	close:בצע
+להתוודות	להתוודות	analogy+completion	2	2	5.0	spring_2025·פרק2·ש5·רגל ; 2019_winter·פרק1·ש13·אפשרות ?	miss
+לומר	לומר	completion	2	2	0.0	winter_2023·פרק1·ש11·אפשרות 4 ; 2020_summer·פרק2·ש11·אפשרות 3	miss
+לחלוטין	לחלוטין	completion	2	2	0.0	spring_2023·פרק1·ש13·אפשרות 1 ; summer_2024·פרק2·ש10·אפשרות 4	miss
+לחם	לחם	analogy	2	2	2.5	autumn_2021·פרק1·ש1·מסיח 1 ; 2020_autumn·פרק2·ש4·מסיח 4	close:לחמ
+לחפש	לחפש	completion	2	2	0.0	spring_2025·פרק2·ש15·אפשרות 2 ; 2019_spring·פרק1·ש13·אפשרות ?	miss
+לחשוב	לחשוב	completion	2	2	0.0	spring_2025·פרק1·ש12·אפשרות 2 ; summer_2022·פרק2·ש15·אפשרות 4	miss
+לייצר	לייצר	completion	2	2	0.0	spring_2025·פרק2·ש16·אפשרות 3 ; summer_2025·פרק2·ש9·אפשרות 4	miss
+לישון	לישון	analogy	2	2	2.0	autumn_2023·פרק1·ש2·מסיח 1 ; summer_2024·פרק1·ש2·מסיח 4	miss
+ללמוד	ללמוד	analogy+completion	2	2	1.0	autumn_2025·פרק2·ש?·אפשרות 3 ; spring_2024·פרק1·ש1·מסיח 4	close:למד
+למרבה	למרבה	completion	2	2	0.0	autumn_2024·פרק2·ש13·אפשרות 2 ; winter_2022·פרק2·ש12·אפשרות 4	miss
+לנגן	לנגן	analogy+completion	2	2	2.0	2020_autumn·פרק2·ש17·אפשרות 1 ; 2020_summer·פרק2·ש2·מסיח 1	miss
+לנסר	לנסר	analogy	2	2	2.5	autumn_2021·פרק2·ש4·מסיח 4 ; 2020_spring·פרק1·ש1·רגל	close:נסר
+לסרב	לסרב	analogy+completion	2	2	5.0	summer_2026·פרק1·ש9·אפשרות 2 ; 2020_autumn·פרק2·ש5·מסיח 2	miss
+לפגוע	לפגוע	analogy+completion	2	2	5.0	autumn_2021·פרק2·ש12·אפשרות 1 ; autumn_2024·פרק1·ש5·מסיח 2	miss
+לפרש	לפרש	analogy+completion	2	2	4.0	summer_2023·פרק1·ש9·אפשרות 4 ; summer_2024·פרק1·ש4·מסיח 4	close:פרש
+לצחוק	לצחוק	analogy	2	2	2.0	summer_2026·פרק2·ש2·מסיח 1 ; 2020_winter·פרק1·ש2·מסיח 1	miss
+לצמצם	לצמצם	completion	2	2	0.0	spring_2025·פרק1·ש11·אפשרות 1 ; winter_2023·פרק1·ש10·אפשרות 2	miss
+לצפות	לצפות	analogy+completion	2	2	2.0	summer_2025·פרק2·ש7·אפשרות 4 ; 2020_spring·פרק2·ש2·מסיח 2	miss
+לקחת	לקחת	analogy	2	2	3.0	spring_2025·פרק1·ש3·מסיח 2 ; 2020_winter·פרק2·ש3·מסיח 2	close:לקח
+לקטוף	לקטוף	analogy	2	2	3.5	autumn_2025·פרק2·ש4·מסיח 1 ; summer_2022·פרק2·ש3·מסיח 2	close:לקט
+לקיים	לקיים	analogy+completion	2	2	6.0	autumn_2024·פרק2·ש6·מסיח 3 ; winter_2023·פרק1·ש12·אפשרות 1	miss
+לשבור	לשבור	analogy	2	2	3.0	autumn_2024·פרק1·ש5·מסיח 1 ; 2019_winter·פרק2·ש1·מסיח 2	close:שבר
+לשמש	לשמש	completion	2	2	0.0	summer_2026·פרק1·ש8·אפשרות 1 ; winter_2022·פרק1·ש7·אפשרות 1	miss
+לשתוק	לשתוק	analogy	2	2	3.5	autumn_2025·פרק2·ש4·מסיח 4 ; winter_2022·פרק1·ש3·מסיח 2	miss
+לתפור	לתפור	analogy	2	2	2.5	winter_2022·פרק1·ש3·רגל ; 2020_summer·פרק2·ש2·מסיח 4	miss
+לתת	לתת	analogy+completion	2	2	3.0	spring_2025·פרק1·ש3·מסיח 4 ; 2020_summer·פרק2·ש12·אפשרות 4	miss
+מאפה	מאפה	analogy	2	2	2.5	summer_2022·פרק2·ש3·מסיח 1 ; 2019_spring·פרק2·ש2·לא-זוהה	miss
+מאפייה	מאפייה	analogy	2	2	2.5	autumn_2021·פרק1·ש1·מסיח 1 ; 2020_autumn·פרק2·ש4·מסיח 4	miss
+מבין	מבין	completion	2	2	0.0	spring_2024·פרק1·ש16·אפשרות 4 ; spring_2025·פרק2·ש15·אפשרות 2	miss
+מגבת	מגבת	analogy	2	2	1.5	winter_2022·פרק1·ש1·רגל ; winter_2023·פרק1·ש2·מסיח 4	miss
+מגהץ	מגהץ	analogy	2	2	2.0	winter_2023·פרק1·ש2·רגל ; 2019_winter·פרק2·ש2·מסיח 3	miss
+מהימן	מהימן	analogy+completion	2	2	4.0	summer_2024·פרק1·ש4·רגל ; 2020_summer·פרק2·ש11·אפשרות 3	miss
+מודאג	מודאג	analogy+completion	2	2	6.0	autumn_2025·פרק1·ש6·מסיח 4 ; 2020_autumn·פרק2·ש15·אפשרות 1	miss
+מוטב	מוטב	completion	2	2	0.0	summer_2023·פרק2·ש15·אפשרות 4 ; summer_2026·פרק2·ש14·אפשרות 3	miss
+מוכן	מוכן	completion	2	2	0.0	summer_2023·פרק1·ש9·אפשרות 2 ; 2020_spring·פרק2·ש8·אפשרות 1	miss
+מוכר	מוכר	analogy	2	2	4.0	autumn_2021·פרק1·ש2·מסיח 3 ; 2020_spring·פרק1·ש6·מסיח 2	miss
+מוצלח	מוצלח	analogy+completion	2	2	5.0	summer_2026·פרק1·ש5·מסיח 4 ; winter_2022·פרק2·ש12·אפשרות 1	close:צלח
+מושלם	מושלם	analogy	2	2	3.0	winter_2023·פרק2·ש5·מסיח 4 ; 2019_spring·פרק1·ש1·רגל	close:משל
