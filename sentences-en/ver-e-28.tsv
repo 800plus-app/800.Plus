@@ -1,0 +1,80 @@
+improvise	OK
+in a word	OK
+in contrast to	OK
+in favor of	OK
+in spite of	OK
+inactivity	OK
+inclusive	OK
+index	OK
+indicate	OK
+inexpensive	OK
+influential	OK
+inject	OK
+injure	OK
+innovative	OK
+insert	OK
+insist	OK
+instruction	OK
+integrate	OK
+interest	OK
+interface	OK
+inventor	OK
+investing	FIX	He is investing his savings in real estate and technology startups.	"into" should be "in"
+investor	FIX	Every investor wants high returns with minimal risk on their capital.	"risk from" should be "risk on"
+involve	FIX	This project will involve all departments working together throughout the month.	"for next month" is awkward phrasing
+jog	OK
+joint	OK
+joyous	OK
+judgment	FIX	The court's judgment about the case was fair and legally sound.	"judge's judgment" is tautological
+just	OK
+lane	OK
+launch	OK
+league	FIX	An ancient league was approximately three miles long.	Demonstrates wrong sense (sports league, not unit of length)
+legalize	OK
+lend	OK
+lengthy	OK
+leopard	OK
+limitation	OK
+linguistic	OK
+literal	OK
+lobby	OK
+loudspeaker	OK
+luggage	OK
+lyric	OK
+magnificent	OK
+mailman	OK
+maintain	OK
+mandate	OK
+manner	OK
+manners	OK
+marine	OK
+mathematician	OK
+mayor	OK
+memorial	OK
+memorize	OK
+midair	OK
+migrate	OK
+migration	OK
+minority	OK
+modernize	OK
+modify	OK
+monk	OK
+monumental	OK
+mountainside	OK
+narcotic	OK
+narrative	OK
+nationality	OK
+negotiate	OK
+noble	OK
+nominated	OK
+not to mention	OK
+novel	OK
+objection	OK
+occasion	OK
+occur	OK
+octopus	OK
+odd	FIX	That painting looks odd because the colors do not match well together.	"harmoniously together" is redundant
+old-fashioned	OK
+on the contrary	OK
+once in a while	OK
+onion	OK
