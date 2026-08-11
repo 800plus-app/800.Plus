@@ -209,6 +209,18 @@ describe('השלמת משפטים · מסך בחירת התרגול', () => {
       'מסך עם אפשרות אחת.');
   });
 
+  test('navTo מצייר את מסך הבחירה מחדש — הוא מסך מונים', () => {
+    /* ⛔ באג שנמדד בדפדפן ב-11.8: אנגלית → בחירת תרגול → סבב של עשר → "אחורה"
+       של המערכת, והמסך הציג "0 נפתרו · 0%" אחרי שעשרה נפתרו. `navTo` צייר מחדש
+       רק `home` ו-`scope`, ו-`mode` נפל דרך ל-goto בלי ציור.
+       ⚠ אף שער לא תפס את זה: הבדיקות בדקו שהמסך קיים ושהניתוב מגיע אליו, ולא
+       שהוא **מעודכן** כשמגיעים אליו דרך ההיסטוריה. */
+    const fn = app.slice(app.indexOf('function navTo('));
+    const body = fn.slice(0, fn.indexOf('\n}') + 2);
+    assert.match(body, /id==='mode'.*renderMode\(\)/s,
+      "navTo אינו מצייר מחדש את mode. חזרה דרך 'אחורה' תציג מספרים ישנים.");
+  });
+
   test('"חזרה" מדף הבית עולה שלב אחד באנגלית', () => {
     const fn = app.slice(app.indexOf("$('#switchLang').onclick"));
     const body = fn.slice(0, fn.indexOf('};') + 2);
@@ -264,14 +276,78 @@ describe('השלמת משפטים · מעקב ההתקדמות', () => {
       'ok אינו נחסם ל-n. שורה פגומה מהענן הייתה מפיקה אחוז שליטה מעל 100.');
   });
 
+  test('רשומה פגומה אינה מפילה את הסבב', () => {
+    /* ⛔ באג שנמצא בציד ב-11.8 והרג את הסבב בלחיצה: `sentProg` הגן על המפה ולא על
+       הרשומות שבתוכה, ולכן `e.n++` על מחרוזת זרק במצב strict — מתוך `answerSent`,
+       **לפני** סימון התשובה ולפני פתיחת ההסבר. הלומד לחץ, ולא קרה כלום.
+       ההגנה הזאת כבר הייתה קיימת ב-applyExtras ונשכחה כאן. */
+    const fn = app.slice(app.indexOf('function sentRecord('));
+    const body = fn.slice(0, fn.indexOf('\n}') + 2);
+    assert.match(body, /saneSentRec\(p\[src\]\)/,
+      'sentRecord אינו מנרמל את הרשומה. רשומה פגומה תזרוק ותקפיא את הסבב.');
+    assert.match(body, /if \(e\.ok > e\.n\) e\.ok = e\.n/,
+      'ok אינו נחסם ל-n גם בכתיבה המקומית.');
+    /* ⛔ והכי חשוב כאן: **השם**. `saneRec` כבר קיים ב-app.js ומנקה את רשומות
+       המילים (seen/first/ever/wrong/level). הכרזה שנייה באותו שם דורסת אותו בזמן
+       ריצה, וכל רשומת מילה הייתה עוברת דרך המנקה של המשפטים ומאבדת את כל שדותיה.
+       חבילת הבדיקות היא שתפסה את זה ("declares function saneRec 2 times"), ולא
+       קריאת קוד. */
+    assert.strictEqual((app.match(/^function saneRec\(/gm) || []).length, 1,
+      'saneRec מוכרז יותר מפעם אחת. ההכרזה השנייה דורסת את הראשונה ומוחקת את ' +
+      'נירמול רשומות המילים.');
+    assert.match(app, /function saneSentRec\(/,
+      'המנקה של המשפטים חייב שם נפרד מזה של המילים.');
+  });
+
+  test('רשומה שאינה שפויה מנורמלת בקריאה, ולא בכל אתר שימוש', () => {
+    /* ⚠ שני ממצאי ציד נבעו מאותו שורש: רשומה עם n שלילי או שאינו מספר לא נכנסה
+       לאף אחת משלוש קבוצות העדיפות, ולכן הפריט **יצא מהרוטציה לנצח** והוצג כאילו
+       נענה; ורשומה עם ok גדול מ-n הפיקה 100%. */
+    const fn = app.slice(app.indexOf('function saneSentRec('));
+    const body = fn.slice(0, fn.indexOf('\n}') + 2);
+    assert.match(body, /Math\.max\(0/, 'n אינו נחסם מלמטה — ערך שלילי ישרוד.');
+    assert.match(body, /Math\.min\(n/, 'ok אינו נחסם ל-n.');
+    const pf = app.slice(app.indexOf('function sentProg('));
+    assert.match(pf.slice(0, 900), /saneSentRec\(raw\[k\]\)/,
+      'sentProg מחזיר את המפה בלי לנרמל את הרשומות שבתוכה.');
+  });
+
+  test('כל תג המשתמש נכתב יחד, כולל זה של מסך הבחירה', () => {
+    /* ⚠ נמצא בציד: setBadges עדכן שני תגים משלושה, ותג מסך הבחירה נשאר ריק אחרי
+       שינוי שם. התיעוד שם אומר במפורש שהם נכתבים יחד. */
+    const fn = app.slice(app.indexOf('function setBadges('));
+    const body = fn.slice(0, fn.indexOf('\n}') + 2);
+    for (const id of ['#userBadge', '#userBadgeW', '#userBadgeM'])
+      assert.ok(body.includes(id), `setBadges אינו מעדכן ${id}.`);
+  });
+
+  test('כל כפתור במסך הבחירה מחובר', () => {
+    /* ⛔ נמצא בציד: #userBadge4 נשא aria-label "החשבון שלי" ובלי מאזין. קורא מסך
+       הכריז לחצן, הלחיצה לא עשתה כלום. גרוע מכפתור חסר, שאינו מבטיח דבר. */
+    for (const id of ['modeBack', 'setBtnM', 'userBadge4'])
+      assert.match(app, new RegExp(`\\$\\('#${id}'\\)\\.onclick`),
+        `#${id} מופיע ב-HTML ואין לו מאזין ב-app.js.`);
+  });
+
+  test('קובץ הנתונים נטען ברקע רק למי שכבר תרגל', () => {
+    /* ⚠ נמצא בציד: הגרסה הראשונה הורידה 191KB בכל כניסה לאנגלית, גם למי שבא
+       לתרגל מילים בלבד. */
+    const fn = app.slice(app.indexOf('async function renderMode('));
+    const body = fn.slice(0, fn.indexOf('\n}') + 2);
+    assert.match(body, /hasHistory/,
+      'renderMode טוען את קובץ הנתונים לכל נכנס — 191KB למי שלא נוגע בתרגול.');
+  });
+
   test('התשובה נרשמת ומתוזמנת לסנכרון, בלי דחיפה לכל תשובה', () => {
     const fn = app.slice(app.indexOf('function sentRecord('));
     const body = fn.slice(0, fn.indexOf('\n}') + 2);
     assert.match(body, /queueRemoteSync\(\)/, 'התשובה אינה מסומנת לסנכרון כלל.');
     assert.ok(!/flushRemoteSync/.test(body),
       'דחיפה מיידית לכל תשובה — עשר קריאות רשת בסבב אחד במקום אחת.');
+    /* ⚠ היה `slice(0, 1400)` — מספר קסם. הוספת בלוק לתוך הפונקציה דחפה את הקריאה
+       מעבר לחלון והבדיקה נכשלה על קוד תקין. חיתוך גוף הפונקציה אינו תלוי באורך. */
     const fin = app.slice(app.indexOf('function finishSentRound('));
-    assert.match(fin.slice(0, 1400), /flushRemoteSync/,
+    assert.match(fin.slice(0, fin.indexOf('\n}') + 2), /flushRemoteSync/,
       'סוף סבב חייב לכפות דחיפה: זו נקודה שבה הלומד עלול לסגור את הלשונית.');
   });
 });
