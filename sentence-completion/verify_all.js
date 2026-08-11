@@ -23,8 +23,12 @@ const steps = [
     need: /נדחו: 0/ },
   { name: 'שער הפורמט · הוכחת שיניים', cmd: ['sentence-completion/check_explain.js', '--selftest'], cwd: ROOT,
     need: /לשער יש שיניים/ },
+  /* ⚠ היה `t נכתב 204\/204`, מספר מקובע. הוא עבד בדיוק כל עוד הקורפוס היה בגודל
+     204, ונכשל ברגע שהוא **גדל** — כלומר השער התלונן על הצלחה. מספר קבוע בתוך שער
+     הוא תאריך תפוגה שאיש אינו רואה. הדרישה האמיתית היא ש-`t` יהיה מלא בכל הפריטים,
+     ולכן הביטוי דורש ששני המספרים יהיו זהים, יהיו אשר יהיו. */
   { name: 'שער הפורמט · g · t · r', cmd: ['sentence-completion/check_explain.js'], cwd: ROOT,
-    need: /t נכתב 204\/204[\s\S]*✅/ },
+    need: /t נכתב (\d+)\/\1 \(100%\)[\s\S]*r מלא (\d+)\/\2 \(100%\)[\s\S]*✅/ },
   { name: 'שער הפריטים', cmd: ['sentence-completion/check_sentences.js'], cwd: ROOT,
     env: { SENT_FILE: 'sentences-en-v3.js' }, need: /0 כשלים[\s\S]*✅ השער עבר/ },
   { name: 'מילות הקישור מול סוג ההיגיון', cmd: ['sentence-completion/check_connectives.js'], cwd: ROOT,

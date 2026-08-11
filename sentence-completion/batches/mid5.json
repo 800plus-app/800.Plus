@@ -1,0 +1,437 @@
+[
+ {
+  "s": "Although three families live around the yard, no ___ came forward to say who had left the stolen bicycle by the gate.",
+  "o": ["witness", "victim", "suspect", "thief"],
+  "a": 0,
+  "k": "contrast",
+  "w": ["although"],
+  "g": ["witness = עד", "victim = קורבן", "suspect = חשוד", "thief = גנב"],
+  "t": "אף ששלוש משפחות גרות סביב החצר, שום **עד** לא בא ואמר מי השאיר את האופניים הגנובים ליד השער.",
+  "r": [
+   "witness הוא מי שראה את המעשה ויכול לספר מה קרה.",
+   "victim הוא מי שנפגע, והמשפט מחפש מי ראה ולא ממי נגנב.",
+   "suspect הוא מי שחושדים בו, ולא מי שמתנדב לספר.",
+   "thief הוא מי שגנב, והמשפט מחפש דווקא את מי שראה אותו."
+  ]
+ },
+ {
+  "s": "The coach cannot force any player to change his diet, so the note on the wall is ___ that each man is free to follow or to ignore.",
+  "o": ["advice", "command", "request", "threat"],
+  "a": 0,
+  "k": "cause",
+  "w": ["so"],
+  "g": ["advice = עצה", "command = פקודה", "request = בקשה", "threat = איום"],
+  "t": "המאמן אינו יכול לכפות על שחקן לשנות את התפריט שלו, ולכן הפתק על הקיר הוא **עצה** שכל אחד חופשי לקבל או להתעלם ממנה.",
+  "r": [
+   "advice היא המלצה שהמקבל חופשי לאמץ או לדחות, וזה בדיוק מה שהמשפט אומר.",
+   "command מחייבת ציות, והמשפט אומר שהמאמן אינו יכול לכפות דבר.",
+   "request היא בקשה שהמבקש עצמו מרוויח ממנה, ולא הנחיה לטובת השחקן.",
+   "threat מבטיחה נזק למי שלא יישמע, ואין במשפט שום עונש."
+  ]
+ },
+ {
+  "s": "The rangers tracked the wolf for three days, but the plan was never to shoot it, only to ___ it alive and move it to the reserve.",
+  "o": ["capture", "chase", "rescue", "release"],
+  "a": 0,
+  "k": "contrast",
+  "w": ["but"],
+  "g": ["capture = ללכוד", "chase = לרדוף", "rescue = להציל", "release = לשחרר"],
+  "t": "הפקחים עקבו אחרי הזאב שלושה ימים, אך התוכנית מעולם לא הייתה לירות בו אלא **ללכוד** אותו חי ולהעביר אותו לשמורה.",
+  "r": [
+   "capture הוא לתפוס חיה בלי להרוג אותה, וזה הצעד שנדרש לפני ההעברה לשמורה.",
+   "chase הוא המרדף עצמו, והוא כבר נמשך שלושה ימים.",
+   "rescue הוא הצלה מסכנה, והזאב אינו בסכנה במשפט.",
+   "release הוא לשחרר לחופשי, ואי אפשר לשחרר חיה שטרם נלכדה."
+  ]
+ },
+ {
+  "s": "The wet towel brings the fever down within an hour, yet the fever is only a ___ and the illness itself goes on.",
+  "o": ["symptom", "disease", "treatment", "stage"],
+  "a": 0,
+  "k": "contrast",
+  "w": ["yet"],
+  "g": ["symptom = סימפטום", "disease = מחלה", "treatment = טיפול", "stage = שלב"],
+  "t": "המגבת הרטובה מורידה את החום בתוך שעה, אך החום הוא רק **סימפטום** והמחלה עצמה נמשכת.",
+  "r": [
+   "symptom הוא סימן חיצוני של מחלה, והמשפט אומר במפורש שהחום אינו המחלה.",
+   "disease היא המחלה עצמה, והמשפט מבדיל בינה ובין החום.",
+   "treatment הוא הפעולה שנעשית, כלומר המגבת הרטובה ולא החום.",
+   "stage הוא שלב במהלך הזמן, והחום מופיע כאן כסימן ולא כפרק בתהליך."
+  ]
+ },
+ {
+  "s": "A second lamp is ___ in this dark stairway, and the inspector will not sign the paper until one is added.",
+  "o": ["necessary", "useful", "suitable", "available"],
+  "a": 0,
+  "k": "condition",
+  "w": ["until"],
+  "g": ["necessary = הכרחי", "useful = שימושי", "suitable = מתאים", "available = זמין"],
+  "t": "מנורה שנייה **הכרחית** בגרם המדרגות החשוך הזה, והמפקח לא יחתום על האישור עד שתותקן אחת.",
+  "r": [
+   "necessary הוא מה שאין ברירה בלעדיו, והמשפט אומר שבלי המנורה לא תהיה חתימה.",
+   "useful הוא מועיל אך לא חובה, והמפקח מציב את המנורה כתנאי.",
+   "suitable אומר שהמנורה מתאימה למקום, ולא שהיא נדרשת בו.",
+   "available אומר שהמנורה קיימת ופנויה, ולא שיש בה צורך."
+  ]
+ },
+ {
+  "s": "The lake looks still from the road, yet only its ___ is quiet: half a metre down the water moves fast toward the dam.",
+  "o": ["surface", "bottom", "core", "shell"],
+  "a": 0,
+  "k": "contrast",
+  "w": ["yet"],
+  "g": ["surface = פני שטח", "bottom = תחתית", "core = ליבה", "shell = מעטפת"],
+  "t": "מהכביש האגם נראה דומם, אך רק **פני השטח** שלו שקטים: חצי מטר מתחת המים נעים במהירות אל הסכר.",
+  "r": [
+   "surface הוא השכבה העליונה של המים, וזו השכבה היחידה ששקטה במשפט.",
+   "bottom היא התחתית, והמשפט אומר שדווקא למטה המים זורמים.",
+   "core היא הליבה הפנימית של גוף, ולא מה שרואים מהכביש.",
+   "shell היא מעטפת שעוטפת דבר, ולאגם אין מעטפת כזאת."
+  ]
+ },
+ {
+  "s": "Although the doctor can ___ the illness in a single morning, he cannot ___ it without a drug that the pharmacy no longer keeps.",
+  "o": [["recognize", "cure"], ["cure", "recognize"], ["recognize", "prevent"], ["describe", "cure"]],
+  "a": 0,
+  "k": "contrast",
+  "w": ["although"],
+  "g": [
+   "recognize = לזהות · cure = לרפא",
+   "cure = לרפא · recognize = לזהות",
+   "recognize = לזהות · prevent = למנוע",
+   "describe = לתאר · cure = לרפא"
+  ],
+  "t": "אף שהרופא יכול **לזהות** את המחלה בבוקר אחד, הוא אינו יכול **לרפא** אותה בלי תרופה שבית המרקחת אינו מחזיק עוד.",
+  "r": [
+   "recognize ואחריו cure: הזיהוי נעשה בבוקר אחד, והריפוי הוא שתלוי בתרופה החסרה.",
+   "הסדר הפוך: cure הוא שדורש את התרופה, ו-recognize אינו תלוי בה כלל.",
+   "recognize בפתיחה נכון, אך prevent הוא למנוע מראש, ואי אפשר למנוע מחלה שכבר פרצה.",
+   "describe בפתיחה חלש: המשפט מדבר על זיהוי המחלה ולא על תיאורה."
+  ]
+ },
+ {
+  "s": "Because a quiet talk with the same boy had already failed three times, the head teacher decided to ___ him for the broken window.",
+  "o": ["punish", "warn", "pardon", "judge"],
+  "a": 0,
+  "k": "cause",
+  "w": ["because"],
+  "g": ["punish = להעניש", "warn = להזהיר", "pardon = לחון", "judge = לשפוט"],
+  "t": "מכיוון ששיחה שקטה עם אותו נער כבר נכשלה שלוש פעמים, המנהל החליט **להעניש** אותו על החלון השבור.",
+  "r": [
+   "punish הוא להטיל עונש, וזה מה שנשאר אחרי שהדרך הרכה נוסתה שלוש פעמים.",
+   "warn הוא להזהיר, וזו בדיוק הדרך שכבר נכשלה.",
+   "pardon הוא לחון, וחנינה אינה מה שבוחרים אחרי כשלון חוזר.",
+   "judge הוא לשפוט, והמשפט אינו מטיל ספק בשאלה מי שבר את החלון."
+  ]
+ },
+ {
+  "s": "The workshop cannot silence its presses, so it has done all it can to ___ the noise: thick rubber under every machine and cork along the walls.",
+  "o": ["minimize", "maximize", "measure", "monitor"],
+  "a": 0,
+  "k": "cause",
+  "w": ["so"],
+  "g": ["minimize = למזער", "maximize = למקסם", "measure = למדוד", "monitor = להשגיח"],
+  "t": "בית המלאכה אינו יכול להשתיק את המכבשים לגמרי, ולכן עשה כל שביכולתו **למזער** את הרעש: גומי עבה מתחת לכל מכונה ושעם לאורך הקירות.",
+  "r": [
+   "minimize הוא להקטין עד כמה שאפשר, וזה מה שהגומי והשעם עושים לרעש.",
+   "maximize הוא להגדיל עד הקצה, וההיפך ממה שבית המלאכה מבקש.",
+   "measure הוא למדוד, וגומי מתחת למכונה אינו כלי מדידה.",
+   "monitor הוא להשגיח ולעקוב, והמשפט מתאר פעולה שמחלישה את הרעש עצמו."
+  ]
+ },
+ {
+  "s": "The little hall is full every Friday evening; moreover, the ___ that comes to hear the same singer on Saturday is larger still and people stand along the walls.",
+  "o": ["audience", "community", "party", "class"],
+  "a": 0,
+  "k": "addition",
+  "w": ["moreover"],
+  "g": ["audience = קהל", "community = קהילה", "party = מסיבה", "class = כיתה"],
+  "t": "האולם הקטן מלא בכל יום שישי בערב, ויותר מזה: ה**קהל** שבא לשמוע את אותו זמר בשבת גדול עוד יותר ואנשים עומדים לאורך הקירות.",
+  "r": [
+   "audience הוא הקהל שבא להאזין להופעה, וזה מה שממלא את האולם עד הקירות.",
+   "community היא קהילה שחיה יחד, ולא אוסף אנשים שבא לשמוע זמר.",
+   "party היא מסיבה או מפלגה, ולא מי שיושב ומאזין באולם.",
+   "class היא כיתת תלמידים, ואין במשפט שיעור או מורה."
+  ]
+ },
+ {
+  "s": "The bridge carries two lanes on the map, yet it is so ___ in the middle that two trucks cannot pass each other.",
+  "o": ["narrow", "flat", "thick", "tight"],
+  "a": 0,
+  "k": "contrast",
+  "w": ["yet"],
+  "g": ["narrow = צר", "flat = שטוח", "thick = עבה", "tight = צמוד"],
+  "t": "במפה הגשר נושא שני נתיבים, אך הוא כה **צר** באמצע ששתי משאיות אינן יכולות לחלוף זו על פני זו.",
+  "r": [
+   "narrow הוא צר מצד לצד, וזה מה שמונע משתי משאיות לעבור זו ליד זו.",
+   "flat הוא שטוח, ומשטח שטוח אינו מפריע למשאיות לעבור.",
+   "thick הוא עבה, כלומר מידה של עומק הגשר ולא של רוחבו.",
+   "tight מתאר צמידות בין שני דברים, ולא את רוחבו של גשר."
+  ]
+ },
+ {
+  "s": "The book has sold well in Hebrew for thirty years, yet the poet who was asked to ___ it for English readers refused: no second language holds the same sounds.",
+  "o": ["translate", "publish", "define", "adapt"],
+  "a": 0,
+  "k": "contrast",
+  "w": ["yet"],
+  "g": ["translate = לתרגם", "publish = לפרסם", "define = להגדיר", "adapt = לעבד"],
+  "t": "הספר נמכר היטב בעברית שלושים שנה, אך המשורר שהתבקש **לתרגם** אותו לקוראי אנגלית סירב: לשום שפה שנייה אין אותם צלילים.",
+  "r": [
+   "translate הוא להעביר טקסט לשפה אחרת, וזו הבקשה שהמשורר סירב לה.",
+   "publish הוא להוציא לאור, והספר יוצא לאור בעברית שלושים שנה.",
+   "define הוא להגדיר מונח, ולא להעביר שיר משפה לשפה.",
+   "adapt הוא לעבד את היצירה מחדש, והנימוק שניתן נוגע לצלילי המקור עצמם."
+  ]
+ },
+ {
+  "s": "The farm now grows twice as much fruit, so the old shed is used for ___ and the tractor stands outside in the rain.",
+  "o": ["storage", "delivery", "supply", "shelter"],
+  "a": 0,
+  "k": "cause",
+  "w": ["so"],
+  "g": ["storage = אחסון", "delivery = משלוח", "supply = אספקה", "shelter = מקלט"],
+  "t": "החווה מגדלת עכשיו פי שניים פרי, ולכן הסככה הישנה משמשת ל**אחסון** והטרקטור עומד בחוץ בגשם.",
+  "r": [
+   "storage הוא החזקת סחורה במקום סגור, וזה מה שהסככה משמשת עכשיו.",
+   "delivery הוא משלוח הפרי אל הקונה, ולא החזקתו בסככה.",
+   "supply היא האספקה שמגיעה, והמשפט עוסק במקום שבו הפרי נשמר.",
+   "shelter הוא מקלט מפני מזג האוויר, והטרקטור דווקא נשאר בגשם."
+  ]
+ },
+ {
+  "s": "The dam holds the water of the whole valley, so a single ___ in the stone is enough to empty the village below.",
+  "o": ["crack", "gap", "curve", "layer"],
+  "a": 0,
+  "k": "cause",
+  "w": ["so"],
+  "g": ["crack = סדק", "gap = פער", "curve = עקומה", "layer = שכבה"],
+  "t": "הסכר מחזיק את מי כל העמק, ולכן **סדק** אחד באבן מספיק כדי לרוקן את הכפר שמתחתיו.",
+  "r": [
+   "crack הוא שבר צר בחומר קשה, ודרכו המים פורצים מן הסכר.",
+   "gap הוא רווח בין שני דברים, ולא שבר בתוך האבן עצמה.",
+   "curve היא עקומה בצורת הסכר, ואינה פגם שמוציא מים.",
+   "layer היא שכבה של חומר, וסכר בנוי משכבות גם כשהוא שלם."
+  ]
+ },
+ {
+  "s": "The first line of the diary is dated 1774 and the last 1889, so more than a ___ separates the two men who wrote in it.",
+  "o": ["century", "generation", "period", "era"],
+  "a": 0,
+  "k": "cause",
+  "w": ["so"],
+  "g": ["century = מאה שנים", "generation = דור", "period = תקופה", "era = עידן"],
+  "t": "השורה הראשונה ביומן נושאת את התאריך 1774 והאחרונה 1889, ולכן יותר מ**מאה שנים** מפרידות בין שני האנשים שכתבו בו.",
+  "r": [
+   "century הוא מאה שנים, והפער בין 1774 ל-1889 גדול ממנה.",
+   "generation הוא דור אחד של אנשים, כשלושים שנה ולא יותר ממאה.",
+   "period הוא משך זמן בלי אורך קבוע, והמשפט נותן שני תאריכים מדויקים.",
+   "era הוא עידן בהיסטוריה, והוא נמדד בשינוי תרבות ולא במספר שנים."
+  ]
+ },
+ {
+  "s": "Because the fish spoils within a few hours, the boats ___ it in ice while still at sea and ___ it to the market before noon.",
+  "o": [["cover", "deliver"], ["deliver", "cover"], ["cover", "weigh"], ["carry", "deliver"]],
+  "a": 0,
+  "k": "cause",
+  "w": ["because"],
+  "g": [
+   "cover = לכסות · deliver = למסור",
+   "deliver = למסור · cover = לכסות",
+   "cover = לכסות · weigh = לשקול",
+   "carry = לסחוב · deliver = למסור"
+  ],
+  "t": "מפני שהדג מתקלקל בתוך שעות אחדות, הסירות **מכסות** אותו בקרח עוד בים ו**מוסרות** אותו לשוק לפני הצהריים.",
+  "r": [
+   "cover ואחריו deliver: הכיסוי בקרח נעשה עוד בים, והמסירה לשוק באה אחריו.",
+   "הסדר הפוך: deliver הוא מסירה לשוק, ואי אפשר למסור לשוק בעוד הסירות בים.",
+   "cover בפתיחה נכון, אך weigh הוא לשקול, והמשפט מדבר על הבאת הדגים לשוק.",
+   "carry הוא לסחוב, והדגים אינם נסחבים בקרח אלא מכוסים בו."
+  ]
+ },
+ {
+  "s": "Unless the buyer brings written ___ that he paid in cash, the shop will treat the television as still unpaid for.",
+  "o": ["proof", "claim", "statement", "description"],
+  "a": 0,
+  "k": "condition",
+  "w": ["unless"],
+  "g": ["proof = הוכחה", "claim = טענה", "statement = הצהרה", "description = תיאור"],
+  "t": "אם הקונה לא יביא **הוכחה** בכתב שהוא שילם במזומן, החנות תראה את הטלוויזיה כמכשיר שטרם שולם.",
+  "r": [
+   "proof הוא מסמך שמכריע את השאלה, וזה מה שהחנות דורשת כדי לסגור את החוב.",
+   "claim היא הטענה של הקונה, והיא בדיוק מה שנתון בספק.",
+   "statement היא הצהרה, וגם הצהרה בכתב אינה מוכיחה שהכסף שולם.",
+   "description הוא תיאור של מה שקרה, ותיאור אינו סוגר את השאלה."
+  ]
+ },
+ {
+  "s": "Unless the council fences the wall behind the market, the only ___ part of the town will be carried off stone by stone: those stones are nearly two thousand years old.",
+  "o": ["ancient", "previous", "recent", "primitive"],
+  "a": 0,
+  "k": "condition",
+  "w": ["unless"],
+  "g": ["ancient = עתיק", "previous = קודם", "recent = שארע לאחרונה", "primitive = קדום, חסר תרבות"],
+  "t": "אם המועצה לא תגדר את הקיר שמאחורי השוק, החלק ה**עתיק** היחיד בעיר ייגרר משם אבן אחר אבן: האבנים האלה הן בנות אלפיים שנה כמעט.",
+  "r": [
+   "ancient הוא עתיק בשנים, ואבנים בנות אלפיים שנה הן בדיוק זה.",
+   "previous הוא הקודם מבין שניים, והמשפט נותן גיל ולא סדר.",
+   "recent הוא מה שקרה לא מכבר, וההיפך ממה שגיל האבנים אומר.",
+   "primitive מתאר עבודה גסה או תרבות שטרם התפתחה, ולא את גילו של קיר."
+  ]
+ },
+ {
+  "s": "If the driver lets the ___ run out for even one week, the company may still use the lorry but will pay for every dent out of its own pocket.",
+  "o": ["insurance", "license", "loan", "registration"],
+  "a": 0,
+  "k": "condition",
+  "w": ["if"],
+  "g": ["insurance = ביטוח", "license = רישיון", "loan = הלוואה", "registration = הרשמה"],
+  "t": "אם הנהג יניח ל**ביטוח** לפוג אף לשבוע אחד, החברה עדיין תוכל להשתמש במשאית אך תשלם על כל מכה מכיסה.",
+  "r": [
+   "insurance הוא מה שמכסה נזק, ובלעדיו החברה משלמת על כל מכה בעצמה.",
+   "license הוא רישיון הנהיגה, ובלעדיו אסור היה להשתמש במשאית כלל.",
+   "loan היא הלוואה, והחזר הלוואה אינו קשור לתשלום על מכות ברכב.",
+   "registration היא ההרשמה, והמשפט עוסק בכיסוי הנזק ולא ברישום."
+  ]
+ },
+ {
+  "s": "Unless the farmer can ___ the seeds before the first rain, he will have nothing to ___ in September.",
+  "o": [["plant", "gather"], ["gather", "plant"], ["gather", "count"], ["plant", "count"]],
+  "a": 0,
+  "k": "condition",
+  "w": ["unless"],
+  "g": [
+   "plant = לשתול · gather = אסף",
+   "gather = אסף · plant = לשתול",
+   "gather = אסף · count = לספור",
+   "plant = לשתול · count = לספור"
+  ],
+  "t": "אם החוואי לא יצליח **לשתול** את הזרעים לפני הגשם הראשון, לא יהיה לו מה **לאסוף** בספטמבר.",
+  "r": [
+   "plant ואחריו gather: הזרעים נשתלים לפני הגשם, והיבול נאסף בספטמבר.",
+   "הסדר הפוך: gather הוא איסוף היבול, והוא בא אחרי השתילה ולא לפניה.",
+   "gather בפתיחה שגוי, ו-count הוא לספור ולא לאסוף יבול מן השדה.",
+   "plant בפתיחה נכון, אך count הוא לספור, והמשפט מדבר על יבול שכלל לא יהיה."
+  ]
+ },
+ {
+  "s": "The flat has no lift and the stairs are steep; moreover, a second ___ is the bus stop that wakes the whole family at five.",
+  "o": ["disadvantage", "advantage", "exception", "factor"],
+  "a": 0,
+  "k": "addition",
+  "w": ["moreover"],
+  "g": ["disadvantage = חסרון", "advantage = יתרון", "exception = יוצא מהכלל", "factor = גורם"],
+  "t": "בדירה אין מעלית והמדרגות תלולות, ויותר מזה: **חסרון** שני הוא תחנת האוטובוס שמעירה את כל המשפחה בחמש.",
+  "r": [
+   "disadvantage הוא חסרון, ותחנה שמעירה את הבית בחמש היא חסרון נוסף על המדרגות.",
+   "advantage הוא יתרון, והמשפט מונה דווקא את מה שרע בדירה.",
+   "exception הוא מקרה שיוצא מן הכלל, ואין במשפט כלל שממנו יוצאים.",
+   "factor הוא גורם שמשפיע לכאן או לכאן, ואינו אומר שהתחנה מפריעה."
+  ]
+ },
+ {
+  "s": "The wind on the ridge already turns nine mills; moreover, the hot pool below the village is a second ___ that the valley can sell to visitors.",
+  "o": ["resource", "product", "material", "profit"],
+  "a": 0,
+  "k": "addition",
+  "w": ["moreover"],
+  "g": ["resource = משאב", "product = מוצר", "material = חומר", "profit = רווח"],
+  "t": "הרוח שברכס מסובבת כבר תשע טחנות, ויותר מזה: הבריכה החמה שמתחת לכפר היא **משאב** שני שהעמק יכול למכור למבקרים.",
+  "r": [
+   "resource הוא נכס טבעי שאפשר להפיק ממנו הכנסה, כמו הרוח והבריכה החמה.",
+   "product הוא מוצר שמייצרים, ובריכה חמה אינה מיוצרת בידי אדם.",
+   "material הוא חומר גלם שממנו בונים, ולא בריכה שמזמינים אליה אורחים.",
+   "profit הוא הרווח שנשאר בסוף, ולא הדבר שממנו הוא בא."
+  ]
+ },
+ {
+  "s": "Everyone in the street calls him by his father's name; in addition, the children gave him a ___ that follows him even at work.",
+  "o": ["nickname", "title", "signature", "label"],
+  "a": 0,
+  "k": "addition",
+  "w": ["in addition"],
+  "g": ["nickname = כינוי", "title = כותרת", "signature = חתימה", "label = תגית"],
+  "t": "כולם ברחוב קוראים לו בשם אביו, ובנוסף הילדים נתנו לו **כינוי** שנדבק אליו גם בעבודה.",
+  "r": [
+   "nickname הוא שם שאנשים מדביקים לאדם מלבד שמו, וזה מה שהילדים נתנו לו.",
+   "title היא כותרת או תואר רשמי, ולא שם שהילדים המציאו.",
+   "signature היא חתימת ידו של אדם, ואינה שם שקוראים לו בו.",
+   "label היא תגית שמצמידים לחפץ, ולא שם של אדם."
+  ]
+ },
+ {
+  "s": "The valley is shaken from below several times a year, for instance the ___ that cracked the school wall last winter.",
+  "o": ["earthquake", "flood", "rainstorm", "waterfall"],
+  "a": 0,
+  "k": "example",
+  "w": ["for instance"],
+  "g": ["earthquake = רעידת אדמה", "flood = שיטפון", "rainstorm = סערת גשמים", "waterfall = מפל"],
+  "t": "העמק מזדעזע מלמטה כמה פעמים בשנה, למשל **רעידת האדמה** שסדקה את קיר בית הספר בחורף שעבר.",
+  "r": [
+   "earthquake הוא זעזוע שבא מתחת לאדמה, וזה מה שהמשפט מתאר בעמק.",
+   "flood הוא הצפה של מים, והמשפט מדבר על זעזוע מלמטה.",
+   "rainstorm היא סערת גשמים, כלומר תופעה של מזג האוויר ולא של האדמה.",
+   "waterfall הוא מפל קבוע בנחל, ולא מכה חד פעמית שסדקה קיר."
+  ]
+ },
+ {
+  "s": "Each of the four players travels with one heavy ___, such as a drum that two men must carry up the stairs.",
+  "o": ["instrument", "device", "object", "frame"],
+  "a": 0,
+  "k": "example",
+  "w": ["such as"],
+  "g": ["instrument = כלי", "device = מכשיר", "object = פריט", "frame = מסגרת"],
+  "t": "כל אחד מארבעת הנגנים נוסע עם **כלי** כבד אחד, למשל תוף ששני אנשים צריכים לסחוב במעלה המדרגות.",
+  "r": [
+   "instrument הוא כלי נגינה, והתוף הוא דוגמה שלו.",
+   "device הוא מכשיר שמבצע פעולה, ותוף אינו מכשיר.",
+   "object הוא פריט כלשהו, והמשפט מדבר על נגנים ועל מה שהם מנגנים בו.",
+   "frame היא מסגרת שמחזיקה דבר, ולא הכלי השלם שנושאים במדרגות."
+  ]
+ },
+ {
+  "s": "Every village on this coast keeps one old ___, for instance the story of the girl who walked into the sea and never drowned.",
+  "o": ["legend", "folklore", "fiction", "rumor"],
+  "a": 0,
+  "k": "example",
+  "w": ["for instance"],
+  "g": ["legend = אגדה", "folklore = פולקלור", "fiction = בדיון", "rumor = שמועה"],
+  "t": "כל כפר בחוף הזה שומר **אגדה** עתיקה אחת, למשל הסיפור על הנערה שנכנסה לים ולא טבעה.",
+  "r": [
+   "legend הוא סיפור עתיק שעובר מדור לדור, וזה מה שהמשפט מביא כדוגמה.",
+   "folklore הוא כלל המסורות של עם, ואינו סיפור בודד אחד.",
+   "fiction הוא ספרות בדיונית שמחבר כתב, ולא סיפור שהכפר מנחיל.",
+   "rumor היא שמועה על מה שקרה עכשיו, ולא סיפור עתיק."
+  ]
+ },
+ {
+  "s": "The two men were followed for a month, and their ___ came only after the police had photographed every meeting.",
+  "o": ["arrest", "raid", "imprisonment", "robbery"],
+  "a": 0,
+  "k": "sequence",
+  "w": ["after"],
+  "g": ["arrest = מעצר", "raid = פשיטה", "imprisonment = כליאה", "robbery = שוד"],
+  "t": "שני האנשים נעקבו במשך חודש, וה**מעצר** שלהם בא רק אחרי שהמשטרה צילמה כל פגישה.",
+  "r": [
+   "arrest הוא הרגע שבו המשטרה לוקחת אדם, וזה הצעד שבא אחרי איסוף התצלומים.",
+   "raid היא פשיטה על מקום, והמשפט עוסק בשני אנשים שנעקבו.",
+   "imprisonment היא הכליאה, והיא באה רק אחרי משפט וגזר דין.",
+   "robbery הוא השוד עצמו, כלומר מעשה השניים ולא מה שעשתה המשטרה."
+  ]
+ },
+ {
+  "s": "First the old man sold the goat, then the cart, and only in the last winter did he ___ at the door of the church for bread.",
+  "o": ["beg", "complain", "protest", "starve"],
+  "a": 0,
+  "k": "sequence",
+  "w": ["then"],
+  "g": ["beg = להתחנן", "complain = להתלונן", "protest = למחות", "starve = לרעוב"],
+  "t": "תחילה מכר הזקן את העז, אחר כך את העגלה, ורק בחורף האחרון **התחנן** בפתח הכנסייה ללחם.",
+  "r": [
+   "beg הוא לבקש בתחינה מזרים, וזה הצעד האחרון אחרי שנמכר כל מה שהיה לו.",
+   "complain הוא להתלונן על מצב, ותלונה בפתח הכנסייה אינה מביאה לחם.",
+   "protest הוא למחות בפומבי נגד עוול, והמשפט עוסק בבקשת אוכל.",
+   "starve הוא לרעוב, כלומר המצב שממנו ניסה להימלט ולא הפעולה שעשה."
+  ]
+ }
+]
