@@ -1,28 +1,249 @@
 # אותם פריטים, **בלי אפשרויות**. גזור את המילה מההקשר.
 # "___ … ___" פירושו שני חסרים; ספק את שתיהן בסדרן.
 
-1. The clerk had already added up the totals; yet an outside panel was told to ___ every contract for hidden fees.
-2. The regions sent their reports on time; therefore, the ministry has no right to ___ the promised funds.
-3. Although the office may ___ the fund day to day, paying each bill itself, only the council can ___ how much goes to housing.
-4. Because the fund must ___ reserves while trade is strong, it can ___ them without new taxes once demand falls.
-5. Once a single tube is left open, dust can ___ the culture, and the analyst must then ___ the whole batch from the analysis.
-6. Certain quantities, such as the boiling point of a new liquid, are impossible to ___ from theory alone, and each must be measured.
-7. The mason will ___ the name into the lintel; furthermore, the gilder will ___ each letter so that it shines from the courtyard.
-8. Judges who ___ with the majority sign the main opinion; those who ___ from it, however, must file a separate note.
-9. Although one of the two authors had once been her student, the reviewer stayed ___ and weighed every claim in both papers by the same standard.
-10. His argument had already convinced the committee, and moreover his speech was so ___ that listeners repeated its phrases word for word for days.
-11. The beans need salt and a little pepper; in addition, a spoon of vinegar will ___ their flavor.
-12. Because the two maps came from one survey, their coastlines should ___ when one sheet is laid over the other; where they ___, a clerk has made a copying error.
-13. He sold the whole farm to the new owners; even so, the contract let him ___ the narrow path to the well.
-14. Some building materials, such as sun-dried brick and cheap roof tile, are so ___ that one light knock breaks them.
-15. Because the ice on the high ridge begins to ___ each spring, the streams below ___ above their banks and flood the low fields.
-16. Because one crate carries the whole order, the packers ___ each plate in straw and only then ___ the heavy lid with eight long screws.
-17. Although the valve and the pipe are cut from the same steel, the valve must ___ the flow at once and the pipe must ___ pressure for years.
-18. The choir sang the first verse alone; yet a quiet harp then began to ___ the voices without repeating their notes.
-19. Because the room had no door at all, every step in the corridor was enough to ___ the readers, who kept losing their place on the page.
-20. Every line of the tune comes back unchanged; therefore, the ___ makes the words stick after a single hearing.
-21. The job needs a strong body, and it also needs a ___ that takes years to learn.
-22. Each line of the test was a short ___, such as who wrote the book or where the river begins.
-23. Set a pot of water on the fire, and once it is hot, ___ the wild leaves for ten minutes before you add any salt or oil.
-24. The wedding hall was small; yet my parents invited every ___ who lived within a day's drive.
-25. Speed alone does not win a long race, because running hour after hour demands ___ that no short sprint ever tests.
+1. Although the press still prints a clean sheet every time, no factory has made a part for it since 1970, and the trade now calls the model ___.
+2. One household in three reports a case each winter, and the fever is therefore counted as ___ along this whole stretch of the coast.
+3. Because the villagers eat ample grain but almost no fresh fruit, the clinic treats one vitamin ___ after another.
+4. The witness feared nothing in the court and refused no question once he stood in the box, and yet he was plainly ___ to appear at all: three summonses were sent before he came.
+5. The library already holds every local paper; in addition, the new grant will ___ the collection with three foreign titles.
+6. No lamp is lit in the lower gallery, and yet the moss on its walls is faintly ___, and a guide can follow the passage without one.
+7. The experiment needs no rare chemical, only an ___ such as a bell jar joined to a hand pump.
+8. The loose grating has injured no one so far; even so, the inspector records it as a ___, since a child could fall through it.
+9. The diary names no battle and no plot; furthermore, its entries concern only bread, rent and weather, and historians of daily life prize it for being so ___.
+10. A bishop founded the school and paid for its first building, yet its charter is wholly ___: no prayer is said in it and no creed is taught.
+11. Since the two firms had signed nothing at all, the court refused to ___ in a quarrel it called wholly private.
+12. Once the contents of a parcel are found to be barred goods, the customs officers may ___ it on the spot.
+13. A statement made under oath in the courtroom counts as ___, whereas the same words repeated by a neighbour at the door carry no weight at all.
+14. The bridge is ___ the oldest in the region, though two rival claims to that title have never been settled.
+15. Storms of this size ___ reach the inland plain, and therefore no shelter was ever built in its villages.
+16. The panel first agreed on the name of the illness, and then split over its ___: one member alone held that the condition can kill.
+17. Since he signed the petition against private schooling in the morning and enrolled his own son in such a school that afternoon, the members called the letter plain ___.
+18. The king himself said nothing to the crowd, yet a herald was sent to the market square to ___ the new tax to the whole city.
+19. Since attendance is a right and not a duty, the bylaw cannot ___ a shareholder to come to the meeting.
+20. The timetable was printed in 1955 and has never been redrawn; moreover, it is so ___ that one late train empties half the connections down the line.
+21. Unless water can be brought to the site, the plan will never be ___, cheap and lawful as it looks on paper.
+22. Since an erasure in the same hand follows the gap exactly, the omission of the name was no slip of the pen but ___.
+23. The young painter copies not a single line, and yet every canvas of his tries to ___ the light that his teacher was the first to catch.
+24. The men were paid well and lived within sight of the plant, and yet each of them spoke of a growing ___ from the product of his own hands.
+25. Historians date the ___ of the printed book to the 1450s, whereas the ___ of the hand copied one took another full century.
+26. The festival will ___ with a silent procession on the shore, and then ___ three nights later in a bonfire that the whole town lights.
+27. A small dose will ___ sleep within minutes, whereas a large one may ___ breathing and must never be given at home.
+28. If the garrison in the citadel joins the crowd rather than firing on it, what began as a riot over the price of bread becomes an ___.
+29. The judge described the theft as calculated and mean; even so, because the boy was fifteen and had never been charged before, she showed unusual ___.
+30. The share held its value all through the spring, and then it ___ to a tenth of its price on the afternoon when the audit was published.
+31. A crop that yields little food, for instance the lupin, can still ___ the soil it grows in by returning nitrogen to it.
+32. Although the scanner does not replace the clerks, who go on checking every crate by hand, it does ___ their work by reading each label aloud.
+33. The panel accepted the builder's records without question; furthermore, on the strength of those records alone it agreed to ___ the tower safe.
+34. Because the correspondent never left the capital and the village he described does not appear on any map, the inquiry ruled that he had set out to ___ the whole report.
+35. The river had been feared for a century, yet a single low weir was enough to ___ its current, and the mill it now drives lights the whole valley.
+36. Unless the committee can point to one ___ result by spring, a repaired road or a new well, the council will not renew the grant.
+37. Since the chicks had never seen a hawk and no adult bird was present to warn them, their alarm at the shape overhead must be an ___ response.
+38. Once a step has been explained twice in plain words, a third diagram of the same step is ___ and may be dropped from the next edition.
+39. Although the editor kept every step of the argument, she chose to ___ the two paragraphs that repeated it, and the chapter lost nothing.
+40. The bird is no larger than a thumb and its song is faint, yet the scarlet patch on its throat makes it ___ even among thick leaves.
+41. No document from the period survives, and so the date printed in most textbooks is a careful ___ rather than a recorded fact.
+42. The harvest failed for the third year running; in addition, the tax on salt was doubled that autumn, and the two together brought on the ___ that ended the dynasty.
+43. A well known ___, such as the oak, holds dozens of separate species that no gardener would call by the same name.
+44. Every pump in the town was working, yet the water rose faster than the crews could empty it, and by midnight the effort was plainly ___.
+45. A strong climber would find the wall itself merely hard, whereas for a wheelchair the single step at the gate is ___, since no ramp was ever built.
+46. The clerk had no reason to hide the file; furthermore, he did not know that anyone was looking for it, and he had ___ left it in the wrong drawer.
+47. Two members voted for the motion and one against it; since the fourth would gain personally from the decision, he thought it right to ___.
+48. Camera traps in the same clearing caught the animal eleven times and every image was taken between midnight and four; the species is therefore ___.
+49. Although the composer burned most of his scores and cared nothing for an audience, two works were saved for ___ by a copyist who disobeyed him.
+50. Cost matters to the company and speed matters to the drivers, but on a mountain road the safety of the passengers is ___, and every other consideration gives way to it.
+51. In the northern half of the valley every field is irrigated and green, while the southern half has had no water for ten years, and the contrast is ___.
+52. The language had fewer than two hundred speakers in 1950, yet the schools opened since then have brought a genuine ___, and children now use it at home.
+53. The statute fixes the order plainly: the trustees must first ___ a chairman for the inquiry, and only then may he ___ at a hearing where evidence is taken.
+54. The first review was written by his old teacher and set out to ___ every page of the play, whereas the second came from a rival who took the trouble to ___ the very same scenes.
+55. Once a smooth curve has been drawn through the four measured points, the physicist may ___ the value at a fifth point that no instrument has yet reached.
+56. A neutral party such as a Genoese banker acted as ___ between the two courts, and neither king had to write to the other in his own hand.
+57. The committee published its findings in the spring, and then it moved to ___ the four small offices into a single agency, so that one signature would replace four.
+58. The findings were read aloud at the spring meeting and printed in fifty copies; then the academy will ___ those same fifty copies from one provincial library to the next, since it cannot afford a second printing.
+59. A small ___ such as the field mouse can empty a sack of grain in one night, and a granary must be built against it rather than against the birds.
+60. Because the grain ships were turned back at the port for a second season, the shortage in the inland towns deepened into ___ , and whole villages were emptied by hunger.
+61. Bromide calms a restless patient but leaves him awake, whereas a long operation calls for ___ , which removes feeling altogether.
+62. Unless a witness saw the fire with his own eyes, what he tells the court counts as ___ , and the judge will strike it from the record.
+63. The first volume covers only the reign of the founder; every ___ volume was written by a different hand, and the style changes at each break.
+64. Because the outer wall gave way twice in one winter, the town spent the whole of the next year's revenue to ___ it with a second face of cut stone.
+65. The dust settles on the shelves within an hour of sweeping; moreover, the smell of it is so ___ that visitors notice it in the far rooms as well.
+66. The clerk's note sat in the same file for eleven years and was read by four inspectors; even so, the one figure that mattered was ___ by every one of them.
+67. Once the harbour chain is raised at dusk, a single guard can ___ a raid that twenty men on the wall could not have stopped.
+68. A ___ such as sulphur dioxide leaves the chimney as a gas, and only later, when the rain carries it down, does it reach the soil.
+69. The plasterers finish the upper floor in June; only after that will the owner ___ the rooms, since dust would ruin any chair or curtain brought in earlier.
+70. If the cargo carries no stamp from the customs house, the officer must treat it as ___ , and the trader has to prove in writing where it came from.
+71. Since the same short thumb appears in four generations of the family and in no one who married into it, the trait is put down to ___ rather than to the work they all did.
+72. The harbour works swallowed twice the sum the council had set aside; in addition, the new road raised the year's ___ above anything the town had recorded before.
+73. The talks broke off in the autumn and the border stayed closed all winter; the ___ of trade came only later, in the spring, and it was the first sign that the quarrel had ended.
+74. The bird's song carries half a mile through the wood; even so, the bird itself is so ___ that a patient watcher may sit under its branch for an hour and see nothing.
+75. Because the lake now receives the runoff from every field on the slope, the algae ___ through the whole of July until the fish beneath them die for want of air.
+76. A ___ such as chess or bird watching costs the town nothing: no ground has to be levelled and no lamps have to be lit.
+77. If the guard wants a reason to search the cart, the missing seal will serve as a ___ , and the real ground for the search will never be written down.
+78. If the two engineers ___ a simpler joint this month, the yard can ___ the whole order and still deliver it before the frost.
+79. Some plants in the garden are ___ , for instance the wild pear, and such plants have stood in this valley since long before the town, so they need no watering in their second summer.
+80. A young man must first ___ , and only then does he ___ the six weeks of training that the army sets for him.
+81. The witness gave his account twice without changing a word; even so, the evidence he offered was ___ , since not one paper supported any part of it.
+82. Nothing he had claimed in the report was untrue, yet the tone was harsh enough that the board asked him for a short ___.
+83. The whole staff meets only once a year; therefore, a small ___ was appointed from among them to settle the routine questions.
+84. Although the count had been checked twice by hand, the losing party still chose to ___ the result before the tribunal.
+85. Since the two villages had shared one school for a century but had never had a common body, the county decided to ___ a single council for both.
+86. Until the laboratory can ___ which of the two metals carries the current better, the engineers refuse to order any cable.
+87. Because each side had already given up its first demand, the mediator was sure that the two of them could still ___ before the deadline.
+88. The new pump was built to a different standard, so the old pipes and the new fitting are simply not ___.
+89. While the frame and the varnish are both modern copies, the painting inside them is ___.
+90. Because the minutes of every sitting are published in full within a week, the council's decisions are now entirely ___.
+91. Twelve of the twenty members voted against the plan; thus, those who had supported it were left a clear ___.
+92. The family owned a house and a small field, but the debts swallowed both and left them in plain ___.
+93. The tenant had paid every month on time; even so, the owner used a small clause to ___ the lease a year early.
+94. The archive holds the only copy of the map; hence, the first task is to ___ it before any reader touches the sheet.
+95. A review must ___ what the writer did well and ___ what he did badly; yet hers did only the second.
+96. The library lends its ordinary books to anyone; however, the manuscripts in the top room are shown ___ to registered scholars.
+97. The recipe names every herb by weight; moreover, it fixes the ___ of water to the last spoon.
+98. The bank already keeps a guard at each door; in addition, the new insurer demands constant ___ of the vault itself.
+99. The new film records a face by candlelight; furthermore, its ___ to red is twice that of the older stock.
+100. The new law names every existing trade one by one; what is more, its final clause is ___ enough to cover trades that do not yet exist.
+101. Once the instruments stopped giving any reading at all, the pilot had to land on ___ alone.
+102. Unless the tenant has lived in the flat for a full year, the reduced rent is not something he is ___ to claim.
+103. If the last two members send their notes today, the clerk can ___ the wording of the by-law before the sitting.
+104. The customs list names every controlled ___, such as the poppy extract that hospitals still use against pain.
+105. Every clinic follows one written ___ for a new patient, for instance the order in which the temperature and the blood are taken.
+106. The tax falls on every ___ animal, including the goat that the family keeps behind the house.
+107. The nurse first cleans the skin above the vein; then she can ___ the needle and ___ the dye through it.
+108. Since the ink had faded to nothing, the clerk could not ___ the name of the buyer through the older registers.
+109. The blade still cuts paper cleanly, though after two winters of cutting rope it has grown too ___ for wood.
+110. Although the study had already run for two years and cost far more than planned, the board voted to ___ it rather than publish half a result.
+111. The engine passed every road test and burned very little fuel; even so, the inspector traced the shaking at high speed to a single ___ in the casting.
+112. Since nobody had checked how the two drains met, the flooded cellar was a direct ___ of the new pavement and not bad luck.
+113. Provided nobody washes with it, forty litres in the tank are ___ for two days of work in the field.
+114. The dye does not take hold at once: the wool darkens ___ over several hours, and only then can the cloth be rinsed.
+115. Both samples came back clean, yet neither result settles the ___ that the team put forward at the start and set out to test.
+116. Because the herd had already lived through the same fever once, the calves born that year were ___ and needed no injection.
+117. The station already loses power twice a month; moreover, one loose cable can ___ a live broadcast for nine minutes before the picture returns.
+118. The recipe calls for fresh cream, yet in the field the cooks use dried milk as a ___ and nobody notices the difference.
+119. The winner crossed the line four hundredths of a second ahead of the second boat; therefore the judges recorded the smallest ___ in the history of the race.
+120. The airline has already leased two extra aircraft for the summer; in addition, it must ___ eleven new crew members before the season opens.
+121. Once the ink meets the warm plate, the letters ___ within seconds and the sheet can be used again.
+122. The team dug for three seasons and found nothing; then a single storm washed the slope away and helped them ___ the floor of the temple.
+123. Because that first flight proved a heavy machine could leave the ground at all, historians treat it as a ___ in the story of travel.
+124. The report was ready in March, yet the director waited until autumn to ___ the board with figures it had refused to hear for months.
+125. Because the survey counted only households with a telephone, it happened to ___ exactly the families whose income the study set out to measure.
+126. Although the two shops sell almost the same goods at the same price, the competition between them is ___ and neither will give up a single customer.
+127. Once every crate is aboard and the tanks are full, the captain can report full ___ and the fleet may sail two days early.
+128. The department has already added two modern novels to the syllabus; in addition, it agreed to ___ the reading list to four continents.
+129. Two witnesses placed him at the gate and his own diary names the hour; even so, his only answer at the hearing was a flat ___.
+130. The workshop owns no manuals from the period and no photographs of the mechanism; furthermore, a clock of this age calls for ___ in early gearing, and nobody on its staff has ever studied it.
+131. The lower layer held only bone and ash; the upper one held every kind of ___, such as a bronze pin and a painted cup.
+132. The route crosses difficult ___, such as loose gravel and frozen marsh, and no wheeled cart can follow it.
+133. The foreman already signs every delivery note and keeps the fuel log; in addition, he must now ___ the two night shifts at the far gate.
+134. The road along the cliff is narrow and badly lit; moreover, rockfalls there are ___ enough to close it twice a winter.
+135. Because an army can ___ a province in a single season and then must ___ it for decades, the empire's real trouble began after the fighting stopped.
+136. Because a model can ___ the flood a week ahead and only a reading taken in the river can ___ the figure afterwards, the office publishes both numbers.
+137. He repeated the request three times and even raised his voice, yet none of that was enough to ___ the board, which voted against the plan again.
+138. Wood from the valley costs little and its quality is high, yet it is so ___ that a builder must order it a year in advance.
+139. The report names no official and makes no accusation; however, its last paragraph does ___ that money left the fund without any record.
+140. Although the wreck had lain under salt water for two centuries, the sealed chest in the hold came up ___, without a single crack in its lid.
+141. Extra lighting in the hall is pleasant and does no harm; the second fire door, in contrast, is ___, and the hall may not open without it.
+142. The columnist did not challenge a single figure in the study; instead she chose to ___ its author, and the whole column was a string of jokes about his clothes.
+143. The museum has shown the mask in its main room for forty years, yet it does not ___ the piece, which is on loan from a family in the south.
+144. The calculation itself contains no error; nevertheless it rests on the ___ that the river's flow will not change for fifty years, and nobody has tested that.
+145. The two churches were built three centuries apart, and neither guild had ever seen the other's drawings; even so, the smaller one has come to ___ the older so closely that visitors confuse them.
+146. The workshop owns two buildings and a large store of copper, yet its ___ in the winter months is barely enough to pay six workers.
+147. Since the glacier loses more ice each summer than it gains each winter, its disappearance is ___, and only the year is still in question.
+148. Because the witness said the room had been locked all evening and then said she had walked into it at nine, the clerk marked the ___ in the margin of her statement.
+149. The two blocks have the same size and the same shape, but one sinks and the other floats, because their ___ is not the same.
+150. Her two papers settled a question that had stood open for a century; therefore she became, in that small field, the most ___ figure of her generation.
+151. Since neither army could hold the pass through another winter, the two kings signed a ___ that fixed the border at the river.
+152. His eyes were tested twice and found perfect; the doctors thus turned to his ___ of depth, which no lens could correct.
+153. The valley already holds more nests than any other in the country; moreover, the birds on its two ridges are so ___ that their cries drown out the river.
+154. The station notes the exact hour of every tremor; in addition, it records the ___ of each one, so that a small shock is never confused with a great one.
+155. The library already owns the poet's letters and his three notebooks; furthermore, it holds the only ___ of the last poem, which was never printed and survives in ink on twelve loose sheets.
+156. Draining the marsh lowered the water in every well in the village; moreover, it destroyed the ___ of the whole bird colony, which has not returned since.
+157. The editor now checks every figure against the original table; she has also grown so ___ that no page leaves her desk before a second reader has seen it.
+158. The clerk copies each entry by hand, and he must ___ the forty separate registers into a single book as well, before the audit begins.
+159. Once the judge had set the ___, the accused was free to go home and wait months for the trial.
+160. Unless the road ahead is empty and wide, the two officers are told not to ___ the car, but only to note its number and report it.
+161. If a form is long, it need not be hard: every question on this one is so ___ that no clerk is needed to explain a single line.
+162. A painted board in the hall names every ___ of the family, such as the sailor who founded the boatyard in 1740.
+163. She turned the letter over, and then a single ___ at the top line showed her that the year could not be right.
+164. Because every member of the club asked for a different day, the group had to ___, and the day with the most hands in the air won.
+165. Her ticket was ___, but the place it gave her was as good as the ones near the front.
+166. Although the metal box is smaller than the stone next to it, its ___ is greater, and two men together cannot lift it.
+167. The ___ drew the plans for the new hospital, and he also decided how high each wall would be.
+168. After the doctor left the room at midnight, a ___ stayed with the child until morning.
+169. Because the farm sells nothing but milk, the only animal on the land is the ___.
+170. The water in front of the village looks as wide as the sea, but it is not salt and it moves in one direction all year, so the men call it a ___.
+171. Because she hoped for a place on the team without doing the work, she wrote the answers on her hand and tried to ___.
+172. The letter left our office on Monday, and until the family in the next town ___ it, nobody there will know that the shop has closed.
+173. Although the letter was ___ in a locked box under the bed, half the town already knew what it said.
+174. As long as nobody has seen it happen, the idea stays a ___, and no book may print it as true.
+175. Because the room has no window, the flowers on the table get no ___, and the lamp that burns above them all day does not help.
+176. If the ocean rises only a little in the night, one high ___ is enough to turn the small boat over.
+177. The family ___ the old car for very little money, and then they ___ a bigger one from a neighbor in the same street.
+178. None of the lines in the report are wrong and no part of it may be dropped, but many lines are far too long, so the writer will ___ the text tonight.
+179. Because each singer in the group listened to the other three, the song came out in perfect ___.
+180. Both plans are ready and neither of them is bad, but the town can pay for only one, and that leaves the government with a real ___.
+181. The fire was still far from the building, but when the lights went out the ___ in the crowd was worse than the fire itself.
+182. The soldier carried a sword in his right hand, and he also held a heavy ___ in his left.
+183. The two brothers have the same face, and their ___ are also almost the same, which is why both of them are tall.
+184. They asked her about the work she had done, and they also asked why she had left her last job; at the end they said the ___ went well.
+185. The men pulled the boat out of the ocean with their hands, and they also used a long ___ that ran from the boat to the horse.
+186. If the water from the river still has sand in it, the village must buy a ___ for every house.
+187. Nothing on the boat is loose: everything, including fruit, glass and metal, goes into one large ___ that the crane lifts in one move.
+188. Acts such as stealing a car or breaking into a house are a ___, and the man who does them must stand before the law.
+189. Before the first guests come in, someone must ___ the glasses that came out of the box dirty.
+190. The soup tasted of nothing at all, so the cook put in more ___ and tried it again.
+191. The rain came into the bedroom all night, so in the morning the family looked for the hole in the ___.
+192. Although three families live around the yard, no ___ came forward to say who had left the stolen bicycle by the gate.
+193. The coach cannot force any player to change his diet, so the note on the wall is ___ that each man is free to follow or to ignore.
+194. The rangers tracked the wolf for three days, but the plan was never to shoot it, only to ___ it alive and move it to the reserve.
+195. The wet towel brings the fever down within an hour, yet the fever is only a ___ and the illness itself goes on.
+196. A second lamp is ___ in this dark stairway, and the inspector will not sign the paper until one is added.
+197. The lake looks still from the road, yet only its ___ is quiet: half a metre down the water moves fast toward the dam.
+198. Although the doctor can ___ the illness in a single morning, he cannot ___ it without a drug that the pharmacy no longer keeps.
+199. Because a quiet talk with the same boy had already failed three times, the head teacher decided to ___ him for the broken window.
+200. The workshop cannot silence its presses, so it has done all it can to ___ the noise: thick rubber under every machine and cork along the walls.
+201. The little hall is full every Friday evening; moreover, the ___ that comes to hear the same singer on Saturday is larger still and people stand along the walls.
+202. The bridge carries two lanes on the map, yet it is so ___ in the middle that two trucks cannot pass each other.
+203. The book has sold well in Hebrew for thirty years, yet the poet who was asked to ___ it for English readers refused: no second language holds the same sounds.
+204. The farm now grows twice as much fruit, so the old shed is used for ___ and the tractor stands outside in the rain.
+205. The dam holds the water of the whole valley, so a single ___ in the stone is enough to empty the village below.
+206. The first line of the diary is dated 1774 and the last 1889, so more than a ___ separates the two men who wrote in it.
+207. Because the fish spoils within a few hours, the boats ___ it in ice while still at sea and ___ it to the market before noon.
+208. Unless the buyer brings written ___ that he paid in cash, the shop will treat the television as still unpaid for.
+209. Unless the council fences the wall behind the market, the only ___ part of the town will be carried off stone by stone: those stones are nearly two thousand years old.
+210. If the driver lets the ___ run out for even one week, the company may still use the lorry but will pay for every dent out of its own pocket.
+211. Unless the farmer can ___ the seeds before the first rain, he will have nothing to ___ in September.
+212. The flat has no lift and the stairs are steep; moreover, a second ___ is the bus stop that wakes the whole family at five.
+213. The wind on the ridge already turns nine mills; moreover, the hot pool below the village is a second ___ that the valley can sell to visitors.
+214. Everyone in the street calls him by his father's name; in addition, the children gave him a ___ that follows him even at work.
+215. The valley is shaken from below several times a year, for instance the ___ that cracked the school wall last winter.
+216. Each of the four players travels with one heavy ___, such as a drum that two men must carry up the stairs.
+217. Every village on this coast keeps one old ___, for instance the story of the girl who walked into the sea and never drowned.
+218. The two men were followed for a month, and their ___ came only after the police had photographed every meeting.
+219. First the old man sold the goat, then the cart, and only in the last winter did he ___ at the door of the church for bread.
+220. The frame is bolted to the wall and looks solid, yet the whole scaffolding is ___: the builders will take it down the day the roof is finished.
+221. The clinic answers every letter it receives within a week, yet a request marked ___ is handled in the same hour.
+222. Because the old van failed twice on the mountain road last winter, the office replaced it with a slower but far more ___ model.
+223. Unless the board receives a written report first, the manager cannot ___ the extra cost of the second driver at the meeting.
+224. Because a single cigarette had started the first fire, the workshop spent a year trying to ___ every open flame from its floor.
+225. The clerk copies every number from the passport by hand; in addition, a second officer must ___ the year of birth against the paper file.
+226. Because the rain stopped the digging for a whole week, the city agreed to ___ the contract until the end of March.
+227. If the shop keeps a copy of the receipt on file, it can ___ a free repair for two whole years.
+228. Although the tenants asked politely for eight months, only a written ___ from a lawyer made the owner send a builder.
+229. The old mule is gentle with the children and never kicks, yet it is so ___ that it will not move again once it has stopped.
+230. The same car passed the gate four times after midnight; moreover, its lights were off, and the guard found the driver ___ enough to write down the number.
+231. He meant the remark about the soup as a joke, yet his host heard a plain ___ and left the table without a word.
+232. The club lost at home in October and again in November; moreover, its fourth ___ of the season came from the team at the bottom of the table.
+233. First the climbers fixed ropes along the lower wall and left food at two camps; the real ___ on the summit began only three days later.
+234. Salt is not the only thing that keeps the meat from spoiling, but in this old recipe it is the one ___ step that cannot be left out.
+235. Several plants in this valley are ___, for instance the small white berry that killed two sheep last April.
+236. Because the machine sends ___ through the whole room while it works, the technician stands behind a thick lead wall.
+237. The town covers the same few streets it covered a century ago, yet its ___ has grown from four hundred people to nine thousand.
+238. Because two customers were served spoiled fish in July, the little restaurant lost the ___ it had built over thirty years.
+239. The teacher marked her last set of papers in June, and her ___ began quietly on the first morning after the summer holiday.
+240. The drawings are copied line by line from photographs, so they show great patience but very little ___.
+241. The new oven is half the size of the old one, yet it is so ___ that it bakes the same number of loaves on half the gas.
+242. Unless a person has lived in the country for five years, he cannot vote as a full ___ of the republic.
+243. The bank could not pay its clerks in March; furthermore, two of its branches closed in April, and by June a local difficulty had become a national ___.
+244. One clerk lets students in free and another charges them, though the museum insists it has a single written ___ for everyone at the door.
+245. Because the small lecture hall can ___ no more than ninety people, the department had to ___ forty students to a second room.
+246. Because rain and salt slowly ___ the iron of the old bridge, the council will ___ the two southern arches rather than build them again.
