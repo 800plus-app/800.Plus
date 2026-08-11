@@ -776,7 +776,7 @@ function isCorrect(input, term){
 }
 
 /* ===== screens ===== */
-const SCREENS=['auth','welcome','level','home','scope','quiz','results','stats','manage','add','exam','admin','locked','intro','account','boot','sent'];
+const SCREENS=['auth','welcome','level','home','scope','quiz','results','stats','manage','add','exam','admin','locked','intro','account','boot','sent','mode'];
 /* Heavy lists left in hidden screens keep thousands of nodes alive for the whole session;
    drop them on the way out — they are always rebuilt when the screen is opened again. */
 const HEAVY = {stats:'#statsBody', manage:'#manageList', results:'#reviewList'};
@@ -791,7 +791,15 @@ const HEAVY = {stats:'#statsBody', manage:'#manageList', results:'#reviewList'};
    המפתח הוא ש-goBack — שאליו מחוברים כפתורי החזרה שבתוך האפליקציה — צורך את הרשומה
    במקום להשאיר אותה. הגרסה הראשונה לא עשתה זאת, ולכן אחרי יציאה מסבב דרך ✕ נשארה
    רשומה תלויה, ולחיצת "אחורה" הבאה נבלעה בלי שקרה כלום. */
-const NAV_DEPTH = { boot:0, intro:0, auth:0, welcome:0, locked:0, home:0,
+/* ⚠ `mode` בעומק 0, כמו welcome ו-home
+   ------------------------------------
+   העומק כאן משרת את כפתור "אחורה" של אנדרואיד בלבד. שלושת המסכים האלה הם מסכי
+   בסיס: מ-home לחיצת "אחורה" יוצאת מהאפליקציה, וזו ההתנהגות הקיימת. אילו הצבתי
+   את mode בעומק 1, כניסה ל-home הייתה **מחליפה** את הרשומה במקום לדחוף אחת, ואז
+   "אחורה" מ-home היה יוצא מהאפליקציה מבלי לעבור דרך בחירת התרגול — כלומר שינוי
+   התנהגות בלי שביקשו אותו. ההיררכיה בין שלושת המסכים נעשית בכפתורים שבתוך
+   האפליקציה, ולא בהיסטוריית הדפדפן. */
+const NAV_DEPTH = { boot:0, intro:0, auth:0, welcome:0, locked:0, home:0, mode:0,
                     scope:1, account:1, level:1, admin:1,
                     quiz:2, results:2, exam:2, stats:2, manage:2, add:2, sent:2 };
 const navDepth = id => NAV_DEPTH[id] || 0;
@@ -884,15 +892,11 @@ function renderHome(){
   $('#sentSectionT')?.classList.toggle('hidden', !sentOn);
   $('#sentBands')?.classList.toggle('hidden', !sentOn);
   if(sentOn && window.SENT_EN){
-    const done = sentDone();
-    let all=0, left=0;
-    Object.values(window.SENT_EN).forEach(arr=>{
-      all += arr.length; left += arr.filter(it=>!done.has(it.src)).length;
-    });
-    $('#cntSent').textContent = left || all;
-    $('#pbSentSub').textContent = left
-      ? `${left} משפטים שטרם פתרת · מתוך ${all}`
-      : `כל ${all} המשפטים נפתרו · ניתן לחזור עליהם`;
+    const q = sentSummary(null);
+    $('#cntSent').textContent = q.left || q.total;
+    $('#pbSentSub').textContent = q.left
+      ? `${q.left} משפטים שטרם פתרת · ${q.ok} נכונים מתוך ${q.total}`
+      : `כל ${q.total} המשפטים נפתרו · ${q.ok} נכונים`;
   }
   const grid=$('#unitGrid'); grid.innerHTML='';
   /* עשרה אריחים זהים, ואין שום סימן מאיפה מתחילים. הבחירה נופלת על הלומד ברגע שבו הוא
@@ -2686,13 +2690,67 @@ async function enterLang(lang){
   document.documentElement.lang = 'he';
   $('#homeTitle').textContent = lang==='en' ? 'פסיכומטרי — אנגלית' : 'פסיכומטרי — עברית';
   $('#homeSub').textContent   = lang==='en' ? 'English vocabulary · 10 יחידות' : 'המילון הרשמי · 10 יחידות';
+  /* ⚠ באנגלית נעצרים על מסך בחירת התרגול, ובעברית לא
+     ------------------------------------------------
+     יש שני תרגולים באנגלית ואחד בעברית, ולכן מסך בחירה בעברית היה מסך עם אפשרות
+     אחת. בעברית הזרימה נשארת בדיוק כפי שהייתה: בחירת שפה ואז דף הבית.
+     ⚠ renderHome נקרא בשני המקרים, גם כשאנחנו הולכים ל-mode: מסך הבית נבנה
+     מהמצב שנטען הרגע, וכשהלומד יבחר "תרגול מילים" הוא צריך להיות מוכן ולא
+     להיבנות תוך כדי המעבר. */
   renderHome();
-  goto('home');
+  if(lang==='en'){ renderMode(); goto('mode'); }
+  else goto('home');
   if(lang==='en') loadExSentData();   // fire-and-forget: ready before the first feedback
   syncWithRemote(lang);   // fire-and-forget: pulls any progress from another device and merges it in
 }
 document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>enterLang(b.dataset.lang));
-$('#switchLang').onclick=()=>{ if(!committed && session.size>0) commitSession(); renderWelcome(); };
+/* "🏠 חזרה" בדף הבית. באנגלית הוא עולה שלב אחד, לבחירת התרגול; בעברית הוא עולה
+   לבחירת השפה, כמו שהיה. */
+$('#switchLang').onclick=()=>{
+  if(!committed && session.size>0) commitSession();
+  if(LANG==='en'){ renderMode(); goto('mode'); } else renderWelcome();
+};
+
+/* ===== מסך בחירת התרגול · אנגלית בלבד ===== */
+async function renderMode(){
+  const s = langSummary('en');
+  $('#mWordsPct').textContent      = s.pct+'%';
+  $('#mWordsLearned').textContent  = s.learned;
+  $('#mWordsPract').textContent    = s.practised;
+  $('#mWordsCount').textContent    = 'מתוך '+s.total;
+  $('#mWordsProg').style.width     = s.pct+'%';
+  $('#mWordsProg').parentElement.title = `למדת ${s.learned} מתוך ${s.total}`;
+  $('#userBadgeM').textContent = $('#userBadge')?.textContent || '';
+  /* ⚠ המספרים של המשפטים דורשים את קובץ הנתונים, ששוקל 191KB. עד שהוא נטען
+     מוצג "—" ולא אפס: אפס הוא טענה שהלומד לא פתר כלום, ו"—" אומר שהמספר עדיין
+     לא ידוע. /HEB §5 — מספר אמיתי, או שאין מספר. */
+  const paint = () => {
+    const q = sentSummary(null);
+    $('#mSentPct').textContent    = q.pct+'%';
+    $('#mSentSolved').textContent = q.solved;
+    $('#mSentOk').textContent     = q.ok;
+    $('#mSentCount').textContent  = 'מתוך '+q.total;
+    $('#mSentProg').style.width   = q.pct+'%';
+    $('#mSentProg').parentElement.title = `${q.ok} משפטים נכונים מתוך ${q.total}`;
+  };
+  if(window.SENT_EN) paint();
+  else {
+    $('#mSentPct').textContent='—'; $('#mSentSolved').textContent='—';
+    $('#mSentOk').textContent='—';  $('#mSentCount').textContent='';
+    /* נטען ברקע כדי שהמספר יופיע בלי שהלומד ילחץ. אם הרשת נפלה, נשאר "—". */
+    loadSentData().then(ok => { if(ok && !$('#mode').classList.contains('hidden')) paint(); });
+  }
+}
+document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=async ()=>{
+  if(b.dataset.mode==='words'){ renderHome(); goto('home'); return; }
+  b.disabled = true;
+  const ok = await loadSentData();
+  b.disabled = false;
+  if(!ok){ toast('לא ניתן לטעון את המשפטים. בדוק את החיבור לרשת ונסה שוב'); return; }
+  openSentPick(); goto('sent');
+});
+$('#modeBack').onclick = ()=> renderWelcome();
+$('#setBtnM').onclick  = ()=> openAccount();
 
 /* ===== level test =====
    Estimates where the learner already knows the vocabulary, so the app can stop showing
@@ -3598,8 +3656,13 @@ function collectExtras(lang){
     if(k && k.startsWith(pre)) exams[k.slice(pre.length)]=LS.get(k,[]);
   }
   // exam is per PERSON, not per language — it rides both rows and whichever syncs first wins
-  return { level:LS.get(levelKeyFor(lang),null), size:LS.get(sizeKeyFor(lang),null), exams,
-           exam:LS.get(EXAM_KEY,null) };
+  const out = { level:LS.get(levelKeyFor(lang),null), size:LS.get(sizeKeyFor(lang),null), exams,
+                exam:LS.get(EXAM_KEY,null) };
+  /* השלמת משפטים · אנגלית בלבד, ולכן רק על השורה של אנגלית.
+     ⭐ נוסע בבלוב הקיים ולא בטבלה חדשה: ישות חדשה ב-Supabase דורשת סכימה, RLS
+     ומיגרציה, והבלוב הזה כבר מסונכרן, כבר מוגן ב-RLS, וכבר ממוזג additively. */
+  if(lang==='en'){ const p = LS.get(SENT_PROG, null); if(isObj(p)) out.sent = p; }
+  return out;
 }
 /* Same rule as mergeProgress: additive only. A local value already present is never replaced,
    so a device that is ahead can't be pulled backwards by an older row. */
@@ -3608,6 +3671,29 @@ function applyExtras(lang, ex){
   if(ex.level && !LS.get(levelKeyFor(lang),null)) LS.set(levelKeyFor(lang), ex.level);
   if(ex.size!=null && LS.get(sizeKeyFor(lang),null)==null) LS.set(sizeKeyFor(lang), ex.size);
   if(ex.exam && !LS.get(EXAM_KEY,null)) LS.set(EXAM_KEY, ex.exam);
+  /* השלמת משפטים · מיזוג **מונוטוני** לכל פריט בנפרד, ולא "אם אין מקומי אז קח".
+     ⚠ החוק כאן שונה מהשדות שלמעלה, ובכוונה: level ו-size הם ערך אחד שמכשיר אחד
+     קובע, ואילו זו מפה שבה **שני מכשירים יכולים להתקדם במקביל** בפריטים שונים.
+     "אם אין מקומי" היה מוחק את מה שהמכשיר הזה פתר. מקסימום על n ועל ok אינו יכול
+     לרדת, ולכן מכשיר שמאחר לא גורר אחורה מכשיר שקדם לו. */
+  if(lang==='en' && isObj(ex.sent)){
+    const loc = sentProg();          // כולל את ההגירה מהמבנה הישן
+    let changed = false;
+    for(const src of Object.keys(ex.sent)){
+      const r = ex.sent[src]; if(!isObj(r)) continue;
+      const l = loc[src] || { n:0, ok:0, last:0 };
+      const n = Math.max(Number(l.n)||0, Number(r.n)||0);
+      const ok = Math.max(Number(l.ok)||0, Number(r.ok)||0);
+      /* ok לא יכול לחרוג מ-n. שורה מהענן עם ok גדול מ-n היא שורה פגומה, והחסימה
+         כאן מונעת אחוז שליטה מעל 100 שנראה כמו באג בחישוב ולא כמו נתון שבור. */
+      const fixed = Math.min(ok, n);
+      if(n!==(l.n||0) || fixed!==(l.ok||0)){
+        loc[src] = { n, ok:fixed, last: l.n ? l.last : (Number(r.last)?1:0) };
+        changed = true;
+      }
+    }
+    if(changed) LS.set(SENT_PROG, loc);
+  }
   if(!isObj(ex.exams)) return;
   const pre=examPreFor(lang);
   for(const u of Object.keys(ex.exams)){
@@ -5509,8 +5595,67 @@ $('#lockContact').onclick=()=>{
    בהרבה מהתועלת של שמירת התקדמות בין מכשירים בתרגול שרק עולה לאוויר. מה שכן
    נשמר: אילו פריטים נענו, כדי שסבב חדש יעדיף פריטים שטרם נראו. */
 const SENT_ROUND = 10;                       // פריטים בסבב
-const SENT_KEY   = 'hw_sent_done';           // מזהי הפריטים שנענו
+const SENT_KEY   = 'hw_sent_done';           // ⚠ המבנה הישן: מערך מזהים בלבד
+const SENT_PROG  = 'hw_sent_prog';           // המבנה הנוכחי: מזהה → {n, ok, last}
 let sentQ = [], sentI = 0, sentOk = 0, sentAnswered = false, sentBand = '';
+
+/* ===== מעקב ההתקדמות =====
+ * לפריט: n נסיונות · ok כמה מהם היו נכונים · last התוצאה האחרונה.
+ *
+ * ⚠ למה זה החליף את המערך הקודם
+ * -----------------------------
+ * הגרסה הראשונה שמרה `hw_sent_done` — מערך מזהים של פריטים ש**נענו**, בלי לדעת
+ * אם נכון. זה הספיק כדי לא לחזור על שאלה, ולא הספיק לשום דבר אחר: אי אפשר היה
+ * להציג אחוז שליטה, אי אפשר היה להעדיף פריט שנכשל בו, ואי אפשר היה לומר ללומד
+ * מה הוא יודע. המבנה החדש הוא מפה, והוא נושא גם את הצלחות וגם את הכשלים.
+ *
+ * ⭐ הסנכרון בין מכשירים נעשה דרך `collectExtras`/`applyExtras`, כלומר בתוך הבלוב
+ * שכבר קיים בטבלת progress. **אין טבלה חדשה ואין מיגרציה** — ישות חדשה ב-Supabase
+ * דורשת סכימה ו-RLS, וזה סיכון גדול מהתועלת כשהבלוב הקיים עושה את העבודה.
+ *
+ * המיזוג הוא **מונוטוני** ולעולם אינו יורד: n ו-ok נלקחים כמקסימום בין המקומי
+ * לענן. אותו כלל בדיוק שמנחה את mergeProgress ו-applyExtras, ומאותה סיבה: מכשיר
+ * שמאחר לא יגרור אחורה מכשיר שקדם לו. */
+function sentProg(){
+  const raw = LS.get(SENT_PROG, null);
+  if (isObj(raw)) return raw;
+  /* הגירה חד-פעמית מהמערך הישן. הפריטים האלה נענו, ואין לנו את התוצאה — ולכן
+     n=1 ו-ok=0. זה מציג אותם כ"נפתרו אך לא נכונים", והוא הכיוון השמרני: הוא
+     מחזיר אותם לתרגול במקום להצהיר על שליטה שלא נמדדה. */
+  const old = LS.get(SENT_KEY, null);
+  const out = {};
+  if (Array.isArray(old)) old.forEach(src => { if (src) out[src] = { n: 1, ok: 0, last: 0 }; });
+  if (Object.keys(out).length) LS.set(SENT_PROG, out);
+  return out;
+}
+function sentRecord(src, right){
+  const p = sentProg();
+  const e = p[src] || { n: 0, ok: 0, last: 0 };
+  e.n++; if (right) e.ok++;
+  e.last = right ? 1 : 0;
+  p[src] = e; LS.set(SENT_PROG, p);
+  /* אותו מנגנון בדיוק של תרגול המילים: מדליק את הדגל ומתזמן דחיפה מושהית.
+     ⚠ לא דחיפה מיידית לכל תשובה. queueRemoteSync משהה 12 שניות ומאחד, ובסבב של
+     עשר שאלות זו דחיפה אחת במקום עשר. הדחיפה נכפית בכל נקודה שבה הדף עלול לאבד
+     אותה, כולל סוף סבב, מעבר שפה, והסתרת הלשונית. */
+  queueRemoteSync();
+}
+/* סיכום לרצועה אחת או לכל הקורפוס. `ok` נמדד כפריט שנענה נכון **לפחות פעם אחת**,
+   ולא כאחוז מהנסיונות: הלומד שחזר על שאלה וענה נכון יודע אותה. */
+function sentSummary(band){
+  const S = window.SENT_EN || {};
+  const arr = band ? (S[band] || []) : Object.values(S).flat();
+  const p = sentProg();
+  let solved = 0, ok = 0;
+  for (const it of arr){
+    const e = p[it.src];
+    if (!e || !e.n) continue;
+    solved++; if (e.ok > 0) ok++;
+  }
+  const total = arr.length;
+  return { total, solved, ok, left: total - solved,
+           pct: total ? Math.round(100 * ok / total) : 0 };
+}
 
 const sEsc = s => String(s==null?'':s)
   .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
@@ -5560,28 +5705,31 @@ function loadExSentData(){
   return exSentLoading;
 }
 
-const sentDone = ()=> new Set(LS.get(SENT_KEY, []));
-function markSentDone(src){
-  const s = sentDone(); s.add(src); LS.set(SENT_KEY, Array.from(s));
-}
+/* ⚠ `sentDone` ו-`markSentDone` הוסרו. הם החזיקו מערך מזהים בלבד, וזה היה מקור
+   אמת שני לצד מפת ההתקדמות — שני מקורות שיכולים להיפרד. עכשיו יש אחד:
+   `sentProg()`, ו-`sentRecord()` הוא הכותב היחיד אליו. */
 
 /* ===== בורר הרצועות ===== */
 function renderSentPick(){
   const list = $('#sentPickList'); if(!list) return;
   const S = window.SENT_EN || {};
-  const done = sentDone();
   list.innerHTML = '';
   const IC = {'בסיס':'🌱','בינוני':'📗','מתקדם':'📘','אקדמי':'🎓'};
   Object.keys(S).forEach(band=>{
     const all = S[band] || [];
-    const left = all.filter(it=>!done.has(it.src)).length;
     const b = document.createElement('button');
     b.className = 'pbtn';
     /* §5: מספר אמיתי. "נותרו" הוא מה שבאמת נשאר, ואחרי סיום הרצועה השורה אומרת
-       שהיא הושלמה ולא מציגה 0. */
+       שהיא הושלמה ולא מציגה 0.
+       ⚠ ומה שנוסף עם המעקב: כמה מהם **נכונים**. "12 נפתרו" לבדו אינו אומר ללומד
+       אם הוא יודע את הרצועה, ורק שהוא עבר בה. */
+    const q = sentSummary(band);
+    const sub = q.left
+      ? `${q.left} משפטים שטרם פתרת · מתוך ${q.total}` + (q.solved ? ` · ${q.ok} נכונים` : '')
+      : `הושלמה · ${q.ok} נכונים מתוך ${q.total}`;
     b.innerHTML = `<div class="ic">${IC[band]||'✍️'}</div><div class="tx"><b>${sEsc(band)}</b>`
-      + `<span>${left ? left+' משפטים שטרם פתרת · מתוך '+all.length : 'הושלמה · '+all.length+' משפטים לחזרה'}</span></div>`
-      + `<div class="cnt">${left||all.length}</div>`;
+      + `<span>${sub}</span></div>`
+      + `<div class="cnt">${q.left || q.total}</div>`;
     b.onclick = ()=> startSentRound(band);
     list.appendChild(b);
   });
@@ -5594,12 +5742,29 @@ function renderSentPick(){
 /* ===== סבב ===== */
 function startSentRound(band){
   const all = (window.SENT_EN||{})[band] || [];
-  const done = sentDone();
-  /* פריטים שטרם נראו קודם. נגמרו — חוזרים על הכול, כדי שהתרגול לא ייגמר בקיר. */
-  let pool = all.filter(it=>!done.has(it.src));
-  if(pool.length < SENT_ROUND) pool = pool.concat(shuffle(all.filter(it=>done.has(it.src))));
+  const p = sentProg();
+  /* ⭐ שלוש קבוצות, בסדר הזה, וזו התועלת המרכזית של המעקב:
+       1. פריטים שטרם נפתרו.
+       2. פריטים שנפתרו ו**לא** נענו נכון אף פעם — הם החוליה החלשה.
+       3. השאר, לחזרה.
+     הגרסה הקודמת ידעה רק "נענה או לא", ולכן פריט שנכשל בו חזר באותה סבירות
+     כמו פריט שידע. הסדר כאן מביא קודם את מה שלא נשלט. */
+  const fresh  = all.filter(it => !p[it.src] || !p[it.src].n);
+  const failed = all.filter(it => p[it.src] && p[it.src].n && !p[it.src].ok);
+  const known  = all.filter(it => p[it.src] && p[it.src].ok > 0);
+  /* ⭐ בתוך "ידועים", מי שהתשובה **האחרונה** שלו הייתה שגויה קודם. זה מה שהופך את
+     השדה `last` לחי: פריט שנענה נכון פעם ואחר כך נשכח אינו זהה לפריט שנענה נכון
+     בפעם האחרונה, ובלי זה `last` היה נשמר ואף אחד לא היה קורא אותו. */
+  const slipped = shuffle(known.filter(it => p[it.src].last === 0));
+  const solid   = shuffle(known.filter(it => p[it.src].last !== 0));
+  let pool = shuffle(fresh.slice());
+  if(pool.length < SENT_ROUND) pool = pool.concat(shuffle(failed.slice()));
+  if(pool.length < SENT_ROUND) pool = pool.concat(slipped, solid);
   /* מערבבים גם את סדר הפריטים וגם את סדר האפשרויות **בתוך** כל פריט. */
-  sentQ = shuffle(pool.slice()).slice(0, Math.min(SENT_ROUND, all.length)).map(sentShuffled);
+  /* ⚠ **בלי shuffle נוסף כאן.** הגרסה הראשונה של סדר העדיפות ערבבה את pool כולו
+     בשורה הזאת, וזה ביטל בשקט את כל הסדר שנבנה למעלה: פריט שנכשל בו חזר לאותה
+     סבירות כמו פריט שידע. הקבוצות מעורבבות **בתוכן** בנפרד, וזה מספיק. */
+  sentQ = pool.slice(0, Math.min(SENT_ROUND, all.length)).map(sentShuffled);
   sentI = 0; sentOk = 0; sentBand = band;
   $('#sentPick').classList.add('hidden');
   $('#sentDone').classList.add('hidden');
@@ -5656,7 +5821,7 @@ function answerSent(pick){
   const it = sentQ[sentI];
   const right = pick === it.a;
   if(right) sentOk++;
-  markSentDone(it.src);
+  sentRecord(it.src, right);
   Array.from($('#sentOpts').children).forEach((b,j)=>{
     b.disabled = true;
     if(j === it.a){ b.classList.add('is-right'); b.insertAdjacentHTML('afterbegin','<span class="mk">✓</span>'); }
@@ -5686,8 +5851,14 @@ function finishSentRound(){
   $('#sentCard').classList.add('hidden');
   $('#sentBar').style.width = '100%';
   const n = sentQ.length;
+  const q = sentSummary(sentBand), all = sentSummary(null);
+  /* המספר הגדול הוא ציון הסבב, ומתחתיו ההתקדמות המצטברת. שני מדדים שונים ולומד
+     צריך את שניהם: כמה הצלחתי עכשיו, ואיפה אני עומד בסך הכול. */
   $('#sentDone').innerHTML =
       `<div class="num">${sentOk}</div><div>מתוך ${n} משפטים</div>`
+    + `<p class="s-sum">ברצועת ${sEsc(sentBand)}: ${q.ok} נכונים מתוך ${q.total}`
+    + (q.left ? ` · נותרו ${q.left}` : ' · הרצועה הושלמה') + '</p>'
+    + `<p class="s-sum">בסך הכול: ${all.ok} מתוך ${all.total} · ${all.pct}%</p>`
     + `<div class="actions" style="margin-top:22px;justify-content:center">`
     + `<button class="btn btn-primary" id="sentAgain">סבב נוסף</button>`
     + `<button class="btn btn-ghost" id="sentBack">בחירת רצועה</button></div>`;
@@ -5695,6 +5866,10 @@ function finishSentRound(){
   $('#sentAgain').onclick = ()=> startSentRound(sentBand);
   $('#sentBack').onclick  = ()=> openSentPick();
   renderHome();                               // הכפתור בבית מציג את מה שנותר
+  /* ⚠ דחיפה כפויה בסוף סבב, בדיוק כמו commitSession. queueRemoteSync משהה 12
+     שניות, וסוף סבב הוא נקודה שבה הלומד עלול לסגור את הלשונית — ואז ההשהיה
+     הייתה מאבדת את הסבב מהענן עד הכניסה הבאה על אותו מכשיר. */
+  if(currentUser) flushRemoteSync().catch(()=>{});
 }
 
 function openSentPick(){
