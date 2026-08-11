@@ -40,8 +40,14 @@ def he_out(w):
     if not mk:
         return he
     assert mk.replace('**', '') == he, 'הסימון שינה את התרגום: ' + w
-    assert mk.count('**') == 2, 'יותר ממקטע מסומן אחד: ' + w
-    return mk.replace('**', '<b>', 1).replace('**', '</b>', 1)
+    n = mk.count('**')
+    # עד ארבעה מקטעים: צירוף מתאם (`not only... but also...`) מודגש בשני מקומות
+    # בעברית בדיוק כמו באנגלית. מספר אי-זוגי הוא סימון שלא נסגר.
+    assert n >= 2 and n % 2 == 0 and n <= 8, 'סימון לא תקין (%d כוכביות): %s' % (n, w)
+    out = mk
+    for _ in range(n // 2):
+        out = out.replace('**', '<b>', 1).replace('**', '</b>', 1)
+    return out
 assert all(len(r) == 2 and r[1].strip() for r in rows), 'שורה שבורה'
 keys = set()
 for w, s in rows:

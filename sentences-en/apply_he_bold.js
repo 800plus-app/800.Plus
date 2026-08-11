@@ -23,17 +23,23 @@ function check(word, val, orig) {
   if (val === 'SKIP') return { ok: true, skip: true };
   if (val.replace(/\*\*/g, '') !== orig) return { ok: false, why: 'התרגום שונה, לא רק סומן' };
   const n = (val.match(/\*\*/g) || []).length;
-  if (n !== 2) return { ok: false, why: `${n} כוכביות · נדרש מקטע אחד` };
-  const m = val.match(/\*\*([^*]*)\*\*/);
-  const span = m[1];
-  if (!span.trim()) return { ok: false, why: 'מקטע ריק' };
-  if (span !== span.trim()) return { ok: false, why: 'רווח בקצה המקטע' };
-  if (!/[א-ת]/.test(span)) return { ok: false, why: 'מקטע בלי עברית' };
-  /* גבול מילה: אות עברית מיד לפני או אחרי המקטע פירושה סימון של חצי מילה. */
-  const i = val.indexOf('**'), j = val.indexOf('**', i + 2);
-  const before = val[i - 1], after = val[j + 2];
-  if (before && /[א-ת]/.test(before)) return { ok: false, why: 'המקטע מתחיל באמצע מילה' };
-  if (after && /[א-ת]/.test(after)) return { ok: false, why: 'המקטע נגמר באמצע מילה' };
+  /* ⚠ עד 4 מקטעים, ולא אחד. הדרישה "מקטע אחד" הייתה נכונה למילה בודדת ושגויה
+     לצירוף מתאם: ב-`not only... but also...` האנגלית מדגישה **ארבע** מילים בשני
+     מקומות, ובעברית סומן `לא רק` בלבד — כלומר `אלא גם` נשאר בלי הדגשה, וחצי
+     הצירוף נעלם מהלומד. נמצא בבדיקה על הנתונים החיים, על תשעה פריטים כאלה. */
+  if (n < 2 || n > 8 || n % 2) return { ok: false, why: `${n} כוכביות · נדרש מספר זוגי, עד 4 מקטעים` };
+  /* גבול מילה: אות עברית מיד לפני או אחרי מקטע פירושה סימון של חצי מילה. */
+  let pos = 0;
+  for (let k = 0; k < n / 2; k++) {
+    const i = val.indexOf('**', pos), j = val.indexOf('**', i + 2);
+    const span = val.slice(i + 2, j);
+    if (!span.trim()) return { ok: false, why: `מקטע ${k + 1} ריק` };
+    if (span !== span.trim()) return { ok: false, why: `רווח בקצה מקטע ${k + 1}` };
+    if (!/[א-ת]/.test(span)) return { ok: false, why: `מקטע ${k + 1} בלי עברית` };
+    if (/[א-ת]/.test(val[i - 1] || '')) return { ok: false, why: `מקטע ${k + 1} מתחיל באמצע מילה` };
+    if (/[א-ת]/.test(val[j + 2] || '')) return { ok: false, why: `מקטע ${k + 1} נגמר באמצע מילה` };
+    pos = j + 2;
+  }
   return { ok: true };
 }
 
@@ -44,7 +50,9 @@ if (process.argv.includes('--selftest')) {
     ['SKIP',                'SKIP', true],
     ['⛔ מילה שונתה',        'הוא בדק את המכשיר שלו **כל הזמן**, מדי דקה.', false],
     ['⛔ פיסוק שונה',        'הוא בדק את הטלפון שלו **כל הזמן** מדי דקה.', false],
-    ['⛔ שני מקטעים',        'הוא **בדק** את הטלפון שלו **כל** הזמן, מדי דקה.', false],
+    /* שני מקטעים מותרים: צירוף מתאם מודגש בשני מקומות. */
+    ['שני מקטעים',          'הוא **בדק** את הטלפון שלו **כל** הזמן, מדי דקה.', true],
+    ['⛔ מספר אי-זוגי',      'הוא בדק את הטלפון שלו **כל הזמן, מדי דקה.', false],
     ['⛔ באמצע מילה',        'הוא בדק את הטלפון שלו כל ה**זמן**, מדי דקה.', false],
     ['⛔ רווח בקצה',         'הוא בדק את הטלפון שלו ** כל הזמן**, מדי דקה.', false],
     ['⛔ בלי סימון בכלל',    orig, false],
@@ -56,8 +64,9 @@ if (process.argv.includes('--selftest')) {
     else console.log(`✅ ${name}${r.ok ? '' : ' → נדחה: ' + r.why}`);
   });
   console.log(bad ? `\n⛔ ${bad}/${T.length}` :
-    `\n🟢 ${T.length}/${T.length} · לשער יש שיניים: הוא מקבל סימון תקין **ודוחה** ` +
-    'שכתוב של מילה, של פיסוק, שני מקטעים, וסימון באמצע מילה.');
+    `\n🟢 ${T.length}/${T.length} · לשער יש שיניים: הוא מקבל סימון תקין ושני מקטעים ` +
+    'לצירוף מתאם, **ודוחה** שכתוב של מילה, שכתוב של פיסוק, סימון שלא נסגר, ' +
+    '\n   וסימון שמתחיל באמצע מילה.');
   process.exit(bad ? 1 : 0);
 }
 
@@ -82,7 +91,11 @@ for (const f of files) {
        הדילוג, ולכן סימון שנפסל ידנית נשאר בקובץ הידני והמשיך להופיע על המסך —
        פעולת ביטול שלא ביטלה דבר. נתפס על `and`, שסימונו `ותה` כלל את המילה `תה`. */
     if (r.skip) { skip.add(word); man.delete(word); sk++; continue; }
-    man.set(word, val); ok++;
+    /* ⚠ וגם ההיפך: סימון שנקלט חייב לצאת מרשימת הדילוג. `mark_he` בודק את הדילוג
+       **לפני** הסימון הידני, ולכן פריט שנפסל פעם ואחר כך סומן היה נשאר בלי הדגשה
+       והסימון החדש היה נשמט בשקט. נתפס על `either`/`whether`/`neither`, שנפסלו
+       כשהכלל התיר מקטע אחד ונסמנו ברגע שהותרו שניים. */
+    man.set(word, val); skip.delete(word); ok++;
   }
 }
 fs.writeFileSync(manFile, [...man].map(e => e.join('\t')).join('\n') + '\n', 'utf8');
