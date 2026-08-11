@@ -1,0 +1,80 @@
+adventure	הרפתקה	She sought adventure by climbing mountains alone in the summer.	היא חיפשה הרפתקה בטיפוס על הרים לבד בקיץ.
+agency	סוכנות	The employment agency helped her find a suitable job quickly.	סוכנות התעסוקה עזרה לה למצוא עבודה מתאימה במהירות.
+agreement	הסכמה; הסכם	They reached an agreement to split the rent fairly.	הם הגיעו להסכם לחלק את שכר הדירה בצורה הוגנת.
+alarm	דאגה, להדאיג; אזעקה	She felt alarm when her son didn't come home.	היא חשה דאגה כשבנה לא חזר הביתה.
+allow	להרשות	The school allows students to bring lunch from home.	בית הספר מרשה לתלמידים להביא ארוחת צהריים מהבית.
+anger	כעס, להכעיס	His constant complaints stirred anger in everyone around him.	התלונות המתמידות שלו עוררו כעס בכל מי שסביבו.
+arrive	להגיע	The train will arrive at the station in five minutes.	הרכבת תגיע לתחנה בעוד חמש דקות.
+as a result	כתוצאה	It started raining, so as a result, the picnic was canceled.	התחיל לרדת גשם, וכתוצאה מכך הפיקניק בוטל.
+attention	תשומת לב	The loud noise caught everyone's attention in the classroom.	הרעש החזק משך את תשומת לבם של כולם בכיתה.
+attractive	נאה, מושך	She was so attractive that strangers often stopped to compliment her looks.	היא הייתה כל כך מושכת שזרים עצרו לעיתים קרובות כדי להחמיא למראה שלה.
+available	זמין	The book is available at the library starting tomorrow.	הספר זמין בספרייה החל ממחר.
+awake	ער, להתעורר	He was still awake when his friend called at midnight.	הוא עדיין היה ער כשחברו התקשר בחצות.
+award	פרס, להעניק פרס	She won the science award for her innovative project.	היא זכתה בפרס המדע על הפרויקט החדשני שלה.
+badly	בצורה גרועה, רע; קשות, נואשות	He was badly hurt in the motorcycle accident last week.	הוא נפצע קשה בתאונת האופנוע בשבוע שעבר.
+balance	שיווי משקל; איזון, לאזן	She balanced her work and family responsibilities with care.	היא איזנה בין העבודה לאחריות המשפחתית בזהירות.
+bank	בנק; גדה; לערום	She deposited her paycheck at the bank near her apartment this morning.	היא הפקידה את המשכורת שלה בבנק ליד הדירה שלה הבוקר.
+battle	קרב, התכתשות; מאבק, מלחמה; להיאבק, להילחם	Soldiers fought a fierce battle for control of the city.	חיילים נלחמו בקרב עז על השליטה בעיר.
+beard	זקן	His thick beard made him look older than he was.	הזקן העבות שלו גרם לו להיראות מבוגר יותר משהיה.
+beat	מקצב; מכה, להכות	The song had a strong beat that made everyone want to dance.	לשיר היה מקצב חזק שגרם לכולם לרצות לרקוד.
+behavior	התנהגות	The teacher praised the students for their good behavior.	המורה שיבחה את התלמידים על ההתנהגות הטובה שלהם.
+bell	פעמון	The old bell rang loudly to announce the start of the parade.	הפעמון הישן צלצל בקול רם כדי להכריז על תחילת המצעד.
+below	מתחת	The apartment is three floors below the roof.	הדירה נמצאת שלוש קומות מתחת לגג.
+birth	לידה	She gave birth to a healthy baby boy last week.	היא ילדה תינוק בריא בשבוע שעבר.
+bite	לנשוך, נשיכה	The dog tried to bite the mailman but the fence stopped it.	הכלב ניסה לנשוך את הדוור אבל הגדר עצרה אותו.
+blind	עיוור	He went blind after the accident but learned to adapt.	הוא התעוור אחרי התאונה אבל למד להסתגל.
+block	חסימה; לבנה, גוש, חלק	A fallen tree blocked the road after the storm.	עץ שנפל חסם את הכביש אחרי הסערה.
+bone	עצם	The dog buried its bone in the backyard garden.	הכלב קבר את העצם שלו בגינה האחורית.
+border	גבול	The hikers crossed the border between the two countries by mistake.	המטיילים חצו בטעות את הגבול בין שתי המדינות.
+bottom	תחתית; ישבן	The bottom of the ocean remains mostly unexplored by scientists.	תחתית האוקיינוס עדיין לא נחקרה ברובה על ידי מדענים.
+brave	אמיץ	The brave firefighter rescued the child from the burning building.	הכבאי האמיץ חילץ את הילד מהבניין הבוער.
+built	בנה, נבנה (עבר/בינוני פעול של build); בנוי, בנוי היטב	They built their dream house on a hillside overlooking mountains.	הם בנו את בית החלומות שלהם על מדרון עם נוף להרים.
+cancer	סרטן (מחלה)	Early detection of cancer greatly improves the chances for survival.	גילוי מוקדם של סרטן משפר משמעותית את סיכויי ההישרדות.
+capture	ללכוד	The zookeeper used a large net to capture the escaped monkey safely.	שומר גן החיות השתמש ברשת גדולה כדי ללכוד בבטחה את הקוף שברח.
+carefully	בזהירות	She carefully carried the glass vase across the slippery floor.	היא נשאה בזהירות את אגרטל הזכוכית לאורך הרצפה החלקלקה.
+carry	לסחוב	He carried heavy boxes up the stairs without asking for help.	הוא סחב קופסאות כבדות במעלה המדרגות בלי לבקש עזרה.
+castle	טירה	The ancient castle stood on the hilltop for over five centuries.	הטירה העתיקה עמדה על ראש הגבעה במשך יותר מחמש מאות שנה.
+cell	תא	Each cell in the human body contains genetic information.	כל תא בגוף האדם מכיל מידע גנטי.
+central	מרכזי	The central library is located in the heart of the city.	הספרייה המרכזית נמצאת בלב העיר.
+certainly	בהחלט, בוודאי	She will certainly attend the wedding next month without fail.	היא בהחלט תגיע לחתונה בחודש הבא בלי יוצא מן הכלל.
+challenge	לאתגר; אתגר	Learning a new language can be a real challenge for adults.	לימוד שפה חדשה יכול להיות אתגר אמיתי למבוגרים.
+chapter	פרק	The first chapter introduces the main character and her hometown.	הפרק הראשון מציג את הדמות הראשית ואת עיר הולדתה.
+chase	לרדוף, מרדף	The police chased the robber through the crowded streets.	המשטרה רדפה אחרי השודד ברחובות הצפופים.
+cheer	לעודד	The crowd cheered loudly when their team scored the winning goal.	הקהל עודד בקול רם כשהקבוצה שלו כבשה את שער הניצחון.
+childhood	ילדות	He had wonderful memories of his childhood in the countryside.	היו לו זיכרונות נפלאים מהילדות שלו בכפר.
+choice	בחירה	The choice of colors for the new office was difficult.	בחירת הצבעים למשרד החדש הייתה קשה.
+cigarette	סיגריה	He quit smoking cigarettes after a doctor's warning about health.	הוא הפסיק לעשן סיגריות אחרי אזהרה של רופא לגבי הבריאות.
+climb	לטפס	The hikers had to climb the steep mountain before sunset.	המטיילים היו צריכים לטפס על ההר התלול לפני השקיעה.
+coat	מעיל; שכבה (של צבע, בטון וכו')	She wore a warm coat because the winter wind was cold.	היא לבשה מעיל חם כי רוח החורף הייתה קרה.
+coin	מטבע	He found an old coin buried in the garden today.	הוא מצא מטבע ישן קבור בגינה היום.
+colleague	עמית, קולגה	My colleague offered to help with the project next week.	העמית שלי הציע לעזור בפרויקט בשבוע הבא.
+coma	תרדמת	The accident victim fell into a coma for several days.	נפגע התאונה שקע בתרדמת למשך כמה ימים.
+combat	להילחם ב-, להיאבק ב-; קרב, לחימה	Doctors work hard to combat the spread of common infections.	רופאים עובדים קשה כדי להילחם בהתפשטות של זיהומים נפוצים.
+comfortable	נוח	The new mattress is very comfortable for sleeping.	המזרן החדש נוח מאוד לשינה.
+command	פקודה, לפקוד	The general issued a command to retreat immediately.	הגנרל נתן פקודה לסגת מיד.
+communicate	לתקשר	We need to communicate our concerns to the management team.	אנחנו צריכים לתקשר את החששות שלנו לצוות ההנהלה.
+community	קהילה	The community organized a festival to celebrate their shared heritage.	הקהילה ארגנה פסטיבל כדי לחגוג את המורשת המשותפת שלה.
+competition	תחרות	There was fierce competition between the two companies for the contract.	הייתה תחרות עזה בין שתי החברות על החוזה.
+complete	שלם, מלא, מושלם; להשלים, לסיים	She will complete her degree by next summer.	היא תשלים את התואר שלה עד הקיץ הבא.
+complex	מסובך	The mathematical problem was too complex for most students.	הבעיה המתמטית הייתה מסובכת מדי לרוב התלמידים.
+concept	רעיון, מושג	The concept behind the new product was quite innovative.	הרעיון מאחורי המוצר החדש היה חדשני למדי.
+condition	תנאי, מצב, מעמד; להכשיר, להתאים	The condition of the house was poor after years of neglect.	מצב הבית היה גרוע אחרי שנים של הזנחה.
+confirm	לאשר, לאמת	Please confirm your attendance at the meeting by tomorrow.	אנא אשרו את נוכחותכם בפגישה עד מחר.
+conflict	עימות, סכסוך	A small conflict between neighbors started over a broken fence.	סכסוך קטן בין שכנים התחיל בגלל גדר שבורה.
+content	תוכן; שביעות רצון	The content of the book was more interesting than expected.	תוכן הספר היה מעניין יותר מהצפוי.
+core	ליבה	The apple core was hard to eat so I threw it away.	ליבת התפוח הייתה קשה לאכילה אז זרקתי אותה.
+corner	פינה, לדחוק לפינה	The store is located at the corner of Main and Fifth.	החנות נמצאת בפינת רחוב מיין ורחוב חמישי.
+cost	מחיר, עלות	The cost of the vacation was more than we expected.	עלות החופשה הייתה גבוהה יותר משציפינו.
+courage	אומץ	It took great courage to speak up against the unfair decision.	נדרש אומץ רב כדי להתבטא נגד ההחלטה הלא הוגנת.
+court	מגרש (ספורט); בית משפט	The tennis court needs new paint before the tournament.	מגרש הטניס זקוק לצבע חדש לפני הטורניר.
+cover	לכסות; לסקר, לכלול; כיסוי, מכסה	Snow covered the mountain peaks during the winter.	שלג כיסה את פסגות ההרים במהלך החורף.
+culture	תרבות	Japanese culture has influenced art and fashion worldwide.	התרבות היפנית השפיעה על אמנות ואופנה ברחבי העולם.
+cure	מרפא, תרופה; לרפא	The doctor will cure his infection with antibiotics.	הרופא ירפא את הזיהום שלו באמצעות אנטיביוטיקה.
+curious	סקרן	The curious child asked endless questions about how things work.	הילד הסקרן שאל שאלות אינסופיות על איך דברים עובדים.
+currently	כרגע, נכון לעכשיו	He is currently working on a new book about history.	הוא עובד כרגע על ספר חדש על היסטוריה.
+customer	לקוח, צרכן	The customer complained about the poor quality of service.	הלקוח התלונן על איכות השירות הירודה.
+daily	יומיומי	She takes a daily walk in the park for exercise.	היא הולכת הליכה יומיומית בפארק לצורך פעילות גופנית.
+defend	להגן	The goalkeeper defended the goal with skill and determination.	השוער הגן על השער במיומנות ובנחישות.
+delay	עיכוב, לאחר, לדחות	The flight delay caused them to miss the connecting plane.	עיכוב הטיסה גרם להם להחמיץ את הטיסה המקשרת.
+delivery	משלוח	The package delivery is scheduled for tomorrow afternoon.	משלוח החבילה מתוזמן למחר אחר הצהריים.
+department	מחלקה	The marketing department created a new advertising campaign.	מחלקת השיווק יצרה קמפיין פרסום חדש.

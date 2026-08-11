@@ -1,0 +1,80 @@
+summarize	לסכם	She summarized the long report in just five minutes.	היא סיכמה את הדוח הארוך תוך חמש דקות בלבד.
+summits	פסגות	Three mountain summits were visible from the hiking trail.	שלוש פסגות הרים נראו משביל ההליכה.
+superb	מעולה (איכותי)	The restaurant's superb food made it worth the long wait.	האוכל המעולה במסעדה הצדיק את ההמתנה הארוכה.
+supervise	לפקח	The manager supervises ten people on the customer service team.	המנהל מפקח על עשרה אנשים בצוות שירות הלקוחות.
+suppress	לדכא, לכבוש	She tried to suppress her laughter during the boring lecture.	היא ניסתה לדכא את הצחוק שלה במהלך ההרצאה המשעממת.
+surround	להקיף	High walls surround the ancient castle and its gardens.	חומות גבוהות מקיפות את הטירה העתיקה וגניה.
+survey	לבחון, לסקור; סקר	We surveyed customers to learn what products they wanted most.	סקרנו לקוחות כדי ללמוד אילו מוצרים הם רצו הכי הרבה.
+suspend	להשעות	The school will suspend students who repeatedly arrive late to class.	בית הספר ישעה תלמידים שמגיעים באיחור לשיעור שוב ושוב.
+suspicion	חשד	His suspicion grew when he found the strange emails.	החשד שלו גבר כשהוא מצא את המיילים המוזרים.
+swift	מהיר	The swift runner completed the race in under ten minutes.	הרץ המהיר סיים את המרוץ בפחות מעשר דקות.
+tempt	לפתות	The bakery window full of donuts tempted her every morning.	חלון המאפייה המלא בסופגניות פיתה אותה בכל בוקר.
+terrain	שטח	The rocky terrain made it impossible for cars to drive here.	השטח הסלעי הפך את הנסיעה במכוניות כאן לבלתי אפשרית.
+terrify	להפחיד, להבעית	Thunderstorms terrify the dog and make her hide under the bed.	סופות רעמים מפחידות את הכלבה וגורמות לה להתחבא מתחת למיטה.
+tilt	להטות, שיפוע	Do not tilt your chair or you will fall backward.	אל תטה את הכיסא שלך אחרת תיפול אחורה.
+tolerance	סובלנות	Tolerance for different beliefs helps communities live together peacefully.	סובלנות כלפי אמונות שונות עוזרת לקהילות לחיות יחד בשלום.
+transaction	עסקה	The real estate transaction took six months to complete.	עסקת הנדל"ן ארכה שישה חודשים עד להשלמתה.
+transmit	לשדר	Radio stations transmit signals that receivers pick up around the world.	תחנות רדיו משדרות אותות שמקלטים קולטים ברחבי העולם.
+transmitter	משדר	The broken transmitter prevented emergency calls from reaching the dispatcher.	המשדר המקולקל מנע משיחות חירום להגיע למוקדן.
+trim	לגזום	I need to trim the bushes before they grow too wide.	אני צריך לגזום את השיחים לפני שהם יגדלו יותר מדי לרוחב.
+triumph	ניצחון	Their triumph in the championship game made the whole town celebrate.	הניצחון שלהם במשחק האליפות גרם לכל העיר לחגוג.
+troop	יחידה צבאית; חייל	The military troop marched through the city streets in formation.	היחידה הצבאית צעדה במבנה ברחובות העיר.
+tutor	מורה פרטי, להדריך	She hired a tutor to help her son with mathematics.	היא שכרה מורה פרטי כדי לעזור לבנה במתמטיקה.
+unaware	לא מודע	He was unaware that someone had stolen his bicycle.	הוא לא היה מודע לכך שמישהו גנב את האופניים שלו.
+unconcerned	לא מודאג	Despite the noise, she remained unconcerned and kept reading her book.	למרות הרעש, היא נשארה לא מודאגת והמשיכה לקרוא את הספר שלה.
+unconventional	לא שיגרתי	His unconventional teaching methods engaged students in new and exciting ways.	שיטות ההוראה הלא שיגרתיות שלו עניינו את התלמידים בדרכים חדשות ומרגשות.
+uncover	לחשוף, לגלות	The investigation will uncover the truth about what happened.	החקירה תחשוף את האמת לגבי מה שקרה.
+unemployed	מובטל	After the factory closed, many workers became unemployed.	אחרי שהמפעל נסגר, עובדים רבים נותרו מובטלים.
+unholy	לא קדוש, לא מוסרי	The unholy alliance between enemies shocked everyone in the region.	הברית הלא קדושה בין האויבים הלמה את כולם באזור.
+unify	לאחד	The common goal helped unify the different groups against the challenge.	המטרה המשותפת עזרה לאחד את הקבוצות השונות מול האתגר.
+urban	עירוני	Urban areas have more restaurants and shops than rural towns.	אזורים עירוניים כוללים יותר מסעדות וחנויות מאשר עיירות כפריות.
+utilize	השתמש	She learned to utilize her limited free time for extra reading.	היא למדה להשתמש בזמנה הפנוי המוגבל לקריאה נוספת.
+validate	אימת, נתן תוקף	The system will validate your password before allowing you to enter.	המערכת תאמת את הסיסמה שלך לפני שתאפשר לך להיכנס.
+valve	שסתום	Turn off the valve to stop water from flowing through the pipe.	סגור את השסתום כדי לעצור את זרימת המים בצינור.
+vanish	להיעלם	The magician made a rabbit vanish before the audience's amazed eyes.	הקוסם גרם לארנב להיעלם לנגד עיניו המשתאות של הקהל.
+vary	משתנה	Student grades vary depending on how much time they study.	ציוני התלמידים משתנים בהתאם לכמות הזמן שהם לומדים.
+vendor	מוכר, רוכל; ספק	The street vendor sold fresh fruit from his cart every morning.	הרוכל ברחוב מכר פירות טריים מהעגלה שלו בכל בוקר.
+vest	אפודה	She wore a heavy vest under her coat for extra warmth.	היא לבשה אפודה כבדה מתחת למעיל לחום נוסף.
+vocabulary	אוצר מילים	Learning vocabulary helps students read and understand English texts better.	לימוד אוצר מילים עוזר לתלמידים לקרוא ולהבין טקסטים באנגלית טוב יותר.
+voyage	מסע	The long voyage across the ocean took over two weeks.	המסע הארוך על פני האוקיינוס ארך יותר משבועיים.
+wander	להסתובב, לשוטט	He liked to wander through the museum and examine each painting.	הוא אהב להסתובב במוזיאון ולבחון כל ציור.
+whether... or...	בין אם... או...	Whether you choose coffee or tea, the choice is yours.	בין אם תבחר קפה או תה, הבחירה בידיך.
+widely	בצורה נרחבת	That style of music is not widely popular among young adults.	סגנון המוזיקה הזה אינו פופולרי בצורה נרחבת בקרב צעירים.
+widen	להרחיב	We will widen the road to allow more cars to pass through.	נרחיב את הכביש כדי לאפשר למכוניות רבות יותר לעבור.
+wool	צמר	She knitted a warm sweater from thick wool for her baby.	היא סרגה סוודר חם מצמר עבה לתינוק שלה.
+yawn	לפהק, פיהוק	He began to yawn as the boring movie dragged slowly on.	הוא התחיל לפהק כשהסרט המשעמם נמשך לאט.
+absorb	לספוג	Sponges absorb water quickly and release it when you squeeze them.	ספוגים סופגים מים במהירות ומשחררים אותם כשלוחצים עליהם.
+accompany	ללוות	Her mother will accompany her to the dentist's office tomorrow.	אמה תלווה אותה למרפאת השיניים מחר.
+accomplish	להשלים, להשיג	We worked hard to accomplish our goal before the deadline.	עבדנו קשה כדי להשיג את המטרה שלנו לפני המועד האחרון.
+accomplishment	הישג	Graduating from college was her greatest accomplishment so far.	סיום הקולג' היה ההישג הגדול ביותר שלה עד כה.
+accordingly	בהתאם	The weather turned cold, so the family dressed accordingly for their trip.	מזג האוויר התקרר, אז המשפחה התלבשה בהתאם לטיול שלהם.
+acknowledge	להכיר ב-, להודות ב-; לאשר קבלה	The company acknowledged the problem and apologized to its customers.	החברה הכירה בבעיה והתנצלה בפני לקוחותיה.
+acquire	לרכוש, להשיג	He spent years trying to acquire the rare artwork for his collection.	הוא בילה שנים בניסיון לרכוש את יצירת האמנות הנדירה לאוסף שלו.
+adequate	מספיק, מספק; הולם	The small apartment had adequate space for a single person.	בדירה הקטנה היה שטח מספיק לאדם יחיד.
+adjust	להתרגל; לכוונן	It took weeks to adjust to living in a different climate.	לקח שבועות להתרגל לחיים באקלים שונה.
+admirable	נערץ, ראוי להערצה	Her admirable courage inspired everyone around her to try harder.	האומץ הנערץ שלה עורר השראה בכל מי שסביבה לנסות יותר.
+advancement	התקדמות; מקדמה	Her rapid advancement at work surprised nobody who knew her abilities.	ההתקדמות המהירה שלה בעבודה לא הפתיעה אף אחד שהכיר את יכולותיה.
+advocate	תומך, מצדד; פרקליט; לדגול ב-, לתמוך בגלוי ב-	He became an advocate for protecting the environment.	הוא הפך לתומך בהגנה על הסביבה.
+affection	חיבה	She showed great affection for her elderly grandmother every single day.	היא הראתה חיבה רבה לסבתה הקשישה בכל יום ויום.
+afford	יכול לעמוד בהוצאות, להרשות לעצמו	They could not afford to buy a house in that expensive area.	הם לא יכלו לעמוד בהוצאה של קניית בית באזור היקר ההוא.
+agriculture	חקלאות	Agriculture is the main industry in this rural region of the country.	החקלאות היא התעשייה העיקרית באזור הכפרי הזה של המדינה.
+airborne	נישא באוויר	The airborne seeds spread across the field on the strong wind.	הזרעים הנישאים באוויר התפזרו על פני השדה ברוח החזקה.
+allowance	דמי כיס, הקצבה	Her parents gave her an allowance each week for doing chores.	הוריה נתנו לה דמי כיס כל שבוע תמורת עשיית מטלות הבית.
+alter	שינה ,לשנות	She had to alter her plans when she got sick.	היא נאלצה לשנות את התוכניות שלה כשחלתה.
+alternate	חלופי; התחלף, עבר מדבר אחד לשני וחזרה	If that restaurant is full, we have an alternate choice nearby.	אם המסעדה הזו מלאה, יש לנו אפשרות חלופית בקרבת מקום.
+ambassador	שגריר	The new ambassador will represent her country at the international conference.	השגרירה החדשה תייצג את מדינתה בוועידה הבינלאומית.
+ancestor	אב קדמון	My ancestor came to this country over one hundred years ago.	אב קדמוני הגיע למדינה הזו לפני יותר ממאה שנה.
+annihilate	להשמיד	The harsh winter will annihilate the mosquito population in the region.	החורף הקשה ישמיד את אוכלוסיית היתושים באזור.
+anxious	להוט; חרד	He was anxious to meet his new baby sister at the hospital.	הוא היה להוט לפגוש את אחותו התינוקת החדשה בבית החולים.
+appeal	לבקש; מדבר אל, מושך; לערער	She appealed to the principal to reconsider the punishment.	היא פנתה למנהל בבקשה שישקול מחדש את העונש.
+applaud	מחא כפיים, הריע	The audience applauded the singer when she finished her beautiful song.	הקהל מחא כפיים לזמרת כשסיימה את השיר היפה שלה.
+appreciation	הערכה	He expressed his appreciation for all her hard work and dedication.	הוא הביע את הערכתו על כל העבודה הקשה וההתמסרות שלה.
+approximately	בערך, בקירוב	The project will cost approximately fifty thousand dollars to complete.	השלמת הפרויקט תעלה בערך חמישים אלף דולר.
+arise	להופיע, לעלות	Problems began to arise when the team failed to communicate.	בעיות החלו להופיע כשהצוות נכשל בתקשורת.
+arousing	מעורר	The strange noise outside was arousing suspicion among the nervous neighbors.	הרעש המוזר בחוץ עורר חשד בקרב השכנים העצבניים.
+assemble	להרכיב, להתאסף	Workers will assemble the furniture according to the detailed instruction manual.	עובדים ירכיבו את הרהיטים לפי חוברת ההוראות המפורטת.
+assumption	הנחה	His assumption that everyone had money was wrong and unkind.	ההנחה שלו שלכולם יש כסף הייתה שגויה ולא אדיבה.
+audit	ביקורת	The company conducted an audit to check if all accounts were correct.	החברה ערכה ביקורת כדי לבדוק אם כל החשבונות היו נכונים.
+bail	ערבות, לשחרר בערבות	The judge set bail at ten thousand dollars before trial.	השופט קבע ערבות של עשרת אלפים דולר לפני המשפט.
+bare	חשוף, ריק, לחשוף	His bare feet felt cold on the icy concrete floor this morning.	כפות רגליו החשופות הרגישו קרות על רצפת הבטון הקפואה הבוקר.
+barely	בקושי	She barely finished her chores before her parents came home.	היא בקושי סיימה את מטלות הבית לפני שהוריה חזרו הביתה.

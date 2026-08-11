@@ -1,0 +1,80 @@
+priest	כומר	The priest performed the wedding ceremony in the old stone church.	הכומר ערך את טקס החתונה בכנסיית האבן העתיקה.
+prime	ראשוני, עיקרי, מובחר	The prime reason for the meeting was to discuss the budget cuts.	הסיבה העיקרית לפגישה הייתה לדון בקיצוצים בתקציב.
+primitive	קדום, חסר תרבות	Primitive humans hunted animals with simple stone tools and spears.	בני אדם קדומים צדו חיות בעזרת כלי אבן וחניתות פשוטים.
+propaganda	תעמולה	The company's advertisements were pure propaganda that exaggerated the product's benefits.	הפרסומות של החברה היו תעמולה טהורה שהגזימה ביתרונות המוצר.
+proper	מתאים, הולם	Wearing proper business attire is expected at the job interview.	לבישת לבוש עסקי הולם נדרשת בראיון העבודה.
+properly	כראוי	You must properly wash your hands before cooking or eating.	עליך לשטוף את הידיים כראוי לפני בישול או אכילה.
+prove	להוכיח	The scientist proved his theory was correct through careful experiments.	המדען הוכיח שהתאוריה שלו נכונה באמצעות ניסויים קפדניים.
+provide	לפרנס; לספק	Parents must provide for their children by working hard.	הורים חייבים לפרנס את ילדיהם על ידי עבודה קשה.
+publish	לפרסם, להוציא לאור	The author published her novel after working on it for five years.	הסופרת פרסמה את הרומן שלה אחרי שעבדה עליו חמש שנים.
+purchase	לקנות, לרכוש	I purchased a new laptop computer for work yesterday.	קניתי מחשב נייד חדש לצורכי עבודה אתמול.
+quite	למדי	The beach was quite crowded during the summer vacation period.	החוף היה די צפוף בתקופת חופשת הקיץ.
+quote	ציטוט	She began her essay with a famous quote from a poet.	היא פתחה את החיבור שלה בציטוט מפורסם של משורר.
+race	מרוץ; גזע	The runners prepared for the race by stretching and warming up.	הרצים התכוננו למרוץ באמצעות מתיחות וחימום.
+raid	פשיטה	The children conducted a raid on the kitchen cookies while parents slept.	הילדים ערכו פשיטה על העוגיות במטבח בזמן שההורים ישנו.
+rainfall	ירידת גשמים	The rainfall last week was heavy enough to cause some flooding.	ירידת הגשמים בשבוע שעבר הייתה חזקה מספיק כדי לגרום להצפות.
+rainstorm	סערת גשמים	A sudden rainstorm forced us to cancel the outdoor picnic.	סערת גשמים פתאומית אילצה אותנו לבטל את הפיקניק בחוץ.
+randomly	באקראיות	The teacher randomly selected students to answer questions in class.	המורה בחרה באקראיות תלמידים שיענו על שאלות בכיתה.
+range	טווח; רכס; מטווח	The school offers a wide range of sports and club activities.	בית הספר מציע מגוון רחב של ספורט וחוגים.
+rank	דרגה	She earned the rank of captain after serving in the military.	היא זכתה בדרגת קפטן אחרי ששירתה בצבא.
+rapid	מהיר; אֶשֶד, זרם מים מהיר בנהר	The river had rapid currents that made crossing very dangerous.	לנהר היו זרמים מהירים שהפכו את החצייה למסוכנת מאוד.
+rather than	במקום, יותר מ-	I prefer tea rather than coffee in the morning.	אני מעדיף תה במקום קפה בבוקר.
+rational	הגיוני, רציונאלי	His rational approach to the problem helped solve it quickly.	הגישה ההגיונית שלו לבעיה עזרה לפתור אותה במהירות.
+ray	קרן, אלומת אור	A ray of sunlight streamed through the window into the room.	קרן אור שמש חדרה דרך החלון אל תוך החדר.
+reader	קורא	The reader finished the book in just two days.	הקורא סיים את הספר תוך יומיים בלבד.
+rebel	מורד	The rebel refused to follow the strict rules of his boarding school.	המורד סירב לציית לכללים המחמירים של הפנימייה שלו.
+reborn	נולד מחדש	After recovery, he felt reborn with a new zest for life.	לאחר ההחלמה הוא הרגיש נולד מחדש עם חשק חדש לחיים.
+recordings	הקלטות	The recordings of the concert were released as an album.	ההקלטות של הקונצרט שוחררו כאלבום.
+recycle	למחזר	We recycle paper, plastic, and glass to protect the environment.	אנחנו ממחזרים נייר, פלסטיק וזכוכית כדי לשמור על הסביבה.
+recycling	מחזור	Recycling helps reduce waste and conserve natural resources.	מחזור עוזר לצמצם פסולת ולשמר משאבי טבע.
+redhead	ג'ינג'י (סלנג)	The redhead stood out in the crowd with her bright red hair.	הג'ינג'ית בלטה בקהל עם שיערה האדום הבוהק.
+reduce	להפחית	We need to reduce spending this year by cutting unnecessary costs.	עלינו להפחית הוצאות השנה על ידי קיצוץ עלויות מיותרות.
+reform	שינוי, רפורמה	The new education reform changed how schools teach mathematics.	הרפורמה החינוכית החדשה שינתה את אופן הוראת המתמטיקה בבתי הספר.
+regret	להתחרט, חרטה	I regret not calling my grandmother before she moved away.	אני מתחרט שלא התקשרתי לסבתא שלי לפני שעברה דירה.
+regularly	באופן קבוע	She regularly exercises three times per week at the gym.	היא מתאמנת באופן קבוע שלוש פעמים בשבוע בחדר הכושר.
+relations	יחסים	The business relations between the two companies are improving.	היחסים העסקיים בין שתי החברות משתפרים.
+reorganize	לארגן מחדש	We reorganized the files to make them easier to find.	ארגנו מחדש את הקבצים כדי שיהיה קל יותר למצוא אותם.
+replacement	מחליף	His replacement started work on Monday at the company.	המחליף שלו התחיל לעבוד בחברה ביום שני.
+replica	העתק מדויק	The museum displayed a replica of the ancient Greek statue.	המוזיאון הציג העתק מדויק של הפסל היווני העתיק.
+reply	להשיב	She replied to his email within an hour of receiving it.	היא השיבה למייל שלו תוך שעה מרגע קבלתו.
+resource	משאב	Water is our most important natural resource for survival.	מים הם המשאב הטבעי החשוב ביותר שלנו להישרדות.
+rest	מנוחה; יתר, שאר	After the long trip, she needed rest to recover.	אחרי הנסיעה הארוכה היא נזקקה למנוחה כדי להתאושש.
+retroactive	רטרואקטיבי, למפרע	The pay raise was retroactive to January of this year.	העלאת השכר הייתה רטרואקטיבית לינואר של השנה הזו.
+rhythm	קֶצֶב	The music had a strong rhythm that made people dance.	למוזיקה היה קצב חזק שגרם לאנשים לרקוד.
+rough	קשה, מחוספס	The rough surface of the stone hurt his skin.	המשטח המחוספס של האבן פצע את עורו.
+ruin	להרוס	Poor decisions ruined his chances of getting a good job.	החלטות גרועות הרסו את סיכוייו לקבל עבודה טובה.
+sacrifice	להקריב, קורבן	Parents sacrifice their time and money for their children.	הורים מקריבים את זמנם וכספם למען ילדיהם.
+savanna	ערבה, סוואנה	Many wild animals live in the African savanna.	חיות בר רבות חיות בסוואנה האפריקאית.
+seafood	פירות ים	She ordered seafood at the restaurant because she loves fish.	היא הזמינה פירות ים במסעדה כי היא אוהבת דגים.
+seeds	זרעים	Farmers plant seeds in spring to grow crops.	חקלאים שותלים זרעים באביב כדי לגדל יבולים.
+seek	לחפש, לתור אחר; לשאוף ל-; לבקש	The police seek information about the missing person.	המשטרה מחפשת מידע על האדם הנעדר.
+segment	קטע, מקטע	The final segment of the show featured surprising interviews with the winners.	הקטע האחרון של התוכנית כלל ראיונות מפתיעים עם הזוכים.
+select	לבחור	Students select which classes they want to take next year.	תלמידים בוחרים באילו שיעורים הם רוצים ללמוד בשנה הבאה.
+selective	סלקטיבי	He is selective about which movies he watches.	הוא סלקטיבי לגבי הסרטים שהוא צופה בהם.
+self-confidence	בטחון-עצמי	Her self-confidence grew as she practiced the piano.	הביטחון העצמי שלה גדל ככל שתרגלה בפסנתר.
+separately	בנפרד	The boys and girls ate lunch separately in different areas.	הבנים והבנות אכלו ארוחת צהריים בנפרד באזורים שונים.
+separation	הפרדה	The separation of the two groups made them feel unhappy.	ההפרדה בין שתי הקבוצות גרמה להן להרגיש לא מרוצות.
+several	אחדים, כמה	Several birds built nests in the old oak tree this spring.	אחדים מהציפורים בנו קנים על עץ האלון הישן באביב הזה.
+share	מניה; לחלוק	He owns a share of the company worth one million dollars.	הוא מחזיק מניה בחברה בשווי מיליון דולר.
+shelf (shelves)	מדף (מדפים)	The shelf in the kitchen held many plates and dishes.	המדף במטבח החזיק צלחות וכלים רבים.
+shift	משמרת; להזיז	She works the night shift at the hospital.	היא עובדת במשמרת הלילה בבית החולים.
+side effect	תופעת לוואי	The medicine helped his illness but had bad side effects.	התרופה עזרה למחלתו אך גרמה לתופעות לוואי לא נעימות.
+sight	ראייה, כוונת	His sight improved greatly after doctors performed surgery on his damaged eye.	הראייה שלו השתפרה מאוד אחרי שהרופאים ניתחו את עינו הפגועה.
+significantly	באופן משמעותי	The temperature rose significantly during the summer months.	הטמפרטורה עלתה באופן משמעותי במהלך חודשי הקיץ.
+silently	בשקט	The cat silently crept through the dark room.	החתול זחל בשקט דרך החדר החשוך.
+slavery	עבדות	Slavery was abolished in the United States in eighteen sixty-five.	העבדות בוטלה בארצות הברית בשנת אלף שמונה מאות שישים וחמש.
+so long as	כל עוד	You can stay here so long as you follow the rules.	אתה יכול להישאר כאן כל עוד אתה מציית לכללים.
+sound	קול; בריא	The sound of the alarm woke everyone in the building.	קול האזעקה העיר את כולם בבניין.
+speaker	דובר	The speaker at the conference was a famous scientist.	הדובר בכנס היה מדען מפורסם.
+spice	תבלין, לתבל	She added spice to the soup to make it taste better.	היא הוסיפה תבלין למרק כדי לשפר את הטעם שלו.
+spot	כתם; לזהות	There was a spot of dirt on his white shirt.	היה כתם לכלוך על חולצתו הלבנה.
+spread	התפשטות, פיזור; ממרח, למרוח	The fire spread quickly through the old wooden building.	האש התפשטה במהירות דרך הבניין העץ הישן.
+stadium	אצטדיון	Thousands of fans filled the stadium to watch the game.	אלפי אוהדים מילאו את האצטדיון כדי לצפות במשחק.
+stamina	כושר עמידה, סיבולת	Long-distance runners need great stamina to finish the race.	רצי מרחקים ארוכים זקוקים לסיבולת רבה כדי לסיים את המרוץ.
+statement	הצהרה	The company's statement addressed customer complaints about the late deliveries.	ההצהרה של החברה התייחסה לתלונות לקוחות על משלוחים מאוחרים.
+stock	מלאי; מניה; לאחסן	The store keeps a large stock of winter clothing.	החנות שומרת מלאי גדול של בגדי חורף.
+storage	אחסון	We need more storage space for all these boxes.	אנחנו זקוקים ליותר מקום אחסון לכל הקופסאות האלה.
+study	מחקר; חדר עבודה	His study showed that exercise improves mental health.	המחקר שלו הראה שפעילות גופנית משפרת את הבריאות הנפשית.
+subject	נושא; נתין, אזרח; נבדק; להכפיף, לחשוף ל-; נתון ל-, כפוף ל-	The subject of today's lesson is ancient Egyptian history.	הנושא של השיעור היום הוא ההיסטוריה של מצרים העתיקה.
+sundown	שקיעה	We must return before sundown or we will be trapped.	עלינו לחזור לפני השקיעה אחרת נהיה תקועים.
+surface	פני שטח	The surface of the lake was smooth and calm.	פני השטח של האגם היו חלקים ושקטים.

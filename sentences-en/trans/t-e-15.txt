@@ -1,0 +1,80 @@
+sin	חטא	It was a grave sin to steal from the charity meant for the poor.
+slow down	להאט	The driver had to slow down as the fog grew thicker.
+soul	נשמה	The musician poured his soul into every note of the performance.
+source	מקור	The source of the river lay high in the mountains.
+southern	דרומי	The southern regions of the country experience much warmer weather throughout the year.
+space	חלל; רווח	Astronauts in space need special suits to survive outside their spacecraft.
+speech	נאום; דיבור, כושר דיבור	The president delivered a powerful speech to calm the frightened nation.
+spell	כישוף, קסם; איות, לאיית	The witch cast a dangerous spell that froze the entire village.
+spirit	כוונה, רוח הדברים; רוח רפאים, נפש	The spirit of the law is more important than its literal text.
+square	ריבוע; כיכר	A square has four equal sides and four right angles.
+stage	שלב; במה; לביים, לארגן (הפגנה)	The first stage of the project involved gathering all necessary data.
+standard	רמה, תקן, מקובל	The school's high standard for student behavior was enforced strictly and fairly.
+state	מצב; מדינה; לציין, להצהיר, לקבוע	The old house was in a terrible state after years of neglect.
+stomach	בטן, קיבה	Her stomach hurt badly after eating too much pizza.
+strength	חוזק	The strength of the old oak tree amazed everyone during the storm.
+structure	מבנה, לבנות	The structure of the building was damaged by the recent earthquake.
+stuck	תקוע	The car got stuck in the mud after the heavy rain.
+suffer	לסבול	Many people suffer from allergies during the spring pollen season.
+supply	אספקה	The supply of fresh water was limited in the drought.
+surely	ללא ספק	Surely no person in their right mind would leave home unlocked overnight.
+surgery	ניתוח	The surgery was successful and took three hours to complete.
+surrender	להיכנע	Unable to resist any longer, she finally decided to surrender to her craving for chocolate.
+survive	לשרוד	Most plants cannot survive without water for more than two weeks.
+switch	מתג; להחליף	He flipped the switch to turn on the bright kitchen lights.
+tale	סיפור, אגדה	The old tale about dragons and treasure fascinated children everywhere.
+target	מטרה	The company's target was to increase sales by fifty percent.
+task	משימה	His task was to organize all the documents in alphabetical order.
+tent	אוהל	We pitched our tent near the river for the camping trip.
+theme	נושא	The theme of the book concerns the power of forgiveness.
+thief	גנב	The thief stole the diamond necklace from the museum display.
+threat	איום	The threat of heavy storms caused the event to be cancelled.
+throw	לזרוק, זריקה	He decided to throw the old magazines away instead of keeping them.
+tie	לקשור, קשר; עניבה	She tied the rope around the wooden post to secure it.
+title	כותרת	The title of the movie intrigued viewers despite being confusing.
+tongue	לשון	His tongue was burned by the hot tea he drank too quickly.
+totally	לחלוטין	I totally disagree with your decision to leave the company.
+track	מסילה, מסלול; לעקוב	The old train track ran through the forest for many miles.
+tradition	מסורת	The tradition of eating turkey on Thanksgiving dates back centuries.
+traffic	תנועה	Heavy traffic delayed our arrival at the airport by two hours.
+train	רכבת; להכשיר, לאמן	The train departed from the station fifteen minutes ahead of schedule.
+transfer	העברה; להעביר	The hospital decided to transfer the patient to a larger facility.
+transport	להוביל; הובלה	The company uses trucks to transport goods across the entire country.
+trap	מלכודת	The mouse fell into the trap set by the farmer.
+treatment	טיפול	The new treatment for the disease showed promising results in patients.
+truck	משאית, קרון משא	A large truck delivered new equipment to the warehouse this morning.
+truly	באמת	She truly believed that hard work would eventually lead to success.
+tube	צינור	The nurse gently inserted a thin tube into the patient's arm.
+unbelievable	לא יאמן	The unbelievable story about finding treasure spread quickly through town.
+unfair	לא הוגן	The teacher's unfair grading system upset all the hardworking students.
+unfortunately	למרבה הצער	Unfortunately, the concert was cancelled due to the lead singer's illness.
+unusual	בלתי רגיל, יוצא דופן	Her unusual choice to become a circus performer surprised all her family members.
+useful	שימושי	A sharp pocketknife is a very useful tool for camping trips.
+useless	חסר תועלת	The old computer was completely useless and finally thrown away.
+usual	רגיל	His usual routine was to wake up, exercise, and then eat breakfast.
+value	ערך, להעריך	The value of the antique increased significantly over many years.
+violence	אלימות	The violence in the movie was shocking to many viewers.
+violent	אלים	The violent storm destroyed many homes in the coastal town.
+visitor	אורח, מבקר	The visitor from Germany was amazed by the beautiful old architecture.
+visual	חזותי	The visual effects in the film were incredible and memorable.
+warn	להזהיר	I must warn you about the dangerous curve in the road.
+wear	ללבוש	She wore her favorite blue jeans to the concert last night.
+weather	מזג אוויר	The weather was perfect for a picnic in the park.
+wedding	חתונה	Their wedding was celebrated by hundreds of friends and family.
+wild	פראי, טבע	The wild animals roamed freely across the vast open grassland.
+wing	כנף	The bird's wing was injured but it could still fly.
+activist	פעיל, אקטיביסט	The environmental activist urged the city to ban plastic bags.
+actually	למעשה	He actually finished the entire project in just one day.
+additionally	בנוסף	The team finished the report on time; additionally, they included extra research.
+advantage	יתרון	One major advantage of the new system is its incredible speed.
+advertisement	מודעה, פרסום	The advertisement featured a famous celebrity promoting the new product.
+advice	עצה	Her advice to study hard and sleep well was helpful.
+aesthetic	אסתטי; אסתטיקה	The aesthetic appeal of the ancient temple amazed all the visitors.
+air conditioner	מזגן	The air conditioner kept the room cool during the hot summer.
+airline	חברת תעופה	The airline announced new routes to expand its European network.
+all in all	בסך הכל	All in all, the trip was successful despite some problems.
+amateur	חובבן	The amateur photographer still captured some amazing shots.
+amaze	להדהים	The magician's trick will amaze the entire audience.
+among	בקרב, בין	She felt comfortable among the other experienced musicians.
+amount	כמות	The total amount of rainfall this month was unusually high.
+analog	אנלוגי (ההיפך מדיגיטלי)	Analog watches use traditional mechanical gears unlike modern digital devices.

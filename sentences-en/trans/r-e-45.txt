@@ -1,0 +1,80 @@
+surpass	להצטיין, לעלות על	Her paintings surpass everything we have seen before.	הציורים שלה עולים על כל מה שראינו לפני כן.
+swept away	נסחף	The strong current swept away the small boat.	הזרם החזק סחף את הסירה הקטנה.
+sympathetic	אוהד	Her sympathetic colleague offered genuine support during the crisis.	העמיתה האוהדת שלה העניקה לה תמיכה אמיתית במהלך המשבר.
+tainted	מוכתם, מזוהם	The water supply was tainted with dangerous bacteria.	אספקת המים הייתה מזוהמת בחיידקים מסוכנים.
+testimony	עדות	His testimony in court proved the defendant was guilty.	העדות שלו בבית המשפט הוכיחה שהנאשם אשם.
+thrive	לשגשג	Tropical plants thrive in warm and humid environments.	צמחים טרופיים משגשגים בסביבות חמות ולחות.
+timber	עץ	The old cabin was built from heavy timber beams.	הבקתה הישנה נבנתה מקורות עץ כבדים.
+timid	ביישן	The timid child refused to speak in front of the class.	הילד הביישן סירב לדבר מול הכיתה.
+tremendous	עצום	The explosion caused tremendous damage to the neighborhood.	הפיצוץ גרם נזק עצום לשכונה.
+twig	ענף קטן, זרד	A small twig fell from the tree onto the ground.	זרד קטן נפל מהעץ אל הקרקע.
+undergo	לעבור, להתנסות, לחוות	She underwent major surgery at the hospital last month.	היא עברה ניתוח גדול בבית החולים בחודש שעבר.
+undermine	לחתור תחת, לערער, להחליש	Constant criticism can slowly undermine a person's confidence.	ביקורת מתמדת יכולה לערער בהדרגה את הביטחון העצמי של אדם.
+undertake	לקחת על עצמך	They undertook a difficult project to rebuild the bridge.	הם לקחו על עצמם פרויקט קשה לשיקום הגשר.
+unearth	לחשוף, לחפור	Archaeologists unearthed ancient pottery at the dig site.	ארכיאולוגים חשפו כלי חרס עתיקים באתר החפירה.
+unfold	נפרש, נפתח, התגלה; לפתוח קיפול	The story unfolds as the detective discovers new clues.	הסיפור נחשף ככל שהבלש מגלה רמזים חדשים.
+unparalleled	שאין כמותו, חסר תקדים	Her talent for music is unparalleled in our generation.	הכישרון המוזיקלי שלה הוא כישרון שאין כמותו בדור שלנו.
+upbringing	גידול, חינוך	His strict upbringing shaped his very disciplined personality.	החינוך המחמיר שלו עיצב את האישיות המשמעתית מאוד שלו.
+uprising	התקוממות, מרד	The citizens staged an uprising against the oppressive government.	התושבים ערכו התקוממות נגד הממשלה המדכאת.
+vagueness	עמימות, ערפול	The vagueness in his written instructions confused everyone.	העמימות בהוראות הכתובות שלו בלבלה את כולם.
+vain	לשווא; שחצן	All their efforts were in vain when the project was cancelled.	כל המאמצים שלהם היו לשווא כשהפרויקט בוטל.
+venture	מיזם, מפעל (עסקי); הרפתקה מסוכנת; להעז, להסתכן	Starting a business is a risky venture that requires planning.	פתיחת עסק היא מיזם מסוכן שדורש תכנון.
+verse	בית בשיר; שירה	He recited the first verse of the poem beautifully.	הוא דקלם את הבית הראשון בשיר בצורה יפהפייה.
+vessel	כלי שיט	The large vessel sailed slowly across the ocean.	כלי השיט הגדול שט לאט לאורך האוקיינוס.
+viable	בר-קיימא, ישים	Despite the tight budget, the plan remains viable and could still work.	למרות התקציב המצומצם, התוכנית עדיין בת-קיימא ויכולה להצליח.
+virtue	מעלה	Honesty is considered a great virtue in many cultures.	כנות נחשבת למעלה גדולה בתרבויות רבות.
+vivid	חד, בהיר, ססגוני, חי, מוחשי	She has vivid memories of her grandmother's stories from childhood.	יש לה זיכרונות חיים מסיפורי סבתא שלה מהילדות.
+vowel	תנועה (לשון)	The letter 'a' is a vowel in the English alphabet.	האות 'איי' היא תנועה באלפבית האנגלי.
+ward	מחלקה	She worked as a nurse in the pediatric ward.	היא עבדה כאחות במחלקת הילדים.
+wart	יבלת	He had a wart removed from his hand.	הוסרה לו יבלת מהיד.
+whereas	בעוד ש-	John loves coffee, whereas his brother prefers tea.	ג'ון אוהב קפה, בעוד שאחיו מעדיף תה.
+wholesale	סיטונאות	We buy our supplies wholesale to save money.	אנחנו קונים את הציוד שלנו בסיטונאות כדי לחסוך כסף.
+wickedly	ברשעות	He grinned wickedly when he told the joke.	הוא חייך ברשעות כשסיפר את הבדיחה.
+wilderness	ערבה, שממה	The hikers ventured into the wilderness for two weeks.	המטיילים העפילו אל השממה לשבועיים.
+wind	למתוח; רוח	She winds the rope tightly around the post.	היא מותחת את החבל בחוזקה סביב העמוד.
+wound	מתוח, נמתח; פצע	She wound the package tightly with strong rope.	היא מתחה את החבילה בחוזקה בחבל חזק.
+yield	להיכנע, לוותר, לסגת; להניב, להפיק	The general refused to yield to the enemy.	הגנרל סירב להיכנע לאויב.
+abacus	חשבונייה	The child learned to count using an abacus.	הילד למד לספור בעזרת חשבונייה.
+abhor	לשנוא, לתעב	She abhors dishonesty and always insists on telling the truth.	היא מתעבת חוסר יושר ותמיד מתעקשת לומר את האמת.
+abide	לציית	All students must abide by the school rules.	כל התלמידים חייבים לציית לחוקי בית הספר.
+abrupt	פתאומי	The movie ended with a rather abrupt cliffhanger.	הסרט הסתיים בסיום פתאומי למדי.
+abstain	להתנזר, להימנע ממשהו	He decided to abstain from eating sugar during the diet.	הוא החליט להתנזר מאכילת סוכר בזמן הדיאטה.
+acclaim	להריע, לשבח	Critics acclaimed the new film as a masterpiece.	המבקרים שיבחו את הסרט החדש כיצירת מופת.
+accomplices	שותף לדבר עבירה	The two accomplices were arrested by the police.	שני השותפים לעבירה נעצרו על ידי המשטרה.
+accomplished	מומחה, מעולה	She is an accomplished pianist who performs internationally.	היא פסנתרנית מעולה שמופיעה ברחבי העולם.
+adhesive	דבק; דביק	We used strong adhesive to repair the broken vase.	השתמשנו בדבק חזק כדי לתקן את האגרטל השבור.
+adorn	לקשט	Colorful flowers adorned the entire wedding venue beautifully.	פרחים צבעוניים קישטו את כל אולם החתונה בצורה יפהפייה.
+advent	הופעה, בוא	The advent of modern technology changed absolutely everything.	בואה של הטכנולוגיה המודרנית שינה ממש הכול.
+adverse	שלילי	Adverse weather conditions significantly delayed the scheduled flight.	תנאי מזג אוויר שליליים עיכבו משמעותית את הטיסה המתוכננת.
+affinity	זיקה, קירבה; משיכה	She felt a real affinity with other musicians.	היא הרגישה זיקה אמיתית למוזיקאים אחרים.
+affluence	שפע	He lived in affluence after inheriting his family's fortune.	הוא חי בשפע לאחר שירש את הון משפחתו.
+affluent	שופע, עשיר	The affluent neighborhood was filled with large mansions.	השכונה העשירה הייתה מלאה באחוזות גדולות.
+agitate	להסעיר, לזעזע, לעצבן	His constant complaints began to agitate everyone in the office.	התלונות המתמידות שלו החלו להסעיר את כולם במשרד.
+agonize	להתייסר, לסבול ייסורים; להתלבט קשות	He agonized in pain for hours after breaking his leg.	הוא התייסר בכאבים במשך שעות אחרי ששבר את הרגל.
+albeit	אף על פי ש, אם כי	The movie was long, albeit entertaining and informative.	הסרט היה ארוך, אף על פי שהיה מבדר ומעשיר.
+alleviate	להקל, להפיג	This medicine will alleviate your bad headache quickly.	התרופה הזו תקל על כאב הראש החזק שלך במהירות.
+allure	קסם, משיכה; לפתות	The city's allure lies in its history and culture.	הקסם של העיר טמון בהיסטוריה ובתרבות שלה.
+allusion	אזכור, רמיזה	The poem contains an allusion to Greek mythology.	השיר מכיל רמיזה למיתולוגיה היוונית.
+alternately	לסירוגין	They alternately played and rested during the match.	הם שיחקו ונחו לסירוגין במהלך המשחק.
+amass	לצבור, לערום	He managed to amass a large collection of rare books.	הוא הצליח לצבור אוסף גדול של ספרים נדירים.
+ancestry	מוצא	Her ancestry traces back many generations to Scotland.	המוצא שלה מתחקה אחורה דורות רבים עד סקוטלנד.
+antler	קרן מסועפת של אייל/צבי	The young deer's antlers were covered in velvet.	הקרניים המסועפות של הצבי הצעיר היו מכוסות קטיפה.
+appease	לפייס	He gave her flowers to appease her anger.	הוא נתן לה פרחים כדי לפייס את כעסה.
+appraise	להעריך (שווי), לאמוד	The jeweler appraised the diamond at ten thousand dollars.	התכשיטן העריך את היהלום בעשרת אלפים דולר.
+arable	מתאים לעיבוד	The arable land was perfect for growing crops.	האדמה המתאימה לעיבוד הייתה מושלמת לגידול יבולים.
+articulate	להביע; רהוט	She articulated her ideas clearly in the presentation.	היא הביעה את רעיונותיה בבהירות במצגת.
+ascertain	לוודא	The police worked hard to ascertain the truth.	המשטרה עבדה קשה כדי לוודא את האמת.
+aspiration	שאיפה, חלום	His aspiration is to become a doctor someday.	השאיפה שלו היא להיות רופא יום אחד.
+aspire	לשאוף, להתאוות	She aspires to win an Olympic gold medal.	היא שואפת לזכות במדליית זהב אולימפית.
+astonishment	תדהמה, השתאות	The magic trick filled the audience with astonishment.	להטוט הקסמים מילא את הקהל בתדהמה.
+astound	להדהים	The surprising news astounded everyone in the room.	החדשות המפתיעות הדהימו את כולם בחדר.
+atrocity	זוועה	The terrible war crimes were considered atrocities.	פשעי המלחמה הנוראיים נחשבו לזוועות.
+attire	לבוש	She wore formal attire to the fancy dinner.	היא לבשה לבוש רשמי לארוחת הערב המפוארת.
+avert	להסיט, להפנות, למנוע	He quickly averted his eyes from the screen.	הוא הסיט מיד את מבטו מהמסך.
+baffled	מבולבל	The baffled student couldn't solve the math problem.	התלמיד המבולבל לא הצליח לפתור את בעיית המתמטיקה.
+bashful	ביישן	The bashful actor blushed deeply when being praised.	השחקן הביישן הסמיק עמוקות כשקיבל שבחים.
+benefactors	נדבנים, תורמים	The charity thanked its benefactors for their donations.	העמותה הודתה לנדבניה על תרומותיהם.
+bland	תפל	The hospital food was very bland and unappetizing.	אוכל בית החולים היה תפל מאוד ולא טעים.
+bleak	עגום	The winter landscape looked quite bleak without snow.	נוף החורף נראה די עגום בלי שלג.
+bolster	לתמוך	Good news will surely bolster their confidence today.	חדשות טובות בהחלט יתמכו בביטחון שלהם היום.
+cadaver	גופה	The anatomy students carefully studied the human cadaver.	תלמידי האנטומיה חקרו בקפידה את הגופה האנושית.
