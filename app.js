@@ -893,10 +893,13 @@ function renderHome(){
   $('#sentBands')?.classList.toggle('hidden', !sentOn);
   if(sentOn && window.SENT_EN){
     const q = sentSummary(null);
-    $('#cntSent').textContent = q.left || q.total;
+    /* ⚠ היה `q.left || q.total`, וזה הציג את **המספר המלא** דווקא כשהרצועה הושלמה:
+       "כל 204 המשפטים נפתרו" ולידו תג `204`, שנקרא כמו 204 שנותרו. נמצא בציד
+       ב-11.8, והוא הגיע לכל לומד שסיים רצועה. `✓` אומר את מה שקרה. */
+    $('#cntSent').textContent = q.left ? q.left : '✓';
     $('#pbSentSub').textContent = q.left
-      ? `${q.left} משפטים שטרם פתרת · ${q.ok} נכונים מתוך ${q.total}`
-      : `כל ${q.total} המשפטים נפתרו · ${q.ok} נכונים`;
+      ? `${q.left} משפטים שטרם פתרת · ${okN(q.ok)} מתוך ${q.total}`
+      : `כל ${q.total} המשפטים נפתרו · ${okN(q.ok)}`;
   }
   const grid=$('#unitGrid'); grid.innerHTML='';
   /* עשרה אריחים זהים, ואין שום סימן מאיפה מתחילים. הבחירה נופלת על הלומד ברגע שבו הוא
@@ -2003,6 +2006,13 @@ function navTo(id){
   if(!$('#level').classList.contains('hidden')) clearTimeout(lvTimer);
   if(id==='scope'){ openScope(curScope||sessionScope); return; }
   if(id==='home'){ renderHome(); goto('home'); return; }
+  /* ⛔ באג שנמדד בדפדפן ב-11.8: מסך בחירת התרגול נוחת דרך "אחורה" של המערכת ומציג
+     מספרים ישנים. `mode` הוא מסך **מונים** — כמה נפתרו, כמה נכונים — וכל מסך כזה
+     חייב להיבנות מחדש בכניסה, בדיוק כמו `home` ו-`scope` שקיבלו את הטיפול הזה
+     לפניו. השחזור: אנגלית → בחירת התרגול → סבב של עשר שאלות → "אחורה". התוצאה
+     הייתה "0 נפתרו · 0%" אחרי שעשרה כן נפתרו, כלומר האפליקציה הכחישה את העבודה
+     שהלומד בדיוק עשה. */
+  if(id==='mode'){ renderMode(); goto('mode'); return; }
   goto(id);
 }
 /* כפתור "חזרה" שבתוך האפליקציה עושה בדיוק מה ש"אחורה" של המערכת עושה: צורך את רשומת
@@ -2365,7 +2375,15 @@ let updatePending=null;
    waits for a tap — deliberately NOT applied automatically when the round ends, because that
    moment is the results screen and reloading would erase what they are reading. */
 function updateSafeNow(){
-  const busy=['quiz','exam','level'];
+  /* ⛔ `'sent'` נוסף ב-11.8 אחרי ציד באגים, וזה היה כשל אמיתי בכל דיפלוי.
+     המסך החדש לא היה ברשימה, ולכן `location.reload()` רץ **באמצע סבב** של השלמת
+     משפטים: שוחזר בדפדפן — שאלה 1 מתוך 10 עם הסבר פתוח, ואחרי הרענון `sentQ`
+     ריק, בלי פס, בלי אזהרה, ובלי דרך לדעת מה קרה. עד פעמיים ב-15 דקות אחרי כל
+     העלאת גרסה, כלומר בדיוק בשעה שבה אני מעלה שינויים.
+     ⚠ התנאי השני בשורה למטה שומר על תרגול המילים דרך `session`, ולמודול המשפטים
+     אין `session` — הוא אינו נשען על אותו מנגנון. לכן שם המסך הוא ההגנה היחידה
+     שלו, וזו הסיבה שהשמטה כאן הייתה שקטה לחלוטין. */
+  const busy=['quiz','exam','level','sent'];
   return !busy.includes(currentScreenId()) && !(typeof session!=='undefined' && session.size>0 && !committed);
 }
 /* May this tab reload itself right now?
@@ -2731,14 +2749,24 @@ async function renderMode(){
     $('#mSentOk').textContent     = q.ok;
     $('#mSentCount').textContent  = 'מתוך '+q.total;
     $('#mSentProg').style.width   = q.pct+'%';
-    $('#mSentProg').parentElement.title = `${q.ok} משפטים נכונים מתוך ${q.total}`;
+    $('#mSentProg').parentElement.title = `${okN(q.ok)} מתוך ${q.total} משפטים`;
   };
   if(window.SENT_EN) paint();
   else {
     $('#mSentPct').textContent='—'; $('#mSentSolved').textContent='—';
     $('#mSentOk').textContent='—';  $('#mSentCount').textContent='';
-    /* נטען ברקע כדי שהמספר יופיע בלי שהלומד ילחץ. אם הרשת נפלה, נשאר "—". */
-    loadSentData().then(ok => { if(ok && !$('#mode').classList.contains('hidden')) paint(); });
+    /* ⚠ טעינה ברקע **רק למי שכבר תרגל משפטים**, ולא לכולם.
+       נמצא בציד ב-11.8: הגרסה הראשונה טענה את קובץ הנתונים (191KB) בכל כניסה
+       לאנגלית, גם למי שבא לתרגל מילים ולא נוגע במשפטים לעולם. באפליקציה שבה
+       sw.js מנמק במפורש למה לא לתלות פונטים ב-REV כדי לא להוריד 152KB מחדש, זה
+       היה רגרסיה בעלות ולא שיפור בחוויה.
+       ההכרעה: מי שיש לו התקדמות רוצה לראות את המספר שלו ולכן שווה לו ההורדה; מי
+       שאין לו רואה "—" עד שהוא לוחץ, וזה בדיוק המידע הנכון — עוד לא התחיל. */
+    const hasHistory = Object.keys(sentProg()).length > 0;
+    if(hasHistory)
+      loadSentData().then(ok => { if(ok && !$('#mode').classList.contains('hidden')) paint(); });
+    else
+      $('#mSentCount').textContent = 'עוד לא התחלת';
   }
 }
 document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=async ()=>{
@@ -2750,7 +2778,12 @@ document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=async ()=>{
   openSentPick(); goto('sent');
 });
 $('#modeBack').onclick = ()=> renderWelcome();
-$('#setBtnM').onclick  = ()=> openAccount();
+$('#setBtnM').onclick  = ()=> openAccount('settings');
+/* ⛔ באג שנמצא בציד ב-11.8: `#userBadge4` נשא `title` ו-`aria-label` "החשבון שלי"
+   **ובלי מאזין**. קורא מסך הכריז לחצן, המשתמש לחץ, ולא קרה כלום. זה גרוע מכפתור
+   חסר: כפתור חסר אינו מבטיח דבר. `userBadge2` ו-`userBadge3` תמיד היו מחוברים,
+   וזה נשכח כאן. */
+$('#userBadge4').onclick = ()=> openAccount('profile');
 
 /* ===== level test =====
    Estimates where the learner already knows the vocabulary, so the app can stop showing
@@ -4256,7 +4289,10 @@ async function pullAccountState(){
    screen is how "which account am I actually in" becomes a question. */
 function setBadges(text){
   const t=text||'';
-  ['#userBadge','#userBadgeW'].forEach(id=>{ const el=$(id); if(el) el.textContent=t; });
+  /* ⚠ `#userBadgeM` נוסף ב-11.8. התיעוד שלמעלה אומר במפורש שכל התגים נכתבים יחד,
+     ומסך בחירת התרגול הגיע עם תג משלו שלא נכנס לרשימה — ולכן הוא נשאר ריק אחרי
+     שינוי שם. נמדד בציד: `userBadge='NEWNAME'` מול `userBadgeM=''`. */
+  ['#userBadge','#userBadgeW','#userBadgeM'].forEach(id=>{ const el=$(id); if(el) el.textContent=t; });
 }
 
 async function afterAuthed(justSignedUp){
@@ -4557,7 +4593,15 @@ $('#userBadge3').onclick = ()=>openAccount('profile');
    היא פשוט הפסיקה להיות היחידה. משתמשת דיווחה שלא ידעה שיש הגדרות באפליקציה בכלל. */
 $('#setBtn').onclick  = ()=>openAccount('settings');
 $('#setBtnW').onclick = ()=>openAccount('settings');
-$('#accBack').onclick = ()=>{ if(LANG==='he'||LANG==='en') goto('home'); else { renderWelcome(); goto('welcome'); } };
+/* ⚠ `goBack` ולא `goto('home')` כשיש היסטוריה.
+   נמדד בציד ב-11.8: ⚙ ממסך בחירת התרגול → חשבון → "חזרה" נחת בדף הבית, בזמן
+   ש"אחורה" של אנדרואיד מאותה נקודה חזר לבחירת התרגול. שני כפתורי חזרה ושני יעדים
+   הם בדיוק מה שגורם לאדם לאבד את המקום שלו. `goBack` צורך את הרשומה ולכן שניהם
+   מתלכדים; כשאין רשומה (עומק 0) הוא נופל לדף הבית, וזו ההתנהגות הקודמת. */
+$('#accBack').onclick = ()=>{
+  if(LANG!=='he' && LANG!=='en'){ renderWelcome(); goto('welcome'); return; }
+  goBack();
+};
 /* ===== the exam date =====
    Stored per ACCOUNT, not per language — a person sits one psychometric exam. Kept in the
    extras blob so it rides the existing cross-device sync instead of needing a column. */
@@ -5598,6 +5642,7 @@ const SENT_ROUND = 10;                       // פריטים בסבב
 const SENT_KEY   = 'hw_sent_done';           // ⚠ המבנה הישן: מערך מזהים בלבד
 const SENT_PROG  = 'hw_sent_prog';           // המבנה הנוכחי: מזהה → {n, ok, last}
 let sentQ = [], sentI = 0, sentOk = 0, sentAnswered = false, sentBand = '';
+let sentSaveFailed = false;   // נדלק כשכתיבה ל-localStorage נכשלה. ראה sentRecord.
 
 /* ===== מעקב ההתקדמות =====
  * לפריט: n נסיונות · ok כמה מהם היו נכונים · last התוצאה האחרונה.
@@ -5616,9 +5661,26 @@ let sentQ = [], sentI = 0, sentOk = 0, sentAnswered = false, sentBand = '';
  * המיזוג הוא **מונוטוני** ולעולם אינו יורד: n ו-ok נלקחים כמקסימום בין המקומי
  * לענן. אותו כלל בדיוק שמנחה את mergeProgress ו-applyExtras, ומאותה סיבה: מכשיר
  * שמאחר לא יגרור אחורה מכשיר שקדם לו. */
+/* רשומה תקינה, מנורמלת. **קורא אחד** שמנקה, ולא הגנה בכל אתר שימוש בנפרד.
+   ⚠ נגזר מציד באגים ב-11.8, ששני ממצאים שלו נבעו מאותו שורש: רשומה עם `n` שלילי
+   או שאינו מספר לא נכנסה לאף אחת משלוש הקבוצות ב-`startSentRound` — לא לחדשים, לא
+   לנכשלים ולא לידועים — ולכן הפריט **יצא מהרוטציה לנצח** והוצג כאילו נענה. ורשומה
+   עם `ok` גדול מ-`n` הפיקה `100%`. הענן היה חסום, המקומי לא.
+   כאן זה נחסם פעם אחת, בקריאה, ולכן כל מי שקורא מקבל נתון שפוי. */
+function saneSentRec(r){
+  if (!isObj(r)) return null;
+  const n = Math.max(0, Math.floor(Number(r.n) || 0));
+  const ok = Math.min(n, Math.max(0, Math.floor(Number(r.ok) || 0)));
+  return { n, ok, last: Number(r.last) ? 1 : 0 };
+}
 function sentProg(){
   const raw = LS.get(SENT_PROG, null);
-  if (isObj(raw)) return raw;
+  if (isObj(raw)) {
+    /* מנרמל בכל קריאה. זה זול (מאות מפתחות) והוא מבטל מחלקה שלמה של באגים. */
+    const out = {};
+    for (const k of Object.keys(raw)) { const r = saneSentRec(raw[k]); if (r) out[k] = r; }
+    return out;
+  }
   /* הגירה חד-פעמית מהמערך הישן. הפריטים האלה נענו, ואין לנו את התוצאה — ולכן
      n=1 ו-ok=0. זה מציג אותם כ"נפתרו אך לא נכונים", והוא הכיוון השמרני: הוא
      מחזיר אותם לתרגול במקום להצהיר על שליטה שלא נמדדה. */
@@ -5630,10 +5692,25 @@ function sentProg(){
 }
 function sentRecord(src, right){
   const p = sentProg();
-  const e = p[src] || { n: 0, ok: 0, last: 0 };
+  /* ⛔ באג שנמצא בציד ב-11.8, והוא הרג את הסבב בלחיצה.
+     `sentProg` הגן על **המפה** ובדק שהיא אובייקט, ולא על **הרשומות** שבתוכה.
+     רשומה פגומה — מחרוזת, מספר, null — הגיעה לכאן, ו-`e.n++` על מחרוזת זורק
+     במצב strict. הזריקה קרתה מתוך `answerSent` **לפני** סימון התשובה ולפני פתיחת
+     ההסבר, ולכן הלחיצה לא עשתה כלום והלומד נתקע. שוחזר: `Cannot create property
+     'n' on string 'oops'`.
+     מאיפה רשומה פגומה מגיעה: הבלוב מהענן, טאב אחר, עריכה ידנית, או גרסה עתידית
+     שתשנה את המבנה. ⚠ ההגנה הזאת כבר קיימת ב-`applyExtras` — היא נשכחה כאן, וזה
+     בדיוק סוג הפער שנופל על המשתמש ולא על המפתח. */
+  const e = saneSentRec(p[src]) || { n: 0, ok: 0, last: 0 };
   e.n++; if (right) e.ok++;
+  if (e.ok > e.n) e.ok = e.n;      // רשומה שהגיעה פגומה לא תפיק אחוז מעל 100
   e.last = right ? 1 : 0;
-  p[src] = e; LS.set(SENT_PROG, p);
+  p[src] = e;
+  /* ⚠ `LS.set` מחזיר false כשהמכסה מלאה. נמצא בציד: התשובה לא נאבדה בשקט (יש
+     toast ופס קבוע), אבל **מסך הסיום הכחיש את עצמו** — "10 מתוך 10" ומיד מתחת
+     "0 נכונים · 0%". הדגל הזה גורם לסיכום לומר שההתקדמות לא נשמרה, במקום להציג
+     שני מספרים שסותרים זה את זה ולתת ללומד להחליט למי להאמין. */
+  sentSaveFailed = !LS.set(SENT_PROG, p) || sentSaveFailed;
   /* אותו מנגנון בדיוק של תרגול המילים: מדליק את הדגל ומתזמן דחיפה מושהית.
      ⚠ לא דחיפה מיידית לכל תשובה. queueRemoteSync משהה 12 שניות ומאחד, ובסבב של
      עשר שאלות זו דחיפה אחת במקום עשר. הדחיפה נכפית בכל נקודה שבה הדף עלול לאבד
@@ -5641,7 +5718,13 @@ function sentRecord(src, right){
   queueRemoteSync();
 }
 /* סיכום לרצועה אחת או לכל הקורפוס. `ok` נמדד כפריט שנענה נכון **לפחות פעם אחת**,
-   ולא כאחוז מהנסיונות: הלומד שחזר על שאלה וענה נכון יודע אותה. */
+   ולא כאחוז מהנסיונות: הלומד שחזר על שאלה וענה נכון יודע אותה.
+   ⚠ ולכן התווית היא "נכונים" ולא "נכונים בראשונה". הגרסה הראשונה כתבה "נכונות
+   בראשונה" וזו הייתה **טענה שאינה נמדדת**: פריט עם `{n:2, ok:1}` נספר כנכון, אף
+   שהנסיון הראשון בו נכשל. נתפס בציד ב-11.8. */
+/* עברית תקינה למספר. "1 נכונים" אינו עברית, וזה בדיוק ההבדל בין מספר שנמסר
+   ללומד לבין פלט של מכונה. /HEB §5. */
+const okN = n => n === 1 ? 'נכון אחד' : `${n} נכונים`;
 function sentSummary(band){
   const S = window.SENT_EN || {};
   const arr = band ? (S[band] || []) : Object.values(S).flat();
@@ -5714,6 +5797,14 @@ function renderSentPick(){
   const list = $('#sentPickList'); if(!list) return;
   const S = window.SENT_EN || {};
   list.innerHTML = '';
+  /* ⛔ נמצא בציד ב-11.8: `loadSentData` מחזירה `!!window.SENT_EN`, ואובייקט ריק
+     הוא truthy — כלומר "הצליח". התוצאה הייתה **מסך לבן** עם ✕ וכותרת בלבד, בלי
+     הודעה ובלי toast. עכשיו נאמר מה קרה ומה לעשות. /HEB §10. */
+  if(!Object.keys(S).some(b => Array.isArray(S[b]) && S[b].length)){
+    list.innerHTML = '<p class="s-sum">לא נטענו משפטים. חזור למסך הקודם ונסה שוב, '
+      + 'ואם זה חוזר בדוק את החיבור לרשת.</p>';
+    return;
+  }
   const IC = {'בסיס':'🌱','בינוני':'📗','מתקדם':'📘','אקדמי':'🎓'};
   Object.keys(S).forEach(band=>{
     const all = S[band] || [];
@@ -5725,11 +5816,11 @@ function renderSentPick(){
        אם הוא יודע את הרצועה, ורק שהוא עבר בה. */
     const q = sentSummary(band);
     const sub = q.left
-      ? `${q.left} משפטים שטרם פתרת · מתוך ${q.total}` + (q.solved ? ` · ${q.ok} נכונים` : '')
-      : `הושלמה · ${q.ok} נכונים מתוך ${q.total}`;
+      ? `${q.left} משפטים שטרם פתרת · מתוך ${q.total}` + (q.solved ? ` · ${okN(q.ok)}` : '')
+      : `הושלמה · ${okN(q.ok)} מתוך ${q.total}`;
     b.innerHTML = `<div class="ic">${IC[band]||'✍️'}</div><div class="tx"><b>${sEsc(band)}</b>`
       + `<span>${sub}</span></div>`
-      + `<div class="cnt">${q.left || q.total}</div>`;
+      + `<div class="cnt">${q.left ? q.left : '✓'}</div>`;
     b.onclick = ()=> startSentRound(band);
     list.appendChild(b);
   });
@@ -5741,7 +5832,14 @@ function renderSentPick(){
 
 /* ===== סבב ===== */
 function startSentRound(band){
-  const all = (window.SENT_EN||{})[band] || [];
+  /* פריטים שבורים מסוננים לפני כל השאר. ⚠ אם **כולם** נפלו, אין סבב: מסך ריק
+     עם כפתור "סבב נוסף" שאינו עושה דבר הוא לופ שהלומד לא יכול לצאת ממנו. */
+  const all = ((window.SENT_EN||{})[band] || []).filter(sentItemOk);
+  if(!all.length){
+    toast('אין משפטים זמינים ברצועה הזאת. בחר רצועה אחרת');
+    openSentPick();
+    return;
+  }
   const p = sentProg();
   /* ⭐ שלוש קבוצות, בסדר הזה, וזו התועלת המרכזית של המעקב:
        1. פריטים שטרם נפתרו.
@@ -5783,6 +5881,22 @@ function startSentRound(band){
    ⚠ הערבוב חייב למפות מחדש **שלושה** מערכים יחד: o, g ו-r. מיפוי של o בלבד היה
    מצמיד לכל מילה את הפירוש והנימוק של מילה אחרת, וזה כשל גרוע מהמקורי כי הוא
    שקט. */
+/* ⛔ שער תקינות לפריט, נגזר מציד באגים ב-11.8. שלושה ממצאים נפרדים באו מכאן:
+     · `a` מחוץ לטווח → `idx.indexOf` החזיר -1, אף כפתור לא סומן נכון, כל בחירה
+       נחשבה שגויה, ובהסבר נכתב "התשובה: undefined".
+     · `g` או `r` קצרים מ-`o` → "המילים" הציג פירוש אחד ושלוש שורות ריקות,
+       והנימוק שויך למילה אחרת. **בלי שום שגיאה.**
+     · `t` ריק → כותרת "המשפט" עם גוף ריק.
+   ⚠ שלושתם היו **שקטים**, וזה מה שהופך אותם למסוכנים: הלומד היה רואה מסך שנראה
+   תקין ומלמד אותו דבר שגוי. פריט שאינו עומד בשער נפסל מהסבב, ולא מוצג שבור. */
+function sentItemOk(it){
+  return isObj(it) && typeof it.s === 'string' && /_{2,}/.test(it.s)
+    && Array.isArray(it.o) && it.o.length >= 2
+    && Number.isInteger(it.a) && it.a >= 0 && it.a < it.o.length
+    && Array.isArray(it.g) && it.g.length === it.o.length && it.g.every(x => !!x)
+    && Array.isArray(it.r) && it.r.length === it.o.length && it.r.every(x => !!x)
+    && typeof it.t === 'string' && it.t.trim().length > 0;
+}
 function sentShuffled(it){
   const idx = shuffle(it.o.map((_,i)=>i));
   return {
@@ -5801,7 +5915,17 @@ function renderSentCard(){
   $('#sentCount').textContent = `שאלה ${sentI+1} מתוך ${sentQ.length}`;
   $('#sentScore').textContent = sentOk ? `✓ ${sentOk}` : '';
   $('#sentBar').style.width = (100*sentI/sentQ.length)+'%';
-  $('#sentText').innerHTML = sEsc(it.s).replace(/_{2,}/g,'<span class="bl">___</span>');
+  /* ⚠ בפריט זוג שני החסרים נראים **זהים**, והאפשרות היא "align + differ" — כלומר
+     הסדר קובע, והכרטיס לא אמר מה לאיפה. נמצא בציד ב-11.8. מספור החסרים אומר את
+     זה בלי מילים, ו-`aria-hidden` מונע מקורא מסך להקריא ספרה בתוך המשפט. */
+  let nBlank = 0;
+  const twin = (it.s.match(/_{2,}/g) || []).length > 1;
+  $('#sentText').innerHTML = sEsc(it.s).replace(/_{2,}/g, () => {
+    nBlank++;
+    return twin
+      ? `<span class="bl">___<sup aria-hidden="true">${nBlank}</sup></span>`
+      : '<span class="bl">___</span>';
+  });
   const box = $('#sentOpts'); box.innerHTML = '';
   it.o.forEach((o,j)=>{
     const b = document.createElement('button');
@@ -5856,9 +5980,15 @@ function finishSentRound(){
      צריך את שניהם: כמה הצלחתי עכשיו, ואיפה אני עומד בסך הכול. */
   $('#sentDone').innerHTML =
       `<div class="num">${sentOk}</div><div>מתוך ${n} משפטים</div>`
-    + `<p class="s-sum">ברצועת ${sEsc(sentBand)}: ${q.ok} נכונים מתוך ${q.total}`
+    + `<p class="s-sum">ברצועת ${sEsc(sentBand)}: ${okN(q.ok)} מתוך ${q.total}`
     + (q.left ? ` · נותרו ${q.left}` : ' · הרצועה הושלמה') + '</p>'
-    + `<p class="s-sum">בסך הכול: ${all.ok} מתוך ${all.total} · ${all.pct}%</p>`
+    /* ⚠ כשהכתיבה לדיסק נכשלה, הסיכום המצטבר **סותר** את ציון הסבב: "10 מתוך 10"
+       ומיד מתחת "0 נכונים · 0%". נמצא בציד ב-11.8. במקום שני מספרים שמכחישים זה
+       את זה, נאמר מה קרה. /HEB §10 — הודעה חייבת לומר מה עכשיו. */
+    + (sentSaveFailed
+        ? `<p class="s-sum">⚠ ההתקדמות לא נשמרה במכשיר הזה, כי אחסון הדפדפן מלא. `
+          + `פנה מקום ונסה שוב, או המשך לתרגל בלי מעקב</p>`
+        : `<p class="s-sum">בסך הכול: ${all.ok} מתוך ${all.total} · ${all.pct}%</p>`)
     + `<div class="actions" style="margin-top:22px;justify-content:center">`
     + `<button class="btn btn-primary" id="sentAgain">סבב נוסף</button>`
     + `<button class="btn btn-ghost" id="sentBack">בחירת רצועה</button></div>`;
@@ -5879,7 +6009,17 @@ function openSentPick(){
   renderSentPick();
 }
 
-$('#sentNext').onclick = ()=>{ sentI++; renderSentCard(); };
+/* ⚠ נמצא בציד ב-11.8: שתי לחיצות על "הבא" באותו tick קידמו את `sentI` פעמיים,
+   המונה דילג ל"שאלה 3 מתוך 10", ו**שאלה שלמה לא הוצגה בכלל**. בפועל הכפתור נעלם
+   מיד אחרי הלחיצה הראשונה ולכן הקשה פיזית שנייה לא פוגעת בו, אבל מקלדת, קורא מסך,
+   או לחיצה כפולה מהירה כן מגיעים לשם. `sentAnswered` הוא בדיוק הדגל שאומר "שאלה
+   זו נענתה"; הוא מתאפס ב-renderSentCard, ולכן שימוש בו כאן חוסם את הלחיצה השנייה
+   בלי מצב חדש. */
+$('#sentNext').onclick = ()=>{
+  if(!sentAnswered) return;
+  sentAnswered = false;
+  sentI++; renderSentCard();
+};
 $('#sentExit').onclick = ()=>{ goBack(); };
 
 $('#pbSent').onclick = async ()=>{

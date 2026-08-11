@@ -246,6 +246,13 @@
   .s-sent{direction:ltr;text-align:left;font-family:"Frank Ruhl Libre",serif;
     font-size:clamp(1.05rem,3.4vw,1.3rem);line-height:1.7;margin-bottom:20px}
   .s-sent .bl{color:var(--accent);font-weight:700;letter-spacing:.06em}
+  /* מספור החסרים בפריט זוג. שני `___` זהים והאפשרות היא "align + differ", כלומר
+     הסדר קובע — והמספר אומר מה לאיפה בלי מילים. */
+  .s-sent .bl sup{font-size:.62em;font-weight:700;vertical-align:super;margin-inline-start:1px}
+  /* ⚠ יעד המגע של "✕ יציאה" נמדד ב-38px, מתחת למינימום 44. `.topbar .back` הוא
+     מחלקה משותפת ל-16 מסכים, ולכן התיקון ממוקד לשני המסכים שנוספו כאן ולא גורף:
+     שינוי גלובלי היה מזיז פריסה בכל האפליקציה. הפער בשאר המסכים קדם לשינוי הזה. */
+  #sent .topbar .back, #mode .topbar .back{min-height:44px}
   .s-opts{display:flex;flex-direction:column;gap:9px}
   .s-opt{direction:ltr;text-align:left;background:var(--card);border:1px solid var(--line);
     border-radius:12px;padding:13px 16px;font-family:"Heebo",sans-serif;font-size:1rem;
@@ -1341,7 +1348,12 @@
       <!-- Council item 2: the picker looked like a one-time structural decision. It is not —
            each language keeps its own progress and you move between them freely. Saying so
            costs one line and removes the hesitation before the first click. -->
-      <p class="w-note">ההתקדמות בכל שפה נמדדת בנפרד, ניתן לעבור ביניהן בלחיצה על כפתור "חזרה" ובחירת השפה השנייה.</p>
+      <!-- ⚠ נוסח מתוקן. הגרסה הקודמת אמרה "בלחיצה על כפתור חזרה ובחירת השפה
+           השנייה", וזה היה נכון עד שנוסף מסך בחירת התרגול: באנגלית "חזרה" מוביל
+           עכשיו לבחירת התרגול, ולחיצה שנייה מגיעה לבחירת השפה. ההוראה הפכה קצרה
+           בשלב אחד, כלומר שקר קטן שהלומד מגלה כשהוא מנסה. "דרך" נכון לשתי השפות
+           ואינו מבטיח לחיצה אחת. /HEB §4 · §9. -->
+      <p class="w-note">ההתקדמות בכל שפה נמדדת בנפרד, וניתן לעבור ביניהן דרך כפתור "חזרה".</p>
     </div>
 
     <!-- ספירה לסיום התקופה החינמית. נבנה ב-JS ונשאר ריק כשהתאריך עבר — ראה renderPayCountdown. -->
@@ -1539,7 +1551,10 @@
     <!-- סדר הכפתורים אינו קישוט. הגלגל ישב בין תווית השם לכפתורי הטקסט, כלומר בערך
          באמצע השורה, ואייקון בודד באמצע נקרא כתקלה ולא ככפתור. הוא הועבר לקצה וצמוד
          לתווית השם — שתי הדלתות לאותו מסך, זו לצד זו, בפינה אחת. -->
-    <div class="topbar"><button class="back" id="switchLang" title="חזרה לבחירת שפה">🏠 חזרה</button><div class="sp"></div>
+    <!-- ⚠ ה-title היה "חזרה לבחירת שפה", ובאנגלית הכפתור מוביל עכשיו לבחירת
+         התרגול. אותו שקר שתוקן בהערה שבמסך בחירת השפה, באותו מסך ובאותו יום.
+         "חזרה" בלי יעד נקוב נכון לשתי השפות. /HEB §4. -->
+    <div class="topbar"><button class="back" id="switchLang" title="חזרה">🏠 חזרה</button><div class="sp"></div>
       <button class="back hidden" id="adminBtn">בקרה</button>
       <button class="user-badge" id="userBadge2" title="החשבון שלי" aria-label="החשבון שלי" style="margin-inline-start:8px"><b id="userBadge"></b></button><button class="gear-btn" id="setBtn" title="הגדרות" aria-label="הגדרות">⚙</button></div>
     <div class="home-head">
@@ -1727,13 +1742,17 @@
        ישר לדף הבית כמו קודם. הכרטיסים הם אותם `.lang-card` של בחירת השפה: אותה
        החלטה מאותו סוג, ולכן אותה צורה. -->
   <section id="mode" class="hidden">
-    <div class="topbar"><button class="back" id="modeBack">🏠 חזרה</button><div class="sp"></div>
+    <div class="topbar"><button class="back" id="modeBack" title="חזרה לבחירת שפה">🏠 חזרה</button><div class="sp"></div>
       <button class="user-badge" id="userBadge4" title="החשבון שלי" aria-label="החשבון שלי"><b id="userBadgeM"></b></button>
       <button class="gear-btn" id="setBtnM" title="הגדרות" aria-label="הגדרות">⚙</button></div>
     <div class="welcome-head">
       <div class="kicker">אנגלית</div>
       <h1 class="w-title">מה נתרגל?</h1>
-      <p class="w-note">ההתקדמות בכל תרגול נמדדת בנפרד, וניתן לעבור ביניהם בלחיצה על כפתור "חזרה".</p>
+      <!-- ⚠ נוסח מתוקן. הגרסה הקודמת אמרה "בלחיצה על כפתור חזרה", ובמסך הזה
+           "חזרה" מוביל דווקא **לבחירת השפה**; החזרה לכאן היא מדף הבית או מכפתור
+           "✕ יציאה" שבתרגול המשפטים. הפניה לכפתור אחד שיש לו שני יעדים היא בדיוק
+           מה ש-/HEB §4 אוסר. הנוסח החדש אומר את העובדה בלי להפנות. -->
+      <p class="w-note">ההתקדמות בכל תרגול נמדדת בנפרד, וניתן לעבור ביניהם בכל רגע.</p>
     </div>
     <div class="lang-cards">
       <button class="lang-card" data-mode="words">
@@ -1752,7 +1771,10 @@
         <div class="lang-prog"><i id="mSentProg"></i></div>
         <div class="lc-nums">
           <span><b id="mSentSolved">0</b> נפתרו</span>
-          <span><b id="mSentOk">0</b> נכונות בראשונה</span>
+          <!-- ⚠ "נכונים" ולא "נכונות בראשונה". המדידה היא פריט שנענה נכון לפחות
+               פעם אחת, ולכן "בראשונה" הייתה טענה שאינה נמדדת. גם המין תוקן:
+               בשאר האפליקציה נכתב "נכונים". נתפס בציד ב-11.8. -->
+          <span><b id="mSentOk">0</b> נכונים</span>
           <span class="lc-of" id="mSentCount">—</span>
         </div>
       </button>
@@ -2098,14 +2120,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=180"></script>
-<script src="config.js?v=180"></script>
-<script src="store.js?v=180"></script>
-<script src="leveltest-he.js?v=180"></script>
-  <script src="leveltest.js?v=180"></script>
-<script src="enrank.js?v=180"></script>
-<script src="data.js?v=180"></script>
-<script src="data-en.js?v=180"></script>
-<script src="app.js?v=180"></script>
+<script src="supabase.min.js?v=181"></script>
+<script src="config.js?v=181"></script>
+<script src="store.js?v=181"></script>
+<script src="leveltest-he.js?v=181"></script>
+  <script src="leveltest.js?v=181"></script>
+<script src="enrank.js?v=181"></script>
+<script src="data.js?v=181"></script>
+<script src="data-en.js?v=181"></script>
+<script src="app.js?v=181"></script>
 </body>
 </html>
