@@ -93,6 +93,13 @@ if(LANG!=='he' && LANG!=='en') LANG=null;
    that block would execute, which would throw on the temporal dead zone */
 let PREVIEW = false;
 const PREVIEW_UNIT = '1';
+/* הגדר המקביל להשלמת משפטים. המילים נפתחות ביחידה הראשונה בלבד, והמשפטים ברצועה
+   הראשונה בלבד — אותו היגיון, אותה מידה: 22 מתוך 204 הם 11%, ו-395 מתוך 3,946 הם
+   10%. ⚠ עד 11.8.2026 המשפטים היו **פתוחים לגמרי** בהצצה, לא מתוך החלטה אלא מפני
+   ש-PREVIEW מסנן יחידות והמשפטים אינם בנויים ביחידות. כל עוד התרגול לא היה קיים
+   במסך זה לא הורגש; מסך בחירת התרגול הפך אותו לאחת משתי אפשרויות שוות-מעמד במסך
+   הראשון שאדם רואה, אחת מגודרת ואחת פתוחה. */
+const PREVIEW_BAND = 'בסיס';
 const SUF = () => (LANG==='en' ? '_en' : '');  // Hebrew = legacy keys, English = *_en keys
 const KEY = base => base + SUF();
 
@@ -5727,8 +5734,17 @@ function sentRecord(src, right){
 /* עברית תקינה למספר. "1 נכונים" אינו עברית, וזה בדיוק ההבדל בין מספר שנמסר
    ללומד לבין פלט של מכונה. /HEB §5. */
 const okN = n => n === 1 ? 'נכון אחד' : `${n} נכונים`;
-function sentSummary(band){
+/* ⭐ **קורא אחד** לקורפוס, ולא `window.SENT_EN` בשבעה מקומות נפרדים.
+   זה בדיוק הדפוס של `buildBank`: שם הגידור נעשה בשורה אחת על `data`, ולא בכל אתר
+   שימוש. גידור שמפוזר על פני שבעה קוראים הוא גידור שאחד מהם יפספס, ומספיק קורא
+   אחד שאינו מסונן כדי שמי שבהצצה יראה בדיוק את מה שגודר. */
+function sentBank(){
   const S = window.SENT_EN || {};
+  if(!PREVIEW) return S;
+  return S[PREVIEW_BAND] ? { [PREVIEW_BAND]: S[PREVIEW_BAND] } : {};
+}
+function sentSummary(band){
+  const S = sentBank();
   const arr = band ? (S[band] || []) : Object.values(S).flat();
   const p = sentProg();
   let solved = 0, ok = 0;
@@ -5797,7 +5813,7 @@ function loadExSentData(){
 /* ===== בורר הרצועות ===== */
 function renderSentPick(){
   const list = $('#sentPickList'); if(!list) return;
-  const S = window.SENT_EN || {};
+  const S = sentBank();
   list.innerHTML = '';
   /* ⛔ נמצא בציד ב-11.8: `loadSentData` מחזירה `!!window.SENT_EN`, ואובייקט ריק
      הוא truthy — כלומר "הצליח". התוצאה הייתה **מסך לבן** עם ✕ וכותרת בלבד, בלי
@@ -5836,7 +5852,7 @@ function renderSentPick(){
 function startSentRound(band){
   /* פריטים שבורים מסוננים לפני כל השאר. ⚠ אם **כולם** נפלו, אין סבב: מסך ריק
      עם כפתור "סבב נוסף" שאינו עושה דבר הוא לופ שהלומד לא יכול לצאת ממנו. */
-  const all = ((window.SENT_EN||{})[band] || []).filter(sentItemOk);
+  const all = (sentBank()[band] || []).filter(sentItemOk);
   if(!all.length){
     toast('אין משפטים זמינים ברצועה הזאת. בחר רצועה אחרת');
     openSentPick();
