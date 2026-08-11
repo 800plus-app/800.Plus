@@ -329,6 +329,31 @@ describe('השלמת משפטים · מעקב ההתקדמות', () => {
         `#${id} מופיע ב-HTML ואין לו מאזין ב-app.js.`);
   });
 
+  test('מצב הצצה מגודר לרצועה אחת, כמו שהמילים מגודרות ליחידה אחת', () => {
+    /* ⚠ עד 11.8.2026 המשפטים היו פתוחים לגמרי בהצצה — 204 מתוך 204 — בזמן
+       שהמילים מגודרות ל-395 מתוך 3,946. זה לא היה החלטה: `PREVIEW` מסנן יחידות,
+       והמשפטים אינם בנויים ביחידות, ולכן הסינון פשוט לא חל עליהם. */
+    assert.match(app, /const PREVIEW_BAND = /, 'אין גדר לרצועות במצב הצצה.');
+    const fn = app.slice(app.indexOf('function sentBank('));
+    const body = fn.slice(0, fn.indexOf('\n}') + 2);
+    assert.match(body, /if\(!PREVIEW\) return S/, 'sentBank אינו מגדר במצב הצצה.');
+    assert.match(body, /PREVIEW_BAND/, 'sentBank אינו מגביל לרצועה שהוגדרה.');
+    /* ⭐ והדרישה האמיתית: **קורא אחד**. גידור שמפוזר על פני כמה קוראים הוא גידור
+       שאחד מהם יפספס, ומספיק אחד כזה כדי שמי שבהצצה יראה את מה שגודר. */
+    /* ⚠ ההערות מוסרות לפני הבדיקה. הגרסה הראשונה של הבדיקה הזאת נכשלה על קוד
+       תקין, כי `renderSentPick` **מזכיר** את `window.SENT_EN` בהערה שמסבירה באג
+       קודם. בדיקה שמחפשת מחרוזת בטקסט חופשי בודקת את הדבר הלא נכון, וזה בדיוק
+       הכשל שחוזר בפרויקט הזה. */
+    const code = t => t.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/[^\n]*/g, '');
+    const readers = ['function sentSummary(', 'function renderSentPick(', 'function startSentRound('];
+    for (const r of readers) {
+      const f = app.slice(app.indexOf(r));
+      const b = code(f.slice(0, f.indexOf('\n}') + 2));
+      assert.ok(!/window\.SENT_EN/.test(b),
+        `${r} קורא את הקורפוס ישירות ועוקף את הגדר. חייב לעבור דרך sentBank().`);
+    }
+  });
+
   test('קובץ הנתונים נטען ברקע רק למי שכבר תרגל', () => {
     /* ⚠ נמצא בציד: הגרסה הראשונה הורידה 191KB בכל כניסה לאנגלית, גם למי שבא
        לתרגל מילים בלבד. */
