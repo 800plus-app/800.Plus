@@ -5598,7 +5598,7 @@ async function renderAdminFeedback(){
     + rows.map(r=>{
       const c=r.context||{};
       return `<div class="adm-row"${r.status==='done'?' style="opacity:.55"':''}>
-        <div class="adm-top"><b>${FB_KIND_HE[r.kind]||r.kind}</b>
+        <div class="adm-top"><b>${FB_KIND_HE[r.kind]||esc(r.kind)}</b>
           <span class="mail">${esc(r.email||'—')}</span>
           ${r.status==='done'?'<span class="adm-tag">טופל</span>':''}</div>
         <p style="font-size:.94rem;line-height:1.55;margin:6px 0 8px;white-space:pre-wrap">${esc(r.body)}</p>
