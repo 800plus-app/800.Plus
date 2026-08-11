@@ -183,7 +183,7 @@
     "diverge"
    ],
    [
-    "comply",
+    "coincide",
     "dissent"
    ]
   ],
@@ -192,18 +192,18 @@
   "w": [
    "however"
   ],
-  "e": "concur with a view · dissent from an opinion, שני הצירופים קנוניים, וכל אחד קשור למילת היחס שלו. הזוג ההפוך dissent/concur נופל בשני החריצים: dissent אינו לוקח with אלא from, ו-concur אינו לוקח from אלא with. diverge מתאר דעות שנפרדות זו מזו בהדרגה ולא מעשה פורמלי של חלוקה שמחייב הגשת הודעה נפרדת, ואין אומרים diverge from an opinion. comply עובר דקדוקית מפני שהוא לוקח with, אבל משמעו לציית לכלל או לדרישה, דעת רוב אינה הוראה שמצייתים לה, והחותמים עליה מסכימים ולא מצייתים.",
+  "e": "concur with a view · dissent from an opinion, שני הצירופים קנוניים, וכל אחד קשור למילת היחס שלו. הזוג ההפוך dissent/concur נופל בשני החריצים: dissent אינו לוקח with אלא from, ו-concur אינו לוקח from אלא with. diverge מתאר דעות שנפרדות זו מזו בהדרגה ולא מעשה פורמלי של חלוקה שמחייב הגשת הודעה נפרדת, ואין אומרים diverge from an opinion. coincide עובר דקדוקית מפני שהוא לוקח with, אבל משמעו ששני דברים חופפים זה לזה מעצמם, ואילו כאן שופט עושה מעשה של הסכמה וחותם עליו.",
   "g": [
    "concur = להסכים · dissent = להתנגד",
    "dissent = להתנגד · concur = להסכים",
    "concur = להסכים · diverge = לסטות",
-   "comply = לציית · dissent = להתנגד"
+   "coincide = לחפוף · dissent = להתנגד"
   ],
   "r": [
    "concur with a view · dissent from an opinion, שני הצירופים קנוניים, וכל אחד קשור למילת היחס שלו.",
    "הסדר הפוך: dissent דורש from ולא with, ו-concur דורש with ולא from.",
    "diverge מתאר דעות שנפרדות בהדרגה ולא מעשה פורמלי, ואין אומרים diverge from an opinion.",
-   "comply לוקח with, אך משמעו לציית לכלל, ודעת רוב אינה הוראה שמצייתים לה."
+   "coincide לוקח with, אך משמעו שדברים חופפים מעצמם, והשופט כאן עושה מעשה של הסכמה וחותם."
   ],
   "t": "שופטים ש**מסכימים** עם הרוב חותמים על חוות הדעת המרכזית; ואולם מי ש**מתנגדים** לה חייבים להגיש הודעה נפרדת."
  },
@@ -259,8 +259,8 @@
     "oblige"
    ],
    [
-    "oblige",
-    "comply"
+    "prompt",
+    "abide"
    ],
    [
     "oblige",
@@ -272,17 +272,17 @@
   "w": [
    "once"
   ],
-  "e": "oblige somebody to do something הוא הצירוף הקנוני להטלת חובה על אדם, ו-abide by a vote הוא הצירוף הקנוני לקבלת הכרעה שהתקבלה. הזוג ההפוך abide/oblige נופל בשני החריצים: abide אינו לוקח מושא ישיר, ואין אומרים abide members to attend; ו-oblige אינו לוקח by, ולכן oblige by it אינו דקדוקי. comply נשלל בחריץ השני מפני שהוא דורש with ולא by (comply with a decision), והמשפט כבר קבע את מילת היחס by. adhere נשלל מאותו טעם בדיוק, שכן הוא דורש to (adhere to a decision) ולא by.",
+  "e": "oblige somebody to do something הוא הצירוף הקנוני להטלת חובה על אדם, ו-abide by a vote הוא הצירוף הקנוני לקבלת הכרעה שהתקבלה. הזוג ההפוך abide/oblige נופל בשני החריצים: abide אינו לוקח מושא ישיר, ואין אומרים abide members to attend; ו-oblige אינו לוקח by, ולכן oblige by it אינו דקדוקי. prompt נשלל בחריץ הראשון: משמעו לעורר אדם לעשות דבר מרצונו, ותקנון אינו מעורר אלא מטיל חובה. adhere נשלל בחריץ השני מפני שהוא דורש to (adhere to a decision) ולא by, והמשפט כבר קבע את מילת היחס by.",
   "g": [
    "oblige = לחייב · abide = לציית",
    "abide = לציית · oblige = לחייב",
-   "oblige = לחייב · comply = לציית",
+   "prompt = לעורר · abide = לציית",
    "oblige = לחייב · adhere = לדבוק ב-"
   ],
   "r": [
    "oblige somebody to do something ו-abide by a vote הם שני הצירופים הקנוניים כאן.",
    "הסדר הפוך: abide אינו לוקח מושא ישיר, ו-oblige אינו לוקח by.",
-   "comply דורש with ולא by, והמשפט כבר קבע את מילת היחס by.",
+   "prompt הוא לעורר אדם לעשות דבר מרצונו, ותקנון אינו מעורר חברים אלא מטיל עליהם חובה.",
    "adhere דורש to ולא by, ולכן אינו מתאים לחריץ השני."
   ],
   "t": "התקנון אינו **מחייב** את החברים להשתתף בכל מושב, אך משהתקבלה הצבעה חייב כל אחד **לציית** לה."

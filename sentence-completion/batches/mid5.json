@@ -15,17 +15,17 @@
   ]
  },
  {
-  "s": "The coach cannot force any player to change his diet, so the note on the wall is ___ that each man is free to follow or to ignore.",
-  "o": ["advice", "command", "request", "threat"],
+  "s": "The coach cannot force any player to change his diet, so the note on the wall is only a ___ that each man is free to accept or to ignore.",
+  "o": ["proposal", "command", "condition", "threat"],
   "a": 0,
   "k": "cause",
   "w": ["so"],
-  "g": ["advice = עצה", "command = פקודה", "request = בקשה", "threat = איום"],
-  "t": "המאמן אינו יכול לכפות על שחקן לשנות את התפריט שלו, ולכן הפתק על הקיר הוא **עצה** שכל אחד חופשי לקבל או להתעלם ממנה.",
+  "g": ["proposal = הצעה", "command = פקודה", "condition = תנאי", "threat = איום"],
+  "t": "המאמן אינו יכול לכפות על שחקן לשנות את התפריט שלו, ולכן הפתק על הקיר הוא רק **הצעה** שכל אחד חופשי לקבל או להתעלם ממנה.",
   "r": [
-   "advice היא המלצה שהמקבל חופשי לאמץ או לדחות, וזה בדיוק מה שהמשפט אומר.",
+   "proposal היא הצעה שהמקבל חופשי לאמץ או לדחות, וזה בדיוק מה שהמשפט אומר.",
    "command מחייבת ציות, והמשפט אומר שהמאמן אינו יכול לכפות דבר.",
-   "request היא בקשה שהמבקש עצמו מרוויח ממנה, ולא הנחיה לטובת השחקן.",
+   "condition הוא תנאי שנקבע מראש ומחייב את מי שנתון בו, ואינו נתון לבחירת השחקן.",
    "threat מבטיחה נזק למי שלא יישמע, ואין במשפט שום עונש."
   ]
  },
@@ -230,8 +230,8 @@
   ]
  },
  {
-  "s": "Because the fish spoils within a few hours, the boats ___ it in ice while still at sea and ___ it to the market before noon.",
-  "o": [["cover", "deliver"], ["deliver", "cover"], ["cover", "weigh"], ["carry", "deliver"]],
+  "s": "Because the fish spoils within a few hours, the boats ___ it with ice while still at sea and ___ it to the market before noon.",
+  "o": [["cover", "deliver"], ["deliver", "cover"], ["cover", "weigh"], ["wrap", "deliver"]],
   "a": 0,
   "k": "cause",
   "w": ["because"],
@@ -239,14 +239,14 @@
    "cover = לכסות · deliver = למסור",
    "deliver = למסור · cover = לכסות",
    "cover = לכסות · weigh = לשקול",
-   "carry = לסחוב · deliver = למסור"
+   "wrap = לעטוף · deliver = למסור"
   ],
   "t": "מפני שהדג מתקלקל בתוך שעות אחדות, הסירות **מכסות** אותו בקרח עוד בים ו**מוסרות** אותו לשוק לפני הצהריים.",
   "r": [
    "cover ואחריו deliver: הכיסוי בקרח נעשה עוד בים, והמסירה לשוק באה אחריו.",
    "הסדר הפוך: deliver הוא מסירה לשוק, ואי אפשר למסור לשוק בעוד הסירות בים.",
    "cover בפתיחה נכון, אך weigh הוא לשקול, והמשפט מדבר על הבאת הדגים לשוק.",
-   "carry הוא לסחוב, והדגים אינם נסחבים בקרח אלא מכוסים בו."
+   "wrap הוא לעטוף בחומר גמיש כמו נייר או בד, ואת הדג מכסים בקרח ולא עוטפים בו."
   ]
  },
  {
@@ -315,15 +315,15 @@
   ]
  },
  {
-  "s": "The flat has no lift and the stairs are steep; moreover, a second ___ is the bus stop that wakes the whole family at five.",
+  "s": "The flat has no lift and the stairs are steep; moreover, a third ___ is the bus stop that wakes the whole family at five.",
   "o": ["disadvantage", "advantage", "exception", "factor"],
   "a": 0,
   "k": "addition",
   "w": ["moreover"],
   "g": ["disadvantage = חסרון", "advantage = יתרון", "exception = יוצא מהכלל", "factor = גורם"],
-  "t": "בדירה אין מעלית והמדרגות תלולות, ויותר מזה: **חסרון** שני הוא תחנת האוטובוס שמעירה את כל המשפחה בחמש.",
+  "t": "בדירה אין מעלית והמדרגות תלולות, ויותר מזה: **חסרון** שלישי הוא תחנת האוטובוס שמעירה את כל המשפחה בחמש.",
   "r": [
-   "disadvantage הוא חסרון, ותחנה שמעירה את הבית בחמש היא חסרון נוסף על המדרגות.",
+   "disadvantage הוא חסרון, ותחנה שמעירה את הבית בחמש היא חסרון נוסף על היעדר המעלית ועל המדרגות.",
    "advantage הוא יתרון, והמשפט מונה דווקא את מה שרע בדירה.",
    "exception הוא מקרה שיוצא מן הכלל, ואין במשפט כלל שממנו יוצאים.",
    "factor הוא גורם שמשפיע לכאן או לכאן, ואינו אומר שהתחנה מפריעה."

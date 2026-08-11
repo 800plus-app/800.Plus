@@ -138,8 +138,8 @@
   "s": "Because each side had already given up its first demand, the mediator was sure that the two of them could still ___ before the deadline.",
   "o": [
    "compromise",
-   "negotiate",
-   "bargain",
+   "collaborate",
+   "retreat",
    "argue"
   ],
   "a": 0,
@@ -149,15 +149,15 @@
   ],
   "g": [
    "compromise = להתפשר",
-   "negotiate = לשאת ולתת",
-   "bargain = להתמקח",
+   "collaborate = לשתף פעולה",
+   "retreat = לסגת",
    "argue = להתווכח"
   ],
   "t": "מכיוון שכל צד כבר זנח את דרישתו הראשונה, המגשר היה בטוח ששניהם עוד יוכלו **להתפשר** לפני המועד האחרון.",
   "r": [
    "compromise הוא לוותר על חלק מהדרישה כדי להיפגש באמצע, וזה מה ששני הצדדים כבר התחילו לעשות.",
-   "negotiate הוא לנהל את המשא ומתן עצמו, והשניים נמצאים בתוכו כבר עכשיו.",
-   "bargain הוא להתמקח על מחיר, ובמשפט אין מחיר.",
+   "collaborate הוא לשתף פעולה במשימה משותפת, ולשני הצדדים כאן אין משימה אלא סכסוך.",
+   "retreat הוא נסיגה של צד אחד מן העמדה, והמשפט מוסר ששני הצדדים זזו זה לקראת זה.",
    "argue הוא להחליף טיעונים, וזה מה שצריך להיפסק כדי להגיע להסכם."
   ]
  },
@@ -417,7 +417,7 @@
   ]
  },
  {
-  "s": "The recipe names every herb by weight; moreover, it fixes the ___ of water to the last spoon.",
+  "s": "The recipe names every herb by weight; moreover, it fixes the ___ of water in spoons and not as a share of the flour.",
   "o": [
    "quantity",
    "proportion",
@@ -435,10 +435,10 @@
    "fraction = שבר",
    "remainder = שארית"
   ],
-  "t": "המתכון נוקב בכל עשב לפי משקל; זאת ועוד, הוא קובע את **כמות** המים עד הכפית האחרונה.",
+  "t": "המתכון נוקב בכל עשב לפי משקל; זאת ועוד, הוא קובע את **כמות** המים בכפיות ולא כחלק מן הקמח.",
   "r": [
    "quantity הוא כמה יש מדבר, וזה מה שנמדד בכפיות.",
-   "proportion הוא היחס בין חלק לשלם, והמתכון נותן מידה מוחלטת.",
+   "proportion הוא היחס בין חלק לשלם, והמשפט אומר במפורש שהמידה אינה חלק מן הקמח.",
    "fraction הוא שבר, מספר קטן מאחד, והמים נמדדים בכפיות שלמות.",
    "remainder הוא מה שנשאר אחרי שהשתמשו בשאר, וכאן טרם השתמשו בדבר."
   ]
@@ -501,7 +501,7 @@
   "s": "The new law names every existing trade one by one; what is more, its final clause is ___ enough to cover trades that do not yet exist.",
   "o": [
    "broad",
-   "inclusive",
+   "explicit",
    "radical",
    "definite"
   ],
@@ -512,14 +512,14 @@
   ],
   "g": [
    "broad = נרחב",
-   "inclusive = כולל",
+   "explicit = מפורש",
    "radical = קיצוני",
    "definite = מוגדר"
   ],
   "t": "החוק החדש נוקב בכל עיסוק קיים בשמו; זאת ועוד, סעיפו האחרון **נרחב** דיו כדי לחול גם על עיסוקים שטרם קיימים.",
   "r": [
    "broad אומר שהסעיף רחב בהיקפו, ולכן גם מקרים חדשים נופלים בתוכו.",
-   "inclusive אומר שאין משאירים אף אחד מחוץ לקבוצה שכבר נמנתה, והסעיף חורג מעבר לרשימה.",
+   "explicit אומר שהדבר נאמר בשמו במפורש, ואי אפשר לנקוב בשמו של עיסוק שטרם קיים.",
    "radical אומר קיצוני, והרחבה של תחולה אינה קיצוניות.",
    "definite אומר מוגדר וחסום בגבולות, וזה ההיפך מסעיף שנמתח קדימה."
   ]
