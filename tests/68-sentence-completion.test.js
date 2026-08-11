@@ -21,6 +21,13 @@ const fs = require('fs');
 const path = require('path');
 const { ROOT } = require('./_harness/sandbox.js');
 
+/* ⚠ מנרמל סופי שורה של חלונות.
+   הבדיקות כאן חותכות גוף פונקציה לפי רצף של ירידת שורה ואחריה סוגר מסולסל. בקובץ
+   עם CRLF הרצף הוא CR ואז LF ואז הסוגר, ולכן חיפוש "LF סוגר LF" אינו נמצא כלל:
+   indexOf מחזיר מינוס אחת, והחיתוך יוצא באורך שני תווים. שתי בדיקות נכשלו כך על
+   קוד תקין לחלוטין, וזה כשל בבדיקה ולא בקוד. */
+const src = rel => fs.readFileSync(path.join(ROOT, rel), 'utf8').split('\r\n').join('\n');
+
 const load = rel => {
   const g = { window: {} };
   new Function('window', fs.readFileSync(path.join(ROOT, rel), 'utf8'))(g.window);
@@ -94,7 +101,9 @@ describe('השלמת משפטים · קובץ הייצור', () => {
 });
 
 describe('השלמת משפטים · הערבוב באפליקציה', () => {
-  const src = fs.readFileSync(path.join(ROOT, 'app.js'), 'utf8');
+  /* ⚠ `app` ולא `src`: שם זהה לעוזר הקורא היה מצליל אותו בתוך ה-describe הזה,
+     וההצללה נופלת עוד לפני שהבדיקה רצה. */
+  const app = src('app.js');
 
   test('הקורפוס אכן מגיע עם התשובה באינדקס אחד — ולכן ערבוב הוא חובה', () => {
     const idx = new Set(items.map(it => it.a));
@@ -104,13 +113,13 @@ describe('השלמת משפטים · הערבוב באפליקציה', () => {
   });
 
   test('sentShuffled קיים ומופעל בבניית הסבב', () => {
-    assert.match(src, /function sentShuffled\s*\(/, 'פונקציית הערבוב נעלמה מ-app.js');
-    assert.match(src, /\.map\(sentShuffled\)/,
+    assert.match(app, /function sentShuffled\s*\(/, 'פונקציית הערבוב נעלמה מ-app.js');
+    assert.match(app, /\.map\(sentShuffled\)/,
       'הסבב נבנה בלי ערבוב — התשובה הנכונה תהיה תמיד הכפתור הראשון.');
   });
 
   test('הערבוב ממפה מחדש o · g · r · a יחד', () => {
-    const fn = src.slice(src.indexOf('function sentShuffled'));
+    const fn = app.slice(app.indexOf('function sentShuffled'));
     const body = fn.slice(0, fn.indexOf('\n}') + 2);
     for (const k of ['o:', 'g:', 'r:', 'a:'])
       assert.ok(body.includes(k), `sentShuffled אינו ממפה ${k} — הפירוש יוצמד למילה אחרת.`);
@@ -141,8 +150,8 @@ describe('השלמת משפטים · הערבוב באפליקציה', () => {
 });
 
 describe('השלמת משפטים · החיווט', () => {
-  const app = fs.readFileSync(path.join(ROOT, 'app.js'), 'utf8');
-  const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  const app = src('app.js');
+  const html = src('index.html');
 
   test('המסך רשום ב-SCREENS ובעומק הניווט', () => {
     assert.match(app, /const SCREENS=\[[^\]]*'sent'/, "'sent' אינו ב-SCREENS — המסך לא יוסתר במעבר.");
@@ -166,5 +175,103 @@ describe('השלמת משפטים · החיווט', () => {
   test('התרגול מוצג באנגלית בלבד', () => {
     assert.match(app, /const sentOn = LANG==='en'/,
       'המקטע אינו תלוי בשפה — בצד העברי הוא היה מוביל לתרגול באנגלית.');
+  });
+});
+
+/* ===== בחירת התרגול ומעקב ההתקדמות =====
+ * שני אלה נוספו לפי בקשה מפורשת: בחירה בין תרגול מילים להשלמת משפטים אחרי
+ * בחירת אנגלית, ומעקב התקדמות על המשפטים.
+ */
+describe('השלמת משפטים · מסך בחירת התרגול', () => {
+  const app = src('app.js');
+  const html = src('index.html');
+
+  test('המסך רשום ובעומק ניווט 0, כמו welcome ו-home', () => {
+    assert.match(app, /const SCREENS=\[[^\]]*'mode'/, "'mode' אינו ב-SCREENS.");
+    assert.match(app, /mode:0/,
+      "'mode' חייב עומק 0. בעומק 1 כניסה ל-home הייתה מחליפה רשומת היסטוריה, " +
+      "ו'אחורה' מ-home היה יוצא מהאפליקציה בלי לעבור דרך בחירת התרגול.");
+  });
+
+  test('כל מזהה שה-JS מחפש קיים ב-HTML', () => {
+    const ids = ['mode', 'modeBack', 'setBtnM', 'userBadgeM',
+      'mWordsPct', 'mWordsProg', 'mWordsLearned', 'mWordsPract', 'mWordsCount',
+      'mSentPct', 'mSentProg', 'mSentSolved', 'mSentOk', 'mSentCount'];
+    const missing = ids.filter(id => !html.includes(`id="${id}"`));
+    assert.strictEqual(missing.length, 0, `מזהים חסרים: ${missing.join(', ')}`);
+    assert.ok(/data-mode="words"/.test(html) && /data-mode="sent"/.test(html),
+      'שני כרטיסי הבחירה חייבים לשאת data-mode.');
+  });
+
+  test('אנגלית עוצרת על הבחירה, ועברית ממשיכה ישר לדף הבית', () => {
+    assert.match(app, /if\(lang==='en'\)\{\s*renderMode\(\);\s*goto\('mode'\);\s*\}\s*\n?\s*else goto\('home'\)/,
+      'הניתוב אינו מפריד בין השפות. בעברית אין קורפוס משפטים, ומסך בחירה שם הוא ' +
+      'מסך עם אפשרות אחת.');
+  });
+
+  test('"חזרה" מדף הבית עולה שלב אחד באנגלית', () => {
+    const fn = app.slice(app.indexOf("$('#switchLang').onclick"));
+    const body = fn.slice(0, fn.indexOf('};') + 2);
+    assert.match(body, /LANG==='en'/,
+      "כפתור החזרה אינו תלוי בשפה — באנגלית הוא צריך להוביל לבחירת התרגול ולא לבחירת השפה.");
+  });
+});
+
+describe('השלמת משפטים · מעקב ההתקדמות', () => {
+  const app = src('app.js');
+
+  test('המקור היחיד הוא מפת ההתקדמות, והמערך הישן הוסר', () => {
+    assert.ok(!/const sentDone = \(\)=>/.test(app),
+      'sentDone הוחזר. מערך מזהים לצד מפת ההתקדמות הוא מקור אמת שני, והם יכולים להיפרד.');
+    assert.ok(!/function markSentDone/.test(app), 'markSentDone הוחזר.');
+    assert.match(app, /function sentRecord\(/, 'sentRecord הוא הכותב היחיד למפה.');
+  });
+
+  test('קיימת הגירה מהמבנה הישן, והיא שמרנית', () => {
+    const fn = app.slice(app.indexOf('function sentProg('));
+    const body = fn.slice(0, fn.indexOf('\n}') + 2);
+    assert.match(body, /SENT_KEY/, 'sentProg אינו קורא את המבנה הישן — התקדמות קיימת תאבד.');
+    assert.match(body, /n: 1, ok: 0/,
+      'ההגירה חייבת לסמן את הפריטים כנפתרו-ולא-נכונים: התוצאה לא נשמרה, ולהצהיר ' +
+      'על שליטה שלא נמדדה זה הכיוון הלא נכון.');
+  });
+
+  test('הסבב מביא קודם חדשים, אחריהם נכשלים, ורק אז ידועים', () => {
+    const fn = app.slice(app.indexOf('function startSentRound('));
+    const body = fn.slice(0, fn.indexOf('\n}') + 2);
+    for (const k of ['fresh', 'failed', 'known', 'slipped', 'solid'])
+      assert.ok(body.includes(k), `סדר העדיפות אינו שלם — חסר ${k}.`);
+    const iF = body.indexOf('concat(shuffle(failed'), iK = body.indexOf('concat(slipped');
+    assert.ok(iF > 0 && iK > iF, 'נכשלים חייבים להצטרף לפני ידועים.');
+    /* ⛔ הבאג שהיה כאן: shuffle על pool כולו אחרי בניית הסדר, וזה ביטל אותו בשקט. */
+    assert.ok(!/sentQ = shuffle\(pool/.test(body),
+      'ערבוב pool כולו מבטל את סדר העדיפות שנבנה מעליו.');
+  });
+
+  test('הסנכרון נוסע בבלוב הקיים, בלי טבלה חדשה', () => {
+    assert.match(app, /if\(lang==='en'\)\{ const p = LS\.get\(SENT_PROG, null\)/,
+      'collectExtras אינו כולל את התקדמות המשפטים — היא לא תעבור בין מכשירים.');
+    assert.match(app, /if\(lang==='en' && isObj\(ex\.sent\)\)/,
+      'applyExtras אינו קורא אותה בחזרה.');
+  });
+
+  test('המיזוג מונוטוני, ו-ok נחסם ל-n', () => {
+    const fn = app.slice(app.indexOf('function applyExtras('));
+    const body = fn.slice(0, fn.indexOf('\n}\n') + 3);
+    assert.match(body, /Math\.max\(Number\(l\.n\)\|\|0, Number\(r\.n\)\|\|0\)/,
+      'n אינו מקסימום — מכשיר שמאחר יוכל לגרור אחורה מכשיר שקדם לו.');
+    assert.match(body, /Math\.min\(ok, n\)/,
+      'ok אינו נחסם ל-n. שורה פגומה מהענן הייתה מפיקה אחוז שליטה מעל 100.');
+  });
+
+  test('התשובה נרשמת ומתוזמנת לסנכרון, בלי דחיפה לכל תשובה', () => {
+    const fn = app.slice(app.indexOf('function sentRecord('));
+    const body = fn.slice(0, fn.indexOf('\n}') + 2);
+    assert.match(body, /queueRemoteSync\(\)/, 'התשובה אינה מסומנת לסנכרון כלל.');
+    assert.ok(!/flushRemoteSync/.test(body),
+      'דחיפה מיידית לכל תשובה — עשר קריאות רשת בסבב אחד במקום אחת.');
+    const fin = app.slice(app.indexOf('function finishSentRound('));
+    assert.match(fin.slice(0, 1400), /flushRemoteSync/,
+      'סוף סבב חייב לכפות דחיפה: זו נקודה שבה הלומד עלול לסגור את הלשונית.');
   });
 });

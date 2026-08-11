@@ -276,6 +276,7 @@
     background:var(--paper-deep);border-radius:5px;padding:0 5px}
   .s-done{text-align:center;padding:6vh 0}
   .s-done .num{font-family:"Frank Ruhl Libre",serif;font-size:3.4rem;font-weight:700;color:var(--gold)}
+  .s-sum{font-size:.86rem;color:var(--ink-soft);margin-top:6px}
 
   /* QUIZ */
   .prog{height:6px;background:var(--paper-deep);border-radius:3px;overflow:hidden;margin-bottom:6px}
@@ -1718,6 +1719,43 @@
       <button class="hint-btn" id="hintBtn">💡 רמז</button>
       <div class="hint-box hidden" id="hintBox"></div>
       <div class="feedback hidden" id="feedback" role="status" aria-live="polite" aria-atomic="true"></div>
+    </div>
+  </section>
+
+  <!-- ===== MODE · תרגול מילים או השלמת משפטים =====
+       מוצג **רק באנגלית**. בעברית אין קורפוס משפטים, ולכן בחירת השפה ממשיכה
+       ישר לדף הבית כמו קודם. הכרטיסים הם אותם `.lang-card` של בחירת השפה: אותה
+       החלטה מאותו סוג, ולכן אותה צורה. -->
+  <section id="mode" class="hidden">
+    <div class="topbar"><button class="back" id="modeBack">🏠 חזרה</button><div class="sp"></div>
+      <button class="user-badge" id="userBadge4" title="החשבון שלי" aria-label="החשבון שלי"><b id="userBadgeM"></b></button>
+      <button class="gear-btn" id="setBtnM" title="הגדרות" aria-label="הגדרות">⚙</button></div>
+    <div class="welcome-head">
+      <div class="kicker">אנגלית</div>
+      <h1 class="w-title">מה נתרגל?</h1>
+      <p class="w-note">ההתקדמות בכל תרגול נמדדת בנפרד, וניתן לעבור ביניהם בלחיצה על כפתור "חזרה".</p>
+    </div>
+    <div class="lang-cards">
+      <button class="lang-card" data-mode="words">
+        <div class="lc-head"><span class="lang-flag">🔤</span><h2>תרגול מילים</h2>
+          <b class="lc-pct" id="mWordsPct">0%</b></div>
+        <div class="lang-prog"><i id="mWordsProg"></i></div>
+        <div class="lc-nums">
+          <span><b id="mWordsLearned">0</b> נלמדו</span>
+          <span><b id="mWordsPract">0</b> תורגלו</span>
+          <span class="lc-of" id="mWordsCount">—</span>
+        </div>
+      </button>
+      <button class="lang-card en" data-mode="sent">
+        <div class="lc-head"><span class="lang-flag">✍️</span><h2>השלמת משפטים</h2>
+          <b class="lc-pct" id="mSentPct">0%</b></div>
+        <div class="lang-prog"><i id="mSentProg"></i></div>
+        <div class="lc-nums">
+          <span><b id="mSentSolved">0</b> נפתרו</span>
+          <span><b id="mSentOk">0</b> נכונות בראשונה</span>
+          <span class="lc-of" id="mSentCount">—</span>
+        </div>
+      </button>
     </div>
   </section>
 
