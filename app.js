@@ -419,6 +419,21 @@ function pruneOrphans(){
     console.error('pruneOrphans בוטל: המאגר נטען חלקית ('+live.size+' מילים) — לא נמחק דבר');
     return;
   }
+  /* ⛔ נמצא בבדק בית 3: הרצפה שמעל מגנה מפני מאגר **ריק**, לא מפני מאגר **חצי**.
+     מאגר שהגיע עם 200 מילים מתוך 3,000 עובר אותה בנוחות, וכל שאר הרשומות
+     נמחקות — ו-saveStats() גוררת queueRemoteSync(), כלומר האובדן נדחף גם לענן
+     ואין ממנו חזרה. אותה משפחת כשל שההערה שמעל מתארת, רק בדרגה אחת פחות קיצונית,
+     ולכן היא חמקה מהשומר שנכתב בדיוק בשבילה.
+     הכלל היחסי: מחיקה שמוחקת את **רוב** רשומות הלומד אינה תחזוקה אלא תאונה.
+     המינימום נדרש כדי שהכלל לא יתפוס לומד עם שתי רשומות שאחת מהן באמת יתומה,
+     וזה מצב תקין לגמרי — ראו tests/06. */
+  const recs=Object.keys(stats.words);
+  const doomed=recs.filter(k=>!live.has(k));
+  if(recs.length >= 20 && doomed.length > recs.length/2){
+    console.error('pruneOrphans בוטל: '+doomed.length+' מתוך '+recs.length+
+                  ' רשומות היו נמחקות — המאגר כנראה נטען חלקית');
+    return;
+  }
   let touched=false;
   for(const k in stats.words) if(!live.has(k)){ delete stats.words[k]; touched=true; }
   for(const k in assoc)       if(!live.has(k)){ delete assoc[k];       touched=true; }
@@ -2392,7 +2407,13 @@ function updateSafeNow(){
      ⚠ התנאי השני בשורה למטה שומר על תרגול המילים דרך `session`, ולמודול המשפטים
      אין `session` — הוא אינו נשען על אותו מנגנון. לכן שם המסך הוא ההגנה היחידה
      שלו, וזו הסיבה שהשמטה כאן הייתה שקטה לחלוטין. */
-  const busy=['quiz','exam','level','sent'];
+  /* ⛔ `'results'` נוסף בבדק בית 3. ההערה שמעל הפונקציה כותבת במפורש שהעדכון
+     "deliberately NOT applied automatically when the round ends, because that moment
+     is the results screen" — אבל המסך לא היה ברשימה. וגם התנאי השני אינו מכסה
+     אותו: finishRound כבר הריצה commitSession, ולכן `committed` אמת והביטוי כבוי.
+     כלומר הפונקציה החזירה "בטוח לרענן" בדיוק במסך שההערה מגינה עליו, ורענון שם
+     מוחק גם את מה שהלומד קורא וגם תיקוני "בעצם ידעתי" שטרם נשמרו. */
+  const busy=['quiz','exam','level','sent','results'];
   return !busy.includes(currentScreenId()) && !(typeof session!=='undefined' && session.size>0 && !committed);
 }
 /* May this tab reload itself right now?
@@ -4418,6 +4439,14 @@ $('#authForm').addEventListener('submit', async e=>{
       if(r.error){ msg.className='au-msg err'; msg.textContent=translateAuthError(r.error); return; }
       currentUser=r.user; afterAuthed(false);
     }
+  /* ⛔ נמצא בבדק בית 3: כאן היה try{…} finally בלי catch. כל זריקה — רשת שנופלת
+     באמצע, או store.js שלא נטען ו-Store אינו מוגדר — עברה מעל ההודעה והשאירה את
+     "מתחבר…" על המסך. הכפתור אמנם השתחרר, אבל הטקסט המשיך להבטיח שמשהו קורה,
+     והמשתמש נשאר מול מסך שמשקר לו. §10: הודעת שגיאה חייבת לומר מה עכשיו. */
+  }catch(err){
+    console.error('כשל בהתחברות', err);
+    msg.className='au-msg err';
+    msg.textContent='ההתחברות נכשלה. בדוק את החיבור לרשת ונסה שוב';
   } finally { btn.disabled=false; }
 });
 $('#cheerOk').onclick=()=>hide($('#cheer'));
