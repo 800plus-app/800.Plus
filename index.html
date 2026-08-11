@@ -348,10 +348,16 @@
   /* משפט הדוגמה: תווית · המשפט באנגלית · התרגום, שורה לכל אחד. המילה הנלמדת
      מודגשת בשני המשפטים, ולכן היא מוצגת ב-var(--ink) המלא ולא באפור של .also:
      אפור על אפור אינו הדגשה, וההדגשה כאן היא כל תפקיד השורה. */
+  /* ⚠ `text-align:right` על הבלוק, ולא הסתמכות על ההורה. נמדד בדפדפן על 12 כרטיסים
+     בשלושה רוחבי מסך: `.ex-he` יצא `center`, מפני ש-`.card` ממורכז וה-`.also` יורש
+     ממנו — ואילו המשפט האנגלי מיושר לשמאל במפורש. כלומר שתי השורות של אותו זוג
+     יושבות בשני יישורים שונים, ומשפט של שתי שורות במרכז נקרא גרוע יותר. עכשיו כל
+     שורה מיושרת לתחילת השפה שלה: התווית והעברית לימין, האנגלית לשמאל. */
+  .ex-sent{text-align:right}
   .ex-sent .ex-lbl{display:block;font-size:.68rem;letter-spacing:.1em;color:var(--gold);
     font-weight:700;margin-bottom:3px}
   .ex-sent .ex-en{display:block;direction:ltr;text-align:left;margin-bottom:2px}
-  .ex-sent .ex-he{display:block}
+  .ex-sent .ex-he{display:block;text-align:right}
   .ex-sent b{color:var(--ink);font-weight:700}
   .reveal{margin-top:8px;font-size:1.05rem}
   .reveal b{font-family:"Frank Ruhl Libre",serif}
