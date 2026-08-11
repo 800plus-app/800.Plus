@@ -5170,7 +5170,19 @@ function entVerdict(ent, now){
 async function refreshEntitlement(){
   try{
     const ent = await Store.myEntitlement();
-    if(ent && typeof ent.access==='boolean'){ LS.set(ENT_KEY, ent); return ent; }
+    if(ent && typeof ent.access==='boolean'){
+      /* ⚠ אסימטרי בכוונה, ולא סתם LS.set.
+         כשהדיסק מלא הכתיבה נכשלת בשקט, והמטמון הקודם נשאר. אם השרת **שלל**
+         גישה והכתיבה לא עברה, נשאר על הדיסק {access:true} מלפני כן — ובטעינה
+         הבאה entVerdict מחזיר true והגישה חוזרת. כלומר שלילה אינה נדבקת על
+         מכשיר במצוקת מכסה, וזה בדיוק המכשיר שיש בו shedStorage מפני שזה קורה.
+         לכן: כתיבה שנכשלה על שלילה **מוחקת** את המטמון. בטעינה הבאה entVerdict
+         מחזיר null, נופלים למסלול המקומי שבודק את הפרופיל, וזו האמת.
+         כשהשרת מתיר והכתיבה נכשלת — המטמון נשאר. מחיקה שם הייתה שוללת גישה
+         ממי שיש לו אותה, במכשיר שכבר במצוקה. */
+      if(!LS.set(ENT_KEY, ent) && ent.access===false) LS.del(ENT_KEY);
+      return ent;
+    }
   }catch(e){}
   return LS.get(ENT_KEY, null);
 }
