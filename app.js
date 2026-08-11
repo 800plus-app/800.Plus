@@ -5696,7 +5696,12 @@ function sentProg(){
   const old = LS.get(SENT_KEY, null);
   const out = {};
   if (Array.isArray(old)) old.forEach(src => { if (src) out[src] = { n: 1, ok: 0, last: 0 }; });
-  if (Object.keys(out).length) LS.set(SENT_PROG, out);
+  /* המקור נמחק **רק** אחרי שהיעד נכתב בהצלחה. LS.set מחזיר בוליאני בדיוק בשביל
+     זה: מחיקה בלי התנאי הזה מוחקת את העותק היחיד כשהדיסק מלא — וזו כל ההתקדמות.
+     ובלי המחיקה בכלל, hw_sent_done נשאר לנצח כנתונים מתים שאיש כבר לא קורא
+     (המבנה החדש גובר עליו למעלה) ותופס מכסה באפליקציה שיש בה shedStorage שלם
+     מפני שהמכסה נגמרת בפועל. */
+  if (Object.keys(out).length && LS.set(SENT_PROG, out)) LS.del(SENT_KEY);
   return out;
 }
 function sentRecord(src, right){
