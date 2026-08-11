@@ -883,10 +883,17 @@ function renderHome(){
   renderExamPill();
   const weakAll = weakCards('global');
   const cta = $('#homeWeak');
+  /* "1 מילים לחיזוק" אינו עברית, והוא נחשף ברגע שהסף ירד ל-1. פונקציה נפרדת ולא ביטוי
+   בתוך renderHome, כדי שיהיה מה לבדוק בלי DOM שלם. */
+const weakCtaText = n =>
+  (n===1 ? 'מילה אחת לחיזוק' : `${n} מילים לחיזוק`) + ' · מכל יחידות הלימוד';
+/* הסף היה 4, בלי נימוק רשום: מי שנשארו לו שתיים־שלוש מילים לחיזוק לא ראה אותן,
+     וזה בדיוק הרגע שבו סבב קצר סוגר את הפער. הנימוק שכן נרשם — "לא להציע לתרגל אפס" —
+     מכוסה בסף 1. askSize מדלג על שאלת הגודל כשהרשימה קטנה מכל הקיצורים, ולכן
+     סבב של מילה אחת נפתח ישר בלי דיאלוג מיותר. */
   if(cta){
-    cta.classList.toggle('hidden', weakAll.length < 4);
-    $('#homeWeakSub').textContent =
-      `${weakAll.length} מילים לחיזוק · מכל יחידות הלימוד`;
+    cta.classList.toggle('hidden', !weakAll.length);
+    $('#homeWeakSub').textContent = weakCtaText(weakAll.length);
   }
   renderDirSegs();
   renderWordCard();
