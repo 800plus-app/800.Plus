@@ -1,0 +1,80 @@
+debate	ויכוח, דיון	The students engaged in a heated debate about which movie was better.	התלמידים ניהלו ויכוח סוער על השאלה איזה סרט טוב יותר.
+defeat	להביס, לנצח; תבוסה, הבסה	Their opponents defeated them, shocking everyone who believed in their chances.	היריבים שלהם הביסו אותם, והדהימו את כל מי שהאמין בסיכוי שלהם.
+defeated	הובס	After being defeated twice before, she finally won the championship.	אחרי שהובסה פעמיים קודם לכן, היא סוף סוף ניצחה באליפות.
+define	להגדיר	Please define the word precisely, using its exact dictionary meaning.	אנא הגדר את המילה במדויק, לפי המשמעות המילונית המדויקת שלה.
+degree	מעלה (מדידה); תואר אקדמי; דרגה; מידה, במידה מסוימת	The temperature dropped twenty degrees overnight during the storm.	הטמפרטורה ירדה בעשרים מעלות במהלך הלילה בזמן הסערה.
+demand	לדרוש, דרישה	Her job demands careful attention to detail and accuracy.	העבודה שלה דורשת תשומת לב רבה לפרטים ולדיוק.
+dental	שקשור בשיניים	The dental clinic checked her teeth and cleaned each one carefully.	מרפאת השיניים בדקה את שיניה וניקתה כל אחת בקפידה.
+dentist	רופא שיניים	The dentist cleaned my teeth and fixed one small cavity.	רופא השיניים ניקה את שיניי ותיקן חור קטן אחד.
+deny	לסרב; להכחיש	He denied being at the store when it was robbed.	הוא הכחיש שהיה בחנות כשהיא נשדדה.
+depart	לעזוב	The train will depart from platform five in fifteen minutes.	הרכבת תעזוב מרציף חמש בעוד רבע שעה.
+destination	יעד	Our destination was a small village in the mountains.	היעד שלנו היה כפר קטן בהרים.
+destructive	הרסני	The storm caused destructive winds that damaged hundreds of homes.	הסערה גרמה לרוחות הרסניות שפגעו במאות בתים.
+detect	לאתר, לגלות	Scientists can detect earthquakes before they reach the surface.	מדענים יכולים לאתר רעידות אדמה לפני שהן מגיעות לפני השטח.
+diary	יומן	She wrote in her diary every evening before sleeping.	היא כתבה ביומן שלה כל ערב לפני השינה.
+disappoint	לאכזב	I hope our performance does not disappoint the audience tonight.	אני מקווה שההופעה שלנו לא תאכזב את הקהל הערב.
+distant	מרוחק	The distant mountains looked beautiful in the evening light.	ההרים המרוחקים נראו יפים באור הערב.
+district	מחוז	The school serves students from the entire downtown district.	בית הספר משרת תלמידים מכל מחוז מרכז העיר.
+donor	תורם	The blood donor sat quietly while the nurse took blood.	תורם הדם ישב בשקט בזמן שהאחות לקחה דם.
+dose	מנה, מינון	Take one dose of medicine every eight hours.	קח מנה אחת של תרופה כל שמונה שעות.
+double standard	מוסר כפול	Punishing him but not her is a clear double standard.	להעניש אותו ולא אותה זה מוסר כפול ברור.
+Dutch	הולנדי	My Dutch friend taught me how to make stroopwafels.	החבר ההולנדי שלי לימד אותי איך להכין סטרופוואפלס.
+ease	להקל, קלוּת	This software will ease the burden of data entry.	התוכנה הזאת תקל על נטל הזנת הנתונים.
+efficient	יעיל	An efficient system saves time and reduces waste.	מערכת יעילה חוסכת זמן ומצמצמת בזבוז.
+elderly	זקן	The elderly man slowly walked across the street.	האיש הזקן צעד לאט לרוחב הרחוב.
+eliminate	לחסל, לפסול	We need to eliminate all the plastic waste from offices.	אנחנו צריכים לחסל את כל פסולת הפלסטיק מהמשרדים.
+embarrass	להביך	He would not want to embarrass himself in front of everyone.	הוא לא היה רוצה להביך את עצמו מול כולם.
+employ	להעסיק; להשתמש ב-, לנקוט	The factory employs over five hundred workers in production.	המפעל מעסיק למעלה מחמש מאות עובדים בייצור.
+employer	מעסיק, מעביד	My employer offered me a raise after my good performance.	המעסיק שלי הציע לי העלאה אחרי הביצועים הטובים שלי.
+encourage	לעודד	Teachers encourage students to ask questions during the lesson.	מורים מעודדים תלמידים לשאול שאלות במהלך השיעור.
+entertain	לשעשע, לבדר	The comedian tried to entertain the audience with stories.	הקומיקאי ניסה לשעשע את הקהל בעזרת סיפורים.
+envy	קנאה, לקנא	She felt envy when her friend got the promotion.	היא הרגישה קנאה כשחברתה קיבלה את הקידום.
+equally	במידה שווה	Both runners crossed the finish line equally fast, surprising everyone there.	שני הרצים חצו את קו הסיום במהירות שווה, מה שהפתיע את כולם שם.
+era	עידן	We study the Victorian era in history class.	אנחנו לומדים על העידן הוויקטוריאני בשיעור היסטוריה.
+erase	למחוק	Can you erase that word from the board please?	אתה יכול למחוק את המילה הזאת מהלוח בבקשה?
+essential	חיוני	Water is essential for all life on Earth.	מים חיוניים לכל צורות החיים על כדור הארץ.
+evolved	התפתח	Fish evolved from earlier sea creatures millions of years ago.	דגים התפתחו מיצורי ים קדומים לפני מיליוני שנים.
+exception	יוצא מהכלל	Everyone has to work on Saturday with no exception.	כולם חייבים לעבוד בשבת בלי יוצא מהכלל.
+execute	להוציא לפועל; להוציא להורג	The team will execute the plan next Monday morning.	הצוות יוציא את התוכנית לפועל ביום שני בבוקר.
+existence	קיום	The existence of dinosaurs was proven through fossil evidence.	קיומם של הדינוזאורים הוכח באמצעות עדויות מאובנים.
+expand	להרחיב	The company plans to expand into three new countries.	החברה מתכננת להרחיב את פעילותה לשלוש מדינות חדשות.
+expansion	הרחבה, התרחבות, התפשטות	The expansion of the airport will take about two years.	הרחבת שדה התעופה תיקח כשנתיים.
+expense	הוצאות	Travel is a major expense when living abroad.	נסיעות הן הוצאה משמעותית כשגרים בחוץ לארץ.
+express	מהיר; לבטא	We took the express train to save three hours of travel.	נסענו ברכבת המהירה כדי לחסוך שלוש שעות נסיעה.
+expression	ביטוי	Her happy expression told us she had good news.	הביטוי השמח שלה סיפר לנו שיש לה חדשות טובות.
+extend	להאריך, להרחיב	Can we extend the deadline for the project please?	נוכל להאריך את המועד האחרון של הפרויקט בבקשה?
+extension	הארכה, הרחבה; תוספת (מבנה); שלוחה (טלפון)	The extension of the meeting lasted only five more minutes.	ההארכה של הישיבה נמשכה רק חמש דקות נוספות.
+facial	שקשור בפנים	The facial cream soothed the redness and dryness on her face.	קרם הפנים הרגיע את האדמומיות והיובש בפניה.
+feature	להציג; סרט באורך מלא; תכונה, מאפיין	This month's magazine features stories about unusual animals.	המגזין של החודש מציג סיפורים על בעלי חיים יוצאי דופן.
+feminine	נשי	Her feminine style with jewelry and soft colors was elegant.	הסגנון הנשי שלה עם התכשיטים והצבעים הרכים היה אלגנטי.
+fisherman	דייג	The fisherman caught three large fish in the river.	הדייג תפס שלושה דגים גדולים בנהר.
+flame	להבה	A bright flame danced in the dark fireplace.	להבה בוהקת רקדה באח החשוכה.
+flood	שיטפון	Heavy rains caused a terrible flood in the village.	גשמים כבדים גרמו לשיטפון נורא בכפר.
+footprints	עקבות, טביעות רגל	Police found footprints in the mud near the house.	המשטרה מצאה עקבות בבוץ ליד הבית.
+forbid	לאסור	Parents forbid their children from staying out after ten at night.	הורים אוסרים על ילדיהם להישאר בחוץ אחרי עשר בלילה.
+foundation	יסוד	A strong foundation is essential for any building.	יסוד חזק הוא חיוני לכל בניין.
+frequently	לעיתים קרובות	She frequently visits her grandmother on weekend afternoons.	היא מבקרת את סבתה לעיתים קרובות בשעות אחר הצהריים בסופי שבוע.
+frightening	מפחיד	The frightening movie gave her nightmares all week.	הסרט המפחיד גרם לה לסיוטים במשך כל השבוע.
+fuel	דלק	The car runs on fuel from the gas pump.	המכונית פועלת על דלק מתחנת הדלק.
+fund	קרן; לממן	The government fund helps students pay for college tuition.	קרן הממשלה עוזרת לסטודנטים לשלם שכר לימוד במכללה.
+funds	כסף, הון, מקור מימון	The company lacks funds to expand right now.	לחברה חסר כסף כדי להתרחב כרגע.
+gain	להרוויח, להוסיף	She hopes to gain valuable experience this summer.	היא מקווה להרוויח ניסיון יקר ערך הקיץ הזה.
+gap	פער	There is a gap between the two buildings.	יש פער בין שני הבניינים.
+gasoline	בנזין	We need to buy gasoline before the long drive.	אנחנו צריכים לקנות בנזין לפני הנסיעה הארוכה.
+gather	אסף	Everyone will gather at the park for the picnic.	כולם יתאספו בפארק לפיקניק.
+glove	כפפה	He wore a glove to protect his injured hand.	הוא ענד כפפה כדי להגן על ידו הפצועה.
+granddaughter	נכדה	My granddaughter loves to visit me every summer.	הנכדה שלי אוהבת לבקר אותי בכל קיץ.
+greet	לברך, לקבל פנים	Teachers greet students warmly when they arrive at school.	מורים מקבלים את פני התלמידים בחום כשהם מגיעים לבית הספר.
+growth	צמיחה, גדילה	The city saw rapid growth in the last decade.	העיר חוותה צמיחה מהירה בעשור האחרון.
+guarantee	להבטיח, ערבות	The store will guarantee the quality of the product.	החנות תבטיח את איכות המוצר.
+habit	הרגל	Drinking coffee is a daily habit for her.	שתיית קפה היא הרגל יומי בשבילה.
+heavily	מאוד, במידה רבה	It rained heavily all night and flooded the streets.	ירד גשם חזק מאוד כל הלילה והציף את הרחובות.
+hike	הליכה, טיול	We took a long hike through the forest yesterday.	יצאנו לטיול ארוך ביער אתמול.
+homeland	מולדת	After many years working abroad, she finally returned to her homeland.	אחרי שנים רבות של עבודה בחוץ לארץ, היא סוף סוף חזרה למולדתה.
+identify	לזהות	Can you identify the person in this old photograph?	אתה יכול לזהות את האדם בתמונה הישנה הזאת?
+illness	מחלה	His illness kept him in the hospital for weeks.	המחלה שלו השאירה אותו בבית החולים במשך שבועות.
+imagination	דמיון	Children use their imagination when playing pretend games.	ילדים משתמשים בדמיון שלהם כשהם משחקים במשחקי תפקידים.
+impatient	חסר סבלנות	The impatient customer complained about the slow service.	הלקוח חסר הסבלנות התלונן על השירות האיטי.
+impress	להרשים	She wanted to impress her new boss at work.	היא רצתה להרשים את הבוס החדש שלה בעבודה.
+imprisonment	מאסר, כליאה	His imprisonment lasted twenty years for the crime.	המאסר שלו נמשך עשרים שנה בגין הפשע.
+in comparison	בהשוואה	In comparison to last year, sales have doubled significantly.	בהשוואה לשנה שעברה, המכירות הכפילו את עצמן באופן משמעותי.

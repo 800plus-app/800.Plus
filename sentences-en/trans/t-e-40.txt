@@ -1,0 +1,80 @@
+subtraction	חיסור (חשבון)	The subtraction of five from twelve gives you seven.
+superficial	שטחי	His superficial charm hid the fact that he had no real skills.
+supplement	תוסף	Athletes often take a supplement to improve their muscle strength and recovery.
+surrounding	מקיף, סובב	The surrounding forest protected the small village from harsh winter winds.
+sustain	לתמוך; סבל מ-; להמשיך באותה צורה	A strong rope can sustain the weight of several people safely.
+tame	לאלף, לבית	The hunter spent years trying to tame the wild horse with patience.
+tendency	נטייה	She had a tendency to arrive late for every meeting.
+tender	רך	The tender leaves of spring roses require careful handling and water.
+testify	להעיד	The witness was asked to testify about what she had seen.
+tin	בדיל, עשוי מפח	The old tin roof had rusted after many years of rain.
+toad	קרפדה	A large toad sat by the pond and croaked all night long.
+tolerate	לסבול	She could not tolerate the loud noise from her neighbor's music.
+trait	תכונה	Honesty is a trait that everyone respects in a good friend.
+transcript	תמליל, פרוטוקול	The student requested an official transcript listing all her college courses and grades.
+transplant	להשתיל, להעביר ממקום למקום; השתלה	The gardener decided to transplant the flowers to a sunnier location.
+treaty	אמנה,הסכם, חוזה	The two countries negotiated for months before finally signing a treaty.
+unbearable	בלתי נסבל	The heat was unbearable, so we stayed indoors with the air conditioning.
+undoubtedly	ללא ספק	She is undoubtedly the best student in the entire physics class.
+unrest	חוסר שקט	Unrest grew among factory workers after their pay was unexpectedly cut.
+urge	לעודד, לדחוף ; דחף, רצון, תשוקה	I urge you to start the project before the deadline arrives tomorrow.
+urine	שתן	The doctor asked for a urine sample to check for infection.
+vacant	פנוי, ריק	The vacant apartment sat unused at the end of the hallway for years.
+validity	תוקף	The passport's validity expired last month, so I need to renew it.
+vast	עצום, נרחב, רחב ידיים	The vast desert stretched for hundreds of miles in every direction.
+verdict	פסק דין, פסיקה	The jury announced their verdict after deliberating for three full days.
+vice versa	להיפך	Parents help their children learn, and vice versa in many situations.
+vinegar	חומץ	She added a splash of vinegar to make the salad dressing tangy.
+violate	להפר, לחלל	If you violate the traffic laws, you will receive a heavy fine.
+violation	עבירה, הפרה	Parking in that spot is a violation of the traffic regulations.
+viper	צפע	The viper was discovered coiled near the garden shed yesterday.
+virtually	למעשה, בעצם	That restaurant is virtually impossible to find without a good map.
+wage	לערוך, לנהל; משכורת	They decided to wage a campaign to raise awareness about pollution.
+wanted	מבוקש	The wanted criminal was finally arrested after ten years on the run.
+wardrobe	ארון בגדים; מלתחה	Her wardrobe contained hundreds of dresses, shirts, and shoes neatly organized.
+warfare	לוחמה	Modern warfare relies heavily on technology and strategic military planning.
+wasp	צרעה	A wasp built its papery nest under the porch of the house.
+weave	לארוג, לשזור; להתפתל בין (בתנועה)	She learned to weave cloth on a traditional loom from her grandmother.
+welfare	סעד	The government provides welfare payments to families who are struggling financially.
+widespread	נפוץ	The flu became widespread across the country during the winter season.
+withstand	להתמודד, לעמוד ב-	This bridge was built to withstand earthquakes and extreme weather conditions.
+abduct	חטיפה, לחטוף	The suspect was accused of trying to abduct someone from the street.
+abundance	שפע	The region has an abundance of fresh fruit and natural resources.
+accentuate	להבליט, להדגיש	The bright lighting helped accentuate the beautiful details of the building.
+accommodate	להכיל, לפנות מקום ל-; להתאים (לצרכים); לאכסן, לשכן	The new stadium can accommodate up to fifty thousand spectators comfortably.
+accumulate	לצבור, לאסוף	Over many years, dust tends to accumulate under the furniture.
+accustomed	מורגל	She was accustomed to waking up early every morning for work.
+acquisition	רכישה	The company's acquisition of the startup was announced in the news.
+acquitted	זוכה מאשמה	The defendant was acquitted of all charges after a fair trial.
+adhere	לדבוק ב-, לדגול ב-	Good scientists adhere strictly to the methods outlined in their research.
+adjacent to	ליד	The new library is adjacent to the main university campus building.
+administer	לנהל, לפקח; לתת, לחלק	The principal administers the entire school and all of its policies.
+adolescence	גיל ההתבגרות	During adolescence, many teenagers start to question their parents' rules.
+aisle	מעבר	The shopping cart blocked the entire aisle in the grocery store.
+algae	אצות	Green algae covered the surface of the pond during the summer.
+alienation	ניכור, הרחקה	Feelings of alienation often develop when people move to new countries.
+allocate	להקצות	The government decided to allocate more money to public transportation.
+alterations	שינויים	The tailor made several alterations to the dress for a perfect fit.
+ambiguous	דו משמעי, לא לגמרי ברור	The instructions were ambiguous, so the students asked for clarification.
+amend	לתקן, לשנות (חוק/מסמך)	The committee decided to amend the rules to make the game fairer.
+amid	בקרב, בין	Amid all the chaos, the child managed to stay perfectly calm.
+ample	מספיק, שופע, גדול	The restaurant provided ample food for all of the wedding guests.
+amputation	קטיעה	Severe frostbite led to the amputation of two of his fingers.
+anesthesia	הרדמה	The patient received anesthesia before the surgeon began the operation.
+annually	אחת לשנה, בכל שנה	The conference occurs annually, bringing together researchers from around the world.
+anticipate	לצפות	Scientists anticipate that temperatures will rise significantly over the coming decades.
+anxiety	חרדה	Public speaking causes anxiety in many people who fear large audiences.
+apparatus	מכשיר, ציוד, מערכת מכשירים; מנגנון	The laboratory apparatus was expensive and required careful maintenance.
+apparent	ברור, נראה לעין; לכאורה, מדומה	It became apparent that the plan had failed when nobody showed up.
+appoint	למנות	The committee will appoint a new manager to lead the project.
+appropriately	כראוי, כיאות, באופן מתאים	The actor dressed appropriately for the formal evening gala event.
+arguably	ניתן לטעון ש-, כנראה	This band is arguably the most influential in modern rock history.
+arise, arose	לקום, קם	She arose from her bed early to watch the sunrise.
+ark	תיבה	The old wooden ark held blankets and tools inside the barn.
+array	מערך; מגוון	The bakery displayed a colorful array of fresh breads and pastries.
+assert	לטעון בתוקף, להצהיר	Despite strong criticism, she continued to assert that her research was accurate.
+assertion	טענה, קביעה	His assertion that he was innocent was not believed by the jury.
+assess	להעריך, לאמוד	The teacher will assess each student's progress during the semester.
+at your disposal	לרשותך	All of the library's resources are at your disposal.
+attain	להשיג, להגיע	With hard work and dedication, you can attain your dreams.
+attendant	משרת, מטפל, מלווה	The hotel attendant helped carry our luggage to the room.

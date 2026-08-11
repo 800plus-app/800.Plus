@@ -1,0 +1,80 @@
+different from	שונה מ-	Her opinion was completely different from what everyone else believed.
+difficult	קשה	Learning a new language is difficult because you must practice grammar rules and new vocabulary daily.
+dirty	מלוכלך	After playing in the mud, his clothes were very dirty.
+done	גמור, עשוי	The construction project will be done by next month.
+down	למטה	He walked slowly down the long hallway toward the office.
+dream	חלום, לחלום	She dreams of traveling around the world one day.
+drink	לשתות, משקה	I always drink a big glass of water first thing every morning.
+early	מוקדם	We arrived early to get the best seats in the theater.
+earth	אדמה; כדור הארץ	Plants grow in the earth and need sunlight to survive.
+East	מזרח	The sun rises in the East every morning.
+energy	אנרגיה, כוח	Exercise gives me energy for the rest of the day.
+enjoy	ליהנות	We enjoy spending time with our family on weekends.
+enough	מספיק	There is enough food for everyone at the party.
+even if	גם אם	I will go to the beach even if it rains tomorrow.
+evening	ערב	She likes to take a walk in the evening after dinner.
+every day	כל יום	He drinks water every day to stay healthy.
+exactly	בדיוק	This coat is exactly what I was looking for.
+excuse	תירוץ; לסלוח	He made an excuse for why he was late to class.
+experience	ניסיון, לחוות	Working abroad gave her valuable experience in business.
+explain	להסביר	The teacher will explain the math problem to the class.
+face	פנים; לפנות אל, לעמוד מול; להתמודד עם, לעמוד בפני	She washed her face with warm water before going to bed.
+fact	עובדה	It is a fact that the Earth orbits the Sun.
+fall	ליפול, נפילה; ירידה; סתיו	He might fall if he does not watch his step.
+family	משפחה	My family likes to eat dinner together every evening.
+famous	מפורסם	That actor became famous after starring in the movie.
+father	אבא	Her father taught her how to ride a bike.
+fear	פחד, לפחד	Some people fear spiders even though they are harmless.
+feel	להרגיש	I feel happy when I spend time with my best friend.
+feeling	הרגשה	The feeling of happiness was overwhelming after she won.
+few	מעט	Only a few people came to the meeting yesterday.
+fight, fought	להילחם, להיאבק; לריב	She fought hard to stay awake during the long afternoon lecture.
+finally	לבסוף, סוף סוף	After waiting for hours, the train finally arrived at the station.
+find	למצוא	I could not find my keys anywhere in the house.
+fire	אש, להצית; לירות; לפטר	The fire burned brightly in the fireplace all night.
+first of all	ראשית	First of all, we need to decide where to meet today.
+fix	לתקן	The mechanic will fix the broken car engine.
+fly	זבוב; לעוף	A fly landed on my sandwich while I was eating lunch.
+follow	לעקוב, לציית	Please follow me to the conference room on the third floor.
+force	לכפות; כוח	The teacher had to force the students to finish their homework early.
+forever	לנצח, לתמיד	True friends stay together forever no matter what happens.
+forget	לשכוח	She tried to forget the sad memory from long ago.
+forward	קדימה, לפנים	The team moved forward with their new business plan.
+friend	חבר	My best friend and I have known each other since childhood.
+from	מ-	The letter came from my grandmother in another country.
+fruit	פרי	Apples and oranges are types of healthy fruit.
+full	מלא, למלא	The water bottle was full before he started exercising.
+future	עתיד	In the future, cars will probably drive themselves.
+General	גנרל (דרגה צבאית); כללי	The general met with his officers to plan the training exercise.
+gift	מתנה	She received a beautiful gift on her birthday.
+glass	כוס; זכוכית	He poured juice into a clean glass for breakfast.
+government	ממשל	The government passes laws that citizens must follow.
+great	גדול, מעולה	That movie was so great I watched it three times in one week.
+ground	בסיס, אדמה	The children played games on the ground in the park.
+group	קבוצה, לקבץ	A small group of friends went to the concert together.
+grow up	להתבגר, לגדול	When he grows up, he wants to become a teacher.
+guess	ניחוש, לנחש	Can you guess what is inside this wrapped box?
+half	חצי	She ate half of the pizza and gave the rest away.
+hand	יד; למסור	He held her hand as they walked down the street.
+harder	קשה יותר	Math is harder than English, so she studies it more.
+health	בריאות	Eating well and exercising are important for good health.
+hear	לשמוע	I can hear music coming from the apartment next door.
+heart	לב	Love comes from the heart and cannot be forced.
+heavy	כבד	The suitcase was so heavy that I needed help moving it.
+here	כאן	Please come here and sit next to me for a moment.
+hope	תקווה, לקוות	I hope that we win the championship this year.
+horse	סוס	She rode her horse across the wide meadow toward the distant forest.
+hospital	בית חולים	She spent three days at the hospital after the accident.
+hot	חם; חריף	Be careful because the water is very hot right now.
+house	לשכן; בית	This new building can house up to two hundred students each semester.
+how	איך, כיצד	How did you manage to finish the project so quickly?
+huge	עצום, ענק	The new stadium has a huge screen that fans can see from anywhere.
+human	אנושי	Human emotions are complex and often difficult to understand.
+human being	בן-אדם, אנוש	Every human being deserves respect and kindness from others.
+hundred	מאה	There are one hundred students in the entire program.
+husband	בעל	Her husband surprised her with flowers on their anniversary.
+ice cream	גלידה	Children love eating ice cream on hot summer days.
+idea	רעיון	She had a great idea for solving the difficult problem.
+If	אם	If it rains tomorrow, we will cancel the outdoor event.
+important	חשוב	Sleep is important because it helps your body recover.
+impossible	בלתי אפשרי	It is impossible to breathe underwater without special equipment.

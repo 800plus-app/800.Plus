@@ -1,0 +1,80 @@
+poultry	עוף	Chickens, turkeys, and ducks are common types of poultry raised on farms.	תרנגולות, תרנגולי הודו וברווזים הם סוגים נפוצים של עוף שמגדלים בחוות.
+predecessors	קודמים	The new CEO improved on the mistakes made by her predecessors.	המנכ"לית החדשה שיפרה את הטעויות שקודמיה עשו.
+predestined	נקבע מראש	Some people believe we are predestined to meet certain people in life.	יש אנשים שמאמינים שנקבע מראש שניפגש עם אנשים מסוימים בחיים.
+preside	לנהל	The mayor will preside over the city council meeting tomorrow afternoon.	ראש העיר ינהל את ישיבת מועצת העיר מחר אחר הצהריים.
+pretext	אמתלה, תואנה	He used a work meeting as a pretext to avoid the dinner.	הוא השתמש בישיבת עבודה כאמתלה כדי להתחמק מהארוחה.
+prevalence	שכיחות	The prevalence of smartphones has changed how people communicate.	השכיחות של הסמארטפונים שינתה את האופן שבו אנשים מתקשרים.
+proliferate	התפשט במהירות	Fake stories proliferate quickly on social media without fact-checking.	סיפורים מזויפים מתפשטים במהירות ברשתות החברתיות בלי בדיקת עובדות.
+prolific	פורה, שופע	The prolific author published five novels in the last three years.	הסופר הפורה פרסם חמישה רומנים בשלוש השנים האחרונות.
+prompt	לגרום, לעורר; מיידי	The sad news prompted him to call his mother immediately.	החדשות העצובות גרמו לו להתקשר לאמו מיד.
+prompted	הביא לידי	The accident prompted new safety regulations at the factory.	התאונה הביאה לידי תקנות בטיחות חדשות במפעל.
+prop	תמיכה, אביזר; לתמוך	She used a broom to prop the door open all afternoon.	היא השתמשה במטאטא כדי לתמוך בדלת פתוחה כל אחר הצהריים.
+proponent	תומך	She is a proponent of renewable energy and solar power.	היא תומכת באנרגיה מתחדשת ובאנרגיית שמש.
+prowess	מיומנות, יכולת	His prowess in chess made him the champion of the tournament.	המיומנות שלו בשחמט הפכה אותו לאלוף הטורניר.
+punctuate	לפסק, לשים סימני פיסוק; לקטוע שוב ושוב; להדגיש	You need to punctuate this sentence with a period at the end.	עליך לפסק את המשפט הזה בנקודה בסופו.
+quarrelsome	וכחני	His quarrelsome nature made it hard for him to keep friends.	האופי הוכחני שלו הקשה עליו לשמור על חברים.
+quench	לספק, להרוות	A cold glass of water can quench your thirst on hot days.	כוס מים קרה יכולה להרוות את הצמא שלך בימים חמים.
+rearing	גידול, טיפוח	Rearing children requires patience and love from their parents.	גידול ילדים דורש סבלנות ואהבה מההורים שלהם.
+reassurance	הבטחה, הרגעה	The doctor's reassurance helped calm the patient's fears.	ההרגעה של הרופא עזרה להרגיע את הפחדים של המטופל.
+rebuttal	הפרכה, סתירה	His rebuttal to the criticism was well-reasoned and convincing.	ההפרכה שלו לביקורת הייתה מנומקת היטב ומשכנעת.
+reciprocal	הדדי; (במתמטיקה) מספר הופכי	Their reciprocal friendship showed in how each one cared for the other.	החברות ההדדית שלהם ניכרה באופן שבו כל אחד מהם דאג לשני.
+reciprocate	לגמול, להשיב כגמול, להחזיר באותה מטבע	When someone does you a favor, you should reciprocate.	כשמישהו עושה לך טובה, כדאי לגמול לו.
+reconcile	להתפייס; ליישב (סתירות), לגשר בין, להתאים	After their fight, they decided to reconcile and become friends again.	אחרי הריב שלהם הם החליטו להתפייס ולהיות שוב חברים.
+refute	להפריך	The scientist refuted the false claims with solid evidence.	המדען הפריך את הטענות השקריות בעזרת ראיות מוצקות.
+reigned	משל, שלט	The king reigned for fifty years and was loved by his people.	המלך שלט חמישים שנה והיה אהוב על עמו.
+reinvigorate	לרענן, להמריץ מחדש	A vacation can reinvigorate your mind and body.	חופשה יכולה לרענן את הגוף והנפש שלך.
+relapse	הדרדר, הישנות	After one month of sobriety, he had a relapse.	אחרי חודש של פיכחון הוא חווה הישנות.
+relegated	הורד בדרגה	The player was relegated to the bench for poor performance.	השחקן הורד לדרגת ספסל בגלל ביצועים חלשים.
+render	להפוך ל-, לגרום; להגיש	The disease rendered him unable to work for months.	המחלה הפכה אותו לבלתי מסוגל לעבוד במשך חודשים.
+renown	תהילה, פרסום, מוניטין	Her renown as a pianist spread throughout the world.	התהילה שלה כפסנתרנית התפשטה ברחבי העולם.
+resent	לחוש טינה, להתרעם על	She resented the fact that he never helped with chores.	היא חשה טינה על כך שהוא מעולם לא עזר במטלות הבית.
+respective	שייך בהתאמה	The teams won their respective games last weekend.	הקבוצות ניצחו כל אחת במשחק שלה בסוף השבוע האחרון.
+respectively	בהתאמה	John and Mary are doctors and lawyers, respectively.	ג'ון ומרי הם רופא ועורכת דין, בהתאמה.
+resumption	חידוש	The resumption of classes after summer break was difficult.	חידוש השיעורים אחרי חופשת הקיץ היה קשה.
+resurgence	תחייה	There has been a resurgence of interest in vinyl records.	הייתה תחייה של עניין בתקליטי ויניל.
+revoke	לבטל, לשלול	The government decided to revoke his driving license after the accident.	הממשלה החליטה לשלול את רישיון הנהיגה שלו אחרי התאונה.
+rotary	נע על ציר סיבובי	The rotary dial on the old phone was slow to use.	החוגה הסיבובית בטלפון הישן הייתה איטית לשימוש.
+rudimentary	יסודי, בסיסי	His rudimentary knowledge of French was enough for tourists.	הידע הבסיסי שלו בצרפתית הספיק לתיירים.
+sarcophagus	ארון קבורה קדום	The king's sarcophagus was discovered inside the tomb.	ארון הקבורה הקדום של המלך התגלה בתוך הקבר.
+scales	קשקשים (של דג)	The fish's scales reflected light as it swam through the water.	הקשקשים של הדג שיקפו אור בזמן שהוא שחה במים.
+scorn	בוז, זלזול; לבוז, לזלזל	He looked at the beggar with scorn and walked away.	הוא הביט בקבצן בבוז והלך משם.
+scribe	לבלר, סופר, מעתיק כתבים	In ancient times, a scribe wrote documents by hand.	בימי קדם, לבלר כתב מסמכים בכתב יד.
+scrutinize	בדק, בחן	She will scrutinize every detail of the contract before signing.	היא תבחן כל פרט בחוזה לפני שתחתום.
+sensations	חדשות מרעישות	Reporters twisted ordinary events into wild sensations to attract more readers.	כתבים עיוותו אירועים רגילים לחדשות מרעישות כדי למשוך יותר קוראים.
+sheer	מוחלט, לחלוטין; שקוף; משופע, תלול	It was sheer luck that he found his lost wallet.	זה היה מזל מוחלט שהוא מצא את הארנק האבוד שלו.
+shingles	רעף	The roof shingles were damaged in the storm.	רעפי הגג ניזוקו בסערה.
+shroud	תכריך, עטיפה	A thick shroud of fog covered the city early in the morning.	עטיפת ערפל סמיכה כיסתה את העיר בשעות הבוקר המוקדמות.
+slander	השמצה, להשמיץ	The politician sued for slander after the false allegations.	הפוליטיקאי תבע על השמצה אחרי ההאשמות השקריות.
+slant	אלכסון, נטייה	The roof has a slant to help water drain off.	לגג יש נטייה שעוזרת למים להתנקז.
+slate	להכניס מישהו לרשימה; רעף, לוח	The meeting is slated for next Tuesday at two o'clock.	הישיבה נקבעה ליום שלישי הבא בשעה שתיים.
+smuggle	להבריח	Criminals tried to smuggle diamonds across the border.	פושעים ניסו להבריח יהלומים דרך הגבול.
+snarl	לנהום בחשיפת שיניים, לרטון בכעס; סבך/פקק	The dog began to snarl when the stranger approached.	הכלב התחיל לנהום כשהזר התקרב.
+snicker	גיחוך	The students would snicker whenever the teacher made a mistake.	התלמידים היו מגחכים בכל פעם שהמורה טעה.
+soar	להמריא	The eagle soared above the mountains searching for food.	הנשר המריא מעל ההרים בחיפוש אחר מזון.
+solicit	לשדל / להדיח; לבקש/לחפש בתחינה	The charity will solicit donations from wealthy families.	העמותה תבקש תרומות ממשפחות עשירות.
+solitude	בדידות	She enjoyed spending time in solitude reading books.	היא נהנתה לבלות זמן בבדידות תוך קריאת ספרים.
+speck	גרגר זעיר, נקודה זעירה, פירור	There was a speck of dust on the telescope lens.	היה גרגר אבק זעיר על עדשת הטלסקופ.
+spewing	פולט/מתיז בעוצמה, מקיא	The volcano was spewing lava across the surrounding villages.	הר הגעש פלט לבה בעוצמה על הכפרים הסמוכים.
+splendor	פאר	The old palace was filled with splendor, from golden ceilings to marble floors.	הארמון הישן היה מלא פאר, מתקרות זהב ועד רצפות שיש.
+sprang	קפץ, זינק; נבע, צמח (עבר של spring)	He sprang to his feet when he heard the alarm.	הוא זינק על רגליו כששמע את האזעקה.
+sprawling	משתרע על שטח נרחב; מתפשט ללא סדר	The sprawling city covered hundreds of square miles.	העיר המשתרעת על שטח נרחב כיסתה מאות מיילים רבועים.
+staple	מצרך יסוד, מוצר בסיסי; עיקרי; סיכת הידוק	Rice is a staple food in many Asian countries.	אורז הוא מצרך מזון יסודי במדינות רבות באסיה.
+stark	בוטה, מוחלט, גמור; שומם, עזוב	The truth was stark and harsh, but they needed to hear it.	האמת הייתה בוטה וקשה, אבל הם היו צריכים לשמוע אותה.
+stature	קומה, גובה; מעמד, שיעור קומה	His small stature made him look younger than he really was.	קומתו הנמוכה גרמה לו להיראות צעיר יותר משהיה באמת.
+staunch	נאמן, מסור, איתן בדעתו; לעצור זרימה/דימום	He was a staunch supporter of the environmental movement.	הוא היה תומך נאמן בתנועה הסביבתית.
+streamlined	יעיל וחסכוני; אווירודינמי, מעוצב לזרימה	The new streamlined process saved the company time and money.	התהליך היעיל והחסכוני החדש חסך לחברה זמן וכסף.
+stricken	מוכה	She was stricken with grief when she heard the news.	היא הייתה מוכת צער כששמעה את החדשות.
+strife	מאבק, עימות	The two brothers ended years of strife and became close friends again.	שני האחים סיימו שנים של עימות והפכו שוב לחברים קרובים.
+stronghold	מעוז, מבצר; מרכז כוח, מוקד שליטה	The mountain fortress was a stronghold that protected the town for centuries.	המבצר ההררי היה מעוז שהגן על העיר במשך מאות שנים.
+subdue	להכניע	The trainer used calm, steady movements to subdue the frightened horse.	המאלף השתמש בתנועות רגועות ויציבות כדי להכניע את הסוס המפוחד.
+superfluous	מיותר, עודף	The report included so much superfluous detail that no one finished reading it.	הדוח כלל כל כך הרבה פרטים מיותרים שאף אחד לא סיים לקרוא אותו.
+suppression	דיכוי	The suppression of his laughter during the meeting made his face turn red.	דיכוי הצחוק שלו במהלך הישיבה גרם לפניו להאדים.
+susceptibility	רגישות, פגיעות	His susceptibility to colds made winter very difficult.	הרגישות שלו להצטננויות הפכה את החורף לקשה מאוד.
+susceptible	רגיש ל-, חשוף ל-, נוטה ל-	People over sixty are more susceptible to serious illness.	אנשים מעל גיל שישים רגישים יותר למחלות קשות.
+swindler	רמאי	The swindler stole money from elderly people for years.	הרמאי גנב כסף מקשישים במשך שנים.
+syllable	הברה	The teacher clapped once for every syllable when she said the long word.	המורה מחאה כף פעם אחת על כל הברה כשאמרה את המילה הארוכה.
+taint	לזהם; להכתים, להכפיש	The scandal will taint his reputation and public image forever.	השערורייה תכתים את המוניטין והדימוי הציבורי שלו לתמיד.
+tangible	מוחשי	The tangible results of her hard work were the trophies on her shelf.	התוצאות המוחשיות של עבודתה הקשה היו הגביעים על המדף שלה.
+tentative	זמני, לא סופי, מהוסס	They made a tentative plan but would change it if needed.	הם גיבשו תוכנית זמנית אבל היו מוכנים לשנות אותה במידת הצורך.
+thereby	ובכך, על ידי כך, ולכן	He worked hard, thereby earning his family's respect.	הוא עבד קשה, ובכך זכה בכבוד של משפחתו.
+thimble	אצבעון (לתפירה)	She used a metal thimble to protect her finger while sewing.	היא השתמשה באצבעון מתכת כדי להגן על האצבע שלה בזמן התפירה.

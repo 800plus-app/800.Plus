@@ -1,0 +1,80 @@
+honor	לכבד, כבוד	The ceremony was designed to honor the brave firefighters who saved lives.	הטקס נועד לכבד את הכבאים האמיצים שהצילו חיים.
+host	מארח	She enjoys hosting parties and gathering friends for dinner every weekend.	היא נהנית לארח מסיבות ולכנס חברים לארוחת ערב בכל סוף שבוע.
+however	למרות זאת; בכל דרך	The weather was bad; however, we continued the hike anyway.	מזג האוויר היה גרוע; למרות זאת, המשכנו בטיול ברגל בכל זאת.
+hunger	רעב	He hadn't eaten all day and felt intense hunger by evening.	הוא לא אכל כל היום והרגיש רעב עז עד הערב.
+hunt	לצוד, ציד	He decided to hunt elk in the mountains this autumn.	הוא החליט לצוד איילים בהרים בסתיו הזה.
+hunter	צייד	The hunter tracked the wounded animal through the forest for hours.	הצייד עקב אחרי החיה הפצועה ביער במשך שעות.
+ignore	להתעלם	She chose to ignore the negative comments and focus on herself.	היא בחרה להתעלם מהתגובות השליליות ולהתמקד בעצמה.
+ill	חולה	He became ill with a high fever and stayed home from work.	הוא חלה בחום גבוה ונשאר בבית במקום ללכת לעבודה.
+illegal	לא חוקי	Driving without a valid license is illegal in most countries today.	נהיגה בלי רישיון בתוקף היא לא חוקית ברוב המדינות כיום.
+image	דמות, תמונה	The image of the sunset was perfectly reflected in the still lake.	התמונה של השקיעה השתקפה בצורה מושלמת באגם השקט.
+imagine	לדמיין	Try to imagine yourself living on a remote tropical island.	נסה לדמיין את עצמך חי באי טרופי מרוחק.
+immediately	מיד	He received the package and immediately opened it to check.	הוא קיבל את החבילה ומיד פתח אותה לבדיקה.
+impact	השפעה; התנגשות	The new policy had a significant impact on company productivity.	למדיניות החדשה הייתה השפעה משמעותית על התפוקה של החברה.
+impressive	מרשים	Her performance was so impressive that the audience stood and applauded.	ההופעה שלה הייתה כל כך מרשימה שהקהל קם ומחא כפיים.
+in general	באופן כללי	In general, cats prefer quiet environments and avoid loud noises.	באופן כללי, חתולים מעדיפים סביבות שקטות ונמנעים מרעשים חזקים.
+include	לכלול	The price includes breakfast, lunch, and a bus tour of the city.	המחיר כולל ארוחת בוקר, ארוחת צהריים וסיור אוטובוס בעיר.
+incredible	מדהים	It was incredible to see the team win against all odds.	זה היה מדהים לראות את הקבוצה מנצחת נגד כל הסיכויים.
+independent	עצמאי	She became independent after moving to her own apartment.	היא הפכה לעצמאית אחרי שעברה לדירה משלה.
+individual	יחיד, אינדיבידואל	Each individual student received personalized feedback on their essays.	כל תלמיד ותלמיד קיבל משוב אישי על החיבור שלו.
+influence	השפעה, להשפיע	Teachers have a strong influence on their students' academic success.	למורים יש השפעה חזקה על ההצלחה הלימודית של התלמידים שלהם.
+injury	פציעה	The athlete suffered a serious injury and missed three games.	הספורטאי סבל מפציעה קשה והחסיר שלושה משחקים.
+inner	פנימי	She struggled with her inner demons and sought professional help.	היא נאבקה בשדים הפנימיים שלה ופנתה לעזרה מקצועית.
+instant	מיידי; בהרף עין	She gave an instant reply to his urgent text message.	היא נתנה תשובה מיידית להודעת הטקסט הדחופה שלו.
+instead	במקום זאת, תחת זאת	We had no milk, so I used cream instead.	לא היה לנו חלב, אז השתמשתי בשמנת במקום זאת.
+instead of	במקום	Instead of coffee, he ordered tea for breakfast.	במקום קפה, הוא הזמין תה לארוחת הבוקר.
+intelligence	אינטליגנציה; מודיעין	His intelligence helped him solve the complex mathematics problem.	האינטליגנציה שלו עזרה לו לפתור את בעיית המתמטיקה המורכבת.
+intense	עז, אינטנסיבי	The heat was so intense that people couldn't stay outside.	החום היה כל כך עז שאנשים לא יכלו להישאר בחוץ.
+introduce	להציג, לעשות היכרות	Let me introduce you to my college roommate, Sarah.	תן לי להציג לך את השותפה שלי לדירה מהקולג', שרה.
+investigate	לחקור	The police investigated the robbery and found the stolen jewelry.	המשטרה חקרה את השוד ומצאה את התכשיטים הגנובים.
+invisible	בלתי נראה	The stain was invisible to the naked eye.	הכתם היה בלתי נראה לעין בלתי מזוינת.
+judge	לשפוט; שופט	Don't judge others based on their appearance or background.	אל תשפוט אחרים לפי המראה או הרקע שלהם.
+kingdom	ממלכה	The kingdom was ruled by a wise and just monarch.	הממלכה נשלטה בידי מלך חכם וצודק.
+kitchen	מטבח	Mom prepares all the meals in the large kitchen.	אמא מכינה את כל הארוחות במטבח הגדול.
+knees	ברכיים	He fell to his knees when he heard the sad news.	הוא נפל על ברכיו כששמע את החדשות העצובות.
+knowledge	יֶדַע	Her knowledge of ancient history impressed all the university professors.	הידע שלה בהיסטוריה עתיקה הרשים את כל פרופסורי האוניברסיטה.
+known	ידוע	That restaurant is known for serving the best pizza in town.	המסעדה הזאת ידועה בכך שהיא מגישה את הפיצה הכי טובה בעיר.
+lake	אגם	The beautiful lake was surrounded by tall evergreen trees.	האגם היפה היה מוקף בעצי מחט גבוהים.
+lawyer	עורך-דין	The lawyer presented her case to the judge.	עורכת הדין הציגה את התיק שלה בפני השופט.
+lecture	הרצאה	The professor gave a long lecture about ancient Roman architecture.	הפרופסור נתן הרצאה ארוכה על אדריכלות רומית עתיקה.
+led to	הוביל ל-	The investigation led to the arrest of three suspects.	החקירה הובילה למעצרם של שלושה חשודים.
+license	רישיון; לאשר, להתיר	You need a license to operate a fishing boat.	אתה צריך רישיון כדי להפעיל סירת דיג.
+limit	גבול, לשים גבול, מוגבל	The speed limit on the highway is seventy miles per hour.	מגבלת המהירות בכביש המהיר היא שבעים מייל לשעה.
+lip	שפה	She had a scar on her upper lip from childhood.	היה לה צלקת על השפה העליונה מהילדות.
+lower	להנמיך	You should lower your voice in the library.	אתה צריך להנמיך את הקול שלך בספרייה.
+manage	לנהל; להצליח, להסתדר (___ to)	She manages the office and oversees all the staff.	היא מנהלת את המשרד ומפקחת על כל הצוות.
+management	ניהול	Good management is essential for a successful business operation.	ניהול טוב הוא חיוני להפעלה מוצלחת של עסק.
+mark	לסמן	He used a marker to mark the boxes for the movers.	הוא השתמש בטוש כדי לסמן את הקופסאות למובילים.
+marriage	נישואין	Their marriage lasted fifty years before his unexpected death.	הנישואים שלהם נמשכו חמישים שנה לפני מותו הפתאומי.
+material	חומר, חומרני	The material of the dress felt soft and smooth.	החומר של השמלה היה רך וחלק למגע.
+medicine	רפואה, תרופה	He studied medicine for eight years to become a doctor.	הוא למד רפואה שמונה שנים כדי להפוך לרופא.
+mention	להזכיר, לאזכר	Don't mention the surprise party in front of the birthday boy.	אל תזכיר את מסיבת ההפתעה מול חתן יום ההולדת.
+method	שיטה	His method for solving math problems saved him a lot of time.	השיטה שלו לפתרון בעיות מתמטיות חסכה לו הרבה זמן.
+military	צבא, צבאי	He served in the military for five years of his life.	הוא שירת בצבא חמש שנים מחייו.
+mirror	מראה	She looked at herself in the mirror every morning before work.	היא הסתכלה על עצמה במראה כל בוקר לפני העבודה.
+monitor	להשגיח, מוניטור	The teacher will monitor your progress throughout the entire semester.	המורה תשגיח על ההתקדמות שלך לאורך כל הסמסטר.
+mostly	לרוב	The guests were mostly elderly people from the surrounding neighborhood.	האורחים היו לרוב אנשים מבוגרים מהשכונה הסובבת.
+movement	תנועה	The movement of the clouds suggested a storm was approaching.	תנועת העננים רמזה שסופה מתקרבת.
+mystery	תעלומה	The mystery of the missing artwork puzzled detectives for years.	התעלומה של יצירת האמנות הנעדרת הטרידה בלשים במשך שנים.
+nation	אומה	The nation celebrated its independence day with parades and fireworks.	האומה חגגה את יום העצמאות שלה במצעדים וזיקוקים.
+nearby	ליד, קרוב	There's a grocery store nearby, just two blocks away.	יש מכולת בקרבת מקום, במרחק שני רחובות בלבד.
+necessary	הכרחי	Warm clothes are necessary for surviving in arctic conditions.	בגדים חמים הכרחיים לשרוד בתנאים ארקטיים.
+neighborhood	שכונה	Our neighborhood is safe and filled with friendly families.	השכונה שלנו בטוחה ומלאה במשפחות ידידותיות.
+nervous	עצבני, לחוץ, מתוח	She felt nervous before her first public speaking engagement.	היא הרגישה עצבנית לפני הופעת הנאום הראשונה שלה מול קהל.
+no longer	לא עוד	He no longer smokes after successfully quitting last year.	הוא כבר לא מעשן אחרי שהצליח להיגמל בשנה שעברה.
+noon	צהריים (12:00)	We agreed to meet at noon by the fountain.	סיכמנו להיפגש בצהריים ליד המזרקה.
+note	הערה, פתק; לציין	She wrote a note on the kitchen table for her brother.	היא כתבה פתק על שולחן המטבח לאחיה.
+notice	לשים לב; התראה	Did you notice the new painting on the gallery wall?	שמת לב לציור החדש על קיר הגלריה?
+nuclear	גרעיני	Nuclear power plants provide electricity to millions of people.	תחנות כוח גרעיניות מספקות חשמל למיליוני אנשים.
+obviously	ברור	She obviously forgot her umbrella because she got soaked.	היא בבירור שכחה את המטרייה שלה כי היא נרטבה כולה.
+opportunity	הזדמנות	Getting into that college was a great opportunity for her.	להתקבל לקולג' ההוא היה הזדמנות מצוינת בשבילה.
+opposite	מנוגד, ממול	My apartment is on the opposite side of the building.	הדירה שלי נמצאת בצד הנגדי של הבניין.
+organization	ארגון	The non-profit organization donated thousands of meals to homeless shelters.	הארגון ללא מטרות רווח תרם אלפי ארוחות למקלטים לחסרי בית.
+pair	זוג	She bought a new pair of shoes for the wedding.	היא קנתה זוג נעליים חדש לחתונה.
+passion	תשוקה	His passion for music drove him to become a professional musician.	התשוקה שלו למוזיקה הובילה אותו להפוך למוזיקאי מקצועי.
+patience	סבלנות	She waited in line for two hours without losing her patience.	היא חיכתה בתור שעתיים בלי לאבד את הסבלנות.
+patient	סבלני; חולה	She remained patient while waiting for her appointment.	היא נשארה סבלנית בזמן שחיכתה לתור שלה.
+patients	מטופלים	The hospital discharged three patients who recovered from surgery.	בית החולים שחרר שלושה מטופלים שהחלימו מהניתוח.
+peaceful	שָׁלֵו, שקט	The peaceful village had quiet streets and friendly smiling neighbors.	הכפר השלו היה בעל רחובות שקטים ושכנים ידידותיים ומחייכים.
+per	לכל	Gas costs four dollars per gallon at that station.	הדלק עולה ארבעה דולר לגלון בתחנה ההיא.
+performance	ביצוע; הופעה	Her performance during the job interview exceeded her manager's expectations.	הביצועים שלה בראיון העבודה עלו על הציפיות של המנהל שלה.

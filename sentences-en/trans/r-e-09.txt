@@ -1,0 +1,80 @@
+option	אפשרות, אופציה	When buying a new phone, you have the option to pay in installments or upfront.	כשקונים טלפון חדש, יש לך אפשרות לשלם בתשלומים או במלואו מראש.
+orchestra	תזמורת	An orchestra combines dozens of different instruments playing together under one conductor.	תזמורת משלבת עשרות כלי נגינה שונים המנגנים יחד תחת מנצח אחד.
+order	סדר; פקודה, לצוות; להזמין; מסדר (דתי)	She arranged her books in order by color and size on the wooden shelf.	היא סידרה את הספרים שלה בסדר לפי צבע וגודל על מדף העץ.
+organism	אורגניזם, יצור חי	Every organism that lives in the ocean depends on salt water to survive.	כל אורגניזם שחי באוקיינוס תלוי במי מלח כדי לשרוד.
+original	מקורי	The artist's original painting sold for much more than copies could cost.	הציור המקורי של האמן נמכר במחיר גבוה בהרבה ממה שהעתקים היו עולים.
+owner	בעלים	The house owner held the exclusive right to decide what happens on the land.	בעל הבית החזיק בזכות הבלעדית להחליט מה קורה על הקרקע.
+package	חפיסה, חבילה	The delivery driver left the package at the door while nobody was home.	שליח המשלוחים השאיר את החבילה ליד הדלת כשאף אחד לא היה בבית.
+painting	ציור	The artist added thick brushstrokes of blue and gold to finish the painting.	האמן הוסיף משיחות מכחול עבות בכחול וזהב כדי לסיים את הציור.
+panic	פאניקה, בהלה	When the fire alarm rang, the crowd started to panic and run fast.	כשאזעקת האש צלצלה, הקהל נכנס לפאניקה והחל לרוץ מהר.
+paradox	סתירה, פרדוקס	The paradox is that spending money on exercise gear made her too broke to exercise.	הפרדוקס הוא שהוצאת כסף על ציוד כושר השאירה אותה חסרת פרוטה מכדי להתאמן.
+parent	הורה	A parent must provide food, shelter, education, and emotional support to their children.	הורה חייב לספק לילדיו מזון, קורת גג, חינוך ותמיכה רגשית.
+path	דרך, נתיב	She followed the narrow forest path as it wound between ancient tall trees.	היא הלכה בנתיב היער הצר כשהוא התפתל בין עצים עתיקים וגבוהים.
+pause	הפסקה, להפסיק	She hit pause on the movie to answer the important phone call quickly.	היא עצרה את הסרט כדי לענות מהר לשיחת הטלפון החשובה.
+pepper	פלפל	The chef sprinkled hot pepper into the soup to add heat and spice.	השף פיזר פלפל חריף לתוך המרק כדי להוסיף חריפות ותיבול.
+percent	אחוז	Eighty percent of the students passed the test because they studied well.	שמונים אחוז מהתלמידים עברו את המבחן כי הם למדו היטב.
+pet	חיית מחמד	She kept a dog as a pet and took it for walks every morning.	היא גידלה כלב כחיית מחמד ויצאה איתו לטיולים בכל בוקר.
+philosophical	פילוסופי	His philosophical approach examined fundamental truths and the nature of human existence.	הגישה הפילוסופית שלו בחנה אמיתות יסוד ואת מהות הקיום האנושי.
+philosophy	פילוסופיה	She studied philosophy to learn what ethics, knowledge, and truth really mean.	היא למדה פילוסופיה כדי להבין מה באמת המשמעות של אתיקה, ידע ואמת.
+phobia	פוביה, פחד כרוני	Her phobia of spiders made her scream and cry even at harmless pictures of them.	הפוביה שלה מעכבישים גרמה לה לצרוח ולבכות אפילו מול תמונות תמימות שלהם.
+photograph	צילום, לצלם	The photographer captured a stunning photograph using a slow shutter and bright light.	הצלם תפס צילום מרהיב באמצעות תריס איטי ואור בהיר.
+physical	פיזי, גופני	Physical education includes running, jumping, sports, and exercises for the body.	חינוך גופני כולל ריצה, קפיצה, ספורט ותרגילים לגוף.
+pick	לקטוף, לבחור; מפרט לגיטרה	She picked ripe strawberries from the garden before breakfast every summer morning.	היא קטפה תותים בשלים מהגינה לפני ארוחת הבוקר בכל בוקר קיץ.
+pilot	טייס	The pilot controlled the plane's speed, direction, and altitude before landing.	הטייס שלט במהירות המטוס, בכיוונו ובגובהו לפני הנחיתה.
+potential	אפשרי, פוטנציאלי	The young athlete showed potential to become an Olympic champion within five years.	הספורטאי הצעיר הראה פוטנציאל להפוך לאלוף אולימפי בתוך חמש שנים.
+powerful	רב כוח	The powerful storm knocked down trees and shattered windows across town.	הסערה רבת העוצמה הפילה עצים וניפצה חלונות ברחבי העיר.
+prehistoric	קדמון, פרה-היסטורי	Prehistoric people used stone tools to hunt animals and gather wild plants.	בני אדם קדמונים השתמשו בכלי אבן כדי לצוד בעלי חיים ולאסוף צמחי בר.
+prepare	התכונן	She prepared carefully for the interview by reviewing notes and practicing answers.	היא התכוננה בקפידה לראיון על ידי סקירת הערות ותרגול תשובות.
+presentation	מצגת	Her presentation used slides and statistics to convince the audience about climate.	המצגת שלה השתמשה בשקפים ובנתונים סטטיסטיים כדי לשכנע את הקהל בנושא האקלים.
+price	מחיר	The high price of that designer shirt made me decide not to buy it.	המחיר הגבוה של אותה חולצת מעצבים גרם לי להחליט לא לקנות אותה.
+professional	מקצועי	The professional chef trained for years to master cooking techniques and flavors.	השף המקצועי התאמן במשך שנים כדי לשלוט בטכניקות בישול ובטעמים.
+program	תכנית; תכניה; לתכנת	The after-school program teaches music, art, and sports to interested children.	התכנית שלאחר הלימודים מלמדת מוזיקה, אמנות וספורט לילדים מעוניינים.
+puzzle	חידה, פאזל	The crossword puzzle had difficult clues that required knowledge and patience.	חידת התשבץ הכילה רמזים קשים שדרשו ידע וסבלנות.
+quality	איכות	The quality of that restaurant's food impressed everyone with its taste and freshness.	איכות האוכל של אותה מסעדה הרשימה את כולם בטעמו ובטריותו.
+question	להטיל ספק; שאלה	The teacher questioned whether the young student had actually finished her homework alone.	המורה הטילה ספק בכך שהתלמידה הצעירה באמת סיימה את שיעורי הבית לבד.
+rainbow	קשת	A colorful rainbow appeared in the sky after the rain, spanning the entire horizon.	קשת צבעונית הופיעה בשמיים אחרי הגשם ומתחה על פני כל האופק.
+random	מקרי, אקראי	She picked random students to answer questions, with no particular system or pattern.	היא בחרה תלמידים אקראיים לענות על שאלות, בלי שיטה או דפוס מסוים.
+rat	עכברוש	The large gray rat scurried across the kitchen and disappeared into a wall.	העכברוש הגדול והאפור רץ במהירות דרך המטבח ונעלם בתוך הקיר.
+reality	מציאות	The reality of the situation was harsh; working hard alone cannot guarantee success.	המציאות של המצב הייתה קשה; עבודה קשה בלבד אינה מבטיחה הצלחה.
+receive	לקבל	She will receive her diploma when she completes all required courses.	היא תקבל את התעודה שלה כשתסיים את כל הקורסים הנדרשים.
+reflex	רפלקס, תגובה אוטומטית	When he touched the hot stove his hand pulled back by natural reflex.	כשהוא נגע בכיריים הלוהטים, ידו נמשכה אחורה ברפלקס טבעי.
+relevant	רלוונטי, קשור	Her comment was relevant because it directly addressed the main point of the debate.	ההערה שלה הייתה רלוונטית כי היא התייחסה ישירות לנקודה המרכזית של הוויכוח.
+remove	להסיר	Please remove your shoes before stepping onto the clean white carpet inside.	אנא הסר את נעליך לפני שאתה דורך על השטיח הלבן והנקי בפנים.
+repeat	לחזור; שידור/מאורע חוזר	The teacher asked the confused student to repeat her answer more slowly and loudly.	המורה ביקשה מהתלמידה המבולבלת לחזור על תשובתה לאט ובקול רם יותר.
+respond	להגיב, תגובה, תשובה	He did not respond to her message because he was too busy working.	הוא לא הגיב להודעה שלה כי היה עסוק מדי בעבודה.
+responsibility	אחריות	A parent's main responsibility is feeding, sheltering, and protecting their children.	האחריות העיקרית של הורה היא להאכיל, לספק קורת גג ולהגן על ילדיו.
+responsible	אחראי	The responsible student completed her homework, studied hard, and never skipped class.	התלמידה האחראית השלימה את שיעורי הבית, למדה קשה ומעולם לא דילגה על שיעור.
+result	תוצאה	The result of her hard work was finally getting the promotion she wanted.	תוצאת העבודה הקשה שלה הייתה שהיא סוף סוף קיבלה את הקידום שרצתה.
+revolution	מהפכה	The industrial revolution transformed farming societies into factories and modern cities forever.	המהפכה התעשייתית הפכה חברות חקלאיות למפעלים ולערים מודרניות לתמיד.
+ring, rang	לצלצל, צלצל	The telephone rang loudly three times before she rushed to pick it up.	הטלפון צלצל בקול רם שלוש פעמים לפני שהיא מיהרה להרים אותו.
+risk	סיכון, לסכן	He chose to risk his savings by investing in an untested new business idea.	הוא בחר לסכן את חסכונותיו על ידי השקעה ברעיון עסקי חדש שלא נבדק.
+river	נהר	The river flows downward from the mountains, eventually reaching the vast ocean.	הנהר זורם במורד מההרים, ומגיע בסופו של דבר לאוקיינוס העצום.
+rocket	טיל	The rocket launched vertically through the clouds carrying astronauts to the space station.	הטיל שוגר אנכית דרך העננים כשהוא נושא אסטרונאוטים לתחנת החלל.
+role	תפקיד	She played the role of the evil queen and received praise from the audience.	היא גילמה את תפקיד המלכה המרושעת וזכתה לשבחים מהקהל.
+roof	גג	The roof of the house needs new shingles and some structural repairs soon.	לגג הבית דרוש רעפים חדשים וכמה תיקונים מבניים בקרוב.
+root	שורש	The tree's root system grew very deep into the ground to find water.	מערכת השורשים של העץ גדלה עמוק מאוד באדמה כדי למצוא מים.
+rope	חבל	She tied the rope tightly to the boat so it would not drift away.	היא קשרה את החבל היטב לסירה כדי שלא תיסחף.
+rule	לשלוט, לפסוק, להחליט; כלל, חוק, שלטון	The king ruled the entire kingdom for nearly forty peaceful years.	המלך שלט בכל הממלכה במשך כמעט ארבעים שנות שלום.
+saga	סיפור, סאגה	The saga of the family's troubles spanned multiple generations and decades.	סיפור צרות המשפחה נמשך על פני דורות ועשורים רבים.
+scan	סריקה, לסרוק	She scanned the crowd quickly with her eyes to find her friend.	היא סרקה את הקהל במהירות בעיניה כדי למצוא את חברתה.
+science	מדע	Science uses careful experiments and observation to understand how nature works.	המדע משתמש בניסויים קפדניים ובתצפית כדי להבין איך הטבע פועל.
+scientist	מדען	The scientist conducted experiments in her lab to test her new medical theory.	המדענית ערכה ניסויים במעבדה שלה כדי לבחון את התאוריה הרפואית החדשה שלה.
+seem	נראה כ-, דומה ל-	The movie seemed dull at first but became more interesting as it progressed.	הסרט נראה משעמם בהתחלה אך הפך למעניין יותר ככל שהתקדם.
+sense	היגיון, תודעה; חוש, לחוש	He had enough sense to check the weather before starting the long mountain hike.	היה לו מספיק היגיון לבדוק את מזג האוויר לפני שיצא לטיול ההר הארוך.
+series	סדרה	She watched the entire series of episodes about the detective in just two days.	היא צפתה בכל הסדרה על הבלש בתוך יומיים בלבד.
+serve	לשרת; לְרַצּוֹת (עונש); להגיש	She served on the local charity's board of directors for many years.	היא שירתה בדירקטוריון עמותת הצדקה המקומית במשך שנים רבות.
+set up	להרכיב, לארגן, לסדר	They set up the tent before the sun went down that evening.	הם הקימו את האוהל לפני ששקעה השמש באותו ערב.
+shape	צורה, לעצב (צורה)	The cookie cutter pressed the dough into the shape of a heart.	תבנית העוגיות לחצה את הבצק לצורת לב.
+sharp	חד	The sharp knife cut through the bread easily and without any resistance.	הסכין החדה חתכה את הלחם בקלות וללא כל התנגדות.
+shield	מגן, להגן	The soccer goalie used his body as a shield to block the ball.	שוער הכדורגל השתמש בגופו כמגן כדי לחסום את הכדור.
+shoulder	כתף	He put his arm around her shoulder to comfort and support her emotionally.	הוא הניח את זרועו על כתפה כדי לנחם ולתמוך בה רגשית.
+silent	דומם, שקט	The library was silent so that everyone could study and read without noise.	הספרייה הייתה שקטה כדי שכולם יוכלו ללמוד ולקרוא בלי רעש.
+silver	כסף, כסוף	Her grandmother gave her a delicate silver bracelet for her eighteenth birthday.	סבתה נתנה לה צמיד כסף עדין ליום הולדתה השמונה עשרה.
+size	גודל	The size of the shoes was too large and they slipped off her feet constantly.	הגודל של הנעליים היה גדול מדי והן חלקו מרגליה כל הזמן.
+skill	יכולת, מיומנות	Playing the piano requires years of practice to build genuine musical skill.	נגינה בפסנתר דורשת שנות תרגול כדי לבנות מיומנות מוזיקלית אמיתית.
+skin	עור	Sunscreen protects your skin from damage caused by strong and direct sunlight.	קרם הגנה מגן על העור שלך מנזק שנגרם מאור שמש חזק וישיר.
+slave	עבד	The slave had no freedom and could be bought or sold like property.	לעבד לא הייתה חירות והיה אפשר לקנות או למכור אותו כמו רכוש.
+smoke	עשן, לעשן	Gray smoke rose from the chimney as the wood fire burned inside.	עשן אפור עלה מהארובה בעוד אש העצים בערה בפנים.
+soccer	כדורגל	The soccer team scored three goals and won the championship game.	קבוצת הכדורגל הבקיעה שלושה שערים וניצחה במשחק האליפות.
+social	חברתי	She avoided social gatherings because she felt anxious around large groups of people.	היא נמנעה מהתכנסויות חברתיות כי חשה חרדה סביב קבוצות גדולות של אנשים.
+sold	מכר	She sold her old car to a young couple last summer.	היא מכרה את המכונית הישנה שלה לזוג צעיר בקיץ שעבר.

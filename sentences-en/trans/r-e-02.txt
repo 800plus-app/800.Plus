@@ -1,0 +1,80 @@
+different from	שונה מ-	Her opinion was completely different from what everyone else believed.	הדעה שלה הייתה שונה לגמרי ממה שכולם האמינו בו.
+difficult	קשה	Learning a new language is difficult because you must practice grammar rules and new vocabulary daily.	ללמוד שפה חדשה זה קשה כי צריך לתרגל כללי דקדוק ואוצר מילים חדש מדי יום.
+dirty	מלוכלך	After playing in the mud, his clothes were very dirty.	אחרי שהוא שיחק בבוץ, הבגדים שלו היו מלוכלכים מאוד.
+done	גמור, עשוי	The construction project will be done by next month.	פרויקט הבנייה יהיה גמור עד החודש הבא.
+down	למטה	He walked slowly down the long hallway toward the office.	הוא צעד לאט למטה, לאורך המסדרון הארוך, לכיוון המשרד.
+dream	חלום, לחלום	She dreams of traveling around the world one day.	היא חולמת לטייל בעולם יום אחד.
+drink	לשתות, משקה	I always drink a big glass of water first thing every morning.	אני תמיד שותה כוס גדולה של מים כדבר הראשון בכל בוקר.
+early	מוקדם	We arrived early to get the best seats in the theater.	הגענו מוקדם כדי לקבל את המקומות הכי טובים באולם התיאטרון.
+earth	אדמה; כדור הארץ	Plants grow in the earth and need sunlight to survive.	צמחים גדלים באדמה וזקוקים לאור שמש כדי לשרוד.
+East	מזרח	The sun rises in the East every morning.	השמש זורחת במזרח בכל בוקר.
+energy	אנרגיה, כוח	Exercise gives me energy for the rest of the day.	פעילות גופנית נותנת לי אנרגיה לשארית היום.
+enjoy	ליהנות	We enjoy spending time with our family on weekends.	אנחנו נהנים לבלות זמן עם המשפחה שלנו בסופי שבוע.
+enough	מספיק	There is enough food for everyone at the party.	יש מספיק אוכל לכולם במסיבה.
+even if	גם אם	I will go to the beach even if it rains tomorrow.	אני אלך לים גם אם ירד גשם מחר.
+evening	ערב	She likes to take a walk in the evening after dinner.	היא אוהבת לצאת להליכה בערב אחרי ארוחת הערב.
+every day	כל יום	He drinks water every day to stay healthy.	הוא שותה מים כל יום כדי להישאר בריא.
+exactly	בדיוק	This coat is exactly what I was looking for.	המעיל הזה זה בדיוק מה שחיפשתי.
+excuse	תירוץ; לסלוח	He made an excuse for why he was late to class.	הוא המציא תירוץ לכך שהוא איחר לשיעור.
+experience	ניסיון, לחוות	Working abroad gave her valuable experience in business.	עבודה בחוץ לארץ נתנה לה ניסיון יקר ערך בעסקים.
+explain	להסביר	The teacher will explain the math problem to the class.	המורה יסביר לכיתה את בעיית החשבון.
+face	פנים; לפנות אל, לעמוד מול; להתמודד עם, לעמוד בפני	She washed her face with warm water before going to bed.	היא שטפה את הפנים שלה במים חמים לפני שהלכה לישון.
+fact	עובדה	It is a fact that the Earth orbits the Sun.	זו עובדה שכדור הארץ מקיף את השמש.
+fall	ליפול, נפילה; ירידה; סתיו	He might fall if he does not watch his step.	הוא עלול ליפול אם הוא לא יזהר לאן הוא דורך.
+family	משפחה	My family likes to eat dinner together every evening.	המשפחה שלי אוהבת לאכול ארוחת ערב ביחד בכל ערב.
+famous	מפורסם	That actor became famous after starring in the movie.	השחקן הזה נהיה מפורסם אחרי שכיכב בסרט.
+father	אבא	Her father taught her how to ride a bike.	אבא שלה לימד אותה לרכוב על אופניים.
+fear	פחד, לפחד	Some people fear spiders even though they are harmless.	אנשים מסוימים פוחדים מעכבישים למרות שהם לא מסוכנים.
+feel	להרגיש	I feel happy when I spend time with my best friend.	אני מרגיש שמח כשאני מבלה עם החבר הכי טוב שלי.
+feeling	הרגשה	The feeling of happiness was overwhelming after she won.	הרגשת האושר הייתה מכריעה אחרי שהיא ניצחה.
+few	מעט	Only a few people came to the meeting yesterday.	רק מעט אנשים הגיעו לפגישה אתמול.
+fight, fought	להילחם, להיאבק; לריב	She fought hard to stay awake during the long afternoon lecture.	היא נאבקה קשה כדי להישאר ערה במהלך ההרצאה הארוכה אחר הצהריים.
+finally	לבסוף, סוף סוף	After waiting for hours, the train finally arrived at the station.	אחרי שעות של המתנה, הרכבת סוף סוף הגיעה לתחנה.
+find	למצוא	I could not find my keys anywhere in the house.	לא הצלחתי למצוא את המפתחות שלי בשום מקום בבית.
+fire	אש, להצית; לירות; לפטר	The fire burned brightly in the fireplace all night.	האש בערה בעוצמה באח כל הלילה.
+first of all	ראשית	First of all, we need to decide where to meet today.	ראשית, אנחנו צריכים להחליט איפה להיפגש היום.
+fix	לתקן	The mechanic will fix the broken car engine.	המכונאי יתקן את מנוע המכונית השבור.
+fly	זבוב; לעוף	A fly landed on my sandwich while I was eating lunch.	זבוב נחת על הכריך שלי בזמן שאכלתי ארוחת צהריים.
+follow	לעקוב, לציית	Please follow me to the conference room on the third floor.	בבקשה עקבו אחריי לחדר הישיבות בקומה השלישית.
+force	לכפות; כוח	The teacher had to force the students to finish their homework early.	המורה נאלץ לכפות על התלמידים לסיים את שיעורי הבית מוקדם.
+forever	לנצח, לתמיד	True friends stay together forever no matter what happens.	חברים אמיתיים נשארים ביחד לנצח לא משנה מה קורה.
+forget	לשכוח	She tried to forget the sad memory from long ago.	היא ניסתה לשכוח את הזיכרון העצוב מלפני שנים רבות.
+forward	קדימה, לפנים	The team moved forward with their new business plan.	הצוות התקדם קדימה עם תוכנית העסקים החדשה שלו.
+friend	חבר	My best friend and I have known each other since childhood.	אני והחבר הכי טוב שלי מכירים זה את זה מהילדות.
+from	מ-	The letter came from my grandmother in another country.	המכתב הגיע מסבתא שלי במדינה אחרת.
+fruit	פרי	Apples and oranges are types of healthy fruit.	תפוחים ותפוזים הם סוגים של פרי בריא.
+full	מלא, למלא	The water bottle was full before he started exercising.	בקבוק המים היה מלא לפני שהוא התחיל להתאמן.
+future	עתיד	In the future, cars will probably drive themselves.	בעתיד, מכוניות כנראה יסעו לבד.
+General	גנרל (דרגה צבאית); כללי	The general met with his officers to plan the training exercise.	הגנרל נפגש עם הקצינים שלו כדי לתכנן את תרגיל האימונים.
+gift	מתנה	She received a beautiful gift on her birthday.	היא קיבלה מתנה יפה ביום ההולדת שלה.
+glass	כוס; זכוכית	He poured juice into a clean glass for breakfast.	הוא מזג מיץ לכוס נקייה לארוחת הבוקר.
+government	ממשל	The government passes laws that citizens must follow.	הממשל מעביר חוקים שהאזרחים חייבים לציית להם.
+great	גדול, מעולה	That movie was so great I watched it three times in one week.	הסרט הזה היה כל כך מעולה שצפיתי בו שלוש פעמים בשבוע אחד.
+ground	בסיס, אדמה	The children played games on the ground in the park.	הילדים שיחקו משחקים על האדמה בפארק.
+group	קבוצה, לקבץ	A small group of friends went to the concert together.	קבוצה קטנה של חברים הלכה להופעה ביחד.
+grow up	להתבגר, לגדול	When he grows up, he wants to become a teacher.	כשהוא יגדל, הוא רוצה להיות מורה.
+guess	ניחוש, לנחש	Can you guess what is inside this wrapped box?	אתה יכול לנחש מה יש בתוך הקופסה העטופה הזו?
+half	חצי	She ate half of the pizza and gave the rest away.	היא אכלה חצי מהפיצה ונתנה את השאר.
+hand	יד; למסור	He held her hand as they walked down the street.	הוא החזיק את היד שלה בזמן שהם הלכו ברחוב.
+harder	קשה יותר	Math is harder than English, so she studies it more.	חשבון קשה יותר מאנגלית, אז היא לומדת אותו יותר.
+health	בריאות	Eating well and exercising are important for good health.	אכילה נכונה ופעילות גופנית חשובות לבריאות טובה.
+hear	לשמוע	I can hear music coming from the apartment next door.	אני יכול לשמוע מוזיקה מגיעה מהדירה ליד.
+heart	לב	Love comes from the heart and cannot be forced.	אהבה באה מהלב ואי אפשר לכפות אותה.
+heavy	כבד	The suitcase was so heavy that I needed help moving it.	המזוודה הייתה כבדה כל כך שנזקקתי לעזרה כדי להזיז אותה.
+here	כאן	Please come here and sit next to me for a moment.	בבקשה בוא לכאן ותשב לידי לרגע.
+hope	תקווה, לקוות	I hope that we win the championship this year.	אני מקווה שננצח באליפות השנה.
+horse	סוס	She rode her horse across the wide meadow toward the distant forest.	היא רכבה על הסוס שלה על פני האחו הרחב לכיוון היער המרוחק.
+hospital	בית חולים	She spent three days at the hospital after the accident.	היא בילתה שלושה ימים בבית החולים אחרי התאונה.
+hot	חם; חריף	Be careful because the water is very hot right now.	תיזהר כי המים חמים מאוד עכשיו.
+house	לשכן; בית	This new building can house up to two hundred students each semester.	הבניין החדש הזה יכול לשכן עד מאתיים סטודנטים בכל סמסטר.
+how	איך, כיצד	How did you manage to finish the project so quickly?	איך הצלחת לסיים את הפרויקט כל כך מהר?
+huge	עצום, ענק	The new stadium has a huge screen that fans can see from anywhere.	לאצטדיון החדש יש מסך ענק שהאוהדים יכולים לראות מכל מקום.
+human	אנושי	Human emotions are complex and often difficult to understand.	רגשות אנושיים הם מורכבים ולעיתים קרובות קשה להבין אותם.
+human being	בן-אדם, אנוש	Every human being deserves respect and kindness from others.	כל בן אדם ראוי לכבוד ולטוב לב מאחרים.
+hundred	מאה	There are one hundred students in the entire program.	יש מאה סטודנטים בכל התוכנית.
+husband	בעל	Her husband surprised her with flowers on their anniversary.	הבעל שלה הפתיע אותה בפרחים ביום השנה שלהם.
+ice cream	גלידה	Children love eating ice cream on hot summer days.	ילדים אוהבים לאכול גלידה בימי קיץ חמים.
+idea	רעיון	She had a great idea for solving the difficult problem.	היה לה רעיון מעולה לפתרון הבעיה הקשה.
+If	אם	If it rains tomorrow, we will cancel the outdoor event.	אם ירד גשם מחר, נבטל את האירוע בחוץ.
+important	חשוב	Sleep is important because it helps your body recover.	שינה חשובה כי היא עוזרת לגוף שלך להתאושש.
+impossible	בלתי אפשרי	It is impossible to breathe underwater without special equipment.	בלתי אפשרי לנשום מתחת למים בלי ציוד מיוחד.

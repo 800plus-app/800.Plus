@@ -1,0 +1,80 @@
+assist	לעזור, לסייע	She asked me to assist with her homework.	היא ביקשה ממני לעזור לה בשיעורי הבית.
+association	אסוציאציה; איגוד	The smell of cookies created a strong association with childhood memories.	ריח העוגיות יצר אסוציאציה חזקה לזיכרונות ילדות.
+athlete	ספורטאי, אתלט	The athlete trained hard for the Olympic competition.	הספורטאי התאמן קשה לקראת התחרות האולימפית.
+attach	לחבר, לייחס	She attached a photo to the email message.	היא חיברה תמונה להודעת האימייל.
+attempt	ניסיון	He made one last attempt to climb the mountain.	הוא עשה ניסיון אחרון לטפס על ההר.
+attract	למשוך	The new store attracted many customers on opening day.	החנות החדשה משכה הרבה לקוחות ביום הפתיחה.
+attraction	משיכה	The amusement park's biggest attraction is the roller coaster.	המשיכה הגדולה ביותר בפארק השעשועים היא הרכבת ההרים.
+autograph	חתימה	The celebrity signed an autograph for the fan.	הסלבריטי חתם חתימה עבור המעריץ.
+autumn	סתיו	In autumn, the leaves change to gold and red.	בסתיו, העלים משנים צבע לזהוב ואדום.
+average	ממוצע, רגיל	His height was exactly average, neither the tallest nor the shortest boy.	גובהו היה בדיוק ממוצע, לא הגבוה ביותר ולא הנמוך ביותר בין הבנים.
+awkward	מגושם; מוזר, מביך	His awkward dance moves made the whole party laugh.	תנועות הריקוד המגושמות שלו גרמו לכל המסיבה לצחוק.
+baggage	מטען, מזוודה	She packed her baggage before the airplane trip.	היא ארזה את המטען שלה לפני טיסת המטוס.
+baker	אופה	The baker made fresh bread every single morning.	האופה הכין לחם טרי בכל בוקר.
+bald	קרח	His grandfather became completely bald in his seventies.	סבו הפך קרח לגמרי בשנות השבעים לחייו.
+ban	חרם, איסור	The government banned plastic bags throughout the country.	הממשלה אסרה על שקיות פלסטיק בכל רחבי המדינה.
+barrier	מחסום	A high barrier separated the two different areas.	מחסום גבוה הפריד בין שני האזורים השונים.
+bass	בס (במוזיקה)	The bass line gave the rock song depth.	קו הבס העניק לשיר הרוק עומק.
+behave	להתנהג	The children should always behave well in class.	הילדים צריכים תמיד להתנהג יפה בכיתה.
+beside	ליד	She sat beside me on the crowded bus.	היא ישבה לידי באוטובוס הצפוף.
+blade	להב	The sharp blade cut through the thin paper.	הלהב החד חתך את הנייר הדק.
+blank	ריק, רווח	I stared at the blank wall for hours.	בהיתי בקיר הריק במשך שעות.
+blend	לערבב	You should blend the sugar and butter together.	כדאי לערבב את הסוכר והחמאה יחד.
+boil	להרתיח	You must boil the water before adding pasta.	צריך להרתיח את המים לפני שמוסיפים פסטה.
+bond	קשר	A strong bond connects the close family members.	קשר חזק מחבר בין בני המשפחה הקרובים.
+boost	דחף, המריץ	The new program will boost our company sales.	התוכנית החדשה תמריץ את המכירות של החברה שלנו.
+boot	מגף	He wore a leather boot on his foot.	הוא נעל מגף עור על רגלו.
+bore	לשעמם, שעמום; לקדוח (חור)	That story about rocks bored me to death.	הסיפור הזה על סלעים שיעמם אותי עד מוות.
+bounce	לקפץ, ניתור	The rubber ball bounced off the brick wall.	כדור הגומי קפץ מקיר הלבנים.
+branch	ענף, סניף	An apple hung from the old tree branch.	תפוח תלה מענף העץ הישן.
+brick	לבנה	The old wall is made of red brick.	הקיר הישן עשוי מלבנים אדומות.
+budget	תקציב, לתקצב	She carefully budgets her money for weekly groceries.	היא מתקצבת בקפידה את הכסף שלה לקניות השבועיות.
+bully	בריון	The class bully always took the smaller kids' lunch money.	הבריון של הכיתה תמיד לקח את כסף הצהריים של הילדים הקטנים.
+bury	לקבור	They buried the golden treasure in the ground.	הם קברו את האוצר הזהוב באדמה.
+bush	שיח; ערבה	A large green bush grew near the fence.	שיח ירוק וגדול צמח ליד הגדר.
+cabin	בקתה	They stayed in a cabin by the lake.	הם התארחו בבקתה ליד האגם.
+cage	כלוב, לכלוא	The bright bird sang from inside its cage.	הציפור הצבעונית שרה מתוך הכלוב שלה.
+camel	גמל	A large camel carried supplies across the desert.	גמל גדול נשא ציוד לרוחב המדבר.
+cargo	מטען	The ship carried valuable cargo across the ocean.	הספינה נשאה מטען יקר ערך לרוחב האוקיינוס.
+carpet	שטיח	A soft red carpet covered the whole floor.	שטיח אדום ורך כיסה את כל הרצפה.
+cashier	קופאי	The friendly cashier scanned my items at checkout.	הקופאי הידידותי סרק את הפריטים שלי בקופה.
+cathedral	קתדרלה	The cathedral contains beautiful and colorful stained glass.	הקתדרלה מכילה חלונות ויטראז' יפים וצבעוניים.
+cereal	דגני בוקר	I eat cereal with cold milk for breakfast.	אני אוכל דגני בוקר עם חלב קר לארוחת הבוקר.
+charity	צדקה	She donated money to charity every single year.	היא תרמה כסף לצדקה בכל שנה.
+charm	קסם	Despite saying very little, his natural charm made everyone like him instantly.	למרות שדיבר מעט מאוד, הקסם הטבעי שלו גרם לכולם לחבב אותו מיד.
+chart	גיליון, תרשים	The monthly sales chart showed strong profit growth.	תרשים המכירות החודשי הראה צמיחת רווחים חזקה.
+cheerful	עליז, שמח	She had a cheerful attitude every single morning.	הייתה לה גישה עליזה בכל בוקר.
+citizen	אזרח	Every citizen must obey the traffic laws in this city.	כל אזרח חייב לציית לחוקי התנועה בעיר הזאת.
+cliff	צוק	The brave hiker stood at the cliff's edge.	המטייל האמיץ עמד בקצה הצוק.
+climate	אקלים	The tropical climate is very hot and humid.	האקלים הטרופי חם ולח מאוד.
+column	טור; עמוד	The numbers are all arranged in neat columns.	המספרים מסודרים כולם בטורים מסודרים.
+comfort	נוחות, רווחה; נחמה; לנחם	This large soft armchair provides comfort and warmth.	הכורסה הגדולה והרכה הזאת מספקת נוחות וחום.
+commercial	מסחרי; סרטון פרסומת	She works in the commercial real estate business.	היא עובדת בתחום הנדל"ן המסחרי.
+commit	ביצוע/ לבצע; להתחייב	He committed a serious crime against the law.	הוא ביצע פשע חמור נגד החוק.
+compare	להשוות	The teacher asked students to compare paintings carefully.	המורה ביקש מהתלמידים להשוות בין הציורים בקפידה.
+complain	להתלונן	She complained about the poor service at work.	היא התלוננה על השירות הגרוע בעבודה.
+concentrate	להתרכז	He concentrated very hard while solving the tricky puzzle.	הוא התרכז מאוד בזמן פתרון החידה המסובכת.
+confident	בטוח בעצמו	She felt very confident before the big presentation.	היא הרגישה מאוד בטוחה בעצמה לפני המצגת הגדולה.
+conservative	שמרני	She made a conservative estimate of how much the trip would cost.	היא ערכה הערכה שמרנית לגבי עלות הטיול.
+conspiracy	קשר, מזימה	The office conspiracy involved three employees secretly stealing supplies.	הקשר במשרד כלל שלושה עובדים שגנבו ציוד בסתר.
+constant	קבוע, רצוף	The constant noise kept me awake all night.	הרעש הקבוע השאיר אותי ער כל הלילה.
+constantly	כל הזמן, ללא הרף, בהתמדה; לעיתים תכופות	He is constantly checking his phone every minute.	הוא בודק את הטלפון שלו כל הזמן, מדי דקה.
+consult	להתייעץ	She consulted an experienced lawyer about the contract.	היא התייעצה עם עורך דין מנוסה לגבי החוזה.
+contain	להכיל, מכיל	The wooden box contained dozens of old handwritten letters.	קופסת העץ הכילה עשרות מכתבים ישנים כתובים ביד.
+continent	יבשת	Africa is known as the hottest continent on Earth.	אפריקה ידועה כיבשת החמה ביותר בעולם.
+conventional	שגרתי, קונבנציונאלי	The couple chose a very conventional wedding ceremony.	הזוג בחר בטקס חתונה שגרתי מאוד.
+convert	להמיר; מומר	The factory converted old newspapers into recycled paper products.	המפעל המיר עיתונים ישנים למוצרי נייר ממוחזר.
+cooperation	שיתוף פעולה	Cooperation between the two neighbors helped finish the fence quickly.	שיתוף הפעולה בין שני השכנים עזר לסיים את הגדר במהירות.
+corrupt	להשחית, מושחת	The corrupt manager secretly accepted bribes from several suppliers.	המנהל המושחת קיבל בסתר שוחד ממספר ספקים.
+cotton	כותנה	The shirt is made of soft cotton material.	החולצה עשויה מבד כותנה רך.
+cough	שיעול, להשתעל	She had a really bad cough all week.	היה לה שיעול חזק במשך כל השבוע.
+craft	אומנות, מלאכה; כלי טייס / כלי שייט	The craft of woodworking takes years to master.	אומנות הנגרות לוקחת שנים לשליטה.
+crisis	משבר	The country is facing a serious economic crisis.	המדינה ניצבת מול משבר כלכלי חמור.
+critic	מבקר	The film critic gave the movie five stars.	מבקר הקולנוע נתן לסרט חמישה כוכבים.
+crown	כתר, להכתיר	The queen proudly wore her golden royal crown.	המלכה ענדה בגאווה את הכתר המלכותי הזהוב שלה.
+cruel	אכזרי	It was absolutely cruel to laugh at him.	זה היה אכזרי לחלוטין לצחוק עליו.
+cult	כת	The secretive cult isolated its members from friends and family.	הכת החשאית בידדה את חבריה מחברים ומשפחה.
+curiosity	סקרנות	Her natural curiosity led her to ask questions.	הסקרנות הטבעית שלה גרמה לה לשאול שאלות.
+curtain	וילון	She drew the curtain to block the light.	היא משכה את הווילון כדי לחסום את האור.
+curve	עקומה, פניה	The mountain road follows a sharp curve here.	כביש ההר עוקב אחר פנייה חדה כאן.
+deaf	חרש	He is deaf and communicates through sign language.	הוא חרש ומתקשר בשפת הסימנים.

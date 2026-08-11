@@ -1,0 +1,80 @@
+subtraction	חיסור (חשבון)	The subtraction of five from twelve gives you seven.	חיסור של חמש משתים עשרה נותן לך שבע.
+superficial	שטחי	His superficial charm hid the fact that he had no real skills.	הקסם השטחי שלו הסתיר את העובדה שלא היו לו כישורים אמיתיים.
+supplement	תוסף	Athletes often take a supplement to improve their muscle strength and recovery.	ספורטאים לעיתים קרובות לוקחים תוסף כדי לשפר את כוח השרירים וההתאוששות שלהם.
+surrounding	מקיף, סובב	The surrounding forest protected the small village from harsh winter winds.	היער המקיף הגן על הכפר הקטן מפני רוחות חורף קשות.
+sustain	לתמוך; סבל מ-; להמשיך באותה צורה	A strong rope can sustain the weight of several people safely.	חבל חזק יכול לתמוך במשקלם של כמה אנשים בבטחה.
+tame	לאלף, לבית	The hunter spent years trying to tame the wild horse with patience.	הצייד בילה שנים בניסיון לאלף את הסוס הפרא בסבלנות.
+tendency	נטייה	She had a tendency to arrive late for every meeting.	הייתה לה נטייה לאחר לכל פגישה.
+tender	רך	The tender leaves of spring roses require careful handling and water.	העלים הרכים של שושני האביב דורשים טיפול זהיר והשקיה.
+testify	להעיד	The witness was asked to testify about what she had seen.	העדה התבקשה להעיד על מה שראתה.
+tin	בדיל, עשוי מפח	The old tin roof had rusted after many years of rain.	גג הבדיל הישן החליד אחרי שנים רבות של גשם.
+toad	קרפדה	A large toad sat by the pond and croaked all night long.	קרפדה גדולה ישבה ליד הבריכה וקרקרה כל הלילה.
+tolerate	לסבול	She could not tolerate the loud noise from her neighbor's music.	היא לא יכלה לסבול את הרעש הרם ממוזיקת השכן שלה.
+trait	תכונה	Honesty is a trait that everyone respects in a good friend.	כנות היא תכונה שכל אחד מכבד בחבר טוב.
+transcript	תמליל, פרוטוקול	The student requested an official transcript listing all her college courses and grades.	הסטודנטית ביקשה תמליל רשמי שמפרט את כל הקורסים והציונים שלה במכללה.
+transplant	להשתיל, להעביר ממקום למקום; השתלה	The gardener decided to transplant the flowers to a sunnier location.	הגנן החליט להשתיל את הפרחים למקום שטוף שמש יותר.
+treaty	אמנה,הסכם, חוזה	The two countries negotiated for months before finally signing a treaty.	שתי המדינות ניהלו משא ומתן במשך חודשים לפני שחתמו לבסוף על אמנה.
+unbearable	בלתי נסבל	The heat was unbearable, so we stayed indoors with the air conditioning.	החום היה בלתי נסבל, אז נשארנו בפנים עם המזגן.
+undoubtedly	ללא ספק	She is undoubtedly the best student in the entire physics class.	היא ללא ספק התלמידה הטובה ביותר בכל כיתת הפיזיקה.
+unrest	חוסר שקט	Unrest grew among factory workers after their pay was unexpectedly cut.	חוסר שקט גבר בקרב עובדי המפעל אחרי שהשכר שלהם קוצץ באופן בלתי צפוי.
+urge	לעודד, לדחוף ; דחף, רצון, תשוקה	I urge you to start the project before the deadline arrives tomorrow.	אני דוחק בך להתחיל בפרויקט לפני שהמועד האחרון יגיע מחר.
+urine	שתן	The doctor asked for a urine sample to check for infection.	הרופא ביקש דגימת שתן כדי לבדוק זיהום.
+vacant	פנוי, ריק	The vacant apartment sat unused at the end of the hallway for years.	הדירה הפנויה עמדה לא בשימוש בקצה המסדרון במשך שנים.
+validity	תוקף	The passport's validity expired last month, so I need to renew it.	תוקף הדרכון פג בחודש שעבר, אז אני צריך לחדש אותו.
+vast	עצום, נרחב, רחב ידיים	The vast desert stretched for hundreds of miles in every direction.	המדבר העצום נמתח על פני מאות קילומטרים בכל כיוון.
+verdict	פסק דין, פסיקה	The jury announced their verdict after deliberating for three full days.	חבר המושבעים הכריז על פסק הדין שלו אחרי שלושה ימי דיונים מלאים.
+vice versa	להיפך	Parents help their children learn, and vice versa in many situations.	הורים עוזרים לילדיהם ללמוד, ולהיפך במצבים רבים.
+vinegar	חומץ	She added a splash of vinegar to make the salad dressing tangy.	היא הוסיפה קצת חומץ כדי להפוך את רוטב הסלט לחריף יותר.
+violate	להפר, לחלל	If you violate the traffic laws, you will receive a heavy fine.	אם תפר את חוקי התנועה, תקבל קנס כבד.
+violation	עבירה, הפרה	Parking in that spot is a violation of the traffic regulations.	חניה באותו מקום היא עבירה על תקנות התנועה.
+viper	צפע	The viper was discovered coiled near the garden shed yesterday.	הצפע התגלה מכורבל ליד מחסן הגינה אתמול.
+virtually	למעשה, בעצם	That restaurant is virtually impossible to find without a good map.	כמעט בלתי אפשרי למצוא את המסעדה הזאת בלי מפה טובה.
+wage	לערוך, לנהל; משכורת	They decided to wage a campaign to raise awareness about pollution.	הם החליטו לנהל קמפיין להעלאת המודעות לזיהום.
+wanted	מבוקש	The wanted criminal was finally arrested after ten years on the run.	הפושע המבוקש נעצר לבסוף אחרי עשר שנים במנוסה.
+wardrobe	ארון בגדים; מלתחה	Her wardrobe contained hundreds of dresses, shirts, and shoes neatly organized.	ארון הבגדים שלה הכיל מאות שמלות, חולצות ונעליים מסודרות בקפידה.
+warfare	לוחמה	Modern warfare relies heavily on technology and strategic military planning.	לוחמה מודרנית מסתמכת רבות על טכנולוגיה ותכנון צבאי אסטרטגי.
+wasp	צרעה	A wasp built its papery nest under the porch of the house.	צרעה בנתה את הקן הנייר שלה מתחת למרפסת הבית.
+weave	לארוג, לשזור; להתפתל בין (בתנועה)	She learned to weave cloth on a traditional loom from her grandmother.	היא למדה לארוג בד בנול מסורתי מסבתה.
+welfare	סעד	The government provides welfare payments to families who are struggling financially.	הממשלה מספקת תשלומי סעד למשפחות במצוקה כלכלית.
+widespread	נפוץ	The flu became widespread across the country during the winter season.	השפעת הפכה נפוצה ברחבי הארץ במהלך עונת החורף.
+withstand	להתמודד, לעמוד ב-	This bridge was built to withstand earthquakes and extreme weather conditions.	הגשר הזה נבנה כדי לעמוד ברעידות אדמה ובתנאי מזג אוויר קיצוניים.
+abduct	חטיפה, לחטוף	The suspect was accused of trying to abduct someone from the street.	החשוד הואשם בניסיון לחטוף מישהו מהרחוב.
+abundance	שפע	The region has an abundance of fresh fruit and natural resources.	לאזור יש שפע של פירות טריים ומשאבי טבע.
+accentuate	להבליט, להדגיש	The bright lighting helped accentuate the beautiful details of the building.	התאורה הבהירה עזרה להבליט את הפרטים היפים של הבניין.
+accommodate	להכיל, לפנות מקום ל-; להתאים (לצרכים); לאכסן, לשכן	The new stadium can accommodate up to fifty thousand spectators comfortably.	האצטדיון החדש יכול להכיל עד חמישים אלף צופים בנוחות.
+accumulate	לצבור, לאסוף	Over many years, dust tends to accumulate under the furniture.	במשך שנים רבות, אבק נוטה להצטבר מתחת לרהיטים.
+accustomed	מורגל	She was accustomed to waking up early every morning for work.	היא הייתה מורגלת להתעורר מוקדם כל בוקר לעבודה.
+acquisition	רכישה	The company's acquisition of the startup was announced in the news.	רכישת הסטארטאפ על ידי החברה פורסמה בחדשות.
+acquitted	זוכה מאשמה	The defendant was acquitted of all charges after a fair trial.	הנאשם זוכה מכל האישומים אחרי משפט הוגן.
+adhere	לדבוק ב-, לדגול ב-	Good scientists adhere strictly to the methods outlined in their research.	מדענים טובים דבקים בקפדנות בשיטות המתוארות במחקר שלהם.
+adjacent to	ליד	The new library is adjacent to the main university campus building.	הספרייה החדשה נמצאת ליד קמפוס האוניברסיטה הראשי.
+administer	לנהל, לפקח; לתת, לחלק	The principal administers the entire school and all of its policies.	המנהל מנהל את כל בית הספר ואת כל המדיניות שלו.
+adolescence	גיל ההתבגרות	During adolescence, many teenagers start to question their parents' rules.	בגיל ההתבגרות, בני נוער רבים מתחילים להטיל ספק בחוקי הוריהם.
+aisle	מעבר	The shopping cart blocked the entire aisle in the grocery store.	עגלת הקניות חסמה את כל המעבר בסופרמרקט.
+algae	אצות	Green algae covered the surface of the pond during the summer.	אצות ירוקות כיסו את פני הבריכה בקיץ.
+alienation	ניכור, הרחקה	Feelings of alienation often develop when people move to new countries.	תחושות ניכור מתפתחות לעיתים קרובות כשאנשים עוברים למדינות חדשות.
+allocate	להקצות	The government decided to allocate more money to public transportation.	הממשלה החליטה להקצות יותר כסף לתחבורה ציבורית.
+alterations	שינויים	The tailor made several alterations to the dress for a perfect fit.	התופר ביצע כמה שינויים בשמלה כדי שתתאים בצורה מושלמת.
+ambiguous	דו משמעי, לא לגמרי ברור	The instructions were ambiguous, so the students asked for clarification.	ההוראות היו דו משמעיות, אז התלמידים ביקשו הבהרה.
+amend	לתקן, לשנות (חוק/מסמך)	The committee decided to amend the rules to make the game fairer.	הוועדה החליטה לתקן את הכללים כדי להפוך את המשחק להוגן יותר.
+amid	בקרב, בין	Amid all the chaos, the child managed to stay perfectly calm.	בקרב כל התוהו ובוהו, הילד הצליח להישאר רגוע לחלוטין.
+ample	מספיק, שופע, גדול	The restaurant provided ample food for all of the wedding guests.	המסעדה סיפקה מספיק אוכל לכל אורחי החתונה.
+amputation	קטיעה	Severe frostbite led to the amputation of two of his fingers.	כפור קשה הוביל לקטיעה של שתיים מאצבעותיו.
+anesthesia	הרדמה	The patient received anesthesia before the surgeon began the operation.	המטופל קיבל הרדמה לפני שהמנתח החל בניתוח.
+annually	אחת לשנה, בכל שנה	The conference occurs annually, bringing together researchers from around the world.	הכנס מתקיים אחת לשנה, ומביא יחד חוקרים מכל רחבי העולם.
+anticipate	לצפות	Scientists anticipate that temperatures will rise significantly over the coming decades.	מדענים צופים שהטמפרטורות יעלו משמעותית בעשורים הקרובים.
+anxiety	חרדה	Public speaking causes anxiety in many people who fear large audiences.	דיבור בפני קהל גורם לחרדה אצל אנשים רבים שחוששים מקהל גדול.
+apparatus	מכשיר, ציוד, מערכת מכשירים; מנגנון	The laboratory apparatus was expensive and required careful maintenance.	הציוד המעבדתי היה יקר ודרש תחזוקה קפדנית.
+apparent	ברור, נראה לעין; לכאורה, מדומה	It became apparent that the plan had failed when nobody showed up.	התברר שהתוכנית נכשלה כשאף אחד לא הופיע.
+appoint	למנות	The committee will appoint a new manager to lead the project.	הוועדה תמנה מנהל חדש שיוביל את הפרויקט.
+appropriately	כראוי, כיאות, באופן מתאים	The actor dressed appropriately for the formal evening gala event.	השחקן התלבש כראוי לאירוע הערב הרשמי.
+arguably	ניתן לטעון ש-, כנראה	This band is arguably the most influential in modern rock history.	ניתן לטעון שהלהקה הזאת היא המשפיעה ביותר בהיסטוריית הרוק המודרנית.
+arise, arose	לקום, קם	She arose from her bed early to watch the sunrise.	היא קמה ממיטתה מוקדם כדי לצפות בזריחה.
+ark	תיבה	The old wooden ark held blankets and tools inside the barn.	תיבת העץ הישנה החזיקה שמיכות וכלים בתוך האסם.
+array	מערך; מגוון	The bakery displayed a colorful array of fresh breads and pastries.	המאפייה הציגה מגוון צבעוני של לחמים ומאפים טריים.
+assert	לטעון בתוקף, להצהיר	Despite strong criticism, she continued to assert that her research was accurate.	למרות ביקורת חריפה, היא המשיכה לטעון בתוקף שהמחקר שלה מדויק.
+assertion	טענה, קביעה	His assertion that he was innocent was not believed by the jury.	הטענה שלו שהוא חף מפשע לא הייתה מהימנה על חבר המושבעים.
+assess	להעריך, לאמוד	The teacher will assess each student's progress during the semester.	המורה יעריך את ההתקדמות של כל תלמיד במהלך הסמסטר.
+at your disposal	לרשותך	All of the library's resources are at your disposal.	כל משאבי הספרייה עומדים לרשותך.
+attain	להשיג, להגיע	With hard work and dedication, you can attain your dreams.	בעבודה קשה ומסירות, תוכל להשיג את חלומותיך.
+attendant	משרת, מטפל, מלווה	The hotel attendant helped carry our luggage to the room.	המלווה במלון עזר לשאת את המזוודות שלנו לחדר.

@@ -1,0 +1,80 @@
+in conclusion	לסיכום	In conclusion, this research shows that exercise improves our physical and mental health.	לסיכום, המחקר הזה מראה שפעילות גופנית משפרת את הבריאות הפיזית והנפשית שלנו.
+income	הכנסה	Her income from writing two books helped her pay for college tuition.	ההכנסה שלה מכתיבת שני ספרים עזרה לה לשלם על שכר הלימוד בקולג'.
+increase	להגדיל, להגביר	The company plans to increase its prices by ten percent next month.	החברה מתכננת להגדיל את המחירים שלה בעשרה אחוזים בחודש הבא.
+indication	אינדיקציה, סימן ל-	Dark clouds are an indication that rain is coming very soon.	עננים כהים הם סימן לכך שגשם עומד לרדת בקרוב מאוד.
+industry	תעשייה	The automobile industry employs millions of workers across North America.	תעשיית הרכב מעסיקה מיליוני עובדים ברחבי צפון אמריקה.
+infected	הודבק	The infected wound needed immediate medical treatment to prevent disease.	הפצע שהודבק דרש טיפול רפואי מיידי כדי למנוע מחלה.
+infection	זיהום	A serious infection can spread quickly through your body without antibiotics.	זיהום חמור יכול להתפשט במהירות בגוף שלך בלי אנטיביוטיקה.
+infinite	אינסופי	The universe seems infinite in size, stretching beyond what we see.	היקום נראה אינסופי בגודלו, ומשתרע מעבר למה שאנחנו רואים.
+inform	להודיע, לעדכן	The doctor will inform you of the test results by tomorrow.	הרופא יודיע לך על תוצאות הבדיקה עד מחר.
+ingredients	מרכיבים	The recipe requires simple ingredients like flour, eggs, butter, and sugar.	המתכון דורש מרכיבים פשוטים כמו קמח, ביצים, חמאה וסוכר.
+initial	ראשי תיבות; התחלתי, ראשוני	What are the initial letters of your full name?	מהם ראשי התיבות של שמך המלא?
+initially	בתחילה	Initially, the students were nervous, but they gained confidence as the semester continued.	בתחילה התלמידים היו עצבניים, אבל הם צברו ביטחון עם התקדמות הסמסטר.
+insanity	אי שפיות	His insanity meant he could not stand trial for the crime.	אי השפיות שלו פירושה שהוא לא יכול היה לעמוד לדין על הפשע.
+inspiration	השראה	Her grandmother was a great inspiration for becoming a scientist.	סבתה הייתה השראה גדולה להפוך למדענית.
+inspiring	נותן השראה	The coach gave an inspiring speech before the championship game started.	המאמן נשא נאום נותן השראה לפני תחילת משחק האליפות.
+institute	מוסד, מכון; לכונן	She works at a science institute that studies rare diseases.	היא עובדת במכון מדעי שחוקר מחלות נדירות.
+insult	להעליב; עלבון	He did not mean to insult her, but his comment was quite offensive.	הוא לא התכוון להעליב אותה, אבל ההערה שלו הייתה די פוגענית.
+intention	כוונה	My intention was to help, not to make things worse for everyone.	הכוונה שלי הייתה לעזור, לא להרע את המצב לכולם.
+internal	פנימי	Internal organs require careful surgery to repair or replace safely.	איברים פנימיים דורשים ניתוח זהיר כדי לתקן או להחליף אותם בבטחה.
+interrupt	להפריע	Please do not interrupt me while I am speaking to the principal.	בבקשה אל תפריע לי בזמן שאני מדבר עם המנהל.
+invent	להמציא	Who invented the telephone, and when did this discovery change communication?	מי המציא את הטלפון, ומתי הגילוי הזה שינה את התקשורת?
+investment	השקעה	Her investment in real estate has made her very wealthy over time.	ההשקעה שלה בנדל"ן הפכה אותה לעשירה מאוד עם הזמן.
+isolate	לבודד	Scientists isolate the virus in the laboratory to study its behavior.	מדענים מבודדים את הנגיף במעבדה כדי לחקור את התנהגותו.
+justify	להצדיק	You cannot justify breaking the law, no matter what your reasons are.	אי אפשר להצדיק הפרת חוק, לא משנה מה הסיבות שלך.
+labor	להתאמץ; עבודה, עמל, לעמול	She labored in the fields from sunrise until sunset every single day.	היא עמלה בשדות מזריחה ועד שקיעה בכל יום ויום.
+lack	מחסור	The lack of rain caused a serious drought throughout the region.	המחסור בגשם גרם לבצורת חמורה בכל האזור.
+lame	צולע	The lame horse could not walk properly after its serious injury.	הסוס הצולע לא הצליח ללכת כראוי אחרי הפציעה החמורה שלו.
+leather	עור	She wore a leather belt with her new jeans to the party.	היא ענדה חגורת עור עם הג'ינס החדש שלה למסיבה.
+lifetime	תקופת החיים, במשך החיים	She spent her lifetime teaching chemistry to high school students.	היא בילתה את כל חייה בהוראת כימיה לתלמידי תיכון.
+liver	כבד	The liver is the largest internal organ in the human body system.	הכבד הוא האיבר הפנימי הגדול ביותר במערכת גוף האדם.
+loan	הלוואה	He took out a loan to buy his first house.	הוא לקח הלוואה כדי לקנות את הבית הראשון שלו.
+locate	לאתר	The rescue team worked hard to locate the missing child safely.	צוות ההצלה עבד קשה כדי לאתר את הילד הנעדר בשלום.
+log	יומן, לתעד ביומן; בול עץ	The captain kept a daily log of the ship's position and weather.	הקברניט ניהל יומן יומי של מיקום הספינה ומזג האוויר.
+lone	בודד, יחיד	A lone wolf was spotted walking through the forest at night.	זאב בודד נצפה מהלך ביער בלילה.
+loneliness	בדידות	Moving to a new city where she knew nobody caused terrible loneliness.	המעבר לעיר חדשה שבה לא הכירה אף אחד גרם לה לבדידות נוראה.
+lung	ריאה	Smoking damages your lungs and increases the risk of cancer.	עישון פוגע בריאות שלך ומגביר את הסיכון לסרטן.
+luxury	מותרות	The hotel suite offered every luxury, from a private pool to gourmet meals.	סוויטת המלון הציעה כל מותרות, מבריכה פרטית ועד ארוחות גורמה.
+mainly	בעיקר	The restaurant serves mainly Italian food, but has some other cuisines.	המסעדה מגישה בעיקר אוכל איטלקי, אבל יש לה גם כמה מטבחים אחרים.
+majority	רוב	The majority of workers prefer flexible schedules over traditional nine-to-five hours.	רוב העובדים מעדיפים לוחות זמנים גמישים על פני שעות עבודה מסורתיות.
+meanwhile	בינתיים	She studied hard; meanwhile, her brother played video games all day.	היא למדה קשה; בינתיים, אחיה שיחק במשחקי מחשב כל היום.
+measure	אמצעי; למדוד	The government took measures to reduce pollution in the city.	הממשלה נקטה אמצעים כדי להפחית את הזיהום בעיר.
+Mediterranean	ים תיכוני	Many tourists visit countries around the Mediterranean for their beautiful beaches.	תיירים רבים מבקרים במדינות סביב הים התיכון בזכות החופים היפים שלהן.
+melt	להמיס	The ice cream melted quickly in the hot summer sun.	הגלידה נמסה במהירות תחת שמש הקיץ החמה.
+minor	קטין; סולם מינור (במוזיקה); קטן, שולי	A minor cannot sign a legal contract without parental consent.	קטין אינו יכול לחתום על חוזה משפטי בלי הסכמת הורים.
+mistaken	שגוי, מוטעה, טועה	If you think I am mistaken, please show me the correct answer.	אם אתה חושב שאני טועה, בבקשה תראה לי את התשובה הנכונה.
+moral	מוסר	The moral of the story is that honesty is always the best policy.	המוסר של הסיפור הוא שהיושר הוא תמיד הדרך הטובה ביותר.
+mortal	קטלני; אנושי, בן תמותה	The venom from that spider bite can be mortal if left untreated.	הארס מנשיכת העכביש הזה יכול להיות קטלני אם לא מטפלים בו.
+native	יליד, מקומי, טבעי	Native Americans lived in North America for thousands of years.	ילידי אמריקה חיו בצפון אמריקה במשך אלפי שנים.
+nest	קן, לקנן	The birds built a nest high in the old oak tree.	הציפורים בנו קן גבוה בעץ האלון הזקן.
+notify	להודיע, ליידע	The university will notify you of your admission decision by email.	האוניברסיטה תודיע לך על החלטת הקבלה שלך במייל.
+nowadays	כיום	Nowadays, most people use smartphones instead of computers for browsing.	כיום, רוב האנשים משתמשים בסמארטפונים במקום במחשבים כדי לגלוש.
+objective	אובייקטיבי, ענייני; מטרה, יעד	The judge must remain objective and never favor one side over another.	השופט חייב להישאר אובייקטיבי ולעולם לא להעדיף צד אחד על פני האחר.
+observation	תצפית, התבוננות; הערה, הבחנה	Her careful observation of the birds revealed patterns no one else had noticed.	התצפית הקפדנית שלה על הציפורים חשפה דפוסים שאף אחד אחר לא הבחין בהם.
+observe	להתבונן, להבחין	The scientists observe the animals in their natural habitat every day.	המדענים מתבוננים בבעלי החיים בבית גידולם הטבעי בכל יום.
+offend	להעליב	My joke about her cooking seemed to offend her more than I expected.	נראה שהבדיחה שלי על הבישול שלה העליבה אותה יותר משציפיתי.
+offensive	מעליב, פוגעני	His offensive language made everyone uncomfortable during the meeting.	השפה המעליבה שלו גרמה לכולם להרגיש לא בנוח במהלך הפגישה.
+operate	לפעול, להפעיל, לתפעל; לנתח	The factory operates twenty-four hours a day to meet demand.	המפעל פועל עשרים וארבע שעות ביממה כדי לענות על הביקוש.
+opponent	יריב, מתנגד	My tennis opponent was much stronger, but I played my best.	היריב שלי בטניס היה הרבה יותר חזק, אבל שיחקתי הכי טוב שיכולתי.
+orbit	מסלול (סביב גרם שמים); להקיף במסלול, לחוג	The Earth's orbit around the sun takes exactly 365 days to complete.	המסלול של כדור הארץ סביב השמש נמשך בדיוק 365 יום להשלמתו.
+origin	מקור, מוצא	The origin of language remains a mystery to scientists.	מקור השפה עדיין נותר תעלומה עבור מדענים.
+outer	חיצוני	The outer walls of the castle were made of thick stone.	הקירות החיצוניים של הטירה היו עשויים מאבן עבה.
+outstanding	יוצא מן הכלל, מצוין	Her outstanding performance in the play earned her a scholarship.	הביצוע המצוין שלה במחזה הקנה לה מלגה.
+oven	תנור בישול	Heat the oven to 350 degrees before putting in the pizza.	חממו את התנור ל-350 מעלות לפני שמכניסים את הפיצה.
+oxygen	חמצן	Plants produce oxygen, which humans and animals need to breathe.	צמחים מייצרים חמצן, שבני אדם ובעלי חיים זקוקים לו כדי לנשום.
+pad	לרפד	Athletes pad their joints to prevent injuries during intense sports.	ספורטאים מרפדים את המפרקים שלהם כדי למנוע פציעות בספורט אינטנסיבי.
+pan	מחבת	She heated the pan on the stove before adding the butter.	היא חיממה את המחבת על הכיריים לפני שהוסיפה את החמאה.
+parallel	מקביל	The two streets run parallel to each other through the city.	שני הרחובות רצים במקביל זה לזה לאורך העיר.
+particularly	במיוחד, בפרט	I like all fruits, but I particularly enjoy eating fresh strawberries.	אני אוהב את כל הפירות, אבל אני נהנה במיוחד לאכול תותים טריים.
+pattern	תבנית, דפוס, מתכונת; דוגמת עיטור	The pattern on her dress consisted of bright blue and red squares.	הדפוס על השמלה שלה כלל ריבועים כחולים ואדומים בהירים.
+peach	אפרסק	The fuzzy skin of a ripe peach felt soft against her fingers.	הקליפה השעירה של אפרסק בשל הרגישה רכה כנגד אצבעותיה.
+perform	לבצע, להציג	The actor performed brilliantly in the lead role of the play.	השחקן ביצע את התפקיד הראשי במחזה באופן מבריק.
+permanently	באופן קבוע, לצמיתות	He moved to Australia permanently and never returned to his hometown.	הוא עבר לאוסטרליה באופן קבוע ולעולם לא חזר לעיר הולדתו.
+pharmacy	בית מרקחת	I need to go to the pharmacy to pick up my prescription.	אני צריך ללכת לבית המרקחת כדי לאסוף את התרופה שלי.
+poet	משורר	The famous poet wrote beautiful verses about love and nature.	המשורר המפורסם כתב שירים יפים על אהבה וטבע.
+poisonous	רעיל	Some mushrooms are poisonous and can cause serious illness if eaten.	כמה פטריות רעילות ועלולות לגרום למחלה חמורה אם אוכלים אותן.
+polar	קוטבי, הפוך לחלוטין	Polar bears have thick fur to survive the freezing Arctic winters.	לדובי הקוטב יש פרווה עבה כדי לשרוד את חורפי הארקטי הקפואים.
+policy	מדיניות	The school's policy requires students to wear uniforms every day.	מדיניות בית הספר מחייבת את התלמידים ללבוש מדים בכל יום.
+poorly	בצורה גרועה	He slept poorly last night because his neighbors were arguing loudly.	הוא ישן בצורה גרועה אתמול בלילה כי השכנים שלו רבו בקול רם.
+population	אוכלוסייה	The population of the city has grown to over two million people.	האוכלוסייה של העיר גדלה לכדי יותר משני מיליון תושבים.
+portrait	דיוקן	The portrait of the king hung in the museum for centuries.	הדיוקן של המלך תלה במוזיאון במשך מאות שנים.

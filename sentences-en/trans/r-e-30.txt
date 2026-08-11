@@ -1,0 +1,80 @@
+steady	קבוע, יציב	The heartbeat remained steady throughout the long, dangerous surgery.	קצב הלב נשאר יציב לאורך כל הניתוח הארוך והמסוכן.
+steam	אד, לאדות	Steam rose from the hot cup of tea.	אד עלה מכוס התה החמה.
+strengthen	לחזק	Regular exercise will strengthen your muscles over time.	פעילות גופנית סדירה תחזק את השרירים שלך עם הזמן.
+strike	הכה, התקיף; שביתה	Lightning can strike at any moment during storms.	ברק יכול להכות בכל רגע במהלך סופות.
+stun	להמם	The blow to his head was enough to stun him for a moment.	המכה שספג בראשו הספיקה כדי להמם אותו לרגע.
+subjective	אישי, משוחד בדעתו	Whether a movie is good remains entirely subjective.	השאלה אם סרט הוא טוב היא לחלוטין עניין אישי.
+summary	סיכום, תמצית	He wrote a two-page summary of the entire five-hundred-page report.	הוא כתב סיכום בן שני עמודים לכל הדוח בן חמש מאות העמודים.
+superior	עליון	Her scores were clearly superior to everyone else's in the class.	ציוניה היו עליונים בבירור על ציוני כל השאר בכיתה.
+surveillance	מעקב	The store installed surveillance cameras for security purposes.	החנות התקינה מצלמות מעקב לצורכי אבטחה.
+suspense	השהיה, מתח	The suspense in the film kept us guessing until the final moment.	המתח בסרט גרם לנו לנחש עד הרגע האחרון.
+sweep	לטאטא	She began to sweep the kitchen floor daily.	היא התחילה לטאטא את רצפת המטבח מדי יום.
+temple	מקדש	Tourists explored the ancient temple built by an early civilization.	תיירים חקרו את המקדש העתיק שנבנה בידי ציוויליזציה קדומה.
+tend	נוטה	Older people tend to wake up much earlier.	אנשים מבוגרים נוטים להתעורר הרבה יותר מוקדם.
+tension	מתח	The tension between them grew over several months.	המתח ביניהם גבר במשך כמה חודשים.
+terminate	לסיים, לחסל	The company decided to terminate the entire project.	החברה החליטה לסיים את כל הפרויקט.
+throughout	במשך, בכל	She remained calm throughout the entire difficult meeting.	היא נשארה רגועה במשך כל הפגישה הקשה.
+thus	לכן, כך ש-	The test was difficult; thus, many students failed.	המבחן היה קשה; לכן, תלמידים רבים נכשלו.
+to begin with	בתור התחלה	To begin with, we must understand the problem.	בתור התחלה, עלינו להבין את הבעיה.
+trace	סימן, עִקְבָה; לעקוב, למצוא	The detective found an important trace of blood outside.	הבלש מצא עקבת דם חשובה בחוץ.
+transparent	שקוף	The transparent glass walls allowed everyone to see outside.	קירות הזכוכית השקופים אפשרו לכולם לראות החוצה.
+trial	נסיון; משפט	The scientist ran several trials before getting a clear result.	המדען ערך כמה ניסויים לפני שקיבל תוצאה ברורה.
+tribe	שבט	The tribe lived together in a village nearby.	השבט חי יחד בכפר סמוך.
+trip	למעוד; טיול	He began to trip over the wet floor.	הוא התחיל למעוד על הרצפה הרטובה.
+unattractive	לא מושך	The old building was dark and quite unattractive.	הבניין הישן היה חשוך ולא מושך במיוחד.
+unconscious	מחוסר הכרה	The boxer lay unconscious on the mat for minutes.	המתאגרף שכב מחוסר הכרה על המזרן במשך דקות.
+uncountable	אינספור	Stars in the sky are uncountable and distant.	הכוכבים בשמיים הם אינספור ורחוקים.
+uncritical	לא ביקורתי	His uncritical acceptance of all advice proved foolish.	הקבלה הלא ביקורתית שלו של כל עצה התבררה כטיפשית.
+underneath	מתחת	The ball rolled underneath the table during play.	הכדור התגלגל מתחת לשולחן במהלך המשחק.
+unexplored	לא נחקר, לא נבדק	Many unexplored caves exist deep beneath the mountains.	מערות רבות לא נחקרות קיימות עמוק מתחת להרים.
+unfamiliar	לא מוכר	The unfamiliar language made it hard to order.	השפה הלא מוכרת הקשתה להזמין.
+unforgettable	בלתי נשכח	Years later, she could still describe every detail of that unforgettable day.	שנים לאחר מכן, היא עדיין הצליחה לתאר כל פרט מהיום הבלתי נשכח ההוא.
+unimaginable	בלתי נתפס	No one could picture the unimaginable size of the universe.	איש לא הצליח לדמיין את הגודל הבלתי נתפס של היקום.
+union	איגוד, איחוד	The workers formed a union to demand better wages.	העובדים הקימו איגוד כדי לדרוש שכר גבוה יותר.
+unjust	לא צודק	The unjust punishment of the innocent shocked everyone.	העונש הלא צודק שהוטל על החפים מפשע הלם את כולם.
+unless	אלא אם כן	We will not leave unless you permit it.	לא נעזוב אלא אם כן תרשה זאת.
+unorthodox	לא שגרתי, לא מקובל	His unorthodox teaching methods confused many of the students.	שיטות ההוראה הלא שגרתיות שלו בלבלו תלמידים רבים.
+unwilling	לא מוכן, ממאן	Even after his apology, she remained completely unwilling to forgive him.	גם אחרי ההתנצלות שלו, היא נשארה לגמרי לא מוכנה לסלוח לו.
+upside down	הפוך	The painting hung upside down in the gallery.	הציור היה תלוי הפוך בגלריה.
+using up	לכלות, לנצל עד תום	We are using up all of our money.	אנחנו מכלים את כל הכסף שלנו.
+variable	משתנה	The weather in spring can be quite variable.	מזג האוויר באביב יכול להיות משתנה למדי.
+vertical	מאונך	The vertical lines on the wall run from top to bottom.	הקווים המאונכים על הקיר עוברים מלמעלה למטה.
+viewer	צופה	Each viewer watched the entire film without moving.	כל צופה צפה בסרט כולו בלי לזוז.
+visualize	לדמיין	Try to visualize a peaceful beach when stressed.	נסה לדמיין חוף שקט כשאתה לחוץ.
+vocal	קולני; קולי	He was vocal about wanting better food in the cafeteria.	הוא היה קולני לגבי הרצון באוכל טוב יותר בקפיטריה.
+volcanic	וולקני, געשי	The volcanic eruption destroyed much of the area.	ההתפרצות הוולקנית הרסה חלק גדול מהאזור.
+volume	נפח; כרך; עוצמת קול	The volume of water in the pool decreased.	נפח המים בבריכה ירד.
+vulnerable	פגיע, חשוף לפגיעה	Newborn babies are vulnerable and need constant care.	תינוקות שזה עתה נולדו הם פגיעים וזקוקים לטיפול מתמיד.
+withdraw	לסגת, לפרוש	She decided to withdraw her application before the deadline.	היא החליטה לסגת מהבקשה שלה לפני המועד האחרון.
+worthy	ראוי	Only the most worthy candidates will get scholarships.	רק המועמדים הראויים ביותר יקבלו מלגות.
+yet	אך, אולם; עדיין, בכל זאת	The weather was terrible, yet the game continued as planned.	מזג האוויר היה נוראי, אך המשחק נמשך כמתוכנן.
+accelerate	להאיץ	The car began to accelerate down the highway.	המכונית התחילה להאיץ במורד הכביש המהיר.
+acceptance	קבלה, קבלת דבר; הסכמה, השלמה	Her acceptance letter from the university arrived earlier than expected.	מכתב הקבלה שלה מהאוניברסיטה הגיע מוקדם מהצפוי.
+accessible	נגיש, זמין	The museum is easily accessible by public transportation.	המוזיאון נגיש בקלות בתחבורה ציבורית.
+accuracy	דיוק	The clock's accuracy meant it never lost even one second.	הדיוק של השעון גרם לכך שהוא מעולם לא איבד אפילו שנייה אחת.
+accusation	האשמה	The accusation of theft was very serious and shocking.	ההאשמה בגניבה הייתה חמורה מאוד ומזעזעת.
+adopt	לאמץ	Many families choose to adopt children from overseas.	משפחות רבות בוחרות לאמץ ילדים מחוץ לארץ.
+adore	העריץ, אהב	My daughter absolutely adores spending time with her grandmother.	בתי פשוט אוהבת מאוד לבלות זמן עם סבתה.
+adulthood	בגרות	She reached adulthood and moved away from home.	היא הגיעה לבגרות ועברה לגור מחוץ לבית.
+advisor	יועץ	The financial advisor helped him plan for retirement.	היועץ הפיננסי עזר לו לתכנן את הפרישה.
+affair	עניין, פרשה; רומן	The scandalous business affair shocked everyone in the small town.	עניין העסקים השערורייתי הלם את כולם בעיר הקטנה.
+agony	ייסורים	She was in complete agony after breaking her ankle.	היא הייתה בייסורים גמורים אחרי ששברה את הקרסול.
+align	להסתדר בשורה	Please align the pictures in a straight line.	בבקשה יישרו את התמונות בקו ישר.
+alongside	לצד, במקביל	The new building was constructed alongside the old.	הבניין החדש נבנה לצד הישן.
+altogether	בסך הכל; לגמרי	Altogether, we spent five thousand dollars on vacation.	בסך הכל, הוצאנו חמשת אלפים דולר על החופשה.
+amusement	שעשוע	Her amusement was obvious as she laughed at the silly joke.	השעשוע שלה היה ברור כשצחקה מהבדיחה המטופשת.
+anchor	עוגן	The ship dropped its anchor to prevent drifting.	הספינה הורידה את העוגן כדי למנוע סחיפה.
+anticipation	ציפייה, צפייה מראש	Children waited in anticipation for the birthday celebration.	ילדים חיכו בציפייה לחגיגת יום ההולדת.
+antique	עתיק, ענתיקה	The antique vase was worth thousands of dollars.	האגרטל העתיק היה שווה אלפי דולרים.
+apathetic	אדיש	She seemed completely apathetic about the outcome of the game.	היא נראתה אדישה לחלוטין לגבי תוצאת המשחק.
+applicant	מועמד	Every applicant must complete the application form carefully.	כל מועמד חייב למלא את טופס הבקשה בקפידה.
+artifact	חפץ מעשה ידי אדם, מוצג ארכיאולוגי	The archaeologist discovered an ancient artifact in ruins.	הארכיאולוג גילה חפץ עתיק בהריסות.
+aspect	היבט, פן	Every aspect of the design, from color to size, mattered.	כל היבט בעיצוב, מהצבע ועד הגודל, היה חשוב.
+assassination	התנקשות, רצח פוליטי	Historians still study the assassination of the ancient king centuries ago.	היסטוריונים עדיין חוקרים את ההתנקשות במלך הקדום לפני מאות שנים.
+asset	נכס	The company's greatest asset was its talented staff.	הנכס הגדול ביותר של החברה היה הצוות המוכשר שלה.
+assign	למנות, להקצות	The teacher will assign homework every single day.	המורה תקצה שיעורי בית כל יום.
+authorize	להרשות, להסמיך	Only the top manager can authorize such purchases.	רק המנהל הבכיר יכול להרשות רכישות כאלה.
+availability	זמינות	The availability of parking spaces was quite limited.	זמינות מקומות החניה הייתה מוגבלת למדי.
+await	להמתין	We will await your response at the office.	נמתין לתשובתך במשרד.
+awareness	מודעות	Awareness of environmental issues has grown quite a bit.	המודעות לנושאים סביבתיים גדלה במידה ניכרת.
+bandage	תחבושת	Put a bandage on the cut to stop bleeding.	שים תחבושת על החתך כדי לעצור את הדימום.
