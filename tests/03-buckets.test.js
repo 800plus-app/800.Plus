@@ -290,3 +290,31 @@ describe('buckets — scope', () => {
     assert.deepStrictEqual(order, sorted, 'weakCards is not sorted by last-seen ascending');
   });
 });
+
+// ---------------------------------------------------------------------------------------------
+
+/* The home-screen shortcut into a weak round. It used to hide below four weak words, which meant
+ * the learner with two left — the moment a short round actually closes the gap — was shown
+ * nothing. Lowering the floor to one exposed a second bug the old threshold had been hiding:
+ * the label was built as `${n} מילים`, so it would have read "1 מילים לחיזוק". */
+describe('the weak-words shortcut on the home screen', () => {
+  test('one weak word is written as Hebrew, not as "1 מילים"', () => {
+    const ctx = fresh();
+    assert.match(ctx.weakCtaText(1), /מילה אחת/, 'singular must not be "1 מילים"');
+    assert.ok(!/^1 /.test(ctx.weakCtaText(1)), 'and must not open with the digit 1');
+  });
+
+  test('every other count keeps the number, because the number is the reason to tap', () => {
+    const ctx = fresh();
+    for (const n of [2, 3, 7, 40, 312])
+      assert.match(ctx.weakCtaText(n), new RegExp('(^|[^0-9])' + n + ' מילים'),
+        'the count must appear for n=' + n);
+  });
+
+  test('the label always says which words these are, in the screen\'s own lexicon', () => {
+    const ctx = fresh();
+    for (const n of [1, 5])
+      assert.match(ctx.weakCtaText(n), /לחיזוק · מכל יחידות הלימוד$/,
+        'a new synonym for the weak bucket would make the learner translate');
+  });
+});
