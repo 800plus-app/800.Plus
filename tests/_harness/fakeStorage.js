@@ -109,6 +109,23 @@ function loadWithStorage(symbols, opts = {}) {
     try { require('vm').runInContext(`'use strict';\n${code}`, ctx, { filename: `app.js:${name}` }); }
     catch (e) { throw new Error(`lifting ${name} out of app.js failed: ${e.message}`); }
   }
+
+  /* ⚠ סמלי async מורמים בנפרד. extract.js מתאים על `function` ולכן **משמיט בשקט**
+     את ה-`async` שלפניו, והטקסט המורם זורק SyntaxError על ה-await הראשון.
+     08-store מקבע את המגבלה הזאת ו-liftAsync ב-fakeSupabase.js הוא הפתרון הקיים
+     בפרויקט — משתמשים בו ולא בשני. */
+  const { liftAsync } = require('./fakeSupabase.js');
+  const { codeMask } = require('./scan.js');
+  if (opts.async && opts.async.length) {
+    const src = appSource();
+    const mask = codeMask(src);
+    for (const name of opts.async) {
+      try { require('vm').runInContext(`'use strict';\n${liftAsync(src, name, mask)}`, ctx,
+                                       { filename: `app.js:${name}` }); }
+      catch (e) { throw new Error(`lifting async ${name} out of app.js failed: ${e.message}`); }
+      if (typeof ctx[name] !== 'function') throw new Error(`${name} lifted but is not a function`);
+    }
+  }
   const absent = symbols.filter(n => ctx[n] === undefined);
   if (absent.length) throw new Error(`app.js no longer defines: ${absent.join(', ')}`);
 
