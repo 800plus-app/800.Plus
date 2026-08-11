@@ -664,7 +664,13 @@
   .au-msg.err{color:#a63c26} .au-msg.ok{color:#3f6b4a}
   .au-msg.hidden{display:none!important}
 
-  .user-badge{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft);
+  /* ⛔ נמדד בבדק בית 3: בלי שם משתמש ה-<b> הפנימי ריק, ומה שנשאר הוא הריפוד
+     בלבד — 22×14 פיקסלים. זה כפתור לכל דבר (onclick למסך החשבון, aria-label
+     "החשבון שלי"), ואין שום לוגיקה שמסתירה אותו כשהוא ריק. הרצפה היא WCAG
+     2.5.8 (AA). כשיש שם הכפתור כבר גדול בהרבה, ולכן זה אינו נראה במצב הרגיל.
+     אותו שיקול בדיוק כמו ההערה על 37 הפיקסלים כמה שורות מכאן. */
+  .user-badge{display:flex;align-items:center;justify-content:center;gap:8px;font-size:.82rem;
+       color:var(--ink-soft);min-width:24px;min-height:24px;
        background:transparent;border:1px solid transparent;border-radius:10px;padding:6px 10px;
        cursor:pointer;font-family:inherit}
   @media (hover:hover) and (pointer:fine){.user-badge:hover{border-color:var(--line);color:var(--ink)}}
