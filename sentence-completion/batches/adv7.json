@@ -1,0 +1,755 @@
+[
+ {
+  "s": "Although the study had already run for two years and cost far more than planned, the board voted to ___ it rather than publish half a result.",
+  "o": [
+   "prolong",
+   "postpone",
+   "resume",
+   "conclude"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "although"
+  ],
+  "g": [
+   "prolong = להאריך",
+   "postpone = לדחות",
+   "resume = להמשיך",
+   "conclude = לסיים"
+  ],
+  "t": "אף שהמחקר כבר נמשך שנתיים ועלה בהרבה מן המתוכנן, הדירקטוריון הצביע **להאריך** אותו ולא לפרסם חצי תוצאה.",
+  "r": [
+   "prolong הוא להאריך את משך המחקר, וזו ההחלטה במשפט: להמשיך ולא לפרסם חצי תוצאה.",
+   "postpone הוא לדחות מועד, והמחקר כאן אינו נדחה אלא נמשך.",
+   "resume מתאים לדבר שנעצר, והמחקר רץ שנתיים בלי הפסקה.",
+   "conclude הוא לסיים, וזה ההיפך מן ההצבעה שהמשפט מתאר."
+  ]
+ },
+ {
+  "s": "The engine passed every road test and burned very little fuel; even so, the inspector traced the shaking at high speed to a single ___ in the casting.",
+  "o": [
+   "flaw",
+   "malfunction",
+   "complication",
+   "stain"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "even so"
+  ],
+  "g": [
+   "flaw = פגם",
+   "malfunction = כשל",
+   "complication = סיבוך",
+   "stain = כתם"
+  ],
+  "t": "המנוע עמד בכל בדיקות הדרך וצרך מעט דלק; ובכל זאת, הבוחן תלה את הרעידה במהירות גבוהה ב**פגם** אחד ביציקה.",
+  "r": [
+   "flaw הוא פגם בחומר עצמו, וכאן היציקה היא הפגומה.",
+   "malfunction הוא כשל בפעולה, והמנוע דווקא עמד בכל בדיקת דרך.",
+   "complication הוא סיבוך שנוסף לתהליך, ולא ליקוי ביציקה.",
+   "stain הוא כתם על פני השטח, והוא אינו מסביר רעידה במהירות."
+  ]
+ },
+ {
+  "s": "Since nobody had checked how the two drains met, the flooded cellar was a direct ___ of the new pavement and not bad luck.",
+  "o": [
+   "consequence",
+   "coincidence",
+   "occurrence",
+   "disturbance"
+  ],
+  "a": 0,
+  "k": "cause",
+  "w": [
+   "since"
+  ],
+  "g": [
+   "consequence = תוצאה",
+   "coincidence = צירוף מקרים",
+   "occurrence = התרחשות",
+   "disturbance = הפרעה"
+  ],
+  "t": "מכיוון שאיש לא בדק כיצד נפגשים שני הניקוזים, המרתף שהוצף היה **תוצאה** ישירה של המדרכה החדשה ולא מזל רע.",
+  "r": [
+   "consequence הוא תוצאה של מעשה מסוים, וכאן המדרכה החדשה היא הגורם.",
+   "coincidence הוא צירוף מקרים, והמשפט שולל אותו במפורש.",
+   "occurrence הוא התרחשות בלי קשר סיבתי, והמשפט קושר בין השניים.",
+   "disturbance הוא הפרעה, ולא הקשר שבין המדרכה למרתף."
+  ]
+ },
+ {
+  "s": "Provided nobody washes with it, forty litres in the tank are ___ for two days of work in the field.",
+  "o": [
+   "sufficient",
+   "excessive",
+   "partial",
+   "plentiful"
+  ],
+  "a": 0,
+  "k": "condition",
+  "w": [
+   "provided"
+  ],
+  "g": [
+   "sufficient = מספיק",
+   "excessive = יתר",
+   "partial = חלקי",
+   "plentiful = שופע"
+  ],
+  "t": "בתנאי שאיש אינו רוחץ בהם, ארבעים ליטר במיכל **מספיקים** ליומיים של עבודה בשדה.",
+  "r": [
+   "sufficient הוא מספיק בדיוק לצורך, וארבעים ליטר מכסים יומיים בתנאי אחד.",
+   "excessive הוא יתר, והכמות כאן נמדדת לפי הצורך ולא מעליו.",
+   "partial מתאר חלק מדבר, ולא כמות שעומדת בדרישה.",
+   "plentiful מתאר שפע, והמשפט מציג כמות מדודה ומוגבלת."
+  ]
+ },
+ {
+  "s": "The dye does not take hold at once: the wool darkens ___ over several hours, and only then can the cloth be rinsed.",
+  "o": [
+   "gradually",
+   "simultaneously",
+   "occasionally",
+   "spontaneously"
+  ],
+  "a": 0,
+  "k": "sequence",
+  "w": [
+   "then"
+  ],
+  "g": [
+   "gradually = בהדרגה",
+   "simultaneously = בו זמנית",
+   "occasionally = מידי פעם",
+   "spontaneously = ללא תכנון"
+  ],
+  "t": "הצבע אינו נאחז בבת אחת: הצמר מתכהה **בהדרגה** במשך שעות, ורק אז ניתן לשטוף את הבד.",
+  "r": [
+   "gradually הוא בהדרגה, וזה מה שהמשפט מתאר: התכהות לאורך שעות.",
+   "simultaneously הוא בו זמנית, והצמר כאן מתכהה לאט ולא בבת אחת.",
+   "occasionally הוא מדי פעם, והתהליך במשפט רצוף ולא מקוטע.",
+   "spontaneously הוא ללא תכנון, והצביעה כאן מכוונת ומתוכננת."
+  ]
+ },
+ {
+  "s": "Both samples came back clean, yet neither result settles the ___ that the team put forward at the start and set out to test.",
+  "o": [
+   "hypothesis",
+   "assumption",
+   "suspicion",
+   "conclusion"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "yet"
+  ],
+  "g": [
+   "hypothesis = השערה",
+   "assumption = הנחה",
+   "suspicion = חשד",
+   "conclusion = מסקנה"
+  ],
+  "t": "שני המדגמים חזרו נקיים, אך אף תוצאה אינה מכריעה את **השערת** הצוות, שהועלתה בתחילה ונועדה להיבדק.",
+  "r": [
+   "hypothesis הוא השערה שמוצגת מראש כדי להיבדק, וזה בדיוק מה שהצוות עשה.",
+   "assumption הוא הנחה שמקבלים בלי בדיקה, והמשפט מדגיש שההצעה נועדה להיבדק.",
+   "suspicion הוא חשד כלפי אדם, ולא הצעה שנבדקת במעבדה.",
+   "conclusion הוא מסקנה שבאה בסוף, והמשפט מציב את הדבר בהתחלה."
+  ]
+ },
+ {
+  "s": "Because the herd had already lived through the same fever once, the calves born that year were ___ and needed no injection.",
+  "o": [
+   "immune",
+   "vulnerable",
+   "infectious",
+   "harmless"
+  ],
+  "a": 0,
+  "k": "cause",
+  "w": [
+   "because"
+  ],
+  "g": [
+   "immune = חסין",
+   "vulnerable = פגיע",
+   "infectious = מדבק",
+   "harmless = שאינו מזיק"
+  ],
+  "t": "מכיוון שהעדר כבר עבר את אותו חום פעם אחת, העגלים שנולדו באותה שנה היו **חסינים** ולא נזקקו לזריקה.",
+  "r": [
+   "immune הוא חסין מפני המחלה, ולכן העגלים אינם זקוקים לזריקה.",
+   "vulnerable הוא פגיע, וזה ההיפך ממי שאינו נזקק להגנה.",
+   "infectious מתאר מי שמדביק אחרים, והמשפט עוסק בהגנה של העגלים עצמם.",
+   "harmless מתאר מי שאינו מזיק לאחרים, ולא מי שהמחלה אינה חלה עליו."
+  ]
+ },
+ {
+  "s": "The station already loses power twice a month; moreover, one loose cable can ___ a live broadcast for nine minutes before the picture returns.",
+  "o": [
+   "disrupt",
+   "terminate",
+   "postpone",
+   "suppress"
+  ],
+  "a": 0,
+  "k": "addition",
+  "w": [
+   "moreover"
+  ],
+  "g": [
+   "disrupt = לשבש",
+   "terminate = לסיים",
+   "postpone = לדחות",
+   "suppress = לדכא"
+  ],
+  "t": "התחנה מאבדת חשמל פעמיים בחודש; זאת ועוד, כבל אחד שהשתחרר יכול **לשבש** שידור חי לתשע דקות עד שהתמונה חוזרת.",
+  "r": [
+   "disrupt הוא לשבש מהלך שרץ, ותשע דקות של הפרעה הן בדיוק זה.",
+   "terminate הוא לסיים לגמרי, והתמונה במשפט חוזרת אחרי תשע דקות.",
+   "postpone הוא לדחות מועד, והשידור כאן כבר באוויר.",
+   "suppress הוא לדכא בכוונה, וכאן מדובר בכבל שהשתחרר מעצמו."
+  ]
+ },
+ {
+  "s": "The recipe calls for fresh cream, yet in the field the cooks use dried milk as a ___ and nobody notices the difference.",
+  "o": [
+   "substitute",
+   "supplement",
+   "ingredient",
+   "imitation"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "yet"
+  ],
+  "g": [
+   "substitute = תחליף",
+   "supplement = תוסף",
+   "ingredient = מרכיב",
+   "imitation = חיקוי"
+  ],
+  "t": "המתכון דורש שמנת טרייה, אך בשדה הטבחים משתמשים באבקת חלב כ**תחליף** ואיש אינו מבחין בהבדל.",
+  "r": [
+   "substitute הוא תחליף שנכנס במקום החומר המקורי, וזה תפקידה של אבקת החלב.",
+   "supplement הוא תוסף שמצטרף לחומר, ואינו בא במקומו.",
+   "ingredient הוא מרכיב מן המתכון, ואבקת החלב כאן מחליפה מרכיב.",
+   "imitation הוא חיקוי שנראה כמו המקור, וכאן פשוט משתמשים בחומר אחר."
+  ]
+ },
+ {
+  "s": "The winner crossed the line four hundredths of a second ahead of the second boat; therefore the judges recorded the smallest ___ in the history of the race.",
+  "o": [
+   "margin",
+   "proportion",
+   "fraction",
+   "distinction"
+  ],
+  "a": 0,
+  "k": "cause",
+  "w": [
+   "therefore"
+  ],
+  "g": [
+   "margin = מרווח",
+   "proportion = שיעור",
+   "fraction = שבר",
+   "distinction = הבחנה"
+  ],
+  "t": "המנצח חצה את הקו בארבע מאיות השנייה לפני הסירה השנייה; לפיכך, השופטים רשמו את ה**מרווח** הקטן ביותר בתולדות המקצה.",
+  "r": [
+   "margin הוא המרווח בין שני מתחרים, וארבע מאיות השנייה הן המרווח הזה.",
+   "proportion הוא שיעור מתוך שלם, ולא הפרש בין שני מתחרים.",
+   "fraction הוא שבר, כלומר חלק ממספר, ולא פער בתוצאה.",
+   "distinction הוא הבחנה בין דברים, והמשפט מודד פער בזמן."
+  ]
+ },
+ {
+  "s": "The airline has already leased two extra aircraft for the summer; in addition, it must ___ eleven new crew members before the season opens.",
+  "o": [
+   "recruit",
+   "promote",
+   "enroll",
+   "assign"
+  ],
+  "a": 0,
+  "k": "addition",
+  "w": [
+   "in addition"
+  ],
+  "g": [
+   "recruit = לגייס",
+   "promote = לקדם",
+   "enroll = להירשם",
+   "assign = להקצות"
+  ],
+  "t": "החברה חכרה כבר שני מטוסים נוספים לקיץ; נוסף על כך, עליה **לגייס** אחד עשר אנשי צוות חדשים לפני שהעונה נפתחת.",
+  "r": [
+   "recruit הוא לגייס אנשים חדשים אל הארגון, וזו החובה הנוספת שהמשפט מטיל.",
+   "promote הוא לקדם עובד קיים, והמשפט מדבר על אנשי צוות חדשים.",
+   "enroll הוא להירשם, והפעולה כאן היא של החברה ולא של הנרשמים.",
+   "assign הוא להקצות אדם לתפקיד, וקודם צריך להביא אותו אל החברה."
+  ]
+ },
+ {
+  "s": "Once the ink meets the warm plate, the letters ___ within seconds and the sheet can be used again.",
+  "o": [
+   "vanish",
+   "fade",
+   "blur",
+   "scatter"
+  ],
+  "a": 0,
+  "k": "condition",
+  "w": [
+   "once"
+  ],
+  "g": [
+   "vanish = להיעלם",
+   "fade = לדהות",
+   "blur = לטשטש",
+   "scatter = לפזר"
+  ],
+  "t": "ברגע שהדיו נוגעת בלוח החם, האותיות **נעלמות** בתוך שניות והדף חוזר לשימוש.",
+  "r": [
+   "vanish הוא להיעלם לגמרי, ולכן הדף חוזר לשימוש נקי.",
+   "fade הוא לדהות בהדרגה, והמשפט מדבר על שניות ועל דף שאפשר לכתוב עליו שוב.",
+   "blur הוא לטשטש, ואות מטושטשת עדיין נמצאת על הדף.",
+   "scatter הוא לפזר לצדדים, והאותיות אינן עוברות למקום אחר."
+  ]
+ },
+ {
+  "s": "The team dug for three seasons and found nothing; then a single storm washed the slope away and helped them ___ the floor of the temple.",
+  "o": [
+   "uncover",
+   "reconstruct",
+   "interpret",
+   "survey"
+  ],
+  "a": 0,
+  "k": "sequence",
+  "w": [
+   "then"
+  ],
+  "g": [
+   "uncover = לחשוף",
+   "reconstruct = לשחזר",
+   "interpret = לפרש",
+   "survey = לסקור"
+  ],
+  "t": "הצוות חפר שלוש עונות ולא מצא דבר; אחר כך סערה אחת שטפה את המדרון ועזרה לו **לחשוף** את רצפת המקדש.",
+  "r": [
+   "uncover הוא לחשוף דבר שהיה מכוסה, וזה מה שהסחף עשה לרצפה.",
+   "reconstruct הוא לשחזר מה שנהרס, והרצפה כאן נגלתה שלמה.",
+   "interpret הוא לפרש משמעות, ולא להוציא דבר מן האדמה.",
+   "survey הוא לסקור שטח שכבר גלוי לעין."
+  ]
+ },
+ {
+  "s": "Because that first flight proved a heavy machine could leave the ground at all, historians treat it as a ___ in the story of travel.",
+  "o": [
+   "milestone",
+   "cornerstone",
+   "legacy",
+   "triumph"
+  ],
+  "a": 0,
+  "k": "cause",
+  "w": [
+   "because"
+  ],
+  "g": [
+   "milestone = ציון דרך",
+   "cornerstone = אבן פינה",
+   "legacy = מורשת",
+   "triumph = ניצחון"
+  ],
+  "t": "מכיוון שאותה טיסה ראשונה הוכיחה שמכונה כבדה יכולה בכלל להתרומם מן הקרקע, ההיסטוריונים רואים בה **ציון דרך** בסיפור התחבורה.",
+  "r": [
+   "milestone הוא ציון דרך בתוך רצף היסטורי, וזה מקומה של אותה טיסה בסיפור.",
+   "cornerstone הוא אבן פינה שעליה נבנה מבנה, והמשפט מסמן נקודה על ציר הזמן.",
+   "legacy הוא מורשת שנשארת אחרי אדם, ולא נקודה בהתפתחות.",
+   "triumph הוא ניצחון על יריב, והמשפט מתאר הוכחה טכנית."
+  ]
+ },
+ {
+  "s": "The report was ready in March, yet the director waited until autumn to ___ the board with figures it had refused to hear for months.",
+  "o": [
+   "confront",
+   "persuade",
+   "advise",
+   "intimidate"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "yet"
+  ],
+  "g": [
+   "confront = לעמת",
+   "persuade = לשכנע",
+   "advise = לייעץ",
+   "intimidate = להפחיד"
+  ],
+  "t": "הדוח היה מוכן במרץ, אך המנהל המתין עד הסתיו כדי **לעמת** את המועצה עם נתונים שסירבה לשמוע חודשים.",
+  "r": [
+   "confront הוא לעמת מישהו עם דבר שאינו רוצה לשמוע, וזה מה שהמנהל עשה למועצה.",
+   "persuade הוא לשכנע, והמועצה במשפט סירבה לשמוע ולא שינתה דעה.",
+   "advise הוא לייעץ, ואין ייעוץ בהצגת נתונים שנדחו.",
+   "intimidate הוא להפחיד, ובמשפט אין איום אלא נתונים."
+  ]
+ },
+ {
+  "s": "Because the survey counted only households with a telephone, it happened to ___ exactly the families whose income the study set out to measure.",
+  "o": [
+   "exclude",
+   "neglect",
+   "restrict",
+   "dismiss"
+  ],
+  "a": 0,
+  "k": "cause",
+  "w": [
+   "because"
+  ],
+  "g": [
+   "exclude = להוציא מן הכלל",
+   "neglect = להזניח",
+   "restrict = להגביל",
+   "dismiss = לבטל"
+  ],
+  "t": "מכיוון שהסקר ספר רק בתים שיש בהם טלפון, יצא שהוא **הוציא מן הכלל** בדיוק את המשפחות שאת הכנסתן רצה המחקר למדוד.",
+  "r": [
+   "exclude הוא להוציא מן הכלל, וכך המשפחות האלה לא נספרו כלל.",
+   "neglect הוא להזניח מתוך רשלנות, וכאן שיטת הספירה עצמה סיננה אותן.",
+   "restrict הוא להגביל היקף, והמשפט עוסק במי שנשאר בחוץ.",
+   "dismiss הוא לבטל דבר כלא חשוב, והמשפחות כאן פשוט לא נכללו."
+  ]
+ },
+ {
+  "s": "Although the two shops sell almost the same goods at the same price, the competition between them is ___ and neither will give up a single customer.",
+  "o": [
+   "fierce",
+   "harsh",
+   "mild",
+   "steady"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "although"
+  ],
+  "g": [
+   "fierce = עז",
+   "harsh = נוקשה",
+   "mild = מתון",
+   "steady = יציב"
+  ],
+  "t": "אף ששתי החנויות מוכרות כמעט אותה סחורה באותו מחיר, התחרות ביניהן **עזה** ואף אחת אינה מוותרת על לקוח אחד.",
+  "r": [
+   "fierce הוא עז, וזה התיאור למאבק שבו אף צד אינו מוותר.",
+   "harsh הוא נוקשה ואכזרי כלפי מישהו, ולא עוצמה של מאבק.",
+   "mild הוא מתון, וזה ההיפך ממאבק שאין בו ויתור.",
+   "steady הוא יציב וקבוע, והמשפט מודד עוצמה ולא יציבות."
+  ]
+ },
+ {
+  "s": "Once every crate is aboard and the tanks are full, the captain can report full ___ and the fleet may sail two days early.",
+  "o": [
+   "readiness",
+   "anticipation",
+   "availability",
+   "enthusiasm"
+  ],
+  "a": 0,
+  "k": "condition",
+  "w": [
+   "once"
+  ],
+  "g": [
+   "readiness = מוכנות",
+   "anticipation = ציפייה",
+   "availability = זמינות",
+   "enthusiasm = התלהבות"
+  ],
+  "t": "ברגע שכל תיבה על הסיפון והמכלים מלאים, רב החובל יכול לדווח על **מוכנות** מלאה והצי יוכל לצאת יומיים מוקדם.",
+  "r": [
+   "readiness הוא מוכנות מעשית לפעולה, והיא נקבעת אחרי הטעינה והתדלוק.",
+   "anticipation הוא ציפייה למה שיבוא, ולא מצבה של האונייה.",
+   "availability הוא זמינות, כלומר שניתן להשיג דבר, ולא שהוא ערוך לצאת.",
+   "enthusiasm הוא התלהבות, והדיווח כאן הוא על ציוד ועל טעינה."
+  ]
+ },
+ {
+  "s": "The department has already added two modern novels to the syllabus; in addition, it agreed to ___ the reading list to four continents.",
+  "o": [
+   "broaden",
+   "enrich",
+   "modernize",
+   "simplify"
+  ],
+  "a": 0,
+  "k": "addition",
+  "w": [
+   "in addition"
+  ],
+  "g": [
+   "broaden = להרחיב",
+   "enrich = להעשיר",
+   "modernize = להפוך למודרני",
+   "simplify = לפשט"
+  ],
+  "t": "המחלקה הוסיפה כבר שני רומנים מודרניים לתוכנית; נוסף על כך, היא הסכימה **להרחיב** את רשימת הקריאה לארבע יבשות.",
+  "r": [
+   "broaden הוא להרחיב את היקף הדבר, ורשימה שעולה לארבע יבשות מתרחבת.",
+   "enrich הוא להעשיר את התוכן באיכות, ולא לפרוס אותו על יבשות.",
+   "modernize הוא להפוך למודרני, והשינוי כאן גאוגרפי ולא תקופתי.",
+   "simplify הוא לפשט, וארבע יבשות מסבכות את הרשימה ולא מפשטות אותה."
+  ]
+ },
+ {
+  "s": "Two witnesses placed him at the gate and his own diary names the hour; even so, his only answer at the hearing was a flat ___.",
+  "o": [
+   "denial",
+   "refusal",
+   "apology",
+   "objection"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "even so"
+  ],
+  "g": [
+   "denial = הכחשה",
+   "refusal = סירוב",
+   "apology = התנצלות",
+   "objection = התנגדות"
+  ],
+  "t": "שני עדים מיקמו אותו בשער ויומנו שלו נוקב בשעה; ובכל זאת, תשובתו היחידה בשימוע הייתה **הכחשה** גמורה.",
+  "r": [
+   "denial הוא הכחשה של העובדה עצמה, וזו התשובה היחידה שנתן בשימוע.",
+   "refusal הוא סירוב לעשות דבר, ולא שלילה של עובדה.",
+   "apology הוא התנצלות, והיא מודה במעשה במקום לשלול אותו.",
+   "objection הוא התנגדות להליך, ולא תשובה לעובדות שהוצגו."
+  ]
+ },
+ {
+  "s": "The workshop owns no manuals from the period and no photographs of the mechanism; furthermore, a clock of this age calls for ___ in early gearing, and nobody on its staff has ever studied it.",
+  "o": [
+   "expertise",
+   "precision",
+   "guidance",
+   "originality"
+  ],
+  "a": 0,
+  "k": "addition",
+  "w": [
+   "furthermore"
+  ],
+  "g": [
+   "expertise = ידע מקצועי",
+   "precision = דיוק",
+   "guidance = הנחיה",
+   "originality = מקוריות"
+  ],
+  "t": "בבית המלאכה אין מדריכים מן התקופה ואין תצלומים של המנגנון; זאת ועוד, שעון בגיל כזה מחייב **ידע מקצועי** בגלגלי שיניים מוקדמים, ואיש מן העובדים לא למד אותם מעולם.",
+  "r": [
+   "expertise הוא ידע מקצועי בתחום מסוים, וכאן נדרש ידע בגלגלי שיניים מוקדמים.",
+   "precision הוא דיוק בביצוע, והחסר במשפט הוא ידע ולא יד יציבה.",
+   "guidance הוא הנחיה שבאה מאדם אחר, והמשפט מונה את מה שלבית המלאכה עצמו חסר.",
+   "originality הוא מקוריות, ושחזור שעון מבקש נאמנות למקור."
+  ]
+ },
+ {
+  "s": "The lower layer held only bone and ash; the upper one held every kind of ___, such as a bronze pin and a painted cup.",
+  "o": [
+   "artifact",
+   "fossil",
+   "relic",
+   "ornament"
+  ],
+  "a": 0,
+  "k": "example",
+  "w": [
+   "such as"
+  ],
+  "g": [
+   "artifact = חפץ מעשה ידי אדם",
+   "fossil = מאובן",
+   "relic = שריד",
+   "ornament = קישוט"
+  ],
+  "t": "המפלס התחתון הכיל עצם ואפר בלבד; העליון הכיל כל סוג של **חפץ מעשה ידי אדם**, כמו סיכת ארד וכוס מצוירת.",
+  "r": [
+   "artifact הוא חפץ מעשה ידי אדם, וסיכת ארד וכוס מצוירת הן בדיוק זה.",
+   "fossil הוא מאובן, כלומר שריד של יצור חי ולא של מלאכת אדם.",
+   "relic הוא שריד שנשאר מן העבר, ולא סוג של חפץ שנוצר.",
+   "ornament הוא קישוט בלבד, וכוס לשתייה אינה קישוט."
+  ]
+ },
+ {
+  "s": "The route crosses difficult ___, such as loose gravel and frozen marsh, and no wheeled cart can follow it.",
+  "o": [
+   "terrain",
+   "landscape",
+   "slope",
+   "boundary"
+  ],
+  "a": 0,
+  "k": "example",
+  "w": [
+   "such as"
+  ],
+  "g": [
+   "terrain = שטח",
+   "landscape = נוף",
+   "slope = מדרון",
+   "boundary = גבול"
+  ],
+  "t": "המסלול חוצה **שטח** קשה, כמו חצץ תחוח וביצה קפואה, ואין עגלה על גלגלים שיכולה לעבור בו.",
+  "r": [
+   "terrain הוא פני השטח שעוברים בו, וחצץ תחוח וביצה קפואה הם דוגמאות לכך.",
+   "landscape הוא נוף שרואים ממרחק, ולא הקרקע שצועדים עליה.",
+   "slope הוא מדרון אחד, ולא סוגי קרקע שונים לאורך המסלול.",
+   "boundary הוא גבול בין שני אזורים, והמשפט מתאר את הקרקע עצמה."
+  ]
+ },
+ {
+  "s": "The foreman already signs every delivery note and keeps the fuel log; in addition, he must now ___ the two night shifts at the far gate.",
+  "o": [
+   "supervise",
+   "attend",
+   "authorize",
+   "orchestrate"
+  ],
+  "a": 0,
+  "k": "addition",
+  "w": [
+   "in addition"
+  ],
+  "g": [
+   "supervise = לפקח",
+   "attend = להיות נוכח",
+   "authorize = להסמיך",
+   "orchestrate = לתאם"
+  ],
+  "t": "מנהל העבודה חותם כבר עכשיו על כל תעודת משלוח ומנהל את יומן הדלק; נוסף על כך, עליו **לפקח** מעתה על שתי משמרות הלילה בשער הרחוק.",
+  "r": [
+   "supervise הוא לפקח על עבודתם של אחרים, וזו התוספת לתפקידו.",
+   "attend הוא להיות נוכח במקום, ונוכחות אינה פיקוח.",
+   "authorize הוא להסמיך או להרשות, וזה אישור חד פעמי ולא עבודה שוטפת.",
+   "orchestrate הוא לתאם בין חלקים, והמשפט מטיל עליו אחריות על משמרות."
+  ]
+ },
+ {
+  "s": "The road along the cliff is narrow and badly lit; moreover, rockfalls there are ___ enough to close it twice a winter.",
+  "o": [
+   "frequent",
+   "widespread",
+   "probable",
+   "severe"
+  ],
+  "a": 0,
+  "k": "addition",
+  "w": [
+   "moreover"
+  ],
+  "g": [
+   "frequent = תדיר",
+   "widespread = נפוץ",
+   "probable = סביר",
+   "severe = חמור"
+  ],
+  "t": "הכביש שלאורך המצוק צר ומואר בדוחק; זאת ועוד, מפולות סלעים בו **תדירות** דיין כדי לסגור אותו פעמיים בחורף.",
+  "r": [
+   "frequent הוא תדיר, וסגירה פעמיים בחורף היא שאלה של תדירות.",
+   "widespread הוא נפוץ ופרוס על שטח רחב, והמשפט מודד כמה פעמים.",
+   "probable הוא סביר שיקרה, והמשפט קובע שזה כבר קורה בפועל.",
+   "severe הוא חמור בעוצמתו, ולא שכיח במספר הפעמים."
+  ]
+ },
+ {
+  "s": "Because an army can ___ a province in a single season and then must ___ it for decades, the empire's real trouble began after the fighting stopped.",
+  "o": [
+   [
+    "conquer",
+    "govern"
+   ],
+   [
+    "govern",
+    "conquer"
+   ],
+   [
+    "conquer",
+    "populate"
+   ],
+   [
+    "populate",
+    "govern"
+   ]
+  ],
+  "a": 0,
+  "k": "cause",
+  "w": [
+   "because"
+  ],
+  "g": [
+   "conquer = לכבוש · govern = למשול",
+   "govern = למשול · conquer = לכבוש",
+   "conquer = לכבוש · populate = לאכלס",
+   "populate = לאכלס · govern = למשול"
+  ],
+  "t": "מכיוון שצבא יכול **לכבוש** מחוז בעונה אחת ואחר כך עליו **למשול** בו במשך עשורים, הצרה האמיתית של האימפריה החלה כשהקרבות נגמרו.",
+  "r": [
+   "conquer ואז govern הוא הסדר שהמשפט קובע: כיבוש בעונה אחת, ואחריו שליטה לאורך עשורים.",
+   "הסדר הפוך: אין מושלים (govern) במחוז בעונה אחת, ואין כובשים (conquer) אותו במשך עשורים.",
+   "populate נופל בחריץ השני: אכלוס הוא מעשה של מתיישבים, ומן הצבא נדרשת שליטה.",
+   "populate נופל בחריץ הראשון: צבא כובש מחוז ואינו מאכלס אותו בעונה אחת."
+  ]
+ },
+ {
+  "s": "Because a model can ___ the flood a week ahead and only a reading taken in the river can ___ the figure afterwards, the office publishes both numbers.",
+  "o": [
+   [
+    "foresee",
+    "validate"
+   ],
+   [
+    "validate",
+    "foresee"
+   ],
+   [
+    "foresee",
+    "exaggerate"
+   ],
+   [
+    "interpret",
+    "validate"
+   ]
+  ],
+  "a": 0,
+  "k": "cause",
+  "w": [
+   "because"
+  ],
+  "g": [
+   "foresee = לצפות מראש · validate = נתן תוקף",
+   "validate = נתן תוקף · foresee = לצפות מראש",
+   "foresee = לצפות מראש · exaggerate = להגזים",
+   "interpret = לפרש · validate = נתן תוקף"
+  ],
+  "t": "מכיוון שמודל יכול **לצפות** את ההצפה שבוע מראש ורק קריאה שנלקחה בנהר יכולה **לתת תוקף** למספר לאחר מכן, המשרד מפרסם את שני הנתונים.",
+  "r": [
+   "foresee ואז validate הוא הסדר שהמשפט קובע: המודל צופה מראש, והקריאה בנהר נותנת תוקף למספר.",
+   "הסדר הפוך: מודל אינו נותן תוקף (validate) לדבר שטרם קרה, וקריאה בנהר אינה צופה מראש (foresee).",
+   "exaggerate נופל בחריץ השני: הקריאה בנהר מודדת את המספר בפועל ואינה מגזימה בו.",
+   "interpret נופל בחריץ הראשון: המודל מפיק תחזית ואינו מפרש הצפה שטרם קרתה."
+  ]
+ }
+]
