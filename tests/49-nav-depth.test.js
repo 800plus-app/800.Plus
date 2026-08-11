@@ -87,10 +87,45 @@ describe('מודל הניווט', () => {
        הכשל המקורי שכל המודל הזה קיים בשבילו. */
     const at = app.search(/addEventListener\(\s*['"]popstate['"]/);
     assert.ok(at > 0, 'אין מאזין popstate');
-    const body = app.slice(at, at + 300);
+    /* ⚠ כאן היה חלון של 300 תווים, והוא נשבר ב-11.8 על **קוד תקין**: הערה
+       שנוספה בתוך המאזין דחפה את navTo אל מחוץ לחלון. זה בדיוק סוג הכשל
+       ש-א2 של הסבב הזה מנה — חלון-קסם שמודד מרחק במקום מבנה.
+       הגבול עכשיו הוא סוף המאזין עצמו. */
+    const close = app.indexOf('\n});', at);
+    assert.ok(close > at, 'לא נמצא סוף המאזין popstate');
+    const body = app.slice(at, close);
     assert.ok(/navTo\(/.test(body), 'המאזין אינו מנתב דרך navTo');
     assert.ok(/navPop\s*=\s*true/.test(body) && /navPop\s*=\s*false/.test(body),
       'המאזין אינו מרים ומוריד את navPop — goto ידחוף רשומה חדשה ויצור לולאה');
+  });
+
+  test('מונה הרשומות נשמר בתוך ההיסטוריה, לא נגזר מהעומק', () => {
+    /* ⛔ נמצא בבדק בית 3. "→ בית" החליף את הרשומה העליונה במקום לצרוך את מה
+       שנדחף, ולכן לחיצת "אחורה" הבאה נבלעה.
+       התיקון הנאיבי — history.go(-navDepth(current)) — נפסל אחרי **מדידה
+       בדפדפן**, לא בהשערה: מבית (עומק 0) אל סטטיסטיקה (עומק 2) נדחפת רשומה
+       **אחת**, ו-navDepth היה מחזיר 2. כלומר go(-2) היה מדלג רשומה אחת יותר
+       מדי ומוציא את המשתמש מהאפליקציה — כשל חמור בהרבה מהבאג המקורי.
+       לכן המונה נשמר ברשומה עצמה. הוא שורד רענון, והוא נכון גם בקפיצה של
+       שתי רמות בבת אחת. */
+    assert.match(app, /history\.pushState\(\{\s*scr:\s*id,\s*n:\s*n\s*\+\s*1\s*\}/,
+      'pushState אינו שומר מונה — אין דרך לדעת כמה רשומות לצרוך');
+    assert.match(app, /history\.replaceState\(\{\s*scr:\s*id,\s*n\s*\}/,
+      'replaceState אינו משמר את המונה — החלפה הייתה מאפסת אותו');
+    const at = app.indexOf("querySelectorAll('[data-home]')");
+    assert.ok(at > 0, 'לא נמצא מטפל data-home');
+    const body = app.slice(at, app.indexOf('\n});', at));
+    assert.ok(/history\.go\(-\s*n\s*\)/.test(body),
+      '"→ בית" אינו צורך את הרשומות שנדחפו — לחיצת "אחורה" הבאה תיבלע');
+    /* רק קוד חי, דרך codeMask. ההערה שמעל navN מצטטת את התיקון שנפסל בשמו —
+       וזו בדיוק הסיבה שהיא שם. שער שסופר גם הערות היה אוסר לתעד למה משהו
+       נפסל, כלומר מעניש את התיעוד הטוב. ⚠ סינון שורות לפי תחילית אינו מספיק:
+       שורות ההמשך בהערת בלוק אינן מתחילות בכוכבית. */
+    const { codeMask, codeMatches } = require('./_harness/scan.js');
+    assert.strictEqual(codeMatches(app, /history\.go\(-\s*navDepth/, codeMask(app)).length, 0,
+      'go(-navDepth) הוא התיקון שנפסל: עומק אינו מספר הרשומות, והוא מוציא מהאפליקציה');
+    assert.ok(/setTimeout/.test(body),
+      'אין רשת ביטחון: היסטוריה קצרה מהמונה לא מפעילה popstate, והכפתור ייראה מת');
   });
 
   test('navTo מחזיר למסך היחידה ולבית', () => {

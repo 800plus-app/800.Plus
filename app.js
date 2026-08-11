@@ -826,6 +826,16 @@ const NAV_DEPTH = { boot:0, intro:0, auth:0, welcome:0, locked:0, home:0, mode:0
                     quiz:2, results:2, exam:2, stats:2, manage:2, add:2, sent:2 };
 const navDepth = id => NAV_DEPTH[id] || 0;
 let navPop = false;   // אמת בזמן טיפול ב-popstate: הדפדפן כבר הזיז את ההיסטוריה
+/* ⛔ נמצא בבדק בית 3: "→ בית" השאיר רשומה תלויה, ולחיצת "אחורה" אחת נבלעה —
+   בדיוק הרגרסיה שההערה מעל NAV_DEPTH מתארת, רק מדלת אחרת.
+   התיקון הנאיבי — history.go(-navDepth(current)) — **שגוי ומסוכן**: עומק אינו
+   מספר הרשומות שנדחפו. כניסה לאנגלית עוברת mode (עומק 0) → sent (עומק 2)
+   ודוחפת **רשומה אחת**, ו-go(-2) היה מוציא את המשתמש מהאפליקציה.
+   לכן המונה נשמר בתוך רשומת ההיסטוריה עצמה: הוא שורד רענון, והוא נכון גם
+   כשקופצים כמה רשומות בבת אחת. */
+const navN = () => (history.state && history.state.n) || 0;
+let navHome = false;      // "→ בית" ממתין לגלישה חזרה אל הבסיס
+let navHomeT = null;      // רשת ביטחון: היסטוריה קצרה מהצפוי לא תשאיר כפתור מת
 
 function goto(id){
   SCREENS.forEach(s=>{
@@ -836,8 +846,9 @@ function goto(id){
   if(!navPop){
     const cur = history.state && history.state.scr;
     try{
-      if(navDepth(id) > navDepth(cur)) history.pushState({scr:id}, '');
-      else history.replaceState({scr:id}, '');
+      const n = navN();
+      if(navDepth(id) > navDepth(cur)) history.pushState({scr:id, n:n+1}, '');
+      else history.replaceState({scr:id, n}, '');
     }catch(e){}
   }
   if(id==='intro'){
@@ -2048,7 +2059,16 @@ function goBack(){
 }
 window.addEventListener('popstate', e=>{
   navPop = true;
-  try{ navTo((e.state && e.state.scr) || 'home'); }
+  try{
+    /* חזרנו מ-"→ בית": הרשומות שנדחפו כבר נצרכו, ועכשיו מציירים בית ומקבעים
+       את הבסיס על n=0. בלי navPop=false כאן, goto לא היה מעדכן את הרשומה
+       והמצב היה מכריז על מסך אחר מזה שרואים. */
+    if(navHome){
+      navHome = false; clearTimeout(navHomeT);
+      navPop = false; renderHome(); goto('home'); return;
+    }
+    navTo((e.state && e.state.scr) || 'home');
+  }
   finally{ navPop = false; }
 });
 // safety net: if the app is closed/backgrounded on the results screen, still record the round
@@ -2357,6 +2377,17 @@ $('#addSave').onclick=()=>{
 document.querySelectorAll('[data-home]').forEach(b=>b.onclick=()=>{
   if(!committed && session.size>0) commitSession();
   if(!BANK.length || (LANG!=='he' && LANG!=='en')){ renderWelcome(); return; }
+  /* צורכים את הרשומות שנדחפו במקום להחליף את העליונה בלבד. בלי זה נשארת רשומה
+     תלויה ולחיצת "אחורה" הבאה נבלעת — ראו ההערה על navN למעלה. */
+  const n = navN();
+  if(n > 0){
+    navHome = true;
+    /* אם ההיסטוריה קצרה מ-n (רענון שקיצץ אותה, או פתיחה מקישור) — go אינו
+       מפעיל popstate כלל, והכפתור היה נראה מת. נופלים חזרה לציור ישיר. */
+    clearTimeout(navHomeT);
+    navHomeT = setTimeout(()=>{ if(navHome){ navHome=false; renderHome(); goto('home'); } }, 250);
+    history.go(-n); return;
+  }
   renderHome(); goto('home');
 });
 document.querySelectorAll('[data-scope]').forEach(b=>b.onclick=()=>openScope(b.dataset.scope));
