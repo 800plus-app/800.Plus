@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;500;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* פוסט פייסבוק · השלמת משפטים · 1080×1350 (4:5).
+   פריט אמיתי מ-data-sent-en.js, רצועת "אקדמי" (150 פריטים). נבחר כי
+   הפסילה נשענת על רמז מפורש בגוף המשפט — הלוח שלם והסימנים חדים —
+   ולכן restore ו-translate נפסלות בהיגיון ולא בניחוש. תרגיל הוגן
+   שיש בו רגע הכרעה, וזה מה שהופך את התמונה למבחן ולא להכרזה. */
+:root{
+  --paper:#f6f1e7; --card:#fffdf8; --ink:#2c2620; --soft:#736a5c;
+  --gold:#c9962f; --accent:#b5482e; --line:#e3d8c4;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  width:1080px;height:1350px;position:relative;overflow:hidden;
+  background-color:var(--paper);
+  background-image:
+    radial-gradient(circle at 16% 12%, rgba(201,150,47,.16), transparent 44%),
+    radial-gradient(circle at 86% 86%, rgba(181,72,46,.11), transparent 48%);
+  font-family:'Heebo',sans-serif;direction:rtl;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:0 78px;text-align:center;
+}
+.mark{position:absolute;top:64px;font-family:'Frank Ruhl Libre',serif;font-weight:900;
+  font-size:46px;color:var(--gold);direction:ltr;letter-spacing:-.03em}
+.kicker{font-size:30px;color:var(--gold);font-weight:700;letter-spacing:.2em;margin-bottom:26px}
+h1{font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:78px;color:var(--ink);
+  line-height:1.08;margin-bottom:46px}
+
+/* המשפט · הגיבור של השקופית */
+.card{background:var(--card);border:1px solid var(--line);border-radius:26px;
+  padding:52px 46px;width:100%;box-shadow:0 2px 0 rgba(44,38,32,.04)}
+.sent{direction:ltr;font-family:'Frank Ruhl Libre',serif;font-weight:500;
+  font-size:44px;line-height:1.5;color:var(--ink);text-align:left}
+/* קו רציף ולא שלושה קווים תחתונים · הם נשברים לרווחים בגופן serif. */
+.blank{display:inline-block;width:210px;border-bottom:6px solid var(--accent);
+  vertical-align:.12em;margin:0 6px}
+
+/* ⚠ direction:ltr על הגריד. בלעדיו המסגרת ה-RTL הופכת את סדר התאים,
+   התשובה הנכונה נוחתת ראשונה, וזה רמז לא מכוון. הסדר כאן מפורש
+   והתשובה יושבת שנייה. */
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px;direction:ltr}
+.opt{direction:ltr;background:var(--paper);border:1.5px solid var(--line);border-radius:999px;
+  padding:20px 0;font-size:40px;font-weight:500;color:var(--ink);font-family:'Frank Ruhl Libre',serif}
+
+.hint{font-size:34px;color:var(--soft);font-weight:300;line-height:1.45;margin-top:44px}
+.hint b{color:var(--ink);font-weight:500}
+.foot{position:absolute;bottom:62px;display:flex;flex-direction:column;align-items:center;gap:16px}
+.cta{background:var(--accent);color:#fff;border-radius:999px;padding:22px 56px;
+  font-size:40px;font-weight:700;direction:ltr;letter-spacing:.03em}
+</style>
+</head>
+<body>
+  <div class="mark">800+</div>
+
+  <div class="kicker">השלמת משפטים · רמה אקדמית</div>
+  <h1>איזו מילה נכנסת?</h1>
+
+  <div class="card">
+    <div class="sent">
+      The clay tablet is whole and every mark<br>
+      on it is sharp, yet no scholar has managed<br>
+      to <span class="blank"></span> the writing it carries.
+    </div>
+
+    <div class="opts">
+      <div class="opt">translate</div>
+      <div class="opt">decipher</div>
+      <div class="opt">interpret</div>
+      <div class="opt">restore</div>
+    </div>
+  </div>
+
+  <!-- ⚠ כאן ישבה שורת רמז שהסבירה מה פוסל שלוש מהאפשרויות. הוסרה בכוונה:
+       היא פתרה חצי מהתרגיל, וההסבר הוא בדיוק מה שיש באפליקציה ולא כאן. -->
+
+  <div class="foot">
+    <div class="cta">800-plus.com</div>
+  </div>
+</body>
+</html>
