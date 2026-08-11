@@ -4636,6 +4636,15 @@ const examDays = ()=>{
   const t=new Date(y,m-1,d); t.setHours(0,0,0,0);
   return { date:v, days: Math.round((t.getTime()-t0.getTime())/864e5) };
 };
+/* ציון הדרך: מה עושים בטווח הזה, לא כמה נשאר — המספרים כבר אומרים את זה.
+   הניסוח נשען על הלקסיקון של המסך ("מילים שטרם תרגלת", "לחיזוק", "בשליטה") כדי
+   שלא ייווצר מונח חדש למושג קיים. הטווחים הם אלה שנקבעו: 30+ · 14–30 · 7–13 · 1–6 · 0. */
+const examTip = d =>
+    d >= 31 ? 'יש זמן לסבב מלא על כל המאגר'
+  : d >= 14 ? 'הזמן להתמקד במילים שטרם תרגלת'
+  : d >= 7  ? 'השבוע האחרון · חיזוק המילים שאינך שולט בהן'
+  : d >= 1  ? 'הימים האחרונים · חזרה על מה שכבר בשליטה'
+  : '';
 function renderAccExam(){
   const inp=$('#accExam'), sub=$('#accExamSub');
   if(!inp) return;
@@ -4644,6 +4653,11 @@ function renderAccExam(){
   const today=new Date();
   inp.min = today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'
           + String(today.getDate()).padStart(2,'0');
+  /* תקרה של שנתיים: מעבר לזה זו טעות הקלדה בשנה, לא מועד מבחן, וספירה לאחור
+     בת 30 אלף ימים היא שורה שנראית שבורה במסך הבית. */
+  const max=new Date(today.getFullYear()+2, today.getMonth(), today.getDate());
+  inp.max = max.getFullYear()+'-'+String(max.getMonth()+1).padStart(2,'0')+'-'
+          + String(max.getDate()).padStart(2,'0');
   sub.textContent = !e ? 'נוסיף ספירה לאחור למסך הבית'
     : e.days === 0 ? 'המבחן היום. בהצלחה.'
     : e.days === 1 ? 'המבחן מחר'
@@ -4661,8 +4675,18 @@ $('#accExam').onchange = ()=>{
    own is pressure; a countdown beside the work left is a plan. */
 function renderExamPill(){
   const host=$('#examPill'); if(!host) return;
+  host.onclick=null; host.classList.remove('exam-past');
   const e=examDays();
-  if(!e || e.days < 0 || e.days > 400){ host.classList.add('hidden'); return; }
+  if(!e || e.days > 400){ host.classList.add('hidden'); return; }
+  /* התאריך עבר: קודם השורה פשוט נעלמה, וזה קרא כאילו האפליקציה שכחה את המועד שהוגדר.
+     נבחנים ניגשים שוב, ולכן זו הזמנה לעדכן — ולחיצה פותחת את ההגדרות במקום לשלוח לחפש. */
+  if(e.days < 0){
+    host.innerHTML = '<span>מועד המבחן שהגדרת עבר · לחץ לעדכון המועד הבא</span>';
+    host.onclick = ()=>openAccount();
+    host.classList.add('exam-past');
+    host.classList.remove('hidden');
+    return;
+  }
   const c=classify('global');
   const left=c.fresh+c.weak;
   /* "1 ימים" אינו עברית, וזה ההבדל בין ספירה אישית לבין מחרוזת שהורכבה במכונה — ביום
@@ -4671,11 +4695,16 @@ function renderExamPill(){
   const soon = e.days===0 ? `המבחן <em>היום</em> · בהצלחה`
              : e.days===1 ? `המבחן <em>מחר</em> · <em>${left}</em> מילים שטרם תרגלת`
              : null;
-  host.innerHTML = soon ? `<span>${soon}</span>`
+  /* ציון הדרך יורד לשורה נפרדת ושקטה: הוא מדבר על אופן העבודה, לא על המספרים,
+     ואילו נדחס לאותה שורה הוא היה חלק רביעי בשרשרת שכבר ארוכה. ביום המבחן אין טיפ —
+     "בהצלחה" הוא כל מה שיש לומר. */
+  const tip=examTip(e.days);
+  host.innerHTML = (soon ? `<span>${soon}</span>`
     : `<span>` + (e.days===2 ? `נשארו <em>יומיים</em> עד המבחן`
                              : `<em>${e.days}</em> ימים עד המבחן`)
       + ` · <em>${left}</em> מילים שטרם תרגלת`
-      + ` · תרגול <em>${Math.ceil(left/e.days)}</em> מילים ביום עד המבחן</span>`;
+      + ` · תרגול <em>${Math.ceil(left/e.days)}</em> מילים ביום עד המבחן</span>`)
+    + (tip ? `<span class="pill-tip">${tip}</span>` : '');
   host.classList.remove('hidden');
 }
 $('#accAdmin').onclick = ()=>openAdmin();
