@@ -4,6 +4,11 @@ const $ = s => document.querySelector(s);
 const show = el => el.classList.remove('hidden');
 const hide = el => el.classList.add('hidden');
 const esc = s => String(s==null?'':s).replace(/[&<>"'`]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','`':'&#96;'}[c]));
+/* משפטי הדוגמה מגיעים מהמחולל עם <b> סביב המילה הנלמדת ועם תרגום שבו מודגשת
+   המילה המתורגמת. הזרקה גולמית הייתה עובדת, אבל היא מסתמכת על שער שרץ **בצד שני**
+   של הפרויקט: נבנה בפייתון, נצרך בדפדפן. כאן בורחים מהכול ואז מחזירים <b> ו-</b>
+   בלבד, ולכן שום תג אחר אינו יכול להגיע למסך גם אם הקובץ ייערך ביד. */
+const exBold = s => esc(s).replace(/&lt;(\/?)b&gt;/g, '<$1b>');
 function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
 let toastT;
 function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('show'),1900); }
@@ -1526,10 +1531,13 @@ function finishCard(ok, skipped){
       ? `<div class="also">הפירוש המלא: <b>${esc(w.meaning)}</b></div>` : '')+
     /* מוצג רק כאן, אחרי שהכרטיס נסגר: בכיוון פירוש→מילה המשפט מכיל את התשובה,
        ולכן לפני המענה הוא היה מסגיר אותה. bdi+dir כי משפט אנגלי בתוך מסך RTL.
-       הערך הוא [משפט, תרגום]. המשפט מגיע מהמחולל עם <b> מוכן סביב המילה
-       הנלמדת ואחרי שער שמוכיח שאין בו שום תו HTML אחר, ולכן נכנס כמות שהוא. */
+       הערך הוא [משפט, תרגום], ובשניהם המילה הנלמדת עטופה ב-<b> על ידי המחולל.
+       שלוש שורות ולא שורה אחת מתגלגלת: תווית · המשפט באנגלית · התרגום. בגרסה
+       הקודמת התווית והמשפט האנגלי חלקו שורה, ובמסך צר האנגלית נשברה באמצע. */
     (LANG==='en' && (window.EX_SENT_EN||{})[w.term]
-      ? `<div class="also">משפט לדוגמה: <bdi lang="en" dir="ltr">${window.EX_SENT_EN[w.term][0]}</bdi><br>${esc(window.EX_SENT_EN[w.term][1])}</div>` : '')+
+      ? `<div class="also ex-sent"><span class="ex-lbl">משפט לדוגמה</span>`
+        + `<span class="ex-en"><bdi lang="en" dir="ltr">${exBold(window.EX_SENT_EN[w.term][0])}</bdi></span>`
+        + `<span class="ex-he">${exBold(window.EX_SENT_EN[w.term][1])}</span></div>` : '')+
     (!ok?`<button class="was-right" id="wasRight">בעצם ידעתי · סמן כנכון</button>`:'')+
     `<div class="assoc">
        <label>💡 האסוציאציה שלי ל"${esc(w.term)}"</label>
@@ -5926,6 +5934,20 @@ function sentShuffled(it){
   };
 }
 
+/* המשפט המלא באנגלית, כשהתשובה הנכונה יושבת במקום החסר ומודגשת. עד כה ההסבר הציג
+   את התרגום לעברית בלבד, והמשפט האנגלי נשאר עם `___` בכרטיס שמעל — כלומר הלומד
+   מעולם לא ראה את המשפט השלם שהוא אמור לזכור. שלוש שורות באותו סדר בכל האפליקציה:
+   תווית · המשפט באנגלית · המשפט בעברית.
+   ⚠ בפריט זוג `o[a]` הוא מערך של שתי מילים ובמשפט שני חסרים, והסדר קובע: המילה
+   הראשונה לחסר הראשון. `min` מגן על פריט שבו יש יותר חסרים מחלקים, שאינו אמור
+   להתקיים אבל היה מייצר `undefined` על המסך במקום להיעדר בשקט. */
+function sentFull(it){
+  const parts = Array.isArray(it.o[it.a]) ? it.o[it.a] : [it.o[it.a]];
+  let k = 0;
+  return sEsc(it.s).replace(/_{2,}/g, () =>
+    `<b>${sEsc(parts[Math.min(k++, parts.length - 1)])}</b>`);
+}
+
 function renderSentCard(){
   const it = sentQ[sentI]; if(!it) return finishSentRound();
   sentAnswered = false;
@@ -5982,7 +6004,8 @@ function answerSent(pick){
       + `<p class="vd ok">התשובה: <code>${sEsc(sLabel(it.o[it.a]))}</code></p><p>${sEsc(r[it.a]||'')}</p>`;
   $('#sentExp').innerHTML =
       `<section><h4>המילים</h4>${g}</section>`
-    + `<section><h4>המשפט</h4><p class="s-tr">${sBold(it.t)}</p></section>`
+    + `<section><h4>המשפט</h4><p class="s-en"><bdi lang="en" dir="ltr">${sentFull(it)}</bdi></p>`
+      + `<p class="s-tr">${sBold(it.t)}</p></section>`
     + `<section class="s-why"><h4>${right?'למה זה נכון':'למה הבחירה שלך אינה נכונה'}</h4>${why}</section>`;
   $('#sentExp').classList.remove('hidden');
   $('#sentNext').textContent = (sentI+1 >= sentQ.length) ? 'סיום ←' : 'הבא ←';
