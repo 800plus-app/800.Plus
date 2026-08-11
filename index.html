@@ -1045,11 +1045,6 @@
      ומשך את תשומת הלב לימים שנותרו במקום לעבודה שנותרה. ההדגשה נשארה — בעובי ובצבע. */
   .exam-pill span{font-size:.86rem;color:var(--ink-soft);line-height:1.6}
   .exam-pill em{font-style:normal;color:var(--accent);font-weight:800}
-  /* ציון הדרך יושב בשורה משלו מתחת למספרים — flex-basis:100% שובר את השורה בלי
-     לשנות את פריסת השורה הראשונה. שקט יותר מהמספרים בכוונה: הוא הערת דרך, לא נתון. */
-  .exam-pill{flex-wrap:wrap}
-  .exam-pill .pill-tip{flex-basis:100%;font-size:.8rem;opacity:.85;margin-top:-2px}
-  .exam-pill.exam-past{cursor:pointer}
   .w-note{margin-top:9px;font-size:.78rem;color:var(--ink-soft);opacity:.9}
   .in-two{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}
   .in-two .btn{width:100%;padding-inline:6px}
@@ -1597,8 +1592,7 @@
         <button class="wc-alt" id="wcNext">המילה הבאה</button>
       </div>
     </div>
-    <!-- role=status: קורא מסך מקריא את הספירה כשהיא מופיעה או משתנה, בלי לחטוף פוקוס -->
-    <div class="exam-pill hidden" id="examPill" role="status"></div>
+    <div class="exam-pill hidden" id="examPill"></div>
     <button class="weak-cta hidden" id="homeWeak">
       <div class="wc-tx"><b>המילים שאתה עדיין מפספס</b><span id="homeWeakSub"></span></div>
       <div class="wc-go">←</div>
@@ -2126,14 +2120,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=184"></script>
-<script src="config.js?v=184"></script>
-<script src="store.js?v=184"></script>
-<script src="leveltest-he.js?v=184"></script>
-  <script src="leveltest.js?v=184"></script>
-<script src="enrank.js?v=184"></script>
-<script src="data.js?v=184"></script>
-<script src="data-en.js?v=184"></script>
-<script src="app.js?v=184"></script>
+<script src="supabase.min.js?v=183"></script>
+<script src="config.js?v=183"></script>
+<script src="store.js?v=183"></script>
+<script src="leveltest-he.js?v=183"></script>
+  <script src="leveltest.js?v=183"></script>
+<script src="enrank.js?v=183"></script>
+<script src="data.js?v=183"></script>
+<script src="data-en.js?v=183"></script>
+<script src="app.js?v=183"></script>
 </body>
 </html>
