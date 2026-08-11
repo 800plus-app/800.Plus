@@ -1,0 +1,80 @@
+blink	למצמץ	The little girl blinked her eyes several times.
+bloom	לפרוח; פריחה	The cherry trees bloom with beautiful pink flowers every single spring.
+brainwash	לשטוף את המוח	The company tried to brainwash new employees into working unpaid overtime without complaint.
+broaden	להרחיב	Reading many different books really helped broaden his perspectives about the world.
+canal	תעלה	The canal connects two major rivers in the lowlands.
+careless	לא זהיר, רשלני	He made a careless mistake and spilled coffee all over his new laptop.
+caution	זהירות; להזהיר	Yellow caution tape warned of the dangerous wet floor.
+certify	להצהיר, לאשר	The inspector will certify the building is safe.
+circuit	מסלול, להקיף; מעגל חשמלי	The runners completed three full laps of the circuit path.
+clarify	להבהיר	Could you clarify what you meant by that?
+classify	לסווג, מסווג	Scientists carefully classify animals by their physical and behavioral characteristics.
+cloak	גלימה, מעטה; מסווה, להסוות	The knight wore a red cloak over his armor.
+coastline	קו/רצועת חוף	The rocky coastline stretched for many miles along the sea.
+coincidence	צירוף מקרים	It was pure coincidence that we met again.
+collaborate	לשתף פעולה	The two artists decided to collaborate on a project.
+collision	התנגשות	The collision between the cars was very loud.
+combine	לצרף, לשלב	You need to combine the flour and sugar in a large mixing bowl.
+commentary	פרשנות	The sports commentary explained every play in detail.
+commerce	מסחר	International commerce brings goods from all over the world.
+comparison	השוואה	The comparison between the two prices was quite significant.
+compensate	לפצות	The company will compensate you for the damages.
+complication	סיבוך	An unexpected complication arose during the surgical procedure yesterday.
+compost	זבל אורגני	We save all our vegetable scraps for the garden compost.
+comprehension	הבנה	Her reading comprehension improved significantly with regular daily practice.
+compress	לדחוס	You need to compress the files before sending.
+conclude	לסיים; להסיק	The judge will conclude the trial tomorrow morning.
+confront	להתעמת, לעמת	She decided to confront him about his behavior.
+confrontation	עימות	The confrontation between the two groups turned ugly.
+conquer	לכבוש	She was determined to conquer her fear of public speaking this year.
+conscious	מודע	She remained conscious and alert throughout the entire medical procedure.
+consequence	תוצאה	The main consequence of pollution is environmental damage.
+consideration	שיקול, שיקול דעת; מכלול שיקולים; התחשבות	We took his opinion into careful consideration before the decision.
+consistent	עקבי	His performance has been consistent throughout the season.
+consistently	בעקביות	He has consistently arrived late to every meeting.
+consume	לצרוך	Most people consume vast amounts of water daily.
+consumers	צרכנים	Consumers demand better quality products for their money.
+continuous	מתמשך	The company provides continuous support to its clients.
+contribute	לתרום	Everyone should contribute ideas to the group project.
+convoy	שיירה	The military convoy traveled through the desert safely.
+cope	להתמודד	She learned to cope with stress over time.
+cord	חבל דק, חוט; כבל (חשמלי)	He tied the cord tightly around the package.
+cornerstone	אבן פינה	Hard work and dedication are the cornerstones of every successful career.
+costly	יקר	That mistake turned out to be very costly.
+county	מחוז, נפה	The county fair is held every summer here.
+courageous	אמיץ	The courageous firefighters rescued people from the burning building.
+craftsmen	אומן, בעל מלאכה	The craftsmen built the furniture with great skill.
+crop	לקצץ; יבול	The gardener decided to crop the tall plants.
+currency	מטבע	The currency exchange rate changed significantly again this morning at the bank.
+custom	מנהג; מותאם אישית	It is a local custom to greet neighbors with a small gift.
+dagger	פגיון	The collector proudly displayed an antique dagger in his private museum.
+dairy	מחלבה	The dairy products in this store are very fresh.
+decade	עשור	Technology has changed dramatically over the past decade.
+declaration	הכרזה, הצהרה	The manager read a formal declaration announcing the company's new safety policy.
+definite	ברור, מוגדר; ודאי	The boundary lines were definite and well marked.
+deform	לעוות	The extreme heat will gradually deform the plastic container.
+demonstrate	להדגים; להפגין	The doctor will demonstrate the correct technique during the training session.
+denial	הכחשה	Her denial of the obvious facts was quite surprising.
+dense	צפוף, סמיך	The dense forest blocked out most of the light.
+desirable	נחשק	That property is highly desirable in the market.
+desperation	ייאוש	Out of sheer desperation, he sold his car just to pay the rent.
+devastated	הרוס, מפורק	The entire building was devastated by the explosion.
+diabetes	סוכרת	She manages her diabetes with medication and diet.
+diagnose	לאבחן	The doctor will diagnose your condition during the appointment.
+dialect	ניב	The local dialect uses completely different words for common vegetables.
+dictate	להכתיב, לפקד	The boss will dictate who gets the promotion.
+differentiate	להבדיל, להבחין	She had to differentiate between the two designs.
+dim	עמום, קלוש, מעורפל; לעמעם	The dim lighting made it hard to read.
+disapproving	לא מאשר, לא מסכים, לא מרוצה	Her disapproving look showed she did not agree.
+disciplined	חינך, העניש; ממושמע	The coach will discipline players who break the rules.
+discrimination	אפליה; הבחנה	Discrimination against any group is wrong and illegal.
+disgust	גועל, להגעיל	The rotting trash filled everyone with immediate disgust.
+disobey	להפר, לא לציית	Young children often disobey their parents on purpose.
+disorder	אי-סדר, ערבוביה; מהומה, אי-שקט; הפרעה (רפואית)	The room was in complete disorder after the party.
+disrupt	להפריע, לשבש	Unexpected loud noise might disrupt the entire meeting.
+distinction	הבחנה, הבדל; מצוינות, הצטיינות	The distinction between the two ideas is significant.
+distinguish	להבדיל, להבחין	Can you distinguish between these two very similar colors?
+distract	להסיח את הדעת	The bright flashlight distracted him from his task.
+distribute	להפיץ	The volunteers will distribute blankets to the homeless.
+distribution	הפצה	The distribution of resources was fair and balanced.
+disturbance	הפרעה	The disturbance in the classroom lasted for hours.

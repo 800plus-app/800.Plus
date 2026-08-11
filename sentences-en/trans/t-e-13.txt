@@ -1,0 +1,80 @@
+honor	לכבד, כבוד	The ceremony was designed to honor the brave firefighters who saved lives.
+host	מארח	She enjoys hosting parties and gathering friends for dinner every weekend.
+however	למרות זאת; בכל דרך	The weather was bad; however, we continued the hike anyway.
+hunger	רעב	He hadn't eaten all day and felt intense hunger by evening.
+hunt	לצוד, ציד	He decided to hunt elk in the mountains this autumn.
+hunter	צייד	The hunter tracked the wounded animal through the forest for hours.
+ignore	להתעלם	She chose to ignore the negative comments and focus on herself.
+ill	חולה	He became ill with a high fever and stayed home from work.
+illegal	לא חוקי	Driving without a valid license is illegal in most countries today.
+image	דמות, תמונה	The image of the sunset was perfectly reflected in the still lake.
+imagine	לדמיין	Try to imagine yourself living on a remote tropical island.
+immediately	מיד	He received the package and immediately opened it to check.
+impact	השפעה; התנגשות	The new policy had a significant impact on company productivity.
+impressive	מרשים	Her performance was so impressive that the audience stood and applauded.
+in general	באופן כללי	In general, cats prefer quiet environments and avoid loud noises.
+include	לכלול	The price includes breakfast, lunch, and a bus tour of the city.
+incredible	מדהים	It was incredible to see the team win against all odds.
+independent	עצמאי	She became independent after moving to her own apartment.
+individual	יחיד, אינדיבידואל	Each individual student received personalized feedback on their essays.
+influence	השפעה, להשפיע	Teachers have a strong influence on their students' academic success.
+injury	פציעה	The athlete suffered a serious injury and missed three games.
+inner	פנימי	She struggled with her inner demons and sought professional help.
+instant	מיידי; בהרף עין	She gave an instant reply to his urgent text message.
+instead	במקום זאת, תחת זאת	We had no milk, so I used cream instead.
+instead of	במקום	Instead of coffee, he ordered tea for breakfast.
+intelligence	אינטליגנציה; מודיעין	His intelligence helped him solve the complex mathematics problem.
+intense	עז, אינטנסיבי	The heat was so intense that people couldn't stay outside.
+introduce	להציג, לעשות היכרות	Let me introduce you to my college roommate, Sarah.
+investigate	לחקור	The police investigated the robbery and found the stolen jewelry.
+invisible	בלתי נראה	The stain was invisible to the naked eye.
+judge	לשפוט; שופט	Don't judge others based on their appearance or background.
+kingdom	ממלכה	The kingdom was ruled by a wise and just monarch.
+kitchen	מטבח	Mom prepares all the meals in the large kitchen.
+knees	ברכיים	He fell to his knees when he heard the sad news.
+knowledge	יֶדַע	Her knowledge of ancient history impressed all the university professors.
+known	ידוע	That restaurant is known for serving the best pizza in town.
+lake	אגם	The beautiful lake was surrounded by tall evergreen trees.
+lawyer	עורך-דין	The lawyer presented her case to the judge.
+lecture	הרצאה	The professor gave a long lecture about ancient Roman architecture.
+led to	הוביל ל-	The investigation led to the arrest of three suspects.
+license	רישיון; לאשר, להתיר	You need a license to operate a fishing boat.
+limit	גבול, לשים גבול, מוגבל	The speed limit on the highway is seventy miles per hour.
+lip	שפה	She had a scar on her upper lip from childhood.
+lower	להנמיך	You should lower your voice in the library.
+manage	לנהל; להצליח, להסתדר (___ to)	She manages the office and oversees all the staff.
+management	ניהול	Good management is essential for a successful business operation.
+mark	לסמן	He used a marker to mark the boxes for the movers.
+marriage	נישואין	Their marriage lasted fifty years before his unexpected death.
+material	חומר, חומרני	The material of the dress felt soft and smooth.
+medicine	רפואה, תרופה	He studied medicine for eight years to become a doctor.
+mention	להזכיר, לאזכר	Don't mention the surprise party in front of the birthday boy.
+method	שיטה	His method for solving math problems saved him a lot of time.
+military	צבא, צבאי	He served in the military for five years of his life.
+mirror	מראה	She looked at herself in the mirror every morning before work.
+monitor	להשגיח, מוניטור	The teacher will monitor your progress throughout the entire semester.
+mostly	לרוב	The guests were mostly elderly people from the surrounding neighborhood.
+movement	תנועה	The movement of the clouds suggested a storm was approaching.
+mystery	תעלומה	The mystery of the missing artwork puzzled detectives for years.
+nation	אומה	The nation celebrated its independence day with parades and fireworks.
+nearby	ליד, קרוב	There's a grocery store nearby, just two blocks away.
+necessary	הכרחי	Warm clothes are necessary for surviving in arctic conditions.
+neighborhood	שכונה	Our neighborhood is safe and filled with friendly families.
+nervous	עצבני, לחוץ, מתוח	She felt nervous before her first public speaking engagement.
+no longer	לא עוד	He no longer smokes after successfully quitting last year.
+noon	צהריים (12:00)	We agreed to meet at noon by the fountain.
+note	הערה, פתק; לציין	She wrote a note on the kitchen table for her brother.
+notice	לשים לב; התראה	Did you notice the new painting on the gallery wall?
+nuclear	גרעיני	Nuclear power plants provide electricity to millions of people.
+obviously	ברור	She obviously forgot her umbrella because she got soaked.
+opportunity	הזדמנות	Getting into that college was a great opportunity for her.
+opposite	מנוגד, ממול	My apartment is on the opposite side of the building.
+organization	ארגון	The non-profit organization donated thousands of meals to homeless shelters.
+pair	זוג	She bought a new pair of shoes for the wedding.
+passion	תשוקה	His passion for music drove him to become a professional musician.
+patience	סבלנות	She waited in line for two hours without losing her patience.
+patient	סבלני; חולה	She remained patient while waiting for her appointment.
+patients	מטופלים	The hospital discharged three patients who recovered from surgery.
+peaceful	שָׁלֵו, שקט	The peaceful village had quiet streets and friendly smiling neighbors.
+per	לכל	Gas costs four dollars per gallon at that station.
+performance	ביצוע; הופעה	Her performance during the job interview exceeded her manager's expectations.

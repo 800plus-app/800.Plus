@@ -1,0 +1,80 @@
+practical	מעשי	The practical approach was to use existing materials instead of ordering new ones.	הגישה המעשית הייתה להשתמש בחומרים קיימים במקום להזמין חדשים.
+primary	יסודי, עיקרי	Her primary concern was getting the children to school safely every morning.	הדאגה העיקרית שלה הייתה להביא את הילדים לבית הספר בבטחה בכל בוקר.
+principle	עיקרון, כלל יסוד	The principle of honesty guided all their business decisions and personal relationships.	עקרון היושר הנחה את כל ההחלטות העסקיות והיחסים האישיים שלהם.
+privilege	זכות יתר, פריווילגיה	Having a car was a privilege she did not take for granted.	להיות בעלת רכב הייתה זכות יתר שהיא לא לקחה כמובנת מאליה.
+produce	לייצר; תוצר, ירקות ופירות	The farm produces tomatoes, lettuce, and beans for local restaurants.	החווה מייצרת עגבניות, חסה ושעועית עבור מסעדות מקומיות.
+profession	מקצוע	She chose medicine as a profession after volunteering at the hospital.	היא בחרה ברפואה כמקצוע אחרי שהתנדבה בבית החולים.
+promotion	קידום	His promotion to manager came after years of excellent performance.	הקידום שלו לתפקיד מנהל הגיע אחרי שנים של ביצועים מצוינים.
+proposal	הצעה	The city rejected the proposal for a new shopping center downtown.	העירייה דחתה את ההצעה למרכז קניות חדש במרכז העיר.
+propose	להציע; להציע נישואין	He decided to propose a compromise that both sides could accept.	הוא החליט להציע פשרה ששני הצדדים יוכלו לקבל.
+provoke	להתגרות, להסית	Insulting his work would only provoke him to argue back.	העלבת העבודה שלו רק תגרה אותו להתווכח בחזרה.
+publisher	מוציא לאור	A small publisher in Berlin agreed to print his first book.	מוציא לאור קטן בברלין הסכים להדפיס את ספרו הראשון.
+purse	ארנק	She kept her keys and wallet in a small leather purse.	היא שמרה את המפתחות ואת ארנק הכסף שלה בארנק עור קטן.
+radiation	קרינה	The machine emits dangerous radiation if the safety gate is open.	המכונה פולטת קרינה מסוכנת אם שער הבטיחות פתוח.
+rapidly	במהירות	The population of the city grew rapidly during the economic boom.	האוכלוסייה של העיר גדלה במהירות במהלך הפריחה הכלכלית.
+rarely	לעיתים נדירות	He rarely eats meat and usually orders vegetarian dishes.	הוא אוכל בשר לעיתים נדירות ובדרך כלל מזמין מנות צמחוניות.
+raw	חי, נא (בשר); גולמי, גס	Raw chicken must be cooked thoroughly before eating to stay safe.	יש לבשל עוף חי היטב לפני האכילה כדי לשמור על הבטיחות.
+razor	סכין גילוח	He sharpened his razor before shaving his thick beard.	הוא השחיז את סכין הגילוח שלו לפני שגילח את הזקן העבות שלו.
+reasonable	הגיוני	A reasonable person would wait for evidence before believing the story.	אדם הגיוני היה מחכה לראיות לפני שהוא מאמין לסיפור.
+rebellion	מרד	The teenager's rebellion against curfew rules upset his tired parents every night.	המרד של הנער נגד כללי העוצר הכעיס את הוריו העייפים בכל לילה.
+recipe	מתכון	The recipe called for two eggs, flour, and a pinch of salt.	המתכון דרש שתי ביצים, קמח וקורט מלח.
+recognition	הכרה	Her hard work earned recognition from colleagues and senior management.	העבודה הקשה שלה הקנתה לה הכרה מצד עמיתים והנהלה בכירה.
+recover	להתאושש	The patient recovered quickly from surgery and went home after one week.	המטופל התאושש במהירות מהניתוח וחזר הביתה כעבור שבוע.
+reference	התייחסות, הפניה	The textbook includes a reference to studies from the 1990s.	ספר הלימוד כולל התייחסות למחקרים משנות התשעים.
+region	מחוז, אזור	The northern region experiences snow while the south remains warm.	האזור הצפוני חווה שלג בעוד הדרום נשאר חם.
+registration	הרשמה	Registration for the class closes on Friday at five o'clock.	ההרשמה לכיתה נסגרת ביום שישי בשעה חמש.
+reject	לדחות	The committee voted to reject the proposal as too expensive.	הוועדה הצביעה לדחות את ההצעה בטענה שהיא יקרה מדי.
+relative	קרוב-משפחה; יחסי	She had a relative from England visit for a week.	קרוב משפחה שלה מאנגליה ביקר אצלה במשך שבוע.
+relatively	יחסית, באופן יחסי	The assignment was relatively easy compared to last week's difficult project.	המטלה הייתה קלה יחסית בהשוואה לפרויקט הקשה של השבוע שעבר.
+reliable	אמין, שניתן לסמוך עליו	This car has proven reliable even after ten years of driving.	המכונית הזאת הוכיחה את עצמה כאמינה גם אחרי עשר שנות נהיגה.
+reputation	שם, מוניטין	His reputation as a doctor was damaged by the medical error.	המוניטין שלו כרופא נפגע בעקבות הטעות הרפואית.
+require	לדרוש, דרישה	The job requires experience in programming and strong communication skills.	המשרה דורשת ניסיון בתכנות וכישורי תקשורת חזקים.
+reserve	עתודה, מילואים; לשמור; שמורה	The country keeps a large reserve of grain in case of shortage.	המדינה שומרת עתודה גדולה של תבואה למקרה של מחסור.
+resident	תושב, דייר	Each resident of the building must follow the parking regulations.	כל תושב בבניין חייב לציית לתקנות החניה.
+resist	להתנגד	He tried to resist eating the chocolate cake but finally gave in.	הוא ניסה להתנגד לפיתוי של עוגת השוקולד אבל בסוף נכנע.
+resistance	התנגדות, מחתרת	Her strong resistance to change made switching to the new software frustrating for everyone.	ההתנגדות החזקה שלה לשינוי הפכה את המעבר לתוכנה החדשה למתסכל עבור כולם.
+resort	אתר נופש; לנקוט באמצעים	They spent a relaxing week at a beach resort near the coast.	הם בילו שבוע מרגיע באתר נופש על שפת הים.
+restore	לשקם, לשחזר	They hired workers to restore the old painting to its original condition.	הם שכרו פועלים כדי לשקם את הציור הישן למצבו המקורי.
+retirement	פרישה	Her retirement at sixty-five finally allowed her to travel the world.	הפרישה שלה בגיל שישים וחמש איפשרה לה סוף סוף לטייל בעולם.
+reveal	לחשוף	The photographer used lighting to reveal the texture of the stone wall.	הצלם השתמש בתאורה כדי לחשוף את המרקם של קיר האבן.
+rising	זריחה; עולה	The rising sun painted the sky orange and pink.	השמש העולה צבעה את השמיים בכתום וורוד.
+ritual	טקס, פולחן	The family's ritual was to gather for dinner every Sunday together.	הטקס המשפחתי היה להתכנס יחד לארוחת ערב בכל יום ראשון.
+rival	יריב	The two companies were bitter rivals competing for the same market.	שתי החברות היו יריבות מרות שהתחרו על אותו שוק.
+roast	לצלות, לקלות; צלי	She roasted the chicken with garlic and herbs for dinner.	היא צלתה את העוף עם שום ועשבי תיבול לארוחת הערב.
+robbery	שוד	The jewelry store robbery happened on a quiet Tuesday evening.	שוד חנות התכשיטים קרה בערב שלישי שקט.
+rub	לשפשף	He would rub his hands together when nervous or excited.	הוא היה משפשף את הידיים זו בזו כשהיה עצבני או נרגש.
+rubber	גומי	The rubber seal on the door keeps cold air from entering.	אטם הגומי שבדלת מונע כניסה של אוויר קר.
+ruins	הריסות, עיי חורבות	Tourists wandered through the ancient ruins scattered across the quiet hillside.	תיירים שוטטו בין ההריסות העתיקות שהיו מפוזרות על גבעה שקטה.
+rumor	שמועה	The rumor spread quickly but was proven false by morning.	השמועה התפשטה במהירות אבל התבררה כשקרית עד הבוקר.
+sailor	ימאי	The sailor spent twenty years traveling the ocean on ships.	הימאי בילה עשרים שנה בשיט באוקיינוס על ספינות.
+satellite	לווין	A satellite orbits the Earth every ninety minutes collecting weather data.	לווין מקיף את כדור הארץ כל תשעים דקות ואוסף נתוני מזג אוויר.
+satisfaction	שביעות רצון	Winning the championship brought him tremendous satisfaction and pride.	הניצחון באליפות הביא לו שביעות רצון עצומה וגאווה.
+satisfy	לרצות, לספק	Eating one cookie was never enough to satisfy her sweet tooth.	אכילת עוגייה אחת מעולם לא הספיקה כדי לספק את החשק שלה למתוק.
+sculpture	פסל	The sculpture made of marble stood in the museum's main gallery.	הפסל העשוי משיש עמד בגלריה הראשית של המוזיאון.
+secure	להבטיח, לשמור, להגן	The bank uses multiple systems to secure its customers' money safely.	הבנק משתמש במספר מערכות כדי לאבטח את כספי הלקוחות שלו בבטחה.
+sequence	רצף	The events happened in the wrong sequence and caused confusion.	האירועים קרו ברצף הלא נכון וגרמו לבלבול.
+servant	משרת	The servant brought tea and biscuits to the guests.	המשרת הביא תה ועוגיות לאורחים.
+session	מושב	The therapy session lasted an hour and helped her feel better.	מושב הטיפול נמשך שעה ועזר לה להרגיש טוב יותר.
+sheet	סדין; דף	She pulled the white sheet over the mattress carefully.	היא משכה את הסדין הלבן על המזרן בזהירות.
+shell	קליפה, מעטפת; פגז	The shell of a turtle protects it from danger.	הקליפה של הצב מגנה עליו מפני סכנה.
+shelter	מקלט	The cave provided shelter from the heavy rain and cold.	המערה סיפקה מקלט מהגשם הכבד והקור.
+shiny	נוצץ, בוהק	The shiny car reflected sunlight as it drove down the street.	המכונית הנוצצת שיקפה את אור השמש בנסיעתה ברחוב.
+shrink	לכווץ ,כיווץ	Hot water will shrink wool sweaters if you wash them incorrectly.	מים חמים יכווצו סוודרי צמר אם תכבסו אותם בצורה לא נכונה.
+significant	משמעותי	The study showed a significant increase in local bird populations this year.	המחקר הראה עלייה משמעותית באוכלוסיות הציפורים המקומיות השנה.
+silk	משי	The dress was made of expensive silk imported from Asia.	השמלה הייתה עשויה ממשי יקר שיובא מאסיה.
+sink	כיור; לשקוע	She washed the dirty dishes in the kitchen sink after dinner.	היא שטפה את הכלים המלוכלכים בכיור המטבח אחרי ארוחת הערב.
+sketch	שרטוט, איור, סקיצה	He drew a sketch of the building before starting the actual design.	הוא צייר סקיצה של הבניין לפני שהתחיל בעיצוב עצמו.
+specifically	באופן ספציפי, ליתר דיוק, במפורש	I asked him specifically about his qualifications and work experience.	שאלתי אותו באופן ספציפי על כישוריו וניסיון העבודה שלו.
+spill	לשפוך	Be careful not to spill your hot coffee on the white carpet.	היזהר לא לשפוך את הקפה החם שלך על השטיח הלבן.
+spiritual	רוחני	Standing among the tall trees gave her a quiet spiritual sense of peace.	לעמוד בין העצים הגבוהים העניק לה תחושה רוחנית שקטה של שלווה.
+spoil	לקלקל; לפנק; לבזוז, שלל; להרוס	Too many gifts will spoil the child and make him ungrateful.	יותר מדי מתנות יקלקלו את הילד ויהפכו אותו לכפוי טובה.
+spotlight	זרקור	The spotlight on the singer made the audience focus on her performance.	הזרקור על הזמרת גרם לקהל להתמקד בהופעה שלה.
+stable	יציב	A stable job provided him with financial security and peace of mind.	עבודה יציבה סיפקה לו ביטחון כלכלי ושקט נפשי.
+stack	ערמה	She made a stack of clean plates and put them away.	היא הכינה ערמה של צלחות נקיות והניחה אותן במקום.
+staircase	גרם מדרגות	The staircase led up to the second floor of the office.	גרם המדרגות הוביל לקומה השנייה של המשרד.
+stamp	בול, חותמת	She put a stamp on the envelope before mailing the letter.	היא הדביקה בול על המעטפה לפני ששלחה את המכתב.
+starve	לרעוב	Without food and clean water, people will starve in weeks.	בלי מזון ומים נקיים, אנשים ירעבו תוך שבועות.
+statue	פסל	The bronze statue in the park honored the town's founder.	פסל הברונזה בפארק הנציח את מייסד העיר.
+steel	פלדה	Steel is stronger than iron and used for building bridges.	פלדה חזקה יותר מברזל ומשמשת לבניית גשרים.
+sticky	דביק	The sticky tape held the broken vase together perfectly.	הסלוטייפ הדביק החזיק את האגרטל השבור יחד בצורה מושלמת.
+straighten	ליישר	She asked him to straighten his tie before the interview.	היא ביקשה ממנו ליישר את העניבה שלו לפני הראיון.

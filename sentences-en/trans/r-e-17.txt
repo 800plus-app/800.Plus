@@ -1,0 +1,80 @@
+deliver	למסור, לספק; לשאת (נאום); ליילד	The courier will deliver your package by noon tomorrow.	השליח ימסור לך את החבילה עד הצהריים מחר.
+depend on	תלוי ב-	His future depends on his study skills and hard work.	העתיד שלו תלוי בכישורי הלימוד ובעבודה הקשה שלו.
+desire	תשוקה, חשק, לחפוץ	She felt a strong desire to travel across Europe someday.	היא חשה תשוקה עזה לטייל ברחבי אירופה יום אחד.
+desperate	נואש	He was desperate for water after walking in the desert.	הוא היה נואש למים אחרי שהלך במדבר.
+despite	למרות	Despite her injury, she finished the race with determination.	למרות הפציעה שלה, היא סיימה את המרוץ בנחישות.
+dimension	מימד	Time is often called the fourth dimension in physics.	הזמן מכונה לעיתים קרובות המימד הרביעי בפיזיקה.
+disadvantage	חסרון	Height is a disadvantage in gymnastics but useful in basketball.	גובה הוא חסרון בהתעמלות אך שימושי בכדורסל.
+disagreement	חוסר הסכמה	A disagreement about money ended their long-standing friendship.	חוסר הסכמה בנוגע לכסף סיים את חברותם הארוכה.
+discoveries	תגליות	Ancient discoveries in Egypt taught us about pyramid construction.	תגליות עתיקות במצרים לימדו אותנו על בניית הפירמידות.
+divide	לחלק	She divided the pizza into four equal pieces for everyone.	היא חילקה את הפיצה לארבעה חלקים שווים לכולם.
+divorce	גירושין	The couple decided to divorce after ten years of unhappiness.	הזוג החליט להתגרש אחרי עשר שנים של אומללות.
+dominate	לשלוט	The winning team dominated every game throughout the season.	הקבוצה המנצחת שלטה בכל משחק במהלך העונה.
+donate	לתרום	Please donate your old clothes to charity instead of trash.	אנא תרמו את הבגדים הישנים שלכם לצדקה במקום לזרוק אותם.
+doubt	ספק, להטיל ספק	I have some doubt about whether he told the whole truth.	יש לי קצת ספק אם הוא סיפר את כל האמת.
+due to	בגלל, לאור	The event was cancelled due to heavy rain and bad weather.	האירוע בוטל בגלל גשם כבד ומזג אוויר גרוע.
+dust	אבק, לאבק	Dust slowly covered the old furniture in the abandoned house.	אבק כיסה לאט לאט את הרהיטים הישנים בבית הנטוש.
+duty	תפקיד, חובה	It is your duty to help people when they are struggling.	זו חובתך לעזור לאנשים כשהם מתקשים.
+earn	להרוויח	She earns a comfortable salary from her job at the bank.	היא מרוויחה משכורת נוחה מהעבודה שלה בבנק.
+earthquake	רעידת אדמה	The earthquake damaged buildings and disrupted lives throughout the region.	רעידת האדמה פגעה בבניינים ושיבשה חיים ברחבי האזור.
+edge	קצה, שוליים; יתרון; להב (של סכין)	Be careful near the edge of the steep cliff up there.	היזהר ליד קצה הצוק התלול שם למעלה.
+either... or...	או... או...	You can choose either tea or coffee with your breakfast.	אתה יכול לבחור או תה או קפה לארוחת הבוקר.
+empathy	הזדהות, אמפתיה	She showed empathy by listening to her friend's sad story.	היא הפגינה אמפתיה כשהקשיבה לסיפור העצוב של חברתה.
+emperor	שליט, קיסר	The emperor ruled over a vast empire with millions of subjects.	הקיסר שלט באימפריה עצומה עם מיליוני נתינים.
+enable	לאפשר	Modern technology enables us to communicate with people worldwide instantly.	הטכנולוגיה המודרנית מאפשרת לנו לתקשר עם אנשים בכל העולם באופן מיידי.
+enzyme	אנזים	Enzymes help break down food during the digestive process completely.	אנזימים מסייעים לפרק את המזון במהלך תהליך העיכול.
+epic	אפוס; אפי	The ancient epic tells the incredible story of a hero's long journey.	האפוס העתיק מספר את סיפורו המדהים של המסע הארוך של הגיבור.
+epidemic	מגיפה, אפידמיה	During the epidemic, hospitals were overwhelmed with seriously ill patients.	במהלך המגיפה, בתי החולים היו עמוסים בחולים במצב קשה.
+ethical	אתי, מוסרי	It is ethical to treat all people with kindness and respect.	זה אתי להתייחס לכל בני האדם באדיבות ובכבוד.
+even	אפילו; זוגי (מספר); ליישר, להשוות	Even the smallest children understood the movie's simple, clear story.	אפילו הילדים הקטנים ביותר הבינו את הסיפור הפשוט והברור של הסרט.
+even so	אף על פי כן	It was very cold outside; even so, she played in the snow.	היה קר מאוד בחוץ; אף על פי כן, היא שיחקה בשלג.
+eventually	לבסוף	After years of hard studying, she eventually became a successful doctor.	אחרי שנים של לימוד קשה, היא הפכה לבסוף לרופאה מצליחה.
+evidence	ראיה	The evidence at the scene proved he was completely innocent.	הראיה בזירה הוכיחה שהוא חף מפשע לחלוטין.
+evolve	להתפתח	Species evolve slowly over millions of years to adapt to environments.	מינים מתפתחים לאט על פני מיליוני שנים כדי להסתגל לסביבתם.
+examination	בחינה, בדיקה	She studied for weeks to prepare for the difficult final examination.	היא למדה שבועות כדי להתכונן לבחינה הסופית הקשה.
+examine	לבחון	The doctor examined her throat to see if it was infected.	הרופא בחן את הגרון שלה כדי לראות אם הוא נגוע.
+excite	לרגש, לעורר	The news about the surprise party excited the young children greatly.	החדשות על מסיבת ההפתעה ריגשו מאוד את הילדים הקטנים.
+exclusive	בלעדי	Only members with special invitations can enter this exclusive club here.	רק חברים עם הזמנות מיוחדות יכולים להיכנס למועדון הבלעדי הזה.
+expectations	ציפיות	Her expectations for the new job were high but realistic.	הציפיות שלה מהעבודה החדשה היו גבוהות אך ריאליות.
+explore	לחקור, ללמוד	Scientists explore caves to understand life in underground ecosystems completely.	מדענים חוקרים מערות כדי להבין את החיים במערכות האקולוגיות התת-קרקעיות.
+explosive	חומר נפץ	Explosive materials must be handled with extreme care and safety.	יש לטפל בחומרי נפץ בזהירות ובבטיחות מרביות.
+export	ייצוא	Japan exports high-quality cars to countries around the entire world.	יפן מייצאת מכוניות איכותיות למדינות ברחבי העולם.
+external	חיצוני	External conditions like weather affect how plants grow and develop.	תנאים חיצוניים כמו מזג האוויר משפיעים על האופן שבו צמחים גדלים ומתפתחים.
+factor	גורם	One important factor in success is maintaining a positive attitude.	גורם חשוב אחד בהצלחה הוא שמירה על גישה חיובית.
+fairy	פיה	The fairy waved her magic wand and disappeared into the forest.	הפיה נופפה בשרביטה הקסום ונעלמה ביער.
+fairytale	אגדה	The fairytale told of a princess locked in a tall tower.	האגדה סיפרה על נסיכה כלואה במגדל גבוה.
+faith	אמונה; אמון	She had faith that everything would work out fine in the end.	היה לה אמונה שהכול יסתדר בסוף.
+fall apart	להתפרק	The old building began to fall apart from water and rot.	הבניין הישן החל להתפרק ממים ומריקבון.
+familiar	מוכר	He instantly recognized the familiar voice of his childhood best friend.	הוא זיהה מיד את הקול המוכר של חברו הכי טוב מהילדות.
+fatal	קטלני, ממית; הרה-אסון, גורלי	The fatal crash killed the driver instantly and injured two passengers.	התאונה הקטלנית הרגה את הנהג במקום ופצעה שני נוסעים.
+fate	גורל, חרץ גורל	Once they made that choice, their fate was sealed forever.	ברגע שקיבלו את ההחלטה הזו, גורלם נחתם לעד.
+favor	טובה; להעדיף	Could you do me a favor and help me move tomorrow?	תוכל לעשות לי טובה ולעזור לי לעבור דירה מחר?
+fiction	בדיון, לא אמיתי	She prefers reading fiction to history books based on real events.	היא מעדיפה לקרוא בדיון על פני ספרי היסטוריה המבוססים על אירועים אמיתיים.
+filmmaker	יוצר סרטים	The filmmaker spent three years directing her independent first movie.	יוצרת הסרטים בילתה שלוש שנים בבימוי סרטה העצמאי הראשון.
+fingerprint	טביעת אצבע	Police found a fingerprint at the crime scene on the window.	המשטרה מצאה טביעת אצבע בזירת הפשע על החלון.
+flavor	לתבל; טעם	She added fresh basil to flavor the tomato sauce nicely.	היא הוסיפה בזיליקום טרי כדי לתבל את רוטב העגבניות בצורה נעימה.
+flexible	גמיש	The flexible rubber band can stretch far without breaking easily.	הגומייה הגמישה יכולה להימתח הרבה בלי להישבר בקלות.
+folklore	פולקלור	Folklore includes myths and legends passed through generations by tradition.	הפולקלור כולל מיתוסים ואגדות שעוברים מדור לדור במסורת.
+fork	מזלג	Use a fork to eat the salad, not a big spoon.	השתמש במזלג כדי לאכול את הסלט, לא בכף גדולה.
+formal	רשמי	A formal dinner requires wearing nice clothes and excellent manners.	ארוחת ערב רשמית מחייבת לבישת בגדים נאים ונימוסים מצוינים.
+fortune	מזל; עושר	By great fortune, she found the ring she had lost.	במזל גדול, היא מצאה את הטבעת שאיבדה.
+from time to time	מפעם לפעם	From time to time, we visit our relatives in the countryside.	מפעם לפעם, אנחנו מבקרים את קרובי המשפחה שלנו בכפר.
+frustration	תסכול	His frustration grew as the computer kept crashing repeatedly.	התסכול שלו גבר ככל שהמחשב המשיך לקרוס שוב ושוב.
+fundamental	בסיסי (פונדמנטלי)	Reading and math are fundamental skills for all students.	קריאה וחשבון הם כישורים בסיסיים לכל התלמידים.
+further	יותר, נוסף, רחוק יותר; לקדם	We walked further down the beach to find a quiet spot.	הלכנו רחוק יותר לאורך החוף כדי למצוא מקום שקט.
+generally	באופן כללי	Generally, people prefer sunny days to cold, rainy weather.	באופן כללי, אנשים מעדיפים ימים שמשיים על פני מזג אוויר קר וגשום.
+generate	לייצר, להפיק, ליצור	Wind turbines generate electricity for thousands of local homes.	טורבינות רוח מייצרות חשמל עבור אלפי בתים מקומיים.
+generated	יצר	The factory generated tons of waste that polluted the river.	המפעל יצר טונות של פסולת שזיהמה את הנהר.
+genre	ז'אנר, סוגה	Science fiction is her favorite genre because of adventure stories.	מדע בדיוני הוא הז'אנר האהוב עליה בזכות סיפורי ההרפתקאות.
+given	נתון	Given the difficult circumstances, she made the best possible decision.	בהינתן הנסיבות הקשות, היא קיבלה את ההחלטה הטובה ביותר האפשרית.
+glitch	תקלה, הפרעה	A glitch in the software caused the program to crash.	תקלה בתוכנה גרמה לתוכנית לקרוס.
+grammatical	דקדוקי	Her essay was grammatical, but the ideas felt disorganized and unclear.	החיבור שלה היה תקין מבחינה דקדוקית, אך הרעיונות הרגישו לא מסודרים ולא ברורים.
+grand	גדול, כולל, מרשים	The grand hotel had beautiful rooms and excellent service.	המלון המרשים הציע חדרים יפים ושירות מצוין.
+Gulf War	מלחמת המפרץ	The Gulf War took place in the early 1990s and ended quickly.	מלחמת המפרץ התרחשה בתחילת שנות ה-90 והסתיימה במהירות.
+handle	להתמודד	She handled the crisis calmly and solved all problems successfully.	היא התמודדה עם המשבר בשלווה ופתרה את כל הבעיות בהצלחה.
+heartbeat	דופק, פעימות לב	You can feel your heartbeat by placing your hand on your chest.	אתה יכול להרגיש את הדופק שלך אם תניח את היד על החזה.
+hint	רמז	He gave her a helpful hint about the surprise birthday party.	הוא נתן לה רמז מועיל על מסיבת יום ההולדת המפתיעה.
+historian	היסטוריון	The historian wrote a detailed book about ancient Roman life.	ההיסטוריון כתב ספר מפורט על החיים ברומא העתיקה.
+hold back	לעכב, למנוע	Don't hold back your feelings; it's good to express yourself.	אל תעכב את הרגשות שלך; טוב לבטא את עצמך.
+horn	צופר; קרן (של בע"ח)	The car's horn warned pedestrians that the driver was coming.	הצופר של המכונית הזהיר הולכי רגל שהנהג מתקרב.
+humorous	מצחיק, הומוריסטי	His humorous jokes made everyone at the party laugh loudly.	הבדיחות ההומוריסטיות שלו גרמו לכולם במסיבה לצחוק בקול רם.

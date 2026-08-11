@@ -1,0 +1,80 @@
+crowd	קהל; להצטופף	A large crowd gathered outside the stadium waiting for the concert to begin.
+damage	נזק, לגרום נזק	The storm caused serious damage to hundreds of homes across the region.
+danger	סכנה, לסכן	Swimming alone in the ocean poses a significant danger to your safety.
+darkness	חשיכה	The darkness of the forest made it impossible to find our way.
+decide	להחליט	We need to decide which restaurant to visit for our anniversary.
+defense	הגנה	Strong defense systems protected the city from any outside military threats.
+delete	למחוק	I accidentally deleted the file, so now I cannot recover it.
+depression	דיכאון	Her depression lasted several months before she sought professional help.
+design	תכנית, דוגמה, תרשים; לתכנן, לעצב	The new building's design features large windows and sustainable materials.
+designer	מעצב	The fashion designer created a beautiful collection inspired by nature.
+destroy	להרוס	The earthquake destroyed many buildings throughout the ancient city.
+detail	פרט, לפרט	Every detail of the painting showed the artist's incredible skill.
+diagram	תרשים, דיאגרמה	The diagram showed exactly how all the machine's parts fit together.
+dictator	עריץ, דיקטטור	The dictator ruled the country for decades with complete control.
+dilemma	דילמה, בעיה	She faced a difficult dilemma between accepting a new job and staying home.
+direct	ישיר, כנה; לכוון; לביים	Take the direct road to the airport instead of scenic routes.
+direction	כיוון	The map shows the direction we need to walk to reach our destination.
+discover	לגלות	Explorers helped Europeans discover new lands across the Atlantic Ocean.
+distance	מרחק	The distance between the two towns is nearly two hundred kilometers by car.
+document	מסמך; לתעד	Please document all your expenses so we can review them later.
+dominant	דומיננטי, שולט	The dominant team in the league won almost every single game.
+drastic	דרסטי	Implementing drastic measures will make huge changes across the entire system.
+drug	סם, תרופה, לסמם	The airport security dog detected an illegal drug inside his suitcase.
+earlier	קודם לכן	She arrived much earlier than expected, so we had time.
+easily	בקלות	My brother solved the puzzle easily without needing help.
+echo	הד	When I shouted in the canyon, I heard my voice echo.
+ecological	אקולוגי	This ecological research focuses on how pollution affects local wildlife.
+edit	לערוך	The editor will edit your essay and return it with feedback.
+elastic	גמיש, אלסטי, גומיה	The elastic band snaps back to its original shape instantly.
+elephant	פיל	The elephant used its long trunk to reach leaves high up.
+empire	אימפריה	The Roman empire controlled a vast territory for several centuries.
+empty	ריק, לרוקן	The theater was completely empty after the audience left.
+enemy	אויב	After the betrayal, he considered his former friend a bitter enemy.
+engine	מנוע	The engine of the car started making a strange noise.
+enter	נכנס	You must enter through the front door when you arrive.
+episode	פרק	I watched the latest episode of my favorite television show.
+error	שגיאה	The database contained an error that prevented the system from working.
+escape	לברוח, בריחה	The prisoner managed to escape through a hole in the fence.
+ethnic	אתני	Our community celebrates ethnic traditions from many different cultures.
+even though	למרות ש-	Even though it rained, we still went to the beach.
+event	אירוע	The annual event draws thousands of visitors to our city.
+example	דוגמה	A hardworking student is a good example of dedication and discipline.
+excellent	מצוין	The restaurant's food and service were both excellent and memorable.
+exotic	אקזוטי, מארץ זרה	She collects exotic plants from rainforests around the world.
+expensive	יקר	That car is too expensive for us to buy right now.
+expert	מומחה	A computer expert helped us fix all the technical problems.
+explanation	הסבר	The teacher's explanation of the concept was clear and helpful.
+explode	להתפוצץ	The fireworks will explode into bright colors above the city.
+extreme	קיצוני	The extreme heat made it dangerous to be outside.
+factory	מפעל, בית חרושת	The factory produces thousands of cars each month for export.
+fail	להיכשל	If the bridge design has flaws, the entire structure could fail.
+false	שקרי, כוזב, לא נכון; מזויף	That statement is false and contradicted by scientific evidence.
+farm	חווה	My grandfather owns a farm where he grows wheat.
+fashion	אופנה; לעצב	Bright colors and bold patterns are the latest fashion this year.
+file	תיק, קובץ	Please save your work in the computer file on the desktop.
+filter	פילטר, מסנן	The air filter needs to be changed to improve quality.
+finger	אצבע	She held the baby's tiny finger gently in her hand.
+flow	זרם	The flow of water in the river increased after rain.
+flower	פרח	The flower opened with bright yellow petals in the morning sun.
+focus	להתמקד, מיקוד	You must focus on your studies if you want success.
+for	מפני ש-; עבור	He walked quickly, for the storm was approaching very fast tonight.
+for example	לדוגמה	Many animals live in forests, for example bears and deer.
+forest	יער	The forest was so thick that sunlight barely touched the ground.
+formula	נוסחה, פורמולה	The scientist developed a formula to solve the problem.
+found	מצא, גילה; לייסד	We found the lost keys under the kitchen table.
+freeze, froze	להקפיא, הקפיא	Water will freeze into ice when the temperature drops.
+friendly	ידידותי	My neighbor is friendly and always waves when we meet.
+frog	צפרדע	The frog jumped from the lily pad into the pond.
+front	חזית, להתעמת	The front of the building has tall marble columns.
+garden	גן	She grows vegetables in her garden every summer.
+gate	שער	The gate was locked, so we had to climb over it.
+genes	גנים	Your genes determine many of your physical characteristics and traits.
+genetic	תורשתי, גנטי	Scientists study genetic mutations to understand inherited diseases better.
+genius	גאון	The genius scientist solved a problem that puzzled everyone else for years.
+giant	ענק	The giant statue stood over thirty meters tall.
+glad	שמח	I am glad that you decided to visit us today.
+global	עולמי, גלובאלי	The internet created a global network connecting people from many countries.
+goal	מטרה	Her goal is to graduate with honors by next year.
+golden	מוזהב	The golden sunset painted the sky in beautiful shades.
+grandfather	סבא	My grandfather taught me how to fish when I was young.

@@ -1,0 +1,80 @@
+in	ב-, בתוך	The keys are in the drawer next to my bed.	המפתחות נמצאים במגירה ליד המיטה שלי.
+in a moment	בעוד רגע	She'll be here in a moment; please wait patiently.	היא תגיע בעוד רגע; אנא המתן בסבלנות.
+in fact	למעשה	He seems lazy, but in fact he works very hard daily.	הוא נראה עצלן, אבל למעשה הוא עובד קשה מאוד כל יום.
+in front of	בחזית של, מול	She stood in front of the class and presented her project.	היא עמדה מול הכיתה והציגה את הפרויקט שלה.
+in order to	על-מנת, כדי	She woke up early in order to catch the first train downtown.	היא קמה מוקדם כדי לתפוס את הרכבת הראשונה למרכז העיר.
+information	מידע	The website provides useful information about train schedules.	האתר מספק מידע שימושי על לוחות הזמנים של הרכבות.
+inside	בתוך, פנים	We walked inside the museum and saw ancient sculptures.	הלכנו לתוך המוזיאון וראינו פסלים עתיקים.
+into	אל תוך	He poured water into the glass until it was full.	הוא שפך מים לתוך הכוס עד שהיא התמלאה.
+island	אי	We spent vacation on a small island in the Mediterranean.	בילינו את החופשה באי קטן בים התיכון.
+Jew	יהודי	David is a Jew whose family has lived in this town for generations.	דוד הוא יהודי שמשפחתו חיה בעיר הזאת כבר דורות.
+join	להצטרף, לחבר	Would you like to join our volleyball team this season?	תרצה להצטרף לקבוצת הכדורעף שלנו העונה?
+joke	בדיחה	His funny joke made everyone at the party laugh.	הבדיחה המצחיקה שלו גרמה לכולם במסיבה לצחוק.
+jump	לקפוץ	The dog jumped over the fence toward the park.	הכלב קפץ מעל הגדר לכיוון הפארק.
+kill	להרוג, לחסל, הרג	The farmer sprayed the field to kill insects damaging his crops.	החקלאי ריסס את השדה כדי להרוג חרקים שפגעו ביבול שלו.
+king	מלך	The king ruled the country for fifty years.	המלך שלט במדינה במשך חמישים שנה.
+know, knew	לדעת, ידע	I knew her from college but we lost touch years ago.	הכרתי אותה מהקולג' אבל איבדנו קשר לפני שנים.
+large	גדול	This apartment is large enough for our growing family.	הדירה הזאת גדולה מספיק למשפחה הגדלה שלנו.
+late	מאוחר, לאחר	He arrived late to the meeting and apologized to everyone.	הוא הגיע מאוחר לפגישה והתנצל בפני כולם.
+later	מאוחר יותר	We can discuss this later when we have more time.	נוכל לדון בזה מאוחר יותר כשיהיה לנו יותר זמן.
+laugh	לצחוק	The comedy show was so funny the audience laughed loudly.	מופע הקומדיה היה כל כך מצחיק שהקהל צחק בקול רם.
+law	חוק	The new law requires people to recycle plastic bottles.	החוק החדש מחייב אנשים למחזר בקבוקי פלסטיק.
+left	שמאלה	Turn left at the corner and the store is right there.	פנה שמאלה בפינה והחנות נמצאת ממש שם.
+less	פחות	This coffee has less sugar than yesterday's drink.	לקפה הזה יש פחות סוכר מהמשקה של אתמול.
+lie	לשקר, שֶקֶר	He told a lie about where he spent the afternoon.	הוא סיפר שקר על המקום שבו בילה את אחר הצהריים.
+light	אור; קל	She turned on the light so she could read her book.	היא הדליקה את האור כדי שתוכל לקרוא את הספר שלה.
+like	כמו; לחבב, להעדיף	Her paintings are like those in the museum collection.	הציורים שלה הם כמו אלה שבאוסף המוזיאון.
+link	קישור, לקשר, חוליה	Click the link to visit the website about living healthy.	לחץ על הקישור כדי לבקר באתר על חיים בריאים.
+list	רשימה, להכין רשימה	I made a list of groceries before going to the store.	הכנתי רשימת קניות לפני שהלכתי לחנות.
+listen	להקשיב	Please listen carefully to the instructions before the game begins.	אנא הקשיבו היטב להוראות לפני שהמשחק מתחיל.
+luck	מזל	Good luck on your interview tomorrow at the company.	שיהיה לך מזל בראיון שלך מחר בחברה.
+lunch	ארוחת צהריים	We usually eat lunch at noon in the office kitchen.	אנחנו בדרך כלל אוכלים ארוחת צהריים בשעת הצהריים במטבח המשרד.
+machine	מכונה	This washing machine cleans clothes better than my old one.	מכונת הכביסה הזאת מנקה בגדים טוב יותר מהישנה שלי.
+made	עשה	She made a cake from scratch using butter and eggs.	היא הכינה עוגה מאפס באמצעות חמאה וביצים.
+make sure	להבטיח, לוודא	Make sure you lock the door before you leave tonight.	תוודא שאתה נועל את הדלת לפני שאתה יוצא הערב.
+maybe	אולי	Maybe we should go to the beach instead of mountains.	אולי כדאי שנלך לחוף הים במקום להרים.
+media	מדיה, תקשורת	The media reported the earthquake story on the evening news.	התקשורת דיווחה על סיפור רעידת האדמה בחדשות הערב.
+meeting	פגישה	The meeting lasted two hours and was very productive.	הפגישה נמשכה שעתיים והייתה מאוד פרודוקטיבית.
+memory	זיכרון, לזכר	That song brings back happy memories of my childhood years.	השיר הזה מחזיר זיכרונות שמחים משנות הילדות שלי.
+message	הודעה	I sent her a message about the meeting but she hasn't responded yet.	שלחתי לה הודעה על הפגישה אבל היא עוד לא הגיבה.
+middle	אמצע	She sat in the middle of the room where everyone could see her.	היא ישבה באמצע החדר איפה שכולם יכלו לראות אותה.
+milk	חלב, לחלוב	He poured cold milk into his cereal this morning.	הוא שפך חלב קר לתוך הדגנים שלו הבוקר.
+mistake	טעות	I made a mistake while assembling the furniture and had to start over.	עשיתי טעות בזמן שהרכבתי את הרהיטים ונאלצתי להתחיל מחדש.
+mix	לערבב, ערבוב	Mix the eggs and sugar together until they become pale.	ערבב את הביצים והסוכר יחד עד שהם יהפכו לבהירים.
+model	דגם, מודל, דוגמן	The new car model featured a sleek design that impressed the engineers.	דגם הרכב החדש כלל עיצוב אלגנטי שהרשים את המהנדסים.
+money	כסף	He saved money for three years to buy a house.	הוא חסך כסף במשך שלוש שנים כדי לקנות בית.
+monster	מפלצת	The monster in the movie scared the children in the theater.	המפלצת בסרט הפחידה את הילדים בקולנוע.
+most	רוב; הכי	Most people enjoy going to the beach on summer days.	רוב האנשים נהנים ללכת לחוף הים בימי קיץ.
+mountain	הר	The mountain peak was covered in snow during winter.	פסגת ההר הייתה מכוסה בשלג בחורף.
+mouth	פה	She opened her mouth to speak but then stayed quiet.	היא פתחה את הפה כדי לדבר אבל אז נשארה בשקט.
+move	לזוז, לעבור	The cat moved quietly across the room without making a sound.	החתול זז בשקט לרוחב החדר בלי להשמיע קול.
+must	חייב, חובה, הכרח	You must wear a seatbelt when driving a car.	אתה חייב לחגור חגורת בטיחות כשאתה נוהג ברכב.
+near	קרוב	The school is near my house, just a short walk away.	בית הספר קרוב לבית שלי, רק הליכה קצרה משם.
+need	צריך, צורך	I need to buy new shoes because mine are broken.	אני צריך לקנות נעליים חדשות כי שלי שבורות.
+never	אף פעם	She never drinks coffee and always prefers tea instead.	היא אף פעם לא שותה קפה ותמיד מעדיפה תה במקום.
+new	חדש	He bought a new phone to replace his old broken one.	הוא קנה טלפון חדש כדי להחליף את הישן והשבור שלו.
+next	הבא	Next summer we plan to travel to Europe for vacation.	בקיץ הבא אנחנו מתכננים לטוס לאירופה לחופשה.
+next to	ליד	My desk is next to the window in the office.	השולחן שלי נמצא ליד החלון במשרד.
+North	צפון	The train headed north toward the mountains in the early morning.	הרכבת נסעה צפונה לכיוון ההרים בשעות הבוקר המוקדמות.
+nose	אף, חרטום	He broke his nose playing basketball last week.	הוא שבר את האף שלו כשהוא שיחק כדורסל בשבוע שעבר.
+not only	לא רק	She is not only smart but also very kind to others.	היא לא רק חכמה אלא גם מאוד אדיבה כלפי אחרים.
+now	עכשיו	I need to leave now or I will be very late.	אני צריך לצאת עכשיו אחרת אאחר מאוד.
+number	מספר	What is the phone number for the customer service desk?	מה מספר הטלפון של דלפק שירות הלקוחות?
+ocean	אוקיינוס	The ocean waves were beautiful when we visited the beach.	גלי האוקיינוס היו יפים כשביקרנו בחוף.
+of	של, מ-	The color of the wall changed after the renovation finished.	צבע הקיר השתנה אחרי שהשיפוץ הסתיים.
+of course	כמובן, בוודאי	Of course you can borrow my book whenever you want.	כמובן שאתה יכול לשאול את הספר שלי מתי שתרצה.
+offer	הצעה, להציע	The company offered him a job but he declined politely.	החברה הציעה לו עבודה אבל הוא סירב בנימוס.
+often	לעיתים קרובות	I often see her at the coffee shop near my home.	אני רואה אותה לעיתים קרובות בבית הקפה ליד הבית שלי.
+on	על	The book is on the table in the living room today.	הספר נמצא על השולחן בסלון היום.
+once	ברגע ש-; פעם (בעבר); פעם אחת	Once you start exercising regularly, you will feel better soon.	ברגע שתתחיל להתאמן באופן קבוע, תרגיש טוב יותר בקרוב.
+only	רק	Only members can enter the private club downtown.	רק חברים יכולים להיכנס למועדון הפרטי במרכז העיר.
+open	לפתוח, פתוח	She opened the door and welcomed us inside warmly.	היא פתחה את הדלת וקיבלה אותנו בברכה חמה פנימה.
+or	או	Do you want coffee or tea with your breakfast today?	אתה רוצה קפה או תה עם ארוחת הבוקר שלך היום?
+organic	אורגני	Organic vegetables are grown without pesticides or chemicals.	ירקות אורגניים גדלים בלי חומרי הדברה או כימיקלים.
+outside	חוץ; בחוץ	We sat outside on the porch and enjoyed the sunset.	ישבנו בחוץ על המרפסת ונהנינו מהשקיעה.
+over	על, מעל; מחדש, שוב	The airplane flew over the clouds at high altitude.	המטוס טס מעל העננים בגובה רב.
+own	משלו; בעלות על משהו	She owns a small business that sells handmade jewelry.	היא הבעלים של עסק קטן שמוכר תכשיטים בעבודת יד.
+pain	כאב, להכאיב	He felt sharp pain in his back after lifting something.	הוא הרגיש כאב חד בגב שלו אחרי שהרים משהו.
+part	חלק	This part of the city has many restaurants and shops.	בחלק הזה של העיר יש הרבה מסעדות וחנויות.
+pass	לעבור, לחלוף; להעביר, למסור; לוותר (___ on)	We decided to pass on the dessert this time.	החלטנו לוותר על הקינוח הפעם.
+past	עבר, שעבר	She walked past my house on her way to school.	היא עברה על פני הבית שלי בדרכה לבית הספר.

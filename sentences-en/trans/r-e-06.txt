@@ -1,0 +1,80 @@
+8th - eighth	שמיני	He finished eighth in a race where seven runners crossed before him.	הוא סיים במקום השמיני במרוץ שבו שבעה רצים חצו את הקו לפניו.
+9th - ninth	תשיעי	She finished ninth in a race where eight runners crossed before her.	היא סיימה במקום התשיעי במרוץ שבו שמונה רצות חצו את הקו לפניה.
+above	מעל	The helicopter flew above the clouds toward the city.	המסוק טס מעל לעננים לכיוון העיר.
+academic	אקדמי	His academic performance improved significantly after studying harder.	ההישגים האקדמיים שלו השתפרו משמעותית אחרי שהוא למד יותר קשה.
+actor	שחקן	The actor improvised a dramatic monologue for three minutes.	השחקן אלתר מונולוג דרמטי במשך שלוש דקות.
+address	כתובת; לפנות, לטפל	She wrote her address carefully on the envelope.	היא כתבה את הכתובת שלה בזהירות על המעטפה.
+afraid	מפחד	She was so afraid of the dark that she slept with a light on.	היא כל כך פחדה מהחושך שהיא ישנה עם אור דלוק.
+after all	אחרי הכל	After all, we have worked too hard to give up.	אחרי הכל, עבדנו קשה מדי כדי לוותר.
+agenda	סדר יום	The meeting agenda included five important topics to discuss.	סדר היום של הפגישה כלל חמישה נושאים חשובים לדיון.
+aggressive	תוקפני, אלים	His aggressive behavior scared all the other children.	ההתנהגות התוקפנית שלו הפחידה את כל שאר הילדים.
+ahead of	לפני, לפנים	She finished the whole project ahead of schedule.	היא סיימה את כל הפרויקט לפני הזמן המתוכנן.
+airplane	אווירון, מטוס	The airplane's engines roared as it prepared for takeoff.	מנועי המטוס שאגו בזמן שהוא התכונן להמראה.
+alien	זר, נוכרי; לא מוכר, מוזר; חייזר	The immigration officer checked the alien's work visa carefully.	פקיד ההגירה בדק בקפידה את אשרת העבודה של הזר.
+alive	חי	The bird was still alive after the accident.	הציפור עדיין הייתה בחיים אחרי התאונה.
+allergic	אלרגי	My brother is allergic to peanuts and tree nuts.	אחי אלרגי לבוטנים ולאגוזים.
+along	לאורך	They walked along the shoreline where waves crashed continuously.	הם הלכו לאורך קו החוף שבו גלים ניתצו ברציפות.
+along with	יחד עם	She ordered pizza along with a green salad.	היא הזמינה פיצה יחד עם סלט ירוק.
+although	למרות ש-	Although it was raining, we went to the park.	למרות שירד גשם, הלכנו לפארק.
+architect	ארכיטקט	The architect designed a very beautiful building downtown.	הארכיטקט תכנן בניין יפהפה מאוד במרכז העיר.
+artist	אמן	The artist sculpted a beautiful figure from marble.	האמן פיסל דמות יפה משיש.
+as if	כאילו	He acted as if he didn't hear her.	הוא התנהג כאילו לא שמע אותה.
+as long as	כל עוד	You can stay as long as you want.	אתה יכול להישאר כל עוד אתה רוצה.
+as soon as	כאשר, ברגע ש-	Call me as soon as you arrive home.	תתקשר אליי ברגע שתגיע הביתה.
+as well as	כמו גם	She speaks French fluently as well as German.	היא דוברת צרפתית שוטפת כמו גם גרמנית.
+asked for	ביקש	He asked for a promotion at his job.	הוא ביקש קידום בעבודה שלו.
+astronomy	אסטרונומיה	She loves astronomy and spends clear nights watching the stars and planets.	היא אוהבת אסטרונומיה ומבלה לילות בהירים בצפייה בכוכבים ובכוכבי הלכת.
+at last	סוף סוף	At last, the exhausted hikers reached the top of the mountain.	סוף סוף, המטיילים המותשים הגיעו לפסגת ההר.
+authentic	מקורי, אותנטי	This is authentic Italian pasta, not cheap imitation.	זו פסטה איטלקית אותנטית, לא חיקוי זול.
+background	רקע	Her background is in engineering and computer design.	הרקע שלה הוא בהנדסה ובעיצוב מחשבים.
+band	להקה; לחבוש, תחבושת, רצועה	The rock band played all night at the concert.	להקת הרוק ניגנה כל הלילה בהופעה.
+base	בסיס	The old military base has several large buildings and an airfield nearby.	בבסיס הצבאי הישן יש כמה מבנים גדולים ושדה תעופה סמוך.
+based on	מבוסס על	The movie is based on a true story.	הסרט מבוסס על סיפור אמיתי.
+bath	אמבטיה, להתרחץ	She took a warm bath before going to bed.	היא לקחה אמבטיה חמה לפני שהלכה לישון.
+beach	חוף ים	They spent the entire day swimming and building sandcastles at the beach.	הם בילו את כל היום בשחייה ובבניית טירות חול בחוף הים.
+beast	חיה, מפלצת	The wild beast roamed through the dark forest.	החיה הפראית שוטטה ביער האפל.
+beauty	יופי	The beauty of the sunset took her breath away.	יופי השקיעה עצר לה את הנשימה.
+bedroom	חדר שינה	My bedroom has a comfortable bed and a large window nearby.	בחדר השינה שלי יש מיטה נוחה וחלון גדול לידה.
+bee	דבורה	A bee buzzed around the bright yellow flower.	דבורה זימזמה סביב הפרח הצהוב הבהיר.
+begin/an/un	להתחיל / התחיל / התחיל	The class begins at nine in the morning.	השיעור מתחיל בתשע בבוקר.
+boring	משעמם	That movie was so boring I fell asleep.	הסרט הזה היה כל כך משעמם שנרדמתי.
+both... and...	גם... וגם...	She enjoys both tennis and swimming every week.	היא נהנית גם מטניס וגם משחייה מדי שבוע.
+bottle	בקבוק	He poured cold water into a plastic bottle.	הוא מזג מים קרים לתוך בקבוק פלסטיק.
+bread	לחם	She baked fresh bread this morning for breakfast.	היא אפתה לחם טרי הבוקר לארוחת הבוקר.
+bridge	גשר, לגשר	The bridge spanning the river connects the two towns.	הגשר החוצה את הנהר מחבר בין שתי הערים.
+build	מבנה; לבנות	Her build is athletic, with broad shoulders and strong legs.	מבנה הגוף שלה אתלטי, עם כתפיים רחבות ורגליים חזקות.
+cable	כבל	The TV cable was damaged in the accident.	כבל הטלוויזיה ניזוק בתאונה.
+cancel	לבטל	Please cancel my appointment for next Friday afternoon.	בבקשה בטל את התור שלי ליום שישי הבא אחר הצהריים.
+candy	ממתק	The child unwrapped a piece of candy from its colorful wrapper.	הילד פתח ממתק מהעטיפה הצבעונית שלו.
+care	לחבב; לדאוג, לטפל	She cares deeply for her entire family, especially her aging grandparents.	היא מחבבת מאוד את כל המשפחה שלה, ובמיוחד את סביה המזדקנים.
+case	תיבה; מקרה, טיעון	She packed her sunglasses into a hard plastic case.	היא ארזה את משקפי השמש שלה בתיבה קשה מפלסטיק.
+casino	קזינו	He lost a lot of money at the casino.	הוא הפסיד הרבה כסף בקזינו.
+catalogue	קטלוג, רשימת פריטים	The store's catalogue has hundreds of different products.	בקטלוג של החנות יש מאות מוצרים שונים.
+catch, caught	לתפוס, תפס	He caught the ball easily with one hand.	הוא תפס את הכדור בקלות ביד אחת.
+cause	מטרה; גורם, סיבה	She raises money every year for a cause that helps homeless children.	היא מגייסת כסף כל שנה למען מטרה שעוזרת לילדים חסרי בית.
+celebrate	לחגוג	We celebrated her birthday yesterday with a party.	חגגנו את יום ההולדת שלה אתמול במסיבה.
+change	שינוי, לשנות; עודף	The weather changed overnight, turning sunny skies into heavy rain.	מזג האוויר השתנה במהלך הלילה, ושמיים בהירים הפכו לגשם כבד.
+cheap	זול	The shoes were so cheap that she bought three pairs at once.	הנעליים היו כל כך זולות שהיא קנתה שלושה זוגות בבת אחת.
+cheat	לרמות, לבגוד	He cheated during the board game and refused to admit it.	הוא רימה במשחק הלוח וסירב להודות בזה.
+chemical	כימיקל, כימי	Chemical reactions happen in the laboratory quite frequently.	תגובות כימיות מתרחשות במעבדה לעיתים קרובות למדי.
+choose	לבחור	You can choose any color you want here.	אתה יכול לבחור כל צבע שתרצה כאן.
+chronic	כרוני	He has chronic back pain from an injury.	יש לו כאבי גב כרוניים בעקבות פציעה.
+circle	להקיף בעיגול; מעגל	The hawk circled slowly above the field searching for prey.	הנץ חג לאט מעל השדה בחיפוש אחר טרף.
+clock	שעון	The wall clock shows three o'clock right now.	שעון הקיר מראה כרגע שלוש.
+cloud	ענן	A dark cloud appeared in the blue sky.	ענן כהה הופיע בשמיים הכחולים.
+collect	לאסוף	She collects rare stamps from around the world.	היא אוספת בולים נדירים מרחבי העולם.
+comic	קומי (מהמילה קומדיה)	The comic actor made silly faces to amuse the young children.	השחקן הקומי עשה פרצופים מצחיקים כדי לשעשע את הילדים הקטנים.
+connect	לחבר	These cables connect directly to your main computer.	הכבלים האלה מתחברים ישירות למחשב הראשי שלך.
+container	מיכל, קונטיינר	The large plastic container held several bottles of cold water.	המיכל הפלסטיק הגדול החזיק כמה בקבוקי מים קרים.
+conversation	שיחה	We had a long conversation about life yesterday.	ניהלנו שיחה ארוכה על החיים אתמול.
+copy	להעתיק	Please copy this document for me before noon.	בבקשה העתק לי את המסמך הזה עד הצהריים.
+correct	לתקן; נכון	The teacher asked him to correct the spelling errors carefully.	המורה ביקש ממנו לתקן את שגיאות האיות בזהירות.
+country	ארץ; כפר, אזור	She moved to a new country last year.	היא עברה לארץ חדשה בשנה שעברה.
+couple	זוג, לצמד	The happy couple got married in a small garden ceremony.	הזוג המאושר התחתן בטקס קטן בגן.
+coupon	קופון	I found a coupon for fifty percent off.	מצאתי קופון להנחה של חמישים אחוז.
+cousin	בן-דוד	My cousin lives in another city far away.	בן הדוד שלי גר בעיר אחרת רחוקה.
+cow	פרה	The cow ate grass in the green field.	הפרה אכלה עשב בשדה הירוק.
+crash	להתנגש, התנגשות	The car crash happened on the main highway.	התנגשות המכוניות קרתה בכביש הראשי המהיר.
+create	ליצור	The artist creates beautiful sculptures from white stone.	האמן יוצר פסלים יפים מאבן לבנה.
+criteria	אמות מידה, קריטריונים	The scholarship criteria require excellent grades and volunteer experience.	אמות המידה למלגה דורשות ציונים מצוינים וניסיון התנדבותי.
+cross	לחצות; צלב, להצליב	She crossed the street very carefully in the rain.	היא חצתה את הכביש בזהירות רבה בגשם.

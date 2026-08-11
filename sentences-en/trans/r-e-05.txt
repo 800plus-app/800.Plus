@@ -1,0 +1,80 @@
+star	כוכב, לככב	We spotted a bright star twinkling in the night sky.	הבחנו בכוכב בהיר שהבהב בשמי הלילה.
+start	להתחיל	We will start the meeting at nine o'clock tomorrow morning.	נתחיל את הפגישה בתשע בבוקר מחר.
+station	תחנה; להציב	Trains arrive at the central station every thirty minutes.	רכבות מגיעות לתחנה המרכזית כל שלושים דקות.
+step	צעד, לצעוד	He took a careful step toward the edge of the cliff.	הוא צעד צעד זהיר לעבר קצה הצוק.
+still	עדיין, למרות זאת; נייח, דומם, שקט	She is still waiting for news about her job application.	היא עדיין מחכה לחדשות על בקשת העבודה שלה.
+store	חנות; לאחסן	We bought groceries at the store near our apartment.	קנינו מצרכים בחנות ליד הדירה שלנו.
+strange	מוזר	His strange behavior made everyone wonder what was happening.	ההתנהגות המוזרה שלו גרמה לכולם לתהות מה קורה.
+strong	חזק	She has strong arms from years of swimming practice.	יש לה זרועות חזקות בזכות שנים של אימוני שחייה.
+studio	סטודיו	The artist worked in her small studio all morning.	האמנית עבדה בסטודיו הקטן שלה כל הבוקר.
+stupid	טיפש	It was stupid to leave without checking the weather forecast.	היה טיפשי לצאת בלי לבדוק את תחזית מזג האוויר.
+suddenly	לפתע	Suddenly, the lights went out throughout the entire neighborhood.	לפתע, האורות כבו בכל השכונה.
+sugar	סוכר	Add one cup of sugar to the cake mixture now.	הוסיפי כוס סוכר אחת לתערובת העוגה עכשיו.
+summer	קיץ	We always visit our grandparents during summer vacation.	אנחנו תמיד מבקרים את הסבים שלנו בחופשת הקיץ.
+support	תמיכה, לתמוך	Her family gave her support when she faced difficulties.	המשפחה שלה נתנה לה תמיכה כשהיא נתקלה בקשיים.
+surprise	הפתעה	His surprise visit made everyone at the party happy.	הביקור המפתיע שלו שימח את כולם במסיבה.
+sweet	מתוק, ממתק	The sweet taste of honey is loved by children.	הטעם המתוק של הדבש אהוב על ילדים.
+system	מערכת; שיטה	The new system made it easier to find documents.	המערכת החדשה הקלה על מציאת מסמכים.
+taste	טעם, לטעום	Can you taste the salt in this soup?	אתה מרגיש את טעם המלח במרק הזה?
+team	צוות	Our team won the basketball tournament last Saturday.	הצוות שלנו ניצח בטורניר הכדורסל בשבת שעברה.
+teeth, tooth	שיניים, שן	She brushed her teeth before going to bed.	היא צחצחה שיניים לפני שהלכה לישון.
+than	מ-	This book is more interesting than the previous one.	הספר הזה מעניין יותר מהקודם.
+thank	תודה, להודות	You should thank your mother for helping you.	כדאי שתודה לאמא שלך על העזרה.
+thanks to	תודות ל-	Thanks to his help, we finished the project on time.	תודות לעזרה שלו, סיימנו את הפרויקט בזמן.
+that	ש-	I know that you will succeed in your goals.	אני יודע שתצליח להשיג את המטרות שלך.
+theater	תיאטרון; בית קולנוע	We saw an interesting play at the theater downtown.	ראינו מחזה מעניין בתיאטרון במרכז העיר.
+then	אז	First we studied, and then we went to the park.	קודם למדנו, ואז הלכנו לפארק.
+theory	תיאוריה	Scientists developed a new theory to explain how the universe began.	מדענים פיתחו תיאוריה חדשה כדי להסביר איך היקום התחיל.
+there	שם	We searched the whole house, but the cat wasn't there.	חיפשנו בכל הבית, אבל החתול לא היה שם.
+thousand	אלף	The city has over one thousand different kinds of restaurants.	בעיר יש יותר מאלף סוגים שונים של מסעדות.
+through	דרך, מבעד	We walked through the park on our way home.	הלכנו דרך הפארק בדרך הביתה.
+ticket	כרטיס	I bought a ticket for the concert next month.	קניתי כרטיס להופעה בחודש הבא.
+time	זמן	What time does the meeting start tomorrow morning?	באיזו שעה מתחילה הפגישה מחר בבוקר?
+together with	יחד עם	Together with my friends, I went to the beach.	יחד עם החברים שלי, הלכתי לחוף הים.
+too	גם; יותר מידי	May I come to the party tonight too?	אני יכול לבוא גם למסיבה הערב?
+touch	מגע, לגעת	Please don't touch that painting in the museum.	בבקשה אל תיגע בציור הזה במוזיאון.
+trust	אמון, לבטוח	She trusts her best friend with all her secrets.	היא בוטחת בחברה הכי טובה שלה עם כל הסודות שלה.
+truth	אמת	The truth about what happened finally came out.	האמת על מה שקרה יצאה לבסוף לאור.
+turn	לפנות, סיבוב	Please turn left at the corner before the store.	בבקשה פנה שמאלה בפינה שלפני החנות.
+under	מתחת	The cat is hiding under the table right now.	החתול מתחבא מתחת לשולחן ברגע זה.
+understand	להבין	Do you understand what the teacher explained today?	אתה מבין מה המורה הסביר היום?
+until	עד ש-	We waited outside until the store opened this morning.	חיכינו בחוץ עד שהחנות נפתחה הבוקר.
+until now	עד עתה	Until now, nobody has found the lost treasure.	עד עתה, אף אחד לא מצא את האוצר האבוד.
+up	למעלה	The balloon went up into the sky very quickly.	הבלון עלה למעלה השמימה מהר מאוד.
+usually	בדרך-כלל	She usually drinks coffee in the morning before work.	היא בדרך כלל שותה קפה בבוקר לפני העבודה.
+village	כפר	The small village has only one school and a small market.	בכפר הקטן יש רק בית ספר אחד ושוק קטן.
+visit	לבקר	Let's visit the museum downtown this coming weekend.	בואו נבקר במוזיאון במרכז העיר בסוף השבוע הקרוב.
+voice	קול, להשמיע קול	His voice sounded strange and unfamiliar to everyone.	הקול שלו נשמע מוזר ולא מוכר לכולם.
+wait	להמתין, המתנה	Can you wait here for me while I check?	אתה יכול לחכות לי כאן בזמן שאני בודק?
+wall	קיר	The wall between the two houses was made of brick.	הקיר בין שני הבתים היה עשוי לבנים.
+want	לרצות	Do you want to join us for lunch today?	אתה רוצה להצטרף אלינו לארוחת צהריים היום?
+war	מלחמה	The war between the two countries lasted for several years.	המלחמה בין שתי המדינות נמשכה כמה שנים.
+watch	להסתכל, להשגיח; שעון	Watch the road very carefully while you are driving.	תסתכל על הכביש בזהירות רבה בזמן שאתה נוהג.
+way	דרך	I know the way to the train station.	אני מכיר את הדרך לתחנת הרכבת.
+weekend	סוף שבוע	They always visit their parents on the weekend.	הם תמיד מבקרים את ההורים שלהם בסוף השבוע.
+West	מערב	The sun sets in the West every evening.	השמש שוקעת במערב בכל ערב.
+what	מה, איזה	What time do we need to leave tomorrow morning?	באיזו שעה אנחנו צריכים לצאת מחר בבוקר?
+when	כאשר, כש-	When the rain starts, we will go inside.	כשהגשם יתחיל, ניכנס פנימה.
+where	בעוד ש-; היכן, איפה	Where should I put my coat and backpack?	איפה כדאי לי לשים את המעיל והתיק?
+which	איזה; אשר, ש-	Which book would you like to read tonight?	איזה ספר תרצה לקרוא הערב?
+who	מי, ש-	Who is responsible for cleaning up after dinner?	מי אחראי לניקיון אחרי ארוחת הערב?
+why	מדוע	Why did you decide to change your job?	מדוע החלטת להחליף עבודה?
+wide	רחב	The river is very wide at this point.	הנהר רחב מאוד בנקודה הזאת.
+wife	אישה, רעיה	His wife is a doctor at the hospital.	אשתו היא רופאה בבית החולים.
+win	ניצחון, לנצח	Our team will win the championship this year.	הצוות שלנו ינצח באליפות השנה.
+wine	יין	We had a nice wine with dinner last night.	שתינו יין נחמד עם ארוחת הערב אתמול בלילה.
+winter	חורף	Winter is cold and snowy in many countries.	החורף קר ומושלג במדינות רבות.
+wish	משאלה; לאחל, לייחל, לרצות	She made a wish before blowing out the candles.	היא ביקשה משאלה לפני שכיבתה את הנרות.
+with	באמצעות, עם	Will you come with me to the store?	תבוא איתי לחנות?
+without	מבלי, ללא	We cannot succeed without hard work and dedication.	אנחנו לא יכולים להצליח בלי עבודה קשה ומסירות.
+wonderful	נפלא	That was a wonderful movie that everyone enjoyed.	זה היה סרט נפלא שכולם נהנו ממנו.
+work	עבודה, לעבוד	She works hard at her job every day.	היא עובדת קשה בעבודה שלה כל יום.
+worse	גרוע יותר	This winter is much worse than last winter.	החורף הזה גרוע הרבה יותר מהחורף שעבר.
+writer	סופר	The writer has published many successful books already.	הסופר כבר פרסם ספרים מצליחים רבים.
+young	צעיר	My young daughter just started school this year.	הבת הצעירה שלי רק התחילה בית ספר השנה.
+zoo	גן חיות	We went to the zoo to see the lions.	הלכנו לגן החיות לראות את האריות.
+10th - tenth	עשירי	This is the tenth time I have asked politely.	זו הפעם העשירית שאני מבקש בנימוס.
+4th - fourth	רביעי	She finished in fourth place in the race.	היא סיימה במקום הרביעי במרוץ.
+5th - fifth	חמישי	My birthday is on the fifth of June.	יום ההולדת שלי הוא בחמישה ביוני.
+6th - sixth	שישי	He lives on the sixth floor of the building.	הוא גר בקומה השישית בבניין.
+7th - seventh	שביעי	Saturday is the seventh day of the week.	שבת היא היום השביעי בשבוע.

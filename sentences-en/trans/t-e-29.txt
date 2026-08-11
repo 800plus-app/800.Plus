@@ -1,0 +1,80 @@
+oppose	להתנגד ל-, להתייצב נגד	The community will oppose any plan to close the local school.
+orchestrate	לתאם, לתזמר	She orchestrated dozens of moving parts to pull off the surprise party perfectly.
+ordinary	רגיל	It was just an ordinary Tuesday morning when everything changed.
+organ	אורגן (כלי נגינה); איבר	He learned to play the organ at the old church.
+orientation	התמצאות	All new employees attend orientation during their first week on the job.
+originality	מקוריות	The artist's work showed remarkable originality that impressed the critics.
+outdated	מיושן	Those computer models are now outdated and can't run modern software.
+overcome	להתגבר	She worked hard to overcome her fear of public speaking.
+palm	דקל; כף יד	The palm trees swayed gently in the warm tropical breeze.
+parenting	הורות	Her parenting style focused on setting clear limits while showing her kids warmth.
+particular	מסוים, ספציפי; מיוחד; (about) קפדן, בררן	Is there a particular restaurant you'd like to try tonight?
+passive	סביל	He took a passive role and let others make all decisions.
+patiently	בסבלנות	The teacher patiently explained the difficult concept to each student.
+patrol	סיור; לסייר	Police officers patrol the downtown area every night for safety.
+permit	אישור, רישיון; להרשות	The new rules do not permit smoking in any workplace.
+phase	שלב, דרגה	The project is now in the final phase of development.
+physicist	פיזיקאי	The physicist conducted an experiment to test his revolutionary theory.
+pit	בור	Miners dug a deep pit to extract valuable minerals from underground.
+plague	מגפה	A plague swept through the village and many people became ill.
+plot	עלילה; חלקה (חלקת אדמה); להכין תרשים; לזמום, לקשור קשר	The mystery novel's complex plot kept readers guessing until the end.
+pole	מוט; קוטב	He planted a wooden pole deep into the ground for support.
+polish	פולני; להבריק, לצחצח	The Polish embroidery featured intricate patterns passed down through generations.
+possession	בעלות, חזקה	His most valuable possession was the antique watch from his grandfather.
+poverty	עוני	Many families lived in poverty without access to clean water.
+praise	לשבח	The coach praised the team for their hard work and dedication.
+precise	מדויק	We need precise measurements to build this cabinet correctly.
+preferable	עדיף	Fresh vegetables are preferable to frozen ones for making healthy meals.
+prestigious	יוקרתי	That trophy is so prestigious that every top athlete dreams of winning it.
+prevention	מניעה	Crime prevention requires both community involvement and effective policing.
+prey	טרף, לטרוף	The hawk circled overhead searching for small prey in the field.
+prior	קודם	She has no prior experience working in a hospital setting.
+prior to	קודם ל-, לפני	Prior to the meeting, please review all the relevant documents.
+procedure	הליך, נוהל	Follow the correct procedure when operating this heavy machinery.
+profitable	רווחי	The company's new strategy proved very profitable within just one year.
+progressive	מתקדם ומתמשך	Without treatment, the disease follows a progressive course that gradually worsens.
+property	תכונה; רכוש	Gold has the property of being both rare and valuable.
+publication	פרסום; מאמר/כתב עת שפורסם; הוצאה לאור	The publication of her research revealed important new findings.
+quantity	כמות	The bakery reduced the quantity of sugar in their recipes.
+radical	קיצוני; שורשי	They proposed a radical change to the entire education system.
+radically	באופן קיצוני	Technology has radically transformed how people communicate with each other.
+rather	עדיף; למדי	I would rather stay home than go to the party.
+recall	להיזכר; להחזיר, להשיב צלצול	I can still recall the exact moment we first met.
+refund	החזר	You can request a refund within thirty days of purchase.
+refusal	סירוב	His refusal to admit the mistake angered everyone in the room.
+refuse	אשפה, זבל; לסרב	The city collects refuse twice a week from each neighborhood.
+remains	נשאר, עדיין; שרידים	Despite the setbacks, she remains determined to finish the marathon.
+remarkable	ראוי לציון, יוצא דופן	Her remarkable talent for languages impressed everyone who met her.
+renew	לחדש	You need to renew your passport before your trip abroad.
+reservation	שמורה; שריון מקום	A large reservation was created to protect the forest from logging.
+residence	מגורים	After college, she moved her residence to the city center.
+respectfully	בכבוד	She spoke respectfully to the elderly professor during the conversation.
+result in	הסתיים ב-	Poor planning can result in costly mistakes and project delays.
+retire	לפרוש	He decided to retire at age sixty-five after forty years.
+retreat	לסגת, נסיגה	After a stressful week, she loves to retreat to her quiet garden.
+revolutionary	מהפכני	The revolutionary technology changed how we think about transportation.
+rubbish	זבל; שטויות	Please put the rubbish in the bin before leaving.
+sacred	קדוש	Sunday family dinner was sacred in their house, and nothing interrupted it.
+sanction	סנקציה, עונש; לאשר, להתיר, לתת גושפנקה	The school imposed strict sanctions on students who broke the dress code.
+scale	מאזניים; לעלות, לטפס; סולם, סקלה	The scale showed that he had gained ten pounds since last year.
+season	לתבל; עונה	Remember to season the soup well before serving it to guests.
+sensitivity	רגישות	The patient had sensitivity to certain medications and required careful monitoring.
+sequel	המשך	The sequel to that popular book was even better than the original.
+severe	חמור	The patient suffered from a severe infection that required hospitalization.
+shortly	בקרוב, בעוד זמן קצר; בקצרה	The new store will open shortly, so watch for the announcement.
+shuffle	לערבב; לגרור רגליים	Please shuffle the deck before dealing the cards to everyone.
+similarly	באופן דומה	He struggled with math, and similarly, his sister found it difficult.
+simplify	לפשט	Can you simplify these instructions so they're easier to understand?
+simulate	לדמות, לחקות	The program can simulate different weather conditions for research purposes.
+skepticism	ספקנות	Her skepticism about the plan proved justified when problems arose.
+slight	קל, מעט	There was a slight delay in the train's arrival schedule.
+snap	להישבר; במהירות (סלנג)	The branch will snap if you try to bend it too far.
+sober	פיכח	After drinking only water all night, he remained completely sober.
+sophisticated	מתוחכם	The sophisticated equipment required extensive training to operate properly.
+spare	רזרבי, חלופי, פנוי (___ time); עודף; לחסוך, לחוס על	Do you have spare time to help me with this project?
+specialize	להתמחות	After college, she decided to specialize in international business law.
+species	מין, זן	Scientists discovered a new species of bird in the remote forest.
+spectacular	מדהים	The fireworks display was absolutely spectacular and thrilled the crowd.
+spontaneously	ללא תכנון	They spontaneously decided to go on a road trip last minute.
+spring	מעיין; אביב	The mountain spring provided fresh water to the nearby village.
+stability	יציבות	Economic stability is essential for the country's long-term growth.

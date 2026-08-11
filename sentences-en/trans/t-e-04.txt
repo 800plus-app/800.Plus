@@ -1,0 +1,80 @@
+pay	לשלם	I always pay my bills on time before the deadline.
+peace	שלום	The peace treaty ended the war between the two nations.
+people	אנשים	Many people waited in line for the concert tickets.
+perfect	להשלים, לשפר; מושלם	She practiced for weeks to perfect every technical detail in her performance.
+perhaps	אולי	Perhaps I left my keys in the car, but I cannot be sure.
+person	אדם	The tall person wearing a red jacket helped me find the subway station.
+personal	אישי	She spoke about her personal experiences during her first year of college.
+picture	תמונה, לצלם; לדמיין	She drew a beautiful picture of the sunset using only colored pencils.
+place	מקום, למקם	The quiet corner near the window is my favorite place to read and think.
+plan	תכנית; לתכנן	We plan to drive across the country and camp at national parks for six weeks.
+plane	מטוס; מישור	The plane flew across the ocean to reach London safely.
+planet	כוכב לכת	Mars is a planet that scientists study for future colonies.
+play	משחק, לשחק; מחזה	Children play games in the park every afternoon after school.
+pool	בריכה	We swam in the pool on this hot summer day.
+poor	עני, מסכן	The poor family could not afford food, rent, or medical care.
+possible	אפשרי	It is possible to learn a language if you study consistently for several months.
+potato	תפוח אדמה	She peeled the potato and boiled it until soft for mashing.
+present	להציג; מתנה; הווה, נוכח, קיים	The students must present their science projects to the whole class today.
+president	נשיא	The president gave a speech on national television tonight.
+printer	מדפסת, דַּפָּס	The printer ran out of ink and needs a replacement.
+private	פרטי	She kept her private thoughts in a locked diary that nobody else could read.
+probably	כנראה, קרוב לוודאי	It will probably rain tomorrow according to the weather forecast.
+problem	בעיה	The main problem is that we don't have enough time.
+promise	הבטחה, להבטיח	I made a promise to visit my grandmother every weekend without fail.
+protect	להגן	Parents protect their children by teaching them to look both ways before crossing streets.
+queen	מלכה	The queen wore a crown and beautiful jewels at the ceremony.
+quick	זריז	He gave a quick reply to each question, answering in just one or two words.
+quiet	שקט	The quiet classroom allowed students to concentrate without any distraction whatsoever.
+rain	גשם	The rain fell all morning and stopped in the afternoon.
+reason	סיבה; הגיון	The main reason she quit her job was that her boss never respected her ideas.
+record	רשומה; לתעד; להקליט; שיא	The company keeps a record of every employee's work hours and vacation days.
+relationship	מערכת יחסים	Their relationship grew stronger after they spent more time talking and listening to each other.
+relax	להירגע	I relax by turning off my phone and lying in the garden with a book.
+report	דיווח, לדווח	You must report any safety hazards to your supervisor immediately.
+respect	כבוד, לכבד	The team respects their coach because he admits his mistakes and learns from them.
+restaurant	מסעדה	That restaurant serves the best Italian food in our town.
+rice	אורז	She rinsed the rice in cold water before cooking it in the pot.
+rich	עשיר	The rich businessman donated half his fortune to build schools for poor children.
+ride	רכיבה, לרכוב	I ride my bicycle to work every day during summer.
+right	ימינה; זכות	Turn right at the next corner to reach the supermarket.
+ring	טבעת; זירה	She twisted the silver ring around her finger while she waited nervously.
+road	דרך	The mountain road curved so sharply that driving it made my hands shake.
+run, ran	לרוץ, רץ	Yesterday I ran five miles in the park near home.
+safe	בטוח	The safe harbor protected ships from dangerous storms and strong waves.
+salt	מלח	Add a little salt to the soup to improve the taste.
+save	להציל; לחסוך, לחסוך מ-; לשמור	The lifeguard saved the swimmer who had been pulled under by the current.
+saw, see	ראה, לראות	I saw a beautiful rainbow after the storm ended yesterday afternoon.
+scene	סצנה; זירה	The final scene of the movie showed the two friends saying goodbye at the airport.
+school	בית-ספר	My daughter goes to school at eight o'clock every morning.
+search	חיפוש, לחפש	The team will search the building for the missing keys before the meeting starts.
+secret	סוד	She told me a secret that nobody else should know.
+sell	למכור	They sell their handmade goods only at the local market on weekends.
+send	לשלוח	Send the package using express mail so it arrives within two days.
+serious	רציני, חמור	The patient's condition became serious when his breathing became difficult and shallow.
+service	שירות	Good service at a restaurant makes customers come back again.
+shop	חנות; לקנות	I bought groceries at the crowded shop, which closed at nine in the evening.
+short	קצר	The short film told a complete story in just five minutes.
+show	הופעה; להראות	The magic show amazed children by making objects disappear right before their eyes.
+side	צד, לצודד, לתמוך	The sunny side of the street is much warmer than the shaded side.
+sign	לחתום; שֶׁלֶט; סימן, לסמן	She signed the document with her full legal name carefully.
+simple	פשוט	The simple design used only basic shapes and solid colors.
+since	מכיוון ש-; מאז	Since we arrived early, we decided to explore the neighborhood before the meeting.
+singer	זמר	The singer had such a powerful voice that people in the back could hear clearly.
+single	רווק; יחיד	She stayed single for years before finally deciding to get married.
+sir	אדון, תואר אצולה אנגלי	Yes, sir, I will complete the work before Friday.
+situation	מצב, סיטואציה	The situation at work improved when the new manager began listening to employees.
+sky	שמיים, רקיע	The sky turned dark and grey before the storm started.
+sleep	שינה; לישון	Children sleep deeply after playing outside all afternoon.
+slow	איטי, לאט	The slow internet connection made downloading the file take several hours.
+snake	נחש	A snake slithered across the garden behind our house.
+snow	שלג	It snowed all night and covered everything with white powder.
+so	אז, כך ש-, ולכן; כל-כך, מאוד	The water was so cold that we could not swim.
+so that	כך ש-	I saved money each month so that I could buy a used car.
+soldier	חייל	The soldier carried heavy equipment on long marches through difficult terrain.
+sometimes	לעיתים, לפעמים	Sometimes the bus is late, but mostly it arrives on schedule.
+soon	בהקדם, מוקדם	The doctor said I would feel better soon, probably within three or four days.
+South	דרום	We traveled south to visit my family in the warm region.
+special	מיוחד	She wore a special dress embroidered with gold thread that her grandmother made.
+spend	לבזבז, לפזר; לבלות, להעביר	I spend too much money on coffee every week without noticing.
+stand	לעמוד	Please stand in line and wait for your turn at the counter.

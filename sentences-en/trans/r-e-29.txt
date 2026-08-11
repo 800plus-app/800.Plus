@@ -1,0 +1,80 @@
+oppose	להתנגד ל-, להתייצב נגד	The community will oppose any plan to close the local school.	הקהילה תתנגד לכל תוכנית לסגור את בית הספר המקומי.
+orchestrate	לתאם, לתזמר	She orchestrated dozens of moving parts to pull off the surprise party perfectly.	היא תיאמה עשרות גורמים כדי להוציא לפועל את מסיבת ההפתעה בצורה מושלמת.
+ordinary	רגיל	It was just an ordinary Tuesday morning when everything changed.	זה היה סתם בוקר יום שלישי רגיל כשהכל השתנה.
+organ	אורגן (כלי נגינה); איבר	He learned to play the organ at the old church.	הוא למד לנגן באורגן בכנסייה הישנה.
+orientation	התמצאות	All new employees attend orientation during their first week on the job.	כל העובדים החדשים משתתפים בהתמצאות בשבוע הראשון שלהם בעבודה.
+originality	מקוריות	The artist's work showed remarkable originality that impressed the critics.	עבודתו של האמן הפגינה מקוריות יוצאת דופן שהרשימה את המבקרים.
+outdated	מיושן	Those computer models are now outdated and can't run modern software.	דגמי המחשבים האלה מיושנים כעת ואינם יכולים להריץ תוכנה מודרנית.
+overcome	להתגבר	She worked hard to overcome her fear of public speaking.	היא עבדה קשה כדי להתגבר על הפחד שלה מדיבור מול קהל.
+palm	דקל; כף יד	The palm trees swayed gently in the warm tropical breeze.	עצי הדקל התנדנדו בעדינות ברוח הטרופית החמה.
+parenting	הורות	Her parenting style focused on setting clear limits while showing her kids warmth.	סגנון ההורות שלה התמקד בקביעת גבולות ברורים תוך הפגנת חום כלפי ילדיה.
+particular	מסוים, ספציפי; מיוחד; (about) קפדן, בררן	Is there a particular restaurant you'd like to try tonight?	יש מסעדה מסוימת שהיית רוצה לנסות הערב?
+passive	סביל	He took a passive role and let others make all decisions.	הוא נקט תפקיד סביל ונתן לאחרים לקבל את כל ההחלטות.
+patiently	בסבלנות	The teacher patiently explained the difficult concept to each student.	המורה הסבירה בסבלנות את הרעיון הקשה לכל תלמיד.
+patrol	סיור; לסייר	Police officers patrol the downtown area every night for safety.	שוטרים מסיירים באזור מרכז העיר כל לילה למען הביטחון.
+permit	אישור, רישיון; להרשות	The new rules do not permit smoking in any workplace.	החוקים החדשים אינם מתירים עישון בשום מקום עבודה.
+phase	שלב, דרגה	The project is now in the final phase of development.	הפרויקט נמצא כעת בשלב האחרון של הפיתוח.
+physicist	פיזיקאי	The physicist conducted an experiment to test his revolutionary theory.	הפיזיקאי ערך ניסוי כדי לבחון את התיאוריה המהפכנית שלו.
+pit	בור	Miners dug a deep pit to extract valuable minerals from underground.	כורים חפרו בור עמוק כדי להפיק מינרלים יקרי ערך מתת הקרקע.
+plague	מגפה	A plague swept through the village and many people became ill.	מגפה פשטה בכפר ואנשים רבים חלו.
+plot	עלילה; חלקה (חלקת אדמה); להכין תרשים; לזמום, לקשור קשר	The mystery novel's complex plot kept readers guessing until the end.	העלילה המורכבת של רומן המתח גרמה לקוראים לנחש עד הסוף.
+pole	מוט; קוטב	He planted a wooden pole deep into the ground for support.	הוא נעץ מוט עץ עמוק באדמה כדי לתמוך.
+polish	פולני; להבריק, לצחצח	The Polish embroidery featured intricate patterns passed down through generations.	הרקמה הפולנית כללה דוגמאות מורכבות שעברו מדור לדור.
+possession	בעלות, חזקה	His most valuable possession was the antique watch from his grandfather.	הדבר היקר ביותר שהיה ברשותו היה השעון העתיק שקיבל מסבו.
+poverty	עוני	Many families lived in poverty without access to clean water.	משפחות רבות חיו בעוני ללא גישה למים נקיים.
+praise	לשבח	The coach praised the team for their hard work and dedication.	המאמן שיבח את הקבוצה על העבודה הקשה והמסירות שלה.
+precise	מדויק	We need precise measurements to build this cabinet correctly.	אנחנו צריכים מדידות מדויקות כדי לבנות את הארון הזה כראוי.
+preferable	עדיף	Fresh vegetables are preferable to frozen ones for making healthy meals.	ירקות טריים עדיפים על קפואים להכנת ארוחות בריאות.
+prestigious	יוקרתי	That trophy is so prestigious that every top athlete dreams of winning it.	הגביע הזה כל כך יוקרתי שכל ספורטאי מוביל חולם לזכות בו.
+prevention	מניעה	Crime prevention requires both community involvement and effective policing.	מניעת פשיעה דורשת גם מעורבות קהילתית וגם שיטור יעיל.
+prey	טרף, לטרוף	The hawk circled overhead searching for small prey in the field.	הנץ ריחף מעל וחיפש טרף קטן בשדה.
+prior	קודם	She has no prior experience working in a hospital setting.	אין לה שום ניסיון קודם בעבודה בבית חולים.
+prior to	קודם ל-, לפני	Prior to the meeting, please review all the relevant documents.	קודם לפגישה, אנא עברו על כל המסמכים הרלוונטיים.
+procedure	הליך, נוהל	Follow the correct procedure when operating this heavy machinery.	יש לעקוב אחר ההליך הנכון בעת הפעלת המכונה הכבדה הזו.
+profitable	רווחי	The company's new strategy proved very profitable within just one year.	האסטרטגיה החדשה של החברה התבררה כרווחית מאוד תוך שנה אחת בלבד.
+progressive	מתקדם ומתמשך	Without treatment, the disease follows a progressive course that gradually worsens.	ללא טיפול, המחלה עוברת מהלך מתקדם ומתמשך שמחמיר בהדרגה.
+property	תכונה; רכוש	Gold has the property of being both rare and valuable.	לזהב יש את התכונה של היותו נדיר ויקר ערך כאחד.
+publication	פרסום; מאמר/כתב עת שפורסם; הוצאה לאור	The publication of her research revealed important new findings.	פרסום המחקר שלה חשף ממצאים חדשים וחשובים.
+quantity	כמות	The bakery reduced the quantity of sugar in their recipes.	המאפייה הפחיתה את כמות הסוכר במתכונים שלה.
+radical	קיצוני; שורשי	They proposed a radical change to the entire education system.	הם הציעו שינוי קיצוני לכל מערכת החינוך.
+radically	באופן קיצוני	Technology has radically transformed how people communicate with each other.	הטכנולוגיה שינתה באופן קיצוני את האופן שבו אנשים מתקשרים זה עם זה.
+rather	עדיף; למדי	I would rather stay home than go to the party.	הייתי מעדיף להישאר בבית מאשר ללכת למסיבה.
+recall	להיזכר; להחזיר, להשיב צלצול	I can still recall the exact moment we first met.	אני עדיין יכול להיזכר ברגע המדויק שבו נפגשנו לראשונה.
+refund	החזר	You can request a refund within thirty days of purchase.	אפשר לבקש החזר כספי תוך שלושים יום מהרכישה.
+refusal	סירוב	His refusal to admit the mistake angered everyone in the room.	הסירוב שלו להודות בטעות הכעיס את כולם בחדר.
+refuse	אשפה, זבל; לסרב	The city collects refuse twice a week from each neighborhood.	העירייה אוספת אשפה פעמיים בשבוע מכל שכונה.
+remains	נשאר, עדיין; שרידים	Despite the setbacks, she remains determined to finish the marathon.	למרות המכשולים, היא נשארת נחושה לסיים את המרתון.
+remarkable	ראוי לציון, יוצא דופן	Her remarkable talent for languages impressed everyone who met her.	הכישרון יוצא הדופן שלה לשפות הרשים את כל מי שפגש אותה.
+renew	לחדש	You need to renew your passport before your trip abroad.	עליך לחדש את הדרכון שלך לפני הנסיעה לחוץ לארץ.
+reservation	שמורה; שריון מקום	A large reservation was created to protect the forest from logging.	שמורה גדולה הוקמה כדי להגן על היער מפני כריתה.
+residence	מגורים	After college, she moved her residence to the city center.	אחרי הקולג', היא העתיקה את מקום מגוריה למרכז העיר.
+respectfully	בכבוד	She spoke respectfully to the elderly professor during the conversation.	היא דיברה בכבוד אל הפרופסור הקשיש במהלך השיחה.
+result in	הסתיים ב-	Poor planning can result in costly mistakes and project delays.	תכנון לקוי עלול להסתיים בטעויות יקרות ובעיכובים בפרויקט.
+retire	לפרוש	He decided to retire at age sixty-five after forty years.	הוא החליט לפרוש בגיל שישים וחמש אחרי ארבעים שנה.
+retreat	לסגת, נסיגה	After a stressful week, she loves to retreat to her quiet garden.	אחרי שבוע מלחיץ, היא אוהבת לסגת לגינה השקטה שלה.
+revolutionary	מהפכני	The revolutionary technology changed how we think about transportation.	הטכנולוגיה המהפכנית שינתה את האופן שבו אנחנו חושבים על תחבורה.
+rubbish	זבל; שטויות	Please put the rubbish in the bin before leaving.	בבקשה שימו את הזבל בפח לפני שאתם עוזבים.
+sacred	קדוש	Sunday family dinner was sacred in their house, and nothing interrupted it.	ארוחת המשפחה בימי ראשון הייתה קדושה בביתם, ושום דבר לא הפריע לה.
+sanction	סנקציה, עונש; לאשר, להתיר, לתת גושפנקה	The school imposed strict sanctions on students who broke the dress code.	בית הספר הטיל סנקציות חמורות על תלמידים שהפרו את קוד הלבוש.
+scale	מאזניים; לעלות, לטפס; סולם, סקלה	The scale showed that he had gained ten pounds since last year.	המאזניים הראו שהוא עלה עשר קילו מאז השנה שעברה.
+season	לתבל; עונה	Remember to season the soup well before serving it to guests.	זכרו לתבל את המרק היטב לפני שמגישים אותו לאורחים.
+sensitivity	רגישות	The patient had sensitivity to certain medications and required careful monitoring.	למטופל הייתה רגישות לתרופות מסוימות והוא נדרש למעקב קפדני.
+sequel	המשך	The sequel to that popular book was even better than the original.	ההמשך לספר הפופולרי הזה היה אפילו טוב יותר מהמקורי.
+severe	חמור	The patient suffered from a severe infection that required hospitalization.	המטופל סבל מזיהום חמור שדרש אשפוז.
+shortly	בקרוב, בעוד זמן קצר; בקצרה	The new store will open shortly, so watch for the announcement.	החנות החדשה תיפתח בקרוב, אז שימו לב להודעה.
+shuffle	לערבב; לגרור רגליים	Please shuffle the deck before dealing the cards to everyone.	בבקשה ערבבו את חפיסת הקלפים לפני שמחלקים אותם לכולם.
+similarly	באופן דומה	He struggled with math, and similarly, his sister found it difficult.	הוא התקשה במתמטיקה, ובאופן דומה, אחותו מצאה אותה קשה.
+simplify	לפשט	Can you simplify these instructions so they're easier to understand?	תוכל לפשט את ההוראות האלה כדי שיהיה קל יותר להבין אותן?
+simulate	לדמות, לחקות	The program can simulate different weather conditions for research purposes.	התוכנה יכולה לדמות תנאי מזג אוויר שונים לצורכי מחקר.
+skepticism	ספקנות	Her skepticism about the plan proved justified when problems arose.	הספקנות שלה לגבי התוכנית התבררה כמוצדקת כשצצו בעיות.
+slight	קל, מעט	There was a slight delay in the train's arrival schedule.	היה עיכוב קל בלוח הזמנים של הגעת הרכבת.
+snap	להישבר; במהירות (סלנג)	The branch will snap if you try to bend it too far.	הענף יישבר אם תנסה לכופף אותו יותר מדי.
+sober	פיכח	After drinking only water all night, he remained completely sober.	אחרי ששתה רק מים כל הלילה, הוא נשאר פיכח לגמרי.
+sophisticated	מתוחכם	The sophisticated equipment required extensive training to operate properly.	הציוד המתוחכם דרש הכשרה נרחבת כדי להפעיל אותו כראוי.
+spare	רזרבי, חלופי, פנוי (___ time); עודף; לחסוך, לחוס על	Do you have spare time to help me with this project?	יש לך זמן פנוי כדי לעזור לי עם הפרויקט הזה?
+specialize	להתמחות	After college, she decided to specialize in international business law.	אחרי הקולג', היא החליטה להתמחות בדיני עסקים בינלאומיים.
+species	מין, זן	Scientists discovered a new species of bird in the remote forest.	מדענים גילו מין חדש של ציפור ביער הנידח.
+spectacular	מדהים	The fireworks display was absolutely spectacular and thrilled the crowd.	תצוגת הזיקוקים הייתה מדהימה לחלוטין וריגשה את הקהל.
+spontaneously	ללא תכנון	They spontaneously decided to go on a road trip last minute.	הם החליטו ללא תכנון לצאת לטיול כביש ברגע האחרון.
+spring	מעיין; אביב	The mountain spring provided fresh water to the nearby village.	מעיין ההר סיפק מים צלולים לכפר הסמוך.
+stability	יציבות	Economic stability is essential for the country's long-term growth.	יציבות כלכלית חיונית לצמיחה ארוכת הטווח של המדינה.

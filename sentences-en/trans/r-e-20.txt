@@ -1,0 +1,80 @@
+surprisingly	במפתיע	The news arrived surprisingly fast, which shocked everyone that evening.	החדשות הגיעו במפתיע במהירות, מה שהדהים את כולם באותו ערב.
+suspect	חשוד (מישהו); לחשוד	The main suspect in the robbery was arrested outside the museum.	החשוד העיקרי בשוד נעצר מחוץ למוזיאון.
+symbolize	לסמל	The dove symbolizes peace in many books, movies, and works of art.	היונה מסמלת שלום בהרבה ספרים, סרטים ויצירות אמנות.
+symmetry	סימטריה, התאמה	The building's perfect symmetry showed identical design on both sides.	הסימטריה המושלמת של הבניין הראתה עיצוב זהה משני הצדדים.
+symptom	סימפטום	A fever is a common symptom when someone has the flu.	חום הוא סימפטום נפוץ כשמישהו חולה בשפעת.
+syndrome	תסמונת	Down syndrome affects how a child's body and mind develop.	תסמונת דאון משפיעה על האופן שבו גופו ומוחו של ילד מתפתחים.
+tact	טקט	She used tact to tell her friend the dress didn't look flattering.	היא השתמשה בטקט כדי לספר לחברתה שהשמלה לא הלמה אותה.
+take place	התרחש	The concert will take place in the city next Friday evening.	הקונצרט יתרחש בעיר ביום שישי הבא בערב.
+teach, taught	ללמד, לימד	My grandmother taught me to cook using her own secret recipes.	סבתי לימדה אותי לבשל לפי המתכונים הסודיים שלה.
+terms	מונחים; תנאים	Scientists use many specific terms that beginners find hard to understand.	מדענים משתמשים במונחים ספציפיים רבים שקשה למתחילים להבין.
+texture	מרקם, טקסטורה	The texture of velvet feels incredibly smooth under your fingers.	המרקם של הקטיפה מרגיש חלק להפליא תחת האצבעות.
+theoretically	תיאורטית, לכאורה	Theoretically the plan could work, but real life presents problems.	תיאורטית התוכנית יכולה לעבוד, אבל החיים האמיתיים מציבים בעיות.
+therefore	לכן	It rained yesterday; therefore, the soccer game was moved to tomorrow.	אתמול ירד גשם, ולכן משחק הכדורגל נדחה למחר.
+though	למרות זאת; למרות ש-	Maria finished her essay early; she felt very tired, though.	מריה סיימה את החיבור שלה מוקדם; היא הרגישה עייפה מאוד, למרות זאת.
+tight	הדוק, לחוץ, צמוד	These shoes are so tight that my toes hurt when walking.	הנעליים האלה כל כך הדוקות שהאצבעות שלי כואבות כשאני הולך.
+timeline	ציר זמן	The timeline showed our project took exactly two years to finish.	ציר הזמן הראה שהפרויקט שלנו לקח בדיוק שנתיים להשלמה.
+to sum up	כדי לסכם; לסכם	To sum up, we need more money and time for this.	כדי לסכם, אנחנו זקוקים ליותר כסף וזמן בשביל זה.
+topic	נושא	Our class topic this month is reading classic books and analyzing them.	נושא הכיתה שלנו החודש הוא קריאת ספרים קלאסיים וניתוחם.
+trade	להחליף; לסחור, מסחר	Countries trade oil and wheat to get resources they need.	מדינות סוחרות בנפט ובחיטה כדי להשיג משאבים שהן צריכות.
+trance	טראנס, מצב היפנוטי	The hypnotist put the volunteer into a trance using his voice.	ההיפנוטיזר הכניס את המתנדב לטראנס באמצעות קולו.
+transform	לשנות צורה	A caterpillar will transform into a butterfly in just a few weeks.	זחל יהפוך לפרפר תוך שבועות ספורים בלבד.
+translate	לתרגם	Can you translate this letter from Japanese to English for me?	תוכל לתרגם לי את המכתב הזה מיפנית לאנגלית?
+translator	מתרגם	The translator worked through the night to finish the translation.	המתרגם עבד כל הלילה כדי לסיים את התרגום.
+transportation	תחבורה	Train transportation is cheap and effective for moving many people.	תחבורת רכבות זולה ויעילה להעברת אנשים רבים.
+treat	להתייחס; פינוק, ממתק; לפנק	My parents treat me as an adult when I show responsibility.	ההורים שלי מתייחסים אליי כמו למבוגר כשאני מגלה אחריות.
+tropical	טרופי	Tropical birds have bright colors and live in very warm regions.	לציפורים טרופיות יש צבעים בהירים והן חיות באזורים חמים מאוד.
+unclear	לא ברור	His instructions were so unclear that everyone felt lost and confused.	ההוראות שלו היו כל כך לא ברורות שכולם הרגישו אבודים ומבולבלים.
+uniform	מדים; אחיד	Military uniforms ensure that all soldiers look identical and professional.	מדים צבאיים מבטיחים שכל החיילים ייראו זהים ומקצועיים.
+unite	לאחד	Two companies decided to unite to become one stronger business.	שתי החברות החליטו לאחד כוחות ולהפוך לעסק אחד חזק יותר.
+universe	יקום	Scientists study the universe to understand stars, galaxies, and space.	מדענים חוקרים את היקום כדי להבין כוכבים, גלקסיות וחלל.
+unofficial	בלתי רשמי	The unofficial report suggested major problems, but management denied everything.	הדוח הבלתי רשמי רמז על בעיות חמורות, אך ההנהלה הכחישה הכול.
+unorganized	לא מאורגן	His desk was so unorganized that he lost important papers.	השולחן שלו היה כל כך לא מאורגן שהוא איבד מסמכים חשובים.
+unrealistic	לא מציאותי	Your plan is unrealistic because you don't have enough money.	התוכנית שלך לא מציאותית כי אין לך מספיק כסף.
+unwanted	לא רצוי	Several unwanted guests showed up at the party without invitation.	כמה אורחים לא רצויים הופיעו במסיבה בלי הזמנה.
+upon	על	Once upon a time, a poor farmer lived in a small village.	פעם, בכפר קטן, חי איכר עני.
+vaccine	חיסון	A vaccine protects children from catching serious diseases.	חיסון מגן על ילדים מפני מחלות רציניות.
+valley	עמק	The valley between the mountains was green and full of trees.	העמק שבין ההרים היה ירוק ומלא עצים.
+variation	שינוי, וריאציה	Each dancer performed her own unique variation of the traditional dance.	כל רקדנית ביצעה וריאציה ייחודית משלה על הריקוד המסורתי.
+vegetable	ירק	A carrot is a vegetable that grows underground in gardens.	גזר הוא ירק שגדל מתחת לאדמה בגינות.
+vehicle	כלי רכב	A car is a vehicle used for transportation every single day.	מכונית היא כלי רכב המשמש לתחבורה בכל יום.
+verbal	ורבלי, מילולי	The verbal agreement should be written down to prevent disputes.	יש לתעד בכתב את ההסכם המילולי כדי למנוע חילוקי דעות.
+veteran	ותיק; חייל משוחרר, יוצא צבא	The veteran actor has performed on stage for fifty years successfully.	השחקן הוותיק הופיע על הבמה במשך חמישים שנה בהצלחה.
+victim	קורבן	The victim of the robbery reported what she lost to police.	קורבן השוד דיווחה למשטרה מה איבדה.
+view	דעה, השקפה; נוף, מראה; שדה ראייה; לראות, לצפות; להתייחס ל-	My view is that this restaurant serves the best food.	דעתי היא שהמסעדה הזו מגישה את האוכל הטוב ביותר.
+villain	רשע, נבל	The villain in the story tried to steal the valuable diamond.	הנבל בסיפור ניסה לגנוב את היהלום היקר.
+wagon	עגלה	The farmer loaded hay into the wagon for transport to the barn.	האיכר טען חציר על העגלה להובלה אל האסם.
+waste	בזבוז, לבזבז; הפסולת	Don't waste time on video games when you should study.	אל תבזבז זמן על משחקי מחשב כשאתה צריך ללמוד.
+waterfall	מפל	The waterfall dropped hundreds of feet into a pool of water.	המפל צנח מאות מטרים לתוך בריכת מים.
+weaken	להחליש	Lack of sleep will weaken your body and affect your thinking.	חוסר שינה יחליש את גופך וישפיע על החשיבה שלך.
+whale	לוויתן	A blue whale is larger than any animal living on land.	לווייתן כחול גדול מכל חיה אחרת החיה על היבשה.
+whenever	בכל פעם ש-, מתי ש-; לא משנה מתי	Whenever you visit, please bring your family to meet with us.	בכל פעם שתבקר, אנא הבא את משפחתך להיפגש איתנו.
+wherever	בכל מקום, לא משנה היכן	Wherever you travel, remember to stay safe and watch your luggage.	לא משנה לאן תיסע, זכור לשמור על עצמך ולהשגיח על המזוודות שלך.
+whom	מי	Whom did you see at the party last night, Sarah?	את מי ראית במסיבה אתמול בלילה, שרה?
+whose	של מי; אשר שלו, ש...שלו	Whose book is this sitting on the table by the window?	של מי הספר הזה שמונח על השולחן ליד החלון?
+willing	מוכן	I am willing to help you move if you need assistance.	אני מוכן לעזור לך לעבור דירה אם תזדקק לסיוע.
+within	בתוך	The store is within walking distance, so we can walk there.	החנות נמצאת במרחק הליכה, כך שנוכל ללכת ברגל.
+witness	עד, להעיד	Did you witness the car accident that happened on the street?	האם היית עד לתאונת הדרכים שקרתה ברחוב?
+wonder	לתהות, להטיל ספק; פלא	I wonder whether she will come to the party or not.	אני תוהה אם היא תגיע למסיבה או לא.
+woods	יער	The children got lost in the woods during their hiking trip.	הילדים הלכו לאיבוד ביער במהלך טיול הליכה.
+worm	תולעת	After the rain, a pink worm crawled slowly across the wet sidewalk.	אחרי הגשם, תולעת ורודה זחלה לאט על המדרכה הרטובה.
+abroad	חו"ל	She studied abroad in France for one full year during college.	היא למדה בחו"ל בצרפת במשך שנה שלמה במהלך הלימודים.
+absent	חסר, לא נוכח	He was absent from school yesterday because he was sick.	הוא נעדר מבית הספר אתמול כי הוא היה חולה.
+absolute	מוחלט	It was an absolute disaster when the entire power failed.	זה היה אסון מוחלט כשכל החשמל קרס.
+acceptable	מקובל	Your work is acceptable, although you can still improve quality.	העבודה שלך מקובלת, אף שאתה יכול עדיין לשפר את האיכות.
+achieve	להשיג	She achieved her goal of running a marathon after training.	היא השיגה את מטרתה לרוץ מרתון אחרי אימונים.
+activate	להפעיל	Activate the security system before you leave the house tonight.	הפעל את מערכת האבטחה לפני שאתה עוזב את הבית הלילה.
+adapt	להתאים; לעבד; להסתגל	The director adapted the popular novel into a two-hour movie.	הבמאי עיבד את הרומן הפופולרי לסרט בן שעתיים.
+addition	תוספת, הוספה	In addition to lunch, we ordered dessert and coffee too.	בנוסף לארוחת הצהריים, הזמנו גם קינוח וקפה.
+administration	מנהל	The school administration makes important rules and policies for students.	מנהל בית הספר קובע כללים ומדיניות חשובים לתלמידים.
+affect	להשפיע	Bad weather will definitely affect tomorrow's soccer game and schedule.	מזג אוויר גרוע ישפיע בהחלט על משחק הכדורגל של מחר ועל הלוח זמנים.
+afterwards	לאחר מכן	We watched the movie, and afterwards we went out to dinner.	צפינו בסרט, ולאחר מכן יצאנו לארוחת ערב.
+aid	עזרה, לסייע	She came to aid her friend who fell and got injured.	היא באה לסייע לחברתה שנפלה ונפצעה.
+aim	לכוון, מטרה	The archer took time to aim before releasing the arrow carefully.	הקשת לקח זמן לכוון לפני ששחרר את החץ בזהירות.
+annoy	להציק	The loud noise will annoy all the students studying in libraries.	הרעש החזק יציק לכל התלמידים שלומדים בספריות.
+apply	ליישם, להחיל; לחול על; להגיש בקשה, לפנות	Teachers apply new methods to help students learn math better.	מורים מיישמים שיטות חדשות כדי לעזור לתלמידים ללמוד מתמטיקה טוב יותר.
+approve	לאשר	The boss will approve the budget if the numbers make sense.	הבוס יאשר את התקציב אם המספרים יהיו הגיוניים.
+arrange	לסדר	She arranged the flowers beautifully in a vase on the table.	היא סידרה את הפרחים בצורה יפה באגרטל על השולחן.
+article	מאמר; פריט	She read a long newspaper article about rising food prices this morning.	היא קראה מאמר עיתונאי ארוך על עליית מחירי המזון הבוקר.
+artificial	מלאכותי	The cake was decorated with artificial flowers made of colored plastic.	העוגה קושטה בפרחים מלאכותיים העשויים פלסטיק צבעוני.
+assignment	משימה, מטלה	The teacher gave us a history assignment due next Monday morning.	המורה נתנה לנו מטלה בהיסטוריה שיש להגיש ביום שני הקרוב.

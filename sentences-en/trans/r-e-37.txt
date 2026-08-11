@@ -1,0 +1,80 @@
+eager	נלהב, משתוקק, כמה	The child was eager to open her birthday gifts after waiting weeks.	הילדה הייתה נלהבת לפתוח את מתנות יום ההולדת שלה אחרי שחיכתה שבועות.
+edible	אכיל	These mushrooms are edible, but those purple ones are toxic and must be avoided.	הפטריות האלה אכילות, אבל הסגולות ההן רעילות ויש להימנע מהן.
+embrace	לחבק, לאמץ לקרבו	She ran to embrace her sister at the airport after two years apart.	היא רצה לחבק את אחותה בשדה התעופה אחרי שנתיים של פרידה.
+emerge	להגיח, להופיע	The sun will emerge from behind the clouds within the next hour or two.	השמש תגיח מאחורי העננים בתוך השעה או השעתיים הקרובות.
+emigrate	להגר	After years of economic hardship, many families decided to emigrate to another country for better opportunities.	אחרי שנים של מצוקה כלכלית, משפחות רבות החליטו להגר למדינה אחרת לשם הזדמנויות טובות יותר.
+enchant	לכשף, להקסים	The old fairy tale would enchant audiences of all ages with its magical story.	אגדת העם הישנה הייתה מכשפת קהלים מכל הגילאים בסיפור הקסום שלה.
+endurance	כוח סבל	Marathon runners need tremendous endurance to finish the grueling twenty-six mile race.	רצי מרתון זקוקים לכוח סבל אדיר כדי לסיים את המרוץ המתיש בן עשרים ושישה המיילים.
+endure	לסבול, להחזיק מעמד	The injured athlete had to endure months of pain during her recovery process.	הספורטאית הפצועה נאלצה לסבול חודשים של כאב במהלך תהליך ההחלמה שלה.
+enhance	להעצים	Adding fresh herbs will enhance the flavor of almost any savory dinner dish.	הוספת עשבי תיבול טריים תעצים את הטעם של כמעט כל מנת ערב מלוחה.
+enthusiast	חובב נלהב	He was a true technology enthusiast who read about every new computer innovation.	הוא היה חובב נלהב אמיתי של טכנולוגיה שקרא על כל חידוש מחשבים חדש.
+Equator	קו המשווה	The Equator is the imaginary line that divides the planet into two equal hemispheres.	קו המשווה הוא הקו הדמיוני שמחלק את כדור הארץ לשני חצי כדורים שווים.
+estate	אחוזה; נכס	The large estate included a mansion, several barns, and over two hundred acres.	האחוזה הגדולה כללה אחוזת מגורים, כמה אסמים, ומעל מאתיים אקרים.
+exaggerate	להגזים	Please do not exaggerate your accomplishments when applying for the executive position.	אנא אל תגזים בהישגים שלך כשאתה מגיש מועמדות לתפקיד הבכיר.
+excessive	יתר, מוגזם	The chef believed that excessive salt would mask the delicate flavors in her cuisine.	השף האמינה שמלח מוגזם יסתיר את הטעמים העדינים במטבח שלה.
+exhale	לנשוף	When you exhale, your lungs release carbon dioxide into the atmosphere around you.	כשאתה נושף, הריאות שלך משחררות פחמן דו חמצני לאוויר שסביבך.
+exhaust	לרוקן, למצות, להתיש; (ש״ע) גזי פליטה, צינור מפלט	The long hike started to exhaust him by the afternoon as temperatures climbed.	הטיול הארוך התחיל להתיש אותו עד אחר הצהריים כשהטמפרטורות עלו.
+exile	להגלות, לגרש	The king decided to exile the disloyal knight from the kingdom forever.	המלך החליט להגלות את האביר חסר הנאמנות מהממלכה לנצח.
+expel	לגרש, לסלק, להרחיק; לפלוט (אוויר)	The school decided to expel the student after his serious violation of conduct policies.	בית הספר החליט לגרש את התלמיד אחרי ההפרה החמורה שלו את כללי ההתנהגות.
+exploit	פעולות, מעשים; לנצל, להפיק תועלת	The explorer's exploit in discovering the hidden temple made him famous worldwide.	המעשה של החוקר בגילוי המקדש הנסתר עשה אותו מפורסם ברחבי העולם.
+extensive	נרחב	The museum's extensive collection includes thousands of paintings from hundreds of years ago.	האוסף הנרחב של המוזיאון כולל אלפי ציורים ממאות שנים אחורה.
+extinction	הכחדה	The extinction of the dinosaurs happened millions of years before humans appeared on earth.	הכחדת הדינוזאורים התרחשה מיליוני שנים לפני שבני האדם הופיעו על כדור הארץ.
+fabric	בד	The soft fabric of the blanket made it perfect for young children to cuddle.	הבד הרך של השמיכה הפך אותה מושלמת לילדים קטנים להתכרבל בה.
+fatigue	עייפות, תשישות; לעייף	After two weeks of constant work, she felt overwhelming fatigue and needed rest.	אחרי שבועיים של עבודה מתמדת, היא הרגישה עייפות מכרעת והייתה זקוקה למנוחה.
+fellow	חבר, עמית	He treated his fellow college students with respect and kindness throughout their years together.	הוא התייחס לחבריו לקולג' בכבוד ובאדיבות לאורך כל שנותיהם המשותפות.
+fetus	עובר (ברחם)	Doctors carefully monitored the fetus during pregnancy to ensure proper development and growth.	הרופאים עקבו בקפידה אחר העובר במהלך ההיריון כדי להבטיח התפתחות וגדילה תקינה.
+fine	קטן, עדין, דקיק; משביע רצון; משובח, מצוין; קנס	The fine china dishes were stored carefully and only used for special occasions.	כלי החרסינה העדינים אוחסנו בקפידה ושימשו רק באירועים מיוחדים.
+firm	מוצק; נחוש, תקיף; חברה (פירמה)	He kept his firm grasp on the rope so he would not fall during the climb.	הוא שמר על אחיזה מוצקה בחבל כדי שלא ייפול במהלך הטיפוס.
+footage	קטע צילום	The footage from the wildlife camera captured a bear wandering through the forest at night.	קטע הצילום ממצלמת חיות הבר תיעד דוב משוטט ביער בלילה.
+for the sake of	למען	She cut her long hair for the sake of donating it to a charity.	היא גזזה את שערה הארוך למען תרומתו לצדקה.
+forceful	תקיף, נמרץ, בעל עוצמה	He delivered a forceful argument that convinced the entire audience to support his position.	הוא נשא טיעון תקיף ששכנע את כל הקהל לתמוך בעמדתו.
+foresee	לצפות מראש	She could foresee the problems that would arise if the team did not plan ahead.	היא יכלה לצפות מראש את הבעיות שיתעוררו אם הצוות לא יתכנן קדימה.
+forth	הלאה, קדימה	The teacher asked the students to come forth and share their favorite stories.	המורה ביקשה מהתלמידים לצאת קדימה ולשתף בסיפורים האהובים עליהם.
+fraction	שבר	She ate only a fraction of the meal and left the rest on her plate.	היא אכלה רק שבר קטן מהארוחה והשאירה את השאר בצלחת.
+fracture	שבר	The fall caused a fracture in his left leg that required surgery and physical therapy.	הנפילה גרמה לשבר ברגלו השמאלית שדרש ניתוח ופיזיותרפיה.
+fragrance	ניחוח	The fragrance of fresh roses filled the garden and attracted butterflies from everywhere.	הניחוח של ורדים טריים מילא את הגן ומשך פרפרים מכל עבר.
+fundraiser	מגייס כספים	The school organized a fundraiser to collect money for the music program this spring.	בית הספר ארגן אירוע לגיוס כספים כדי לאסוף כסף לתוכנית המוזיקה באביב הזה.
+fungus	פטרייה	The warm, damp climate allowed fungus to grow on the old wooden boat hull.	האקלים החם והלח אפשר לפטרייה לצמוח על גוף העץ הישן של הסירה.
+furthermore	זאת ועוד	His argument was clear and logical; furthermore, he had evidence supporting every single claim.	הטיעון שלו היה ברור והגיוני; זאת ועוד, היו לו הוכחות התומכות בכל טענה וטענה.
+genesis	ספר בראשית; היווצרות, התהוות	The genesis of the company came when two friends decided to start a business.	ראשית החברה החלה כאשר שני חברים החליטו להקים עסק.
+glacier	קרחון	The glacier moved slowly down the mountain valley, grinding the rock beneath it to powder.	הקרחון זז לאט במורד עמק ההר וטחן את הסלע מתחתיו לאבקה.
+glance	מבט חטוף	She took one glance at him and knew exactly what he was thinking about.	היא העיפה בו מבט חטוף אחד וידעה בדיוק על מה הוא חושב.
+goods	סחורה, טובין	The store sold all kinds of goods from coffee to clothing to kitchen supplies.	החנות מכרה כל מיני סחורות, מקפה ועד בגדים וציוד מטבח.
+grace	חסד, חינניות	He accepted defeat with grace and congratulated his opponent on the remarkable victory.	הוא קיבל את התבוסה בחן ובירך את יריבו על הניצחון המרשים.
+graceful	חינני, אלגנטי	The graceful dancer moved across the stage with flowing, elegant movements.	הרקדנית החיננית זזה על הבמה בתנועות זורמות ואלגנטיות.
+grant	להעניק, מענק	The government decided to grant funding to several universities for scientific research programs.	הממשלה החליטה להעניק מימון לכמה אוניברסיטאות לתוכניות מחקר מדעי.
+grasp	לתפוס, להבין; אחיזה	She could not grasp the difficult mathematics concepts no matter how hard she studied.	היא לא הצליחה להבין את מושגי המתמטיקה הקשים לא משנה כמה היא למדה קשה.
+grief	יגון, צער	Her grief over losing her mother lasted for several years after the funeral.	היגון שלה על אובדן אמה נמשך כמה שנים אחרי הלוויה.
+groundbreaking	פורץ דרך	The scientist's groundbreaking research changed how doctors treat this serious disease today.	המחקר פורץ הדרך של המדען שינה את הדרך שבה רופאים מטפלים במחלה החמורה הזו כיום.
+growled	נהם	The dog growled at the stranger who approached the gate of the house.	הכלב נהם על הזר שהתקרב לשער הבית.
+habitat	סביבת מגורים	The habitat of polar bears is melting due to rising temperatures in the Arctic.	סביבת המגורים של דובי הקוטב נמסה בגלל עליית הטמפרטורות בארקטיקה.
+halve	לחלק לשניים, להקטין בחצי	If you halve the recipe, you only need two eggs instead of four eggs.	אם תחלק את המתכון לשניים, תצטרך רק שתי ביצים במקום ארבע.
+hardly	בקושי	She was hardly able to hear the teacher over the noise from the construction.	היא בקושי הצליחה לשמוע את המורה מעבר לרעש מהבנייה.
+hatch	לבקוע (מביצה); פתח, צוהר	Birds hatch from eggs after the mother incubates them for several weeks or so.	ציפורים בוקעות מביצים אחרי שהאם דוגרת עליהן במשך כמה שבועות בערך.
+hazardous	מסוכן	Driving in thick fog is hazardous because visibility drops to almost nothing.	נהיגה בערפל סמיך מסוכנת כי הראות יורדת כמעט לאפס.
+hence	לפיכך, לכן	He worked hard for many years; hence his success was well deserved and expected.	הוא עבד קשה שנים רבות; לכן הצלחתו הייתה מגיעה לו וצפויה.
+herd	לאסוף; עדר, לרעות	The shepherd managed to herd all the sheep into the pen before sunset arrived.	הרועה הצליח לכנס את כל הכבשים לדיר לפני רדת השמש.
+heritage	מורשת	The family's heritage included traditions brought over from Italy generations ago by ancestors.	המורשת המשפחתית כללה מסורות שהובאו מאיטליה לפני דורות בידי האבות הקדמונים.
+hibernate	לישון שנת חורף	Many animals hibernate during the winter months when food becomes scarce and cold intensifies.	בעלי חיים רבים ישנים שנת חורף בחודשי החורף כשהמזון נהיה נדיר והקור מתעצם.
+hive	כוורת	The bees returned to their hive after spending the day collecting pollen from flowers.	הדבורים חזרו לכוורת שלהן אחרי שבילו את היום באיסוף אבקה מפרחים.
+hollow	חלול	The tree trunk was hollow and could not support the weight of the branches.	גזע העץ היה חלול ולא יכול היה לשאת את משקל הענפים.
+hospitality	הכנסת אורחים	Their warm hospitality made all the guests feel welcome and comfortable at their home.	הכנסת האורחים החמה שלהם גרמה לכל האורחים להרגיש רצויים ונוחים בביתם.
+hostility	עוינות	The hostility between the two neighbors increased after their fence dispute worsened.	העוינות בין שני השכנים גברה אחרי שהסכסוך על הגדר הידרדר.
+howl	יללה, לילל	The wolf would howl at the moon on clear nights when he felt lonely.	הזאב היה מיילל לירח בלילות בהירים כשהוא הרגיש בודד.
+humiliate	להשפיל	She refused to let them humiliate her by apologizing for something she did not do.	היא סירבה לתת להם להשפיל אותה בכך שתתנצל על משהו שלא עשתה.
+ignite	להצית	A single spark could ignite the dry grass and cause a dangerous wildfire to spread.	ניצוץ בודד יכול להצית את העשב היבש ולגרום לשריפת בר מסוכנת להתפשט.
+ignorance	בורות	His ignorance of local customs caused him to make several embarrassing social mistakes.	הבורות שלו לגבי המנהגים המקומיים גרמה לו לעשות כמה טעויות חברתיות מביכות.
+ignorant	בור, חסר השכלה	He remained ignorant about the facts of the situation because nobody told him anything.	הוא נשאר בור לגבי עובדות המצב כי אף אחד לא סיפר לו שום דבר.
+imitate	לחקות	Young children often imitate their parents by copying their words and daily actions.	ילדים קטנים לעיתים קרובות מחקים את הוריהם על ידי חיקוי מילותיהם ומעשיהם היומיומיים.
+implications	השלכות, משמעות	The implications of this decision would affect the company's profits for years to come.	ההשלכות של ההחלטה הזו ישפיעו על רווחי החברה בשנים הבאות.
+imply	לרמוז	Did he imply that you were dishonest, or did he actually state it directly?	הוא רמז שאתה לא ישר, או שהוא באמת אמר את זה במפורש?
+impose	לכפות	The government decided to impose strict new rules on all businesses starting next month.	הממשלה החליטה לכפות כללים חדשים ומחמירים על כל העסקים החל מהחודש הבא.
+imprisoned	כלוא	He was imprisoned for ten years before evidence proved that he was completely innocent.	הוא היה כלוא במשך עשר שנים לפני שהוכחות הוכיחו שהוא חף מפשע לחלוטין.
+impulsively	ללא שיקול דעת	She impulsively quit her job without thinking about how she would pay her bills.	היא התפטרה מעבודתה ללא שיקול דעת בלי לחשוב איך תשלם את החשבונות שלה.
+in light of	לאור	In light of the evidence, the judge declared him not guilty of the crime.	לאור הראיות, השופט הכריז עליו כחף מפשע.
+inadequate	לקוי, לא מספיק	His knowledge of the subject was inadequate, so he decided to study much harder.	הידע שלו בנושא היה לא מספיק, אז הוא החליט ללמוד הרבה יותר קשה.
+incidentally	דרך אגב	Incidentally, I saw your brother at the grocery store yesterday buying fresh vegetables.	דרך אגב, ראיתי את אחיך אתמול בסופרמרקט קונה ירקות טריים.
+incompetence	חוסר יכולת	His incompetence at the job became obvious when clients complained about his terrible work.	חוסר היכולת שלו בעבודה התברר כשלקוחות התלוננו על העבודה הגרועה שלו.
+indebted	חייב ל-, אסיר תודה	She felt indebted to her mentor for helping her achieve success in her career.	היא הרגישה אסירת תודה למנטור שלה על שעזר לה להצליח בקריירה שלה.
+indefinitely	ללא הגבלה	They postponed the project indefinitely because they did not have enough money yet.	הם דחו את הפרויקט ללא הגבלת זמן כי לא היה להם עדיין מספיק כסף.
+inevitable	בלתי נמנע	His failure was inevitable because he ignored every warning sign along the way.	הכישלון שלו היה בלתי נמנע כי הוא התעלם מכל תמרור אזהרה לאורך הדרך.

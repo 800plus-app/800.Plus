@@ -1,0 +1,80 @@
+determine	לקבוע	Scientists will determine which bacteria caused the infection.	מדענים יקבעו אילו חיידקים גרמו לזיהום.
+differ	להיבדל, לחלוק	The twins look similar, but their opinions differ quite a lot.	התאומים נראים דומים, אבל דעותיהם נבדלות זו מזו במידה רבה.
+discipline	תחום לימוד/מחקר; להעניש, לחנך, משמעת	Biology is a fascinating discipline that studies all living organisms.	ביולוגיה היא תחום מחקר מרתק שחוקר את כל היצורים החיים.
+discomfort	אי-נוחות	Wearing shoes two sizes too small causes real discomfort.	נעילת נעליים בשני מספרים קטנים מדי גורמת לאי-נוחות ממשית.
+disguise	תחפושת	The thief wore a disguise so nobody would recognize him.	הגנב לבש תחפושת כדי שאף אחד לא יזהה אותו.
+disloyal	לא נאמן	His disloyal friends abandoned him when he lost his job.	חבריו הלא נאמנים נטשו אותו כשהוא איבד את העבודה.
+domestic	ביתי; מקומי, פנים-ארצי; מבוית (חיה)	She left her job to focus on domestic responsibilities at home.	היא עזבה את העבודה כדי להתמקד באחריות הביתית בבית.
+doorstep	מפתן הדלת	A package was left on the doorstep this morning.	חבילה הושארה על מפתן הדלת הבוקר.
+dozen	תריסר	She bought a dozen eggs for the cake recipe.	היא קנתה תריסר ביצים למתכון העוגה.
+draft	גיוס; טיוטה; משיכה; רוח פרצים	Young men faced the military draft during the war years.	גברים צעירים ניצבו מול הגיוס הצבאי בשנות המלחמה.
+dull	סתום; משעמם; עמום	He seemed dull and slow to answer even simple questions.	הוא נראה סתום ואיטי לענות אפילו על שאלות פשוטות.
+duplicate	לשכפל	Please duplicate this report and send copies to everyone.	אנא שכפל את הדוח הזה ושלח עותקים לכולם.
+e.g.	לדוגמה	Many fruits, e.g., apples and oranges, are very healthy.	פירות רבים, לדוגמה תפוחים ותפוזים, בריאים מאוד.
+eccentric	מוזר, אקסצנטרי	The eccentric professor kept forty cats and never wore matching socks.	הפרופסור המוזר החזיק ארבעים חתולים ולא לבש אף פעם גרביים תואמות.
+educate	לחנך	Schools educate children in reading, writing, and mathematics.	בתי ספר מחנכים ילדים לקריאה, כתיבה וחשבון.
+elsewhere	במקום אחר	If this restaurant is full, let's eat elsewhere tonight.	אם המסעדה הזאת מלאה, בואו נאכל במקום אחר הערב.
+embryo	עוּבָּר	An embryo develops inside the mother's body for nine months.	עובר מתפתח בתוך גופה של האם במשך תשעה חודשים.
+encounter	להיתקל ב-, לפגוש; מפגש, היתקלות	I encountered an old friend at the grocery store yesterday.	נתקלתי בחבר ותיק בסופרמרקט אתמול.
+endanger	לסכן	Careless driving endangers the lives of everyone on the road.	נהיגה פזיזה מסכנת את חייהם של כל הנוסעים בכביש.
+endangered	בסכנת הכחדה	Polar bears are endangered because climate change melts their ice.	דובי הקוטב נמצאים בסכנת הכחדה כי שינוי האקלים ממיס את הקרח שלהם.
+engage	להעסיק, ליצור מגע	The presenter tried to engage the audience with questions.	המנחה ניסה ליצור מגע עם הקהל באמצעות שאלות.
+engagement	התחייבות; אירוסין	Her strong engagement with the charity project lasted for many years.	המחויבות העמוקה שלה לפרויקט הצדקה נמשכה שנים רבות.
+enjoyable	מהנה	The movie was enjoyable and we laughed throughout it.	הסרט היה מהנה וצחקנו לאורכו כולו.
+enormous	עצום	The elephant was an enormous animal weighing several tons.	הפיל היה חיה עצומה ששקלה כמה טונות.
+ensure	להבטיח	Locked doors ensure that nobody enters without permission.	דלתות נעולות מבטיחות שאף אחד לא ייכנס בלי אישור.
+enthusiastic	נלהב	She was so enthusiastic about the new project that she arrived early and stayed late.	היא הייתה כל כך נלהבת מהפרויקט החדש שהגיעה מוקדם ונשארה עד מאוחר.
+entirely	לחלוטין	The storm destroyed the house entirely, leaving almost nothing.	הסערה הרסה את הבית לחלוטין ולא השאירה כמעט כלום.
+entitled	זכאי	Senior citizens are entitled to discounts at many stores.	אזרחים ותיקים זכאים להנחות בחנויות רבות.
+envelope	מעטפה	She put the letter in a white envelope carefully.	היא הכניסה את המכתב למעטפה לבנה בזהירות.
+equality	שוויון	The law ensures equality by giving everyone the same opportunities and rights.	החוק מבטיח שוויון בכך שהוא נותן לכולם הזדמנויות וזכויות זהות.
+equip	לצייד	The army equipped soldiers with weapons and protective gear.	הצבא צייד את החיילים בנשק ובציוד מגן.
+eraser	מחק	She used an eraser to remove the pencil marks.	היא השתמשה במחק כדי להסיר את סימוני העיפרון.
+establish	לייסד	The company was established fifty years ago by two brothers.	החברה נוסדה לפני חמישים שנה בידי שני אחים.
+every now and then	לפעמים	Every now and then, she visits her grandmother in town.	לפעמים היא מבקרת את סבתה בעיר.
+evolutionary	התפתחותי	Evolutionary changes in animals happen over thousands of years.	שינויים התפתחותיים בבעלי חיים מתרחשים במשך אלפי שנים.
+exclusively	באופן בלעדי, רק	The store exclusively sells organic products and nothing else.	החנות מוכרת באופן בלעדי מוצרים אורגניים ולא כלום מלבד זה.
+expose	לחשוף, להעמיד בפני	The journalist exposed the company's illegal business practices.	העיתונאי חשף את הנוהגים העסקיים הבלתי חוקיים של החברה.
+eyesight	ראייה, חוש הראייה	His eyesight weakened after staring at screens for years.	הראייה שלו נחלשה לאחר שנים של הסתכלות במסכים.
+facility	מתקן	The hospital has modern facilities such as clean rooms and comfortable beds.	לבית החולים יש מתקנים מודרניים כמו חדרים נקיים ומיטות נוחות.
+fade	לדהות, לדעוך	The colors of the old carpet fade in bright sunlight.	הצבעים של השטיח הישן דוהים באור שמש חזק.
+faint	להתעלף; קלוש	She began to faint after standing too long in heat.	היא התחילה להתעלף אחרי שעמדה יותר מדי זמן בחום.
+fame	תהילה, פרסום	The athlete achieved fame after winning the championship.	הספורטאי זכה לתהילה לאחר שניצח באליפות.
+fancy	מחבב; מגונדר	She fancied spending time at the beach more than staying in the city.	היא חיבבה לבלות זמן בחוף הים יותר מאשר להישאר בעיר.
+faulty	לקוי, לא תקין	The faulty brakes caused the car accident last week.	הבלמים הלקויים גרמו לתאונת הדרכים בשבוע שעבר.
+favored	מועדף	The favored team won the championship easily this year.	הקבוצה המועדפת ניצחה באליפות בקלות השנה.
+figure	גזרה, צורה; ספרה, מספר; דמות; לחשב, להניח, להסיק	She had an athletic figure from years of training.	היה לה גזרה אתלטית בזכות שנות אימונים.
+finalize	לסכם, לגבש	We need to finalize the contract before signing it.	אנחנו צריכים לסכם את החוזה לפני החתימה עליו.
+folk	עממי	Folk music tells stories of ordinary people's lives.	מוזיקה עממית מספרת סיפורים על חייהם של אנשים פשוטים.
+for the most part	בדרך-כלל	For the most part, people enjoy spending time outdoors.	בדרך כלל, אנשים נהנים לבלות זמן בחוץ.
+forecast	תחזית	The weather forecast predicts heavy rain tomorrow afternoon.	תחזית מזג האוויר צופה גשם כבד מחר אחר הצהריים.
+forgettable	שאפשר לשכוח אותו	The movie was forgettable and I don't remember the plot.	הסרט היה כזה שאפשר לשכוח אותו, ואני לא זוכר את העלילה.
+former	קודם, לשעבר	His former boss called yesterday with a new job offer.	הבוס לשעבר שלו התקשר אתמול עם הצעת עבודה חדשה.
+formulate	לנסח	Scientists formulate their theories carefully based on observations.	מדענים מנסחים את התיאוריות שלהם בזהירות על סמך תצפיות.
+fort	מצודה, מבצר	The old fort protected the city from enemy attacks.	המצודה הישנה הגנה על העיר מפני התקפות אויב.
+fortunate	בעל מזל	She was fortunate to survive the serious car accident.	היא הייתה בת מזל ששרדה את תאונת הדרכים הקשה.
+fraud	מרמה, הונאה	The company committed fraud by lying about its profits.	החברה ביצעה הונאה בכך ששיקרה לגבי הרווחים שלה.
+fulfill	להגשים	Hard work and determination help people fulfill their goals.	עבודה קשה ונחישות עוזרות לאנשים להגשים את מטרותיהם.
+fur	פרווה	The rabbit's soft fur was warm and very fluffy.	הפרווה הרכה של הארנב הייתה חמה ותפוחה מאוד.
+gamble	הימר	He decided to gamble all his money at the casino.	הוא החליט להמר את כל כספו בקזינו.
+generous	נדיב	She gave a generous donation to the children's hospital.	היא תרמה תרומה נדיבה לבית החולים לילדים.
+genuine	אמיתי, מקורי	The diamond appeared genuine, but the jeweler said it was fake.	היהלום נראה אמיתי, אבל התכשיטן אמר שהוא מזויף.
+gesture	מחווה	He made a friendly gesture by waving his hand warmly.	הוא עשה מחווה ידידותית כשנופף בידו בחום.
+given that	בהתחשב בכך	Given that it's raining, we should postpone the picnic.	בהתחשב בכך שיורד גשם, כדאי שנדחה את הפיקניק.
+graduate	לסיים לימודים	She will graduate from university next spring with honors.	היא תסיים את לימודיה באוניברסיטה באביב הבא בהצטיינות.
+gross	ברוטו, גלמי; ענק, דוחה	His gross income before taxes was fifty thousand dollars.	הכנסתו ברוטו לפני מס הייתה חמישים אלף דולר.
+guillotine	גיליוטינה	The old guillotine in the museum was once used for executions.	הגיליוטינה הישנה במוזיאון שימשה פעם להוצאות להורג.
+gunpowder	אבק שריפה	Gunpowder was invented in China and changed warfare forever.	אבק השריפה הומצא בסין ושינה את פני הלוחמה לתמיד.
+gymnasium	אולם ספורט	The gymnasium has basketball courts and weight lifting equipment.	באולם הספורט יש מגרשי כדורסל וציוד להרמת משקולות.
+halt	לעצור,להפסיק, עצירה	The driver had to halt at the red traffic light.	הנהג נאלץ לעצור ברמזור האדום.
+hardly ever	כמעט אף פעם	He hardly ever eats meat and prefers vegetables.	הוא כמעט אף פעם לא אוכל בשר ומעדיף ירקות.
+harmless	שאינו מזיק	The medication is harmless and has no serious side effects.	התרופה אינה מזיקה ואין לה תופעות לוואי חמורות.
+harsh	נוקשה, אכזרי	The judge gave a harsh sentence for the serious crime.	השופט גזר עונש נוקשה על הפשע החמור.
+hierarchy	היררכיה, מדרג	The company hierarchy shows who reports to whom clearly.	ההיררכיה בחברה מראה בבירור מי כפוף למי.
+hilarious	מצחיק	His hilarious jokes made everyone laugh all evening long.	הבדיחות המצחיקות שלו גרמו לכולם לצחוק כל הערב.
+horrific	אָיוֹם	The horrific car crash left three vehicles crushed beyond recognition.	תאונת הדרכים האיומה השאירה שלושה כלי רכב מרוסקים עד בלי הכר.
+hospitalize	לאשפז	The doctors had to hospitalize him for emergency surgery.	הרופאים נאלצו לאשפז אותו לניתוח דחוף.
+illustrator	מאייר	The illustrator created beautiful pictures for the children's book.	המאייר יצר תמונות יפהפיות לספר הילדים.
+imaginative	בעל דמיון עשיר, יצירתי, מלא דמיון	Her imaginative stories captured the hearts of young readers.	הסיפורים המלאים בדמיון שלה כבשו את ליבם של הקוראים הצעירים.
+immoral	לא מוסרי	He refused to engage in immoral behavior even for profit.	הוא סירב לנהוג בצורה לא מוסרית אפילו למען רווח.
+import	לייבא	The company imports coffee beans from farms in Brazil.	החברה מייבאת פולי קפה מחוות בברזיל.

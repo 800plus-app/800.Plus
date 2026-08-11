@@ -1,0 +1,80 @@
+poverty-stricken	מוכה עוני	The poverty-stricken family needed help paying for rent and food.	המשפחה מוכת העוני נזקקה לעזרה בתשלום שכר הדירה והמזון.
+precedent	תקדים	The court set a precedent when it ruled that everyone has equal rights.	בית המשפט קבע תקדים כשפסק שלכולם יש זכויות שוות.
+preceding	קודם	The new chapter explains what happened in the preceding one.	הפרק החדש מסביר מה קרה בפרק הקודם.
+predictive	חיזויי, מנבא	The predictive models helped the team forecast weather patterns accurately.	המודלים החיזויים עזרו לצוות לחזות דפוסי מזג אוויר בדייקנות.
+predominantly	בעיקר, ברובו, בעיקרו של דבר	Our city is predominantly French, though people speak English too.	העיר שלנו היא בעיקר צרפתית, אם כי אנשים מדברים גם אנגלית.
+prescribe	לרשום מרשם	The doctor will prescribe antibiotics to treat your ear infection.	הרופא ירשום אנטיביוטיקה לטיפול בדלקת האוזניים שלך.
+prescription	מרשם	I picked up my prescription at the pharmacy this morning.	אספתי את המרשם שלי מבית המרקחת הבוקר.
+presently	כעת	She is presently working as a consultant for a tech company.	היא עובדת כעת כיועצת בחברת הייטק.
+prevalent	נפוץ, שכיח, רווח	Anxiety is a prevalent mental health issue among teenagers today.	חרדה היא בעיה נפשית נפוצה בקרב מתבגרים כיום.
+probation	תקופת מבחן	His probation period will end after three months of employment.	תקופת המבחן שלו תסתיים לאחר שלושה חודשי העסקה.
+proclaim	להכריז בפומבי	The school principal will proclaim Friday as a special day for outdoor games.	מנהל בית הספר יכריז בפומבי על יום שישי כיום מיוחד למשחקי חוץ.
+profound	עמוק, מעמיק; מוחלט, מרחיק לכת	The movie had a profound effect on how she viewed the world.	לסרט הייתה השפעה עמוקה על האופן שבו היא ראתה את העולם.
+profoundly	עמוקות	Her book profoundly changed people's understanding of mental health.	הספר שלה שינה עמוקות את הבנת האנשים לגבי בריאות הנפש.
+prone	נוטה	Some people are prone to getting cold sores in winter.	חלק מהאנשים נוטים לקבל פצעי קור בחורף.
+prospective	צפוי, עתידי	Prospective students can tour the campus on Saturday morning.	סטודנטים עתידיים יכולים לסייר בקמפוס בבוקר יום שבת.
+prosperity	צמיחה, שגשוג	The company's prosperity grew after it expanded into Europe.	השגשוג של החברה גדל אחרי שהתרחבה לאירופה.
+prosperous	משגשג, מצליח	The prosperous merchant owned property throughout the city.	הסוחר המשגשג החזיק נכסים ברחבי העיר.
+provided that	בתנאי ש-	We'll go camping provided that the weather stays sunny.	נצא לקמפינג בתנאי שמזג האוויר יישאר שמשי.
+proximity	קרבה	The apartment's proximity to the subway makes it attractive.	קרבת הדירה לרכבת התחתית הופכת אותה לאטרקטיבית.
+punctuation	פיסוק, סימני פיסוק	Good punctuation makes sentences easier to understand and read.	פיסוק נכון הופך משפטים לקלים יותר להבנה ולקריאה.
+pursuit	מרדף	The police's pursuit of the thief ended when he turned a corner.	מרדף המשטרה אחר הגנב הסתיים כשהוא פנה מעבר לפינה.
+quantify	לכמת	It's hard to quantify how much happiness music brings to people.	קשה לכמת כמה אושר המוזיקה מביאה לאנשים.
+ratify	לאשרר, לאשר הסכם או חוזה	The committee must ratify the new safety rules before they take effect.	הוועדה חייבת לאשרר את כללי הבטיחות החדשים לפני שייכנסו לתוקף.
+rationalize	להצדיק, להסביר	He rationalized eating dessert by saying he deserved a treat.	הוא הצדיק את אכילת הקינוח באמירה שהוא ראוי לפינוק.
+readily	ללא קושי	She readily agreed to help with the project at work.	היא הסכימה ללא קושי לעזור בפרויקט בעבודה.
+reap	לקצור	Farmers reap their crops in autumn before winter arrives.	חקלאים קוצרים את היבולים שלהם בסתיו לפני שהחורף מגיע.
+rear	אחורי; לטפח, לגדל	The emergency exit is located in the rear of the building.	יציאת החירום נמצאת בחלק האחורי של הבניין.
+recession	מיתון	During the recession, many people lost their jobs and savings.	במהלך המיתון, אנשים רבים איבדו את מקומות העבודה ואת החסכונות שלהם.
+recipient	נמען	The recipient of the scholarship felt grateful for the opportunity.	נמען המלגה הרגיש אסיר תודה על ההזדמנות.
+recollection	זיכרון	My recollection of that day is unclear after so many years.	הזיכרון שלי מאותו היום מטושטש אחרי כל כך הרבה שנים.
+redeem	לפדות, לגאול	The hero worked hard to redeem himself after betraying his closest friends.	הגיבור עבד קשה כדי לגאול את עצמו אחרי שבגד בחבריו הקרובים ביותר.
+refuge	מקלט, מחסה	Birds find refuge in thick bushes during storms and bad weather.	ציפורים מוצאות מקלט בשיחים סבוכים בזמן סערות ומזג אוויר גרוע.
+reign	שלטון	During his reign, the king built many castles across the kingdom.	במהלך שלטונו, המלך בנה טירות רבות ברחבי הממלכה.
+reincarnation	גלגול נשמות	In the video game, reincarnation let the character start over with new powers.	במשחק הווידאו, גלגול נשמות איפשר לדמות להתחיל מחדש עם כוחות חדשים.
+reliance	הסתמכות	The company's reliance on oil meant it struggled during price drops.	הסתמכות החברה על נפט גרמה לה להתקשות בזמן ירידות מחירים.
+reluctant	מסויג, לא מעוניין	He was reluctant to admit his mistake even when confronted.	הוא היה מסויג מלהודות בטעותו גם כשהתעמת עם המצב.
+renovate	לחדש, לשפץ	They decided to renovate the old house to increase its value.	הם החליטו לשפץ את הבית הישן כדי להעלות את ערכו.
+repressive	מדכא	The repressive king in the story punished anyone who dared criticize him.	המלך המדכא בסיפור העניש כל מי שהעז לבקר אותו.
+resourceful	בעל תושייה	A resourceful manager can solve problems with limited tools.	מנהל בעל תושייה יכול לפתור בעיות עם כלים מוגבלים.
+riddle	חידה	Solving the riddle required thinking carefully about each clue.	פתרון החידה דרש חשיבה זהירה על כל רמז.
+ridicule	ללעוג	Kids should never ridicule others for being different or strange.	ילדים לעולם לא צריכים ללעוג לאחרים על היותם שונים או מוזרים.
+rigid	נוקשה, מחמיר	The rigid rules at school left no room for student creativity.	הכללים הנוקשים בבית הספר לא השאירו מקום ליצירתיות של התלמידים.
+robust	איתן, חזק ובריא	A robust immune system helps the body fight off infections.	מערכת חיסונית איתנה עוזרת לגוף להילחם בזיהומים.
+rodent	מכרסם	Mice and rats are common rodents that live near human settlements.	עכברים וחולדות הם מכרסמים נפוצים שחיים בקרבת יישובי אדם.
+sake	תועלת, עניין	She saved money every month for the sake of buying a new car.	היא חסכה כסף כל חודש למען קניית מכונית חדשה.
+sanctuary	מקדש; מקלט	The ancient sanctuary contained detailed carvings and treasures that visitors still study today.	המקדש העתיק הכיל תבליטים מפורטים ואוצרות שמבקרים עדיין חוקרים כיום.
+saturated	רווי	The sponge was so saturated it dripped water on the floor.	הספוג היה כל כך רווי עד שטפטף מים על הרצפה.
+saw	מסור	He used a saw to cut the wooden boards into smaller pieces.	הוא השתמש במסור כדי לחתוך את לוחות העץ לחתיכות קטנות יותר.
+scope	היקף, טווח	The scope of the project grew larger than anyone had expected.	היקף הפרויקט גדל מעבר למה שמישהו ציפה.
+score	לחתוך, לחרוץ; תוצאה; לזכות בניקוד	Use a knife to score the meat before cooking it.	השתמש בסכין כדי לחרוץ את הבשר לפני הבישול.
+secular	חילוני	The country has a secular government that treats every belief system equally.	למדינה יש ממשלה חילונית שמתייחסת לכל מערכת אמונה באופן שווה.
+sedative	סם הרגעה, משכך	The doctor gave him a sedative to help him relax before surgery.	הרופא נתן לו סם הרגעה כדי לעזור לו להירגע לפני הניתוח.
+seek, sought	לחפש, חיפש	They sought shelter from the rain inside a nearby cave.	הם חיפשו מחסה מהגשם בתוך מערה סמוכה.
+segregation	הפרדה	The farmer used segregation to keep sick animals away from the healthy herd.	החקלאי השתמש בהפרדה כדי להרחיק חיות חולות מהעדר הבריא.
+seismic	ססמי (קשור לרעידות אדמה)	The seismic activity increased, warning of a possible earthquake.	הפעילות הססמית התגברה והזהירה מפני רעידת אדמה אפשרית.
+seizure	התקף	The patient had a seizure and needed immediate medical attention.	למטופל היה התקף והוא נזקק לטיפול רפואי מיידי.
+seldom	לעיתים רחוקות	She seldom goes to restaurants because she prefers cooking at home.	היא הולכת למסעדות לעיתים רחוקות כי היא מעדיפה לבשל בבית.
+self-indulgence	פינוק עצמי, התמכרות להנאות, התפנקות	Eating dessert every day was a form of self-indulgence she enjoyed.	אכילת קינוח בכל יום הייתה סוג של פינוק עצמי שהיא נהנתה ממנו.
+severity	חומרה	The severity of her injury meant she needed surgery immediately.	חומרת הפציעה שלה גרמה לכך שנזקקה לניתוח באופן מיידי.
+silkworm	תולעת משי	Silkworms spin cocoons that are harvested to make silk thread.	תולעי המשי טוות פקעות שנקצרות לייצור חוט משי.
+skyrocket	להאמיר	After the celebrity endorsement, sales skyrocketed beyond expectations.	לאחר ההמלצה של הסלבריטי, המכירות האמירו מעבר לציפיות.
+smog	ערפיח	The city's smog made it hard to see buildings across the street.	הערפיח בעיר הקשה לראות בניינים בצד השני של הרחוב.
+spacious	מרווח	The spacious apartment had enough room for all their furniture.	הדירה המרווחת סיפקה מקום מספיק לכל הרהיטים שלהם.
+span	להימתח, להקיף; מרווח	The bridge spans the river and connects the two cities together.	הגשר נמתח מעל הנהר ומחבר בין שתי הערים.
+spectacle	מחזה; ראווה	The fireworks display was a spectacle that amazed the entire crowd.	מופע הזיקוקים היה מחזה שהדהים את כל הקהל.
+splendid	נהדר, מהולל	They had a splendid time at the beach during their vacation.	היה להם זמן נהדר בחוף הים במהלך החופשה שלהם.
+spring, sprang	קפיץ ; לקפוץ, קפץ	The cat sprang across the room to catch the moving ball.	החתול קפץ על פני החדר כדי לתפוס את הכדור הנע.
+standardize	לתקנן	The company will standardize all procedures across every office location.	החברה תתקנן את כל הנהלים בכל סניפי המשרד.
+standstill	עצירה מוחלטת, קיפאון	Traffic came to a standstill when the main road was blocked.	התנועה הגיעה לעצירה מוחלטת כשהכביש הראשי נחסם.
+steamship	אוניית קיטור	The steamship crossed the ocean in two weeks during the 1800s.	אוניית הקיטור חצתה את האוקיינוס בשבועיים במהלך המאה ה-19.
+strain	מתח נפשי; להתאמץ, למתוח, לנקוע	The emotional strain of the situation affected her ability to sleep.	המתח הנפשי של המצב פגע ביכולתה לישון.
+stride	צעד, לצעוד	He took long strides across the field to reach the finish line.	הוא צעד בצעדים ארוכים על פני השדה כדי להגיע לקו הסיום.
+strive	לשאוף	She strives to improve her grades in every class at school.	היא שואפת לשפר את הציונים שלה בכל שיעור בבית הספר.
+stroke	ליטוף; מכה; שבץ/אירוע מוחי	The child fell asleep after a gentle stroke of her hair.	הילדה נרדמה אחרי ליטוף עדין של שיערה.
+stumble	למעוד	He stumbled on the stairs but caught himself before falling.	הוא מעד על המדרגות אבל תפס את עצמו לפני שנפל.
+sturdy	חסון, מוצק	The sturdy wooden table survived the earthquake without breaking.	השולחן העץ החסון שרד את רעידת האדמה בלי להישבר.
+subsequent	עוקב	The first movie was popular, and subsequent films were just as good.	הסרט הראשון היה פופולרי, והסרטים העוקבים היו טובים באותה מידה.
+subtle	דק, עדין, כמעט בלתי מורגש; מרומז	The subtle difference between the colors was hard to see.	ההבדל הדק בין הצבעים היה קשה להבחנה.
+suburban	פרברי	They left the city and bought a home in a suburban neighborhood.	הם עזבו את העיר וקנו בית בשכונה פרברית.
+successor	יורש	She became the successor to the company's founder after he retired.	היא הפכה ליורשת של מייסד החברה אחרי שפרש.
