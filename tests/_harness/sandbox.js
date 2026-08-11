@@ -47,7 +47,7 @@ const SYMBOLS = [
   'UNIT_IDS', 'PREVIEW_UNIT', 'GLOSS_ALT', 'buildBank', 'glossKey', 'glossSenses', 'buildGlossIndex', 'glossAlts',
   // stats model and the three practice buckets
   'rec', 'scopeWords', 'lvl', 'lastOf', 'wasSkipped', 'seenCount',
-  'classify', 'uniqScope', 'newCards', 'weakCards', 'learnedCards',
+  'classify', 'uniqScope', 'newCards', 'weakCards', 'learnedCards', 'weakCtaText',
   'sess', 'commitSession',
   // answer checking
   'isCorrect', 'meaningSegs', 'meaningMatch', 'otherSenses',
