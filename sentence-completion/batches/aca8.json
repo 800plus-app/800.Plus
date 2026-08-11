@@ -39,13 +39,13 @@
         "standardize הוא לתקנן ולהאחיד נהלים, ואיחוד נהלים אינו מבטל את ארבע הלשכות."]
  },
  {
-  "s": "The findings were read aloud at the spring meeting and printed in fifty copies; then the academy will ___ those same fifty copies from one provincial library to the next, since it cannot afford a second printing.",
+  "s": "The findings were read aloud at the spring meeting and printed in fifty copies; then the academy began to ___ those same fifty copies from one provincial library to the next, since it could not afford a second printing.",
   "o": ["circulate", "confide", "dispatch", "disclose"],
   "a": 0,
   "k": "sequence",
   "w": ["then"],
   "g": ["circulate = להפיץ", "confide = לספר סוד", "dispatch = לשגר", "disclose = לחשוף"],
-  "t": "המסקנות הוקראו בכינוס האביב והודפסו בחמישים עותקים; אחר כך **תפיץ** האקדמיה את אותם חמישים עותקים מספרייה מחוזית אחת לשנייה, שכן אין ביכולתה להדפיס שוב.",
+  "t": "המסקנות הוקראו בכינוס האביב והודפסו בחמישים עותקים; אחר כך החלה האקדמיה **להפיץ** את אותם חמישים עותקים מספרייה מחוזית אחת לשנייה, שכן לא היה ביכולתה להדפיס שוב.",
   "r": ["circulate הוא להפיץ כך שאותם עותקים עוברים מיד ליד, וזה מה שסבב בין הספריות עושה.",
         "confide הוא לספר סוד לאדם אחד, והמסקנות כבר הוקראו בקול בכינוס.",
         "dispatch הוא לשגר משלוח ליעד אחד, והמשפט מתאר סבב חוזר בין ספריות.",
@@ -325,16 +325,16 @@
         "arable הוא מתאים לעיבוד, והוא נאמר על אדמה ולא על צמח."]
  },
  {
-  "s": "A young man must first ___ , and only then does he ___ the six weeks of training that the army sets for him.",
-  "o": [["enlist", "undergo"], ["undergo", "enlist"], ["enlist", "undertake"], ["mobilize", "undergo"]],
+  "s": "A young man must first ___, and only then does he ___ the six weeks of training that the army sets for him.",
+  "o": [["enlist", "undergo"], ["undergo", "enlist"], ["enlist", "evade"], ["mobilize", "undergo"]],
   "a": 0,
   "k": "sequence",
   "w": ["first", "then"],
-  "g": ["enlist = להתגייס · undergo = לעבור", "undergo = לעבור · enlist = להתגייס", "enlist = להתגייס · undertake = לקחת על עצמך", "mobilize = לנייד · undergo = לעבור"],
+  "g": ["enlist = להתגייס · undergo = לעבור", "undergo = לעבור · enlist = להתגייס", "enlist = להתגייס · evade = התחמק", "mobilize = לנייד · undergo = לעבור"],
   "t": "צעיר חייב תחילה **להתגייס**, ורק אחר כך הוא **עובר** את ששת שבועות האימון שהצבא קובע לו.",
   "r": ["enlist ואחריו undergo: קודם מתגייסים לצבא, ורק אז עוברים את ששת שבועות האימון.",
         "הסדר הפוך: אין עוברים אימון של צבא לפני שמתגייסים אליו, ולכן undergo אינו יכול לבוא לפני enlist.",
-        "undertake הוא לקחת על עצמך משימה מבחירה, והאימון כאן נקבע על ידי הצבא.",
+        "evade הוא להתחמק, והמשפט מוסר שהצעיר עובר את האימון ולא נמנע ממנו.",
         "mobilize הוא לנייד כוחות, וזו פעולה של הצבא ולא של הצעיר שמתגייס."]
  },
  {

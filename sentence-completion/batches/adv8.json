@@ -432,7 +432,7 @@
   ]
  },
  {
-  "s": "The valley already holds more nests than any other in the country; moreover, the birds on its two ridges are so ___ that their cries drown out the river.",
+  "s": "The valley is closed to visitors from March to June; moreover, the birds on its two ridges are so ___ that their cries drown out the stream below.",
   "o": [
    "numerous",
    "diverse",
@@ -450,7 +450,7 @@
    "vast = עצום",
    "widespread = נפוץ"
   ],
-  "t": "בעמק כבר יש יותר קינים מבכל מקום אחר בארץ; זאת ועוד, העופות שעל שני הרכסים שלו **מרובים** כל כך שקריאותיהם מחרישות את קול הנהר.",
+  "t": "העמק סגור למבקרים ממרץ ועד יוני; זאת ועוד, העופות שעל שני הרכסים שלו **מרובים** כל כך שקריאותיהם מחרישות את קול הנחל שלמטה.",
   "r": [
    "numerous אומר רבים במספר, וזה מה שמסביר את עוצמת הקולות.",
    "diverse אומר מגוון בסוגיו, והמשפט מודד מספר ולא מגוון.",
@@ -621,7 +621,7 @@
   ]
  },
  {
-  "s": "Unless the road ahead is empty and wide, the two officers are told not to ___ the car, but only to note its number and report it.",
+  "s": "Unless a second patrol car is already close behind them, the two officers are told not to ___ the car, but only to note its number and report it.",
   "o": [
    "pursue",
    "patrol",
@@ -639,9 +639,9 @@
    "stalk = לארוב אחרי",
    "overtake = לעקוף"
   ],
-  "t": "אלא אם כן הכביש שלפניהם פנוי ורחב, נאמר לשני השוטרים שלא **לרדוף** אחרי המכונית אלא רק לרשום את מספרה ולדווח.",
+  "t": "אלא אם כן ניידת שנייה נמצאת כבר קרוב מאחוריהם, נאמר לשני השוטרים שלא **לרדוף** אחרי המכונית אלא רק לרשום את מספרה ולדווח.",
   "r": [
-   "pursue הוא לרדוף אחרי הרכב בנסיעה, וזה מה שכביש צר וסואן הופך למסוכן.",
+   "pursue הוא לרדוף אחרי הרכב בנסיעה, וזו הפעולה שמסוכן לעשות בלי ניידת נוספת בשטח.",
    "patrol הוא לסייר באזור לפי מסלול קבוע, ולא לנוע אחרי רכב מסוים.",
    "stalk הוא לארוב במסתור לאורך זמן, והמשפט מתאר החלטה מיידית בכביש.",
    "overtake הוא לעקוף את המכונית ולעבור אותה, וההוראה כאן היא רק לרשום מספר."

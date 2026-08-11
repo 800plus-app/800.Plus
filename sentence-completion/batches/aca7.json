@@ -54,7 +54,7 @@
   ]
  },
  {
-  "s": "The share held its value all through the spring, and then it ___ to a tenth of its price on the afternoon when the audit was published.",
+  "s": "The share held its value all through the spring, and then the published audit made it ___ to a tenth of its price in a single afternoon.",
   "o": [
    "plummet",
    "soar",
@@ -72,7 +72,7 @@
    "dwindle = התמעט",
    "stumble = למעוד"
   ],
-  "t": "המנייה שמרה על ערכה במשך כל האביב, ואז היא **צנחה** לעשירית ממחירה באחר הצהריים שבו פורסם דוח הביקורת.",
+  "t": "המנייה שמרה על ערכה במשך כל האביב, ואז דוח הביקורת שפורסם גרם לה **לצנוח** לעשירית ממחירה באחר צהריים אחד.",
   "r": [
    "plummet הוא ירידה חדה ומהירה, ונפילה לעשירית המחיר בתוך אחר צהריים אחד היא בדיוק זאת.",
    "soar הוא המראה כלפי מעלה, וזה הפוך מירידה לעשירית המחיר.",
@@ -113,7 +113,7 @@
    "facilitate",
    "compel",
    "undertake",
-   "augment"
+   "standardize"
   ],
   "a": 0,
   "k": "contrast",
@@ -124,18 +124,18 @@
    "facilitate = להקל",
    "compel = לאלץ",
    "undertake = לקחת על עצמך",
-   "augment = להרחיב"
+   "standardize = לתקנן"
   ],
   "t": "אף שהסורק אינו מחליף את הפקידים, שממשיכים לבדוק כל תיבה ביד, הוא כן **מקל** על עבודתם בכך שהוא קורא כל תווית בקול.",
   "r": [
    "facilitate הוא הקלה על עבודה שנמשכת כרגיל, וקריאת התוויות בקול חוסכת לפקידים מאמץ.",
    "compel הוא כפייה, והסורק אינו מחייב את הפקידים לעשות דבר.",
    "undertake הוא לקיחת המשימה על עצמך, והמשפט מוסר שהסורק אינו מחליף את הפקידים.",
-   "augment הוא הרחבה או הגדלה, וכאן העבודה נעשית קלה ולא גדולה יותר."
+   "standardize הוא לקבוע תקן אחיד לעבודה, וקריאת תווית בקול אינה קובעת שום תקן."
   ]
  },
  {
-  "s": "The panel accepted the builder's records without question; furthermore, on the strength of those records alone it agreed to ___ the tower safe.",
+  "s": "The panel accepted the builder's records without question, and since no other paper ever reached it, it agreed to ___ the tower safe in a note that was never made public.",
   "o": [
    "deem",
    "proclaim",
@@ -143,20 +143,20 @@
    "render"
   ],
   "a": 0,
-  "k": "addition",
+  "k": "cause",
   "w": [
-   "furthermore"
+   "since"
   ],
   "g": [
    "deem = לראות כ-",
-   "proclaim = להכריז",
+   "proclaim = להכריז בפומבי",
    "appraise = לאמוד",
    "render = להפוך ל-"
   ],
-  "t": "הוועדה קיבלה את רשומות הבונה בלי לערער עליהן, ויותר מזה, על סמך אותן רשומות בלבד היא הסכימה **לראות** את המגדל כבטוח.",
+  "t": "הוועדה קיבלה את רשומות הבונה בלי לערער עליהן, ומפני שלא הגיע אליה שום מסמך אחר היא הסכימה **לראות** את המגדל כבטוח בפתק שלא פורסם מעולם.",
   "r": [
    "deem הוא קביעת שיפוט שדבר הוא כזה או אחר, וזה מה שהוועדה עשתה על סמך הרשומות.",
-   "proclaim הוא הכרזה פומבית, ואילו כאן מדובר בהחלטה של ועדה ולא בהודעה לציבור.",
+   "proclaim הוא הכרזה בפומבי, והמשפט מוסר פתק שלא פורסם מעולם.",
    "appraise הוא אמידת שווי או היקף במידה, והוועדה לא מדדה את המגדל כלל.",
    "render הוא הפיכת דבר למצב חדש, וועדה אינה הופכת מגדל לבטוח בהחלטה."
   ]
@@ -243,7 +243,7 @@
   ]
  },
  {
-  "s": "Since the chicks had never seen a hawk and no adult bird was present to warn them, their alarm at the shape overhead must be an ___ response.",
+  "s": "Since the chicks had never seen a hawk and no adult bird was present to warn them, their alarm at the shape overhead can only be ___.",
   "o": [
    "innate",
    "predestined",
@@ -261,7 +261,7 @@
    "deliberate = מכוון",
    "rudimentary = בסיסי"
   ],
-  "t": "מכיוון שהאפרוחים מעולם לא ראו נץ ולא היה שם עוף בוגר שיזהיר אותם, הבהלה שלהם מהצורה שמעל חייבת להיות תגובה **מולדת**.",
+  "t": "מכיוון שהאפרוחים מעולם לא ראו נץ ולא היה שם עוף בוגר שיזהיר אותם, הבהלה שלהם מהצורה שמעל יכולה להיות **מולדת** בלבד.",
   "r": [
    "innate הוא מולד וקיים בלי למידה, וזה ההסבר היחיד לאפרוח שלא ראה נץ מעולם.",
    "predestined הוא נקבע מראש בידי גורל, ואילו כאן מדובר בתגובה שנולדה עם האפרוח.",

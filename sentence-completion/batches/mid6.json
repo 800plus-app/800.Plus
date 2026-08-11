@@ -1,353 +1,755 @@
 [
  {
   "s": "The frame is bolted to the wall and looks solid, yet the whole scaffolding is ___: the builders will take it down the day the roof is finished.",
-  "o": ["temporary", "unstable", "permanent", "flexible"],
+  "o": [
+   "temporary",
+   "unstable",
+   "permanent",
+   "flexible"
+  ],
   "a": 0,
   "k": "contrast",
-  "w": ["yet"],
-  "g": ["temporary = זמני", "unstable = לא יציב", "permanent = קבוע", "flexible = גמיש"],
+  "w": [
+   "yet"
+  ],
+  "g": [
+   "temporary = זמני",
+   "unstable = לא יציב",
+   "permanent = קבוע",
+   "flexible = גמיש"
+  ],
   "t": "המסגרת מחוזקת לקיר בברגים ונראית יציבה, ואולם הפיגום כולו **זמני**: הבנאים יפרקו אותו ביום שבו הגג ייגמר.",
-  "r": ["temporary הוא מה שמוצב לזמן מוגבל, והמשפט קובע את יום הפירוק מראש.",
-        "unstable אינו מתאים: המסגרת מחוזקת בברגים ונראית יציבה, והפירוק מתוכנן.",
-        "permanent הוא ההפוך: מבנה קבוע אינו מפורק ביום שבו הגג נגמר.",
-        "flexible מתאר חומר שניתן לכופף, ולא את משך הזמן שהמבנה עומד."]
+  "r": [
+   "temporary הוא מה שמוצב לזמן מוגבל, והמשפט קובע את יום הפירוק מראש.",
+   "unstable אינו מתאים: המסגרת מחוזקת בברגים ונראית יציבה, והפירוק מתוכנן.",
+   "permanent הוא ההפוך: מבנה קבוע אינו מפורק ביום שבו הגג נגמר.",
+   "flexible מתאר חומר שניתן לכופף, ולא את משך הזמן שהמבנה עומד."
+  ]
  },
  {
   "s": "The clinic answers every letter it receives within a week, yet a request marked ___ is handled in the same hour.",
-  "o": ["urgent", "formal", "casual", "minor"],
+  "o": [
+   "urgent",
+   "formal",
+   "casual",
+   "minor"
+  ],
   "a": 0,
   "k": "contrast",
-  "w": ["yet"],
-  "g": ["urgent = דחוף", "formal = רשמי", "casual = אגבי, רגיל", "minor = קטן, שולי"],
+  "w": [
+   "yet"
+  ],
+  "g": [
+   "urgent = דחוף",
+   "formal = רשמי",
+   "casual = אגבי, רגיל",
+   "minor = קטן, שולי"
+  ],
   "t": "המרפאה משיבה לכל מכתב שמגיע אליה בתוך שבוע, ואולם בקשה שסומנה **דחוף** מטופלת באותה שעה.",
-  "r": ["urgent הוא מה שמחייב טיפול מיד, וזה מסביר את המעבר משבוע לאותה שעה.",
-        "formal מתאר את צורת הפנייה ולא את מהירות הטיפול בה.",
-        "casual הוא ההפוך: פנייה אגבית אינה מקדימה את התור.",
-        "minor הוא עניין שולי, ועניין שולי אינו זוכה לטיפול מהיר יותר."]
+  "r": [
+   "urgent הוא מה שמחייב טיפול מיד, וזה מסביר את המעבר משבוע לאותה שעה.",
+   "formal מתאר את צורת הפנייה ולא את מהירות הטיפול בה.",
+   "casual הוא ההפוך: פנייה אגבית אינה מקדימה את התור.",
+   "minor הוא עניין שולי, ועניין שולי אינו זוכה לטיפול מהיר יותר."
+  ]
  },
  {
   "s": "Because the old van failed twice on the mountain road last winter, the office replaced it with a slower but far more ___ model.",
-  "o": ["reliable", "rapid", "flexible", "practical"],
+  "o": [
+   "reliable",
+   "rapid",
+   "flexible",
+   "practical"
+  ],
   "a": 0,
   "k": "cause",
-  "w": ["because"],
-  "g": ["reliable = אמין", "rapid = מהיר", "flexible = גמיש", "practical = מעשי"],
+  "w": [
+   "because"
+  ],
+  "g": [
+   "reliable = אמין",
+   "rapid = מהיר",
+   "flexible = גמיש",
+   "practical = מעשי"
+  ],
   "t": "מכיוון שהטנדר הישן נתקע פעמיים בדרך ההר בחורף שעבר, המשרד החליף אותו בדגם איטי יותר אך **אמין** בהרבה.",
-  "r": ["reliable הוא רכב שניתן לסמוך עליו, וזאת התכונה שחסרה לטנדר שנתקע פעמיים.",
-        "rapid נשלל: נאמר במפורש שהדגם החדש איטי יותר.",
-        "flexible מתאר גמישות של חומר או של סידור, ולא רכב שאינו נתקע.",
-        "practical מתאר שימושיות, והמשפט מדבר על תקלות בדרך ההר."]
+  "r": [
+   "reliable הוא רכב שניתן לסמוך עליו, וזאת התכונה שחסרה לטנדר שנתקע פעמיים.",
+   "rapid נשלל: נאמר במפורש שהדגם החדש איטי יותר.",
+   "flexible מתאר גמישות של חומר או של סידור, ולא רכב שאינו נתקע.",
+   "practical מתאר שימושיות, והמשפט מדבר על תקלות בדרך ההר."
+  ]
  },
  {
   "s": "Unless the board receives a written report first, the manager cannot ___ the extra cost of the second driver at the meeting.",
-  "o": ["justify", "prove", "approve", "describe"],
+  "o": [
+   "justify",
+   "prove",
+   "approve",
+   "describe"
+  ],
   "a": 0,
   "k": "condition",
-  "w": ["unless"],
-  "g": ["justify = להצדיק", "prove = להוכיח", "approve = לאשר", "describe = לתאר"],
+  "w": [
+   "unless"
+  ],
+  "g": [
+   "justify = להצדיק",
+   "prove = להוכיח",
+   "approve = לאשר",
+   "describe = לתאר"
+  ],
   "t": "אם הדירקטוריון לא יקבל קודם דוח כתוב, המנהל לא יוכל **להצדיק** את ההוצאה על הנהג השני בישיבה.",
-  "r": ["justify הוא להראות שההוצאה מוצדקת, וזה מה שדורש דוח כתוב לפני הישיבה.",
-        "prove הוא להוכיח עובדה, וההוצאה אינה עובדה במחלוקת אלא החלטה שצריך להצדיק.",
-        "approve הוא מה שהדירקטוריון עושה, ולא המנהל שמציג לו.",
-        "describe הוא לתאר, והמנהל יכול לתאר את ההוצאה גם בלי דוח."]
+  "r": [
+   "justify הוא להראות שההוצאה מוצדקת, וזה מה שדורש דוח כתוב לפני הישיבה.",
+   "prove הוא להוכיח עובדה, וההוצאה אינה עובדה במחלוקת אלא החלטה שצריך להצדיק.",
+   "approve הוא מה שהדירקטוריון עושה, ולא המנהל שמציג לו.",
+   "describe הוא לתאר, והמנהל יכול לתאר את ההוצאה גם בלי דוח."
+  ]
  },
  {
   "s": "Because a single cigarette had started the first fire, the workshop spent a year trying to ___ every open flame from its floor.",
-  "o": ["eliminate", "reduce", "avoid", "prevent"],
+  "o": [
+   "eliminate",
+   "reduce",
+   "avoid",
+   "prevent"
+  ],
   "a": 0,
   "k": "cause",
-  "w": ["because"],
-  "g": ["eliminate = לחסל, לפסול", "reduce = להפחית", "avoid = להימנע", "prevent = למנוע"],
+  "w": [
+   "because"
+  ],
+  "g": [
+   "eliminate = לחסל, לפסול",
+   "reduce = להפחית",
+   "avoid = להימנע",
+   "prevent = למנוע"
+  ],
   "t": "מכיוון שסיגריה אחת הציתה את השריפה הראשונה, בית המלאכה עסק שנה בניסיון **לחסל** כל להבה גלויה ברצפתו.",
-  "r": ["eliminate הוא לסלק לגמרי, והמשפט מבקש שלא תישאר אף להבה גלויה.",
-        "reduce הוא להפחית כמות, ואילו כאן מדובר בסילוק של כולן.",
-        "avoid הוא להימנע ממשהו, ולא להוציא אותו מן הרצפה.",
-        "prevent מתאים למנוע שריפה נוספת, ולא לסלק את הלהבות עצמן."]
+  "r": [
+   "eliminate הוא לסלק לגמרי, והמשפט מבקש שלא תישאר אף להבה גלויה.",
+   "reduce הוא להפחית כמות, ואילו כאן מדובר בסילוק של כולן.",
+   "avoid הוא להימנע ממשהו, ולא להוציא אותו מן הרצפה.",
+   "prevent מתאים למנוע שריפה נוספת, ולא לסלק את הלהבות עצמן."
+  ]
  },
  {
   "s": "The clerk copies every number from the passport by hand; in addition, a second officer must ___ the year of birth against the paper file.",
-  "o": ["verify", "examine", "identify", "notice"],
+  "o": [
+   "verify",
+   "examine",
+   "identify",
+   "notice"
+  ],
   "a": 0,
   "k": "addition",
-  "w": ["in addition"],
-  "g": ["verify = לוודא, לאמת", "examine = לבחון", "identify = לזהות", "notice = לשים לב"],
+  "w": [
+   "in addition"
+  ],
+  "g": [
+   "verify = לוודא, לאמת",
+   "examine = לבחון",
+   "identify = לזהות",
+   "notice = לשים לב"
+  ],
   "t": "הפקיד מעתיק בכתב יד כל מספר מהדרכון, ונוסף על כך קצין שני חייב **לוודא** את שנת הלידה מול התיק הנייר.",
-  "r": ["verify הוא לאמת פרט מול מקור אחר, וזאת בדיוק ההצלבה מול התיק הנייר.",
-        "examine הוא לבחון מסמך לעומקו, ולא להשוות פרט אחד לפרט אחר.",
-        "identify הוא לזהות את האדם, והשנה כבר כתובה לפני הקצין.",
-        "notice הוא לשים לב במקרה, והמשפט מתאר בדיקה שהקצין חייב לעשות."]
+  "r": [
+   "verify הוא לאמת פרט מול מקור אחר, וזאת בדיוק ההצלבה מול התיק הנייר.",
+   "examine הוא לבחון מסמך לעומקו, ולא להשוות פרט אחד לפרט אחר.",
+   "identify הוא לזהות את האדם, והשנה כבר כתובה לפני הקצין.",
+   "notice הוא לשים לב במקרה, והמשפט מתאר בדיקה שהקצין חייב לעשות."
+  ]
  },
  {
   "s": "Because the rain stopped the digging for a whole week, the city agreed to ___ the contract until the end of March.",
-  "o": ["extend", "expand", "increase", "replace"],
+  "o": [
+   "extend",
+   "expand",
+   "increase",
+   "replace"
+  ],
   "a": 0,
   "k": "cause",
-  "w": ["because"],
-  "g": ["extend = להאריך", "expand = להרחיב", "increase = להגדיל", "replace = להחליף"],
+  "w": [
+   "because"
+  ],
+  "g": [
+   "extend = להאריך",
+   "expand = להרחיב",
+   "increase = להגדיל",
+   "replace = להחליף"
+  ],
   "t": "מכיוון שהגשם עצר את החפירה שבוע שלם, העירייה הסכימה **להאריך** את החוזה עד סוף מרץ.",
-  "r": ["extend הוא להאריך בזמן, והמשפט נוקב במועד סיום חדש לחוזה.",
-        "expand הוא להרחיב היקף, ולא לדחות מועד.",
-        "increase הוא להגדיל כמות או סכום, והחוזה לא גדל אלא נמשך.",
-        "replace הוא להחליף בחוזה אחר, והעירייה המשיכה את אותו חוזה."]
+  "r": [
+   "extend הוא להאריך בזמן, והמשפט נוקב במועד סיום חדש לחוזה.",
+   "expand הוא להרחיב היקף, ולא לדחות מועד.",
+   "increase הוא להגדיל כמות או סכום, והחוזה לא גדל אלא נמשך.",
+   "replace הוא להחליף בחוזה אחר, והעירייה המשיכה את אותו חוזה."
+  ]
  },
  {
   "s": "If the shop keeps a copy of the receipt on file, it can ___ a free repair for two whole years.",
-  "o": ["guarantee", "provide", "approve", "require"],
+  "o": [
+   "guarantee",
+   "perform",
+   "approve",
+   "require"
+  ],
   "a": 0,
   "k": "condition",
-  "w": ["if"],
-  "g": ["guarantee = להבטיח", "provide = לספק", "approve = לאשר", "require = לדרוש"],
+  "w": [
+   "if"
+  ],
+  "g": [
+   "guarantee = להבטיח",
+   "perform = לבצע",
+   "approve = לאשר",
+   "require = לדרוש"
+  ],
   "t": "אם החנות שומרת אצלה העתק של הקבלה, היא יכולה **להבטיח** תיקון חינם למשך שנתיים שלמות.",
-  "r": ["guarantee הוא להתחייב מראש שהתיקון יינתן, וההעתק השמור מאפשר זאת.",
-        "provide הוא לספק בפועל, וההתחייבות נאמרת לפני שהתיקון נדרש.",
-        "approve הוא לאשר תיקון מסוים אחרי שהתבקש, ולא להתחייב לשנתיים.",
-        "require הוא לדרוש מן הלקוח, והמשפט מדבר על מה שהחנות נותנת."]
+  "r": [
+   "guarantee הוא להתחייב מראש שהתיקון יינתן, וההעתק השמור מאפשר זאת.",
+   "perform הוא לבצע את התיקון עצמו, וזו פעולה של יום אחד ולא התחייבות לשנתיים.",
+   "approve הוא לאשר תיקון מסוים אחרי שהתבקש, ולא להתחייב לשנתיים.",
+   "require הוא לדרוש מן הלקוח, והמשפט מדבר על מה שהחנות נותנת."
+  ]
  },
  {
   "s": "Although the tenants asked politely for eight months, only a written ___ from a lawyer made the owner send a builder.",
-  "o": ["demand", "request", "statement", "notice"],
+  "o": [
+   "demand",
+   "request",
+   "statement",
+   "notice"
+  ],
   "a": 0,
   "k": "contrast",
-  "w": ["although"],
-  "g": ["demand = דרישה", "request = בקשה", "statement = הצהרה", "notice = התראה"],
+  "w": [
+   "although"
+  ],
+  "g": [
+   "demand = דרישה",
+   "request = בקשה",
+   "statement = הצהרה",
+   "notice = התראה"
+  ],
   "t": "אף שהדיירים ביקשו בנימוס שמונה חודשים, רק **דרישה** כתובה מעורך דין הביאה את הבעלים לשלוח בנאי.",
-  "r": ["demand היא דרישה תקיפה, וזה מה שהניע את הבעלים אחרי שמונה חודשי בקשות.",
-        "request הוא בדיוק מה שהדיירים כבר עשו בנימוס ולא הועיל.",
-        "statement היא הצהרה על עובדות, והיא אינה מחייבת את הבעלים לפעול.",
-        "notice היא התראה על מה שעומד לקרות, ולא הדרישה עצמה לתקן."]
+  "r": [
+   "demand היא דרישה תקיפה, וזה מה שהניע את הבעלים אחרי שמונה חודשי בקשות.",
+   "request הוא בדיוק מה שהדיירים כבר עשו בנימוס ולא הועיל.",
+   "statement היא הצהרה על עובדות, והיא אינה מחייבת את הבעלים לפעול.",
+   "notice היא התראה על מה שעומד לקרות, ולא הדרישה עצמה לתקן."
+  ]
  },
  {
   "s": "The old mule is gentle with the children and never kicks, yet it is so ___ that it will not move again once it has stopped.",
-  "o": ["stubborn", "cruel", "nervous", "wild"],
+  "o": [
+   "stubborn",
+   "cruel",
+   "nervous",
+   "wild"
+  ],
   "a": 0,
   "k": "contrast",
-  "w": ["yet"],
-  "g": ["stubborn = עקשן", "cruel = אכזרי", "nervous = עצבני, מתוח", "wild = פראי"],
+  "w": [
+   "yet"
+  ],
+  "g": [
+   "stubborn = עקשן",
+   "cruel = אכזרי",
+   "nervous = עצבני, מתוח",
+   "wild = פראי"
+  ],
   "t": "הפרד הזקן עדין עם הילדים ואינו בועט, ואולם הוא כה **עקשן** שאינו זז שוב אחרי שנעצר.",
-  "r": ["stubborn הוא מי שאינו מוכן לזוז מדעתו, וזה מה שהפרד עושה כשהוא נעצר.",
-        "cruel נשלל: נאמר שהפרד עדין עם הילדים ואינו בועט.",
-        "nervous הוא מתוח, ובעל חיים מתוח דווקא זז ואינו נשאר במקומו.",
-        "wild הוא פראי ולא מאולף, והפרד הזה מאולף ועדין."]
+  "r": [
+   "stubborn הוא מי שאינו מוכן לזוז מדעתו, וזה מה שהפרד עושה כשהוא נעצר.",
+   "cruel נשלל: נאמר שהפרד עדין עם הילדים ואינו בועט.",
+   "nervous הוא מתוח, ובעל חיים מתוח דווקא זז ואינו נשאר במקומו.",
+   "wild הוא פראי ולא מאולף, והפרד הזה מאולף ועדין."
+  ]
  },
  {
   "s": "The same car passed the gate four times after midnight; moreover, its lights were off, and the guard found the driver ___ enough to write down the number.",
-  "o": ["suspicious", "curious", "guilty", "nervous"],
+  "o": [
+   "suspicious",
+   "curious",
+   "guilty",
+   "nervous"
+  ],
   "a": 0,
   "k": "addition",
-  "w": ["moreover"],
-  "g": ["suspicious = חשוד", "curious = סקרן", "guilty = אשם", "nervous = עצבני, מתוח"],
+  "w": [
+   "moreover"
+  ],
+  "g": [
+   "suspicious = חשוד",
+   "curious = סקרן",
+   "guilty = אשם",
+   "nervous = עצבני, מתוח"
+  ],
   "t": "אותה מכונית עברה בשער ארבע פעמים אחרי חצות, ונוסף על כך אורותיה היו כבויים, והשומר מצא את הנהג **חשוד** דיו לרשום את המספר.",
-  "r": ["suspicious הוא מי שהתנהגותו מעוררת חשד, וארבע נסיעות בלי אורות הן בדיוק זה.",
-        "curious הוא סקרן, וסקרנות אינה הסיבה שרושמים מספר של רכב.",
-        "guilty הוא אשם, וזה נקבע בהוכחה ולא בתצפית של שומר.",
-        "nervous הוא מתוח, והשומר תיאר את מה שראה מבחוץ ולא את מצבו של הנהג."]
+  "r": [
+   "suspicious הוא מי שהתנהגותו מעוררת חשד, וארבע נסיעות בלי אורות הן בדיוק זה.",
+   "curious הוא סקרן, וסקרנות אינה הסיבה שרושמים מספר של רכב.",
+   "guilty הוא אשם, וזה נקבע בהוכחה ולא בתצפית של שומר.",
+   "nervous הוא מתוח, והשומר תיאר את מה שראה מבחוץ ולא את מצבו של הנהג."
+  ]
  },
  {
   "s": "He meant the remark about the soup as a joke, yet his host heard a plain ___ and left the table without a word.",
-  "o": ["insult", "curse", "threat", "debate"],
+  "o": [
+   "insult",
+   "curse",
+   "threat",
+   "debate"
+  ],
   "a": 0,
   "k": "contrast",
-  "w": ["yet"],
-  "g": ["insult = עלבון", "curse = קללה", "threat = איום", "debate = ויכוח"],
+  "w": [
+   "yet"
+  ],
+  "g": [
+   "insult = עלבון",
+   "curse = קללה",
+   "threat = איום",
+   "debate = ויכוח"
+  ],
   "t": "הוא התכוון להערה על המרק כבדיחה, ואולם המארח שמע **עלבון** של ממש וקם מהשולחן בלי מילה.",
-  "r": ["insult הוא עלבון שנפגעים ממנו, וזה מה שהמארח שמע במקום בדיחה.",
-        "curse היא קללה, וההערה נאמרה על המרק ולא כקללה.",
-        "threat הוא איום על מה שעוד יקרה, ובהערה על מרק אין איום.",
-        "debate הוא ויכוח בין שניים, והמארח קם ולא התווכח."]
+  "r": [
+   "insult הוא עלבון שנפגעים ממנו, וזה מה שהמארח שמע במקום בדיחה.",
+   "curse היא קללה, וההערה נאמרה על המרק ולא כקללה.",
+   "threat הוא איום על מה שעוד יקרה, ובהערה על מרק אין איום.",
+   "debate הוא ויכוח בין שניים, והמארח קם ולא התווכח."
+  ]
  },
  {
   "s": "The club lost at home in October and again in November; moreover, its fourth ___ of the season came from the team at the bottom of the table.",
-  "o": ["defeat", "failure", "penalty", "struggle"],
+  "o": [
+   "defeat",
+   "failure",
+   "penalty",
+   "struggle"
+  ],
   "a": 0,
   "k": "addition",
-  "w": ["moreover"],
-  "g": ["defeat = תבוסה, הבסה", "failure = כשלון", "penalty = עונש; קנס", "struggle = מאבק"],
+  "w": [
+   "moreover"
+  ],
+  "g": [
+   "defeat = תבוסה, הבסה",
+   "failure = כשלון",
+   "penalty = עונש",
+   "struggle = מאבק"
+  ],
   "t": "הקבוצה הפסידה בביתה באוקטובר ושוב בנובמבר, ונוסף על כך ה**תבוסה** הרביעית שלה בעונה באה מהקבוצה שבתחתית הטבלה.",
-  "r": ["defeat הוא הפסד למול יריב, וזה מה שנספר כשמונים הפסד רביעי בעונה.",
-        "failure הוא כשלון כללי, והמשפט מונה משחקים שהיריב ניצח בהם.",
-        "penalty הוא עונש או בעיטה, ולא ההפסד עצמו.",
-        "struggle הוא מאבק ממושך, ומאבק אינו נספר במספרים כמו הפסדים."]
+  "r": [
+   "defeat הוא הפסד למול יריב, וזה מה שנספר כשמונים הפסד רביעי בעונה.",
+   "failure הוא כשלון כללי, והמשפט מונה משחקים שהיריב ניצח בהם.",
+   "penalty הוא עונש או בעיטה, ולא ההפסד עצמו.",
+   "struggle הוא מאבק ממושך, ומאבק אינו נספר במספרים כמו הפסדים."
+  ]
  },
  {
   "s": "First the climbers fixed ropes along the lower wall and left food at two camps; the real ___ on the summit began only three days later.",
-  "o": ["attempt", "adventure", "hike", "stunt"],
+  "o": [
+   "attempt",
+   "adventure",
+   "hike",
+   "stunt"
+  ],
   "a": 0,
   "k": "sequence",
-  "w": ["first"],
-  "g": ["attempt = ניסיון", "adventure = הרפתקה", "hike = הליכה, טיול", "stunt = פעלול"],
+  "w": [
+   "first"
+  ],
+  "g": [
+   "attempt = ניסיון",
+   "adventure = הרפתקה",
+   "hike = הליכה, טיול",
+   "stunt = פעלול"
+  ],
   "t": "תחילה קיבעו המטפסים חבלים לאורך הקיר התחתון והשאירו מזון בשני מחנות, וה**ניסיון** האמיתי לכבוש את הפסגה החל רק שלושה ימים אחר כך.",
-  "r": ["attempt הוא הניסיון עצמו לעלות, והוא מתחיל אחרי שהחבלים והמזון כבר במקומם.",
-        "adventure היא הרפתקה, והיא מתארת את החוויה כולה ולא את העלייה המתוכננת.",
-        "hike הוא טיול הליכה, ופסגה שדורשת חבלים ומחנות אינה טיול.",
-        "stunt הוא פעלול לראווה, והמשפט מתאר טיפוס מתוכנן בשלבים."]
+  "r": [
+   "attempt הוא הניסיון עצמו לעלות, והוא מתחיל אחרי שהחבלים והמזון כבר במקומם.",
+   "adventure היא הרפתקה, והיא מתארת את החוויה כולה ולא את העלייה המתוכננת.",
+   "hike הוא טיול הליכה, ופסגה שדורשת חבלים ומחנות אינה טיול.",
+   "stunt הוא פעלול לראווה, והמשפט מתאר טיפוס מתוכנן בשלבים."
+  ]
  },
  {
   "s": "Salt is not the only thing that keeps the meat from spoiling, but in this old recipe it is the one ___ step that cannot be left out.",
-  "o": ["essential", "initial", "useful", "minor"],
+  "o": [
+   "essential",
+   "initial",
+   "useful",
+   "minor"
+  ],
   "a": 0,
   "k": "contrast",
-  "w": ["but"],
-  "g": ["essential = חיוני", "initial = התחלתי, ראשוני", "useful = שימושי", "minor = קטן, שולי"],
+  "w": [
+   "but"
+  ],
+  "g": [
+   "essential = חיוני",
+   "initial = התחלתי, ראשוני",
+   "useful = שימושי",
+   "minor = קטן, שולי"
+  ],
   "t": "המלח אינו הדבר היחיד שמונע מהבשר להתקלקל, אך במתכון הישן הזה הוא השלב ה**חיוני** האחד שאין לדלג עליו.",
-  "r": ["essential הוא מה שבלעדיו התהליך אינו עובד, והמשפט אומר שאין לדלג על השלב.",
-        "initial הוא השלב הראשון בסדר, והמשפט אינו קובע שהמלח בא ראשון.",
-        "useful הוא שימושי, וניתן לדלג על שלב שימושי בעוד שעל השלב הזה אין לדלג.",
-        "minor הוא שלב שולי, ושלב שולי הוא בדיוק מה שכן ניתן להשמיט."]
+  "r": [
+   "essential הוא מה שבלעדיו התהליך אינו עובד, והמשפט אומר שאין לדלג על השלב.",
+   "initial הוא השלב הראשון בסדר, והמשפט אינו קובע שהמלח בא ראשון.",
+   "useful הוא שימושי, וניתן לדלג על שלב שימושי בעוד שעל השלב הזה אין לדלג.",
+   "minor הוא שלב שולי, ושלב שולי הוא בדיוק מה שכן ניתן להשמיט."
+  ]
  },
  {
   "s": "Several plants in this valley are ___, for instance the small white berry that killed two sheep last April.",
-  "o": ["poisonous", "wild", "sticky", "valuable"],
+  "o": [
+   "poisonous",
+   "wild",
+   "sticky",
+   "valuable"
+  ],
   "a": 0,
   "k": "example",
-  "w": ["for instance"],
-  "g": ["poisonous = רעיל", "wild = פראי, טבע", "sticky = דביק", "valuable = יקר ערך"],
+  "w": [
+   "for instance"
+  ],
+  "g": [
+   "poisonous = רעיל",
+   "wild = פראי, טבע",
+   "sticky = דביק",
+   "valuable = יקר ערך"
+  ],
   "t": "כמה מן הצמחים בעמק הזה **רעילים**, למשל הגרגר הלבן הקטן שהמית שתי כבשים באפריל שעבר.",
-  "r": ["poisonous הוא רעיל, וגרגר שהמית שתי כבשים הוא הדוגמה המדויקת לכך.",
-        "wild הוא צמח שגדל בטבע, וכל צמחי העמק גדלים בטבע ולכן זה אינו מבחין ביניהם.",
-        "sticky הוא דביק, ואין קשר בין דביקות לבין מות הכבשים.",
-        "valuable הוא יקר ערך, וצמח יקר ערך אינו הורג כבשים."]
+  "r": [
+   "poisonous הוא רעיל, וגרגר שהמית שתי כבשים הוא הדוגמה המדויקת לכך.",
+   "wild הוא צמח שגדל בטבע, וכל צמחי העמק גדלים בטבע ולכן זה אינו מבחין ביניהם.",
+   "sticky הוא דביק, ואין קשר בין דביקות לבין מות הכבשים.",
+   "valuable הוא יקר ערך, וצמח יקר ערך אינו הורג כבשים."
+  ]
  },
  {
   "s": "Because the machine sends ___ through the whole room while it works, the technician stands behind a thick lead wall.",
-  "o": ["radiation", "electricity", "heat", "oxygen"],
+  "o": [
+   "radiation",
+   "electricity",
+   "heat",
+   "oxygen"
+  ],
   "a": 0,
   "k": "cause",
-  "w": ["because"],
-  "g": ["radiation = קרינה", "electricity = חשמל", "heat = חום", "oxygen = חמצן"],
+  "w": [
+   "because"
+  ],
+  "g": [
+   "radiation = קרינה",
+   "electricity = חשמל",
+   "heat = חום",
+   "oxygen = חמצן"
+  ],
   "t": "מכיוון שהמכשיר שולח **קרינה** בכל החדר בזמן שהוא פועל, הטכנאי עומד מאחורי קיר עופרת עבה.",
-  "r": ["radiation היא קרינה שעוברת בכל החדר, ולכן נדרש קיר עופרת ולא רק מרחק.",
-        "electricity עוברת בחוטים, וקיר עופרת אינו האמצעי שמגנים בו מפניה.",
-        "heat הוא חום, וממנו מגנים בבידוד או באוורור ולא בעופרת.",
-        "oxygen הוא חמצן, והוא נמצא בחדר תמיד ואין מפניו סכנה."]
+  "r": [
+   "radiation היא קרינה שעוברת בכל החדר, ולכן נדרש קיר עופרת ולא רק מרחק.",
+   "electricity עוברת בחוטים, וקיר עופרת אינו האמצעי שמגנים בו מפניה.",
+   "heat הוא חום, וממנו מגנים בבידוד או באוורור ולא בעופרת.",
+   "oxygen הוא חמצן, והוא נמצא בחדר תמיד ואין מפניו סכנה."
+  ]
  },
  {
   "s": "The town covers the same few streets it covered a century ago, yet its ___ has grown from four hundred people to nine thousand.",
-  "o": ["population", "community", "generation", "majority"],
+  "o": [
+   "population",
+   "community",
+   "generation",
+   "majority"
+  ],
   "a": 0,
   "k": "contrast",
-  "w": ["yet"],
-  "g": ["population = אוכלוסייה", "community = קהילה", "generation = דור", "majority = רוב"],
+  "w": [
+   "yet"
+  ],
+  "g": [
+   "population = אוכלוסייה",
+   "community = קהילה",
+   "generation = דור",
+   "majority = רוב"
+  ],
   "t": "העיירה תופסת את אותם רחובות מעטים שתפסה לפני מאה שנים, ואולם ה**אוכלוסייה** שלה גדלה מארבע מאות איש לתשעת אלפים.",
-  "r": ["population היא מספר התושבים, וזה מה שגדל מארבע מאות לתשעת אלפים.",
-        "community היא קהילה, וקהילה אינה נמדדת כמספר שגדל פי עשרים.",
-        "generation הוא דור, ודור אינו גדל אלא מתחלף.",
-        "majority הוא הרוב מתוך שלם, והמשפט נותן את המספר כולו."]
+  "r": [
+   "population היא מספר התושבים, וזה מה שגדל מארבע מאות לתשעת אלפים.",
+   "community היא קהילה, וקהילה אינה נמדדת כמספר שגדל פי עשרים.",
+   "generation הוא דור, ודור אינו גדל אלא מתחלף.",
+   "majority הוא הרוב מתוך שלם, והמשפט נותן את המספר כולו."
+  ]
  },
  {
   "s": "Because two customers were served spoiled fish in July, the little restaurant lost the ___ it had built over thirty years.",
-  "o": ["reputation", "recognition", "reward", "wealth"],
+  "o": [
+   "reputation",
+   "recognition",
+   "reward",
+   "wealth"
+  ],
   "a": 0,
   "k": "cause",
-  "w": ["because"],
-  "g": ["reputation = מוניטין", "recognition = הכרה", "reward = פרס", "wealth = עושר"],
+  "w": [
+   "because"
+  ],
+  "g": [
+   "reputation = מוניטין",
+   "recognition = הכרה",
+   "reward = פרס",
+   "wealth = עושר"
+  ],
   "t": "מכיוון ששני סועדים קיבלו דג מקולקל ביולי, המסעדה הקטנה איבדה את ה**מוניטין** שבנתה בשלושים שנה.",
-  "r": ["reputation הוא המוניטין שהמסעדה בנתה, והוא נפגע ברגע שהוגש דג מקולקל.",
-        "recognition היא הכרה בהישג, והמשפט מדבר על אמון הסועדים ולא על הישג.",
-        "reward הוא פרס שמקבלים ממישהו, ולא דבר שנבנה בשלושים שנה.",
-        "wealth הוא עושר כספי, והמסעדה איבדה את שמה ולא את כספה."]
+  "r": [
+   "reputation הוא המוניטין שהמסעדה בנתה, והוא נפגע ברגע שהוגש דג מקולקל.",
+   "recognition היא הכרה בהישג, והמשפט מדבר על אמון הסועדים ולא על הישג.",
+   "reward הוא פרס שמקבלים ממישהו, ולא דבר שנבנה בשלושים שנה.",
+   "wealth הוא עושר כספי, והמסעדה איבדה את שמה ולא את כספה."
+  ]
  },
  {
   "s": "The teacher marked her last set of papers in June, and her ___ began quietly on the first morning after the summer holiday.",
-  "o": ["retirement", "separation", "promotion", "rest"],
+  "o": [
+   "retirement",
+   "separation",
+   "promotion",
+   "rest"
+  ],
   "a": 0,
   "k": "sequence",
-  "w": ["after"],
-  "g": ["retirement = פרישה", "separation = הפרדה", "promotion = קידום", "rest = מנוחה"],
+  "w": [
+   "after"
+  ],
+  "g": [
+   "retirement = פרישה",
+   "separation = הפרדה",
+   "promotion = קידום",
+   "rest = מנוחה"
+  ],
   "t": "המורה בדקה את חבילת המחברות האחרונה שלה ביוני, וה**פרישה** שלה החלה בשקט בבוקר הראשון שלאחר חופשת הקיץ.",
-  "r": ["retirement היא פרישה מן העבודה, וזה מה שמתחיל אחרי חבילת המחברות האחרונה.",
-        "separation היא הפרדה בין שני דברים, ולא סיום של חיי עבודה.",
-        "promotion הוא קידום בתפקיד, והמורה סיימה ולא התקדמה.",
-        "rest היא מנוחה קצרה, וחופשת הקיץ עצמה הייתה מנוחה כזאת."]
+  "r": [
+   "retirement היא פרישה מן העבודה, וזה מה שמתחיל אחרי חבילת המחברות האחרונה.",
+   "separation היא הפרדה בין שני דברים, ולא סיום של חיי עבודה.",
+   "promotion הוא קידום בתפקיד, והמורה סיימה ולא התקדמה.",
+   "rest היא מנוחה קצרה, וחופשת הקיץ עצמה הייתה מנוחה כזאת."
+  ]
  },
  {
   "s": "The drawings are copied line by line from photographs, so they show great patience but very little ___.",
-  "o": ["imagination", "curiosity", "wisdom", "charm"],
+  "o": [
+   "imagination",
+   "curiosity",
+   "wisdom",
+   "charm"
+  ],
   "a": 0,
   "k": "cause",
-  "w": ["so"],
-  "g": ["imagination = דמיון", "curiosity = סקרנות", "wisdom = חכמה", "charm = קסם"],
+  "w": [
+   "so"
+  ],
+  "g": [
+   "imagination = דמיון",
+   "curiosity = סקרנות",
+   "wisdom = חכמה",
+   "charm = קסם"
+  ],
   "t": "הציורים מועתקים קו אחר קו מתצלומים, ולכן הם מגלים סבלנות רבה אך מעט מאוד **דמיון**.",
-  "r": ["imagination הוא כושר ההמצאה של מה שאינו לפני העיניים, וההעתקה אינה דורשת אותו.",
-        "curiosity היא סקרנות שדוחפת לחקור, וההעתקה המדויקת אינה מלמדת עליה.",
-        "wisdom היא חכמה שבשיפוט, ולא כושר ההמצאה שחסר בציורים.",
-        "charm הוא קסם שיש או אין ביצירה, והמשפט מדבר על מה שהעתקה אינה מצריכה."]
+  "r": [
+   "imagination הוא כושר ההמצאה של מה שאינו לפני העיניים, וההעתקה אינה דורשת אותו.",
+   "curiosity היא סקרנות שדוחפת לחקור, וההעתקה המדויקת אינה מלמדת עליה.",
+   "wisdom היא חכמה שבשיפוט, ולא כושר ההמצאה שחסר בציורים.",
+   "charm הוא קסם שיש או אין ביצירה, והמשפט מדבר על מה שהעתקה אינה מצריכה."
+  ]
  },
  {
   "s": "The new oven is half the size of the old one, yet it is so ___ that it bakes the same number of loaves on half the gas.",
-  "o": ["efficient", "rapid", "flexible", "stable"],
+  "o": [
+   "efficient",
+   "rapid",
+   "flexible",
+   "stable"
+  ],
   "a": 0,
   "k": "contrast",
-  "w": ["yet"],
-  "g": ["efficient = יעיל", "rapid = מהיר", "flexible = גמיש", "stable = יציב"],
+  "w": [
+   "yet"
+  ],
+  "g": [
+   "efficient = יעיל",
+   "rapid = מהיר",
+   "flexible = גמיש",
+   "stable = יציב"
+  ],
   "t": "התנור החדש קטן בחצי מן הישן, ואולם הוא כה **יעיל** שהוא אופה אותו מספר כיכרות בחצי מן הגז.",
-  "r": ["efficient הוא מי שמפיק אותה תוצאה בפחות משאבים, וזה בדיוק חצי מן הגז.",
-        "rapid הוא מהיר, והמשפט מודד גז ולא זמן אפייה.",
-        "flexible הוא גמיש בשימוש, ואין בגמישות הסבר לחיסכון בגז.",
-        "stable הוא יציב, ותנור יציב אינו חסכוני בהכרח."]
+  "r": [
+   "efficient הוא מי שמפיק אותה תוצאה בפחות משאבים, וזה בדיוק חצי מן הגז.",
+   "rapid הוא מהיר, והמשפט מודד גז ולא זמן אפייה.",
+   "flexible הוא גמיש בשימוש, ואין בגמישות הסבר לחיסכון בגז.",
+   "stable הוא יציב, ותנור יציב אינו חסכוני בהכרח."
+  ]
  },
  {
   "s": "Unless a person has lived in the country for five years, he cannot vote as a full ___ of the republic.",
-  "o": ["citizen", "resident", "visitor", "native"],
+  "o": [
+   "citizen",
+   "resident",
+   "visitor",
+   "native"
+  ],
   "a": 0,
   "k": "condition",
-  "w": ["unless"],
-  "g": ["citizen = אזרח", "resident = תושב", "visitor = מבקר", "native = יליד, מקומי"],
+  "w": [
+   "unless"
+  ],
+  "g": [
+   "citizen = אזרח",
+   "resident = תושב",
+   "visitor = מבקר",
+   "native = יליד, מקומי"
+  ],
   "t": "אם אדם לא גר במדינה חמש שנים, הוא אינו יכול להצביע כ**אזרח** מלא של הרפובליקה.",
-  "r": ["citizen הוא אזרח, וזכות הבחירה נובעת מן האזרחות ולא מן המחיה במקום.",
-        "resident הוא תושב, ותושב יכול לגור חמש שנים ובכל זאת לא לבחור.",
-        "visitor הוא מבקר, ומבקר אינו גר במדינה חמש שנים.",
-        "native הוא יליד המקום, ומי שנולד שם אינו ממתין חמש שנים."]
+  "r": [
+   "citizen הוא אזרח, וזכות הבחירה נובעת מן האזרחות ולא מן המחיה במקום.",
+   "resident הוא תושב, ותושב יכול לגור חמש שנים ובכל זאת לא לבחור.",
+   "visitor הוא מבקר, ומבקר אינו גר במדינה חמש שנים.",
+   "native הוא יליד המקום, ומי שנולד שם אינו ממתין חמש שנים."
+  ]
  },
  {
   "s": "The bank could not pay its clerks in March; furthermore, two of its branches closed in April, and by June a local difficulty had become a national ___.",
-  "o": ["crisis", "conflict", "disaster", "debate"],
+  "o": [
+   "crisis",
+   "conflict",
+   "disaster",
+   "debate"
+  ],
   "a": 0,
   "k": "addition",
-  "w": ["furthermore"],
-  "g": ["crisis = משבר", "conflict = עימות, סכסוך", "disaster = אסון", "debate = ויכוח"],
+  "w": [
+   "furthermore"
+  ],
+  "g": [
+   "crisis = משבר",
+   "conflict = עימות, סכסוך",
+   "disaster = אסון",
+   "debate = ויכוח"
+  ],
   "t": "הבנק לא הצליח לשלם לפקידיו במרץ, ונוסף על כך שניים מסניפיו נסגרו באפריל, ועד יוני הפך קושי מקומי ל**משבר** ארצי.",
-  "r": ["crisis הוא משבר שנפרש על מערכת שלמה, וזה מה שקורה כשקושי מקומי הופך ארצי.",
-        "conflict הוא סכסוך בין צדדים, ובמשפט אין שני צדדים שמתעמתים.",
-        "disaster הוא אסון פתאומי, והמשפט מתאר הידרדרות של חודשים.",
-        "debate הוא ויכוח על מה שראוי לעשות, ולא מצב הכלכלה עצמו."]
+  "r": [
+   "crisis הוא משבר שנפרש על מערכת שלמה, וזה מה שקורה כשקושי מקומי הופך ארצי.",
+   "conflict הוא סכסוך בין צדדים, ובמשפט אין שני צדדים שמתעמתים.",
+   "disaster הוא אסון פתאומי, והמשפט מתאר הידרדרות של חודשים.",
+   "debate הוא ויכוח על מה שראוי לעשות, ולא מצב הכלכלה עצמו."
+  ]
  },
  {
   "s": "One clerk lets students in free and another charges them, though the museum insists it has a single written ___ for everyone at the door.",
-  "o": ["policy", "principle", "standard", "schedule"],
+  "o": [
+   "policy",
+   "principle",
+   "standard",
+   "schedule"
+  ],
   "a": 0,
   "k": "contrast",
-  "w": ["though"],
-  "g": ["policy = מדיניות", "principle = עיקרון, כלל יסוד", "standard = תקן, מקובל", "schedule = לוח זמנים"],
+  "w": [
+   "though"
+  ],
+  "g": [
+   "policy = מדיניות",
+   "principle = עיקרון, כלל יסוד",
+   "standard = תקן, מקובל",
+   "schedule = לוח זמנים"
+  ],
   "t": "פקיד אחד מכניס תלמידים בחינם ואחר גובה מהם, אף שהמוזיאון מתעקש שיש לו **מדיניות** כתובה אחת לכל הנכנסים.",
-  "r": ["policy היא המדיניות הכתובה שהמוזיאון קבע לכל הבאים, והפקידים סותרים אותה בפועל.",
-        "principle הוא עיקרון או כלל יסוד, ולא הוראה כתובה על מחיר כניסה.",
-        "standard הוא תקן שמודדים לפיו איכות, ולא כלל שקובע מי משלם.",
-        "schedule הוא לוח זמנים, והמחלוקת היא על התשלום ולא על השעות."]
+  "r": [
+   "policy היא המדיניות הכתובה שהמוזיאון קבע לכל הבאים, והפקידים סותרים אותה בפועל.",
+   "principle הוא עיקרון או כלל יסוד, ולא הוראה כתובה על מחיר כניסה.",
+   "standard הוא תקן שמודדים לפיו איכות, ולא כלל שקובע מי משלם.",
+   "schedule הוא לוח זמנים, והמחלוקת היא על התשלום ולא על השעות."
+  ]
  },
  {
   "s": "Because the small lecture hall can ___ no more than ninety people, the department had to ___ forty students to a second room.",
-  "o": [["contain", "transfer"], ["transfer", "contain"], ["contain", "isolate"], ["isolate", "contain"]],
+  "o": [
+   [
+    "contain",
+    "transfer"
+   ],
+   [
+    "transfer",
+    "contain"
+   ],
+   [
+    "contain",
+    "isolate"
+   ],
+   [
+    "isolate",
+    "contain"
+   ]
+  ],
   "a": 0,
   "k": "cause",
-  "w": ["because"],
-  "g": ["contain = להכיל, מכיל · transfer = להעביר", "transfer = להעביר · contain = להכיל, מכיל", "contain = להכיל, מכיל · isolate = לבודד", "isolate = לבודד · contain = להכיל, מכיל"],
+  "w": [
+   "because"
+  ],
+  "g": [
+   "contain = להכיל, מכיל · transfer = להעביר",
+   "transfer = להעביר · contain = להכיל, מכיל",
+   "contain = להכיל, מכיל · isolate = לבודד",
+   "isolate = לבודד · contain = להכיל, מכיל"
+  ],
   "t": "מכיוון שאולם ההרצאות הקטן יכול **להכיל** תשעים איש בלבד, המחלקה נאלצה **להעביר** ארבעים סטודנטים לחדר שני.",
-  "r": ["contain ואחריו transfer: האולם הוא שמכיל תשעים איש, והסטודנטים הם שמועברים לחדר אחר.",
-        "הסדר הפוך: transfer אינו מה שהאולם עושה, ו-contain אינו מה שעושים לסטודנטים.",
-        "contain בפתיחה נכון, אך isolate הוא לבודד אדם לבדו ולא להעביר ארבעים סטודנטים לחדר אחר.",
-        "isolate בפתיחה שגוי: אולם מכיל אנשים ואינו מבודד אותם."]
+  "r": [
+   "contain ואחריו transfer: האולם הוא שמכיל תשעים איש, והסטודנטים הם שמועברים לחדר אחר.",
+   "הסדר הפוך: transfer אינו מה שהאולם עושה, ו-contain אינו מה שעושים לסטודנטים.",
+   "contain בפתיחה נכון, אך isolate הוא לבודד אדם לבדו ולא להעביר ארבעים סטודנטים לחדר אחר.",
+   "isolate בפתיחה שגוי: אולם מכיל אנשים ואינו מבודד אותם."
+  ]
  },
  {
   "s": "Because rain and salt slowly ___ the iron of the old bridge, the council will ___ the two southern arches rather than build them again.",
-  "o": [["weaken", "repair"], ["repair", "weaken"], ["weaken", "replace"], ["replace", "weaken"]],
+  "o": [
+   [
+    "weaken",
+    "repair"
+   ],
+   [
+    "repair",
+    "weaken"
+   ],
+   [
+    "weaken",
+    "replace"
+   ],
+   [
+    "replace",
+    "weaken"
+   ]
+  ],
   "a": 0,
   "k": "cause",
-  "w": ["because"],
-  "g": ["weaken = להחליש · repair = לתקן", "repair = לתקן · weaken = להחליש", "weaken = להחליש · replace = להחליף", "replace = להחליף · weaken = להחליש"],
+  "w": [
+   "because"
+  ],
+  "g": [
+   "weaken = להחליש · repair = לתקן",
+   "repair = לתקן · weaken = להחליש",
+   "weaken = להחליש · replace = להחליף",
+   "replace = להחליף · weaken = להחליש"
+  ],
   "t": "מכיוון שהגשם והמלח **מחלישים** בהדרגה את הברזל של הגשר הישן, המועצה **תתקן** את שתי הקשתות הדרומיות ולא תבנה אותן מחדש.",
-  "r": ["weaken ואחריו repair: הגשם והמלח מחלישים את הברזל, והמועצה מתקנת את הקשתות.",
-        "הסדר הפוך: repair אינו מה שהגשם עושה לברזל, ומועצה אינה weaken גשר בכוונה.",
-        "weaken בפתיחה נכון, אך replace נשלל: נאמר שהקשתות לא ייבנו מחדש.",
-        "replace בפתיחה שגוי: הגשם והמלח מחלישים את הברזל ואינם מחליפים אותו."]
+  "r": [
+   "weaken ואחריו repair: הגשם והמלח מחלישים את הברזל, והמועצה מתקנת את הקשתות.",
+   "הסדר הפוך: repair אינו מה שהגשם עושה לברזל, ומועצה אינה weaken גשר בכוונה.",
+   "weaken בפתיחה נכון, אך replace נשלל: נאמר שהקשתות לא ייבנו מחדש.",
+   "replace בפתיחה שגוי: הגשם והמלח מחלישים את הברזל ואינם מחליפים אותו."
+  ]
  }
 ]
