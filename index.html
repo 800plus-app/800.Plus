@@ -272,8 +272,15 @@
   .s-exp section:last-child{margin-bottom:0}
   .s-g{direction:ltr;text-align:left;font-size:.9rem;color:var(--ink-soft);padding:2px 0}
   .s-g.key{color:var(--ink);font-weight:700}
+  /* שורת המשפט באנגלית, מעל התרגום. `direction:ltr` על הבלוק ולא רק על ה-bdi,
+     אחרת הנקודה בסוף המשפט נודדת לשמאלו במסך RTL. */
+  .s-en{direction:ltr;text-align:left;font-size:1rem;line-height:1.6;margin-bottom:5px}
+  /* ⚠ לא var(--green). אותה מדידה שכבר תועדה למעלה: הירוק הכללי #4e7d4e נותן 4.27:1
+     על רקע הכרטיס, ומתחת לסף 4.5. טקסט מודגש ב-16px אינו "טקסט גדול" (הפטור מתחיל
+     ב-18.66px מודגש), ולכן הפטור אינו חל כאן. #3f6a3f נמדד 5.58:1 ומאותה משפחה.
+     החל גם על .s-tr b, שנשלח כבר עם הירוק החלש. */
+  .s-en b, .s-tr b{color:#3f6a3f;font-weight:700}
   .s-tr{font-size:1rem;line-height:1.7}
-  .s-tr b{color:var(--green)}
   .s-why p{font-size:.94rem;line-height:1.65;margin-bottom:9px}
   .s-why p:last-child{margin-bottom:0}
   .s-why .vd{font-weight:700}
@@ -338,6 +345,14 @@
   .sense-need{color:var(--accent-deep);font-weight:600}
   .sense-intro{margin-top:5px;font-weight:400;color:var(--ink-soft);font-size:.8rem;line-height:1.6}
   .also b{color:var(--ink);font-weight:600}
+  /* משפט הדוגמה: תווית · המשפט באנגלית · התרגום, שורה לכל אחד. המילה הנלמדת
+     מודגשת בשני המשפטים, ולכן היא מוצגת ב-var(--ink) המלא ולא באפור של .also:
+     אפור על אפור אינו הדגשה, וההדגשה כאן היא כל תפקיד השורה. */
+  .ex-sent .ex-lbl{display:block;font-size:.68rem;letter-spacing:.1em;color:var(--gold);
+    font-weight:700;margin-bottom:3px}
+  .ex-sent .ex-en{display:block;direction:ltr;text-align:left;margin-bottom:2px}
+  .ex-sent .ex-he{display:block}
+  .ex-sent b{color:var(--ink);font-weight:700}
   .reveal{margin-top:8px;font-size:1.05rem}
   .reveal b{font-family:"Frank Ruhl Libre",serif}
   .was-right{margin-top:12px;background:transparent;border:1px solid var(--line);color:var(--ink-soft);border-radius:999px;padding:7px 16px;font-family:"Heebo";font-size:.85rem}
