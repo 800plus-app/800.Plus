@@ -56,20 +56,38 @@ describe('משפט הדוגמה · שלמות הנתונים', () => {
     assert.strictEqual(bad.length, 0, `${bad.length} פריטים עם תג אחר: ${bad.slice(0, 5).map(e => e[0])}`);
   });
 
-  test('הדגשה בעברית: מקטע אחד, לא ריק, ולא באמצע מילה', () => {
+  /* ⚠ הבדיקה דרשה מקטע **אחד**, וזו הייתה הדרישה הלא נכונה לצירוף מתאם: ב-`not
+     only... but also...` האנגלית מדגישה שני מקומות, ובעברית `אלא גם` נשאר בלי
+     הדגשה. עד ארבעה מקטעים מותרים, וכל מקטע נבדק לגופו. */
+  test('הדגשה בעברית: כל מקטע לא ריק, בגבול מילה, ועד ארבעה', () => {
     const bad = [];
     entries.forEach(([w, [, he]]) => {
-      const n = (he.match(/<b>/g) || []).length;
-      if (!n) return;                                  // בלי הדגשה זה מצב מותר
-      if (n !== 1) return bad.push([w, `${n} מקטעים`]);
-      const m = he.match(/<b>([^<]*)<\/b>/);
-      if (!m || !m[1].trim()) return bad.push([w, 'מקטע ריק']);
-      if (m[1] !== m[1].trim()) return bad.push([w, 'רווח בקצה']);
-      const i = he.indexOf('<b>'), j = he.indexOf('</b>');
-      if (/[א-ת]/.test(he[i - 1] || '')) return bad.push([w, 'מתחיל באמצע מילה']);
-      if (/[א-ת]/.test(he[j + 4] || '')) return bad.push([w, 'נגמר באמצע מילה']);
+      const spans = [...he.matchAll(/<b>([^<]*)<\/b>/g)];
+      const opens = (he.match(/<b>/g) || []).length;
+      if (!opens) return;                              // בלי הדגשה זה מצב מותר
+      if (spans.length !== opens) return bad.push([w, 'תג שלא נסגר']);
+      if (spans.length > 4) return bad.push([w, `${spans.length} מקטעים`]);
+      spans.forEach((m, k) => {
+        if (!m[1].trim()) return bad.push([w, `מקטע ${k + 1} ריק`]);
+        if (m[1] !== m[1].trim()) return bad.push([w, `רווח בקצה מקטע ${k + 1}`]);
+        const i = m.index, j = i + m[0].length;
+        if (/[א-ת]/.test(he[i - 1] || '')) bad.push([w, `מקטע ${k + 1} מתחיל באמצע מילה`]);
+        if (/[א-ת]/.test(he[j] || '')) bad.push([w, `מקטע ${k + 1} נגמר באמצע מילה`]);
+      });
     });
     assert.strictEqual(bad.length, 0, bad.slice(0, 6).map(b => b.join(': ')).join(' · '));
+  });
+
+  /* ⛔ הצירוף המתאם: אם באנגלית מודגשים שני מקומות, בעברית חייבים שניים. פריט אחד
+     כזה נמצא באוויר עם חצי סימון, והלומד ראה `לא רק` בלי `אלא גם`. */
+  test('צירוף מתאם מודגש בשני מקומות גם בעברית', () => {
+    const gap = entries.filter(([, [en, he]]) => {
+      const groups = en.split(/\s+/).reduce((n, tok, i, a) =>       // קבוצות רצף של <b>
+        /<b>/.test(tok) && !/<b>/.test(a[i - 1] || '') ? n + 1 : n, 0);
+      return groups > 1 && /<b>/.test(he) && (he.match(/<b>/g) || []).length < 2;
+    });
+    assert.strictEqual(gap.length, 0,
+      `${gap.length} פריטים עם חצי סימון: ${gap.map(e => e[0]).join(' · ')}`);
   });
 
   /* ⚠ רצפה ולא מספר מדויק. מספר מקובע נכשל ברגע שהמאגר גדל — זה קרה בשער אחר
