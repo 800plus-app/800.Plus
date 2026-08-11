@@ -46,7 +46,8 @@ const T0 = 1785000000000;                 // an arbitrary fixed "now" for the me
 /* Symbols this file needs that _harness/sandbox.js does not lift for everyone else. Lifted here
  * rather than added to SYMBOLS so that a rename shows up as a failure in THIS file, next to the
  * tests that care, instead of breaking all nine files at once. */
-const TIME_SYMBOLS = ['dayKey', 'practiceDays', 'streakInfo', 'examDays', 'EXAM_KEY', 'NOTIF', 'langSummary'];
+const TIME_SYMBOLS = ['dayKey', 'practiceDays', 'streakInfo', 'examDays', 'EXAM_KEY', 'NOTIF', 'langSummary',
+                      'examTip', 'renderExamPill'];
 
 let cachedSrc = null;
 function appSrc() {
@@ -578,6 +579,75 @@ describe('the exam countdown', () => {
       setExam(ctx, '2026-08-12');
       assert.strictEqual(plain(ctx.examDays()).days, 7, 'same answer at ' + h + ':30');
     }
+  });
+
+  /* ===== the milestone line and the expired date =====
+     renderExamPill needs three things app.js gets from the page: $, classify and openAccount.
+     Stubbing them here is cheaper than a DOM, and it keeps the assertion on the branch that
+     matters — WHAT the pill decides to say — rather than on how a div renders. */
+  function withPill(ctx) {
+    const host = { innerHTML: '', onclick: null, _cls: new Set(),
+                   classList: { add(c){ host._cls.add(c); }, remove(c){ host._cls.delete(c); },
+                                contains(c){ return host._cls.has(c); } } };
+    ctx.$ = sel => sel === '#examPill' ? host : null;
+    ctx.classify = () => ({ fresh: 100, weak: 20, ok: 0, strong: 0 });
+    ctx.openAccount = () => { host._opened = true; };
+    return host;
+  }
+
+  test('each milestone range gets its own line, and the exam day gets none', () => {
+    const ctx = loadTime();
+    /* the boundaries are the whole point: 31/30, 14/13, 7/6 are where the text must flip */
+    assert.strictEqual(ctx.examTip(400), ctx.examTip(31), '30+ is one range all the way up');
+    assert.notStrictEqual(ctx.examTip(31), ctx.examTip(30), 'the 30/31 boundary must flip');
+    assert.strictEqual(ctx.examTip(30), ctx.examTip(14), '14–30 is one range');
+    assert.notStrictEqual(ctx.examTip(14), ctx.examTip(13), 'the 13/14 boundary must flip');
+    assert.strictEqual(ctx.examTip(13), ctx.examTip(7), '7–13 is one range');
+    assert.notStrictEqual(ctx.examTip(7), ctx.examTip(6), 'the 6/7 boundary must flip');
+    assert.strictEqual(ctx.examTip(6), ctx.examTip(1), '1–6 is one range');
+    assert.strictEqual(ctx.examTip(0), '', 'on the day itself there is nothing to advise');
+    for (const d of [400, 31, 30, 14, 13, 7, 6, 1])
+      assert.ok(/[א-ת]/.test(ctx.examTip(d)) && !/—/.test(ctx.examTip(d)),
+        'every milestone line is Hebrew and free of the em-dash: ' + d);
+  });
+
+  test('an exam date that has passed offers to update it instead of vanishing', () => {
+    const ctx = loadTime();
+    const host = withPill(ctx);
+    ctx.LS.set('hw_examDate', '2026-08-05');
+    ctx.at(at(2026, 8, 9, 10, 0));                 // four days after the exam
+    ctx.renderExamPill();
+    assert.ok(!host.classList.contains('hidden'), 'the row stays on screen once the date passes');
+    assert.match(host.innerHTML, /עבר/, 'and says so');
+    assert.strictEqual(typeof host.onclick, 'function', 'clicking it leads somewhere');
+    host.onclick();
+    assert.ok(host._opened, 'and where it leads is the settings screen that holds the field');
+  });
+
+  test('no date, or one absurdly far off, shows nothing at all', () => {
+    const ctx = loadTime();
+    const host = withPill(ctx);
+    ctx.renderExamPill();
+    assert.ok(host.classList.contains('hidden'), 'nothing set — no nagging row');
+    assert.strictEqual(host.onclick, null, 'and nothing to click');
+    ctx.LS.set('hw_examDate', '2028-08-05');
+    ctx.at(at(2026, 8, 5, 10, 0));                 // 731 days out, past the 400-day guard
+    ctx.renderExamPill();
+    assert.ok(host.classList.contains('hidden'), 'a countdown that long is noise, not a plan');
+  });
+
+  test('the pill carries the milestone line for a live date, and drops it on the day', () => {
+    const ctx = loadTime();
+    const host = withPill(ctx);
+    ctx.at(at(2026, 8, 5, 10, 0));
+    ctx.LS.set('hw_examDate', '2026-09-20');       // 46 days out
+    ctx.renderExamPill();
+    assert.match(host.innerHTML, /46/, 'the number of days is still the headline');
+    assert.match(host.innerHTML, /pill-tip/, 'and the milestone line rides under it');
+    ctx.LS.set('hw_examDate', '2026-08-05');       // today
+    ctx.renderExamPill();
+    assert.match(host.innerHTML, /בהצלחה/);
+    assert.ok(!/pill-tip/.test(host.innerHTML), 'no advice on the morning of the exam');
   });
 
   test('the countdown does not slip a day across a daylight-saving transition', () => {
