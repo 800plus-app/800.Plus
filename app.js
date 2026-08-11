@@ -3004,7 +3004,23 @@ function lvFinish(){
    mark 3175 of 3694 words known off the back of a single test. Skipping should only ever
    cover words that are far easier than the ceiling that was actually demonstrated. */
 const LV_CUT={A1:0, A2:0, B1:600, B2:2000, C1:5000, C2:10000};
-function lvRankOf(term){ const m=window.EN_RANK; return m ? m[normEn(term)] : null; }
+/* שתי צורות, כי המפה והנרמול נבנו בנפרד: מפתחות enrank.js נכתבו עם רווחים
+   ומקפים **מוסרים** (`povertystricken`), ואילו normEn הופך מקף לרווח ומשאיר
+   אותו (`poverty stricken`). שש רשומות נפלו בין הכיסאות — begin an un ·
+   best seller · self confidence · department store · old fashioned ·
+   poverty stricken — וקיבלו undefined.
+   זה לא נראה כשגיאה בשום מקום: הקוראים עושים `if(!(r && r<=cut)) continue`,
+   כלומר ערך בלי דירוג פשוט נעלם ממאגר מבחן הרמה ומ-lvCountKnown, בשקט.
+   הנפילה־אחורה כאן ולא תיקון של enrank.js: הקובץ הוא דאטה שנבנה בצינור נפרד,
+   ולוגיקת חיפוש שסובלת את שתי הכתיבות עמידה גם לבנייה הבאה. */
+function lvRankOf(term){
+  const m=window.EN_RANK; if(!m) return null;
+  const k=normEn(term);
+  const hit=m[k];
+  if(hit!=null) return hit;
+  const squashed=k.replace(/[\s-]/g,'');
+  return squashed!==k ? m[squashed] : hit;
+}
 /* Counts what will ACTUALLY be marked, which is not the same as what is below the cut.
    The old version counted every ranked word under the cut across the whole bank and ignored
    history and deletions — so it advertised 2,470 while lvApplyKnown, which skips any word that
