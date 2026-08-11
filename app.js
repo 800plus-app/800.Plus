@@ -1518,9 +1518,11 @@ function finishCard(ok, skipped){
     (!w2m && maskTerm(w.meaning,w.term)!==w.meaning
       ? `<div class="also">הפירוש המלא: <b>${esc(w.meaning)}</b></div>` : '')+
     /* מוצג רק כאן, אחרי שהכרטיס נסגר: בכיוון פירוש→מילה המשפט מכיל את התשובה,
-       ולכן לפני המענה הוא היה מסגיר אותה. bdi+dir כי משפט אנגלי בתוך מסך RTL. */
+       ולכן לפני המענה הוא היה מסגיר אותה. bdi+dir כי משפט אנגלי בתוך מסך RTL.
+       הערך הוא [משפט, תרגום]. המשפט מגיע מהמחולל עם <b> מוכן סביב המילה
+       הנלמדת ואחרי שער שמוכיח שאין בו שום תו HTML אחר, ולכן נכנס כמות שהוא. */
     (LANG==='en' && (window.EX_SENT_EN||{})[w.term]
-      ? `<div class="also">משפט לדוגמה: <bdi lang="en" dir="ltr">${esc(window.EX_SENT_EN[w.term])}</bdi></div>` : '')+
+      ? `<div class="also">משפט לדוגמה: <bdi lang="en" dir="ltr">${window.EX_SENT_EN[w.term][0]}</bdi><br>${esc(window.EX_SENT_EN[w.term][1])}</div>` : '')+
     (!ok?`<button class="was-right" id="wasRight">בעצם ידעתי · סמן כנכון</button>`:'')+
     `<div class="assoc">
        <label>💡 האסוציאציה שלי ל"${esc(w.term)}"</label>

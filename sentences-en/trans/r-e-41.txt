@@ -1,0 +1,80 @@
+attribute	לייחס, לקשר; תכונה, מאפיין	She attributed the accident to driver error and heavy rain.	היא ייחסה את התאונה לטעות של הנהג ולגשם כבד.
+augment	להרחיב	The company plans to augment its staff with experienced professionals.	החברה מתכננת להרחיב את הצוות שלה עם אנשי מקצוע מנוסים.
+awe	יראת כבוד	Standing before the ancient temple filled her with profound awe.	העמידה מול המקדש העתיק מילאה אותה ביראת כבוד עמוקה.
+backdrop	רקע, תפאורה	Mountains provided a stunning backdrop for the wedding photographs.	ההרים סיפקו רקע מרהיב לתמונות החתונה.
+basin	אגן, כיור	She filled the ceramic basin with cool water for washing.	היא מילאה את האגן הקרמי במים קרים לרחצה.
+bead	חרוז	Each bead on the necklace was handcrafted by artisans.	כל חרוז בשרשרת נוצר בעבודת יד על ידי אומנים.
+beak	מקור	The parrot cracked nuts using its powerful curved beak.	התוכי פיצח אגוזים באמצעות המקור המעוקל והחזק שלו.
+beam	קרן; קורה	A beam of morning sunlight streamed through the window.	קרן של אור שמש בוקר זרמה דרך החלון.
+behalf	מטעם, בשם	He spoke on behalf of the entire research team today.	הוא דיבר היום מטעם כל צוות המחקר.
+being that	מכיוון ש-	Being that the storm arrived early, we postponed the event.	מכיוון שהסערה הגיעה מוקדם, דחינו את האירוע.
+bias	הטיה, משוא פנים	The hiring manager showed clear bias toward younger candidates.	מנהל הגיוס הפגין הטיה ברורה כלפי מועמדים צעירים יותר.
+bizarre	מוזר	She ate cereal with orange juice, a bizarre habit her friends often teased her about.	היא אכלה דגני בוקר עם מיץ תפוזים, הרגל מוזר שחברותיה הקניטו אותה עליו לא פעם.
+botanist	בוטנאי	The botanist spent decades studying endangered plant species worldwide.	הבוטנאי הקדיש עשרות שנים לחקר מיני צמחים בסכנת הכחדה ברחבי העולם.
+burden	עול	Caring for her elderly parents became an emotional burden.	הטיפול בהוריה הקשישים הפך לעול רגשי.
+burglar	פורץ	The burglar entered the house through an unlocked basement window.	הפורץ נכנס לבית דרך חלון מרתף לא נעול.
+by no means	בשום אופן לא, כלל לא	By no means should you trust someone with no references.	בשום אופן לא כדאי לך לסמוך על מישהו ללא המלצות.
+capital punishment	עונש מוות	Capital punishment was abolished throughout most of Europe decades ago.	עונש מוות בוטל ברוב אירופה לפני עשרות שנים.
+carve	לגלף, לחטוב; לחתוך (בשר); לחרוט	He carved an intricate wooden statue with his pocket knife.	הוא גילף פסל עץ מורכב באמצעות אולר הכיס שלו.
+cavity	חור	The dentist found a cavity in my lower right molar.	רופא השיניים מצא חור בטוחנת התחתונה הימנית שלי.
+characterize	לאפיין	Historians characterize him as one of the greatest leaders.	היסטוריונים מאפיינים אותו כאחד המנהיגים הגדולים ביותר.
+chariot	מרכבה	The warrior rode his golden chariot across the desert.	הלוחם רכב על מרכבתו הזהובה לרוחב המדבר.
+circulate	להפיץ; לנוע במחזוריות	The memo was promptly circulated to all employees this morning.	התזכיר הופץ מיד לכל העובדים הבוקר.
+circumstance	מצב, תנאי, נסיבות	Under these circumstances, we have absolutely no better option.	בנסיבות אלה, אין לנו שום ברירה טובה יותר.
+coexist	להתקיים זה בצד זה, לחיות יחד בשלום	Cats and dogs can coexist peacefully in the same household with patience.	חתולים וכלבים יכולים להתקיים זה בצד זה בשלום באותו בית, בעזרת סבלנות.
+coexistence	דו-קיום	The two roommates finally reached peaceful coexistence after resolving their kitchen disputes.	שני השותפים לדירה הגיעו לבסוף לדו-קיום שליו לאחר שפתרו את חילוקי הדעות במטבח.
+commence	להתחיל	The concert will commence at eight o'clock this evening.	הקונצרט יתחיל בשמונה בערב הערב.
+commodity	סחורה, מצרך	Oil has become a precious commodity in global markets.	הנפט הפך לסחורה יקרת ערך בשווקים העולמיים.
+communal	משותף, ציבורי	The communal garden is shared by all neighborhood residents.	הגינה המשותפת נמצאת בשימוש כל תושבי השכונה.
+comparable	בר-השוואה	These two laptops are comparable in price and specifications.	שני המחשבים הניידים האלה ברי השוואה מבחינת מחיר ומפרט.
+comparatively	באופן יחסי	This summer was comparatively cooler than the previous year.	הקיץ הזה היה קריר יותר באופן יחסי מהשנה הקודמת.
+compel	לאלץ, לחייב	School attendance laws compel parents to enroll their children.	חוקי חובת הלימוד מאלצים הורים לרשום את ילדיהם לבית הספר.
+composed	רגוע, שלֵו, שולט בעצמו; הלחין, חיבר	She remained composed while everyone else panicked during the sudden power outage.	היא נשארה רגועה בזמן שכולם נכנסו לפאניקה בהפסקת החשמל הפתאומית.
+comprehend	להבין	I cannot comprehend this advanced calculus theorem at all.	אני לא מצליח להבין את משפט החשבון הדיפרנציאלי המתקדם הזה בכלל.
+conceal	להסתיר	He tried to conceal his embarrassment with forced laughter.	הוא ניסה להסתיר את המבוכה שלו בצחוק מאולץ.
+conception	תפיסה	Their conception of success differed greatly from ours.	התפיסה שלהם את ההצלחה הייתה שונה מאוד משלנו.
+conclusively	סופית, באופן החלטי	The DNA evidence conclusively proved his complete innocence.	ראיות הדנ"א הוכיחו סופית את חפותו המלאה.
+condemned	לגנות; נידון ל-	Critics condemned the movie's disappointing ending and rushed final act.	המבקרים גינו את הסיום המאכזב והמערכה האחרונה החפוזה של הסרט.
+condense	לתמצת, לצמצם; לדחוס, לרכז; לעבות (גז לנוזל)	Can you condense this lengthy report into two pages?	תוכל לתמצת את הדוח הארוך הזה לשני עמודים?
+confiscate	להחרים	Security guards will confiscate prohibited items at the entrance.	מאבטחים יחרימו פריטים אסורים בכניסה.
+consequently	כתוצאה מכך	The factory closed; consequently, hundreds lost their employment.	המפעל נסגר; כתוצאה מכך, מאות אנשים איבדו את מקום עבודתם.
+considerable	הרבה, רבות	They spent considerable time renovating the old farmhouse over the summer.	הם השקיעו הרבה זמן בשיפוץ בית החווה הישן במהלך הקיץ.
+consist	מורכב מ-	The committee consists of five men and four women.	הוועדה מורכבת מחמישה גברים וארבע נשים.
+consolidate	לאחד, לגבש	The company consolidated three offices into one central headquarters.	החברה איחדה שלושה משרדים למטה מרכזי אחד.
+constitute	מהווים; להקים, לייסד	Women now constitute half of the medical school class.	נשים מהוות כיום מחצית מכיתת בית הספר לרפואה.
+contaminate	לזהם	Industrial waste contaminated the local drinking water supply.	פסולת תעשייתית זיהמה את אספקת מי השתייה המקומית.
+contemporary	עכשווי, מודרני; בן-זמנו, בן-תקופה	She prefers contemporary art to classical or traditional paintings.	היא מעדיפה אמנות עכשווית על פני ציורים קלאסיים או מסורתיים.
+contradictory	סותר	His latest statement is contradictory to what he claimed previously.	ההצהרה האחרונה שלו סותרת את מה שטען קודם לכן.
+conversely	לעומת זאת	Some love mathematics; conversely, others struggle with numbers.	יש כאלה שאוהבים מתמטיקה; לעומת זאת, אחרים מתקשים עם מספרים.
+convey	למסור, להעביר	His letter conveyed deep gratitude and sincere appreciation.	מכתבו מסר תודה עמוקה והערכה כנה.
+correspond	להתכתב; להתאים	The two pen pals have corresponded regularly since they met in college.	שני חברי הדואר מתכתבים באופן קבוע מאז שנפגשו בקולג'.
+correspondence	התכתבות	Their handwritten correspondence spanned more than forty remarkable years.	ההתכתבות הכתובה בכתב יד שלהם נמשכה למעלה מארבעים שנה יוצאות דופן.
+correspondingly	בהתאמה	As inflation rose, purchasing power correspondingly declined sharply.	עם עליית האינפלציה, כוח הקנייה ירד בהתאמה בחדות.
+counsel	לייעץ, להדריך; פרקליט, יועץ	The therapist counseled her to pursue professional career advancement.	המטפל ייעץ לה לשאוף לקידום מקצועי בקריירה.
+counterpart	בעל תפקיד מקביל, עמית, בן-זוג	The CEO met with her German counterpart in Berlin.	המנכ"לית נפגשה עם בעל התפקיד המקביל לה בגרמניה בברלין.
+coupled with	יחד עם	His genius, coupled with dedication, ensured remarkable success.	הגאונות שלו, יחד עם המסירות, הבטיחה הצלחה יוצאת דופן.
+courteous	אדיב	The courteous waiter greeted every guest by name and refilled water glasses without being asked.	המלצר האדיב בירך כל אורח בשמו ומילא מחדש כוסות מים בלי שיתבקש.
+crave	להשתוקק	After months abroad, she craved her mother's home cooking.	אחרי חודשים בחו"ל, היא השתוקקה לבישול הביתי של אמה.
+crude	וולגרי, גס; גולמי	His crude jokes offended several guests at the reception.	הבדיחות הוולגריות שלו פגעו בכמה מהאורחים בקבלת הפנים.
+cuisine	מטבח, בישול	Italian cuisine is beloved worldwide for its pasta dishes.	המטבח האיטלקי אהוב ברחבי העולם בזכות מנות הפסטה שלו.
+cultivate	לעבד, לטפח	She cultivates organic vegetables in her backyard garden annually.	היא מעבדת ירקות אורגניים בגינת החצר האחורית שלה מדי שנה.
+czar	צאר (שליט רוסי)	The czar ruled Russia with absolute power before the empire finally collapsed.	הצאר שלט ברוסיה בכוח מוחלט לפני שהאימפריה קרסה בסופו של דבר.
+deceased	נפטר	The deceased was interred in the family burial plot.	הנפטר נקבר בחלקת הקבורה המשפחתית.
+deceive	להונות	He deceived his business partner about the real costs.	הוא הונה את שותפו העסקי בנוגע לעלויות האמיתיות.
+decipher	לפענח	I struggled to decipher his almost illegible handwriting.	התקשיתי לפענח את כתב היד שלו שכמעט ואי אפשר לקרוא.
+deduce	להסיק	From the muddy footprints, the detective deduced that the thief had escaped through the garden.	מעקבות הבוץ, הבלש הסיק שהגנב נמלט דרך הגינה.
+defer	לעכב, לדחות	We will defer this important decision until next quarter.	נעכב את ההחלטה החשובה הזו עד הרבעון הבא.
+deficiency	מחסור	Vitamin D deficiency can weaken bones and reduce immunity.	מחסור בוויטמין די עלול להחליש עצמות ולפגוע בחסינות.
+deformity	מום, עיוות	The injury resulted in a permanent leg deformity.	הפציעה גרמה למום קבוע ברגל.
+degenerate	להתנוון	After the injury, his athletic performance began to degenerate.	אחרי הפציעה, הביצועים האתלטיים שלו החלו להתנוון.
+deliberate	מכוון; לשקול, לבחון, לדון	She gave a deliberate pause before answering the difficult interview question.	היא עשתה הפסקה מכוונת לפני שענתה על שאלת הראיון הקשה.
+delusions	אשליות, הזיות	He suffered from delusions regarding his actual social importance.	הוא סבל מאשליות לגבי חשיבותו החברתית האמיתית.
+denote	לציין, לסמן	A red light denotes danger and signals drivers to stop.	אור אדום מציין סכנה ומאותת לנהגים לעצור.
+densely	בצפיפות	The old European city is densely populated, with narrow streets and crowded apartments.	העיר האירופית העתיקה מיושבת בצפיפות, עם רחובות צרים ודירות עמוסות.
+depict	לתאר, להציג, לשרטט	The painting depicted a peaceful village nestled in valleys.	הציור תיאר כפר שליו השוכן בין עמקים.
+derive	לשאוב, להפיק, לגזור מ-	She derives genuine pleasure and satisfaction from reading novels.	היא שואבת הנאה וסיפוק אמיתיים מקריאת רומנים.
+differences	חילוקי דעות	The two business partners argued over their fundamental differences about company strategy.	שני השותפים העסקיים התווכחו על חילוקי הדעות היסודיים שלהם לגבי אסטרטגיית החברה.
+disciples	תלמידים	The martial arts master trained his loyal disciples every morning before sunrise.	מאסטר אמנויות הלחימה אימן את תלמידיו הנאמנים כל בוקר לפני הזריחה.
+disclose	לגלות, לחשוף	The company disclosed its quarterly financial results yesterday.	החברה גילתה אתמול את תוצאותיה הכספיות הרבעוניות.
+discriminate	להפלות; להבחין, להבדיל (between)	Laws prohibit employers from discriminating based on age.	חוקים אוסרים על מעסיקים להפלות על בסיס גיל.
+disinfection	חיטוי	Hospital staff performed thorough disinfection of all patient rooms.	צוות בית החולים ביצע חיטוי יסודי לכל חדרי המטופלים.

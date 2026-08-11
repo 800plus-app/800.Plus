@@ -1,0 +1,80 @@
+adventure	הרפתקה	She sought adventure by climbing mountains alone in the summer.
+agency	סוכנות	The employment agency helped her find a suitable job quickly.
+agreement	הסכמה; הסכם	They reached an agreement to split the rent fairly.
+alarm	דאגה, להדאיג; אזעקה	She felt alarm when her son didn't come home.
+allow	להרשות	The school allows students to bring lunch from home.
+anger	כעס, להכעיס	His constant complaints stirred anger in everyone around him.
+arrive	להגיע	The train will arrive at the station in five minutes.
+as a result	כתוצאה	It started raining, so as a result, the picnic was canceled.
+attention	תשומת לב	The loud noise caught everyone's attention in the classroom.
+attractive	נאה, מושך	She was so attractive that strangers often stopped to compliment her looks.
+available	זמין	The book is available at the library starting tomorrow.
+awake	ער, להתעורר	He was still awake when his friend called at midnight.
+award	פרס, להעניק פרס	She won the science award for her innovative project.
+badly	בצורה גרועה, רע; קשות, נואשות	He was badly hurt in the motorcycle accident last week.
+balance	שיווי משקל; איזון, לאזן	She balanced her work and family responsibilities with care.
+bank	בנק; גדה; לערום	She deposited her paycheck at the bank near her apartment this morning.
+battle	קרב, התכתשות; מאבק, מלחמה; להיאבק, להילחם	Soldiers fought a fierce battle for control of the city.
+beard	זקן	His thick beard made him look older than he was.
+beat	מקצב; מכה, להכות	The song had a strong beat that made everyone want to dance.
+behavior	התנהגות	The teacher praised the students for their good behavior.
+bell	פעמון	The old bell rang loudly to announce the start of the parade.
+below	מתחת	The apartment is three floors below the roof.
+birth	לידה	She gave birth to a healthy baby boy last week.
+bite	לנשוך, נשיכה	The dog tried to bite the mailman but the fence stopped it.
+blind	עיוור	He went blind after the accident but learned to adapt.
+block	חסימה; לבנה, גוש, חלק	A fallen tree blocked the road after the storm.
+bone	עצם	The dog buried its bone in the backyard garden.
+border	גבול	The hikers crossed the border between the two countries by mistake.
+bottom	תחתית; ישבן	The bottom of the ocean remains mostly unexplored by scientists.
+brave	אמיץ	The brave firefighter rescued the child from the burning building.
+built	בנה, נבנה (עבר/בינוני פעול של build); בנוי, בנוי היטב	They built their dream house on a hillside overlooking mountains.
+cancer	סרטן (מחלה)	Early detection of cancer greatly improves the chances for survival.
+capture	ללכוד	The zookeeper used a large net to capture the escaped monkey safely.
+carefully	בזהירות	She carefully carried the glass vase across the slippery floor.
+carry	לסחוב	He carried heavy boxes up the stairs without asking for help.
+castle	טירה	The ancient castle stood on the hilltop for over five centuries.
+cell	תא	Each cell in the human body contains genetic information.
+central	מרכזי	The central library is located in the heart of the city.
+certainly	בהחלט, בוודאי	She will certainly attend the wedding next month without fail.
+challenge	לאתגר; אתגר	Learning a new language can be a real challenge for adults.
+chapter	פרק	The first chapter introduces the main character and her hometown.
+chase	לרדוף, מרדף	The police chased the robber through the crowded streets.
+cheer	לעודד	The crowd cheered loudly when their team scored the winning goal.
+childhood	ילדות	He had wonderful memories of his childhood in the countryside.
+choice	בחירה	The choice of colors for the new office was difficult.
+cigarette	סיגריה	He quit smoking cigarettes after a doctor's warning about health.
+climb	לטפס	The hikers had to climb the steep mountain before sunset.
+coat	מעיל; שכבה (של צבע, בטון וכו')	She wore a warm coat because the winter wind was cold.
+coin	מטבע	He found an old coin buried in the garden today.
+colleague	עמית, קולגה	My colleague offered to help with the project next week.
+coma	תרדמת	The accident victim fell into a coma for several days.
+combat	להילחם ב-, להיאבק ב-; קרב, לחימה	Doctors work hard to combat the spread of common infections.
+comfortable	נוח	The new mattress is very comfortable for sleeping.
+command	פקודה, לפקוד	The general issued a command to retreat immediately.
+communicate	לתקשר	We need to communicate our concerns to the management team.
+community	קהילה	The community organized a festival to celebrate their shared heritage.
+competition	תחרות	There was fierce competition between the two companies for the contract.
+complete	שלם, מלא, מושלם; להשלים, לסיים	She will complete her degree by next summer.
+complex	מסובך	The mathematical problem was too complex for most students.
+concept	רעיון, מושג	The concept behind the new product was quite innovative.
+condition	תנאי, מצב, מעמד; להכשיר, להתאים	The condition of the house was poor after years of neglect.
+confirm	לאשר, לאמת	Please confirm your attendance at the meeting by tomorrow.
+conflict	עימות, סכסוך	A small conflict between neighbors started over a broken fence.
+content	תוכן; שביעות רצון	The content of the book was more interesting than expected.
+core	ליבה	The apple core was hard to eat so I threw it away.
+corner	פינה, לדחוק לפינה	The store is located at the corner of Main and Fifth.
+cost	מחיר, עלות	The cost of the vacation was more than we expected.
+courage	אומץ	It took great courage to speak up against the unfair decision.
+court	מגרש (ספורט); בית משפט	The tennis court needs new paint before the tournament.
+cover	לכסות; לסקר, לכלול; כיסוי, מכסה	Snow covered the mountain peaks during the winter.
+culture	תרבות	Japanese culture has influenced art and fashion worldwide.
+cure	מרפא, תרופה; לרפא	The doctor will cure his infection with antibiotics.
+curious	סקרן	The curious child asked endless questions about how things work.
+currently	כרגע, נכון לעכשיו	He is currently working on a new book about history.
+customer	לקוח, צרכן	The customer complained about the poor quality of service.
+daily	יומיומי	She takes a daily walk in the park for exercise.
+defend	להגן	The goalkeeper defended the goal with skill and determination.
+delay	עיכוב, לאחר, לדחות	The flight delay caused them to miss the connecting plane.
+delivery	משלוח	The package delivery is scheduled for tomorrow afternoon.
+department	מחלקה	The marketing department created a new advertising campaign.

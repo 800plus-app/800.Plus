@@ -1,0 +1,80 @@
+stream	לזרום, נחל, זרם	A narrow stream, only a few feet wide, ran beside the hiking trail.	נחל צר, ברוחב של כמה מטרים בלבד, זרם לצד שביל ההליכה.
+strict	נוקשה	Her strict teacher did not allow any talking during the test.	המורה הנוקשה שלה לא איפשרה שום דיבור במהלך המבחן.
+stripes	פסים	The zebra's black and white stripes help it blend into the grassland.	הפסים השחורים והלבנים של הזברה עוזרים לה להתמזג בערבה.
+struggle	מאבק, מאמץ	The farmer must struggle hard to harvest all the crops before winter.	החקלאי חייב להיאבק קשה כדי לקצור את כל היבול לפני החורף.
+stubborn	עקשן	That stubborn donkey refused to move no matter how hard we pulled.	אותו חמור עקשן סירב לזוז לא משנה כמה חזק משכנו אותו.
+stunt	פעלול	The actor performed a dangerous stunt without any safety equipment.	השחקן ביצע פעלול מסוכן בלי שום ציוד בטיחות.
+submit	להגיש; להיכנע	You must submit your homework by Friday morning or lose points.	עליך להגיש את שיעורי הבית שלך עד יום שישי בבוקר, אחרת תפסיד נקודות.
+substance	חומר, תוכן	That white substance on the table turned out to be salt.	אותו חומר לבן שהיה על השולחן התברר כמלח.
+succeed	הצליח	She will succeed in medical school if she studies every night.	היא תצליח בבית הספר לרפואה אם תלמד כל ערב.
+suitable	ראוי, מתאים, יאה	Jeans and sneakers are not suitable for a formal wedding or job interview.	ג'ינס ונעלי ספורט אינם מתאימים לחתונה רשמית או לראיון עבודה.
+sum	סכום, סך, לסכם	The final sum he owed the bank was ten thousand dollars.	הסכום הסופי שהוא היה חייב לבנק היה עשרת אלפים דולר.
+supportive	תומך	His supportive family encouraged him to follow his dreams no matter what.	המשפחה התומכת שלו עודדה אותו להגשים את חלומותיו לא משנה מה.
+supreme	עליון	The team's supreme effort helped them win the championship game.	המאמץ העליון של הקבוצה סייע לה לזכות במשחק האליפות.
+suspicious	חשוד (משהו)	She looked suspicious when her brother asked about the missing money.	היא נראתה חשודה כשאחיה שאל על הכסף שנעלם.
+swallow	לבלוע	She swallowed the medicine with a glass of water.	היא בלעה את התרופה עם כוס מים.
+swing	לנדנד, נדנדה	The old swing in the park moved back and forth slowly.	הנדנדה הישנה בפארק נעה קדימה ואחורה לאט.
+temporary	זמני	This job is temporary and only lasts three months this summer.	העבודה הזאת זמנית ונמשכת רק שלושה חודשים בקיץ הזה.
+territory	תחום, שטח	The lion claimed a large territory where no other lions lived.	האריה תבע לעצמו שטח נרחב שבו לא חיו אריות אחרים.
+thick	סמיך; עבה	The thick fog made it impossible to see across the street.	הערפל הסמיך הפך את זה לבלתי אפשרי לראות מעבר לרחוב.
+threaten	לאיים	The dark clouds threaten to bring rain to the picnic tomorrow.	העננים הכהים מאיימים להביא גשם לפיקניק מחר.
+toes	בהונות	The little girl counted her ten toes while sitting in the bathtub.	הילדה הקטנה ספרה את עשר הבהונות שלה בזמן שישבה באמבטיה.
+tomb	קבר	The ancient tomb was hidden deep underground for thousands of years.	הקבר העתיק הוסתר עמוק מתחת לאדמה במשך אלפי שנים.
+toward	אל, אל עבר	The students walked toward the school building after the morning bell.	התלמידים הלכו אל בניין בית הספר אחרי הפעמון של הבוקר.
+traffic jam	פקק תנועה	The rush hour traffic jam made him thirty minutes late to work.	פקק התנועה בשעת העומס גרם לו לאחר חצי שעה לעבודה.
+transition	מעבר, שינוי	The transition from high school to college was difficult for most students.	המעבר מתיכון לקולג' היה קשה לרוב הסטודנטים.
+trigger	הדק	The photographer used a remote trigger to take the picture from far away.	הצלם השתמש בהדק מרחוק כדי לצלם את התמונה ממרחק.
+triggered	גרם, עורר, הוביל ל-	His angry words triggered an argument that lasted all evening long.	המילים הכועסות שלו עוררו ויכוח שנמשך כל הערב.
+twist	סיבוך, סיבוב	The story had a surprising twist at the very end that shocked everyone.	לסיפור היה תפנית מפתיעה בסופו ממש, שהדהימה את כולם.
+typically	בדרך כלל, על פי רוב; באופן אופייני	She typically drinks coffee every morning before she starts her work.	היא שותה קפה בדרך כלל כל בוקר לפני שהיא מתחילה בעבודה.
+ultimate	מוחלט, סופי	After many small promotions, her ultimate goal was to become company president.	אחרי הרבה קידומים קטנים, המטרה הסופית שלה הייתה להפוך לנשיאת החברה.
+uncertain	לא בטוח	He felt uncertain about whether he should accept the job offer.	הוא הרגיש לא בטוח לגבי השאלה אם עליו לקבל את הצעת העבודה.
+underestimate	הערכה נמוכה, לזלזל	Never underestimate your opponent because they might be stronger than you think.	לעולם אל תזלזל ביריב שלך כי הוא עשוי להיות חזק ממה שאתה חושב.
+unfortunate	מצער	It is unfortunate that she had to leave the party so early.	מצער שהיא נאלצה לעזוב את המסיבה כל כך מוקדם.
+unlike	שלא כמו	Unlike his brother, he preferred quiet nights at home to loud parties.	שלא כמו אחיו, הוא העדיף ערבים שקטים בבית על פני מסיבות רועשות.
+unnecessary	לא הכרחי	All those extra decorations were unnecessary for such a simple birthday party.	כל הקישוטים הנוספים האלה היו מיותרים למסיבת יום הולדת כל כך פשוטה.
+unstable	לא יציב	The unstable chair wobbled whenever he sat down in it.	הכיסא הלא יציב התנדנד בכל פעם שהוא התיישב עליו.
+urgent	דחוף	This urgent matter requires your immediate attention before tomorrow morning.	העניין הדחוף הזה דורש את תשומת לבך המיידית לפני מחר בבוקר.
+valid	תקף	Your passport is valid only if it does not expire this year.	הדרכון שלך תקף רק אם הוא לא פג תוקף השנה.
+valuable	יקר ערך	That valuable painting was worth more than the entire house cost.	הציור היקר ההוא היה שווה יותר מכל הבית.
+variety	מבחר, מגוון	The store offered a wide variety of colors to choose from.	החנות הציעה מבחר רחב של צבעים לבחירה.
+various	מגוון	Various books about cooking, sports, and history filled the shelves in the study.	ספרים מגוונים על בישול, ספורט והיסטוריה מילאו את המדפים בחדר העבודה.
+verify	לוודא, לאמת	She needed to verify her identity before they would give her the money.	היא הייתה צריכה לוודא את זהותה לפני שייתנו לה את הכסף.
+via	דרך	He sent the important document via email instead of by mail.	הוא שלח את המסמך החשוב דרך מייל במקום בדואר.
+vital	חיוני	Clean water is vital for survival in the harsh desert climate.	מים נקיים הם חיוניים להישרדות באקלים המדברי הקשוח.
+volunteer	להתנדב, מתנדב	Many people volunteer at the hospital because they want to help others.	הרבה אנשים מתנדבים בבית החולים כי הם רוצים לעזור לאחרים.
+warmth	חום	The warmth of the sun felt wonderful on her cold skin.	החום של השמש הרגיש נפלא על עורה הקר.
+warrior	לוחם	The brave warrior fought hard to protect his people and land.	הלוחם האמיץ נלחם קשה כדי להגן על עמו ואדמתו.
+wealth	עושר	His great wealth allowed him to buy whatever he wanted.	עושרו הרב איפשר לו לקנות כל מה שרצה.
+wealthy	עשיר	The wealthy man donated millions of dollars to various charities.	האיש העשיר תרם מיליוני דולרים לצדקות שונות.
+weigh	לשקול	The scale will weigh your suitcase to make sure it is not too heavy.	המשקל ישקול את המזוודה שלך כדי לוודא שהיא לא כבדה מדי.
+wheat	חיטה	Farmers ground the golden wheat into flour to bake fresh bread.	חקלאים טחנו את החיטה הזהובה לקמח כדי לאפות לחם טרי.
+whistle	משרוקית, לשרוק	The referee used a whistle to signal the end of the game.	השופט השתמש במשרוקית כדי לסמן את סיום המשחק.
+wildlife	חיות בר	The national park protects various wildlife including elephants and lions.	הפארק הלאומי מגן על חיות בר מגוונות, כולל פילים ואריות.
+wisdom	חכמה, בינה	She had the wisdom to know when to speak and when to listen.	היה לה את החכמה לדעת מתי לדבר ומתי להקשיב.
+wrap	לעטוף, מעטפת	She wrapped the gift carefully in colorful paper before the party.	היא עטפה את המתנה בזהירות בנייר צבעוני לפני המסיבה.
+abandon	לנטוש, לזנוח	The family had to abandon their house when the river flooded everything.	המשפחה נאלצה לנטוש את ביתה כשהנהר הציף הכל.
+absence	היעדרות, היעדר; אי-נוכחות	His absence from class was noticed by the teacher immediately.	היעדרותו מהשיעור הובחנה על ידי המורה מיד.
+abuse	התעללות, ניצול; להתעלל, לנצל	The company faced charges of abuse after workers reported dangerous conditions.	החברה עמדה בפני האשמות של התעללות אחרי שהעובדים דיווחו על תנאים מסוכנים.
+account	חשבון; דיווח, תיאור; account for — להסביר; take into account — להתחשב	He checked his bank account before buying the expensive laptop online.	הוא בדק את חשבון הבנק שלו לפני שקנה את המחשב הנייד היקר באינטרנט.
+accurate	מדויק	The doctor needed an accurate measurement of his height and weight.	הרופא היה זקוק למדידה מדויקת של גובהו ומשקלו.
+actual	ממשי	The actual cost of the project was higher than the original estimate.	העלות הממשית של הפרויקט הייתה גבוהה יותר מהאומדן המקורי.
+adaptation	הסתגלות; עיבוד	His quick adaptation to the new country surprised his entire family.	ההסתגלות המהירה שלו למדינה החדשה הפתיעה את כל משפחתו.
+admire	להעריץ	Many people admire her for her courage and determination in life.	הרבה אנשים מעריצים אותה בזכות האומץ וכוח הרצון שלה בחיים.
+admit	להודות; להכניס, לקבל לתוך קבוצה	He finally admitted that he had made a terrible mistake.	הוא הודה לבסוף שעשה טעות נוראה.
+advance	להתקדם, לקדם; התקדמות; מקדמה; מוקדם, מראש	She will advance to the next level if she passes this test.	היא תתקדם לרמה הבאה אם תעבור את המבחן הזה.
+advertise	לפרסם, להודיע ברבים	The company will advertise its new product on television and online.	החברה תפרסם את המוצר החדש שלה בטלוויזיה ובאינטרנט.
+advise	לייעץ	I advise you to study hard if you want a good grade.	אני מייעץ לך ללמוד קשה אם אתה רוצה ציון טוב.
+alike	דומה	The twin sisters look so alike that nobody can tell them apart.	האחיות התאומות נראות כל כך דומות שאף אחד לא יכול להבדיל ביניהן.
+ally (allies)	בן-ברית (בנות-ברית)	The two neighboring towns became allies to build a shared water system.	שתי הערים השכנות הפכו לבנות ברית כדי לבנות מערכת מים משותפת.
+ambition	שאפתנות, שאיפה	His ambition was to become a doctor and help poor patients.	השאיפה שלו הייתה להפוך לרופא ולעזור לחולים עניים.
+analogy	אנלוגיה, הקבלה	He used an analogy to explain how the computer works to his grandmother.	הוא השתמש באנלוגיה כדי להסביר לסבתא שלו איך המחשב עובד.
+announcement	הכרזה	The principal made an announcement about the school's new rules.	המנהל עשה הכרזה על החוקים החדשים של בית הספר.
+apathy	אפאתיה, אדישות	His apathy toward his studies concerned his parents very much.	האדישות שלו כלפי לימודיו הדאיגה מאוד את הוריו.
+apology	התנצלות	She gave him an apology for breaking his expensive camera.	היא התנצלה בפניו על ששברה את המצלמה היקרה שלו.
+apparently	כנראה	Apparently he did not know that the store was closed today.	מסתבר שהוא לא ידע שהחנות סגורה היום.
+appearance	מראה, הופעה	Her appearance changed dramatically after she cut and dyed her long hair.	המראה שלה השתנה באופן דרמטי אחרי שגזרה וצבעה את שיערה הארוך.
+appetite	תיאבון, רצון עז	Running for an hour outside gave him a huge appetite for dinner.	ריצה של שעה בחוץ נתנה לו תיאבון עצום לארוחת הערב.
+appreciate	להעריך, להוקיר; (כלכלי) לעלות בערך	I really appreciate all the help you have given me this year.	אני באמת מעריך את כל העזרה שנתת לי השנה.
+approach	גישה, שיטה; להתקרב, לפנות אל	His approach to the problem was different from everyone else's method.	הגישה שלו לבעיה הייתה שונה משיטתו של כל אחד אחר.
+appropriate	מתאים	Jeans are not appropriate for formal business meetings and weddings.	ג'ינס לא מתאים לפגישות עסקיות רשמיות ולחתונות.

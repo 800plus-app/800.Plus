@@ -1,0 +1,80 @@
+poverty-stricken	מוכה עוני	The poverty-stricken family needed help paying for rent and food.
+precedent	תקדים	The court set a precedent when it ruled that everyone has equal rights.
+preceding	קודם	The new chapter explains what happened in the preceding one.
+predictive	חיזויי, מנבא	The predictive models helped the team forecast weather patterns accurately.
+predominantly	בעיקר, ברובו, בעיקרו של דבר	Our city is predominantly French, though people speak English too.
+prescribe	לרשום מרשם	The doctor will prescribe antibiotics to treat your ear infection.
+prescription	מרשם	I picked up my prescription at the pharmacy this morning.
+presently	כעת	She is presently working as a consultant for a tech company.
+prevalent	נפוץ, שכיח, רווח	Anxiety is a prevalent mental health issue among teenagers today.
+probation	תקופת מבחן	His probation period will end after three months of employment.
+proclaim	להכריז בפומבי	The school principal will proclaim Friday as a special day for outdoor games.
+profound	עמוק, מעמיק; מוחלט, מרחיק לכת	The movie had a profound effect on how she viewed the world.
+profoundly	עמוקות	Her book profoundly changed people's understanding of mental health.
+prone	נוטה	Some people are prone to getting cold sores in winter.
+prospective	צפוי, עתידי	Prospective students can tour the campus on Saturday morning.
+prosperity	צמיחה, שגשוג	The company's prosperity grew after it expanded into Europe.
+prosperous	משגשג, מצליח	The prosperous merchant owned property throughout the city.
+provided that	בתנאי ש-	We'll go camping provided that the weather stays sunny.
+proximity	קרבה	The apartment's proximity to the subway makes it attractive.
+punctuation	פיסוק, סימני פיסוק	Good punctuation makes sentences easier to understand and read.
+pursuit	מרדף	The police's pursuit of the thief ended when he turned a corner.
+quantify	לכמת	It's hard to quantify how much happiness music brings to people.
+ratify	לאשרר, לאשר הסכם או חוזה	The committee must ratify the new safety rules before they take effect.
+rationalize	להצדיק, להסביר	He rationalized eating dessert by saying he deserved a treat.
+readily	ללא קושי	She readily agreed to help with the project at work.
+reap	לקצור	Farmers reap their crops in autumn before winter arrives.
+rear	אחורי; לטפח, לגדל	The emergency exit is located in the rear of the building.
+recession	מיתון	During the recession, many people lost their jobs and savings.
+recipient	נמען	The recipient of the scholarship felt grateful for the opportunity.
+recollection	זיכרון	My recollection of that day is unclear after so many years.
+redeem	לפדות, לגאול	The hero worked hard to redeem himself after betraying his closest friends.
+refuge	מקלט, מחסה	Birds find refuge in thick bushes during storms and bad weather.
+reign	שלטון	During his reign, the king built many castles across the kingdom.
+reincarnation	גלגול נשמות	In the video game, reincarnation let the character start over with new powers.
+reliance	הסתמכות	The company's reliance on oil meant it struggled during price drops.
+reluctant	מסויג, לא מעוניין	He was reluctant to admit his mistake even when confronted.
+renovate	לחדש, לשפץ	They decided to renovate the old house to increase its value.
+repressive	מדכא	The repressive king in the story punished anyone who dared criticize him.
+resourceful	בעל תושייה	A resourceful manager can solve problems with limited tools.
+riddle	חידה	Solving the riddle required thinking carefully about each clue.
+ridicule	ללעוג	Kids should never ridicule others for being different or strange.
+rigid	נוקשה, מחמיר	The rigid rules at school left no room for student creativity.
+robust	איתן, חזק ובריא	A robust immune system helps the body fight off infections.
+rodent	מכרסם	Mice and rats are common rodents that live near human settlements.
+sake	תועלת, עניין	She saved money every month for the sake of buying a new car.
+sanctuary	מקדש; מקלט	The ancient sanctuary contained detailed carvings and treasures that visitors still study today.
+saturated	רווי	The sponge was so saturated it dripped water on the floor.
+saw	מסור	He used a saw to cut the wooden boards into smaller pieces.
+scope	היקף, טווח	The scope of the project grew larger than anyone had expected.
+score	לחתוך, לחרוץ; תוצאה; לזכות בניקוד	Use a knife to score the meat before cooking it.
+secular	חילוני	The country has a secular government that treats every belief system equally.
+sedative	סם הרגעה, משכך	The doctor gave him a sedative to help him relax before surgery.
+seek, sought	לחפש, חיפש	They sought shelter from the rain inside a nearby cave.
+segregation	הפרדה	The farmer used segregation to keep sick animals away from the healthy herd.
+seismic	ססמי (קשור לרעידות אדמה)	The seismic activity increased, warning of a possible earthquake.
+seizure	התקף	The patient had a seizure and needed immediate medical attention.
+seldom	לעיתים רחוקות	She seldom goes to restaurants because she prefers cooking at home.
+self-indulgence	פינוק עצמי, התמכרות להנאות, התפנקות	Eating dessert every day was a form of self-indulgence she enjoyed.
+severity	חומרה	The severity of her injury meant she needed surgery immediately.
+silkworm	תולעת משי	Silkworms spin cocoons that are harvested to make silk thread.
+skyrocket	להאמיר	After the celebrity endorsement, sales skyrocketed beyond expectations.
+smog	ערפיח	The city's smog made it hard to see buildings across the street.
+spacious	מרווח	The spacious apartment had enough room for all their furniture.
+span	להימתח, להקיף; מרווח	The bridge spans the river and connects the two cities together.
+spectacle	מחזה; ראווה	The fireworks display was a spectacle that amazed the entire crowd.
+splendid	נהדר, מהולל	They had a splendid time at the beach during their vacation.
+spring, sprang	קפיץ ; לקפוץ, קפץ	The cat sprang across the room to catch the moving ball.
+standardize	לתקנן	The company will standardize all procedures across every office location.
+standstill	עצירה מוחלטת, קיפאון	Traffic came to a standstill when the main road was blocked.
+steamship	אוניית קיטור	The steamship crossed the ocean in two weeks during the 1800s.
+strain	מתח נפשי; להתאמץ, למתוח, לנקוע	The emotional strain of the situation affected her ability to sleep.
+stride	צעד, לצעוד	He took long strides across the field to reach the finish line.
+strive	לשאוף	She strives to improve her grades in every class at school.
+stroke	ליטוף; מכה; שבץ/אירוע מוחי	The child fell asleep after a gentle stroke of her hair.
+stumble	למעוד	He stumbled on the stairs but caught himself before falling.
+sturdy	חסון, מוצק	The sturdy wooden table survived the earthquake without breaking.
+subsequent	עוקב	The first movie was popular, and subsequent films were just as good.
+subtle	דק, עדין, כמעט בלתי מורגש; מרומז	The subtle difference between the colors was hard to see.
+suburban	פרברי	They left the city and bought a home in a suburban neighborhood.
+successor	יורש	She became the successor to the company's founder after he retired.

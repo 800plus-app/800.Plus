@@ -1,0 +1,80 @@
+period	נקודה; משך זמן, מחזור; תקופה	Add a period at the end of every complete sentence you write.	הוסף נקודה בסוף כל משפט שלם שאתה כותב.
+permanent	קבוע	He got a permanent tattoo on his arm that would never fade.	הוא עשה קעקע קבוע על הזרוע שלו שלעולם לא יעמעם.
+permission	רשות, היתר	You need permission from your parents to stay out late.	אתה צריך רשות מההורים שלך כדי להישאר בחוץ עד מאוחר.
+personality	אישיות	Her bubbly personality made her popular with everyone at work.	האישיות התוססת שלה עשתה אותה פופולרית אצל כולם בעבודה.
+piece	יצירה; חתיכה, חלק	She performed a beautiful piano piece at the concert.	היא ניגנה יצירת פסנתר יפה בקונצרט.
+pipe	צינור	Water flows through the metal pipe under the street.	מים זורמים דרך הצינור המתכתי מתחת לרחוב.
+plant	צמח; לשתול; מפעל (power ___)	The green plant on her desk needed water every other day.	הצמח הירוק על השולחן שלה היה צריך מים כל יומיים.
+plate	צלחת, לוח	He piled mashed potatoes and chicken onto his dinner plate.	הוא ערם פירה ועוף על צלחת ארוחת הערב שלו.
+pleasure	תענוג, לענג	Reading a good book brings him great pleasure and joy.	קריאת ספר טוב מביאה לו תענוג ושמחה גדולים.
+polite	מנומס	It is polite to say thank you when someone helps you.	מנומס להגיד תודה כשמישהו עוזר לך.
+position	מיקום, למקם; תנוחה; תפקיד, משרה	She adjusted her position on the chair to be more comfortable.	היא התאימה את התנוחה שלה על הכיסא כדי להיות נוחה יותר.
+pot	סיר, קדרה	I boil water in a large pot before cooking the pasta.	אני מרתיח מים בסיר גדול לפני שאני מבשל את הפסטה.
+practice	לתרגל, תרגול	She practices the piano for one hour every single day.	היא מתרגלת פסנתר במשך שעה בכל יום.
+precious	יקר	This precious diamond was passed down from my grandmother.	היהלום היקר הזה עבר בירושה מסבתא שלי.
+pregnant	הרה (בהריון)	She was pregnant and due to give birth next month.	היא הייתה בהריון וצפויה ללדת בחודש הבא.
+prevent	למנוע	Wearing a seatbelt can prevent serious injury in a car crash.	חגירת חגורת בטיחות יכולה למנוע פציעה קשה בתאונת דרכים.
+previous	קודם	His previous job was at a bank downtown.	העבודה הקודמת שלו הייתה בבנק במרכז העיר.
+pride	גאווה	He took pride in his work and always did it well.	הוא חש גאווה בעבודה שלו ותמיד ביצע אותה היטב.
+priority	עדיפות	Your health should be your top priority in life.	הבריאות שלך צריכה להיות בעדיפות העליונה שלך בחיים.
+prison	כלא	The criminal was sent to prison for five years.	הפושע נשלח לכלא לחמש שנים.
+prize	פרס	She won first prize in the science competition.	היא זכתה בפרס הראשון בתחרות המדעים.
+process	לעכל, לעבד; תהליך	It takes time to process all the information you receive.	לוקח זמן לעכל את כל המידע שאתה מקבל.
+product	מוצר	The company tested their new product for quality issues.	החברה בדקה את המוצר החדש שלה לבעיות איכות.
+profit	רווח	The company made a large profit from selling those products.	החברה עשתה רווח גדול ממכירת המוצרים האלה.
+progress	התקדמות, להתקדם	She was making progress in her English class every week.	היא עשתה התקדמות בשיעורי האנגלית שלה בכל שבוע.
+project	לתכנן; פרוייקט, מיזם; להשליך, להקרין	Analysts project that sales will double within the next five years.	אנליסטים מקרינים שהמכירות יוכפלו בתוך חמש השנים הקרובות.
+proof	הוכחה, ראיה; חסין, עמיד (סיומת)	Do you have proof that he stole the money?	יש לך הוכחה שהוא גנב את הכסף?
+protest	למחות, הפגנה	Thousands of people gathered to protest the new law.	אלפי אנשים התאספו כדי למחות נגד החוק החדש.
+public	ציבורי	The public library is free for all city residents.	הספרייה הציבורית חינמית לכל תושבי העיר.
+pump	משאבה, לשאוב	The heart pumps blood throughout your entire body.	הלב שואב דם לכל אורך הגוף שלך.
+punish	להעניש	Teachers must punish students who break the school rules.	מורים חייבים להעניש תלמידים שמפרים את כללי בית הספר.
+pure	טהור	This is pure orange juice with no added sugar.	זה מיץ תפוזים טהור בלי סוכר מוסף.
+purpose	כוונה, מטרה	The purpose of school is to prepare you for life.	המטרה של בית הספר היא להכין אותך לחיים.
+quarter	רבע	He paid for the candy with three quarters and one dime.	הוא שילם על הממתק בשלושה מטבעות של רבע דולר ומטבע של עשרה סנט.
+rage	זעם	His rage was so intense he threw things across the room.	הזעם שלו היה כל כך עז שהוא זרק חפצים ברחבי החדר.
+raise	להעלות	They raise the flag at the beginning of school.	הם מעלים את הדגל בתחילת יום הלימודים.
+react	להגיב	How did your family react when you told them the news?	איך המשפחה שלך הגיבה כשסיפרת לה את החדשות?
+reaction	תגובה	His reaction to the surprise was complete shock and joy.	התגובה שלו להפתעה הייתה הלם מוחלט ושמחה.
+realize	הבין	I realized that I had forgotten my keys at home.	הבנתי ששכחתי את המפתחות שלי בבית.
+recent	שארע לאחרונה	The recent earthquake caused damage to several buildings.	רעידת האדמה האחרונה גרמה נזק למספר בניינים.
+recently	לאחרונה	I recently moved to a new apartment across town.	לאחרונה עברתי לדירה חדשה בצד השני של העיר.
+recognize	לזהות	I recognize that woman from my chemistry class last year.	אני מזהה את האישה הזאת משיעור הכימיה שלי בשנה שעברה.
+recommend	להמליץ	I recommend this restaurant because the food is excellent.	אני ממליץ על המסעדה הזאת כי האוכל שם מצוין.
+register	להירשם	You must register for the class before the deadline.	אתה חייב להירשם לשיעור לפני המועד האחרון.
+release	לשחרר	They will release the new movie next Friday night.	הם ישחררו את הסרט החדש ביום שישי בערב הבא.
+religion	דת	People of different religions celebrate different holidays and customs.	אנשים מדתות שונות חוגגים חגים ומנהגים שונים.
+religious	דתי	My grandmother is a very religious person who prays daily.	סבתא שלי היא אדם דתי מאוד שמתפלל כל יום.
+remote	מרוחק	They live in a remote village without electricity or roads.	הם גרים בכפר מרוחק בלי חשמל או כבישים.
+repair	לתקן	We need to repair the broken window before winter.	אנחנו צריכים לתקן את החלון השבור לפני החורף.
+replace	להחליף	Can you replace these old batteries with new ones?	אתה יכול להחליף את הסוללות הישנות האלה בחדשות?
+reporter	עיתונאי	The reporter interviewed the famous scientist about her new discovery.	העיתונאי ראיין את המדענית המפורסמת על הגילוי החדש שלה.
+represent	לייצג, מייצג	She represents our country in the international swimming competition.	היא מייצגת את המדינה שלנו בתחרות השחייה הבינלאומית.
+request	בקשה, לבקש	The teacher requested that all students submit their homework.	המורה ביקש שכל התלמידים יגישו את שיעורי הבית שלהם.
+rescue	להציל	The firefighters rescued the cat from the tall tree.	הכבאים הצילו את החתול מהעץ הגבוה.
+research	מחקר	Scientists conduct research to find new cures for diseases.	מדענים עורכים מחקר כדי למצוא תרופות חדשות למחלות.
+review	ביקורת; לסקור, סקירה	She wrote a harsh review of the new film.	היא כתבה ביקורת קשה על הסרט החדש.
+reward	פרס, לתגמל	As a reward for good behavior, the class got free time.	כפרס על התנהגות טובה, הכיתה קיבלה זמן חופשי.
+ridiculous	מגוחך	That idea is ridiculous and nobody would ever believe it.	הרעיון הזה מגוחך ואף אחד לעולם לא יאמין לו.
+rise	עליה, לעלות	The sun rises in the east every single morning.	השמש עולה במזרח כל בוקר.
+route	מסלול, דרך	This is the fastest route to get to the airport.	זה המסלול המהיר ביותר להגיע לשדה התעופה.
+safety	בטיחות	Wearing a helmet is important for your safety on a bike.	חבישת קסדה חשובה לבטיחות שלך על אופניים.
+salary	שכר	His salary increased after he got promoted to manager.	השכר שלו עלה אחרי שהוא קיבל קידום למנהל.
+sample	מדגם, דגימה, דוגמה	The scientist took a sample of the water for testing.	המדען לקח דגימה של המים לבדיקה.
+scare	פחד, להפחיד	The loud noise scared the children and made them cry.	הרעש החזק הפחיד את הילדים וגרם להם לבכות.
+schedule	לוח זמנים	What is your work schedule for the entire week?	מה לוח הזמנים שלך לעבודה לכל השבוע?
+screen	לסרוק; מסך, צג, וילון; לסנן	Security screened all bags before passengers entered the building.	אבטחה סרקה את כל התיקים לפני שהנוסעים נכנסו לבניין.
+script	תסריט	The actor memorized the script before filming started.	השחקן שינן את התסריט לפני שהצילומים התחילו.
+seat	מושב, להושיב	I found an empty seat on the train and sat down.	מצאתי מושב פנוי ברכבת והתיישבתי.
+section	יחידה, חלק	The children's section of the library has colorful pictures.	החלק לילדים בספרייה מלא בתמונות צבעוניות.
+senior	בכיר; זקן	The senior students get to leave school a half hour early.	התלמידים הבכירים יוצאים מבית הספר חצי שעה מוקדם יותר.
+sensitive	רגיש	Her sensitive skin reacts badly to most harsh chemicals.	העור הרגיש שלה מגיב רע לרוב הכימיקלים החזקים.
+sentence	משפט; גזר דין	She underlined every important sentence in the long paragraph.	היא סימנה בקו כל משפט חשוב בפסקה הארוכה.
+shadow	צל, להאפיל	The tall tree's shadow covered most of the backyard by evening.	הצל של העץ הגבוה כיסה את רוב החצר האחורית עד הערב.
+shave	גילוח, לגלח	He shaves every morning before going to work.	הוא מתגלח כל בוקר לפני שהוא הולך לעבודה.
+ship	לשלוח; אוניה	We will ship your package tomorrow morning by courier.	אנחנו נשלח את החבילה שלך מחר בבוקר באמצעות שליח.
+shy	ביישן	The shy child hid behind her mother when strangers came.	הילדה הביישנית התחבאה מאחורי אמה כשזרים הגיעו.
+signal	אות, סימן, לאותת	He gave a hand signal to tell the driver to stop.	הוא נתן אות יד כדי לומר לנהג לעצור.
+signature	חתימה	Please write your signature at the bottom of the form.	אנא כתוב את החתימה שלך בתחתית הטופס.
+similar	דומה	The two houses are very similar in color and size.	שני הבתים דומים מאוד בצבע ובגודל.
+simply	בפשטות	She explained the difficult math problem simply so everyone understood.	היא הסבירה את בעיית המתמטיקה הקשה בפשטות כדי שכולם יבינו.

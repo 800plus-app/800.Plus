@@ -1,0 +1,80 @@
+docile	צייתן, כנוע, נח	The docile student followed every instruction without questioning the teacher.	התלמיד הצייתן מילא כל הוראה בלי לערער על המורה.
+dovecote	שובך	The farmer built a wooden dovecote to house his flock of white birds.	החקלאי בנה שובך עץ כדי לאכלס את להקת הציפורים הלבנות שלו.
+draw (drew)	לשלוף, שלף	She drew her sword from the scabbard in one swift motion.	היא שלפה את חרבה מהנדן בתנועה מהירה אחת.
+drench	להרטיב, להספיג	The sudden rain drenched us completely before we could find shelter.	הגשם הפתאומי הרטיב אותנו לגמרי לפני שהספקנו למצוא מחסה.
+dwindle	הידלדל, התמעט	Her savings dwindled as she paid medical bills each month.	החסכונות שלה הידלדלו כשהיא שילמה חשבונות רפואיים כל חודש.
+eloquent	רהוט	Even without notes, the eloquent lawyer moved the jury to tears with her closing speech.	גם בלי פתקים, עורכת הדין הרהוטה הביאה את חבר המושבעים לדמעות בנאום הסיום שלה.
+elude	לברוח, להתחמק	The criminal managed to elude police by hiding deep in the forest.	הפושע הצליח להתחמק מהמשטרה בכך שהתחבא עמוק ביער.
+embalm	לחנוט, לשמר	The mortician embalmed the body to preserve it for the funeral service.	חנוט המתים חנט את הגופה כדי לשמר אותה לטקס ההלוויה.
+embark	לצאת לדרך, לפתוח ב-; לעלות על ספינה או מטוס	They embarked on an adventure across the desert with camels and supplies.	הם יצאו לדרך במסע הרפתקאות במדבר עם גמלים וציוד.
+embellish	לקשט, לייפות; להוסיף פרטים מומצאים	She embellished the plain dress with colorful beads and gold thread.	היא קישטה את השמלה הפשוטה בחרוזים צבעוניים וחוט זהב.
+embitter	גורם התמרמרות	Years of failure embittered him, and he refused to try again.	שנות כישלון גרמו לו להתמרמר, והוא סירב לנסות שוב.
+eminent	בולט, בכיר	The eminent professor was recognized worldwide for her groundbreaking research.	הפרופסורית הבכירה זכתה להכרה עולמית בזכות המחקר פורץ הדרך שלה.
+enact	לחוקק	The city council decided to enact a new rule banning skateboards downtown.	מועצת העיר החליטה לחוקק תקנה חדשה האוסרת גלגיליות במרכז העיר.
+enclose	לצרף	Please enclose your resume with your job application materials.	נא לצרף את קורות החיים שלך לחומרי הבקשה לעבודה.
+enclosing	לסגור, להקיף	The fence is enclosing the garden to keep wild animals out.	הגדר סוגרת את הגינה כדי למנוע כניסה של חיות בר.
+enclosure	סגירה, כיתור, שטח מגודר	The animal enclosure at the zoo kept tigers safely away from visitors.	שטח המגודר של בעלי החיים בגן החיות שמר על הנמרים הרחק מהמבקרים.
+encroach	להסיג גבול, לפלוש	The shopping mall began to encroach on the neighborhood's green spaces.	הקניון החל לפלוש לשטחים הירוקים של השכונה.
+endeavor	מאמץ, מיזם; לשאוף	Their endeavor to reach the mountain peak lasted three exhausting weeks.	המיזם שלהם להגיע לפסגת ההר נמשך שלושה שבועות מתישים.
+engrave	לחרוט	He engraved his initials on the silver ring with a special tool.	הוא חרט את ראשי התיבות שלו על הטבעת הכסופה בעזרת כלי מיוחד.
+ensue	להתרחש בעקבות, לבוא כתוצאה, להתחולל	After the referee's controversial decision, chaos ensued in the stadium.	אחרי ההחלטה השנויה במחלוקת של השופט, פרץ כאוס באצטדיון.
+epitomize	לייצג, לאפיין	Her willingness to skip vacations and help every neighbor epitomizes true generosity.	הנכונות שלה לוותר על חופשות ולעזור לכל שכן מייצגת נדיבות אמיתית.
+evocative	מעורר, מעלה, מזכיר	The evocative music reminded her of her childhood home instantly.	המוזיקה המעוררת הזכירה לה מיד את בית ילדותה.
+evoke	לעורר, להעלות	The old photograph evoked memories of summers at the beach.	התמונה הישנה העלתה זיכרונות מקיץ בחוף הים.
+exert	להתאמץ; להפעיל	She exerted all her strength to push the heavy door open.	היא התאמצה בכל כוחה כדי לדחוף את הדלת הכבדה ולפתוח אותה.
+expatriate	גולה, מי שחי מחוץ למולדתו; לגרש/להגלות מהמולדת	The expatriate American found it hard to adapt to life in Tokyo.	הגולה האמריקאי התקשה להסתגל לחיים בטוקיו.
+expedite	לזרז	We can expedite delivery by paying for express shipping service.	נוכל לזרז את המשלוח באמצעות תשלום עבור משלוח מהיר.
+expend	לגמור, לבזבז, לפזר	The factory expended most of its budget on new safety equipment last year.	המפעל בזבז את רוב התקציב שלו על ציוד בטיחות חדש בשנה שעברה.
+exquisite	מצוין; חד, מעודן, אנין	The restaurant served exquisite French cuisine that impressed all guests.	המסעדה הגישה מטבח צרפתי מעודן שהרשים את כל האורחים.
+extrapolate	לאמוד על סמך מידע קיים	Scientists can extrapolate the future climate based on current observed trends.	מדענים יכולים לאמוד את האקלים העתידי על סמך מגמות נצפות כיום.
+fabricate	לבדות	He fabricated a story about illness to avoid the difficult meeting.	הוא בדה סיפור על מחלה כדי להימנע מהפגישה הקשה.
+facilitate	לסייע, לעזור, להקל	Good communication facilitates understanding between people from different cultures.	תקשורת טובה מסייעת להבנה בין אנשים מתרבויות שונות.
+fad	אופנה חולפת	The spinning toy was a fad that everyone wanted briefly.	הצעצוע המסתובב היה אופנה חולפת שכולם רצו לזמן קצר.
+feat	מעשה גבורה, הישג	Climbing Mount Everest is an impressive feat of human endurance.	טיפוס להר האוורסט הוא הישג מרשים של סיבולת אנושית.
+feign	להעמיד פנים, להתחזות	She feigned illness to avoid the conversation with her boss.	היא העמידה פנים שהיא חולה כדי להימנע מהשיחה עם הבוס שלה.
+figurative	ציורי, מטאפורי, מושאל (לא מילולי)	When she said "the world is her oyster," she used figurative language.	כשהיא אמרה שהעולם לרגליה, היא השתמשה בשפה ציורית.
+flagrant	בוטה	His flagrant disrespect for rules made everyone deeply uncomfortable.	חוסר הכבוד הבוטה שלו לכללים גרם לכולם לחוש אי נוחות עמוקה.
+flattery	חנופה	He used flattery to win her trust, but she knew better.	הוא השתמש בחנופה כדי לזכות באמונה, אבל היא ידעה טוב יותר.
+flimsy	רעוע, דל, שביר; קלוש, בלתי משכנע (תירוץ/ראיה)	The flimsy paper bag tore when he put heavy groceries inside.	שקית הנייר הרעועה נקרעה כשהוא הכניס אליה קניות כבדות.
+fluctuation	חוסר יציבות	Stock market fluctuation makes it risky for nervous investors.	חוסר היציבות בשוק המניות הופך אותו למסוכן למשקיעים חרדים.
+foil	לסכל	The security alarm foiled the burglar's plan to steal the painting.	אזעקת האבטחה סיכלה את תוכניתו של הפורץ לגנוב את הציור.
+foremost	ראשון במעלה, בעיקר	Education is foremost among our priorities for the community.	חינוך הוא ראשון במעלה בין סדרי העדיפויות שלנו לקהילה.
+forerunner	מבשר, קודם, חלוץ; אות, סימן מקדים	Dark clouds are often a forerunner of heavy rain and storms.	עננים כהים הם לרוב מבשר לגשם כבד ולסופות.
+formidable	אדיר, מאיים	The formidable fortress stood on the hilltop, impossible to attack easily.	המצודה האדירה עמדה על ראש הגבעה, בלתי אפשרית לתקיפה בקלות.
+forsake	לזנוח	He forsook his wealth to live a simple life in the mountains.	הוא זנח את עושרו כדי לחיות חיים פשוטים בהרים.
+fraternal	אחוותי, של אחים	The fraternal bond between two friends remained unbreakable despite distance.	הקשר האחוותי בין שני החברים נשאר בלתי ניתן לשבירה למרות המרחק.
+fringes	שוליים	The artist left thin fringes of white space along the painting's edges.	האמן השאיר שוליים דקים של רווח לבן לאורך קצוות הציור.
+frivolous	קל דעת, לא רציני; חסר חשיבות	He wasted money on frivolous purchases like unnecessary decorative pillows.	הוא בזבז כסף על רכישות קלות דעת כמו כריות נוי מיותרות.
+frugal	חסכני	The frugal grandmother saved every penny and reused plastic bags.	הסבתא החסכנית שמרה כל פרוטה ועשתה שימוש חוזר בשקיות פלסטיק.
+fume	אדים, עשן	Toxic fumes escaped from the factory chimney and poisoned the air.	אדים רעילים דלפו מארובת המפעל והרעילו את האוויר.
+furnish	לרהט	The university furnished each dorm room with a bed and desk.	האוניברסיטה רהטה כל חדר במעונות במיטה ובשולחן כתיבה.
+futile	חסר תוחלת, נטול סיכוי	Their attempts to reach the peak were futile because of the blizzard.	הניסיונות שלהם להגיע לפסגה היו חסרי תוחלת בגלל הסופה.
+gauge	למדוד, להעריך, מידה	The fuel gauge showed the tank was almost empty before the trip.	מד הדלק הראה שהמכל כמעט ריק לפני הנסיעה.
+genial	ידידותי	His genial personality made everyone feel welcome at the party.	האישיות הידידותית שלו גרמה לכולם להרגיש רצויים במסיבה.
+genus	סוג, מין	The lion belongs to the genus Panthera, which includes big cats.	האריה שייך לסוג פנתרה, הכולל חתולים גדולים.
+gland	בלוטה	The thyroid gland regulates metabolism in the human body system.	בלוטת התריס מווסתת את חילוף החומרים בגוף האדם.
+glaze	זיגוג	The baker applied sugar glaze to the donuts before serving.	האופה מרח זיגוג סוכר על הסופגניות לפני ההגשה.
+goblet	גביע	She sipped wine from an elegant crystal goblet slowly.	היא לגמה יין מגביע קריסטל אלגנטי באיטיות.
+granted (that)	בהנחה ש-, נתון ש-	Granted that you finish early, we can still see the movie.	בהנחה שתסיים מוקדם, עדיין נוכל לראות את הסרט.
+gratify	לספק, להשביע רצון, לענג	The chocolate cake gratified her sweet tooth after a long day.	עוגת השוקולד סיפקה את חשקה למתוק אחרי יום ארוך.
+grievance	טרוניה, התמרמרות	The worker filed a grievance against his manager for unfair treatment.	העובד הגיש תלונה נגד המנהל שלו על יחס לא הוגן.
+grit	גרגרי חול, חצץ, לכלוך; נחישות, אומץ לב	The grit from the desert scratched the car window badly.	החצץ מהמדבר שרט את חלון המכונית קשות.
+hail	לשבח; ברד	Critics hailed the new film as a masterpiece of cinema.	המבקרים שיבחו את הסרט החדש כיצירת מופת קולנועית.
+harness	לרתום	Engineers learned to harness wind energy to generate electricity efficiently.	מהנדסים למדו לרתום את אנרגיית הרוח כדי לייצר חשמל ביעילות.
+hearsay	שמועה	I cannot believe that story because it is only hearsay, not proof.	אני לא יכול להאמין לסיפור הזה כי הוא רק שמועה, לא הוכחה.
+heed	לשים לב	You should heed the weather warning and stay home safely.	כדאי שתשים לב לאזהרת מזג האוויר ותישאר בבית בבטחה.
+hegemony	הגמוניה	The ancient empire achieved complete hegemony over every surrounding kingdom and tribe.	האימפריה העתיקה השיגה הגמוניה מלאה על כל ממלכה ושבט שכנים.
+herald	לבשר; מבשר	The morning light heralded the beginning of a new day.	אור הבוקר בישר את תחילתו של יום חדש.
+heredity	תורשה	Heredity determines many of our physical characteristics, like eye color.	תורשה קובעת רבים ממאפיינינו הפיזיים, כמו צבע העיניים.
+heresy	כפירה	The scientific establishment once treated his radical theory as heresy.	הממסד המדעי התייחס פעם לתאוריה הרדיקלית שלו ככפירה.
+hinder	לעכב	The thick fog hinders visibility for drivers on highways.	הערפל הסמיך מעכב את הראות של הנהגים בכבישים המהירים.
+icicle	נטיף קרח	Long icicles hung from the roof after freezing rain fell.	נטיפי קרח ארוכים תלויים מהגג אחרי גשם קפוא.
+immersion	טבילה, שיקוע (במים); שקיעה מוחלטת, מעורבות עמוקה (בנושא)	The immersion in cold water shocked his system deeply.	הטבילה במים הקרים זעזעה את הגוף שלו עמוקות.
+impart	להעביר, להקנות	Teachers impart knowledge to students through lectures and discussions.	מורים מקנים ידע לתלמידים באמצעות הרצאות ודיונים.
+impartially	באופן הוגן, ללא אפליה	The judge listened impartially to both sides of the case.	השופט הקשיב באופן הוגן לשני הצדדים בתיק.
+implicate	לסבך, לערב	The evidence implicates him directly in the robbery.	הראיות מסבכות אותו ישירות בשוד.
+implore	להתחנן, להפציר	She implored him to forgive her serious mistake.	היא הפצירה בו לסלוח לה על הטעות החמורה.
+inadvertently	בלי משים, בלי כוונה	He inadvertently hit send before finishing the email message.	הוא לחץ שלח בלי משים לפני שסיים לכתוב את המייל.
+incidence	כמות, הִקָּרוּת (משהו שקורה)	The incidence of flu increases every winter in cold climates.	התדירות של השפעת עולה בכל חורף באזורים קרים.
+incline	שיפוע, מדרון; לנטות, להטות	The steep incline up the mountain left us exhausted completely.	השיפוע התלול במעלה ההר השאיר אותנו מותשים לגמרי.
+inconspicuous	לא בולט, לא מושך תשומת לב	She wore inconspicuous gray clothing so nobody would notice her.	היא לבשה בגדים אפורים לא בולטים כדי שאף אחד לא ישים לב אליה.

@@ -1,0 +1,80 @@
+sin	חטא	It was a grave sin to steal from the charity meant for the poor.	זה היה חטא חמור לגנוב מהצדקה שנועדה לעניים.
+slow down	להאט	The driver had to slow down as the fog grew thicker.	הנהג נאלץ להאט כשהערפל התעבה.
+soul	נשמה	The musician poured his soul into every note of the performance.	הנגן שפך את נשמתו לתוך כל תו בהופעה.
+source	מקור	The source of the river lay high in the mountains.	מקור הנהר נמצא גבוה בהרים.
+southern	דרומי	The southern regions of the country experience much warmer weather throughout the year.	האזורים הדרומיים של המדינה חווים מזג אוויר חם בהרבה לאורך כל השנה.
+space	חלל; רווח	Astronauts in space need special suits to survive outside their spacecraft.	אסטרונאוטים בחלל זקוקים לחליפות מיוחדות כדי לשרוד מחוץ לחללית שלהם.
+speech	נאום; דיבור, כושר דיבור	The president delivered a powerful speech to calm the frightened nation.	הנשיא נשא נאום עוצמתי כדי להרגיע את האומה המפוחדת.
+spell	כישוף, קסם; איות, לאיית	The witch cast a dangerous spell that froze the entire village.	המכשפה הטילה כישוף מסוכן שהקפיא את הכפר כולו.
+spirit	כוונה, רוח הדברים; רוח רפאים, נפש	The spirit of the law is more important than its literal text.	רוח החוק חשובה יותר מנוסחו המילולי.
+square	ריבוע; כיכר	A square has four equal sides and four right angles.	לריבוע יש ארבע צלעות שוות וארבע זוויות ישרות.
+stage	שלב; במה; לביים, לארגן (הפגנה)	The first stage of the project involved gathering all necessary data.	השלב הראשון בפרויקט כלל איסוף כל הנתונים הנחוצים.
+standard	רמה, תקן, מקובל	The school's high standard for student behavior was enforced strictly and fairly.	התקן הגבוה של בית הספר להתנהגות תלמידים נאכף בקפדנות ובהגינות.
+state	מצב; מדינה; לציין, להצהיר, לקבוע	The old house was in a terrible state after years of neglect.	הבית הישן היה במצב נורא אחרי שנים של הזנחה.
+stomach	בטן, קיבה	Her stomach hurt badly after eating too much pizza.	הבטן שלה כאבה מאוד אחרי שאכלה יותר מדי פיצה.
+strength	חוזק	The strength of the old oak tree amazed everyone during the storm.	החוזק של עץ האלון הישן הדהים את כולם במהלך הסערה.
+structure	מבנה, לבנות	The structure of the building was damaged by the recent earthquake.	המבנה של הבניין ניזוק ברעידת האדמה האחרונה.
+stuck	תקוע	The car got stuck in the mud after the heavy rain.	המכונית נתקעה בבוץ אחרי הגשם הכבד.
+suffer	לסבול	Many people suffer from allergies during the spring pollen season.	הרבה אנשים סובלים מאלרגיות בעונת האבקה באביב.
+supply	אספקה	The supply of fresh water was limited in the drought.	אספקת המים הטריים הייתה מוגבלת בבצורת.
+surely	ללא ספק	Surely no person in their right mind would leave home unlocked overnight.	ללא ספק אף אדם שפוי לא היה משאיר את הבית פתוח כל הלילה.
+surgery	ניתוח	The surgery was successful and took three hours to complete.	הניתוח הצליח ונמשך שלוש שעות.
+surrender	להיכנע	Unable to resist any longer, she finally decided to surrender to her craving for chocolate.	לא הצליחה יותר להתאפק, והיא החליטה סוף סוף להיכנע לתשוקתה לשוקולד.
+survive	לשרוד	Most plants cannot survive without water for more than two weeks.	רוב הצמחים לא יכולים לשרוד בלי מים יותר משבועיים.
+switch	מתג; להחליף	He flipped the switch to turn on the bright kitchen lights.	הוא הפעיל את המתג כדי להדליק את אורות המטבח הבהירים.
+tale	סיפור, אגדה	The old tale about dragons and treasure fascinated children everywhere.	הסיפור הישן על דרקונים ואוצר ריתק ילדים בכל מקום.
+target	מטרה	The company's target was to increase sales by fifty percent.	המטרה של החברה הייתה להגדיל את המכירות בחמישים אחוז.
+task	משימה	His task was to organize all the documents in alphabetical order.	המשימה שלו הייתה לסדר את כל המסמכים בסדר אלפביתי.
+tent	אוהל	We pitched our tent near the river for the camping trip.	הקמנו את האוהל שלנו ליד הנהר לטיול הקמפינג.
+theme	נושא	The theme of the book concerns the power of forgiveness.	הנושא של הספר עוסק בכוחה של הסליחה.
+thief	גנב	The thief stole the diamond necklace from the museum display.	הגנב גנב את שרשרת היהלומים מתצוגת המוזיאון.
+threat	איום	The threat of heavy storms caused the event to be cancelled.	האיום של סערות כבדות גרם לביטול האירוע.
+throw	לזרוק, זריקה	He decided to throw the old magazines away instead of keeping them.	הוא החליט לזרוק את המגזינים הישנים במקום לשמור אותם.
+tie	לקשור, קשר; עניבה	She tied the rope around the wooden post to secure it.	היא קשרה את החבל סביב עמוד העץ כדי לאבטח אותו.
+title	כותרת	The title of the movie intrigued viewers despite being confusing.	הכותרת של הסרט סקרנה את הצופים למרות שהייתה מבלבלת.
+tongue	לשון	His tongue was burned by the hot tea he drank too quickly.	הלשון שלו נכוותה מהתה החם ששתה מהר מדי.
+totally	לחלוטין	I totally disagree with your decision to leave the company.	אני מתנגד לחלוטין להחלטה שלך לעזוב את החברה.
+track	מסילה, מסלול; לעקוב	The old train track ran through the forest for many miles.	מסילת הרכבת הישנה עברה דרך היער לאורך קילומטרים רבים.
+tradition	מסורת	The tradition of eating turkey on Thanksgiving dates back centuries.	המסורת של אכילת הודו בחג ההודיה מקורה במאות שנים.
+traffic	תנועה	Heavy traffic delayed our arrival at the airport by two hours.	תנועה כבדה עיכבה את הגעתנו לשדה התעופה בשעתיים.
+train	רכבת; להכשיר, לאמן	The train departed from the station fifteen minutes ahead of schedule.	הרכבת יצאה מהתחנה חמש עשרה דקות לפני המועד המתוכנן.
+transfer	העברה; להעביר	The hospital decided to transfer the patient to a larger facility.	בית החולים החליט להעביר את המטופל למתקן גדול יותר.
+transport	להוביל; הובלה	The company uses trucks to transport goods across the entire country.	החברה משתמשת במשאיות כדי להוביל סחורות ברחבי המדינה.
+trap	מלכודת	The mouse fell into the trap set by the farmer.	העכבר נפל למלכודת שהציב החקלאי.
+treatment	טיפול	The new treatment for the disease showed promising results in patients.	הטיפול החדש למחלה הראה תוצאות מבטיחות אצל המטופלים.
+truck	משאית, קרון משא	A large truck delivered new equipment to the warehouse this morning.	משאית גדולה הביאה ציוד חדש למחסן הבוקר.
+truly	באמת	She truly believed that hard work would eventually lead to success.	היא באמת האמינה שעבודה קשה תוביל בסופו של דבר להצלחה.
+tube	צינור	The nurse gently inserted a thin tube into the patient's arm.	האחות הכניסה בעדינות צינור דק לזרועו של המטופל.
+unbelievable	לא יאמן	The unbelievable story about finding treasure spread quickly through town.	הסיפור הלא יאמן על מציאת אוצר התפשט מהר בעיר.
+unfair	לא הוגן	The teacher's unfair grading system upset all the hardworking students.	שיטת הציונים הלא הוגנת של המורה הכעיסה את כל התלמידים החרוצים.
+unfortunately	למרבה הצער	Unfortunately, the concert was cancelled due to the lead singer's illness.	למרבה הצער, הקונצרט בוטל בגלל מחלתו של הזמר הראשי.
+unusual	בלתי רגיל, יוצא דופן	Her unusual choice to become a circus performer surprised all her family members.	הבחירה הבלתי רגילה שלה להפוך לאמנית קרקס הפתיעה את כל בני משפחתה.
+useful	שימושי	A sharp pocketknife is a very useful tool for camping trips.	אולר חד הוא כלי שימושי מאוד לטיולי קמפינג.
+useless	חסר תועלת	The old computer was completely useless and finally thrown away.	המחשב הישן היה חסר תועלת לחלוטין ולבסוף הושלך.
+usual	רגיל	His usual routine was to wake up, exercise, and then eat breakfast.	השגרה הרגילה שלו הייתה להתעורר, להתאמן ואז לאכול ארוחת בוקר.
+value	ערך, להעריך	The value of the antique increased significantly over many years.	הערך של העתיקה עלה משמעותית במשך שנים רבות.
+violence	אלימות	The violence in the movie was shocking to many viewers.	האלימות בסרט הייתה מזעזעת עבור צופים רבים.
+violent	אלים	The violent storm destroyed many homes in the coastal town.	הסערה האלימה הרסה בתים רבים בעיירת החוף.
+visitor	אורח, מבקר	The visitor from Germany was amazed by the beautiful old architecture.	המבקר מגרמניה התפעל מהאדריכלות העתיקה והיפה.
+visual	חזותי	The visual effects in the film were incredible and memorable.	האפקטים החזותיים בסרט היו מדהימים ובלתי נשכחים.
+warn	להזהיר	I must warn you about the dangerous curve in the road.	עליי להזהיר אותך מהעיקול המסוכן בכביש.
+wear	ללבוש	She wore her favorite blue jeans to the concert last night.	היא לבשה את הג'ינס הכחול האהוב עליה לקונצרט אתמול בלילה.
+weather	מזג אוויר	The weather was perfect for a picnic in the park.	מזג האוויר היה מושלם לפיקניק בפארק.
+wedding	חתונה	Their wedding was celebrated by hundreds of friends and family.	החתונה שלהם נחגגה על ידי מאות חברים ובני משפחה.
+wild	פראי, טבע	The wild animals roamed freely across the vast open grassland.	החיות הפראיות שוטטו בחופשיות ברחבי מרחבי העשב הפתוחים.
+wing	כנף	The bird's wing was injured but it could still fly.	כנפו של הציפור נפצעה אך היא עדיין הצליחה לעוף.
+activist	פעיל, אקטיביסט	The environmental activist urged the city to ban plastic bags.	הפעיל הסביבתי דרש מהעירייה לאסור על שקיות פלסטיק.
+actually	למעשה	He actually finished the entire project in just one day.	הוא למעשה סיים את כל הפרויקט ביום אחד בלבד.
+additionally	בנוסף	The team finished the report on time; additionally, they included extra research.	הצוות סיים את הדוח בזמן, ובנוסף הוסיף מחקר נוסף.
+advantage	יתרון	One major advantage of the new system is its incredible speed.	יתרון מרכזי אחד של המערכת החדשה הוא המהירות המדהימה שלה.
+advertisement	מודעה, פרסום	The advertisement featured a famous celebrity promoting the new product.	המודעה הציגה סלבריטי מפורסם שמקדם את המוצר החדש.
+advice	עצה	Her advice to study hard and sleep well was helpful.	העצה שלה ללמוד קשה ולישון טוב הייתה מועילה.
+aesthetic	אסתטי; אסתטיקה	The aesthetic appeal of the ancient temple amazed all the visitors.	הקסם האסתטי של המקדש העתיק הדהים את כל המבקרים.
+air conditioner	מזגן	The air conditioner kept the room cool during the hot summer.	המזגן שמר על החדר קריר בקיץ החם.
+airline	חברת תעופה	The airline announced new routes to expand its European network.	חברת התעופה הודיעה על מסלולים חדשים כדי להרחיב את הרשת האירופית שלה.
+all in all	בסך הכל	All in all, the trip was successful despite some problems.	בסך הכל, הטיול היה מוצלח למרות כמה בעיות.
+amateur	חובבן	The amateur photographer still captured some amazing shots.	הצלם החובבן בכל זאת צילם כמה תמונות מדהימות.
+amaze	להדהים	The magician's trick will amaze the entire audience.	הטריק של הקוסם ידהים את כל הקהל.
+among	בקרב, בין	She felt comfortable among the other experienced musicians.	היא הרגישה בנוח בקרב הנגנים המנוסים האחרים.
+amount	כמות	The total amount of rainfall this month was unusually high.	כמות הגשמים הכוללת החודש הייתה גבוהה באופן חריג.
+analog	אנלוגי (ההיפך מדיגיטלי)	Analog watches use traditional mechanical gears unlike modern digital devices.	שעונים אנלוגיים משתמשים בגלגלי שיניים מכניים מסורתיים, בניגוד למכשירים דיגיטליים מודרניים.

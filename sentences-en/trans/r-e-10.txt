@@ -1,0 +1,80 @@
+solution	פתרון	The solution to the equation required several algebraic steps to find.	הפתרון למשוואה דרש כמה שלבים אלגבריים כדי למצוא אותו.
+solve	לפתור	The detectives worked for months to solve the crime by analyzing evidence.	הבלשים עבדו במשך חודשים כדי לפתור את הפשע על ידי ניתוח ראיות.
+sort	למיין	Sort these files alphabetically before uploading them to the archive.	מיין את הקבצים האלה לפי סדר אלפביתי לפני שאתה מעלה אותם לארכיון.
+speak, spoke	לדבר, דיבר	The witness spoke calmly during the trial, describing what she saw.	העדה דיברה בשקט במהלך המשפט ותיארה מה שראתה.
+speed	מהירות	The runner's speed increased to fifteen miles per hour by the final lap.	מהירות הרץ עלתה לחמש עשרה מייל לשעה עד ההקפה האחרונה.
+sperm	זרע	The sperm traveled through the reproductive system to reach the egg.	הזרע נדד דרך מערכת הרבייה כדי להגיע לביצית.
+spicy	פיקנטי	The sauce was so spicy it burned my mouth for an hour.	הרוטב היה כל כך פיקנטי שהוא צרב לי את הפה במשך שעה.
+spider	עכביש	A large spider had built its web in the corner of the room.	עכביש גדול בנה את הקורים שלו בפינת החדר.
+sponsor	נותן חסות	Our company will sponsor the local sports team this year.	החברה שלנו תהיה נותנת החסות של קבוצת הספורט המקומית השנה.
+spontaneous	ספונטני, לא מתוכנן, מתרחש מאליו	Unlike his sister, he made a completely spontaneous trip without any planning.	בניגוד לאחותו, הוא יצא לטיול ספונטני לחלוטין בלי שום תכנון.
+spray	לרסס, לפזר	You must spray pesticide on the plants to stop the insects.	אתה חייב לרסס חומר הדברה על הצמחים כדי לעצור את החרקים.
+spy	מרגל, לרגל	During the Cold War, the government caught a foreign spy stealing secrets.	במהלך המלחמה הקרה, הממשלה תפסה מרגל זר גונב סודות.
+steal	לגנוב	The thief tried to steal jewelry from the museum at midnight.	הגנב ניסה לגנוב תכשיטים מהמוזיאון בחצות.
+stereotype	סטריאוטיפ	That movie relies on harmful stereotypes about people from certain countries.	הסרט הזה מסתמך על סטריאוטיפים מזיקים על אנשים ממדינות מסוימות.
+stone	אבן	Ancient builders carved temples from massive blocks of stone and marble.	בנאים קדומים חצבו מקדשים מגושי אבן ושיש ענקיים.
+storm	סערה	A violent storm brought heavy rain and wind to the city overnight.	סערה עזה הביאה גשם כבד ורוח לעיר במהלך הלילה.
+strategy	אסטרטגיה	Their marketing strategy focused on reaching young customers through social media.	האסטרטגיה השיווקית שלהם התמקדה בהגעה ללקוחות צעירים דרך רשתות חברתיות.
+stress	להדגיש; מתח, לחץ, מצוקה	The teacher stressed the importance of arriving to class on time.	המורה הדגישה את חשיבות ההגעה לכיתה בזמן.
+stuff	דברים; למלא, לפחלץ	She packed all her stuff into one suitcase for the trip.	היא ארזה את כל הדברים שלה במזוודה אחת לטיול.
+success	הצלחה	His success in business came after years of hard work and persistence.	ההצלחה שלו בעסקים הגיעה אחרי שנים של עבודה קשה והתמדה.
+such as	כמו למשל	Many animals, such as dogs and cats, can see in the dark.	הרבה בעלי חיים, כמו למשל כלבים וחתולים, יכולים לראות בחושך.
+suggest	להציע	I suggest we wait until tomorrow to make this important decision.	אני מציע שנחכה עד מחר כדי לקבל את ההחלטה החשובה הזו.
+suicide	התאבדות	The documentary examined the tragedy of suicide and its effect on families.	הסרט התיעודי בחן את הטרגדיה של ההתאבדות ואת השפעתה על משפחות.
+sunlight	אור שמש, קרינת השמש	Plants need sunlight to grow, so place them near a window.	צמחים זקוקים לאור שמש כדי לגדול, אז הנח אותם ליד חלון.
+survival	הישרדות	Their survival in the wilderness depended on finding food and clean water.	ההישרדות שלהם בטבע הפראי תלתה במציאת מזון ומים נקיים.
+sword	חרב	The medieval warrior drew his sword from its sheath before battle.	הלוחם מימי הביניים שלף את חרבו מהנדן לפני הקרב.
+symbol	סמל	The dove is a symbol of peace in many cultures worldwide.	היונה היא סמל לשלום בתרבויות רבות ברחבי העולם.
+syrup	סירופ	Pour warm maple syrup over the pancakes for a delicious breakfast.	שפוך סירופ מייפל חם על הפנקייקים לארוחת בוקר טעימה.
+talent	כשרון	Her musical talent was recognized when she was just five years old.	הכשרון המוזיקלי שלה זוהה כשהייתה בת חמש בלבד.
+tax	מס	Citizens must pay tax on their income to support government services.	אזרחים חייבים לשלם מס על הכנסתם כדי לתמוך בשירותי הממשלה.
+think, thought	לחשוב, חשב	She thought about the problem for a long time before deciding.	היא חשבה על הבעיה זמן רב לפני שהחליטה.
+thriller	מותחן	The spy thriller kept audiences on the edge of their seats.	מותחן הריגול השאיר את הצופים על קצה הכיסא.
+tiny	קטנטן	The newborn baby was so tiny that she fit in one hand.	התינוקת שזה עתה נולדה הייתה כל כך קטנטנה שהיא נכנסה בכף יד אחת.
+tone	טון	His tone of voice made it clear that he was very angry.	הטון של קולו הבהיר שהוא כועס מאוד.
+tour	סיור	We took a guided tour of the ancient Roman ruins yesterday.	עשינו סיור מודרך בחורבות הרומיות העתיקות אתמול.
+tourist	תייר	Thousands of tourists visit the Eiffel Tower every single day.	אלפי תיירים מבקרים במגדל אייפל בכל יום.
+tower	מגדל	The tall tower could be seen from miles away across the plain.	המגדל הגבוה נראה למרחק מיילים לאורך המישור.
+town	עיר, עיירה	The small town had one grocery store and a few restaurants.	בעיירה הקטנה היו מכולת אחת וכמה מסעדות.
+toxic	רעיל	That chemical is toxic and can cause serious illness if ingested.	החומר הכימי הזה רעיל ועלול לגרום למחלה קשה אם בולעים אותו.
+tragic	טרגי	It was tragic that their beloved family dog died so suddenly.	זה היה טרגי שכלב המשפחה האהוב שלהם מת כל כך פתאום.
+treasure	אוצר, לנצור	Pirates buried their treasure in a secret spot on the island.	פיראטים קברו את האוצר שלהם במקום סודי באי.
+triple	פי 3	His salary tripled after he got promoted to the senior position.	המשכורת שלו שולשה אחרי שהוא קודם לתפקיד הבכיר.
+twins	תאומים	The twins looked so identical that nobody could tell them apart.	התאומים נראו כל כך זהים שאף אחד לא הצליח להבדיל ביניהם.
+type	להקליד; סוג	Please type your password carefully so you don't make a mistake.	אנא הקלד את הסיסמה שלך בזהירות כדי שלא תטעה.
+ugly	מכוער	The building was considered ugly by most of the city's residents.	רוב תושבי העיר חשבו שהבניין מכוער.
+uncle	דוד	My uncle came to visit us from overseas for a month.	דודי בא לבקר אותנו מחו"ל לחודש.
+unique	יחיד במינו, ייחודי; מיוחד	Every person has unique fingerprints that are different from everyone else.	לכל אדם יש טביעות אצבע יחידות במינן, השונות מכל אדם אחר.
+unit	יחידה	The military unit was stationed near the border for protection.	היחידה הצבאית מוקמה ליד הגבול להגנה.
+unlock	לפתוח, לשחרר	You must unlock the door with the correct key or code.	אתה חייב לפתוח את הדלת עם המפתח או הקוד הנכון.
+unsafe	לא בטוח	The building was declared unsafe and everyone had to evacuate immediately.	הבניין הוכרז לא בטוח וכולם נאלצו להתפנות מיד.
+update	עדכון, לעדכן	The software update fixed several bugs that were causing crashes.	עדכון התוכנה תיקן כמה באגים שגרמו לקריסות.
+upgrade	לשדרג	We decided to upgrade our computer system to handle more work.	החלטנו לשדרג את מערכת המחשבים שלנו כדי שתתמודד עם יותר עבודה.
+use	תועלת, תכלית; לנצל; להשתמש	There is no use arguing with him once he has decided.	אין שום תועלת בלהתווכח איתו ברגע שהוא החליט.
+vacation	חופשה	We spent our vacation at the beach swimming and relaxing.	בילינו את החופשה שלנו בחוף הים בשחייה ובמנוחה.
+vegetarian	צמחוני	A vegetarian diet contains no meat, chicken, or fish of any kind.	תזונה צמחונית לא כוללת בשר, עוף או דגים מכל סוג.
+versions	גרסאות	The company released three different versions of the software for users.	החברה שחררה שלוש גרסאות שונות של התוכנה עבור המשתמשים.
+victory	ניצחון	Their victory in the final game made them the champions.	הניצחון שלהם במשחק הגמר הפך אותם לאלופים.
+virtual	מדומה, וירטואלי	The company held a virtual meeting because people were working remotely.	החברה קיימה פגישה מדומה כי אנשים עבדו מרחוק.
+vote	קול, הצבעה, להצביע	Each member of the club received one vote on the new rules.	כל חבר במועדון קיבל קול אחד בהצבעה על הכללים החדשים.
+warning	אזהרה	The warning label on the bottle said the chemical was dangerous.	תווית האזהרה על הבקבוק ציינה שהחומר הכימי מסוכן.
+wave	גל	A large wave crashed onto the shore during the storm.	גל גדול התנפץ על החוף במהלך הסערה.
+weapon	נשק	The hunter carried a sharp knife as his only weapon in the forest.	הצייד נשא סכין חדה כנשקו היחיד ביער.
+weight	משקל	His weight increased after he stopped exercising and ate more.	משקלו עלה אחרי שהפסיק להתאמן ואכל יותר.
+while	בזמן ש-, בעוד ש-; ואילו, אף על פי ש-; כל עוד	While she worked on her laptop, he watched TV in the living room.	בזמן שהיא עבדה על המחשב הנייד שלה, הוא צפה בטלוויזיה בסלון.
+wise	חכם, פיקח	The wise old man gave advice to anyone who would listen.	הזקן החכם נתן עצות לכל מי שהיה מוכן להקשיב.
+wolf (wolves)	זאב (זאבים)	The wolf howled at the moon from deep in the forest.	הזאב יילל אל הירח מעומק היער.
+wood	עץ	The deck was built from treated wood that would resist weather.	המרפסת נבנתה מעץ מטופל שיעמוד בפני מזג האוויר.
+worldwide	כלל עולמי, בכל העולם	The company operates stores worldwide and employs thousands of people.	החברה מפעילה חנויות ברחבי העולם ומעסיקה אלפי אנשים.
+worry	דאגה, לדאוג	Her constant worry about money kept her awake most nights.	הדאגה המתמדת שלה לגבי כסף השאירה אותה ערה רוב הלילות.
+zone	אזור	The warehouse was in a commercial zone near the airport.	המחסן היה באזור מסחרי ליד שדה התעופה.
+ability	יכולת	Her ability to speak five languages impressed everyone at the conference.	היכולת שלה לדבר חמש שפות הרשימה את כולם בכנס.
+above all	מעל לכל	Above all, we must ensure that everyone stays safe and healthy.	מעל לכל, עלינו לוודא שכולם נשארים בטוחים ובריאים.
+absurd	מגוחך, לא סביר	His excuse for being late was so absurd that nobody believed him.	התירוץ שלו לאיחור היה כל כך מגוחך שאף אחד לא האמין לו.
+accept	לקבל	She finally decided to accept the job offer from the company.	היא סוף סוף החליטה לקבל את הצעת העבודה מהחברה.
+accident	תאונה	The car accident happened at the busy intersection during rush hour.	תאונת הדרכים קרתה בצומת העמוס בשעת העומס.
+according	לפי	According to the weather forecast, it will rain heavily tomorrow.	לפי תחזית מזג האוויר, מחר ירד גשם כבד.
+across	בצד השני, לרוחב	The bridge stretches across the river, connecting the two towns.	הגשר נמתח לרוחב הנהר ומחבר בין שתי הערים.
+active	פעיל	She was so active that she played three different sports every season.	היא הייתה כל כך פעילה שהיא שיחקה שלושה ענפי ספורט שונים בכל עונה.
+actress	שחקנית (בהצגה או סרט)	The actress won an award for her performance in the film.	השחקנית זכתה בפרס על תפקידה בסרט.
+adult	מבוגר	As an adult, she had to make important decisions about her future.	כמבוגרת, היא הייתה צריכה לקבל החלטות חשובות לגבי עתידה.

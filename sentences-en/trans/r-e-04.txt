@@ -1,0 +1,80 @@
+pay	לשלם	I always pay my bills on time before the deadline.	אני תמיד משלם את החשבונות שלי בזמן לפני המועד האחרון.
+peace	שלום	The peace treaty ended the war between the two nations.	הסכם השלום סיים את המלחמה בין שתי המדינות.
+people	אנשים	Many people waited in line for the concert tickets.	הרבה אנשים חיכו בתור לכרטיסים להופעה.
+perfect	להשלים, לשפר; מושלם	She practiced for weeks to perfect every technical detail in her performance.	היא התאמנה שבועות כדי לשפר כל פרט טכני בהופעה שלה.
+perhaps	אולי	Perhaps I left my keys in the car, but I cannot be sure.	אולי שכחתי את המפתחות שלי במכונית, אבל אני לא יכול להיות בטוח.
+person	אדם	The tall person wearing a red jacket helped me find the subway station.	האדם הגבוה שלבש ז'קט אדום עזר לי למצוא את תחנת הרכבת התחתית.
+personal	אישי	She spoke about her personal experiences during her first year of college.	היא דיברה על החוויות האישיות שלה בשנה הראשונה בקולג'.
+picture	תמונה, לצלם; לדמיין	She drew a beautiful picture of the sunset using only colored pencils.	היא ציירה תמונה יפה של השקיעה באמצעות עפרונות צבעוניים בלבד.
+place	מקום, למקם	The quiet corner near the window is my favorite place to read and think.	הפינה השקטה ליד החלון היא המקום האהוב עליי לקרוא ולחשוב.
+plan	תכנית; לתכנן	We plan to drive across the country and camp at national parks for six weeks.	אנחנו מתכננים לנסוע ברחבי הארץ ולהקים מחנה בפארקים לאומיים במשך שישה שבועות.
+plane	מטוס; מישור	The plane flew across the ocean to reach London safely.	המטוס טס מעל האוקיינוס כדי להגיע ללונדון בשלום.
+planet	כוכב לכת	Mars is a planet that scientists study for future colonies.	מאדים הוא כוכב לכת שמדענים חוקרים לצורך מושבות עתידיות.
+play	משחק, לשחק; מחזה	Children play games in the park every afternoon after school.	ילדים משחקים משחקים בפארק כל אחר צהריים אחרי בית הספר.
+pool	בריכה	We swam in the pool on this hot summer day.	שחינו בבריכה ביום הקיץ החם הזה.
+poor	עני, מסכן	The poor family could not afford food, rent, or medical care.	המשפחה העניה לא יכלה להרשות לעצמה אוכל, שכר דירה או טיפול רפואי.
+possible	אפשרי	It is possible to learn a language if you study consistently for several months.	אפשרי ללמוד שפה אם לומדים באופן עקבי במשך כמה חודשים.
+potato	תפוח אדמה	She peeled the potato and boiled it until soft for mashing.	היא קילפה את תפוח האדמה ובישלה אותו עד שהתרכך למחית.
+present	להציג; מתנה; הווה, נוכח, קיים	The students must present their science projects to the whole class today.	התלמידים חייבים להציג את פרויקטי המדע שלהם לכל הכיתה היום.
+president	נשיא	The president gave a speech on national television tonight.	הנשיא נשא נאום בטלוויזיה הארצית הערב.
+printer	מדפסת, דַּפָּס	The printer ran out of ink and needs a replacement.	המדפסת נגמר לה הדיו והיא זקוקה להחלפה.
+private	פרטי	She kept her private thoughts in a locked diary that nobody else could read.	היא שמרה את המחשבות הפרטיות שלה ביומן נעול שאף אחד אחר לא יכול היה לקרוא.
+probably	כנראה, קרוב לוודאי	It will probably rain tomorrow according to the weather forecast.	כנראה שירד גשם מחר לפי תחזית מזג האוויר.
+problem	בעיה	The main problem is that we don't have enough time.	הבעיה העיקרית היא שאין לנו מספיק זמן.
+promise	הבטחה, להבטיח	I made a promise to visit my grandmother every weekend without fail.	נתתי הבטחה לבקר את סבתא שלי בכל סוף שבוע בלי יוצא מן הכלל.
+protect	להגן	Parents protect their children by teaching them to look both ways before crossing streets.	הורים מגנים על הילדים שלהם על ידי כך שהם מלמדים אותם להסתכל לשני הצדדים לפני חציית כבישים.
+queen	מלכה	The queen wore a crown and beautiful jewels at the ceremony.	המלכה ענדה כתר ותכשיטים יפים בטקס.
+quick	זריז	He gave a quick reply to each question, answering in just one or two words.	הוא נתן תשובה זריזה לכל שאלה, וענה במילה או שתיים בלבד.
+quiet	שקט	The quiet classroom allowed students to concentrate without any distraction whatsoever.	הכיתה השקטה אפשרה לתלמידים להתרכז בלי שום הסחת דעת.
+rain	גשם	The rain fell all morning and stopped in the afternoon.	הגשם ירד כל הבוקר ופסק אחר הצהריים.
+reason	סיבה; הגיון	The main reason she quit her job was that her boss never respected her ideas.	הסיבה העיקרית שהיא עזבה את העבודה הייתה שהבוס שלה מעולם לא כיבד את הרעיונות שלה.
+record	רשומה; לתעד; להקליט; שיא	The company keeps a record of every employee's work hours and vacation days.	החברה מנהלת רשומה של שעות העבודה וימי החופשה של כל עובד.
+relationship	מערכת יחסים	Their relationship grew stronger after they spent more time talking and listening to each other.	מערכת היחסים שלהם התחזקה אחרי שהם בילו יותר זמן בשיחה והקשבה זה לזה.
+relax	להירגע	I relax by turning off my phone and lying in the garden with a book.	אני נרגע על ידי כיבוי הטלפון שלי ושכיבה בגינה עם ספר.
+report	דיווח, לדווח	You must report any safety hazards to your supervisor immediately.	אתה חייב לדווח על כל סכנת בטיחות למנהל שלך מיד.
+respect	כבוד, לכבד	The team respects their coach because he admits his mistakes and learns from them.	הקבוצה מכבדת את המאמן שלה כי הוא מודה בטעויות שלו ולומד מהן.
+restaurant	מסעדה	That restaurant serves the best Italian food in our town.	המסעדה הזאת מגישה את האוכל האיטלקי הכי טוב בעיר שלנו.
+rice	אורז	She rinsed the rice in cold water before cooking it in the pot.	היא שטפה את האורז במים קרים לפני שבישלה אותו בסיר.
+rich	עשיר	The rich businessman donated half his fortune to build schools for poor children.	איש העסקים העשיר תרם חצי מהונו לבניית בתי ספר לילדים עניים.
+ride	רכיבה, לרכוב	I ride my bicycle to work every day during summer.	אני רוכב על האופניים שלי לעבודה כל יום בקיץ.
+right	ימינה; זכות	Turn right at the next corner to reach the supermarket.	פנה ימינה בפינה הבאה כדי להגיע לסופרמרקט.
+ring	טבעת; זירה	She twisted the silver ring around her finger while she waited nervously.	היא סובבה את הטבעת הכסופה סביב האצבע שלה בזמן שחיכתה בעצבנות.
+road	דרך	The mountain road curved so sharply that driving it made my hands shake.	הדרך ההררית התפתלה בחדות כזאת שהנהיגה בה גרמה לידיים שלי לרעוד.
+run, ran	לרוץ, רץ	Yesterday I ran five miles in the park near home.	אתמול רצתי חמישה מיילים בפארק ליד הבית.
+safe	בטוח	The safe harbor protected ships from dangerous storms and strong waves.	הנמל הבטוח הגן על הספינות מפני סערות מסוכנות וגלים חזקים.
+salt	מלח	Add a little salt to the soup to improve the taste.	הוסף מעט מלח למרק כדי לשפר את הטעם.
+save	להציל; לחסוך, לחסוך מ-; לשמור	The lifeguard saved the swimmer who had been pulled under by the current.	המציל הציל את השחיין שנסחף מתחת למים על ידי הזרם.
+saw, see	ראה, לראות	I saw a beautiful rainbow after the storm ended yesterday afternoon.	ראיתי קשת יפה אחרי שהסערה הסתיימה אתמול אחר הצהריים.
+scene	סצנה; זירה	The final scene of the movie showed the two friends saying goodbye at the airport.	הסצנה האחרונה בסרט הראתה את שני החברים נפרדים בשדה התעופה.
+school	בית-ספר	My daughter goes to school at eight o'clock every morning.	הבת שלי הולכת לבית הספר בשעה שמונה כל בוקר.
+search	חיפוש, לחפש	The team will search the building for the missing keys before the meeting starts.	הצוות יחפש בבניין את המפתחות החסרים לפני שהפגישה מתחילה.
+secret	סוד	She told me a secret that nobody else should know.	היא סיפרה לי סוד שאף אחד אחר לא צריך לדעת.
+sell	למכור	They sell their handmade goods only at the local market on weekends.	הם מוכרים את המוצרים בעבודת יד שלהם רק בשוק המקומי בסופי שבוע.
+send	לשלוח	Send the package using express mail so it arrives within two days.	שלח את החבילה בדואר מהיר כדי שהיא תגיע תוך יומיים.
+serious	רציני, חמור	The patient's condition became serious when his breathing became difficult and shallow.	מצבו של המטופל הפך חמור כשהנשימה שלו נעשתה קשה ורדודה.
+service	שירות	Good service at a restaurant makes customers come back again.	שירות טוב במסעדה גורם ללקוחות לחזור שוב.
+shop	חנות; לקנות	I bought groceries at the crowded shop, which closed at nine in the evening.	קניתי מצרכים בחנות ההומה, שנסגרה בתשע בערב.
+short	קצר	The short film told a complete story in just five minutes.	הסרט הקצר סיפר סיפור שלם בתוך חמש דקות בלבד.
+show	הופעה; להראות	The magic show amazed children by making objects disappear right before their eyes.	מופע הקסמים הדהים את הילדים כשגרם לחפצים להיעלם ממש לנגד עיניהם.
+side	צד, לצודד, לתמוך	The sunny side of the street is much warmer than the shaded side.	הצד השמשי של הרחוב הרבה יותר חם מהצד המוצל.
+sign	לחתום; שֶׁלֶט; סימן, לסמן	She signed the document with her full legal name carefully.	היא חתמה על המסמך בשמה המשפטי המלא בזהירות.
+simple	פשוט	The simple design used only basic shapes and solid colors.	העיצוב הפשוט השתמש רק בצורות בסיסיות ובצבעים אחידים.
+since	מכיוון ש-; מאז	Since we arrived early, we decided to explore the neighborhood before the meeting.	מכיוון שהגענו מוקדם, החלטנו לחקור את השכונה לפני הפגישה.
+singer	זמר	The singer had such a powerful voice that people in the back could hear clearly.	לזמר היה קול כל כך עוצמתי שאנשים בשורות האחוריות יכלו לשמוע בבירור.
+single	רווק; יחיד	She stayed single for years before finally deciding to get married.	היא נשארה רווקה במשך שנים לפני שהחליטה סוף סוף להתחתן.
+sir	אדון, תואר אצולה אנגלי	Yes, sir, I will complete the work before Friday.	כן, אדוני, אני אשלים את העבודה לפני יום שישי.
+situation	מצב, סיטואציה	The situation at work improved when the new manager began listening to employees.	המצב בעבודה השתפר כשהמנהל החדש התחיל להקשיב לעובדים.
+sky	שמיים, רקיע	The sky turned dark and grey before the storm started.	השמיים הפכו כהים ואפורים לפני שהסערה התחילה.
+sleep	שינה; לישון	Children sleep deeply after playing outside all afternoon.	ילדים ישנים עמוק אחרי שהם משחקים בחוץ כל אחר הצהריים.
+slow	איטי, לאט	The slow internet connection made downloading the file take several hours.	החיבור האיטי לאינטרנט גרם להורדת הקובץ לקחת כמה שעות.
+snake	נחש	A snake slithered across the garden behind our house.	נחש התפתל על פני הגינה מאחורי הבית שלנו.
+snow	שלג	It snowed all night and covered everything with white powder.	ירד שלג כל הלילה וכיסה הכול באבקה לבנה.
+so	אז, כך ש-, ולכן; כל-כך, מאוד	The water was so cold that we could not swim.	המים היו כל כך קרים שלא יכולנו לשחות.
+so that	כך ש-	I saved money each month so that I could buy a used car.	חסכתי כסף כל חודש כך שאוכל לקנות מכונית משומשת.
+soldier	חייל	The soldier carried heavy equipment on long marches through difficult terrain.	החייל נשא ציוד כבד בצעדות ארוכות בשטח קשה.
+sometimes	לעיתים, לפעמים	Sometimes the bus is late, but mostly it arrives on schedule.	לפעמים האוטובוס מאחר, אבל ברוב המקרים הוא מגיע בזמן.
+soon	בהקדם, מוקדם	The doctor said I would feel better soon, probably within three or four days.	הרופא אמר שארגיש טוב יותר בהקדם, כנראה תוך שלושה או ארבעה ימים.
+South	דרום	We traveled south to visit my family in the warm region.	נסענו דרומה כדי לבקר את המשפחה שלי באזור החם.
+special	מיוחד	She wore a special dress embroidered with gold thread that her grandmother made.	היא לבשה שמלה מיוחדת רקומה בחוט זהב שסבתא שלה הכינה.
+spend	לבזבז, לפזר; לבלות, להעביר	I spend too much money on coffee every week without noticing.	אני מבזבז יותר מדי כסף על קפה כל שבוע בלי לשים לב.
+stand	לעמוד	Please stand in line and wait for your turn at the counter.	אנא עמוד בתור וחכה לתורך בדלפק.

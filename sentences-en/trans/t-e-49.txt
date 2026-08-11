@@ -1,0 +1,80 @@
+poultry	עוף	Chickens, turkeys, and ducks are common types of poultry raised on farms.
+predecessors	קודמים	The new CEO improved on the mistakes made by her predecessors.
+predestined	נקבע מראש	Some people believe we are predestined to meet certain people in life.
+preside	לנהל	The mayor will preside over the city council meeting tomorrow afternoon.
+pretext	אמתלה, תואנה	He used a work meeting as a pretext to avoid the dinner.
+prevalence	שכיחות	The prevalence of smartphones has changed how people communicate.
+proliferate	התפשט במהירות	Fake stories proliferate quickly on social media without fact-checking.
+prolific	פורה, שופע	The prolific author published five novels in the last three years.
+prompt	לגרום, לעורר; מיידי	The sad news prompted him to call his mother immediately.
+prompted	הביא לידי	The accident prompted new safety regulations at the factory.
+prop	תמיכה, אביזר; לתמוך	She used a broom to prop the door open all afternoon.
+proponent	תומך	She is a proponent of renewable energy and solar power.
+prowess	מיומנות, יכולת	His prowess in chess made him the champion of the tournament.
+punctuate	לפסק, לשים סימני פיסוק; לקטוע שוב ושוב; להדגיש	You need to punctuate this sentence with a period at the end.
+quarrelsome	וכחני	His quarrelsome nature made it hard for him to keep friends.
+quench	לספק, להרוות	A cold glass of water can quench your thirst on hot days.
+rearing	גידול, טיפוח	Rearing children requires patience and love from their parents.
+reassurance	הבטחה, הרגעה	The doctor's reassurance helped calm the patient's fears.
+rebuttal	הפרכה, סתירה	His rebuttal to the criticism was well-reasoned and convincing.
+reciprocal	הדדי; (במתמטיקה) מספר הופכי	Their reciprocal friendship showed in how each one cared for the other.
+reciprocate	לגמול, להשיב כגמול, להחזיר באותה מטבע	When someone does you a favor, you should reciprocate.
+reconcile	להתפייס; ליישב (סתירות), לגשר בין, להתאים	After their fight, they decided to reconcile and become friends again.
+refute	להפריך	The scientist refuted the false claims with solid evidence.
+reigned	משל, שלט	The king reigned for fifty years and was loved by his people.
+reinvigorate	לרענן, להמריץ מחדש	A vacation can reinvigorate your mind and body.
+relapse	הדרדר, הישנות	After one month of sobriety, he had a relapse.
+relegated	הורד בדרגה	The player was relegated to the bench for poor performance.
+render	להפוך ל-, לגרום; להגיש	The disease rendered him unable to work for months.
+renown	תהילה, פרסום, מוניטין	Her renown as a pianist spread throughout the world.
+resent	לחוש טינה, להתרעם על	She resented the fact that he never helped with chores.
+respective	שייך בהתאמה	The teams won their respective games last weekend.
+respectively	בהתאמה	John and Mary are doctors and lawyers, respectively.
+resumption	חידוש	The resumption of classes after summer break was difficult.
+resurgence	תחייה	There has been a resurgence of interest in vinyl records.
+revoke	לבטל, לשלול	The government decided to revoke his driving license after the accident.
+rotary	נע על ציר סיבובי	The rotary dial on the old phone was slow to use.
+rudimentary	יסודי, בסיסי	His rudimentary knowledge of French was enough for tourists.
+sarcophagus	ארון קבורה קדום	The king's sarcophagus was discovered inside the tomb.
+scales	קשקשים (של דג)	The fish's scales reflected light as it swam through the water.
+scorn	בוז, זלזול; לבוז, לזלזל	He looked at the beggar with scorn and walked away.
+scribe	לבלר, סופר, מעתיק כתבים	In ancient times, a scribe wrote documents by hand.
+scrutinize	בדק, בחן	She will scrutinize every detail of the contract before signing.
+sensations	חדשות מרעישות	Reporters twisted ordinary events into wild sensations to attract more readers.
+sheer	מוחלט, לחלוטין; שקוף; משופע, תלול	It was sheer luck that he found his lost wallet.
+shingles	רעף	The roof shingles were damaged in the storm.
+shroud	תכריך, עטיפה	A thick shroud of fog covered the city early in the morning.
+slander	השמצה, להשמיץ	The politician sued for slander after the false allegations.
+slant	אלכסון, נטייה	The roof has a slant to help water drain off.
+slate	להכניס מישהו לרשימה; רעף, לוח	The meeting is slated for next Tuesday at two o'clock.
+smuggle	להבריח	Criminals tried to smuggle diamonds across the border.
+snarl	לנהום בחשיפת שיניים, לרטון בכעס; סבך/פקק	The dog began to snarl when the stranger approached.
+snicker	גיחוך	The students would snicker whenever the teacher made a mistake.
+soar	להמריא	The eagle soared above the mountains searching for food.
+solicit	לשדל / להדיח; לבקש/לחפש בתחינה	The charity will solicit donations from wealthy families.
+solitude	בדידות	She enjoyed spending time in solitude reading books.
+speck	גרגר זעיר, נקודה זעירה, פירור	There was a speck of dust on the telescope lens.
+spewing	פולט/מתיז בעוצמה, מקיא	The volcano was spewing lava across the surrounding villages.
+splendor	פאר	The old palace was filled with splendor, from golden ceilings to marble floors.
+sprang	קפץ, זינק; נבע, צמח (עבר של spring)	He sprang to his feet when he heard the alarm.
+sprawling	משתרע על שטח נרחב; מתפשט ללא סדר	The sprawling city covered hundreds of square miles.
+staple	מצרך יסוד, מוצר בסיסי; עיקרי; סיכת הידוק	Rice is a staple food in many Asian countries.
+stark	בוטה, מוחלט, גמור; שומם, עזוב	The truth was stark and harsh, but they needed to hear it.
+stature	קומה, גובה; מעמד, שיעור קומה	His small stature made him look younger than he really was.
+staunch	נאמן, מסור, איתן בדעתו; לעצור זרימה/דימום	He was a staunch supporter of the environmental movement.
+streamlined	יעיל וחסכוני; אווירודינמי, מעוצב לזרימה	The new streamlined process saved the company time and money.
+stricken	מוכה	She was stricken with grief when she heard the news.
+strife	מאבק, עימות	The two brothers ended years of strife and became close friends again.
+stronghold	מעוז, מבצר; מרכז כוח, מוקד שליטה	The mountain fortress was a stronghold that protected the town for centuries.
+subdue	להכניע	The trainer used calm, steady movements to subdue the frightened horse.
+superfluous	מיותר, עודף	The report included so much superfluous detail that no one finished reading it.
+suppression	דיכוי	The suppression of his laughter during the meeting made his face turn red.
+susceptibility	רגישות, פגיעות	His susceptibility to colds made winter very difficult.
+susceptible	רגיש ל-, חשוף ל-, נוטה ל-	People over sixty are more susceptible to serious illness.
+swindler	רמאי	The swindler stole money from elderly people for years.
+syllable	הברה	The teacher clapped once for every syllable when she said the long word.
+taint	לזהם; להכתים, להכפיש	The scandal will taint his reputation and public image forever.
+tangible	מוחשי	The tangible results of her hard work were the trophies on her shelf.
+tentative	זמני, לא סופי, מהוסס	They made a tentative plan but would change it if needed.
+thereby	ובכך, על ידי כך, ולכן	He worked hard, thereby earning his family's respect.
+thimble	אצבעון (לתפירה)	She used a metal thimble to protect her finger while sewing.

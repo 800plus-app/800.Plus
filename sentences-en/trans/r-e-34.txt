@@ -1,0 +1,80 @@
+prediction	חיזוי, ניבוי	The weather prediction said rain would fall tomorrow morning.	חיזוי מזג האוויר אמר שגשם ירד מחר בבוקר.
+preserve	לשמר	We preserve fresh vegetables by keeping them cold in the fridge.	אנחנו משמרים ירקות טריים על ידי שמירתם קרים במקרר.
+primarily	בעיקר	Sarah is primarily interested in cooking and gardening this year.	שרה מתעניינת בעיקר בבישול ובגינון השנה.
+probable	סביר, מתקבל על הדעת	It seems probable the train will arrive on time given its long record of reliability.	נראה סביר שהרכבת תגיע בזמן לאור ההיסטוריה הארוכה שלה באמינות.
+prolong	להאריך, למשוך (בזמן)	Doctors decided to prolong his hospital stay by two extra weeks for observation.	הרופאים החליטו להאריך את שהותו בבית החולים בשבועיים נוספים לצורך מעקב.
+promote	לקדם	The company will promote him to manager next month.	החברה תקדם אותו לתפקיד מנהל בחודש הבא.
+proportion	שיעור, מידה	A large proportion of the students passed the final exam.	שיעור גדול מהתלמידים עבר את המבחן הסופי.
+proposition	הצעה	He made a business proposition that interested the investors.	הוא הציג הצעה עסקית שעניינה את המשקיעים.
+publicized	פורסם	The scandal was publicized by every newspaper and website.	השערורייה פורסמה בכל עיתון ואתר אינטרנט.
+pupil	תלמיד	Each pupil received a new textbook on the first day.	כל תלמיד קיבל ספר לימוד חדש ביום הראשון.
+purification	טיהור	The purification of the water required several chemical treatments.	טיהור המים דרש כמה טיפולים כימיים.
+purposely	בכוונה	She purposely avoided the crowded shopping area on weekends.	היא נמנעה בכוונה מאזור הקניות הצפוף בסופי שבוע.
+puzzled	מבולבל	The student looked puzzled when the math problem was explained.	התלמיד נראה מבולבל כשהוסבר לו תרגיל החשבון.
+quake	רעד	The earth began to quake violently beneath our feet.	האדמה החלה לרעוד בעוצמה מתחת לרגלינו.
+qualify	להיות מוסמך	She will qualify for the scholarship if her grades improve.	היא תהיה מוסמכת לקבל את המלגה אם הציונים שלה ישתפרו.
+railroad	מסילת רכבת	The new railroad will connect the two cities by next year.	מסילת הרכבת החדשה תחבר בין שתי הערים עד השנה הבאה.
+rates	שיעור , היקף, תעריף	Interest rates went up because the economy was growing fast.	שיעורי הריבית עלו כי הכלכלה צמחה מהר.
+readiness	מוכנות	Her readiness for the competition came from months of training.	המוכנות שלה לתחרות נבעה מחודשים של אימונים.
+rebellious	סורר, מרדני	The rebellious teenager refused to follow any of the rules.	המתבגר הסורר סירב לציית לאף אחד מהכללים.
+reconstruct	לשחזר	Archaeologists reconstruct ancient buildings from pieces they find.	ארכיאולוגים משחזרים בניינים עתיקים מחתיכות שהם מוצאים.
+recreate	לשחזר, ליצור מחדש	She tried to recreate the old family recipe from memory.	היא ניסתה לשחזר את מתכון המשפחה הישן מהזיכרון.
+recruit	לגייס	The army will recruit new soldiers this summer.	הצבא יגייס חיילים חדשים בקיץ הזה.
+recurring	חוזר, נשנה	His recurring nightmare about falling woke him up most nights.	הסיוט החוזר שלו על נפילה העיר אותו רוב הלילות.
+refer	מתייחס	The report refers to a study done in Canada.	הדוח מתייחס למחקר שנעשה בקנדה.
+reflect	להרהר; לשקף, להחזיר אור	She took time to reflect on everything that happened this year.	היא הקדישה זמן להרהר בכל מה שקרה השנה.
+reflection	השתקפות	He saw his reflection in the lake's calm water.	הוא ראה את השתקפותו במי האגם השקטים.
+refugee	פליט	The refugee family left their flooded village and needed temporary shelter.	משפחת הפליטים עזבה את הכפר המוצף שלה והזדקקה למקלט זמני.
+regain	להשיג מחדש	After surgery, it took months to regain full strength.	אחרי הניתוח, לקח חודשים להשיג מחדש כוח מלא.
+regardless	למרות, ללא קשר	She went hiking regardless of the weather forecast.	היא יצאה לטיול למרות תחזית מזג האוויר.
+regime	שלטון, משטר	The regime controlled all aspects of people's daily lives.	השלטון שלט בכל היבטי חייהם היומיומיים של האנשים.
+regulation	תקנה	A new regulation will ban plastic bags at stores.	תקנה חדשה תאסור שקיות פלסטיק בחנויות.
+rehabilitation	שיקום	Rehabilitation programs helped former prisoners find jobs after release.	תוכניות שיקום עזרו לאסירים לשעבר למצוא עבודה אחרי השחרור.
+relate	להתייחס, לקשר	Young students relate to characters in age-appropriate books.	תלמידים צעירים מתייחסים לדמויות בספרים המתאימים לגילם.
+relating	מתייחס	The news story relating to climate change interested many people.	כתבת החדשות המתייחסת לשינויי האקלים עניינה אנשים רבים.
+relieve	להקל, להפיג, לשחרר (מתפקיד)	A cold compress will relieve the pain and swelling.	קומפרס קר יקל על הכאב והנפיחות.
+relocate	למקם מחדש	The company decided to relocate its office to downtown.	החברה החליטה למקם מחדש את המשרד שלה במרכז העיר.
+renovation	שיפוץ	The home renovation took six months and cost a lot.	שיפוץ הבית ארך שישה חודשים ועלה הרבה.
+repetition	חזרה	Repetition helps students memorize new vocabulary much faster.	חזרה עוזרת לתלמידים לשנן אוצר מילים חדש הרבה יותר מהר.
+reproduce	להתרבות, לשכפל	Bacteria reproduce quickly in warm and moist environments.	חיידקים מתרבים במהירות בסביבות חמות ולחות.
+reside	להתגורר, לשכון	Many wealthy families reside in that gated neighborhood.	משפחות אמידות רבות מתגוררות בשכונה המגודרת ההיא.
+resigned	התפטר	After the scandal, the official resigned from his position.	אחרי השערורייה, הפקיד התפטר מתפקידו.
+resolve	לפתור, להחליט; נחישות	The negotiators worked hard to resolve the labor dispute.	המתווכים עבדו קשה כדי לפתור את סכסוך העבודה.
+restriction	הגבלה	There is a weight restriction for passengers on small aircraft.	יש הגבלת משקל לנוסעים במטוסים קטנים.
+resume	להמשיך	After lunch, the meeting will resume at two o'clock.	אחרי ארוחת הצהריים, הפגישה תמשיך בשעה שתיים.
+revert	לחזור למצב קודם	The system reverted to its original settings after the crash.	המערכת חזרה למצב המקורי שלה אחרי הקריסה.
+revise	לתקן, לשפר	I need to revise my essay before submitting it.	אני צריך לתקן את החיבור שלי לפני שאני מגיש אותו.
+revision	בדיקה מחדש לצורך שיפור	The revision of the law made it much stricter.	הבדיקה מחדש של החוק הפכה אותו הרבה יותר מחמיר.
+revived	קם לתחייה, התחדש	The old tradition revived when the community celebrated it again.	המסורת הישנה התחדשה כשהקהילה חגגה אותה שוב.
+revolt	מרד	The workers' revolt forced the factory to improve conditions.	המרד של העובדים הכריח את המפעל לשפר את התנאים.
+rhyme	חרוז	Every other line in the poem rhymed in a simple pattern.	כל שורה שנייה בשיר התחרזה בתבנית פשוטה.
+rivalry	יריבות	Sibling rivalry is normal when kids share the same toys.	יריבות בין אחים היא נורמלית כשילדים חולקים את אותם הצעצועים.
+robe	חלוק	She wore a silk robe over her pajamas.	היא לבשה חלוק משי מעל הפיג'מה שלה.
+ruler	סרגל; מושל, שליט	The ruler has twelve inches marked on each side.	לסרגל יש שנים עשר אינצ'ים מסומנים בכל צד.
+safeguard	להגן; אמצעי הגנה	Strong passwords help safeguard your personal information online from hackers.	סיסמאות חזקות עוזרות להגן על המידע האישי שלך באינטרנט מפני האקרים.
+sanitary	תברואתי, היגייני	Sanitary conditions in the hospital are checked every single week.	התנאים התברואתיים בבית החולים נבדקים בכל שבוע.
+scenery	נוף	The mountain scenery was so beautiful we stopped to photograph it.	נוף ההרים היה כה יפה שעצרנו כדי לצלם אותו.
+scholar	אקדמאי, בעל מלגה, מלומד	The scholar published her research on ancient history.	האקדמאית פרסמה את המחקר שלה על ההיסטוריה העתיקה.
+sensation	תחושה	She felt a strange sensation of tingling in her fingers.	היא הרגישה תחושה מוזרה של עקצוץ באצבעותיה.
+shipment	משלוח	The shipment of books arrived at the warehouse yesterday.	משלוח הספרים הגיע למחסן אתמול.
+shuttle	מעבורת	The shuttle bus transported students between campus and downtown.	אוטובוס המעבורת הסיע תלמידים בין הקמפוס למרכז העיר.
+sibling	אח או אחות	My sibling and I share a room in our house.	אני ואחי חולקים חדר בבית שלנו.
+sideways	הצידה	The crab moved sideways along the sandy beach.	הסרטן זז הצידה לאורך החוף החולי.
+significance	משמעות, חשיבות	The significance of the discovery changed our understanding completely.	המשמעות של הגילוי שינתה לחלוטין את ההבנה שלנו.
+simplicity	פשטות	The simplicity of the design made the app easy to use.	הפשטות של העיצוב הפכה את האפליקציה לקלה לשימוש.
+simultaneously	בו זמנית	Three events happened simultaneously and caused confusion everywhere.	שלושה אירועים קרו בו זמנית וגרמו לבלבול בכל מקום.
+skyscraper	גורד שחקים	The new skyscraper is the tallest building in the city.	גורד השחקים החדש הוא הבניין הגבוה ביותר בעיר.
+slaughter	לטבוח, לשחוט, טֶבַח	The slaughter of livestock happened early every morning.	שחיטת הבקר התרחשה מוקדם בכל בוקר.
+slope	שיפוע, מדרון	The ski slope was steep and challenging for beginners.	מדרון הסקי היה תלול ומאתגר למתחילים.
+sneeze	להתעטש	I sneeze whenever I go into dusty old rooms.	אני מתעטש בכל פעם שאני נכנס לחדרים ישנים ומאובקים.
+spark	גיץ, ניצוץ	A spark from the fire landed on the dry leaves.	ניצוץ מהאש נחת על העלים היבשים.
+specify	לפרט	The contract must specify exactly what services are included.	החוזה חייב לפרט בדיוק אילו שירותים כלולים.
+spinach	תרד	Fresh spinach is rich in vitamins and very healthy.	תרד טרי עשיר בוויטמינים ובריא מאוד.
+stabilize	לייצב	The medicine will stabilize her blood pressure within hours.	התרופה תייצב את לחץ הדם שלה תוך שעות.
+stain	כתם	A coffee stain appeared on his white shirt.	כתם קפה הופיע על החולצה הלבנה שלו.
+stalk	גבעול, קנה; לעקוב/לארוב אחרי, להטריד	The stalk of the flower was bent but not broken.	הגבעול של הפרח היה כפוף אבל לא שבור.
+stove	תנור, כיריים	She heated soup on the stove while cooking dinner.	היא חיממה מרק על הכיריים בזמן שבישלה ארוחת ערב.
+stunned	נדהם, היה המום	Everyone was stunned when the surprise guest arrived suddenly.	כולם היו המומים כשהאורח המפתיע הגיע לפתע.
+substitute	תחליף	The substitute teacher assigned homework to all the students.	המורה המחליפה נתנה שיעורי בית לכל התלמידים.
+suburb	פרבר	She moved to a quiet suburb to raise her family.	היא עברה לפרבר שקט כדי לגדל את משפחתה.
+sufficient	מספיק	One cup of coffee in the morning is sufficient for me.	כוס קפה אחת בבוקר מספיקה לי.

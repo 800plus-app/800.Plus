@@ -1,0 +1,80 @@
+analyze	לנתח	Scientists must analyze the test data to understand why the bridge failed.	מדענים חייבים לנתח את נתוני הבדיקה כדי להבין מדוע הגשר קרס.
+ancient	קדום, עתיק	Archaeologists discovered ancient coins buried deep under the old stone temple.	ארכיאולוגים גילו מטבעות קדומים קבורים עמוק מתחת למקדש האבן העתיק.
+apart	בנפרד	The twins refused to sit apart during dinner and stayed close together.	התאומים סירבו לשבת בנפרד בארוחת הערב ונשארו קרובים זה לזה.
+appear	להופיע; נראה ש-	Dark clouds appear on the horizon just before a big storm hits.	עננים כהים מופיעים באופק ממש לפני שסערה גדולה מגיעה.
+architecture	אדריכלות, ארכיטקטורה	The city's modern architecture uses glass and steel instead of old brick.	האדריכלות המודרנית של העיר משתמשת בזכוכית ובפלדה במקום בלבנים ישנות.
+aristocrat	אציל, אריסטוקרט	Being an aristocrat, he attended royal balls and owned several country estates.	בהיותו אציל, הוא השתתף בנשפים מלכותיים והחזיק כמה אחוזות כפריות.
+arrest	מעצר, לעצור	Police will arrest anyone caught stealing merchandise from the store without paying.	המשטרה תעצור כל מי שייתפס גונב סחורה מהחנות בלי לשלם.
+artistic	אמנותי	Her artistic talent impressed everyone at the photography exhibition last week.	הכישרון האמנותי שלה הרשים את כולם בתערוכת הצילום בשבוע שעבר.
+as many as	רבים כמו (מספר גדול)	As many as fifty people waited in line for concert tickets yesterday.	לא פחות מחמישים אנשים חיכו בתור לכרטיסים לקונצרט אתמול.
+as proof of	כהוכחה ל-	He showed the receipt as proof of his purchase at the store.	הוא הציג את הקבלה כהוכחה לרכישה שלו בחנות.
+aside from	חוץ מ-	Aside from coffee, I don't drink any other hot beverages regularly.	חוץ מקפה, אני לא שותה שום משקה חם אחר באופן קבוע.
+attitude	גישה	Her positive attitude helped her succeed despite many serious obstacles.	הגישה החיובית שלה עזרה לה להצליח למרות מכשולים רציניים רבים.
+audience	קהל	The audience applauded loudly when the singer finished the final song.	הקהל מחא כפיים בקול רם כשהזמרת סיימה את השיר האחרון.
+aura	הילה	The champion had an aura of confidence that intimidated all his rivals.	לאלוף הייתה הילה של ביטחון שהפחידה את כל יריביו.
+author	סופר, מחבר	The famous author wrote novels that became bestsellers throughout the world.	הסופר המפורסם כתב רומנים שהפכו לרבי מכר ברחבי העולם.
+authority	סמכות	The government has the authority to make new laws for everyone.	לממשלה יש סמכות לחוקק חוקים חדשים עבור כולם.
+automobile	כלי רכב, אוטו	She bought a new automobile to replace her old broken-down car.	היא קנתה כלי רכב חדש כדי להחליף את המכונית הישנה והמקולקלת שלה.
+avoid	להתחמק, להימנע	Doctors tell patients to avoid sugar and processed foods completely.	רופאים אומרים למטופלים להימנע לחלוטין מסוכר ומזון מעובד.
+aware	מודע	He was not aware that his friend had secretly moved away.	הוא לא היה מודע לכך שחברו עבר דירה בסתר.
+backward	לאחור	The dancer moved backward across the stage with surprising grace and skill.	הרקדנית זזה לאחור על הבמה בחן ובמיומנות מפתיעים.
+bacteria	חיידקים	Bacteria grow quickly in warm wet places like bathrooms and kitchens.	חיידקים מתרבים מהר במקומות חמים ורטובים כמו חדרי אמבטיה ומטבחים.
+beg	להתחנן	The child began to beg for ice cream at the grocery store.	הילד התחיל להתחנן לגלידה בסופרמרקט.
+belong	שייך	These books belong to me and I want them returned immediately.	הספרים האלה שייכים לי ואני רוצה שיוחזרו מיד.
+benefit	תועלת, יתרון; הטבה; להפיק תועלת	Her college degree turned out to be a huge benefit in her job search.	התואר האקדמי שלה התברר כיתרון עצום בחיפוש העבודה שלה.
+besides	בכל מקרה; בנוסף על; מלבד, חוץ מ-	It was raining hard, and besides, we had no umbrella with us.	ירד גשם חזק, ומלבד זאת לא היה לנו מטרייה.
+best-seller	רב-מכר	That novel became an instant best-seller in bookstores across the world.	הרומן הזה הפך לרב מכר מיידי בחנויות ספרים ברחבי העולם.
+beyond	מעבר	The mountains stretched far beyond where we could see clearly today.	ההרים השתרעו הרחק מעבר למה שיכולנו לראות בבירור היום.
+bicycle	אופניים	She rode her bicycle to school instead of taking the bus.	היא רכבה על האופניים שלה לבית הספר במקום לקחת את האוטובוס.
+breathe	לנשום	You must breathe deeply and slowly to calm your racing mind.	עליך לנשום עמוק ולאט כדי להרגיע את המחשבות הדוהרות שלך.
+bright	בהיר, זוהר; חכם, מבריק	The bright colors of her dress stood out in the dark room.	הצבעים הבהירים של השמלה שלה בלטו בחדר החשוך.
+brilliant	מבריק	His brilliant solution to the problem surprised everyone at the meeting.	הפתרון המבריק שלו לבעיה הפתיע את כולם בישיבה.
+bullet	קליע	The bullet left a small hole in the metal target during practice.	הקליע השאיר חור קטן במטרת המתכת במהלך האימון.
+butterfly	פרפר	A colorful butterfly landed on the flower in the garden.	פרפר צבעוני נחת על הפרח בגינה.
+by now	עד עתה	By now you should have finished all your homework assignments.	עד עתה היית צריך לסיים את כל שיעורי הבית שלך.
+calculate	לחשב	Engineers must calculate the exact weight before building the bridge.	מהנדסים חייבים לחשב את המשקל המדויק לפני בניית הגשר.
+calculator	מחשבון	He grabbed his calculator to solve the complex math problem.	הוא תפס את המחשבון שלו כדי לפתור את בעיית המתמטיקה המורכבת.
+campaign	מערכה, מסע	The company launched a marketing campaign to promote its new smartphone.	החברה השיקה מסע פרסום כדי לקדם את הסמארטפון החדש שלה.
+cast	להשליך, לגרש; צוות שחקנים	The fisherman cast his net far into the ocean water.	הדייג השליך את הרשת שלו רחוק אל תוך מי האוקיינוס.
+casual	אגבי, רגיל, יומיומי	He wore casual clothes like jeans and a t-shirt to work.	הוא לבש בגדים יומיומיים כמו ג'ינס וחולצת טי לעבודה.
+cave	מערה	Explorers discovered ancient paintings inside a dark cave.	חוקרים גילו ציורים עתיקים בתוך מערה חשוכה.
+caviar	קוויאר	The expensive caviar cost more than a week of groceries.	הקוויאר היקר עלה יותר משבוע של קניות מזון.
+century	מאה שנים	That castle was built more than a century ago.	הטירה ההיא נבנתה לפני יותר ממאה שנה.
+certain	בטוח; מסוים	I am certain that you will succeed if you try hard.	אני בטוח שתצליח אם תשתדל מאוד.
+character	אות, תו; דמות; אופי	The password must include at least one special character and a number.	הסיסמה חייבת לכלול לפחות תו מיוחד אחד ומספר.
+charge	לגבות; להאשים; להסתער; לחייב	The doctor charged five hundred dollars for the surgery.	הרופא גבה חמש מאות דולר עבור הניתוח.
+chief	ראשי, בכיר, מנהיג; צ'יף	The chief decided to move the tribe to better hunting grounds.	ראש השבט החליט להעביר את השבט לשטחי ציד טובים יותר.
+citrus	פרי הדר	Orange and lemon are citrus fruits full of vitamin C.	תפוז ולימון הם פירות הדר עתירי ויטמין סי.
+claim	טענה, טוען; תביעה	He claimed he was innocent despite the evidence against him.	הוא טען שהוא חף מפשע למרות הראיות נגדו.
+class	מעמד; סוג; כיתה	The wealthy family belonged to the upper class of their society.	המשפחה העשירה השתייכה למעמד העליון בחברה שלה.
+clever	פיקח	The clever fox outsmarted the hunter and escaped the trap.	השועל הפיקח הערים על הצייד וברח מהמלכודת.
+coach	מאמן, לאמן, להדריך; קרון נוסעים, כרכרה, מחלקת תיירים (במטוס)	The basketball coach taught the team new strategies every practice.	מאמן הכדורסל לימד את הקבוצה אסטרטגיות חדשות בכל אימון.
+coast	חוף	The rocky coast had huge waves crashing against the cliffs.	בחוף הסלעי היו גלים ענקיים שהתנפצו על הצוקים.
+cognitive	קוגניטיבי, הכרתי	Solving puzzles and reading books can improve a child's cognitive skills.	פתרון חידות וקריאת ספרים יכולים לשפר את הכישורים הקוגניטיביים של ילד.
+common	נפוץ, משותף	Blue eyes are common among people from northern European countries.	עיניים כחולות נפוצות בקרב אנשים ממדינות צפון אירופה.
+compete	להתחרות, להתמודד	Many athletes compete to win the top prize at the national championship.	ספורטאים רבים מתחרים כדי לזכות בפרס הראשון באליפות הלאומית.
+components	חלקים, מרכיבים	The computer has many components that work together inside.	למחשב יש הרבה חלקים שעובדים יחד בפנים.
+conference	ועידה	Business leaders attended the conference to discuss global economic issues.	מנהיגים עסקיים השתתפו בוועידה כדי לדון בנושאים כלכליים עולמיים.
+confuse	לבלבל	His unclear explanations confused most of the students in the class.	ההסברים הלא ברורים שלו בלבלו את רוב התלמידים בכיתה.
+confusion	בלבול	There was total confusion when three trains arrived at once.	שרר בלבול מוחלט כששלוש רכבות הגיעו בבת אחת.
+consider	לקחת בחשבון, לשקול	You should consider his offer before making your final decision.	כדאי שתשקול את ההצעה שלו לפני שתקבל את ההחלטה הסופית שלך.
+context	הקשר	The context of the sentence helped me understand the difficult word.	ההקשר של המשפט עזר לי להבין את המילה הקשה.
+continuation	המשך	The sequel was a continuation of the story from the first film.	הסרט הבא היה המשך לעלילה מהסרט הראשון.
+contract	ללקות, להידבק (במחלה); חוזה, הסכם; להתכווץ	She was worried she might contract the flu from her sick coworker.	היא חששה שהיא עלולה להידבק בשפעת מהעמית החולה שלה.
+contrast	ניגוד; להוות ניגוד	The white paint was in stark contrast to the dark walls.	הצבע הלבן היה בניגוד חד לקירות הכהים.
+convince	לשכנע	Her evidence was strong enough to convince the jury of her innocence.	הראיות שלה היו חזקות מספיק כדי לשכנע את חבר המושבעים בחפותה.
+coordination	קואורדינציה, תיאום	Good coordination between your hands and eyes is essential for sports.	קואורדינציה טובה בין הידיים לעיניים חיונית לספורט.
+coordinator	מתאם	The coordinator organized the event and made sure everything worked.	המתאם ארגן את האירוע ווידא שהכול פועל כשורה.
+copies	עותקים	She made copies of the important documents before leaving the office.	היא עשתה עותקים של המסמכים החשובים לפני שעזבה את המשרד.
+cosmopolitan	קוסמופוליטי, רב-תרבותי, בעל אופי בין-לאומי	New York is a cosmopolitan city with people from many countries.	ניו יורק היא עיר קוסמופוליטית עם אנשים ממדינות רבות.
+count	לספור; רוזן	Let me count the money to make sure we have enough.	תן לי לספור את הכסף כדי לוודא שיש לנו מספיק.
+course	מנה; קורס; מסלול	The dinner had three courses: soup, fish, and dessert.	בארוחת הערב היו שלוש מנות: מרק, דג וקינוח.
+crack	סדק, לסדוק	A crack appeared in the wall after the small earthquake.	סדק הופיע בקיר אחרי רעידת האדמה הקטנה.
+creator	יוצר	The creator of the video game became very rich and famous.	היוצר של משחק הווידאו הפך לעשיר ומפורסם מאוד.
+creature	יצור	A strange creature emerged from the dark forest at night.	יצור מוזר יצא מהיער החשוך בלילה.
+curse	קללה, לקלל	The old man's curse was said to bring bad luck forever.	נאמר שהקללה של הזקן מביאה מזל רע לנצח.
+customize	להתאים באופן אישי	He customized his bike by painting it blue and adding new handlebars.	הוא התאים אישית את האופניים שלו כשצבע אותם בכחול והוסיף כידון חדש.
+dare	להעיז, תעוזה; אתגר	I dare you to eat five hot peppers without water.	אני מאתגר אותך לאכול חמישה פלפלים חריפים בלי מים.
+decorative	קישוטי, דקורטיבי	The decorative frame made the simple picture look more elegant.	המסגרת הקישוטית גרמה לתמונה הפשוטה להיראות אלגנטית יותר.
+deeply	מאוד, במידה רבה	She was deeply in love with him despite their differences.	היא הייתה מאוד מאוהבת בו למרות ההבדלים ביניהם.
+deer	איל	A deer jumped across the road in front of the car.	איל קפץ מעבר לכביש מול המכונית.

@@ -1,0 +1,80 @@
+star	כוכב, לככב	We spotted a bright star twinkling in the night sky.
+start	להתחיל	We will start the meeting at nine o'clock tomorrow morning.
+station	תחנה; להציב	Trains arrive at the central station every thirty minutes.
+step	צעד, לצעוד	He took a careful step toward the edge of the cliff.
+still	עדיין, למרות זאת; נייח, דומם, שקט	She is still waiting for news about her job application.
+store	חנות; לאחסן	We bought groceries at the store near our apartment.
+strange	מוזר	His strange behavior made everyone wonder what was happening.
+strong	חזק	She has strong arms from years of swimming practice.
+studio	סטודיו	The artist worked in her small studio all morning.
+stupid	טיפש	It was stupid to leave without checking the weather forecast.
+suddenly	לפתע	Suddenly, the lights went out throughout the entire neighborhood.
+sugar	סוכר	Add one cup of sugar to the cake mixture now.
+summer	קיץ	We always visit our grandparents during summer vacation.
+support	תמיכה, לתמוך	Her family gave her support when she faced difficulties.
+surprise	הפתעה	His surprise visit made everyone at the party happy.
+sweet	מתוק, ממתק	The sweet taste of honey is loved by children.
+system	מערכת; שיטה	The new system made it easier to find documents.
+taste	טעם, לטעום	Can you taste the salt in this soup?
+team	צוות	Our team won the basketball tournament last Saturday.
+teeth, tooth	שיניים, שן	She brushed her teeth before going to bed.
+than	מ-	This book is more interesting than the previous one.
+thank	תודה, להודות	You should thank your mother for helping you.
+thanks to	תודות ל-	Thanks to his help, we finished the project on time.
+that	ש-	I know that you will succeed in your goals.
+theater	תיאטרון; בית קולנוע	We saw an interesting play at the theater downtown.
+then	אז	First we studied, and then we went to the park.
+theory	תיאוריה	Scientists developed a new theory to explain how the universe began.
+there	שם	We searched the whole house, but the cat wasn't there.
+thousand	אלף	The city has over one thousand different kinds of restaurants.
+through	דרך, מבעד	We walked through the park on our way home.
+ticket	כרטיס	I bought a ticket for the concert next month.
+time	זמן	What time does the meeting start tomorrow morning?
+together with	יחד עם	Together with my friends, I went to the beach.
+too	גם; יותר מידי	May I come to the party tonight too?
+touch	מגע, לגעת	Please don't touch that painting in the museum.
+trust	אמון, לבטוח	She trusts her best friend with all her secrets.
+truth	אמת	The truth about what happened finally came out.
+turn	לפנות, סיבוב	Please turn left at the corner before the store.
+under	מתחת	The cat is hiding under the table right now.
+understand	להבין	Do you understand what the teacher explained today?
+until	עד ש-	We waited outside until the store opened this morning.
+until now	עד עתה	Until now, nobody has found the lost treasure.
+up	למעלה	The balloon went up into the sky very quickly.
+usually	בדרך-כלל	She usually drinks coffee in the morning before work.
+village	כפר	The small village has only one school and a small market.
+visit	לבקר	Let's visit the museum downtown this coming weekend.
+voice	קול, להשמיע קול	His voice sounded strange and unfamiliar to everyone.
+wait	להמתין, המתנה	Can you wait here for me while I check?
+wall	קיר	The wall between the two houses was made of brick.
+want	לרצות	Do you want to join us for lunch today?
+war	מלחמה	The war between the two countries lasted for several years.
+watch	להסתכל, להשגיח; שעון	Watch the road very carefully while you are driving.
+way	דרך	I know the way to the train station.
+weekend	סוף שבוע	They always visit their parents on the weekend.
+West	מערב	The sun sets in the West every evening.
+what	מה, איזה	What time do we need to leave tomorrow morning?
+when	כאשר, כש-	When the rain starts, we will go inside.
+where	בעוד ש-; היכן, איפה	Where should I put my coat and backpack?
+which	איזה; אשר, ש-	Which book would you like to read tonight?
+who	מי, ש-	Who is responsible for cleaning up after dinner?
+why	מדוע	Why did you decide to change your job?
+wide	רחב	The river is very wide at this point.
+wife	אישה, רעיה	His wife is a doctor at the hospital.
+win	ניצחון, לנצח	Our team will win the championship this year.
+wine	יין	We had a nice wine with dinner last night.
+winter	חורף	Winter is cold and snowy in many countries.
+wish	משאלה; לאחל, לייחל, לרצות	She made a wish before blowing out the candles.
+with	באמצעות, עם	Will you come with me to the store?
+without	מבלי, ללא	We cannot succeed without hard work and dedication.
+wonderful	נפלא	That was a wonderful movie that everyone enjoyed.
+work	עבודה, לעבוד	She works hard at her job every day.
+worse	גרוע יותר	This winter is much worse than last winter.
+writer	סופר	The writer has published many successful books already.
+young	צעיר	My young daughter just started school this year.
+zoo	גן חיות	We went to the zoo to see the lions.
+10th - tenth	עשירי	This is the tenth time I have asked politely.
+4th - fourth	רביעי	She finished in fourth place in the race.
+5th - fifth	חמישי	My birthday is on the fifth of June.
+6th - sixth	שישי	He lives on the sixth floor of the building.
+7th - seventh	שביעי	Saturday is the seventh day of the week.

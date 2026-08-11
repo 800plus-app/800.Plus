@@ -1,0 +1,80 @@
+prediction	חיזוי, ניבוי	The weather prediction said rain would fall tomorrow morning.
+preserve	לשמר	We preserve fresh vegetables by keeping them cold in the fridge.
+primarily	בעיקר	Sarah is primarily interested in cooking and gardening this year.
+probable	סביר, מתקבל על הדעת	It seems probable the train will arrive on time given its long record of reliability.
+prolong	להאריך, למשוך (בזמן)	Doctors decided to prolong his hospital stay by two extra weeks for observation.
+promote	לקדם	The company will promote him to manager next month.
+proportion	שיעור, מידה	A large proportion of the students passed the final exam.
+proposition	הצעה	He made a business proposition that interested the investors.
+publicized	פורסם	The scandal was publicized by every newspaper and website.
+pupil	תלמיד	Each pupil received a new textbook on the first day.
+purification	טיהור	The purification of the water required several chemical treatments.
+purposely	בכוונה	She purposely avoided the crowded shopping area on weekends.
+puzzled	מבולבל	The student looked puzzled when the math problem was explained.
+quake	רעד	The earth began to quake violently beneath our feet.
+qualify	להיות מוסמך	She will qualify for the scholarship if her grades improve.
+railroad	מסילת רכבת	The new railroad will connect the two cities by next year.
+rates	שיעור , היקף, תעריף	Interest rates went up because the economy was growing fast.
+readiness	מוכנות	Her readiness for the competition came from months of training.
+rebellious	סורר, מרדני	The rebellious teenager refused to follow any of the rules.
+reconstruct	לשחזר	Archaeologists reconstruct ancient buildings from pieces they find.
+recreate	לשחזר, ליצור מחדש	She tried to recreate the old family recipe from memory.
+recruit	לגייס	The army will recruit new soldiers this summer.
+recurring	חוזר, נשנה	His recurring nightmare about falling woke him up most nights.
+refer	מתייחס	The report refers to a study done in Canada.
+reflect	להרהר; לשקף, להחזיר אור	She took time to reflect on everything that happened this year.
+reflection	השתקפות	He saw his reflection in the lake's calm water.
+refugee	פליט	The refugee family left their flooded village and needed temporary shelter.
+regain	להשיג מחדש	After surgery, it took months to regain full strength.
+regardless	למרות, ללא קשר	She went hiking regardless of the weather forecast.
+regime	שלטון, משטר	The regime controlled all aspects of people's daily lives.
+regulation	תקנה	A new regulation will ban plastic bags at stores.
+rehabilitation	שיקום	Rehabilitation programs helped former prisoners find jobs after release.
+relate	להתייחס, לקשר	Young students relate to characters in age-appropriate books.
+relating	מתייחס	The news story relating to climate change interested many people.
+relieve	להקל, להפיג, לשחרר (מתפקיד)	A cold compress will relieve the pain and swelling.
+relocate	למקם מחדש	The company decided to relocate its office to downtown.
+renovation	שיפוץ	The home renovation took six months and cost a lot.
+repetition	חזרה	Repetition helps students memorize new vocabulary much faster.
+reproduce	להתרבות, לשכפל	Bacteria reproduce quickly in warm and moist environments.
+reside	להתגורר, לשכון	Many wealthy families reside in that gated neighborhood.
+resigned	התפטר	After the scandal, the official resigned from his position.
+resolve	לפתור, להחליט; נחישות	The negotiators worked hard to resolve the labor dispute.
+restriction	הגבלה	There is a weight restriction for passengers on small aircraft.
+resume	להמשיך	After lunch, the meeting will resume at two o'clock.
+revert	לחזור למצב קודם	The system reverted to its original settings after the crash.
+revise	לתקן, לשפר	I need to revise my essay before submitting it.
+revision	בדיקה מחדש לצורך שיפור	The revision of the law made it much stricter.
+revived	קם לתחייה, התחדש	The old tradition revived when the community celebrated it again.
+revolt	מרד	The workers' revolt forced the factory to improve conditions.
+rhyme	חרוז	Every other line in the poem rhymed in a simple pattern.
+rivalry	יריבות	Sibling rivalry is normal when kids share the same toys.
+robe	חלוק	She wore a silk robe over her pajamas.
+ruler	סרגל; מושל, שליט	The ruler has twelve inches marked on each side.
+safeguard	להגן; אמצעי הגנה	Strong passwords help safeguard your personal information online from hackers.
+sanitary	תברואתי, היגייני	Sanitary conditions in the hospital are checked every single week.
+scenery	נוף	The mountain scenery was so beautiful we stopped to photograph it.
+scholar	אקדמאי, בעל מלגה, מלומד	The scholar published her research on ancient history.
+sensation	תחושה	She felt a strange sensation of tingling in her fingers.
+shipment	משלוח	The shipment of books arrived at the warehouse yesterday.
+shuttle	מעבורת	The shuttle bus transported students between campus and downtown.
+sibling	אח או אחות	My sibling and I share a room in our house.
+sideways	הצידה	The crab moved sideways along the sandy beach.
+significance	משמעות, חשיבות	The significance of the discovery changed our understanding completely.
+simplicity	פשטות	The simplicity of the design made the app easy to use.
+simultaneously	בו זמנית	Three events happened simultaneously and caused confusion everywhere.
+skyscraper	גורד שחקים	The new skyscraper is the tallest building in the city.
+slaughter	לטבוח, לשחוט, טֶבַח	The slaughter of livestock happened early every morning.
+slope	שיפוע, מדרון	The ski slope was steep and challenging for beginners.
+sneeze	להתעטש	I sneeze whenever I go into dusty old rooms.
+spark	גיץ, ניצוץ	A spark from the fire landed on the dry leaves.
+specify	לפרט	The contract must specify exactly what services are included.
+spinach	תרד	Fresh spinach is rich in vitamins and very healthy.
+stabilize	לייצב	The medicine will stabilize her blood pressure within hours.
+stain	כתם	A coffee stain appeared on his white shirt.
+stalk	גבעול, קנה; לעקוב/לארוב אחרי, להטריד	The stalk of the flower was bent but not broken.
+stove	תנור, כיריים	She heated soup on the stove while cooking dinner.
+stunned	נדהם, היה המום	Everyone was stunned when the surprise guest arrived suddenly.
+substitute	תחליף	The substitute teacher assigned homework to all the students.
+suburb	פרבר	She moved to a quiet suburb to raise her family.
+sufficient	מספיק	One cup of coffee in the morning is sufficient for me.

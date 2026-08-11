@@ -1,0 +1,80 @@
+describe	לתאר	He struggled to describe the strange taste of the exotic fruit.	הוא התקשה לתאר את הטעם המוזר של הפרי האקזוטי.
+described	מתואר	The newspaper article described the accident in great detail.	כתבת העיתון תיארה את התאונה בפירוט רב.
+description	תיאור	Her detailed description of the movie revealed every plot twist and character.	התיאור המפורט שלה של הסרט חשף כל תפנית עלילה ודמות.
+deserve	מגיע (לו)	She deserved the award for her kindness, though it was given to someone else.	הפרס הגיע לה בזכות טוב לבה, אף שהוא ניתן למישהו אחר.
+dessert	קינוח	After dinner, they served chocolate cake for dessert.	אחרי ארוחת הערב, הם הגישו עוגת שוקולד לקינוח.
+destiny	גורל	Some believe fate controls our destiny; others think we choose it.	יש המאמינים שהמזל שולט בגורלנו; אחרים חושבים שאנחנו בוחרים בו.
+develop	לפתח	Cities develop when more businesses and people move to them.	ערים מתפתחות כשיותר עסקים ואנשים עוברים אליהן.
+development	התפתחות, פיתוח	The development of the internet changed everything about how we work.	התפתחות האינטרנט שינתה הכל באופן שבו אנחנו עובדים.
+device	מכשיר	She used a heating device to keep her hands warm.	היא השתמשה במכשיר חימום כדי לשמור על ידיה חמות.
+director	במאי; מנהל	The director told the actors exactly how to perform each scene.	הבמאי אמר לשחקנים בדיוק איך לבצע כל סצנה.
+disappear	להעלם	The magician made the rabbit disappear right before everyone's eyes.	הקוסם גרם לארנב להיעלם ממש לנגד עיניי כולם.
+disaster	אסון	The storm was a disaster that destroyed homes and farms.	הסערה הייתה אסון שהרס בתים וחוות.
+discuss	לדון, להתווכח	We need to discuss this problem together and share our different viewpoints.	אנחנו צריכים לדון בבעיה הזאת יחד ולשתף את נקודות המבט השונות שלנו.
+disease	מחלה	Malaria is a serious disease spread by infected mosquitoes.	מלריה היא מחלה חמורה המועברת על ידי יתושים נגועים.
+display	להציג	The museum decided to display the ancient statues in the main room.	המוזיאון החליט להציג את הפסלים העתיקים בחדר הראשי.
+disturb	להפריע	Don't disturb your brother while he studies; he needs silence to concentrate.	אל תפריע לאחיך בזמן שהוא לומד; הוא זקוק לשקט כדי להתרכז.
+drag	לגרור	He had to drag the heavy suitcase up the stairs slowly.	הוא היה צריך לגרור את המזוודה הכבדה במעלה המדרגות לאט.
+dump	לשפוך	He decided to dump the bucket of dirty water into the drain.	הוא החליט לשפוך את דלי המים המלוכלכים לתוך הניקוז.
+during	תוך כדי, במשך	He slept during the entire movie at the theater.	הוא ישן במשך כל הסרט בבית הקולנוע.
+eagle	נשר	The eagle soared high above the mountains looking for food.	הנשר ריחף גבוה מעל ההרים בחיפוש אחר מזון.
+economy	כלכלה	A strong economy creates jobs and helps people earn money.	כלכלה חזקה יוצרת מקומות עבודה ועוזרת לאנשים להרוויח כסף.
+editor	עורך	The editor reviewed the manuscript and suggested many changes.	העורך עבר על כתב היד והציע שינויים רבים.
+education	השכלה	Good education opens doors and gives you better job choices.	השכלה טובה פותחת דלתות ונותנת לך אפשרויות תעסוקה טובות יותר.
+effect	תוצאה, אפקט; רושם, השפעה	The medicine quickly had a positive effect on her health.	לתרופה היה אפקט חיובי מהיר על בריאותה.
+effective	יעיל, אפקטיבי	The new medicine was effective; her fever disappeared within a day.	התרופה החדשה הייתה יעילה; החום שלה נעלם תוך יום אחד.
+effort	מאמץ	She made a great effort to finish the project on time.	היא עשתה מאמץ גדול לסיים את הפרויקט בזמן.
+electricity	חשמל	We need electricity to power our lights, phones, and appliances.	אנחנו זקוקים לחשמל כדי להפעיל את התאורה, הטלפונים והמכשירים שלנו.
+emotion	רגש	Seeing her old friend again filled her with a rush of emotion.	לראות שוב את חברתה הוותיקה מילא אותה בגל של רגש.
+engineer	מהנדס, להנדס	The engineer designed the bridge to be strong and safe.	המהנדס תכנן את הגשר להיות חזק ובטוח.
+entertainment	בידור	The comedian's jokes provided great entertainment for the tired audience.	הבדיחות של הקומיקאי סיפקו בידור נהדר לקהל העייף.
+entrance	כניסה	The entrance to the building was blocked by construction equipment.	הכניסה לבניין הייתה חסומה על ידי ציוד בנייה.
+environment	סביבה	We must protect the environment for future generations to enjoy.	עלינו להגן על הסביבה כדי שדורות עתידיים ייהנו ממנה.
+equipment	ציוד	The gym had new equipment for strength training.	בחדר הכושר היה ציוד חדש לאימוני כוח.
+especially	במיוחד	Children especially enjoy playing in parks on warm days.	ילדים נהנים במיוחד לשחק בפארקים בימים חמים.
+exact	מדויק	She gave the exact amount of money needed for the bill.	היא נתנה את הסכום המדויק הדרוש לחשבון.
+except	מלבד, חוץ מ-	Everyone came to the party except John, who was sick.	כולם הגיעו למסיבה מלבד ג'ון, שהיה חולה.
+except for	למעט	I enjoy eating most vegetables except for spinach, which I dislike.	אני נהנה לאכול את רוב הירקות למעט תרד, שאני לא אוהב.
+exchange	להחליף, חלופה	She decided to exchange the shirt for a larger size.	היא החליטה להחליף את החולצה במידה גדולה יותר.
+excitement	התרגשות	Fans showed their excitement by jumping, cheering, and screaming throughout the final game.	האוהדים הביעו את התרגשותם בקפיצות, עידוד וצעקות לאורך כל המשחק המכריע.
+exercise	תרגיל; להתאמן; לממש, ליישם	Regular exercise keeps your body healthy and strong.	תרגילים גופניים סדירים שומרים על הגוף בריא וחזק.
+exist	קיים	Dinosaurs no longer exist; they died millions of years ago.	דינוזאורים כבר לא קיימים; הם מתו לפני מיליוני שנים.
+expect	לצפות	We expect the package to arrive by Tuesday based on the tracking information.	אנחנו מצפים שהחבילה תגיע עד יום שלישי בהתבסס על מידע המעקב.
+experiment	ניסוי, להתנסות	The students carefully repeated the experiment to confirm their surprising results.	התלמידים חזרו בזהירות על הניסוי כדי לאשר את התוצאות המפתיעות שלהם.
+extraordinary	בלתי רגיל	Her talent was extraordinary; she played violin better than professionals.	הכישרון שלה היה בלתי רגיל; היא ניגנה בכינור טוב יותר ממקצוענים.
+failure	כשלון	The bridge's sudden failure caused traffic to stop for several hours.	הכשלון הפתאומי של הגשר גרם לתנועה להיעצר למשך כמה שעות.
+fan	מעריץ, אוהד; מאוורר, לאוורר	He was a huge fan of basketball and watched every game.	הוא היה אוהד גדול של כדורסל וצפה בכל משחק.
+farmer	חוואי	The farmer grows corn and wheat in his large fields.	החוואי מגדל תירס וחיטה בשדות הגדולים שלו.
+fault	פגם, תקלה; אשמה	There was a fault in the engine that caused the breakdown.	היה פגם במנוע שגרם לתקלה.
+fever	חום (של מחלה)	The child had a fever and needed to rest in bed.	לילד היה חום והוא היה צריך לנוח במיטה.
+field	תחום, שדה	Agriculture is her field of study at university.	חקלאות היא תחום הלימוד שלה באוניברסיטה.
+financial	כספי	Financial problems forced the company to cut costs.	בעיות כספיות אילצו את החברה לצמצם עלויות.
+fishing	דיג	He enjoyed fishing for trout in the mountain streams.	הוא נהנה לדוג פורלים בנחלי ההרים.
+fit	בכושר; להתאים	She kept fit by running five miles every morning.	היא שמרה על כושר בכך שרצה חמישה מיילים כל בוקר.
+flat	שטוח; דירה	The land in this area is very flat with few hills.	הקרקע באזור הזה שטוחה מאוד עם מעט גבעות.
+flew	עף	The airplane flew high above the clouds on its long journey.	המטוס עף גבוה מעל העננים במסעו הארוך.
+flip	לזרוק, להעיף; סלטה; להפוך צד	She likes to flip a coin whenever she can't decide something.	היא אוהבת לזרוק מטבע בכל פעם שהיא לא מצליחה להחליט על משהו.
+fool	טיפש, לשטות במישהו	Don't be a fool; always wear your seatbelt in cars.	אל תהיה טיפש; תמיד חגור חגורת בטיחות ברכב.
+for instance	לדוגמה	Some plants need shade; for instance, ferns naturally grow under tall trees.	לצמחים מסוימים דרוש צל; לדוגמה, שרכים גדלים באופן טבעי מתחת לעצים גבוהים.
+foreign	חוץ; זר, נוכרי	She studied foreign languages including French and Spanish.	היא למדה שפות זרות כולל צרפתית וספרדית.
+forgive	לסלוח	I hope you can forgive me for being late.	אני מקווה שתוכל לסלוח לי על האיחור.
+form	צורה; ליצור, להקים	The clouds began to form interesting shapes in the sky.	העננים החלו ליצור צורות מעניינות בשמיים.
+frame	מסגרת, למסגר	She placed the photo in a wooden frame for display.	היא הניחה את התמונה במסגרת עץ לתצוגה.
+friendship	חברות	Their friendship lasted more than forty years despite the distance.	החברות ביניהם נמשכה יותר מארבעים שנה למרות המרחק.
+function	תפקוד, לתפקד	The heart's main function is to pump blood.	התפקוד העיקרי של הלב הוא לשאוב דם.
+garbage	זבל	Please take out the garbage bin before the rotting food starts to stink.	אנא הוצא את פח הזבל לפני שהאוכל הרקוב יתחיל להסריח.
+gene	גן (תורשתי)	He inherited a gene for red hair from his father.	הוא ירש גן לשיער אדום מאביו.
+generation	דור	This generation grew up with computers and smartphones.	הדור הזה גדל עם מחשבים וסמארטפונים.
+gentle	עדין	She spoke in a gentle voice to calm the scared child.	היא דיברה בקול עדין כדי להרגיע את הילד המפוחד.
+governor	מושל	The governor visited the new hospital and thanked the doctors there.	המושל ביקר בבית החולים החדש והודה לרופאים שם.
+grade	כיתה; ציון, דרגה, מעמד; שיפוע	My daughter is in the fifth grade at her new school.	בתי לומדת בכיתה ה' בבית הספר החדש שלה.
+grandson	נכד	Her grandson visits every Sunday for dinner and stories.	הנכד שלה מבקר בכל יום ראשון לארוחת ערב וסיפורים.
+guide	להדריך	The park ranger will guide us safely through the dark cave.	שומר הפארק ידריך אותנו בבטחה דרך המערה החשוכה.
+guilty	אשם	The jury decided he was guilty of the crime.	חבר המושבעים קבע שהוא אשם בפשע.
+hall	מסדרון; היכל	Students rushed noisily through the long hall between their morning classes.	תלמידים מיהרו ברעש לאורך המסדרון הארוך בין שיעורי הבוקר שלהם.
+harm	לפגוע, להזיק	Smoking can harm your lungs and overall health.	עישון עלול לפגוע בריאות ובבריאות הכללית שלך.
+heat	חום, לחמם	The sun provides heat that keeps Earth warm.	השמש מספקת חום ששומר על כדור הארץ חם.
+height	גובה	The height of the mountain made the climb very difficult.	הגובה של ההר הפך את הטיפוס לקשה מאוד.
+highway	כביש ראשי	Traffic on the highway was backed up for miles.	התנועה בכביש הראשי הייתה תקועה לאורך קילומטרים רבים.
+hill	גבעה	We climbed the hill to see the view from the top.	טיפסנו על הגבעה כדי לראות את הנוף מלמעלה.
+honest	הגון	She stayed honest with her boss, even when the truth was embarrassing.	היא נשארה הגונה עם הבוס שלה, גם כשהאמת הייתה מביכה.
