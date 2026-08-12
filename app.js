@@ -2981,6 +2981,18 @@ function lvFinish(){
      נגעת בהן, וזה בדיוק "לשלב את המילים שכבר למדת לפני ההמלצה".
      הדירוגים קיימים רק באנגלית, ולכן עברית לעולם אינה מגיעה לכאן. */
   const skippable = (LV_LANG==='en') ? lvCountKnown(level) : 0;
+  /* דווח פעמיים ("אין סינון כלשהו של המילים" · "לא קיבלתי סלקציה ונאלצתי לבצע אותה לבד"):
+     הענף השלישי לא נכתב מעולם. אנגלית עם פחות מ-40 מילים לדילוג נפלה בין ההצעה לבין
+     ההסבר בעברית, והפאנל נשאר מוסתר — מסך תוצאה ששותק. ברמות A1/A2 הסף הוא 0, ולכן
+     כל לומד אנגלית מתחיל נפל לשם בכל מבחן. עכשיו לכל מצב יש מסר. */
+  if(lvOfferKind(LV_LANG, skippable, LV_CUT[level]||0)!=='offer'){
+    show($('#lvOffer'));
+    $('#lvOfferText').innerHTML=lvOfferNote(lvOfferKind(LV_LANG, skippable, LV_CUT[level]||0));
+    $('#lvApply').classList.add('hidden');
+    $('#lvNoApply').textContent='הבנתי';      // there is nothing here to decline
+    $('#lvNoApply').onclick=()=>hide($('#lvOffer'));
+    return;
+  }
   if(skippable>=40){
     show($('#lvOffer'));
     $('#lvOfferText').innerHTML=`מצאתי <b>${skippable}</b> מילים באנגלית שנמצאות הרבה מתחת לרמה שהדגמת
@@ -2992,25 +3004,9 @@ function lvFinish(){
       ניתן להחזיר אותן ב"ניהול מילים" ← "שחזר מחיקות".</span>`;
     $('#lvApply').onclick=()=>{ const n=lvApplyKnown(level); hide($('#lvOffer'));
       toast(`${n} מילים הוצאו מהתרגול · ניתן להחזיר ב"ניהול מילים"`); };
-    $('#lvNoApply').onclick=()=>hide($('#lvOffer'));
-  } else if(LV_LANG==='he'){
-    /* Hebrew used to land here with an empty panel and no explanation at all. It cannot offer
-       the same thing English does: skipping is driven by a frequency rank, and there is no
-       Hebrew frequency source in the project. The unit number is the only signal available and
-       it is not a difficulty signal — so an offer built on it would be a claim the data does
-       not support. Say what happened instead of showing nothing. */
-    show($('#lvOffer'));
-    $('#lvOfferText').innerHTML=`התוצאה נשמרה ומשמשת את האפליקציה מכאן והלאה.
-      <br><span style="color:var(--ink-soft);font-size:.86rem">בעברית אין עדיין דילוג אוטומטי על
-      מילים שאתה כבר יודע — הדילוג באנגלית נשען על דירוג שכיחות, ולעברית אין מקור כזה. עד שיהיה,
-      אפשר להוציא מילים מוכרות ידנית דרך ניהול מילים.</span>`;
-    $('#lvApply').classList.add('hidden');
-    $('#lvNoApply').textContent='הבנתי';      // there is nothing here to decline
-    $('#lvNoApply').onclick=()=>hide($('#lvOffer'));
-  }
-  if(LV_LANG!=='he'){
     $('#lvApply').classList.remove('hidden');
     $('#lvNoApply').textContent='לא, אתרגל הכל';
+    $('#lvNoApply').onclick=()=>hide($('#lvOffer'));
   }
 }
 /* Only English has frequency ranks, so the skip offer applies to the English bank.
@@ -3019,6 +3015,29 @@ function lvFinish(){
    mark 3175 of 3694 words known off the back of a single test. Skipping should only ever
    cover words that are far easier than the ceiling that was actually demonstrated. */
 const LV_CUT={A1:0, A2:0, B1:600, B2:2000, C1:5000, C2:10000};
+/* מה מסך התוצאה אומר. פונקציה נפרדת ולא שרשרת if בתוך הרינדור, כי זו ההכרעה שנפלה
+   בין הכיסאות: היה ענף להצעה וענף לעברית, ולא היה ענף לאנגלית בלי מספיק מילים.
+   ארבעה מצבים, וכל אחד מהם אומר משהו — אין מצב שבו המסך שותק. */
+const LV_INTRO_BASE = 'מבחן קצר ואדפטיבי: 10–20 מילים, 2–3 דקות. המבחן מתחיל ברמה בינונית '
+  + 'ומתאים את עצמו לפי התשובות שלך. בסיום מתקבלת הערכה של רמת אוצר המילים.';
+const lvOfferKind = (lang, skippable, cut) =>
+    lang !== 'en'      ? 'he'        // אין דירוג שכיחות בעברית, ולכן אין דילוג
+  : skippable >= 40    ? 'offer'
+  : cut                ? 'few'       // יש סף, אבל לא נמצאו מספיק מילים מתחתיו
+  : 'basic';                         // A1/A2: הסף הוא 0, אין מה לדלג עליו מלכתחילה
+const LV_SUB = 'color:var(--ink-soft);font-size:.86rem';
+const lvOfferNote = kind => ({
+  he:    `התוצאה נשמרה ומשמשת את האפליקציה מכאן והלאה.
+          <br><span style="${LV_SUB}">בעברית אין עדיין דילוג אוטומטי על מילים שאתה כבר יודע.
+          הדילוג באנגלית נשען על דירוג שכיחות, ולעברית אין מקור כזה. עד שיהיה, אפשר להוציא
+          מילים מוכרות ידנית דרך ניהול מילים.</span>`,
+  few:   `התוצאה נשמרה ומשמשת את האפליקציה מכאן והלאה.
+          <br><span style="${LV_SUB}">לא נמצאו מספיק מילים שנמצאות הרבה מתחת לרמה שהדגמת,
+          ולכן אין מה לדלג עליו. כל המילים נשארות בתרגול.</span>`,
+  basic: `התוצאה נשמרה ומשמשת את האפליקציה מכאן והלאה.
+          <br><span style="${LV_SUB}">ברמה הזו אין דילוג: כל המילים במאגר עדיין רלוונטיות לך,
+          ולכן כולן נשארות בתרגול.</span>`,
+}[kind] || '');
 function lvRankOf(term){ const m=window.EN_RANK; return m ? m[normEn(term)] : null; }
 /* Counts what will ACTUALLY be marked, which is not the same as what is below the cut.
    The old version counted every ranked word under the cut across the whole bank and ignored
@@ -3104,6 +3123,11 @@ function lvApplyKnown(level){
 $('#lvStart').onclick=startLevelTest;
 const lvStart = lang => { LV_LANG=lang;
   $('#lvIntroLang').textContent = lang==='he' ? 'עברית' : 'אנגלית';
+  /* דווח פעמיים: "היה אמור לחסוך לי מילים". ההבטחה הגיעה מכאן — הפתיח הבטיח "המלצה
+     לתרגול" לשתי השפות, בעוד שהדילוג נשען על דירוג שכיחות שקיים רק באנגלית. ההבטחה
+     מנוסחת עכשיו לפי מה שהשפה שנבחרה באמת מספקת. */
+  $('#lvIntroSub').textContent = LV_INTRO_BASE
+    + (lang==='he' ? '' : ' אם יימצאו מילים הרבה מתחת לרמה שלך, תוצע גם דילוג עליהן.');
   hide($('#lvQuiz')); hide($('#lvResult')); show($('#lvIntro')); goto('level'); };
 /* ===== הכניסה למבחן הרמה =====
    שני הכפתורים ישבו במסך בחירת השפה — המסך שנפתח בכל כניסה — ופתחו את המבחן בלחיצה אחת.
