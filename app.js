@@ -2196,6 +2196,23 @@ let mOnly=null;
 /* Grouped by unit and collapsed by default. The old screen was one flat alphabetical list
    cut at `slice(0,400)` — so 3,500 of 3,900 words simply were not there, with nothing on
    screen saying so. Sections keep the DOM small without hiding anything. */
+/* הסדר בתוך יחידה. קודם מה שחלש, אחר כך מה שנלמד, ואז מה שטרם נפגש — אלה בדיוק שלוש
+   הקבוצות של classify(), ובאותו כלל: מילה שטעית בה אינה מילה שלא פגשת. הנגישות היא כל
+   הנקודה, כי המילים הקשות היו מפוזרות בין 190 שורות לפי סדר המאגר.
+   מילה שנמחקה יורדת לסוף — היא כבר לא בתרגול ורק תופסת מקום למעלה.
+
+   ⚠ "ידעתי" יורדת מתחת לכולן (12.8.2026, בקשת חגי: "תמיד המילים שלא ידעתי למעלה
+   שאוכל להוריד אותם בנוחות"). זה לא היה כך, וההפך היה נכון: markKnown כותב level=3,
+   ולכן מילה שסומנה נמנתה כ"נלמדה" וצפה מעל מילים שהלומד מעולם לא פגש. המסך הראה
+   מסומנות ולא-מסומנות משולבות זו בזו, ומי שעובר על היחידה כדי לסמן נאלץ לדלג שוב
+   ושוב על מה שכבר סגר. הדירוג נשען על src==='known' ולא על הרמה, כי הרמה היא תוצר
+   לוואי של הסימון ולא הסיבה לו. */
+const manageRank = w =>
+    w.gone            ? 4
+  : isKnown(w.term)   ? 3
+  : lvl(w.term) >= 3  ? 1
+  : seenCount(w.term) ? 0
+  : 2;
 function renderManage(filter){
   const list=$('#manageList');
   const raw=String(filter||'').trim();
@@ -2208,13 +2225,7 @@ function renderManage(filter){
   const items=all.filter(w=>(!mOnly || String(w.unit)===String(mOnly)) && hit(w));
   const byUnit=new Map();
   for(const w of items){ if(!byUnit.has(w.unit)) byUnit.set(w.unit,[]); byUnit.get(w.unit).push(w); }
-  /* הסדר בתוך יחידה: קודם מה שחלש, אחר כך מה שנלמד, ובסוף מה שטרם נפגש.
-     אלה בדיוק שלוש הקבוצות של classify(), ובאותו כלל — מילה שטעית בה אינה מילה שלא
-     פגשת. הנגישות היא כל הנקודה: המילים הקשות הן אלה שרוצים להגיע אליהן, והן היו
-     מפוזרות בין 190 שורות לפי סדר המאגר.
-     מילה שנמחקה יורדת לסוף בכל מקרה — היא כבר לא בתרגול, ורק תופסת מקום למעלה. */
-  const rank=w=> w.gone ? 3 : (lvl(w.term)>=3 ? 1 : (seenCount(w.term)>0 ? 0 : 2));
-  for(const ws of byUnit.values()) ws.sort((a,b)=>rank(a)-rank(b));
+  for(const ws of byUnit.values()) ws.sort((a,b)=>manageRank(a)-manageRank(b));
   /* Searching opens the units it found; CLEARING the box has to close them again. Without the
      else branch the expansion survived, so search-then-clear rendered all 3,900 rows at once —
      exactly the DOM this screen was rebuilt to stop producing. */
