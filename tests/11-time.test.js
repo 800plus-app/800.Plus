@@ -650,6 +650,24 @@ describe('the exam countdown', () => {
     assert.ok(!/pill-tip/.test(host.innerHTML), 'no advice on the morning of the exam');
   });
 
+  /* ⚠ הבדיקה הזאת נולדה מאובדן אמיתי (12.8.2026). הקוד ב-app.js פלט `class="pill-tip"`,
+     ובקומיט של סשן אחר ("יישור ענף העבודה") שלושת כללי ה-CSS של הפיל נמחקו מ-index.html
+     יחד עם role=status. שום בדיקה לא צעקה, כי כל צד בנפרד היה תקין — והמסך הציג את
+     ציון הדרך דחוס לצד המספרים במקום בשורה משלו. מחלקה שהקוד פולט חייבת עיצוב. */
+  test('every class the pill emits has a rule, and the row is announced', () => {
+    const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+    const src = appSrc();
+    for (const cls of ['pill-tip', 'exam-past'])
+      if (src.includes(cls))
+        assert.ok(html.includes('.exam-pill .' + cls) || html.includes('.exam-pill.' + cls),
+          `app.js פולט "${cls}" ואין לו כלל ב-index.html`);
+    assert.match(html, /id="examPill"[^>]*role="status"/,
+      'הפיל אינו מוכרז לקורא מסך');
+    /* min-width ולא flex-basis: פריט flex עם basis:100% עדיין מתכווץ ומתיישב בשורה */
+    assert.match(html, /\.exam-pill \.pill-tip\{min-width:100%/,
+      'ציון הדרך יתיישב לצד המספרים במקום לשבור שורה');
+  });
+
   test('the countdown does not slip a day across a daylight-saving transition', () => {
     const ctx = loadTime();
     // Israel 2026: 27 March is 23 hours long, 25 October is 25 hours long.

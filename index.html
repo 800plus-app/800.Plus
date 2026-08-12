@@ -1070,10 +1070,14 @@
      ומשך את תשומת הלב לימים שנותרו במקום לעבודה שנותרה. ההדגשה נשארה — בעובי ובצבע. */
   .exam-pill span{font-size:.86rem;color:var(--ink-soft);line-height:1.6}
   .exam-pill em{font-style:normal;color:var(--accent);font-weight:800}
-  /* ציון הדרך יושב בשורה משלו מתחת למספרים — flex-basis:100% שובר את השורה בלי
-     לשנות את פריסת השורה הראשונה. שקט יותר מהמספרים בכוונה: הוא הערת דרך, לא נתון. */
+  /* שורת ציון הדרך (examTip) יושבת מתחת למספרים ולא לצדם.
+     ⚠ `min-width:100%` ולא `flex-basis:100%`. הגרסה הראשונה השתמשה ב-flex-basis,
+     ונמדד בדפדפן שהיא לא שברה שורה בכלל: flex-shrink הוא 1 כברירת מחדל, ולכן הפריט
+     התכווץ והתיישב לצד המספרים — שתי עמודות שכל אחת נשברת בתוך עצמה, וזה נקרא כטקסט
+     מעורבב. min-width אינו ניתן לכיווץ, ולכן הוא באמת דוחף לשורה חדשה.
+     שקטה מהמספרים בכוונה: זו הערת דרך, לא נתון. */
   .exam-pill{flex-wrap:wrap}
-  .exam-pill .pill-tip{flex-basis:100%;font-size:.8rem;opacity:.85;margin-top:-2px}
+  .exam-pill .pill-tip{min-width:100%;font-size:.8rem;opacity:.85;margin-top:-2px}
   .exam-pill.exam-past{cursor:pointer}
   .w-note{margin-top:9px;font-size:.78rem;color:var(--ink-soft);opacity:.9}
   .in-two{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}
@@ -2156,14 +2160,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=191"></script>
-<script src="config.js?v=191"></script>
-<script src="store.js?v=191"></script>
-<script src="leveltest-he.js?v=191"></script>
-  <script src="leveltest.js?v=191"></script>
-<script src="enrank.js?v=191"></script>
-<script src="data.js?v=191"></script>
-<script src="data-en.js?v=191"></script>
-<script src="app.js?v=191"></script>
+<script src="supabase.min.js?v=192"></script>
+<script src="config.js?v=192"></script>
+<script src="store.js?v=192"></script>
+<script src="leveltest-he.js?v=192"></script>
+  <script src="leveltest.js?v=192"></script>
+<script src="enrank.js?v=192"></script>
+<script src="data.js?v=192"></script>
+<script src="data-en.js?v=192"></script>
+<script src="app.js?v=192"></script>
 </body>
 </html>
