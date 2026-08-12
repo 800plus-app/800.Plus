@@ -1933,10 +1933,20 @@
     <div class="kicker">שלוש שאלות</div>
     <h3>עוזר לי להחליט מה יהיה אחרי 30.8</h3>
 
-    <!-- A sum, never "would you pay?". A hypothetical with no price attached collects a polite
-         yes from somebody who would not spend a shekel, and '0' is a real answer: without it
-         whoever would not pay just closes the card and the sample keeps only the happy ones. -->
-    <p class="wtp-q">כמה היית משלם לחודש?</p>
+    <!-- ⚠ סדר השאלות התהפך ב-11.8.2026, ולא מטעמי עיצוב. נמדד: מתוך 6 הצגות
+         ראשונות **5 נסגרו בלי מענה** ורק אחת ענתה. שאלת הכסף פתחה את הכרטיס,
+         והיא השאלה הכי לא נוחה לשאול מישהו שקיבל משהו בחינם לפני ארבע דקות.
+         עכשיו פותחים בשאלה הקלה, ושאלת הסכום יורדת לסוף אחרי שכבר נוצרה מחויבות. -->
+    <p class="wtp-q">מה הכי עזר לך עד עכשיו?</p>
+    <textarea id="wtpHelped" rows="2" placeholder="במשפט אחד" maxlength="300"></textarea>
+
+    <p class="wtp-q">מה היה גורם לך להפסיק להשתמש? <span>· לא חובה</span></p>
+    <textarea id="wtpStop" rows="2" placeholder="במשפט אחד" maxlength="300"></textarea>
+
+    <!-- סכום, לעולם לא "האם היית משלם?". שאלה היפותטית בלי מחיר מקבלת "כן" מנומס
+         ממישהו שלא יוציא שקל, ו-'0' הוא תשובה אמיתית: בלעדיו מי שלא היה משלם פשוט
+         סוגר את הכרטיס והמדגם שומר רק את המרוצים. -->
+    <p class="wtp-q">כמה היית משלם לחודש? <span>· לא חובה</span></p>
     <div class="wtp-prices" id="wtpPrices">
       <button data-v="0">0</button>
       <button data-v="10">10 ₪</button>
@@ -1944,12 +1954,6 @@
       <button data-v="30">30 ₪</button>
       <button data-v="more">יותר</button>
     </div>
-
-    <p class="wtp-q">מה הכי עזר לך עד עכשיו? <span>· לא חובה</span></p>
-    <textarea id="wtpHelped" rows="2" placeholder="במשפט אחד" maxlength="300"></textarea>
-
-    <p class="wtp-q">מה היה גורם לך להפסיק להשתמש? <span>· לא חובה</span></p>
-    <textarea id="wtpStop" rows="2" placeholder="במשפט אחד" maxlength="300"></textarea>
 
     <button class="ask-go" id="wtpGo" disabled>שלח תשובה</button>
   </div>
