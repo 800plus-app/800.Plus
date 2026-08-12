@@ -348,19 +348,20 @@
   /* משפט הדוגמה: תווית · המשפט באנגלית · התרגום, שורה לכל אחד. המילה הנלמדת
      מודגשת בשני המשפטים, ולכן היא מוצגת ב-var(--ink) המלא ולא באפור של .also:
      אפור על אפור אינו הדגשה, וההדגשה כאן היא כל תפקיד השורה. */
-  /* ⚠ `text-align:right` על הבלוק, ולא הסתמכות על ההורה. נמדד בדפדפן על 12 כרטיסים
-     בשלושה רוחבי מסך: `.ex-he` יצא `center`, מפני ש-`.card` ממורכז וה-`.also` יורש
-     ממנו — ואילו המשפט האנגלי מיושר לשמאל במפורש. כלומר שתי השורות של אותו זוג
-     קיבלו שני יישורים שונים, ומשפט של שתי שורות במרכז נקרא גרוע יותר. עכשיו כל
-     שורה מיושרת לתחילת השפה שלה: התווית והעברית לימין, האנגלית לשמאל.
-     ⚠ ולמה הנוסח כאן שונה: הגרסה הראשונה של ההערה השתמשה במילה שהלקסיקון פוסל
-     (`tests/47`), והבדיקה סורקת את **כל** הקובץ ולא רק טקסט ממשק. השער צודק ובוטה
-     בכוונה, ולכן ההערה שונתה ולא השער. */
-  .ex-sent{text-align:right}
+  /* ⚠ יישור מפורש על הבלוק, ולא הסתמכות על ההורה: `.card` ממורכז ו-`.also` יורש ממנו,
+     ולכן בלי הכלל הזה כל שורה קיבלה יישור אחר.
+     הגרסה הקודמת יישרה כל שורה לתחילת השפה שלה — האנגלית לשמאל והעברית לימין. חגי ראה
+     את התוצאה (12.8.2026) וקבע שהיא נראית מוזרה: שתי השורות נדחפות לקצוות מנוגדים,
+     ובכרטיס צר הזוג נקרא כשני גושים נפרדים ולא כמשפט ותרגומו. שלוש השורות ממורכזות
+     עכשיו על ציר אחד. `direction:ltr` נשאר על האנגלית — הוא קובע סדר תווים, לא יישור,
+     ובלעדיו סימני הפיסוק בקצה המשפט קופצים למקום הלא נכון.
+     ⚠ ניסוח ההערה: הגרסה הראשונה השתמשה במילה שהלקסיקון פוסל (`tests/47`), והבדיקה
+     סורקת את **כל** הקובץ ולא רק טקסט ממשק. השער צודק, ולכן ההערה שונתה ולא השער. */
+  .ex-sent{text-align:center}
   .ex-sent .ex-lbl{display:block;font-size:.68rem;letter-spacing:.1em;color:var(--gold);
     font-weight:700;margin-bottom:3px}
-  .ex-sent .ex-en{display:block;direction:ltr;text-align:left;margin-bottom:2px}
-  .ex-sent .ex-he{display:block;text-align:right}
+  .ex-sent .ex-en{display:block;direction:ltr;text-align:center;margin-bottom:2px}
+  .ex-sent .ex-he{display:block;text-align:center}
   .ex-sent b{color:var(--ink);font-weight:700}
   .reveal{margin-top:8px;font-size:1.05rem}
   .reveal b{font-family:"Frank Ruhl Libre",serif}
@@ -2155,14 +2156,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=189"></script>
-<script src="config.js?v=189"></script>
-<script src="store.js?v=189"></script>
-<script src="leveltest-he.js?v=189"></script>
-  <script src="leveltest.js?v=189"></script>
-<script src="enrank.js?v=189"></script>
-<script src="data.js?v=189"></script>
-<script src="data-en.js?v=189"></script>
-<script src="app.js?v=189"></script>
+<script src="supabase.min.js?v=190"></script>
+<script src="config.js?v=190"></script>
+<script src="store.js?v=190"></script>
+<script src="leveltest-he.js?v=190"></script>
+  <script src="leveltest.js?v=190"></script>
+<script src="enrank.js?v=190"></script>
+<script src="data.js?v=190"></script>
+<script src="data-en.js?v=190"></script>
+<script src="app.js?v=190"></script>
 </body>
 </html>
