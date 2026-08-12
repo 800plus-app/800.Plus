@@ -31,10 +31,15 @@ const assert = require('node:assert');
 const { appSource } = require('./_harness/sandbox.js');
 
 const app = appSource();
+/* עד הסוגר המסיים של הפונקציה, לא חלון של N תווים. קודם זה היה `slice(at, at + 3000)`,
+   וכשנוספה הערה ל-lvFinish המחרוזת שנבדקת יצאה מהחלון והבדיקה נפלה על קוד תקין לגמרי.
+   בדיקה שנשברת מהוספת הערה מלמדת להתעלם ממנה. */
 const lvFinish = () => {
   const at = app.indexOf('function lvFinish');
   assert.ok(at > 0, 'lvFinish נעלמה');
-  return app.slice(at, at + 3000);
+  const end = app.indexOf('\n}', at);
+  assert.ok(end > at, 'לא נמצא הסוגר המסיים של lvFinish');
+  return app.slice(at, end + 2);
 };
 
 describe('מבחן רמה חוזר — ההצעה', () => {
