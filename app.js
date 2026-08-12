@@ -4859,13 +4859,23 @@ function maybeAskWtp(){
     show($('#wtpAsk'));
   }, 2000);
 }
+/* ⚠ הכפתור נפתח על **כל** שדה שמולא, לא רק על המחיר.
+   עד 11.8.2026 הוא היה נעול עד בחירת סכום, כי שאלת הכסף הייתה ראשונה וחובה.
+   מאז ששאלת הכסף ירדה לסוף והפכה לרשות, התנאי הישן היה כולא: מי שכותב תשובה
+   מילולית ולא בוחר סכום לא היה יכול לשלוח כלום, וזו בדיוק התשובה שהכי שווה לנו. */
+function wtpSyncGo(){
+  const any = wtpPrice || $('#wtpHelped').value.trim() || $('#wtpStop').value.trim();
+  $('#wtpGo').disabled = !any;
+}
 if($('#wtpAsk')){
+  $('#wtpHelped').oninput = wtpSyncGo;
+  $('#wtpStop').oninput   = wtpSyncGo;
   document.querySelectorAll('#wtpPrices button').forEach(b=>{
     b.onclick = ()=>{
       document.querySelectorAll('#wtpPrices button').forEach(o=>o.classList.remove('active'));
       b.classList.add('active');
       wtpPrice = b.dataset.v;
-      $('#wtpGo').disabled = false;         // the two open questions stay optional
+      wtpSyncGo();
     };
   });
   /* ✕ counts as "asked" and is written as dismissed:true. It is a data point of its own — how
