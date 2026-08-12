@@ -75,32 +75,36 @@ describe('ניהול מילים — היקף יחידה וסדר', () => {
       'הכניסה מהיחידה נשברה');
   });
 
+  /* ⚠ שתי הבדיקות האלה חיפשו `const rank` **בתוך** renderManage, ונפלו ברגע שהדירוג
+     חולץ החוצה ל-manageRank כדי שאפשר יהיה להריץ אותו בבדיקה (12.8.2026). הקוד היה
+     תקין; מה שנשבר הוא נעילה על מקום המימוש. הן בודקות עכשיו את הפונקציה עצמה.
+     ההתנהגות של "ידעתי" נבדקת ב-70-manage-order — כאן רק שהרשימה ממוינת בכלל
+     ושכללי classify עדיין הם שקובעים. */
   test('הסדר: לחיזוק → בשליטה → טרם נפגשו, ומחוקות בסוף', () => {
-    const body = renderManage();
-    const m = body.match(/const rank\s*=\s*w\s*=>\s*([^;]+);/);
+    const m = app.match(/const manageRank\s*=\s*w\s*=>\s*([^;]+);/);
     assert.ok(m, 'אין פונקציית דירוג — הסדר נשאר סדר המאגר');
     const r = m[1];
     /* אותו כלל של classify(): lvl>=3 בשליטה, seen>0 לחיזוק. */
-    assert.match(r, /lvl\(w\.term\)>=3/, 'הדירוג אינו משתמש בכלל של classify לבשליטה');
-    assert.match(r, /seenCount\(w\.term\)>0/, 'הדירוג אינו משתמש בכלל של classify לחיזוק');
+    assert.match(r, /lvl\(w\.term\)\s*>=\s*3/, 'הדירוג אינו משתמש בכלל של classify לבשליטה');
+    assert.match(r, /seenCount\(w\.term\)/, 'הדירוג אינו משתמש בכלל של classify לחיזוק');
     assert.match(r, /w\.gone/, 'מילה מחוקה אינה יורדת לסוף');
-    assert.match(body, /ws\.sort\(\(a,b\)=>rank\(a\)-rank\(b\)\)/, 'הרשימה אינה ממוינת בפועל');
+    assert.match(renderManage(), /ws\.sort\(\(a,b\)=>manageRank\(a\)-manageRank\(b\)\)/,
+      'הרשימה אינה ממוינת בפועל');
   });
 
   test('דירוג: חלש קודם לנלמד, ונלמד קודם לחדש', () => {
-    /* הכלל עצמו, מורץ. הבדיקות שמעל מוודאות שהוא כתוב; זו מוודאת שהוא נכון. */
-    const body = renderManage();
-    const expr = body.match(/const rank\s*=\s*w\s*=>\s*([^;]+);/)[1];
-    const rank = new Function('w', 'lvl', 'seenCount', 'return ' + expr);
+    /* הכלל עצמו, מורץ. הבדיקה שמעל מוודאת שהוא כתוב; זו מוודאת שהוא נכון. */
+    const expr = app.match(/const manageRank\s*=\s*w\s*=>\s*([^;]+);/)[1];
+    const rank = new Function('w', 'lvl', 'seenCount', 'isKnown', 'return ' + expr);
     /* lvl ו-seenCount מקבלים את המחרוזת w.term ולא את האובייקט, ולכן הבדיקה עובדת מול
        טבלה לפי מונח. הגרסה הראשונה כאן קראה w.level מתוך מחרוזת, קיבלה undefined,
        וכל הדירוגים יצאו זהים — הבדיקה נכשלה על קוד תקין. */
     const LV = { a:1, b:3, c:0, d:0 }, SEEN = { a:2, b:5, c:0, d:0 };
-    const lvl = t => LV[t], seen = t => SEEN[t];
-    const weak   = rank({ term:'a' }, lvl, seen);
-    const strong = rank({ term:'b' }, lvl, seen);
-    const fresh  = rank({ term:'c' }, lvl, seen);
-    const gone   = rank({ term:'d', gone:true }, lvl, seen);
+    const lvl = t => LV[t], seen = t => SEEN[t], known = () => false;
+    const weak   = rank({ term:'a' }, lvl, seen, known);
+    const strong = rank({ term:'b' }, lvl, seen, known);
+    const fresh  = rank({ term:'c' }, lvl, seen, known);
+    const gone   = rank({ term:'d', gone:true }, lvl, seen, known);
     assert.ok(weak < strong, `מילה לחיזוק (${weak}) אינה לפני מילה בשליטה (${strong})`);
     assert.ok(strong < fresh, `מילה בשליטה (${strong}) אינה לפני מילה שטרם נפגשה (${fresh})`);
     assert.ok(fresh < gone, `מילה מחוקה (${gone}) אינה אחרונה`);
