@@ -21,6 +21,12 @@ def norm(s):
     s = NIQ.sub('', s)
     return ' '.join(s.split()).strip()
 
+def ident(s):
+    """זהות ערך — מקף ורווח הם אותו דבר. ⛔ בלי זה `בֶּן-דְּמוּתוֹ` ו-`בן דמותו`
+    נחשבים שני ערכים, ושלוש כפילויות כאלה כמעט נכנסו למאגר בתוספת מילות הפער."""
+    return ' '.join(norm(s).replace('-', ' ').split())
+
+
 def fold(s):
     out = []
     s = norm(s).replace('-', ' ').replace('"', '').replace("'", '').replace('׳', '').replace('״', '')
@@ -58,7 +64,7 @@ for u in range(1, 11):
             break
     sizes[u] = len(rows)
     for _n, w, roots in rows:
-        nw = norm(w)
+        nw = ident(w)
         if nw in words:
             problems.append('כפילות מילה: "%s" (י%d וגם %s)' % (w, u, words[nw]))
         words[nw] = 'י%d' % u

@@ -40,6 +40,12 @@ def norm(s):
     return ' '.join(s.split()).strip()
 
 
+def ident(s):
+    """זהות ערך — מקף ורווח הם אותו דבר. ⛔ הנרמול לבדו משאיר את המקף, ולכן
+    `בֶּן-דְּמוּתוֹ` לא נתפס כזהה ל-`בן דמותו` שכבר במאגר."""
+    return ' '.join(norm(s).replace('-', ' ').split())
+
+
 FINALS = str.maketrans('ךםןףץ', 'כמנפצ')
 
 
@@ -110,7 +116,7 @@ def main():
         if os.path.abspath(p) == me:
             continue
         for _, w, rs in load_tsv(p):
-            used_words.add(w)
+            used_words.add(ident(w))
             used_roots.update(rs)
 
     exceptions = load_exceptions()
@@ -123,7 +129,7 @@ def main():
         used_fold.setdefault(fold(uw), uw)
     if mode != '--init':
         for num, w, rs in rows:
-            if w in used_words:
+            if ident(w) in used_words:
                 problems.append('שורה %s · המילה "%s" כבר בשימוש ביחידה קודמת' % (num, w))
             else:
                 fw = fold(w)
@@ -131,9 +137,9 @@ def main():
                     warnings.append('שורה %s · ⚠ וריאנט-כתיב אפשרי: "%s" ↔ "%s" (קיימת)'
                                     % (num, w, used_fold[fw]))
                 used_fold.setdefault(fw, w)
-            if w in seen_w:
-                problems.append('שורה %s · המילה "%s" כפולה בתוך היחידה (גם בשורה %s)' % (num, w, seen_w[w]))
-            seen_w.setdefault(w, num)
+            if ident(w) in seen_w:
+                problems.append('שורה %s · המילה "%s" כפולה בתוך היחידה (גם בשורה %s)' % (num, w, seen_w[ident(w)]))
+            seen_w.setdefault(ident(w), num)
             for r in rs:
                 if r in exceptions:
                     if r in used_roots or r in seen_r:
