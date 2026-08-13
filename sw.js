@@ -13,7 +13,7 @@ const ASSETS = [
   './', './index.html', './manifest.webmanifest',
   /* הדפים המשפטיים: סטטיים, קטנים, ובלי ?v= — הם נטענים בניווט (network-first),
      וה-precache כאן רק מאפשר לפתוח אותם גם באופליין. */
-  './terms.html', './privacy.html', './deletion.html',
+  './terms.html', './privacy.html', './deletion.html', './accessibility.html',
   `./app.js?v=${REV}`, `./data.js?v=${REV}`, `./data-en.js?v=${REV}`, `./data-en-sentences.js?v=${REV}`,
   `./leveltest.js?v=${REV}`, `./leveltest-he.js?v=${REV}`, `./enrank.js?v=${REV}`,
   `./supabase.min.js?v=${REV}`, `./config.js?v=${REV}`, `./store.js?v=${REV}`,
