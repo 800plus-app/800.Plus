@@ -192,8 +192,8 @@ describe('FIX 2 · סף הגיל נשאר בתנאי השימוש, ולא בשד
 describe('FIX 3 · הדפים המשפטיים קיימים ומקושרים מנקודת האיסוף', () => {
   const pages = ['terms.html', 'privacy.html', 'deletion.html'];
 
-  test('שלושת הדפים קיימים בשורש הפרויקט', () => {
-    for (const p of pages)
+  test('שלושת הדפים קיימים בשורש הפרויקט, ולצידם הצהרת הנגישות', () => {
+    for (const p of [...pages, 'accessibility.html'])
       assert.ok(fs.existsSync(path.join(ROOT, p)), `${p} חסר מהשורש`);
   });
 
@@ -204,10 +204,10 @@ describe('FIX 3 · הדפים המשפטיים קיימים ומקושרים מ�
     assert.ok(legal[0].includes('href="privacy.html"'), 'ההרשמה לא מקשרת למדיניות הפרטיות');
   });
 
-  test('מסך החשבון מקשר לשלושת הדפים', () => {
+  test('מסך החשבון מקשר לשלושת הדפים ולהצהרת הנגישות', () => {
     const acc = html.match(/<p class="acc-legal">[\s\S]*?<\/p>/);
     assert.ok(acc, 'שורת acc-legal נעלמה ממסך החשבון');
-    for (const p of pages)
+    for (const p of [...pages, 'accessibility.html'])
       assert.ok(acc[0].includes(`href="${p}"`), `מסך החשבון לא מקשר אל ${p}`);
   });
 

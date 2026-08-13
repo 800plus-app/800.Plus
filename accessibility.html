@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>הצהרת נגישות · ‎800+‎</title>
+<style>
+  @font-face{font-family:'Frank Ruhl Libre';font-style:normal;font-weight:400 900;font-display:swap;
+    src:url(fonts/frank-ruhl-libre-hebrew.woff2) format('woff2');
+    unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;}
+  @font-face{font-family:'Frank Ruhl Libre';font-style:normal;font-weight:400 900;font-display:swap;
+    src:url(fonts/frank-ruhl-libre-latin.woff2) format('woff2');
+    unicode-range:U+0000-00FF, U+2000-206F, U+20AC, U+2122, U+FEFF, U+FFFD;}
+  @font-face{font-family:'Heebo';font-style:normal;font-weight:400 700;font-display:swap;
+    src:url(fonts/heebo-hebrew.woff2) format('woff2');
+    unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;}
+  @font-face{font-family:'Heebo';font-style:normal;font-weight:400 700;font-display:swap;
+    src:url(fonts/heebo-latin.woff2) format('woff2');
+    unicode-range:U+0000-00FF, U+2000-206F, U+20AC, U+2122, U+FEFF, U+FFFD;}
+  :root{
+    --paper:#f6f1e7; --paper-deep:#efe7d6; --card:#fffdf8; --ink:#2c2620; --ink-soft:#736a5c;
+    --gold:#c9962f; --accent:#b5482e; --accent-deep:#8f3620; --line:#e3d8c4;
+    --shadow:0 10px 30px -14px rgba(90,60,20,.4);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Heebo",sans-serif;background:var(--paper);color:var(--ink);line-height:1.7}
+  .wrap{max-width:700px;margin:0 auto;padding:26px 20px 60px}
+  .brand{font-family:"Frank Ruhl Libre",serif;font-weight:900;font-size:1.1rem}
+  .brand a{color:var(--ink);text-decoration:none}
+  h1,h2{font-family:"Frank Ruhl Libre",serif;line-height:1.3}
+  h1{font-size:1.85rem;margin:14px 0 2px}
+  h2{font-size:1.22rem;margin:30px 0 8px}
+  .updated{color:var(--ink-soft);font-size:.88rem;margin-bottom:22px}
+  .lead{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow);margin-bottom:6px}
+  .lead p{margin:0 0 8px} .lead p:last-child{margin:0}
+  p{margin:8px 0}
+  ul{margin:8px 0;padding-inline-start:22px}
+  li{margin:5px 0}
+  strong{font-weight:700}
+  a{color:var(--accent-deep)}
+  a[dir="ltr"]{white-space:nowrap;unicode-bidi:isolate}
+  .docnav{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);font-size:.9rem;color:var(--ink-soft)}
+  .docnav a{color:var(--accent-deep);text-decoration:none}
+  .docnav a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><a href="./">‎800+‎</a></div>
+  <h1>הצהרת נגישות</h1>
+  <div class="updated">עודכן: 13 באוגוסט 2026</div>
+
+  <div class="lead">
+    <p>‎800+‎ נועד לשרת כל לומד, והנגישות היא חלק מהבנייה שלו, לא תוספת.
+    הדף הזה אומר בדיוק מה כבר נבדק, מה תוקן, ומה עדיין לא, בלי להתייפות.</p>
+  </div>
+
+  <h2>1. מה נבדק ותוקן</h2>
+  <ul>
+    <li><strong>ביקורת נגישות בדפדפן אמיתי</strong> נערכה באוגוסט 2026 על מסכי האפליקציה.
+    ארבעת הליקויים שנמצאו בה תוקנו.</li>
+    <li><strong>ניגודיות צבעים</strong>: צבעי הטקסט עומדים ביחס הניגודיות של
+    WCAG 2.1 רמה AA. הבדיקה מחושבת על ערכי הצבע המוצהרים ורצה מחדש בכל שינוי קוד.</li>
+    <li><strong>קוראי מסך</strong>: הודעות שגיאה נושאות role="alert", אזורים שמשתנים
+    מסומנים ב-aria-live, וכפתורי אייקון נושאים תווית מילולית (aria-label).</li>
+    <li><strong>מקלדת ומגע</strong>: הפקדים בנויים מרכיבי דפדפן מקוריים, כפתורים ושדות,
+    ומטרות המגע במסכי התרגול הוגדלו למידה הנוחה לאצבע.</li>
+    <li><strong>טקסט</strong>: הגופנים מוגשים מהאתר עצמו, והממשק כולו בעברית, מימין לשמאל.</li>
+  </ul>
+
+  <h2>2. מה עדיין לא נבדק</h2>
+  <ul>
+    <li>טרם נערכה בדיקה מלאה עם קוראי מסך (NVDA, VoiceOver). המנגנונים קיימים בקוד,
+    והבדיקה בפועל היא השלב הבא.</li>
+    <li>טרם נערך סקר נגישות מקיף בידי בודק נגישות מוסמך.</li>
+  </ul>
+  <p>ההנגשה נמשכת, והדף הזה יעודכן ככל שהיא מתקדמת.</p>
+
+  <h2>3. נתקלת במכשול?</h2>
+  <p>אם משהו באתר לא נגיש לך, כתוב אל
+  <a href="mailto:admin@800-plus.com" dir="ltr">admin@800-plus.com</a>
+  ונטפל. אחראי הנגישות: חגי שטרית, בעל השירות. נענה בתוך 30 יום, ובדרך כלל מהר מזה.</p>
+
+  <nav class="docnav">
+    <a href="./">חזרה לאפליקציה</a> ·
+    <a href="terms.html">תנאי שימוש</a> ·
+    <a href="privacy.html">מדיניות פרטיות</a> ·
+    <a href="deletion.html">מחיקת חשבון ונתונים</a>
+  </nav>
+</div>
+</body>
+</html>
