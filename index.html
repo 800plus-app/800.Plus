@@ -678,6 +678,9 @@
   .au-go:disabled{opacity:.5;cursor:not-allowed}
   .au-link{background:transparent;border:0;color:#8d8274;font-family:"Heebo";font-size:.8rem;
        text-decoration:underline;cursor:pointer;margin-top:5px}
+  .au-legal{margin-top:14px;font-size:.78rem;line-height:1.6;color:var(--ink-soft);text-align:center}
+  .au-legal a,.acc-legal a{color:var(--ink-soft)}
+  .acc-legal{margin-top:26px;font-size:.8rem;line-height:1.7;color:var(--ink-soft)}
   /* הצהרת הגיל. align-items:flex-start כדי שהתיבה תיצמד לשורה הראשונה אם הטקסט נשבר,
      ולא תרחף באמצע. 20px ו-min-height:44px כי זו תיבה שנלחצת באגודל — הכפתורים במסכי
      ה-ask נמדדו 20 פיקסלים בדפדפן אמיתי, וזה חצי אצבע. */
@@ -1298,6 +1301,10 @@
         <button type="submit" class="au-go" id="authSubmit">התחבר<i>←</i></button>
         <button type="button" class="au-link" id="authForgot">שכחתי סיסמה</button>
       </form>
+      <!-- היידוע לפי ס' 11 לחוק הגנת הפרטיות נמסר בנקודת איסוף המידע, לא בדף יתום. -->
+      <p class="au-legal">ההרשמה והשימוש כפופים
+        ל<a href="terms.html" target="_blank" rel="noopener">תנאי השימוש</a>
+        ול<a href="privacy.html" target="_blank" rel="noopener">מדיניות הפרטיות</a></p>
       <!-- role="alert" and not role="status": this is the ONLY gate into the app, and a failed
            sign-in interrupts the task rather than reporting on it. Without this the message was
            painted on screen and never spoken — the learner typed a wrong password and heard
@@ -1575,11 +1582,12 @@
       <span>מוחק את כל ההיסטוריה שלך בשתי השפות — מילים שלמדת, ציונים, רצף ימים.
       החשבון עצמו נשאר. אין דרך לבטל.</span></div><div class="cnt">‹</div></button>
     <button class="pbtn danger-tile" id="accDelete"><div class="ic">🗑</div><div class="tx"><b>מחיקת החשבון</b>
-      <span>מוחק את החשבון עצמו ואת כל מה שקשור אליו — התקדמות, דיווחים, הכתובת.
-      לא נשאר שום זכר, ואי אפשר לשחזר.</span></div><div class="cnt">‹</div></button>
+      <span>מוחק את החשבון עצמו ואת כל מה שקשור אליו: התקדמות, דיווחים, הכתובת.
+      אי-אפשר לשחזר.</span></div><div class="cnt">‹</div></button>
 
-    <p class="acc-soon">בהמשך יופיעו כאן הצהרת פרטיות ונגישות, ופרטי המנוי —
-      איזו חבילה, מתי התחילה וכמה זמן נשאר.</p>
+    <p class="acc-legal"><a href="terms.html" target="_blank" rel="noopener">תנאי שימוש</a> ·
+      <a href="privacy.html" target="_blank" rel="noopener">מדיניות פרטיות</a> ·
+      <a href="deletion.html" target="_blank" rel="noopener">מחיקת חשבון ונתונים</a></p>
   </section>
 
   <section id="home" class="hidden">
@@ -2156,14 +2164,14 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=192"></script>
-<script src="config.js?v=192"></script>
-<script src="store.js?v=192"></script>
-<script src="leveltest-he.js?v=192"></script>
-  <script src="leveltest.js?v=192"></script>
-<script src="enrank.js?v=192"></script>
-<script src="data.js?v=192"></script>
-<script src="data-en.js?v=192"></script>
-<script src="app.js?v=192"></script>
+<script src="supabase.min.js?v=193"></script>
+<script src="config.js?v=193"></script>
+<script src="store.js?v=193"></script>
+<script src="leveltest-he.js?v=193"></script>
+  <script src="leveltest.js?v=193"></script>
+<script src="enrank.js?v=193"></script>
+<script src="data.js?v=193"></script>
+<script src="data-en.js?v=193"></script>
+<script src="app.js?v=193"></script>
 </body>
 </html>

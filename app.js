@@ -4884,7 +4884,7 @@ $('#delGo').onclick = async ()=>{
   if(!r.ok){
     m.className='au-msg err';
     m.textContent = r.notDeployed
-      ? 'המחיקה האוטומטית עוד לא פעילה. כתוב אליי ל-admin@800-plus.com ואמחק ידנית תוך יום.'
+      ? 'המחיקה האוטומטית עוד לא פעילה. כתוב אליי ל-admin@800-plus.com ואמחק ידנית בתוך שלושה ימי עסקים.'
       : (r.error && r.error.message) || 'המחיקה נכשלה — נסה שוב.';
     btn.disabled=false; return;
   }
@@ -4894,7 +4894,7 @@ $('#delGo').onclick = async ()=>{
   try{ await Store.signOut(); }catch(e){}
   try{ localStorage.clear(); }catch(e){}
   /* טקסט התזכורת האישי נכתב ל-Cache Storage תחת 'hw-data', לא ל-localStorage. בלי השורה
-     הזאת הוא שורד את המחיקה, ו-"לא נשאר אצלנו שום מידע עליך" הופך לשקר. */
+     הזאת הוא שורד את המחיקה, ו-"הנתונים שלך נמחקו" הופך לשקר. */
   if(window.caches) try{ await caches.delete('hw-data'); }catch(e){}
   closeDel();
   document.body.innerHTML = '<div style="min-height:100vh;display:flex;align-items:center;'
@@ -4902,7 +4902,7 @@ $('#delGo').onclick = async ()=>{
     + 'font-family:Heebo,system-ui,sans-serif">'
     + '<div><div style="font:700 30px/1 Georgia,serif;color:#c9962f" dir="ltr">800+</div>'
     + '<p style="margin-top:18px;font-size:1.05rem;line-height:1.8">החשבון נמחק.<br>'
-    + 'לא נשאר אצלנו שום מידע עליך.</p>'
+    + 'הנתונים שלך נמחקו מהשרת.</p>'
     + '<p style="margin-top:14px;font-size:.85rem;color:#8d8274">בהצלחה במבחן.</p></div></div>';
 };
 
