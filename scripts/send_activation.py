@@ -124,7 +124,9 @@ for x in picked:
         st, resp = post('https://api.resend.com/emails',
                         {'from': FROM, 'to': [x['email']], 'subject': SUBJECT,
                          'html': body(x['name']),
-                         'headers': {'List-Unsubscribe': '<mailto:noreply@800-plus.com?subject=הסר>'}},
+                         # reply_to לתיבה מנוטרת: תשובת "הסר" אל noreply נעלמת.
+                         'reply_to': 'admin@800-plus.com',
+                         'headers': {'List-Unsubscribe': '<mailto:admin@800-plus.com?subject=הסר>'}},
                         {'Authorization': 'Bearer ' + RESEND, 'Content-Type': 'application/json'})
         if st >= 300:
             print('✗ %s — HTTP %s %s' % (mask(x['email']), st, resp[:400])); failed += 1; continue

@@ -147,8 +147,7 @@ def body(name, n, days=None):
   <tr><td style="padding:0 30px 24px">
     <p style="margin:0;padding-top:16px;border-top:1px solid #eee4d5;
        font-size:12px;line-height:1.7;color:#9a8f80;text-align:center">
-      ניתן לכבות את התזכורת ב<a href="{APP}" style="color:#9a8f80">הגדרות האפליקציה</a>
-      · להסרה מלאה השב למייל הזה במילה "הסר"
+      להסרה מהתזכורות השב למייל הזה במילה "הסר"
     </p>
   </td></tr>
 </table>
@@ -170,9 +169,12 @@ for x in picked:
         st, resp = post('https://api.resend.com/emails',
                         {'from': FROM, 'to': [x['email']], 'subject': subj,
                          'html': body(x['name'], x['weak'], x.get('days')),
+                         # reply_to לתיבה מנוטרת: תשובת "הסר" אל noreply נעלמת, וזו
+                         # הבטחת ההסרה שמדיניות הפרטיות מפרסמת. אותה כתובת גם בכותרת.
+                         'reply_to': 'admin@800-plus.com',
                          # כותרת תקנית שלקוחות מייל מציגים ככפתור "בטל הרשמה". היא אינה
                          # מחליפה את הקישור בגוף — חלק מהלקוחות לא מציגים אותה בכלל.
-                         'headers': {'List-Unsubscribe': '<mailto:noreply@800-plus.com?subject=הסר>'}},
+                         'headers': {'List-Unsubscribe': '<mailto:admin@800-plus.com?subject=הסר>'}},
                         {'Authorization': 'Bearer ' + RESEND, 'Content-Type': 'application/json'})
         if st >= 300:
             print('✗ %s — HTTP %s %s' % (mask(x['email']), st, resp[:400])); failed += 1; continue
