@@ -220,7 +220,9 @@ describe('סובלנות איות · שקילות מעבדה↔ריצה', () => 
       t.skip('golden.jsonl הופק מפרמטרים אחרים · הרץ typo-lab/evolve.js מחדש לפני שסומכים על השקילות');
       return;
     }
-    const rows = fs.readFileSync(GOLDEN_FILE, 'utf8').trim().split('\n');
+    /* ‏\r?\n · git ממיר את הקובץ ל-CRLF ב-checkout על ווינדוס, ופיצול על \n
+       בלבד היה משאיר \r בסוף כל שורה. */
+    const rows = fs.readFileSync(GOLDEN_FILE, 'utf8').trim().split(/\r?\n/);
     assert.strictEqual(rows.length, RULES.golden.rows, 'מספר השורות בטבלת הזהב אינו זה שהארטיפקט מדווח');
     const by = { he: new Map(), en: new Map() };
     for (const l of ['he', 'en']) for (const w of Array.from(CTX[l].BANK)) by[l].set(w.term + '|' + w.unit, w);
@@ -327,7 +329,7 @@ describe('סובלנות איות · מתג הכיבוי והתלות בלקסי
 
   test('שכבת הלקסיקון נושאת במשקל · בלעדיה נפתחות בדיוק הקבלות שנמדדו', t => {
     if (!FP_MATCHES) { t.skip('טבלת הזהב אינה תואמת לפרמטרים'); return; }
-    const rows = fs.readFileSync(GOLDEN_FILE, 'utf8').trim().split('\n').map(JSON.parse)
+    const rows = fs.readFileSync(GOLDEN_FILE, 'utf8').trim().split(/\r?\n/).map(JSON.parse)
       .filter(r => r.verdict.why === 'real-word');
     assert.ok(rows.length > 0, 'אין בטבלת הזהב שורות שהלקסיקון דחה · אין מה למדוד');
     const by = { he: new Map(), en: new Map() };
