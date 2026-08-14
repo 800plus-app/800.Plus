@@ -1,0 +1,5752 @@
+{
+  "ver": "typo-lab/evolve/v1",
+  "generatedAt": "2026-08-14",
+  "wallClockSec": 1072,
+  "dataset": {
+    "total": 89375,
+    "files": [
+      {
+        "name": "dataset-he.jsonl",
+        "rows": 33670,
+        "sha256": "ff64ae144f8a1bcdbc58a2148ae2682387a15bebf69de651cfb4b63c35b83e81"
+      },
+      {
+        "name": "dataset-en.jsonl",
+        "rows": 55705,
+        "sha256": "d91cffc0b38fcddb94a3cce8b6fb58784a7f3e1ab4975426443c5c99d51eba28"
+      }
+    ],
+    "seed": "typo-lab/dataset/v3"
+  },
+  "lexicon": {
+    "available": true,
+    "file": "runtime-lexicon.js",
+    "version": "typo-lab/runtime-lexicon/v1",
+    "bytes": 68096,
+    "sha256": "d690b04c956bb5bdd46fd36a27600523e892898c2d8d2cf0082ce00671d956ba",
+    "he": {
+      "n": 29296,
+      "m": 323072,
+      "k": 8
+    },
+    "en": {
+      "n": 5928,
+      "m": 65376,
+      "k": 8
+    },
+    "fprTarget": 0.005
+  },
+  "ga": {
+    "popSize": 60,
+    "maxGen": 80,
+    "elite": 4,
+    "tournament": 3,
+    "crossoverP": 0.7,
+    "mutateP": 0.25,
+    "sigmaFrac": 0.1,
+    "patience": 15,
+    "genes": [
+      "minLen",
+      "edge1",
+      "edge2",
+      "edge3",
+      "t1",
+      "t2",
+      "t3",
+      "t4",
+      "W.adjSub",
+      "W.transpose",
+      "W.ins",
+      "W.del",
+      "W.doubleLetter",
+      "W.materVI",
+      "W.homophone",
+      "vetoMargin"
+    ],
+    "seedGenomes": [
+      "zero-tolerance · today",
+      "plain d<=1 for len>=4",
+      "d<=1 under 8 · d<=2 at 8+",
+      "creditSense cap floor(len/3)",
+      "weighted · adjSub/mater/homophone discounted",
+      "weighted · generous on long words",
+      "strict short · margin 2",
+      "plain d<=1 · margin 2"
+    ],
+    "complexityWeight": 0.002
+  },
+  "params": {
+    "he-word": {
+      "minLen": 6,
+      "vetoMargin": 1,
+      "useLexicon": true,
+      "bands": [
+        {
+          "maxLen": 3,
+          "t": 0
+        },
+        {
+          "maxLen": 7,
+          "t": 0.5164
+        },
+        {
+          "maxLen": 14,
+          "t": 0
+        },
+        {
+          "maxLen": null,
+          "t": 1.5253
+        }
+      ],
+      "W": {
+        "sub": 1,
+        "adjSub": 1.5771,
+        "transpose": 1.9474,
+        "ins": 1.6279,
+        "del": 0.5165,
+        "doubleLetter": 0.4423,
+        "materVI": 0.9335,
+        "homophone": 1.7535
+      }
+    },
+    "en-word": {
+      "minLen": 1,
+      "vetoMargin": 2,
+      "useLexicon": true,
+      "bands": [
+        {
+          "maxLen": 2,
+          "t": 0.0889
+        },
+        {
+          "maxLen": 9,
+          "t": 1.5657
+        },
+        {
+          "maxLen": 10,
+          "t": 1.055
+        },
+        {
+          "maxLen": null,
+          "t": 1.4513
+        }
+      ],
+      "W": {
+        "sub": 1,
+        "adjSub": 1.3764,
+        "transpose": 1.0148,
+        "ins": 1.4561,
+        "del": 1.534,
+        "doubleLetter": 1.0232,
+        "materVI": 0.596,
+        "homophone": 1.6427
+      }
+    },
+    "gloss": {
+      "minLen": 4,
+      "vetoMargin": 2,
+      "useLexicon": true,
+      "bands": [
+        {
+          "maxLen": 4,
+          "t": 0
+        },
+        {
+          "maxLen": 9,
+          "t": 0
+        },
+        {
+          "maxLen": 13,
+          "t": 0
+        },
+        {
+          "maxLen": null,
+          "t": 0
+        }
+      ],
+      "W": {
+        "sub": 1,
+        "adjSub": 2,
+        "transpose": 2.8453,
+        "ins": 1.9206,
+        "del": 0.2,
+        "doubleLetter": 0.2,
+        "materVI": 0.9063,
+        "homophone": 0.2
+      }
+    }
+  },
+  "results": {
+    "he-word": {
+      "rowsTotal": 25217,
+      "rowsEvolve": 21440,
+      "rowsHoldout": 3777,
+      "acceptShare": 0.5730261331641353,
+      "untrusted": {
+        "policy": "excluded from the recall denominator and numerator; still counted as a false accept if labelled reject",
+        "rows": 2277,
+        "rejectRows": 0,
+        "evolveRecallExcluding": 0.10790464240903387,
+        "evolveRecallIncluding": 0.09104234527687297,
+        "holdoutRecallExcluding": 0.09713024282560706,
+        "holdoutRecallIncluding": 0.08110599078341015,
+        "evolveUntrustedAccepted": 0,
+        "evolveUntrustedTotal": 1919,
+        "holdoutUntrustedAccepted": 0,
+        "holdoutUntrustedTotal": 358
+      },
+      "lexicon": {
+        "available": true,
+        "blockedRows": 3937,
+        "blockedRealWord": 952,
+        "blockedAccept": 92,
+        "blockedAcceptTrusted": 76,
+        "counterfactual": {
+          "vetoMargin": 1,
+          "minLen": 0,
+          "evolveRecall": 0,
+          "evolveFalseAccepts": 0,
+          "evolveRealWordFalseAccepts": 0,
+          "holdoutRecall": 0,
+          "holdoutFalseAccepts": 0,
+          "holdoutRealWordFalseAccepts": 0
+        },
+        "sameParamsWithoutLexicon": {
+          "holdoutRecall": 0.09768211920529801,
+          "holdoutFalseAccepts": 3,
+          "holdoutRealWordFalseAccepts": 3
+        }
+      },
+      "realWord": {
+        "rows": 1167,
+        "evolveFalseAccepts": 0,
+        "evolveRejectRows": 1016,
+        "holdoutFalseAccepts": 0,
+        "holdoutRejectRows": 151
+      },
+      "cv": {
+        "folds": [
+          {
+            "fold": 0,
+            "nTrain": 17361,
+            "nVal": 4079,
+            "generations": 62,
+            "trainRecall": 0.10435094429835047,
+            "valRecall": 0.09824561403508772,
+            "valFalseAccepts": 0,
+            "valRealWordFalseAccepts": 0,
+            "valRecallIncludingUntrusted": 0.08372093023255814,
+            "vetoMargin": 1,
+            "minLen": 0
+          },
+          {
+            "fold": 1,
+            "nTrain": 17285,
+            "nVal": 4155,
+            "generations": 80,
+            "trainRecall": 0.07648895292987512,
+            "valRecall": 0.07279881947860305,
+            "valFalseAccepts": 0,
+            "valRealWordFalseAccepts": 0,
+            "valRecallIncludingUntrusted": 0.06208333333333333,
+            "vetoMargin": 2,
+            "minLen": 1
+          },
+          {
+            "fold": 2,
+            "nTrain": 17211,
+            "nVal": 4229,
+            "generations": 80,
+            "trainRecall": 0.07665973835432205,
+            "valRecall": 0.08157653528872594,
+            "valFalseAccepts": 0,
+            "valRealWordFalseAccepts": 0,
+            "valRecallIncludingUntrusted": 0.07057890563045202,
+            "vetoMargin": 2,
+            "minLen": 8
+          },
+          {
+            "fold": 3,
+            "nTrain": 16921,
+            "nVal": 4519,
+            "generations": 80,
+            "trainRecall": 0.16084681834773087,
+            "valRecall": 0.16339869281045752,
+            "valFalseAccepts": 1,
+            "valRealWordFalseAccepts": 1,
+            "valRecallIncludingUntrusted": 0.13650546021840873,
+            "vetoMargin": 1,
+            "minLen": 2
+          },
+          {
+            "fold": 4,
+            "nTrain": 16982,
+            "nVal": 4458,
+            "generations": 80,
+            "trainRecall": 0.12619731800766285,
+            "valRecall": 0.1289198606271777,
+            "valFalseAccepts": 0,
+            "valRealWordFalseAccepts": 0,
+            "valRecallIncludingUntrusted": 0.10662824207492795,
+            "vetoMargin": 1,
+            "minLen": 6
+          }
+        ],
+        "mean": 0.10898790444801039,
+        "sd": 0.03326934505149262,
+        "meanTrainValGap": -0.00007915006042211181,
+        "overfitFlag": false,
+        "anyValFalseAccepts": true
+      },
+      "final": {
+        "generations": 80,
+        "evaluations": 4431,
+        "fitness": 0.1075643632701229,
+        "recall": 0.10790464240903387,
+        "falseAccepts": 0,
+        "reachableCeiling": 0.9796351703503523
+      },
+      "holdout": {
+        "recall": 0.09713024282560706,
+        "falseAccepts": 0,
+        "realWordFalseAccepts": 0,
+        "reachableCeiling": 0.9839955849889624,
+        "floor": 0.042449214345025146,
+        "ship": true
+      },
+      "recallByLength": {
+        "basis": "letters of the card key the row was derived from",
+        "evolve": [
+          {
+            "len": "2",
+            "nAccept": 0,
+            "tp": 0,
+            "nReject": 125,
+            "fa": 0,
+            "recall": null
+          },
+          {
+            "len": "3",
+            "nAccept": 233,
+            "tp": 0,
+            "nReject": 2136,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "4",
+            "nAccept": 932,
+            "tp": 0,
+            "nReject": 2825,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "5",
+            "nAccept": 1956,
+            "tp": 455,
+            "nReject": 2141,
+            "fa": 0,
+            "recall": 0.23261758691206544
+          },
+          {
+            "len": "6",
+            "nAccept": 1694,
+            "tp": 315,
+            "nReject": 793,
+            "fa": 0,
+            "recall": 0.1859504132231405
+          },
+          {
+            "len": "7",
+            "nAccept": 1494,
+            "tp": 185,
+            "nReject": 279,
+            "fa": 0,
+            "recall": 0.12382864792503347
+          },
+          {
+            "len": "8",
+            "nAccept": 1080,
+            "tp": 1,
+            "nReject": 240,
+            "fa": 0,
+            "recall": 0.000925925925925926
+          },
+          {
+            "len": "9",
+            "nAccept": 777,
+            "tp": 0,
+            "nReject": 172,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "10",
+            "nAccept": 721,
+            "tp": 0,
+            "nReject": 182,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "11",
+            "nAccept": 534,
+            "tp": 0,
+            "nReject": 98,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "12+",
+            "nAccept": 940,
+            "tp": 162,
+            "nReject": 169,
+            "fa": 0,
+            "recall": 0.1723404255319149
+          }
+        ],
+        "holdout": [
+          {
+            "len": "2",
+            "nAccept": 0,
+            "tp": 0,
+            "nReject": 13,
+            "fa": 0,
+            "recall": null
+          },
+          {
+            "len": "3",
+            "nAccept": 36,
+            "tp": 0,
+            "nReject": 333,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "4",
+            "nAccept": 182,
+            "tp": 0,
+            "nReject": 556,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "5",
+            "nAccept": 352,
+            "tp": 79,
+            "nReject": 389,
+            "fa": 0,
+            "recall": 0.22443181818181818
+          },
+          {
+            "len": "6",
+            "nAccept": 297,
+            "tp": 57,
+            "nReject": 138,
+            "fa": 0,
+            "recall": 0.1919191919191919
+          },
+          {
+            "len": "7",
+            "nAccept": 250,
+            "tp": 35,
+            "nReject": 62,
+            "fa": 0,
+            "recall": 0.14
+          },
+          {
+            "len": "8",
+            "nAccept": 187,
+            "tp": 0,
+            "nReject": 45,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "9",
+            "nAccept": 156,
+            "tp": 0,
+            "nReject": 31,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "10",
+            "nAccept": 144,
+            "tp": 0,
+            "nReject": 17,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "11",
+            "nAccept": 102,
+            "tp": 0,
+            "nReject": 12,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "12+",
+            "nAccept": 106,
+            "tp": 5,
+            "nReject": 11,
+            "fa": 0,
+            "recall": 0.04716981132075472
+          }
+        ]
+      },
+      "crossCard": {
+        "rowsInRisk": 533,
+        "collisionsAtShipped": 0,
+        "examples": [],
+        "note": "cross-card pairs enumerated at MAX_OPS depth over every accepted form and every dataset should-accept variant; rows no genome in the gene space could accept are filtered out (provable, not heuristic). Gloss B1 expansion is not modelled here - bank_gate.js remains the final authority."
+      },
+      "budgetSweep": [
+        {
+          "budget": 0,
+          "budgetLabel": "0",
+          "allowedOnEvolveSet": 0,
+          "cvMean": 0.10752166564432915,
+          "cvSd": 0.04783571013319846,
+          "evolveRecall": 0.02625229224978284,
+          "evolveFalseAccepts": 0,
+          "holdoutRecall": 0.030353200883002206,
+          "holdoutFalseAccepts": 0,
+          "holdoutRate": 0,
+          "crossCardCollisions": 0,
+          "totalFalseAccepts": 0,
+          "buckets": {},
+          "shipGate": true,
+          "params": {
+            "minLen": 1,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 3,
+                "t": 0.2093
+              },
+              {
+                "maxLen": 5,
+                "t": 0
+              },
+              {
+                "maxLen": 11,
+                "t": 0.6009
+              },
+              {
+                "maxLen": null,
+                "t": 0
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.0348,
+              "transpose": 1.5508,
+              "ins": 0.7581,
+              "del": 0.2,
+              "doubleLetter": 1.2472,
+              "materVI": 1.804,
+              "homophone": 2
+            }
+          }
+        },
+        {
+          "budget": 0.00002,
+          "budgetLabel": "1/50000",
+          "allowedOnEvolveSet": 0,
+          "cvMean": 0.13447162793491052,
+          "cvSd": 0.020551607892098037,
+          "evolveRecall": 0,
+          "evolveFalseAccepts": 0,
+          "holdoutRecall": 0,
+          "holdoutFalseAccepts": 0,
+          "holdoutRate": 0,
+          "crossCardCollisions": 0,
+          "totalFalseAccepts": 0,
+          "buckets": {},
+          "shipGate": false,
+          "params": {
+            "minLen": 0,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 3,
+                "t": 0
+              },
+              {
+                "maxLen": 6,
+                "t": 0
+              },
+              {
+                "maxLen": 10,
+                "t": 0
+              },
+              {
+                "maxLen": null,
+                "t": 0
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1,
+              "transpose": 2,
+              "ins": 1,
+              "del": 1,
+              "doubleLetter": 1,
+              "materVI": 1,
+              "homophone": 1
+            }
+          }
+        },
+        {
+          "budget": 0.00005,
+          "budgetLabel": "1/20000",
+          "allowedOnEvolveSet": 1,
+          "cvMean": 0.10634099999175861,
+          "cvSd": 0.04039183941264491,
+          "evolveRecall": 0.16031271112826948,
+          "evolveFalseAccepts": 1,
+          "holdoutRecall": 0.14955849889624723,
+          "holdoutFalseAccepts": 0,
+          "holdoutRate": 0,
+          "crossCardCollisions": 0,
+          "totalFalseAccepts": 0,
+          "buckets": {},
+          "shipGate": true,
+          "params": {
+            "minLen": 3,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 3,
+                "t": 0.7055
+              },
+              {
+                "maxLen": 7,
+                "t": 0.271
+              },
+              {
+                "maxLen": 14,
+                "t": 0
+              },
+              {
+                "maxLen": null,
+                "t": 1.7182
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 2,
+              "transpose": 2.4719,
+              "ins": 1.8714,
+              "del": 0.5893,
+              "doubleLetter": 0.2059,
+              "materVI": 1.0829,
+              "homophone": 1.8655
+            }
+          }
+        },
+        {
+          "budget": 0.0001,
+          "budgetLabel": "1/10000",
+          "allowedOnEvolveSet": 2,
+          "cvMean": 0.1586142105247818,
+          "cvSd": 0.025937785567527346,
+          "evolveRecall": 0.1829939195058392,
+          "evolveFalseAccepts": 2,
+          "holdoutRecall": 0.18101545253863136,
+          "holdoutFalseAccepts": 0,
+          "holdoutRate": 0,
+          "crossCardCollisions": 0,
+          "totalFalseAccepts": 0,
+          "buckets": {},
+          "shipGate": true,
+          "params": {
+            "minLen": 2,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 3,
+                "t": 0.4492
+              },
+              {
+                "maxLen": 10,
+                "t": 0.2708
+              },
+              {
+                "maxLen": 13,
+                "t": 0
+              },
+              {
+                "maxLen": null,
+                "t": 1.2479
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.7153,
+              "transpose": 2.8022,
+              "ins": 1.7852,
+              "del": 0.3568,
+              "doubleLetter": 0.2,
+              "materVI": 2,
+              "homophone": 1.8072
+            }
+          }
+        },
+        {
+          "budget": 0.00014285714285714287,
+          "budgetLabel": "1/7000",
+          "allowedOnEvolveSet": 3,
+          "cvMean": 0.1710842680589692,
+          "cvSd": 0.06916658043806626,
+          "evolveRecall": 0.228742399382299,
+          "evolveFalseAccepts": 2,
+          "holdoutRecall": 0.24392935982339956,
+          "holdoutFalseAccepts": 0,
+          "holdoutRate": 0,
+          "crossCardCollisions": 1,
+          "totalFalseAccepts": 1,
+          "buckets": {
+            "cross-card-bank": 1
+          },
+          "shipGate": false,
+          "params": {
+            "minLen": 0,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 4,
+                "t": 0.2013
+              },
+              {
+                "maxLen": 5,
+                "t": 0.2374
+              },
+              {
+                "maxLen": 11,
+                "t": 0.6466
+              },
+              {
+                "maxLen": null,
+                "t": 0
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.7778,
+              "transpose": 2.2334,
+              "ins": 0.8999,
+              "del": 0.2126,
+              "doubleLetter": 0.2,
+              "materVI": 0.9082,
+              "homophone": 1.1363
+            }
+          }
+        },
+        {
+          "budget": 0.0002,
+          "budgetLabel": "1/5000",
+          "allowedOnEvolveSet": 4,
+          "cvMean": 0.22278437351440736,
+          "cvSd": 0.02359106860214645,
+          "evolveRecall": 0.22005597915259145,
+          "evolveFalseAccepts": 4,
+          "holdoutRecall": 0.22682119205298013,
+          "holdoutFalseAccepts": 0,
+          "holdoutRate": 0,
+          "crossCardCollisions": 0,
+          "totalFalseAccepts": 0,
+          "buckets": {},
+          "shipGate": true,
+          "params": {
+            "minLen": 4,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 5,
+                "t": 0.2203
+              },
+              {
+                "maxLen": 6,
+                "t": 0.9675
+              },
+              {
+                "maxLen": 11,
+                "t": 0.9216
+              },
+              {
+                "maxLen": null,
+                "t": 0.3325
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.8997,
+              "transpose": 2.693,
+              "ins": 1.8613,
+              "del": 0.6328,
+              "doubleLetter": 0.2,
+              "materVI": 1.237,
+              "homophone": 1.875
+            }
+          }
+        },
+        {
+          "budget": 0.0005,
+          "budgetLabel": "1/2000",
+          "allowedOnEvolveSet": 10,
+          "cvMean": 0.2526009205658416,
+          "cvSd": 0.044548527287551175,
+          "evolveRecall": 0.28385290995077694,
+          "evolveFalseAccepts": 8,
+          "holdoutRecall": 0.2913907284768212,
+          "holdoutFalseAccepts": 0,
+          "holdoutRate": 0,
+          "crossCardCollisions": 2,
+          "totalFalseAccepts": 2,
+          "buckets": {
+            "cross-card-bank": 2
+          },
+          "shipGate": false,
+          "params": {
+            "minLen": 4,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 3,
+                "t": 0.5329
+              },
+              {
+                "maxLen": 6,
+                "t": 0.778
+              },
+              {
+                "maxLen": 9,
+                "t": 0.9159
+              },
+              {
+                "maxLen": null,
+                "t": 0.5213
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.9233,
+              "transpose": 2.9026,
+              "ins": 1.4447,
+              "del": 0.5378,
+              "doubleLetter": 0.4241,
+              "materVI": 1.6505,
+              "homophone": 0.8482
+            }
+          }
+        },
+        {
+          "budget": 0.001,
+          "budgetLabel": "1/1000",
+          "allowedOnEvolveSet": 21,
+          "cvMean": 0.3274338527102675,
+          "cvSd": 0.039307669502427145,
+          "evolveRecall": 0.3498697036965544,
+          "evolveFalseAccepts": 20,
+          "holdoutRecall": 0.3515452538631347,
+          "holdoutFalseAccepts": 2,
+          "holdoutRate": 0.0005295207836907599,
+          "crossCardCollisions": 1,
+          "totalFalseAccepts": 3,
+          "buckets": {
+            "real-word": 2,
+            "cross-card-bank": 1
+          },
+          "shipGate": true,
+          "params": {
+            "minLen": 5,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 6,
+                "t": 0.5202
+              },
+              {
+                "maxLen": 7,
+                "t": 0.336
+              },
+              {
+                "maxLen": 12,
+                "t": 0.3335
+              },
+              {
+                "maxLen": null,
+                "t": 1.1135
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.3365,
+              "transpose": 3,
+              "ins": 1.8304,
+              "del": 1.5497,
+              "doubleLetter": 0.3233,
+              "materVI": 1.3139,
+              "homophone": 1.2867
+            }
+          }
+        },
+        {
+          "budget": 0.002,
+          "budgetLabel": "1/500",
+          "allowedOnEvolveSet": 42,
+          "cvMean": 0.4582003713644413,
+          "cvSd": 0.07835691069763115,
+          "evolveRecall": 0.5227294662677348,
+          "evolveFalseAccepts": 37,
+          "holdoutRecall": 0.5292494481236203,
+          "holdoutFalseAccepts": 8,
+          "holdoutRate": 0.0021180831347630395,
+          "crossCardCollisions": 5,
+          "totalFalseAccepts": 13,
+          "buckets": {
+            "real-word": 8,
+            "cross-card-bank": 5
+          },
+          "shipGate": false,
+          "params": {
+            "minLen": 0,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0.6544
+              },
+              {
+                "maxLen": 8,
+                "t": 0.6604
+              },
+              {
+                "maxLen": 11,
+                "t": 0.4431
+              },
+              {
+                "maxLen": null,
+                "t": 0.6072
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.565,
+              "transpose": 2.3161,
+              "ins": 2,
+              "del": 0.4238,
+              "doubleLetter": 0.4209,
+              "materVI": 2,
+              "homophone": 1.7207
+            }
+          }
+        },
+        {
+          "budget": 0.005,
+          "budgetLabel": "1/200",
+          "allowedOnEvolveSet": 107,
+          "cvMean": 0.7436268779872508,
+          "cvSd": 0.06379943652406146,
+          "evolveRecall": 0.7705819901553904,
+          "evolveFalseAccepts": 102,
+          "holdoutRecall": 0.7798013245033113,
+          "holdoutFalseAccepts": 16,
+          "holdoutRate": 0.004236166269526079,
+          "crossCardCollisions": 5,
+          "totalFalseAccepts": 21,
+          "buckets": {
+            "real-word": 14,
+            "other-variant": 2,
+            "cross-card-bank": 5
+          },
+          "shipGate": false,
+          "params": {
+            "minLen": 1,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 5,
+                "t": 0.8859
+              },
+              {
+                "maxLen": 8,
+                "t": 1.4537
+              },
+              {
+                "maxLen": 15,
+                "t": 1.1597
+              },
+              {
+                "maxLen": null,
+                "t": 0
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.841,
+              "transpose": 1.3344,
+              "ins": 1.3991,
+              "del": 1.7759,
+              "doubleLetter": 0.4416,
+              "materVI": 1.9307,
+              "homophone": 0.5396
+            }
+          }
+        },
+        {
+          "budget": 0.01,
+          "budgetLabel": "1/100",
+          "allowedOnEvolveSet": 214,
+          "cvMean": 0.9795073267199793,
+          "cvSd": 0.004898508438439885,
+          "evolveRecall": 0.9796351703503523,
+          "evolveFalseAccepts": 191,
+          "holdoutRecall": 0.9839955849889624,
+          "holdoutFalseAccepts": 28,
+          "holdoutRate": 0.007413290971670638,
+          "crossCardCollisions": 4,
+          "totalFalseAccepts": 32,
+          "buckets": {
+            "real-word": 27,
+            "other-variant": 1,
+            "cross-card-bank": 4
+          },
+          "shipGate": true,
+          "params": {
+            "minLen": 1,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0
+              },
+              {
+                "maxLen": 7,
+                "t": 0.3964
+              },
+              {
+                "maxLen": 16,
+                "t": 0.3874
+              },
+              {
+                "maxLen": null,
+                "t": 0.3827
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.3469,
+              "transpose": 0.2,
+              "ins": 0.2367,
+              "del": 1.107,
+              "doubleLetter": 0.2,
+              "materVI": 0.2449,
+              "homophone": 0.3618
+            }
+          }
+        },
+        {
+          "budget": 0.02,
+          "budgetLabel": "1/50",
+          "allowedOnEvolveSet": 428,
+          "cvMean": 0.9796068787359076,
+          "cvSd": 0.004974494536423556,
+          "evolveRecall": 0.9796351703503523,
+          "evolveFalseAccepts": 191,
+          "holdoutRecall": 0.9839955849889624,
+          "holdoutFalseAccepts": 28,
+          "holdoutRate": 0.007413290971670638,
+          "crossCardCollisions": 5,
+          "totalFalseAccepts": 33,
+          "buckets": {
+            "real-word": 27,
+            "other-variant": 1,
+            "cross-card-bank": 5
+          },
+          "shipGate": true,
+          "params": {
+            "minLen": 0,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0.1112
+              },
+              {
+                "maxLen": 5,
+                "t": 0.5233
+              },
+              {
+                "maxLen": 9,
+                "t": 0.5183
+              },
+              {
+                "maxLen": null,
+                "t": 0.3815
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.3343,
+              "transpose": 0.2,
+              "ins": 0.2507,
+              "del": 1.7904,
+              "doubleLetter": 0.2,
+              "materVI": 0.2851,
+              "homophone": 0.2
+            }
+          }
+        },
+        {
+          "budget": 0.05,
+          "budgetLabel": "1/20",
+          "allowedOnEvolveSet": 1072,
+          "cvMean": 0.9796068787359076,
+          "cvSd": 0.004974494536423556,
+          "evolveRecall": 0.9796351703503523,
+          "evolveFalseAccepts": 191,
+          "holdoutRecall": 0.9839955849889624,
+          "holdoutFalseAccepts": 28,
+          "holdoutRate": 0.007413290971670638,
+          "crossCardCollisions": 4,
+          "totalFalseAccepts": 32,
+          "buckets": {
+            "real-word": 27,
+            "other-variant": 1,
+            "cross-card-bank": 4
+          },
+          "shipGate": true,
+          "params": {
+            "minLen": 0,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0
+              },
+              {
+                "maxLen": 6,
+                "t": 0.3988
+              },
+              {
+                "maxLen": 11,
+                "t": 0.2409
+              },
+              {
+                "maxLen": null,
+                "t": 0.2471
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.2,
+              "transpose": 0.2,
+              "ins": 0.2304,
+              "del": 1.1773,
+              "doubleLetter": 0.2,
+              "materVI": 0.2,
+              "homophone": 0.2
+            }
+          }
+        },
+        {
+          "budget": 0.1,
+          "budgetLabel": "1/10",
+          "allowedOnEvolveSet": 2144,
+          "cvMean": 0.9796068787359076,
+          "cvSd": 0.004974494536423556,
+          "evolveRecall": 0.9796351703503523,
+          "evolveFalseAccepts": 191,
+          "holdoutRecall": 0.9839955849889624,
+          "holdoutFalseAccepts": 28,
+          "holdoutRate": 0.007413290971670638,
+          "crossCardCollisions": 4,
+          "totalFalseAccepts": 32,
+          "buckets": {
+            "real-word": 27,
+            "other-variant": 1,
+            "cross-card-bank": 4
+          },
+          "shipGate": true,
+          "params": {
+            "minLen": 1,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0
+              },
+              {
+                "maxLen": 8,
+                "t": 0.2683
+              },
+              {
+                "maxLen": 9,
+                "t": 0.2287
+              },
+              {
+                "maxLen": null,
+                "t": 0.3291
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.2,
+              "transpose": 0.2,
+              "ins": 0.2061,
+              "del": 1.2422,
+              "doubleLetter": 0.2,
+              "materVI": 0.2,
+              "homophone": 0.2
+            }
+          }
+        },
+        {
+          "budget": 0.2,
+          "budgetLabel": "1/5",
+          "allowedOnEvolveSet": 4288,
+          "cvMean": 0.9796068787359076,
+          "cvSd": 0.004974494536423556,
+          "evolveRecall": 0.9796351703503523,
+          "evolveFalseAccepts": 191,
+          "holdoutRecall": 0.9839955849889624,
+          "holdoutFalseAccepts": 28,
+          "holdoutRate": 0.007413290971670638,
+          "crossCardCollisions": 4,
+          "totalFalseAccepts": 32,
+          "buckets": {
+            "real-word": 27,
+            "other-variant": 1,
+            "cross-card-bank": 4
+          },
+          "shipGate": true,
+          "params": {
+            "minLen": 0,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 5,
+                "t": 0.2437
+              },
+              {
+                "maxLen": 10,
+                "t": 0.2548
+              },
+              {
+                "maxLen": 11,
+                "t": 0.3197
+              },
+              {
+                "maxLen": null,
+                "t": 0.2561
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.2,
+              "transpose": 0.2,
+              "ins": 0.2226,
+              "del": 1.4526,
+              "doubleLetter": 0.2091,
+              "materVI": 0.2,
+              "homophone": 0.2
+            }
+          }
+        },
+        {
+          "budget": 0.5,
+          "budgetLabel": "1/2",
+          "allowedOnEvolveSet": 10720,
+          "cvMean": 0.9796068787359076,
+          "cvSd": 0.004974494536423556,
+          "evolveRecall": 0.9796351703503523,
+          "evolveFalseAccepts": 191,
+          "holdoutRecall": 0.9839955849889624,
+          "holdoutFalseAccepts": 28,
+          "holdoutRate": 0.007413290971670638,
+          "crossCardCollisions": 4,
+          "totalFalseAccepts": 32,
+          "buckets": {
+            "real-word": 27,
+            "other-variant": 1,
+            "cross-card-bank": 4
+          },
+          "shipGate": true,
+          "params": {
+            "minLen": 0,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0
+              },
+              {
+                "maxLen": 4,
+                "t": 0.3191
+              },
+              {
+                "maxLen": 11,
+                "t": 0.3266
+              },
+              {
+                "maxLen": null,
+                "t": 0.3541
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.2,
+              "transpose": 0.2,
+              "ins": 0.2,
+              "del": 1.9008,
+              "doubleLetter": 0.2,
+              "materVI": 0.2974,
+              "homophone": 0.2
+            }
+          }
+        }
+      ],
+      "altMargins": {
+        "1": {
+          "evolveRecall": 0.10790464240903387,
+          "evolveFalseAccepts": 0,
+          "evolveRealWordFalseAccepts": 0,
+          "holdoutRecall": 0.09713024282560706,
+          "holdoutFalseAccepts": 0,
+          "holdoutRealWordFalseAccepts": 0,
+          "evolveRecallIncludingUntrusted": 0.09104234527687297,
+          "holdoutRecallIncludingUntrusted": 0.08110599078341015
+        },
+        "2": {
+          "evolveRecall": 0.07074606698195154,
+          "evolveFalseAccepts": 0,
+          "evolveRealWordFalseAccepts": 0,
+          "holdoutRecall": 0.06291390728476821,
+          "holdoutFalseAccepts": 0,
+          "holdoutRealWordFalseAccepts": 0,
+          "evolveRecallIncludingUntrusted": 0.05969055374592834,
+          "holdoutRecallIncludingUntrusted": 0.052534562211981564
+        },
+        "3": {
+          "evolveRecall": 0.058005983978380464,
+          "evolveFalseAccepts": 0,
+          "evolveRealWordFalseAccepts": 0,
+          "holdoutRecall": 0.04911699779249448,
+          "holdoutFalseAccepts": 0,
+          "holdoutRealWordFalseAccepts": 0,
+          "evolveRecallIncludingUntrusted": 0.048941368078175895,
+          "holdoutRecallIncludingUntrusted": 0.041013824884792625
+        }
+      },
+      "finalParamsByFold": [
+        {
+          "fold": 0,
+          "recall": 0.11127819548872181,
+          "falseAccepts": 0
+        },
+        {
+          "fold": 1,
+          "recall": 0.09788489916379735,
+          "falseAccepts": 0
+        },
+        {
+          "fold": 2,
+          "recall": 0.1145737855178735,
+          "falseAccepts": 0
+        },
+        {
+          "fold": 3,
+          "recall": 0.10784313725490197,
+          "falseAccepts": 0
+        },
+        {
+          "fold": 4,
+          "recall": 0.10751617720258835,
+          "falseAccepts": 0
+        }
+      ],
+      "bindingAtMargin1": {
+        "total": 222,
+        "groups": {
+          "adj · real-word": {
+            "count": 54,
+            "examples": [
+              "\"אלומת אחר\" ~ \"אלומת אור\" (real-word)",
+              "\"הפליא בו כת מכוותיו\" ~ \"הפליא בו את מכוותיו\" (real-word)",
+              "\"פנ כנה\" ~ \"כנ כנה\" (real-word)",
+              "\"כנ כמה\" ~ \"כנ כנה\" (real-word)",
+              "\"מתאבל\" ~ \"מתאבנ\" (real-word)",
+              "\"ריפיונ ריח\" ~ \"ריפיונ רוח\" (real-word)"
+            ]
+          },
+          "drop · real-word": {
+            "count": 77,
+            "examples": [
+              "\"בית\" ~ \"ביות\" (real-word)",
+              "\"העלה ארוכ\" ~ \"העלה ארוכה\" (real-word)",
+              "\"פעמ\" ~ \"נפעמ\" (real-word)",
+              "\"שוק חיימ\" ~ \"שוקק חיימ\" (real-word)",
+              "\"בר מינ\" ~ \"בר מיננ\" (real-word)",
+              "\"כתמול שלשוומ\" ~ \"כתמוול שלשוומ\" (real-word)"
+            ]
+          },
+          "neg · other-variant": {
+            "count": 6,
+            "examples": [
+              "\"בית מרצח\" ~ \"בית מרזח\" (other-variant)",
+              "\"שמוורת\" ~ \"אשמורת\" (other-variant)",
+              "\"מבזור\" ~ \"מזור\" (other-variant)",
+              "\"שיהס\" ~ \"שנס\" (other-variant)",
+              "\"שרירוית\" ~ \"שרירות\" (other-variant)",
+              "\"זהמ\" ~ \"זממ\" (other-variant)"
+            ]
+          },
+          "homophone · real-word": {
+            "count": 30,
+            "examples": [
+              "\"זרה מלח אל הפצעימ\" ~ \"זרה מלח על הפצעימ\" (real-word)",
+              "\"חרי עפ\" ~ \"חרי אפ\" (real-word)",
+              "\"העלה חרש ביידו\" ~ \"העלה חרס ביידו\" (real-word)",
+              "\"אל נקלה\" ~ \"על נקלה\" (real-word)",
+              "\"משענת כנה רצווצ\" ~ \"משענת קנה רצווצ\" (real-word)",
+              "\"מתונ\" ~ \"מתבנ\" (real-word)"
+            ]
+          },
+          "mater · real-word": {
+            "count": 21,
+            "examples": [
+              "\"ללא\" ~ \"לולא\" (real-word)",
+              "\"עמד מינגד מנ הצד\" ~ \"עמד מינגד מינ הצד\" (real-word)",
+              "\"קוורט קרטוב\" ~ \"קוורט קרטווב\" (real-word)",
+              "\"מווסר כליות\" ~ \"מווסר כליוות\" (real-word)",
+              "\"נח לכעוס\" ~ \"נוח לכעוס\" (real-word)",
+              "\"רפיונ רווח\" ~ \"רפיונ רוח\" (real-word)"
+            ]
+          },
+          "transpose · real-word": {
+            "count": 29,
+            "examples": [
+              "\"מפח נשפ\" ~ \"מפח נפש\" (real-word)",
+              "\"מרט תא עצביו\" ~ \"מרט את עצביו\" (real-word)",
+              "\"סכר תא פיו\" ~ \"סכר את פיו\" (real-word)",
+              "\"הטיל תא חתו\" ~ \"הטיל את חתו\" (real-word)",
+              "\"רזה אבק חוול בעיניימ\" ~ \"זרה אבק חוול בעיניימ\" (real-word)",
+              "\"היקשה תא ליבו\" ~ \"היקשה את ליבו\" (real-word)"
+            ]
+          },
+          "double · real-word": {
+            "count": 3,
+            "examples": [
+              "\"ריפיונ רווח\" ~ \"ריפיונ רוח\" (real-word)",
+              "\"אורכ רווח\" ~ \"אורכ רוח\" (real-word)",
+              "\"קרמ עורר וגידימ\" ~ \"קרמ עור וגידימ\" (real-word)"
+            ]
+          },
+          "neg · inflection": {
+            "count": 1,
+            "examples": [
+              "\"אחריות\" ~ \"אחרית\" (inflection)"
+            ]
+          },
+          "transpose · cross-card": {
+            "count": 1,
+            "examples": [
+              "\"ונגה\" ~ \"נוגה\" (cross-card)"
+            ]
+          }
+        }
+      },
+      "genome": [
+        6,
+        3,
+        7,
+        14,
+        0,
+        0.5164045368614667,
+        0,
+        1.5252702966043272,
+        1.5770614402804506,
+        1.9473953174123215,
+        1.6278772519776297,
+        0.5164680408661259,
+        0.44225358777605817,
+        0.9334848775999801,
+        1.753465992396882,
+        1
+      ],
+      "budgetSweepPooled": [
+        {
+          "budget": 0,
+          "budgetLabel": "0",
+          "allowedOnFullSet": 0,
+          "rowsScored": 25217,
+          "holdoutRecall": 0.09713024282560706,
+          "fullSetRecall": 0.10630082970508502,
+          "falseAccepts": 0,
+          "falseAcceptRate": 0,
+          "crossCardCollisions": 0,
+          "preExistingExactAccepts": 0,
+          "buckets": {},
+          "sourcePoint": "main-run-genome",
+          "cvOfSource": {
+            "mean": 0.10898790444801039,
+            "sd": 0.03326934505149262
+          },
+          "params": {
+            "minLen": 6,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 3,
+                "t": 0
+              },
+              {
+                "maxLen": 7,
+                "t": 0.5164
+              },
+              {
+                "maxLen": 14,
+                "t": 0
+              },
+              {
+                "maxLen": null,
+                "t": 1.5253
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.5771,
+              "transpose": 1.9474,
+              "ins": 1.6279,
+              "del": 0.5165,
+              "doubleLetter": 0.4423,
+              "materVI": 0.9335,
+              "homophone": 1.7535
+            }
+          }
+        },
+        {
+          "budget": 0.00002,
+          "budgetLabel": "1/50000",
+          "allowedOnFullSet": 0,
+          "rowsScored": 25217,
+          "holdoutRecall": 0.09713024282560706,
+          "fullSetRecall": 0.10630082970508502,
+          "falseAccepts": 0,
+          "falseAcceptRate": 0,
+          "crossCardCollisions": 0,
+          "preExistingExactAccepts": 0,
+          "buckets": {},
+          "sourcePoint": "main-run-genome",
+          "cvOfSource": {
+            "mean": 0.10898790444801039,
+            "sd": 0.03326934505149262
+          },
+          "params": {
+            "minLen": 6,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 3,
+                "t": 0
+              },
+              {
+                "maxLen": 7,
+                "t": 0.5164
+              },
+              {
+                "maxLen": 14,
+                "t": 0
+              },
+              {
+                "maxLen": null,
+                "t": 1.5253
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.5771,
+              "transpose": 1.9474,
+              "ins": 1.6279,
+              "del": 0.5165,
+              "doubleLetter": 0.4423,
+              "materVI": 0.9335,
+              "homophone": 1.7535
+            }
+          }
+        },
+        {
+          "budget": 0.00005,
+          "budgetLabel": "1/20000",
+          "allowedOnFullSet": 1,
+          "rowsScored": 25217,
+          "holdoutRecall": 0.14955849889624723,
+          "fullSetRecall": 0.15871190339275446,
+          "falseAccepts": 1,
+          "falseAcceptRate": 0.000039655787762223894,
+          "crossCardCollisions": 0,
+          "preExistingExactAccepts": 0,
+          "buckets": {
+            "real-word": 1
+          },
+          "sourcePoint": "1/20000",
+          "cvOfSource": {
+            "mean": 0.10634099999175861,
+            "sd": 0.04039183941264491
+          },
+          "params": {
+            "minLen": 3,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 3,
+                "t": 0.7055
+              },
+              {
+                "maxLen": 7,
+                "t": 0.271
+              },
+              {
+                "maxLen": 14,
+                "t": 0
+              },
+              {
+                "maxLen": null,
+                "t": 1.7182
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 2,
+              "transpose": 2.4719,
+              "ins": 1.8714,
+              "del": 0.5893,
+              "doubleLetter": 0.2059,
+              "materVI": 1.0829,
+              "homophone": 1.8655
+            }
+          }
+        },
+        {
+          "budget": 0.0001,
+          "budgetLabel": "1/10000",
+          "allowedOnFullSet": 2,
+          "rowsScored": 25217,
+          "holdoutRecall": 0.18101545253863136,
+          "fullSetRecall": 0.18269941674196993,
+          "falseAccepts": 2,
+          "falseAcceptRate": 0.00007931157552444779,
+          "crossCardCollisions": 0,
+          "preExistingExactAccepts": 0,
+          "buckets": {
+            "real-word": 2
+          },
+          "sourcePoint": "1/10000",
+          "cvOfSource": {
+            "mean": 0.1586142105247818,
+            "sd": 0.025937785567527346
+          },
+          "params": {
+            "minLen": 2,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 3,
+                "t": 0.4492
+              },
+              {
+                "maxLen": 10,
+                "t": 0.2708
+              },
+              {
+                "maxLen": 13,
+                "t": 0
+              },
+              {
+                "maxLen": null,
+                "t": 1.2479
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.7153,
+              "transpose": 2.8022,
+              "ins": 1.7852,
+              "del": 0.3568,
+              "doubleLetter": 0.2,
+              "materVI": 2,
+              "homophone": 1.8072
+            }
+          }
+        },
+        {
+          "budget": 0.00014285714285714287,
+          "budgetLabel": "1/7000",
+          "allowedOnFullSet": 3,
+          "rowsScored": 25217,
+          "holdoutRecall": 0.24392935982339956,
+          "fullSetRecall": 0.23100303951367782,
+          "falseAccepts": 3,
+          "falseAcceptRate": 0.00011896736328667169,
+          "crossCardCollisions": 1,
+          "preExistingExactAccepts": 0,
+          "buckets": {
+            "real-word": 2,
+            "cross-card-bank": 1
+          },
+          "sourcePoint": "1/7000",
+          "cvOfSource": {
+            "mean": 0.1710842680589692,
+            "sd": 0.06916658043806626
+          },
+          "params": {
+            "minLen": 0,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 4,
+                "t": 0.2013
+              },
+              {
+                "maxLen": 5,
+                "t": 0.2374
+              },
+              {
+                "maxLen": 11,
+                "t": 0.6466
+              },
+              {
+                "maxLen": null,
+                "t": 0
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.7778,
+              "transpose": 2.2334,
+              "ins": 0.8999,
+              "del": 0.2126,
+              "doubleLetter": 0.2,
+              "materVI": 0.9082,
+              "homophone": 1.1363
+            }
+          }
+        },
+        {
+          "budget": 0.0002,
+          "budgetLabel": "1/5000",
+          "allowedOnFullSet": 5,
+          "rowsScored": 25217,
+          "holdoutRecall": 0.24392935982339956,
+          "fullSetRecall": 0.23100303951367782,
+          "falseAccepts": 3,
+          "falseAcceptRate": 0.00011896736328667169,
+          "crossCardCollisions": 1,
+          "preExistingExactAccepts": 0,
+          "buckets": {
+            "real-word": 2,
+            "cross-card-bank": 1
+          },
+          "sourcePoint": "1/7000",
+          "cvOfSource": {
+            "mean": 0.1710842680589692,
+            "sd": 0.06916658043806626
+          },
+          "params": {
+            "minLen": 0,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 4,
+                "t": 0.2013
+              },
+              {
+                "maxLen": 5,
+                "t": 0.2374
+              },
+              {
+                "maxLen": 11,
+                "t": 0.6466
+              },
+              {
+                "maxLen": null,
+                "t": 0
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.7778,
+              "transpose": 2.2334,
+              "ins": 0.8999,
+              "del": 0.2126,
+              "doubleLetter": 0.2,
+              "materVI": 0.9082,
+              "homophone": 1.1363
+            }
+          }
+        },
+        {
+          "budget": 0.0005,
+          "budgetLabel": "1/2000",
+          "allowedOnFullSet": 12,
+          "rowsScored": 25217,
+          "holdoutRecall": 0.2913907284768212,
+          "fullSetRecall": 0.28497494454941263,
+          "falseAccepts": 10,
+          "falseAcceptRate": 0.00039655787762223895,
+          "crossCardCollisions": 2,
+          "preExistingExactAccepts": 0,
+          "buckets": {
+            "real-word": 7,
+            "other-variant": 1,
+            "cross-card-bank": 2
+          },
+          "sourcePoint": "1/2000",
+          "cvOfSource": {
+            "mean": 0.2526009205658416,
+            "sd": 0.044548527287551175
+          },
+          "params": {
+            "minLen": 4,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 3,
+                "t": 0.5329
+              },
+              {
+                "maxLen": 6,
+                "t": 0.778
+              },
+              {
+                "maxLen": 9,
+                "t": 0.9159
+              },
+              {
+                "maxLen": null,
+                "t": 0.5213
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.9233,
+              "transpose": 2.9026,
+              "ins": 1.4447,
+              "del": 0.5378,
+              "doubleLetter": 0.4241,
+              "materVI": 1.6505,
+              "homophone": 0.8482
+            }
+          }
+        },
+        {
+          "budget": 0.001,
+          "budgetLabel": "1/1000",
+          "allowedOnFullSet": 25,
+          "rowsScored": 25217,
+          "holdoutRecall": 0.3515452538631347,
+          "fullSetRecall": 0.3501191160765629,
+          "falseAccepts": 23,
+          "falseAcceptRate": 0.0009120831185311496,
+          "crossCardCollisions": 1,
+          "preExistingExactAccepts": 0,
+          "buckets": {
+            "real-word": 22,
+            "cross-card-bank": 1
+          },
+          "sourcePoint": "1/1000",
+          "cvOfSource": {
+            "mean": 0.3274338527102675,
+            "sd": 0.039307669502427145
+          },
+          "params": {
+            "minLen": 5,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 6,
+                "t": 0.5202
+              },
+              {
+                "maxLen": 7,
+                "t": 0.336
+              },
+              {
+                "maxLen": 12,
+                "t": 0.3335
+              },
+              {
+                "maxLen": null,
+                "t": 1.1135
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.3365,
+              "transpose": 3,
+              "ins": 1.8304,
+              "del": 1.5497,
+              "doubleLetter": 0.3233,
+              "materVI": 1.3139,
+              "homophone": 1.2867
+            }
+          }
+        },
+        {
+          "budget": 0.002,
+          "budgetLabel": "1/500",
+          "allowedOnFullSet": 50,
+          "rowsScored": 25217,
+          "holdoutRecall": 0.5292494481236203,
+          "fullSetRecall": 0.5236999917850982,
+          "falseAccepts": 50,
+          "falseAcceptRate": 0.0019827893881111947,
+          "crossCardCollisions": 5,
+          "preExistingExactAccepts": 0,
+          "buckets": {
+            "real-word": 42,
+            "other-variant": 3,
+            "cross-card-bank": 5
+          },
+          "sourcePoint": "1/500",
+          "cvOfSource": {
+            "mean": 0.4582003713644413,
+            "sd": 0.07835691069763115
+          },
+          "params": {
+            "minLen": 0,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0.6544
+              },
+              {
+                "maxLen": 8,
+                "t": 0.6604
+              },
+              {
+                "maxLen": 11,
+                "t": 0.4431
+              },
+              {
+                "maxLen": null,
+                "t": 0.6072
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.565,
+              "transpose": 2.3161,
+              "ins": 2,
+              "del": 0.4238,
+              "doubleLetter": 0.4209,
+              "materVI": 2,
+              "homophone": 1.7207
+            }
+          }
+        },
+        {
+          "budget": 0.005,
+          "budgetLabel": "1/200",
+          "allowedOnFullSet": 126,
+          "rowsScored": 25217,
+          "holdoutRecall": 0.7798013245033113,
+          "fullSetRecall": 0.7719543251458145,
+          "falseAccepts": 123,
+          "falseAcceptRate": 0.00487766189475354,
+          "crossCardCollisions": 5,
+          "preExistingExactAccepts": 0,
+          "buckets": {
+            "real-word": 114,
+            "other-variant": 4,
+            "cross-card-bank": 5
+          },
+          "sourcePoint": "1/200",
+          "cvOfSource": {
+            "mean": 0.7436268779872508,
+            "sd": 0.06379943652406146
+          },
+          "params": {
+            "minLen": 1,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 5,
+                "t": 0.8859
+              },
+              {
+                "maxLen": 8,
+                "t": 1.4537
+              },
+              {
+                "maxLen": 15,
+                "t": 1.1597
+              },
+              {
+                "maxLen": null,
+                "t": 0
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.841,
+              "transpose": 1.3344,
+              "ins": 1.3991,
+              "del": 1.7759,
+              "doubleLetter": 0.4416,
+              "materVI": 1.9307,
+              "homophone": 0.5396
+            }
+          }
+        },
+        {
+          "budget": 0.01,
+          "budgetLabel": "1/100",
+          "allowedOnFullSet": 252,
+          "rowsScored": 25217,
+          "holdoutRecall": 0.9839955849889624,
+          "fullSetRecall": 0.9802842356033845,
+          "falseAccepts": 223,
+          "falseAcceptRate": 0.008843240670975928,
+          "crossCardCollisions": 4,
+          "preExistingExactAccepts": 0,
+          "buckets": {
+            "real-word": 214,
+            "other-variant": 3,
+            "inflection": 1,
+            "cross-card": 1,
+            "cross-card-bank": 4
+          },
+          "sourcePoint": "1/100",
+          "cvOfSource": {
+            "mean": 0.9795073267199793,
+            "sd": 0.004898508438439885
+          },
+          "params": {
+            "minLen": 1,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0
+              },
+              {
+                "maxLen": 7,
+                "t": 0.3964
+              },
+              {
+                "maxLen": 16,
+                "t": 0.3874
+              },
+              {
+                "maxLen": null,
+                "t": 0.3827
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.3469,
+              "transpose": 0.2,
+              "ins": 0.2367,
+              "del": 1.107,
+              "doubleLetter": 0.2,
+              "materVI": 0.2449,
+              "homophone": 0.3618
+            }
+          }
+        },
+        {
+          "budget": 0.02,
+          "budgetLabel": "1/50",
+          "allowedOnFullSet": 504,
+          "rowsScored": 25217,
+          "holdoutRecall": 0.9839955849889624,
+          "fullSetRecall": 0.9802842356033845,
+          "falseAccepts": 223,
+          "falseAcceptRate": 0.008843240670975928,
+          "crossCardCollisions": 4,
+          "preExistingExactAccepts": 0,
+          "buckets": {
+            "real-word": 214,
+            "other-variant": 3,
+            "inflection": 1,
+            "cross-card": 1,
+            "cross-card-bank": 4
+          },
+          "sourcePoint": "1/100",
+          "cvOfSource": {
+            "mean": 0.9795073267199793,
+            "sd": 0.004898508438439885
+          },
+          "params": {
+            "minLen": 1,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0
+              },
+              {
+                "maxLen": 7,
+                "t": 0.3964
+              },
+              {
+                "maxLen": 16,
+                "t": 0.3874
+              },
+              {
+                "maxLen": null,
+                "t": 0.3827
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.3469,
+              "transpose": 0.2,
+              "ins": 0.2367,
+              "del": 1.107,
+              "doubleLetter": 0.2,
+              "materVI": 0.2449,
+              "homophone": 0.3618
+            }
+          }
+        },
+        {
+          "budget": 0.05,
+          "budgetLabel": "1/20",
+          "allowedOnFullSet": 1260,
+          "rowsScored": 25217,
+          "holdoutRecall": 0.9839955849889624,
+          "fullSetRecall": 0.9802842356033845,
+          "falseAccepts": 223,
+          "falseAcceptRate": 0.008843240670975928,
+          "crossCardCollisions": 4,
+          "preExistingExactAccepts": 0,
+          "buckets": {
+            "real-word": 214,
+            "other-variant": 3,
+            "inflection": 1,
+            "cross-card": 1,
+            "cross-card-bank": 4
+          },
+          "sourcePoint": "1/100",
+          "cvOfSource": {
+            "mean": 0.9795073267199793,
+            "sd": 0.004898508438439885
+          },
+          "params": {
+            "minLen": 1,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0
+              },
+              {
+                "maxLen": 7,
+                "t": 0.3964
+              },
+              {
+                "maxLen": 16,
+                "t": 0.3874
+              },
+              {
+                "maxLen": null,
+                "t": 0.3827
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.3469,
+              "transpose": 0.2,
+              "ins": 0.2367,
+              "del": 1.107,
+              "doubleLetter": 0.2,
+              "materVI": 0.2449,
+              "homophone": 0.3618
+            }
+          }
+        },
+        {
+          "budget": 0.1,
+          "budgetLabel": "1/10",
+          "allowedOnFullSet": 2521,
+          "rowsScored": 25217,
+          "holdoutRecall": 0.9839955849889624,
+          "fullSetRecall": 0.9802842356033845,
+          "falseAccepts": 223,
+          "falseAcceptRate": 0.008843240670975928,
+          "crossCardCollisions": 4,
+          "preExistingExactAccepts": 0,
+          "buckets": {
+            "real-word": 214,
+            "other-variant": 3,
+            "inflection": 1,
+            "cross-card": 1,
+            "cross-card-bank": 4
+          },
+          "sourcePoint": "1/100",
+          "cvOfSource": {
+            "mean": 0.9795073267199793,
+            "sd": 0.004898508438439885
+          },
+          "params": {
+            "minLen": 1,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0
+              },
+              {
+                "maxLen": 7,
+                "t": 0.3964
+              },
+              {
+                "maxLen": 16,
+                "t": 0.3874
+              },
+              {
+                "maxLen": null,
+                "t": 0.3827
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.3469,
+              "transpose": 0.2,
+              "ins": 0.2367,
+              "del": 1.107,
+              "doubleLetter": 0.2,
+              "materVI": 0.2449,
+              "homophone": 0.3618
+            }
+          }
+        },
+        {
+          "budget": 0.2,
+          "budgetLabel": "1/5",
+          "allowedOnFullSet": 5043,
+          "rowsScored": 25217,
+          "holdoutRecall": 0.9839955849889624,
+          "fullSetRecall": 0.9802842356033845,
+          "falseAccepts": 223,
+          "falseAcceptRate": 0.008843240670975928,
+          "crossCardCollisions": 4,
+          "preExistingExactAccepts": 0,
+          "buckets": {
+            "real-word": 214,
+            "other-variant": 3,
+            "inflection": 1,
+            "cross-card": 1,
+            "cross-card-bank": 4
+          },
+          "sourcePoint": "1/100",
+          "cvOfSource": {
+            "mean": 0.9795073267199793,
+            "sd": 0.004898508438439885
+          },
+          "params": {
+            "minLen": 1,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0
+              },
+              {
+                "maxLen": 7,
+                "t": 0.3964
+              },
+              {
+                "maxLen": 16,
+                "t": 0.3874
+              },
+              {
+                "maxLen": null,
+                "t": 0.3827
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.3469,
+              "transpose": 0.2,
+              "ins": 0.2367,
+              "del": 1.107,
+              "doubleLetter": 0.2,
+              "materVI": 0.2449,
+              "homophone": 0.3618
+            }
+          }
+        },
+        {
+          "budget": 0.5,
+          "budgetLabel": "1/2",
+          "allowedOnFullSet": 12608,
+          "rowsScored": 25217,
+          "holdoutRecall": 0.9839955849889624,
+          "fullSetRecall": 0.9802842356033845,
+          "falseAccepts": 223,
+          "falseAcceptRate": 0.008843240670975928,
+          "crossCardCollisions": 4,
+          "preExistingExactAccepts": 0,
+          "buckets": {
+            "real-word": 214,
+            "other-variant": 3,
+            "inflection": 1,
+            "cross-card": 1,
+            "cross-card-bank": 4
+          },
+          "sourcePoint": "1/100",
+          "cvOfSource": {
+            "mean": 0.9795073267199793,
+            "sd": 0.004898508438439885
+          },
+          "params": {
+            "minLen": 1,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0
+              },
+              {
+                "maxLen": 7,
+                "t": 0.3964
+              },
+              {
+                "maxLen": 16,
+                "t": 0.3874
+              },
+              {
+                "maxLen": null,
+                "t": 0.3827
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.3469,
+              "transpose": 0.2,
+              "ins": 0.2367,
+              "del": 1.107,
+              "doubleLetter": 0.2,
+              "materVI": 0.2449,
+              "homophone": 0.3618
+            }
+          }
+        }
+      ],
+      "pooledShip": {
+        "holdoutRecall": 0.09713024282560706,
+        "fullSetRecall": 0.10630082970508502,
+        "falseAccepts": 0,
+        "crossCardCollisions": 0,
+        "preExistingExactAccepts": 0,
+        "sourcePoint": "main-run-genome",
+        "cvOfSource": {
+          "mean": 0.10898790444801039,
+          "sd": 0.03326934505149262
+        }
+      }
+    },
+    "en-word": {
+      "rowsTotal": 35278,
+      "rowsEvolve": 30043,
+      "rowsHoldout": 5235,
+      "acceptShare": 0.6140654232099325,
+      "untrusted": {
+        "policy": "excluded from the recall denominator and numerator; still counted as a false accept if labelled reject",
+        "rows": 0,
+        "rejectRows": 0,
+        "evolveRecallExcluding": 0.4822568430163367,
+        "evolveRecallIncluding": 0.4822568430163367,
+        "holdoutRecallExcluding": 0.45388731507711677,
+        "holdoutRecallIncluding": 0.45388731507711677,
+        "evolveUntrustedAccepted": 0,
+        "evolveUntrustedTotal": 0,
+        "holdoutUntrustedAccepted": 0,
+        "holdoutUntrustedTotal": 0
+      },
+      "lexicon": {
+        "available": true,
+        "blockedRows": 2581,
+        "blockedRealWord": 120,
+        "blockedAccept": 94,
+        "blockedAcceptTrusted": 94,
+        "counterfactual": {
+          "vetoMargin": 2,
+          "minLen": 2,
+          "evolveRecall": 0.12436438385805475,
+          "evolveFalseAccepts": 0,
+          "evolveRealWordFalseAccepts": 0,
+          "holdoutRecall": 0.11898016997167139,
+          "holdoutFalseAccepts": 0,
+          "holdoutRealWordFalseAccepts": 0
+        },
+        "sameParamsWithoutLexicon": {
+          "holdoutRecall": 0.45640541391249606,
+          "holdoutFalseAccepts": 13,
+          "holdoutRealWordFalseAccepts": 13
+        }
+      },
+      "realWord": {
+        "rows": 123,
+        "evolveFalseAccepts": 0,
+        "evolveRejectRows": 102,
+        "holdoutFalseAccepts": 0,
+        "holdoutRejectRows": 21
+      },
+      "cv": {
+        "folds": [
+          {
+            "fold": 0,
+            "nTrain": 24038,
+            "nVal": 6005,
+            "generations": 80,
+            "trainRecall": 0.5591071548991841,
+            "valRecall": 0.5572873940388297,
+            "valFalseAccepts": 1,
+            "valRealWordFalseAccepts": 1,
+            "valRecallIncludingUntrusted": 0.5572873940388297,
+            "vetoMargin": 2,
+            "minLen": 0
+          },
+          {
+            "fold": 1,
+            "nTrain": 23779,
+            "nVal": 6264,
+            "generations": 80,
+            "trainRecall": 0.5047903784738738,
+            "valRecall": 0.48023348368267443,
+            "valFalseAccepts": 0,
+            "valRealWordFalseAccepts": 0,
+            "valRecallIncludingUntrusted": 0.48023348368267443,
+            "vetoMargin": 2,
+            "minLen": 3
+          },
+          {
+            "fold": 2,
+            "nTrain": 24086,
+            "nVal": 5957,
+            "generations": 80,
+            "trainRecall": 0.48953073453174445,
+            "valRecall": 0.49793559042113955,
+            "valFalseAccepts": 0,
+            "valRealWordFalseAccepts": 0,
+            "valRecallIncludingUntrusted": 0.49793559042113955,
+            "vetoMargin": 2,
+            "minLen": 3
+          },
+          {
+            "fold": 3,
+            "nTrain": 24169,
+            "nVal": 5874,
+            "generations": 80,
+            "trainRecall": 0.5316652053685843,
+            "valRecall": 0.5345722875102487,
+            "valFalseAccepts": 1,
+            "valRealWordFalseAccepts": 1,
+            "valRecallIncludingUntrusted": 0.5345722875102487,
+            "vetoMargin": 2,
+            "minLen": 0
+          },
+          {
+            "fold": 4,
+            "nTrain": 24100,
+            "nVal": 5943,
+            "generations": 80,
+            "trainRecall": 0.4220682157901889,
+            "valRecall": 0.43365180467091297,
+            "valFalseAccepts": 0,
+            "valRealWordFalseAccepts": 0,
+            "valRecallIncludingUntrusted": 0.43365180467091297,
+            "vetoMargin": 2,
+            "minLen": 4
+          }
+        ],
+        "mean": 0.5007361120647611,
+        "sd": 0.0430614427353545,
+        "meanTrainValGap": 0.0006962257479540379,
+        "overfitFlag": false,
+        "anyValFalseAccepts": true
+      },
+      "final": {
+        "generations": 80,
+        "evaluations": 4437,
+        "fitness": 0.4816498447468154,
+        "recall": 0.4822568430163367,
+        "falseAccepts": 0,
+        "reachableCeiling": 0.5599372498106675
+      },
+      "holdout": {
+        "recall": 0.45388731507711677,
+        "falseAccepts": 0,
+        "realWordFalseAccepts": 0,
+        "reachableCeiling": 0.5335221907459868,
+        "floor": 0.4146132265940521,
+        "ship": true
+      },
+      "recallByLength": {
+        "basis": "letters of the card key the row was derived from",
+        "evolve": [
+          {
+            "len": "2",
+            "nAccept": 0,
+            "tp": 0,
+            "nReject": 29,
+            "fa": 0,
+            "recall": null
+          },
+          {
+            "len": "3",
+            "nAccept": 152,
+            "tp": 0,
+            "nReject": 623,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "4",
+            "nAccept": 920,
+            "tp": 29,
+            "nReject": 2467,
+            "fa": 0,
+            "recall": 0.03152173913043478
+          },
+          {
+            "len": "5",
+            "nAccept": 1845,
+            "tp": 231,
+            "nReject": 2527,
+            "fa": 0,
+            "recall": 0.12520325203252033
+          },
+          {
+            "len": "6",
+            "nAccept": 3023,
+            "tp": 915,
+            "nReject": 2104,
+            "fa": 0,
+            "recall": 0.30267945749255704
+          },
+          {
+            "len": "7",
+            "nAccept": 3368,
+            "tp": 1714,
+            "nReject": 1493,
+            "fa": 0,
+            "recall": 0.5089073634204275
+          },
+          {
+            "len": "8",
+            "nAccept": 2860,
+            "tp": 1970,
+            "nReject": 911,
+            "fa": 0,
+            "recall": 0.6888111888111889
+          },
+          {
+            "len": "9",
+            "nAccept": 2493,
+            "tp": 1997,
+            "nReject": 596,
+            "fa": 0,
+            "recall": 0.8010429201764941
+          },
+          {
+            "len": "10",
+            "nAccept": 1670,
+            "tp": 639,
+            "nReject": 381,
+            "fa": 0,
+            "recall": 0.38263473053892216
+          },
+          {
+            "len": "11",
+            "nAccept": 1115,
+            "tp": 718,
+            "nReject": 229,
+            "fa": 0,
+            "recall": 0.6439461883408072
+          },
+          {
+            "len": "12+",
+            "nAccept": 1040,
+            "tp": 702,
+            "nReject": 197,
+            "fa": 0,
+            "recall": 0.675
+          }
+        ],
+        "holdout": [
+          {
+            "len": "2",
+            "nAccept": 0,
+            "tp": 0,
+            "nReject": 8,
+            "fa": 0,
+            "recall": null
+          },
+          {
+            "len": "3",
+            "nAccept": 21,
+            "tp": 0,
+            "nReject": 87,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "4",
+            "nAccept": 180,
+            "tp": 2,
+            "nReject": 480,
+            "fa": 0,
+            "recall": 0.011111111111111112
+          },
+          {
+            "len": "5",
+            "nAccept": 344,
+            "tp": 32,
+            "nReject": 488,
+            "fa": 0,
+            "recall": 0.09302325581395349
+          },
+          {
+            "len": "6",
+            "nAccept": 498,
+            "tp": 157,
+            "nReject": 326,
+            "fa": 0,
+            "recall": 0.3152610441767068
+          },
+          {
+            "len": "7",
+            "nAccept": 572,
+            "tp": 265,
+            "nReject": 249,
+            "fa": 0,
+            "recall": 0.4632867132867133
+          },
+          {
+            "len": "8",
+            "nAccept": 463,
+            "tp": 291,
+            "nReject": 179,
+            "fa": 0,
+            "recall": 0.6285097192224622
+          },
+          {
+            "len": "9",
+            "nAccept": 425,
+            "tp": 346,
+            "nReject": 104,
+            "fa": 0,
+            "recall": 0.8141176470588235
+          },
+          {
+            "len": "10",
+            "nAccept": 336,
+            "tp": 124,
+            "nReject": 72,
+            "fa": 0,
+            "recall": 0.36904761904761907
+          },
+          {
+            "len": "11",
+            "nAccept": 168,
+            "tp": 112,
+            "nReject": 30,
+            "fa": 0,
+            "recall": 0.6666666666666666
+          },
+          {
+            "len": "12+",
+            "nAccept": 170,
+            "tp": 113,
+            "nReject": 35,
+            "fa": 0,
+            "recall": 0.6647058823529411
+          }
+        ]
+      },
+      "crossCard": {
+        "rowsInRisk": 398,
+        "collisionsAtShipped": 0,
+        "examples": [],
+        "note": "cross-card pairs enumerated at MAX_OPS depth over every accepted form and every dataset should-accept variant; rows no genome in the gene space could accept are filtered out (provable, not heuristic). Gloss B1 expansion is not modelled here - bank_gate.js remains the final authority."
+      },
+      "budgetSweep": [
+        {
+          "budget": 0,
+          "budgetLabel": "0",
+          "allowedOnEvolveSet": 0,
+          "cvMean": 0.4916556780012017,
+          "cvSd": 0.04536353808160228,
+          "evolveRecall": 0.45607486746727255,
+          "evolveFalseAccepts": 0,
+          "holdoutRecall": 0.43216871262197043,
+          "holdoutFalseAccepts": 0,
+          "holdoutRate": 0,
+          "crossCardCollisions": 0,
+          "totalFalseAccepts": 0,
+          "buckets": {},
+          "shipGate": true,
+          "params": {
+            "minLen": 1,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0
+              },
+              {
+                "maxLen": 7,
+                "t": 1.0892
+              },
+              {
+                "maxLen": 9,
+                "t": 2.0908
+              },
+              {
+                "maxLen": null,
+                "t": 1.0024
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.0419,
+              "transpose": 0.6496,
+              "ins": 1.0617,
+              "del": 0.7229,
+              "doubleLetter": 0.2,
+              "materVI": 1.4717,
+              "homophone": 1.2384
+            }
+          }
+        },
+        {
+          "budget": 0.00002,
+          "budgetLabel": "1/50000",
+          "allowedOnEvolveSet": 0,
+          "cvMean": 0.4999829539613746,
+          "cvSd": 0.041437039058778234,
+          "evolveRecall": 0.48231093800714053,
+          "evolveFalseAccepts": 0,
+          "holdoutRecall": 0.45388731507711677,
+          "holdoutFalseAccepts": 0,
+          "holdoutRate": 0,
+          "crossCardCollisions": 0,
+          "totalFalseAccepts": 0,
+          "buckets": {},
+          "shipGate": true,
+          "params": {
+            "minLen": 1,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0.0889
+              },
+              {
+                "maxLen": 9,
+                "t": 1.5657
+              },
+              {
+                "maxLen": 10,
+                "t": 1.055
+              },
+              {
+                "maxLen": null,
+                "t": 1.4513
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.3764,
+              "transpose": 1.0148,
+              "ins": 1.4561,
+              "del": 1.534,
+              "doubleLetter": 1.0232,
+              "materVI": 0.596,
+              "homophone": 1.6427
+            }
+          }
+        },
+        {
+          "budget": 0.00005,
+          "budgetLabel": "1/20000",
+          "allowedOnEvolveSet": 1,
+          "cvMean": 0.5584645508669495,
+          "cvSd": 0.012210016670881115,
+          "evolveRecall": 0.5570702152980634,
+          "evolveFalseAccepts": 1,
+          "holdoutRecall": 0.5310040919106075,
+          "holdoutFalseAccepts": 0,
+          "holdoutRate": 0,
+          "crossCardCollisions": 0,
+          "totalFalseAccepts": 0,
+          "buckets": {},
+          "shipGate": false,
+          "params": {
+            "minLen": 0,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 5,
+                "t": 1.11
+              },
+              {
+                "maxLen": 8,
+                "t": 1.4504
+              },
+              {
+                "maxLen": 14,
+                "t": 1.5285
+              },
+              {
+                "maxLen": null,
+                "t": 0
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.9293,
+              "transpose": 1.4615,
+              "ins": 0.2377,
+              "del": 0.3992,
+              "doubleLetter": 1.087,
+              "materVI": 0.255,
+              "homophone": 1.6488
+            }
+          }
+        },
+        {
+          "budget": 0.0001,
+          "budgetLabel": "1/10000",
+          "allowedOnEvolveSet": 3,
+          "cvMean": 0.559221011432155,
+          "cvSd": 0.01192297923982203,
+          "evolveRecall": 0.5599372498106675,
+          "evolveFalseAccepts": 2,
+          "holdoutRecall": 0.5332074283915643,
+          "holdoutFalseAccepts": 0,
+          "holdoutRate": 0,
+          "crossCardCollisions": 0,
+          "totalFalseAccepts": 0,
+          "buckets": {},
+          "shipGate": false,
+          "params": {
+            "minLen": 3,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0
+              },
+              {
+                "maxLen": 5,
+                "t": 1.0851
+              },
+              {
+                "maxLen": 8,
+                "t": 1.2892
+              },
+              {
+                "maxLen": null,
+                "t": 1.198
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.9614,
+              "transpose": 2.1168,
+              "ins": 0.4561,
+              "del": 0.2,
+              "doubleLetter": 0.693,
+              "materVI": 1.316,
+              "homophone": 0.2
+            }
+          }
+        },
+        {
+          "budget": 0.00014285714285714287,
+          "budgetLabel": "1/7000",
+          "allowedOnEvolveSet": 4,
+          "cvMean": 0.5592744512742073,
+          "cvSd": 0.01202994468696459,
+          "evolveRecall": 0.5599372498106675,
+          "evolveFalseAccepts": 2,
+          "holdoutRecall": 0.5332074283915643,
+          "holdoutFalseAccepts": 0,
+          "holdoutRate": 0,
+          "crossCardCollisions": 0,
+          "totalFalseAccepts": 0,
+          "buckets": {},
+          "shipGate": false,
+          "params": {
+            "minLen": 1,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0
+              },
+              {
+                "maxLen": 5,
+                "t": 1.1821
+              },
+              {
+                "maxLen": 16,
+                "t": 1.3224
+              },
+              {
+                "maxLen": null,
+                "t": 0.8731
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.1166,
+              "transpose": 2.6854,
+              "ins": 0.3446,
+              "del": 0.3077,
+              "doubleLetter": 0.8163,
+              "materVI": 1.575,
+              "homophone": 0.4312
+            }
+          }
+        },
+        {
+          "budget": 0.0002,
+          "budgetLabel": "1/5000",
+          "allowedOnEvolveSet": 6,
+          "cvMean": 0.6286755997565698,
+          "cvSd": 0.13887696009848124,
+          "evolveRecall": 0.5599372498106675,
+          "evolveFalseAccepts": 2,
+          "holdoutRecall": 0.5332074283915643,
+          "holdoutFalseAccepts": 0,
+          "holdoutRate": 0,
+          "crossCardCollisions": 0,
+          "totalFalseAccepts": 0,
+          "buckets": {},
+          "shipGate": true,
+          "params": {
+            "minLen": 0,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 5,
+                "t": 1.0183
+              },
+              {
+                "maxLen": 7,
+                "t": 1.3006
+              },
+              {
+                "maxLen": 16,
+                "t": 1.1795
+              },
+              {
+                "maxLen": null,
+                "t": 0.8585
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.837,
+              "transpose": 0.7215,
+              "ins": 0.4754,
+              "del": 0.2,
+              "doubleLetter": 0.6592,
+              "materVI": 0.2,
+              "homophone": 1.0739
+            }
+          }
+        },
+        {
+          "budget": 0.0005,
+          "budgetLabel": "1/2000",
+          "allowedOnEvolveSet": 15,
+          "cvMean": 0.8293014694756004,
+          "cvSd": 0.16780184413755517,
+          "evolveRecall": 0.5599372498106675,
+          "evolveFalseAccepts": 2,
+          "holdoutRecall": 0.5335221907459868,
+          "holdoutFalseAccepts": 0,
+          "holdoutRate": 0,
+          "crossCardCollisions": 1,
+          "totalFalseAccepts": 1,
+          "buckets": {
+            "cross-card-bank": 1
+          },
+          "shipGate": true,
+          "params": {
+            "minLen": 2,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0
+              },
+              {
+                "maxLen": 8,
+                "t": 1.1923
+              },
+              {
+                "maxLen": 15,
+                "t": 1.1687
+              },
+              {
+                "maxLen": null,
+                "t": 0.8667
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.9006,
+              "transpose": 0.9458,
+              "ins": 0.328,
+              "del": 0.2,
+              "doubleLetter": 0.767,
+              "materVI": 1.1474,
+              "homophone": 1.8459
+            }
+          }
+        },
+        {
+          "budget": 0.001,
+          "budgetLabel": "1/1000",
+          "allowedOnEvolveSet": 30,
+          "cvMean": 0.9737746127950041,
+          "cvSd": 0.02077529450528456,
+          "evolveRecall": 0.9897760467380721,
+          "evolveFalseAccepts": 16,
+          "holdoutRecall": 0.9880390305319484,
+          "holdoutFalseAccepts": 2,
+          "holdoutRate": 0.00038204393505253105,
+          "crossCardCollisions": 13,
+          "totalFalseAccepts": 15,
+          "buckets": {
+            "other-variant": 2,
+            "cross-card-bank": 13
+          },
+          "shipGate": false,
+          "params": {
+            "minLen": 2,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 4,
+                "t": 0.9259
+              },
+              {
+                "maxLen": 6,
+                "t": 1.1599
+              },
+              {
+                "maxLen": 7,
+                "t": 1.3159
+              },
+              {
+                "maxLen": null,
+                "t": 2.3348
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.8678,
+              "transpose": 0.5935,
+              "ins": 0.6232,
+              "del": 1.2664,
+              "doubleLetter": 0.6185,
+              "materVI": 0.2,
+              "homophone": 0.8718
+            }
+          }
+        }
+      ],
+      "altMargins": {
+        "1": {
+          "evolveRecall": 0.8941901979876663,
+          "evolveFalseAccepts": 13,
+          "evolveRealWordFalseAccepts": 1,
+          "holdoutRecall": 0.8888888888888888,
+          "holdoutFalseAccepts": 1,
+          "holdoutRealWordFalseAccepts": 0,
+          "evolveRecallIncludingUntrusted": 0.8941901979876663,
+          "holdoutRecallIncludingUntrusted": 0.8888888888888888
+        },
+        "2": {
+          "evolveRecall": 0.4822568430163367,
+          "evolveFalseAccepts": 0,
+          "evolveRealWordFalseAccepts": 0,
+          "holdoutRecall": 0.45388731507711677,
+          "holdoutFalseAccepts": 0,
+          "holdoutRealWordFalseAccepts": 0,
+          "evolveRecallIncludingUntrusted": 0.4822568430163367,
+          "holdoutRecallIncludingUntrusted": 0.45388731507711677
+        },
+        "3": {
+          "evolveRecall": 0.38396624472573837,
+          "evolveFalseAccepts": 0,
+          "evolveRealWordFalseAccepts": 0,
+          "holdoutRecall": 0.3578847969782814,
+          "holdoutFalseAccepts": 0,
+          "holdoutRealWordFalseAccepts": 0,
+          "evolveRecallIncludingUntrusted": 0.38396624472573837,
+          "holdoutRecallIncludingUntrusted": 0.3578847969782814
+        }
+      },
+      "finalParamsByFold": [
+        {
+          "fold": 0,
+          "recall": 0.47962811047306536,
+          "falseAccepts": 0
+        },
+        {
+          "fold": 1,
+          "recall": 0.4640488193154683,
+          "falseAccepts": 0
+        },
+        {
+          "fold": 2,
+          "recall": 0.4858243875584916,
+          "falseAccepts": 0
+        },
+        {
+          "fold": 3,
+          "recall": 0.4894779994534026,
+          "falseAccepts": 0
+        },
+        {
+          "fold": 4,
+          "recall": 0.49256900212314225,
+          "falseAccepts": 0
+        }
+      ],
+      "bindingAtMargin1": {
+        "total": 22,
+        "groups": {
+          "neg · other-variant": {
+            "count": 19,
+            "examples": [
+              "\"os long as\" ~ \"as long as\" (other-variant)",
+              "\"clod\" ~ \"cloud\" (other-variant)",
+              "\"dominaet\" ~ \"dominant\" (other-variant)",
+              "\"eagre\" ~ \"eagle\" (other-variant)",
+              "\"revies\" ~ \"review\" (other-variant)",
+              "\"niform\" ~ \"uniform\" (other-variant)"
+            ]
+          },
+          "adj · real-word": {
+            "count": 1,
+            "examples": [
+              "\"un that case\" ~ \"in that case\" (real-word)"
+            ]
+          },
+          "drop · real-word": {
+            "count": 2,
+            "examples": [
+              "\"every now an then\" ~ \"every now and then\" (real-word)",
+              "\"led\" ~ \"lend\" (real-word)"
+            ]
+          }
+        }
+      },
+      "genome": [
+        0,
+        3,
+        9,
+        7,
+        0,
+        1.4369715728424168,
+        1.048641950033609,
+        1.1563760942519252,
+        1.117604173678979,
+        1.0416891047035852,
+        1.3846156534071978,
+        1.6800928749248452,
+        0.9964344081662587,
+        0.7133500569167863,
+        0.45717657338158413,
+        2
+      ],
+      "budgetSweepPooled": [
+        {
+          "budget": 0,
+          "budgetLabel": "0",
+          "allowedOnFullSet": 0,
+          "rowsScored": 35278,
+          "holdoutRecall": 0.45388731507711677,
+          "fullSetRecall": 0.4781424548769792,
+          "falseAccepts": 0,
+          "falseAcceptRate": 0,
+          "crossCardCollisions": 0,
+          "preExistingExactAccepts": 0,
+          "buckets": {},
+          "sourcePoint": "1/50000",
+          "cvOfSource": {
+            "mean": 0.4999829539613746,
+            "sd": 0.041437039058778234
+          },
+          "params": {
+            "minLen": 1,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0.0889
+              },
+              {
+                "maxLen": 9,
+                "t": 1.5657
+              },
+              {
+                "maxLen": 10,
+                "t": 1.055
+              },
+              {
+                "maxLen": null,
+                "t": 1.4513
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.3764,
+              "transpose": 1.0148,
+              "ins": 1.4561,
+              "del": 1.534,
+              "doubleLetter": 1.0232,
+              "materVI": 0.596,
+              "homophone": 1.6427
+            }
+          }
+        },
+        {
+          "budget": 0.00002,
+          "budgetLabel": "1/50000",
+          "allowedOnFullSet": 0,
+          "rowsScored": 35278,
+          "holdoutRecall": 0.45388731507711677,
+          "fullSetRecall": 0.4781424548769792,
+          "falseAccepts": 0,
+          "falseAcceptRate": 0,
+          "crossCardCollisions": 0,
+          "preExistingExactAccepts": 0,
+          "buckets": {},
+          "sourcePoint": "1/50000",
+          "cvOfSource": {
+            "mean": 0.4999829539613746,
+            "sd": 0.041437039058778234
+          },
+          "params": {
+            "minLen": 1,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0.0889
+              },
+              {
+                "maxLen": 9,
+                "t": 1.5657
+              },
+              {
+                "maxLen": 10,
+                "t": 1.055
+              },
+              {
+                "maxLen": null,
+                "t": 1.4513
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.3764,
+              "transpose": 1.0148,
+              "ins": 1.4561,
+              "del": 1.534,
+              "doubleLetter": 1.0232,
+              "materVI": 0.596,
+              "homophone": 1.6427
+            }
+          }
+        },
+        {
+          "budget": 0.00005,
+          "budgetLabel": "1/20000",
+          "allowedOnFullSet": 1,
+          "rowsScored": 35278,
+          "holdoutRecall": 0.5310040919106075,
+          "fullSetRecall": 0.5532474726492176,
+          "falseAccepts": 1,
+          "falseAcceptRate": 0.000028346278133681047,
+          "crossCardCollisions": 0,
+          "preExistingExactAccepts": 0,
+          "buckets": {
+            "real-word": 1
+          },
+          "sourcePoint": "1/20000",
+          "cvOfSource": {
+            "mean": 0.5584645508669495,
+            "sd": 0.012210016670881115
+          },
+          "params": {
+            "minLen": 0,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 5,
+                "t": 1.11
+              },
+              {
+                "maxLen": 8,
+                "t": 1.4504
+              },
+              {
+                "maxLen": 14,
+                "t": 1.5285
+              },
+              {
+                "maxLen": null,
+                "t": 0
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.9293,
+              "transpose": 1.4615,
+              "ins": 0.2377,
+              "del": 0.3992,
+              "doubleLetter": 1.087,
+              "materVI": 0.255,
+              "homophone": 1.6488
+            }
+          }
+        },
+        {
+          "budget": 0.0001,
+          "budgetLabel": "1/10000",
+          "allowedOnFullSet": 3,
+          "rowsScored": 35278,
+          "holdoutRecall": 0.5335221907459868,
+          "fullSetRecall": 0.5560633337949499,
+          "falseAccepts": 3,
+          "falseAcceptRate": 0.00008503883440104314,
+          "crossCardCollisions": 1,
+          "preExistingExactAccepts": 0,
+          "buckets": {
+            "real-word": 2,
+            "cross-card-bank": 1
+          },
+          "sourcePoint": "1/2000",
+          "cvOfSource": {
+            "mean": 0.8293014694756004,
+            "sd": 0.16780184413755517
+          },
+          "params": {
+            "minLen": 2,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0
+              },
+              {
+                "maxLen": 8,
+                "t": 1.1923
+              },
+              {
+                "maxLen": 15,
+                "t": 1.1687
+              },
+              {
+                "maxLen": null,
+                "t": 0.8667
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.9006,
+              "transpose": 0.9458,
+              "ins": 0.328,
+              "del": 0.2,
+              "doubleLetter": 0.767,
+              "materVI": 1.1474,
+              "homophone": 1.8459
+            }
+          }
+        },
+        {
+          "budget": 0.00014285714285714287,
+          "budgetLabel": "1/7000",
+          "allowedOnFullSet": 5,
+          "rowsScored": 35278,
+          "holdoutRecall": 0.5335221907459868,
+          "fullSetRecall": 0.5560633337949499,
+          "falseAccepts": 3,
+          "falseAcceptRate": 0.00008503883440104314,
+          "crossCardCollisions": 1,
+          "preExistingExactAccepts": 0,
+          "buckets": {
+            "real-word": 2,
+            "cross-card-bank": 1
+          },
+          "sourcePoint": "1/2000",
+          "cvOfSource": {
+            "mean": 0.8293014694756004,
+            "sd": 0.16780184413755517
+          },
+          "params": {
+            "minLen": 2,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0
+              },
+              {
+                "maxLen": 8,
+                "t": 1.1923
+              },
+              {
+                "maxLen": 15,
+                "t": 1.1687
+              },
+              {
+                "maxLen": null,
+                "t": 0.8667
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.9006,
+              "transpose": 0.9458,
+              "ins": 0.328,
+              "del": 0.2,
+              "doubleLetter": 0.767,
+              "materVI": 1.1474,
+              "homophone": 1.8459
+            }
+          }
+        },
+        {
+          "budget": 0.0002,
+          "budgetLabel": "1/5000",
+          "allowedOnFullSet": 7,
+          "rowsScored": 35278,
+          "holdoutRecall": 0.5335221907459868,
+          "fullSetRecall": 0.5560633337949499,
+          "falseAccepts": 3,
+          "falseAcceptRate": 0.00008503883440104314,
+          "crossCardCollisions": 1,
+          "preExistingExactAccepts": 0,
+          "buckets": {
+            "real-word": 2,
+            "cross-card-bank": 1
+          },
+          "sourcePoint": "1/2000",
+          "cvOfSource": {
+            "mean": 0.8293014694756004,
+            "sd": 0.16780184413755517
+          },
+          "params": {
+            "minLen": 2,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0
+              },
+              {
+                "maxLen": 8,
+                "t": 1.1923
+              },
+              {
+                "maxLen": 15,
+                "t": 1.1687
+              },
+              {
+                "maxLen": null,
+                "t": 0.8667
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.9006,
+              "transpose": 0.9458,
+              "ins": 0.328,
+              "del": 0.2,
+              "doubleLetter": 0.767,
+              "materVI": 1.1474,
+              "homophone": 1.8459
+            }
+          }
+        },
+        {
+          "budget": 0.0005,
+          "budgetLabel": "1/2000",
+          "allowedOnFullSet": 17,
+          "rowsScored": 35278,
+          "holdoutRecall": 0.5335221907459868,
+          "fullSetRecall": 0.5560633337949499,
+          "falseAccepts": 3,
+          "falseAcceptRate": 0.00008503883440104314,
+          "crossCardCollisions": 1,
+          "preExistingExactAccepts": 0,
+          "buckets": {
+            "real-word": 2,
+            "cross-card-bank": 1
+          },
+          "sourcePoint": "1/2000",
+          "cvOfSource": {
+            "mean": 0.8293014694756004,
+            "sd": 0.16780184413755517
+          },
+          "params": {
+            "minLen": 2,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0
+              },
+              {
+                "maxLen": 8,
+                "t": 1.1923
+              },
+              {
+                "maxLen": 15,
+                "t": 1.1687
+              },
+              {
+                "maxLen": null,
+                "t": 0.8667
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.9006,
+              "transpose": 0.9458,
+              "ins": 0.328,
+              "del": 0.2,
+              "doubleLetter": 0.767,
+              "materVI": 1.1474,
+              "homophone": 1.8459
+            }
+          }
+        },
+        {
+          "budget": 0.001,
+          "budgetLabel": "1/1000",
+          "allowedOnFullSet": 35,
+          "rowsScored": 35278,
+          "holdoutRecall": 0.9880390305319484,
+          "fullSetRecall": 0.9895213036052255,
+          "falseAccepts": 31,
+          "falseAcceptRate": 0.0008787346221441124,
+          "crossCardCollisions": 13,
+          "preExistingExactAccepts": 0,
+          "buckets": {
+            "other-variant": 15,
+            "real-word": 3,
+            "cross-card-bank": 13
+          },
+          "sourcePoint": "1/1000",
+          "cvOfSource": {
+            "mean": 0.9737746127950041,
+            "sd": 0.02077529450528456
+          },
+          "params": {
+            "minLen": 2,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 4,
+                "t": 0.9259
+              },
+              {
+                "maxLen": 6,
+                "t": 1.1599
+              },
+              {
+                "maxLen": 7,
+                "t": 1.3159
+              },
+              {
+                "maxLen": null,
+                "t": 2.3348
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 0.8678,
+              "transpose": 0.5935,
+              "ins": 0.6232,
+              "del": 1.2664,
+              "doubleLetter": 0.6185,
+              "materVI": 0.2,
+              "homophone": 0.8718
+            }
+          }
+        }
+      ],
+      "pooledShip": {
+        "holdoutRecall": 0.45388731507711677,
+        "fullSetRecall": 0.4781424548769792,
+        "falseAccepts": 0,
+        "crossCardCollisions": 0,
+        "preExistingExactAccepts": 0,
+        "sourcePoint": "1/50000",
+        "cvOfSource": {
+          "mean": 0.4999829539613746,
+          "sd": 0.041437039058778234
+        }
+      }
+    },
+    "gloss": {
+      "rowsTotal": 28880,
+      "rowsEvolve": 24618,
+      "rowsHoldout": 4262,
+      "acceptShare": 0.3040512465373961,
+      "untrusted": {
+        "policy": "excluded from the recall denominator and numerator; still counted as a false accept if labelled reject",
+        "rows": 1818,
+        "rejectRows": 0,
+        "evolveRecallExcluding": 0,
+        "evolveRecallIncluding": 0,
+        "holdoutRecallExcluding": 0,
+        "holdoutRecallIncluding": 0,
+        "evolveUntrustedAccepted": 0,
+        "evolveUntrustedTotal": 1571,
+        "holdoutUntrustedAccepted": 0,
+        "holdoutUntrustedTotal": 247
+      },
+      "lexicon": {
+        "available": true,
+        "blockedRows": 9654,
+        "blockedRealWord": 629,
+        "blockedAccept": 44,
+        "blockedAcceptTrusted": 34,
+        "counterfactual": {
+          "vetoMargin": 1,
+          "minLen": 0,
+          "evolveRecall": 0,
+          "evolveFalseAccepts": 1,
+          "evolveRealWordFalseAccepts": 0,
+          "holdoutRecall": 0,
+          "holdoutFalseAccepts": 0,
+          "holdoutRealWordFalseAccepts": 0
+        },
+        "sameParamsWithoutLexicon": {
+          "holdoutRecall": 0,
+          "holdoutFalseAccepts": 0,
+          "holdoutRealWordFalseAccepts": 0
+        }
+      },
+      "realWord": {
+        "rows": 729,
+        "evolveFalseAccepts": 0,
+        "evolveRejectRows": 610,
+        "holdoutFalseAccepts": 0,
+        "holdoutRejectRows": 119
+      },
+      "cv": {
+        "folds": [
+          {
+            "fold": 0,
+            "nTrain": 19883,
+            "nVal": 4735,
+            "generations": 16,
+            "trainRecall": 0,
+            "valRecall": 0,
+            "valFalseAccepts": 0,
+            "valRealWordFalseAccepts": 0,
+            "valRecallIncludingUntrusted": 0,
+            "vetoMargin": 1,
+            "minLen": 0
+          },
+          {
+            "fold": 1,
+            "nTrain": 19562,
+            "nVal": 5056,
+            "generations": 80,
+            "trainRecall": 0.07689003436426117,
+            "valRecall": 0.07069913589945012,
+            "valFalseAccepts": 3,
+            "valRealWordFalseAccepts": 2,
+            "valRecallIncludingUntrusted": 0.056214865708931916,
+            "vetoMargin": 1,
+            "minLen": 1
+          },
+          {
+            "fold": 2,
+            "nTrain": 19496,
+            "nVal": 5122,
+            "generations": 16,
+            "trainRecall": 0,
+            "valRecall": 0,
+            "valFalseAccepts": 0,
+            "valRealWordFalseAccepts": 0,
+            "valRecallIncludingUntrusted": 0,
+            "vetoMargin": 1,
+            "minLen": 0
+          },
+          {
+            "fold": 3,
+            "nTrain": 19681,
+            "nVal": 4937,
+            "generations": 16,
+            "trainRecall": 0,
+            "valRecall": 0,
+            "valFalseAccepts": 0,
+            "valRealWordFalseAccepts": 0,
+            "valRecallIncludingUntrusted": 0,
+            "vetoMargin": 1,
+            "minLen": 0
+          },
+          {
+            "fold": 4,
+            "nTrain": 19850,
+            "nVal": 4768,
+            "generations": 16,
+            "trainRecall": 0,
+            "valRecall": 0,
+            "valFalseAccepts": 0,
+            "valRealWordFalseAccepts": 0,
+            "valRecallIncludingUntrusted": 0,
+            "vetoMargin": 1,
+            "minLen": 0
+          }
+        ],
+        "mean": 0.014139827179890024,
+        "sd": 0.028279654359780047,
+        "meanTrainValGap": 0.0012381796929622102,
+        "overfitFlag": false,
+        "anyValFalseAccepts": true
+      },
+      "final": {
+        "generations": 16,
+        "evaluations": 887,
+        "fitness": -1000000,
+        "recall": 0,
+        "falseAccepts": 1,
+        "reachableCeiling": 0.9949401248102547
+      },
+      "holdout": {
+        "recall": 0,
+        "falseAccepts": 0,
+        "realWordFalseAccepts": 0,
+        "reachableCeiling": 0.9961315280464217,
+        "floor": -0.04241948153967007,
+        "ship": true
+      },
+      "recallByLength": {
+        "basis": "letters of the card key the row was derived from",
+        "evolve": [
+          {
+            "len": "2",
+            "nAccept": 0,
+            "tp": 0,
+            "nReject": 8,
+            "fa": 0,
+            "recall": null
+          },
+          {
+            "len": "3",
+            "nAccept": 88,
+            "tp": 0,
+            "nReject": 2284,
+            "fa": 1,
+            "recall": 0
+          },
+          {
+            "len": "4",
+            "nAccept": 719,
+            "tp": 0,
+            "nReject": 5051,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "5",
+            "nAccept": 1401,
+            "tp": 0,
+            "nReject": 4653,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "6",
+            "nAccept": 828,
+            "tp": 0,
+            "nReject": 1833,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "7",
+            "nAccept": 727,
+            "tp": 0,
+            "nReject": 747,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "8",
+            "nAccept": 494,
+            "tp": 0,
+            "nReject": 474,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "9",
+            "nAccept": 508,
+            "tp": 0,
+            "nReject": 460,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "10",
+            "nAccept": 391,
+            "tp": 0,
+            "nReject": 329,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "11",
+            "nAccept": 251,
+            "tp": 0,
+            "nReject": 223,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "12+",
+            "nAccept": 522,
+            "tp": 0,
+            "nReject": 1056,
+            "fa": 0,
+            "recall": 0
+          }
+        ],
+        "holdout": [
+          {
+            "len": "2",
+            "nAccept": 0,
+            "tp": 0,
+            "nReject": 4,
+            "fa": 0,
+            "recall": null
+          },
+          {
+            "len": "3",
+            "nAccept": 18,
+            "tp": 0,
+            "nReject": 305,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "4",
+            "nAccept": 105,
+            "tp": 0,
+            "nReject": 893,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "5",
+            "nAccept": 240,
+            "tp": 0,
+            "nReject": 804,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "6",
+            "nAccept": 168,
+            "tp": 0,
+            "nReject": 392,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "7",
+            "nAccept": 88,
+            "tp": 0,
+            "nReject": 96,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "8",
+            "nAccept": 92,
+            "tp": 0,
+            "nReject": 76,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "9",
+            "nAccept": 114,
+            "tp": 0,
+            "nReject": 104,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "10",
+            "nAccept": 63,
+            "tp": 0,
+            "nReject": 59,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "11",
+            "nAccept": 39,
+            "tp": 0,
+            "nReject": 43,
+            "fa": 0,
+            "recall": 0
+          },
+          {
+            "len": "12+",
+            "nAccept": 107,
+            "tp": 0,
+            "nReject": 205,
+            "fa": 0,
+            "recall": 0
+          }
+        ]
+      },
+      "crossCard": {
+        "rowsInRisk": 0,
+        "collisionsAtShipped": 0,
+        "examples": [],
+        "note": "cross-card pairs enumerated at MAX_OPS depth over every accepted form and every dataset should-accept variant; rows no genome in the gene space could accept are filtered out (provable, not heuristic). Gloss B1 expansion is not modelled here - bank_gate.js remains the final authority."
+      },
+      "budgetSweep": [
+        {
+          "budget": 0,
+          "budgetLabel": "0",
+          "allowedOnEvolveSet": 0,
+          "cvMean": 0.012725844461901021,
+          "cvSd": 0.025451688923802042,
+          "evolveRecall": 0,
+          "evolveFalseAccepts": 1,
+          "holdoutRecall": 0,
+          "holdoutFalseAccepts": 0,
+          "holdoutRate": 0,
+          "crossCardCollisions": 0,
+          "totalFalseAccepts": 0,
+          "buckets": {},
+          "shipGate": true,
+          "params": {
+            "minLen": 0,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 3,
+                "t": 0
+              },
+              {
+                "maxLen": 6,
+                "t": 0
+              },
+              {
+                "maxLen": 10,
+                "t": 0
+              },
+              {
+                "maxLen": null,
+                "t": 0
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1,
+              "transpose": 2,
+              "ins": 1,
+              "del": 1,
+              "doubleLetter": 1,
+              "materVI": 1,
+              "homophone": 1
+            }
+          }
+        },
+        {
+          "budget": 0.00002,
+          "budgetLabel": "1/50000",
+          "allowedOnEvolveSet": 0,
+          "cvMean": 0.014925373134328356,
+          "cvSd": 0.029850746268656712,
+          "evolveRecall": 0,
+          "evolveFalseAccepts": 1,
+          "holdoutRecall": 0,
+          "holdoutFalseAccepts": 0,
+          "holdoutRate": 0,
+          "crossCardCollisions": 0,
+          "totalFalseAccepts": 0,
+          "buckets": {},
+          "shipGate": true,
+          "params": {
+            "minLen": 0,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 3,
+                "t": 0
+              },
+              {
+                "maxLen": 6,
+                "t": 0
+              },
+              {
+                "maxLen": 10,
+                "t": 0
+              },
+              {
+                "maxLen": null,
+                "t": 0
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1,
+              "transpose": 2,
+              "ins": 1,
+              "del": 1,
+              "doubleLetter": 1,
+              "materVI": 1,
+              "homophone": 1
+            }
+          }
+        },
+        {
+          "budget": 0.00005,
+          "budgetLabel": "1/20000",
+          "allowedOnEvolveSet": 1,
+          "cvMean": 0.012097407698350352,
+          "cvSd": 0.024194815396700705,
+          "evolveRecall": 0.07792207792207792,
+          "evolveFalseAccepts": 1,
+          "holdoutRecall": 0.07059961315280464,
+          "holdoutFalseAccepts": 0,
+          "holdoutRate": 0,
+          "crossCardCollisions": 0,
+          "totalFalseAccepts": 0,
+          "buckets": {},
+          "shipGate": true,
+          "params": {
+            "minLen": 4,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 4,
+                "t": 0.663
+              },
+              {
+                "maxLen": 9,
+                "t": 0
+              },
+              {
+                "maxLen": 13,
+                "t": 0.4274
+              },
+              {
+                "maxLen": null,
+                "t": 1.3205
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 2,
+              "transpose": 2.8453,
+              "ins": 1.9206,
+              "del": 0.2,
+              "doubleLetter": 0.2,
+              "materVI": 0.9063,
+              "homophone": 0.2
+            }
+          }
+        },
+        {
+          "budget": 0.0001,
+          "budgetLabel": "1/10000",
+          "allowedOnEvolveSet": 2,
+          "cvMean": 0.06982421970204349,
+          "cvSd": 0.027297549027745834,
+          "evolveRecall": 0.0939450160229381,
+          "evolveFalseAccepts": 2,
+          "holdoutRecall": 0.08994197292069632,
+          "holdoutFalseAccepts": 2,
+          "holdoutRate": 0.0004692632566870014,
+          "crossCardCollisions": 0,
+          "totalFalseAccepts": 2,
+          "buckets": {
+            "ambiguous": 2
+          },
+          "shipGate": false,
+          "params": {
+            "minLen": 5,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 3,
+                "t": 2.3384
+              },
+              {
+                "maxLen": 6,
+                "t": 0.0391
+              },
+              {
+                "maxLen": 9,
+                "t": 0.4036
+              },
+              {
+                "maxLen": null,
+                "t": 1.2155
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.2658,
+              "transpose": 1.3928,
+              "ins": 1.7077,
+              "del": 1.8227,
+              "doubleLetter": 0.2,
+              "materVI": 1.7944,
+              "homophone": 0.6305
+            }
+          }
+        },
+        {
+          "budget": 0.00014285714285714287,
+          "budgetLabel": "1/7000",
+          "allowedOnEvolveSet": 3,
+          "cvMean": 0.12743210697534954,
+          "cvSd": 0.00811480823800402,
+          "evolveRecall": 0.11975037949063923,
+          "evolveFalseAccepts": 3,
+          "holdoutRecall": 0.11411992263056092,
+          "holdoutFalseAccepts": 3,
+          "holdoutRate": 0.0007038948850305022,
+          "crossCardCollisions": 0,
+          "totalFalseAccepts": 3,
+          "buckets": {
+            "real-word": 3
+          },
+          "shipGate": false,
+          "params": {
+            "minLen": 0,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 4,
+                "t": 0
+              },
+              {
+                "maxLen": 5,
+                "t": 0
+              },
+              {
+                "maxLen": 13,
+                "t": 0.4686
+              },
+              {
+                "maxLen": null,
+                "t": 1.0478
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.1737,
+              "transpose": 2.4047,
+              "ins": 1.0966,
+              "del": 0.2,
+              "doubleLetter": 0.2,
+              "materVI": 0.816,
+              "homophone": 0.7437
+            }
+          }
+        },
+        {
+          "budget": 0.0002,
+          "budgetLabel": "1/5000",
+          "allowedOnEvolveSet": 4,
+          "cvMean": 0.14767514471778412,
+          "cvSd": 0.039666787452397864,
+          "evolveRecall": 0.14606173047731488,
+          "evolveFalseAccepts": 4,
+          "holdoutRecall": 0.1286266924564797,
+          "holdoutFalseAccepts": 3,
+          "holdoutRate": 0.0007038948850305022,
+          "crossCardCollisions": 0,
+          "totalFalseAccepts": 3,
+          "buckets": {
+            "real-word": 3
+          },
+          "shipGate": false,
+          "params": {
+            "minLen": 2,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0
+              },
+              {
+                "maxLen": 9,
+                "t": 0.665
+              },
+              {
+                "maxLen": 13,
+                "t": 1.0364
+              },
+              {
+                "maxLen": null,
+                "t": 1.2873
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.9047,
+              "transpose": 2.0057,
+              "ins": 1.7944,
+              "del": 0.2,
+              "doubleLetter": 0.2,
+              "materVI": 1.0813,
+              "homophone": 0.7107
+            }
+          }
+        },
+        {
+          "budget": 0.0005,
+          "budgetLabel": "1/2000",
+          "allowedOnEvolveSet": 12,
+          "cvMean": 0.20413056987577088,
+          "cvSd": 0.013851128523420148,
+          "evolveRecall": 0.2071175577669084,
+          "evolveFalseAccepts": 12,
+          "holdoutRecall": 0.19439071566731142,
+          "holdoutFalseAccepts": 4,
+          "holdoutRate": 0.0009385265133740028,
+          "crossCardCollisions": 0,
+          "totalFalseAccepts": 4,
+          "buckets": {
+            "real-word": 4
+          },
+          "shipGate": false,
+          "params": {
+            "minLen": 0,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 5,
+                "t": 0.6276
+              },
+              {
+                "maxLen": 6,
+                "t": 0.424
+              },
+              {
+                "maxLen": 7,
+                "t": 1.2114
+              },
+              {
+                "maxLen": null,
+                "t": 1.5114
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 2,
+              "transpose": 2.7828,
+              "ins": 1.645,
+              "del": 0.2,
+              "doubleLetter": 0.2,
+              "materVI": 1.8888,
+              "homophone": 1.2582
+            }
+          }
+        },
+        {
+          "budget": 0.001,
+          "budgetLabel": "1/1000",
+          "allowedOnEvolveSet": 24,
+          "cvMean": 0.332982849521253,
+          "cvSd": 0.028114482890268477,
+          "evolveRecall": 0.31185697419463654,
+          "evolveFalseAccepts": 24,
+          "holdoutRecall": 0.3181818181818182,
+          "holdoutFalseAccepts": 4,
+          "holdoutRate": 0.0009385265133740028,
+          "crossCardCollisions": 0,
+          "totalFalseAccepts": 4,
+          "buckets": {
+            "real-word": 4
+          },
+          "shipGate": true,
+          "params": {
+            "minLen": 8,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 6,
+                "t": 0
+              },
+              {
+                "maxLen": 8,
+                "t": 2.0044
+              },
+              {
+                "maxLen": 16,
+                "t": 1.5442
+              },
+              {
+                "maxLen": null,
+                "t": 2.1165
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.0506,
+              "transpose": 2.8231,
+              "ins": 1.9757,
+              "del": 0.2,
+              "doubleLetter": 0.2,
+              "materVI": 1.753,
+              "homophone": 0.2
+            }
+          }
+        }
+      ],
+      "altMargins": {
+        "1": {
+          "evolveRecall": 0,
+          "evolveFalseAccepts": 1,
+          "evolveRealWordFalseAccepts": 0,
+          "holdoutRecall": 0,
+          "holdoutFalseAccepts": 0,
+          "holdoutRealWordFalseAccepts": 0,
+          "evolveRecallIncludingUntrusted": 0,
+          "holdoutRecallIncludingUntrusted": 0
+        },
+        "2": {
+          "evolveRecall": 0,
+          "evolveFalseAccepts": 1,
+          "evolveRealWordFalseAccepts": 0,
+          "holdoutRecall": 0,
+          "holdoutFalseAccepts": 0,
+          "holdoutRealWordFalseAccepts": 0,
+          "evolveRecallIncludingUntrusted": 0,
+          "holdoutRecallIncludingUntrusted": 0
+        },
+        "3": {
+          "evolveRecall": 0,
+          "evolveFalseAccepts": 1,
+          "evolveRealWordFalseAccepts": 0,
+          "holdoutRecall": 0,
+          "holdoutFalseAccepts": 0,
+          "holdoutRealWordFalseAccepts": 0,
+          "evolveRecallIncludingUntrusted": 0,
+          "holdoutRecallIncludingUntrusted": 0
+        }
+      },
+      "finalParamsByFold": [
+        {
+          "fold": 0,
+          "recall": 0,
+          "falseAccepts": 0
+        },
+        {
+          "fold": 1,
+          "recall": 0,
+          "falseAccepts": 1
+        },
+        {
+          "fold": 2,
+          "recall": 0,
+          "falseAccepts": 0
+        },
+        {
+          "fold": 3,
+          "recall": 0,
+          "falseAccepts": 0
+        },
+        {
+          "fold": 4,
+          "recall": 0,
+          "falseAccepts": 0
+        }
+      ],
+      "bindingAtMargin1": {
+        "total": 731,
+        "groups": {
+          "transpose · real-word": {
+            "count": 18,
+            "examples": [
+              "\"רכ דשא\" ~ \"כר דשא\" (real-word)",
+              "\"חשפ מלכ כיסוי\" ~ \"חשפ מכל כיסוי\" (real-word)",
+              "\"יחידת מדיה לנוזלימ\" ~ \"יחידת מידה לנוזלימ\" (real-word)",
+              "\"איבד תא הדרכ\" ~ \"איבד את הדרכ\" (real-word)",
+              "\"שהולכ איות\" ~ \"שהולכ איתו\" (real-word)",
+              "\"בוחר צעיר\" ~ \"בחור צעיר\" (real-word)"
+            ]
+          },
+          "adj · ambiguous": {
+            "count": 265,
+            "examples": [
+              "\"צסכ\" ~ \"מסכ\" (ambiguous:סכ)",
+              "\"זיני\" ~ \"זמני\" (ambiguous:זינק)",
+              "\"לבדט\" ~ \"לבדו\" (ambiguous:לבד)",
+              "\"השקיי\" ~ \"השקיט\" (ambiguous:השקיה)",
+              "\"יאבק\" ~ \"נאבק\" (ambiguous:מאבק)",
+              "\"רוחמ\" ~ \"ריחמ\" (ambiguous:לוחמ)"
+            ]
+          },
+          "homophone · ambiguous": {
+            "count": 96,
+            "examples": [
+              "\"מרכע\" ~ \"מרקע\" (ambiguous:מרכז)",
+              "\"משאנת\" ~ \"משענת\" (ambiguous:משאית)",
+              "\"מילע\" ~ \"מילא\" (ambiguous:מידע)",
+              "\"הכא\" ~ \"הכה\" (ambiguous:הבא)",
+              "\"הבנפ\" ~ \"הונפ\" (ambiguous:הבנה)",
+              "\"הברמ\" ~ \"הורמ\" (ambiguous:הברה)"
+            ]
+          },
+          "drop · ambiguous": {
+            "count": 62,
+            "examples": [
+              "\"אילפ\" ~ \"אילופ\" (ambiguous:אלפ)",
+              "\"מסבה\" ~ \"מסבאה\" (ambiguous:מסיבה)",
+              "\"התעל\" ~ \"התעלל\" (ambiguous:התעלמ)",
+              "\"תשו\" ~ \"תשוש\" (ambiguous:תו)",
+              "\"לצרו\" ~ \"לצערו\" (ambiguous:לצרוכ)",
+              "\"דית\" ~ \"ידית\" (ambiguous:בית)"
+            ]
+          },
+          "drop · real-word": {
+            "count": 34,
+            "examples": [
+              "\"עבד בבית המרחצ\" ~ \"עובד בבית המרחצ\" (real-word)",
+              "\"כמו קטנה\" ~ \"כמות קטנה\" (real-word)",
+              "\"חולשה נפשי\" ~ \"חולשה נפשית\" (real-word)",
+              "\"לא מרכז\" ~ \"לא מרוכז\" (real-word)",
+              "\"אמת מיד\" ~ \"אמת מידה\" (real-word)",
+              "\"במצב חוק\" ~ \"במצב דחוק\" (real-word)"
+            ]
+          },
+          "transpose · cross-card": {
+            "count": 1,
+            "examples": [
+              "\"הכתופפ\" ~ \"התכופפ\" (cross-card)"
+            ]
+          },
+          "adj · real-word": {
+            "count": 21,
+            "examples": [
+              "\"הרה אותו\" ~ \"הכה אותו\" (real-word)",
+              "\"ללא מיצ\" ~ \"מלא מיצ\" (real-word)",
+              "\"הד תומ\" ~ \"עד תומ\" (real-word)",
+              "\"התמודד על הבעיה\" ~ \"התמודד עמ הבעיה\" (real-word)",
+              "\"ארוכ שמא לצורכ\" ~ \"ארוכ שלא לצורכ\" (real-word)",
+              "\"בקנה לידה קטנ\" ~ \"בקנה מידה קטנ\" (real-word)"
+            ]
+          },
+          "mater · ambiguous": {
+            "count": 76,
+            "examples": [
+              "\"כיעס\" ~ \"כעס\" (ambiguous:כועס)",
+              "\"בורור\" ~ \"ברור\" (ambiguous:בורות)",
+              "\"מישל\" ~ \"משל\" (ambiguous:ממשל)",
+              "\"בורור\" ~ \"ברור\" (ambiguous:בורות)",
+              "\"מיחק\" ~ \"מחק\" (ambiguous:משחק)",
+              "\"מיימי\" ~ \"מימי\" (ambiguous:מיידי)"
+            ]
+          },
+          "double · ambiguous": {
+            "count": 58,
+            "examples": [
+              "\"חייבר\" ~ \"חיבר\" (ambiguous:חייזר)",
+              "\"בעייה\" ~ \"בעיה\" (ambiguous:בעיטה)",
+              "\"שאאלה\" ~ \"שאלה\" (ambiguous:שמאלה)",
+              "\"ששוננ\" ~ \"ששונ\" (ambiguous:משוננ)",
+              "\"עעלה\" ~ \"עלה\" (ambiguous:עגלה)",
+              "\"ממחק\" ~ \"מחק\" (ambiguous:משחק)"
+            ]
+          },
+          "transpose · ambiguous": {
+            "count": 57,
+            "examples": [
+              "\"צלערו\" ~ \"לצערו\" (ambiguous:לערוכ)",
+              "\"תהנגד\" ~ \"התנגד\" (ambiguous:להתנגד)",
+              "\"לא לסח\" ~ \"לא סלח\" (ambiguous:לאכלס)",
+              "\"טטאא\" ~ \"טאטא\" (ambiguous:לטאטא)",
+              "\"תהנגד\" ~ \"התנגד\" (ambiguous:להתנגד)",
+              "\"הכתופפ\" ~ \"התכופפ\" (ambiguous:לכופפ)"
+            ]
+          },
+          "double · real-word": {
+            "count": 3,
+            "examples": [
+              "\"הוציא מתווכ המימ\" ~ \"הוציא מתוכ המימ\" (real-word)",
+              "\"ללא עכור\" ~ \"לא עכור\" (real-word)",
+              "\"ללא היה עקבי\" ~ \"לא היה עקבי\" (real-word)"
+            ]
+          },
+          "mater · real-word": {
+            "count": 11,
+            "examples": [
+              "\"לישונ הפעמונ\" ~ \"לשונ הפעמונ\" (real-word)",
+              "\"עורר סערת רגישות\" ~ \"עורר סערת רגשות\" (real-word)",
+              "\"ספ שבוע\" ~ \"סופ שבוע\" (real-word)",
+              "\"בנ זג\" ~ \"בנ זוג\" (real-word)",
+              "\"כילי שייט\" ~ \"כלי שייט\" (real-word)",
+              "\"מילא קנאה\" ~ \"מלא קנאה\" (real-word)"
+            ]
+          },
+          "drop · veto": {
+            "count": 3,
+            "examples": [
+              "\"הריע\" ~ \"הרתיע\" (veto)",
+              "\"הריע\" ~ \"הרתיע\" (veto)",
+              "\"מרכז\" ~ \"מרכזי\" (veto)"
+            ]
+          },
+          "adj · veto": {
+            "count": 7,
+            "examples": [
+              "\"גופ\" ~ \"סופ\" (veto)",
+              "\"גופ\" ~ \"סופ\" (veto)",
+              "\"גופ\" ~ \"סופ\" (veto)",
+              "\"גופ\" ~ \"סופ\" (veto)",
+              "\"סיננ\" ~ \"סימנ\" (veto)",
+              "\"סיננ\" ~ \"סימנ\" (veto)"
+            ]
+          },
+          "homophone · real-word": {
+            "count": 13,
+            "examples": [
+              "\"שיקר לב\" ~ \"שיקר לו\" (real-word)",
+              "\"הפסקת עש\" ~ \"הפסקת אש\" (real-word)",
+              "\"סיפר לב סוד\" ~ \"סיפר לו סוד\" (real-word)",
+              "\"שלו בסולמ\" ~ \"שלב בסולמ\" (real-word)",
+              "\"רק לב\" ~ \"רכ לב\" (real-word)",
+              "\"אס עמ אס\" ~ \"אס אמ אס\" (real-word)"
+            ]
+          },
+          "mater · veto": {
+            "count": 1,
+            "examples": [
+              "\"היבט\" ~ \"הבט\" (veto)"
+            ]
+          },
+          "double · veto": {
+            "count": 1,
+            "examples": [
+              "\"חושש\" ~ \"חוש\" (veto)"
+            ]
+          },
+          "homophone · cross-card": {
+            "count": 1,
+            "examples": [
+              "\"סיבוח\" ~ \"סיבוכ\" (cross-card)"
+            ]
+          },
+          "homophone · veto": {
+            "count": 2,
+            "examples": [
+              "\"כרוז\" ~ \"חרוז\" (veto)",
+              "\"כרוז\" ~ \"חרוז\" (veto)"
+            ]
+          },
+          "double · cross-card": {
+            "count": 1,
+            "examples": [
+              "\"חיפפש\" ~ \"חיפש\" (cross-card)"
+            ]
+          }
+        }
+      },
+      "genome": [
+        0,
+        3,
+        6,
+        10,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "budgetSweepPooled": [
+        {
+          "budget": 0,
+          "budgetLabel": "0",
+          "allowedOnFullSet": 0,
+          "rowsScored": 28880,
+          "holdoutRecall": 0.07059961315280464,
+          "fullSetRecall": 0.07683469768777826,
+          "falseAccepts": 0,
+          "falseAcceptRate": 0,
+          "crossCardCollisions": 0,
+          "preExistingExactAccepts": 1,
+          "buckets": {},
+          "sourcePoint": "1/20000",
+          "cvOfSource": {
+            "mean": 0.012097407698350352,
+            "sd": 0.024194815396700705
+          },
+          "params": {
+            "minLen": 4,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 4,
+                "t": 0.663
+              },
+              {
+                "maxLen": 9,
+                "t": 0
+              },
+              {
+                "maxLen": 13,
+                "t": 0.4274
+              },
+              {
+                "maxLen": null,
+                "t": 1.3205
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 2,
+              "transpose": 2.8453,
+              "ins": 1.9206,
+              "del": 0.2,
+              "doubleLetter": 0.2,
+              "materVI": 0.9063,
+              "homophone": 0.2
+            }
+          }
+        },
+        {
+          "budget": 0.00002,
+          "budgetLabel": "1/50000",
+          "allowedOnFullSet": 0,
+          "rowsScored": 28880,
+          "holdoutRecall": 0.07059961315280464,
+          "fullSetRecall": 0.07683469768777826,
+          "falseAccepts": 0,
+          "falseAcceptRate": 0,
+          "crossCardCollisions": 0,
+          "preExistingExactAccepts": 1,
+          "buckets": {},
+          "sourcePoint": "1/20000",
+          "cvOfSource": {
+            "mean": 0.012097407698350352,
+            "sd": 0.024194815396700705
+          },
+          "params": {
+            "minLen": 4,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 4,
+                "t": 0.663
+              },
+              {
+                "maxLen": 9,
+                "t": 0
+              },
+              {
+                "maxLen": 13,
+                "t": 0.4274
+              },
+              {
+                "maxLen": null,
+                "t": 1.3205
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 2,
+              "transpose": 2.8453,
+              "ins": 1.9206,
+              "del": 0.2,
+              "doubleLetter": 0.2,
+              "materVI": 0.9063,
+              "homophone": 0.2
+            }
+          }
+        },
+        {
+          "budget": 0.00005,
+          "budgetLabel": "1/20000",
+          "allowedOnFullSet": 1,
+          "rowsScored": 28880,
+          "holdoutRecall": 0.07059961315280464,
+          "fullSetRecall": 0.07683469768777826,
+          "falseAccepts": 0,
+          "falseAcceptRate": 0,
+          "crossCardCollisions": 0,
+          "preExistingExactAccepts": 1,
+          "buckets": {},
+          "sourcePoint": "1/20000",
+          "cvOfSource": {
+            "mean": 0.012097407698350352,
+            "sd": 0.024194815396700705
+          },
+          "params": {
+            "minLen": 4,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 4,
+                "t": 0.663
+              },
+              {
+                "maxLen": 9,
+                "t": 0
+              },
+              {
+                "maxLen": 13,
+                "t": 0.4274
+              },
+              {
+                "maxLen": null,
+                "t": 1.3205
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 2,
+              "transpose": 2.8453,
+              "ins": 1.9206,
+              "del": 0.2,
+              "doubleLetter": 0.2,
+              "materVI": 0.9063,
+              "homophone": 0.2
+            }
+          }
+        },
+        {
+          "budget": 0.0001,
+          "budgetLabel": "1/10000",
+          "allowedOnFullSet": 2,
+          "rowsScored": 28880,
+          "holdoutRecall": 0.07059961315280464,
+          "fullSetRecall": 0.07683469768777826,
+          "falseAccepts": 0,
+          "falseAcceptRate": 0,
+          "crossCardCollisions": 0,
+          "preExistingExactAccepts": 1,
+          "buckets": {},
+          "sourcePoint": "1/20000",
+          "cvOfSource": {
+            "mean": 0.012097407698350352,
+            "sd": 0.024194815396700705
+          },
+          "params": {
+            "minLen": 4,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 4,
+                "t": 0.663
+              },
+              {
+                "maxLen": 9,
+                "t": 0
+              },
+              {
+                "maxLen": 13,
+                "t": 0.4274
+              },
+              {
+                "maxLen": null,
+                "t": 1.3205
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 2,
+              "transpose": 2.8453,
+              "ins": 1.9206,
+              "del": 0.2,
+              "doubleLetter": 0.2,
+              "materVI": 0.9063,
+              "homophone": 0.2
+            }
+          }
+        },
+        {
+          "budget": 0.00014285714285714287,
+          "budgetLabel": "1/7000",
+          "allowedOnFullSet": 4,
+          "rowsScored": 28880,
+          "holdoutRecall": 0.08994197292069632,
+          "fullSetRecall": 0.09335056728421658,
+          "falseAccepts": 3,
+          "falseAcceptRate": 0.0001038781163434903,
+          "crossCardCollisions": 0,
+          "preExistingExactAccepts": 1,
+          "buckets": {
+            "real-word": 1,
+            "ambiguous": 2
+          },
+          "sourcePoint": "1/10000",
+          "cvOfSource": {
+            "mean": 0.06982421970204349,
+            "sd": 0.027297549027745834
+          },
+          "params": {
+            "minLen": 5,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 3,
+                "t": 2.3384
+              },
+              {
+                "maxLen": 6,
+                "t": 0.0391
+              },
+              {
+                "maxLen": 9,
+                "t": 0.4036
+              },
+              {
+                "maxLen": null,
+                "t": 1.2155
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.2658,
+              "transpose": 1.3928,
+              "ins": 1.7077,
+              "del": 1.8227,
+              "doubleLetter": 0.2,
+              "materVI": 1.7944,
+              "homophone": 0.6305
+            }
+          }
+        },
+        {
+          "budget": 0.0002,
+          "budgetLabel": "1/5000",
+          "allowedOnFullSet": 5,
+          "rowsScored": 28880,
+          "holdoutRecall": 0.11411992263056092,
+          "fullSetRecall": 0.11891426109435588,
+          "falseAccepts": 5,
+          "falseAcceptRate": 0.00017313019390581717,
+          "crossCardCollisions": 0,
+          "preExistingExactAccepts": 1,
+          "buckets": {
+            "real-word": 5
+          },
+          "sourcePoint": "1/7000",
+          "cvOfSource": {
+            "mean": 0.12743210697534954,
+            "sd": 0.00811480823800402
+          },
+          "params": {
+            "minLen": 0,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 4,
+                "t": 0
+              },
+              {
+                "maxLen": 5,
+                "t": 0
+              },
+              {
+                "maxLen": 13,
+                "t": 0.4686
+              },
+              {
+                "maxLen": null,
+                "t": 1.0478
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.1737,
+              "transpose": 2.4047,
+              "ins": 1.0966,
+              "del": 0.2,
+              "doubleLetter": 0.2,
+              "materVI": 0.816,
+              "homophone": 0.7437
+            }
+          }
+        },
+        {
+          "budget": 0.0005,
+          "budgetLabel": "1/2000",
+          "allowedOnFullSet": 14,
+          "rowsScored": 28880,
+          "holdoutRecall": 0.1286266924564797,
+          "fullSetRecall": 0.14347264110297286,
+          "falseAccepts": 6,
+          "falseAcceptRate": 0.0002077562326869806,
+          "crossCardCollisions": 0,
+          "preExistingExactAccepts": 1,
+          "buckets": {
+            "real-word": 5,
+            "ambiguous": 1
+          },
+          "sourcePoint": "1/5000",
+          "cvOfSource": {
+            "mean": 0.14767514471778412,
+            "sd": 0.039666787452397864
+          },
+          "params": {
+            "minLen": 2,
+            "vetoMargin": 2,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 2,
+                "t": 0
+              },
+              {
+                "maxLen": 9,
+                "t": 0.665
+              },
+              {
+                "maxLen": 13,
+                "t": 1.0364
+              },
+              {
+                "maxLen": null,
+                "t": 1.2873
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.9047,
+              "transpose": 2.0057,
+              "ins": 1.7944,
+              "del": 0.2,
+              "doubleLetter": 0.2,
+              "materVI": 1.0813,
+              "homophone": 0.7107
+            }
+          }
+        },
+        {
+          "budget": 0.001,
+          "budgetLabel": "1/1000",
+          "allowedOnFullSet": 28,
+          "rowsScored": 28880,
+          "holdoutRecall": 0.3181818181818182,
+          "fullSetRecall": 0.3127962085308057,
+          "falseAccepts": 27,
+          "falseAcceptRate": 0.0009349030470914127,
+          "crossCardCollisions": 0,
+          "preExistingExactAccepts": 1,
+          "buckets": {
+            "real-word": 25,
+            "ambiguous": 2
+          },
+          "sourcePoint": "1/1000",
+          "cvOfSource": {
+            "mean": 0.332982849521253,
+            "sd": 0.028114482890268477
+          },
+          "params": {
+            "minLen": 8,
+            "vetoMargin": 1,
+            "useLexicon": true,
+            "bands": [
+              {
+                "maxLen": 6,
+                "t": 0
+              },
+              {
+                "maxLen": 8,
+                "t": 2.0044
+              },
+              {
+                "maxLen": 16,
+                "t": 1.5442
+              },
+              {
+                "maxLen": null,
+                "t": 2.1165
+              }
+            ],
+            "W": {
+              "sub": 1,
+              "adjSub": 1.0506,
+              "transpose": 2.8231,
+              "ins": 1.9757,
+              "del": 0.2,
+              "doubleLetter": 0.2,
+              "materVI": 1.753,
+              "homophone": 0.2
+            }
+          }
+        }
+      ],
+      "pooledShip": {
+        "holdoutRecall": 0,
+        "fullSetRecall": 0,
+        "falseAccepts": 0,
+        "crossCardCollisions": 0,
+        "preExistingExactAccepts": 1,
+        "sourcePoint": "zero-tolerance (forced)",
+        "cvOfSource": {
+          "mean": 0.012097407698350352,
+          "sd": 0.024194815396700705
+        },
+        "reason": "bank_gate found 2 new cross-card collisions in the gloss direction via the B1-union expansion channel (\"רסיס עצ\" on אֵגֶל, \"משא כבד\" on יָצוּעַ). B1 expansions are not raw meaning segments, so they sit outside both the segment index the ambiguity margin consults and the cross-card fitness set. Until that channel is modelled, gloss ships dormant: with every band threshold 0 the typo layer accepts nothing, so a new typo collision is impossible by construction. Cost: 7.06% gloss holdout recall."
+      }
+    }
+  },
+  "exact": {
+    "he-word": {
+      "evolve": {
+        "recall": 0.10790464240903387,
+        "recallIncludingUntrusted": 0.09104234527687297,
+        "falseAccepts": 0,
+        "realWordFalseAccepts": 0,
+        "nAccept": 10361,
+        "nAcceptAll": 12280,
+        "nReject": 9160,
+        "nRejectRealWord": 1016
+      },
+      "holdout": {
+        "recall": 0.09713024282560706,
+        "recallIncludingUntrusted": 0.08110599078341015,
+        "falseAccepts": 0,
+        "realWordFalseAccepts": 0,
+        "nAccept": 1812,
+        "nAcceptAll": 2170,
+        "nReject": 1607,
+        "nRejectRealWord": 151
+      },
+      "byOp": {
+        "adj": {
+          "nAcc": 4339,
+          "tp": 38,
+          "nRej": 1813,
+          "fa": 0,
+          "nAccAll": 4363,
+          "tpAll": 38
+        },
+        "transpose": {
+          "nAcc": 1354,
+          "tp": 2,
+          "nRej": 1734,
+          "fa": 0,
+          "nAccAll": 1354,
+          "tpAll": 2
+        },
+        "drop": {
+          "nAcc": 1259,
+          "tp": 19,
+          "nRej": 1828,
+          "fa": 0,
+          "nAccAll": 1259,
+          "tpAll": 19
+        },
+        "double": {
+          "nAcc": 2615,
+          "tp": 1159,
+          "nRej": 208,
+          "fa": 0,
+          "nAccAll": 2880,
+          "tpAll": 1159
+        },
+        "mater": {
+          "nAcc": 1037,
+          "tp": 49,
+          "nRej": 518,
+          "fa": 0,
+          "nAccAll": 2532,
+          "tpAll": 49
+        },
+        "homophone": {
+          "nAcc": 1569,
+          "tp": 27,
+          "nRej": 905,
+          "fa": 0,
+          "nAccAll": 2062,
+          "tpAll": 27
+        },
+        "neg": {
+          "nAcc": 0,
+          "tp": 0,
+          "nRej": 3761,
+          "fa": 0,
+          "nAccAll": 0,
+          "tpAll": 0
+        }
+      },
+      "byLen": {
+        "2": {
+          "nAcc": 0,
+          "tp": 0,
+          "nRej": 138,
+          "fa": 0,
+          "recall": null
+        },
+        "3": {
+          "nAcc": 269,
+          "tp": 0,
+          "nRej": 2469,
+          "fa": 0,
+          "recall": 0
+        },
+        "4": {
+          "nAcc": 1114,
+          "tp": 0,
+          "nRej": 3381,
+          "fa": 0,
+          "recall": 0
+        },
+        "5": {
+          "nAcc": 2308,
+          "tp": 534,
+          "nRej": 2530,
+          "fa": 0,
+          "recall": 0.231369150779896
+        },
+        "6": {
+          "nAcc": 1991,
+          "tp": 372,
+          "nRej": 931,
+          "fa": 0,
+          "recall": 0.1868407835258664
+        },
+        "7": {
+          "nAcc": 1744,
+          "tp": 220,
+          "nRej": 341,
+          "fa": 0,
+          "recall": 0.12614678899082568
+        },
+        "8": {
+          "nAcc": 1267,
+          "tp": 1,
+          "nRej": 285,
+          "fa": 0,
+          "recall": 0.0007892659826361484
+        },
+        "9": {
+          "nAcc": 933,
+          "tp": 0,
+          "nRej": 203,
+          "fa": 0,
+          "recall": 0
+        },
+        "10": {
+          "nAcc": 865,
+          "tp": 0,
+          "nRej": 199,
+          "fa": 0,
+          "recall": 0
+        },
+        "11": {
+          "nAcc": 636,
+          "tp": 0,
+          "nRej": 110,
+          "fa": 0,
+          "recall": 0
+        },
+        "12+": {
+          "nAcc": 1046,
+          "tp": 167,
+          "nRej": 180,
+          "fa": 0,
+          "recall": 0.15965583173996176
+        }
+      },
+      "agreesWithApproximation": true
+    },
+    "en-word": {
+      "evolve": {
+        "recall": 0.4822568430163367,
+        "recallIncludingUntrusted": 0.4822568430163367,
+        "falseAccepts": 0,
+        "realWordFalseAccepts": 0,
+        "nAccept": 18486,
+        "nAcceptAll": 18486,
+        "nReject": 11557,
+        "nRejectRealWord": 102
+      },
+      "holdout": {
+        "recall": 0.45388731507711677,
+        "recallIncludingUntrusted": 0.45388731507711677,
+        "falseAccepts": 0,
+        "realWordFalseAccepts": 0,
+        "nAccept": 3177,
+        "nAcceptAll": 3177,
+        "nReject": 2058,
+        "nRejectRealWord": 21
+      },
+      "byOp": {
+        "double": {
+          "nAcc": 3851,
+          "tp": 2505,
+          "nRej": 140,
+          "fa": 0,
+          "nAccAll": 3851,
+          "tpAll": 2505
+        },
+        "adj": {
+          "nAcc": 6883,
+          "tp": 3215,
+          "nRej": 1099,
+          "fa": 0,
+          "nAccAll": 6883,
+          "tpAll": 3215
+        },
+        "transpose": {
+          "nAcc": 2043,
+          "tp": 1444,
+          "nRej": 1948,
+          "fa": 0,
+          "nAccAll": 2043,
+          "tpAll": 1444
+        },
+        "drop": {
+          "nAcc": 5499,
+          "tp": 1307,
+          "nRej": 2480,
+          "fa": 0,
+          "nAccAll": 5499,
+          "tpAll": 1307
+        },
+        "pattern": {
+          "nAcc": 3387,
+          "tp": 1886,
+          "nRej": 396,
+          "fa": 0,
+          "nAccAll": 3387,
+          "tpAll": 1886
+        },
+        "neg": {
+          "nAcc": 0,
+          "tp": 0,
+          "nRej": 7552,
+          "fa": 0,
+          "nAccAll": 0,
+          "tpAll": 0
+        }
+      },
+      "byLen": {
+        "2": {
+          "nAcc": 0,
+          "tp": 0,
+          "nRej": 37,
+          "fa": 0,
+          "recall": null
+        },
+        "3": {
+          "nAcc": 173,
+          "tp": 0,
+          "nRej": 710,
+          "fa": 0,
+          "recall": 0
+        },
+        "4": {
+          "nAcc": 1100,
+          "tp": 31,
+          "nRej": 2947,
+          "fa": 0,
+          "recall": 0.028181818181818183
+        },
+        "5": {
+          "nAcc": 2189,
+          "tp": 263,
+          "nRej": 3015,
+          "fa": 0,
+          "recall": 0.12014618547281863
+        },
+        "6": {
+          "nAcc": 3521,
+          "tp": 1072,
+          "nRej": 2430,
+          "fa": 0,
+          "recall": 0.3044589605225788
+        },
+        "7": {
+          "nAcc": 3940,
+          "tp": 1979,
+          "nRej": 1742,
+          "fa": 0,
+          "recall": 0.5022842639593909
+        },
+        "8": {
+          "nAcc": 3323,
+          "tp": 2261,
+          "nRej": 1090,
+          "fa": 0,
+          "recall": 0.6804092687330725
+        },
+        "9": {
+          "nAcc": 2918,
+          "tp": 2343,
+          "nRej": 700,
+          "fa": 0,
+          "recall": 0.8029472241261137
+        },
+        "10": {
+          "nAcc": 2006,
+          "tp": 763,
+          "nRej": 453,
+          "fa": 0,
+          "recall": 0.38035892323030907
+        },
+        "11": {
+          "nAcc": 1283,
+          "tp": 830,
+          "nRej": 259,
+          "fa": 0,
+          "recall": 0.646921278254092
+        },
+        "12+": {
+          "nAcc": 1210,
+          "tp": 815,
+          "nRej": 232,
+          "fa": 0,
+          "recall": 0.6735537190082644
+        }
+      },
+      "agreesWithApproximation": true
+    },
+    "gloss": {
+      "evolve": {
+        "recall": 0,
+        "recallIncludingUntrusted": 0,
+        "falseAccepts": 1,
+        "realWordFalseAccepts": 0,
+        "nAccept": 5929,
+        "nAcceptAll": 7500,
+        "nReject": 17118,
+        "nRejectRealWord": 610
+      },
+      "holdout": {
+        "recall": 0,
+        "recallIncludingUntrusted": 0,
+        "falseAccepts": 0,
+        "realWordFalseAccepts": 0,
+        "nAccept": 1034,
+        "nAcceptAll": 1281,
+        "nReject": 2981,
+        "nRejectRealWord": 119
+      },
+      "byOp": {
+        "neg": {
+          "nAcc": 0,
+          "tp": 0,
+          "nRej": 11326,
+          "fa": 0,
+          "nAccAll": 0,
+          "tpAll": 0
+        },
+        "transpose": {
+          "nAcc": 541,
+          "tp": 0,
+          "nRej": 2120,
+          "fa": 0,
+          "nAccAll": 541,
+          "tpAll": 0
+        },
+        "drop": {
+          "nAcc": 586,
+          "tp": 0,
+          "nRej": 1895,
+          "fa": 1,
+          "nAccAll": 586,
+          "tpAll": 0
+        },
+        "double": {
+          "nAcc": 1804,
+          "tp": 0,
+          "nRej": 384,
+          "fa": 0,
+          "nAccAll": 2056,
+          "tpAll": 0
+        },
+        "mater": {
+          "nAcc": 562,
+          "tp": 0,
+          "nRej": 711,
+          "fa": 0,
+          "nAccAll": 1777,
+          "tpAll": 0
+        },
+        "homophone": {
+          "nAcc": 874,
+          "tp": 0,
+          "nRej": 1154,
+          "fa": 0,
+          "nAccAll": 1209,
+          "tpAll": 0
+        },
+        "adj": {
+          "nAcc": 2596,
+          "tp": 0,
+          "nRej": 2509,
+          "fa": 0,
+          "nAccAll": 2612,
+          "tpAll": 0
+        }
+      },
+      "byLen": {
+        "2": {
+          "nAcc": 0,
+          "tp": 0,
+          "nRej": 12,
+          "fa": 0,
+          "recall": null
+        },
+        "3": {
+          "nAcc": 106,
+          "tp": 0,
+          "nRej": 2589,
+          "fa": 1,
+          "recall": 0
+        },
+        "4": {
+          "nAcc": 824,
+          "tp": 0,
+          "nRej": 5944,
+          "fa": 0,
+          "recall": 0
+        },
+        "5": {
+          "nAcc": 1641,
+          "tp": 0,
+          "nRej": 5457,
+          "fa": 0,
+          "recall": 0
+        },
+        "6": {
+          "nAcc": 996,
+          "tp": 0,
+          "nRej": 2225,
+          "fa": 0,
+          "recall": 0
+        },
+        "7": {
+          "nAcc": 815,
+          "tp": 0,
+          "nRej": 843,
+          "fa": 0,
+          "recall": 0
+        },
+        "8": {
+          "nAcc": 586,
+          "tp": 0,
+          "nRej": 550,
+          "fa": 0,
+          "recall": 0
+        },
+        "9": {
+          "nAcc": 622,
+          "tp": 0,
+          "nRej": 564,
+          "fa": 0,
+          "recall": 0
+        },
+        "10": {
+          "nAcc": 454,
+          "tp": 0,
+          "nRej": 388,
+          "fa": 0,
+          "recall": 0
+        },
+        "11": {
+          "nAcc": 290,
+          "tp": 0,
+          "nRej": 266,
+          "fa": 0,
+          "recall": 0
+        },
+        "12+": {
+          "nAcc": 629,
+          "tp": 0,
+          "nRej": 1261,
+          "fa": 0,
+          "recall": 0
+        }
+      },
+      "agreesWithApproximation": true
+    }
+  },
+  "golden": {
+    "rows": 10000,
+    "file": "golden.jsonl"
+  },
+  "shipGate": {
+    "he-word": {
+      "pass": true,
+      "holdoutFalseAccepts": 0,
+      "holdoutRealWordFalseAccepts": 0,
+      "holdoutRecall": 0.09713024282560706,
+      "floor": 0.042449214345025146
+    },
+    "en-word": {
+      "pass": true,
+      "holdoutFalseAccepts": 0,
+      "holdoutRealWordFalseAccepts": 0,
+      "holdoutRecall": 0.45388731507711677,
+      "floor": 0.4146132265940521
+    },
+    "gloss": {
+      "pass": true,
+      "holdoutFalseAccepts": 0,
+      "holdoutRealWordFalseAccepts": 0,
+      "holdoutRecall": 0,
+      "floor": -0.04241948153967007
+    }
+  },
+  "enabled": true,
+  "budgetSweepNamed": {
+    "he-word": {
+      "budget": "1/7000",
+      "holdoutRecall": 0.24392935982339956,
+      "datasetFalseAccepts": [
+        {
+          "typed": "שוק חיימ",
+          "key": "שוקק חיימ",
+          "term": "שׁוֹקֵק (חַיִּים)",
+          "unit": "1",
+          "set": "he-word",
+          "op": "drop",
+          "why": "real-word",
+          "intruder": null
+        },
+        {
+          "typed": "בר מינ",
+          "key": "בר מיננ",
+          "term": "בַּר-מִינָן",
+          "unit": "2",
+          "set": "he-word",
+          "op": "drop",
+          "why": "real-word",
+          "intruder": null
+        }
+      ],
+      "crossCardCollisions": [
+        {
+          "typed": "קרטווב",
+          "card": "קִטּוּב",
+          "unit": "8",
+          "belongsTo": "קורט קרטוב",
+          "bucket": "cross-card-bank"
+        }
+      ]
+    },
+    "en-word": {
+      "budget": "1/7000",
+      "holdoutRecall": 0.5335221907459868,
+      "datasetFalseAccepts": [
+        {
+          "typed": "un that case",
+          "key": "in that case",
+          "term": "in that case",
+          "unit": "2",
+          "set": "en-word",
+          "op": "adj",
+          "why": "real-word",
+          "intruder": null
+        },
+        {
+          "typed": "every now an then",
+          "key": "every now and then",
+          "term": "every now and then",
+          "unit": "6",
+          "set": "en-word",
+          "op": "drop",
+          "why": "real-word",
+          "intruder": null
+        }
+      ],
+      "crossCardCollisions": [
+        {
+          "typed": "sevennth",
+          "card": "event",
+          "unit": "2",
+          "belongsTo": "7th seventh",
+          "bucket": "cross-card-bank"
+        }
+      ]
+    },
+    "gloss": {
+      "budget": "1/7000",
+      "holdoutRecall": 0.08994197292069632,
+      "datasetFalseAccepts": [
+        {
+          "typed": "ללא היה עקבי",
+          "key": "לא היה עקבי",
+          "term": "פָּסַח עַל שְׁתֵּי הַסְּעִיפִּים",
+          "unit": "6",
+          "set": "gloss",
+          "op": "double",
+          "why": "real-word",
+          "intruder": null
+        },
+        {
+          "typed": "צצבוע",
+          "key": "לצבוע",
+          "term": "color",
+          "unit": "1",
+          "set": "gloss",
+          "op": "adj",
+          "why": "ambiguous:צבוע",
+          "intruder": null
+        },
+        {
+          "typed": "כל",
+          "key": "כלל",
+          "term": "rule",
+          "unit": "2",
+          "set": "gloss",
+          "op": "drop",
+          "why": "ambiguous:כבל",
+          "intruder": null
+        },
+        {
+          "typed": "צצבוע",
+          "key": "לצבוע",
+          "term": "dye",
+          "unit": "7",
+          "set": "gloss",
+          "op": "adj",
+          "why": "ambiguous:צבוע",
+          "intruder": null
+        }
+      ],
+      "crossCardCollisions": []
+    }
+  },
+  "budgetSweepDenominators": {
+    "he-word": {
+      "rows": 25217,
+      "rejects": 10767,
+      "ambiguous": 7506,
+      "garbage": 487,
+      "real-word": 1167,
+      "veto": 1578,
+      "other-variant": 6,
+      "inflection": 22,
+      "cross-card": 1
+    },
+    "en-word": {
+      "rows": 35278,
+      "rejects": 13615,
+      "ambiguous": 9508,
+      "garbage": 2003,
+      "real-word": 123,
+      "veto": 1775,
+      "inflection": 186,
+      "other-variant": 19,
+      "cross-card": 1
+    },
+    "gloss": {
+      "rows": 28880,
+      "rejects": 20099,
+      "veto": 11807,
+      "real-word": 729,
+      "ambiguous": 7560,
+      "cross-card": 3
+    }
+  },
+  "pooling": {
+    "basis": "false accepts counted over every dataset row (not holdout only) plus every cross-card bank collision; via=exact acceptances excluded and reported separately because layer 1 runs before any parameter",
+    "note": "Each budget point was an independent GA run with its own seed, producing a non-monotonic raw curve (measured: he-word 3.04% at budget 0 in the sweep vs 9.71% in the main run; gloss collapsed to 0.00%). A genome feasible at a tight budget is feasible at every looser one, so each budget reports the best known point across all genomes produced. Shipped = best known point with zero false accepts and zero cross-card collisions."
+  }
+}
