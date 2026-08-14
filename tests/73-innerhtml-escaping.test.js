@@ -36,7 +36,7 @@ const SINKS = htmlSinks(src);
    email/username — profiles ב-Supabase.
    body/kind — שורת דיווח שמשתמש הקליד.
    admView.q — תיבת החיפוש בפאנל הניהול. */
-const EXTERNAL = ['.term', '.meaning', '.email', '.username', '.body', '.kind', 'admView.q'];
+const EXTERNAL = ['.term', '.meaning', '.email', '.username', '.body', '.kind', 'admView.q', '.text'];
 
 /* פונקציות שמותר לעטוף בהן במקום esc, כי הן עושות אסקייפ בעצמן על כל מסלול
    יציאה. כל שם כאן חייב בדיקה נלווית שמקבעת את זה — ראו למטה.
@@ -81,6 +81,28 @@ describe('innerHTML — שדות חיצוניים עוברים אסקייפ', ()
           `${name}: מסלול יציאה ${i + 1} מחזיר ערך בלי esc() — ${head.slice(0, 80).trim()}`);
       });
     }
+  });
+
+  /* ‏sEsc נמצאת ב-ESCAPERS ולכן הכלל למעלה מאשר כל מה שהיא עוטפת — בכל הקשר,
+     כולל בתוך מאפיין. אבל היא הוגדרה כחץ (`const sEsc = s =>`) ולא כ-function,
+     ולכן הבדיקה שמעליה — שמחפשת `function ${name}(` — מעולם לא ראתה אותה.
+     עוטף שמאושר גורף ואינו נבדק הוא בדיוק החור שהשער הזה נועד לסגור.
+     כאן היא **מורצת** ולא נקראת: הטענה היא על ההתנהגות, לא על צורת הקוד. */
+  test('sEsc — עוטף שמאושר ב-ESCAPERS חייב לברוח גם ממרכאות', () => {
+    const m = src.match(/const\s+sEsc\s*=\s*([\s\S]*?);\s*\n/);
+    assert.ok(m, 'sEsc לא נמצאה ב-app.js — עדכן את ESCAPERS');
+
+    /* vm ולא new Function — זה האידיום של החבילה (00-harness, 10-distractors),
+       והקשר נפרד עדיף על הרצה בתוך ההיקף של הבדיקה. */
+    const vm   = require('node:vm');
+    const sEsc = vm.runInNewContext(`(${m[1]})`, {}, { filename: 'app.js:sEsc' });
+    const out  = sEsc(`x" onerror=alert(1) '`);
+
+    assert.ok(!out.includes('"'),
+      `sEsc אינה בורחת מ-" — הפלט: ${out}\n` +
+      'ההשלכה: `<div title="${sEsc(v)}">` נשבר החוצה מהמאפיין, והשער מאשר אותו בשקט.');
+    assert.ok(!out.includes("'"),
+      `sEsc אינה בורחת מ-' — הפלט: ${out}`);
   });
 });
 
