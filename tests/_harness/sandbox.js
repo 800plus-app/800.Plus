@@ -44,7 +44,19 @@ const SYMBOLS = [
   // HTML escaping, and hiding the answer inside its own gloss (09-mask.test.js)
   'esc', 'CLITIC', 'HSUF', 'heStems', 'maskTerm',
   // bank + shared-gloss index
-  'UNIT_IDS', 'PREVIEW_UNIT', 'GLOSS_ALT', 'buildBank', 'glossKey', 'glossSenses', 'buildGlossIndex', 'glossAlts',
+  'UNIT_IDS', 'PREVIEW_UNIT', 'GLOSS_ALT', 'vetoPut', 'buildBank', 'glossKey', 'glossSenses', 'buildGlossIndex', 'glossAlts',
+  /* סובלנות איות · tests/71. הסדר כאן הוא סדר ההערכה, ולכן הקבועים לפני הפונקציות
+     שקוראות להם. TERM_VETO ו-SEG_VETO מוצהרים כאן ונבנים ב-buildBank/buildGlossIndex. */
+  'TYPO_PARAMS', 'TYPO_ADJ_HE', 'TYPO_ADJ_EN', 'TYPO_HOMO', 'TYPO_OPS',
+  'TYPO_MAX_OPS', 'TYPO_RADIUS', 'TYPO_HE_RANGE', 'TYPO_PN', 'TYPO_IX',
+  'TERM_VETO', 'SEG_VETO',
+  'typoLex', 'lexHit', 'typoTokens', 'typoLexWhole', 'typoLexBlocked',
+  'typoTables', 'typoSubKind', 'typoInsKind', 'typoDelKind', 'typoVectors', 'typoWDist',
+  'typoNorm', 'typoLetters', 'typoSuffixes', 'typoInflection',
+  'typoDeletions', 'typoIndex', 'typoNearestOther', 'nearMatch', 'typoKeysOf', 'typoOwners',
+  'TYPO_GLOSS_RULES', 'TYPO_OR_GUARDS', 'typoSplitOr', 'TYPO_SYN', 'TYPO_SYN_MAP',
+  'typoSynMap', 'typoCanon', 'typoSegBlocked',
+  'editDist', 'creditSense', 'typoVeto',
   // stats model and the three practice buckets
   'rec', 'scopeWords', 'lvl', 'lastOf', 'wasSkipped', 'seenCount',
   'classify', 'uniqScope', 'newCards', 'weakCards', 'learnedCards', 'weakCtaText',
@@ -68,7 +80,10 @@ const SYMBOLS = [
 /* Symbols that must exist on the context afterwards. Superset of SYMBOLS: it also names the
  * ones that ride along inside a grouped declaration (const HOLAM=…, QUBUTS=…, HIRIQ=…), so a
  * rename of QUBUTS is caught even though QUBUTS is never extracted by name. */
-const REQUIRED = SYMBOLS.concat(['QUBUTS', 'HIRIQ', 'DAGESH']);
+const REQUIRED = SYMBOLS.concat(['QUBUTS', 'HIRIQ', 'DAGESH',
+  /* נוסעים בתוך הצהרה משותפת: const TYPO_MAX_OPS = 3, TYPO_MAX_CANDS = 8 וכו'.
+     אי אפשר לחלץ אותם בשמם, ולכן הם נבדקים כאן — שינוי שם ייתפס גם בהם. */
+  'TYPO_MAX_CANDS', 'TYPO_LONG', 'TYPO_LEX_MIN']);
 
 let cachedSource = null;
 function appSource() {
