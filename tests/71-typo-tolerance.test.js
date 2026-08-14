@@ -59,6 +59,11 @@ function withClassA(ctx, fn) {
   ctx.TYPO_PARAMS.enabled = true;
   try { return fn(); } finally { ctx.TYPO_PARAMS.enabled = was; }
 }
+function withoutClassA(ctx, fn) {
+  const was = ctx.TYPO_PARAMS.enabled;
+  ctx.TYPO_PARAMS.enabled = false;
+  try { return fn(); } finally { ctx.TYPO_PARAMS.enabled = was; }
+}
 function withGlossRules(ctx, splitOr, synonyms, fn) {
   const a = ctx.TYPO_GLOSS_RULES.splitOr, b = ctx.TYPO_GLOSS_RULES.synonyms;
   ctx.TYPO_GLOSS_RULES.splitOr = splitOr; ctx.TYPO_GLOSS_RULES.synonyms = synonyms;
@@ -247,28 +252,53 @@ describe('סובלנות איות · שקילות מעבדה↔ריצה', () => 
 
 describe('סובלנות איות · מתג הכיבוי והתלות בלקסיקון', () => {
 
-  test('מחלקה A נשלחת כבויה, ושתי מחלקות הפירוש פועלות', () => {
-    /* השורה הזאת היא ההצהרה עצמה. כשהפרמטרים החדשים ינחתו ושער המאגר יהיה ירוק,
-       היא תתעדכן יחד עם הקבוע — ולא לפניו. */
-    assert.strictEqual(HE.TYPO_PARAMS.enabled, false,
-      'מחלקה A דלוקה · שער המאגר של typo-lab עדיין מדווח התנגשויות עם הפרמטרים האלה');
+  test('שלוש המחלקות במצב שנשלח · A דלוקה, B1 ו-E דלוקות', () => {
+    assert.strictEqual(HE.TYPO_PARAMS.enabled, true,
+      'מחלקה A כבויה · אם זו הכוונה, עדכן גם את ההערה מעל הקבוע');
     assert.strictEqual(HE.TYPO_GLOSS_RULES.splitOr, true);
     assert.strictEqual(HE.TYPO_GLOSS_RULES.synonyms, true);
   });
 
+  test('צד הפירוש רדום מבנית · כל רצועות הסף אפס', () => {
+    /* לא כיול אלא מבנה. שער המאגר מצא שתי התנגשויות בצד הזה ("רסיס עצ" על אֵגֶל,
+       "משא כבד" על יָצוּעַ), ושתיהן הגיעו דרך תוצרי ההרחבה של B1 — שאינם מקטע
+       פירוש גולמי, ולכן שקופים גם לשולי הדו-משמעות וגם לקבוצת האילוץ
+       החוצה-כרטיסים. סף 0 בכל הרצועות הופך התנגשות חדשה לבלתי אפשרית, ולא
+       לבלתי סבירה. מי שיחזיר סף כאן חייב קודם להזרים את צורות ההרחבה של B1
+       לתוך בנאי האילוץ החוצה-כרטיסים. */
+    for (const b of Array.from(HE.TYPO_PARAMS.gloss.bands))
+      assert.strictEqual(b.t, 0, `רצועת סף בצד הפירוש חזרה לחיים (maxLen ${b.maxLen}) · שתי ההתנגשויות של השער נפתחות איתה`);
+    /* וההוכחה ההתנהגותית, לא רק הערך: שום וריאציה של מקטע אינה מתקבלת בפאזי. */
+    let accepted = 0, tried = 0;
+    for (const w of Array.from(HE.BANK).slice(0, 400)) {
+      const segs = Array.from(HE.meaningSegs(w.meaning));
+      const own = HE.typoOwners(w.meaning, w);
+      for (const s of segs) {
+        if (s.length < 6) continue;
+        const mut = s.slice(0, 2) + s[3] + s[2] + s.slice(4);
+        if (segs.includes(mut)) continue;
+        tried++;
+        if (HE.nearMatch(mut, segs, 'he', HE.TYPO_PARAMS.gloss, HE.SEG_VETO, own).ok) accepted++;
+      }
+    }
+    assert.ok(tried > 100, 'המדגם ריק');
+    assert.strictEqual(accepted, 0, 'הפאזי בצד הפירוש קיבל וריאציה · הרדימה נפרצה');
+  });
+
   test('enabled:false מחזיר את התנהגות היום בדיוק · 500 שורות לכל כיוון', () => {
     for (const c of [HE, EN]) {
-      assert.strictEqual(c.TYPO_PARAMS.enabled, false);
       const bad = [];
-      for (const [input, term] of wordSample(c, 500, 0x51ee)) {
-        const got = c.isCorrect(input, term), want = todayCorrect(c, input, term);
-        if (got !== want) bad.push(`[${c.LANG}] isCorrect("${input}","${term}") = ${got} · היום ${want}`);
-      }
-      withGlossRules(c, false, false, () => {
-        for (const [input, w] of glossSample(c, 500, 0x51ef)) {
-          const got = c.meaningMatch(input, w.meaning, w), want = todayMeaning(c, input, w.meaning);
-          if (got !== want) bad.push(`[${c.LANG}] meaningMatch("${input}","${w.meaning}") = ${got} · היום ${want}`);
+      withoutClassA(c, () => {
+        for (const [input, term] of wordSample(c, 500, 0x51ee)) {
+          const got = c.isCorrect(input, term), want = todayCorrect(c, input, term);
+          if (got !== want) bad.push(`[${c.LANG}] isCorrect("${input}","${term}") = ${got} · היום ${want}`);
         }
+        withGlossRules(c, false, false, () => {
+          for (const [input, w] of glossSample(c, 500, 0x51ef)) {
+            const got = c.meaningMatch(input, w.meaning, w), want = todayMeaning(c, input, w.meaning);
+            if (got !== want) bad.push(`[${c.LANG}] meaningMatch("${input}","${w.meaning}") = ${got} · היום ${want}`);
+          }
+        });
       });
       expectNone(assert, bad, 'המתג כבוי והתשובה בכל זאת השתנתה');
     }
@@ -318,10 +348,39 @@ describe('סובלנות איות · מתג הכיבוי והתלות בלקסי
         if (v.ok) opened[r.set]++;
       }
     }));
-    /* המספרים נמדדו ב-14.8.2026 על אותה טבלת זהב. הם מוצמדים ולא מושווים ל"גדול
-       מאפס": שכבה שנחלשת בשקט היא בדיוק מה שהבדיקה הזאת אמורה לתפוס. */
-    assert.deepStrictEqual(opened, { 'he-word': 4, 'en-word': 20, gloss: 3 },
+    /* המספרים נמדדו על אותה טבלת זהב. הם מוצמדים ולא מושווים ל"גדול מאפס":
+       שכבה שנחלשת בשקט היא בדיוק מה שהבדיקה הזאת אמורה לתפוס.
+       gloss הוא 0 כי צד הפירוש רדום מבנית (כל הרצועות 0) · שם הלקסיקון אינו
+       השכבה שמחזיקה, וזה נכון ולא ליקוי. */
+    assert.deepStrictEqual(opened, { 'he-word': 1, 'en-word': 15, gloss: 0 },
       'המחיר של כיבוי הלקסיקון השתנה · השכבה או הפרדיקט שלה זזו');
+  });
+
+  test('תקרת הפעולות קבועה על 3 · הפרצה שה-GA מצא בריצה הראשונה', () => {
+    /* ⚠ הבדיקה הזאת נכתבה אחרי שהתגלה שהיא חסרה. עם הפרמטרים הקודמים שינוי
+       התקרה מ-3 ל-4 הפיל את טבלת הזהב; עם הפרמטרים הנוכחיים הוא כבר לא, כי
+       המשקל הזול ביותר (0.4423) כפול ארבע עובר כל סף קיים, ולכן התקרה חדלה
+       להיות האילוץ הכובל. משמע: טבלת הזהב לבדה כבר אינה שומרת על הקבוע הזה,
+       והוא נשמר כאן במפורש.
+       למה הוא קיים בכלל: בלעדיו ה-GA הוריד את מחיר ההכנסה והמחיקה ל-0.2 ומצא
+       שהמסלול הזול הוא למחוק הכול ולכתוב מחדש · "kqvv" התקבל כטעות הקלדה של
+       "late". שלוש עריכות גולמיות, לא ארבע. */
+    assert.strictEqual(HE.TYPO_MAX_OPS, 3, 'תקרת הפעולות זזה');
+    assert.strictEqual(HE.TYPO_MAX_CANDS, 8, 'מספר המועמדים הנבחנים זז · המעבדה והריצה יבחנו קבוצות שונות');
+    for (const v of Array.from(HE.typoVectors('קקקקקקקק', 'קקקקקזזז', 3))) {
+      let n = 0; for (const k of Array.from(HE.TYPO_OPS)) n += v[k];
+      assert.ok(n <= 3, `יישור עם ${n} פעולות עבר את התקרה`);
+    }
+    /* וברמת ההחלטה · סף רחב מלאכותית, בלי לקסיקון ובלי וטו, כדי שהתקרה תהיה
+       הדבר היחיד שמכריע. ארבע עריכות נדחות, שלוש מתקבלות. */
+    const P = Object.assign({}, HE.TYPO_PARAMS['he-word'],
+      { minLen: 0, vetoMargin: 0, useLexicon: false, bands: [{ maxLen: null, t: 99 }] });
+    const cand = 'קקקקקקקק';
+    assert.strictEqual(HE.editDist('קקקקזזזז', cand), 4);
+    assert.strictEqual(HE.nearMatch('קקקקזזזז', [cand], 'he', P, new Map(), new Set()).ok, false,
+      'ארבע עריכות התקבלו · התקרה נפרצה');
+    assert.strictEqual(HE.nearMatch('קקקקקזזז', [cand], 'he', P, new Map(), new Set()).ok, true,
+      'שלוש עריכות נדחו · הבדיקה מודדת משהו אחר ממה שהיא חושבת');
   });
 
   test('הפרדיקט חוצה-הכיוונים · שתי הבריחות שנמדדו', () => {
@@ -629,18 +688,34 @@ describe('סובלנות איות · טסט הסיום של שתי המילים'
     });
   });
 
-  test('חצי הסובלנות של טסט הסיום · ממתין לפרמטרים החדשים', t => {
-    /* הכיוון השני של שתי המילים — טעות כתיב אמיתית שמתקבלת — אינו ניתן לבדיקה
-       כל עוד מחלקה A כבויה, והוא גם לא היה עובר עם הפרמטרים הנוכחיים: minLen=8
-       בעברית מוציא 83% מהמאגר, כולל שתי המילים האלה (4 ו-6 אותיות אחרי נרמול).
-       כשהפרמטרים החדשים ינחתו ו-enabled יתהפך, הבדיקה הזאת נדרכת מעצמה. */
-    if (!HE.TYPO_PARAMS.enabled) {
-      t.diagnostic('מחלקה A כבויה · חצי הקבלה של טסט שתי המילים לא נבדק');
-      t.skip('ממתין לפרמטרים שיעברו את שער המאגר של typo-lab');
-      return;
+  test('מִכְמוֹרֶת · חצי הקבלה · טעות אמיתית מעל כתיב מלא מתקבלת', () => {
+    const mich = find(HE, 'מכמורת');
+    /* "מיכמוררת" · הכתיב המלא שהמאגר מלמד, ועליו ר' כפולה. זו טעות ההקלדה
+       הנפוצה ביותר, והמשקל שמתמחר אותה (doubleLetter 0.4423) הוא היחיד שנכנס
+       תחת סף הרצועה 0.5164 של מילה בת 6-7 אותיות. */
+    assert.strictEqual(HE.isCorrect('מיכמוררת', mich.term), true, 'אות כפולה מעל הכתיב המלא נדחתה');
+    assert.strictEqual(HE.isCorrect('מכמוררת', mich.term), true, 'אות כפולה מעל הכתיב החסר נדחתה');
+    const v = HE.nearMatch(HE.K('מיכמוררת'), HE.typoKeysOf(mich.term), 'he',
+      HE.TYPO_PARAMS['he-word'], HE.TERM_VETO, new Set([HE.K(mich.term)]));
+    assert.strictEqual(v.ok, true);
+    assert.ok(v.dist > 0 && v.dist < 0.5164, `הקבלה עברה בסף ${v.dist} · לא דרך המשקל שנמדד`);
+    /* וההפרדה שהיא כל העניין: אותה מילה בדיוק, בהחלפת אות במקום הכפלה, נדחית. */
+    assert.strictEqual(HE.isCorrect('מיכמורץ', mich.term), false,
+      'החלפת אות התקבלה · הרצועה של 6-7 אותיות רחבה מכפי שנמדד');
+  });
+
+  test('אָמִיר · מתחת לשער האורך · אין לה סובלנות, וזו תוצאה ולא כשל', () => {
+    /* המילה השנייה בטסט הסיום אינה מקבלת שום טעות כתיב, ולא בגלל תקלה:
+       minLen=6 בסט העברי, והמפתח "אמיר" הוא 4 אותיות. גם וריאציה בת 5 אותיות
+       נופלת בשער. זו בדיוק ההערה שבתוכנית — "בעברית קצרה הסובלנות תהיה אפסית
+       בכוונה; זו תוצאה, לא כשל" — והיא מקובעת כאן כדי שהיא לא תשתנה בשקט. */
+    const amir = find(HE, 'אמיר');
+    assert.ok(HE.K(amir.term).replace(/ /g, '').length < HE.TYPO_PARAMS['he-word'].minLen,
+      'אָמִיר עברה את שער האורך · עדכן את הבדיקה הזאת ובדוק מה מתקבל עליה עכשיו');
+    for (const typo of ['אמירר', 'אמייר', 'אמיו']) {
+      const v = HE.nearMatch(HE.K(typo), HE.typoKeysOf(amir.term), 'he',
+        HE.TYPO_PARAMS['he-word'], HE.TERM_VETO, new Set([HE.K(amir.term)]));
+      assert.strictEqual(v.ok, false, `"${typo}" התקבל · שער האורך זז`);
     }
-    const amir = find(HE, 'אמיר'), mich = find(HE, 'מכמורת');
-    assert.strictEqual(HE.isCorrect('אמירר', amir.term), true, 'טעות כתיב שאינה אחד התאומים נדחתה');
-    assert.strictEqual(HE.isCorrect('מיכמורץ', mich.term), true, 'טעות אמיתית מעל כתיב מלא נדחתה');
   });
 });
