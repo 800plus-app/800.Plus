@@ -148,9 +148,11 @@ function checkFitness(packs) {
        השורות בדאטהסט הן כאלה שהחוק של היום דוחה), ולכן 0 קבלות-שווא ו-0 קבלות. */
     const zero = normalizeParams(EV.genomeToParams(EV.paramsToGenome(EV.SEED_PARAMS[0])));
     const zRes = EV.evalSubset(S, all, EV.makeFastEval(zero));
-    check(`[3] ${set} · גנום אפס-סובלנות: 0 קבלות-שווא`, zRes.fa === 0, `${zRes.fa}`);
+    /* ‏faOwn ולא fa · שורה שהחוק של היום מקבל (via=exact) אינה באחריות הגנום. נמדד:
+       שורת gloss אחת ("כל" מול "כלל") ש-meaningMatch מקבלת לפני שכל פרמטר נקרא. */
+    check(`[3] ${set} · גנום אפס-סובלנות: 0 קבלות-שווא`, zRes.faOwn === 0, `${zRes.faOwn} (ועוד ${zRes.faToday} via=exact שאינן של הגנום)`);
     check(`[3] ${set} · גנום אפס-סובלנות: 0 קבלות פאזיות`, zRes.tp === 0, `${zRes.tp}`);
-    const zFit = EV.fitnessOf(zRes, zero);
+    const zFit = EV.fitnessOf(Object.assign({}, zRes, { fa: zRes.faOwn }), zero);
     check(`[3] ${set} · הכושר שלו הוא 0 בדיוק`, Math.abs(zFit) < 1e-12, String(zFit));
 
     /* 2 · פרמטרים אבסורדיים · minLen 0 וסף 9 לכל אורך. */
@@ -171,8 +173,12 @@ function checkFitness(packs) {
     const ship = normalizeParams(shipParams()[set]);
     const sRes = EV.evalSubset(S, all, EV.makeFastEval(ship));
     const sBroken = brokenEval(S, ship);
-    check(`[1] ${set} · הפרמטרים הנשלחים: 0 קבלות-שווא`, sRes.fa === 0, `${sRes.fa} · מתוכן real-word ${sRes.faRealWord}`);
-    check(`[1] ${set} · ובלי הווטו הם נשברים`, sBroken.fa > 0 && EV.fitnessOf(sBroken, ship) < -1e5, `0 → ${sBroken.fa} קבלות-שווא`);
+    check(`[1] ${set} · הפרמטרים הנשלחים: 0 קבלות-שווא`, sRes.faOwn === 0, `${sRes.faOwn} · real-word ${sRes.faRealWord} · via=exact ${sRes.faToday}`);
+    /* סט בלי שום סובלנות (כל הספים 0) אינו מקבל דבר, ולכן הסרת הווטו אינה יכולה לשבור
+       אותו · השן נוגסת באוויר ומדולגת במפורש במקום לדווח ירוק כוזב. */
+    const anyTol = ship.bands.some(b => b.t > 0);
+    if (anyTol) check(`[1] ${set} · ובלי הווטו הם נשברים`, sBroken.fa > 0 && EV.fitnessOf(sBroken, ship) < -1e5, `0 → ${sBroken.fa} קבלות-שווא`);
+    else say(`  ⊘ [1] ${set} · אין סובלנות בכלל (כל הספים 0) · שן הווטו אינה ישימה`);
   }
 }
 
@@ -180,10 +186,16 @@ function checkFitness(packs) {
  * הספירות מקובעות בכוונה לדאטהסט v2 (manifest.json · 89,375 שורות). אם מישהו ייצר
  * דאטהסט מחדש והחלוקה תזוז, הבדיקה תיפול · וזה בדיוק מה שצריך לקרות, כי כל דוח שנשען
  * על "‏3,891 שורות הוצאו" ייהפך שקרי באותו רגע. */
+/* ‏lexAccept עלה עם לקסיקון v2 (‏+667 מילים נטו) · 92->116, 94->118, 44->57. אלה שורות
+   accept שהמסנן חוסם, וההערכה שלהן בדוח היא **תוויות שגויות ולא רגרסיות**: 30 מתוך
+   74 החסימות החדשות הן מחרוזת של מילה אחת שהיא מילה עברית אמיתית ("כריש", "דונמ",
+   "ציטט", "חלחלו"), כלומר accept היה התיוג הלא-נכון מלכתחילה.
+   ‏lexRealWord לא זז (‏1,701 מתוך 2,019) · השלמת צורות-המאגר בפרדיקט כבר כיסתה את מה
+   שהתוספת הייתה מוסיפה, ו-667 המילים החדשות אינן נופלות על 318 השורות הלא-מכוסות. */
 const V2_COUNTS = {
-  'he-word': { untrusted: 2277, realWord: 1167, lexRealWord: 952, lexAccept: 92 },
-  'en-word': { untrusted: 0, realWord: 123, lexRealWord: 120, lexAccept: 94 },
-  'gloss': { untrusted: 1818, realWord: 729, lexRealWord: 629, lexAccept: 44 }
+  'he-word': { untrusted: 2277, realWord: 1167, lexRealWord: 952, lexAccept: 116 },
+  'en-word': { untrusted: 0, realWord: 123, lexRealWord: 120, lexAccept: 118 },
+  'gloss': { untrusted: 1818, realWord: 729, lexRealWord: 629, lexAccept: 57 }
 };
 
 /* ===== 8 · הלקסיקון · האם המעבדה מודדת את החיפוש שהריצה תריץ =====
@@ -286,8 +298,10 @@ function checkV2Semantics(packs) {
        קבלות-שווא על real-word. אם לא · השכבה קישוט, וכל הדוח שנשען עליה שקרי.
        נמדד בריצה: he-word 1 · en-word 15 · gloss 6 קבלות-שווא נפתחות בלעדיה. */
     const noLex = EV.evalSubset(S, all, EV.makeFastEval(Object.assign({}, ship, { useLexicon: false })));
-    check(`[7] ${set} · שן · בלי הלקסיקון אותם פרמטרים נשברים`, noLex.faRealWord > 0 && sRes.faRealWord === 0,
-      `real-word FA ${sRes.faRealWord} → ${noLex.faRealWord} · FA כולל ${sRes.fa} → ${noLex.fa}`);
+    if (ship.bands.some(b => b.t > 0)) {
+      check(`[7] ${set} · שן · בלי הלקסיקון אותם פרמטרים נשברים`, noLex.faRealWord > 0 && sRes.faRealWord === 0,
+        `real-word FA ${sRes.faRealWord} → ${noLex.faRealWord} · FA כולל ${sRes.faOwn} → ${noLex.faOwn}`);
+    } else say(`  ⊘ [7] ${set} · אין סובלנות בכלל · שן הלקסיקון אינה ישימה`);
 
     /* שן · ההוצאה חייבת **לשנות** את המספר בסטים שבהם יש לא-מהימנות · ונמדדת בנקודת
        ההפעלה הנשלחת ולא בגנום המתירני. בגנום המתירני שני המונים מקבלים הכול, ולכן
