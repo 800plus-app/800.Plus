@@ -4,7 +4,7 @@
  * Why a runner script rather than telling people to type `node --test "tests/**\/*.test.js"`:
  * that command is not the same in every shell. PowerShell, cmd and bash disagree about quoting
  * and about whether the glob is expanded before node sees it, and the failure mode when they
- * disagree is "0 tests, exit 0" — a green run that tested nothing. Discovery happens here, in
+ * disagree is "0 tests, exit 0" -- a green run that tested nothing. Discovery happens here, in
  * JavaScript, where it behaves the same everywhere.
  *
  * Exit code is 0 only if every test passed AND at least one test ran.

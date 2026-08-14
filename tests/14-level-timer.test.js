@@ -1,5 +1,5 @@
 'use strict';
-/* מבחן הרמה — הטיימר שיורה אחרי שהלומד כבר יצא.
+/* מבחן הרמה · הטיימר שיורה אחרי שהלומד כבר יצא.
  *
  * WHY THIS FILE STUBS A DOM WHEN THE REST OF THE SUITE REFUSES TO
  * ---------------------------------------------------------------
@@ -8,8 +8,8 @@
  * the `$('#lvDunno').onclick` handler, and the thing that is supposed to cancel it lives in the
  * `$('#lvExit').onclick` handler. Neither is liftable by name.
  *
- * So this file stubs the smallest surface those two statements actually touch — `$` returning an
- * object per selector, and a fake clock — and evaluates the REAL statement text pulled out of
+ * So this file stubs the smallest surface those two statements actually touch · `$` returning an
+ * object per selector, and a fake clock · and evaluates the REAL statement text pulled out of
  * app.js. Nothing about the handlers is restated here. `lvRender` and `lvFinish` are spies on
  * purpose: what is being asserted is whether the pending tick reaches them at all, not what they
  * then draw.
@@ -18,7 +18,7 @@
  * ------------------------
  * confirm() blocks the queue but does not cancel timers. Press "לא יודע", then leave within
  * 900ms: the tick fires on a screen the learner already left, walks into lvFinish(), and writes
- * hw_level + queueRemoteSync() — the key that decides whether the test is ever offered again.
+ * hw_level + queueRemoteSync() · the key that decides whether the test is ever offered again.
  * app.js:2445-2448 records that exact incident for the exam screen. lvPick() was fixed then;
  * the "לא יודע" path was not.
  */
@@ -94,7 +94,7 @@ function levelScreen({ deck = 3, at = 0 } = {}) {
   };
 }
 
-describe('מבחן רמה — יציאה חייבת לבטל את הטיימר התלוי', () => {
+describe('מבחן רמה · יציאה חייבת לבטל את הטיימר התלוי', () => {
 
   test('positive control: without leaving, "לא יודע" DOES advance on the tick', () => {
     // Guards the direction of every assertion below: if the handler simply stopped scheduling
@@ -107,7 +107,7 @@ describe('מבחן רמה — יציאה חייבת לבטל את הטיימר �
     assert.strictEqual(s.ctx.lvIdx, 1, 'the tick did not advance the question');
   });
 
-  test('"לא יודע" then יציאה — the pending tick must NOT fire', () => {
+  test('"לא יודע" then יציאה · the pending tick must NOT fire', () => {
     const s = levelScreen({ deck: 3, at: 0 });
     s.dunno();
     s.exit();
@@ -120,7 +120,7 @@ describe('מבחן רמה — יציאה חייבת לבטל את הטיימר �
     assert.strictEqual(s.ctx.lvIdx, 0, 'the tick advanced the question after the learner left');
   });
 
-  test('"לא יודע" on the LAST question then יציאה — hw_level must not be written', () => {
+  test('"לא יודע" on the LAST question then יציאה · hw_level must not be written', () => {
     // The incident from app.js:2445-2448, on the level test: lvFinish() is what does
     // LS.set(lvKey(), …) + queueRemoteSync(). Reaching it after יציאה writes a level the
     // learner never finished earning, and pushes it to the cloud.
@@ -132,7 +132,7 @@ describe('מבחן רמה — יציאה חייבת לבטל את הטיימר �
       'lvFinish() ran after the learner left — it writes hw_level and calls queueRemoteSync()');
   });
 
-  test('answering normally then יציאה — the pending tick must NOT fire (regression)', () => {
+  test('answering normally then יציאה · the pending tick must NOT fire (regression)', () => {
     // lvPick() was already fixed once. This keeps it fixed.
     const s = levelScreen({ deck: 3, at: 0 });
     s.pick(true);

@@ -8,8 +8,8 @@
  * because "practise a unit and look at the buttons" is a slow thing to do by hand and nobody
  * does it twice.
  *
- * Everything below drives the REAL commitSession() from app.js — the same function the app runs
- * at the end of a round — so the level arithmetic under test is the shipped arithmetic.
+ * Everything below drives the REAL commitSession() from app.js -- the same function the app runs
+ * at the end of a round -- so the level arithmetic under test is the shipped arithmetic.
  */
 
 const { test, describe } = require('node:test');
@@ -22,7 +22,7 @@ const SCOPE = 'unit:1';
 function fresh() { return loadApp({ lang: 'he' }); }
 const keys = (ctx, list) => new Set(Array.from(list).map(w => ctx.K(w.term)));
 
-describe('buckets — partition', () => {
+describe('buckets · partition', () => {
   test('new + weak + learned covers the scope exactly once, before any practice', () => {
     const ctx = fresh();
     const total = ctx.uniqScope(SCOPE).length;
@@ -57,8 +57,8 @@ describe('buckets — partition', () => {
 
   test('a level-test skip is the ONLY word allowed to sit outside all three buckets', () => {
     /* Stated as an equation so it cannot drift: the buttons plus the skipped count must equal
-     * the scope. A skipped word is deliberately in no practice bucket — the learner said they
-     * already know it — and classify() gives it its own slice of the donut. Without the
+     * the scope. A skipped word is deliberately in no practice bucket -- the learner said they
+     * already know it -- and classify() gives it its own slice of the donut. Without the
      * `+ skipped` term this invariant would silently become "buckets need not cover the scope". */
     const ctx = fresh();
     const all = ctx.uniqScope(SCOPE);
@@ -88,15 +88,15 @@ describe('buckets — partition', () => {
   });
 });
 
-describe("buckets — the tester's report: a practised word came back as new", () => {
+describe("buckets · the tester's report: a practised word came back as new", () => {
   /* Reported today: practise 30 words in a unit, ask for "מילים חדשות", and some of the 30 come
-   * back — both the ones he got right and the ones he got wrong. The cause (app.js:314) was that
+   * back · both the ones he got right and the ones he got wrong. The cause (app.js:314) was that
    * "new" was defined as level < 1, and level is a STRENGTH counter, not a record of having met
    * the word: a wrong answer decrements and floors at 0, and so does a right answer that was not
    * on the first try. Both land on 0, which the old rule read as "never seen".
    *
    * This is the exact scenario, with the outcome mix that produced it. */
-  test('practise 30 words with a realistic mix — none returns to "new"', () => {
+  test('practise 30 words with a realistic mix · none returns to "new"', () => {
     const ctx = fresh();
     const deck = ctx.uniqScope(SCOPE).slice(0, 30);
     // The mix that matters: the bug showed up for wrong answers AND for late-correct ones.
@@ -151,7 +151,7 @@ describe("buckets — the tester's report: a practised word came back as new", (
       'recalling a word you just missed proves short-term recall, not knowledge (app.js:895)');
   });
 
-  test('seen only ever grows — practice can never un-meet a word', () => {
+  test('seen only ever grows · practice can never un-meet a word', () => {
     const ctx = fresh();
     const [card] = ctx.uniqScope(SCOPE);
     let last = 0;
@@ -165,10 +165,10 @@ describe("buckets — the tester's report: a practised word came back as new", (
   });
 });
 
-describe('buckets — a round interrupted part-way', () => {
+describe('buckets · a round interrupted part-way', () => {
   /* commitSession() can legitimately run several times in one round: visibilitychange fires
    * every time a notification pulls the learner away. The old code latched after the first
-   * commit and threw the rest of the round away — the results screen said 10/10 while storage
+   * commit and threw the rest of the round away -- the results screen said 10/10 while storage
    * held 3. The latch now guards only against applying the SAME entry twice.
    *
    * Both halves of that are silent when wrong, and both are about counts the learner is shown. */
@@ -220,7 +220,7 @@ describe('buckets — a round interrupted part-way', () => {
   });
 });
 
-describe('buckets — agreement with the donut', () => {
+describe('buckets · agreement with the donut', () => {
   test('classify totals match the scope and sum to their own total', () => {
     const ctx = fresh();
     practiseRound(ctx, ctx.uniqScope(SCOPE).slice(0, 30).map((w, i) => [w, ['first', 'struggle', 'wrong'][i % 3]]), { scope: SCOPE });
@@ -243,7 +243,7 @@ describe('buckets — agreement with the donut', () => {
      * anyone learned here, and counting it under שלמדתי is the same false claim the dashboard was
      * just cured of. It gets its own bucket."
      *
-     * classify() implements that. learnedCards() — which fills the שלמדתי button — does not, so
+     * classify() implements that. learnedCards() · which fills the שלמדתי button · does not, so
      * the donut and the button disagree by exactly the number of skipped words.
      *
      * The record below is byte-for-byte the one app.js:1637 writes. */
@@ -263,7 +263,7 @@ describe('buckets — agreement with the donut', () => {
   });
 });
 
-describe('buckets — scope', () => {
+describe('buckets · scope', () => {
   test('a unit scope is a strict subset of global, and the units partition the bank', () => {
     const ctx = fresh();
     const global = ctx.uniqScope('global').length;
@@ -294,7 +294,7 @@ describe('buckets — scope', () => {
 // ---------------------------------------------------------------------------------------------
 
 /* The home-screen shortcut into a weak round. It used to hide below four weak words, which meant
- * the learner with two left — the moment a short round actually closes the gap — was shown
+ * the learner with two left · the moment a short round actually closes the gap · was shown
  * nothing. Lowering the floor to one exposed a second bug the old threshold had been hiding:
  * the label was built as `${n} מילים`, so it would have read "1 מילים לחיזוק". */
 describe('the weak-words shortcut on the home screen', () => {

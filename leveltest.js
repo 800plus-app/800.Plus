@@ -1,8 +1,8 @@
-/* auto-generated level-test bank — 60 items, 10 per CEFR band.
+/* auto-generated level-test bank -- 60 items, 10 per CEFR band.
    Distractors are drawn from the SAME frequency band and the same part-of-speech shape as the
    answer, so the item cannot be solved by eliminating obviously-easier words. Words whose gloss
    in our bank is a secondary sense are excluded outright.
-   Regenerate with scratchpad/genlevel.js — do not hand-edit. */
+   Regenerate with scratchpad/genlevel.js -- do not hand-edit. */
 window.LEVEL_TEST = [{"w":"money","a":"כסף","d":["מלך","למעשה","מאוחר יותר"],"band":"A1","rank":186},
 {"w":"father","a":"אבא","d":["אולי","מיוחד","חדש"],"band":"A1","rank":194},
 {"w":"find","a":"למצוא","d":["להרגיש","לשלם","להבין"],"band":"A1","rank":145},

@@ -1,5 +1,5 @@
 'use strict';
-/* ===== store.js — the ONLY file that talks to the backend =====
+/* ===== store.js -- the ONLY file that talks to the backend =====
    Swapping Supabase for something else later means editing this file alone;
    app.js only ever calls the functions below. */
 
@@ -19,7 +19,7 @@ const Store = {
   async signIn(email, password) {
     const { data, error } = await sb.auth.signInWithPassword({ email, password });
     if (data && data.user) {
-      // best-effort — auth.users.last_sign_in_at isn't readable via the client,
+      // best-effort -- auth.users.last_sign_in_at isn't readable via the client,
       // so the admin dashboard needs its own "last seen" it can actually query
       sb.from('profiles').update({ last_seen: new Date().toISOString() }).eq('id', data.user.id).then(()=>{});
     }
@@ -28,14 +28,14 @@ const Store = {
   async signOut() { await sb.auth.signOut(); },
   /* Re-sends the sign-up confirmation to an account that exists but was never confirmed.
      This is NOT signUp() again: calling signUp with an address that is already registered
-     returns success and sends nothing — deliberately, so nobody can probe which addresses
+     returns success and sends nothing -- deliberately, so nobody can probe which addresses
      exist. Two real users were stranded by exactly that: the first mail was delivered and
      landed in spam, the retry sent nothing, and the screen kept promising a mail was coming.
      Errors come back as a value rather than a throw, because the interesting one is routine:
      Supabase rate-limits this per address (the SMTP screen's "minimum interval per user"),
      so a second tap inside a minute is a 429 and the learner must be told that in words. */
   /* מנוי Push אחד למכשיר. upsert על endpoint ולא insert: הדפדפן מחדש מנוי מדי פעם
-     מיוזמתו, ו-insert היה מייצר שורה נוספת לכל חידוש — כלומר אותו אדם היה מקבל את
+     מיוזמתו, ו-insert היה מייצר שורה נוספת לכל חידוש · כלומר אותו אדם היה מקבל את
      אותה התראה פעמיים, ואז שלוש. */
   async savePushSub(endpoint, p256dh, auth) {
     try {
@@ -65,10 +65,10 @@ const Store = {
     const { data } = await sb.auth.getSession();
     return data && data.session;
   },
-  /* הפעלה שמורה, נקראת מהדיסק בלבד — בלי רשת ובלי המתנה.
+  /* הפעלה שמורה, נקראת מהדיסק בלבד · בלי רשת ובלי המתנה.
      getSession() נראית מקומית ואינה: כשה-token פג היא יוצאת לרענון ברשת, וברשת איטית או
      בלי רשת היא פשוט לא חוזרת. האתחול מריץ אותה במרוץ מול פסק זמן, ולכן התוצאה הייתה
-     "אין הפעלה" — כלומר מסך התחברות למי שמעולם לא התנתק. זה מה שהוציא את המשתמש שוב ושוב.
+     "אין הפעלה" · כלומר מסך התחברות למי שמעולם לא התנתק. זה מה שהוציא את המשתמש שוב ושוב.
      כאן קוראים ישירות את מה ש-supabase-js שמר. token שפג עדיין מזהה מי המשתמש, וזה כל מה
      שנדרש כדי להציג את החשבון ולטעון את הנתונים המקומיים; autoRefreshToken יחדש אותו
      ברקע כשתהיה רשת. */
@@ -86,7 +86,7 @@ const Store = {
   },
 
   /* האירוע מועבר הלאה ולא נבלע. "אין הפעלה" ו"המשתמש התנתק" הם שני מצבים שונים לגמרי:
-     supabase-js משדר INITIAL_SESSION עם null כשהיא לא הצליחה לקרוא הפעלה — למשל בלי רשת —
+     supabase-js משדר INITIAL_SESSION עם null כשהיא לא הצליחה לקרוא הפעלה · למשל בלי רשת · 
      ומי שמתייחס לזה כאל התנתקות מוחק את המשתמש בדיוק אחרי שהאתחול שחזר אותו מהדיסק. */
   onAuthChange(cb) { sb.auth.onAuthStateChange((evt, session) => cb(session, evt)); },
   async myProfile() {
@@ -97,7 +97,7 @@ const Store = {
   },
 
   /* ההכרעה על מנוי, חתוכה בשרת. מחזירה את ה-jsonb של my_entitlement או null.
-     null בכל מצב של כשל — אין רשת, אין הפעלה, או שהפונקציה לא נפרסה — ו-accessOk
+     null בכל מצב של כשל · אין רשת, אין הפעלה, או שהפונקציה לא נפרסה · ו-accessOk
      נופלת חזרה לבדיקה המקומית. **לא לשנות את זה ל-throw**: השער הזה נכשל־פתוח
      בכוונה, וחריגה כאן הייתה נועלת מכשיר שאין לו רשת. ראה app.js › entVerdict. */
   async myEntitlement() {
@@ -105,7 +105,7 @@ const Store = {
     if (error) {
       // 42883 = הפונקציה אינה קיימת, כלומר migrations/11.sql לא הורץ.
       console.warn('my_entitlement נכשלה' + (error.code === '42883'
-        ? ' — נראה ש-migrations/11.sql לא הורץ' : ': ' + error.message));
+        ? ' · נראה ש-migrations/11.sql לא הורץ' : ': ' + error.message));
       return null;
     }
     return data || null;
@@ -118,23 +118,23 @@ const Store = {
     const { data: u } = await sb.auth.getUser();
     if (!u || !u.user) return { ok: false, data: null };
     // RLS already scopes this, but filtering explicitly means a mis-edited policy still can't
-    // hand us someone else's row — and it guarantees at most one row for maybeSingle().
+    // hand us someone else's row -- and it guarantees at most one row for maybeSingle().
     const { data, error } = await sb.from('progress').select('data,updated_at')
       .eq('user_id', u.user.id).eq('lang', lang).maybeSingle();
     if (error) { console.warn('pullProgress failed', error.message); return { ok: false, data: null }; }
     /* Three states, not two. `no row at all` is a genuinely empty cloud and the device may fill
-       it. `a row whose data is not an object` is a read we cannot trust — a renamed column, a
-       truncated response, a half-written row — and it must NOT look like an empty cloud, because
+       it. `a row whose data is not an object` is a read we cannot trust -- a renamed column, a
+       truncated response, a half-written row -- and it must NOT look like an empty cloud, because
        the caller answers an empty cloud by pushing the device up. On a fresh device that push is
        `{}` written over a full row. Refusing to sync is recoverable; overwriting is not. */
     if (data && !(data.data && typeof data.data === 'object')) {
-      console.warn('pullProgress: the row exists but carries no usable data — refusing to treat it as an empty cloud');
+      console.warn('pullProgress: the row exists but carries no usable data -- refusing to treat it as an empty cloud');
       return { ok: false, data: null };
     }
     return { ok: true, data: data ? data.data : null };
   },
   /* expectUserId is the account the CALLER believes it is writing for. The account is resolved
-     twice per sync — once by pullProgress, once here — and it can change in between: a
+     twice per sync -- once by pullProgress, once here -- and it can change in between: a
      confirmation link opened in the same tab, a second tab signing in, a token refreshed into
      another account. The read then merged A's row into local state and this wrote all of it into
      B's row, under B's own RLS, entirely legally. RLS cannot see this; only the caller knows
@@ -178,7 +178,7 @@ const Store = {
     const { error } = await sb.from('feedback').update({ status }).eq('id', id);
     return !error;
   },
-  /* How many reports are still waiting. head:true asks Postgres for the count only —
+  /* How many reports are still waiting. head:true asks Postgres for the count only -- 
      no rows cross the wire, so this can run on every screen entry without costing anything.
      status is NOT NULL default 'new', so neq('done') really does mean "not handled yet". */
   async countOpenFeedback() {
@@ -189,7 +189,7 @@ const Store = {
 
   /* ---------- willingness-to-pay survey (one shot per learner) ---------- */
   /* Asked once, ever. The flag lives in the table and not only in localStorage, because a
-     learner who switches phone or clears storage would otherwise be asked a second time —
+     learner who switches phone or clears storage would otherwise be asked a second time -- 
      and a survey that reappears reads as nagging rather than as a question.
      Returns true = already asked (answered or dismissed) → do not show.
      On any error, including the table not existing yet (42P01), returns true: never show a
@@ -197,16 +197,16 @@ const Store = {
   async wtpAsked() {
     const { data: u } = await sb.auth.getUser();
     const user = u && u.user;
-    if (!user) return true;                       // signed out — nothing to write to
-    /* head:true returns the count and no rows — `data` is null here, so the answer has to come
+    if (!user) return true;                       // signed out -- nothing to write to
+    /* head:true returns the count and no rows -- `data` is null here, so the answer has to come
        from `count`. Reading data.length instead would always say "never asked". */
     const { count, error } = await sb.from('wtp_survey')
       .select('user_id', { count: 'exact', head: true }).eq('user_id', user.id);
     if (error) return true;
     return (count || 0) > 0;
   },
-  /* dismissed:true is written for a ✕ with no answer. It is a real data point — the ratio of
-     dismissals to answers says how much appetite there was for the question at all — and it is
+  /* dismissed:true is written for a ✕ with no answer. It is a real data point -- the ratio of
+     dismissals to answers says how much appetite there was for the question at all -- and it is
      also what stops the card from coming back. */
   async wtpSave(row) {
     const { data: u } = await sb.auth.getUser();
@@ -231,7 +231,7 @@ const Store = {
     return { users: data, error: null };
   },
   /* The admin panel counts practice; it must never receive what the learner wrote.
-     `data` is the whole blob — {assoc, stats, deleted, added, dir, extras} — and `assoc` is the
+     `data` is the whole blob -- {assoc, stats, deleted, added, dir, extras} -- and `assoc` is the
      learner's own associations, written on the assumption nobody would read them. The privacy
      policy promises the service owner does not see them; selecting `data` handed every one of
      them to an admin screen on every panel load, whether or not anything rendered them.
@@ -240,7 +240,7 @@ const Store = {
      `added` is excluded along with `assoc` on purpose: the policy allows knowing how much you
      practised, and a word the learner typed in with the meaning they wrote for it is writing,
      not a count. Nothing in the panel ever used it. Anything the panel needs later gets added
-     here by name — never by widening this back to the blob. */
+     here by name -- never by widening this back to the blob. */
   async adminUserProgress(userId) {
     const { data } = await sb.from('progress')
       .select('lang,updated_at,stats:data->stats').eq('user_id', userId);
@@ -251,7 +251,7 @@ const Store = {
   /* ---------- shared associations ----------
      A separate table from the private ones on purpose: an association is personal writing,
      made under the assumption nobody would read it. Nothing already written is ever copied
-     here — sharing is an explicit act, one association at a time. */
+     here -- sharing is an explicit act, one association at a time. */
   async shareAssoc(lang, wordKey, word, text) {
     const { data: u } = await sb.auth.getUser();
     if (!u || !u.user) return { ok: false };
@@ -271,7 +271,7 @@ const Store = {
     return { ok: !error };
   },
   /* Read through an RPC, not the table. The old select policy was `using (true)`, so any signed-in
-     account could pull every shared association ever written TOGETHER WITH its user_id — the text
+     account could pull every shared association ever written TOGETHER WITH its user_id -- the text
      is meant to be shared, the authorship behind it is not, and RLS cannot hide a column.
      public.shared_assoc is SECURITY DEFINER and simply never returns user_id; it computes is_mine
      server-side instead. The table's own select policy is now own-rows-only. */
@@ -281,14 +281,14 @@ const Store = {
       // 42883 = the function does not exist, i.e. migrations/9.sql was never run. Silence here
       // meant the whole "what others wrote" feature simply never appeared, with no error anywhere.
       console.warn('shared_assoc נכשלה' + (error.code === '42883'
-        ? ' — נראה ש-migrations/9.sql לא הורץ' : ': ' + error.message));
+        ? ' · נראה ש-migrations/9.sql לא הורץ' : ': ' + error.message));
       return { ok: false, rows: [], mine: false };
     }
     const rows = data || [];
     return { ok: true, rows: rows.filter(r => !r.is_mine), mine: rows.some(r => r.is_mine) };
   },
 
-  /* Re-authentication. The password is verified BY SUPABASE against the stored hash —
+  /* Re-authentication. The password is verified BY SUPABASE against the stored hash -- 
      nothing is compared in the browser and no secret lives in this file. */
   async verifyMyPassword(password) {
     const { data } = await sb.auth.getUser();
@@ -302,7 +302,7 @@ const Store = {
      service_role key, which must never reach the browser. The caller says so plainly.
 
      The profiles row is CLEARED, not deleted. handle_new_user only fires on INSERT into
-     auth.users, so a deleted row was never recreated — and accessOk() treats a missing
+     auth.users, so a deleted row was never recreated -- and accessOk() treats a missing
      profile as "the subscription columns aren't deployed yet" and lets the user through.
      Deleting the data therefore handed that account unlimited access forever, which is the
      exact opposite of what the button says. */
@@ -319,7 +319,7 @@ const Store = {
   },
 
   /* Self-service account deletion. Goes through an Edge Function and not through the table
-     API, because removing the row from auth.users needs service_role — a key that can never
+     API, because removing the row from auth.users needs service_role · a key that can never
      be in a browser. Without that step the account still signs in, and "מחיקת החשבון" is a
      button that lies.
 
@@ -328,7 +328,7 @@ const Store = {
   async deleteMyAccount() {
     const { data: s } = await sb.auth.getSession();
     const token = s && s.session && s.session.access_token;
-    if (!token) return { ok: false, error: { message: 'אין חיבור פעיל — התחבר שוב ונסה' } };
+    if (!token) return { ok: false, error: { message: 'אין חיבור פעיל. התחבר שוב ונסה' } };
     let res;
     try {
       res = await fetch(window.SUPA_URL + '/functions/v1/delete-account', {

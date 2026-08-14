@@ -3,19 +3,19 @@
  *
  * WHY THIS FILE EXISTS
  * --------------------
- * tests/README.md put this whole area under "what is NOT covered — this needs a browser":
- * "The level test (leveltest.js, leveltest-he.js) and exam generation — including
+ * tests/README.md put this whole area under "what is NOT covered · this needs a browser":
+ * "The level test (leveltest.js, leveltest-he.js) and exam generation · including
  * pickDistractors, where a bad distractor is a card with two correct answers."
  *
  * Half of that is right. Rendering an option list needs a browser. Deciding WHICH strings go in
  * it does not: exDistract(), exBuild(), exWriteOk(), lvNextBand() and lvEstimate() are pure
  * functions of a word pool and a run of answers. And the app already owns a machine-checkable
- * definition of "this string is also a correct answer" — isCorrect(), meaningMatch(), glossAlts()
- * and exWriteOk() itself — so nothing here is a matter of taste.
+ * definition of "this string is also a correct answer" · isCorrect(), meaningMatch(), glossAlts()
+ * and exWriteOk() itself · so nothing here is a matter of taste.
  *
  * NOTE ON THE NAME `pickDistractors`: no such symbol exists in the project. The unit exam picks
- * distractors in exDistract() (app.js:2212). The level test picks none at runtime at all — every
- * item in leveltest.js / leveltest-he.js ships with a fixed `d` array — so for the level test the
+ * distractors in exDistract() (app.js:2212). The level test picks none at runtime at all · every
+ * item in leveltest.js / leveltest-he.js ships with a fixed `d` array · so for the level test the
  * distractor question is a DATA question, and it is asked of those two files below.
  *
  * THE CENTRAL INVARIANT
@@ -24,7 +24,7 @@
  * the learner answers correctly, is told they are wrong, and stops believing the score. So:
  *
  *   retrieve  (prompt = gloss, options = terms)    no offered term may satisfy exWriteOk() for
- *                                                  this item — that is the app's OWN checker for
+ *                                                  this item · that is the app's OWN checker for
  *                                                  this exact prompt one section later.
  *   recognise (prompt = term, options = meanings)  no offered gloss may satisfy meaningMatch()
  *                                                  against the answer's gloss, nor share its
@@ -36,7 +36,7 @@
  * clash filter is not asked about. If exDistract's overlap guard is ever weakened, the whole-bank
  * tests go red rather than staying green over a broken filter.
  *
- * ONE TEST IS A PIN, NOT A SPEC — `KNOWN BUG` in its name, in the style 09-mask.test.js already
+ * ONE TEST IS A PIN, NOT A SPEC · `KNOWN BUG` in its name, in the style 09-mask.test.js already
  * uses: the "לא יודע" button in the level test starts a timer that no exit path can cancel.
  * The test asserts today's WRONG behaviour so the suite stays green and goes red the moment
  * somebody fixes it. The corrected assertion is written out in the comment above it.
@@ -59,7 +59,7 @@ const none = (list, msg) => expectNone(assert, list, msg);
 
 /* Symbols this file needs on top of _harness/sandbox.js's list. Same contract: a rename in
  * app.js throws out of extractAll BY NAME rather than leaving a test that quietly passes.
- * EX_LEN and LV_BLOCK are named alone on purpose — they ride in grouped declarations
+ * EX_LEN and LV_BLOCK are named alone on purpose -- they ride in grouped declarations
  * (`const EX_LEN=20, EX_MIX=…`, `const LV_BLOCK=…, LV_PASS=…, LV_START=…`) so the whole group
  * arrives, and a rename of EX_MIX or LV_PASS still breaks extraction. Naming a second symbol
  * from the same group would declare the group twice and throw SyntaxError. */
@@ -123,7 +123,7 @@ const LANGS = [['he', he], ['en', en]];
 /* Both are expressed THROUGH the app's own functions, never alongside them.
  *
  * retrieve: q is the item as exBuild builds it for a write-in slot, `accept` included, and the
- * verdict is exWriteOk's — the identical call the exam makes when the learner types an answer to
+ * verdict is exWriteOk's -- the identical call the exam makes when the learner types an answer to
  * this identical prompt. If it says true, the option list is offering a second correct answer. */
 function acceptListFor(ctx, pool, item) {
   return pool.filter(o => ctx.norm(o.meaning) === ctx.norm(item.meaning)).map(o => o.term);
@@ -203,9 +203,9 @@ function buildPapers(ctx) {
 const SWEEP = { he: buildSweep(he), en: buildSweep(en) };
 const PAPERS = { he: buildPapers(he), en: buildPapers(en) };
 
-/* ============================ exDistract — the contract ============================ */
+/* ============================ exDistract -- the contract ============================ */
 
-describe('exDistract — what may never appear in an option list', () => {
+describe('exDistract · what may never appear in an option list', () => {
   for (const [lang, ctx] of LANGS) {
     test(`${lang}: no offered distractor is a SECOND CORRECT ANSWER`, () => {
       const bad = [];
@@ -244,10 +244,10 @@ describe('exDistract — what may never appear in an option list', () => {
     });
 
     /* Named regression. The unit lists אביון, חלכאי, מך and רש with the same gloss, so a "which
-       word means עני" item once offered all four — four correct answers, and the learner is
+       word means עני" item once offered all four · four correct answers, and the learner is
        marked wrong for knowing three of them. The fix was to compare BOTH fields, not just the
        displayed one, and this is what keeps it. */
-    test(`${lang}: a candidate must differ on BOTH fields — the אביון/חלכאי/מך/רש regression`, () => {
+    test(`${lang}: a candidate must differ on BOTH fields · the אביון/חלכאי/מך/רש regression`, () => {
       const bad = [];
       const clash = (a, b) => a === b || a.includes(b) || b.includes(a);
       for (const r of SWEEP[lang]) {
@@ -271,7 +271,7 @@ describe('exDistract — what may never appear in an option list', () => {
  * The four tests above pass. They are worth exactly nothing unless the same machinery, pointed
  * at a pool that DOES hold a second correct answer, says so. These pools are hand-built. */
 
-describe('the detector itself — proof these tests can go red', () => {
+describe('the detector itself · proof these tests can go red', () => {
   const mk = (term, meaning) => ({ term, meaning, k: he.K(term) });
 
   test('a byte-identical gloss IS caught by exDistract, and the detector agrees it would matter', () => {
@@ -297,7 +297,7 @@ describe('the detector itself — proof these tests can go red', () => {
      entries whose glossKey is identical but whose parentheticals differ are invisible to the
      filter and visible to the app's own shared-gloss index. This asserts the gap exists, so it
      cannot be closed by accident and left undocumented. */
-  test('KNOWN GAP: same glossKey, different parenthetical — the filter does not see it', () => {
+  test('KNOWN GAP: same glossKey, different parenthetical · the filter does not see it', () => {
     /* A private sandbox: the two entries are pushed into BANK and the REAL buildGlossIndex is
        run over it, so glossAlts and exWriteOk answer about them the way they answer about any
        shipped word. Nothing about the index is restated here. */
@@ -318,7 +318,7 @@ describe('the detector itself — proof these tests can go red', () => {
     /* …and exDistract offers it anyway: it compares glosses with norm(), which keeps what is
        inside the parentheses, so neither string contains the other and the clash guard is silent.
        When this line goes red because exDistract started consulting glossKey/glossAlts, delete
-       the KNOWN GAP wording and assert the twin is NOT offered — the gap will have been closed. */
+       the KNOWN GAP wording and assert the twin is NOT offered -- the gap will have been closed. */
     const pool = [item, twin, { term: 'כִּסֵּא', meaning: 'מושב', k: ctx.K('כִּסֵּא') }];
     assert.ok(ctx.exDistract(pool, item, 'term', new Set()).includes(twin.term),
       'today exDistract offers it; if it no longer does, invert this assertion');
@@ -334,11 +334,11 @@ describe('the detector itself — proof these tests can go red', () => {
 
 /* ============================ starved pools ============================
  * "A unit with few words, filters that shrink the pool, a single word in scope, a bank smaller
- * than the number of distractors needed." None of these can reach a user through exBuild — it
- * refuses to build below 8 words — but exDistract is a public function of the module and the
+ * than the number of distractors needed." None of these can reach a user through exBuild -- it
+ * refuses to build below 8 words -- but exDistract is a public function of the module and the
  * question asked of it was whether it hangs, short-changes, or repeats itself. */
 
-describe('exDistract — starved pools', () => {
+describe('exDistract · starved pools', () => {
   const mk = (term, meaning) => ({ term, meaning, k: he.K(term) });
 
   test('a pool holding only the item returns nothing and returns', () => {
@@ -351,7 +351,7 @@ describe('exDistract — starved pools', () => {
     none(he.exDistract([], mk('זַלְזַל', 'ענף'), 'term', new Set()), 'nothing to draw from');
   });
 
-  test('fewer candidates than needed gives fewer distractors — it does not loop or pad', () => {
+  test('fewer candidates than needed gives fewer distractors · it does not loop or pad', () => {
     const item = mk('זַלְזַל', 'ענף');
     const pool = [item, mk('כִּסֵּא', 'מושב'), mk('שֻׁלְחָן', 'רהיט לאכילה')];
     const d = he.exDistract(pool, item, 'term', new Set());
@@ -367,7 +367,7 @@ describe('exDistract — starved pools', () => {
 
   test('candidates differing only in niqqud count as ONE option, not two', () => {
     /* Two options that read the same turn a four-way question into a three-way one without
-       saying so — the exact reason exDistract dedupes on norm() rather than on the raw string. */
+       saying so -- the exact reason exDistract dedupes on norm() rather than on the raw string. */
     const item = mk('זַלְזַל', 'ענף');
     const pool = [item, mk('כסא', 'מושב'), mk('כִּסֵּא', 'מקום ישיבה'), mk('שֻׁלְחָן', 'רהיט')];
     const d = he.exDistract(pool, item, 'term', new Set());
@@ -386,9 +386,9 @@ describe('exDistract — starved pools', () => {
   });
 });
 
-/* ============================ exBuild — the paper ============================ */
+/* ============================ exBuild -- the paper ============================ */
 
-describe('exBuild — the paper a learner actually sits', () => {
+describe('exBuild · the paper a learner actually sits', () => {
   test('a unit with fewer than 8 testable words builds no paper at all', () => {
     /* openExam() says so on screen and startExam() toasts; this pins the function underneath. */
     const uid = Object.keys(banks().he)[0];
@@ -459,9 +459,9 @@ describe('exBuild — the paper a learner actually sits', () => {
     });
 
     /* Named regression, from the comment at app.js:2391-2394: a learner taught in practice that
-       פֹּארָה answers "ענף" typed it in the exam and was marked wrong — and that score is stored.
+       פֹּארָה answers "ענף" typed it in the exam and was marked wrong · and that score is stored.
        Same question, two verdicts, and the stricter one is the one that counts. */
-    test(`${lang}: a write-in accepts every word the practice screen accepts — the פֹּארָה/ענף regression`, () => {
+    test(`${lang}: a write-in accepts every word the practice screen accepts · the פֹּארָה/ענף regression`, () => {
       const bad = [];
       for (const r of SWEEP[lang]) {
         const q = { it: r.item, answer: r.item.term, accept: r.accept(r.item) };
@@ -478,7 +478,7 @@ describe('exBuild — the paper a learner actually sits', () => {
  * leveltest.js and leveltest-he.js are generated files whose header says "do not hand-edit".
  * Nothing checked that the generator's promises survived. These are those promises, as tests. */
 
-describe('level-test banks — the distractors that ship pre-baked', () => {
+describe('level-test banks · the distractors that ship pre-baked', () => {
   for (const [lang, bankKey] of [['en', 'en'], ['he', 'he']]) {
     const bank = LEVEL_BANKS[bankKey];
     const ctx = lang === 'he' ? he : en;
@@ -548,7 +548,7 @@ describe('level-test banks — the distractors that ship pre-baked', () => {
 
 /* ============================ the adaptive ladder ============================ */
 
-describe('the adaptive ladder — lvNextBand and lvEstimate', () => {
+describe('the adaptive ladder · lvNextBand and lvEstimate', () => {
   /* Drive the REAL lvNextBand over EVERY possible pass/fail sequence. It reads and writes
      module-level state, so each replay resets exactly what startLevelTest resets. */
   const reset = () => vm.runInContext("lvBand='B1'; lvPassed=null; lvFailedUp=false; lvBlockOk=0;", en);
@@ -557,7 +557,7 @@ describe('the adaptive ladder — lvNextBand and lvEstimate', () => {
     const visited = [];
     for (const pass of pattern) {
       visited.push(en.lvBand);
-      /* One short of LV_PASS is the weakest possible failure — if the ladder mishandles any
+      /* One short of LV_PASS is the weakest possible failure -- if the ladder mishandles any
          failing score it mishandles this one. Both numbers are read from app.js so that
          retuning LV_BLOCK/LV_PASS cannot leave this file testing a threshold nobody uses. */
       vm.runInContext('lvBlockOk=' + (pass ? en.LV_PASS : en.LV_PASS - 1) + ';', en);
@@ -575,7 +575,7 @@ describe('the adaptive ladder — lvNextBand and lvEstimate', () => {
     gen(p.concat(true)); gen(p.concat(false));
   })([]);
 
-  test('every answer pattern terminates — the ladder cannot loop', () => {
+  test('every answer pattern terminates · the ladder cannot loop', () => {
     none(runs.filter(r => !r.ended).map(r => r.pattern.map(x => x ? 'P' : 'f').join('')),
       'these patterns never reach a result within 10 blocks');
   });
@@ -584,7 +584,7 @@ describe('the adaptive ladder — lvNextBand and lvEstimate', () => {
     /* What makes a revisit impossible is the shape of the walk, not the size of the bank:
        lvNextBand climbs only while passing and descends only while failing, and returns null
        the moment the direction would reverse. This test is the guard on that property, because
-       lvPool() excludes words already seen — a second visit to a band would deal it whatever
+       lvPool() excludes words already seen -- a second visit to a band would deal it whatever
        items happen to be left over, and score it against the same LV_PASS. */
     none(runs.filter(r => r.ended && new Set(r.visited).size !== r.visited.length)
       .map(r => r.visited.join('>')), 'a band was probed twice in one run');
@@ -618,9 +618,9 @@ describe('the adaptive ladder — lvNextBand and lvEstimate', () => {
       'nothing was cleared, so no band was earned — lvFinish stores the fallback "A1"');
   });
 
-  test('one short of LV_PASS never promotes — the guessing floor', () => {
+  test('one short of LV_PASS never promotes · the guessing floor', () => {
     /* Four options, so a pure guesser clears LV_PASS of LV_BLOCK with probability 0.46% at 5/6
-       and 1.6% at 4/5 — either way far too rarely to climb four bands. The whole point of
+       and 1.6% at 4/5 -- either way far too rarely to climb four bands. The whole point of
        LV_PASS is that a level has to be EARNED, so pin the boundary itself rather than the
        particular numbers it currently sits at. */
     const pass = en.LV_PASS;
@@ -654,10 +654,10 @@ describe('the adaptive ladder — lvNextBand and lvEstimate', () => {
  * app.js:2445-2448 records the bug this guards: "confirm() blocks the queue but does not cancel
  * timers … in the level test it wrote hw_level, which is the gate that decides whether the test
  * is ever offered again." The fix was `let exTimer=null, lvTimer=null` plus a clearTimeout in
- * each exit handler. This checks the fix is still whole — over source text, because the handlers
+ * each exit handler. This checks the fix is still whole -- over source text, because the handlers
  * are DOM-bound and cannot be lifted. */
 
-describe('feedback timers — nothing may outlive the exit button', () => {
+describe('feedback timers · nothing may outlive the exit button', () => {
   const src = appSource();
   const mask = codeMask(src);
   const lineOf = i => src.slice(0, i).split('\n').length;
@@ -682,7 +682,7 @@ describe('feedback timers — nothing may outlive the exit button', () => {
   });
 
   /* Was `=== 1` when only lvPick stored its timer. #lvDunno now stores one too (fixed 2.8.2026),
-   * so the count is 2 — and pinning a count here would only mean re-editing this line the next
+   * so the count is 2 -- and pinning a count here would only mean re-editing this line the next
    * time a third timer is added correctly. What matters is stated in the test below: none. */
   test('the level-test answer timer is stored so #lvExit can cancel it', () => {
     const pick = advancing.filter(a => a.which === 'lvIdx' && /lvTimer\s*=\s*setTimeout/.test(a.src));
@@ -691,10 +691,10 @@ describe('feedback timers — nothing may outlive the exit button', () => {
       'nothing clears lvTimer any more');
   });
 
-  /* FIXED 2.8.2026 — house-check 2, finding #18.5. `$('#lvDunno').onclick` ended with a BARE
+  /* FIXED 2.8.2026 · house-check 2, finding #18.5. `$('#lvDunno').onclick` ended with a BARE
    * setTimeout: the id was thrown away, so `clearTimeout(lvTimer)` in #lvExit could not reach it.
    * Press "לא יודע", leave within 900 ms, and the timer still fired on a screen the learner had
-   * left — running lvIdx++ and lvRender(), which at the end of the last block reaches lvFinish()
+   * left · running lvIdx++ and lvRender(), which at the end of the last block reaches lvFinish()
    * and writes hw_level plus a cloud push. That is the exact gate the mechanism exists to
    * protect. Exit and immediately restart and it instead ate the first question of the retake.
    *
@@ -708,20 +708,20 @@ describe('feedback timers — nothing may outlive the exit button', () => {
       'they fire on a screen the learner has left and can reach lvFinish()');
   });
 
-  /* FIXED 2.8.2026 — house-check 2, finding #18.6. Both exit prompts warned "the result will not
+  /* FIXED 2.8.2026 -- house-check 2, finding #18.6. Both exit prompts warned "the result will not
    * be saved" while standing on a result screen that had already written it.
    *
    * The fix is not "say the opposite". The ✕ button lives in the topbar, OUTSIDE #lvQuiz and
-   * #exQuiz (index.html:1125, 1301) — so ONE string is read from three states: the opening
+   * #exQuiz (index.html:1125, 1301) -- so ONE string is read from three states: the opening
    * screen, mid-test, and the result screen. Any sentence describing a state is therefore false
    * in one of them, which is how the original wording became false in the first place. The
    * wording states the RULE instead: "only a completed test is saved" is true in all three, and
    * a learner on the result screen infers from it that theirs was kept. */
-  /* SUPERSEDED 3.8.2026 — the prompt moved out of #exExit into navTo, the single exit path that
+  /* SUPERSEDED 3.8.2026 -- the prompt moved out of #exExit into navTo, the single exit path that
    * both the ✕ button and Android's Back now travel through (app.js, NAV_DEPTH model).
    *
    * That move dissolves the constraint this test was built around. The prompt is now raised only
-   * while #exQuiz is on screen, so it is no longer "one string read from three states" — it
+   * while #exQuiz is on screen, so it is no longer "one string read from three states" -- it
    * cannot be reached from the opening screen or the result screen at all. The gate is a stronger
    * guarantee than careful wording, so it is what gets asserted; the wording check stays because
    * a future edit could still reintroduce a promise the app cannot keep. */

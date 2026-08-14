@@ -24,7 +24,7 @@ const LS = {
     try{ payload = JSON.stringify(v); }catch(e){ return false; }
     try{ localStorage.setItem(k, payload); if(storageBarOn) hideStorageBar(); return true; }
     catch(e){
-      /* quota exceeded (or storage disabled) — shed the least valuable data and retry once.
+      /* quota exceeded (or storage disabled) -- shed the least valuable data and retry once.
          The retry must re-serialize: shedStorage trims stats.sessions in memory, and `v` is
          usually that very object, so re-sending the payload built above would write back
          exactly what did not fit and undo the shedding in the same breath. */
@@ -34,7 +34,7 @@ const LS = {
       }
       /* A toast lasts under two seconds and then this fails in total silence for the rest of
          the session, while every later round is quietly lost. A learner deserves to know the
-         app has stopped remembering — and to know whether the cloud still has them. */
+         app has stopped remembering -- and to know whether the cloud still has them. */
       if(!storageWarned){ storageWarned=true; try{ toast('אין מקום פנוי בדפדפן. חלק מההתקדמות לא נשמרה'); }catch(e3){} }
       try{ showStorageBar(); }catch(e5){}
       return false;
@@ -43,7 +43,7 @@ const LS = {
   del(k){ try{ localStorage.removeItem(k); }catch(e){} }
 };
 /* A bar, not a toast: it stays until a write succeeds, because the condition stays until then
-   too. The wording changes with the one fact that decides how bad this is — whether there is a
+   too. The wording changes with the one fact that decides how bad this is -- whether there is a
    signed-in account still receiving the progress. */
 let storageBarOn=false;
 function showStorageBar(){
@@ -68,7 +68,7 @@ function hideStorageBar(){
 }
 /* Sessions history is the only unbounded-ish store; drop the old tail first.
    The live `stats` object is trimmed FIRST and from memory, because it holds the round that
-   just ended — the one that triggered the overflow and is not on disk yet. Reading the disk
+   just ended -- the one that triggered the overflow and is not on disk yet. Reading the disk
    copy and assigning it back over stats.sessions threw that round away. */
 function shedStorage(){
   let freed=false;
@@ -99,7 +99,7 @@ if(LANG!=='he' && LANG!=='en') LANG=null;
 let PREVIEW = false;
 const PREVIEW_UNIT = '1';
 /* הגדר המקביל להשלמת משפטים. המילים נפתחות ביחידה הראשונה בלבד, והמשפטים ברצועה
-   הראשונה בלבד — אותו היגיון, אותה מידה: 22 מתוך 204 הם 11%, ו-395 מתוך 3,946 הם
+   הראשונה בלבד · אותו היגיון, אותה מידה: 22 מתוך 204 הם 11%, ו-395 מתוך 3,946 הם
    10%. ⚠ עד 11.8.2026 המשפטים היו **פתוחים לגמרי** בהצצה, לא מתוך החלטה אלא מפני
    ש-PREVIEW מסנן יחידות והמשפטים אינם בנויים ביחידות. כל עוד התרגול לא היה קיים
    במסך זה לא הורגש; מסך בחירת התרגול הפך אותו לאחת משתי אפשרויות שוות-מעמד במסך
@@ -108,11 +108,11 @@ const PREVIEW_BAND = 'בסיס';
 const SUF = () => (LANG==='en' ? '_en' : '');  // Hebrew = legacy keys, English = *_en keys
 const KEY = base => base + SUF();
 
-const DEFAULT_DIR = 'w2m';        // the exam shows the word and asks the meaning — so do we
+const DEFAULT_DIR = 'w2m';        // the exam shows the word and asks the meaning -- so do we
 let assoc={}, stats={words:{},sessions:[]}, deleted=new Set(), added=[], direction=DEFAULT_DIR;
 
 /* Anything read back from localStorage may be corrupt, hand-edited, or written by an
-   older build. Coerce it into the exact shape the rest of the app assumes — otherwise a
+   older build. Coerce it into the exact shape the rest of the app assumes -- otherwise a
    single bad value turns every counter into NaN and the damage is permanent. */
 const ASSOC_MAX = 300;                                   // one association can't become a blob
 const ASSOC_BUDGET = 300000;                             // …and the whole store can't either (~600KB)
@@ -125,20 +125,20 @@ function saneRec(r){
               wrong:int0(r.wrong), level:int0(r.level,3), last:int0(r.last) };
   /* `src` marks a record the LEVEL TEST wrote rather than the learner. Dropping it here erased
      the marker on the first load, which is exactly the information needed to undo a level test
-     that was taken by the wrong person — the incident this field was added for. */
+     that was taken by the wrong person -- the incident this field was added for. */
   if(r.src) out.src=String(r.src).slice(0,8);
   /* הרמה שהייתה לפני שהלומד סימן "ידעתי", כדי שביטול הסימון יחזיר אותה במקום לאפס.
-     בלי השדה הזה ביטול היה מוחק היסטוריית תרגול אמיתית — וזה בדיוק מה שהמאגר נזהר ממנו. */
+     בלי השדה הזה ביטול היה מוחק היסטוריית תרגול אמיתית · וזה בדיוק מה שהמאגר נזהר ממנו. */
   if(r.k0!==undefined) out.k0=int0(r.k0);
   /* אילו פירושים של המילה הלומד כבר כתב, כאינדקסים לתוך meaningSegs. משתמש דיווח שהוא
-     עונה פירוש אחד מתוך כמה, מקבל "נכון", ושוכח את השאר — האפליקציה אישרה לו שהוא יודע
+     עונה פירוש אחד מתוך כמה, מקבל "נכון", ושוכח את השאר · האפליקציה אישרה לו שהוא יודע
      את המילה בזמן שידע שליש ממנה.
      מערך ולא מונה: צריך לדעת אילו, לא כמה, אחרת אותו פירוש ייענה שלוש פעמים וייחשב לשלושה.
-     תקרה של 8 כי מעבר לזה זה כבר לא מילה אלא ערך מילוני, ורשומה חייבת להישאר קטנה — היא
+     תקרה של 8 כי מעבר לזה זה כבר לא מילה אלא ערך מילוני, ורשומה חייבת להישאר קטנה · היא
      נדחפת לענן בכל סבב. */
   if(Array.isArray(r.sens)){
     /* אין slice כאן. int0(x,7) חוסם כל ערך ב-7, ואחרי הסרת כפילויות יש לכל היותר שמונה
-       ערכים שונים — התקרה נובעת מהחסימה עצמה. slice נוסף היה נראה כהגנה ולא היה יכול
+       ערכים שונים · התקרה נובעת מהחסימה עצמה. slice נוסף היה נראה כהגנה ולא היה יכול
        לרוץ אף פעם, וזה בדיוק סוג השורה שמישהו מסיר בעתיד ולא קורה כלום, ולומד ממנה
        שהתקרה לא חשובה. התקרה שכן נושאת משקל היא זו שב-noteSense. */
     const s=[...new Set(r.sens.map(x=>int0(x,7)))].sort((x,y)=>x-y);
@@ -151,22 +151,22 @@ function saneRec(r){
 function senseCount(meaning){ return meaningSegs(meaning).length; }
 function sensesLeft(term, meaning){
   const n=senseCount(meaning);
-  if(n<2) return 0;                       // מילה עם פירוש אחד — אין מה לדרוש
+  if(n<2) return 0;                       // מילה עם פירוש אחד · אין מה לדרוש
   const r=stats.words[K(term)];
   const got=(r && Array.isArray(r.sens)) ? r.sens.filter(i=>i<n).length : 0;
   return Math.max(0, Math.min(n,2) - got);   // דורשים שניים, לא את כולם
 }
 /* Has loadLangState() actually moved this language's progress from localStorage into the
-   globals above? Until it has, `stats`/`assoc`/`deleted` hold their declared defaults — an
+   globals above? Until it has, `stats`/`assoc`/`deleted` hold their declared defaults -- an
    EMPTY state that looks exactly like a brand-new device.
    This matters because the welcome screen never calls loadLangState(): langSummary() reads
    localStorage directly, so the screen shows correct numbers over an empty memory. pullIfStale()
-   fires on visibilitychange/online/focus and only checks `currentUser` and `LANG` — and LANG is
+   fires on visibilitychange/online/focus and only checks `currentUser` and `LANG` -- and LANG is
    read from localStorage on the first line of this file, so it is already 'he'. The merge then
    ran with an empty left-hand side, the cloud won every record by default, saveStats() wrote
    that over the good disk copy, and pushProgress sent it back up.
-   Measured on a real device on 2.8.2026: a full offline session — 18 words, a practice round,
-   the streak and two word deletions — was gone after closing and reopening the app.
+   Measured on a real device on 2.8.2026: a full offline session -- 18 words, a practice round,
+   the streak and two word deletions -- was gone after closing and reopening the app.
    A merge whose local side was never loaded is not a merge. It is an overwrite. */
 let langLoaded=false;
 function loadLangState(){
@@ -194,7 +194,7 @@ function loadLangState(){
     ? ad.filter(p=>Array.isArray(p)&&typeof p[0]==='string'&&typeof p[1]==='string'&&p[0].trim()&&p[1].trim())
     : [];
 
-  /* DEFAULT_DIR is w2m — word first, meaning second — because that is the direction the
+  /* DEFAULT_DIR is w2m -- word first, meaning second -- because that is the direction the
      psychometric exam itself asks in. Someone who never opens this setting should be
      practising the way they will be tested, not the other way round. It is only a default:
      a saved choice always wins, so nobody's existing setting moves. */
@@ -206,28 +206,28 @@ function loadLangState(){
    Every save writes the WHOLE object, so a second tab silently overwrote the first one's round:
    measured at 20 words practised and 10 stored, with none of the first tab's surviving.
    The `storage` event fires only in the OTHER tabs, so it is exactly the signal needed. It is
-   not acted on immediately — reloading state under a running round would swap the deck out from
+   not acted on immediately -- reloading state under a running round would swap the deck out from
    under the learner. It raises a flag, and the next save reconciles before it writes.
    The merge is mergeProgress(), the same function the cloud sync uses: counts take the max,
    level comes from whichever record was written last, sessions dedupe on their own fields.
-   Reusing it matters — a second merge written by hand here would drift from that one. */
+   Reusing it matters -- a second merge written by hand here would drift from that one. */
 let diskAhead=false;
 let bootTimedOut=false;   // the boot watchdog fired: afterAuthed may finish, but must not navigate
-/* "ידעתי" — המצב שבאמצע בין מחיקה לתרגול.
+/* "ידעתי" · המצב שבאמצע בין מחיקה לתרגול.
  *
  * דיווח משתמשת: "יצא לי לחפש האם יש אפשרות לסמן מילים שמכירים מתוך המאגר... כי אני כן רוצה
  * לתרגל אותם אבל לא ללמוד מחדש".
  *
- * מחיקה מוציאה את המילה מהמאגר לגמרי — היא לא תופיע בשום סבב ולא בשום מבחן. זה יותר מדי.
+ * מחיקה מוציאה את המילה מהמאגר לגמרי · היא לא תופיע בשום סבב ולא בשום מבחן. זה יותר מדי.
  * מה שנדרש הוא להוציא אותה מרשימת החיזוק ומ"מילים שעוד לא תרגלת", ולהשאיר אותה זמינה
  * ב"תרגל הכל" וב"מילים שלמדתי".
  *
- * הסימון הוא src:'known', באותה שיטה שבה מבחן הרמה מסמן src:'lv' — כך הוא ניתן לזיהוי,
+ * הסימון הוא src:'known', באותה שיטה שבה מבחן הרמה מסמן src:'lv' · כך הוא ניתן לזיהוי,
  * לספירה ולביטול. הרמה הקודמת נשמרת ב-k0 ומוחזרת בביטול, כדי שסימון בטעות לא ימחק
  * היסטוריית תרגול אמיתית.
  *
  * למה כן נספרת כ"בשליטה": הלומד הצהיר במפורש שהוא יודע אותה. זה שונה ממילה שמבחן הרמה
- * דילג עליה על סמך הערכה סטטיסטית — ולכן wasSkipped נשאר מוגבל ל-'lv' בלבד. */
+ * דילג עליה על סמך הערכה סטטיסטית · ולכן wasSkipped נשאר מוגבל ל-'lv' בלבד. */
 const isKnown = term => { const r=stats.words[K(term)]; return !!(r && r.src==='known'); };
 function markKnown(term){
   const r=rec(term);
@@ -243,7 +243,7 @@ function unmarkKnown(term){
   return true;
 }
 /* Keys the user explicitly restored. Persisted, because the deletion it reverses is persisted
-   too — a log that lived only in memory would let the next page load re-delete the word. An
+   too -- a log that lived only in memory would let the next page load re-delete the word. An
    entry is dropped the moment the same word is deleted again, so the last explicit action by
    the person using the app is always the one that stands. */
 const undeletedKey = () => KEY('hw_undeleted');
@@ -350,13 +350,13 @@ function remapHyphenKeys(){
 /* Did all three migrated stores actually reach the disk?
  *
  * ONE gate, not two. The first version of this checked the three save() return values AND read
- * the disk back — and a mutation run showed the read-back could be gutted without a single test
+ * the disk back -- and a mutation run showed the read-back could be gutted without a single test
  * noticing, because the booleans were already answering. Two overlapping guards mean the weaker
  * one is never exercised, which is the same thing as not having it. The disk is what the next
  * boot will read, so the disk is the only thing asked.
  *
- * And it compares KEYS, not counts. The migration renames without changing how many there are —
- * 60 raw keys become 60 normalised ones — so a disk still holding the old names has exactly the
+ * And it compares KEYS, not counts. The migration renames without changing how many there are -- 
+ * 60 raw keys become 60 normalised ones -- so a disk still holding the old names has exactly the
  * count memory has, and a count check calls that "landed". That is not a hypothetical: it is what
  * the first draft of this function did, and the storage suite caught it. */
 function migrationLanded(){
@@ -377,11 +377,11 @@ function migrationLanded(){
 function migrateStores(){
   /* THE STAMP IS THE LAST THING WRITTEN, AND ONLY IF THE DATA IS REALLY THERE.
      It used to be written unconditionally. saveStats() returns false when the write failed, and
-     `hw_migr` is nine bytes against a stats blob of tens of KB — so on a nearly full disk the
+     `hw_migr` is nine bytes against a stats blob of tens of KB -- so on a nearly full disk the
      small write succeeds precisely when the large one did not. The result was the worst possible
      pair of states: OLD KEYS ON DISK, plus "the migration is finished".
      Next boot then reads the old keys, skips the migration because the stamp says 8, and
-     pruneOrphans — which cannot tell an un-migrated key from a word that left the bank — deletes
+     pruneOrphans -- which cannot tell an un-migrated key from a word that left the bank -- deletes
      every one of them. Permanently, silently, and written straight back to disk.
      Leaving the stamp unwritten costs one repeated migration. Writing it costs the account. */
   if(LS.get(KEY('hw_migr'),0)===7){
@@ -415,7 +415,7 @@ function pruneOrphans(){
   for(const u in data) for(const p of data[u]){ const k=K(p[0]); if(k) live.add(k); }
   for(const p of added){ const k=K(p[0]); if(k) live.add(k); }
   /* THE GUARD THAT WAS MISSING. `<script src="data.js">` has no onerror and nothing verified
-     that the bank actually arrived — and the service worker installs the data files
+     that the bank actually arrived -- and the service worker installs the data files
      best-effort. One failed fetch plus an offline launch therefore produced an EMPTY bank,
      and everything below read that as "every word the learner has is an orphan": all records,
      all associations, deleted permanently, silently, and written straight to disk.
@@ -436,7 +436,7 @@ function pruneOrphans(){
 /* ===== word bank ===== */
 let BANK = [];
 const UNIT_IDS = ['1','2','3','4','5','6','7','8','9','10'];
-/* INVARIANT: after buildBank(), BANK holds each normalized key AT MOST ONCE — within a unit,
+/* INVARIANT: after buildBank(), BANK holds each normalized key AT MOST ONCE -- within a unit,
    across units, and across personal words. Everything downstream (counts, quizzes, stats)
    relies on this, so it is enforced here rather than trusted from the data files. */
 function buildBank(){
@@ -468,7 +468,7 @@ function buildBank(){
 /* ===== words that share a gloss =====
    401 English entries and 47 Hebrew ones carry a gloss that is byte-identical to another
    entry's. In the default direction the gloss IS the question, so "ענף" can only be answered
-   with זַלְזַל even though פֹּארָה is exactly as correct — and the learner who knows both is
+   with זַלְזַל even though פֹּארָה is exactly as correct · and the learner who knows both is
    told they are wrong. The exam already accepted every word carrying the same gloss, but only
    within one unit and only in the exam; practice, where people spend their time, accepted one.
    Built once per bank build: a scan per keystroke over 5,619 entries is not free. */
@@ -479,16 +479,16 @@ function glossKey(g){
 }
 /* הפירושים הבודדים של ערך, ולא המחרוזת כולה.
    glossKey השווה מחרוזות שלמות, ולכן תפס accurate/precise (שניהם "מדויק") אבל פספס את
-   colossal="עצום" מול vast="עצום, נרחב, רחב ידיים" — 163 זוגות ביחידות 6-10 באנגלית
+   colossal="עצום" מול vast="עצום, נרחב, רחב ידיים" · 163 זוגות ביחידות 6-10 באנגלית
    לבדן, מול 20 שנתפסו. שני הערכים חולקים פירוש שלם, והלומד נשאל עליו פעמיים.
    meaningSegs הוא אותו פיצול שמחליט אילו תשובות מתקבלות, ולכן "שני ערכים חולקים
    פירוש" ו"אותה תשובה מתקבלת לשניהם" נשארים בהכרח אותו דבר. מקור אמת אחד. */
 function glossSenses(g){
-  /* בלי סינון אורך. הגרסה הראשונה כאן דרשה שני תווים לפחות — כמו הבדיקה הישנה על
-     המחרוזת המלאה — אבל norm מסיר את המקף, ולכן הפירוש "מ-" הצטמצם לתו אחד ונזרק.
+  /* בלי סינון אורך. הגרסה הראשונה כאן דרשה שני תווים לפחות · כמו הבדיקה הישנה על
+     המחרוזת המלאה · אבל norm מסיר את המקף, ולכן הפירוש "מ-" הצטמצם לתו אחד ונזרק.
      התוצאה: from ו-than הפסיקו להיחשב חולקי פירוש, ושניהם הוצגו באותו סבב עם אותו
      פרומפט בדיוק. בדיקה 44 תפסה.
-     נמדד: ארבעה פירושים באורך תו אחד בכל המאגר, וכולם מיליות עברית אמיתיות —
+     נמדד: ארבעה פירושים באורך תו אחד בכל המאגר, וכולם מיליות עברית אמיתיות · 
      "מ" (from/of/than) · "ש" (that/which/who) · "ב" (at/in) · "ו" (and). אלה בדיוק
      המקרים שחייבים להיתפס, לא להיזרק.
      meaningSegs כבר מסנן ריקים ומילות קישור, ולכן אין כאן מה להוסיף. */
@@ -504,12 +504,12 @@ function buildGlossIndex(){
   }
   for(const [s,arr] of GLOSS_ALT) if(arr.length<2) GLOSS_ALT.delete(s);
 }
-/* In the m2w direction the PROMPT is the gloss — so two entries sharing a gloss pose the same
+/* In the m2w direction the PROMPT is the gloss · so two entries sharing a gloss pose the same
  * question twice. "מתחת" is below, beneath, under and underneath, all four of them in unit 1;
  * 186 English glosses and 22 Hebrew ones serve more than one entry. A learner reported it as
  * "מלא מילים שחוזרות על עצמן", which is exactly how it looks from the other side of the screen.
  *
- * Nothing was ever scored against them — isCorrect falls through to glossAlts() and accepts any
+ * Nothing was ever scored against them · isCorrect falls through to glossAlts() and accepts any
  * word carrying the same gloss. The prompt was simply unanswerable as posed.
  *
  * The duplicate is FLIPPED, not dropped: `cards` arrives already capped, so dropping would
@@ -521,7 +521,7 @@ function buildGlossIndex(){
 function oneCardPerGloss(cards){
   /* כרטיס תופס את *כל* הפירושים שלו, ומתהפך אם אחד מהם כבר נתפס.
      קודם הושווה הפירוש המלא, ולכן colossal="עצום" ו-vast="עצום, נרחב" נחשבו שונים
-     ושני הפרומפטים הוצגו — למרות ש"עצום" הוא התשובה לשניהם. */
+     ושני הפרומפטים הוצגו · למרות ש"עצום" הוא התשובה לשניהם. */
   const taken=new Set();
   for(const c of cards){
     if(c._dir!=='m2w') continue;
@@ -536,7 +536,7 @@ function oneCardPerGloss(cards){
 function glossAlts(card){
   /* איחוד על פני כל הפירושים של הכרטיס, ולא רק על המחרוזת המלאה.
      זה הצד השני של אותו תיקון: אם הפרומפט "עצום" מוצג עבור vast, גם colossal היא
-     תשובה נכונה — ובלי האיחוד היא נדחתה, כי מחרוזות הפירוש אינן זהות.
+     תשובה נכונה · ובלי האיחוד היא נדחתה, כי מחרוזות הפירוש אינן זהות.
      הדחייה הזאת היא הפגיעה האמיתית: הלומד נתן מילה נרדפת נכונה וסומן כטועה. */
   const own=K(card && card.term);
   const out=new Set();
@@ -557,7 +557,7 @@ function scopeWords(scope){
 // classification (per the learning model):
 //   חדשה  = seen==0 (never practiced)
 //   חלשה  = seen>0 && level==0 (practiced but not yet gotten right on a first try)
-//   יודע  = level>=1 (got it right first-try at least once, net) — stays only in "תרגל הכל"
+//   יודע  = level>=1 (got it right first-try at least once, net) · stays only in "תרגל הכל"
 // counter (level): +1 per correct-first-try, -1 per wrong; a clean first sight jumps to 3.
 //   חדשות = counter 0 (never-seen, or got it wrong and not yet re-learned)
 //   חלשות = counter 1-2 (knew it 1-2 times, on the way to mastery)
@@ -565,7 +565,7 @@ function scopeWords(scope){
 const lvl = term => (stats.words[K(term)]||{}).level || 0;
 const lastOf = term => (stats.words[K(term)]||{}).last || 0;
 /* A word skipped after the level test is stored at level 3 so the practice queue leaves it
-   alone — but it is not a word anyone learned here, and counting it under "שלמדתי" is the same
+   alone · but it is not a word anyone learned here, and counting it under "שלמדתי" is the same
    false claim the dashboard was just cured of. It gets its own bucket. */
 const wasSkipped = term => { const r=stats.words[K(term)]; return !!(r && r.src==='lv'); };
 function classify(scope){
@@ -585,14 +585,14 @@ function classify(scope){
 }
 function uniqScope(scope){ const seen=new Set(),out=[]; for(const w of scopeWords(scope)){ const k=K(w.term); if(!seen.has(k)){seen.add(k);out.push(w);} } return out; }
 /* Reported by a tester: practise 30 words in a unit, then ask for "מילים חדשות", and some of
-   the 30 come back — both ones he got right and ones he got wrong.
+   the 30 come back · both ones he got right and ones he got wrong.
    The cause was that "new" was defined as `level < 1`, and `level` is a STRENGTH counter, not a
    record of having met the word. A word answered wrong is decremented and floors at 0; a word
    answered right but not on the first try is ALSO decremented. Both land back on 0, which the
    old rule read as "never seen".
    `seen` is the field that actually answers "have I met this word", so it is the one the button
    labelled "מילים שעוד לא תרגלתי" now uses. A practised word that is still weak belongs in
-   לחיזוק — which is exactly what that button is for. */
+   לחיזוק · which is exactly what that button is for. */
 const seenCount = term => { const r=stats.words[K(term)]; return r ? int0(r.seen) : 0; };
 function newCards(scope){ return uniqScope(scope).filter(w=>seenCount(w.term)===0); }
 function weakCards(scope){
@@ -601,7 +601,7 @@ function weakCards(scope){
   return arr;
 }
 /* `wasSkipped` guards were added to `classify` and `langSummary` today and NOT here, so the same
-   screen showed the legend "שלמדתי 0" beside a button reading "מילים שלמדתי 1,725" — and that
+   screen showed the legend "שלמדתי 0" beside a button reading "מילים שלמדתי 1,725" · and that
    button drilled exactly the words the level test had promised would stop appearing.
    Skipped words come back through "ניהול מילים" ← "שחזר מחיקות", which is the honest route. */
 function learnedCards(scope){
@@ -615,11 +615,11 @@ function allCards(scope){
 }
 
 /* ===== answer normalization ===== */
-/* U+05BE MAQAF — the Hebrew hyphen — sits inside the niqqud block, so the old single range
+/* U+05BE MAQAF · the Hebrew hyphen · sits inside the niqqud block, so the old single range
    DELETED it: norm("בֵּית־סֵפֶר") gave "ביתספר" while the same term with an ASCII hyphen gave
    "בית ספר". Two spellings of one word, two different keys. Excluded here and handled as the
    separator it is, exactly like "-" already was. No term in the bank uses it today, so no
-   stored key moves — this closes the door before someone types it. */
+   stored key moves · this closes the door before someone types it. */
 const NIQ=/[֑-ֽֿ-ׇ]/g;
 function norm(s){
   // NFKC folds Hebrew presentation forms (e.g. U+FB35 ﬡּ) back to letter+dagesh, so a word
@@ -630,7 +630,7 @@ function norm(s){
     .replace(/ך/g,'כ').replace(/ם/g,'מ').replace(/ן/g,'נ').replace(/ף/g,'פ').replace(/ץ/g,'צ');
 }
 /* Hebrew is stored vocalised, and stripping niqqud leaves the DEFECTIVE spelling: כֹּפֶר -> כפר.
-   Nobody types that — they type כופר — while כפר, a different word entirely, was accepted.
+   Nobody types that · they type כופר · while כפר, a different word entirely, was accepted.
    The full spelling is derived from the niqqud itself rather than guessed: a holam or qubuts
    becomes a ו, a hiriq becomes a י. Guessing (dropping all matres) would have merged
    unrelated words such as שיר and שר. */
@@ -643,7 +643,7 @@ function fullSpelling(term){
     out+=c;
     if(c!==HOLAM && c!==QUBUTS && c!==HIRIQ) continue;
     const add = c===HIRIQ ? 'י' : 'ו';
-    /* A holam male is already a vav — the mark sits ON it, so the letter comes BEFORE the mark.
+    /* A holam male is already a vav · the mark sits ON it, so the letter comes BEFORE the mark.
        Looking only forward meant מִכְמוֹרֶת produced מיכמוורת, a non-word, and the ordinary
        spelling מיכמורת was offered nowhere. 74 terms rejected their own standard spelling.
        Same bug family as סייס; missed because the earlier fix was written for yod alone. */
@@ -656,13 +656,13 @@ function fullSpelling(term){
   return out;
 }
 /* The second half of the same problem. Unvocalised Hebrew also DOUBLES a consonantal yod
-   inside a word — סייס, מניין, קניין, עיניים, צרכנייה — and stripping niqqud leaves one yod,
+   inside a word · סייס, מניין, קניין, עיניים, צרכנייה · and stripping niqqud leaves one yod,
    so a learner typing the ordinary modern spelling was marked wrong. 64 terms in the bank.
    Again the niqqud decides rather than a guess: a yod carrying a vowel or a dagesh is a
    consonant; a bare yod after a hiriq is a mater lectionis and is left alone.
 
    Deliberately permissive. The rule over-applies to a handful of conventional spellings
-   (היה, עין), so those get accepted in both forms — and accepting one extra spelling costs
+   (היה, עין), so those get accepted in both forms · and accepting one extra spelling costs
    nothing, while rejecting the standard one costs the learner a word they actually knew. */
 const YOD='י', DAGESH='ּ';
 const Y_VOWELS='ְֱֲֳִֵֶַָֹֻ';
@@ -685,7 +685,7 @@ function pleneYod(term){
   return out;
 }
 /* A tsere-to-yod rule was tried here and REVERTED. In unvocalised Hebrew a pi'el like מֵרֵט or
-   בֵּרֵךְ is written מירט / בירך, so accepting that spelling looked right — but measured against
+   בֵּרֵךְ is written מירט / בירך, so accepting that spelling looked right · but measured against
    the whole bank it made five real pairs collide (רְדִיד~רִדֵּד, הִגִיר~הִגֵּר, נִיכָּר~נֵכַר,
    גִּבֵּן~גָבִין, גִּלְעֵן~גַּלְעִין), meaning a learner asked for one word would be marked
    correct for the other. Five wrong acceptances to rescue one entry is a bad trade, and unlike
@@ -715,11 +715,11 @@ function heForms(x){
   return [x, f, y, v, fullSpelling(y), pleneYod(f), pleneVav(f), fullSpelling(v)];
 }
 /* ===== the gloss must not contain the answer =====
-   132 Hebrew glosses name the very word they define — literally (תְּלוּלִית :: ערימה קטנה,
+   132 Hebrew glosses name the very word they define · literally (תְּלוּלִית :: ערימה קטנה,
    תלולית), through an inflection (לַהַק :: ...להקה), or inside the example that makes the gloss
    worth reading (בְּאִיבּוֹ :: בראשית דרכו (נקטף באיבו)). Rewriting all of them would have
    thrown away the examples and etymologies, so the word is hidden at the moment it is used as
-   a PROMPT instead — and the full text is shown again in the feedback, where it teaches.
+   a PROMPT instead · and the full text is shown again in the feedback, where it teaches.
    Hebrew glues ו/ה/ב/כ/ל/מ/ש to the front of a word and inflects the end, so a giveaway is
    matched on the stripped stem, never on a raw substring: צָעִיר must not hide עִיר. */
 const CLITIC=['ו','ה','ב','כ','ל','מ','ש','וה','וב','ול','ומ','כש','שה','שב','מה','לה','בה'];
@@ -739,7 +739,7 @@ function maskTerm(meaning, term){
   const tStems=new Set(); for(const t of tWords) for(const s of heStems(t)) tStems.add(s);
   if(!tStems.size) return meaning;
   /* One side must be the word as written. Letting BOTH sides be stripped made שָׁפוּף match
-     כפוף — the כ and the ש each read as a prefix and both reduce to פופ — which is not a
+     כפוף · the כ and the ש each read as a prefix and both reduce to פופ · which is not a
      giveaway at all, just two unrelated words with a shared tail. */
   /* Function words are never 'the answer'. Blanking אין inside אֵין יָדוֹ מַשֶּׂגֶת turned
      the prompt into its own opposite. */
@@ -748,17 +748,17 @@ function maskTerm(meaning, term){
     if(FUNC.has(b)) return false;
     return tStems.has(b) || heStems(w).some(s=>tBase.has(s)); };
   /* A parenthetical is an EXAMPLE of the word in use. Blanking the word inside it leaves
-     "(מכת ־־־ ־־־)" — noise, not a hint — so the whole aside is dropped from the prompt
+     "(מכת ־־־ ־־־)" · noise, not a hint · so the whole aside is dropped from the prompt
      instead. It comes back in the feedback, where the example is the point. */
   const noAside=String(meaning).replace(/\s*\([^)]*\)/g, m => (m.match(/[֐-׿]+/g)||[]).some(hits) ? '' : m);
   const tidy = s => s.replace(/\s{2,}/g,' ').replace(/^[\s,;]+|[\s,;]+$/g,'');
   let out=tidy(noAside.replace(/[֐-׿]+/g, w => hits(w) ? '־־־' : w));
   /* An unanswerable prompt is worse than a hint. "אֲלוּמָּת אוֹר :: קרן אור" masks down to
-     "קרן ־־־", which asks the learner to guess from three letters — so when blanking leaves
+     "קרן ־־־", which asks the learner to guess from three letters · so when blanking leaves
      too little to work with, the giveaway is accepted and the original gloss is shown.
      Dropping a circular example never triggers this: what remains is a clean definition. */
   /* Two guards, because letter-count alone was not enough. "נֶחָמָה פּוּרְתָּא :: נחמה כלשהי,
-     נחמה מועטה" masked BOTH heads and left "־־־ כלשהי, ־־־ מועטה" — ten letters, comfortably
+     נחמה מועטה" masked BOTH heads and left "־־־ כלשהי, ־־־ מועטה" · ten letters, comfortably
      over the threshold, and completely unanswerable. When two or more words are hidden and only
      a couple of content words survive, what is left is modifiers with nothing to modify. */
   const hidden=(out.match(/־־־/g)||[]).length;
@@ -776,7 +776,7 @@ function isCorrect(input, term){
   const alts=term.split(/[\/|,]|\s-\s/).flatMap(x=>LANG==='en'?[x]:heForms(x))
                  .map(x=>K(x)).filter(Boolean);
   if(alts.includes(a)) return true;
-  /* Compounds get written both ways — best-seller / bestseller, and in Hebrew a learner who
+  /* Compounds get written both ways · best-seller / bestseller, and in Hebrew a learner who
      types בית ספר as one word. This ran for English only, so 163 English terms were protected
      and the 380 multi-word Hebrew terms were not. Extended to both after measuring the risk:
      squashing spaces produces ZERO new collisions across all 1,719 Hebrew terms, neither
@@ -790,17 +790,17 @@ function isCorrect(input, term){
 /* ===== screens ===== */
 const SCREENS=['auth','welcome','level','home','scope','quiz','results','stats','manage','add','exam','admin','locked','intro','account','boot','sent','mode'];
 /* Heavy lists left in hidden screens keep thousands of nodes alive for the whole session;
-   drop them on the way out — they are always rebuilt when the screen is opened again. */
+   drop them on the way out -- they are always rebuilt when the screen is opened again. */
 const HEAVY = {stats:'#statsBody', manage:'#manageList', results:'#reviewList'};
 
 /* ===== "אחורה" של המערכת =====
    באנדרואיד "אחורה" הוא כפתור מערכת, ובלי היסטוריה פנימית לחיצה עליו סוגרת את
-   האפליקציה — גם באמצע סבב.
+   האפליקציה · גם באמצע סבב.
 
    לכל מסך עומק. כניסה למסך עמוק יותר דוחפת רשומת היסטוריה; מעבר לאותו עומק או רדוד
    יותר מחליף אותה. כך "אחורה" יורד שלב אחד בכל לחיצה, וברמה 0 יוצא מהאפליקציה כמצופה.
 
-   המפתח הוא ש-goBack — שאליו מחוברים כפתורי החזרה שבתוך האפליקציה — צורך את הרשומה
+   המפתח הוא ש-goBack · שאליו מחוברים כפתורי החזרה שבתוך האפליקציה · צורך את הרשומה
    במקום להשאיר אותה. הגרסה הראשונה לא עשתה זאת, ולכן אחרי יציאה מסבב דרך ✕ נשארה
    רשומה תלויה, ולחיצת "אחורה" הבאה נבלעה בלי שקרה כלום. */
 /* ⚠ `mode` בעומק 0, כמו welcome ו-home
@@ -808,7 +808,7 @@ const HEAVY = {stats:'#statsBody', manage:'#manageList', results:'#reviewList'};
    העומק כאן משרת את כפתור "אחורה" של אנדרואיד בלבד. שלושת המסכים האלה הם מסכי
    בסיס: מ-home לחיצת "אחורה" יוצאת מהאפליקציה, וזו ההתנהגות הקיימת. אילו הצבתי
    את mode בעומק 1, כניסה ל-home הייתה **מחליפה** את הרשומה במקום לדחוף אחת, ואז
-   "אחורה" מ-home היה יוצא מהאפליקציה מבלי לעבור דרך בחירת התרגול — כלומר שינוי
+   "אחורה" מ-home היה יוצא מהאפליקציה מבלי לעבור דרך בחירת התרגול · כלומר שינוי
    התנהגות בלי שביקשו אותו. ההיררכיה בין שלושת המסכים נעשית בכפתורים שבתוך
    האפליקציה, ולא בהיסטוריית הדפדפן. */
 const NAV_DEPTH = { boot:0, intro:0, auth:0, welcome:0, locked:0, home:0, mode:0,
@@ -835,23 +835,23 @@ function goto(id){
        CTAs back, even if a signed-in session on this device previously opened it read-only. */
     if(!currentUser){ show($('#introCta')); hide($('#introTop')); }
     countUpIntro();
-    // if the reveal animation has not finished by now it is never going to — show everything
+    // if the reveal animation has not finished by now it is never going to -- show everything
     setTimeout(()=>{ const el=$('#intro'); if(el) el.classList.add('anim-done'); }, 1500);
   }
 }
 /* The landing page states the size of the bank. A number that arrives already finished reads as
-   a claim; one that runs up reads as a count. Eased, so it decelerates into the real figure —
+   a claim; one that runs up reads as a count. Eased, so it decelerates into the real figure -- 
    and it never invents one: the target is the two banks as actually loaded. */
 let countedIntro=false;
 function countUpIntro(){
   const el=$('#introCount'); if(!el || countedIntro) return;
-  /* Both banks must be present. A failed <script> for one of them is silent — no console error,
-     no exception — and the headline then announced 3,694 instead of 5,413, which is worse than
+  /* Both banks must be present. A failed <script> for one of them is silent -- no console error,
+     no exception -- and the headline then announced 3,694 instead of 5,413, which is worse than
      announcing nothing: a broken load was presented as a plausible fact. */
   const he=window.UNIT_DATA, en=window.UNIT_DATA_EN;
   const cnt=o=>Object.values(o||{}).reduce((a,b)=>a+b.length,0);
   const n=cnt(he)+cnt(en);
-  if(!cnt(he) || !cnt(en)){ el.textContent='—'; return; }
+  if(!cnt(he) || !cnt(en)){ el.textContent='–'; return; }
   countedIntro=true;
   if(matchMedia('(prefers-reduced-motion: reduce)').matches){ el.textContent=n.toLocaleString('en-US'); return; }
   const t0=performance.now(), DUR=1400;
@@ -862,10 +862,10 @@ function countUpIntro(){
     if(p<1) requestAnimationFrame(tick); else done=true;
   };
   requestAnimationFrame(tick);
-  /* requestAnimationFrame does not advance in a tab that is not compositing — a background tab,
+  /* requestAnimationFrame does not advance in a tab that is not compositing -- a background tab,
      a battery-saver throttle. Without this the headline number sits on "0", which reads as a
      broken page rather than a slow one. If no frame has arrived, show the real figure. */
-  /* The guard asks whether the count FINISHED, not whether a frame ever ran — one frame and
+  /* The guard asks whether the count FINISHED, not whether a frame ever ran -- one frame and
      then a stall used to leave the number frozen half way. */
   setTimeout(()=>{ if(!done) el.textContent=n.toLocaleString('en-US'); }, DUR+400);
 }
@@ -874,7 +874,7 @@ function countUpIntro(){
 function renderHome(){
   const total=BANK.length;
   const uniqTerms=new Set(BANK.map(w=>w.term)).size;
-  /* Was `1717 מילים · 1717 ייחודיות` — the same number twice, and "ייחודיות" explains nothing
+  /* Was `1717 מילים · 1717 ייחודיות` · the same number twice, and "ייחודיות" explains nothing
      to someone who has just arrived. The second half only ever differs when a duplicate slips
      in, which is a thing for ME to see, not the learner. What they want to know is how much of
      it is theirs. */
@@ -882,7 +882,7 @@ function renderHome(){
   $('#totalPill').textContent = done.strong
     ? `${done.strong} מתוך ${total} מילים כבר בשליטה`
     : `${total} מילים · טרם התחלת`;
-  /* Weak words across the WHOLE language, ignoring units — the survey's top request by a wide
+  /* Weak words across the WHOLE language, ignoring units -- the survey's top request by a wide
      margin. Hidden rather than shown empty: on day one nothing is weak yet, and an offer to
      drill zero words is a worse first impression than no offer at all. */
   renderExamPill();
@@ -893,7 +893,7 @@ function renderHome(){
 const weakCtaText = n =>
   (n===1 ? 'מילה אחת לחיזוק' : `${n} מילים לחיזוק`) + ' · מכל יחידות הלימוד';
 /* הסף היה 4, בלי נימוק רשום: מי שנשארו לו שתיים־שלוש מילים לחיזוק לא ראה אותן,
-     וזה בדיוק הרגע שבו סבב קצר סוגר את הפער. הנימוק שכן נרשם — "לא להציע לתרגל אפס" —
+     וזה בדיוק הרגע שבו סבב קצר סוגר את הפער. הנימוק שכן נרשם · "לא להציע לתרגל אפס" · 
      מכוסה בסף 1. askSize מדלג על שאלת הגודל כשהרשימה קטנה מכל הקיצורים, ולכן
      סבב של מילה אחת נפתח ישר בלי דיאלוג מיותר. */
   if(cta){
@@ -923,7 +923,7 @@ const weakCtaText = n =>
   const grid=$('#unitGrid'); grid.innerHTML='';
   /* עשרה אריחים זהים, ואין שום סימן מאיפה מתחילים. הבחירה נופלת על הלומד ברגע שבו הוא
      יודע הכי פחות, וזה הרגע שבו אנשים סוגרים את הלשונית.
-     "הבאה בתור" היא היחידה הראשונה שנותרו בה מילים חדשות — כלומר ההמשך הטבעי של מה
+     "הבאה בתור" היא היחידה הראשונה שנותרו בה מילים חדשות · כלומר ההמשך הטבעי של מה
      שכבר נעשה, ולא המלצה שנשלפה מהאוויר. אם כל היחידות התחילו, אין תג: תג על הכול הוא
      תג על כלום. */
   const nextUid = UNIT_IDS.find(u=>{
@@ -940,7 +940,7 @@ const weakCtaText = n =>
     const el=document.createElement('button');
     el.className='tile'+(uid===nextUid?' next':'');
     /* התג "מומלץ להתחיל כאן" הוסר. הוא ישב מעל האריח, נחתך בקצה המסך בטלפון, וחזר על
-       מידע שהמסגרת הצבעונית כבר מוסרת בשקט. המסגרת נשארת — היא מסמנת את אותו אריח
+       מידע שהמסגרת הצבעונית כבר מוסרת בשקט. המסגרת נשארת · היא מסמנת את אותו אריח
        בלי לתפוס שורה ובלי להיחתך. */
     el.innerHTML=`<div class="num">${uid}</div><div class="lbl">${c.total} מילים</div>
       <div class="mini"><i class="s" style="width:${pct(c.strong)}%"></i><i class="w" style="width:${pct(c.weak)}%"></i><i class="n" style="width:${pct(c.fresh)}%"></i><i class="k" style="width:${pct(c.skipped||0)}%"></i></div>`;
@@ -951,34 +951,34 @@ const weakCtaText = n =>
 
 /* ===== כרטיס המילה במסך הבית =====
    שתי משתמשות ביקשו "ג'אדג'ט", וההגדרה היא: הצעה למילה עם הפירוש שלה, אינטראקטיבית.
-   מה שזה פותר בפועל אינו קישוט — עשרה אריחים זהים דורשים מהלומד לבחור ברגע שבו הוא יודע
+   מה שזה פותר בפועל אינו קישוט · עשרה אריחים זהים דורשים מהלומד לבחור ברגע שבו הוא יודע
    הכי פחות, וזה הרגע שבו נסגרת הלשונית. הכרטיס הוא הדבר האחד שאפשר ללחוץ עליו מיד.
 
-   הבחירה אינה אקראית. קודם מילה שכבר נפגשה ולא נקנתה — היא זו שעומדת ליפול מהזיכרון —
+   הבחירה אינה אקראית. קודם מילה שכבר נפגשה ולא נקנתה · היא זו שעומדת ליפול מהזיכרון · 
    ורק אם אין כזו, מילה חדשה. אקראי גמור היה מציע מילה שהלומד כבר יודע, וזה מלמד אותו
    להתעלם מהכרטיס.
 
    האינדקס נגזר מהיום ולא מ-Math.random: מילה שמתחלפת בכל רענון אינה "מילת היום" אלא רעש,
-   ואי אפשר לחזור אליה. הלחצן "מילה אחרת" הוא הדרך המכוונת להחליף, והוא סופר קדימה — כך
+   ואי אפשר לחזור אליה. הלחצן "מילה אחרת" הוא הדרך המכוונת להחליף, והוא סופר קדימה · כך
    שגם מי שמדלג מגיע למילים חדשות ולא מסתובב במעגל. */
 let wcOffset=0;
 /* ✕ סוגר את הכרטיס להיום ולא לתמיד. סגירה קבועה הייתה מוחקת את נקודת הכניסה היחידה
-   במסך הבית על סמך לחיצה אחת, ובלי מסך הגדרות שמחזיר אותה — וזו לחיצה שאי אפשר לבטל.
+   במסך הבית על סמך לחיצה אחת, ובלי מסך הגדרות שמחזיר אותה · וזו לחיצה שאי אפשר לבטל.
    נשמר מספר היום, ולכן הכרטיס חוזר מחר עם מילה אחרת ממילא. */
 /* יום קלנדרי מקומי, לא יום UTC.
-   Math.floor(Date.now()/86400000) מתחלף בחצות UTC — כלומר ב-02:00 או 03:00 בישראל.
+   Math.floor(Date.now()/86400000) מתחלף בחצות UTC · כלומר ב-02:00 או 03:00 בישראל.
    שתי תוצאות: "מילת היום" התחלפה באמצע הלילה, וסגירת הכרטיס ב-23:30 נפתחה מחדש
    שעתיים וחצי אחר כך באותו לילה עצמו. קיזוז אזור הזמן מיישר את זה לאותו יום שבו
-   dayKey (app.js: הרצף) כבר משתמש — שתי הגדרות שונות של "היום" באותה אפליקציה הן
+   dayKey (app.js: הרצף) כבר משתמש · שתי הגדרות שונות של "היום" באותה אפליקציה הן
    באג שמחכה לקרות. */
 function wcToday(){ const d=new Date(); return Math.floor((d.getTime() - d.getTimezoneOffset()*60000)/86400000); }
 /* מפתח לכל שפה, לא מפתח אחד משותף.
-   הכרטיס מציג מילה מהמאגר של השפה הפעילה — wcPick נשען על weakCards/newCards,
-   שקוראים את BANK — ולכן "מילת היום" בעברית ובאנגלית הן שתי מילים שונות. אבל
+   הכרטיס מציג מילה מהמאגר של השפה הפעילה · wcPick נשען על weakCards/newCards,
+   שקוראים את BANK · ולכן "מילת היום" בעברית ובאנגלית הן שתי מילים שונות. אבל
    הסגירה נשמרה במפתח גולמי אחד, בלי KEY(), וכך לחיצה על ✕ בעברית סגרה להיום גם
    את הכרטיס האנגלי: מילה שהלומד לא ראה, בכרטיס שלא הספיק להיפתח.
    KEY() משאיר את עברית על 'wcHide' ונותן לאנגלית 'wcHide_en', בדיוק כמו שאר
-   מפתחות ההתקדמות — כלומר סגירות קיימות של משתמשים עברים ממשיכות לתפוס. */
+   מפתחות ההתקדמות · כלומר סגירות קיימות של משתמשים עברים ממשיכות לתפוס. */
 function wcDismissed(){
   try{ return Number(localStorage.getItem(KEY('wcHide'))) === wcToday(); }catch(e){ return false; }
 }
@@ -999,12 +999,12 @@ function renderWordCard(){
   const card=$('#wordCard');
   if(!card) return;
   const p=wcPick();
-  /* אין מאגר, או שהכול נלמד — אין מה להציע, והכרטיס נעלם במקום להציג ריק. */
+  /* אין מאגר, או שהכול נלמד · אין מה להציע, והכרטיס נעלם במקום להציג ריק. */
   if(!p || !p.w || wcDismissed()){ card.classList.add('hidden'); return; }
   card.classList.remove('hidden');
   $('#wcKicker').textContent = p.weak ? 'מילה לחיזוק' : 'מילה חדשה להיום';
   /* התווית נגזרת ממה שהכרטיס באמת הציג. "תרגל חולשות" על מילה חדשה היה מבטיח סבב
-     חיזוק ופותח סבב של מילים שטרם נפגשו — כפתור ששמו אינו מה שהוא עושה. */
+     חיזוק ופותח סבב של מילים שטרם נפגשו · כפתור ששמו אינו מה שהוא עושה. */
   $('#wcPractice').textContent = p.weak ? 'תרגל חולשות' : 'תרגל מילים שטרם תרגלת';
   $('#wcTerm').textContent   = p.w.term;
   /* אותו סימון שכבר נעשה ל-#qText ול-#lvWord: בלעדיו קורא מסך מבטא מילה אנגלית בהגייה
@@ -1012,9 +1012,9 @@ function renderWordCard(){
   $('#wcTerm').lang = LANG==='en' ? 'en' : 'he';
   $('#wcTerm').dir  = LANG==='en' ? 'ltr' : 'rtl';
   /* הרמקול, בדיוק כמו בתרגול: בלי alwaysEn, כדי ש-bindSay יסתיר אותו לבדו במאגר העברי.
-     המילה כאן כבר גלויה — הפירוש הוא שמוסתר — ולכן ההקראה אינה מוסרת תשובה. */
+     המילה כאן כבר גלויה · הפירוש הוא שמוסתר · ולכן ההקראה אינה מוסרת תשובה. */
   bindSay('#wcSay', p.w.term);
-  $('#wcMean').textContent   = p.w.meaning || '—';
+  $('#wcMean').textContent   = p.w.meaning || '–';
   /* חוזר למצב מכוסה בכל רינדור: מסך בית שנטען עם הפירוש פתוח מלמד לדלג על הניחוש. */
   $('#wcMean').classList.add('hidden');
   $('#wcActs').classList.add('hidden');
@@ -1023,7 +1023,7 @@ function renderWordCard(){
 
 /* ===== SCOPE ===== */
 /* A per-unit "X% appear in real exams" tag was built from the NITE measurement and then
-   removed on sight. The numbers are true — 47% down to 23% — but on a tile they read as
+   removed on sight. The numbers are true -- 47% down to 23% -- but on a tile they read as
    "77% of this unit is a waste of time", on seven units out of ten. A true number that
    discourages the exact work it describes is the wrong number to show.
    The measurement itself is kept: scratchpad/unit_examshare.json. */
@@ -1051,7 +1051,7 @@ function openScope(scope){
   $('#pbWeak').disabled = wc===0;
   $('#pbLearned').disabled = lc===0;
   /* The end-of-round card tells you where the round left you. This tells you where you are
-     BEFORE you start — same numbers, same place in the flow, so the two agree by construction. */
+     BEFORE you start -- same numbers, same place in the flow, so the two agree by construction. */
   const met=c.strong+c.weak;
   const sp=$('#scopeProg');
   if(sp) sp.innerHTML = c.total
@@ -1079,10 +1079,10 @@ function openScope(scope){
   goto('scope');
 }
 $('#pbAll').onclick     = ()=> startRound(allCards(curScope), curScope, 'all');
-// NOTE: new/learned are shuffled BEFORE the cap — otherwise slicing an ordered list hands
+// NOTE: new/learned are shuffled BEFORE the cap -- otherwise slicing an ordered list hands
 // back the very same 20 words every round, which reads as "the app keeps repeating itself".
 // the list is built ONCE, up front, so the sheet can show its size and the callback caps the
-// very same list — building it twice would let a background sync change it in between
+// very same list -- building it twice would let a background sync change it in between
 // same round as כל המאגר ← מילים לחיזוק, minus the two taps in between
 $('#homeWeak').onclick = ()=>{
   curScope='global';
@@ -1098,7 +1098,7 @@ $('#pbSheet').onclick=()=>{ if(curScope.startsWith('unit:')) printSheet(curScope
 $('#pbStats').onclick   = ()=> openStats(curScope);
 function cap(list,n){ if(n && list.length>n){ toast(`מתרגל ${n} מתוך ${list.length}`); return list.slice(0,n);} return list; }
 /* A survey respondent put it exactly: the same words keep coming back. shuffle() is a correct
-   Fisher-Yates, and that was never the problem — the SET was deterministic. weakCards is sorted
+   Fisher-Yates, and that was never the problem -- the SET was deterministic. weakCards is sorted
    by least-recently-seen and then sliced, so two rounds in a row on an unchanged bank produced
    the identical twenty words. Widening the window and sampling inside it keeps the
    spaced-repetition intent (the oldest are still the candidates) while making consecutive
@@ -1118,7 +1118,7 @@ let sizeCb=null, sizeTotal=0;
    now hands over the size of the list it is about to cap. */
 function askSize(total, cb){
   sizeTotal=total||0;
-  /* A preset that is not smaller than the list caps nothing — picking it gives the same round
+  /* A preset that is not smaller than the list caps nothing -- picking it gives the same round
      as picking everything. When none of them is smaller, the sheet has one real answer, and
      asking a question with one answer is just a tap the learner has to spend. Start the round. */
   const usable = SIZES.filter(n => n < sizeTotal);
@@ -1126,13 +1126,13 @@ function askSize(total, cb){
   sizeCb=cb;
   const last=LS.get(KEY('hw_size'), 20);
   const custom = last>0 && SIZES.indexOf(last)<0 && last<sizeTotal ? last : 0;   // a typed number
-  // "כל היחידה" is only true inside a unit — כל המאגר and אקראי are not units.
+  // "כל היחידה" is only true inside a unit · כל המאגר and אקראי are not units.
   const allLabel = (curScope==='global'||curScope==='random' ? 'הכול' : 'כל היחידה')
                  + (sizeTotal ? ' · '+sizeTotal : '');
-  // only the presets that actually narrow the list — 50 beside a list of 12 is noise
+  // only the presets that actually narrow the list -- 50 beside a list of 12 is noise
   const opts = usable.map(n=>({n, label:String(n)}))
       .concat([{n:-1, label: custom ? 'אחר · '+custom : 'אחר'}, {n:0, label:allLabel}]);
-  // when the saved size no longer fits, "everything" is what a tap would actually do — say so
+  // when the saved size no longer fits, "everything" is what a tap would actually do -- say so
   const allIsEffective = !custom && usable.indexOf(last) < 0;
   $('#sizeOpts').innerHTML=opts.map(o=>{
     const on = o.n===-1 ? !!custom : (o.n===0 ? allIsEffective : o.n===last);
@@ -1164,7 +1164,7 @@ function customGo(){
   chooseSize(Math.min(raw, 999));
 }
 $('#sizeCustomGo').onclick=customGo;
-// Enter inside the field is the same as pressing התחל — on a phone that is the keyboard's own key
+// Enter inside the field is the same as pressing התחל · on a phone that is the keyboard's own key
 $('#sizeCustomN').addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); customGo(); } });
 $('#sizeCancel').onclick=()=>{ sizeCb=null; hide($('#sizeCustom')); hide($('#sizeAsk')); };
 $('#sizeAsk').onclick=e=>{ if(e.target===$('#sizeAsk')){ sizeCb=null; hide($('#sizeCustom')); hide($('#sizeAsk')); } };
@@ -1174,14 +1174,14 @@ let deck=[], idx=0, correct=0, missed=[], answered=false;
 let session=new Map(), sessionScope='global', sessionMode='all', committed=false;
 /* Which words of the CURRENT round have already been written to stats, and which log row this
    round owns. Both exist because commitSession can now legitimately run several times per
-   round — visibilitychange fires every time a notification pulls the learner away. */
+   round -- visibilitychange fires every time a notification pulls the learner away. */
 let committedKeys=new Set(), sessionRowId=null;
 
-/* committed מסמן "אין עבודה שלא נשמרה". הוא קיבל true בשני מקומות והתאפס במקום אחד בלבד —
-   תחילת סבב — ולכן אחרי ההפרעה הראשונה (נעילת מסך, התראה שקפצה) הוא נשאר true לכל אורך
+/* committed מסמן "אין עבודה שלא נשמרה". הוא קיבל true בשני מקומות והתאפס במקום אחד בלבד · 
+   תחילת סבב · ולכן אחרי ההפרעה הראשונה (נעילת מסך, התראה שקפצה) הוא נשאר true לכל אורך
    הסבב. שבעת אתרי הקומיט ששואלים `if(!committed && session.size>0)` דילגו, וכל מה שנענה
    אחרי ההפרעה נזרק: 20 מילים, הפרעה אחרי 3, ורק 3 נשמרות.
-   ההערה שמעל commitSession מתארת בדיוק את התרחיש ומכריזה שהוא נסגר — מה שנבנה בפועל היה
+   ההערה שמעל commitSession מתארת בדיוק את התרחיש ומכריזה שהוא נסגר · מה שנבנה בפועל היה
    committedKeys, שמגן מפני קומיט כפול של אותה מילה. הגנה נכונה, על בעיה אחרת.
    האיפוס כאן בטוח בזכותה: קריאה נוספת על מילה שכבר נשמרה אינה מוסיפה לה דבר. */
 function sess(w){ const k=K(w.term); if(!session.has(k)){ session.set(k,{w,attempts:0,mastered:false,firstTry:false}); committed=false; } return session.get(k); }
@@ -1208,9 +1208,9 @@ function renderCard(){
   const w=deck[idx];
   /* הכרטיס נרשם ברגע שהוא מוצג, ולא רק כשעונים עליו.
      session היה מתמלא ב-finishCard בלבד, ולכן הכרטיס שהיה על המסך ברגע שהלומד יצא לא נספר
-     כלל — ו-newCards, שמסננת לפי seen===0, החזירה אותו כ"מילה שעוד לא תרגלתי". סימולציה של
+     כלל · ו-newCards, שמסננת לפי seen===0, החזירה אותו כ"מילה שעוד לא תרגלתי". סימולציה של
      סבבי תרגול אמיתיים (scratchpad/practice_sim.js) מדדה אפס חזרות בסבב שהושלם מול 60 חזרות
-     כשהסבב ננטש — הפרש של כרטיס אחד בדיוק לכל סבב, וזה הכרטיס הזה.
+     כשהסבב ננטש · הפרש של כרטיס אחד בדיוק לכל סבב, וזה הכרטיס הזה.
      commitSession מבדילה בין רשומה כזאת (attempts===0) לבין תשובה, ולכן הרישום כאן אינו
      מחשיב אותה טעות. */
   sess(w);
@@ -1238,7 +1238,7 @@ function renderCard(){
     $('#qText').dir='rtl';
     $('#qText').lang='he';   // הפירוש תמיד עברי, בשני מאגרי השפה
     // The English word IS the answer here, so it can only be read out after the card is
-    // answered — otherwise the speaker button just gives it away.
+    // answered -- otherwise the speaker button just gives it away.
     bindSay('#qSay', null);
     inp.placeholder = en ? 'the word…' : 'המילה…';
     inp.dir = en ? 'ltr' : 'rtl';
@@ -1262,12 +1262,12 @@ function meaningMatch(input, meaning){
   if(a===norm(String(meaning).replace(/\([^)]*\)/g,' '))) return true;
   const segs=meaningSegs(meaning);
   if(segs.includes(a)) return true;
-  /* A single word from ANYWHERE in the gloss used to pass — including from inside a
+  /* A single word from ANYWHERE in the gloss used to pass · including from inside a
      parenthetical example. "יגור :: פוחד, חושש (אשר יגורתי בא - הדבר ממנו חששתי קרה)"
      accepted "קרה", a different word entirely, and promoted the item to level 3.
      One whole listed sense is still enough; a word lifted out of an example is not. */
   /* תחילית אחת אינה פירוש אחר. "נרתיק החרב" מול "נרתיק לחרב", "עובד בבית המרחץ" מול
-     "עובד בבית מרחץ" — אותה תשובה בדיוק, ורק ה"א הידיעה או אות יחס מבדילה. ראה
+     "עובד בבית מרחץ" · אותה תשובה בדיוק, ורק ה"א הידיעה או אות יחס מבדילה. ראה
      particleMatch להסבר למה זו השוואה סובלנית ולא גזירה. */
   if(segs.some(s=>particleMatch(a, s))) return true;
   return false;
@@ -1275,15 +1275,15 @@ function meaningMatch(input, meaning){
 /* מילות יחס וקישור עצמאיות. הן אינן נושאות מידע כשהן מילה שלמה, ו"נרתיק של חרב" מול
    "נרתיק חרב" הוא אותו פירוש. נזרקות משני הצדדים כאחד. */
 const PARTICLE_STOP=new Set(['של','את','עם','על','אל','מן','כל','זה','זאת','הוא','היא','אשר','או','גם','לפי']);
-/* השוואה סובלנית לתחילית אחת — **לא** גזירה של כל מילה.
+/* השוואה סובלנית לתחילית אחת · **לא** גזירה של כל מילה.
  *
  * ההבדל הזה נמדד ואינו סגנוני. גזירה גורפת של ב/ל/כ/מ/ש הופכת את "מרחץ" ל"רחץ",
- * ולכן דווקא *שוברת* את "עובד בבית המרחץ" מול "עובד בבית מרחץ" — ההתאמה שהיא באה
+ * ולכן דווקא *שוברת* את "עובד בבית המרחץ" מול "עובד בבית מרחץ" · ההתאמה שהיא באה
  * לאפשר. השוואה סובלנית נוגעת רק בזוג המילים שנבדק ואינה מייצרת אף גזע חדש.
  *
  * מה שנמדד על כל 1,717 המילים בעברית (5.8.2026): פותר 2 מתוך 24 מקרים אמיתיים
  * שחגי צילם, **אפס** מיזוג בין שני פירושים של אותו כרטיס, ו-10 זוגות פירושים בכל
- * המאגר שהופכים לניתנים להחלפה — כולם, בשמם, אותו פירוש עם תחילית ובלעדיה
+ * המאגר שהופכים לניתנים להחלפה · כולם, בשמם, אותו פירוש עם תחילית ובלעדיה
  * ("שקט"/"בשקט", "החריף"/"חריף", "מראה"/"המראה"). אפס קבלות שגויות.
  *
  * להשוואה, הכלל המורפולוגי שנשקל ונדחה (גזירה לשלד עיצורי) קיפל 61.7% מאוצר המילים
@@ -1322,7 +1322,7 @@ function meaningSegs(meaning){
   const MARKER=/^(?:ו?גם|ו?בפרט|ו?בהשאלה|וכן|כגון|לדוגמה|למשל|להיפך|או)$/;
   /* הפיצול כולל נקודה ונקודתיים, ולא רק פסיק ונקודה-פסיק.
      נמדד על 5,662 הפירושים: 40 מכילים ":" ו-13 מכילים ".", והם נשאו פירוש שני אחרי
-     מילת קישור — "חלול, ריק. בהשאלה: ריקני, שטחי". בלי הפיצול המקטע היה
+     מילת קישור · "חלול, ריק. בהשאלה: ריקני, שטחי". בלי הפיצול המקטע היה
      "ריק בהשאלה ריקני", ולכן גם "ריק" וגם "ריקני" נדחו למרות ששניהם נכונים.
      ב"תַּתְרָן :: נטול חוש ריח. בהשאלה: חסר חוש הבחנה" נדחו *שתי* התשובות האפשריות,
      כלומר המילה לא הייתה ניתנת לענייה בכלל. זו התלונה של חגי: "כתבתי תשובה נכונה
@@ -1330,20 +1330,20 @@ function meaningSegs(meaning){
      הנקודה מפוצלת רק כשהיא בודדת: (?<!\.)\.(?!\.) משאיר "..." שלם, שאם לא כן
      "גם... וגם..." (הפירוש של both... and...) היה מתפרק.
      מה שלא השתנה: הסוגריים עדיין נמחקות לפני הפיצול, ולכן "(להיפך: נדיר)" אינו הופך
-     את הניגוד לתשובה קבילה — וגם לא מתקבלת מילה בודדת שנשלפה מתוך פירוש ארוך. */
+     את הניגוד לתשובה קבילה · וגם לא מתקבלת מילה בודדת שנשלפה מתוך פירוש ארוך. */
   const parts=String(meaning).replace(/\([^)]*\)/g,' ')
     .split(/[,;/|]|\s-\s|(?<!\.)\.(?!\.)|:/)
     .map(s=>s.trim()).filter(Boolean);
   /* מילת קישור נזרקת רק כשנשאר פירוש אחר מלבדה.
-     בלי התנאי הזה נשברו שש מילים באנגלית שהפירוש שלהן *הוא* מילת הקישור עצמה —
-     also→"גם", or→"או", vice versa→"להיפך", for example→"לדוגמה" — והן הפכו לחסרות
+     בלי התנאי הזה נשברו שש מילים באנגלית שהפירוש שלהן *הוא* מילת הקישור עצמה · 
+     also→"גם", or→"או", vice versa→"להיפך", for example→"לדוגמה" · והן הפכו לחסרות
      תשובה לחלוטין. בדיקה 28 ("כל ערך במאגר ניתן למענה") היא שתפסה את זה.
      המסקנה: "וגם" הוא רעש כשהוא מקדים פירוש, והוא התשובה כשהוא לבדו. ההקשר מכריע,
      לא המילה. */
   const kept=parts.filter(s=>!MARKER.test(s));
   return (kept.length?kept:parts).map(norm).filter(Boolean);
 }
-/* אותה חלוקה בדיוק, אבל בטקסט המקורי ולא מנורמל — לתצוגה בלבד.
+/* אותה חלוקה בדיוק, אבל בטקסט המקורי ולא מנורמל · לתצוגה בלבד.
    האינדקסים חייבים להיות זהים לאלה של meaningSegs, כי r.sens שומר אינדקסים שלה: פירוש
    שיוצג ירוק במקום הלא נכון גרוע מאין צבע בכלל. הזהות נאכפת ב-tests/63 על כל המאגר,
    ולא נשמרת בזכות תשומת לב. `.filter(s=>norm(s))` הוא בן הזוג של `.filter(Boolean)` למעלה. */
@@ -1364,7 +1364,7 @@ function sensesGot(term, meaning){
 /* הפירושים כשרשרת, מה שכבר נכתב בירוק והחסר בשחור.
    זו התשובה ל"למה המילה הזאת עדיין ברשימת החיזוק" בלי לפתוח קטגוריה חדשה: רשימת
    המילים כבר עמוסה, והצבע נושא את המידע במקום עוד תווית. מילה עם פירוש אחד מוחזרת
-   כטקסט רגיל — אין שם מה לצבוע, וצבע בלי משמעות מלמד להתעלם ממנו. */
+   כטקסט רגיל · אין שם מה לצבוע, וצבע בלי משמעות מלמד להתעלם ממנו. */
 function senseChips(term, meaning){
   const raw=meaningSegsRaw(meaning);
   if(raw.length<2) return esc(meaning);
@@ -1373,7 +1373,7 @@ function senseChips(term, meaning){
   return raw.map((s,i)=>`<span class="sns${got.includes(i)?' got':''}">${esc(s)}</span>`)
             .join('<span class="snsep">·</span>');
 }
-/* הדרישה לשני פירושים, מוצגת **גם על תשובה שגויה** — וזה כל החידוש.
+/* הדרישה לשני פירושים, מוצגת **גם על תשובה שגויה** · וזה כל החידוש.
    עד עכשיו היא הייתה עטופה ב-`ok`, כלומר מי שטעה לא ראה אותה אף פעם. ובדיוק הוא זה
    שהמילה שלו נתקעת: 64.5% מהמילים בעברית ו-43% באנגלית נושאות שני פירושים ומעלה,
    וביחידה 1 בעברית זה 113 מתוך 190. הלומד ראה מילים חוזרות לחיזוק בלי שום הסבר.
@@ -1384,7 +1384,7 @@ function senseNeedBlock(w){
   /* ⚠ מיידע, ואינו דורש (7.8.2026). הנוסח הקודם התנה את שליטת הלומד במילה במסירת
      פירוש שני, וזו הבטחה שכבר אינה נכונה מאז שתקרת הרמה בוטלה ב-commitSession.
      טקסט שמתאר מנגנון שבוטל גרוע מאין טקסט.
-     (הניסוח כאן נמנע מהמחרוזת שהבדיקה ב-tests/63 אוסרת — היא נבדקת על כל גוף
+     (הניסוח כאן נמנע מהמחרוזת שהבדיקה ב-tests/63 אוסרת · היא נבדקת על כל גוף
      הפונקציה, ולכן גם הערה שמצטטת את הנוסח הישן הייתה מפילה אותה.) */
   const n=senseCount(w.meaning);
   if(n<2) return '';
@@ -1396,7 +1396,7 @@ function senseNeedBlock(w){
   }
   return `<div class="also sense-need" id="senseNeed">${line}${intro}</div>`;
 }
-/* רושם את הפירוש שנכתב. saveStats לא נקרא כאן — commitSession שומר בסוף הסבב ממילא,
+/* רושם את הפירוש שנכתב. saveStats לא נקרא כאן · commitSession שומר בסוף הסבב ממילא,
    ושמירה לכל תשובה הייתה כותבת לדיסק עשרים פעם בסבב. */
 function noteSense(w, typed){
   const segs=meaningSegs(w.meaning);
@@ -1413,7 +1413,7 @@ function noteSense(w, typed){
   const s=Array.isArray(r.sens)?r.sens:[];
   if(!s.includes(i)){ s.push(i); r.sens=s.slice(0,8); }
 }
-/* מרחק עריכה, על שני מיתרים קצרים בלבד — הפירושים של ערך אחד. */
+/* מרחק עריכה, על שני מיתרים קצרים בלבד · הפירושים של ערך אחד. */
 function editDist(a,b){
   if(a===b) return 0;
   const m=a.length, n=b.length;
@@ -1430,19 +1430,19 @@ function editDist(a,b){
 /* הזיכוי שמאחורי "בעצם ידעתי".
  *
  * noteSense מזכה רק בהתאמה מדויקת, ולכן שגיאת כתיב לא זוכתה לעולם. עבור 43% מהמילים
- * באנגלית ו-65% בעברית — אלה שנושאות יותר מפירוש אחד — התקרה ב-commitSession נשארה 2,
+ * באנגלית ו-65% בעברית · אלה שנושאות יותר מפירוש אחד · התקרה ב-commitSession נשארה 2,
  * weakCards דורש 3, והמילה נתקעה ברשימת החיזוק לצמיתות. זה בדיוק מה שדווח: "לא יורד
  * לאחר 3-4 פעמים למרות שכביכול אני כבר שולט בה".
  *
  * שלושה שלבים, מהמדויק למקל:
- *   1. התאמה מדויקת — כמו noteSense.
+ *   1. התאמה מדויקת · כמו noteSense.
  *   2. הפירוש הקרוב ביותר במרחק עריכה, עד שליש מאורכו. הסיכון להתאמה שגויה זניח כאן
  *      ולא כמו ברעיון "כמעט נכון" שנפסל בזמנו: המועמדים אינם המאגר כולו אלא שניים עד
  *      ארבעה פירושים של אותו ערך.
- *   3. אין קרבה — הפירוש הראשון שטרם זוכה. הלומד הצהיר שידע; לא לזכות אותו בכלום פירושו
+ *   3. אין קרבה · הפירוש הראשון שטרם זוכה. הלומד הצהיר שידע; לא לזכות אותו בכלום פירושו
  *      לכלוא את המילה בלי שום מוצא, וזה הבאג עצמו.
  *
- * התקרה עצמה נשארת. מי שיודע פירוש אחד מתוך שלושה אינו שולט במילה — זו הייתה בקשה מפורשת. */
+ * התקרה עצמה נשארת. מי שיודע פירוש אחד מתוך שלושה אינו שולט במילה · זו הייתה בקשה מפורשת. */
 function creditSense(w, typed){
   const segs=meaningSegs(w.meaning);
   if(segs.length<2) return;
@@ -1456,12 +1456,12 @@ function creditSense(w, typed){
     if(best>=0 && bd<=Math.max(1, Math.floor(segs[best].length/3))) i=best;
   }
   /* אין שלב שלישי, ובכוונה. הגרסה הראשונה של הפונקציה הזאת זיכתה בפירוש הראשון שטרם ניתן
-     כשהטקסט לא התאים לאף פירוש — ומדידה הראתה שזה יוצר מצב הפוך לגמרי מהכוונה: לומד
+     כשהטקסט לא התאים לאף פירוש · ומדידה הראתה שזה יוצר מצב הפוך לגמרי מהכוונה: לומד
      שכותב שוב את הפירוש שהוא יודע אינו מזוכה בכלום (הפירוש כבר זוכה), ומי שכותב שטויות
      כן מזוכה (שטויות אינן מתאימות לאף פירוש ולכן נפלו לשלב ההוא).
-     התיקון הנכון אינו לזכות גם על חזרה — שתי לחיצות היו פותחות את התקרה, והתקרה קיימת
+     התיקון הנכון אינו לזכות גם על חזרה · שתי לחיצות היו פותחות את התקרה, והתקרה קיימת
      בדיוק כדי שידיעת פירוש אחד לא תיחשב שליטה. זו הייתה בקשה מפורשת.
-     מי שיודע את המילה ורוצה שיפסיקו לשאול אותו עליה — יש לו "ידעתי" בניהול מילים (v147),
+     מי שיודע את המילה ורוצה שיפסיקו לשאול אותו עליה · יש לו "ידעתי" בניהול מילים (v147),
      שמסמן ישירות ולא דרך ניחוש איזה פירוש התכוון אליו.
      מה שנשאר כאן הוא הבאג המקורי בלבד: noteSense מזכה רק בהתאמה מדויקת, ולכן תשובה נכונה
      עם שגיאת כתיב לא זוכתה לעולם. שלב 2 סוגר בדיוק את זה. */
@@ -1474,7 +1474,7 @@ function check(){
   const w=deck[idx], v=$('#answerInput').value;
   /* שדה ריק אינו תשובה. Enter מוחזק לחוץ: ההקשה הראשונה עונה, השנייה מגיעה ל-#nextBtn
      שקיבל פוקוס ועוברת לכרטיס הבא, והשלישית נוחתת על #answerInput שהוחזר לו פוקוס אחרי
-     30ms — ומסמנת כרטיס כשגוי בלי שהלומד ראה אותו. isCorrect('') מחזיר false, ולא היה
+     30ms · ומסמנת כרטיס כשגוי בלי שהלומד ראה אותו. isCorrect('') מחזיר false, ולא היה
      שום שער לפניו. החזקת Enter שרפה כך חצי מהחפיסה. */
   if(!String(v).trim()) return;
   acceptedAlt=null;
@@ -1486,7 +1486,7 @@ function check(){
     finishCard(ok, false); return;
   }
   if(isCorrect(v, w.term)){ finishCard(true, false); return; }
-  /* Same meaning, different word. Accepted — and the card's own word is named in the feedback,
+  /* Same meaning, different word. Accepted -- and the card's own word is named in the feedback,
      because the point of the round is still to learn THIS entry. */
   const alt=glossAlts(w).find(t=>isCorrect(v, t));
   if(alt){ acceptedAlt=alt; finishCard(true, false); return; }
@@ -1516,9 +1516,9 @@ function finishCard(ok, skipped){
     (ok && w2m ? (()=>{ const rest=otherSenses($('#answerInput').value, w.meaning);
        if(!rest.length) return '';
        /* השורה השנייה קיימת כי הראשונה לבדה לא עבדה. "גם: X · Y" הוצג, הלומד קרא וסגר,
-          והמילה נספרה כנלמדה — בדיוק התלונה שהגיעה ממשתמש. עכשיו נאמר במפורש שהיא לא
+          והמילה נספרה כנלמדה · בדיוק התלונה שהגיעה ממשתמש. עכשיו נאמר במפורש שהיא לא
           נספרה, וכמה חסר. המספר הוא מה שהופך את זה מהערה לדרישה. */
-       /* שורת הדרישה עצמה עברה ל-senseNeedBlock, כי כאן היא הייתה עטופה ב-ok — כלומר
+       /* שורת הדרישה עצמה עברה ל-senseNeedBlock, כי כאן היא הייתה עטופה ב-ok · כלומר
           הלומד שטעה, בדיוק זה שהמילה שלו נתקעת תחת התקרה, לא ראה אותה מעולם. */
        return `<div class="also">גם: <b>${esc(rest.join(' · '))}</b></div>`;
      })() : '')+
@@ -1532,7 +1532,7 @@ function finishCard(ok, skipped){
     (!ok?`<div class="reveal">${label}: <b><bdi>${w2m?senseChips(w.term,answer):esc(answer)}</bdi></b></div>`:'')+
     (w2m ? senseNeedBlock(w) : '')+
     /* The prompt hid the word inside its own gloss, and in this direction the gloss is never
-       shown again — so the example that made it worth reading would have been lost. Now that
+       shown again -- so the example that made it worth reading would have been lost. Now that
        the card is over it can only teach, so it is restored in full. */
     (!w2m && maskTerm(w.meaning,w.term)!==w.meaning
       ? `<div class="also">הפירוש המלא: <b>${esc(w.meaning)}</b></div>` : '')+
@@ -1555,15 +1555,15 @@ function finishCard(ok, skipped){
        <button class="assoc-peek" id="assocPeek">👀 מה אחרים כתבו על המילה הזאת</button>
        <div class="assoc-others hidden" id="assocOthers"></div>
      </div>
-     <button class="del-live" id="delLive">🗑 אני מכיר את המילה — מחק מהמאגר</button>
+     <button class="del-live" id="delLive">🗑 אני מכיר את המילה · מחק מהמאגר</button>
      <div class="actions" style="margin-top:14px"><button class="btn btn-primary" id="nextBtn">${idx+1<deck.length?'הבא ←':'לסיכום'}</button></div>`;
   fb.classList.remove('hidden');
   /* The line above disabled #answerInput while it held the focus, and HTML says focus on an
      element that becomes disabled falls back to <body>. Measured: 6 Tab presses to get from
-     <body> back to "הבא ←", every one of them passing over 🗑 "מחק מהמאגר" on the way — a
+     <body> back to "הבא ←", every one of them passing over 🗑 "מחק מהמאגר" on the way · a
      destructive control standing between the learner and the only way forward, 20 times a round.
      WHY #nextBtn AND NOT #feedback: the usual advice is to focus the container of the new
-     content so it gets read. Here that buys nothing — #feedback is already role="status"
+     content so it gets read. Here that buys nothing · #feedback is already role="status"
      aria-live="polite", and the audit verified in Chromium that the verdict reaches the
      accessibility tree through it whether or not focus is inside. So the verdict is spoken
      either way, and the focus can go where it is actually useful: the one control that
@@ -1590,7 +1590,7 @@ function finishCard(ok, skipped){
     } else if(shareKnown){
       /* Only take a share down when we actually KNOW the current state. If the read that fills
          this checkbox failed, an unchecked box means "we don't know", not "the learner opted
-         out" — and acting on it deleted a share nobody asked to delete. */
+         out" -- and acting on it deleted a share nobody asked to delete. */
       await Store.unshareAssoc(wLang, wKey);
     }
   };
@@ -1603,7 +1603,7 @@ function finishCard(ok, skipped){
   if(shareBox && currentUser){
     /* Check `ok` before trusting `mine`. A failed read returned mine:false, the checkbox
        cleared itself, and the next save read that box and UNSHARED an association the learner
-       had shared — while the UI said "נשמר ✓". Exactly the bug pullProgress already had. */
+       had shared · while the UI said "נשמר ✓". Exactly the bug pullProgress already had. */
     Store.listSharedAssoc(wLang, wKey).then(r=>{
       if(!r || r.ok!==true) return;
       shareKnown=true;
@@ -1623,13 +1623,13 @@ function finishCard(ok, skipped){
   };
 
   /* "בעצם ידעתי" הוא מתג, לא פעולה חד-כיוונית.
-     קודם הוא עשה wr.remove() — לחיצה אחת ונעלם, ומי שלחץ בטעות (או הבין רגע אחרי
+     קודם הוא עשה wr.remove() · לחיצה אחת ונעלם, ומי שלחץ בטעות (או הבין רגע אחרי
      שדווקא לא ידע) נשאר עם כרטיס מסומן כנכון בלי שום דרך לחזור. מסך הסיכום כבר איפשר
-     לתקן דרך .rev-chip, אבל רק אחרי שהסבב נגמר — והטעות קורית כאן.
+     לתקן דרך .rev-chip, אבל רק אחרי שהסבב נגמר · והטעות קורית כאן.
      הביטול חייב להחזיר את כל מה שהלחיצה שינתה, ולא רק את הטקסט:
-       · correct ו-missed — אחרת הניקוד על המסך והרשימה "מה פספסתי" מתפצלים מהאמת.
-       · e.mastered / e.firstTry — הם מה ש-commitSession קורא בפועל.
-       · r.sens — creditSense כותב לזיכרון הקבוע מיד, ולכן שומרים עותק לפני ומשחזרים
+       · correct ו-missed · אחרת הניקוד על המסך והרשימה "מה פספסתי" מתפצלים מהאמת.
+       · e.mastered / e.firstTry · הם מה ש-commitSession קורא בפועל.
+       · r.sens · creditSense כותב לזיכרון הקבוע מיד, ולכן שומרים עותק לפני ומשחזרים
          אותו. בלי זה ביטול היה משאיר פירוש מזוכה שהלומד מעולם לא נתן, והמילה הייתה
          מטפסת לעבר "נלמדה" על סמך לחיצה שבוטלה. */
   const wr=$('#wasRight');
@@ -1643,7 +1643,7 @@ function finishCard(ok, skipped){
         correct++;
         const i=missed.indexOf(w); if(i>=0) missed.splice(i,1);
         e.mastered=true; e.firstTry=(e.attempts===1);
-        /* הצהרת ידיעה מפורשת. commitSession מרים בזכותה את תקרת הפירושים — creditSense
+        /* הצהרת ידיעה מפורשת. commitSession מרים בזכותה את תקרת הפירושים · creditSense
            לבדו אינו מספיק, כי הוא מזכה רק בהתאמה מדויקת או קרובה, ותשובה "נכונה אבל
            אחרת" נופלת מחוץ לסף. ראה tests/62. */
         e.declared=true;
@@ -1693,7 +1693,7 @@ function finishRound(){
    learner could practise the same unit for a month without ever being told they had covered it.
    Language-agnostic on purpose: classify() and scopeWords() already work off LANG, so Hebrew
    and English get this from the same code and can never drift apart.
-   Counted BEFORE commitSession runs on this screen? No — commitSession has already run by the
+   Counted BEFORE commitSession runs on this screen? No -- commitSession has already run by the
    time finishRound is reached, so these numbers include the round just finished. */
 function renderUnitProgress(){
   const host=$('#unitProg'); if(!host) return;
@@ -1714,11 +1714,11 @@ function renderUnitProgress(){
   }
   /* הניסוח שחגי ביקש (5.8.2026): "בסבב הזה היו X מילים חדשות שלא תרגלת לפני.
      ב-X אתה כבר שולט."
-     "שולט" ולא "עלו לחוזק מלא" — "בשליטה" הוא המונח שהאפליקציה משתמשת בו בכל מקום אחר
+     "שולט" ולא "עלו לחוזק מלא" · "בשליטה" הוא המונח שהאפליקציה משתמשת בו בכל מקום אחר
      (up-keys ממש מתחת), ומונח נרדף מחייב את הקורא לתרגם.
      שלוש הרכבות ולא צירוף אחד: "בסבב הזה ב-3 אתה כבר שולט" אינו משפט, ולכן כשאין מילים
      חדשות המשפט נבנה אחרת לגמרי במקום להידבק לרישא.
-     וצורת היחיד נכתבת במפורש — "1 מילים חדשות" הוא בדיוק ההבדל בין הודעה אישית
+     וצורת היחיד נכתבת במפורש · "1 מילים חדשות" הוא בדיוק ההבדל בין הודעה אישית
      להודעה אוטומטית. */
   let gainHtml='';
   const newTxt   = newlyMet===1   ? 'מילה חדשה אחת שלא תרגלת לפני'
@@ -1732,11 +1732,11 @@ function renderUnitProgress(){
     ? 'בסבב הזה מילה אחת עלתה לשליטה'
     : `בסבב הזה <b>${newlySolid}</b> מילים עלו לשליטה`;
 
-  /* ציון דרך. הסבב מספר כמה ידעת עכשיו, והפס מספר כמה נשאר — אבל אף אחד מהם לא אומר
+  /* ציון דרך. הסבב מספר כמה ידעת עכשיו, והפס מספר כמה נשאר · אבל אף אחד מהם לא אומר
      "עברת נקודה שלא עברת קודם". זה מה שהופך שלושה חודשים של תרגול לרצף של רגעים ולא
      לפס שזז לאט.
      נבדק על המספר שלפני הסבב ואחריו, ולכן הוא נאמר פעם אחת בדיוק: מי שחצה 50 היום לא
-     יראה את זה שוב מחר. וזה נגזר מהמצב האמיתי — אין מונה נפרד שיכול לצאת מסנכרון עם
+     יראה את זה שוב מחר. וזה נגזר מהמצב האמיתי · אין מונה נפרד שיכול לצאת מסנכרון עם
      מה שהלומד באמת יודע.
      בכוונה בתוך הכרטיס הקיים ולא כמסך חדש: מסך שקופץ באמצע נסגר מהר וגם מפריע. */
   const solidNow=c.strong, solidBefore=c.strong-newlySolid;
@@ -1771,15 +1771,15 @@ function renderUnitProgress(){
     </div>`;
 
   /* Closing a whole unit is the biggest thing that happens in this app, and until now it was a
-     line of text inside a card the learner had to notice. Once — the first time a unit turns
-     solid — it gets the screen. Never again for that unit: a celebration that repeats every
+     line of text inside a card the learner had to notice. Once -- the first time a unit turns
+     solid -- it gets the screen. Never again for that unit: a celebration that repeats every
      visit stops being one, and starts being something to dismiss. */
   if(allSolid) celebrateUnit(scope, title, c.total);
 }
 
 /* Written in the app's own palette rather than the usual confetti primaries: gold, rust and the
    deep green the "בשליטה" key already uses. Fired from the two lower corners, the way real
-   fireworks are seen — from below. */
+   fireworks are seen · from below. */
 const CHEERS = [
   ['יחידה שלמה.', 'כל מילה כאן כבר שלך.'],
   ['סגרת אותה.', 'זה נראה גדול מבחוץ, ואתה עברת את זה מילה-מילה.'],
@@ -1828,7 +1828,7 @@ function fireworks(cv){
   const EVERY = 16;
   (function frame(){
     t++;
-    // one burst every ~16 frames, then let the last shell fall and STOP — this is a moment,
+    // one burst every ~16 frames, then let the last shell fall and STOP -- this is a moment,
     // not an ambient effect, and a canvas that never stops drains a phone battery
     const i = Math.floor((t-1)/EVERY);
     if((t-1) % EVERY === 0 && i < shots.length) burst(w*shots[i][0], h*shots[i][1], shots[i][2]);
@@ -1862,9 +1862,9 @@ function refreshResultCounts(){
 function renderReview(){
   refreshResultCounts();
   const list=$('#reviewList');
-  /* מה שטעית בו — למעלה.
+  /* מה שטעית בו · למעלה.
      הרשימה הוצגה בסדר החפיסה, כלומר בסדר אקראי, והמילים שדורשות תשומת לב היו מפוזרות
-     בין עשרים שורות. בסבב של 20 מילים עם 3 טעויות, השלוש האלה הן כל תוכן המסך —
+     בין עשרים שורות. בסבב של 20 מילים עם 3 טעויות, השלוש האלה הן כל תוכן המסך · 
      והן היו יכולות לשבת בשורות 7, 12 ו-19.
      הסדר נקבע פעם אחת, כאן, ולא מתעדכן בלחיצה על .rev-chip: שורה שקופצת ממקומה בזמן
      שהאצבע עליה היא בדיוק הדרך לגרום למישהו ללחוץ על השורה הלא נכונה. הצבע משתנה
@@ -1873,7 +1873,7 @@ function renderReview(){
   /* רמקול על מה שנטעה. הבקשה הייתה "שיהיה אפשר לשמוע את המילים שטעית בהן", ולכן הוא
      נתלה רק על שורות שגויות: 20 רמקולים על 20 שורות היו מטביעים את השלוש שחשובות,
      בדיוק כמו שהסדר האקראי הטביע אותן לפני שמוינו כאן.
-     LANG==='en' ולא TTS.available() לבדו — TTS.pick בוחר קול אנגלי בלבד, ובמאגר העברי
+     LANG==='en' ולא TTS.available() לבדו · TTS.pick בוחר קול אנגלי בלבד, ובמאגר העברי
      כפתור כזה היה מבטא מילה עברית באנגלית. אותו נימוק שכבר כתוב מעל bindSay.
      כמו הסדר, גם הרמקול נקבע כאן פעם אחת ואינו זז בלחיצה על ה-chip. ראה tests/65. */
   const canSay = LANG==='en' && TTS.available();
@@ -1892,7 +1892,7 @@ function renderReview(){
       const row=chip.closest('.rev-row'); const term=row.dataset.t;
       const e=session.get(K(term)); if(!e) return;
       const nowOk=!e.mastered;
-      /* אותה הצהרה בדיוק כמו "בעצם צדקתי", רק מהדלת השנייה — מסך הסיכום. בלי e.declared
+      /* אותה הצהרה בדיוק כמו "בעצם צדקתי", רק מהדלת השנייה · מסך הסיכום. בלי e.declared
          כאן, תיקון שנעשה מכאן היה משאיר את המילה תחת תקרת הפירושים והיא הייתה חוזרת
          לחיזוק, כלומר אותו באג עם שער אחר. ראה tests/62. */
       e.mastered=nowOk; e.firstTry=nowOk; e.declared=nowOk; if(nowOk && e.attempts<1) e.attempts=1;
@@ -1904,7 +1904,7 @@ function renderReview(){
   });
 }
 /* `committed` used to be a one-way latch, cleared only in startRound. But visibilitychange
-   commits mid-round — so on a phone, the first incoming notification committed the 3 words
+   commits mid-round -- so on a phone, the first incoming notification committed the 3 words
    answered so far and then LATCHED. Everything answered afterwards was thrown away: the
    results screen said 10/10 while storage held 3, and the session log recorded {total:3}.
    Committing mid-round is right; refusing to commit again is not. The latch now guards only
@@ -1922,7 +1922,7 @@ function commitSession(){
     const wasNew = r.seen===0;
     if(wasNew) nw++;
     r.seen++;
-    /* הוצג ולא נענה. הלומד נפגש עם המילה — ולכן seen עלה למעלה — אבל הוא לא ענה תשובה
+    /* הוצג ולא נענה. הלומד נפגש עם המילה · ולכן seen עלה למעלה · אבל הוא לא ענה תשובה
        שגויה, הוא לא ענה בכלל. לרשום כאן wrong ולהוריד level היה מעניש אותו על סגירת
        האפליקציה ודוחף את המילה לרשימת החיזוק בלי שום ראיה שהיא חלשה. */
     if(e.attempts===0){ r.last=now; return; }
@@ -1934,11 +1934,11 @@ function commitSession(){
          מה שהיה: מילה עם כמה פירושים נחסמה ברמה 2 עד שנמסר פירוש שני, ולכן לא נחשבה
          נלמדה. הכוונה הייתה למנוע "עונים פירוש אחד ושוכחים את השאר".
          מה שקרה בפועל: **64.5% מהמילים בעברית נושאות שני פירושים ומעלה**, וביחידה 1
-         זה 113 מתוך 190 — כלומר רוב המאגר נתקע ברמה 2 וחזר לחיזוק שוב ושוב.
+         זה 113 מתוך 190 · כלומר רוב המאגר נתקע ברמה 2 וחזר לחיזוק שוב ושוב.
          חגי: "זה מאוד מאוד מקשה על ללמוד את המילים ולהתקדם".
          מה שהוחלט: **תשובה נכונה בפעם הראשונה מספיקה כדי שהמילה תיחשב נלמדה**, גם
-         כשיש לה כמה פירושים. שאר הפירושים ממשיכים להיות **מוצגים** — otherSenses
-         אחרי תשובה נכונה, ו-senseChips ברשימה — אבל אינם **נדרשים**.
+         כשיש לה כמה פירושים. שאר הפירושים ממשיכים להיות **מוצגים** · otherSenses
+         אחרי תשובה נכונה, ו-senseChips ברשימה · אבל אינם **נדרשים**.
          כלומר: המידע נשמר, החובה ירדה. */
       r.level = isRetryRound ? r.level : (wasNew ? 3 : Math.min(3, r.level+1));
       ft++; c++;
@@ -1951,11 +1951,11 @@ function commitSession(){
      three separate rounds of 3, 4 and 3 words, which is what the trend chart on the stats
      screen then drew. The row is created on first commit and grown by every later one. */
   /* THE ROW IS FOUND BY ID, NOT BY POSITION.
-     This used to hold a numeric index into stats.sessions — and mergeProgress rebuilds that array
+     This used to hold a numeric index into stats.sessions -- and mergeProgress rebuilds that array
      from scratch: it concatenates both sides, dedupes, SORTS by time and slices to the cap. A sync
      landing mid-round therefore moved the row out from under the pointer, and the next commit of
      the same round grew SOMEBODY ELSE'S round: adding today's answers to it and dragging its date
-     to today. One practice day vanishes from the log and the streak breaks — on a single device
+     to today. One practice day vanishes from the log and the streak breaks -- on a single device
      with a perfectly correct clock. Two independent passes of house-check 2 found this.
 
      `rid` is the first commit's timestamp plus the scope and mode, so it is derived rather than
@@ -1969,7 +1969,7 @@ function commitSession(){
   } else {
     /* No row, either because this is the round's first commit or because the round's row has
        already been trimmed out of history. Starting a fresh one is the honest answer to both:
-       the alternative — reviving an index — is what pointed at a stranger. */
+       the alternative -- reviving an index -- is what pointed at a stranger. */
     sessionRowId=now+'|'+sessionScope+'|'+sessionMode;
     stats.sessions.push({rid:sessionRowId, t:now, scope:sessionScope, mode:sessionMode,
                          total:entries.length, correct:c, firstTry:ft, struggled:st, newCount:nw});
@@ -1982,10 +1982,10 @@ function commitSession(){
      the OS without firing pagehide loses at most the round in progress, never a finished one. */
   flushRemoteSync();
   /* Refresh the numbers the reminder is built from. Written after every round rather than once
-     when permission was granted — otherwise the worker keeps announcing a streak that ended and
+     when permission was granted -- otherwise the worker keeps announcing a streak that ended and
      the "two days away" rule can never fire, because `last` never moves. */
   // guarded: committing a round is core, notifications are peripheral, and core must not throw
-  // because a peripheral is missing — which is exactly what happened to every bucket test
+  // because a peripheral is missing -- which is exactly what happened to every bucket test
   if(typeof NOTIF!=='undefined' && NOTIF.granted()) NOTIF.cacheMessage();
 }
 
@@ -1999,23 +1999,23 @@ document.addEventListener('keydown',e=>{
   e.preventDefault(); const n=$('#nextBtn'); if(n) n.click();
 });
 $('#hintBtn').onclick=()=>{ const w=deck[idx]; if(!w) return; const a=assoc[K(w.term)]; const b=$('#hintBox'); b.textContent=a?('💡 '+a):'עדיין לא כתבת אסוציאציה למילה הזו. תוכל להוסיף אחרי שתענה.'; b.classList.remove('hidden'); };
-/* שמירת הסבב עברה ל-navTo, שהוא המסלול שכל יציאה עוברת בו — כך "אחורה" של המערכת
+/* שמירת הסבב עברה ל-navTo, שהוא המסלול שכל יציאה עוברת בו · כך "אחורה" של המערכת
    וה-✕ שומרים בדיוק אותו דבר, ואי אפשר לתקן אחד ולשכוח את השני. */
 $('#quitQuiz').onclick=()=>goBack();
 /* Retrying the words you just missed must not undo the miss. startRound commits the (corrected)
-   session first, so the retry begins with attempts===1 and counted as "knew it first try" —
+   session first, so the retry begins with attempts===1 and counted as "knew it first try" -- 
    handing back the level the mistake had just taken away, ten seconds after the answer was
    shown on screen. The round is now flagged so the retry can restore at most what was lost. */
 $('#retryMissedBtn').onclick=()=>startRound(missed.slice(), sessionScope, sessionMode, true);
 $('#resBackBtn').onclick=()=>goBack();
 $('#resScope').onclick=()=>goBack();
 /* מעבר למסך שהיסטוריית הדפדפן מצביעה עליו, עם כל הניקוי ששייך למסך שעוזבים.
-   זהו המסלול היחיד שדרכו יוצאים ממסך עמוק — גם ב"אחורה" של המערכת וגם בכפתורי
-   החזרה שבאפליקציה — ולכן שמירת הסבב נמצאת כאן, פעם אחת, ולא בכל כפתור בנפרד. */
+   זהו המסלול היחיד שדרכו יוצאים ממסך עמוק · גם ב"אחורה" של המערכת וגם בכפתורי
+   החזרה שבאפליקציה · ולכן שמירת הסבב נמצאת כאן, פעם אחת, ולא בכל כפתור בנפרד. */
 function navTo(id){
   /* מבחן שהתחיל ולא הושלם הוא הדבר היחיד שיציאה ממנו מאבדת לגמרי, ולכן זו הפעם היחידה
      שנעצור לשאול. התנאי הוא #exQuiz ולא #exam: הכפתור ✕ יושב ב-topbar, מחוץ ל-#exQuiz,
-     ולכן הוא נלחץ גם ממסך התוצאות — ושם המבחן כבר נשמר, והשאלה הייתה מטעה.
+     ולכן הוא נלחץ גם ממסך התוצאות · ושם המבחן כבר נשמר, והשאלה הייתה מטעה.
      ביטלו? מחזירים את רשומת ההיסטוריה שנצרכה, ונשארים במקום. */
   if(!$('#exQuiz').classList.contains('hidden') &&
      !confirm('לצאת מהמבחן? רק מבחן שהושלם נכנס להיסטוריית הציונים. מבחן שנעצר באמצע יתחיל מחדש בפעם הבאה.')){
@@ -2031,7 +2031,7 @@ function navTo(id){
   if(id==='scope'){ openScope(curScope||sessionScope); return; }
   if(id==='home'){ renderHome(); goto('home'); return; }
   /* ⛔ באג שנמדד בדפדפן ב-11.8: מסך בחירת התרגול נוחת דרך "אחורה" של המערכת ומציג
-     מספרים ישנים. `mode` הוא מסך **מונים** — כמה נפתרו, כמה נכונים — וכל מסך כזה
+     מספרים ישנים. `mode` הוא מסך **מונים** · כמה נפתרו, כמה נכונים · וכל מסך כזה
      חייב להיבנות מחדש בכניסה, בדיוק כמו `home` ו-`scope` שקיבלו את הטיפול הזה
      לפניו. השחזור: אנגלית → בחירת התרגול → סבב של עשר שאלות → "אחורה". התוצאה
      הייתה "0 נפתרו · 0%" אחרי שעשרה כן נפתרו, כלומר האפליקציה הכחישה את העבודה
@@ -2040,7 +2040,7 @@ function navTo(id){
   goto(id);
 }
 /* כפתור "חזרה" שבתוך האפליקציה עושה בדיוק מה ש"אחורה" של המערכת עושה: צורך את רשומת
-   ההיסטוריה. אם הוא רק היה מצייר את המסך הקודם, הרשומה הייתה נשארת תלויה — והלחיצה
+   ההיסטוריה. אם הוא רק היה מצייר את המסך הקודם, הרשומה הייתה נשארת תלויה · והלחיצה
    הבאה על "אחורה" הייתה נבלעת בלי שקרה כלום. */
 function goBack(){
   if(navDepth(history.state && history.state.scr) > 0) history.back();
@@ -2062,10 +2062,10 @@ function openStats(scope){
   const body=$('#statsBody');
   const words=scopeWords(scope);
   const byTerm=new Map(); for(const w of words){ const k=K(w.term); if(!byTerm.has(k)) byTerm.set(k,w); }
-  // Only words actually practiced — a list of words you have never met says nothing about
+  // Only words actually practiced -- a list of words you have never met says nothing about
   // your strength. Weakest first, then the middle, then the ones you know.
   const all=[...byTerm.values()];
-  /* Words skipped after the level test carry seen:1 so the practice queue leaves them alone —
+  /* Words skipped after the level test carry seen:1 so the practice queue leaves them alone · 
      and this screen counted them under "ידעת מיד, בלי טעות אחת", for words the learner has
      never been shown. Third screen today to inherit that bug from the same marker. */
   const arr=all.filter(w=>{ const r=stats.words[K(w.term)]; return r && r.seen>0 && r.src!=='lv'; })
@@ -2076,7 +2076,7 @@ function openStats(scope){
       return rb.last-ra.last;                                // most recent first
     });
   /* Skipped words are neither practised nor unmet, so they get counted as themselves rather
-     than folded into "עוד לא נפגשתם" — which would have been the same lie in a quieter place. */
+     than folded into "עוד לא נפגשתם" · which would have been the same lie in a quieter place. */
   const skippedN=all.filter(w=>wasSkipped(w.term)).length;
   const untouched=all.length-arr.length-skippedN;
   const sess=stats.sessions.filter(s=>s.scope===scope).slice(-8);
@@ -2090,12 +2090,12 @@ function openStats(scope){
       <div style="background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px">
       <div><b style="font-family:'Frank Ruhl Libre';font-size:1.2rem;color:var(--accent)">${last.correct}/${last.total}</b> נכונים · ${last.firstTry} בפעם הראשונה</div>
       <div style="font-size:.8rem;color:var(--ink-soft);margin-top:3px">${fmt(last.t)}${cmp?' · השוואה: '+cmp:''}</div></div>
-      <div class="trend">`+sess.map(x=>{const p=pct(x);return `<div class="tbar" title="${fmt(x.t)} — ${x.correct}/${x.total}"><i style="height:${Math.max(5,p)}%"></i><em>${p}%</em></div>`;}).join('')+`</div>`;
+      <div class="trend">`+sess.map(x=>{const p=pct(x);return `<div class="tbar" title="${fmt(x.t)} · ${x.correct}/${x.total}"><i style="height:${Math.max(5,p)}%"></i><em>${p}%</em></div>`;}).join('')+`</div>`;
   }else{
     html+=`<div class="section-t">היסטוריית סבבים</div><p class="msg" style="color:var(--ink-soft)">עדיין לא סיימת סבב מלא בתחום הזה.</p>`;
   }
   /* ===== the word cloud =====
-     The old screen was a flat list, weakest first, every row the same size — so the eleven words
+     The old screen was a flat list, weakest first, every row the same size -- so the eleven words
      that keep beating you looked exactly like the six hundred you got right on sight. The list
      was accurate and unreadable, which is the same as unhelpful.
      Score = wrong − first: how many times, NET, this word has beaten you. A word missed five
@@ -2151,7 +2151,7 @@ function openStats(scope){
     const nx=b.nextElementSibling;
     if(nx && nx.classList.contains('cw-meaning')){ nx.remove(); return; }
     const w=byTerm.get(K(b.dataset.w)); if(!w) return;
-    b.insertAdjacentHTML('afterend', `<div class="cw-meaning"><b><bdi>${esc(w.term)}</bdi></b> — ${esc(w.meaning)}</div>`);
+    b.insertAdjacentHTML('afterend', `<div class="cw-meaning"><b><bdi>${esc(w.term)}</bdi></b> · ${esc(w.meaning)}</div>`);
   });
   const drill=$('#drillFight');
   if(drill) drill.onclick=()=>startRound(fight.slice(0,30), scope, 'weak');
@@ -2162,7 +2162,7 @@ $('#statsBack').onclick=()=>goBack();
 /* ===== MANAGE ===== */
 /* markDeletedAgain אינו קישוט, והיעדרו כאן היה באג שקט.
    markRestored כותב רשומה קבועה ב-hw_undeleted, ו-mergeProgress מסנן בדיוק את המפתחות
-   האלה מרשימת המחוקים — כך שמילה ששוחזרה פעם אחת ואז נמחקה מתוך סבב, נמחקה מקומית
+   האלה מרשימת המחוקים · כך שמילה ששוחזרה פעם אחת ואז נמחקה מתוך סבב, נמחקה מקומית
    וחזרה בסנכנון הבא. גם הרשומה ב-stats.words שבה, כי מיזוג-מקסימום יכול להסיר רשומה
    רק כשהצד המקומי אומר שהיא נמחקה מחדש.
    מחיקה בכמות (app.js: mDelete) עשתה את זה נכון מהיום הראשון; הכפתור שבתוך הסבב לא. */
@@ -2189,17 +2189,17 @@ function manageItems(){
 let mOpen=new Set();      // which unit sections are expanded
 let mSearching=false;     // was the previous render a search? (so clearing can collapse again)
 /* היחידה היחידה שמוצגת, כשנכנסים לניהול מהיחידה עצמה. null = כל המאגר.
-   קודם היחידה רק נפתחה (mOpen) ושאר תשע נשארו על המסך מקופלות — ומחיקה היא פעולה
+   קודם היחידה רק נפתחה (mOpen) ושאר תשע נשארו על המסך מקופלות · ומחיקה היא פעולה
    שנעשית בסימון תיבות, כך שמספיק גלגל אחד של האצבע כדי לסמן מילה מיחידה אחרת.
    חגי: "צריך שאראה רק את המילים של היחידה שלא אמחק בטעות מילים אחרות". */
 let mOnly=null;
 /* Grouped by unit and collapsed by default. The old screen was one flat alphabetical list
-   cut at `slice(0,400)` — so 3,500 of 3,900 words simply were not there, with nothing on
+   cut at `slice(0,400)` -- so 3,500 of 3,900 words simply were not there, with nothing on
    screen saying so. Sections keep the DOM small without hiding anything. */
-/* הסדר בתוך יחידה. קודם מה שחלש, אחר כך מה שנלמד, ואז מה שטרם נפגש — אלה בדיוק שלוש
+/* הסדר בתוך יחידה. קודם מה שחלש, אחר כך מה שנלמד, ואז מה שטרם נפגש · אלה בדיוק שלוש
    הקבוצות של classify(), ובאותו כלל: מילה שטעית בה אינה מילה שלא פגשת. הנגישות היא כל
    הנקודה, כי המילים הקשות היו מפוזרות בין 190 שורות לפי סדר המאגר.
-   מילה שנמחקה יורדת לסוף — היא כבר לא בתרגול ורק תופסת מקום למעלה.
+   מילה שנמחקה יורדת לסוף · היא כבר לא בתרגול ורק תופסת מקום למעלה.
 
    ⚠ "ידעתי" יורדת מתחת לכולן (12.8.2026, בקשת חגי: "תמיד המילים שלא ידעתי למעלה
    שאוכל להוריד אותם בנוחות"). זה לא היה כך, וההפך היה נכון: markKnown כותב level=3,
@@ -2227,7 +2227,7 @@ function renderManage(filter){
   for(const w of items){ if(!byUnit.has(w.unit)) byUnit.set(w.unit,[]); byUnit.get(w.unit).push(w); }
   for(const ws of byUnit.values()) ws.sort((a,b)=>manageRank(a)-manageRank(b));
   /* Searching opens the units it found; CLEARING the box has to close them again. Without the
-     else branch the expansion survived, so search-then-clear rendered all 3,900 rows at once —
+     else branch the expansion survived, so search-then-clear rendered all 3,900 rows at once -- 
      exactly the DOM this screen was rebuilt to stop producing. */
   if(raw) mOpen=new Set(byUnit.keys());
   else if(mSearching) mOpen=new Set();
@@ -2277,7 +2277,7 @@ function renderManage(filter){
     saveDeleted(); buildBank(); renderManage($('#mSearch').value); renderHome();
     toast('הוחזרה: '+b.dataset.undo);
   });
-  /* הכפתור יושב בתוך <label>, ולכן לחיצה עליו הייתה מסמנת את תיבת המחיקה שלצדו —
+  /* הכפתור יושב בתוך <label>, ולכן לחיצה עליו הייתה מסמנת את תיבת המחיקה שלצדו · 
      preventDefault הוא מה שמפריד בין "אני יודע את המילה" ל"מחק אותה". */
   list.querySelectorAll('[data-known]').forEach(b=>b.onclick=e=>{
     e.preventDefault();
@@ -2295,13 +2295,13 @@ function openManage(unit){
   mSel=new Set(); $('#mSearch').value=''; $('#mMsg').classList.add('hidden');
   mOpen = unit ? new Set([String(unit)]) : new Set();
   /* חייב להתאפס כשנכנסים מ"ניהול מילים" הכללי. בלי ההשמה ל-null, מי שנכנס פעם אחת
-     מיחידה 7 היה נשאר נעול עליה לתמיד — גם אחרי יציאה וכניסה מחדש מהמסך הראשי. */
+     מיחידה 7 היה נשאר נעול עליה לתמיד · גם אחרי יציאה וכניסה מחדש מהמסך הראשי. */
   mOnly = unit ? String(unit) : null;
   mSearching=false;
   renderManage(''); goto('manage');
 }
 $('#manageBtn').onclick=()=>openManage(null);
-/* מהיחידה — נפתח על היחידה הזאת בלבד. curScope הוא 'unit:7' או 'global'/'random'. */
+/* מהיחידה · נפתח על היחידה הזאת בלבד. curScope הוא 'unit:7' או 'global'/'random'. */
 $('#pbManage').onclick=()=>openManage(curScope.startsWith('unit:') ? curScope.slice(5) : null);
 $('#mSearch').oninput=e=>renderManage(e.target.value);
 $('#mDelete').onclick=()=>{
@@ -2328,7 +2328,7 @@ ${names}${warn}
   m.className='msg ok'; m.textContent=`נמחקו ${mSel.size} מילים.`; mSel=new Set(); renderManage($('#mSearch').value); renderHome();
 };
 /* Restores BOTH kinds of removal. The level test promised "תמיד אפשר להחזיר אותן דרך ניהול
-   מילים" and wrote a src:'lv' marker for exactly that purpose — and then nothing ever read it.
+   מילים" and wrote a src:'lv' marker for exactly that purpose · and then nothing ever read it.
    The undo was designed and never built, so the promise on that screen was false. */
 $('#mRestore').onclick=()=>{
   const skipped=Object.keys(stats.words||{}).filter(k=>stats.words[k] && stats.words[k].src==='lv');
@@ -2363,7 +2363,7 @@ $('#addSave').onclick=()=>{
 
 /* ===== nav ===== */
 /* BANK is empty until enterLang() runs, and the admin panel is reachable straight from the
-   welcome screen — so "back" used to land on a home screen with no units, no counts and every
+   welcome screen -- so "back" used to land on a home screen with no units, no counts and every
    button disabled. Go back to where the user actually came from. */
 document.querySelectorAll('[data-home]').forEach(b=>b.onclick=()=>{
   if(!committed && session.size>0) commitSession();
@@ -2376,7 +2376,7 @@ document.querySelectorAll('[data-scope]').forEach(b=>b.onclick=()=>openScope(b.d
 /* ===== staying up to date =====
    Registering the worker was the whole update story, and it is not enough: a page that stays
    open never asks again, so a learner could sit on a build from days ago while the footer
-   quietly suggested they reload. Three parts now — ask again on every return to the app,
+   quietly suggested they reload. Three parts now -- ask again on every return to the app,
    notice when a new worker takes over, and apply it at a moment that costs nothing. */
 if('serviceWorker' in navigator){
   window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
@@ -2391,7 +2391,7 @@ if('serviceWorker' in navigator){
     applyUpdate(e.data.rev);
   });
 }
-/* The app pushed to the cloud but never pulled again after the language was entered — there is
+/* The app pushed to the cloud but never pulled again after the language was entered -- there is
    no poll and no realtime channel. So a learner who practised on their phone and left the
    laptop tab open all day saw nothing from the phone, and the laptop's next save pushed a state
    that had never seen it. Coming back to the app is the natural moment to reconcile.
@@ -2407,29 +2407,29 @@ function pullIfStale(){
 let updatePending=null;
 /* Reloading mid-round would throw away answers the learner has not committed yet, so the new
    build is applied only from a screen where nothing is in flight. Otherwise the bar appears and
-   waits for a tap — deliberately NOT applied automatically when the round ends, because that
+   waits for a tap -- deliberately NOT applied automatically when the round ends, because that
    moment is the results screen and reloading would erase what they are reading. */
 function updateSafeNow(){
   /* ⛔ `'sent'` נוסף ב-11.8 אחרי ציד באגים, וזה היה כשל אמיתי בכל דיפלוי.
      המסך החדש לא היה ברשימה, ולכן `location.reload()` רץ **באמצע סבב** של השלמת
-     משפטים: שוחזר בדפדפן — שאלה 1 מתוך 10 עם הסבר פתוח, ואחרי הרענון `sentQ`
+     משפטים: שוחזר בדפדפן · שאלה 1 מתוך 10 עם הסבר פתוח, ואחרי הרענון `sentQ`
      ריק, בלי פס, בלי אזהרה, ובלי דרך לדעת מה קרה. עד פעמיים ב-15 דקות אחרי כל
      העלאת גרסה, כלומר בדיוק בשעה שבה אני מעלה שינויים.
      ⚠ התנאי השני בשורה למטה שומר על תרגול המילים דרך `session`, ולמודול המשפטים
-     אין `session` — הוא אינו נשען על אותו מנגנון. לכן שם המסך הוא ההגנה היחידה
+     אין `session` · הוא אינו נשען על אותו מנגנון. לכן שם המסך הוא ההגנה היחידה
      שלו, וזו הסיבה שהשמטה כאן הייתה שקטה לחלוטין. */
   const busy=['quiz','exam','level','sent'];
   return !busy.includes(currentScreenId()) && !(typeof session!=='undefined' && session.size>0 && !committed);
 }
 /* May this tab reload itself right now?
    The first version remembered only the LAST version it tried, which two real situations
-   defeat outright. Two builds alternating — GitHub Pages serves index.html with max-age=600 and
-   different edges can disagree for minutes after a deploy, and a rollback does the same — bounce
+   defeat outright. Two builds alternating -- GitHub Pages serves index.html with max-age=600 and
+   different edges can disagree for minutes after a deploy, and a rollback does the same -- bounce
    A→B→A→B forever, because each reload sees a version different from the one remembered. And
    when sessionStorage cannot be written at all (Safari private mode, iOS Lockdown), the empty
    catch meant nothing was ever remembered and EVERY call reloaded.
    So: count reloads in a window instead of remembering one version, and read the counter back
-   to prove the write actually stuck. If it cannot be counted, do not reload — show the bar. */
+   to prove the write actually stuck. If it cannot be counted, do not reload -- show the bar. */
 const UPD_MAX=2, UPD_WINDOW=15*60*1000;
 function mayAutoReload(){
   try{
@@ -2451,7 +2451,7 @@ function applyUpdate(rev){
   showUpdateBar(rev);
 }
 /* renderBuildTag runs only from the welcome screen, and `sw-activated` fires once. A learner who
-   stays inside a language after a deploy therefore had no path back to a fresh build at all —
+   stays inside a language after a deploy therefore had no path back to a fresh build at all -- 
    registration.update() on an already-active worker produces no second activate and no second
    message. Ask the server directly when the app comes back to the foreground. */
 let lastBuildCheck=0;
@@ -2477,7 +2477,7 @@ function showUpdateBar(rev){
 
 /* ===== התקנה למסך הבית =====
    כרום/אנדרואיד נותן לנו את אירוע ההתקנה ואפשר לפתוח את החלון בלחיצה.
-   אייפון לא מאפשר זאת תכנותית — שם מציגים הדרכה. */
+   אייפון לא מאפשר זאת תכנותית · שם מציגים הדרכה. */
 let installEvt = null;
 window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; });
 window.addEventListener('appinstalled', () => { installEvt = null; LS.set('hw_installed', 1); });
@@ -2547,7 +2547,7 @@ function langSummary(lang){
   // orphans left behind by deleted or renamed entries, so "practised" could exceed the
   // number of words that exist.
   /* A word skipped after the level test carries src:'lv'. It is marked level:3 so it stays out
-     of "מילים חדשות", but it was never practised here and must NOT be counted as learned —
+     of "מילים חדשות", but it was never practised here and must NOT be counted as learned · 
      that is what made the dashboard jump by thousands after one placement test and report a
      number nobody had earned. */
   let learned=0, practised=0, weak=0, skipped=0;
@@ -2555,7 +2555,7 @@ function langSummary(lang){
     if(r.src==='lv'){ skipped++; return; }
     if(int0(r.seen)>0) practised++;
     if(int0(r.level)>=3) learned++;
-    else if(int0(r.seen)>0) weak++;      // met, not yet solid — the same rule classify() uses
+    else if(int0(r.seen)>0) weak++;      // met, not yet solid -- the same rule classify() uses
   });
   return {total:keys.size, learned, practised, weak, skipped,
           fresh: Math.max(0, keys.size-practised-skipped),
@@ -2565,7 +2565,7 @@ function langSummary(lang){
    Derived from the session log rather than a counter of its own, so it can't drift out of
    sync with reality and it rides the existing cross-device merge for free. Both languages
    count: a day of Hebrew is a day of practice.
-   Local calendar days, not 24h windows — practising at 23:50 and again at 00:10 is two days,
+   Local calendar days, not 24h windows -- practising at 23:50 and again at 00:10 is two days,
    which is how people actually experience a streak. */
 const dayKey = ts =>{ const d=new Date(ts); return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); };
 function practiceDays(){
@@ -2582,14 +2582,14 @@ function streakInfo(){
   const now=Date.now();
   /* "The previous day" is a CALENDAR step, not 86,400,000ms. Israel moves its clock twice a
      year, so one day is 23 hours long and one is 25, and subtracting a fixed day either jumps
-     clean over a date or lands on the same one twice. In March that read as a broken streak —
-     someone who practised on the transition day and opened the app that night saw 0 — and in
+     clean over a date or lands on the same one twice. In March that read as a broken streak -- 
+     someone who practised on the transition day and opened the app that night saw 0 -- and in
      October it counted a day twice and claimed a streak one longer than it was.
      setDate() knows about the transition; the anchor is midday so that even a transition at
      midnight could not slide the date under it. */
   const noon=new Date(now); noon.setHours(12,0,0,0);
   const back=i=>{ const d=new Date(noon); d.setDate(d.getDate()-i); return d; };
-  // today doesn't break a streak that ran through yesterday — it just hasn't been extended yet
+  // today doesn't break a streak that ran through yesterday -- it just hasn't been extended yet
   let start = days.has(dayKey(now)) ? 0 : (days.has(dayKey(back(1))) ? 1 : -1);
   let n=0;
   if(start>=0) for(let i=start;;i++){ if(!days.has(dayKey(back(i)))) break; n++; }
@@ -2633,10 +2633,10 @@ function renderWelcome(){
   maybeOfferTutorial();
   goto('welcome');
 }
-/* קבוצת הוואטסאפ: הזמנה חד-פעמית שקופצת בכניסה למסך השפות — המסך שכל משתמש רואה בכל
+/* קבוצת הוואטסאפ: הזמנה חד-פעמית שקופצת בכניסה למסך השפות · המסך שכל משתמש רואה בכל
    כניסה, ולכן ההזמנה מגיעה גם למי שכבר מחובר ולא נרשם מחדש. hw_waOffered נכתב ברגע ההצגה,
    כך שהיא מופיעה פעם אחת בלבד ולא משנה איך סוגרים אותה. הדגל שמור מהניקוי בהחלפת חשבון
-   (wipeAccountKeys), בדיוק כמו הזמנת ההתקנה — הצטרפות לקבוצה היא פעולת מכשיר, לא נתון חשבון.
+   (wipeAccountKeys), בדיוק כמו הזמנת ההתקנה · הצטרפות לקבוצה היא פעולת מכשיר, לא נתון חשבון.
    הכרטיס הקבוע במסך (#waCta) נשאר תמיד; זו רק ההופעה הקופצת. */
 /* היום שבו האפליקציה עוברת לתשלום. זה הערך היחיד לעדכן.
    1.9 ולא 30.8: המייל שיצא ל-17 נרשמים ב-5.8 והסטורי אומרים "פתוח וחינם עד ה-30.08".
@@ -2667,15 +2667,15 @@ function renderPayCountdown(){
   bar.classList.remove('hidden');
 }
 
-/* כתובת סרטון ההדרכה. זה הערך היחיד לעדכן — ברגע שיש כתובת, הפופאפ מתחיל לקפוץ.
+/* כתובת סרטון ההדרכה. זה הערך היחיד לעדכן · ברגע שיש כתובת, הפופאפ מתחיל לקפוץ.
    ריק בכוונה: סרטון ההדרכה הקיים (שיווק/סרטונים/סרטון-הדרכה-בודקים.mp4) אינו מועלה
    לגיטהאב (‎.gitignore חוסם mp4 בתיקיית השיווק) ולכן אין לו כתובת חיה. פופאפ שמפנה
    לקישור שבור גרוע מאין פופאפ, ולכן כל עוד המחרוזת ריקה הוא פשוט אינו מוצג. */
 const TUTORIAL_URL='';
 
-/* סרטון ההדרכה — אותה מכניקה של הזמנת הוואטסאפ, ובכוונה: המשתמש כבר למד מה עושה
+/* סרטון ההדרכה · אותה מכניקה של הזמנת הוואטסאפ, ובכוונה: המשתמש כבר למד מה עושה
    חלון כזה, וכפילות של דפוס עדיפה על המצאת דפוס שני.
-   hw_vidOffered נכתב ברגע ההצגה, כך שכל דרך סגירה סוגרת אותו לתמיד — וחגי ביקש
+   hw_vidOffered נכתב ברגע ההצגה, כך שכל דרך סגירה סוגרת אותו לתמיד · וחגי ביקש
    במפורש שהכפתור יגיד "אל תראה לי את זה יותר", כלומר ההבטחה כתובה ולכן חייבת להתקיים.
    הדגל שמור מ-wipeAccountKeys מאותו נימוק כמו hw_waOffered: צפייה בסרטון הדרכה היא
    פעולת מכשיר, לא נתון של החשבון. */
@@ -2702,7 +2702,7 @@ function maybeOfferWhatsapp(){
   }, 900);
 }
 /* גג להמתנה שלמטה. מעבר שפה אינו פעולה שהלומד מוכן לחכות לה, ורשת סלולרית גרועה
-   יכולה למתוח pull+push לשניות רבות. אחרי הגג ממשיכים בלי לחכות — וזה בטוח, כי הסבב
+   יכולה למתוח pull+push לשניות רבות. אחרי הגג ממשיכים בלי לחכות · וזה בטוח, כי הסבב
    כבר על הדיסק ו-syncPending נשאר דלוק, כלומר המצב הגרוע ביותר כאן זהה בדיוק להתנהגות
    שהייתה כאן קודם. */
 const LANG_SWITCH_FLUSH_MS = 4000;
@@ -2711,12 +2711,12 @@ async function enterLang(lang){
   if(lang!=='he' && lang!=='en') return;
   /* הדחיפה של הסבב האחרון בוטלה בשקט לפני התיקון הזה.
      commitSession מסיים ב-flushRemoteSync() בלי await, וזו נעצרת על pullProgress. בזמן
-     ההמתנה הזאת enterLang המשיך וקבע LANG=lang סינכרונית — ולכן הגארד `lang!==LANG`
+     ההמתנה הזאת enterLang המשיך וקבע LANG=lang סינכרונית · ולכן הגארד `lang!==LANG`
      (app.js:3601) תפס את ה-flush בחזרתו והחזיר false. הגארד עצמו נכון וחייב להישאר:
      loadLangState כבר החליף את assoc/stats/deleted/added לשפה החדשה, וכתיבה בנקודה הזאת
      הייתה מעתיקה את נתוני השפה החדשה לשורה של הישנה.
      לכן הדחיפה חייבת להסתיים *לפני* שהגלובלים מתחלפים, וזה מחייב await.
-     הנתונים לא אבדו גם קודם — syncPending נשאר דלוק וההתנתקות כבר לא מוחקת (app.js:4298).
+     הנתונים לא אבדו גם קודם · syncPending נשאר דלוק וההתנתקות כבר לא מוחקת (app.js:4298).
      מה שכן קרה: הענן נשאר מיושן עד שהלומד יחזור לשפה הזאת על המכשיר הזה. */
   if(currentUser && lang!==LANG && syncPending[LANG]){
     await Promise.race([
@@ -2725,13 +2725,13 @@ async function enterLang(lang){
     ]);
   }
   /* אותו איפוס בדיוק ש-startRound עושה (app.js:1141), ומאותה סיבה: מכאן והלאה הגלובלים
-     שייכים לשפה אחרת. בלעדיו נשאר "סשן רפאים" — ה-Map של השפה הקודמת עם size>0 — עד
+     שייכים לשפה אחרת. בלעדיו נשאר "סשן רפאים" · ה-Map של השפה הקודמת עם size>0 · עד
      שהלומד יתחיל סבב חדש.
      מה זה שובר בפועל: המאזין ב-storage (app.js:264) מאמץ עבודה מלשונית אחרת רק כאשר
      `session.size===0`. סשן הרפאים מחזיק את התנאי הזה כוזב, ולכן טאב שני שסיים סבב מרים
-     את diskAhead ו-absorbDisk לא רץ — מסך הבית של השפה החדשה ממשיך להציג מספרים ישנים.
+     את diskAhead ו-absorbDisk לא רץ · מסך הבית של השפה החדשה ממשיך להציג מספרים ישנים.
      deck מתאפס יחד איתם. הוא נבנה מחדש בכל startRound ולכן איש אינו קורא אותו בינתיים,
-     אבל הוא מחזיק את אובייקטי הקלפים של השפה הקודמת — והדרישה כאן היא הפרדה מלאה.
+     אבל הוא מחזיק את אובייקטי הקלפים של השפה הקודמת · והדרישה כאן היא הפרדה מלאה.
      sessionRowId נכלל כי הוא חלק מאותה יחידת מצב; הוא לבדו אינו באג, שכן startRound מאפס
      אותו לפני כל שימוש, ו-commitSession יוצא מוקדם על entries ריק (app.js:1854). */
   session=new Map(); committed=false; committedKeys=new Set(); sessionRowId=null; deck=[];
@@ -2775,8 +2775,8 @@ async function renderMode(){
   $('#mWordsProg').parentElement.title = `למדת ${s.learned} מתוך ${s.total}`;
   $('#userBadgeM').textContent = $('#userBadge')?.textContent || '';
   /* ⚠ המספרים של המשפטים דורשים את קובץ הנתונים, ששוקל 191KB. עד שהוא נטען
-     מוצג "—" ולא אפס: אפס הוא טענה שהלומד לא פתר כלום, ו"—" אומר שהמספר עדיין
-     לא ידוע. /HEB §5 — מספר אמיתי, או שאין מספר. */
+     מוצג " · " ולא אפס: אפס הוא טענה שהלומד לא פתר כלום, ו" · " אומר שהמספר עדיין
+     לא ידוע. /HEB §5 · מספר אמיתי, או שאין מספר. */
   const paint = () => {
     const q = sentSummary(null);
     $('#mSentPct').textContent    = q.pct+'%';
@@ -2788,15 +2788,15 @@ async function renderMode(){
   };
   if(window.SENT_EN) paint();
   else {
-    $('#mSentPct').textContent='—'; $('#mSentSolved').textContent='—';
-    $('#mSentOk').textContent='—';  $('#mSentCount').textContent='';
+    $('#mSentPct').textContent='–'; $('#mSentSolved').textContent='–';
+    $('#mSentOk').textContent='–';  $('#mSentCount').textContent='';
     /* ⚠ טעינה ברקע **רק למי שכבר תרגל משפטים**, ולא לכולם.
        נמצא בציד ב-11.8: הגרסה הראשונה טענה את קובץ הנתונים (191KB) בכל כניסה
        לאנגלית, גם למי שבא לתרגל מילים ולא נוגע במשפטים לעולם. באפליקציה שבה
        sw.js מנמק במפורש למה לא לתלות פונטים ב-REV כדי לא להוריד 152KB מחדש, זה
        היה רגרסיה בעלות ולא שיפור בחוויה.
        ההכרעה: מי שיש לו התקדמות רוצה לראות את המספר שלו ולכן שווה לו ההורדה; מי
-       שאין לו רואה "—" עד שהוא לוחץ, וזה בדיוק המידע הנכון — עוד לא התחיל. */
+       שאין לו רואה " · " עד שהוא לוחץ, וזה בדיוק המידע הנכון · עוד לא התחיל. */
     const hasHistory = Object.keys(sentProg()).length > 0;
     if(hasHistory)
       loadSentData().then(ok => { if(ok && !$('#mode').classList.contains('hidden')) paint(); });
@@ -2827,7 +2827,7 @@ $('#userBadge4').onclick = ()=> openAccount('profile');
 const LV_BANDS=[['A1','בסיסי'],['A2','יסודי'],['B1','בינוני'],['B2','בינוני+'],['C1','מתקדם'],['C2','אקדמי']];
 const LV_LABEL={A1:'רמה בסיסית',A2:'רמה יסודית',B1:'רמה בינונית',B2:'רמה בינונית-גבוהה',C1:'רמה מתקדמת',C2:'רמה אקדמית'};
 /* ===== adaptive ladder =====
-   The old test ran all 30 items and promoted on 60% per band — 3 of 5, where blind guessing
+   The old test ran all 30 items and promoted on 60% per band -- 3 of 5, where blind guessing
    already returns 25%. Two lucky guesses in a five-item band were enough to climb it, so the
    result drifted upward and topped out at C2 for people with real gaps.
    Now each band is a BLOCK of 6 items and promotion needs 5 of them. Guessing your way to
@@ -2840,7 +2840,7 @@ let lvDeck=[], lvIdx=0, lvAns=[];
 let lvBand=LV_START, lvBlock=[], lvBlockOk=0, lvPassed=null, lvFailedUp=false, lvSeen=new Set();
 
 /* The test exists in both languages and writes to two different keys, but this gate read only
-   the English one — so a learner who finished the Hebrew test was sent back to the level screen
+   the English one -- so a learner who finished the Hebrew test was sent back to the level screen
    on every sign-in, and the Hebrew result was stored and never used for anything. */
 function levelDone(){ return LS.get('hw_level', null) || LS.get('hw_level_he', null); }
 
@@ -2869,7 +2869,7 @@ function lvLoadBlock(){
   lvRender();
 }
 /* Where to go after a block: up while passing, down while failing, stop the moment the
-   direction would reverse — that boundary IS the level. */
+   direction would reverse -- that boundary IS the level. */
 function lvNextBand(){
   const i=LV_ORDER.indexOf(lvBand);
   if(lvBlockOk>=LV_PASS){
@@ -2893,7 +2893,7 @@ function lvRender(){
   $('#lvBar').style.width=(100*(lvAns.length)/(lvAns.length+lvDeck.length-lvIdx))+'%';
   $('#lvWord').textContent=it.w;
   /* המילה במבחן הרמה היא באנגלית או בעברית לפי LV_LANG. ה-HTML קובע dir="ltr" כברירת מחדל,
-     ובמבחן העברי זה הפוך — מכאן הקביעה הדינמית, גם ל-dir וגם ל-lang לקורא מסך. */
+     ובמבחן העברי זה הפוך · מכאן הקביעה הדינמית, גם ל-dir וגם ל-lang לקורא מסך. */
   $('#lvWord').dir = LV_LANG==='en' ? 'ltr' : 'rtl';
   $('#lvWord').lang = LV_LANG;
   bindSay('#lvSay', LV_LANG==='en' ? it.w : null, true);
@@ -2906,7 +2906,7 @@ function lvRender(){
      מי שעונה בעכבר לא מרגיש; מי שעונה במקלדת מאבד את מקומו ונאלץ ללחוץ Tab מחדש
      בכל שאלה מאפס. נמדד: document.activeElement היה BODY אחרי כל רינדור.
 
-     הפוקוס מוחזר **רק אם הוא כבר היה בין האפשרויות** — כלומר רק למי שניווט במקלדת.
+     הפוקוס מוחזר **רק אם הוא כבר היה בין האפשרויות** · כלומר רק למי שניווט במקלדת.
      בלי התנאי הזה כל לחיצת עכבר הייתה גוררת פוקוס לכפתור הראשון, קורא מסך היה מכריז
      אותו בקול בכל שאלה, ומשתמש מגע היה מקבל טבעת פוקוס שלא ביקש. */
   if(lvKeyboardNav && opts.length) opts[0].focus();
@@ -2918,7 +2918,7 @@ let lvKeyboardNav=false;
 function lvPick(choice, btn){
   const it=lvDeck[lvIdx];
   const ok = choice===it.a;
-  /* :focus-visible אמת רק כשהדפדפן עצמו הכריע שהאינטראקציה הייתה מקלדתית — הוא כבר
+  /* :focus-visible אמת רק כשהדפדפן עצמו הכריע שהאינטראקציה הייתה מקלדתית · הוא כבר
      מבחין בין Enter/רווח לבין קליק, ואין טעם לנחש את זה מחדש. */
   if(btn && btn.matches && btn.matches(':focus-visible')) lvKeyboardNav=true;
   lvAns.push({band:it.band, ok}); if(ok) lvBlockOk++;
@@ -2938,11 +2938,11 @@ $('#lvDunno').onclick=()=>{
   $('#lvDunno').disabled=true;
   /* Store the id, exactly like lvPick() above: an unstored timer is a timer nothing can cancel.
      clearTimeout(lvTimer) in #lvExit is the only thing standing between "left the test" and a
-     tick that walks into lvFinish() and writes hw_level — see app.js:2445-2448. */
+     tick that walks into lvFinish() and writes hw_level -- see app.js:2445-2448. */
   lvTimer=setTimeout(()=>{ lvIdx++; lvRender(); }, 900);
 };
 
-/* The level is the highest band that cleared 5/6 — nothing is inferred from bands we
+/* The level is the highest band that cleared 5/6 -- nothing is inferred from bands we
    never reached, and nothing is credited to a band that only half-passed. */
 function lvEstimate(){
   const per={};
@@ -2963,7 +2963,7 @@ function lvFinish(){
   $('#lvBadge').textContent=level||'A1−';
   $('#lvVerdict').textContent = level
     /* נגזר מהקבועים ולא כתוב כמספר. v141 הוריד את הבלוק מ-6/5 ל-5/4, עדכן את index.html
-       ושכח את המחרוזת הזאת — והמסך אמר "5 מתוך 6" בזמן שהטבלה שורה מתחתיו הדפיסה "4/5 ✓".
+       ושכח את המחרוזת הזאת · והמסך אמר "5 מתוך 6" בזמן שהטבלה שורה מתחתיו הדפיסה "4/5 ✓".
        הכיול הבא לא יוכל להשאיר את המסך משקר. */
     ? LV_LABEL[level]+` · הרמה הגבוהה ביותר שעברת בה ${LV_PASS} מתוך ${LV_BLOCK}.`
     : 'נתחיל מהבסיס. היחידות הראשונות בנויות בדיוק לרמה הזאת.';
@@ -2977,24 +2977,24 @@ function lvFinish(){
       <span class="bar"><i style="width:${pc}%"></i></span><span class="pc">${p.ok}/${p.n}${mark}</span></div>`;
   }).join('');
 
-  // offer to skip words below the tested level — only with explicit consent.
+  // offer to skip words below the tested level -- only with explicit consent.
   // hide() first: without it a previous run's offer stays on screen with a stale count.
   hide($('#lvOffer'));
   /* ההצעה הייתה חסומה לגמרי לכל חשבון עם 10+ מילים שתורגלו. החסימה נוספה אחרי שחשבון
-     אמיתי איבד 2,470 רשומות, וזו הייתה הסיבה הנכונה — אבל הכלי היה גס מדי: מי שנכנס
+     אמיתי איבד 2,470 רשומות, וזו הייתה הסיבה הנכונה · אבל הכלי היה גס מדי: מי שנכנס
      להגדרות ועושה מבחן רמה בשנית לא קיבל הצעה בכלל, גם כשהיו לו מאות מילים מתחת לרמתו
      שמעולם לא נגע בהן.
      מה שמגן באמת הוא הסינון לכל מילה, והוא כבר קיים בשני המקומות שסופרים ומחילים:
      lvCountKnown פוסל מילה עם רשומת סטטיסטיקה או מחיקה, ו-lvApplyKnown חוזר על אותו
-     תנאי לפני שהוא כותב ("any history at all — leave it alone"). כלומר מילה שכבר למדת
-     אינה יכולה להיכנס להצעה מלכתחילה — לא לספירה ולא לכתיבה.
+     תנאי לפני שהוא כותב ("any history at all · leave it alone"). כלומר מילה שכבר למדת
+     אינה יכולה להיכנס להצעה מלכתחילה · לא לספירה ולא לכתיבה.
      לכן החסימה הרחבה יורדת, והשמירה נשארת: ההצעה מדברת מעכשיו רק על מילים שמעולם לא
      נגעת בהן, וזה בדיוק "לשלב את המילים שכבר למדת לפני ההמלצה".
      הדירוגים קיימים רק באנגלית, ולכן עברית לעולם אינה מגיעה לכאן. */
   const skippable = (LV_LANG==='en') ? lvCountKnown(level) : 0;
   /* דווח פעמיים ("אין סינון כלשהו של המילים" · "לא קיבלתי סלקציה ונאלצתי לבצע אותה לבד"):
      הענף השלישי לא נכתב מעולם. אנגלית עם פחות מ-40 מילים לדילוג נפלה בין ההצעה לבין
-     ההסבר בעברית, והפאנל נשאר מוסתר — מסך תוצאה ששותק. ברמות A1/A2 הסף הוא 0, ולכן
+     ההסבר בעברית, והפאנל נשאר מוסתר · מסך תוצאה ששותק. ברמות A1/A2 הסף הוא 0, ולכן
      כל לומד אנגלית מתחיל נפל לשם בכל מבחן. עכשיו לכל מצב יש מסר. */
   if(lvOfferKind(LV_LANG, skippable, LV_CUT[level]||0)!=='offer'){
     show($('#lvOffer'));
@@ -3010,7 +3010,7 @@ function lvFinish(){
       עכשיו, ולכן כמעט בוודאי כבר מוכרות לך.
       <br><span style="color:var(--ink-soft);font-size:.86rem">מה זה עושה בפועל: המילים האלה יוצאות
       מ"מילים שטרם תרגלת" ולא יגיעו אליך בתרגול, כדי שתתחיל ישר במה שבאמת חסר לך. הן <b>לא</b> נמחקות
-      ו<b>לא</b> נספרות כמילים שלמדת — מספר הנלמדות שלך לא יזוז מזה.
+      ו<b>לא</b> נספרות כמילים שלמדת. מספר הנלמדות שלך נשאר כפי שהוא.
       <br><b>מילים שכבר תרגלת אינן נכללות כאן</b>, וההתקדמות שלהן אינה נוגעת.
       ניתן להחזיר אותן ב"ניהול מילים" ← "שחזר מחיקות".</span>`;
     $('#lvApply').onclick=()=>{ const n=lvApplyKnown(level); hide($('#lvOffer'));
@@ -3022,13 +3022,13 @@ function lvFinish(){
 }
 /* Only English has frequency ranks, so the skip offer applies to the English bank.
    The cut sits TWO bands below where the learner tested. One band below was too greedy:
-   a C2 result cleared 20000, which is every ranked word in the bank — the app offered to
+   a C2 result cleared 20000, which is every ranked word in the bank -- the app offered to
    mark 3175 of 3694 words known off the back of a single test. Skipping should only ever
    cover words that are far easier than the ceiling that was actually demonstrated. */
 const LV_CUT={A1:0, A2:0, B1:600, B2:2000, C1:5000, C2:10000};
 /* מה מסך התוצאה אומר. פונקציה נפרדת ולא שרשרת if בתוך הרינדור, כי זו ההכרעה שנפלה
    בין הכיסאות: היה ענף להצעה וענף לעברית, ולא היה ענף לאנגלית בלי מספיק מילים.
-   ארבעה מצבים, וכל אחד מהם אומר משהו — אין מצב שבו המסך שותק. */
+   ארבעה מצבים, וכל אחד מהם אומר משהו · אין מצב שבו המסך שותק. */
 const LV_INTRO_BASE = 'מבחן קצר ואדפטיבי: 10–20 מילים, 2–3 דקות. המבחן מתחיל ברמה בינונית '
   + 'ומתאים את עצמו לפי התשובות שלך. בסיום מתקבלת הערכה של רמת אוצר המילים.';
 const lvOfferKind = (lang, skippable, cut) =>
@@ -3052,7 +3052,7 @@ const lvOfferNote = kind => ({
 function lvRankOf(term){ const m=window.EN_RANK; return m ? m[normEn(term)] : null; }
 /* Counts what will ACTUALLY be marked, which is not the same as what is below the cut.
    The old version counted every ranked word under the cut across the whole bank and ignored
-   history and deletions — so it advertised 2,470 while lvApplyKnown, which skips any word that
+   history and deletions -- so it advertised 2,470 while lvApplyKnown, which skips any word that
    already has a record, would mark far fewer. A number on a confirmation screen has to be the
    number the button produces, or the screen is lying about what you are agreeing to. */
 function lvCountKnown(level){
@@ -3086,7 +3086,7 @@ function hasProgressIn(lang){
 /* Marks words as already known. TWO rules exist because breaking either one destroyed a
    real account: a level test wrote {seen:1,wrong:0,level:3} over 2,470 words and erased
    every practice count behind them.
-   1. An existing record is NEVER touched — not even a weak one. History outranks a guess.
+   1. An existing record is NEVER touched -- not even a weak one. History outranks a guess.
    2. Records written here carry src:'lv', so a mistaken run can always be told apart from
       genuine practice and undone. Without that marker the two are indistinguishable. */
 function lvApplyKnown(level){
@@ -3097,20 +3097,20 @@ function lvApplyKnown(level){
   for(const u in data) for(const p of (data[u]||[])){
     const r=lvRankOf(p[0]); if(!(r && r<=cut)) continue;
     const k=normEn(p[0]); if(!k) continue;
-    if(stats.words[k]) continue;                       // any history at all — leave it alone
+    if(stats.words[k]) continue;                       // any history at all -- leave it alone
     stats.words[k]={seen:1,first:1,ever:1,wrong:0,level:3,last:stamp,src:'lv'};
     n++;
   }
   saveStats();
-  /* saveStats only SCHEDULES a push, 1500ms out — and LANG is restored on the next line, so by
+  /* saveStats only SCHEDULES a push, 1500ms out -- and LANG is restored on the next line, so by
      the time it fired it was pushing the other language's row. The 40+ words just marked as
      known never reached the cloud, and on a second device the learner met them as new.
-     Pushed here, while the English state is still the loaded one — and only after a confirmed
+     Pushed here, while the English state is still the loaded one -- and only after a confirmed
      read, so a dropped request can't overwrite a real English row with this partial snapshot. */
   if(currentUser && window.Store){
     const snap={assoc, stats, deleted:[...deleted], added, dir:direction, extras:collectExtras('en')};
     /* אותה סיבה כמו ב-syncWithRemoteInner: בין ה-pull ל-push החשבון יכול להתחלף, וזה
-       מסלול רקע ארוך במיוחד — הוא נפתח אחרי מבחן רמה ורץ בזמן שהמשתמש כבר ממשיך. */
+       מסלול רקע ארוך במיוחד · הוא נפתח אחרי מבחן רמה ורץ בזמן שהמשתמש כבר ממשיך. */
     const uid=currentUser.id;
     (async()=>{
       try{
@@ -3118,7 +3118,7 @@ function lvApplyKnown(level){
         if(!res || res.ok!==true) return;
         let m=snap;
         if(res.data){
-          /* mergeProgress keys `added` through K(), which reads the CURRENT language — and by
+          /* mergeProgress keys `added` through K(), which reads the CURRENT language -- and by
              the time this resolves LANG is back to Hebrew. Pin it for the merge itself. */
           const here=LANG; LANG='en';
           try{ m=mergeProgress(snap, res.data); } finally { LANG=here; }
@@ -3134,18 +3134,18 @@ function lvApplyKnown(level){
 $('#lvStart').onclick=startLevelTest;
 const lvStart = lang => { LV_LANG=lang;
   $('#lvIntroLang').textContent = lang==='he' ? 'עברית' : 'אנגלית';
-  /* דווח פעמיים: "היה אמור לחסוך לי מילים". ההבטחה הגיעה מכאן — הפתיח הבטיח "המלצה
+  /* דווח פעמיים: "היה אמור לחסוך לי מילים". ההבטחה הגיעה מכאן · הפתיח הבטיח "המלצה
      לתרגול" לשתי השפות, בעוד שהדילוג נשען על דירוג שכיחות שקיים רק באנגלית. ההבטחה
      מנוסחת עכשיו לפי מה שהשפה שנבחרה באמת מספקת. */
   $('#lvIntroSub').textContent = LV_INTRO_BASE
     + (lang==='he' ? '' : ' אם יימצאו מילים הרבה מתחת לרמה שלך, תוצע גם דילוג עליהן.');
   hide($('#lvQuiz')); hide($('#lvResult')); show($('#lvIntro')); goto('level'); };
 /* ===== הכניסה למבחן הרמה =====
-   שני הכפתורים ישבו במסך בחירת השפה — המסך שנפתח בכל כניסה — ופתחו את המבחן בלחיצה אחת.
+   שני הכפתורים ישבו במסך בחירת השפה · המסך שנפתח בכל כניסה · ופתחו את המבחן בלחיצה אחת.
    המבחן אינו פעולה ניטרלית: lvFinish() כותב את הרמה החדשה על הקודמת ודוחף אותה לענן,
    ובמסלול האנגלי הוא גם המקום היחיד שמציע להוציא מילים מהתרגול. לכן הם עברו להגדרות,
    ולכן הלחיצה פותחת את #lvAsk ולא את המבחן: lvStart רץ רק מ-#lvAskGo.
-   השפה נשמרת על ה-dataset של הדיאלוג ולא במשתנה מודול — כך כפתור האישור קורא את מה
+   השפה נשמרת על ה-dataset של הדיאלוג ולא במשתנה מודול · כך כפתור האישור קורא את מה
    שבאמת נפתח, וריצה שנייה אינה יורשת את השפה של הקודמת. */
 function lvAskOpen(lang){
   const box=$('#lvAsk'); if(!box) return;
@@ -3153,7 +3153,7 @@ function lvAskOpen(lang){
   box.dataset.lang=lang;
   $('#lvAskLang').textContent=name;
   $('#lvAskLang2').textContent=name;
-  // ההצעה להוציא מילים מהתרגול קיימת רק באנגלית — ראה lvFinish. אין מה להזהיר מפניה בעברית.
+  // ההצעה להוציא מילים מהתרגול קיימת רק באנגלית · ראה lvFinish. אין מה להזהיר מפניה בעברית.
   $('#lvAskEn').classList.toggle('hidden', lang!=='en');
   show(box);
 }
@@ -3168,7 +3168,7 @@ $('#lvAskGo').onclick=()=>{
   lvStart(lang);
 };
 $('#lvSkip').onclick=()=>{ LS.set(lvKey(),'skipped'); renderWelcome(); };
-/* ✕ יציאה יושב ב-topbar, מחוץ ל-#lvQuiz — כלומר הוא על המסך גם אחרי ש-lvFinish() כבר
+/* ✕ יציאה יושב ב-topbar, מחוץ ל-#lvQuiz · כלומר הוא על המסך גם אחרי ש-lvFinish() כבר
    כתב את הרמה ודחף אותה לענן. "התוצאות לא יישמרו" היה שקר בדיוק ברגע שבו הלומד הכי צריך
    לסמוך על המשפט. הנוסח כאן אומר את הכלל עצמו, ולכן הוא נכון משלושת המסכים: מסך הפתיחה,
    אמצע המבחן, ומסך התוצאות. */
@@ -3176,11 +3176,11 @@ $('#lvExit').onclick=()=>{ if(confirm('לצאת ממבחן הרמה? רק מבח
 $('#lvDone').onclick=()=>renderWelcome();
 
 /* ===== הקראה קולית =====
-   Web Speech API — מובנה בדפדפן. אין תלות חוץ, אין קריאת רשת, ולכן ה-CSP לא נוגע בזה.
+   Web Speech API · מובנה בדפדפן. אין תלות חוץ, אין קריאת רשת, ולכן ה-CSP לא נוגע בזה.
    מוקרא רק הצד האנגלי: הקראת עברית בקול אנגלי היא רעש, והקראת הפירוש בעברית תיתן
    ללומד את התשובה במקום לבחון אותה.
 
-   ⚠ 7.8.2026 — נבנה כאן ענף עברי ובוטל בהוראת חגי: "לא צריך רמקול לעברי, אנגלית".
+   ⚠ 7.8.2026 · נבנה כאן ענף עברי ובוטל בהוראת חגי: "לא צריך רמקול לעברי, אנגלית".
    ההכרעה היא שלו, ולא נובעת ממחסום טכני: קול he-IL קיים והניקוד אינו שובר אותו. */
 const TTS = {
   ok: typeof speechSynthesis !== 'undefined' && typeof SpeechSynthesisUtterance !== 'undefined',
@@ -3198,12 +3198,12 @@ const TTS = {
   available(){ return !!(this.ok && (this.voice || this.pick())); },
   /* מה שנשלח למנוע ההקראה אינו בהכרח מה שכתוב על הכרטיס.
      נמדד על 3,945 המילים באנגלית: 20 ערכים מכילים תווים שמנוע ההקראה מבטא כרעש.
-       · 10 ערכי סדר בצורה "1st - first" — המנוע קורא את המקף, ואת "1st" הוא מבטא
+       · 10 ערכי סדר בצורה "1st - first" · המנוע קורא את המקף, ואת "1st" הוא מבטא
          "one-st". מה שרוצים לשמוע הוא הצורה המילולית שאחרי המקף, ולכן היא נבחרת.
-       · 9 ערכי ריבוי בצורה "knife (knives)" — הסוגריים הופכים לפסיק, כך שנשמעות שתי
+       · 9 ערכי ריבוי בצורה "knife (knives)" · הסוגריים הופכים לפסיק, כך שנשמעות שתי
          הצורות עם הפסקה טבעית ביניהן במקום "פתח סוגריים".
        · ערך אחד עם לוכסנים, "begin/an/un".
-     18 הערכים עם פסיק ("fight, fought") נשארים כמו שהם — שם הפסיק הוא הכוונה, ושתי
+     18 הערכים עם פסיק ("fight, fought") נשארים כמו שהם · שם הפסיק הוא הכוונה, ושתי
      הצורות אמורות להישמע.
      מוחל רק על ההקראה. הטקסט שעל המסך אינו משתנה: הלומד צריך לראות "1st - first". */
   speakable(text){
@@ -3230,7 +3230,7 @@ const TTS = {
     }catch(e){ if(btn) btn.classList.remove('on'); return false; }
   }
 };
-/* Wire one speaker button to whatever English text is on screen. Hidden — not disabled —
+/* Wire one speaker button to whatever English text is on screen. Hidden -- not disabled -- 
    when the device has no English voice, because a button that does nothing is worse than
    no button.
    alwaysEn: the level test is an English test whatever language the app is currently in,
@@ -3267,18 +3267,18 @@ if(TTS.ok){
    without twenty hand-written files drifting out of sync with the data.
 
    Three sections, because one format only measures one kind of recall:
-     recognise  — word → meaning, 4 options
-     retrieve   — meaning → word, 4 options
-     produce    — meaning → write the word yourself (no options to lean on) */
+     recognise -- word → meaning, 4 options
+     retrieve -- meaning → word, 4 options
+     produce -- meaning → write the word yourself (no options to lean on) */
 const EX_LEN=20, EX_MIX=[0.4,0.3,0.3];
-/* כמה שאלות במבחן היחידה — בקשת חגי: "כמו שאנחנו בוחרים כמה מילים לתרגל".
+/* כמה שאלות במבחן היחידה · בקשת חגי: "כמו שאנחנו בוחרים כמה מילים לתרגל".
  *
- * 0 פירושו "כל היחידה", ולא "אפס" — כך אותה בחירה נשארת נכונה גם אחרי שהיחידה גדלה או
+ * 0 פירושו "כל היחידה", ולא "אפס" · כך אותה בחירה נשארת נכונה גם אחרי שהיחידה גדלה או
  * קטנה, במקום לשמור מספר שיהפוך יום אחד לחלקי. הרצפה היא 8 כי exBuild מסרב לבנות מבחן
- * מפחות מזה, והתקרה היא גודל היחידה עצמה — אין מאיפה לקחת עוד. */
+ * מפחות מזה, והתקרה היא גודל היחידה עצמה · אין מאיפה לקחת עוד. */
 const EX_SIZES=[10,20,30,50];
 const exLenKey = () => 'hw_exLen'+(LANG==='en'?'_en':'');
-/* טהורה בכוונה — הקריאה מהאחסון נעשית אצל הקורא. פונקציה שקוראת בעצמה מ-LS אינה ניתנת
+/* טהורה בכוונה · הקריאה מהאחסון נעשית אצל הקורא. פונקציה שקוראת בעצמה מ-LS אינה ניתנת
    לבדיקה בלי לזייף את שכבת האחסון, וכלל החיתוך הוא בדיוק מה שצריך להיבדק. */
 function exTake(poolLen, want){
   const w=int0(want);
@@ -3289,7 +3289,7 @@ let exQ=[], exI=0, exUnit=null, exAns=[];
 
 /* Not every dictionary entry can be a test item. Some entries are fine to learn from and
    impossible to test: sentence templates ("either... or..."), and glosses that are a bare
-   grammatical prefix — than, from and of are all "מ-" in the bank, so no option list built
+   grammatical prefix · than, from and of are all "מ-" in the bank, so no option list built
    from them has one right answer. They stay in the practice bank and stay out of exams. */
 function exTestable(term, meaning){
   if(/\.\.\.|…/.test(term) || /\.\.\.|…/.test(meaning)) return false;
@@ -3297,7 +3297,7 @@ function exTestable(term, meaning){
   if(meaning.replace(/[^א-ת]/g,'').length < 3) return false;
   return true;
 }
-/* Loan words are glossed by transliteration — drastic/דרסטי, organic/אורגני, strategy/אסטרטגיה.
+/* Loan words are glossed by transliteration · drastic/דרסטי, organic/אורגני, strategy/אסטרטגיה.
    As a multiple-choice option that is fine. As a write-in prompt it hands over the answer:
    you sound out the Hebrew and spell it back without knowing the word at all.
    Rough transliteration + consonant overlap is enough to catch these; it only ever decides
@@ -3330,7 +3330,7 @@ function exWords(uid){
   return out;
 }
 /* Distractors come from the same unit, so difficulty is uniform and a wrong option can never
-   be "obviously from somewhere else". Anything that overlaps the real answer is discarded —
+   be "obviously from somewhere else". Anything that overlaps the real answer is discarded -- 
    two options that are both defensible make the item unanswerable, not hard. */
 function exDistract(pool, item, field, taken, wider){
   const right=item[field], rn=norm(right);
@@ -3348,14 +3348,14 @@ function exDistract(pool, item, field, taken, wider){
     const w=o[other];
     return !(w && clash(norm(w), on));
   };
-  // Prefer distractors that aren't another item's answer — reusing one hands out that item's
+  // Prefer distractors that aren't another item's answer -- reusing one hands out that item's
   // solution a question early. In a unit small enough that the paper covers most of it there
   // is nothing else to draw on, so relax rather than fail to build the question at all.
   let ok=pool.filter(o=>usable(o) && !taken.has(norm(o[field])));
   /* שכבת ביניים, שנוספה אחרי v148. ההקלה שמתחת נכתבה ליחידות קטנות שהמבחן מכסה כמעט
-     במלואן — אבל בורר "כל היחידה" הפך אותה לברירת המחדל בכל שאלה בכל יחידה: taken מכיל
-     אז את כל הבריכה, ולכן השורה הראשונה תמיד ריקה. נמדד: בגודל 20 — 0 מתוך 56 מסיחים הם
-     תשובה של שאלה אחרת; ב"כל היחידה" — 178 מתוך 532.
+     במלואן · אבל בורר "כל היחידה" הפך אותה לברירת המחדל בכל שאלה בכל יחידה: taken מכיל
+     אז את כל הבריכה, ולכן השורה הראשונה תמיד ריקה. נמדד: בגודל 20 · 0 מתוך 56 מסיחים הם
+     תשובה של שאלה אחרת; ב"כל היחידה" · 178 מתוך 532.
      wider הוא שאר השפה, ולכן מסיח משם עדיין באותה שפה ובאותו סוג מילה, והוא אינו תשובה
      של שום שאלה בטופס. רק כשגם הוא ריק חוזרים להקלה המקורית. */
   if(ok.length<3 && Array.isArray(wider) && wider.length){
@@ -3374,14 +3374,14 @@ function exDistract(pool, item, field, taken, wider){
   return out;
 }
 /* `want` הוא כמה שאלות. הוא מגיע כפרמטר ולא נקרא מהאחסון בפנים, כדי ש-exBuild תישאר
-   פונקציה של הקלט שלה — הבדיקות מריצות אותה על כל יחידה בשתי השפות, ופונקציה שקוראת
+   פונקציה של הקלט שלה · הבדיקות מריצות אותה על כל יחידה בשתי השפות, ופונקציה שקוראת
    מ-LS הייתה מחייבת אותן לזייף את שכבת האחסון כדי לבדוק את בחירת המילים. */
 function exBuild(uid, want){
   const pool=exWords(uid);
   if(pool.length<8) return [];
   const n=exTake(pool.length, want===undefined ? EX_LEN : want);
   // Keep morphological relatives out of the same paper. "evaluate" and "evaluation" are two
-  // distinct entries, so nothing here counts them as a duplicate — but sitting side by side
+  // distinct entries, so nothing here counts them as a duplicate -- but sitting side by side
   // they cue each other and burn a slot that could have tested a different word.
   // English only: the terms are ASCII lemmas, so a shared prefix is a reliable signal.
   // Hebrew relatives share a root with letters scattered through the word, which a prefix
@@ -3403,14 +3403,14 @@ function exBuild(uid, want){
     if(g.length>=2) glossTaken.add(g);
     picked.push(c);
   }
-  if(picked.length<n) picked=shuffle(pool).slice(0,n);   // tiny unit / "כל היחידה" — coverage beats polish
+  if(picked.length<n) picked=shuffle(pool).slice(0,n);   // tiny unit / "כל היחידה" · coverage beats polish
   const nRec=Math.round(n*EX_MIX[0]), nRet=Math.round(n*EX_MIX[1]);
   // Write-in items ask for the word with no options to lean on, so put the single-word terms
   // in those slots. Expecting someone to type a three-word idiom letter-perfect measures
   // typing, not vocabulary.
   const oneWord=t=>!/\s/.test(String(t).replace(/\s*\/\s*/g,'/'));
   /* A one-word gloss that is itself a word in the bank makes an unfair write-in: "בד" is a
-     defensible answer to the prompt "בד", and the item was after אָרִיג. Seven of them —
+     defensible answer to the prompt "בד", and the item was after אָרִיג. Seven of them · 
      אריג/בד, זרד/ענף, אסקופה/סף, נפיל/ענק, טלף/פרסה, זלזל/ענף, פארה/ענף. They stay in
      practice, where the direction is stated and the feedback teaches, but they never take a
      write-in slot in a graded test. */
@@ -3445,7 +3445,7 @@ function exBuild(uid, want){
       return d.length<3 ? null : {kind, it, prompt:maskTerm(it.meaning,it.term), answer:it.term, opts:shuffle([it.term,...d])};
     }
     // A write-in has no options to disambiguate it, so if two words in the unit share a gloss
-    // the prompt genuinely has two right answers — the unit lists both זלזל and פארה as "ענף".
+    // the prompt genuinely has two right answers · the unit lists both זלזל and פארה as "ענף".
     // Accept all of them. Marking someone wrong for the synonym they happened to recall is the
     // exact failure this whole audit was about.
     const accept=pool.filter(o=>norm(o.meaning)===norm(it.meaning)).map(o=>o.term);
@@ -3455,7 +3455,7 @@ function exBuild(uid, want){
 const EX_KIND={recognise:'מה הפירוש?', retrieve:'איזו מילה מתאימה לפירוש?', produce:'כתוב את המילה'};
 const exKey = uid => 'hw_exam'+(LANG==='en'?'_en':'')+':'+uid;
 
-/* הבורר, והפירוט שמתחתיו. שניהם מצוירים יחד כי הפירוט נגזר מהבחירה — לצייר אותם בנפרד
+/* הבורר, והפירוט שמתחתיו. שניהם מצוירים יחד כי הפירוט נגזר מהבחירה · לצייר אותם בנפרד
    היה מאפשר להם להיפרד: מסך שמראה "20 שאלות" מעל בורר שעומד על 50. */
 function renderExSize(poolLen){
   const chosen=exChosen(poolLen);
@@ -3475,9 +3475,9 @@ function renderExSize(poolLen){
   $('#exSub').textContent=`${chosen} שאלות מתוך ${poolLen} מילים ביחידה, בהגרלה חדשה בכל פעם. `+
     `המבחן מודד את ההתקדמות שלך בלבד.`;
   $('#exParts').innerHTML=
-    `<div class="ex-part"><b>${nRec}</b><span>זיהוי — מילה ← פירוש, ארבע אפשרויות</span></div>
-     <div class="ex-part"><b>${nRet}</b><span>שליפה — פירוש ← מילה, ארבע אפשרויות</span></div>
-     <div class="ex-part"><b>${chosen-nRec-nRet}</b><span>כתיבה — פירוש ← לכתוב את המילה בעצמך</span></div>`;
+    `<div class="ex-part"><b>${nRec}</b><span>זיהוי · מילה ← פירוש, ארבע אפשרויות</span></div>
+     <div class="ex-part"><b>${nRet}</b><span>שליפה · פירוש ← מילה, ארבע אפשרויות</span></div>
+     <div class="ex-part"><b>${chosen-nRec-nRet}</b><span>כתיבה · פירוש ← לכתוב את המילה בעצמך</span></div>`;
 }
 function openExam(uid){
   exUnit=uid;
@@ -3561,7 +3561,7 @@ function exAnswer(ok, given, btn){
 /* any word in the unit that carries this exact gloss counts */
 /* `accept` is built per unit; practice accepts any word in the WHOLE bank carrying the same
    gloss. A learner taught in practice that פֹּארָה answers "ענף" typed it in the exam and was
-   marked wrong — and that score is stored. Same question, two verdicts, and the stricter one
+   marked wrong · and that score is stored. Same question, two verdicts, and the stricter one
    is the one that counts. Falls back to the bank-wide index only when the unit list misses. */
 function exWriteOk(v, q){
   const list = (q.accept && q.accept.length) ? q.accept : [q.answer];
@@ -3589,7 +3589,7 @@ function exFinish(){
     `<div class="ex-row"><span class="nm">${NAMES[k]}</span><span class="sc">${per[k][0]}/${per[k][1]}</span></div>`).join('');
   const missed=exAns.filter(a=>!a.ok);
   $('#exMissed').innerHTML = missed.length
-    ? missed.map(a=>`<div class="ex-miss"><b>${esc(a.term)}</b> — ${esc(a.meaning)}`+
+    ? missed.map(a=>`<div class="ex-miss"><b>${esc(a.term)}</b> · ${esc(a.meaning)}`+
         (a.given?`<div class="yours">כתבת: ${esc(a.given)}</div>`:'')+`</div>`).join('')
     : '<div class="ex-miss">ידעת את כל המילים במבחן הזה. 🎯</div>';
   // history is capped: a score log that grows without bound is the kind of thing that
@@ -3597,7 +3597,7 @@ function exFinish(){
   const hist=LS.get(exKey(exUnit),[]);
   const arr=(Array.isArray(hist)?hist:[]).concat([{t:Date.now(), pct, n}]).slice(-20);
   LS.set(exKey(exUnit), arr);
-  // exam history is part of the account's progress, but nothing ever asked for it to be sent —
+  // exam history is part of the account's progress, but nothing ever asked for it to be sent -- 
   // so scores lived only on the device that produced them
   queueRemoteSync();
   const missedKeys=missed.map(a=>a.term);
@@ -3615,14 +3615,14 @@ $('#exCancel').onclick=()=>goBack();
 $('#exDone').onclick=()=>goBack();
 /* confirm() blocks the queue but does not cancel timers: answering the LAST question and then
    confirming "leave, the result will not be saved" let the pending tick fire, reach exFinish()
-   and save the score anyway — and in the level test it wrote hw_level, which is the gate that
+   and save the score anyway -- and in the level test it wrote hw_level, which is the gate that
    decides whether the test is ever offered again. */
 let exTimer=null, lvTimer=null;
-/* אותו דבר כאן: ✕ יציאה ב-topbar, מחוץ ל-#exQuiz, ולכן הוא נלחץ גם ממסך התוצאות —
+/* אותו דבר כאן: ✕ יציאה ב-topbar, מחוץ ל-#exQuiz, ולכן הוא נלחץ גם ממסך התוצאות · 
    ושם exFinish() כבר הוסיף את הציון ל-exKey() וקרא ל-queueRemoteSync(). התנאי
    !exAns.length מדלג על השאלה כשאין מה לאבד, אבל ממסך התוצאות יש תשובות, ולכן הוא לא
    הציל מהמשפט השקרי. */
-/* השאלה עצמה עברה ל-navTo — נקודת היציאה היחידה — כדי ש"אחורה" של המערכת וה-✕
+/* השאלה עצמה עברה ל-navTo · נקודת היציאה היחידה · כדי ש"אחורה" של המערכת וה-✕
    ישאלו אותו דבר. כאן נשאר רק המעבר. */
 $('#exExit').onclick=()=>goBack();
 
@@ -3630,7 +3630,7 @@ $('#exExit').onclick=()=>goBack();
    No PDF library: the CSP allows scripts from this origin only, and pulling in a bundler-sized
    dependency to draw text on a page would be the wrong trade anyway. The browser's own
    "print → save as PDF" produces a better sheet, works on every platform, and prints directly. */
-/* The footer claims rights in what we actually made — the sheet, its layout and the app —
+/* The footer claims rights in what we actually made · the sheet, its layout and the app · 
    and grants personal/classroom use. It deliberately does NOT claim ownership of the
    vocabulary itself: the word lists came from published psychometric material, and an
    "all rights reserved" over someone else's content is both false and the kind of claim
@@ -3641,14 +3641,14 @@ const SHEET_RIGHTS = `© ${SHEET_YEAR} <bdi>800+</bdi> · עיצוב הדף וה
 
 /* size=0 means the whole unit. A full English unit is ~380 words, which is a real worksheet
    rather than a quiz, so those sheets go two-up: the answer is a single short word and two
-   columns halve the page count. Hebrew sheets stay single-column — you cannot write a
+   columns halve the page count. Hebrew sheets stay single-column -- you cannot write a
    definition on half a line. */
 /* `uid` is normally a unit number. It can also be the string 'weak', which builds the same
-   sheet from the words the learner is still getting wrong ACROSS all units — the survey's top
+   sheet from the words the learner is still getting wrong ACROSS all units -- the survey's top
    request, and the one case where a printable page is worth more than a unit sheet: it is
    exactly the list you would otherwise copy out by hand. */
 /* שלושה סוגי דף, ולא שניים: יחידה · מילים לחיזוק · מילים שנלמדו. השלישי נוסף כי משתמש
-   ביקש לחזור על מה שכבר ידע, ודף חזרה הוא בדיוק אותו מבנה — שאלה, שורה, ודף פתרונות. */
+   ביקש לחזור על מה שכבר ידע, ודף חזרה הוא בדיוק אותו מבנה · שאלה, שורה, ודף פתרונות. */
 function sheetPool(uid){
   return uid==='weak' ? weakCards('global')
        : uid==='learned' ? learnedCards('global')
@@ -3668,13 +3668,13 @@ function buildSheet(uid, size){
   const d=new Date();
   const date=`${d.getDate()}.${d.getMonth()+1}.${d.getFullYear()}`;
   // Hebrew unit: the word is given and the definition is written. English unit: the Hebrew
-  // meaning is given and the English word is written — matching how each side is actually tested.
+  // meaning is given and the English word is written -- matching how each side is actually tested.
   const askTerm = LANG!=='en';
   const q = it => askTerm ? it.term : it.meaning;
   const a = it => askTerm ? it.meaning : it.term;
   $('#sheet').innerHTML=`
     <div class="sh-page">
-      <h1><bdi>800+</bdi> — ${isWeak?`מילים לחיזוק · ${langName}`:isLearned?`מילים שלמדתי · ${langName}`:`מבחן ${langName}, יחידה ${uid}`}</h1>
+      <h1><bdi>800+</bdi> · ${isWeak?`מילים לחיזוק · ${langName}`:isLearned?`מילים שלמדתי · ${langName}`:`מבחן ${langName}, יחידה ${uid}`}</h1>
       <div class="sh-meta">${isWeak
         ? `${n} מילים לחיזוק, מכל יחידות הלימוד`
         : isLearned
@@ -3689,10 +3689,10 @@ function buildSheet(uid, size){
       <div class="sh-foot">דף הפתרונות בסוף<br>${SHEET_RIGHTS}</div>
     </div>
     <div class="sh-page">
-      <h1>דף פתרונות — ${isWeak?`מילים לחיזוק · ${langName}`:isLearned?`מילים שלמדתי · ${langName}`:`${langName}, יחידה ${uid}`}</h1>
+      <h1>דף פתרונות · ${isWeak?`מילים לחיזוק · ${langName}`:isLearned?`מילים שלמדתי · ${langName}`:`${langName}, יחידה ${uid}`}</h1>
       <div class="sh-meta">אותה הגרלה, אותו סדר · ${n} מילים</div>
       <div class="sh-key">${items.map((it,i)=>
-        `<div>${i+1}. <b${askTerm?ltr:''}>${esc(q(it))}</b> — ${esc(a(it))}</div>`).join('')}</div>
+        `<div>${i+1}. <b${askTerm?ltr:''}>${esc(q(it))}</b> · ${esc(a(it))}</div>`).join('')}</div>
       <div class="sh-foot">${SHEET_RIGHTS}</div>
     </div>`;
   return true;
@@ -3728,7 +3728,7 @@ $('#sheetOpts').onclick=e=>{
 $('#sheetCancel').onclick=()=>{ sheetUid=null; hide($('#sheetAsk')); };
 $('#sheetAsk').onclick=e=>{ if(e.target===$('#sheetAsk')){ sheetUid=null; hide($('#sheetAsk')); } };
 
-/* ===== account — every screen above this line requires a signed-in user =====
+/* ===== account -- every screen above this line requires a signed-in user =====
    This is the ONLY place app.js touches Store; everything else stays pure UI. */
 let currentUser=null, syncTimer=null;
 
@@ -3736,7 +3736,7 @@ let currentUser=null, syncTimer=null;
    size were written to localStorage only, so "one account and your progress follows you"
    stopped being true at the language gate: a second device sent the learner back through a
    level test they had already finished, and their exam scores were simply absent. The keys are
-   per-language, so they are collected under the language the row is keyed by — never the
+   per-language, so they are collected under the language the row is keyed by -- never the
    language that happens to be loaded when the debounced push fires. */
 const levelKeyFor = lang => lang==='he' ? 'hw_level_he' : 'hw_level';
 const examPreFor  = lang => 'hw_exam'+(lang==='en'?'_en':'')+':';
@@ -3747,7 +3747,7 @@ function collectExtras(lang){
     const k=localStorage.key(i);
     if(k && k.startsWith(pre)) exams[k.slice(pre.length)]=LS.get(k,[]);
   }
-  // exam is per PERSON, not per language — it rides both rows and whichever syncs first wins
+  // exam is per PERSON, not per language -- it rides both rows and whichever syncs first wins
   const out = { level:LS.get(levelKeyFor(lang),null), size:LS.get(sizeKeyFor(lang),null), exams,
                 exam:LS.get(EXAM_KEY,null) };
   /* השלמת משפטים · אנגלית בלבד, ולכן רק על השורה של אנגלית.
@@ -3802,9 +3802,9 @@ function applyExtras(lang, ex){
 /* אחד לכל שפה, ולא דגל יחיד. flushRemoteSync דוחף תמיד שפה אחת בלבד (`lang` למטה), ולכן
    דגל משותף נוקה על ידי שפה שלא הייתה זו שממתינה: סבב עברית שהדחיפה שלו נכשלה נשאר על
    הדיסק בלבד, ואז flush מוצלח של אנגלית הכריז "אין מה לשמור". signOutNow קורא בדיוק את
-   התשובה הזאת לפני localStorage.clear() — כלומר הסבב העברי נמחק כאילו הגיע לענן. */
+   התשובה הזאת לפני localStorage.clear() · כלומר הסבב העברי נמחק כאילו הגיע לענן. */
 const syncPending={he:false, en:false};
-/* Returns TRUE only when there is nothing left unsaved — either the write landed, or there was
+/* Returns TRUE only when there is nothing left unsaved -- either the write landed, or there was
    nothing to write. Every bail-out returns FALSE, because signOutNow awaits this and then runs
    localStorage.clear(): a flush that quietly failed used to look identical to one that
    succeeded, and the only remaining copy of the session was erased a line later. */
@@ -3824,7 +3824,7 @@ async function flushRemoteSync(){
     console.warn('sync aborted: cache owner !== session user');
     syncPending[LANG]=false;
     /* Deliberately NOT bindCacheToUser here. That call can run wipeAccountKeys() and set
-       LANG=null — and this runs from a debounced background timer, so it could blank the
+       LANG=null -- and this runs from a debounced background timer, so it could blank the
        language underneath a learner mid-round. Refusing the write is the whole job; the owner
        stamp is re-established on the next boot, and the `storage` listener already reloads the
        page when hw_owner actually changes elsewhere. */
@@ -3832,7 +3832,7 @@ async function flushRemoteSync(){
   }
   const lang=LANG;
   /* pushProgress is a whole-row upsert, so EVERY write must be preceded by a read. An earlier
-     version merged once per language and then wrote blind for the rest of the page's life —
+     version merged once per language and then wrote blind for the rest of the page's life -- 
      which still lost whatever the other device wrote in between. One extra request per
      debounced save is a cheap price for not overwriting a paying user's work. */
   {
@@ -3845,17 +3845,17 @@ async function flushRemoteSync(){
       assoc=merged.assoc; stats=merged.stats; deleted=new Set(merged.deleted); added=merged.added; direction=merged.dir;
       saveAssoc(); saveStats(); saveDeleted(); saveAdded(); LS.set(KEY('hw_dir'),direction);
       /* The merge can bring back a deletion or an addition made on another device, and BANK is
-         built from exactly those two. syncWithRemoteInner rebuilds; this path never did — and
+         built from exactly those two. syncWithRemoteInner rebuilds; this path never did -- and
          since commitSession now flushes at the end of EVERY round, it is the common path.
          A word deleted on the phone stayed in the deck on the laptop until the next reload. */
-      /* Prune AFTER the merge, exactly as syncWithRemoteInner does (app.js:2766) — this path had
+      /* Prune AFTER the merge, exactly as syncWithRemoteInner does (app.js:2766) -- this path had
          no prune at all, and it is the COMMON one: commitSession flushes at the end of every
          round. The merge is max-based, so every orphan the cloud still holds came straight back
          and was pushed out again by the write below, which is what made them immortal. */
       pruneOrphans();
       buildBank();
       if(!$('#home').classList.contains('hidden')) renderHome();
-      /* mergeProgress covers stats/assoc/deleted/added — it knows nothing about extras. Without
+      /* mergeProgress covers stats/assoc/deleted/added -- it knows nothing about extras. Without
          this, collectExtras below read a device that had never seen the other one's exam
          history and pushed right over it. applyExtras is additive, so this only ever adds. */
       applyExtras(lang, res.data.extras);
@@ -3864,12 +3864,12 @@ async function flushRemoteSync(){
   /* THE WRITE, AND WHY ITS RESULT IS READ
      Store.pushProgress reports a refused write by RETURNING false, not by throwing (store.js:64).
      This used to `await` it inside a try/catch and `return true` regardless, so only a thrown
-     error counted as failure — and a network error, an RLS refusal or an expired token all
+     error counted as failure -- and a network error, an RLS refusal or an expired token all
      return false. signOutNow (app.js:3132) reads that answer and runs localStorage.clear() on
      it, erasing the only remaining copy of everything done since the last good sync. One word.
 
      syncPending is cleared only once the write has actually landed. Clearing it before the
-     write — as this did — meant the one failure that can still lose data was also the one
+     write -- as this did -- meant the one failure that can still lose data was also the one
      failure nothing ever retried. Every path that returns false now leaves the save queued. */
   let ok=false;
   try{
@@ -3883,13 +3883,13 @@ async function flushRemoteSync(){
   return ok;
 }
 /* 1,500ms was shorter than the gap between two answers, so every single answer produced a full
-   round trip — and pushProgress is a whole-row upsert preceded by a whole-row read. A learner
+   round trip -- and pushProgress is a whole-row upsert preceded by a whole-row read. A learner
    with real history carries a ~51KB row, so one answer moved ~100KB. Thirty testers practising
    for an hour would have moved on the order of a gigabyte, against a 5GB monthly egress budget:
    the ceiling here is bandwidth, not requests.
    Twelve seconds instead. Nothing is risked by waiting: the save is already forced at every
-   point where the page can lose it — round end (commitSession), tab hidden, pagehide, language
-   switch and sign-out — and a queued save survives every early return in flushRemoteSync. */
+   point where the page can lose it -- round end (commitSession), tab hidden, pagehide, language
+   switch and sign-out -- and a queued save survives every early return in flushRemoteSync. */
 const SYNC_DEBOUNCE_MS = 12000;
 function queueRemoteSync(){
   if(!currentUser) return;
@@ -3909,13 +3909,13 @@ document.addEventListener('keydown', e=>{
 });
 
 /* A debounced save that never fires is a save the user lost. Flush before the page goes away.
-   Now that every push reads and merges first, this cannot always complete inside a pagehide —
+   Now that every push reads and merges first, this cannot always complete inside a pagehide -- 
    and that is accepted: the data is already in localStorage and syncs on the next open. The one
    path that MUST complete is sign-out, because it erases localStorage, and that one awaits. */
 window.addEventListener('pagehide', flushRemoteSync);
 document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='hidden') flushRemoteSync(); });
 
-/* Merge is max-based, never subtractive — the same rule migrateStores already uses — so a
+/* Merge is max-based, never subtractive -- the same rule migrateStores already uses -- so a
    sync race between two devices can only make progress look better than it is, never erase it. */
 function mergeProgress(local, remote){
   if(!remote || !isObj(remote)) return local;
@@ -3924,17 +3924,17 @@ function mergeProgress(local, remote){
   const rw=isObj(remote.stats)&&isObj(remote.stats.words)?remote.stats.words:{};
   /* Same failure as the deletions above, one layer down: restoring level-test skips DELETES the
      local record, and a union over both key sets brought it straight back from the cloud. A
-     record can never be removed by a max-merge, so the restore has to be stated, not inferred —
+     record can never be removed by a max-merge, so the restore has to be stated, not inferred -- 
      inferring it from "absent locally" would wipe every skip the first time a new device synced. */
   const restoredStats=isObj(local.undeleted)?local.undeleted:{};
   /* `last` is whatever Date.now() said on the device that wrote it, and nothing validates it. A
      phone whose clock runs two days fast does not just win one conflict: max(last) below keeps its
-     stamp IN the record, so it goes on beating every honest answer until real time catches up — a
+     stamp IN the record, so it goes on beating every honest answer until real time catches up -- a
      word the learner keeps failing stays pinned at level 3, counts as learned, and leaves the
      practice queue. So a stamp is not allowed to rank above the present. Clamped, never discarded:
      the record still arrives whole, it just stops outranking now.
      Five minutes of slack, and it has to be non-zero. Honest clocks drift, the cloud copy was
-     itself stamped by ANOTHER device's clock, and the sync round trip takes real time — at zero
+     itself stamped by ANOTHER device's clock, and the sync round trip takes real time -- at zero
      margin this would start losing writes that were perfectly valid. Five minutes covers all of
      that while capping the damage from a lying clock at five minutes instead of two days. */
   const stampCap=Date.now()+300000;
@@ -3944,11 +3944,11 @@ function mergeProgress(local, remote){
     a.last=Math.min(a.last,stampCap); b.last=Math.min(b.last,stampCap);
     /* The record that was written LAST wins. Taking Math.max per field looked safe but was not:
        a downgrade after a wrong answer could never survive, because the older copy still held
-       the higher level — so a word the learner had just failed stayed marked as known. Counts
+       the higher level -- so a word the learner had just failed stayed marked as known. Counts
        still take the max, since they only ever grow.
        But "written last" is only a question when both sides actually WROTE something. saneRec
        turns a missing record into a fully zeroed one, and that placeholder used to enter the
-       comparison as if it were data and win the tie at 0 — so a remote-only record stamped
+       comparison as if it were data and win the tie at 0 -- so a remote-only record stamped
        last:0 arrived at level 0 while the mirror image kept its level. Presence first, then
        timestamps: a side that does not hold the word at all does not get a vote. */
     const hasA=isObj(lw[k]), hasB=isObj(rw[k]);
@@ -3957,9 +3957,9 @@ function mergeProgress(local, remote){
                wrong:Math.max(a.wrong,b.wrong), level:newer.level, last:Math.max(a.last,b.last) };
     if(newer.src) words[k].src=newer.src;
     /* saneRec ו-mergeProgress הן שתי רשימות לבנות נפרדות, ושדה שנוסף לאחת ולא לשנייה נמחק
-       בשקט בסנכרון הבא. כך אבדו כאן `sens` ו-`k0` — ולא בהתנגשות בין מכשירים, אלא בכל
+       בשקט בסנכרון הבא. כך אבדו כאן `sens` ו-`k0` · ולא בהתנגשות בין מכשירים, אלא בכל
        סבב: flushRemoteSync ממזג בסופו, ו-absorbDisk ממזג בין שתי לשוניות.
-       הנזק היה שהמיזוג ביטל שני תיקונים שכבר נעשו — sens החזיר כל מילה רב-משמעית ל"לחיזוק"
+       הנזק היה שהמיזוג ביטל שני תיקונים שכבר נעשו · sens החזיר כל מילה רב-משמעית ל"לחיזוק"
        לצמיתות, ו-k0 שנמחק בעוד src:'known' שרד הפך את ביטול הסימון למחיקת היסטוריה.
        איחוד ל-sens, כי פירוש שנכתב במכשיר אחד נכתב; מקסימום ל-k0, כי הוא היסטוריה
        ולהעדיף את הנמוך פירושו שסנכרון יכול להוריד רמה שהלומד השיג. */
@@ -3970,17 +3970,17 @@ function mergeProgress(local, remote){
   }
   const ls=Array.isArray(local.stats&&local.stats.sessions)?local.stats.sessions:[];
   const rs=Array.isArray(remote.stats&&remote.stats.sessions)?remote.stats.sessions:[];
-  /* Sessions carry no id, and the local list is the one that was pushed to the server — so a
+  /* Sessions carry no id, and the local list is the one that was pushed to the server -- so a
      plain concat re-added every round the device already had. Each return to a language
      doubled the history (3 -> 6 -> 12 -> 24) until the 200 cap filled with copies and real
      practice days fell out, shrinking the streak. Dedupe on the round's own fields, and sort,
      because the two lists are not necessarily in chronological order. */
-  /* Rows carry `rid` since 2.8.2026, and it is preferred over the composite key — but only when
+  /* Rows carry `rid` since 2.8.2026, and it is preferred over the composite key -- but only when
      BOTH sides have one, so a row written by an older build still dedupes the way it always did.
      KEEPING THE FIRST COPY IS NOT ENOUGH once ids exist. The same round can be present on both
      sides at different stages: the phone has 8 answers of it, the cloud copy has 5. They share a
      rid, and dropping whichever arrives second would throw away three real answers half the time.
-     The fuller copy wins — more answers recorded is strictly more of what happened. */
+     The fuller copy wins -- more answers recorded is strictly more of what happened. */
   const bySess=new Map(); const seenSess=new Set();
   for(const x of [...rs,...ls].filter(isObj)){
     if(!x.rid){                                          // legacy row: the old behaviour, unchanged
@@ -4001,12 +4001,12 @@ function mergeProgress(local, remote){
   /* Deletions merged as a plain union, which meant a RESTORE could never survive: the user
      brought a word back, the cloud copy still listed it as deleted, and the next sync put it
      straight back in the bin. "ניתן לשחזר" was true for about ninety seconds.
-     A union cannot express "this was un-deleted" — it has no way to tell a deletion this device
+     A union cannot express "this was un-deleted" · it has no way to tell a deletion this device
      has not heard of yet from one it has deliberately reversed. So restores are recorded
      explicitly and subtracted after the union.
      Scope, stated honestly: the restore log is per-device. Another device that still lists the
      word keeps its own copy deleted until it syncs its own restore. Making that symmetric needs
-     per-key deletion timestamps — tombstones — which is a change to the stored shape and a
+     per-key deletion timestamps · tombstones · which is a change to the stored shape and a
      migration, not a line here. This fixes the reported failure; the full fix is named. */
   const restored=isObj(local.undeleted)?local.undeleted:{};
   const mergedDeleted=[...new Set([...(Array.isArray(remote.deleted)?remote.deleted:[]),
@@ -4041,13 +4041,13 @@ async function syncWithRemoteInner(lang){
   }
   /* מי אנחנו לפני הקריאה. store.js:142 מקבל את זה בדיוק בשביל החלון שבין ה-pull ל-push:
      החשבון יכול להתחלף באמצע (קישור אישור שנפתח באותה לשונית, טוקן שהתרענן לחשבון אחר),
-     והכתיבה למטה נושאת את המצב שמוזג מהחשבון הקודם. RLS לא רואה את זה — היא מאשרת כתיבה
+     והכתיבה למטה נושאת את המצב שמוזג מהחשבון הקודם. RLS לא רואה את זה · היא מאשרת כתיבה
      חוקית לחלוטין לשורה של החשבון החדש. רק הקורא יודע עם מי הוא התחיל. */
   const uid = currentUser && currentUser.id;
   let res=null;
   try{ res=await Store.pullProgress(lang); }catch(e){ return; }
   /* A failed read used to look exactly like an empty cloud, and the push below then wrote the
-     local state over it. On a fresh device the local state is EMPTY — one dropped request was
+     local state over it. On a fresh device the local state is EMPTY -- one dropped request was
      enough to erase everything the account had. Only a confirmed read may be followed by a write. */
   if(!res || res.ok!==true) return;
   const remote=res.data;
@@ -4056,12 +4056,12 @@ async function syncWithRemoteInner(lang){
     const before = added.length;
     /* undeleted חסר כאן והיה קיים בשני מסלולי המיזוג האחרים. בלעדיו mergeProgress אינו יכול
        לחסר את מה שהלומד שחזר, האיחוד מחזיר את המחיקה מהענן, saveDeleted כותב אותה לדיסק
-       ו-pushProgress דוחף אותה בחזרה — ואז המסלול הבא, שכן מעביר את היומן, משחזר שוב.
+       ו-pushProgress דוחף אותה בחזרה · ואז המסלול הבא, שכן מעביר את היומן, משחזר שוב.
        המילה מהבהבת פנימה והחוצה לפי מי סנכרן אחרון. pullIfStale רץ על focus, כך שמעבר
        ללשונית אחרת וחזרה הספיק. */
     const merged=mergeProgress({assoc,stats,deleted:[...deleted],added,dir:direction,undeleted:restoredMap()}, remote);
     assoc=merged.assoc; stats=merged.stats; deleted=new Set(merged.deleted); added=merged.added; direction=merged.dir;
-    /* Prune AFTER the merge, not only before it. enterLang() prunes and then syncs — and the
+    /* Prune AFTER the merge, not only before it. enterLang() prunes and then syncs -- and the
        merge is max-based, so every orphan the cloud still holds comes straight back and is
        pushed out again by the write below. The orphans were immortal: measured in production
        as a Hebrew row carrying 2,650 word records against a bank of 1,717, which also swept
@@ -4084,7 +4084,7 @@ function translateAuthError(err){
   const m=(err&&err.message)||'';
   if(/already registered|already exists/i.test(m)) return 'כבר יש חשבון עם המייל הזה. נסה להתחבר.';
   /* Not just "wrong": the second sentence is the way out. Whoever let the browser generate a
-     password never saw it, so "נסה שוב" is advice they cannot act on — the reset link is the
+     password never saw it, so "נסה שוב" is advice they cannot act on · the reset link is the
      only real path back in, and it has to be named here or it will not be found. */
   if(/invalid login credentials/i.test(m))
     return 'אימייל או סיסמה שגויים. אם הדפדפן יצר לך סיסמה ואינך יודע אותה, לחץ "שכחתי סיסמה" למטה.';
@@ -4104,7 +4104,7 @@ const BUILD = (()=>{
 })();
 
 async function serverBuild(){
-  // cache:'no-store' — asking the network, not the copy this device already holds
+  // cache:'no-store' -- asking the network, not the copy this device already holds
   try{
     const r=await fetch('index.html?probe='+Date.now(), {cache:'no-store'});
     if(!r.ok) return null;
@@ -4117,10 +4117,10 @@ async function renderBuildTag(){
   const el=$('#buildTag'); if(!el) return;
   el.innerHTML=`גרסה <b>${BUILD}</b>`;
   const sv=await serverBuild();
-  if(!sv) return;                                   // offline — say nothing rather than guess
+  if(!sv) return;                                   // offline -- say nothing rather than guess
   if(sv===BUILD){ el.innerHTML=`גרסה <b>${BUILD}</b> · מסונכרן ✓`; return; }
   /* This used to be a sentence. A sentence asking the user to perform a browser action is not
-     a fix — it is a note. The same detection now offers the action itself. */
+     a fix -- it is a note. The same detection now offers the action itself. */
   el.innerHTML=`גרסה <b>${BUILD}</b> · <span class="stale">יש גרסה ${sv}</span>`;
   applyUpdate(sv);
 }
@@ -4130,7 +4130,7 @@ async function renderBuildTag(){
    automatically. If the feedback table isn't created yet, fall back to email rather than
    silently swallowing what the user just wrote. */
 /* The product's own address, not the owner's personal Gmail. Switched only after inbound mail
-   to admin@800-plus.com was confirmed arriving — this is the fallback that carries a bug report
+   to admin@800-plus.com was confirmed arriving -- this is the fallback that carries a bug report
    when the database is unreachable, so a wrong address here loses reports silently. */
 const FB_TO='admin@800-plus.com';
 let fbKind='bug';
@@ -4143,7 +4143,7 @@ function fbContext(){
   const v=(document.querySelector('script[src*="app.js"]')||{}).src||'';
   return {
     screen: currentScreenId(),
-    lang: LANG||'—',
+    lang: LANG||'–',
     build: (v.match(/v=(\d+)/)||[])[1] || '?',
     level: LS.get('hw_level',null) || LS.get('hw_level_he',null),
     standalone: isStandalone(),
@@ -4155,8 +4155,8 @@ function fbContext(){
 /* One plain-Hebrew name per field fbContext() sends. The privacy policy says these are "shown to
    you in the form before sending", and for a while that was true of three of them: the screen,
    the language and the build. The device string and the window size were collected and not
-   mentioned. Both are genuinely needed — a fault that only happens on an iPhone looks nothing
-   like the same fault on a desktop — so the answer was to name them, not to stop sending them.
+   mentioned. Both are genuinely needed -- a fault that only happens on an iPhone looks nothing
+   like the same fault on a desktop -- so the answer was to name them, not to stop sending them.
    The map is keyed by the payload's own keys and the sentence is built by walking the payload,
    so adding a field to fbContext() without a label here cannot hide it: the raw key shows up in
    the line, ugly and visible, instead of quietly going undisclosed. */
@@ -4182,7 +4182,7 @@ function openFeedback(){
   /* The diagnostic line used to sit in the dialog in monospace, and a tester asked what it was.
      Fair question: `screen:results · lang:en · build:100 · 393×793` means nothing to her, and a
      form that shows you something you cannot understand reads as a form you might be breaking.
-     It still travels with every report — it is what makes a report reproducible — it is just no
+     It still travels with every report -- it is what makes a report reproducible -- it is just no
      longer shown as raw values. One plain sentence takes its place, because silently attaching
      device details would be worse than showing them.
      The sentence that replaced it named three of the seven fields, which is how the privacy
@@ -4261,12 +4261,12 @@ function setAuthMode(m, keepMsg){
 }
 document.querySelectorAll('#authTabs button').forEach(b=>b.onclick=()=>setAuthMode(b.dataset.tab));
 /* The local cache belongs to exactly one account. A session can end without a click on
-   "יציאה" (token expiry, cleared cookies, shared device) — and then the next person to sign
+   "יציאה" (token expiry, cleared cookies, shared device) · and then the next person to sign
    in here would have the previous user's progress merged into THEIR account. So the cache is
    stamped with its owner, and any mismatch wipes it before a single byte is read. */
 /* Every hw_* key belongs to whoever was signed in when it was written. The old list was
-   hand-maintained and did not know about keys built at runtime — hw_exam:3, hw_exam_en:7,
-   hw_level_he — so exam scores and level results survived a change of account and were shown
+   hand-maintained and did not know about keys built at runtime -- hw_exam:3, hw_exam_en:7,
+   hw_level_he -- so exam scores and level results survived a change of account and were shown
    to the next person. Sweeping by prefix cannot fall behind a new key again. */
 function wipeAccountKeys(){
   const doomed=[];
@@ -4279,7 +4279,7 @@ function wipeAccountKeys(){
   return doomed.length;
 }
 /* `adopt` is the preview handover. A visitor practises under owner='preview', and the landing
-   page tells them their progress is kept — but a brand-new account is still an owner change,
+   page tells them their progress is kept -- but a brand-new account is still an owner change,
    so the wipe below threw away exactly what the promise covered. On SIGN-UP the preview cache
    is adopted; on SIGN-IN it is not, because that account already has its own cloud row and
    merging a stranger's demo into it is the leak this whole mechanism exists to prevent. */
@@ -4293,8 +4293,8 @@ function bindCacheToUser(uid, adopt){
 }
 
 /* Bring the account down from the cloud BEFORE anything is drawn or decided.
-   Two screens read straight out of localStorage — the welcome dashboard (langSummary) and the
-   level-test gate — and on a fresh device localStorage is empty. A returning learner with 188
+   Two screens read straight out of localStorage -- the welcome dashboard (langSummary) and the
+   level-test gate -- and on a fresh device localStorage is empty. A returning learner with 188
    Hebrew and 292 English records was therefore greeted with "0 words · 0 practised" and pushed
    back into a placement test, while every one of those records sat safe in the cloud. Nothing
    was ever lost; nothing was fetched either.
@@ -4310,7 +4310,7 @@ async function pullAccountState(){
     const d=res.data;
     applyExtras(lang, d.extras);
     /* Fill only a side that is EMPTY. A side that already holds progress is merged by
-       syncWithRemote when that language is actually entered — with its own normaliser
+       syncWithRemote when that language is actually entered -- with its own normaliser
        loaded, which is what `added` has to be keyed by. Merging it from here would key it
        with the wrong one. */
     if(hasProgressIn(lang)>0) continue;
@@ -4322,9 +4322,9 @@ async function pullAccountState(){
       return v==null || (isArr ? (!Array.isArray(v) || !v.length) : !Object.keys(isObj(v)?v:{}).length); };
     /* יומן התרגול נספר כהתקדמות, בדיוק כמו המילים.
        hasProgressIn סופרת רק מילים עם seen>0, ולכן היא מחזירה 0 גם למי שיש לו יומן
-       תרגול מלא — והשורה הזאת הייתה היחידה כאן בלי בדיקת empty, כך שהיומן נדרס.
+       תרגול מלא · והשורה הזאת הייתה היחידה כאן בלי בדיקת empty, כך שהיומן נדרס.
        המצב הזה אינו תיאורטי: מחיקה בכמות מוחקת את stats.words ואינה נוגעת ב-sessions.
-       מי שתרגל יחידה ואז מחק את המילים שלה נשאר בדיוק כך — יומן בלי מילים — והחיבור
+       מי שתרגל יחידה ואז מחק את המילים שלה נשאר בדיוק כך · יומן בלי מילים · והחיבור
        הבא היה מוחק לו את ימי התרגול ואת הרצף.
        כשיש יומן מקומי לא ממלאים כאן כלום: syncWithRemote תמזג כשנכנסים לשפה, וזה
        הנתיב שיודע למזג באמת במקום להחליף צד אחד בשני. */
@@ -4337,26 +4337,26 @@ async function pullAccountState(){
     if(d.dir && LS.get('hw_dir'+sk,null)==null) LS.set('hw_dir'+sk, d.dir);
     if(lang===LANG) loadLangState();          // the active language is already in memory
   }
-  /* Accounts created before the extras field have no stored test result to restore — but a
+  /* Accounts created before the extras field have no stored test result to restore -- but a
      learner with real history plainly does not need a placement test. */
   if(!levelDone()) for(const lang of ['en','he'])
     if(hasProgressIn(lang)>=10){ LS.set(levelKeyFor(lang),'skipped'); break; }
 }
 
 /* The name appears on two screens and both are the way into the account page, so they are
-   written together — a badge that says one thing on the welcome screen and another on the home
+   written together -- a badge that says one thing on the welcome screen and another on the home
    screen is how "which account am I actually in" becomes a question. */
 function setBadges(text){
   const t=text||'';
   /* ⚠ `#userBadgeM` נוסף ב-11.8. התיעוד שלמעלה אומר במפורש שכל התגים נכתבים יחד,
-     ומסך בחירת התרגול הגיע עם תג משלו שלא נכנס לרשימה — ולכן הוא נשאר ריק אחרי
+     ומסך בחירת התרגול הגיע עם תג משלו שלא נכנס לרשימה · ולכן הוא נשאר ריק אחרי
      שינוי שם. נמדד בציד: `userBadge='NEWNAME'` מול `userBadgeM=''`. */
   ['#userBadge','#userBadgeW','#userBadgeM'].forEach(id=>{ const el=$(id); if(el) el.textContent=t; });
 }
 
 async function afterAuthed(justSignedUp){
   bindCacheToUser(currentUser.id, justSignedUp);   // a fresh account inherits the preview it came from
-  /* השם נקרא מהרשת, ולכן במצב טיסה הוא לא הגיע והוחלף בכתובת המייל — נמדד בטלפון
+  /* השם נקרא מהרשת, ולכן במצב טיסה הוא לא הגיע והוחלף בכתובת המייל · נמדד בטלפון
      ב-2.8. זה נראה כאילו נכנסת לחשבון אחר, וזו ההרגשה הכי גרועה שאפשר לתת למי שפתח
      את האפליקציה בלי רשת.
      hw_name כבר נשמר כאן מאז ומעולם; פשוט אף אחד לא קרא אותו במסלול הכישלון. */
@@ -4367,7 +4367,7 @@ async function afterAuthed(justSignedUp){
       setBadges(p.username);
       LS.set('hw_name', p.username);  // the dashboard greets by name before any network call returns
     } else {
-      /* אין פרופיל ואין שגיאה — משתמש חדש לפני שנוצרה לו שורה. השם השמור עדיף על
+      /* אין פרופיל ואין שגיאה · משתמש חדש לפני שנוצרה לו שורה. השם השמור עדיף על
          המייל, והמייל עדיף על ריק. */
       setBadges(cachedName() || currentUser.email || '');
     }
@@ -4376,12 +4376,12 @@ async function afterAuthed(justSignedUp){
   await showAdminIfAllowed();
   /* BEFORE the subscription gate: a locked user can still press "יציאה", and sign-out writes to
      the cloud. Reaching that write with a device that never fetched the account meant the locked
-     screen's own promise — "שום מילה שלמדת לא נמחקת" — was false. */
+     screen's own promise · "שום מילה שלמדת לא נמחקת" · was false. */
   await pullAccountState();
-  if(!(await accessOk())) return;      // subscription lapsed — the gate owns the screen from here
+  if(!(await accessOk())) return;      // subscription lapsed -- the gate owns the screen from here
   show($('#fbFab'));            // reporting a bug must never be more than one tap away
   /* The level test was being forced on EVERY sign-in. Signing out runs localStorage.clear(),
-     and the cloud copy of the result is only read by syncWithRemote — which needs a language,
+     and the cloud copy of the result is only read by syncWithRemote -- which needs a language,
      which is chosen AFTER this gate. So the gate always read an empty local key and sent the
      learner back through a test they had already finished. The result is now fetched before
      the gate decides, and only a confirmed read counts. */
@@ -4389,19 +4389,19 @@ async function afterAuthed(justSignedUp){
   if(bootTimedOut){ renderWelcome(); }        // the watchdog already placed the user; do not move them
   else if(!levelDone()){ hide($('#lvQuiz')); hide($('#lvResult')); show($('#lvIntro')); goto('level'); }
   else renderWelcome();
-  // With email confirmation on, sign-up never yields a session — so the install offer has to
+  // With email confirmation on, sign-up never yields a session -- so the install offer has to
   // ride on the first successful sign-in, not on the sign-up call.
   if(justSignedUp || !LS.get('hw_instOffered',0)){ LS.set('hw_instOffered',1); setTimeout(()=>promptInstall(false),600); }
   /* שני דברים שונים, ולכן שני תנאים שונים.
      ה-CTA הוא כפתור באפליקציה. לחיצה עליו היא מה שפונה לדפדפן, ולכן הצגתו למי שנכנס
-     היום אינה מסכנת כלום — מי שלא מעוניין פשוט לא לוחץ. קודם הוא הוסתר עד יומיים של
+     היום אינה מסכנת כלום · מי שלא מעוניין פשוט לא לוחץ. קודם הוא הוסתר עד יומיים של
      תרגול, וזה בדיוק מה שהוליד את הדיווח "לא ידעתי שיש התראות": התכונה הייתה קיימת
      ובלתי נראית לכל מי שעדיין לא צבר רצף.
-     הדיאלוג (למטה) הוא ההפך — הוא שואל ביוזמתו, ותשובה שלילית בדפדפן היא לצמיתות.
+     הדיאלוג (למטה) הוא ההפך · הוא שואל ביוזמתו, ותשובה שלילית בדפדפן היא לצמיתות.
      הוא נשאר מאחורי יומיים. */
   setTimeout(()=>{ if(NOTIF.askable()) $('#notifCta').classList.remove('hidden'); }, 1200);
   /* וגם, פעם אחת בלבד: דיאלוג ולא כפתור שורה. משתמשת שתרגלה שבועות דיווחה שלא ידעה
-     שיש התראות — ה-CTA קיים, אבל מי שכבר התרגל למסך מפסיק לסרוק אותו. התנאי זהה
+     שיש התראות · ה-CTA קיים, אבל מי שכבר התרגל למסך מפסיק לסרוק אותו. התנאי זהה
      (askable + שני ימי תרגול), כך שהיגיון "לא לשאול זר" נשמר; מה שמשתנה הוא רק
      שהשאלה נשאלת פעם אחת במקום להמתין שיבחינו בה. */
   setTimeout(()=>{
@@ -4411,7 +4411,7 @@ async function afterAuthed(justSignedUp){
     }
   }, 2000);
   /* Refresh the cached reminder on every sign-in. It used to be written once, while asking for
-     permission, and then never again — so the background worker kept announcing a streak the
+     permission, and then never again -- so the background worker kept announcing a streak the
      learner had left behind months earlier. */
   if(NOTIF.granted()) NOTIF.cacheMessage();
   NOTIF.openTimeNudge();
@@ -4420,7 +4420,7 @@ async function afterAuthed(justSignedUp){
 $('#authForm').addEventListener('submit', async e=>{
   e.preventDefault();
   const email=$('#authEmail').value.trim(), pw=$('#authPassword').value, uname=$('#authUsername').value.trim();
-  /* This used to un-hide the message element BEFORE writing to it — so the text left over from
+  /* This used to un-hide the message element BEFORE writing to it · so the text left over from
      the previous attempt was revealed and sat there for the whole round trip. Signing up with a
      fresh address flashed "אימייל או סיסמה שגויים" for a second before the real answer arrived.
      Never reveal the box without also replacing what is in it. */
@@ -4436,7 +4436,7 @@ $('#authForm').addEventListener('submit', async e=>{
       if(r.error){ msg.className='au-msg err'; msg.textContent=translateAuthError(r.error); return; }
       if(!r.session){                                    // email confirmation required before login
         setAuthMode('signin', true);
-        /* Not a promise. The mail is genuinely sent and genuinely delivered — and twice now it
+        /* Not a promise. The mail is genuinely sent and genuinely delivered -- and twice now it
            landed in spam and was never seen, while this line assured the learner it was on the
            way. Say where to look, in the same breath as "we sent it". */
         msg.className='au-msg ok'; msg.textContent='אשר את המייל, ואז התחבר כאן. אם הוא לא הגיע תוך דקה, בדוק בספאם.';
@@ -4459,7 +4459,7 @@ $('#cheer').onclick=e=>{ if(e.target===$('#cheer')) hide($('#cheer')); };
 $('#mailAskOk').onclick=()=>hide($('#mailAsk'));
 $('#mailAsk').onclick=e=>{ if(e.target===$('#mailAsk')) hide($('#mailAsk')); };
 /* The way out of the dead end. Supabase rate-limits resend per address, so the button is
-   disabled for the whole round trip and re-enabled only on failure — a success that re-enabled
+   disabled for the whole round trip and re-enabled only on failure -- a success that re-enabled
    it would invite the second tap that gets refused, and the learner would read the refusal as
    "it is broken" rather than "it is already on its way". */
 $('#mailAskResend').onclick=async e=>{
@@ -4501,22 +4501,22 @@ $('#authForgot').onclick=async ()=>{
   catch(e){ msg.className='au-msg err'; msg.textContent='שגיאה בשליחה. נסה שוב.'; }
 };
 /* The welcome screen is now a real landing page, so sign-out and the admin panel
-   have to be reachable from it too — not only from inside a language. */
+   have to be reachable from it too -- not only from inside a language. */
 const signOutNow = async ()=>{
   if(!committed && session.size>0) commitSession();
-  /* The local copy is about to be erased, and a debounced push may still be pending — or an
+  /* The local copy is about to be erased, and a debounced push may still be pending -- or an
      earlier one may have failed silently, since pushProgress returns false instead of throwing
      and nothing retried it. Flush once, wait for it, and only then clear. */
-  /* This used to push straight to the cloud with no read and no merge — the single most
+  /* This used to push straight to the cloud with no read and no merge -- the single most
      destructive moment to do that, since localStorage.clear() below removes the only other
      copy. Routed through flushRemoteSync, which reads and merges first when this language has
      not been reconciled yet, and refuses to write at all after a failed read. */
-  /* If the save did not land, the device holds the ONLY copy — so it is not erased. Keeping it
+  /* If the save did not land, the device holds the ONLY copy -- so it is not erased. Keeping it
      is safe: bindCacheToUser() wipes the cache the moment a different account signs in, so the
      next user still cannot see it, while this user keeps the round they just finished. */
-  /* בלי חשבון אין עותק בענן, ולכן אין מה "לשמור" לפני מחיקה — ו-localStorage.clear() למטה
+  /* בלי חשבון אין עותק בענן, ולכן אין מה "לשמור" לפני מחיקה · ו-localStorage.clear() למטה
      הוא אובדן נקי. `saved` התחיל כ-true, ומצב הצצה מדלג על ה-if שמתחתיו, ולכן לחיצה על
-     "התנתקות" במסך ההגדרות מחקה בדיוק את ההתקדמות שהפס הזהוב מבטיח שתעבור לחשבון —
+     "התנתקות" במסך ההגדרות מחקה בדיוק את ההתקדמות שהפס הזהוב מבטיח שתעבור לחשבון · 
      בלי שאלה ובלי דרך חזרה.
      ה-else שכבר קיים למטה הוא התשובה הנכונה: מכשיר שמחזיק את העותק היחיד אינו נמחק. */
   let saved=!!currentUser;
@@ -4527,12 +4527,12 @@ const signOutNow = async ()=>{
       /* ועכשיו השפה השנייה.
          flushRemoteSync דוחפת תמיד את LANG בלבד, ולכן עבודה ממתינה בשפה השנייה הייתה
          *חוסמת* את הניקוי למטה בלי להיפתר לעולם: הבדיקה `!syncPending.he && !syncPending.en`
-         שומרת עליה מפני מחיקה — וזה נכון — אבל היא נשארה תקועה על המכשיר הזה בלבד, בלתי
+         שומרת עליה מפני מחיקה · וזה נכון · אבל היא נשארה תקועה על המכשיר הזה בלבד, בלתי
          נראית לכל מכשיר אחר, והמטמון של חשבון שהתנתקנו ממנו נשאר שוכב עליו.
          כאן זה המקום היחיד שבו מותר להחליף את LANG ולטעון מצב אחר מתחת לרגליים, כי השורה
-         האחרונה בפונקציה היא location.reload() — אין קוד שימשיך לרוץ על הגלובלים האלה.
+         האחרונה בפונקציה היא location.reload() · אין קוד שימשיך לרוץ על הגלובלים האלה.
          ה-try הפנימי בולע: כישלון כאן אינו הופך את saved לכוזב, כי saved עונה על שאלה
-         אחרת (האם השפה הפעילה נשמרה). הכישלון מטופל ממילא בשער שלמטה — syncPending[other]
+         אחרת (האם השפה הפעילה נשמרה). הכישלון מטופל ממילא בשער שלמטה · syncPending[other]
          נשאר דלוק, ולכן המטמון לא יימחק, בדיוק כמו קודם.
          זה כן מרחיב את המקרים שבהם המחיקה כן קורית, וזו הכוונה: flushRemoteSync מחזירה
          true רק אחרי ש-Store.pushProgress אישרה שהכתיבה נחתה. */
@@ -4546,12 +4546,12 @@ const signOutNow = async ()=>{
   }catch(e){ saved=false; }
   try{ await Store.signOut(); }catch(e){}
   hide($('#fbFab'));
-  // the cached reminder names the previous learner's streak — it is account data, not an asset
+  // the cached reminder names the previous learner's streak -- it is account data, not an asset
   try{ if(window.caches) await caches.delete('hw-data'); }catch(e){}
-  /* flushRemoteSync דוחף את השפה הפעילה בלבד, אבל localStorage.clear() מוחק את שתיהן —
+  /* flushRemoteSync דוחף את השפה הפעילה בלבד, אבל localStorage.clear() מוחק את שתיהן · 
      ולכן "נשמר" של שפה אחת מעולם לא היה רישיון למחוק את השנייה. התרחיש שנצפה בקוד:
      סבב עברית שדחיפתו נכשלה (או בוטלה במעבר שפה, כשהגארד `lang!==LANG` עוצר אותה),
-     מעבר לאנגלית, ואז התנתקות — ה-flush האנגלי מצליח, `saved` הופך ל-true, והעותק
+     מעבר לאנגלית, ואז התנתקות · ה-flush האנגלי מצליח, `saved` הופך ל-true, והעותק
      היחיד של הסבב העברי נמחק. הכלל שכבר כתוב כאן, "מכשיר שמחזיק את העותק היחיד אינו
      נמחק", חייב לחול על **שתי** השפות ולא רק על הפעילה. */
   if(saved && !syncPending.he && !syncPending.en) localStorage.clear(); // the cache belongs to this account; never let it bleed into the next login
@@ -4559,30 +4559,30 @@ const signOutNow = async ()=>{
   location.reload();
 };
 /* מוקד אחד להתנתקות, באזור המסוכן שבהגדרות. קודם היו ארבעה כפתורי "יציאה" בארבע
-   שורות עליונות — ליד "בקרה" ו"החלף שפה", כלומר בין כפתורי ניווט, ובמרחק לחיצה אחת
+   שורות עליונות · ליד "בקרה" ו"החלף שפה", כלומר בין כפתורי ניווט, ובמרחק לחיצה אחת
    בטעות ממסך התחברות. */
 $('#accSignOut').onclick = signOutNow;
 
 /* ===== account screen =====
-   Tapping your own name opens it. For an admin the same tap opens the control centre instead —
+   Tapping your own name opens it. For an admin the same tap opens the control centre instead -- 
    an admin has no use for "install the app" and every use for the list of who signed up. */
 async function openAccount(tab){
-  /* הדלת קובעת את הלשונית: לחיצה על השם פותחת בפרופיל, ⚙ פותח בהגדרות. מי שלא ציין —
+  /* הדלת קובעת את הלשונית: לחיצה על השם פותחת בפרופיל, ⚙ פותח בהגדרות. מי שלא ציין · 
      נשאר במה שהיה פתוח, כדי שחזרה למסך לא תזרוק אותו ללשונית אחרת. */
   if(tab==='profile'||tab==='settings') accTab=tab;
   /* Admins used to be bounced straight to the control panel, which meant the owner could never
-     reach his own settings — no reminder toggle, no progress, no weak-words sheet. He practises
+     reach his own settings -- no reminder toggle, no progress, no weak-words sheet. He practises
      too. The panel is now one row inside this screen instead of a redirect away from it. */
   $('#accAdmin').classList.toggle('hidden', !isAdmin);
-  const mail=(currentUser&&currentUser.email)||'—';
+  const mail=(currentUser&&currentUser.email)||'–';
   $('#accName').textContent = (LS.get('hw_name','')||'').trim() || 'החשבון שלי';
   $('#accMail').textContent = mail;
   $('#accMail2').textContent = mail;
-  $('#accUser').textContent = (LS.get('hw_name','')||'—');
-  $('#accSince').textContent = '—';
+  $('#accUser').textContent = (LS.get('hw_name','')||'–');
+  $('#accSince').textContent = '–';
   $('#accSub').textContent = 'טוען…';
   /* Install is pointless once the app IS installed. Unlike the home-screen CTA this one is NOT
-     hidden after a dismissal — the whole point of moving it here is that a settings page is
+     hidden after a dismissal -- the whole point of moving it here is that a settings page is
      where you go looking for something you said "not now" to. */
   $('#accInstall').classList.toggle('hidden', isStandalone() || LS.get('hw_installed',0)===1);
   renderAccNotif();
@@ -4598,7 +4598,7 @@ async function openAccount(tab){
     } else $('#accSub').textContent='פתוח';
   }catch(e){ $('#accSub').textContent='לא ידוע'; }
 }
-/* ===== כרטיס המילה — חיווט ===== */
+/* ===== כרטיס המילה · חיווט ===== */
 $('#wcReveal').onclick=()=>{
   $('#wcReveal').classList.add('hidden');
   $('#wcMean').classList.remove('hidden');
@@ -4606,7 +4606,7 @@ $('#wcReveal').onclick=()=>{
 };
 $('#wcNext').onclick=()=>{ wcOffset++; renderWordCard(); };
 $('#wcClose').onclick=()=>{ wcDismiss(); renderWordCard(); };
-/* "תרגל מילים כאלה" פותח סבב מאותו סוג שהכרטיס הציג — חלשות אם הוא הציג חלשה, חדשות
+/* "תרגל מילים כאלה" פותח סבב מאותו סוג שהכרטיס הציג · חלשות אם הוא הציג חלשה, חדשות
    אם חדשה. סבב של מילה בודדת אינו תרגול, והכרטיס הוא הזמנה ולא היעד. */
 $('#wcPractice').onclick=()=>{
   const pool=wcPool();
@@ -4616,16 +4616,16 @@ $('#wcPractice').onclick=()=>{
      שום קשר למה שהסתכל עליו רגע קודם. */
   const rest=pool.filter(x=>x!==p.w);
   startRound(cap([p.w, ...shuffle(rest)], 20), 'global', 'wcard');
-  /* startRound מערבב את החפיסה תמיד (app.js:977), ובצדק — סדר קבוע מלמד את הסדר במקום
+  /* startRound מערבב את החפיסה תמיד (app.js:977), ובצדק · סדר קבוע מלמד את הסדר במקום
      את המילים. אבל מי שלחץ על מילה מסוימת מצפה לפגוש אותה, ולא סבב אקראי שאין לו קשר
      נראה לעין למה שהסתכל עליו רגע קודם. במקום לשנות את startRound ולשבור את הערבוב לכל
-     המסלולים האחרים, המילה מוקפצת לראש החפיסה אחרי הערבוב — שינוי מקומי לנתיב הזה בלבד. */
+     המסלולים האחרים, המילה מוקפצת לראש החפיסה אחרי הערבוב · שינוי מקומי לנתיב הזה בלבד. */
   const at=deck.findIndex(c=>K(c.term)===K(p.w.term));
   if(at>0){ deck.unshift(deck.splice(at,1)[0]); idx=0; renderCard(); }
 };
 /* ===== דיאלוג ההתראות ===== */
 /* "לא עכשיו" סוגר בלי לבקש הרשאה. זה מכוון: לחיצה על "לא" בדפדפן היא דחייה קבועה שאי
-   אפשר לבטל מהקוד, ולכן עדיף שהתשובה השלילית תישאר בתוך האפליקציה — ה-CTA במסך הבית
+   אפשר לבטל מהקוד, ולכן עדיף שהתשובה השלילית תישאר בתוך האפליקציה · ה-CTA במסך הבית
    נשאר זמין למי שישנה את דעתו. */
 $('#notifAskNo').onclick=()=>hide($('#notifAsk'));
 $('#notifAsk').onclick=e=>{ if(e.target===$('#notifAsk')) hide($('#notifAsk')); };
@@ -4635,8 +4635,8 @@ $('#notifAskYes').onclick=async()=>{
   if(NOTIF.granted()){ NOTIF.cacheMessage(); toast('נהדר. נזכיר לך מחר בבוקר'); $('#notifCta').classList.add('hidden'); }
 };
 /* ===== דיאלוג קבוצת הוואטסאפ ===== */
-/* הדגל hw_waOffered כבר נכתב ברגע ההצגה (maybeOfferWhatsapp), ולכן כל מסלול סגירה — X,
-   "לא עכשיו", לחיצה מחוץ לתיבה, או Escape — פשוט מסתיר בלי לגעת בדגל. הכפתור הראשי הוא
+/* הדגל hw_waOffered כבר נכתב ברגע ההצגה (maybeOfferWhatsapp), ולכן כל מסלול סגירה · X,
+   "לא עכשיו", לחיצה מחוץ לתיבה, או Escape · פשוט מסתיר בלי לגעת בדגל. הכפתור הראשי הוא
    קישור <a> שפותח את הוואטסאפ מעצמו; ה-onclick רק סוגר את השכבה שמאחוריו. */
 $('#vidAskNo').onclick=()=>hide($('#vidAsk'));
 $('#vidAskX').onclick=()=>hide($('#vidAsk'));
@@ -4648,7 +4648,7 @@ $('#waAskGo').onclick=()=>hide($('#waAsk'));
 $('#waAsk').onclick=e=>{ if(e.target===$('#waAsk')) hide($('#waAsk')); };
 $('#userBadge2').onclick = ()=>openAccount('profile');
 $('#userBadge3').onclick = ()=>openAccount('profile');
-/* הדלת השנייה. הראשונה — לחיצה על השם — נשארת, כי מי שכבר מצא אותה לא צריך ללמוד מחדש;
+/* הדלת השנייה. הראשונה · לחיצה על השם · נשארת, כי מי שכבר מצא אותה לא צריך ללמוד מחדש;
    היא פשוט הפסיקה להיות היחידה. משתמשת דיווחה שלא ידעה שיש הגדרות באפליקציה בכלל. */
 $('#setBtn').onclick  = ()=>openAccount('settings');
 $('#setBtnW').onclick = ()=>openAccount('settings');
@@ -4662,7 +4662,7 @@ $('#accBack').onclick = ()=>{
   goBack();
 };
 /* ===== the exam date =====
-   Stored per ACCOUNT, not per language — a person sits one psychometric exam. Kept in the
+   Stored per ACCOUNT, not per language -- a person sits one psychometric exam. Kept in the
    extras blob so it rides the existing cross-device sync instead of needing a column. */
 const EXAM_KEY='hw_examDate';
 const examDays = ()=>{
@@ -4671,14 +4671,14 @@ const examDays = ()=>{
   const [y,m,d]=v.split('-').map(Number);
   /* A difference of CALENDAR days, not of milliseconds. Math.ceil over the fraction of a day
      left until 23:59 of the exam date reported 1 all through the exam day itself and 0 on the
-     day after — the banner said "the exam is today" twenty-four hours late, every time.
+     day after -- the banner said "the exam is today" twenty-four hours late, every time.
      Both ends are pinned to local midnight and rounded, so the 23- and 25-hour days that
      daylight saving produces cannot push the answer off by one either. */
   const t0=new Date(); t0.setHours(0,0,0,0);
   const t=new Date(y,m-1,d); t.setHours(0,0,0,0);
   return { date:v, days: Math.round((t.getTime()-t0.getTime())/864e5) };
 };
-/* ציון הדרך: מה עושים בטווח הזה, לא כמה נשאר — המספרים כבר אומרים את זה.
+/* ציון הדרך: מה עושים בטווח הזה, לא כמה נשאר · המספרים כבר אומרים את זה.
    הניסוח נשען על הלקסיקון של המסך ("מילים שטרם תרגלת", "לחיזוק", "בשליטה") כדי
    שלא ייווצר מונח חדש למושג קיים. הטווחים הם אלה שנקבעו: 30+ · 14–30 · 7–13 · 1–6 · 0. */
 const examTip = d =>
@@ -4721,7 +4721,7 @@ function renderExamPill(){
   const e=examDays();
   if(!e || e.days > 400){ host.classList.add('hidden'); return; }
   /* התאריך עבר: קודם השורה פשוט נעלמה, וזה קרא כאילו האפליקציה שכחה את המועד שהוגדר.
-     נבחנים ניגשים שוב, ולכן זו הזמנה לעדכן — ולחיצה פותחת את ההגדרות במקום לשלוח לחפש. */
+     נבחנים ניגשים שוב, ולכן זו הזמנה לעדכן · ולחיצה פותחת את ההגדרות במקום לשלוח לחפש. */
   if(e.days < 0){
     host.innerHTML = '<span>מועד המבחן שהגדרת עבר · לחץ לעדכון המועד הבא</span>';
     host.onclick = ()=>openAccount();
@@ -4731,14 +4731,14 @@ function renderExamPill(){
   }
   const c=classify('global');
   const left=c.fresh+c.weak;
-  /* "1 ימים" אינו עברית, וזה ההבדל בין ספירה אישית לבין מחרוזת שהורכבה במכונה — ביום
+  /* "1 ימים" אינו עברית, וזה ההבדל בין ספירה אישית לבין מחרוזת שהורכבה במכונה · ביום
      שלפני המבחן, הרגע הכי טעון. שורת "תרגול N מילים ביום" נעלמת ביום ובמחר: היא מחלקת
-     במספר הימים, וביום אחד היא מחזירה את כל המאגר ליום — ערך אבסורדי, ולכן אין שורה. */
+     במספר הימים, וביום אחד היא מחזירה את כל המאגר ליום · ערך אבסורדי, ולכן אין שורה. */
   const soon = e.days===0 ? `המבחן <em>היום</em> · בהצלחה`
              : e.days===1 ? `המבחן <em>מחר</em> · <em>${left}</em> מילים שטרם תרגלת`
              : null;
   /* ציון הדרך יורד לשורה נפרדת ושקטה: הוא מדבר על אופן העבודה, לא על המספרים,
-     ואילו נדחס לאותה שורה הוא היה חלק רביעי בשרשרת שכבר ארוכה. ביום המבחן אין טיפ —
+     ואילו נדחס לאותה שורה הוא היה חלק רביעי בשרשרת שכבר ארוכה. ביום המבחן אין טיפ · 
      "בהצלחה" הוא כל מה שיש לומר. */
   const tip=examTip(e.days);
   host.innerHTML = (soon ? `<span>${soon}</span>`
@@ -4752,11 +4752,11 @@ function renderExamPill(){
 $('#accAdmin').onclick = ()=>openAdmin();
 $('#accInstall').onclick = ()=>promptInstall(true);
 
-/* Where am I — answered on the settings page, not only inside a language. Hidden entirely when
+/* Where am I -- answered on the settings page, not only inside a language. Hidden entirely when
    no language has been entered yet: zeros across the board on a first visit read as a broken
    screen, not as a starting point. */
 /* A ring per language, not one strip for whichever language happens to be open.
-   The old version read classify('global'), which only ever sees the ACTIVE language — so
+   The old version read classify('global'), which only ever sees the ACTIVE language -- so
    someone who had learned 244 Hebrew words and 300 English ones was shown 244 and no hint
    that the other half existed. Both are always drawn now, and the one you are not in is
    still a live button into it.
@@ -4806,7 +4806,7 @@ function renderAccProgress(){
   });
   const weak = (LANG==='en'?en:he).weak;
   /* langSummary מחזיר `learned`, לא `strong`. השדה השני קיים ב-classify() ולא כאן,
-     והבלבול ביניהם החזיר undefined בשקט — הכפתור הציג "עדיין אין מילים בשליטה"
+     והבלבול ביניהם החזיר undefined בשקט · הכפתור הציג "עדיין אין מילים בשליטה"
      ללומד עם 30 מילים. נתפס במדידה בדפדפן, לא בקריאה. */
   const solid = (LANG==='en'?en:he).learned;
   const rn=$('#accReviewN'); if(rn) rn.textContent = solid || '‹';
@@ -4846,7 +4846,7 @@ function renderAccNotif(){
     sub.textContent = isIOS() && !isStandalone()
       ? 'זמינה אחרי שתתקין את האפליקציה למסך הבית'
       : 'חסומה. ניתן להחזיר דרך הגדרות האתר בדפדפן';
-    st.textContent='—'; st.style.color=''; row.disabled=true;
+    st.textContent='–'; st.style.color=''; row.disabled=true;
   }
 }
 $('#accNotif').onclick = async ()=>{
@@ -4859,7 +4859,7 @@ $('#accNotif').onclick = async ()=>{
 /* ===== deleting the account =====
    Two things this must not be: a confirm() that the same reflex dismisses, and a button that
    only clears the DATA. The first is why the gate is typing your own address; the second is
-   why it goes through an Edge Function — see store.deleteMyAccount. */
+   why it goes through an Edge Function -- see store.deleteMyAccount. */
 $('#accDelete').onclick = ()=>{
   const mail=(currentUser&&currentUser.email)||'';
   if(!mail){ toast('צריך להתחבר כדי למחוק את החשבון. התחבר ונסה שוב'); return; }
@@ -4888,7 +4888,7 @@ $('#delGo').onclick = async ()=>{
       : (r.error && r.error.message) || 'המחיקה נכשלה. נסה שוב.';
     btn.disabled=false; return;
   }
-  /* The account is gone on the server. Everything local must go too, and the session with it —
+  /* The account is gone on the server. Everything local must go too, and the session with it -- 
      leaving a stale token behind means the next load tries to use an identity that no longer
      exists, and the error that comes back is unreadable. */
   try{ await Store.signOut(); }catch(e){}
@@ -4949,8 +4949,8 @@ if($('#wtpAsk')){
       wtpSyncGo();
     };
   });
-  /* ✕ counts as "asked" and is written as dismissed:true. It is a data point of its own — how
-     many people did not want the question at all — and it is also what stops the card coming
+  /* ✕ counts as "asked" and is written as dismissed:true. It is a data point of its own -- how
+     many people did not want the question at all -- and it is also what stops the card coming
      back on the next round. Closing must never block the screen, so the write is not awaited. */
   const closeWtp = ()=>{
     hide($('#wtpAsk'));
@@ -4972,7 +4972,7 @@ if($('#wtpAsk')){
     }catch(e){}
     hide($('#wtpAsk'));
     btn.textContent='שלח תשובה';
-    /* Thanked either way. A learner who answered honestly should not be told the write failed —
+    /* Thanked either way. A learner who answered honestly should not be told the write failed -- 
        there is nothing they can do about it, and the round they just finished is the screen
        they came back to. The failure is ours to see in the empty table, not theirs. */
     toast(ok ? 'תודה · זה עוזר לי מאוד' : 'תודה');
@@ -4981,14 +4981,14 @@ if($('#wtpAsk')){
 // the account screen's own sheet is the cross-unit one; per-unit sheets live inside a unit
 /* חזרה חוצת-יחידות. הכפתור בתוך יחידה מתרגל את מילות אותה יחידה בלבד, ומי שלמד לאורך
    עשר יחידות לא יכול היה לחזור על הכול. אותו startRound ואותו askSize כמו כל שאר
-   המסלולים — סבב חזרה אינו סוג אחר של תרגול. */
+   המסלולים · סבב חזרה אינו סוג אחר של תרגול. */
 /* ===== שתי הלשוניות של מסך החשבון =====
    הרשימות הן מקור האמת היחיד, ולא מחלקה שמפוזרת על עשרה אלמנטים ב-HTML. אלמנט שנוסף
-   למסך ולא נרשם כאן נשאר גלוי בשתי הלשוניות — נראה לעין מיד, ולא נעלם בשקט.
+   למסך ולא נרשם כאן נשאר גלוי בשתי הלשוניות · נראה לעין מיד, ולא נעלם בשקט.
    תאריך המבחן שייך לפרופיל ולא להגדרות: הוא נתון על הלמידה, לא העדפה. */
 const ACC_TABS = {
   profile:  ['accProg','accReview','accLearnedSheet','accSheet','accExamRow'],
-  /* מבחן הרמה נרשם כאן ולא בפרופיל: הוא פעולה שמשנה נתון, לא תצוגה שלו — ובעיקר, זו
+  /* מבחן הרמה נרשם כאן ולא בפרופיל: הוא פעולה שמשנה נתון, לא תצוגה שלו · ובעיקר, זו
      הבקשה עצמה. שורה שלא נרשמת ברשימה הזאת נשארת גלויה בשתי הלשוניות. */
   settings: ['accNotif','accInstall','accWhat','accLevelHe','accLevelEn','accAdmin',
              'accSignOut','accReset','accDelete'],
@@ -4998,11 +4998,11 @@ function renderAccTab(){
   for(const [tab, ids] of Object.entries(ACC_TABS))
     for(const id of ids){
       const el=$('#'+id); if(!el) continue;
-      /* accProg ו-accAdmin מוסתרים מסיבות משלהם — ריק ולא-אדמין. הלשונית לא מבטלת את
+      /* accProg ו-accAdmin מוסתרים מסיבות משלהם · ריק ולא-אדמין. הלשונית לא מבטלת את
          ההסתרה הזאת, היא רק מוסיפה עליה. */
       el.classList.toggle('tab-off', tab!==accTab);
     }
-  /* אזור מסוכן למי שאין לו חשבון. במצב הצצה PREVIEW מסנן את היחידות בלבד — כל השאר פתוח,
+  /* אזור מסוכן למי שאין לו חשבון. במצב הצצה PREVIEW מסנן את היחידות בלבד · כל השאר פתוח,
      כולל "התנתקות", "אפס התקדמות" ו"מחק חשבון", למי שאין לו חשבון למחוק. שלושתם רק מוחקים
      מקומית, ולכן הם לא פעולה שהוא יכול לרצות. */
   if(PREVIEW) for(const id of ['accSignOut','accReset','accDelete'])
@@ -5034,10 +5034,10 @@ $('#accSheet').onclick = ()=>{
 };
 
 /* The survey's biggest finding was that eight capabilities people asked for ALREADY EXIST and
-   nobody knows about them. They are listed on the landing page — which is shown once, to people
+   nobody knows about them. They are listed on the landing page -- which is shown once, to people
    who do not have an account yet, and is unreachable forever after. Every existing user signed
    up before it existed and has never seen it. So the page is not missing; the way back to it is.
-   Reached while signed in, its two sign-up CTAs make no sense — hidden, with a way back instead. */
+   Reached while signed in, its two sign-up CTAs make no sense -- hidden, with a way back instead. */
 function openWhatItDoes(){
   hide($('#introCta'));
   show($('#introTop'));
@@ -5055,13 +5055,13 @@ $('#accReset').onclick = async ()=>{
   const btn=$('#accReset'); btn.disabled=true;
   try{
     /* The cloud row is emptied FIRST. Clearing the device and then failing to reach the server
-       would leave the old progress in the cloud, and the next sync would pull it all back —
+       would leave the old progress in the cloud, and the next sync would pull it all back -- 
        a reset that silently undoes itself is worse than one that fails loudly. */
     /* The return value is READ. pushProgress reports a refusal by returning false, not by
        throwing, so the catch below could never fire on the failure that matters: the device was
        wiped while the cloud still held everything, the toast said "ההתקדמות אופסה", and the next
        sync pulled it all back. A reset that silently undoes itself is worse than one that fails
-       loudly — which is the same reasoning the comment above already gives for the ordering. */
+       loudly · which is the same reasoning the comment above already gives for the ordering. */
     for(const lang of ['he','en']){
       const ok = await Store.pushProgress(lang, {assoc:{}, stats:{words:{},sessions:[]}, deleted:[], added:[],
                                                  dir:DEFAULT_DIR, extras:{}}, currentUser && currentUser.id);
@@ -5086,7 +5086,7 @@ $('#accReset').onclick = async ()=>{
      or a push server holding VAPID keys. There is no push server yet, so the third path is
      the app itself: on open, if it is morning and today has no practice, remind. */
 /* applicationServerKey חייב להיות בתים גולמיים. מחרוזת base64url נבלעת בלי שגיאה
-   בחלק מהדפדפנים ומייצרת מנוי שלעולם לא יקבל דבר — כשל שקט, ולכן ההמרה מפורשת. */
+   בחלק מהדפדפנים ומייצרת מנוי שלעולם לא יקבל דבר · כשל שקט, ולכן ההמרה מפורשת. */
 function urlB64ToBytes(s){
   const p = String(s).replace(/-/g,'+').replace(/_/g,'/');
   const bin = atob(p + '='.repeat((4 - (p.length % 4)) % 4));
@@ -5099,7 +5099,7 @@ const NOTIF = {
   supported(){ return typeof Notification !== 'undefined' && 'serviceWorker' in navigator; },
   askable(){
     if(!this.supported()) return false;
-    if(Notification.permission !== 'default') return false;   // granted or denied — both final
+    if(Notification.permission !== 'default') return false;   // granted or denied -- both final
     if(isIOS() && !isStandalone()) return false;              // Safari tab: the API would throw
     return true;
   },
@@ -5114,11 +5114,11 @@ const NOTIF = {
     return p==='granted';
   },
 
-  /* Web Push — הערוץ היחיד שמגיע לאייפון כשהאפליקציה סגורה.
+  /* Web Push · הערוץ היחיד שמגיע לאייפון כשהאפליקציה סגורה.
      periodicSync למעלה הוא Chrome/אנדרואיד בלבד, ולכן על iOS ההתראה הגיעה עד היום רק
-     כשהאפליקציה נפתחה — כלומר רק למי שכבר חזר, ולא למי שהפסיק.
+     כשהאפליקציה נפתחה · כלומר רק למי שכבר חזר, ולא למי שהפסיק.
 
-     נכשל בשקט בכוונה: אין מפתח VAPID, אין רשת, הדפדפן אינו תומך — כל אלה אינם תקלה
+     נכשל בשקט בכוונה: אין מפתח VAPID, אין רשת, הדפדפן אינו תומך · כל אלה אינם תקלה
      שהלומד יכול לעשות איתה משהו, וההתראה עדיין תעבוד דרך שני הערוצים האחרים. */
   async subscribePush(){
     try{
@@ -5135,7 +5135,7 @@ const NOTIF = {
     }catch(e){ return false; }
   },
 
-  /* Chrome only, and only for an installed PWA. Silently unavailable elsewhere — that is
+  /* Chrome only, and only for an installed PWA. Silently unavailable elsewhere -- that is
      expected, not an error, so it never surfaces to the user. */
   async registerPeriodic(){
     try{
@@ -5151,7 +5151,7 @@ const NOTIF = {
   /* The service worker wakes up with no access to localStorage, so the message it should
      show is written into the cache while the page is alive. */
   /* Caches FACTS, not a finished sentence.
-     It used to cache the composed text, and only at the moment permission was granted — so the
+     It used to cache the composed text, and only at the moment permission was granted · so the
      worker went on announcing "3 ימים ברצף" months after the streak had ended, and a learner
      who had been away for a week was greeted as though they had practised yesterday. The
      numbers are written after every round now, and the wording is decided when it fires. */
@@ -5166,7 +5166,7 @@ const NOTIF = {
   facts(){
     const he=langSummary('he'), en=langSummary('en');
     /* Straight off the session log. practiceDays() returns dayKey strings like "2026-8-1",
-       and Date.parse on an unpadded string is implementation-dependent — the raw `t` is
+       and Date.parse on an unpadded string is implementation-dependent -- the raw `t` is
        already a millisecond number, so there is nothing to parse. */
     let last=0, weak=0;
     for(const key of ['hw_stats','hw_stats_en']){
@@ -5175,7 +5175,7 @@ const NOTIF = {
       const arr=Array.isArray(s.sessions)?s.sessions:[];
       for(const x of arr){ const t=Number(isObj(x)&&x.t); if(t>last) last=t; }
       const w=isObj(s.words)?s.words:{};
-      // weak = met, not yet solid, and not a level-test skip — the same rule the app uses
+      // weak = met, not yet solid, and not a level-test skip -- the same rule the app uses
       for(const r of Object.values(w))
         if(isObj(r) && r.src!=='lv' && int0(r.seen)>0 && int0(r.level)<3) weak++;
     }
@@ -5187,7 +5187,7 @@ const NOTIF = {
     const d = f || this.facts();
     const DAY=864e5;
     const away = d.last ? Math.floor((Date.now()-d.last)/DAY) : -1;
-    // The gap decides the words. Someone two days out does not need a streak reminder —
+    // The gap decides the words. Someone two days out does not need a streak reminder -- 
     // they need a reason to come back and a job small enough to say yes to.
     if(away >= 14) return { title:'מילים לחיזוק',
       body: d.learned ? `${d.learned} מילים שלמדת עדיין כאן. סבב אחד מחזיר אותך לקצב.`
@@ -5210,10 +5210,10 @@ const NOTIF = {
     if(h < 6 || h > 12) return;
     const today = dayKey(Date.now());
     if(LS.get('hw_notifDay','') === today) return;
-    if(streakInfo().today) return;                 // already practised — nothing to nudge
+    if(streakInfo().today) return;                 // already practised -- nothing to nudge
     /* The day is marked only once the notification has actually been shown. Marking it first
-       and swallowing the rejection meant a failure — the worker not ready yet on a cold open,
-       or permission revoked at OS level — burned the day silently and there was no way to
+       and swallowing the rejection meant a failure -- the worker not ready yet on a cold open,
+       or permission revoked at OS level -- burned the day silently and there was no way to
        tell the path had stopped working at all. */
     const m = this.compose();
     navigator.serviceWorker.ready
@@ -5238,7 +5238,7 @@ const FREE_PHASE = true;
    hasAccess() משווה את sub_until ל-Date.now(), כלומר לשעון של הטלפון. מי שמזיז את
    השעון אחורה מאריך לעצמו את המנוי. כל עוד אין תשלום זו בעיה תיאורטית; ביום שיהיה,
    זו דלת פתוחה. my_entitlement() (migrations/11.sql) חותכת את זה בשרת ומחזירה גם
-   offline_until — **השרת אומר בעצמו** כמה זמן מותר לסמוך על התשובה בלי רשת.
+   offline_until · **השרת אומר בעצמו** כמה זמן מותר לסמוך על התשובה בלי רשת.
 
    שלושה ערכים ולא שניים. null אינו "אין גישה" אלא "לשרת אין תשובה עכשיו", ואז
    חוזרים ל-hasAccess הקיימת. זה מהותי: השער הזה נכשל־פתוח בכוונה, והאפליקציה היא
@@ -5249,13 +5249,13 @@ function entVerdict(ent, now){
   if(!ent || typeof ent.access!=='boolean') return null;
   if(ent.offline_until){
     const t=new Date(ent.offline_until).getTime();
-    /* תאריך שאי אפשר לפענח אינו נועל — אותו כלל שכבר חל על sub_until למטה. */
+    /* תאריך שאי אפשר לפענח אינו נועל · אותו כלל שכבר חל על sub_until למטה. */
     if(!isNaN(t) && now > t) return null;
   }
   return ent.access;
 }
 /* מושכת את התשובה מהשרת ושומרת אותה. נכשלת בשקט בכוונה: אין רשת, או שהפונקציה עוד
-   לא נפרסה (42883) — בשני המקרים המסלול הישן ממשיך לעבוד כאילו לא קרה דבר. */
+   לא נפרסה (42883) · בשני המקרים המסלול הישן ממשיך לעבוד כאילו לא קרה דבר. */
 async function refreshEntitlement(){
   try{
     const ent = await Store.myEntitlement();
@@ -5264,13 +5264,13 @@ async function refreshEntitlement(){
   return LS.get(ENT_KEY, null);
 }
 async function accessOk(){
-  /* השרת קודם. רק אם אין לו תשובה תקפה — נופלים למסלול המקומי שמתחת. */
+  /* השרת קודם. רק אם אין לו תשובה תקפה · נופלים למסלול המקומי שמתחת. */
   const ent = await refreshEntitlement();
   const verdict = entVerdict(ent, Date.now());
   if(verdict===true) return true;
   if(verdict===false){
     /* השרת הכריע. showLocked צריכה שדות מהפרופיל לניסוח הסיבה, ולכן היא עדיין
-       נמשכת — אבל היא כבר לא זו שמכריעה. */
+       נמשכת · אבל היא כבר לא זו שמכריעה. */
     let pr=null; try{ pr=await Store.myProfile(); }catch(e){}
     showLocked(pr || { sub_status: ent && ent.status, sub_until: ent && ent.until });
     return false;
@@ -5278,7 +5278,7 @@ async function accessOk(){
   let p=null;
   try{ p=await Store.myProfile(); }catch(e){ return true; }
   /* Deliberately fail-open: a missing profile means the subscription columns aren't deployed
-     yet, or the sign-up trigger did not fire — locking a paying learner out over our own
+     yet, or the sign-up trigger did not fire -- locking a paying learner out over our own
      infrastructure fault is worse than a free day. The one path that USED to manufacture a
      missing profile on purpose (adminDeleteUserData) now clears the row instead of deleting it. */
   if(!p || p.sub_status===undefined) return true;
@@ -5286,7 +5286,7 @@ async function accessOk(){
   /* FREE PHASE. There is no payment mechanism yet and the app is deliberately free while it
      collects users. A brand-new account is created with sub_status='none' (the column default),
      so WITHOUT this line every tester who confirms their email lands straight on the locked
-     screen — which reads as "your email is blocked" and ends their session there.
+     screen -- which reads as "your email is blocked" and ends their session there.
      'none' means "never paid", not "was cut off": past_due and canceled are explicit decisions
      by you and stay locked. Flip this to false the day billing goes live. */
   if(FREE_PHASE && p.sub_status==='none') return true;
@@ -5305,7 +5305,7 @@ function showLocked(p){
   goto('locked');
 }
 
-/* ===== admin dashboard — who signed up, when, how far they got.
+/* ===== admin dashboard -- who signed up, when, how far they got.
    Deliberately has no way to reveal a password: none is stored in readable form. ===== */
 let isAdmin=false;
 async function showAdminIfAllowed(){
@@ -5318,13 +5318,13 @@ async function showAdminIfAllowed(){
 
 /* ===== the open-reports badge =====
    There is no email notification: a report lands in the feedback table and waits there silently.
-   So the count has to travel to where the eye already goes — the "בקרה" button on the topbar,
+   So the count has to travel to where the eye already goes · the "בקרה" button on the topbar,
    which is on screen every time the app opens. Zero means no badge at all; an empty circle
    would train the eye to ignore it, and then a real report would be ignored with it. */
 async function refreshFbBadge(){
   if(!isAdmin) return;
   const n=await Store.countOpenFeedback();
-  if(n===null) return;                       // table missing or offline — leave the last known count
+  if(n===null) return;                       // table missing or offline -- leave the last known count
   for(const id of ['#adminBtn','#adminBtn2']){
     const b=$(id); if(!b) continue;
     let s=b.querySelector('.adm-badge');
@@ -5339,11 +5339,11 @@ async function refreshFbBadge(){
    number is right whenever it is actually being looked at. */
 document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) refreshFbBadge(); });
 const fmtDate = t => t ? new Date(t).toLocaleDateString('he-IL',{day:'2-digit',month:'2-digit',year:'2-digit'})
-                        +' '+new Date(t).toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'}) : '—';
+                        +' '+new Date(t).toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'}) : '–';
 
 /* Users are fetched once per visit and kept here; search / sort / filter all run
    in memory over this array, so typing never hits the network. Session-only state
-   by design — nothing is persisted to localStorage. */
+   by design -- nothing is persisted to localStorage. */
 let admUsers=[];
 let admView={ q:'', sort:'new', filter:'all' };
 const ADM_DAY=864e5;
@@ -5383,7 +5383,7 @@ function renderAdminUsers(){
     return;
   }
   list.innerHTML=shown.map(r=>`<div class="adm-row">
-      <div class="adm-top"><b>${esc(r.username||'—')}</b>
+      <div class="adm-top"><b>${esc(r.username||'–')}</b>
         <span class="mail">${esc(r.email||'')}</span>
         ${r.role==='admin'?'<span class="adm-tag">אדמין</span>':''}</div>
       <div class="adm-meta">
@@ -5455,7 +5455,7 @@ function renderAdminUsers(){
 
    · CANCELED locked the account the instant it was set. Someone who cancels on day 2 of a month
      they already paid for lost the other 28 days. That is not a design choice, it is a refund
-     claim — and under חוק הגנת הצרכן, over-charging or cutting service short carries statutory
+     claim · and under חוק הגנת הצרכן, over-charging or cutting service short carries statutory
      damages with no proof of loss required.
    · PAST_DUE locked immediately too. A declined card is usually an expired card or a bank
      blocking an unfamiliar merchant, not a decision to stop paying. Locking the app before the
@@ -5465,14 +5465,14 @@ function renderAdminUsers(){
    billing state. Access follows the date; the status only decides how the date is read. */
 const PAST_DUE_GRACE_DAYS = 3;
 function hasAccess(r){
-  if(!r) return true;                                  // no profile row — fail open, as before
+  if(!r) return true;                                  // no profile row -- fail open, as before
   if(r.role==='admin') return true;
   if(r.sub_status===undefined) return true;            // columns not deployed
   if(FREE_PHASE && r.sub_status==='none') return true;
   /* A `sub_until` that Date cannot parse used to evaluate as "expired" and lock the account.
      That is the wrong direction for a fault we caused: a provider changing its date format
      would lock EVERY active subscriber at once, silently, with nothing in the UI to explain it.
-     An unreadable end date is treated as no end date — the same fail-open rule the rest of this
+     An unreadable end date is treated as no end date -- the same fail-open rule the rest of this
      gate follows, because a free day costs less than a paying learner shut out by our own bug. */
   let until = r.sub_until ? new Date(r.sub_until) : null;
   if(until && isNaN(until.getTime())){
@@ -5497,7 +5497,7 @@ function subClass(r){
   return 'ok';
 }
 /* The label has to agree with the gate. It used to say "הגישה חסומה" for past_due and
-   "המנוי בוטל" for canceled regardless of the date — while hasAccess() correctly still lets
+   "המנוי בוטל" for canceled regardless of the date · while hasAccess() correctly still lets
    both in, one for the 3 grace days and the other through the period already paid for. The
    same string is shown to the user on their own account screen, so it was telling paying
    people they were cut off while they were not. */
@@ -5528,7 +5528,7 @@ async function openAdmin(){
   if(!users.length){ admUsers=[]; body.innerHTML='<p class="msg" style="color:var(--ink-soft)">עדיין אין משתמשים רשומים.</p>'; return; }
 
   admUsers=await Promise.all(users.map(async u=>{
-    /* "למד" used to count every record with level>=3 — including the ones the LEVEL TEST
+    /* "למד" used to count every record with level>=3 · including the ones the LEVEL TEST
        writes for words it decides the learner already knows (src:'lv'). A single level test
        marks thousands at once, so the number said 2,477 for someone who had practised twice,
        and it never moved afterwards. It measured a test, not learning.
@@ -5550,7 +5550,7 @@ async function openAdmin(){
         if(p.lang==='en') learnedEn=solid; else learnedHe=solid;
         const ses=Array.isArray(st.sessions)?st.sessions:[];
         rounds+=ses.length;
-        // session.t is Date.now() — a number. Date.parse() on it returns NaN and every round
+        // session.t is Date.now() -- a number. Date.parse() on it returns NaN and every round
         // would have looked like it never happened.
         for(const s of ses){ const t=Number(s&&s.t); if(t>lastRound) lastRound=t; }
         if(!last || (p.updated_at && p.updated_at>last)) last=p.updated_at;
@@ -5564,7 +5564,7 @@ async function openAdmin(){
   }));
 
   /* The morning glance. The list below answers "who is this person"; this answers the only
-     question worth asking every day — is anybody actually practising. Rounds, not logins:
+     question worth asking every day -- is anybody actually practising. Rounds, not logins:
      signing up and confirming an email is a small effort, and opening the app and answering
      a round is a different one. Conflating them is how a dead product looks alive. */
   const DAY=864e5, now=Date.now();
@@ -5590,8 +5590,8 @@ async function openAdmin(){
       <input class="adm-search" id="admSearch" type="search" inputmode="search"
              placeholder="חיפוש לפי מייל או שם" value="${esc(admView.q)}" aria-label="חיפוש משתמשים">
       <select id="admSort" aria-label="מיון">
-        <option value="new">הצטרפו — חדש→ישן</option>
-        <option value="old">הצטרפו — ישן→חדש</option>
+        <option value="new">הצטרפו · חדש→ישן</option>
+        <option value="old">הצטרפו · ישן→חדש</option>
         <option value="last">פעילות אחרונה</option>
         <option value="words">כמות מילים שנלמדו</option>
       </select>
@@ -5621,7 +5621,7 @@ const FB_KIND_HE={bug:'🐞 באג',idea:'💡 רעיון',other:'💬 אחר'};
 /* שם פרטי בלבד, ורק אם מה שיש בשדה הוא באמת שם.
    שני שערים, ושניהם נדרשים:
    · כתובת מייל בשדה השם היא באג מוכר במערכת הזאת ("השם שלי הפך למייל", נספח FIXBUG).
-     "שלום dana@example.com," גרוע מ"שלום," — הוא מכריז שהמייל אוטומטי.
+     "שלום dana@example.com," גרוע מ"שלום," · הוא מכריז שהמייל אוטומטי.
    · מחרוזת בלי אף אות (ספרות, אמוג'י, רווחים) אינה שם.
    HEB §6: שם פרטי בלבד. "שלום דני כהן," קורא כמו מכתב מחברת ביטוח. */
 function firstNameOf(v){
@@ -5634,13 +5634,13 @@ async function renderAdminFeedback(){
   const host=$('#admFb'); if(!host) return;
   const { rows, error }=await Store.adminListFeedback();
   if(error){
-    host.innerHTML=`<p class="msg" style="color:var(--ink-soft)">אין עדיין טבלת דיווחים — הרץ את
+    host.innerHTML=`<p class="msg" style="color:var(--ink-soft)">אין עדיין טבלת דיווחים. הרץ את
       <b>migrations/4.sql</b> ב-SQL Editor. עד אז דיווחים נשלחים אליך במייל.</p>`;
     return;
   }
   refreshFbBadge();                          // the list is open; make sure the badge agrees with it
   if(!rows.length){ host.innerHTML='<p class="msg" style="color:var(--ink-soft)">אין דיווחים.</p>'; return; }
-  /* שם פרטי אמיתי למדווח. לטבלת הדיווחים אין שדה שם — רק כתובת — ולכן השם נשלף
+  /* שם פרטי אמיתי למדווח. לטבלת הדיווחים אין שדה שם · רק כתובת · ולכן השם נשלף
      מ-profiles לפי הכתובת. שאילתה אחת בפתיחת הפאנל, ל-30 שורות.
      נכשל בשקט בכוונה: אם profiles אינה נגישה, הפנייה תהיה "שלום," וזו פנייה תקינה.
      מייל שלא נמצא ברשימה (מדווח שמחק את חשבונו) נופל לאותה ברירת מחדל. */
@@ -5660,7 +5660,7 @@ async function renderAdminFeedback(){
       const c=r.context||{};
       return `<div class="adm-row"${r.status==='done'?' style="opacity:.55"':''}>
         <div class="adm-top"><b>${FB_KIND_HE[r.kind]||r.kind}</b>
-          <span class="mail">${esc(r.email||'—')}</span>
+          <span class="mail">${esc(r.email||'–')}</span>
           ${r.status==='done'?'<span class="adm-tag">טופל</span>':''}</div>
         <p style="font-size:.94rem;line-height:1.55;margin:6px 0 8px;white-space:pre-wrap">${esc(r.body)}</p>
         <div class="fb-ctx">${esc(`${fmtDate(r.created_at)} · screen:${c.screen||'?'} · lang:${c.lang||'?'} · build:${c.build||'?'} · ${c.viewport||''} ${c.standalone?'· PWA':''}`)}</div>
@@ -5678,17 +5678,17 @@ async function renderAdminFeedback(){
   /* מענה למדווח.
    *
    * למה mailto ולא שליחה מהאפליקציה: מפתח Resend יושב רק בצד השרת, ובדפדפן הוא היה
-   * גלוי לכל מי שפותח את קוד המקור. mailto גם הופך את "רק אני שולח" למילולי — ההודעה
+   * גלוי לכל מי שפותח את קוד המקור. mailto גם הופך את "רק אני שולח" למילולי · ההודעה
    * נפתחת בתיבה של חגי והוא לוחץ שלח בעצמו. אותו דפוס כמו #lockContact.
    *
-   * מוצג רק על דיווח שכבר סומן "טופל", כי הנוסח מבטיח "בדקתי, מצאתי ותיקנתי" —
+   * מוצג רק על דיווח שכבר סומן "טופל", כי הנוסח מבטיח "בדקתי, מצאתי ותיקנתי" · 
    * הבטחה כזאת על דיווח פתוח היא שקר, וזה הסוג שגורם למישהו להפסיק לדווח.
    *
    * "שלום," בלי שם: לטבלת הדיווחים אין שדה שם, ורק כתובת. לגזור שם פרטי מהכתובת היה
-   * מייצר "שלום paz123" — וזה גרוע מפנייה כללית תקינה (HEB §6). */
+   * מייצר "שלום paz123" · וזה גרוע מפנייה כללית תקינה (HEB §6). */
   host.querySelectorAll('[data-reply]').forEach(b=>b.onclick=()=>{
     const r=rows.find(x=>String(x.id)===b.dataset.reply); if(!r) return;
-    /* הנושא הוא ציטוט קצר של מה שהוא עצמו כתב — זה מה שיגרום לו לזהות במבט אחד על מה
+    /* הנושא הוא ציטוט קצר של מה שהוא עצמו כתב · זה מה שיגרום לו לזהות במבט אחד על מה
        מדובר, במקום "באג" שאינו אומר כלום שבועיים אחרי. */
     const topic=String(r.body||'').split('\n')[0].trim().slice(0,50);
     const subject='הדיווח שלך ב-800+ טופל';
@@ -5747,13 +5747,13 @@ let sentSaveFailed = false;   // נדלק כשכתיבה ל-localStorage נכש�
  *
  * ⚠ למה זה החליף את המערך הקודם
  * -----------------------------
- * הגרסה הראשונה שמרה `hw_sent_done` — מערך מזהים של פריטים ש**נענו**, בלי לדעת
+ * הגרסה הראשונה שמרה `hw_sent_done` · מערך מזהים של פריטים ש**נענו**, בלי לדעת
  * אם נכון. זה הספיק כדי לא לחזור על שאלה, ולא הספיק לשום דבר אחר: אי אפשר היה
  * להציג אחוז שליטה, אי אפשר היה להעדיף פריט שנכשל בו, ואי אפשר היה לומר ללומד
  * מה הוא יודע. המבנה החדש הוא מפה, והוא נושא גם את הצלחות וגם את הכשלים.
  *
  * ⭐ הסנכרון בין מכשירים נעשה דרך `collectExtras`/`applyExtras`, כלומר בתוך הבלוב
- * שכבר קיים בטבלת progress. **אין טבלה חדשה ואין מיגרציה** — ישות חדשה ב-Supabase
+ * שכבר קיים בטבלת progress. **אין טבלה חדשה ואין מיגרציה** · ישות חדשה ב-Supabase
  * דורשת סכימה ו-RLS, וזה סיכון גדול מהתועלת כשהבלוב הקיים עושה את העבודה.
  *
  * המיזוג הוא **מונוטוני** ולעולם אינו יורד: n ו-ok נלקחים כמקסימום בין המקומי
@@ -5761,8 +5761,8 @@ let sentSaveFailed = false;   // נדלק כשכתיבה ל-localStorage נכש�
  * שמאחר לא יגרור אחורה מכשיר שקדם לו. */
 /* רשומה תקינה, מנורמלת. **קורא אחד** שמנקה, ולא הגנה בכל אתר שימוש בנפרד.
    ⚠ נגזר מציד באגים ב-11.8, ששני ממצאים שלו נבעו מאותו שורש: רשומה עם `n` שלילי
-   או שאינו מספר לא נכנסה לאף אחת משלוש הקבוצות ב-`startSentRound` — לא לחדשים, לא
-   לנכשלים ולא לידועים — ולכן הפריט **יצא מהרוטציה לנצח** והוצג כאילו נענה. ורשומה
+   או שאינו מספר לא נכנסה לאף אחת משלוש הקבוצות ב-`startSentRound` · לא לחדשים, לא
+   לנכשלים ולא לידועים · ולכן הפריט **יצא מהרוטציה לנצח** והוצג כאילו נענה. ורשומה
    עם `ok` גדול מ-`n` הפיקה `100%`. הענן היה חסום, המקומי לא.
    כאן זה נחסם פעם אחת, בקריאה, ולכן כל מי שקורא מקבל נתון שפוי. */
 function saneSentRec(r){
@@ -5779,7 +5779,7 @@ function sentProg(){
     for (const k of Object.keys(raw)) { const r = saneSentRec(raw[k]); if (r) out[k] = r; }
     return out;
   }
-  /* הגירה חד-פעמית מהמערך הישן. הפריטים האלה נענו, ואין לנו את התוצאה — ולכן
+  /* הגירה חד-פעמית מהמערך הישן. הפריטים האלה נענו, ואין לנו את התוצאה · ולכן
      n=1 ו-ok=0. זה מציג אותם כ"נפתרו אך לא נכונים", והוא הכיוון השמרני: הוא
      מחזיר אותם לתרגול במקום להצהיר על שליטה שלא נמדדה. */
   const old = LS.get(SENT_KEY, null);
@@ -5792,12 +5792,12 @@ function sentRecord(src, right){
   const p = sentProg();
   /* ⛔ באג שנמצא בציד ב-11.8, והוא הרג את הסבב בלחיצה.
      `sentProg` הגן על **המפה** ובדק שהיא אובייקט, ולא על **הרשומות** שבתוכה.
-     רשומה פגומה — מחרוזת, מספר, null — הגיעה לכאן, ו-`e.n++` על מחרוזת זורק
+     רשומה פגומה · מחרוזת, מספר, null · הגיעה לכאן, ו-`e.n++` על מחרוזת זורק
      במצב strict. הזריקה קרתה מתוך `answerSent` **לפני** סימון התשובה ולפני פתיחת
      ההסבר, ולכן הלחיצה לא עשתה כלום והלומד נתקע. שוחזר: `Cannot create property
      'n' on string 'oops'`.
      מאיפה רשומה פגומה מגיעה: הבלוב מהענן, טאב אחר, עריכה ידנית, או גרסה עתידית
-     שתשנה את המבנה. ⚠ ההגנה הזאת כבר קיימת ב-`applyExtras` — היא נשכחה כאן, וזה
+     שתשנה את המבנה. ⚠ ההגנה הזאת כבר קיימת ב-`applyExtras` · היא נשכחה כאן, וזה
      בדיוק סוג הפער שנופל על המשתמש ולא על המפתח. */
   const e = saneSentRec(p[src]) || { n: 0, ok: 0, last: 0 };
   e.n++; if (right) e.ok++;
@@ -5805,7 +5805,7 @@ function sentRecord(src, right){
   e.last = right ? 1 : 0;
   p[src] = e;
   /* ⚠ `LS.set` מחזיר false כשהמכסה מלאה. נמצא בציד: התשובה לא נאבדה בשקט (יש
-     toast ופס קבוע), אבל **מסך הסיום הכחיש את עצמו** — "10 מתוך 10" ומיד מתחת
+     toast ופס קבוע), אבל **מסך הסיום הכחיש את עצמו** · "10 מתוך 10" ומיד מתחת
      "0 נכונים · 0%". הדגל הזה גורם לסיכום לומר שההתקדמות לא נשמרה, במקום להציג
      שני מספרים שסותרים זה את זה ולתת ללומד להחליט למי להאמין. */
   sentSaveFailed = !LS.set(SENT_PROG, p) || sentSaveFailed;
@@ -5879,7 +5879,7 @@ function loadSentData(){
 
 /* משפטי הדוגמה של הפידבק (EX_SENT_EN). אותו דפוס בדיוק כמו loadSentData ומאותה
    סיבה: 300KB שנטענים בכל עליית דף היו מס על מי שמתרגל רק עברית. נטען בכניסה
-   לאנגלית; אם הפידבק הראשון מקדים את הטעינה — המשפט פשוט לא מוצג לכרטיס ההוא. */
+   לאנגלית; אם הפידבק הראשון מקדים את הטעינה · המשפט פשוט לא מוצג לכרטיס ההוא. */
 let exSentLoading = null;
 function loadExSentData(){
   if(window.EX_SENT_EN) return Promise.resolve(true);
@@ -5896,7 +5896,7 @@ function loadExSentData(){
 }
 
 /* ⚠ `sentDone` ו-`markSentDone` הוסרו. הם החזיקו מערך מזהים בלבד, וזה היה מקור
-   אמת שני לצד מפת ההתקדמות — שני מקורות שיכולים להיפרד. עכשיו יש אחד:
+   אמת שני לצד מפת ההתקדמות · שני מקורות שיכולים להיפרד. עכשיו יש אחד:
    `sentProg()`, ו-`sentRecord()` הוא הכותב היחיד אליו. */
 
 /* ===== בורר הרצועות ===== */
@@ -5905,7 +5905,7 @@ function renderSentPick(){
   const S = sentBank();
   list.innerHTML = '';
   /* ⛔ נמצא בציד ב-11.8: `loadSentData` מחזירה `!!window.SENT_EN`, ואובייקט ריק
-     הוא truthy — כלומר "הצליח". התוצאה הייתה **מסך לבן** עם ✕ וכותרת בלבד, בלי
+     הוא truthy · כלומר "הצליח". התוצאה הייתה **מסך לבן** עם ✕ וכותרת בלבד, בלי
      הודעה ובלי toast. עכשיו נאמר מה קרה ומה לעשות. /HEB §10. */
   if(!Object.keys(S).some(b => Array.isArray(S[b]) && S[b].length)){
     list.innerHTML = '<p class="s-sum">לא נטענו משפטים. חזור למסך הקודם ונסה שוב, '
@@ -5950,7 +5950,7 @@ function startSentRound(band){
   const p = sentProg();
   /* ⭐ שלוש קבוצות, בסדר הזה, וזו התועלת המרכזית של המעקב:
        1. פריטים שטרם נפתרו.
-       2. פריטים שנפתרו ו**לא** נענו נכון אף פעם — הם החוליה החלשה.
+       2. פריטים שנפתרו ו**לא** נענו נכון אף פעם · הם החוליה החלשה.
        3. השאר, לחזרה.
      הגרסה הקודמת ידעה רק "נענה או לא", ולכן פריט שנכשל בו חזר באותה סבירות
      כמו פריט שידע. הסדר כאן מביא קודם את מה שלא נשלט. */
@@ -5979,8 +5979,8 @@ function startSentRound(band){
 
 /* ⛔ הבאג החוסם שנתפס בבדיקה בדפדפן, לפני העלייה
    -------------------------------------------
-   **כל 204 הפריטים נשמרים עם `a:0`.** זה מכוון בקורפוס — הכותבים מציבים את
-   התשובה ראשונה וההסבר נכתב מולה — ו-assemble.js אף מזהיר על כך בכותרת הקובץ:
+   **כל 204 הפריטים נשמרים עם `a:0`.** זה מכוון בקורפוס · הכותבים מציבים את
+   התשובה ראשונה וההסבר נכתב מולה · ו-assemble.js אף מזהיר על כך בכותרת הקובץ:
    "המגיש חייב לערבב". השערים החיצוניים אכן ערבבו (blind_export.js), אבל
    האפליקציה **היא** מגיש, ובגרסה הראשונה שלה כאן היא לא ערבבה. התוצאה: התשובה
    הנכונה הייתה תמיד הכפתור הראשון, ולומד היה מגלה את זה בשאלה השלישית ומפסיק
@@ -6016,7 +6016,7 @@ function sentShuffled(it){
 }
 
 /* המשפט המלא באנגלית, כשהתשובה הנכונה יושבת במקום החסר ומודגשת. עד כה ההסבר הציג
-   את התרגום לעברית בלבד, והמשפט האנגלי נשאר עם `___` בכרטיס שמעל — כלומר הלומד
+   את התרגום לעברית בלבד, והמשפט האנגלי נשאר עם `___` בכרטיס שמעל · כלומר הלומד
    מעולם לא ראה את המשפט השלם שהוא אמור לזכור. שלוש שורות באותו סדר בכל האפליקציה:
    תווית · המשפט באנגלית · המשפט בעברית.
    ⚠ בפריט זוג `o[a]` הוא מערך של שתי מילים ובמשפט שני חסרים, והסדר קובע: המילה
@@ -6036,7 +6036,7 @@ function renderSentCard(){
   $('#sentCount').textContent = `שאלה ${sentI+1} מתוך ${sentQ.length}`;
   $('#sentScore').textContent = sentOk ? `✓ ${sentOk}` : '';
   $('#sentBar').style.width = (100*sentI/sentQ.length)+'%';
-  /* ⚠ בפריט זוג שני החסרים נראים **זהים**, והאפשרות היא "align + differ" — כלומר
+  /* ⚠ בפריט זוג שני החסרים נראים **זהים**, והאפשרות היא "align + differ" · כלומר
      הסדר קובע, והכרטיס לא אמר מה לאיפה. נמצא בציד ב-11.8. מספור החסרים אומר את
      זה בלי מילים, ו-`aria-hidden` מונע מקורא מסך להקריא ספרה בתוך המשפט. */
   let nBlank = 0;
@@ -6106,7 +6106,7 @@ function finishSentRound(){
     + (q.left ? ` · נותרו ${q.left}` : ' · הרצועה הושלמה') + '</p>'
     /* ⚠ כשהכתיבה לדיסק נכשלה, הסיכום המצטבר **סותר** את ציון הסבב: "10 מתוך 10"
        ומיד מתחת "0 נכונים · 0%". נמצא בציד ב-11.8. במקום שני מספרים שמכחישים זה
-       את זה, נאמר מה קרה. /HEB §10 — הודעה חייבת לומר מה עכשיו. */
+       את זה, נאמר מה קרה. /HEB §10 · הודעה חייבת לומר מה עכשיו. */
     + (sentSaveFailed
         ? `<p class="s-sum">⚠ ההתקדמות לא נשמרה במכשיר הזה, כי אחסון הדפדפן מלא. `
           + `פנה מקום ונסה שוב, או המשך לתרגל בלי מעקב</p>`
@@ -6119,7 +6119,7 @@ function finishSentRound(){
   $('#sentBack').onclick  = ()=> openSentPick();
   renderHome();                               // הכפתור בבית מציג את מה שנותר
   /* ⚠ דחיפה כפויה בסוף סבב, בדיוק כמו commitSession. queueRemoteSync משהה 12
-     שניות, וסוף סבב הוא נקודה שבה הלומד עלול לסגור את הלשונית — ואז ההשהיה
+     שניות, וסוף סבב הוא נקודה שבה הלומד עלול לסגור את הלשונית · ואז ההשהיה
      הייתה מאבדת את הסבב מהענן עד הכניסה הבאה על אותו מכשיר. */
   if(currentUser) flushRemoteSync().catch(()=>{});
 }
@@ -6158,7 +6158,7 @@ $('#pbSent').onclick = async ()=>{
 /* ===== preview =====
    The survey's clearest finding was that a mandatory account is the first wall people hit.
    Preview opens unit 1 and the level test with no sign-up. Progress is real and kept locally
-   under its own owner key, so the moment an account is created nothing has to be discarded —
+   under its own owner key, so the moment an account is created nothing has to be discarded -- 
    and a preview session can never leak into a real account's cache. */
 function startPreview(){
   PREVIEW = true;
@@ -6193,7 +6193,7 @@ $('#authBack').onclick   = backFromAuth;
 /* Does this device hold a Supabase session? Answerable SYNCHRONOUSLY, straight off localStorage,
    long before the network round trip that validates it. That one fact is the difference between
    "רגע…" and a login form: a returning user must never be shown a password field on the way in.
-   Only used to word the splash — the real decision still waits for currentSession(). */
+   Only used to word the splash · the real decision still waits for currentSession(). */
 function looksSignedIn(){
   try{
     for(let i=0;i<localStorage.length;i++){
@@ -6217,17 +6217,17 @@ async function checkSessionAndBoot(){
     ]);
   }catch(e){}
   /* פסק הזמן אינו "אין הפעלה". getSession() יוצאת לרשת כשה-token פג, ולכן רשת איטית,
-     מצב טיסה, או Supabase שמאחר — כל אחד מהם החזיר null, והאפליקציה הסיקה שהמשתמש
+     מצב טיסה, או Supabase שמאחר · כל אחד מהם החזיר null, והאפליקציה הסיקה שהמשתמש
      התנתק. זה מה שהוציא אנשים שוב ושוב ממכשירים שמעולם לא התנתקו בהם, וזה גם מה שהחליף
      את השם במייל במצב טיסה: בלי הפעלה אין פרופיל לקרוא ממנו את השם.
      ההפעלה השמורה נקראת מהדיסק בלי רשת. token שפג עדיין אומר מי המשתמש, וזה כל מה
      שנדרש כדי לפתוח את החשבון הנכון ולטעון את ההתקדמות המקומית. */
   if(!(sess && sess.user)){
     const cached = (typeof Store.cachedSession==='function') ? Store.cachedSession() : null;
-    if(cached){ sess = cached; console.warn('session restored from disk — the network answer did not arrive'); }
+    if(cached){ sess = cached; console.warn('session restored from disk -- the network answer did not arrive'); }
   }
   /* Below ~400ms the splash reads as a flicker, which is its own kind of ugly. Above it, it
-     reads as the app starting. Only ever waits on a FAST answer — a slow one is already past. */
+     reads as the app starting. Only ever waits on a FAST answer -- a slow one is already past. */
   const wait=400-(Date.now()-t0);
   if(wait>0) await new Promise(r=>setTimeout(r, wait));
   if(sess && sess.user){ currentUser=sess.user; await afterAuthed(false); }
@@ -6237,12 +6237,12 @@ async function checkSessionAndBoot(){
     goto(LS.get('hw_seenIntro',0) ? 'auth' : 'intro');
   }
   try{
-    /* This used to read `if(s && s.user && !currentUser)` — it reacted to "nobody was signed in
+    /* This used to read `if(s && s.user && !currentUser)` -- it reacted to "nobody was signed in
        yet" instead of to "who is signed in changed". A second account signing in on a page that
        already had a session was therefore ignored completely: the screen kept the FIRST user's
        name and local cache while every request went out with the SECOND user's token, and the
        next save wrote one account's progress into the other's row.
-       Supabase can hand us a different user without any click here — a confirmation or
+       Supabase can hand us a different user without any click here -- a confirmation or
        reset link opened in this tab carries its own session. Compare identity, not emptiness. */
     Store.onAuthChange((s, evt)=>{
       const uid = s && s.user && s.user.id;
@@ -6250,7 +6250,7 @@ async function checkSessionAndBoot(){
         if(uid !== (currentUser && currentUser.id)){ currentUser=s.user; afterAuthed(false); }
       } else if(evt === 'SIGNED_OUT' || evt === 'USER_DELETED'){
         /* רק התנתקות מפורשת מנקה את המשתמש. קודם כל הפעלה ריקה עשתה זאת, ו-supabase-js
-           משדרת INITIAL_SESSION עם null בכל פעם שלא הצליחה לקרוא הפעלה — כלומר בכל
+           משדרת INITIAL_SESSION עם null בכל פעם שלא הצליחה לקרוא הפעלה · כלומר בכל
            טעינה בלי רשת. התוצאה הייתה שהאתחול שחזר את המשתמש מהדיסק, והאירוע הזה מחק
            אותו מיד אחר כך. */
         currentUser=null;
@@ -6262,7 +6262,7 @@ async function checkSessionAndBoot(){
 /* ===== boot ===== */
 (function boot(){
   try{
-    // The install CTA only makes sense when the app isn't installed yet — otherwise it's noise.
+    // The install CTA only makes sense when the app isn't installed yet -- otherwise it's noise.
     const el=$('#installHint2');
     if(el && !isStandalone() && !LS.get('hw_installed',0)){
       show(el);
@@ -6270,17 +6270,17 @@ async function checkSessionAndBoot(){
     }
   }catch(e){}
   // The auth screen is the only way in, so it must appear even if the session lookup throws.
-  // checkSessionAndBoot is async — a plain try/catch would never see its rejection.
+  // checkSessionAndBoot is async -- a plain try/catch would never see its rejection.
   const fallbackToAuth = ()=>{ SCREENS.forEach(s=>{const el=$('#'+s); if(el) hide(el);}); show($('#auth')); setAuthMode('signin'); };
-  /* Watchdog. The splash is now the first paint, so anything that hangs after it — a profile
-     read, the progress pull — would leave a spinner on screen with no way out. Twelve seconds,
+  /* Watchdog. The splash is now the first paint, so anything that hangs after it -- a profile
+     read, the progress pull -- would leave a spinner on screen with no way out. Twelve seconds,
      then route by the one fact we can establish locally and let the user get on with it. */
   setTimeout(()=>{
     if($('#boot') && !$('#boot').classList.contains('hidden')){
       console.warn('[boot] הכניסה לא הסתיימה בזמן. ממשיך בלי המתנה');
       /* Latch it. Only currentSession() is raced against a timeout; myProfile() and
          pullAccountState() are not. If one of them was merely slow rather than dead, it wakes
-         up minutes later and afterAuthed carries on to its goto() — dragging the learner out of
+         up minutes later and afterAuthed carries on to its goto() -- dragging the learner out of
          a screen they had already started working in. From here on, afterAuthed may finish its
          work but must not navigate. */
       bootTimedOut=true;

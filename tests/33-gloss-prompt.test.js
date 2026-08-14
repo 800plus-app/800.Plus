@@ -1,12 +1,12 @@
 'use strict';
-/* One gloss, one question — the rule that keeps a round from asking the same thing twice.
+/* One gloss, one question · the rule that keeps a round from asking the same thing twice.
  *
  * What a user reported (2.8.2026)
  * -------------------------------
  *   "כשמתרגלים את ההסבר->מילה יש מלא מילים שחוזרות על עצמן"
  *
  * The words were not repeating. The QUESTIONS were. In the m2w direction the prompt is the
- * gloss, and 186 English glosses in the bank serve more than one entry — "מתחת" is below,
+ * gloss, and 186 English glosses in the bank serve more than one entry · "מתחת" is below,
  * beneath, under AND underneath, all four of them in unit 1. Four separate cards, one identical
  * prompt, and no way for the learner to know which of the four is wanted.
  *
@@ -15,7 +15,7 @@
  * Nothing was ever scored against the learner for this: isCorrect falls through to glossAlts(),
  * which accepts every other bank word carrying the same gloss, and finishCard names the card's
  * own word in the feedback. That machinery already existed and is deliberately left alone here.
- * The defect was narrower — the prompt was unanswerable AS POSED, and the round read as one
+ * The defect was narrower · the prompt was unanswerable AS POSED, and the round read as one
  * question asked over and over.
  *
  * Why the duplicate is flipped rather than dropped
@@ -38,7 +38,7 @@ const vm = require('vm');
 const none = (list, msg) => expectNone(assert, list, msg);
 const app = appSource();
 
-/* oneCardPerGloss is needed only by this file — lifted pointwise rather than added to the shared
+/* oneCardPerGloss is needed only by this file -- lifted pointwise rather than added to the shared
    list every other test file would then pay to load. Same contract: a rename in app.js throws
    out of extractAll BY NAME instead of leaving a green test on a function that no longer runs. */
 function ctxFor(lang) {
@@ -53,7 +53,7 @@ const HE = ctxFor('he');
 const card = (term, meaning, _dir) => ({ term, meaning, unit: '1', _dir });
 const m2wOf = deck => deck.filter(c => c._dir === 'm2w');
 
-describe('the rule — a gloss may pose at most one question per round', () => {
+describe('the rule · a gloss may pose at most one question per round', () => {
 
   test('four entries sharing one gloss leave exactly one m2w card', () => {
     const deck = ['below', 'beneath', 'under', 'underneath'].map(t => card(t, 'מתחת', 'm2w'));
@@ -62,7 +62,7 @@ describe('the rule — a gloss may pose at most one question per round', () => {
       'the learner would see the prompt "מתחת" more than once, with no way to tell the cards apart');
   });
 
-  test('the other three are flipped, never dropped — the round keeps its length', () => {
+  test('the other three are flipped, never dropped · the round keeps its length', () => {
     const deck = ['below', 'beneath', 'under', 'underneath'].map(t => card(t, 'מתחת', 'm2w'));
     const before = deck.length;
     EN.oneCardPerGloss(deck);
@@ -90,7 +90,7 @@ describe('the rule — a gloss may pose at most one question per round', () => {
 
   test('a w2m card does not consume the gloss on behalf of an m2w card', () => {
     /* The mixed direction deals both. If the w2m card claimed the gloss first, the m2w card
-       would be flipped for a collision that never existed — the round would quietly drift away
+       would be flipped for a collision that never existed -- the round would quietly drift away
        from the direction the learner picked. */
     const deck = [card('below', 'מתחת', 'w2m'), card('beneath', 'מתחת', 'm2w')];
     EN.oneCardPerGloss(deck);
@@ -135,7 +135,7 @@ describe('over the real banks', () => {
       none(bad, 'the same question is posed twice inside one round');
     });
 
-    test(`${lang}: every entry stays in the round — the fix costs no practice`, () => {
+    test(`${lang}: every entry stays in the round · the fix costs no practice`, () => {
       const bad = [];
       for (const u of Object.keys(bank)) {
         const deck = bank[u].map(p => card(p[0], p[1], 'm2w'));
@@ -166,7 +166,7 @@ describe('over the real banks', () => {
 describe('the rule is actually wired into the round', () => {
   /* startRound builds the deck, calls goto() and renderCard(), and cannot be lifted into the
      sandbox. So the checks above prove the FUNCTION is right, and this one proves it is
-     reached — without it they would go on passing over code nothing calls. */
+     reached -- without it they would go on passing over code nothing calls. */
   test('startRound runs the deck through oneCardPerGloss', () => {
     const at = app.indexOf('function startRound');
     assert.ok(at > 0, 'startRound disappeared');
@@ -179,7 +179,7 @@ describe('the rule is actually wired into the round', () => {
     /* First draft of this test compared indexOf('_dir') with indexOf('oneCardPerGloss(') and
        failed on correct code: the call WRAPS the .map that assigns _dir, so it is written first
        and evaluated last. Textual order is not evaluation order. What actually matters is that
-       _dir is assigned inside the call's own argument — a deck handed over before _dir exists
+       _dir is assigned inside the call's own argument -- a deck handed over before _dir exists
        looks entirely w2m, and the function would flip nothing while still appearing wired in. */
     const at = app.indexOf('function startRound');
     const call = app.slice(at).indexOf('oneCardPerGloss(');
@@ -189,7 +189,7 @@ describe('the rule is actually wired into the round', () => {
       'oneCardPerGloss is handed a deck whose _dir has not been assigned yet — nothing will flip');
   });
 
-  test('isCorrect still falls through to glossAlts — the acceptance was never the bug', () => {
+  test('isCorrect still falls through to glossAlts · the acceptance was never the bug', () => {
     /* Guard on the machinery this fix deliberately did NOT touch: a learner who answers "under"
        to a "beneath" card is right, and must stay right. */
     assert.ok(/glossAlts\(w\)\.find\(t\s*=>\s*isCorrect\(/.test(app),

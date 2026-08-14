@@ -4,7 +4,7 @@
  * WHY THIS FILE EXISTS
  * --------------------
  * House-check 2, finding #2. The fetch handler filtered on method and protocol and nothing else,
- * and `cacheable` explicitly accepted `res.type === 'cors'` — so every authenticated GET to
+ * and `cacheable` explicitly accepted `res.type === 'cors'` -- so every authenticated GET to
  * Supabase was stored and replayed. The cache key is the URL; the Authorization header is not
  * part of it, and the live server returns 200 with no `Vary`. Proven in a real browser during the
  * check: a read with token A was cached, and a read with token B to the same URL got A's answer.
@@ -39,7 +39,7 @@ for (const { code } of extractAll(src, ['swHandles'])) vm.runInContext(code, ctx
 const APP = 'https://800-plus.com';
 const handles = (u, origin = APP) => ctx.swHandles(new URL(u), origin);
 
-describe('sw — the worker only ever touches its own origin', () => {
+describe('sw · the worker only ever touches its own origin', () => {
   /* The finding itself. Every one of these is a real URL the app requests while signed in. */
   const SUPABASE = 'https://oycypbnzcvtjliovfsxn.supabase.co';
   const foreign = [
@@ -51,7 +51,7 @@ describe('sw — the worker only ever touches its own origin', () => {
   ];
 
   for (const [url, why] of foreign) {
-    test(`refuses ${new URL(url).host}${new URL(url).pathname} — ${why}`, () => {
+    test(`refuses ${new URL(url).host}${new URL(url).pathname} · ${why}`, () => {
       assert.strictEqual(handles(url), false,
         `the worker would cache and replay this. It is served on URL alone: the Authorization\n` +
         `header is not part of the cache key, and the response carries no Vary. Two different\n` +
@@ -59,7 +59,7 @@ describe('sw — the worker only ever touches its own origin', () => {
     });
   }
 
-  test('our own assets are still handled — the fix must not turn the app into a non-PWA', () => {
+  test('our own assets are still handled · the fix must not turn the app into a non-PWA', () => {
     const ours = ['/', '/index.html', '/app.js?v=116', '/data.js?v=116', '/icon-192.png',
       '/manifest.webmanifest', '/store.js?v=116'];
     const refused = ours.filter(p => handles(APP + p) !== true);
@@ -94,7 +94,7 @@ describe('sw — the worker only ever touches its own origin', () => {
   });
 });
 
-describe('sw — the rest of the file still agrees with itself', () => {
+describe('sw · the rest of the file still agrees with itself', () => {
   /* REV names both the cache and every ?v= string. These two have drifted before, and the failure
    * is invisible online and a white screen offline. */
   const REV = (src.match(/const REV\s*=\s*'([^']+)'/) || [])[1];
@@ -108,7 +108,7 @@ describe('sw — the rest of the file still agrees with itself', () => {
   /* THE DRIFT THAT IS INVISIBLE ONLINE AND A WHITE SCREEN OFFLINE.
    * sw.js precaches `./app.js?v=${REV}`; index.html requests `./app.js?v=NNN` written by hand.
    * When those disagree the browser fetches the uncached URL from the network and everything
-   * looks fine — until the user is offline, when the request misses the cache entirely and the
+   * looks fine -- until the user is offline, when the request misses the cache entirely and the
    * app loads a shell with no scripts. version.sh checks this, but only for app.js and only
    * against the live site; this checks EVERY asset, locally, on every run. */
   test('every ?v= in index.html matches sw.js REV', () => {

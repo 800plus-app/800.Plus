@@ -1,20 +1,20 @@
 'use strict';
 /* Two places where a written policy and the running code disagreed.
  *
- * WHAT THIS FILE CAN AND CANNOT PROVE — same limits as 17-a11y.test.js, stated again because
+ * WHAT THIS FILE CAN AND CANNOT PROVE -- same limits as 17-a11y.test.js, stated again because
  * they matter more here. `node tests/run.js` has no browser, no DOM, no accessibility tree and
  * no screen reader. Everything below is either (a) arithmetic/set logic over values lifted out
  * of app.js and evaluated in a vm, or (b) an assertion about the source text of app.js and
  * index.html. What is pinned is the MECHANISM. That a sighted user reads the line, or that a
  * screen reader speaks the checkbox label, is NOT proven here and was not observed.
  *
- * Every group carries a control — an assertion that the pre-fix state would have failed — so a
+ * Every group carries a control -- an assertion that the pre-fix state would have failed -- so a
  * group that can only ever pass is visible as such.
  *
- *   FIX 1 — the feedback form claimed to disclose what travels with a bug report, and listed
+ *   FIX 1 -- the feedback form claimed to disclose what travels with a bug report, and listed
  *           three of the seven things fbContext() actually sends. User-Agent and viewport were
  *           collected and not shown. The decision was to show them, not to stop sending them.
- *   FIX 2 — the Terms (§2) and the Privacy policy (§9) declare a minimum age of 16 with parental
+ *   FIX 2 -- the Terms (§2) and the Privacy policy (§9) declare a minimum age of 16 with parental
  *           consent under 18. There was no field, no box, and no check anywhere in the code.
  */
 
@@ -49,7 +49,7 @@ const decl = name => {
 
 /* The keys are read out of fbContext()'s own object literal rather than restated here. Restating
  * them would mean an eighth field could be added to the report tomorrow and this suite would
- * keep passing while the disclosure went stale again — which is the exact bug being fixed. */
+ * keep passing while the disclosure went stale again -- which is the exact bug being fixed. */
 function fbContextKeys() {
   const src = fn('fbContext');
   const lit = src.match(/return\s*\{([\s\S]*?)\n\s*\};/);
@@ -59,7 +59,7 @@ function fbContextKeys() {
   return keys;
 }
 
-/* FB_CTX_LABELS and fbCtxSentence are pure — no DOM, no globals — so they can be run for real
+/* FB_CTX_LABELS and fbCtxSentence are pure -- no DOM, no globals -- so they can be run for real
  * instead of pattern-matched. An assertion about the STRING A USER SEES is worth more than an
  * assertion that some identifier appears somewhere in the file. */
 function loadSentence() {
@@ -78,7 +78,7 @@ describe('FIX 1 · every field that travels with a bug report is named in the fo
     assert.ok(keys.includes('viewport'), 'fbContext no longer sends `viewport` — re-derive this group');
   });
 
-  test('FB_CTX_LABELS covers exactly the keys fbContext() sends — no more, no fewer', () => {
+  test('FB_CTX_LABELS covers exactly the keys fbContext() sends · no more, no fewer', () => {
     const { FB_CTX_LABELS } = loadSentence();
     const sent = fbContextKeys().sort();
     const labelled = Object.keys(FB_CTX_LABELS).sort();
@@ -107,10 +107,10 @@ describe('FIX 1 · every field that travels with a bug report is named in the fo
     assert.match(s, /[֐-׿]/, 'the line is not in Hebrew');
   });
 
-  test('an unlabelled key is impossible to hide — it shows up raw rather than vanishing', () => {
+  test('an unlabelled key is impossible to hide · it shows up raw rather than vanishing', () => {
     /* Control for the mechanism itself: prove the code cannot silently omit a field. If a future
      * key is added to fbContext and not to FB_CTX_LABELS, the user must still see that something
-     * is sent, and the deepStrictEqual test above must be what goes red — not silence. */
+     * is sent, and the deepStrictEqual test above must be what goes red -- not silence. */
     const { fbCtxSentence } = loadSentence();
     const s = fbCtxSentence({ screen: 'a', somethingNew: 'b' });
     assert.ok(s.includes('somethingNew'), 'an unlabelled key disappears from the disclosure');
@@ -127,7 +127,7 @@ describe('FIX 1 · every field that travels with a bug report is named in the fo
 
   test('the hardcoded three-item claim is gone from app.js and from index.html', () => {
     /* The exact wording that was wrong: it named the screen, the language and the build, and
-     * stopped there. Both copies said it — the dialog line and the paragraph above the textarea. */
+     * stopped there. Both copies said it -- the dialog line and the paragraph above the textarea. */
     assert.ok(!/נשלח יחד עם הדיווח: המסך שהיית בו, שפת התרגול וגרסת האפליקציה/.test(app),
       'app.js still writes the old three-item sentence');
     assert.ok(!/אני שולח יחד עם זה את המסך שהיית בו והגרסה/.test(html),
@@ -142,7 +142,7 @@ describe('FIX 1 · every field that travels with a bug report is named in the fo
 /* The sign-up path lives in an addEventListener, not in a named function and not in an
  * `.onclick`, so neither extractFunction nor extractHandler reaches it. Lifted here the same
  * way extractHandler does it: locate exactly one binding, then walk to the end of the
- * statement. Exactly one match or throw — a missing symbol must never become a silent pass. */
+ * statement. Exactly one match or throw -- a missing symbol must never become a silent pass. */
 function authSubmitHandler() {
   const { statementEnd, codeMatches } = require('./_harness/scan.js');
   const hits = codeMatches(app, /\$\('#authForm'\)\.addEventListener\('submit'/, appMask);
@@ -153,13 +153,13 @@ function authSubmitHandler() {
   return app.slice(hits[0].index, end + 1);
 }
 
-/* FIX 2 — תיבת הצהרת הגיל — הוסרה ביוזמת בעל המוצר.
+/* FIX 2 · תיבת הצהרת הגיל · הוסרה ביוזמת בעל המוצר.
  *
  * הנימוק שלו, והוא נכון: אי אפשר לאכוף אותה. תיבה שמסמנים בלי לקרוא אינה שער, והיא כן
- * חיכוך אמיתי בהרשמה — מחיר ודאי בתמורה להגנה מדומה.
+ * חיכוך אמיתי בהרשמה · מחיר ודאי בתמורה להגנה מדומה.
  *
  * מה שנשאר נבדק כאן. הבדיקה השנייה היא החשובה מבין השתיים: הפיתוי להחזיר "שער אמיתי"
- * בדמות תאריך לידה יחזור, ותאריך לידה הוא פריט מידע אישי נוסף להחזיק, להצדיק ולדלוף —
+ * בדמות תאריך לידה יחזור, ותאריך לידה הוא פריט מידע אישי נוסף להחזיק, להצדיק ולדלוף · 
  * בתמורה לתשובה שהתיבה כבר נתנה, ושגם היא לא הייתה אכיפה. */
 describe('FIX 2 · סף הגיל נשאר בתנאי השימוש, ולא בשדה נוסף', () => {
 
@@ -167,7 +167,7 @@ describe('FIX 2 · סף הגיל נשאר בתנאי השימוש, ולא בשד
     assert.ok(!/תאריך לידה/.test(html), 'index.html asks for a birth date');
     assert.ok(!/\bid="(dob|birth[A-Za-z]*|authDob|authBirth[A-Za-z]*)"/i.test(html),
       'index.html carries a birth-date field');
-    /* מצומצם לטופס ההרשמה בכוונה: #accExam הוא שדה תאריך לגיטימי — מועד המבחן. */
+    /* מצומצם לטופס ההרשמה בכוונה: #accExam הוא שדה תאריך לגיטימי · מועד המבחן. */
     const form = html.match(/<form id="authForm"[\s\S]*?<\/form>/);
     assert.ok(form, 'index.html no longer has <form id="authForm"> — rescope this test');
     assert.ok(!/type="date"/.test(form[0]), 'the sign-up form carries a date input');

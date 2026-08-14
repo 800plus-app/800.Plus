@@ -1,11 +1,11 @@
 'use strict';
-/* mergeProgress — what happens when two devices disagree.
+/* mergeProgress -- what happens when two devices disagree.
  *
  * This runs on every sync. Its failures are the least visible in the whole app: nothing errors,
  * the learner just finds progress missing, or a word they deleted back in the bank, or their
  * practice history doubled. app.js:2250 records that a plain concat of sessions doubled the
  * history on every language switch (3 -> 6 -> 12 -> 24) until the 200 cap filled with copies and
- * real practice days fell out, shrinking the streak — a bug made entirely of a missing dedupe.
+ * real practice days fell out, shrinking the streak -- a bug made entirely of a missing dedupe.
  *
  * Values that come back out of the sandbox are compared through plain(): the vm builds them in
  * its own realm, and JSON is the shape they take in localStorage and in Supabase anyway.
@@ -22,7 +22,7 @@ const R = o => Object.assign({ seen: 0, first: 0, ever: 0, wrong: 0, level: 0, l
 const P = o => Object.assign({ assoc: {}, stats: { words: {}, sessions: [] }, deleted: [], added: [], dir: 'm2w' }, o);
 const merge = (l, r) => plain(ctx.mergeProgress(l, r));
 
-describe('merge — progress is never lost', () => {
+describe('merge · progress is never lost', () => {
   test('counts take the maximum of both sides', () => {
     const out = merge(
       P({ stats: { words: { w: R({ seen: 5, first: 3, ever: 4, wrong: 1, last: 10 }) }, sessions: [] } }),
@@ -66,10 +66,10 @@ describe('merge — progress is never lost', () => {
   });
 });
 
-describe('merge — level is last-write-wins, deliberately', () => {
+describe('merge · level is last-write-wins, deliberately', () => {
   /* The literal rule "never lose a higher level" was tried and is NOT what this does, on purpose
    * (app.js:2239): taking Math.max per field meant a downgrade after a wrong answer could never
-   * survive, because the older copy still held the higher level — so a word the learner had just
+   * survive, because the older copy still held the higher level -- so a word the learner had just
    * failed stayed marked as known. The strength that survives is the one written LAST. */
   test('a higher level survives when it is the newer record', () => {
     const out = merge(P({ stats: { words: { w: R({ level: 3, last: 999 }) }, sessions: [] } }),
@@ -77,7 +77,7 @@ describe('merge — level is last-write-wins, deliberately', () => {
     assert.strictEqual(out.stats.words.w.level, 3);
   });
 
-  test('a LOWER level survives when it is the newer record — a failure is not undone by a sync', () => {
+  test('a LOWER level survives when it is the newer record · a failure is not undone by a sync', () => {
     const out = merge(P({ stats: { words: { w: R({ level: 3, last: 100 }) }, sessions: [] } }),
       P({ stats: { words: { w: R({ level: 0, last: 999 }) }, sessions: [] } }));
     assert.strictEqual(out.stats.words.w.level, 0,
@@ -99,7 +99,7 @@ describe('merge — level is last-write-wins, deliberately', () => {
   });
 });
 
-describe('merge — a deletion is never resurrected', () => {
+describe('merge · a deletion is never resurrected', () => {
   test('a word deleted locally stays deleted when the remote has never heard of it', () => {
     const out = merge(P({ deleted: ['gone'] }), P({ deleted: [] }));
     assert.deepStrictEqual(out.deleted, ['gone']);
@@ -124,7 +124,7 @@ describe('merge — a deletion is never resurrected', () => {
   });
 });
 
-describe('merge — sessions', () => {
+describe('merge · sessions', () => {
   const S = (t, extra = {}) => Object.assign({ t, scope: 'global', total: 5, correct: 3 }, extra);
 
   test('the same round appearing on both sides is counted once', () => {
@@ -165,7 +165,7 @@ describe('merge — sessions', () => {
   });
 });
 
-describe('merge — idempotent', () => {
+describe('merge · idempotent', () => {
   const rich = () => P({
     assoc: { a: 'LA', b: 'LB' },
     stats: {
@@ -210,7 +210,7 @@ describe('merge — idempotent', () => {
   });
 });
 
-describe('merge — malformed input', () => {
+describe('merge · malformed input', () => {
   test('a null or non-object remote returns the local state untouched', () => {
     const local = rich_();
     for (const bad of [null, undefined, 'x', 42, []]) {
@@ -265,11 +265,11 @@ describe('merge — malformed input', () => {
  *
  * The rule these tests hold: after a sync has merged the cloud in, no record may survive for a
  * word that is not in the bank. Pruning before the merge is not pruning. */
-describe('merge — an orphan the cloud still holds must not come back', () => {
+describe('merge · an orphan the cloud still holds must not come back', () => {
   const live = loadApp({ lang: 'he' });                 // this one has the real bank loaded
   const realKey = () => live.K(live.BANK[0].term);
 
-  test('the merge itself does keep the orphan — that is why the prune has to follow it', () => {
+  test('the merge itself does keep the orphan · that is why the prune has to follow it', () => {
     const ghost = 'מילה-שכבר-לא-במאגר';
     const out = merge(P({ stats: { words: {}, sessions: [] } }),
                       P({ stats: { words: { [ghost]: R({ seen: 4 }) }, sessions: [] } }));

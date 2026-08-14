@@ -3,7 +3,7 @@
  *
  * norm() and normEn() decide what counts as "the same word" EVERYWHERE: the key a progress
  * record is stored under, whether a bank entry is a duplicate, and whether a typed answer is
- * right. When one of them shifts, nothing crashes — the app just starts telling people they got
+ * right. When one of them shifts, nothing crashes -- the app just starts telling people they got
  * a word wrong that they got right, or forgets progress it still has on disk. That is why the
  * v8 hyphen change needed a migration (app.js remapHyphenKeys) rather than a redeploy.
  *
@@ -18,7 +18,7 @@ const { loadApp } = require('./_harness/sandbox.js');
 const he = loadApp({ lang: 'he', bank: false });
 const en = loadApp({ lang: 'en', bank: false });
 
-describe('norm() — Hebrew', () => {
+describe('norm() · Hebrew', () => {
   test('strips niqqud', () => {
     assert.strictEqual(he.norm('כֹּפֶר'), 'כפר');
     assert.strictEqual(he.norm('סַיָּס'), 'סיס');
@@ -33,7 +33,7 @@ describe('norm() — Hebrew', () => {
   });
 
   test('NFKC folds Hebrew presentation forms back to letter + mark', () => {
-    // U+FB35 HEBREW LETTER VAV WITH DAGESH — stored by some sources, typed by nobody.
+    // U+FB35 HEBREW LETTER VAV WITH DAGESH -- stored by some sources, typed by nobody.
     assert.strictEqual(he.norm('וּ'), 'ו');
     assert.strictEqual(he.norm('וּ'), he.norm('וּ'), 'presentation form must key like letter+dagesh');
   });
@@ -68,14 +68,14 @@ describe('norm() — Hebrew', () => {
     assert.strictEqual(he.norm(undefined), '');
   });
 
-  test('is idempotent — normalising twice equals normalising once', () => {
+  test('is idempotent · normalising twice equals normalising once', () => {
     for (const s of ['כֹּפֶר', 'צה״ל', 'אב-גד', '  שלום  ', 'וּ', 'אֲלוּמַּת אוֹר']) {
       assert.strictEqual(he.norm(he.norm(s)), he.norm(s), `not idempotent for ${s}`);
     }
   });
 });
 
-describe('normEn() — English', () => {
+describe('normEn() · English', () => {
   test('folds case', () => {
     assert.strictEqual(en.normEn('BestSeller'), en.normEn('bestseller'));
     assert.strictEqual(en.normEn('Department Store'), 'department store');
@@ -126,7 +126,7 @@ describe('normEn() — English', () => {
   });
 });
 
-describe('named regressions — these must never come back', () => {
+describe('named regressions · these must never come back', () => {
   test('כֹּפֶר is answerable as כופר (defective spelling is not what people type)', () => {
     assert.strictEqual(he.norm('כֹּפֶר'), 'כפר', 'stripping niqqud leaves the DEFECTIVE spelling');
     assert.ok(he.heForms('כֹּפֶר').some(f => he.norm(f) === 'כופר'),
@@ -142,7 +142,7 @@ describe('named regressions — these must never come back', () => {
   });
 
   test('מִכְמוֹרֶת is answerable as מיכמורת, NOT as מיכמוורת', () => {
-    // app.js:362 — a holam male is already a vav; looking only forward doubled it. 74 terms
+    // app.js:362 -- a holam male is already a vav; looking only forward doubled it. 74 terms
     // rejected their own standard spelling.
     assert.strictEqual(he.norm(he.fullSpelling('מִכְמוֹרֶת')), 'מיכמורת');
     assert.strictEqual(he.isCorrect('מיכמורת', 'מִכְמוֹרֶת'), true);
@@ -193,7 +193,7 @@ describe('Hebrew spelling variants', () => {
     }
   });
 
-  test('heForms composes the rules — a word can need a ו and a doubled י at once', () => {
+  test('heForms composes the rules · a word can need a ו and a doubled י at once', () => {
     const f = he.heForms('קוּשִׁיָה').map(he.norm);
     assert.ok(f.includes('קושייה'), 'expected the everyday spelling קושייה among ' + [...new Set(f)].join(','));
   });

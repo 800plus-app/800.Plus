@@ -1,11 +1,11 @@
-/* service worker — offline cache.
+/* service worker -- offline cache.
    ONE place to bump on every deploy: REV. It names the cache *and* the asset query strings,
    so the URLs precached here are byte-for-byte the URLs index.html requests. When those drift
-   apart the app silently keeps serving an old build — which is exactly what used to happen. */
+   apart the app silently keeps serving an old build -- which is exactly what used to happen. */
 const REV = '192';
 const V = 'hw-v' + REV;
 /* App DATA must not live in a versioned cache. The personalised reminder text was written into
-   hw-v<REV>, so the next deploy deleted it along with the assets — and it was never rewritten,
+   hw-v<REV>, so the next deploy deleted it along with the assets -- and it was never rewritten,
    because the page only writes it while asking for notification permission, which never happens
    twice. Every reminder after the first deploy fell back to the generic wording, forever. */
 const DATA = 'hw-data';
@@ -17,11 +17,11 @@ const ASSETS = [
   './icon-192.png', './icon-512.png', './icon-maskable-512.png',
   /* הפונטים. בלי ?v= בכוונה, ושתי סיבות נפרדות מחייבות זאת:
      · ההתאמה ב-cache-first היא על ה-URL המדויק כולל ה-query. ה-@font-face ב-index.html
-       מפנה ל-fonts/x.woff2 בלי query, ולכן רשומה עם ?v=${REV} לא הייתה נענית לעולם —
+       מפנה ל-fonts/x.woff2 בלי query, ולכן רשומה עם ?v=${REV} לא הייתה נענית לעולם · 
        הפונטים היו יורדים מהרשת בכל פעם, כלומר בדיוק הבאג שהמעבר הזה בא לתקן.
-     · הקבצים immutable — התוכן שלהם לא משתנה בין דיפלויים. תלייתם ב-REV הייתה מכריחה
+     · הקבצים immutable · התוכן שלהם לא משתנה בין דיפלויים. תלייתם ב-REV הייתה מכריחה
        הורדה חוזרת של 152KB בכל העלאת גרסה, בפרויקט שסופר רוחב פס.
-     לא ב-CORE: install נכשל כולו אם קובץ אחד שם לא נטען, ופונט הוא best-effort — הוא
+     לא ב-CORE: install נכשל כולו אם קובץ אחד שם לא נטען, ופונט הוא best-effort · הוא
      לא שווה כישלון התקנה. */
   './fonts/frank-ruhl-libre-hebrew.woff2', './fonts/frank-ruhl-libre-latin.woff2',
   './fonts/frank-ruhl-libre-latin-ext.woff2',
@@ -41,7 +41,7 @@ self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(V).then(async c => {
       /* addAll is all-or-nothing over ~720KB. One flaky asset on a weak connection rejected the
-         install, the new worker was discarded, and the user stayed on the previous build —
+         install, the new worker was discarded, and the user stayed on the previous build -- 
          precisely the users who are hardest to reach. Only CORE is allowed to fail the install;
          the rest is best-effort and is fetched on demand anyway. */
       await Promise.all(CORE.map(u => load(u).then(r => c.put(u, r))));
@@ -54,12 +54,12 @@ self.addEventListener('install', e => {
 self.addEventListener('activate', e => {
   e.waitUntil(
     // only OUR old versions: CacheStorage is scoped per origin, and hagay-bot.github.io
-    // hosts every Pages project of the account — the old filter wiped their caches too
+    // hosts every Pages project of the account -- the old filter wiped their caches too
     caches.keys().then(ks => Promise.all(
       ks.filter(k => k !== V && k.startsWith('hw-v')).map(k => caches.delete(k))))
       .then(() => self.clients.claim())
       /* Tell every open tab that a new build took over. Without this the page keeps running the
-         old code until the user happens to reload — and the only hint was a line of small text
+         old code until the user happens to reload -- and the only hint was a line of small text
          asking them to do it. */
       .then(() => self.clients.matchAll({ type: 'window', includeUncontrolled: true }))
       .then(cs => cs.forEach(c => c.postMessage({ type: 'sw-activated', rev: REV })))
@@ -69,14 +69,14 @@ self.addEventListener('activate', e => {
 /* The one question this worker must get right: is this a request it has any business touching?
  *
  * It used to ask only "is it a GET over http(s)", which meant every authenticated call to
- * Supabase was cached and replayed. The cache key is the URL — the Authorization header is not
- * part of it, and the responses carry no `Vary` — so a read by one signed-in user was served to
+ * Supabase was cached and replayed. The cache key is the URL -- the Authorization header is not
+ * part of it, and the responses carry no `Vary` -- so a read by one signed-in user was served to
  * the next. `GET /auth/v1/user` is the same URL for everybody.
  *
  * The rule is `origin`, not a list of paths like `/rest/v1/`. A path list is a list somebody has
  * to remember to update; the origin is the actual boundary. This worker exists to serve OUR
  * assets offline, and that is exactly what same-origin means. It is also read from the origin the
- * worker is running on rather than a hardcoded domain, so the rule holds on localhost too — a
+ * worker is running on rather than a hardcoded domain, so the rule holds on localhost too -- a
  * rule that only works in production is a rule nobody can check before deploying. */
 function swHandles(url, origin) {
   if (url.protocol !== 'http:' && url.protocol !== 'https:') return false;  // extension, data:, blob:
@@ -85,7 +85,7 @@ function swHandles(url, origin) {
 }
 
 /* 'cors' is deliberately gone. With swHandles in place a cross-origin response can no longer
-   reach this line, so dropping it changes nothing today — it is here so that if someone ever
+   reach this line, so dropping it changes nothing today -- it is here so that if someone ever
    loosens the origin rule, the second gate still refuses to store another host's reply. */
 const cacheable = res => res && res.status === 200 && res.type === 'basic';
 
@@ -106,7 +106,7 @@ self.addEventListener('fetch', e => {
   if (req.mode === 'navigate') {
     e.respondWith(
       /* cache:'reload' skips the browser's HTTP cache. GitHub Pages serves index.html with
-         max-age=600, so a plain fetch could hand back a ten-minute-old shell — which still
+         max-age=600, so a plain fetch could hand back a ten-minute-old shell -- which still
          points at the PREVIOUS build's ?v= URLs. The app then reported itself up to date while
          running old code, which is the worst of both worlds: stale and confident. */
       fetch(req.url, { cache: 'reload', credentials: 'same-origin' })
@@ -123,7 +123,7 @@ self.addEventListener('fetch', e => {
 
   // Everything else: cache-first on the EXACT url (query included), refreshed in the background.
   // waitUntil is what makes the refresh real: respondWith resolves the moment the cached copy
-  // is handed over, and the browser is then free to kill the worker — so an unheld revalidation
+  // is handed over, and the browser is then free to kill the worker -- so an unheld revalidation
   // was routinely dropped, and the fuller the cache the more reliably it never ran.
   e.respondWith(
     caches.match(req).then(cached => {
@@ -139,12 +139,12 @@ self.addEventListener('fetch', e => {
 
 /* ===== notifications =====
    Three delivery paths, because no single one works everywhere:
-   1. periodicSync — installed PWA on Chrome/Android. Fires while the app is closed.
-   2. push        — supabase/functions/send-push signs VAPID and fires these. This is the ONLY
+   1. periodicSync -- installed PWA on Chrome/Android. Fires while the app is closed.
+   2. push -- supabase/functions/send-push signs VAPID and fires these. This is the ONLY
                     path that reaches an installed PWA on iOS while it is closed.
    3. the page itself, on open. The fallback when neither of the above is available.
    All three end at the same renderer so the wording never diverges. */
-/* The page caches FACTS — {streak, learned, weak, last} — and the wording is decided here, at
+/* The page caches FACTS -- {streak, learned, weak, last} -- and the wording is decided here, at
    the moment it fires. That ordering is the whole point: a message composed when permission was
    granted and cached goes on announcing a streak that ended weeks ago, and greets someone who
    has been away for a fortnight as though they practised yesterday.
@@ -200,12 +200,12 @@ self.addEventListener('periodicsync', e => {
 
 /* Push, and the reason it carries no payload.
  *
- * A payload on a Web Push message must be encrypted per RFC 8291 — ECDH against the
+ * A payload on a Web Push message must be encrypted per RFC 8291 -- ECDH against the
  * subscriber's key, HKDF, then AES-128-GCM. That is a real amount of crypto to write and, far
  * worse, to get subtly wrong: an encryption bug produces a push that silently never displays.
  *
  * It is also unnecessary here. The page already caches the FACTS under 'daily-msg', and
- * composeDaily() decides the wording at fire time — that is how periodicSync above works. So
+ * composeDaily() decides the wording at fire time -- that is how periodicSync above works. So
  * the push only has to say "now", and the worker composes the same personal message from data
  * it already holds. Nothing about the learner crosses the push service, which is the privacy
  * answer too.
