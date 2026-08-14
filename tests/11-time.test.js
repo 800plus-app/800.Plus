@@ -705,7 +705,10 @@ describe('the reminder — how long is "two days away"', () => {
     assert.match(plain(ctx.NOTIF.compose(facts(now - 1.9 * DAY))).title, /זמן ללמוד/);
     assert.match(plain(ctx.NOTIF.compose(facts(now - 2 * DAY))).title, /יומיים/);
     assert.match(plain(ctx.NOTIF.compose(facts(now - 13 * DAY))).title, /יומיים/);
-    assert.match(plain(ctx.NOTIF.compose(facts(now - 14 * DAY))).title, /מחכות/);
+    /* הכותרת כאן היא **סמן לדלי** ולא הנוסח שנבדק. היא הייתה "המילים מחכות
+       לך" ושונתה ל"מילים לחיזוק" ב-14.8: מילים אינן מחכות, וזו ההאנשה
+       ש-/HEB §1ב נוקב בה בשמה. הגבול עצמו — 14 יום — לא זז. */
+    assert.match(plain(ctx.NOTIF.compose(facts(now - 14 * DAY))).title, /לחיזוק/);
   });
 
   test('BUG: two whole calendar days can pass without "יומיים בלי תרגול" ever firing', () => {
