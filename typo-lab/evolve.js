@@ -61,6 +61,7 @@ const SETS = ['he-word', 'en-word', 'gloss'];
 const CAND_K = MAX_CANDS;
 const CAND_CAP = MAX_OPS;
 const GOLDEN_TARGET = 10000;
+const BIG_GA = { popSize: 80, maxGen: 130, patience: 22 };
 const COMPLEXITY_W = 0.002;
 
 const say = s => process.stdout.write(s + '\n');
@@ -69,28 +70,40 @@ const say = s => process.stdout.write(s + '\n');
  * ‏W.sub מקובע ב-1.0 ואינו גן · הוא יחידת המידה. בלי עוגן, (W, ספים) ו-(2W, 2ספים) הם
  * אותו מסווג בדיוק, וה-GA היה מבזבז דורות על נדידה לאורך כיוון שאינו משנה דבר.
  */
+/* ===== הגנום · וקטור סף לכל אורך =====
+ *
+ * מה שהמדידה של סוכן הכיסוי הראתה: ארבע רצועות אורך היו האילוץ הכובל, לא הלקסיקון.
+ * רצועה אחת חייבת סף אחד לטווח שלם של אורכים, ולכן אורך שרוצה סובלנות גוררת אחריו
+ * את שכניו · וה-GA נאלץ לאפס את כולם כדי לספק את אילוץ אפס-קבלות-השווא. עם סף לכל
+ * אורך, כל אורך נסחר בנפרד. נמדד: gloss מ-0.00% ל-8.61%, כלומר "אפס מבני" היה תוצר
+ * של מרחב החיפוש ולא של הבעיה.
+ *
+ * ‏2..12 בנפרד ואז 13+ · מתחת ל-3 אין שורות accept כלל, ומעל 12 הזנב דליל מכדי
+ * להצדיק גן לכל אורך. שנים-עשר גני סף במקום שמונה גני רצועה.
+ *
+ * הייצוג נשאר **bands** בדיוק כפי שהבודק כבר קורא אותו · maxLen עולה ב-1 בכל צעד.
+ * לכן lib/checker.js אינו משתנה בכלל, וטבלת הזהב, השער הממצה ו-tests/71 ממשיכים
+ * לקרוא את אותו מבנה. שינוי ייצוג שדורש שינוי בבודק היה שינוי סמנטי מוסווה. */
+const T_LENS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 const GENES = [
-  { name: 'minLen', lo: 0, hi: 8, int: true },
-  { name: 'edge1', lo: 2, hi: 6, int: true },
-  { name: 'edge2', lo: 4, hi: 10, int: true },
-  { name: 'edge3', lo: 7, hi: 16, int: true },
-  { name: 't1', lo: 0, hi: 3 },
-  { name: 't2', lo: 0, hi: 3 },
-  { name: 't3', lo: 0, hi: 3 },
-  { name: 't4', lo: 0, hi: 3 },
-  { name: 'W.adjSub', lo: 0.2, hi: 2 },
-  { name: 'W.transpose', lo: 0.2, hi: 3 },
-  { name: 'W.ins', lo: 0.2, hi: 2 },
-  { name: 'W.del', lo: 0.2, hi: 2 },
-  { name: 'W.doubleLetter', lo: 0.2, hi: 2 },
-  { name: 'W.materVI', lo: 0.2, hi: 2 },
-  { name: 'W.homophone', lo: 0.2, hi: 2 },
-  /* התחום מתחיל ב-1 ולא ב-0, ובכוונה. ‏vetoMargin=0 מתיר לקבל מחרוזת שקרובה למילת מאגר
-     אחרת **יותר** מאשר לשלך, וזו סתירה חזיתית להכרעת חגי ("הקלדה ששווה למילה אחרת
-     נפסלת תמיד"). נמדד שה-GA אכן בוחר 0 כשמותר לו · הוא קונה בו recall, ומשלם בקבלות
-     שווא ב-validation. אילוץ שהוא לרעת הכושר חייב להיות מחוץ להישג ידו. */
-  { name: 'vetoMargin', lo: 1, hi: 3, int: true }
-];
+  { name: 'minLen', lo: 0, hi: 8, int: true }
+].concat(T_LENS.map(L => ({ name: 't' + L, lo: 0, hi: 3 })))
+  .concat([{ name: 't13plus', lo: 0, hi: 3 }])
+  .concat([
+    { name: 'W.adjSub', lo: 0.2, hi: 2 },
+    { name: 'W.transpose', lo: 0.2, hi: 3 },
+    { name: 'W.ins', lo: 0.2, hi: 2 },
+    { name: 'W.del', lo: 0.2, hi: 2 },
+    { name: 'W.doubleLetter', lo: 0.2, hi: 2 },
+    { name: 'W.materVI', lo: 0.2, hi: 2 },
+    { name: 'W.homophone', lo: 0.2, hi: 2 },
+    /* התחום מתחיל ב-1 ולא ב-0, ובכוונה. ‏vetoMargin=0 מתיר לקבל מחרוזת שקרובה למילת
+       מאגר אחרת **יותר** מאשר לשלך · סתירה חזיתית להכרעת חגי. נמדד שה-GA אכן בוחר 0
+       כשמותר לו. אילוץ שהוא לרעת הכושר חייב להיות מחוץ להישג ידו. */
+    { name: 'vetoMargin', lo: 1, hi: 3, int: true }
+  ]);
+const NT = T_LENS.length + 1;                 // מספר גני הסף
+const WI = 1 + NT;                            // תחילת גני המשקל
 const GI = {};
 GENES.forEach((g, i) => { GI[g.name] = i; });
 
@@ -99,40 +112,42 @@ GENES.forEach((g, i) => { GI[g.name] = i; });
    לעולם, וה-GA מבזבז עליה גן שלם. נמדד בפועל בגנום he-word שנשלח: bands 6:2.4869
    ו-6:0, כלומר סף 2.4869 שנראה בדוח ואינו קיים בהחלטה. */
 function genomeToParams(g) {
-  const e1 = g[1], e2 = Math.max(g[1] + 1, g[2]), e3 = Math.max(e2 + 1, g[3]);
+  const bands = T_LENS.map((L, i) => ({ maxLen: L, t: g[1 + i] }));
+  bands.push({ maxLen: Infinity, t: g[1 + T_LENS.length] });
   return {
     minLen: g[0],
-    bands: [
-      { maxLen: e1, t: g[4] },
-      { maxLen: e2, t: g[5] },
-      { maxLen: e3, t: g[6] },
-      { maxLen: Infinity, t: g[7] }
-    ],
+    bands,
     W: {
       sub: 1,
-      adjSub: g[8], transpose: g[9], ins: g[10], del: g[11],
-      doubleLetter: g[12], materVI: g[13], homophone: g[14]
+      adjSub: g[WI], transpose: g[WI + 1], ins: g[WI + 2], del: g[WI + 3],
+      doubleLetter: g[WI + 4], materVI: g[WI + 5], homophone: g[WI + 6]
     },
-    vetoMargin: g[15]
+    vetoMargin: g[WI + 7]
   };
 }
 
-/* גנום מפרמטרים · לצורך הזרעים הידניים, שנכתבים כפרמטרים קריאים ולא כמערך מספרים. */
+/* גנום מפרמטרים · הזרעים נכתבים כפרמטרים קריאים, ולכן הסף לכל אורך נדגם מהם דרך
+   אותה פונקציה שהבודק משתמש בה. כך זרע שנכתב כארבע רצועות נכנס בלי לאבד דבר. */
 function paramsToGenome(p) {
-  const b = p.bands;
-  const W = p.W || {};
-  return [
-    p.minLen, b[0].maxLen, b[1].maxLen, b[2].maxLen,
-    b[0].t, b[1].t, b[2].t, b[3].t,
-    W.adjSub == null ? 1 : W.adjSub,
-    W.transpose == null ? 2 : W.transpose,
-    W.ins == null ? 1 : W.ins,
-    W.del == null ? 1 : W.del,
-    W.doubleLetter == null ? 1 : W.doubleLetter,
-    W.materVI == null ? 1 : W.materVI,
-    W.homophone == null ? 1 : W.homophone,
-    p.vetoMargin == null ? 1 : p.vetoMargin
-  ];
+  const P = normalizeParams(p);
+  const thr = len => {
+    for (const b of P.bands) if (len <= b.maxLen) return b.t;
+    return P.bands[P.bands.length - 1].t;
+  };
+  const W = P.W || {};
+  return [P.minLen]
+    .concat(T_LENS.map(L => thr(L)))
+    .concat([thr(99)])
+    .concat([
+      W.adjSub == null ? 1 : W.adjSub,
+      W.transpose == null ? 2 : W.transpose,
+      W.ins == null ? 1 : W.ins,
+      W.del == null ? 1 : W.del,
+      W.doubleLetter == null ? 1 : W.doubleLetter,
+      W.materVI == null ? 1 : W.materVI,
+      W.homophone == null ? 1 : W.homophone,
+      P.vetoMargin == null ? 1 : P.vetoMargin
+    ]);
 }
 
 /* ===== שמונת הזרעים הידניים =====
@@ -148,7 +163,12 @@ const SEED_PARAMS = [
   { note: 'weighted · adjSub/mater/homophone discounted', minLen: 4, bands: [{ maxLen: 3, t: 0 }, { maxLen: 6, t: 1 }, { maxLen: 10, t: 1 }, { maxLen: Infinity, t: 1 }], W: { adjSub: 0.6, materVI: 0.5, homophone: 0.6, transpose: 1.2 }, vetoMargin: 1 },
   { note: 'weighted · generous on long words', minLen: 4, bands: [{ maxLen: 3, t: 0 }, { maxLen: 6, t: 1 }, { maxLen: 10, t: 1.5 }, { maxLen: Infinity, t: 2 }], W: { adjSub: 0.5, materVI: 0.4, homophone: 0.5, doubleLetter: 0.5, transpose: 0.9 }, vetoMargin: 1 },
   { note: 'strict short · margin 2', minLen: 5, bands: [{ maxLen: 4, t: 0 }, { maxLen: 7, t: 0.6 }, { maxLen: 11, t: 1.2 }, { maxLen: Infinity, t: 2 }], W: { adjSub: 0.7, materVI: 0.5, homophone: 0.7, transpose: 1.4 }, vetoMargin: 2 },
-  { note: 'plain d<=1 · margin 2', minLen: 4, bands: [{ maxLen: 3, t: 0 }, { maxLen: 6, t: 1 }, { maxLen: 10, t: 1 }, { maxLen: Infinity, t: 1 }], W: {}, vetoMargin: 2 }
+  { note: 'plain d<=1 · margin 2', minLen: 4, bands: [{ maxLen: 3, t: 0 }, { maxLen: 6, t: 1 }, { maxLen: 10, t: 1 }, { maxLen: Infinity, t: 1 }], W: {}, vetoMargin: 2 },
+  /* שלוש נקודות ההפעלה שנשלחות היום · נכנסות כזרעים כדי שהייצוג החדש לא יוכל לצאת
+     גרוע מהישן. הן נדגמות לסף-לכל-אורך דרך paramsToGenome, ולכן הן מיוצגות במדויק. */
+  { note: 'shipped he-word (4-band)', minLen: 6, vetoMargin: 1, bands: [{ maxLen: 3, t: 0 }, { maxLen: 7, t: 0.5164 }, { maxLen: 14, t: 0 }, { maxLen: Infinity, t: 1.5253 }], W: { adjSub: 1.5771, transpose: 1.9474, ins: 1.6279, del: 0.5165, doubleLetter: 0.4423, materVI: 0.9335, homophone: 1.7535 } },
+  { note: 'shipped en-word (4-band)', minLen: 1, vetoMargin: 2, bands: [{ maxLen: 2, t: 0.0889 }, { maxLen: 9, t: 1.5657 }, { maxLen: 10, t: 1.055 }, { maxLen: Infinity, t: 1.4513 }], W: { adjSub: 1.3764, transpose: 1.0148, ins: 1.4561, del: 1.534, doubleLetter: 1.0232, materVI: 0.596, homophone: 1.6427 } },
+  { note: 'gloss 1/20000 (4-band)', minLen: 4, vetoMargin: 2, bands: [{ maxLen: 4, t: 0.663 }, { maxLen: 9, t: 0 }, { maxLen: 13, t: 0.4274 }, { maxLen: Infinity, t: 1.3205 }], W: { adjSub: 2, transpose: 2.8453, ins: 1.9206, del: 0.2, doubleLetter: 0.2, materVI: 0.9063, homophone: 0.2 } }
 ];
 
 /* ===== טעינה וקדם-חישוב ===== */
@@ -345,7 +365,7 @@ function buildCrossCard(langs, perSet) {
 
       const forms = Array.from(owners.keys());
       const NI = BG.makeNear(forms, CAND_CAP, 24);
-      let pairs = 0, kept = 0, blocked = 0, todaySkip = 0;
+      let pairs = 0, kept = 0, blocked = 0, todaySkip = 0, unreach = 0;
 
       for (const e of info) {
         const src = formsOf(e);
@@ -398,23 +418,98 @@ function buildCrossCard(langs, perSet) {
           if (!scored.length) continue;
           scored.sort((a, b) => a.raw - b.raw || a.len - b.len || (a.key < b.key ? -1 : a.key > b.key ? 1 : 0));
 
+          /* ===== סינון בר-השגה · הוכחתי, לא היוריסטי =====
+             שומרים רק זוגות שקיים גנום **בתוך מרחב החיפוש** שמקבל אותם. הגנום השולט
+             הוא הקיצון של כל גן בכיוון המתירני: כל הספים 3 (התקרה של גן t), כל
+             המשקלים 0.2 (הרצפה של גני W · ‏sub מקובע ב-1), minLen 0, ושוליים 1
+             (הרצפה של vetoMargin). זוג שהוא דוחה לא ייתקבל על ידי אף גנום, ולכן
+             הסרתו אינה יכולה להחמיץ התנגשות · בלי זה נשארו 1.96 מיליון שורות
+             שהלולאה הפנימית של ה-GA אינה יכולה לשאת. */
           const allow = gloss ? L.allowSeg(e.w) : L.allowTerm(e.w);
           const dOtherRaw = nearestOther(f, gloss ? L.IX.seg : L.IX.term, allow, ctx);
+          const dOtherV = isFinite(dOtherRaw) ? dOtherRaw : 9;
+          if ((dOtherV - Math.min(dOwn, 9)) < 1) { unreach++; continue; }
+          let reach = false;
+          for (const s of scored.slice(0, CAND_K)) {
+            for (const v of s.vecs) {
+              let c = 0;
+              for (const k of OP_KEYS) c += v[k] * (k === 'sub' ? 1 : 0.2);
+              if (c <= 3) { reach = true; break; }
+            }
+            if (reach) break;
+          }
+          if (!reach) { unreach++; continue; }
+
           out[set].push({
             lang, set, op: 'cross/bank', label: 'reject', why: 'cross-card-bank', trusted: true,
             fold: -1, holdout: false, term: e.term, unit: e.unit, key: src[0], typed: f, typedKey: f,
             intruder: outside,
             vetoed: false, lexVetoed: false, today: false, inflect: false,
-            dOwn: Math.min(dOwn, 9), dOther: isFinite(dOtherRaw) ? dOtherRaw : 9,
+            dOwn: Math.min(dOwn, 9), dOther: dOtherV,
             tLen: letters(f), kLen: letters(src[0]), cands: scored.slice(0, CAND_K)
           });
           kept++;
         }
       }
-      stats[`${lang}/${dir}`] = { forms: forms.length, pairs, kept, blocked, todaySkip };
+      stats[`${lang}/${dir}`] = { forms: forms.length, pairs, kept, blocked, unreachable: unreach, todaySkip };
     }
   }
   return { rows: out, stats };
+}
+
+/* קודי הדלי · ההרכב של קבלות-השווא חשוב לא פחות ממספרן. קבלה של מילת מאגר אחרת
+   ("וטו") היא כשל פדגוגי אחר לגמרי מקבלה של מחרוזת דו-משמעית. */
+const WHY_CODE = { 'real-word': 1, 'veto': 2, 'ambiguous': 3, 'inflection': 4, 'garbage': 5, 'other-variant': 6, 'cross-card': 7, 'cross-card-bank': 8 };
+const WHY_NAME = ['other', 'real-word', 'veto', 'ambiguous', 'inflection', 'garbage', 'other-variant', 'cross-card', 'cross-card-bank'];
+
+/* ההכרעה לשורה אחת · אותו סדר שכבות בדיוק של evalSubset, לשימוש המדידות שאינן
+   בלולאה הפנימית. מוגדרת פעם אחת כדי ששתיהן לא ייפרדו. */
+function decideOne(S, i, E) {
+  const f = S.flags[i];
+  if (f & 4) return true;
+  if (f & 1) return false;
+  if (E.useLex && (f & 64)) return false;
+  if (S.tLen[i] < E.minLen) return false;
+  if (f & 2) return false;
+  if (!E.anyT) return false;
+  const K = OP_KEYS.length;
+  const hi = S.off[i + 1];
+  let ok = false;
+  for (let p = S.off[i]; p < hi; p++) {
+    const L = S.pLen[p];
+    const t = E.tcache[L < 256 ? L : 255];
+    if (!(t > 0)) continue;
+    let cost = 0;
+    const base = p * K;
+    for (let j = 0; j < K; j++) cost += S.pCnt[base + j] * E.wv[j];
+    if (cost <= t) { ok = true; break; }
+  }
+  if (ok && E.margin > 0 && (S.dOther[i] - S.dOwn[i]) < E.margin) ok = false;
+  return ok;
+}
+
+function faBuckets(S, idx, E) {
+  const out = {};
+  for (let x = 0; x < idx.length; x++) {
+    const i = idx[x];
+    if (S.flags[i] & 8) continue;
+    if (!decideOne(S, i, E)) continue;
+    const n = WHY_NAME[S.whyCode[i]] || 'other';
+    out[n] = (out[n] || 0) + 1;
+  }
+  return out;
+}
+
+function listFalseAccepts(S, idx, E, limit) {
+  const out = [];
+  for (let x = 0; x < idx.length && out.length < (limit || 50); x++) {
+    const i = idx[x];
+    if (S.flags[i] & 8) continue;
+    if (!decideOne(S, i, E)) continue;
+    const r = S.rows[i];
+    out.push({ typed: r.typed, key: r.key, term: r.term, unit: r.unit, set: r.set, op: r.op, why: r.why, intruder: r.intruder || null });
+  }
+  return out;
 }
 
 /* ===== ארוז לסט למערכים טיפוסיים · זו הצורה שהלולאה הפנימית של ה-GA רצה עליה =====
@@ -445,6 +540,7 @@ function packSet(rows) {
   let p = 0;
   for (let i = 0; i < N; i++) {
     const r = rows[i];
+    whyCode[i] = WHY_CODE[String(r.why).split(':')[0]] || 0;
     flags[i] = (r.vetoed ? 1 : 0) | (r.inflect ? 2 : 0) | (r.today ? 4 : 0) | (r.label === 'accept' ? 8 : 0)
       | (r.trusted === false ? 0 : 16) | (r.why === 'real-word' ? 32 : 0) | (r.lexVetoed ? 64 : 0);
     tLen[i] = r.tLen; kLen[i] = r.kLen; dOwn[i] = r.dOwn; dOther[i] = r.dOther;
@@ -459,7 +555,7 @@ function packSet(rows) {
     }
   }
   off[N] = p;
-  return { N, flags, tLen, kLen, dOwn, dOther, fold, hold, off, pLen, pCnt, pairs: P, rows };
+  return { N, flags, tLen, kLen, whyCode, dOwn, dOther, fold, hold, off, pLen, pCnt, pairs: P, rows };
 }
 
 /* ===== הערכה מהירה · מכפלה סקלרית =====
@@ -487,7 +583,7 @@ function makeFastEval(P) {
 function evalSubset(S, idx, E) {
   const { flags, tLen, dOwn, dOther, off, pLen, pCnt } = S;
   const K = OP_KEYS.length;
-  let tp = 0, nAcc = 0, fa = 0, nRej = 0, tpAll = 0, nAccAll = 0, faReal = 0, nRejReal = 0;
+  let tp = 0, nAcc = 0, fa = 0, nRej = 0, tpAll = 0, nAccAll = 0, faReal = 0, nRejReal = 0, faToday = 0;
   for (let x = 0; x < idx.length; x++) {
     const i = idx[x];
     const f = flags[i];
@@ -518,14 +614,17 @@ function evalSubset(S, idx, E) {
     }
     if (ok) {
       if (isAcc) { tpAll++; if (trusted) tp++; }
-      else { fa++; if (realWord) faReal++; }
+      else { fa++; if (realWord) faReal++; if (f & 4) faToday++; }
     }
   }
   return {
     tp, nAcc, fa, nRej, recall: nAcc ? tp / nAcc : 0,
     tpAll, nAccAll, recallAll: nAccAll ? tpAll / nAccAll : 0,
     nUntrustedAccept: nAccAll - nAcc, tpUntrusted: tpAll - tp,
-    faRealWord: faReal, nRejectRealWord: nRejReal
+    faRealWord: faReal, nRejectRealWord: nRejReal,
+    /* קבלות-שווא שהגיעו משכבה 1 · ההתנהגות של היום, לא של הגנום. מדווחות בנפרד כדי
+       ששער לא ייכשל על משהו שאף פרמטר אינו יכול לגרום לו או למנוע. */
+    faToday, faOwn: fa - faToday
   };
 }
 
@@ -636,7 +735,9 @@ function evolveOn(S, trainIdx, seedStr, logSink, tag, useLex, opts) {
   const xIdx = o.crossIdx || null;
   const allowed = o.allowed || 0;
   const seeds = SEED_PARAMS.map(paramsToGenome);
-  const res = runGA({
+  /* מרחב של 21 גנים במקום 16 · אוכלוסייה וסבלנות גדולות יותר לריצות הראשיות. הסריקה
+     נשארת בברירת המחדל כי היא ממילא מאוחדת על פני כל הנקודות. */
+  const res = runGA(Object.assign({
     spec: GENES,
     seeds,
     seed: fnv1a(seedStr),
@@ -647,8 +748,65 @@ function evolveOn(S, trainIdx, seedStr, logSink, tag, useLex, opts) {
       return fitnessOf(evalSubset(S, trainIdx, E), P, allowed, xfa);
     },
     onGen: rec => { if (logSink) logSink(Object.assign({ tag }, rec)); }
-  });
+  }, o.ga || {}));
   return res;
+}
+
+/* ===== סריקת התקציב =====
+ *
+ * חגי הסיר את האילוץ שהיה מחייב · אפס קבלות-שווא · והחליף אותו בתקציב. זו שאלה אחרת
+ * מ"מה הנקודה הטובה ביותר", ולכן היא נענית בעקומה ולא בנקודה: לכל תקציב, איזה recall
+ * הוא קונה, ומה **הרכב** קבלות-השווא שהוא מייצר.
+ *
+ * התקציב נמדד בשורות ולא בשיעור בתוך הכושר, כי הכושר מסתכל על תת-קבוצה שגודלה משתנה
+ * (‏4/5 באימון, הכל בריצה הסופית). ‏allowed = floor(budget × |תת-הקבוצה|).
+ *
+ * ההתנגשויות החוצות-כרטיסים נספרות **במלואן** מול תקציב שגודלו נגזר מקבוצת האימון,
+ * ולא מפוצלות ל-holdout · הן אינן "תשובה שלומד הקליד" אלא תכונה מבנית של המאגר, ואין
+ * להן חלוקת folds. זו החמרה מכוונת: הן נספרות בכל הערכה ובכל תקציב.
+ */
+function runSweep(set, S, X, xI, nonHold, nhArr, hoArr, budgets, cvMeanRef) {
+  const out = [];
+  for (const b of budgets) {
+    const allowedFinal = Math.floor(b * nonHold.length);
+    const valR = [];
+    for (let f = 0; f < 5; f++) {
+      const tr = [], va = [];
+      for (const i of nonHold) (S.fold[i] === f ? va : tr).push(i);
+      const r = evolveOn(S, Int32Array.from(tr), `${SEED}|${set}|b${b}|fold${f}`, null, null, true,
+        { cross: X, crossIdx: xI, allowed: Math.floor(b * tr.length) });
+      const E = makeFastEval(paramsFor(r.best, true));
+      valR.push(evalSubset(S, Int32Array.from(va), E).recall);
+    }
+    const cvMean = valR.reduce((a, c) => a + c, 0) / valR.length;
+    const cvSd = Math.sqrt(valR.reduce((a, c) => a + (c - cvMean) * (c - cvMean), 0) / valR.length);
+
+    const fin = evolveOn(S, nhArr, `${SEED}|${set}|b${b}|final`, null, null, true,
+      { cross: X, crossIdx: xI, allowed: allowedFinal });
+    const P = paramsFor(fin.best, true);
+    const E = makeFastEval(P);
+    const ho = evalSubset(S, hoArr, E);
+    const ev = evalSubset(S, nhArr, E);
+    const xr = X && X.N ? evalSubset(X, xI, E) : { fa: 0 };
+    const buckets = faBuckets(S, hoArr, E);
+    if (xr.fa) buckets['cross-card-bank'] = (buckets['cross-card-bank'] || 0) + xr.fa;
+
+    out.push({
+      budget: b, budgetLabel: b === 0 ? '0' : `1/${Math.round(1 / b)}`,
+      allowedOnEvolveSet: allowedFinal,
+      cvMean, cvSd,
+      evolveRecall: ev.recall, evolveFalseAccepts: ev.fa,
+      holdoutRecall: ho.recall, holdoutFalseAccepts: ho.fa,
+      holdoutRate: hoArr.length ? ho.fa / hoArr.length : 0,
+      crossCardCollisions: xr.fa,
+      totalFalseAccepts: ho.fa + xr.fa,
+      buckets,
+      shipGate: (ho.fa + xr.fa) <= Math.floor(b * hoArr.length) && ho.recall >= cvMean - 2 * cvSd,
+      params: P, genome: fin.best
+    });
+    say(`  תקציב ${(b === 0 ? '0' : '1/' + Math.round(1 / b)).padStart(8)} · holdout recall ${(ho.recall * 100).toFixed(2)}% · FA ${String(ho.fa).padStart(4)} (1/${ho.fa ? Math.round(hoArr.length / ho.fa) : '∞'}) · חוצי-כרטיסים ${String(xr.fa).padStart(3)} · ${Object.entries(buckets).map(([k, v]) => k + ':' + v).join(' ') || 'אין'}`);
+  }
+  return out;
 }
 
 /* ===== התקרה הכנה ===== */
@@ -805,7 +963,7 @@ function main() {
       const tr = [], va = [];
       for (const i of nonHold) (S.fold[i] === f ? va : tr).push(i);
       const trA = Int32Array.from(tr), vaA = Int32Array.from(va);
-      const r = evolveOn(S, trA, `${SEED}|${set}|fold${f}`, logSink, `${set}/fold${f}`, true, xOpts);
+      const r = evolveOn(S, trA, `${SEED}|${set}|fold${f}`, logSink, `${set}/fold${f}`, true, Object.assign({ ga: BIG_GA }, xOpts));
       const P = normalizeParams(genomeToParams(r.best));
       const E = makeFastEval(P);
       const trRes = evalSubset(S, trA, E), vaRes = evalSubset(S, vaA, E);
@@ -831,7 +989,7 @@ function main() {
     if (overfit) say(`  ⚠ פער train-val ממוצע ${(meanGap * 100).toFixed(2)}% · מעל הסף 3%`);
 
     /* ---- אבולוציה סופית על כל מה שאינו holdout ---- */
-    const fin = evolveOn(S, nhArr, `${SEED}|${set}|final`, logSink, `${set}/final`, true, xOpts);
+    const fin = evolveOn(S, nhArr, `${SEED}|${set}|final`, logSink, `${set}/final`, true, Object.assign({ ga: BIG_GA }, xOpts));
     const P = normalizeParams(genomeToParams(fin.best));
     const E = makeFastEval(P);
     const trainRes = evalSubset(S, nhArr, E);
@@ -917,6 +1075,14 @@ function main() {
     const rblNH = recallByLength(S, nhArr, E), rblHO = recallByLength(S, hoArr, E);
     say(`  ‏recall לפי אורך המפתח (אבולוציה) · ${rblNH.map(b => b.len + ':' + (b.recall == null ? '—' : (b.recall * 100).toFixed(1) + '%') + '(' + b.nAccept + ')').join(' ')}`);
 
+    /* ---- סריקת התקציב ---- */
+    const BUDGETS = [0, 1 / 50000, 1 / 20000, 1 / 10000, 1 / 7000, 1 / 5000, 1 / 2000, 1 / 1000];
+    /* לעברית נשאלה שאלה מפורשת · האם 90% בהישג יד בתקציב כלשהו. לכן הסריקה שלה
+       ממשיכה מעבר לרשימה עד שהיא חוצה או עד שהתקציב מגוחך. */
+    const EXTRA = set === 'he-word' ? [1 / 500, 1 / 200, 1 / 100, 1 / 50, 1 / 20, 1 / 10, 1 / 5, 1 / 2] : [];
+    say(`  סריקת תקציב · ${BUDGETS.length + EXTRA.length} נקודות`);
+    const sweep = runSweep(set, S, X, xI, nonHold, nhArr, hoArr, BUDGETS.concat(EXTRA));
+
     params[set] = P;
     results[set] = {
       rowsTotal: N, rowsEvolve: nonHold.length, rowsHoldout: holdout.length,
@@ -953,6 +1119,23 @@ function main() {
       final: { generations: fin.generations, evaluations: fin.evaluations, fitness: fin.bestFit, recall: trainRes.recall, falseAccepts: trainRes.fa, reachableCeiling: ceilNH.recall },
       holdout: { recall: holdRes.recall, falseAccepts: holdRes.fa, realWordFalseAccepts: holdRes.faRealWord, reachableCeiling: ceilHO.recall, floor: lo, ship },
       recallByLength: { basis: 'letters of the card key the row was derived from', evolve: rblNH, holdout: rblHO },
+      crossCard: {
+        rowsInRisk: X.N, collisionsAtShipped: xRes.fa, examples: xList.slice(0, 20),
+        note: 'cross-card pairs enumerated at MAX_OPS depth over every accepted form and every dataset should-accept variant; rows no genome in the gene space could accept are filtered out (provable, not heuristic). Gloss B1 expansion is not modelled here - bank_gate.js remains the final authority.'
+      },
+      budgetSweep: sweep.map(r => ({
+        budget: r.budget, budgetLabel: r.budgetLabel, allowedOnEvolveSet: r.allowedOnEvolveSet,
+        cvMean: r.cvMean, cvSd: r.cvSd,
+        evolveRecall: r.evolveRecall, evolveFalseAccepts: r.evolveFalseAccepts,
+        holdoutRecall: r.holdoutRecall, holdoutFalseAccepts: r.holdoutFalseAccepts, holdoutRate: r.holdoutRate,
+        crossCardCollisions: r.crossCardCollisions, totalFalseAccepts: r.totalFalseAccepts,
+        buckets: r.buckets, shipGate: r.shipGate,
+        params: {
+          minLen: r.params.minLen, vetoMargin: r.params.vetoMargin, useLexicon: r.params.useLexicon !== false,
+          bands: r.params.bands.map(b => ({ maxLen: isFinite(b.maxLen) ? b.maxLen : null, t: Number(b.t.toFixed(4)) })),
+          W: Object.fromEntries(OP_KEYS.map(k => [k, Number(r.params.W[k].toFixed(4))]))
+        }
+      })),
       altMargins: alt,
       finalParamsByFold: fixedByFold,
       bindingAtMargin1: binding,
@@ -1096,6 +1279,10 @@ function main() {
   }
   say(`\nזמן קיר ${wall.toFixed(1)} שניות · נכתבו out/typo-rules.json · out/ga-log.jsonl (${gaLog.length} דורות) · out/golden.jsonl (${golden.length})`);
 
+  /* קבלה שהגיעה דרך via=exact היא ההתנהגות של היום · שכבה 1 רצה לפני כל פרמטר, ואין
+     גנום שיכול למנוע אותה או לגרום לה. היא מדווחת בנפרד ואינה חוסמת משלוח · אחרת השער
+     נכשל על משהו שהוא אינו יכול לתקן. נמדד: שורת gloss אחת ("כל" מול "כלל") שהדאטהסט
+     מתייג reject ו-meaningMatch מקבלת ממילא. */
   const bad = SETS.filter(s => exact[s].evolve.falseAccepts || exact[s].holdout.falseAccepts);
   if (bad.length) { say(`\n⛔ קבלות-שווא ב: ${bad.join(', ')} · אין משלוח`); process.exitCode = 1; }
   const badReal = SETS.filter(s => exact[s].evolve.realWordFalseAccepts || exact[s].holdout.realWordFalseAccepts);
@@ -1104,4 +1291,4 @@ function main() {
 
 if (require.main === module) main();
 
-module.exports = { GENES, genomeToParams, paramsToGenome, SEED_PARAMS, packSet, makeFastEval, evalSubset, recallByLength, fitnessOf, complexityOf, loadRows, exactEval, SETS, CAND_K, CAND_CAP, COMPLEXITY_W };
+module.exports = { GENES, buildGolden, faBuckets, listFalseAccepts, decideOne, genomeToParams, paramsToGenome, SEED_PARAMS, packSet, makeFastEval, evalSubset, recallByLength, fitnessOf, complexityOf, loadRows, buildCrossCard, exactEval, SETS, CAND_K, CAND_CAP, COMPLEXITY_W };
