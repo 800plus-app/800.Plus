@@ -49,7 +49,7 @@
     src:url(fonts/heebo-latin.woff2) format('woff2');
     unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
   :root{
-    --paper:#f6f1e7; --paper-deep:#efe7d6; --card:#fffdf8; --ink:#2c2620; --ink-soft:#736a5c;   /* was #7d7365 = 4.13:1 on --paper, 0.37 short of AA */
+    --paper:#f6f1e7; --paper-deep:#efe7d6; --card:#fffdf8; --ink:#2c2620; --ink-soft:#6b6254;   /* היה #736a5c = 4.32:1 על --paper-deep, מתחת ל-AA; עכשיו עובר גם שם */
     --gold:#c9962f; --accent:#b5482e; --accent-deep:#8f3620; --green:#4e7d4e; --line:#e3d8c4;
     --shadow:0 10px 30px -14px rgba(90,60,20,.4);
   }
@@ -77,7 +77,8 @@
   .sr-only{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
        clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
   h1,h2,h3{font-family:"Frank Ruhl Libre",serif}
-  .kicker{font-size:.72rem;letter-spacing:.22em;color:var(--gold);font-weight:700;text-transform:uppercase}
+  /* #8a6512 ולא --gold: הזהב #c9962f על הנייר = 2.36:1, מתחת ל-AA גם לטקסט גדול. */
+  .kicker{font-size:.72rem;letter-spacing:.22em;color:#8a6512;font-weight:700;text-transform:uppercase}
   .rule{height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:10px 0 20px;border-radius:2px}
   button{font-family:inherit;cursor:pointer}
 
@@ -219,7 +220,7 @@
   /* ===== boot splash ===== */
   #boot{min-height:78vh;display:flex;align-items:center;justify-content:center}
   .boot-in{text-align:center}
-  .boot-in .kicker{font-size:1.5rem;letter-spacing:.22em;color:var(--gold);margin-bottom:22px}
+  .boot-in .kicker{font-size:1.5rem;letter-spacing:.22em;margin-bottom:22px}
   .boot-ring{width:34px;height:34px;margin:0 auto 16px;border-radius:50%;
        border:3px solid var(--line);border-top-color:var(--gold);animation:bootSpin .9s linear infinite}
   @keyframes bootSpin{to{transform:rotate(360deg)}}
@@ -297,7 +298,8 @@
   .prog i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--accent));transition:.3s}
   .qmeta{display:flex;justify-content:space-between;font-size:.78rem;color:var(--ink-soft);margin-bottom:20px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 24px;box-shadow:var(--shadow);text-align:center}
-  .q-kind{font-size:.72rem;letter-spacing:.12em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:14px}
+  /* #8a6512 ולא --gold: הזהב על הכרטיס = 2.61:1, מתחת ל-AA. */
+  .q-kind{font-size:.72rem;letter-spacing:.12em;color:#8a6512;font-weight:700;text-transform:uppercase;margin-bottom:14px}
   .q-text{font-family:"Frank Ruhl Libre",serif;font-size:clamp(1.4rem,4.6vw,1.9rem);font-weight:700;line-height:1.35}
   /* speaker sits beside the prompt, never inside it — the prompt is also read by the
      print sheet and the exam, and it must stay pure text */
@@ -314,7 +316,7 @@
   .actions{display:flex;gap:10px;margin-top:16px}
   .actions .btn{flex:1}
   .reveal-meaning{margin-top:20px;font-family:"Frank Ruhl Libre",serif;font-size:1.3rem;line-height:1.45;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px;animation:rise .25s ease}
-  .hint-btn{display:block;margin:14px auto 0;background:transparent;border:1px solid var(--line);color:var(--gold);font-family:"Heebo";font-weight:500;font-size:.88rem;padding:8px 18px;border-radius:999px}
+  .hint-btn{display:block;margin:14px auto 0;background:transparent;border:1px solid var(--line);color:#8a6512;font-family:"Heebo";font-weight:500;font-size:.88rem;padding:8px 18px;border-radius:999px}
   @media (hover:hover) and (pointer:fine){.hint-btn:hover{border-color:var(--gold);background:rgba(201,150,47,.08)}}
   .hint-box{margin-top:12px;font-family:"Frank Ruhl Libre",serif;font-size:1.05rem;background:rgba(201,150,47,.1);border:1px dashed var(--gold);border-radius:12px;padding:12px}
   .feedback{margin-top:14px;animation:rise .3s ease}
@@ -940,9 +942,10 @@
   .lv-offer p{font-size:.92rem;line-height:1.55}
 
   /* build tag — always know which version you're looking at */
+  /* בלי opacity וזהב כהה: השקיפות הפילה את --ink-soft אל 2.84, והזהב על נייר הוא 1.81. */
   .build-tag{text-align:center;margin-top:22px;font-size:.68rem;color:var(--ink-soft);
-       font-family:"Cascadia Mono",Consolas,monospace;letter-spacing:.04em;opacity:.75}
-  .build-tag b{font-weight:600;color:var(--gold)}
+       font-family:"Cascadia Mono",Consolas,monospace;letter-spacing:.04em}
+  .build-tag b{font-weight:600;color:#8a6512}
   .build-tag .stale{color:var(--accent);font-weight:700}
 
   /* install call-to-action — a real button, not an underlined hint that reads like an error */
@@ -1082,7 +1085,8 @@
   .exam-pill{flex-wrap:wrap}
   .exam-pill .pill-tip{min-width:100%;font-size:.8rem;opacity:.85;margin-top:-2px}
   .exam-pill.exam-past{cursor:pointer}
-  .w-note{margin-top:9px;font-size:.78rem;color:var(--ink-soft);opacity:.9}
+  /* בלי opacity: ‏0.9 על --ink-soft מוריד את הניגודיות מ-4.5 ל-3.87 ומפיל AA. */
+  .w-note{margin-top:9px;font-size:.78rem;color:var(--ink-soft)}
   .in-two{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}
   .in-two .btn{width:100%;padding-inline:6px}
   @media(max-width:340px){.in-two{grid-template-columns:1fr}}
@@ -1113,8 +1117,9 @@
   .stg-bar.hidden{display:none!important}
 
   /* PREVIEW BAR */
+  /* #3a2205 ולא לבן: לבן על הזהב = 2.66:1. אותו צמד כהה-על-זהב כמו כפתור המייל. */
   .pv-bar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:10px;
-    background:var(--gold);color:#fff;padding:8px 14px;border-radius:0 0 12px 12px;
+    background:var(--gold);color:#3a2205;padding:8px 14px;border-radius:0 0 12px 12px;
     font-size:.78rem;box-shadow:var(--shadow)}
   .pv-bar.hidden{display:none!important}
   .pv-bar span{flex:1}
