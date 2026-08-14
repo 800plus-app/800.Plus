@@ -354,7 +354,7 @@ describe('סובלנות איות · מתג הכיבוי והתלות בלקסי
        שכבה שנחלשת בשקט היא בדיוק מה שהבדיקה הזאת אמורה לתפוס.
        gloss הוא 0 כי צד הפירוש רדום מבנית (כל הרצועות 0) · שם הלקסיקון אינו
        השכבה שמחזיקה, וזה נכון ולא ליקוי. */
-    assert.deepStrictEqual(opened, { 'he-word': 1, 'en-word': 15, gloss: 0 },
+    assert.deepStrictEqual(opened, { 'he-word': 8, 'en-word': 12, gloss: 0 },
       'המחיר של כיבוי הלקסיקון השתנה · השכבה או הפרדיקט שלה זזו');
   });
 
@@ -690,34 +690,48 @@ describe('סובלנות איות · טסט הסיום של שתי המילים'
     });
   });
 
+  /* המשקל שמתמחר אות כפולה. שתי הקבלות למטה עוברות דרכו ודרכו בלבד, ולכן הן
+     נבדקות מולו ולא מול מספר קשיח · אם ה-GA יתמחר אותו אחרת, הבדיקה תלך איתו
+     והטענה ("הקבלה היא בדיוק אות אחת כפולה") תישאר אותה טענה. */
+  const DOUBLE = () => HE.TYPO_PARAMS['he-word'].W.doubleLetter;
+  const wordVerdict = (typed, w) => HE.nearMatch(HE.K(typed), HE.typoKeysOf(w.term), 'he',
+    HE.TYPO_PARAMS['he-word'], HE.TERM_VETO, new Set([HE.K(w.term)]));
+
   test('מִכְמוֹרֶת · חצי הקבלה · טעות אמיתית מעל כתיב מלא מתקבלת', () => {
     const mich = find(HE, 'מכמורת');
-    /* "מיכמוררת" · הכתיב המלא שהמאגר מלמד, ועליו ר' כפולה. זו טעות ההקלדה
-       הנפוצה ביותר, והמשקל שמתמחר אותה (doubleLetter 0.4423) הוא היחיד שנכנס
-       תחת סף הרצועה 0.5164 של מילה בת 6-7 אותיות. */
+    /* "מיכמוררת" · הכתיב המלא שהמאגר מלמד, ועליו ר' כפולה. */
     assert.strictEqual(HE.isCorrect('מיכמוררת', mich.term), true, 'אות כפולה מעל הכתיב המלא נדחתה');
-    assert.strictEqual(HE.isCorrect('מכמוררת', mich.term), true, 'אות כפולה מעל הכתיב החסר נדחתה');
-    const v = HE.nearMatch(HE.K('מיכמוררת'), HE.typoKeysOf(mich.term), 'he',
-      HE.TYPO_PARAMS['he-word'], HE.TERM_VETO, new Set([HE.K(mich.term)]));
+    const v = wordVerdict('מיכמוררת', mich);
     assert.strictEqual(v.ok, true);
-    assert.ok(v.dist > 0 && v.dist < 0.5164, `הקבלה עברה בסף ${v.dist} · לא דרך המשקל שנמדד`);
-    /* וההפרדה שהיא כל העניין: אותה מילה בדיוק, בהחלפת אות במקום הכפלה, נדחית. */
-    assert.strictEqual(HE.isCorrect('מיכמורץ', mich.term), false,
-      'החלפת אות התקבלה · הרצועה של 6-7 אותיות רחבה מכפי שנמדד');
+    assert.strictEqual(v.dist, DOUBLE(), `הקבלה תומחרה ב-${v.dist} · לא כאות כפולה אחת`);
+    /* וההפרדה שהיא כל העניין: אותה מילה בדיוק, בהחלפת אות במקום הכפלה, נדחית.
+       החלפה שקולה ל-1 לפחות, וזה מעל כל סף ברצועות הרלוונטיות. */
+    assert.strictEqual(HE.isCorrect('מיכמורץ', mich.term), false, 'החלפת אות התקבלה');
+    assert.strictEqual(HE.isCorrect('מיכמורט', mich.term), false, 'החלפת אות התקבלה');
   });
 
-  test('אָמִיר · מתחת לשער האורך · אין לה סובלנות, וזו תוצאה ולא כשל', () => {
-    /* המילה השנייה בטסט הסיום אינה מקבלת שום טעות כתיב, ולא בגלל תקלה:
-       minLen=6 בסט העברי, והמפתח "אמיר" הוא 4 אותיות. גם וריאציה בת 5 אותיות
-       נופלת בשער. זו בדיוק ההערה שבתוכנית — "בעברית קצרה הסובלנות תהיה אפסית
-       בכוונה; זו תוצאה, לא כשל" — והיא מקובעת כאן כדי שהיא לא תשתנה בשקט. */
+  test('אָמִיר · חצי הקבלה · טעות שאינה אחד התאומים מתקבלת', () => {
+    /* ⚠ הבדיקה הזאת התהפכה. בפרמטרים הקודמים minLen היה 6 והמפתח "אמיר" (4
+       אותיות) לא הגיע בכלל לשכבה · היה כאן פין שקיבע "אין לה סובלנות". עכשיו
+       minLen=3, המילה עוברת את השער, וזה הצד השני של טסט הסיום שחגי ביקש:
+       טעות כתיב שאינה אחד התאומים מתקבלת, והתאומים נפסלים.
+       מה שמתקבל הוא אות כפולה בלבד · החלפת אות ברצועה של 4 אותיות מתומחרת
+       ב-1 מול סף 0.2471, ולכן נדחית. הסובלנות כאן צרה בכוונה, וזה בדיוק מה
+       שמאפשר לה להתקיים על מילה בת ארבע אותיות עם שני תאומים במאגר. */
     const amir = find(HE, 'אמיר');
-    assert.ok(HE.K(amir.term).replace(/ /g, '').length < HE.TYPO_PARAMS['he-word'].minLen,
-      'אָמִיר עברה את שער האורך · עדכן את הבדיקה הזאת ובדוק מה מתקבל עליה עכשיו');
-    for (const typo of ['אמירר', 'אמייר', 'אמיו']) {
-      const v = HE.nearMatch(HE.K(typo), HE.typoKeysOf(amir.term), 'he',
-        HE.TYPO_PARAMS['he-word'], HE.TERM_VETO, new Set([HE.K(amir.term)]));
-      assert.strictEqual(v.ok, false, `"${typo}" התקבל · שער האורך זז`);
+    assert.ok(HE.K(amir.term).replace(/ /g, '').length >= HE.TYPO_PARAMS['he-word'].minLen,
+      'אָמִיר שוב מתחת לשער האורך · אין לה סובלנות, והבדיקה הזאת אינה בודקת כלום');
+    const v = wordVerdict('אמירר', amir);
+    assert.strictEqual(v.ok, true, 'טעות כתיב שאינה אחד התאומים נדחתה');
+    assert.strictEqual(v.dist, DOUBLE(), `הקבלה תומחרה ב-${v.dist} · לא כאות כפולה אחת`);
+    assert.strictEqual(HE.isCorrect('אמירר', amir.term), true, 'isCorrect אינו מסכים עם nearMatch');
+    /* ומה שנשאר סגור, כל אחד מנימוק אחר · זה מה שהופך את הקבלה לצרה ולא לרחבה. */
+    for (const [typo, why] of [['טמיר', 'collision'], ['תמיר', 'collision'],
+                               ['אמיד', 'real-word'], ['אמרי', 'real-word'],
+                               ['אמיל', 'far'], ['עמיר', 'far']]) {
+      const r = wordVerdict(typo, amir);
+      assert.strictEqual(r.ok, false, `"${typo}" התקבל עבור אָמִיר`);
+      assert.strictEqual(r.why, why, `"${typo}" נפסל מהסיבה ${r.why} במקום ${why}`);
     }
   });
 });
