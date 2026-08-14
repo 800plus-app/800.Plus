@@ -968,7 +968,7 @@
   /* Ctrl+P from anywhere used to print a blank page: the print rule hides the whole app and
      shows #sheet, which is empty until a worksheet is built. */
   @media print{
-    #sheet:empty::after{content:"אין דף מבחן להדפסה. פתחו יחידה ולחצו \"דף מבחן להדפסה\".";
+    #sheet:empty::after{content:"כדי להדפיס דף מבחן, פתח יחידה ולחץ \"דף מבחן להדפסה\".";
       display:block;padding:40px;font-size:14px;text-align:center;color:#444}
     #sizeAsk,#sheetAsk{display:none!important}
 
@@ -1364,7 +1364,7 @@
     <div class="welcome-head">
       <div class="kicker">הגישה מושהית</div>
       <h1 class="w-title">המנוי אינו פעיל</h1>
-      <p class="w-sub" id="lockWhy">אין מנוי פעיל לחשבון הזה.</p>
+      <p class="w-sub" id="lockWhy">כדי לחדש, שלח הודעה ונחזור אליך.</p>
     </div>
     <div class="dash-streak" style="display:block">
       <p style="font-size:.88rem;line-height:1.7">
@@ -1373,7 +1373,7 @@
       <p style="font-size:.8rem;color:var(--ink-soft);margin-top:10px">
         החשבון: <b id="lockMail"></b></p>
     </div>
-    <button class="btn btn-primary btn-block" id="lockContact" style="margin-top:16px">✉ צור קשר לחידוש</button>
+    <button class="btn btn-primary btn-block" id="lockContact" style="margin-top:16px">✉ שלח בקשה לחידוש המנוי</button>
   </section>
 
   <!-- ===== WELCOME / LANGUAGE PICKER ===== -->
@@ -1384,7 +1384,7 @@
     <div class="welcome-head">
       <div class="kicker" id="greetKicker">ברוך הבא</div>
       <h1 class="w-title" id="greet">שלום!</h1>
-      <p class="w-sub" id="greetSub">מוכן לתרגל? בחר את השפה שתרצה לתרגל היום</p>
+      <p class="w-sub" id="greetSub">באיזו שפה תרצה לתרגל היום?</p>
       <!-- Council item 2: the picker looked like a one-time structural decision. It is not —
            each language keeps its own progress and you move between them freely. Saying so
            costs one line and removes the hesitation before the first click. -->
@@ -1461,7 +1461,7 @@
         <div class="kicker">מבחן רמה · <span id="lvIntroLang">אנגלית</span></div>
         <h1 class="w-title">איפה כדאי לך להתחיל?</h1>
         <!-- ההבטחה בסוף המשפט נקבעת לפי השפה (renderLvIntro): רק באנגלית יש דילוג -->
-        <p class="w-sub" id="lvIntroSub">מבחן קצר ואדפטיבי: 10–20 מילים, 2–3 דקות. המבחן מתחיל ברמה בינונית ומתאים את עצמו לפי התשובות שלך. בסיום מתקבלת הערכה של רמת אוצר המילים.</p>
+        <p class="w-sub" id="lvIntroSub">מבחן קצר: 10–20 מילים. המבחן מתחיל ברמה בינונית ומתאים את עצמו לפי התשובות שלך. בסיום מתקבלת הערכה של רמת אוצר המילים.</p>
       </div>
       <button class="btn btn-primary btn-block" id="lvStart">מתחילים</button>
       <button class="ask-cancel" id="lvSkip" style="display:block;margin:14px auto 0">אולי אחר כך</button>
@@ -1570,13 +1570,13 @@
     <button class="pbtn" id="accLevelEn"><div class="ic">🎯</div><div class="tx"><b>מבחן רמה באנגלית</b>
       <span>10–20 מילים · המבחן מתאים את עצמו לרמה שלך</span></div><div class="cnt">‹</div></button>
 
-    <h3 class="acc-h">אזור מסוכן</h3>
+    <h3 class="acc-h">יציאה ומחיקה</h3>
     <!-- ההתנתקות עברה לכאן מהשורה העליונה: כפתור "יציאה" ליד "בקרה" ו"החלף שפה" נראה
          כמו ניווט ונלחץ בטעות, ומחירו הוא מסך התחברות במקום המילים. כאן הוא נקרא לפני
          שלוחצים. ראשון מבין השלושה כי הוא היחיד מהם שאפשר לבטל — פשוט להתחבר שוב. -->
     <button class="pbtn danger-tile" id="accSignOut"><div class="ic">⎋</div><div class="tx"><b>התנתקות</b>
       <span>ההתקדמות נשמרת בענן וחוזרת בהתחברות הבאה. הנתונים השמורים במכשיר נמחקים,
-      ולכן עד ההתחברות הבאה האפליקציה לא תעבוד ללא אינטרנט.</span></div><div class="cnt">‹</div></button>
+      ולכן עד ההתחברות הבאה נדרש חיבור לאינטרנט.</span></div><div class="cnt">‹</div></button>
     <button class="pbtn danger-tile" id="accReset"><div class="ic">⚠️</div><div class="tx"><b>איפוס התקדמות</b>
       <span>מוחק את כל ההיסטוריה שלך בשתי השפות: מילים שלמדת, ציונים, רצף ימים.
       החשבון עצמו נשאר. אין דרך לבטל.</span></div><div class="cnt">‹</div></button>
@@ -1643,9 +1643,9 @@
     <div class="section-t">כיוון התרגול</div>
     <div class="seg" id="dirSegHome"></div>
 
-    <div class="section-t">מצב כללי</div>
+    <div class="section-t">תרגול כללי</div>
     <div class="big-tiles">
-      <button class="big-tile" data-scope="global"><div class="emoji">📚</div><h3>כל המאגר</h3><p>תרגול מקיף של כלל המילים · ללא חלוקה ליחידות לימוד</p></button>
+      <button class="big-tile" data-scope="global"><div class="emoji">📚</div><h3>כל המאגר</h3><p>תרגול של כלל המילים יחד, מכל יחידות הלימוד</p></button>
       <button class="big-tile" data-scope="random"><div class="emoji">🎲</div><h3>אקראי</h3><p>סבב מהיר של מילים אקראיות מכל היחידות</p></button>
     </div>
 
@@ -1682,7 +1682,7 @@
       <button class="pbtn" id="pbWeak"><div class="ic">💪</div><div class="tx"><b>תרגל חולשות</b><span>מילים שתרגלת ולא שלטת בהן</span></div><div class="cnt" id="cntWeak">0</div></button>
       <button class="pbtn" id="pbLearned"><div class="ic">🎓</div><div class="tx"><b>מילים שלמדתי</b><span>כל מילה שכבר הופיעה בתרגול · למבחן עצמי</span></div><div class="cnt" id="cntLearned">0</div></button>
       <button class="pbtn" id="pbAll"><div class="ic">🔀</div><div class="tx"><b>תרגל הכל</b><span id="pbAllSub">כל המילים בערבוב</span></div><div class="cnt" id="cntAll">0</div></button>
-      <button class="pbtn" id="pbStats"><div class="ic">📊</div><div class="tx"><b>סטטיסטיקה מפורטת</b><span>חוזק כל מילה + היסטוריה</span></div><div class="cnt">‹</div></button>
+      <button class="pbtn" id="pbStats"><div class="ic">📊</div><div class="tx"><b>סטטיסטיקה מפורטת</b><span>דירוג ההצלחה של כל מילה · היסטוריית התרגול</span></div><div class="cnt">‹</div></button>
       <button class="pbtn" id="pbManage"><div class="ic">✏️</div><div class="tx"><b>ניהול מילות היחידה</b><span>סימון מילים שכבר ידועות · מחיקה ושחזור</span></div><div class="cnt">‹</div></button>
     </div>
     <div class="section-t" id="examSectionT">מבחן</div>
@@ -1737,10 +1737,10 @@
         <p class="w-sub" id="exVerdict"></p>
       </div>
       <div class="ex-break" id="exBreak"></div>
-      <div class="section-t">מה לא ידעת</div>
+      <div class="section-t">מילים לחיזוק</div>
       <div id="exMissed"></div>
       <div class="row" style="margin-top:18px">
-        <button class="btn btn-primary" id="exPractice">לתרגל את השגיאות</button>
+        <button class="btn btn-primary" id="exPractice">תרגל את המילים לחיזוק</button>
         <button class="btn btn-ghost" id="exAgain">מבחן נוסף</button>
       </div>
       <button class="btn btn-ghost btn-block" id="exDone" style="margin-top:10px">חזרה ליחידה</button>
@@ -1763,12 +1763,12 @@
          the accessibility audit verified does reach Chromium's accessibility tree. -->
     <div class="sr-only" id="cardLive" aria-live="polite" aria-atomic="true"></div>
     <div class="card">
-      <div class="q-kind" id="qKind">מהו הפירוש? כתוב את המילה</div>
+      <div class="q-kind" id="qKind">מה הפירוש? כתוב את המילה</div>
       <div class="q-row">
         <div class="q-text" id="qText"></div>
         <button class="say hidden" id="qSay" title="השמע את המילה" aria-label="השמע את המילה">🔊</button>
       </div>
-      <input class="answer-input" id="answerInput" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="המילה…">
+      <input class="answer-input" id="answerInput" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="כתוב את התשובה…">
       <div class="actions" id="answerActions">
         <button class="btn btn-primary" id="checkBtn">בדיקה</button>
         <button class="btn btn-ghost" id="skipBtn">לא יודע / הצג</button>
@@ -1794,7 +1794,7 @@
            "חזרה" מוביל דווקא **לבחירת השפה**; החזרה לכאן היא מדף הבית או מכפתור
            "✕ יציאה" שבתרגול המשפטים. הפניה לכפתור אחד שיש לו שני יעדים היא בדיוק
            מה ש-/HEB §4 אוסר. הנוסח החדש אומר את העובדה בלי להפנות. -->
-      <p class="w-note">ההתקדמות בכל תרגול נמדדת בנפרד, וניתן לעבור ביניהם בכל רגע.</p>
+      <p class="w-note">ההתקדמות בכל תרגול נמדדת בנפרד. למעבר, לחץ "🏠 חזרה".</p>
     </div>
     <div class="lang-cards">
       <button class="lang-card" data-mode="words">
@@ -1922,7 +1922,7 @@
   <div class="ask-box">
     <h3>למחוק את החשבון?</h3>
     <p>נמחקים: ההתקדמות בשתי השפות, האסוציאציות שכתבת, הדיווחים ששלחת,
-      והכתובת עצמה. <b>אין שחזור</b>, גם לא על ידי.</p>
+      וכתובת המייל. <b>אין שחזור</b>, גם לא על ידי.</p>
     <p style="margin-top:12px">כדי לאשר, הקלד את כתובת המייל שלך:</p>
     <p class="mail-to" id="delMail" dir="ltr"></p>
     <div class="size-custom" style="margin-top:10px">
@@ -1973,7 +1973,7 @@
       <button data-v="more">יותר</button>
     </div>
 
-    <button class="ask-go" id="wtpGo" disabled>שלח תשובה</button>
+    <button class="ask-go" id="wtpGo" disabled>שלח</button>
   </div>
 </div>
 
@@ -1985,7 +1985,7 @@
     <h2 id="cheerTitle"></h2>
     <p class="cheer-unit" id="cheerUnit"></p>
     <p class="cheer-sub" id="cheerSub"></p>
-    <button type="button" class="ask-go" id="cheerOk">אפשר להמשיך</button>
+    <button type="button" class="ask-go" id="cheerOk">המשך לתרגל</button>
   </div>
 </div>
 
@@ -1998,7 +1998,7 @@
   <div class="ask-box">
     <div class="mail-ico" aria-hidden="true">🔔</div>
     <h3>תזכורת יומית?</h3>
-    <p>הודעה קצרה בבוקר שמזכירה לתרגל ומראה כמה מילים לחיזוק מחכות לך.</p>
+    <p>הודעה קצרה בבוקר שמזכירה לתרגל ומראה כמה מילים לחיזוק יש.</p>
     <p class="mail-tip">אפשר לכבות בכל רגע מההגדרות.</p>
     <button class="ask-go" id="notifAskYes">כן, הזכר לי</button>
     <button class="ask-cancel" id="notifAskNo">לא עכשיו</button>
@@ -2141,7 +2141,7 @@
 
 <div class="ask hidden" id="fbAsk">
   <div class="ask-box fb-box">
-    <h3>מה לא עבד?</h3>
+    <h3>מה תרצה לספר לנו?</h3>
     <!-- This used to name two of the seven fields that ride along with a report, and the privacy
          policy promised that all of them are shown here. Enumerating them twice is how the two
          lists drifted; the full list is now generated from the payload into #fbCtx below, and
@@ -2155,7 +2155,7 @@
     </div>
 
     <textarea id="fbBody" rows="5" maxlength="1200"
-      placeholder="למשל: לחצתי על &quot;מילים חדשות&quot; והמסך נשאר ריק…"></textarea>
+      placeholder="למשל: לחצתי על &quot;מילים שטרם תרגלת&quot; והמסך נשאר ריק…"></textarea>
     <div class="fb-ctx" id="fbCtx"></div>
 
     <button class="btn btn-primary btn-block" id="fbSend">שלח</button>

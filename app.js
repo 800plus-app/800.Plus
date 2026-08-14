@@ -881,7 +881,7 @@ function renderHome(){
   const done = classify('global');
   $('#totalPill').textContent = done.strong
     ? `${done.strong} מתוך ${total} מילים כבר בשליטה`
-    : `${total} מילים · עוד לא התחלת`;
+    : `${total} מילים · טרם התחלת`;
   /* Weak words across the WHOLE language, ignoring units — the survey's top request by a wide
      margin. Hidden rather than shown empty: on day one nothing is weak yet, and an offer to
      drill zero words is a worse first impression than no offer at all. */
@@ -1002,10 +1002,10 @@ function renderWordCard(){
   /* אין מאגר, או שהכול נלמד — אין מה להציע, והכרטיס נעלם במקום להציג ריק. */
   if(!p || !p.w || wcDismissed()){ card.classList.add('hidden'); return; }
   card.classList.remove('hidden');
-  $('#wcKicker').textContent = p.weak ? 'מילה לחזק' : 'מילה חדשה להיום';
+  $('#wcKicker').textContent = p.weak ? 'מילה לחיזוק' : 'מילה חדשה להיום';
   /* התווית נגזרת ממה שהכרטיס באמת הציג. "תרגל חולשות" על מילה חדשה היה מבטיח סבב
      חיזוק ופותח סבב של מילים שטרם נפגשו — כפתור ששמו אינו מה שהוא עושה. */
-  $('#wcPractice').textContent = p.weak ? 'תרגל חולשות' : 'תרגל מילים חדשות';
+  $('#wcPractice').textContent = p.weak ? 'תרגל חולשות' : 'תרגל מילים שטרם תרגלת';
   $('#wcTerm').textContent   = p.w.term;
   /* אותו סימון שכבר נעשה ל-#qText ול-#lvWord: בלעדיו קורא מסך מבטא מילה אנגלית בהגייה
      עברית, והמילה מיושרת לכיוון ההפוך. */
@@ -1040,9 +1040,9 @@ function openScope(scope){
   $('#donut').style.background=`conic-gradient(var(--green) 0 ${gs}%, var(--accent) ${gs}% ${gs+gw}%,`+
     ` var(--gold) ${gs+gw}% ${gs+gw+100*c.fresh/done}%, var(--line) ${gs+gw+100*c.fresh/done}% 100%)`;
   $('#legend').innerHTML=
-    `<div><i class="s"></i> שלמדתי <b>${c.strong}</b></div>
+    `<div><i class="s"></i> למדתי <b>${c.strong}</b></div>
      <div><i class="w"></i> לחיזוק <b>${c.weak}</b></div>
-     <div><i class="n"></i> חדשות <b>${c.fresh}</b></div>`+
+     <div><i class="n"></i> שטרם תרגלתי <b>${c.fresh}</b></div>`+
     (c.skipped ? `<div title="דילגת עליהן אחרי מבחן הרמה. ניתן להחזיר ב&quot;ניהול מילים&quot; ← &quot;שחזר מחיקות&quot;"><i class="k"></i>
        דילגתי <b>${c.skipped}</b></div>` : '');
   const nc=newCards(scope).length, wc=weakCards(scope).length, lc=learnedCards(scope).length;
@@ -1619,7 +1619,7 @@ function finishCard(ok, skipped){
     if(!r.ok){ box.textContent='לא ניתן לטעון כרגע. בדוק את החיבור לרשת ונסה שוב'; return; }
     box.innerHTML = r.rows.length
       ? r.rows.map(x=>`<div class="oth">${esc(x.text)}</div>`).join('')
-      : '<div class="oth empty">עוד אף אחד לא שיתף כאן. אתה יכול להיות הראשון.</div>';
+      : '<div class="oth empty">אין עדיין אסוציאציות משותפות כאן. שתף את שלך.</div>';
   };
 
   /* "בעצם ידעתי" הוא מתג, לא פעולה חד-כיוונית.
@@ -2086,13 +2086,13 @@ function openStats(scope){
     const pct=x=>x.total?Math.round(100*x.correct/x.total):0;
     let cmp='';
     if(prev){ const d=pct(last)-pct(prev); cmp = d>0?`<span style="color:var(--green);font-weight:700">▲ ${d}%</span>`:d<0?`<span style="color:var(--accent);font-weight:700">▼ ${-d}%</span>`:'ללא שינוי'; }
-    html+=`<div class="section-t">היסטוריית משחקים</div>
+    html+=`<div class="section-t">היסטוריית סבבים</div>
       <div style="background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px">
-      <div><b style="font-family:'Frank Ruhl Libre';font-size:1.2rem;color:var(--accent)">${last.correct}/${last.total}</b> נכונות · ${last.firstTry} בפעם הראשונה</div>
+      <div><b style="font-family:'Frank Ruhl Libre';font-size:1.2rem;color:var(--accent)">${last.correct}/${last.total}</b> נכונים · ${last.firstTry} בפעם הראשונה</div>
       <div style="font-size:.8rem;color:var(--ink-soft);margin-top:3px">${fmt(last.t)}${cmp?' · השוואה: '+cmp:''}</div></div>
       <div class="trend">`+sess.map(x=>{const p=pct(x);return `<div class="tbar" title="${fmt(x.t)} — ${x.correct}/${x.total}"><i style="height:${Math.max(5,p)}%"></i><em>${p}%</em></div>`;}).join('')+`</div>`;
   }else{
-    html+=`<div class="section-t">היסטוריית משחקים</div><p class="msg" style="color:var(--ink-soft)">עדיין לא סיימת סבב מלא בתחום הזה.</p>`;
+    html+=`<div class="section-t">היסטוריית סבבים</div><p class="msg" style="color:var(--ink-soft)">עדיין לא סיימת סבב מלא בתחום הזה.</p>`;
   }
   /* ===== the word cloud =====
      The old screen was a flat list, weakest first, every row the same size — so the eleven words
@@ -2235,7 +2235,7 @@ function renderManage(filter){
 
   if(!items.length){
     list.innerHTML='<p class="msg" style="color:var(--ink-soft)">לא נמצאו מילים</p>';
-    $('#mCount').textContent=`${mSel.size} נבחרו`;
+    $('#mCount').textContent=`${mSel.size===1 ? "אחת נבחרה" : mSel.size+" נבחרו"}`;
     return;
   }
   const rowHtml=w=>`<label class="m-row${w.gone?' is-gone':''}">
@@ -2267,7 +2267,7 @@ function renderManage(filter){
   });
   list.querySelectorAll('.m-row input').forEach(c=>c.onchange=()=>{
     c.checked?mSel.add(c.dataset.term):mSel.delete(c.dataset.term);
-    $('#mCount').textContent=`${mSel.size} נבחרו`;
+    $('#mCount').textContent=`${mSel.size===1 ? "אחת נבחרה" : mSel.size+" נבחרו"}`;
   });
   /* Per-word restore. "שחזר מחיקות" is all-or-nothing, which is the wrong tool when you
      deleted forty words on purpose and one of them by mistake. */
@@ -2287,7 +2287,7 @@ function renderManage(filter){
     renderManage($('#mSearch').value); renderHome();
     toast(on ? `"${t}" סומנה כידועה` : `"${t}" חזרה לתרגול`);
   });
-  $('#mCount').textContent=`${mSel.size} נבחרו`;
+  $('#mCount').textContent=`${mSel.size===1 ? "אחת נבחרה" : mSel.size+" נבחרו"}`;
 }
 /* פותח את ניהול המילים על יחידה אחת בלבד. בלי זה המסך נפתח סגור על כל עשר היחידות,
    ומי שהגיע מיחידה 7 צריך לזכור לאיזו. */
@@ -2334,7 +2334,7 @@ $('#mRestore').onclick=()=>{
   const skipped=Object.keys(stats.words||{}).filter(k=>stats.words[k] && stats.words[k].src==='lv');
   if(deleted.size===0 && !skipped.length){ toast('אין מה לשחזר'); return; }
   const parts=[];
-  if(deleted.size) parts.push(`${deleted.size} מילים שנמחקו`);
+  if(deleted.size) parts.push(`${deleted.size===1 ? "מילה אחת שנמחקה" : deleted.size+" מילים שנמחקו"}`);
   if(skipped.length) parts.push(`${skipped.length} מילים שדילגת עליהן אחרי מבחן הרמה`);
   if(!confirm('לשחזר '+parts.join(' ו-')+'?')) return;
   if(deleted.size){ deleted.forEach(markRestored); deleted=new Set(); saveDeleted(); }
@@ -2618,13 +2618,13 @@ function renderWelcome(){
   }
 
   const st=streakInfo();
-  const days = n => n===1 ? 'יום רצוף' : 'ימים רצוף';
+  const days = n => n===1 ? 'יום ברצף' : 'ימים ברצף';
   $('#dStreak').textContent=st.n;
   $('#dStreakLbl').textContent=days(st.n);
   $('#dWeek').innerHTML=st.week.map(d=>
     `<i class="${d.on?'on':''}${d.today?' now':''}"><em>${d.label}</em></i>`).join('');
   $('#greetSub').textContent =
-    st.n===0   ? 'מוכן לתרגל? בחר את השפה שתרצה לתרגל היום'
+    st.n===0   ? 'מוכן להתחיל? בחר שפה'
   : st.today   ? `כבר תרגלת היום · ${st.n} ${days(st.n)}. כל הכבוד.`
                : `${st.n} ${days(st.n)}. תרגול קצר היום שומר על הרצף.`;
   renderBuildTag();
@@ -2801,7 +2801,7 @@ async function renderMode(){
     if(hasHistory)
       loadSentData().then(ok => { if(ok && !$('#mode').classList.contains('hidden')) paint(); });
     else
-      $('#mSentCount').textContent = 'עוד לא התחלת';
+      $('#mSentCount').textContent = 'טרם התחלת';
   }
 }
 document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=async ()=>{
@@ -2966,7 +2966,7 @@ function lvFinish(){
        ושכח את המחרוזת הזאת — והמסך אמר "5 מתוך 6" בזמן שהטבלה שורה מתחתיו הדפיסה "4/5 ✓".
        הכיול הבא לא יוכל להשאיר את המסך משקר. */
     ? LV_LABEL[level]+` · הרמה הגבוהה ביותר שעברת בה ${LV_PASS} מתוך ${LV_BLOCK}.`
-    : 'נתחיל מהבסיס. זה בדיוק מה שהאפליקציה נועדה לסגור.';
+    : 'נתחיל מהבסיס. היחידות הראשונות בנויות בדיוק לרמה הזאת.';
   $('#lvBands').innerHTML=LV_BANDS.map(([b,name])=>{
     const p=per[b]||{n:0,ok:0};
     if(!p.n) return `<div class="lv-band" style="opacity:.42"><b>${b}</b><span class="lbl">${name}</span>
@@ -3009,7 +3009,7 @@ function lvFinish(){
     $('#lvOfferText').innerHTML=`מצאתי <b>${skippable}</b> מילים באנגלית שנמצאות הרבה מתחת לרמה שהדגמת
       עכשיו, ולכן כמעט בוודאי כבר מוכרות לך.
       <br><span style="color:var(--ink-soft);font-size:.86rem">מה זה עושה בפועל: המילים האלה יוצאות
-      מ"מילים חדשות" ולא יגיעו אליך בתרגול, כדי שתתחיל ישר במה שבאמת חסר לך. הן <b>לא</b> נמחקות
+      מ"מילים שטרם תרגלת" ולא יגיעו אליך בתרגול, כדי שתתחיל ישר במה שבאמת חסר לך. הן <b>לא</b> נמחקות
       ו<b>לא</b> נספרות כמילים שלמדת — מספר הנלמדות שלך לא יזוז מזה.
       <br><b>מילים שכבר תרגלת אינן נכללות כאן</b>, וההתקדמות שלהן אינה נוגעת.
       ניתן להחזיר אותן ב"ניהול מילים" ← "שחזר מחיקות".</span>`;
@@ -3044,7 +3044,7 @@ const lvOfferNote = kind => ({
           מילים מוכרות ידנית דרך ניהול מילים.</span>`,
   few:   `התוצאה נשמרה ומשמשת את האפליקציה מכאן והלאה.
           <br><span style="${LV_SUB}">לא נמצאו מספיק מילים שנמצאות הרבה מתחת לרמה שהדגמת,
-          ולכן אין מה לדלג עליו. כל המילים נשארות בתרגול.</span>`,
+          ולכן כל המילים נשארות בתרגול.</span>`,
   basic: `התוצאה נשמרה ומשמשת את האפליקציה מכאן והלאה.
           <br><span style="${LV_SUB}">ברמה הזו אין דילוג: כל המילים במאגר עדיין רלוונטיות לך,
           ולכן כולן נשארות בתרגול.</span>`,
@@ -3473,7 +3473,7 @@ function renderExSize(poolLen){
 
   const nRec=Math.round(chosen*EX_MIX[0]), nRet=Math.round(chosen*EX_MIX[1]);
   $('#exSub').textContent=`${chosen} שאלות מתוך ${poolLen} מילים ביחידה, בהגרלה חדשה בכל פעם. `+
-    `המבחן לא משנה את ההתקדמות שלך, הוא רק מודד אותה.`;
+    `המבחן מודד את ההתקדמות שלך בלבד.`;
   $('#exParts').innerHTML=
     `<div class="ex-part"><b>${nRec}</b><span>זיהוי — מילה ← פירוש, ארבע אפשרויות</span></div>
      <div class="ex-part"><b>${nRet}</b><span>שליפה — פירוש ← מילה, ארבע אפשרויות</span></div>
@@ -3574,7 +3574,7 @@ $('#exSubmit').onclick=()=>{ const q=exQ[exI]; if(!q||$('#exInput').disabled) re
 $('#exInput').addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); $('#exSubmit').click(); } });
 $('#exSkip').onclick=()=>{ const q=exQ[exI]; if(!q||$('#exInput').disabled) return; exAnswer(false,''); };
 
-const EX_GRADE=[[90,'שליטה מלאה ביחידה'],[75,'שליטה טובה, נשארו פינות'],[60,'בסיס קיים, צריך חזרה'],[40,'חצי הדרך · כדאי לתרגל את היחידה'],[0,'היחידה עוד לא נלמדה באמת']];
+const EX_GRADE=[[90,'שליטה מלאה'],[75,'שליטה טובה'],[60,'בסיס קיים'],[40,'חצי הדרך · כדאי לתרגל את היחידה'],[0,'היחידה טרם נלמדה']];
 function exFinish(){
   const n=exAns.length, ok=exAns.filter(a=>a.ok).length;
   const pct=n?Math.round(100*ok/n):0;
@@ -4488,14 +4488,14 @@ $('#mailAskExisting').onclick=async e=>{
   e.target.disabled=true;
   m.className='au-msg'; m.textContent='שולח…'; m.classList.remove('hidden');
   try{ await Store.resetPasswordFor(to); m.className='au-msg ok';
-       m.textContent='נשלח. אם הכתובת רשומה, יגיע ממנה קישור לבחירת סיסמה חדשה.'; }
+       m.textContent='נשלח. אם הכתובת רשומה, יישלח אליה קישור לבחירת סיסמה חדשה.'; }
   catch(err){ m.className='au-msg err'; m.textContent='שגיאה בשליחה. נסה שוב בעוד רגע.';
               e.target.disabled=false; }
 };
 $('#authForgot').onclick=async ()=>{
   const email=$('#authEmail').value.trim();
   const msg=$('#authMsg'); msg.classList.remove('hidden');
-  if(!email){ msg.className='au-msg err'; msg.textContent='הזן קודם את כתובת האימייל שלך למעלה.'; return; }
+  if(!email){ msg.className='au-msg err'; msg.textContent='הזן קודם את כתובת האימייל בשדה "אימייל".'; return; }
   msg.className='msg'; msg.textContent='שולח…';
   try{ await Store.resetPasswordFor(email); msg.className='au-msg ok'; msg.textContent='אם הכתובת רשומה, נשלח אליה קישור לאיפוס סיסמה.'; }
   catch(e){ msg.className='au-msg err'; msg.textContent='שגיאה בשליחה. נסה שוב.'; }
@@ -4845,7 +4845,7 @@ function renderAccNotif(){
     // permission is 'denied', or iOS in a tab where the API would throw
     sub.textContent = isIOS() && !isStandalone()
       ? 'זמינה אחרי שתתקין את האפליקציה למסך הבית'
-      : 'חסומה בדפדפן · אפשר להחזיר דרך הגדרות האתר בדפדפן';
+      : 'חסומה. ניתן להחזיר דרך הגדרות האתר בדפדפן';
     st.textContent='—'; st.style.color=''; row.disabled=true;
   }
 }
@@ -5191,15 +5191,15 @@ const NOTIF = {
     // they need a reason to come back and a job small enough to say yes to.
     if(away >= 14) return { title:'מילים לחיזוק',
       body: d.learned ? `${d.learned} מילים שלמדת עדיין כאן. סבב אחד מחזיר אותך לקצב.`
-                      : 'עוד לא התחלת באמת. עשר מילים זה חמש דקות.' };
+                      : 'טרם התחלת. סבב אחד מכסה עד 20 מילים.' };
     if(away >= 2)  return { title:'יומיים בלי תרגול',
       body: d.weak ? `${d.weak} מילים לחיזוק. סבב קצר היום מקדם אותן.`
                    : 'סבב קצר היום שומר על מה שכבר למדת.' };
     if(d.streak>=3) return { title:'זמן ללמוד מילים',
-      body:`${d.streak} ימים ברצף. חמש דקות היום שומרות על הרצף.` };
+      body:`${d.streak} ימים ברצף. סבב אחד היום שומר על הרצף.` };
     return { title:'זמן ללמוד מילים',
       body: d.learned>0 ? `למדת כבר ${d.learned} מילים. עוד עשר היום?`
-                        : 'תרגול קצר של חמש דקות מספיק כדי להתחיל.' };
+                        : 'סבב אחד מכסה עד 20 מילים.' };
   },
 
   /* The path that works on iOS: the app reminds when opened in the morning with no
@@ -5691,7 +5691,7 @@ async function renderAdminFeedback(){
     /* הנושא הוא ציטוט קצר של מה שהוא עצמו כתב — זה מה שיגרום לו לזהות במבט אחד על מה
        מדובר, במקום "באג" שאינו אומר כלום שבועיים אחרי. */
     const topic=String(r.body||'').split('\n')[0].trim().slice(0,50);
-    const subject='800+ · הדיווח שלך טופל';
+    const subject='הדיווח שלך ב-800+ טופל';
     const name=fbNames.get(String(r.email||'').trim().toLowerCase())||'';
     const body=[
       name ? 'שלום '+name+',' : 'שלום,','',
@@ -5714,7 +5714,7 @@ $('#notifCta').onclick=async()=>{
 };
 $('#lockContact').onclick=()=>{
   const mail=(currentUser&&currentUser.email)||'';
-  location.href='mailto:03hagay@gmail.com?subject='+encodeURIComponent('800+ · חידוש מנוי')
+  location.href='mailto:03hagay@gmail.com?subject='+encodeURIComponent('חידוש מנוי ב-800+')
     +'&body='+encodeURIComponent('החשבון שלי: '+mail);
 };
 
