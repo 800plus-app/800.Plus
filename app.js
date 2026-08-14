@@ -35,7 +35,7 @@ const LS = {
       /* A toast lasts under two seconds and then this fails in total silence for the rest of
          the session, while every later round is quietly lost. A learner deserves to know the
          app has stopped remembering — and to know whether the cloud still has them. */
-      if(!storageWarned){ storageWarned=true; try{ toast('אין מקום פנוי בדפדפן — חלק מההתקדמות לא נשמרה'); }catch(e3){} }
+      if(!storageWarned){ storageWarned=true; try{ toast('אין מקום פנוי בדפדפן. חלק מההתקדמות לא נשמרה'); }catch(e3){} }
       try{ showStorageBar(); }catch(e5){}
       return false;
     }
@@ -56,7 +56,7 @@ function showStorageBar(){
     document.body.appendChild(bar);
   }
   bar.innerHTML = currentUser
-    ? 'הזיכרון של הדפדפן מלא. ההתקדמות ממשיכה להישמר בחשבון שלך, אבל לא במכשיר הזה — פנה מקום כדי לחזור לעבודה רגילה.'
+    ? 'הזיכרון של הדפדפן מלא. ההתקדמות ממשיכה להישמר בחשבון שלך, אבל לא במכשיר הזה. פנה מקום כדי לחזור לעבודה רגילה.'
     : '⚠ הזיכרון של הדפדפן מלא וההתקדמות שלך <b>לא נשמרת</b>. פתח חשבון או פנה מקום בדפדפן.';
   bar.classList.remove('hidden');
 }
@@ -298,7 +298,7 @@ function renderDirSegs(){
 function saveAssoc(){
   let payload; try{ payload=JSON.stringify(assoc); }catch(e){ return false; }
   if(payload.length>ASSOC_BUDGET){
-    toast('מאגר האסוציאציות מלא — קצר או מחק אסוציאציות ישנות');
+    toast('מאגר האסוציאציות מלא. קצר או מחק אסוציאציות ישנות');
     const prev=LS.get(KEY('hw_assoc'), null);              // roll memory back to what is on disk
     if(isObj(prev)) assoc=prev;
     return false;
@@ -404,7 +404,7 @@ function migrateStores(){
   deleted=new Set([...deleted].map(K).filter(Boolean)); saveDeleted();
   remapHyphenKeys();
   if(migrationLanded()) LS.set(KEY('hw_migr'),8);
-  else console.error('migrateStores: הכתיבה לא הושלמה — החותמת לא נרשמה, המיגרציה תרוץ שוב באתחול הבא');
+  else console.error('migrateStores: הכתיבה לא הושלמה. החותמת לא נרשמה, המיגרציה תרוץ שוב באתחול הבא');
 }
 
 /* Housekeeping: drop records/associations/deletions for words that no longer exist in the
@@ -421,7 +421,7 @@ function pruneOrphans(){
      all associations, deleted permanently, silently, and written straight to disk.
      A bank this small is never a real state. Refuse to prune instead of trusting it. */
   if(live.size < 50){
-    console.error('pruneOrphans בוטל: המאגר נטען חלקית ('+live.size+' מילים) — לא נמחק דבר');
+    console.error('pruneOrphans בוטל: המאגר נטען חלקית ('+live.size+' מילים) · לא נמחק דבר');
     return;
   }
   let touched=false;
@@ -1087,7 +1087,7 @@ $('#pbAll').onclick     = ()=> startRound(allCards(curScope), curScope, 'all');
 $('#homeWeak').onclick = ()=>{
   curScope='global';
   const l=weakCards('global');
-  if(!l.length){ toast('אין כרגע מילים לחיזוק — תרגל סבב ונראה'); return; }
+  if(!l.length){ toast('אין כרגע מילים לחיזוק. תרגל סבב ומילים שתטעה בהן יופיעו כאן'); return; }
   askSize(l.length, n=> startRound(capSampled(l,n), 'global', 'weak'));
 };
 $('#pbWeak').onclick    = ()=>{ const l=weakCards(curScope);    askSize(l.length, n=> startRound(capSampled(l,n), curScope, 'weak')); };
@@ -1616,7 +1616,7 @@ function finishCard(ok, skipped){
     if(!currentUser){ box.textContent='צריך חשבון כדי לראות אסוציאציות של לומדים אחרים.'; box.classList.remove('hidden'); return; }
     box.classList.remove('hidden'); box.textContent='טוען…';
     const r=await Store.listSharedAssoc(wLang, wKey);
-    if(!r.ok){ box.textContent='לא ניתן לטעון כרגע.'; return; }
+    if(!r.ok){ box.textContent='לא ניתן לטעון כרגע. בדוק את החיבור לרשת ונסה שוב'; return; }
     box.innerHTML = r.rows.length
       ? r.rows.map(x=>`<div class="oth">${esc(x.text)}</div>`).join('')
       : '<div class="oth empty">עוד אף אחד לא שיתף כאן. אתה יכול להיות הראשון.</div>';
@@ -1998,7 +1998,7 @@ document.addEventListener('keydown',e=>{
   if(e.target && e.target.id==='assocInput') return;
   e.preventDefault(); const n=$('#nextBtn'); if(n) n.click();
 });
-$('#hintBtn').onclick=()=>{ const w=deck[idx]; if(!w) return; const a=assoc[K(w.term)]; const b=$('#hintBox'); b.textContent=a?('💡 '+a):'עדיין לא כתבת אסוציאציה למילה הזו — תוכל להוסיף אחרי שתענה.'; b.classList.remove('hidden'); };
+$('#hintBtn').onclick=()=>{ const w=deck[idx]; if(!w) return; const a=assoc[K(w.term)]; const b=$('#hintBox'); b.textContent=a?('💡 '+a):'עדיין לא כתבת אסוציאציה למילה הזו. תוכל להוסיף אחרי שתענה.'; b.classList.remove('hidden'); };
 /* שמירת הסבב עברה ל-navTo, שהוא המסלול שכל יציאה עוברת בו — כך "אחורה" של המערכת
    וה-✕ שומרים בדיוק אותו דבר, ואי אפשר לתקן אחד ולשכוח את השני. */
 $('#quitQuiz').onclick=()=>goBack();
@@ -2018,7 +2018,7 @@ function navTo(id){
      ולכן הוא נלחץ גם ממסך התוצאות — ושם המבחן כבר נשמר, והשאלה הייתה מטעה.
      ביטלו? מחזירים את רשומת ההיסטוריה שנצרכה, ונשארים במקום. */
   if(!$('#exQuiz').classList.contains('hidden') &&
-     !confirm('לצאת מהמבחן? רק מבחן שהושלם נכנס להיסטוריית הציונים — מבחן שנעצר באמצע יתחיל מחדש בפעם הבאה.')){
+     !confirm('לצאת מהמבחן? רק מבחן שהושלם נכנס להיסטוריית הציונים. מבחן שנעצר באמצע יתחיל מחדש בפעם הבאה.')){
     if(!navPop) return;                       // לחיצה על כפתור: ההיסטוריה לא זזה
     try{ history.pushState({scr:'exam'}, ''); }catch(e){}
     return;
@@ -2119,14 +2119,14 @@ function openStats(scope){
       ><bdi>${esc(w.term)}</bdi>${int0(r.wrong)?`<em>${int0(r.wrong)}</em>`:''}</button>`; };
   const cloud=(list,id)=>`<div class="cloud" id="${id}">${list.map(w=>chip(w,tier(score(w)))).join('')}</div>`;
 
-  html+=`<div class="section-t">איפה אתה נלחם</div>`;
+  html+=`<div class="section-t">המילים שאתה טועה בהן</div>`;
   if(!arr.length){
-    html+=`<p class="msg" style="color:var(--ink-soft)">עדיין לא תרגלת מילים בתחום הזה — תרגל סבב אחד והתמונה תופיע כאן.</p>`;
+    html+=`<p class="msg" style="color:var(--ink-soft)">עדיין לא תרגלת מילים בתחום הזה. תרגל סבב אחד והתמונה תופיע כאן.</p>`;
   }else{
-    html+=`<p class="cloud-note">ככל שמילה גדולה וכהה יותר, כך היא הפילה אותך יותר פעמים.
+    html+=`<p class="cloud-note">ככל שמילה גדולה וכהה יותר, כך טעית בה יותר פעמים.
       המספר לידה הוא מספר הטעויות. לחיצה על מילה מראה את הפירוש.</p>`;
     if(fight.length){
-      html+=`<p class="cloud-note" style="margin-bottom:2px"><b>${fight.length} מילים לא מוותרות לך.</b> כאן נמצאת העבודה.</p>`
+      html+=`<p class="cloud-note" style="margin-bottom:2px"><b>${fight.length} מילים שטעית בהן יותר מפעם אחת.</b></p>`
         + cloud(fight.slice(0,80),'cloudFight')
         + `<button class="btn btn-primary btn-block" id="drillFight" style="margin:6px 0 18px">תרגל בדיוק את ${Math.min(fight.length,30)} המילים האלה ←</button>`;
     }
@@ -2136,9 +2136,9 @@ function openStats(scope){
        know is exactly the noise this screen was rebuilt to remove. */
     if(settled.length||instant.length||skippedN){
       html+=`<div class="quiet-line" style="margin-top:14px">`
-        + (settled.length?`<div>נאבקת ונסגר: <b>${settled.length}</b> מילים שטעית בהן בעבר וכבר יודע.</div>`:'')
+        + (settled.length?`<div>טעית וכבר בשליטה: <b>${settled.length}</b> מילים שטעית בהן בעבר וכבר יודע.</div>`:'')
         + (instant.length?`<div style="margin-top:6px">ידעת מיד: <b>${instant.length}</b> מילים, בלי טעות אחת.</div>`:'')
-        + (untouched?`<div style="margin-top:6px">עוד לא נפגשתם: <b>${untouched}</b> מילים.</div>`:'')
+        + (untouched?`<div style="margin-top:6px">טרם תרגלת: <b>${untouched}</b> מילים.</div>`:'')
         + (skippedN?`<div style="margin-top:6px">דילגת אחרי מבחן הרמה: <b>${skippedN}</b> מילים.
              <span style="opacity:.75">ניתן להחזיר ב"ניהול מילים" ← "שחזר מחיקות"</span></div>`:'')
         + `</div>`;
@@ -2243,7 +2243,7 @@ function renderManage(filter){
       <b>${esc(w.term)}</b><span>${esc(w.meaning)}</span>
       ${w.gone?`<button class="m-undo" data-undo="${esc(w.term)}" title="החזר מילה זו">↺ החזר</button>`
              :`<button class="m-known${isKnown(w.term)?' on':''}" data-known="${esc(w.term)}"
-                 title="${isKnown(w.term)?'בטל את הסימון — המילה תחזור לחיזוק'
+                 title="${isKnown(w.term)?'בטל את הסימון · המילה תחזור לחיזוק'
                                         :'מוציא מ"מילים לחיזוק", והמילה נשארת במאגר לתרגול'}"
                  >${isKnown(w.term)?'✓ ידעתי':'ידעתי'}</button>`}</label>`;
 
@@ -2306,7 +2306,7 @@ $('#pbManage').onclick=()=>openManage(curScope.startsWith('unit:') ? curScope.sl
 $('#mSearch').oninput=e=>renderManage(e.target.value);
 $('#mDelete').onclick=()=>{
   const m=$('#mMsg'); m.classList.remove('hidden'); m.className='msg';
-  if(mSel.size===0){ m.textContent='לא נבחרו מילים.'; return; }
+  if(mSel.size===0){ m.textContent='סמן מילים ברשימה ואז לחץ "מחק נבחרות".'; return; }
   /* The selection survives collapsing a unit and changing the search, so it was possible to tick
      twenty words in unit 4, search for something else, press delete, and remove twenty words
      that were nowhere on screen. The dialog said "delete 20 words?" and named none of them.
@@ -2349,9 +2349,9 @@ $('#addSave').onclick=()=>{
   const t=$('#addTerm').value.trim(), mn=$('#addMeaning').value.trim();
   const m=$('#addMsg'); m.classList.remove('hidden');
   if(!t||!mn){ m.className='msg err'; m.textContent='צריך גם מילה וגם פירוש.'; return; }
-  if(t.length>120||mn.length>400){ m.className='msg err'; m.textContent='המילה או הפירוש ארוכים מדי.'; return; }
+  if(t.length>120||mn.length>400){ m.className='msg err'; m.textContent='המילה עד 120 תווים, הפירוש עד 400.'; return; }
   const k=K(t);
-  if(!k){ m.className='msg err'; m.textContent='המילה לא תקינה.'; return; }
+  if(!k){ m.className='msg err'; m.textContent='לא ניתן להוסיף את המילה הזאת. בדוק שהיא מכילה אותיות ונסה שוב'; return; }
   const wasDeleted=deleted.has(k);
   if(!wasDeleted && BANK.some(w=>K(w.term)===k)){   // never create a duplicate of an existing word
     m.className='msg err'; m.textContent=`"${t}" כבר קיימת במאגר.`; return;
@@ -2470,7 +2470,7 @@ function showUpdateBar(rev){
     bar.onclick=()=>location.reload();
     document.body.appendChild(bar);
   }
-  bar.innerHTML=`גרסה ${rev} מוכנה — לחץ לרענון`;
+  bar.innerHTML=`גרסה ${rev} מוכנה · לחץ לרענון`;
   bar.classList.remove('hidden');
   document.body.classList.add('has-upd');   // lift the bug-report button clear of the bar
 }
@@ -2625,7 +2625,7 @@ function renderWelcome(){
     `<i class="${d.on?'on':''}${d.today?' now':''}"><em>${d.label}</em></i>`).join('');
   $('#greetSub').textContent =
     st.n===0   ? 'מוכן לתרגל? בחר את השפה שתרצה לתרגל היום'
-  : st.today   ? `כבר תרגלת היום — ${st.n} ${days(st.n)}. כל הכבוד.`
+  : st.today   ? `כבר תרגלת היום · ${st.n} ${days(st.n)}. כל הכבוד.`
                : `${st.n} ${days(st.n)}. תרגול קצר היום שומר על הרצף.`;
   renderBuildTag();
   renderPayCountdown();
@@ -2741,7 +2741,7 @@ async function enterLang(lang){
   pruneOrphans();
   buildBank();
   document.documentElement.lang = 'he';
-  $('#homeTitle').textContent = lang==='en' ? 'פסיכומטרי — אנגלית' : 'פסיכומטרי — עברית';
+  $('#homeTitle').textContent = lang==='en' ? 'פסיכומטרי · אנגלית' : 'פסיכומטרי · עברית';
   $('#homeSub').textContent   = lang==='en' ? 'English vocabulary · 10 יחידות' : 'המילון הרשמי · 10 יחידות';
   /* ⚠ באנגלית נעצרים על מסך בחירת התרגול, ובעברית לא
      ------------------------------------------------
@@ -2855,7 +2855,7 @@ function lvPool(band){
   return bank.filter(it=>it.band===band && !lvSeen.has(it.w));
 }
 function startLevelTest(){
-  if(!lvPool(LV_START).length){ toast('מבחן הרמה לא נטען'); return; }
+  if(!lvPool(LV_START).length){ toast('מבחן הרמה לא נטען. בדוק את החיבור לרשת ונסה שוב'); return; }
   lvAns=[]; lvSeen=new Set(); lvPassed=null; lvFailedUp=false; lvBand=LV_START;
   hide($('#lvIntro')); hide($('#lvResult')); show($('#lvQuiz'));
   goto('level'); lvLoadBlock();
@@ -2965,8 +2965,8 @@ function lvFinish(){
     /* נגזר מהקבועים ולא כתוב כמספר. v141 הוריד את הבלוק מ-6/5 ל-5/4, עדכן את index.html
        ושכח את המחרוזת הזאת — והמסך אמר "5 מתוך 6" בזמן שהטבלה שורה מתחתיו הדפיסה "4/5 ✓".
        הכיול הבא לא יוכל להשאיר את המסך משקר. */
-    ? LV_LABEL[level]+` — הרמה הגבוהה ביותר שעברת בה ${LV_PASS} מתוך ${LV_BLOCK}.`
-    : 'נתחיל מהבסיס — זה בדיוק מה שהאפליקציה נועדה לסגור.';
+    ? LV_LABEL[level]+` · הרמה הגבוהה ביותר שעברת בה ${LV_PASS} מתוך ${LV_BLOCK}.`
+    : 'נתחיל מהבסיס. זה בדיוק מה שהאפליקציה נועדה לסגור.';
   $('#lvBands').innerHTML=LV_BANDS.map(([b,name])=>{
     const p=per[b]||{n:0,ok:0};
     if(!p.n) return `<div class="lv-band" style="opacity:.42"><b>${b}</b><span class="lbl">${name}</span>
@@ -3172,7 +3172,7 @@ $('#lvSkip').onclick=()=>{ LS.set(lvKey(),'skipped'); renderWelcome(); };
    כתב את הרמה ודחף אותה לענן. "התוצאות לא יישמרו" היה שקר בדיוק ברגע שבו הלומד הכי צריך
    לסמוך על המשפט. הנוסח כאן אומר את הכלל עצמו, ולכן הוא נכון משלושת המסכים: מסך הפתיחה,
    אמצע המבחן, ומסך התוצאות. */
-$('#lvExit').onclick=()=>{ if(confirm('לצאת ממבחן הרמה? רק מבחן שהושלם נשמר — מבחן שנעצר באמצע יתחיל מחדש בפעם הבאה.')){ clearTimeout(lvTimer); renderWelcome(); } };
+$('#lvExit').onclick=()=>{ if(confirm('לצאת ממבחן הרמה? רק מבחן שהושלם נשמר. מבחן שנעצר באמצע יתחיל מחדש בפעם הבאה.')){ clearTimeout(lvTimer); renderWelcome(); } };
 $('#lvDone').onclick=()=>renderWelcome();
 
 /* ===== הקראה קולית =====
@@ -3473,7 +3473,7 @@ function renderExSize(poolLen){
 
   const nRec=Math.round(chosen*EX_MIX[0]), nRet=Math.round(chosen*EX_MIX[1]);
   $('#exSub').textContent=`${chosen} שאלות מתוך ${poolLen} מילים ביחידה, בהגרלה חדשה בכל פעם. `+
-    `המבחן לא משנה את ההתקדמות שלך — הוא רק מודד אותה.`;
+    `המבחן לא משנה את ההתקדמות שלך, הוא רק מודד אותה.`;
   $('#exParts').innerHTML=
     `<div class="ex-part"><b>${nRec}</b><span>זיהוי — מילה ← פירוש, ארבע אפשרויות</span></div>
      <div class="ex-part"><b>${nRet}</b><span>שליפה — פירוש ← מילה, ארבע אפשרויות</span></div>
@@ -3484,7 +3484,7 @@ function openExam(uid){
   const pool=exWords(uid);
   $('#exTitle').textContent='יחידה '+uid;
   if(pool.length<8){
-    $('#exSub').textContent='ביחידה הזאת פחות מ-8 מילים — אין ממה לבנות מבחן אמיתי.';
+    $('#exSub').textContent='ביחידה הזאת פחות מ-8 מילים, ואין ממה לבנות מבחן.';
     $('#exParts').innerHTML=''; $('#exStart').disabled=true;
   }else{
     renderExSize(pool.length);
@@ -3503,7 +3503,7 @@ function openExam(uid){
 }
 function startExam(){
   exQ=exBuild(exUnit, LS.get(exLenKey(), EX_LEN)); exI=0; exAns=[];
-  if(!exQ.length){ toast('לא הצלחתי לבנות מבחן ליחידה הזאת'); return; }
+  if(!exQ.length){ toast('לא ניתן לבנות מבחן ליחידה הזאת. בחר יחידה אחרת'); return; }
   hide($('#exIntro')); hide($('#exResult')); show($('#exQuiz'));
   exRender();
 }
@@ -3574,14 +3574,14 @@ $('#exSubmit').onclick=()=>{ const q=exQ[exI]; if(!q||$('#exInput').disabled) re
 $('#exInput').addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); $('#exSubmit').click(); } });
 $('#exSkip').onclick=()=>{ const q=exQ[exI]; if(!q||$('#exInput').disabled) return; exAnswer(false,''); };
 
-const EX_GRADE=[[90,'שליטה מלאה ביחידה'],[75,'שליטה טובה, נשארו פינות'],[60,'בסיס קיים, צריך חזרה'],[40,'חצי הדרך — כדאי לתרגל את היחידה'],[0,'היחידה עוד לא נלמדה באמת']];
+const EX_GRADE=[[90,'שליטה מלאה ביחידה'],[75,'שליטה טובה, נשארו פינות'],[60,'בסיס קיים, צריך חזרה'],[40,'חצי הדרך · כדאי לתרגל את היחידה'],[0,'היחידה עוד לא נלמדה באמת']];
 function exFinish(){
   const n=exAns.length, ok=exAns.filter(a=>a.ok).length;
   const pct=n?Math.round(100*ok/n):0;
   $('#exBar').style.width='100%'; $('#exCount').textContent='';
   hide($('#exQuiz')); show($('#exResult'));
   $('#exScore').textContent=pct+'%';
-  $('#exVerdict').textContent=`${ok} מתוך ${n} — ${(EX_GRADE.find(g=>pct>=g[0])||EX_GRADE[EX_GRADE.length-1])[1]}`;
+  $('#exVerdict').textContent=`${ok} מתוך ${n} · ${(EX_GRADE.find(g=>pct>=g[0])||EX_GRADE[EX_GRADE.length-1])[1]}`;
   const per={recognise:[0,0], retrieve:[0,0], produce:[0,0]};
   exAns.forEach(a=>{ const p=per[a.kind]; if(!p) return; p[1]++; if(a.ok) p[0]++; });
   const NAMES={recognise:'זיהוי (מילה ← פירוש)', retrieve:'שליפה (פירוש ← מילה)', produce:'כתיבה עצמאית'};
@@ -3636,7 +3636,7 @@ $('#exExit').onclick=()=>goBack();
    "all rights reserved" over someone else's content is both false and the kind of claim
    that invites the wrong letter. See the note in משימות.md. */
 const SHEET_YEAR = new Date().getFullYear();
-const SHEET_RIGHTS = `© ${SHEET_YEAR} <bdi>800+</bdi> · עיצוב הדף והאפליקציה — כל הזכויות שמורות · `+
+const SHEET_RIGHTS = `© ${SHEET_YEAR} <bdi>800+</bdi> · עיצוב הדף והאפליקציה · כל הזכויות שמורות · `+
   `מותר לשימוש אישי ולימודי · אין למכור או להפיץ בתשלום`;
 
 /* size=0 means the whole unit. A full English unit is ~380 words, which is a real worksheet
@@ -3682,7 +3682,7 @@ function buildSheet(uid, size){
         : (n===pool.length?`כל ${n} מילות היחידה`:`${n} מילים מתוך ${pool.length}`)} · ${date} · <bdi>800+</bdi></div>
       <div class="sh-fill"><span>שם:</span><span>תאריך:</span><span>ציון: ____ / ${n}</span></div>
       <div class="sh-inst">${askTerm
-        ? 'כתוב את הפירוש של כל מילה. תשובה חלקית שמעבירה את המשמעות — נקודה מלאה.'
+        ? 'כתוב את הפירוש של כל מילה. תשובה חלקית שמעבירה את המשמעות מזכה בנקודה מלאה.'
         : 'כתוב את המילה באנגלית שמתאימה לפירוש. איות מדויק נדרש.'}</div>
       <ol${askTerm?'':' class="two"'}>${items.map(it=>`<li><span class="sh-q${askTerm?ltr:''}">${esc(q(it))}</span>
         <span class="sh-line"></span></li>`).join('')}</ol>
@@ -3712,7 +3712,7 @@ function printSheet(uid){
     ? `${total} מילים לחיזוק מכל היחידות. `
     : isLearned
     ? `${total} מילים בשליטה מכל יחידות הלימוד. `
-    : `ביחידה ${total} מילים. `) + 'הדף נפתח בחלון ההדפסה — משם אפשר להדפיס או לשמור כ-PDF.';
+    : `ביחידה ${total} מילים. `) + 'הדף נפתח בחלון ההדפסה, ומשם אפשר להדפיס או לשמור כ-PDF.';
   sheetUid=uid;
   show($('#sheetAsk'));
 }
@@ -3721,9 +3721,9 @@ $('#sheetOpts').onclick=e=>{
   const b=e.target.closest('button[data-n]'); if(!b||!sheetUid) return;
   const uid=sheetUid, n=+b.dataset.n;
   hide($('#sheetAsk')); sheetUid=null;
-  if(!buildSheet(uid,n)){ toast('לא הצלחתי לבנות את הדף'); return; }
+  if(!buildSheet(uid,n)){ toast('לא ניתן לבנות את הדף. נסה שוב, ואם זה חוזר בחר יחידה אחרת'); return; }
   // give the browser a frame to lay the sheet out before it snapshots the page
-  setTimeout(()=>{ try{ window.print(); }catch(e){ toast('ההדפסה לא נפתחה'); } }, 80);
+  setTimeout(()=>{ try{ window.print(); }catch(e){ toast('חלון ההדפסה לא נפתח. בדוק שחלונות קופצים אינם חסומים בדפדפן ונסה שוב'); } }, 80);
 };
 $('#sheetCancel').onclick=()=>{ sheetUid=null; hide($('#sheetAsk')); };
 $('#sheetAsk').onclick=e=>{ if(e.target===$('#sheetAsk')){ sheetUid=null; hide($('#sheetAsk')); } };
@@ -4082,16 +4082,16 @@ async function syncWithRemoteInner(lang){
 
 function translateAuthError(err){
   const m=(err&&err.message)||'';
-  if(/already registered|already exists/i.test(m)) return 'כבר יש חשבון עם המייל הזה — נסה להתחבר.';
+  if(/already registered|already exists/i.test(m)) return 'כבר יש חשבון עם המייל הזה. נסה להתחבר.';
   /* Not just "wrong": the second sentence is the way out. Whoever let the browser generate a
      password never saw it, so "נסה שוב" is advice they cannot act on — the reset link is the
      only real path back in, and it has to be named here or it will not be found. */
   if(/invalid login credentials/i.test(m))
-    return 'אימייל או סיסמה שגויים. אם הדפדפן יצר לך סיסמה ואינך יודע אותה — לחץ "שכחתי סיסמה" למטה.';
+    return 'אימייל או סיסמה שגויים. אם הדפדפן יצר לך סיסמה ואינך יודע אותה, לחץ "שכחתי סיסמה" למטה.';
   if(/password.*(least|short|weak)/i.test(m)) return 'הסיסמה חייבת להיות לפחות 8 תווים.';
   if(/email.*invalid/i.test(m)) return 'כתובת אימייל לא תקינה.';
-  if(/rate limit|too many/i.test(m)) return 'המערכת עמוסה כרגע — נסה שוב בעוד כמה דקות.';
-  if(/confirm|not confirmed/i.test(m)) return 'צריך לאשר את מייל האימות לפני ההתחברות.';
+  if(/rate limit|too many/i.test(m)) return 'המערכת עמוסה כרגע. נסה שוב בעוד כמה דקות.';
+  if(/confirm|not confirmed/i.test(m)) return 'צריך לאשר את מייל האימות לפני ההתחברות. אם הוא לא הגיע, בדוק בספאם.';
   return 'משהו השתבש. בדוק את החיבור לרשת ונסה שוב.';
 }
 
@@ -4203,7 +4203,7 @@ $('#fbKinds').onclick=e=>{
 };
 function fbMailto(body,ctx){
   const subj=`[milim/${fbKind}] דיווח מהאפליקציה`;
-  const lines=[body,'','— הקשר אוטומטי —',...Object.entries(ctx).map(([k,v])=>`${k}: ${v}`)];
+  const lines=[body,'','· הקשר אוטומטי ·',...Object.entries(ctx).map(([k,v])=>`${k}: ${v}`)];
   location.href=`mailto:${FB_TO}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(lines.join('\n'))}`;
 }
 $('#fbSend').onclick=async ()=>{
@@ -4215,7 +4215,7 @@ $('#fbSend').onclick=async ()=>{
   try{
     const r=await Store.sendFeedback(fbKind, body, ctx);
     if(r.ok){ closeFeedback(); toast('תודה! הדיווח נשלח'); return; }
-    if(r.missingTable){ msg.className='msg'; msg.textContent='נפתח לך מייל עם הדיווח — רק לשלוח.'; fbMailto(body,ctx); return; }
+    if(r.missingTable){ msg.className='msg'; msg.textContent='נפתח לך מייל עם הדיווח. נשאר רק לשלוח.'; fbMailto(body,ctx); return; }
     msg.className='msg err'; msg.textContent='השליחה נכשלה. פותח מייל במקום…'; fbMailto(body,ctx);
   }catch(e){
     msg.className='msg err'; msg.textContent='אין חיבור. פותח מייל במקום…'; fbMailto(body,ctx);
@@ -4439,7 +4439,7 @@ $('#authForm').addEventListener('submit', async e=>{
         /* Not a promise. The mail is genuinely sent and genuinely delivered — and twice now it
            landed in spam and was never seen, while this line assured the learner it was on the
            way. Say where to look, in the same breath as "we sent it". */
-        msg.className='au-msg ok'; msg.textContent='אשר את המייל, ואז התחבר כאן. אם הוא לא הגיע תוך דקה — בדוק בספאם.';
+        msg.className='au-msg ok'; msg.textContent='אשר את המייל, ואז התחבר כאן. אם הוא לא הגיע תוך דקה, בדוק בספאם.';
         $('#authPassword').value='';
         // and say it where it cannot be missed: the confirmation click is the whole gate
         $('#mailAskTo').textContent=email;
@@ -4470,14 +4470,14 @@ $('#mailAskResend').onclick=async e=>{
   const r=await Store.resendConfirmation(to);
   if(r.ok){
     m.className='au-msg ok';
-    m.textContent='נשלח שוב. אם הוא לא מופיע — חפש בספאם ובקידומי מכירות את השולח noreply@800-plus.com.';
+    m.textContent='נשלח שוב. אם הוא לא מופיע, חפש בספאם ובקידומי מכירות את השולח noreply@800-plus.com.';
   }else{
     m.className='au-msg err';
     /* The routine failure is the per-address interval, and "try again later" is the one thing
        that actually helps. Anything else is reported plainly rather than guessed at. */
     const raw=(r.error && r.error.message) || '';
     m.textContent = /security purposes|rate|429|only request this after/i.test(raw)
-      ? 'נשלח לאחרונה ממש עכשיו — המתן דקה ונסה שוב. בינתיים בדוק בספאם.'
+      ? 'נשלח לאחרונה ממש עכשיו. המתן דקה ונסה שוב. בינתיים בדוק בספאם.'
       : 'לא הצלחנו לשלוח כרגע. נסה שוב בעוד רגע, או בקש קישור לאיפוס סיסמה למטה.';
     e.target.disabled=false;
   }
@@ -4489,7 +4489,7 @@ $('#mailAskExisting').onclick=async e=>{
   m.className='au-msg'; m.textContent='שולח…'; m.classList.remove('hidden');
   try{ await Store.resetPasswordFor(to); m.className='au-msg ok';
        m.textContent='נשלח. אם הכתובת רשומה, יגיע ממנה קישור לבחירת סיסמה חדשה.'; }
-  catch(err){ m.className='au-msg err'; m.textContent='שגיאה בשליחה — נסה שוב בעוד רגע.';
+  catch(err){ m.className='au-msg err'; m.textContent='שגיאה בשליחה. נסה שוב בעוד רגע.';
               e.target.disabled=false; }
 };
 $('#authForgot').onclick=async ()=>{
@@ -4498,7 +4498,7 @@ $('#authForgot').onclick=async ()=>{
   if(!email){ msg.className='au-msg err'; msg.textContent='הזן קודם את כתובת האימייל שלך למעלה.'; return; }
   msg.className='msg'; msg.textContent='שולח…';
   try{ await Store.resetPasswordFor(email); msg.className='au-msg ok'; msg.textContent='אם הכתובת רשומה, נשלח אליה קישור לאיפוס סיסמה.'; }
-  catch(e){ msg.className='au-msg err'; msg.textContent='שגיאה בשליחה — נסה שוב.'; }
+  catch(e){ msg.className='au-msg err'; msg.textContent='שגיאה בשליחה. נסה שוב.'; }
 };
 /* The welcome screen is now a real landing page, so sign-out and the admin panel
    have to be reachable from it too — not only from inside a language. */
@@ -4555,7 +4555,7 @@ const signOutNow = async ()=>{
      היחיד של הסבב העברי נמחק. הכלל שכבר כתוב כאן, "מכשיר שמחזיק את העותק היחיד אינו
      נמחק", חייב לחול על **שתי** השפות ולא רק על הפעילה. */
   if(saved && !syncPending.he && !syncPending.en) localStorage.clear(); // the cache belongs to this account; never let it bleed into the next login
-  else console.warn('sign-out: יש עבודה שלא הגיעה לענן — המטמון המקומי נשמר כדי לא לאבד אותה');
+  else console.warn('sign-out: יש עבודה שלא הגיעה לענן. המטמון המקומי נשמר כדי לא לאבד אותה');
   location.reload();
 };
 /* מוקד אחד להתנתקות, באזור המסוכן שבהגדרות. קודם היו ארבעה כפתורי "יציאה" בארבע
@@ -4594,7 +4594,7 @@ async function openAccount(tab){
     if(p){
       if(p.username){ $('#accUser').textContent=p.username; $('#accName').textContent=p.username; }
       if(p.created_at) $('#accSince').textContent=fmtDate(p.created_at).split(' ')[0];
-      $('#accSub').textContent = FREE_PHASE && p.sub_status==='none' ? 'פתוח — שלב חינמי' : subLabel(p);
+      $('#accSub').textContent = FREE_PHASE && p.sub_status==='none' ? 'פתוח · שלב חינמי' : subLabel(p);
     } else $('#accSub').textContent='פתוח';
   }catch(e){ $('#accSub').textContent='לא ידוע'; }
 }
@@ -4632,7 +4632,7 @@ $('#notifAsk').onclick=e=>{ if(e.target===$('#notifAsk')) hide($('#notifAsk')); 
 $('#notifAskYes').onclick=async()=>{
   hide($('#notifAsk'));
   try{ await NOTIF.ask(); }catch(e){}
-  if(NOTIF.granted()){ NOTIF.cacheMessage(); toast('נהדר — נזכיר לך מחר בבוקר'); $('#notifCta').classList.add('hidden'); }
+  if(NOTIF.granted()){ NOTIF.cacheMessage(); toast('נהדר. נזכיר לך מחר בבוקר'); $('#notifCta').classList.add('hidden'); }
 };
 /* ===== דיאלוג קבוצת הוואטסאפ ===== */
 /* הדגל hw_waOffered כבר נכתב ברגע ההצגה (maybeOfferWhatsapp), ולכן כל מסלול סגירה — X,
@@ -4705,7 +4705,7 @@ function renderAccExam(){
     : e.days === 1 ? 'המבחן מחר'
     : e.days === 2 ? 'נשארו יומיים'
     : e.days > 0 ? `נשארו ${e.days} ימים`
-    : 'התאריך עבר — אפשר לעדכן למועד הבא';
+    : 'התאריך עבר. אפשר לעדכן למועד הבא';
 }
 $('#accExam').onchange = ()=>{
   const v=$('#accExam').value;
@@ -4836,7 +4836,7 @@ function renderAccNotif(){
   }
   row.classList.remove('hidden');
   if(NOTIF.granted()){
-    sub.textContent='פעילה — תזכורת קצרה בבוקר עם ההתקדמות שלך';
+    sub.textContent='פעילה · תזכורת קצרה בבוקר עם ההתקדמות שלך';
     st.textContent='✓'; st.style.color='#3f7a4a'; row.disabled=true;
   } else if(NOTIF.askable()){
     sub.textContent='הודעה קצרה בבוקר שמזכירה לתרגל';
@@ -4845,7 +4845,7 @@ function renderAccNotif(){
     // permission is 'denied', or iOS in a tab where the API would throw
     sub.textContent = isIOS() && !isStandalone()
       ? 'זמינה אחרי שתתקין את האפליקציה למסך הבית'
-      : 'חסומה בדפדפן — אפשר להחזיר דרך הגדרות האתר בדפדפן';
+      : 'חסומה בדפדפן · אפשר להחזיר דרך הגדרות האתר בדפדפן';
     st.textContent='—'; st.style.color=''; row.disabled=true;
   }
 }
@@ -4853,7 +4853,7 @@ $('#accNotif').onclick = async ()=>{
   if(!NOTIF.askable()) return;
   const ok=await NOTIF.ask();
   renderAccNotif();
-  toast(ok ? 'מעולה — תקבל תזכורת בבוקר' : 'אפשר להפעיל דרך הגדרות האתר בדפדפן');
+  toast(ok ? 'מעולה. תקבל תזכורת בבוקר' : 'אפשר להפעיל דרך הגדרות האתר בדפדפן');
 };
 
 /* ===== deleting the account =====
@@ -4862,7 +4862,7 @@ $('#accNotif').onclick = async ()=>{
    why it goes through an Edge Function — see store.deleteMyAccount. */
 $('#accDelete').onclick = ()=>{
   const mail=(currentUser&&currentUser.email)||'';
-  if(!mail){ toast('צריך להיות מחובר'); return; }
+  if(!mail){ toast('צריך להתחבר כדי למחוק את החשבון. התחבר ונסה שוב'); return; }
   $('#delMail').textContent=mail;
   $('#delInput').value='';
   $('#delGo').disabled=true;
@@ -4885,7 +4885,7 @@ $('#delGo').onclick = async ()=>{
     m.className='au-msg err';
     m.textContent = r.notDeployed
       ? 'המחיקה האוטומטית עוד לא פעילה. כתוב אליי ל-admin@800-plus.com ואמחק ידנית תוך יום.'
-      : (r.error && r.error.message) || 'המחיקה נכשלה — נסה שוב.';
+      : (r.error && r.error.message) || 'המחיקה נכשלה. נסה שוב.';
     btn.disabled=false; return;
   }
   /* The account is gone on the server. Everything local must go too, and the session with it —
@@ -5071,7 +5071,7 @@ $('#accReset').onclick = async ()=>{
     if(window.caches) try{ await caches.delete('hw-data'); }catch(e){}
     toast('ההתקדמות אופסה');
     setTimeout(()=>location.reload(), 700);
-  }catch(e){ btn.disabled=false; toast('האיפוס נכשל — ההתקדמות שלך לא נגעה'); }
+  }catch(e){ btn.disabled=false; toast('האיפוס נכשל. ההתקדמות שלך נשמרה כפי שהייתה. נסה שוב'); }
 };
 
 /* ===== daily reminder =====
@@ -5189,7 +5189,7 @@ const NOTIF = {
     const away = d.last ? Math.floor((Date.now()-d.last)/DAY) : -1;
     // The gap decides the words. Someone two days out does not need a streak reminder —
     // they need a reason to come back and a job small enough to say yes to.
-    if(away >= 14) return { title:'המילים מחכות לך',
+    if(away >= 14) return { title:'מילים לחיזוק',
       body: d.learned ? `${d.learned} מילים שלמדת עדיין כאן. סבב אחד מחזיר אותך לקצב.`
                       : 'עוד לא התחלת באמת. עשר מילים זה חמש דקות.' };
     if(away >= 2)  return { title:'יומיים בלי תרגול',
@@ -5406,7 +5406,7 @@ function renderAdminUsers(){
     const mail=b.dataset.reset; if(!mail) return;
     b.disabled=true; b.textContent='שולח…';
     try{ await Store.adminSendReset(mail); b.textContent='✓ נשלח קישור איפוס'; }
-    catch(e){ b.textContent='שגיאה — נסה שוב'; b.disabled=false; }
+    catch(e){ b.textContent='שגיאה. נסה שוב'; b.disabled=false; }
   });
 
   list.querySelectorAll('[data-sub]').forEach(b=>b.onclick=async()=>{
@@ -5434,11 +5434,11 @@ function renderAdminUsers(){
     const id=b.dataset.del, mail=b.dataset.mail;
     const typed=prompt('מחיקת נתוני משתמש היא בלתי הפיכה. הקלד את המייל של המשתמש לאישור: '+mail);
     if(typed===null) return;
-    if(typed.trim().toLowerCase()!==String(mail).trim().toLowerCase()){ toast('המייל אינו תואם — לא נמחק'); return; }
+    if(typed.trim().toLowerCase()!==String(mail).trim().toLowerCase()){ toast('המייל אינו תואם. החשבון לא נמחק'); return; }
     const pw=prompt('הקלד את סיסמת החשבון שלך כדי לאשר:');
     if(!pw) return;
     b.disabled=true; b.textContent='מאמת…';
-    if(!await Store.verifyMyPassword(pw)){ toast('סיסמה שגויה — לא נמחק'); b.disabled=false; b.textContent='🗑 מחק נתונים'; return; }
+    if(!await Store.verifyMyPassword(pw)){ toast('סיסמה שגויה. החשבון לא נמחק'); b.disabled=false; b.textContent='🗑 מחק נתונים'; return; }
     b.textContent='מוחק…';
     const { ok, error } = await Store.adminDeleteUserData(id);
     if(!ok){ toast('לא נמחק: '+(error&&error.message||'')); b.disabled=false; b.textContent='🗑 מחק נתונים'; return; }
@@ -5476,7 +5476,7 @@ function hasAccess(r){
      gate follows, because a free day costs less than a paying learner shut out by our own bug. */
   let until = r.sub_until ? new Date(r.sub_until) : null;
   if(until && isNaN(until.getTime())){
-    console.error('sub_until לא ניתן לפענוח: '+r.sub_until+' — הגישה נשארת פתוחה');
+    console.error('sub_until לא ניתן לפענוח: '+r.sub_until+' · הגישה נשארת פתוחה');
     until = null;
   }
   const paidThrough = until ? until > new Date() : false;
@@ -5508,9 +5508,9 @@ function subLabel(r){
   switch(r.sub_status){
     case 'active':   return live ? 'מנוי פעיל'+until : 'המנוי פג'+until;
     case 'grace':    return 'גישה ידנית'+until;
-    case 'past_due': return live ? 'חיוב נכשל — הגישה פתוחה עוד מעט'+until
-                                 : 'חיוב נכשל — הגישה חסומה';
-    case 'canceled': return live ? 'בוטל — פעיל'+until : 'המנוי בוטל';
+    case 'past_due': return live ? 'חיוב נכשל. הגישה פתוחה עוד מעט'+until
+                                 : 'חיוב נכשל. הגישה חסומה';
+    case 'canceled': return live ? 'בוטל · פעיל'+until : 'המנוי בוטל';
     default:         return FREE_PHASE ? 'שלב חינמי · גישה פתוחה' : 'ללא מנוי';
   }
 }
@@ -5522,7 +5522,7 @@ async function openAdmin(){
   const { users, error } = await Store.adminListUsers();
   if(error){
     body.innerHTML=`<p class="msg err">לא ניתן לטעון: ${esc(error.message)}</p>`+
-      `<p class="msg" style="color:var(--ink-soft)">אם חסרות עמודות — הרץ את המיגרציות שבתיקיית migrations.</p>`;
+      `<p class="msg" style="color:var(--ink-soft)">אם חסרות עמודות, הרץ את המיגרציות שבתיקיית migrations.</p>`;
     return;
   }
   if(!users.length){ admUsers=[]; body.innerHTML='<p class="msg" style="color:var(--ink-soft)">עדיין אין משתמשים רשומים.</p>'; return; }
@@ -5673,7 +5673,7 @@ async function renderAdminFeedback(){
   host.querySelectorAll('[data-fb]').forEach(b=>b.onclick=async()=>{
     b.disabled=true;
     if(await Store.adminMarkFeedback(+b.dataset.fb, b.dataset.st)) renderAdminFeedback();
-    else { b.disabled=false; toast('העדכון נכשל'); }
+    else { b.disabled=false; toast('העדכון נכשל. נסה שוב'); }
   });
   /* מענה למדווח.
    *
@@ -5696,7 +5696,7 @@ async function renderAdminFeedback(){
     const body=[
       name ? 'שלום '+name+',' : 'שלום,','',
       'הדיווח שלך על "'+topic+'" התקבל!',
-      'בדקתי, מצאתי ותיקנתי — והגרסה כבר עודכנה.','',
+      'בדקתי, מצאתי ותיקנתי, והגרסה כבר עודכנה.','',
       'תודה על הפידבק, תמשיך לדווח ❤️','',
       'https://800-plus.com'
     ].join('\n');
@@ -5710,11 +5710,11 @@ $('#adminBtn2').onclick=openAdmin;
 $('#notifCta').onclick=async()=>{
   const ok=await NOTIF.ask();
   $('#notifCta').classList.add('hidden');
-  toast(ok ? 'מעולה — תקבל תזכורת בבוקר' : 'אפשר להפעיל התראות מאוחר יותר בהגדרות הדפדפן');
+  toast(ok ? 'מעולה. תקבל תזכורת בבוקר' : 'אפשר להפעיל התראות מאוחר יותר בהגדרות הדפדפן');
 };
 $('#lockContact').onclick=()=>{
   const mail=(currentUser&&currentUser.email)||'';
-  location.href='mailto:03hagay@gmail.com?subject='+encodeURIComponent('חידוש מנוי — 800+')
+  location.href='mailto:03hagay@gmail.com?subject='+encodeURIComponent('800+ · חידוש מנוי')
     +'&body='+encodeURIComponent('החשבון שלי: '+mail);
 };
 
@@ -6277,7 +6277,7 @@ async function checkSessionAndBoot(){
      then route by the one fact we can establish locally and let the user get on with it. */
   setTimeout(()=>{
     if($('#boot') && !$('#boot').classList.contains('hidden')){
-      console.warn('[boot] הכניסה לא הסתיימה בזמן — ממשיך בלי המתנה');
+      console.warn('[boot] הכניסה לא הסתיימה בזמן. ממשיך בלי המתנה');
       /* Latch it. Only currentSession() is raced against a timeout; myProfile() and
          pullAccountState() are not. If one of them was merely slow rather than dead, it wakes
          up minutes later and afterAuthed carries on to its goto() — dragging the learner out of
