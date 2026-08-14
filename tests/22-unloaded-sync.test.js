@@ -1,5 +1,5 @@
 'use strict';
-/* המיזוג שרץ לפני שהמצב נטען מהדיסק — ומוחק אותו.
+/* המיזוג שרץ לפני שהמצב נטען מהדיסק · ומוחק אותו.
  *
  * הראיה
  * ------
@@ -10,17 +10,17 @@
  *   10:35  אונליין   נלמדו 263 · "מסונכרן ✓"
  *   10:45  סגר ופתח  נלמדו 244 · תורגלו 265 · מתוך 1711 · רצף 1   ← הכול התגלגל אחורה
  *
- * גם התרגול, גם הרצף, וגם שתי מחיקות מילים חזרו. לוח הבקרה הראה 244 — כלומר גם הענן.
+ * גם התרגול, גם הרצף, וגם שתי מחיקות מילים חזרו. לוח הבקרה הראה 244 · כלומר גם הענן.
  *
  * המנגנון
  * --------
- * `loadLangState()` — הפונקציה שמעבירה את התקדמות השפה מ-localStorage לזיכרון — נקראת רק
+ * `loadLangState()` · הפונקציה שמעבירה את התקדמות השפה מ-localStorage לזיכרון · נקראת רק
  * מתוך `enterLang()`. מסך הבית אינו קורא לה: `langSummary()` קורא את המספרים ישירות
  * מ-localStorage (app.js:1791), ולכן המסך מציג נתונים נכונים בזמן ש-`stats` בזיכרון עדיין
  * שווה לברירת המחדל שלו, `{words:{},sessions:[]}`.
  *
- * `pullIfStale()` (app.js:1671) רץ על visibilitychange, online ו-focus — שלושת הרגעים של
- * "חזרתי לאפליקציה" — ובודק רק `currentUser` ו-`LANG`. `LANG` נקרא מ-localStorage בשורה
+ * `pullIfStale()` (app.js:1671) רץ על visibilitychange, online ו-focus · שלושת הרגעים של
+ * "חזרתי לאפליקציה" · ובודק רק `currentUser` ו-`LANG`. `LANG` נקרא מ-localStorage בשורה
  * הראשונה של app.js, ולכן הוא 'he' מיד, הרבה לפני שנטען משהו. התוצאה:
  *
  *     mergeProgress({stats ריק בזיכרון}, {הענן})  →  הענן
@@ -29,15 +29,15 @@
  *
  * המיזוג עצמו תקין. הוא פשוט קיבל צד שמאל ריק שמעולם לא היה אמור להגיע אליו.
  *
- * הכלל שנשבר: מיזוג שמקורו בזיכרון שלא נטען אינו מיזוג — הוא דריסה.
+ * הכלל שנשבר: מיזוג שמקורו בזיכרון שלא נטען אינו מיזוג · הוא דריסה.
  */
 
 const { test, describe } = require('node:test');
 const assert = require('node:assert');
 const { loadSyncLayer } = require('./_harness/fakeSupabase.js');
 
-const NEW = 1754126040000;   // 10:34 — התרגול במצב טיסה
-const OLD = 1754125680000;   // 10:28 — מה שהענן הספיק לקלוט
+const NEW = 1754126040000;   // 10:34 · התרגול במצב טיסה
+const OLD = 1754125680000;   // 10:28 · מה שהענן הספיק לקלוט
 
 /* מילים אמיתיות מהמאגר. חייבות להיות אמיתיות: pruneOrphans מוחק כל רשומה שאין לה מילה
    חיה, ומילת דמה הייתה נמחקת מסיבה אחרת לגמרי ומסתירה את מה שנבדק כאן. */
@@ -62,9 +62,9 @@ function cloudBeforePractice(K) {
   return { assoc: {}, stats: { words, sessions: [] }, deleted: [], added: [], dir: 'w2m' };
 }
 
-describe('סנכרון לפני טעינה — אסור שייכתב דבר', () => {
+describe('סנכרון לפני טעינה · אסור שייכתב דבר', () => {
 
-  /* מסך הבית: הדיסק מלא, הזיכרון בברירת המחדל שלו, ו-langLoaded עדיין false —
+  /* מסך הבית: הדיסק מלא, הזיכרון בברירת המחדל שלו, ו-langLoaded עדיין false · 
      בדיוק כפי ש-app.js מגדיר אותם לפני ש-enterLang() נקרא. */
   function atWelcomeScreen() {
     const probe = loadSyncLayer({});
@@ -89,7 +89,7 @@ describe('סנכרון לפני טעינה — אסור שייכתב דבר', ()
 
   const pushesOf = s => s.calls.filter(c => c.table === 'progress' && (c.verb === 'upsert' || c.verb === 'insert' || c.verb === 'update'));
 
-  test('המיזוג לא רץ בכלל — הזיכרון נשאר ריק', async () => {
+  test('המיזוג לא רץ בכלל · הזיכרון נשאר ריק', async () => {
     const { s } = atWelcomeScreen();
     await s.ctx.syncWithRemoteInner('he');
     assert.deepStrictEqual(Object.keys(s.ctx.stats.words), [],
@@ -107,7 +107,7 @@ describe('סנכרון לפני טעינה — אסור שייכתב דבר', ()
       'ברגע שהענן קיבל את המצב המוקטן, גם מכשיר אחר שמסנכרן יקבל אותו.');
   });
 
-  test('הדיסק לא נגע — ההתקדמות, הסבב והמחיקה נשארים', async () => {
+  test('הדיסק לא נגע · ההתקדמות, הסבב והמחיקה נשארים', async () => {
     const { s, K } = atWelcomeScreen();
     await s.ctx.syncWithRemoteInner('he');
     const d = s.disk.get('hw_stats');
@@ -126,9 +126,9 @@ describe('סנכרון לפני טעינה — אסור שייכתב דבר', ()
     assert.strictEqual(pushesOf(s).length, 0, 'flushRemoteSync דחף מצב שלא נטען');
   });
 
-  /* הצד השני של המטבע. בלי זה, "לסרב תמיד" היה עובר בשלוש הבדיקות שלמעלה — ושובר
+  /* הצד השני של המטבע. בלי זה, "לסרב תמיד" היה עובר בשלוש הבדיקות שלמעלה · ושובר
      את הסנכרון בין מכשירים לגמרי. */
-  test('אחרי loadLangState — הסנכרון עובד כרגיל', async () => {
+  test('אחרי loadLangState · הסנכרון עובד כרגיל', async () => {
     const { s, K } = atWelcomeScreen();
     const d = s.disk.get('hw_stats');
     s.ctx.stats = { words: Object.assign({}, d.words), sessions: d.sessions.slice() };
@@ -136,7 +136,7 @@ describe('סנכרון לפני טעינה — אסור שייכתב דבר', ()
     s.ctx.langLoaded = true;                      // ← זה מה שהטעינה מדליקה
 
     await s.ctx.syncWithRemoteInner('he');
-    /* הדחיפה בסוף syncWithRemoteInner היא fire-and-forget (app.js:2921) — היא לא מומתנת,
+    /* הדחיפה בסוף syncWithRemoteInner היא fire-and-forget (app.js:2921) · היא לא מומתנת,
        ולכן היא נרשמת אצל המזויף רק אחרי שהתור הנוכחי מתרוקן. */
     await new Promise(r => setImmediate(r));
     const rec = s.ctx.stats.words[K('אוֹצֵר')];
@@ -145,8 +145,8 @@ describe('סנכרון לפני טעינה — אסור שייכתב דבר', ()
     assert.ok(pushesOf(s).length > 0, 'אחרי טעינה תקינה הסנכרון חייב גם לדחוף');
   });
 
-  /* הדגל חייב להיוולד כבוי. אם ההכרזה תשתנה ל-true, כל הבדיקות שלמעלה יעברו — הן
-     מכבות אותו בעצמן — והבאג יחזור בשקט מוחלט. לכן זה נקרא מהמקור. */
+  /* הדגל חייב להיוולד כבוי. אם ההכרזה תשתנה ל-true, כל הבדיקות שלמעלה יעברו · הן
+     מכבות אותו בעצמן · והבאג יחזור בשקט מוחלט. לכן זה נקרא מהמקור. */
   test('הדגל מוכרז כבוי', () => {
     const src = require('fs').readFileSync(require('path').join(require('./_harness/sandbox.js').ROOT, 'app.js'), 'utf8');
     const m = src.match(/let\s+langLoaded\s*=\s*(\w+)\s*;/);

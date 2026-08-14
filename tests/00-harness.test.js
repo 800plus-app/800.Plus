@@ -2,7 +2,7 @@
 /* Tests for the test harness.
  *
  * Everything else in this suite runs code lifted out of app.js by text. If the lifting is wrong,
- * the other files can go green while testing nothing at all — which is the single worst outcome
+ * the other files can go green while testing nothing at all -- which is the single worst outcome
  * available here, worse than having no suite. These tests exist so that the lifting itself fails
  * loudly and by name.
  */
@@ -17,7 +17,7 @@ const { codeMask, braceBalance, matchBrace } = require('./_harness/scan.js');
 const { extractFunction, extractDecl } = require('./_harness/extract.js');
 const { loadApp, banks, appSource, plain, tagOf, REQUIRED, ROOT } = require('./_harness/sandbox.js');
 
-describe('harness — the source scanner', () => {
+describe('harness · the source scanner', () => {
   test('braces balance to zero over code positions in every project script', () => {
     for (const f of ['app.js', 'store.js', 'sw.js', 'config.js', 'leveltest.js', 'leveltest-he.js']) {
       const src = fs.readFileSync(path.join(ROOT, f), 'utf8');
@@ -99,7 +99,7 @@ describe('harness — the source scanner', () => {
   });
 });
 
-describe('harness — lifting app.js', () => {
+describe('harness · lifting app.js', () => {
   test('every symbol the suite depends on is still declared in app.js', () => {
     const ctx = loadApp();                       // throws by name if anything is missing
     const absent = REQUIRED.filter(n => ctx[n] === undefined);
@@ -121,7 +121,7 @@ describe('harness — lifting app.js', () => {
 
   test('values crossing out of the sandbox compare correctly once made plain', () => {
     // Guards the helper the merge tests rely on. An array built inside the vm has a different
-    // prototype, so deepStrictEqual rejects it even when the contents match — a trap that would
+    // prototype, so deepStrictEqual rejects it even when the contents match -- a trap that would
     // otherwise show up as an unexplainable red in 06-merge.
     const ctx = loadApp({ bank: false });
     const out = ctx.mergeProgress({ assoc: {}, stats: { words: {} }, deleted: ['a'], added: [] },
@@ -139,7 +139,7 @@ describe('harness — lifting app.js', () => {
     assert.throws(() => extractAll(appSource(), ['norm', 'nope_not_here']), /nope_not_here/);
   });
 
-  test('the sandbox is isolated — one test cannot leak state into the next', () => {
+  test('the sandbox is isolated · one test cannot leak state into the next', () => {
     const a = loadApp({ lang: 'he' });
     a.stats.words.__leak = a.saneRec({ seen: 9, level: 3, last: 1 });
     const b = loadApp({ lang: 'he' });

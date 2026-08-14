@@ -20,7 +20,7 @@ const DAY = 864e5;
 const at = days => new Date(Date.now() + days * DAY).toISOString();
 const can = (row, freePhase = true) => { ctx.FREE_PHASE = freePhase; return ctx.hasAccess(row); };
 
-describe('access gate — the two cases that cost money', () => {
+describe('access gate · the two cases that cost money', () => {
   test('CANCELED with a future paid-through date KEEPS access', () => {
     // Cancelling on day 2 of a month already paid for must not cost the other 28 days.
     assert.strictEqual(can({ sub_status: 'canceled', sub_until: at(28) }), true);
@@ -59,7 +59,7 @@ describe('access gate — the two cases that cost money', () => {
   });
 });
 
-describe('access gate — the full matrix', () => {
+describe('access gate · the full matrix', () => {
   const DATES = {
     'no date': null,
     'future': at(30),
@@ -93,13 +93,13 @@ describe('access gate — the full matrix', () => {
     }
   });
 
-  test('status is case-sensitive — "ACTIVE" is not "active"', () => {
+  test('status is case-sensitive · "ACTIVE" is not "active"', () => {
     // Worth pinning: a provider webhook that upper-cases the status would lock every customer.
     assert.strictEqual(can({ sub_status: 'ACTIVE', sub_until: at(30) }), false);
   });
 });
 
-describe('access gate — fail-open paths', () => {
+describe('access gate · fail-open paths', () => {
   test('no profile row at all opens the gate', () => {
     // Documented as deliberate (app.js:2979): a failed profile read must not lock the app.
     assert.strictEqual(can(null), true);
@@ -123,7 +123,7 @@ describe('access gate — fail-open paths', () => {
   });
 });
 
-describe('access gate — the free phase', () => {
+describe('access gate · the free phase', () => {
   test('"none" has access while FREE_PHASE is on, and loses it when it is turned off', () => {
     assert.strictEqual(can({ sub_status: 'none', sub_until: null }, true), true);
     assert.strictEqual(can({ sub_status: 'none', sub_until: null }, false), false);
@@ -139,7 +139,7 @@ describe('access gate — the free phase', () => {
     }
   });
 
-  test('FREE_PHASE is currently ON — the day this flips, billing is live', () => {
+  test('FREE_PHASE is currently ON · the day this flips, billing is live', () => {
     const pristine = loadApp({ bank: false });
     assert.strictEqual(pristine.FREE_PHASE, true,
       'FREE_PHASE is now false: everyone on sub_status "none" has just lost access. ' +
@@ -147,17 +147,17 @@ describe('access gate — the free phase', () => {
   });
 });
 
-describe('access gate — malformed dates', () => {
+describe('access gate · malformed dates', () => {
   /* Not a hypothetical: sub_until is written by billing webhooks, and a provider that sends a
    * unix timestamp, an empty string or a localised date produces exactly these. Pinned so the
    * behaviour is a decision rather than an accident. */
-  /* Was pinned the other way round — "fails CLOSED" — with the fix sitting beside it as a
+  /* Was pinned the other way round -- "fails CLOSED" -- with the fix sitting beside it as a
    * skipped test. The fix was made in app.js (REV 87), so the two swap: this now asserts the
    * behaviour we chose, and the old assertion is gone rather than commented out.
    *
    * Why open and not closed: sub_until is written by a billing webhook. A provider that starts
    * sending "2026-07-31 00:00:00+03" or a localised date produces an Invalid Date, and under the
-   * old rule every `active` subscriber holding one was locked out of an app they had paid for —
+   * old rule every `active` subscriber holding one was locked out of an app they had paid for -- 
    * silently, and all at once. An unreadable date now means no end date, which fails in the
    * direction that costs a few free days instead of every paying customer simultaneously.
    * The accepted cost: a row whose date is garbage for some other reason gets open-ended access
@@ -189,7 +189,7 @@ describe('access gate — malformed dates', () => {
   });
 });
 
-describe('access gate — one definition', () => {
+describe('access gate · one definition', () => {
   test('subActive is hasAccess, not a second implementation of it', () => {
     // app.js:2963 exists because there were once two. This is the cheap guard against a third.
     const rows = [

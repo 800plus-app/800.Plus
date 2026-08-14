@@ -1,5 +1,5 @@
 'use strict';
-/* esc() and maskTerm() — the two functions that decide what reaches the DOM.
+/* esc() and maskTerm() · the two functions that decide what reaches the DOM.
  *
  * WHY THESE TWO TOGETHER
  * ----------------------
@@ -10,7 +10,7 @@
  * only ever seen as a prompt, so judging it needs eyes".
  *
  * Half of that is true and half of it is not. esc() and maskTerm() are both pure string
- * functions of their arguments — no DOM, no storage, no clock — so they are exactly as testable
+ * functions of their arguments · no DOM, no storage, no clock · so they are exactly as testable
  * as norm(). What needs eyes is whether a masked prompt still *teaches*; what does not need eyes
  * is whether the answer is sitting in it, because the app already owns a machine-checkable
  * definition of "this string answers that word": isCorrect(). These tests use it.
@@ -20,7 +20,7 @@
  * Three tests below assert behaviour that is WRONG and say so in their names (they start with
  * "KNOWN BUG"). They are written to pass against today's app.js on purpose. A test that asserts
  * the correct behaviour would go red now and stay red, and a permanently-red suite is one nobody
- * reads. A test that pins the wrong behaviour goes red the moment somebody FIXES it — which
+ * reads. A test that pins the wrong behaviour goes red the moment somebody FIXES it · which
  * forces whoever fixes it to come here, read the finding, and flip the assertion. Each one names
  * the exact line the corrected assertion should become.
  *
@@ -53,7 +53,7 @@ const row = term => {
 
 /* ============================ esc() ============================ */
 
-describe('esc() — the only escape in the app', () => {
+describe('esc() · the only escape in the app', () => {
   test('escapes every character that can break out of text or a quoted attribute', () => {
     assert.strictEqual(he.esc('<'), '&lt;');
     assert.strictEqual(he.esc('>'), '&gt;');
@@ -96,7 +96,7 @@ describe('esc() — the only escape in the app', () => {
     assert.strictEqual(he.esc({}), '[object Object]');
   });
 
-  test('esc() is NOT idempotent — pinned so double-escaping is a red test, not a mystery', () => {
+  test('esc() is NOT idempotent · pinned so double-escaping is a red test, not a mystery', () => {
     // esc(esc(x)) turns &lt; into &amp;lt;. No site in app.js escapes twice today; if one
     // starts to, a learner sees "&amp;quot;" in their own association and this test explains why.
     assert.strictEqual(he.esc(he.esc('<')), '&amp;lt;');
@@ -110,13 +110,13 @@ describe('esc() — the only escape in the app', () => {
 
 /* ============================ maskTerm() ============================ */
 
-describe('maskTerm() — hiding the answer inside its own gloss', () => {
+describe('maskTerm() · hiding the answer inside its own gloss', () => {
   test('English is a no-op across the whole English bank', () => {
-    /* HONEST LIMIT OF THIS TEST — measured, not assumed. Deleting the `if(LANG==='en') return
+    /* HONEST LIMIT OF THIS TEST -- measured, not assumed. Deleting the `if(LANG==='en') return
        meaning` short-circuit from app.js changes the output of ZERO of the 3,900 English
        entries, so this test CANNOT fail by that line being removed. The reason is that every
        stem the function builds from an English term is Latin, while hits() is only ever called
-       on runs of Hebrew characters — the two sets can never intersect. The guard is a
+       on runs of Hebrew characters -- the two sets can never intersect. The guard is a
        short-circuit and a piece of documentation, not a branch that decides anything.
        What this test does protect is the invariant itself: if maskTerm is ever made
        language-agnostic, or the Hebrew stemmer starts accepting Latin, an English card that
@@ -132,9 +132,9 @@ describe('maskTerm() — hiding the answer inside its own gloss', () => {
   });
 
   test('a circular Hebrew gloss IS masked', () => {
-    // לַהַק :: "קבוצה של בעלי חיים, להקה; קבוצת מטוסים" — the inflection app.js's own comment
+    // לַהַק :: "קבוצה של בעלי חיים, להקה; קבוצת מטוסים" · the inflection app.js's own comment
     // names as the reason this function exists. (תְּלוּלִית, the other example in that comment,
-    // was since rewritten in data.js and no longer names itself — which is why this test reads
+    // was since rewritten in data.js and no longer names itself -- which is why this test reads
     // the gloss out of the bank instead of restating it.)
     const r = row('לַהַק');
     const out = he.maskTerm(r.meaning, r.term);
@@ -153,7 +153,7 @@ describe('maskTerm() — hiding the answer inside its own gloss', () => {
 
   test('one side stays as written: שָׁפוּף must not blank כפוף', () => {
     // Stripping BOTH sides made the כ and the ש each read as a prefix, reducing both words to
-    // פופ — two unrelated words, one destroyed prompt.
+    // פופ · two unrelated words, one destroyed prompt.
     assert.strictEqual(he.maskTerm('כפוף, שחוח', 'שָׁפוּף'), 'כפוף, שחוח');
   });
 
@@ -166,7 +166,7 @@ describe('maskTerm() — hiding the answer inside its own gloss', () => {
 
   test('an unanswerable prompt is refused: קרן אור is shown intact', () => {
     // אֲלוּמַּת אוֹר masks down to "קרן ־־־", i.e. guess from three letters. The guard accepts
-    // the giveaway instead — a deliberate trade, pinned here so it cannot be removed silently.
+    // the giveaway instead -- a deliberate trade, pinned here so it cannot be removed silently.
     assert.strictEqual(he.maskTerm('קרן אור', 'אֲלוּמַּת אוֹר'), 'קרן אור');
   });
 
@@ -219,7 +219,7 @@ describe('maskTerm() — hiding the answer inside its own gloss', () => {
     assert.strictEqual(pointed, unpointed, 'niqqud in the gloss changes the outcome');
   });
 
-  test('the gloss is long enough to mask — the guard is not what is being measured above', () => {
+  test('the gloss is long enough to mask · the guard is not what is being measured above', () => {
     // Same words, short gloss: the "unanswerable" guard fires and restores everything. Pinned
     // next to the test above so a future reader cannot mistake one effect for the other.
     assert.strictEqual(he.maskTerm('בַּיִת גדול, בית', 'בַּיִת'), 'בַּיִת גדול, בית');
@@ -235,10 +235,10 @@ describe('maskTerm() over the whole Hebrew bank', () => {
   const changed = prompts.filter(p => p.out !== p.meaning);
 
   /* The two entries the leak rule cannot pass today. Named individually, with the reason, so
-     that this list can only ever shrink — a third name appearing here is a new bug. */
+     that this list can only ever shrink -- a third name appearing here is a new bug. */
   const KNOWN_LEAKS = new Set(['אִבֵּק', 'שָׁוְא', 'בַּר']);
 
-  test('masking actually runs — the rule is not silently dead', () => {
+  test('masking actually runs · the rule is not silently dead', () => {
     // If a future edit makes hits() always false, every other test here still passes while the
     // feature does nothing at all. 76 of 1,717 entries are masked today.
     assert.ok(changed.length >= 40,
@@ -247,7 +247,7 @@ describe('maskTerm() over the whole Hebrew bank', () => {
 
   test('no prompt outside the known-bad list contains a string isCorrect() would accept', () => {
     // isCorrect() is the app's own definition of "this answers that word", so this is not an
-    // approximation of a leak — it is the leak, measured with the app's own ruler.
+    // approximation of a leak -- it is the leak, measured with the app's own ruler.
     const leaks = prompts
       .filter(p => !KNOWN_LEAKS.has(p.term))
       .map(p => ({ p, hit: words(p.out).filter(w => he.isCorrect(w, p.term)) }))
@@ -285,10 +285,10 @@ describe('maskTerm() over the whole Hebrew bank', () => {
 
 /* ==================== the findings, pinned ==================== */
 
-describe('maskTerm() — KNOWN BUGS, pinned to today’s behaviour', () => {
-  test('KNOWN BUG · אִבֵּק — the hidden>=3 guard hands over the answer', () => {
+describe('maskTerm() · KNOWN BUGS, pinned to today’s behaviour', () => {
+  test('KNOWN BUG · אִבֵּק · the hidden>=3 guard hands over the answer', () => {
     /* "ניקה מאבק, הוציא אבק; פיזר אבקה על משהו" masks to three markers, so the
-       `hidden>=3` guard treats the prompt as unanswerable and restores the gloss — which is the
+       `hidden>=3` guard treats the prompt as unanswerable and restores the gloss · which is the
        one containing the literal answer אבק. The guard is right that three blanks is too many;
        it is wrong to resolve that by showing the answer.
        WHEN FIXED, this test should become:
@@ -301,9 +301,9 @@ describe('maskTerm() — KNOWN BUGS, pinned to today’s behaviour', () => {
       'the answer is no longer readable in the prompt — the bug may be fixed');
   });
 
-  test('KNOWN BUG · שָׁוְא — hits() ignores the plene forms isCorrect() accepts', () => {
+  test('KNOWN BUG · שָׁוְא · hits() ignores the plene forms isCorrect() accepts', () => {
     /* The gloss says שווא (plene); norm(שָׁוְא) is שוא (defective). heStems() only strips
-       clitics and suffixes, so the two never meet and nothing is masked — while isCorrect()
+       clitics and suffixes, so the two never meet and nothing is masked · while isCorrect()
        DOES accept שווא for שָׁוְא, through heForms()/fullSpelling(). maskTerm and isCorrect
        disagree about what the same word is, and the gap is exactly this leak.
        WHEN FIXED (hits() consulting heForms()), this becomes:
@@ -319,14 +319,14 @@ describe('maskTerm() — KNOWN BUGS, pinned to today’s behaviour', () => {
   test('KNOWN BUG · a hyphenated term can never be masked at all', () => {
     /* maskTerm splits the term on WHITESPACE only (`String(term).split(/\s+/)`), but norm()
        turns a hyphen into a SPACE. So בַּר-מִינָן stays one token, and its stems come out as
-       "בר מיננ" / "ר מיננ" — strings with a space in them. hits() is only ever called on runs
+       "בר מיננ" / "ר מיננ" · strings with a space in them. hits() is only ever called on runs
        of /[֐-׿]+/, which cannot contain a space, so no token can ever equal such a stem.
        Every hyphenated term is therefore unmaskable, whatever its gloss says.
 
        The control below is what makes this a cause and not a coincidence: the SAME term with a
        space instead of the hyphen masks correctly against the SAME gloss.
 
-       Not exploitable today — all 12 hyphenated terms in data.js have glosses that do not name
+       Not exploitable today · all 12 hyphenated terms in data.js have glosses that do not name
        themselves, so the whole-bank leak test above passes. It is one bank edit away.
        WHEN FIXED (splitting on /[\s־-]+/ or stemming norm(term).split(' ')), this becomes:
          assert.ok(hyphenated.includes(MARK)); */
@@ -356,7 +356,7 @@ describe('maskTerm() — KNOWN BUGS, pinned to today’s behaviour', () => {
     /* Every path but the final fallback returns a string; `return meaning` returns whatever came
        in. maskTerm(null, term) is null, and `$('#qText').textContent = null` renders an EMPTY
        question. Reachable because mergeProgress() accepts an `added` row whose meaning is not a
-       string, while loadLangState() rejects it — so a poisoned cloud blob survives until the
+       string, while loadLangState() rejects it · so a poisoned cloud blob survives until the
        next reload.
        WHEN FIXED (`return String(meaning ?? '')`), this becomes:
          assert.strictEqual(he.maskTerm(null, 'כלב'), ''); */

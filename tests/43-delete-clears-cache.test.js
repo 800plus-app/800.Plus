@@ -4,7 +4,7 @@
  * מה שנמצא
  * --------
  * מסלול מחיקת החשבון (#delGo) מוחק את החשבון בשרת, קורא ל-Store.signOut ול-localStorage.clear.
- * אבל טקסט התזכורת האישי נכתב ל-Cache Storage תחת השם 'hw-data' — לא ל-localStorage — והמחיקה
+ * אבל טקסט התזכורת האישי נכתב ל-Cache Storage תחת השם 'hw-data' · לא ל-localStorage · והמחיקה
  * לא נוגעת בו.
  *
  * שני מסלולים אחרים באפליקציה (איפוס, יציאה) כן מנקים את hw-data. מחיקת החשבון, שאמורה למחוק
@@ -20,7 +20,7 @@ const app = appSource();
 const at = app.indexOf("$('#delGo').onclick");
 const body = app.slice(at, at + 1400);
 
-describe('מחיקת חשבון — hw-data נמחק גם הוא', () => {
+describe('מחיקת חשבון · hw-data נמחק גם הוא', () => {
 
   test('מסלול המחיקה קיים', () => {
     assert.ok(at > 0, "המאזין של #delGo נעלם");
@@ -32,7 +32,7 @@ describe('מחיקת חשבון — hw-data נמחק גם הוא', () => {
   });
 
   test('הניקוי בא אחרי מחיקת החשבון בשרת', () => {
-    /* מנקים מקומית רק אחרי ש-deleteMyAccount החזירה הצלחה — לא לפני. */
+    /* מנקים מקומית רק אחרי ש-deleteMyAccount החזירה הצלחה · לא לפני. */
     const srvAt = body.indexOf('deleteMyAccount');
     const cacheAt = body.search(/caches\.delete\(\s*['"]hw-data/);
     assert.ok(srvAt >= 0 && cacheAt > srvAt,

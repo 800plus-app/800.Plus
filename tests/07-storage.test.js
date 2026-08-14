@@ -1,24 +1,24 @@
 'use strict';
-/* localStorage — the only place a learner's progress actually lives.
+/* localStorage · the only place a learner's progress actually lives.
  *
  * WHY THIS FILE HAS ITS OWN LOADER
  * --------------------------------
  * `_harness/sandbox.js` deliberately does NOT provide a localStorage: every function it lifts is
  * a pure computation, and giving it a fake disk would have been surface with no test behind it.
- * The storage layer is the opposite — it is nothing BUT the disk — so it needs one, and
+ * The storage layer is the opposite · it is nothing BUT the disk · so it needs one, and
  * tests/README.md names that as the reason this area was left uncovered ("testable with a
  * localStorage stub and the obvious next thing to add").
  *
  * So the same technique is used, one layer wider: lift the storage symbols out of app.js by name
  * (extract.js, unchanged) and evaluate them against a localStorage stub that behaves like the
- * real one — string values only, insertion-ordered keys, and a byte cap that throws a
+ * real one · string values only, insertion-ordered keys, and a byte cap that throws a
  * QuotaExceededError. Nothing about app.js is restated here; every rule under test is the
  * shipped code.
  *
  * ONE DELIBERATE DIFFERENCE FROM _harness/sandbox.js, stated because a reader will notice it:
  * each lifted snippet is evaluated with a `'use strict'` prologue. app.js begins with
  * `'use strict'`, and at least one real failure in this file (markRestored on a corrupt store)
- * exists ONLY in strict mode — in sloppy mode the assignment silently no-ops instead of
+ * exists ONLY in strict mode · in sloppy mode the assignment silently no-ops instead of
  * throwing. A harness that runs the code in a laxer mode than the browser does would report
  * that bug as absent. sandbox.js does not do this because none of its functions assign to a
  * primitive; this one does.
@@ -26,7 +26,7 @@
  * HOW TO READ THE ASSERTION MESSAGES
  * ----------------------------------
  * The suite is green, so every test here passes against today's app.js. Some of them pass by
- * pinning behaviour that is a FINDING rather than a specification — a silent truncation, a
+ * pinning behaviour that is a FINDING rather than a specification · a silent truncation, a
  * migration that stamps itself done after a failed write. Those say so in the message, in the
  * form the project already uses for `FREE_PHASE is currently ON` in 04-access.test.js: if you
  * fix the bug, this test goes red and the message tells you to invert it in the same commit.
@@ -71,7 +71,7 @@ const SYMBOLS = [
  *   - past `cap` total characters, setItem THROWS. Real browsers throw a DOMException whose
  *     .name is 'QuotaExceededError'; app.js only ever catches, so the shape that matters is
  *     "it throws", and the name is set for anyone who later wants to branch on it.
- * `blocked` refuses one specific key regardless of size — the way to model a disk that is full
+ * `blocked` refuses one specific key regardless of size -- the way to model a disk that is full
  * for the big blob but still has room for a flag, without hand-tuning byte counts. */
 function makeLocalStorage(opts = {}) {
   const map = new Map();
@@ -106,7 +106,7 @@ function makeLocalStorage(opts = {}) {
 }
 
 /* Only what showStorageBar/hideStorageBar touch. They are the user-visible half of a quota
- * failure, so they run for real rather than being stubbed away — a bar that silently fails to
+ * failure, so they run for real rather than being stubbed away -- a bar that silently fails to
  * appear is exactly the failure mode the bar was added to prevent. */
 function makeDocument() {
   const els = {};
@@ -175,7 +175,7 @@ function fakeBank(extra = [], n = 60) {
   const rows = Array.from({ length: n }, (_, i) => ['מילה' + i, 'gloss ' + i]);
   return { '1': rows.concat(extra.map(t => [t, 'gloss'])) };
 }
-/* The normaliser as it was BEFORE v8 — the rule that produced the keys still sitting on the
+/* The normaliser as it was BEFORE v8 -- the rule that produced the keys still sitting on the
  * disks this migration exists for. Restated (it no longer exists in app.js to lift) but only
  * ever used to BUILD a fixture, never to judge one. */
 const preV8Key = ctx => t => String(t).normalize('NFKC').replace(ctx.NIQ, '').replace(/[‎‏]/g, '')
@@ -183,7 +183,7 @@ const preV8Key = ctx => t => String(t).normalize('NFKC').replace(ctx.NIQ, '').re
   .replace(/ך/g, 'כ').replace(/ם/g, 'מ').replace(/ן/g, 'נ').replace(/ף/g, 'פ').replace(/ץ/g, 'צ');
 
 /* ============================ the stub itself ============================ */
-/* A stub that lies makes every test below it meaningless, so it is checked first — the same
+/* A stub that lies makes every test below it meaningless, so it is checked first -- the same
  * reason 00-harness.test.js checks the scanner before anything uses it. */
 describe('the localStorage stub behaves like a browser', () => {
   test('values are stored as strings, and objects stringify the way the real API does', () => {
@@ -198,7 +198,7 @@ describe('the localStorage stub behaves like a browser', () => {
     assert.strictEqual(makeLocalStorage().getItem('nope'), null);
   });
 
-  test('length and key(i) walk insertion order — collectExtras and wipeAccountKeys rely on it', () => {
+  test('length and key(i) walk insertion order · collectExtras and wipeAccountKeys rely on it', () => {
     const ls = makeLocalStorage();
     ['z', 'a', 'm'].forEach(k => ls.setItem(k, '1'));
     assert.strictEqual(ls.length, 3);
@@ -214,7 +214,7 @@ describe('the localStorage stub behaves like a browser', () => {
 });
 
 /* ============================ LS.get ============================ */
-describe('LS.get — nothing read back from disk is trusted', () => {
+describe('LS.get · nothing read back from disk is trusted', () => {
   const STORES = ['hw_stats', 'hw_assoc', 'hw_deleted', 'hw_added', 'hw_dir', 'hw_migr',
                   'hw_undeleted', 'hw_exam:3', 'hw_level_he', 'hw_owner', 'hw_lang'];
 
@@ -229,7 +229,7 @@ describe('LS.get — nothing read back from disk is trusted', () => {
     assert.strictEqual(c.LS.get('hw_stats', 'FALLBACK'), 'FALLBACK');
   });
 
-  test('EVERY store survives a corrupt value — none of them throws on read', () => {
+  test('EVERY store survives a corrupt value · none of them throws on read', () => {
     const c = loadStorage();
     const junk = ['{oops', '[1,', 'undefined', '', ' ', 'NaN', "{'single':1}"];
     const threw = [];
@@ -246,7 +246,7 @@ describe('LS.get — nothing read back from disk is trusted', () => {
     assert.strictEqual(c.LS.get('k', 'D'), 'D');
   });
 
-  test('false, 0 and "" are values, NOT missing — the rule is v==null, not falsiness', () => {
+  test('false, 0 and "" are values, NOT missing · the rule is v==null, not falsiness', () => {
     const c = loadStorage();
     for (const [stored, expected] of [['false', false], ['0', 0], ['""', '']]) {
       c.ls.setItem('k', stored);
@@ -255,7 +255,7 @@ describe('LS.get — nothing read back from disk is trusted', () => {
     }
   });
 
-  test('LS.get does not check SHAPE — it hands back whatever parsed', () => {
+  test('LS.get does not check SHAPE · it hands back whatever parsed', () => {
     /* This is why loadLangState/saneRec exist and why every caller has to guard. Pinned so that
      * a future "LS.get should validate" change is a decision rather than a surprise. */
     const c = loadStorage();
@@ -274,8 +274,8 @@ describe('LS.get — nothing read back from disk is trusted', () => {
   });
 });
 
-/* ============================ LS.set — a full disk ============================ */
-describe('LS.set — a full disk', () => {
+/* ============================ LS.set -- a full disk ============================ */
+describe('LS.set · a full disk', () => {
   test('a write that fits returns true and lands on disk', () => {
     const c = loadStorage();
     assert.strictEqual(c.LS.set('hw_dir', 'w2m'), true);
@@ -298,7 +298,7 @@ describe('LS.set — a full disk', () => {
     assert.strictEqual(c.storageBarOn, true, 'the standing warning bar never went up');
   });
 
-  test('the toast fires once per page life — the bar, not the toast, is the standing signal', () => {
+  test('the toast fires once per page life · the bar, not the toast, is the standing signal', () => {
     const c = loadStorage({ cap: 20 });
     for (let i = 0; i < 6; i++) c.LS.set('hw_stats', { words: {}, sessions: [S(1), S(2), S(3)] });
     assert.strictEqual(c.__toasts.length, 1, '6 failed writes produced ' + c.__toasts.length + ' toasts');
@@ -333,7 +333,7 @@ describe('LS.set — a full disk', () => {
     /* JSON.stringify throwing returns false before any of the warning machinery runs: no toast,
      * no bar, no storageWarned. Every other failure path in LS.set tells the learner; this one
      * does not, and the caller (saveStats) discards the false. Today only a cyclic or BigInt
-     * value can reach it, which is why this is a hole rather than a live bug — but it is the
+     * value can reach it, which is why this is a hole rather than a live bug -- but it is the
      * one write failure the learner can never find out about.
      * If this is fixed, invert the assertions below in the same commit. */
     const c = loadStorage();
@@ -353,7 +353,7 @@ describe('LS.set — a full disk', () => {
 });
 
 /* ============================ shedStorage ============================ */
-describe('shedStorage — what a quota failure costs', () => {
+describe('shedStorage · what a quota failure costs', () => {
   const withHistory = n => ({ words: {}, sessions: Array.from({ length: n }, (_, i) => S(i)) });
 
   test('it trims the live history to 40 rounds and reports that it freed something', () => {
@@ -394,7 +394,7 @@ describe('shedStorage — what a quota failure costs', () => {
      * to hw_exam:3. That write fails, LS.set calls shedStorage, and 110 rounds of practice
      * history are deleted from disk to make room for the score. The exam score is saved. The
      * streak the history feeds is not recoverable on a device with no account.
-     * shedStorage is the app's only pressure valve, so this is a trade rather than a mistake —
+     * shedStorage is the app's only pressure valve, so this is a trade rather than a mistake -- 
      * but the trade is made silently, for any key, including flags worth nothing. */
     const c = loadStorage({ blocked: k => k === 'hw_exam:3' });
     c.stats = withHistory(150);
@@ -406,7 +406,7 @@ describe('shedStorage — what a quota failure costs', () => {
   });
 
   test('FINDING: the history is spent even when the retry then fails too', () => {
-    /* The worst shape of the same trade. Everything is refused, so shedding buys nothing — but
+    /* The worst shape of the same trade. Everything is refused, so shedding buys nothing -- but
      * it happens first and unconditionally, and by the time LS.set returns false the learner is
      * down 110 rounds AND the write they asked for did not land. */
     const c = loadStorage({ blocked: () => true });
@@ -416,7 +416,7 @@ describe('shedStorage — what a quota failure costs', () => {
       'the history is no longer trimmed on a failed retry — if that is a fix, invert this test');
   });
 
-  test('FINDING: sessions are the ONLY thing shed — assoc, added and exam history are never touched', () => {
+  test('FINDING: sessions are the ONLY thing shed · assoc, added and exam history are never touched', () => {
     /* stats.sessions is a few KB. The association store is allowed 300,000 characters PER
      * LANGUAGE by ASSOC_BUDGET, which is the bulk of a 5MB quota, and nothing sheds it. A
      * learner whose disk is full because of associations gets their practice history deleted
@@ -434,7 +434,7 @@ describe('shedStorage — what a quota failure costs', () => {
 });
 
 /* ============================ loadLangState ============================ */
-describe('loadLangState — coercing whatever is on disk', () => {
+describe('loadLangState · coercing whatever is on disk', () => {
   const JUNK = ['"a string"', '42', '[1,2,3]', 'true', 'null', '{oops'];
 
   test('junk of every type in every store loads to an empty, usable state and never throws', () => {
@@ -513,7 +513,7 @@ describe('loadLangState — coercing whatever is on disk', () => {
 
   test('FINDING: saneRec clamps `level` but puts no ceiling on `seen` or `last`', () => {
     /* level is clamped to 0..3; nothing else is. A corrupt `last` of 3.6e16 is a timestamp in the
-     * year 1,141,695 — and mergeProgress resolves `level` by "whichever record was written
+     * year 1,141,695 -- and mergeProgress resolves `level` by "whichever record was written
      * LAST". That record therefore wins every conflict on every device, forever, and the word's
      * level can never be changed again by anything the learner does. tests/README.md already
      * names clock skew as undefended; this is the same door with corruption instead of a clock. */
@@ -582,8 +582,8 @@ describe('the association budget', () => {
 });
 
 /* ============================ migrations ============================ */
-describe('migrateStores / remapHyphenKeys — a one-way door', () => {
-  /* The fixture is a key the migration WOULD change — a raw term still carrying its niqqud, the
+describe('migrateStores / remapHyphenKeys · a one-way door', () => {
+  /* The fixture is a key the migration WOULD change -- a raw term still carrying its niqqud, the
    * shape every pre-v8 store is full of. A key the normaliser happens to leave alone would make
    * these two tests pass whether the short-circuit works or not. */
   const rawKey = 'כֹּפֶר';
@@ -610,7 +610,7 @@ describe('migrateStores / remapHyphenKeys — a one-way door', () => {
 
   test('the v8 full migration folds duplicate keys by SUMMING the counts', () => {
     /* Two raw spellings of one word become one record, and the practice on both is added up
-     * rather than one copy winning. This is the rule remapHyphenKeys does NOT follow — see below. */
+     * rather than one copy winning. This is the rule remapHyphenKeys does NOT follow -- see below. */
     const c = loadStorage();
     c.window.UNIT_DATA = fakeBank();
     /* The same word written twice: once with niqqud, once without. Before v8 those were two
@@ -684,7 +684,7 @@ describe('migrateStores / remapHyphenKeys — a one-way door', () => {
 
   test('FINDING: a remap collision abandons the older record instead of folding it', () => {
     /* migrateStores sums colliding records. remapHyphenKeys does not: `if(stats.words[ok] &&
-     * !stats.words[nk])` means that when BOTH keys exist the old one is left where it is — and
+     * !stats.words[nk])` means that when BOTH keys exist the old one is left where it is · and
      * pruneOrphans, which runs immediately after in enterLang(), deletes it as an orphan.
      * Concrete: the learner practised בַּר-מִינָן 40 times before v8, then once after the update
      * on a device that had already migrated, then the two devices synced. 40 practices and a
@@ -707,7 +707,7 @@ describe('migrateStores / remapHyphenKeys — a one-way door', () => {
   test('FINDING: nothing is saved when only an association or a deletion moved', () => {
     /* `moved` counts stats moves only, and `if(moved){ saveStats(); saveAssoc(); saveDeleted(); }`
      * is the only write. A learner who wrote an association for a hyphenated word but never
-     * practised it gets the remap in memory and nothing on disk — and migrateStores then stamps
+     * practised it gets the remap in memory and nothing on disk -- and migrateStores then stamps
      * hw_migr=8, so it never runs again. On the next boot the old key is read back, the
      * migration is skipped, and pruneOrphans deletes the association for good. */
     const c = loadStorage();
@@ -735,9 +735,9 @@ describe('migrateStores / remapHyphenKeys — a one-way door', () => {
       'the association is now gone from disk too, permanently');
   });
 
-  /* FIXED 2.8.2026 — house-check 2, finding #3. migrateStores called saveStats() and then
+  /* FIXED 2.8.2026 -- house-check 2, finding #3. migrateStores called saveStats() and then
    * LS.set(hw_migr, 8) without looking at what saveStats returned. On a disk with room for a
-   * 9-byte flag but not for a 40KB stats blob — the ordinary shape of a full quota — the stamp
+   * 9-byte flag but not for a 40KB stats blob -- the ordinary shape of a full quota -- the stamp
    * landed and the data did not.
    *
    * The stamp is now written only after the disk is READ BACK and agrees. Three save() return
@@ -755,7 +755,7 @@ describe('migrateStores / remapHyphenKeys — a one-way door', () => {
     assert.ok(c.ls.read('hw_stats').words['כֹּפֶר'], 'sanity: the write really was blocked');
   });
 
-  /* One gate guards the stamp — migrationLanded() — so every clause in it needs its own way of
+  /* One gate guards the stamp -- migrationLanded() -- so every clause in it needs its own way of
    * failing, or the clause is decoration. These four exist because a mutation run removed each
    * one in turn and the suite stayed green. They are the difference between a guard and a
    * comment that looks like a guard. */
@@ -782,7 +782,7 @@ describe('migrateStores / remapHyphenKeys — a one-way door', () => {
   });
 
   test('a disk holding something that is not a stats object is refused, not walked', () => {
-    /* A truncated write, a half-parsed blob, an older schema — anything that is not {words:{…}}.
+    /* A truncated write, a half-parsed blob, an older schema -- anything that is not {words:{…}}.
      * Without the shape check the key comparison walks a string and throws a TypeError out of
      * migrateStores, which is a crash at boot rather than a refusal to stamp. */
     const c = loadStorage();
@@ -799,7 +799,7 @@ describe('migrateStores / remapHyphenKeys — a one-way door', () => {
      * unconditionally too. The consequence is identical: an un-remapped disk marked done.
      * Memory and disk are deliberately given different words, which is the state the shortcut
      * must refuse to bless however it arose. */
-    /* Everything is blocked EXCEPT hw_migr — the nine-byte flag fits where the blobs do not,
+    /* Everything is blocked EXCEPT hw_migr -- the nine-byte flag fits where the blobs do not,
        which is the exact shape of a full quota and the reason this bug was reachable. Blocking
        hw_migr too would make the test pass for the wrong reason: the stamp could not be written
        either way, so removing the guard would change nothing observable. */
@@ -816,12 +816,12 @@ describe('migrateStores / remapHyphenKeys — a one-way door', () => {
   test('a disk still holding the duplicates the migration folded is not stamped either', () => {
     /* The direction the key comparison alone cannot see. migrateStores FOLDS duplicate keys, so
        after a successful pass memory holds fewer records than the un-migrated disk. Every key in
-       memory is present on disk — the key check is satisfied — and the disk is still the old one.
+       memory is present on disk -- the key check is satisfied -- and the disk is still the old one.
        Only the count disagrees, which is why the count is compared as well. */
     const c = loadStorage({ blocked: k => k !== 'hw_migr' });
     c.window.UNIT_DATA = fakeBank();
     /* The surviving key must ALREADY be on disk, or the key comparison catches this first and the
-       count comparison is never the deciding clause — which is exactly what the first version of
+       count comparison is never the deciding clause · which is exactly what the first version of
        this fixture did. 'כפר' is what both of these fold to, and it is one of the two. */
     c.ls.seed('hw_stats', { words: { 'כפר': R({ seen: 4, last: 9 }), 'כפר ': R({ seen: 1, last: 2 }) }, sessions: [] });
     c.loadLangState();
@@ -834,7 +834,7 @@ describe('migrateStores / remapHyphenKeys — a one-way door', () => {
 
   test('a migration that DID land still stamps, so it does not run forever', () => {
     // the other half of the rule: refusing to stamp on success would re-migrate on every boot,
-    // and migrateStores SUMS duplicate counts — so a permanent retry inflates every counter
+    // and migrateStores SUMS duplicate counts -- so a permanent retry inflates every counter
     const c = loadStorage();
     c.window.UNIT_DATA = fakeBank();
     c.stats = { words: { 'כֹּפֶר': R({ seen: 9, level: 3, last: 100 }) }, sessions: [] };
@@ -843,7 +843,7 @@ describe('migrateStores / remapHyphenKeys — a one-way door', () => {
     assert.strictEqual(c.ls.read('hw_migr'), 8, 'a successful migration must record itself');
   });
 
-  /* FIXED 2.8.2026 — the same edit, seen end to end. This was the scenario that made finding #3
+  /* FIXED 2.8.2026 -- the same edit, seen end to end. This was the scenario that made finding #3
    * critical rather than untidy: three separately-reasonable behaviours composing into total,
    * silent, permanent loss.
    *   boot 1  quota is tight. migrateStores normalises 60 records in memory, saveStats fails,
@@ -855,7 +855,7 @@ describe('migrateStores / remapHyphenKeys — a one-way door', () => {
    *
    * Now boot 1 leaves the stamp unwritten, so boot 2 re-runs the migration and the records are
    * still there when pruneOrphans looks. The cost of the fix is one repeated migration. */
-  test('full scenario — a full disk on one boot no longer erases every record on the next', () => {
+  test('full scenario · a full disk on one boot no longer erases every record on the next', () => {
     const words = {};
     const bank = fakeBank();
     for (const [term] of bank['1']) words[term + 'ֶ'] = R({ seen: 3, level: 2, last: 100 });  // pre-v8 raw keys
@@ -883,8 +883,8 @@ describe('migrateStores / remapHyphenKeys — a one-way door', () => {
       'have re-run on boot 2, which it only does if boot 1 refused to stamp');
     assert.strictEqual(Object.keys(b2.ls.read('hw_stats').words).length, 60,
       'the records survived in memory but not on disk, so the next boot loses them anyway');
-    /* Deliberately NOT asserting that boot 2 stamps. This fixture's disk is still tight — the
-       saves fail here too — and demanding a stamp would be demanding a successful write the
+    /* Deliberately NOT asserting that boot 2 stamps. This fixture's disk is still tight -- the
+       saves fail here too -- and demanding a stamp would be demanding a successful write the
        scenario does not grant. The stamp-on-success rule has its own test above, on a healthy
        disk, which is where it can actually be observed. What matters here is only this: the
        records are still there, because boot 1 refused to lie about having migrated them. */
@@ -896,7 +896,7 @@ describe('migrateStores / remapHyphenKeys — a one-way door', () => {
 });
 
 /* ============================ pruneOrphans ============================ */
-describe('pruneOrphans — the guard in front of a permanent delete', () => {
+describe('pruneOrphans · the guard in front of a permanent delete', () => {
   test('a bank that did not fully load stops the prune dead', () => {
     const c = loadStorage();
     c.window.UNIT_DATA = { '1': [['אחד', 'one']] };
@@ -972,17 +972,17 @@ describe('the restore log (hw_undeleted)', () => {
 
   test('FINDING: a TRUTHY non-object on disk makes markRestored throw', () => {
     /* `LS.get(k,{})||{}` catches 0, null, false and "" and nothing else. A string, a number or
-     * true passes the guard and `m[k]=Date.now()` then assigns to a primitive — which app.js's
+     * true passes the guard and `m[k]=Date.now()` then assigns to a primitive · which app.js's
      * own `'use strict'` turns into a TypeError. It is raised inside the click handler for
      * "שחזר מחיקות" (app.js:1534), so the handler dies before `deleted=new Set()` and
      * `saveDeleted()`: the button does nothing at all, with no error on screen. Worse at
-     * app.js:1535, where records are deleted from stats.words in the same loop — a throw there
+     * app.js:1535, where records are deleted from stats.words in the same loop · a throw there
      * leaves memory half-emptied and the matching saveStats() never runs.
      * Only external corruption can put such a value there today (nothing in app.js writes one),
-     * which is why this is a defensive hole rather than a live bug — but the ||{} guard shows
+     * which is why this is a defensive hole rather than a live bug · but the ||{} guard shows
      * the case was meant to be covered, and it covers half of it. */
     /* `assert.throws(fn, TypeError)` does NOT work here: the error is constructed inside the vm
-     * and does not share a prototype with this realm's TypeError — the same cross-realm trap
+     * and does not share a prototype with this realm's TypeError -- the same cross-realm trap
      * tests/README.md records for deepStrictEqual. Match on .name instead. */
     for (const junk of ['"junk"', '42', 'true']) {
       const c = loadStorage();
@@ -994,7 +994,7 @@ describe('the restore log (hw_undeleted)', () => {
 
   test('FINDING: an ARRAY on disk swallows the restore silently', () => {
     /* An array passes `||{}`, accepts the property assignment, and then JSON.stringify drops
-     * every non-index property — so the write "succeeds" and stores []. The learner presses
+     * every non-index property -- so the write "succeeds" and stores []. The learner presses
      * restore, the word comes back, and the next sync re-deletes it because mergeProgress found
      * no record of the restore. No throw, no message. */
     const c = loadStorage();
@@ -1008,7 +1008,7 @@ describe('the restore log (hw_undeleted)', () => {
   test('FINDING: the restore log is never pruned and never leaves the device', () => {
     /* pruneOrphans clears stats, assoc and deleted of words that left the bank; hw_undeleted is
      * not in that list, so an entry for a removed word stays forever. collectExtras does not
-     * gather it either, so a restore made on the phone is unknown to the laptop — which
+     * gather it either, so a restore made on the phone is unknown to the laptop -- which
      * app.js:2721 states plainly as a known limit, and this pins it so it stays stated. */
     const c = loadStorage();
     c.window.UNIT_DATA = fakeBank();
@@ -1022,7 +1022,7 @@ describe('the restore log (hw_undeleted)', () => {
 });
 
 /* ============================ absorbDisk ============================ */
-describe('absorbDisk — the second tab', () => {
+describe('absorbDisk · the second tab', () => {
   test('a round written by the other tab is merged in, not overwritten', () => {
     const c = loadStorage();
     c.stats = { words: { mine: R({ seen: 5, last: 10 }) }, sessions: [S(1)] };
@@ -1064,7 +1064,7 @@ describe('absorbDisk — the second tab', () => {
 });
 
 /* ============================ account keys ============================ */
-describe('account keys — one device, one owner', () => {
+describe('account keys · one device, one owner', () => {
   test('wipeAccountKeys sweeps keys built at RUNTIME, which a hand-kept list could not', () => {
     const c = loadStorage();
     for (const k of ['hw_stats', 'hw_exam:3', 'hw_exam_en:7', 'hw_level_he', 'hw_lang', 'hw_notifDay'])
@@ -1109,7 +1109,7 @@ describe('account keys — one device, one owner', () => {
   test('a preview cache is adopted on sign-UP and discarded on sign-IN', () => {
     /* The landing page promises a visitor their practice is kept. Adopting on sign-in instead
      * would merge a stranger's demo into an existing account, which is the leak the owner stamp
-     * exists to stop — so the promise holds for exactly one of the two paths. */
+     * exists to stop -- so the promise holds for exactly one of the two paths. */
     for (const [adopt, kept] of [[true, true], [false, false]]) {
       const c = loadStorage();
       c.ls.setItem('hw_owner', '"preview"');
@@ -1121,7 +1121,7 @@ describe('account keys — one device, one owner', () => {
   });
 });
 
-describe('extras — the progress that is not in hw_stats', () => {
+describe('extras · the progress that is not in hw_stats', () => {
   test('collectExtras gathers the level result, the round size and every exam key', () => {
     const c = loadStorage({ lang: 'he' });
     c.ls.setItem('hw_level_he', '"B2"');
@@ -1138,7 +1138,7 @@ describe('extras — the progress that is not in hw_stats', () => {
       'collectExtras crossed the language boundary');
   });
 
-  test('applyExtras is additive — a local value is never replaced by an older row', () => {
+  test('applyExtras is additive · a local value is never replaced by an older row', () => {
     const c = loadStorage({ lang: 'he' });
     c.ls.setItem('hw_level_he', '"C1"');
     c.ls.setItem('hw_size', '50');

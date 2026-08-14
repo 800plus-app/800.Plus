@@ -1,10 +1,10 @@
 'use strict';
-/* mergeProgress under property-based testing — invariants over random payloads.
+/* mergeProgress under property-based testing -- invariants over random payloads.
  *
  * WHY THIS EXISTS ALONGSIDE 06-merge.test.js
  * ------------------------------------------
  * 06-merge builds each payload by hand. That is the right way to pin a bug that was actually
- * observed — and it caught the session-doubling bug — but a hand-built payload can only fail in a
+ * observed -- and it caught the session-doubling bug -- but a hand-built payload can only fail in a
  * way someone already imagined. Every example test is a guess about which shape breaks the code.
  *
  * This file asserts the RULES instead, and lets a generator look for the shape:
@@ -24,15 +24,15 @@
  * DETERMINISM
  * -----------
  * Math.random is not used anywhere. A seeded PRNG generates the cases, so a red run is
- * reproducible from the seed printed in the failure — a property test that cannot reproduce its
+ * reproducible from the seed printed in the failure -- a property test that cannot reproduce its
  * own counterexample is worse than no test, because it turns a real bug into a flake nobody
  * trusts. SEED is fixed; override with MERGE_SEED=<n> to hunt for new cases.
  *
  * SHRINKING
  * ---------
  * A raw counterexample is typically 6 words and 8 sessions of noise, and reads as unactionable.
- * Every failure is minimised first — keys, sessions and magnitudes are removed one at a time for
- * as long as the property keeps failing — so what gets printed is the smallest payload that still
+ * Every failure is minimised first -- keys, sessions and magnitudes are removed one at a time for
+ * as long as the property keeps failing -- so what gets printed is the smallest payload that still
  * breaks. That minimal payload is the thing worth copying into 06-merge as a permanent example.
  */
 
@@ -46,7 +46,7 @@ const merge = (l, r) => plain(ctx.mergeProgress(l, r));
 const SEED = Number(process.env.MERGE_SEED) || 20260801;
 const CASES = Number(process.env.MERGE_CASES) || 300;
 
-/* mulberry32 — small, fast, and identical on every machine and every Node version. */
+/* mulberry32 -- small, fast, and identical on every machine and every Node version. */
 function rng(seed) {
   let s = seed >>> 0;
   return () => {
@@ -65,7 +65,7 @@ const KEYS = ['אב', 'גד', 'הו', 'זח', 'טי', 'כל'];
 const FIELDS = ['seen', 'first', 'ever', 'wrong', 'level', 'last'];
 
 /* `level` is deliberately NOT one of them. app.js:2696 states the rule: the record written LAST
- * wins on level, because a demotion after a wrong answer has to survive the merge — under a max
+ * wins on level, because a demotion after a wrong answer has to survive the merge -- under a max
  * a word the learner had just failed would stay marked as known, and the whole "words you keep
  * missing come back" behaviour would quietly stop working. Counts grow; level moves both ways.
  * Asserting max over level here would not be a stricter test, it would be a wrong one. */
@@ -76,8 +76,8 @@ function mkGen(r) {
   const pick = a => a[int(a.length)];
   const chance = p => r() < p;
 
-  /* `last` starts at 1, not 0. Every write path in the app stamps it — commitSession sets
-   * r.last=now unconditionally (app.js:1256) and the level test writes last:stamp (app.js:2051) —
+  /* `last` starts at 1, not 0. Every write path in the app stamps it -- commitSession sets
+   * r.last=now unconditionally (app.js:1256) and the level test writes last:stamp (app.js:2051) -- 
    * so last===0 does not describe a record a current client produces. It is reachable only
    * through legacy or corrupt data, and it behaves differently enough to deserve its own named
    * test rather than being smuggled in as random noise. See "a one-sided word" below. */
@@ -90,7 +90,7 @@ function mkGen(r) {
   };
 
   /* Values a well-behaved client never sends but a corrupt localStorage row, a partial response
-   * or an older schema absolutely can. JSON cannot even carry some of them — which is itself one
+   * or an older schema absolutely can. JSON cannot even carry some of them -- which is itself one
    * of the things under test. */
   const junk = () => pick([null, undefined, NaN, Infinity, -1, -0, '3', '', 'abc', true, false,
     {}, [], 1e21, 0.5, Number.MAX_SAFE_INTEGER]);
@@ -110,7 +110,7 @@ function mkGen(r) {
   };
 
   /* `t` is junk about a fifth of the time. The sort at app.js:2712 reads it as `Number(t)||0`,
-   * which is a line written specifically for rows whose timestamp is missing or unusable — and a
+   * which is a line written specifically for rows whose timestamp is missing or unusable -- and a
    * generator that only ever emits clean integers can never reach it. Proven, not assumed: with
    * numeric-only timestamps both mutants on that line survived the new file. */
   const session = () => ({
@@ -188,7 +188,7 @@ function shrink(pair, fails) {
 }
 
 /* Run one property over CASES generated pairs. On the first failure: shrink, then fail with the
- * seed, the case number and the minimal payload — everything needed to reproduce it by hand. */
+ * seed, the case number and the minimal payload -- everything needed to reproduce it by hand. */
 function forAll(name, { hostile = false, check }) {
   const r = rng(SEED);
   const gen = mkGen(r);
@@ -221,7 +221,7 @@ const restoredSkip = (a, b, k) =>
 
 /* ------------------------------------------------------------- properties */
 
-describe('property — progress only ever grows', () => {
+describe('property · progress only ever grows', () => {
   test('no counter comes out lower than it went in on either side', () => {
     forAll('a merge lowered a counter that is supposed to be monotonic', {
       check: (out, a, b) => {
@@ -251,14 +251,14 @@ describe('property — progress only ever grows', () => {
   });
 });
 
-describe('property — merging is stable', () => {
+describe('property · merging is stable', () => {
   test('merging the same remote twice equals merging it once', () => {
     forAll('mergeProgress is not idempotent', {
       /* `undeleted` is re-attached, and that is not a convenience. It is not part of the merge
        * payload and mergeProgress does not return it: it lives in its own localStorage key
        * (app.js:167) and every caller injects it fresh via restoredMap() (app.js:179, 2618).
        * Dropping it on the second pass would model a device that forgot its own restore log
-       * between two syncs, which is not a thing that happens — and would report a false bug. */
+       * between two syncs, which is not a thing that happens -- and would report a false bug. */
       check: (out, a, b) => {
         const twice = merge(Object.assign(clone(out), { undeleted: a.undeleted }), clone(b));
         return JSON.stringify(twice) === JSON.stringify(out)
@@ -276,7 +276,7 @@ describe('property — merging is stable', () => {
 
   test('which side is called "local" cannot change any counter', () => {
     forAll('the merge is order-dependent on counters', {
-      /* The restore log travels with the DEVICE, not with the payload — app.js:2717-2722 states
+      /* The restore log travels with the DEVICE, not with the payload -- app.js:2717-2722 states
        * that plainly ("the restore log is per-device"). So the swap keeps `undeleted` on whichever
        * side is currently local; otherwise this would be asserting that a per-device log is
        * symmetric, which is the one thing the design says it is not. */
@@ -284,8 +284,8 @@ describe('property — merging is stable', () => {
         const bLocal = Object.assign(clone(b), { undeleted: a.undeleted });
         const other = merge(bLocal, clone(a));
         for (const k of Object.keys(out.stats.words)) {
-          /* The restore branch is one-sided on purpose — it fires on "the LOCAL device does not
-           * have this record" — so a key it drops in one direction and not the other is the
+          /* The restore branch is one-sided on purpose -- it fires on "the LOCAL device does not
+           * have this record" -- so a key it drops in one direction and not the other is the
            * design working, not an inconsistency. Excluded in both directions, by name. */
           if (restoredSkip(a, b, k) || restoredSkip(bLocal, a, k)) continue;
           const x = out.stats.words[k], y = other.stats.words[k];
@@ -293,7 +293,7 @@ describe('property — merging is stable', () => {
           for (const f of GROWING) if (num(x[f]) !== num(y[f])) return `${k}.${f}: ${x[f]} vs ${y[f]} when the sides swap`;
           /* level is order-independent only when the two timestamps differ. On an exact tie the
            * rule at app.js:2697 is `a.last >= b.last ? a : b`, so whoever is passed as local wins
-           * — stated here rather than asserted away, because that tie is the one case where two
+           * -- stated here rather than asserted away, because that tie is the one case where two
            * devices can legitimately end up on different levels for the same word. */
           const ta = num(a.stats.words[k] && a.stats.words[k].last);
           const tb = num(b.stats.words[k] && b.stats.words[k].last);
@@ -305,17 +305,17 @@ describe('property — merging is stable', () => {
   });
 });
 
-describe('property — a word only one side has ever seen', () => {
+describe('property · a word only one side has ever seen', () => {
   /* The first sync of a new device is entirely this case: everything the cloud holds is unknown
    * locally. If a one-sided record does not arrive whole, a learner who signs in on a second
-   * phone silently starts over — the failure this whole file exists to rule out. */
+   * phone silently starts over -- the failure this whole file exists to rule out. */
   test('arrives intact when only the remote has it', () => {
     forAll('a remote-only word did not arrive intact', {
       check: (out, a, b) => {
         for (const k of Object.keys(b.stats.words)) {
           if (a.stats.words[k] || restoredSkip(a, b, k)) continue;
           const want = b.stats.words[k], got = out.stats.words[k];
-          // last===0 used to be an exception here. It is not one any more — see the named test at
+          // last===0 used to be an exception here. It is not one any more -- see the named test at
           // the end of this block, which now locks the symmetric behaviour.
           if (!got) return `${k} exists only remotely and did not arrive at all`;
           for (const f of FIELDS) if (num(got[f]) !== num(want[f])) return `${k}.${f}: arrived as ${got[f]}, remote had ${want[f]}`;
@@ -348,16 +348,16 @@ describe('property — a word only one side has ever seen', () => {
    *     local absent | remote {level:3, last:0}  ->  level 0   WRONG
    *     local {level:3, last:0} | remote absent  ->  level 3   right
    *
-   * It was latent rather than live — no current write path produces last===0 (commitSession stamps
+   * It was latent rather than live -- no current write path produces last===0 (commitSession stamps
    * r.last unconditionally, the level test writes last:stamp), so it needed a legacy or corrupted
-   * record to bite — and the mutation-score pass deliberately locked the BROKEN behaviour here, so
+   * record to bite -- and the mutation-score pass deliberately locked the BROKEN behaviour here, so
    * that whoever changed the tie-break would know the asymmetry had been seen and named. This is
    * that change, and this test now locks the fix instead.
    *
    * THE FIX: a side that does not hold the word at all no longer gets a vote. Presence is checked
    * before the timestamps are compared, so the side that actually has the record wins outright and
    * a zeroed placeholder can never outrank real data. Both directions now arrive whole. */
-  test('with no timestamp at all the arrival is symmetric — a zeroed placeholder gets no vote', () => {
+  test('with no timestamp at all the arrival is symmetric · a zeroed placeholder gets no vote', () => {
     const P = o => Object.assign({ assoc: {}, stats: { words: {}, sessions: [] }, deleted: [], added: [], dir: 'm2w' }, o);
     const W = r => ({ stats: { words: { w: Object.assign({ seen: 9, first: 0, ever: 0, wrong: 0, level: 3, last: 0 }, r) }, sessions: [] } });
 
@@ -371,11 +371,11 @@ describe('property — a word only one side has ever seen', () => {
 });
 
 describe('a stamp from the future cannot outrank the present', () => {
-  /* app.js:2697 resolves `level` by comparing `last`, and nothing anywhere validates `last` — it
+  /* app.js:2697 resolves `level` by comparing `last`, and nothing anywhere validates `last` -- it
    * is whatever Date.now() said on the device that wrote it. app.js:2699 then keeps max(last), so
    * a device whose clock runs fast does not merely win one conflict: its stamp STAYS in the record
    * and goes on beating every honest answer until real time catches up. In the reported scenario
-   * the learner failed the word twelve more times over two days and it never left level 3 — it was
+   * the learner failed the word twelve more times over two days and it never left level 3 -- it was
    * counted as learned by classify (app.js:402) and dropped out of the practice queue entirely.
    *
    * The merge therefore refuses to rank any stamp above `now + a small slack`. Clamped, not
@@ -383,7 +383,7 @@ describe('a stamp from the future cannot outrank the present', () => {
    *
    * WHAT THE SLACK COSTS, STATED HONESTLY. It is not zero, and it cannot be. Honest clocks drift,
    * the cloud copy was itself stamped by ANOTHER device's clock, and the round trip takes real
-   * time — at zero margin the merge would start discarding writes that were perfectly valid. The
+   * time -- at zero margin the merge would start discarding writes that were perfectly valid. The
    * price is that a lying clock still wins for the length of the slack. What the fix removes is
    * the DURATION: the poison expires in minutes instead of two days.
    *
@@ -391,7 +391,7 @@ describe('a stamp from the future cannot outrank the present', () => {
    * is installed on ctx only for the duration of one call and always restored, because every other
    * test in this file shares this context. */
   const DAY = 86400000;
-  const T0 = 1780000000000;                 // a fixed "now" — these tests must not depend on today
+  const T0 = 1780000000000;                 // a fixed "now" -- these tests must not depend on today
   const SLACK = 300000;                     // the margin app.js allows; 5 minutes
   const P = o => Object.assign({ assoc: {}, stats: { words: {}, sessions: [] }, deleted: [], added: [], dir: 'm2w' }, o);
   const W = r => ({ stats: { words: { w: Object.assign({ seen: 5, first: 2, ever: 5, wrong: 0, level: 0, last: 0 }, r) }, sessions: [] } });
@@ -439,16 +439,16 @@ describe('a stamp from the future cannot outrank the present', () => {
     assert.strictEqual(cloud.level, 0, 'and now the level follows them, so the word comes back');
   });
 
-  test('ordinary drift still wins — the slack is not zero', () => {
+  test('ordinary drift still wins · the slack is not zero', () => {
     const m = atClock(T0, () => merge(P(W({ level: 0, last: T0 - 60000 })), P(W({ level: 3, last: T0 + 30000 }))));
     assert.strictEqual(m.stats.words.w.level, 3,
       'a device half a minute ahead is drifting, not lying — it must still win');
   });
 });
 
-describe('property — the session log is ordered and keeps the newest rounds', () => {
+describe('property · the session log is ordered and keeps the newest rounds', () => {
   /* The stats screen draws this list in order and the streak counts backwards from its end, so
-   * an out-of-order or wrongly-trimmed log is a wrong chart and a wrong streak — neither of which
+   * an out-of-order or wrongly-trimmed log is a wrong chart and a wrong streak -- neither of which
    * throws. app.js:2712 sorts on `Number(t)||0`, which is the line that has to hold. */
   test('rounds come out in chronological order', () => {
     forAll('the merged session log is not in chronological order', {
@@ -478,9 +478,9 @@ describe('property — the session log is ordered and keeps the newest rounds', 
   });
 });
 
-describe('property — an un-skipped level-test word stays un-skipped', () => {
+describe('property · an un-skipped level-test word stays un-skipped', () => {
   /* The mirror of the deletion rule, one layer down. The learner ran the level test, it marked a
-   * word as known, they disagreed and un-skipped it — recorded in `undeleted`. The cloud still
+   * word as known, they disagreed and un-skipped it -- recorded in `undeleted`. The cloud still
    * holds the src:'lv' record. A union would hand it straight back and the un-skip would last
    * until the next sync. app.js:2691 is the line that prevents that. */
   test('a locally restored level-test record does not come back from the cloud', () => {
@@ -496,9 +496,9 @@ describe('property — an un-skipped level-test word stays un-skipped', () => {
   });
 });
 
-describe('property — the result is storable', () => {
+describe('property · the result is storable', () => {
   /* The merge output goes straight into localStorage and into a Supabase jsonb column. Anything
-   * JSON cannot represent — undefined, NaN, Infinity — silently becomes null or disappears on the
+   * JSON cannot represent -- undefined, NaN, Infinity -- silently becomes null or disappears on the
    * way in, so a value that does not survive the round trip is data loss, not a formatting nit. */
   test('the merged state survives a JSON round trip unchanged', () => {
     forAll('the merge produced a value JSON cannot carry', {
@@ -517,10 +517,10 @@ describe('property — the result is storable', () => {
   });
 });
 
-describe('property — a deletion is never undone', () => {
+describe('property · a deletion is never undone', () => {
   /* Union of both sides, MINUS this device's restore log (app.js:2726-2728). The subtraction is
    * the whole point: a plain union cannot express "I brought this word back", so a restore used
-   * to survive about ninety seconds — until the next sync handed the deletion back from the
+   * to survive about ninety seconds -- until the next sync handed the deletion back from the
    * cloud. Asserting a pure union here would be asserting the bug. */
   test('a word deleted on either side stays deleted, unless this device restored it', () => {
     forAll('a merge resurrected a deleted word', {
@@ -544,9 +544,9 @@ describe('property — a deletion is never undone', () => {
   });
 });
 
-describe('property — hostile payloads do not crash the sync', () => {
+describe('property · hostile payloads do not crash the sync', () => {
   /* A corrupt row must degrade to a sane default. Throwing here means the sync dies and the user
-   * silently stops syncing — the worst outcome available, because nothing tells them. */
+   * silently stops syncing -- the worst outcome available, because nothing tells them. */
   test('mergeProgress never throws, whatever the two sides contain', () => {
     forAll('mergeProgress threw on a payload a corrupt client could send', {
       hostile: true,

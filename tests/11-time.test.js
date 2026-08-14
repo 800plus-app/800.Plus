@@ -6,8 +6,8 @@
  *
  *   1. A device whose clock is WRONG. `mergeProgress` resolves a level conflict by comparing
  *      `last`, and `last` is whatever `Date.now()` said on the device that wrote it. Nothing
- *      validates it. A phone two days fast wins every conflict it takes part in, and — because
- *      the merge also keeps `max(last)` — its stamp stays in the record and keeps winning.
+ *      validates it. A phone two days fast wins every conflict it takes part in, and -- because
+ *      the merge also keeps `max(last)` -- its stamp stays in the record and keeps winning.
  *   2. Day boundaries. The streak counts LOCAL calendar days but walks backwards in fixed
  *      86,400,000ms steps. Israel changes its clock twice a year, so one day a year is 23 hours
  *      long and one is 25. On those two days the walk skips a day or visits one twice.
@@ -18,7 +18,7 @@
  * -----------------------
  * Most of them pin behaviour that is WRONG, because the brief for this pass was to measure, not
  * to repair. A test that pins a bug has to say so in its own name, or the next person reads a
- * green line as an endorsement — so every such test is named for the failure it locks in, and
+ * green line as an endorsement -- so every such test is named for the failure it locks in, and
  * the docs/ report for this pass lists them. Where the correct behaviour is short enough to
  * state, it is written out as a `skip`ped test right underneath, the same convention
  * 04-access.test.js uses for the unparseable-date bug.
@@ -100,7 +100,7 @@ const srow = (t, tag, total) => ({ t, scope: tag, mode: 'all', total: total == n
 
 // ---------------------------------------------------------------------------------------------
 
-describe('time — the environment these tests need', () => {
+describe('time · the environment these tests need', () => {
   /* Without this, every DST test below would run on UTC, find no transition, pass, and prove
      nothing at all. It is the most important test in the file. */
   test('the runtime really is on Israel time, or the DST tests below are meaningless', () => {
@@ -120,7 +120,7 @@ describe('time — the environment these tests need', () => {
 
 // ---------------------------------------------------------------------------------------------
 
-describe('clock skew — a wrong clock wins the conflict', () => {
+describe('clock skew · a wrong clock wins the conflict', () => {
   /* app.js:2697  const newer = (a.last >= b.last) ? a : b;
      That single line is the whole conflict resolver for `level`, and `last` is unvalidated. */
 
@@ -168,7 +168,7 @@ describe('clock skew — a wrong clock wins the conflict', () => {
     assert.strictEqual(m.stats.words.k.level, 3, 'but the level it should have taken away is put straight back');
   });
 
-  test('a tie resolves to the local record — which is what makes two tabs on one device safe', () => {
+  test('a tie resolves to the local record · which is what makes two tabs on one device safe', () => {
     const ctx = loadTime();
     const a = side({ k: wr({ level: 1, last: T0 }) });
     const b = side({ k: wr({ level: 2, last: T0 }) });
@@ -197,13 +197,13 @@ describe('clock skew — a wrong clock wins the conflict', () => {
 
 // ---------------------------------------------------------------------------------------------
 
-describe('two writers — the same round, twice', () => {
+describe('two writers · the same round, twice', () => {
   /* commitSession() writes ONE log row per round and grows it on every later commit
      (app.js:1261-1269). The row's `t` moves each time. The cloud may already hold the earlier
-     version of that same row — and the dedupe key is [t, scope, total, correct], so the two
+     version of that same row -- and the dedupe key is [t, scope, total, correct], so the two
      versions do not look like the same round to it. */
 
-  /* FIXED 2.8.2026. The row carries `rid` — the first commit's timestamp plus scope and mode —
+  /* FIXED 2.8.2026. The row carries `rid` -- the first commit's timestamp plus scope and mode -- 
      and the merge dedupes on it. The old key was [t, scope, total, correct], every one of which
      a SECOND commit of the same round changes, so the half-finished copy in the cloud and the
      finished copy on the device looked like two different rounds. Ten answers logged as fifteen.
@@ -266,7 +266,7 @@ describe('two writers — the same round, twice', () => {
     assert.strictEqual(ctx.sessionRowId, rid);
 
     /* Exactly what flushRemoteSync does: replace `stats` with the merged object. mergeProgress
-       re-sorts by `t`, so a round the other device made on day 1 is inserted BEFORE this one —
+       re-sorts by `t`, so a round the other device made on day 1 is inserted BEFORE this one -- 
        and under the old numeric pointer that silently re-aimed it at a three-day-old round. */
     const remote = side({}, [srow(T0 + 1 * DAY, 'unit:9', 7)]);
     ctx.stats = ctx.mergeProgress(
@@ -332,7 +332,7 @@ describe('two writers — the same round, twice', () => {
     const ctx = loadTime();
     /* The dedupe key is [t, scope, total, correct] and nothing else. Two devices with clocks in
        agreement, both finishing a 10-word unit round with 10 correct at the same millisecond,
-       collapse into one row. Unlikely, not impossible — and it is the honest limit of a dedupe
+       collapse into one row. Unlikely, not impossible -- and it is the honest limit of a dedupe
        key made of the round's own contents rather than an id. */
     const a = side({}, [srow(T0, 'unit:1', 10)]);
     const b = side({}, [srow(T0, 'unit:1', 10)]);
@@ -345,7 +345,7 @@ describe('two writers — the same round, twice', () => {
 
 // ---------------------------------------------------------------------------------------------
 
-describe('MAX_SESSIONS — what happens exactly at the ceiling', () => {
+describe('MAX_SESSIONS · what happens exactly at the ceiling', () => {
   test('the cap is 200, and exactly at it nothing is dropped', () => {
     const ctx = loadTime();
     assert.strictEqual(ctx.MAX_SESSIONS, 200);
@@ -386,7 +386,7 @@ describe('MAX_SESSIONS — what happens exactly at the ceiling', () => {
     const ctx = loadTime();
     /* The cap is applied AFTER a sort by `t`, so "the newest 200" means "the 200 with the
        largest numbers", not "the 200 most recent". A round written by a device two days fast
-       sits at the end of that list until real time catches up with it — and every round the
+       sits at the end of that list until real time catches up with it -- and every round the
        learner plays in the meantime pushes a REAL one off the front instead. */
     let sess = []; for (let i = 0; i < 200; i++) sess.push(srow(T0 + i * 60000, 'real' + i));
     sess = sess.concat([srow(T0 + 2 * DAY, 'SKEWED')]);
@@ -404,7 +404,7 @@ describe('MAX_SESSIONS — what happens exactly at the ceiling', () => {
 
 // ---------------------------------------------------------------------------------------------
 
-describe('day boundaries — the streak', () => {
+describe('day boundaries · the streak', () => {
   /* app.js:1749  const dayKey = ts => …getFullYear()+'-'+(getMonth()+1)+'-'+getDate();
      app.js:1765  for(let i=start;;i++){ if(!days.has(dayKey(now-i*DAY))) break; n++; }
      dayKey is LOCAL calendar time; the walk is in fixed 24-hour steps. Those two agree on 363
@@ -529,7 +529,7 @@ describe('the exam countdown', () => {
   /* FIXED. examDays() used to be:
        const t = new Date(y, m-1, d).setHours(23,59,59,999);
        days: Math.ceil((t - Date.now()) / 864e5)
-     — Math.ceil over a fraction of a day, not a difference of calendar days, which put every
+ -- Math.ceil over a fraction of a day, not a difference of calendar days, which put every
      figure one too high: "1 day left" all through the exam day and "the exam is today" on the
      day after it. It is now a difference between two local midnights. The three tests below
      used to be named `BUG:` and pinned the off-by-one; they now pin the calendar answer. */
@@ -543,7 +543,7 @@ describe('the exam countdown', () => {
     setExam(ctx, '2026-8-5');  assert.strictEqual(ctx.examDays(), null);
   });
 
-  test('on the morning of the exam the countdown reads 0 — "המבחן היום" all day', () => {
+  test('on the morning of the exam the countdown reads 0 · "המבחן היום" all day', () => {
     const ctx = loadTime();
     setExam(ctx, '2026-08-05');
     ctx.at(at(2026, 8, 5, 8, 0));
@@ -584,7 +584,7 @@ describe('the exam countdown', () => {
   /* ===== the milestone line and the expired date =====
      renderExamPill needs three things app.js gets from the page: $, classify and openAccount.
      Stubbing them here is cheaper than a DOM, and it keeps the assertion on the branch that
-     matters — WHAT the pill decides to say — rather than on how a div renders. */
+     matters -- WHAT the pill decides to say -- rather than on how a div renders. */
   function withPill(ctx) {
     const host = { innerHTML: '', onclick: null, _cls: new Set(),
                    classList: { add(c){ host._cls.add(c); }, remove(c){ host._cls.delete(c); },
@@ -652,7 +652,7 @@ describe('the exam countdown', () => {
 
   /* ⚠ הבדיקה הזאת נולדה מאובדן אמיתי (12.8.2026). הקוד ב-app.js פלט `class="pill-tip"`,
      ובקומיט של סשן אחר ("יישור ענף העבודה") שלושת כללי ה-CSS של הפיל נמחקו מ-index.html
-     יחד עם role=status. שום בדיקה לא צעקה, כי כל צד בנפרד היה תקין — והמסך הציג את
+     יחד עם role=status. שום בדיקה לא צעקה, כי כל צד בנפרד היה תקין · והמסך הציג את
      ציון הדרך דחוס לצד המספרים במקום בשורה משלו. מחלקה שהקוד פולט חייבת עיצוב. */
   test('every class the pill emits has a rule, and the row is announced', () => {
     const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
@@ -694,7 +694,7 @@ describe('the exam countdown', () => {
 
 // ---------------------------------------------------------------------------------------------
 
-describe('the reminder — how long is "two days away"', () => {
+describe('the reminder · how long is "two days away"', () => {
   /* app.js:3480  const away = d.last ? Math.floor((Date.now() - d.last) / DAY) : -1;
      A 48-hour window, while the streak beside it counts calendar days. */
   const facts = last => ({ streak: 0, learned: 120, weak: 30, last });
@@ -707,7 +707,7 @@ describe('the reminder — how long is "two days away"', () => {
     assert.match(plain(ctx.NOTIF.compose(facts(now - 13 * DAY))).title, /יומיים/);
     /* הכותרת כאן היא **סמן לדלי** ולא הנוסח שנבדק. היא הייתה "המילים מחכות
        לך" ושונתה ל"מילים לחיזוק" ב-14.8: מילים אינן מחכות, וזו ההאנשה
-       ש-/HEB §1ב נוקב בה בשמה. הגבול עצמו — 14 יום — לא זז. */
+       ש-/HEB §1ב נוקב בה בשמה. הגבול עצמו · 14 יום · לא זז. */
     assert.match(plain(ctx.NOTIF.compose(facts(now - 14 * DAY))).title, /לחיזוק/);
   });
 
@@ -724,7 +724,7 @@ describe('the reminder — how long is "two days away"', () => {
     const ctx = loadTime();
     const now = at(2026, 8, 5, 9, 0); ctx.at(now);
     /* NOTIF.facts() takes `last` as the largest session `t` across both languages. One round
-       pushed by a device whose clock is two days fast makes `away` negative for two days — and
+       pushed by a device whose clock is two days fast makes `away` negative for two days -- and
        during those two days the learner can vanish entirely without either reminder firing. */
     assert.match(plain(ctx.NOTIF.compose(facts(now + 2 * DAY))).title, /זמן ללמוד/);
     assert.ok(!/יומיים|מחכות/.test(plain(ctx.NOTIF.compose(facts(now + 2 * DAY))).title));

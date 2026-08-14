@@ -3,14 +3,14 @@
  *
  * The policy says the service owner "does not see the content of your private associations".
  * An association is something the learner wrote for themselves, on the assumption nobody would
- * read it — the most personal thing in the whole store. store.js used to hand the admin panel
+ * read it -- the most personal thing in the whole store. store.js used to hand the admin panel
  * `select('lang,data,updated_at')`, and `data` is the entire blob:
  *
  *     { assoc, stats, deleted, added, dir, extras }
  *
  * so every association and every word the learner added with their own gloss crossed the wire
- * into an admin screen, on every panel load. The panel never displayed any of it — it reads
- * `stats` and nothing else — but "we don't render it" is not the promise that was made. The
+ * into an admin screen, on every panel load. The panel never displayed any of it -- it reads
+ * `stats` and nothing else -- but "we don't render it" is not the promise that was made. The
  * promise was that it is not seen, and a row that arrives in the browser has been seen.
  *
  * These tests assert on the *columns actually requested*, not on what the panel renders, because
@@ -111,7 +111,7 @@ test('the admin panel reads stats off the projected row, not off a blob', () => 
   const src = fs.readFileSync(path.join(ROOT, 'app.js'), 'utf8');
   const code = extractFunction(src, 'openAdmin', codeMask(src));
   assert.ok(code, 'app.js no longer declares openAdmin — update this test, do not delete it');
-  /* Matched against real code only — a comment may legitimately mention p.data to explain
+  /* Matched against real code only -- a comment may legitimately mention p.data to explain
      why it is gone, and a comment is not a read. */
   const mask = codeMask(code);
   assert.ok(codeMatches(code, /adminUserProgress/, mask).length, 'openAdmin no longer calls adminUserProgress');
@@ -132,7 +132,7 @@ test('no other admin query pulls the progress blob', () => {
     const cols = m[1].split(',').map(c => c.trim());
     if (cols.includes('data') || cols.includes('*')) bare.push({ at: m.index, cols: m[1] });
   }
-  /* pullProgress legitimately pulls the whole blob — it is the learner reading their own row,
+  /* pullProgress legitimately pulls the whole blob -- it is the learner reading their own row,
      under their own token. Every such read must be inside a function named pullProgress. */
   for (const b of bare) {
     const before = src.slice(0, b.at);

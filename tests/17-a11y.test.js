@@ -1,5 +1,5 @@
 'use strict';
-/* Accessibility — the four findings from דוחות/בדק-בית-2/09-נגישות.md that were fixed.
+/* Accessibility · the four findings from דוחות/בדק-בית-2/09-נגישות.md that were fixed.
  *
  * WHY THIS FILE EXISTS, AND WHAT IT CAN AND CANNOT PROVE
  * -----------------------------------------------------
@@ -8,23 +8,23 @@
  * deliberately tests only the two things that ARE decidable without one, and says so rather
  * than pretending to more:
  *
- *   1. CONTRAST — a pure function of the declared CSS colours. WCAG 2.1 relative luminance is
+ *   1. CONTRAST · a pure function of the declared CSS colours. WCAG 2.1 relative luminance is
  *      arithmetic, so it is computed here from the hex literals actually present in index.html.
  *      This is NOT pixel sampling. The audit's own report records why pixel sampling failed
  *      (section א): it caught rounded corners, the background *behind* a gradient button, and
- *      mid-`transition` values — the same element measured 3.33 and 4.19 on two runs. Reading
+ *      mid-`transition` values · the same element measured 3.33 and 4.19 on two runs. Reading
  *      the declared value and doing the arithmetic is deterministic and repeats exactly.
  *
- *   2. STRUCTURE — whether the markup and the render path contain the hooks a screen reader
+ *   2. STRUCTURE · whether the markup and the render path contain the hooks a screen reader
  *      needs: a live region on the element that changes, a role on the error paragraph, an
  *      explicit focus move where the browser would otherwise drop focus on <body>. These are
  *      source-text assertions in the style of 10-distractors.test.js.
  *
  * WHAT IS NOT PROVEN HERE, STATED PLAINLY: that a screen reader actually speaks any of this.
- * No NVDA/JAWS/VoiceOver was run — not by this suite and not by the audit either (09-נגישות.md
+ * No NVDA/JAWS/VoiceOver was run · not by this suite and not by the audit either (09-נגישות.md
  * section ד, item 1). What is asserted is the MECHANISM. The audit measured, in a real browser,
  * that this exact mechanism (an aria-live region in index.html filled from app.js) does reach
- * Chromium's accessibility tree for #feedback — so the mechanism is not a guess; its
+ * Chromium's accessibility tree for #feedback · so the mechanism is not a guess; its
  * application to three more places is what is pinned below.
  *
  * EVERY GROUP CARRIES A CONTROL. A contrast checker that returns "pass" for everything, or a
@@ -82,7 +82,7 @@ function cssVar(name) {
   return m[1];
 }
 /* index.html with CSS comments stripped. Rules are located by what precedes the selector, and a
- * /* … *​/ sitting immediately above a rule is exactly the sort of thing this repo writes — the
+ * /* … *​/ sitting immediately above a rule is exactly the sort of thing this repo writes -- the
  * first draft of ruleDecl() anchored on `}` and stopped finding .au-go:hover the moment the fix
  * was documented above it. Removing comments first makes the anchor mean what it says. */
 const css = html.replace(/\/\*[\s\S]*?\*\//g, '\n');
@@ -92,7 +92,7 @@ function ruleDecl(selector, prop) {
   const sel = selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   /* `{` נוסף למחלקת התווים ב-6.8: 36 כללי :hover נעטפו ב-@media (hover:hover) כדי
      שלא יידבקו במסך מגע, ומאותו רגע התו שלפני הסלקטור הוא `{` של שאילתת המדיה.
-     בלי זה הבדיקה לא מוצאת את הכלל ונופלת על קוד תקין — מתקנים את הבדיקה, לא את הקוד.
+     בלי זה הבדיקה לא מוצאת את הכלל ונופלת על קוד תקין · מתקנים את הבדיקה, לא את הקוד.
      בטוח: סלקטור לעולם אינו מופיע בתוך גוף הצהרות, ולכן העוגן עדיין חד-משמעי. */
   const m = css.match(new RegExp('(?:^|[\\n;},{])\\s*' + sel + '\\s*\\{([^}]*)\\}'));
   assert.ok(m, `index.html has no rule for ${selector}`);
@@ -102,7 +102,7 @@ function ruleDecl(selector, prop) {
 
 const AA_BODY = 4.5;
 
-describe('contrast — the checker itself (control)', () => {
+describe('contrast · the checker itself (control)', () => {
   /* If these do not hold, nothing else in this file means anything. */
   test('black on white is 21:1 and white on white is 1:1', () => {
     assert.strictEqual(r2(contrast('#000000', '#ffffff')), 21);
@@ -122,7 +122,7 @@ describe('contrast — the checker itself (control)', () => {
 
   test('the checker rejects the colours that were broken (it can return FAIL)', () => {
     /* A11Y-04 in the report's contrast table. These are the exact values that were replaced.
-     * If a future edit reverts either of them, the two tests below go red — this proves those
+     * If a future edit reverts either of them, the two tests below go red -- this proves those
      * two tests are capable of going red. */
     assert.ok(contrast('#7d7365', '#f6f1e7') < AA_BODY, 'old --ink-soft must read as failing');
     assert.ok(contrast('#fffdf8', '#c9962f') < AA_BODY, 'white on gold must read as failing');
@@ -148,8 +148,8 @@ describe('A11Y-04a · --ink-soft passes AA on both surfaces it is painted on', (
   });
 
   test('--ink-soft is still recognisably the same soft grey, not a black substitute', () => {
-    /* Guards the fix from the other side. "Make it pass" has a trivial wrong answer — set it to
-     * #000 — which would flatten the whole visual hierarchy the variable exists to create. */
+    /* Guards the fix from the other side. "Make it pass" has a trivial wrong answer -- set it to
+     * #000 -- which would flatten the whole visual hierarchy the variable exists to create. */
     const c = contrast(ink, paper);
     assert.ok(c < 8, `--ink-soft on --paper is ${r2(c)}:1 — that is body-ink dark, not soft`);
   });
@@ -158,7 +158,7 @@ describe('A11Y-04a · --ink-soft passes AA on both surfaces it is painted on', (
 describe('A11Y-04b · .au-go:hover is no longer white on gold', () => {
   /* index.html:51 already documents this exact failure for .btn-primary ("white on gold measured
    * 2.66:1, below AA") and fixed it there. .au-go:hover reintroduced it on the primary button of
-   * the auth card — the single gate into the app. */
+   * the auth card -- the single gate into the app. */
   test('the hover pair of the auth card\'s primary button reaches 4.5:1', () => {
     const bg = ruleDecl('.au-go:hover', 'background');
     const fg = ruleDecl('.au-go:hover', 'color');
@@ -177,11 +177,11 @@ describe('A11Y-04b · .au-go:hover is no longer white on gold', () => {
 
 describe('A11Y-02 · focus is moved deliberately after an answer, not dropped on <body>', () => {
   /* `$('#answerInput').disabled=true` runs while that input holds focus. Per HTML, disabling the
-   * focused element returns focus to <body> — measured, `focusAfter: "BODY"`, and 6 Tab presses
+   * focused element returns focus to <body> · measured, `focusAfter: "BODY"`, and 6 Tab presses
    * to get back to "הבא ←", passing a destructive delete button on the way. */
   const src = fn('finishCard');
 
-  test('finishCard() disables the focused input — the condition that creates the bug', () => {
+  test('finishCard() disables the focused input · the condition that creates the bug', () => {
     assert.match(src, /\$\('#answerInput'\)\.disabled\s*=\s*true/,
       'if this line is gone the bug is gone too and this whole group should be re-derived');
   });
@@ -193,7 +193,7 @@ describe('A11Y-02 · focus is moved deliberately after an answer, not dropped on
 
   test('the focus move happens AFTER the feedback markup exists', () => {
     /* #nextBtn is created by the fb.innerHTML assignment. Focusing before that runs would be a
-     * no-op on an element that does not exist yet — a fix that reads right and does nothing. */
+     * no-op on an element that does not exist yet -- a fix that reads right and does nothing. */
     const built = src.indexOf('fb.innerHTML');
     const focused = src.search(/\$\('#nextBtn'\)\s*\.focus\(\)/);
     assert.ok(built >= 0, 'finishCard no longer builds #feedback via fb.innerHTML');
@@ -215,7 +215,7 @@ describe('A11Y-01 · the new card is announced, and nothing else is', () => {
       'no #cardLive region with aria-live="polite" in index.html');
   });
 
-  test('#cardLive is atomic — the sentence is read as one unit, not word by word', () => {
+  test('#cardLive is atomic · the sentence is read as one unit, not word by word', () => {
     const tag = html.match(/<[^>]*id="cardLive"[^>]*>/);
     assert.ok(tag, 'no element with id="cardLive"');
     assert.match(tag[0], /aria-atomic="true"/);
@@ -259,7 +259,7 @@ describe('A11Y-01 · the new card is announced, and nothing else is', () => {
     assert.strictEqual(inApp, 1, 'something outside renderCard also writes #cardLive');
   });
 
-  test('#qLive — the score counter — is no longer the one thing that gets announced', () => {
+  test('#qLive · the score counter · is no longer the one thing that gets announced', () => {
     /* Before the fix this was the ONLY announcement on a card change, and it carries "✓ 0":
      * the least useful fact on the screen, spoken over the most useful one. It stays visible;
      * it stops being a live region. */
@@ -286,7 +286,7 @@ describe('A11Y-03 · the auth error is announced', () => {
   ];
 
   for (const [id, why] of msgs) {
-    test(`#${id} carries role="alert" — ${why}`, () => {
+    test(`#${id} carries role="alert" · ${why}`, () => {
       const tag = html.match(new RegExp('<[^>]*id="' + id + '"[^>]*>'));
       assert.ok(tag, `no element with id="${id}"`);
       assert.match(tag[0], /role="alert"/,
@@ -307,7 +307,7 @@ describe('A11Y-03 · the auth error is announced', () => {
     assert.match(app, /\$\('#authMsg'\)/, 'app.js no longer addresses #authMsg');
   });
 
-  test('control — an element known to have no role is reported as having none', () => {
+  test('control · an element known to have no role is reported as having none', () => {
     /* Proves the matcher above is reading the tag it claims to read. #qCount is a bare span. */
     const tag = html.match(/<[^>]*id="qCount"[^>]*>/);
     assert.ok(tag, 'no element with id="qCount"');

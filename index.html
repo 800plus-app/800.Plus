@@ -18,18 +18,18 @@
 <style>
   /* ═══ פונטים ═══
      היו נטענים מ-Google. ההערה שעמדה כאן קודם תיארה תיקון crossorigin שנועד לאפשר
-     ל-service worker לשמור אותם — אבל sw.js דוחה כל בקשה חוצת-מקור בשני שערים
+     ל-service worker לשמור אותם · אבל sw.js דוחה כל בקשה חוצת-מקור בשני שערים
      נפרדים (origin שונה, ו-type!=='basic'), ולכן הפונטים מעולם לא נשמרו והממשק
      נפל לפונט מערכת בכל פתיחה אופליין. באפליקציה שמבטיחה עבודה אופליין.
      עכשיו הם same-origin ונכנסים ל-cache בלי לגעת ב-fetch handler בכלל.
 
      שישה קבצים, 152KB. פחות ממה שנראה, משתי סיבות:
-     · שניהם פונטים משתנים — קובץ אחד נושא את כל טווח המשקלים. Google הגישה בדיוק
+     · שניהם פונטים משתנים · קובץ אחד נושא את כל טווח המשקלים. Google הגישה בדיוק
        את אותו קובץ לכל אחד מהמשקלים שביקשנו; 24 הצהרות היו 8 קבצים ייחודיים.
      · Heebo 300 ו-Frank Ruhl Libre 500 נטענו ולא היו בשימוש באף כלל CSS. לא ירדו.
      בונוס מהטווח הרציף: font-weight:600 בכפתור ההתחברות (‏.au-tabs) נטען היום כ-700
      כי 600 לא הוזמן מעולם. עכשיו הוא מקבל 600 אמיתי.
-     math ו-symbols של Heebo לא ירדו — סימני מתמטיקה, אין להם תו באפליקציה. */
+     math ו-symbols של Heebo לא ירדו · סימני מתמטיקה, אין להם תו באפליקציה. */
   @font-face{font-family:'Frank Ruhl Libre';font-style:normal;font-weight:400 900;font-display:swap;
     src:url(fonts/frank-ruhl-libre-hebrew.woff2) format('woff2');
     unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;}
@@ -63,15 +63,15 @@
   .wrap{max-width:640px;margin:0 auto;padding:22px 18px 60px}
   /* ספארי באייפון, כשהאפליקציה פתוחה כאתר ולא כאפליקציה מותקנת.
      שורת הכתובת התחתונה של ספארי מרחפת מעל התוכן ואינה נכללת ב-env(safe-area-inset-bottom)
-     כשהיא מוצגת, ולכן 60px מלמטה לא הספיקו: הכפתור התחתון בתרגול — "הבא ←" — נחתך בדיוק
+     כשהיא מוצגת, ולכן 60px מלמטה לא הספיקו: הכפתור התחתון בתרגול · "הבא ←" · נחתך בדיוק
      על ידה. דווח על ידי משתמש (5.8.2026).
      המחלקה נקבעת ב-JS (isIOS && !isStandalone) ולא רק ב-@media (display-mode: browser),
-     כי אותה שאילתה אינה נתמכת בגרסאות iOS ישנות — ושם בדיוק הבעיה חיה.
+     כי אותה שאילתה אינה נתמכת בגרסאות iOS ישנות · ושם בדיוק הבעיה חיה.
      ההוספה היא לגובה הגלילה בלבד: כך הגבול התחתון של הדף הוא מה שמסתתר מאחורי שורת
      הכתובת, ולא הכפתור. */
   body.ios-web .wrap{padding-bottom:calc(60px + 68px)}
   .hidden{display:none!important}
-  /* For text that only a screen reader should get. NOT display:none and NOT visibility:hidden —
+  /* For text that only a screen reader should get. NOT display:none and NOT visibility:hidden -- 
      both of those remove the node from the accessibility tree, which would make a live region
      announce nothing at all. The clip-rect technique keeps it in the tree at zero visual size. */
   .sr-only{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
@@ -150,7 +150,7 @@
   .tile .mini i{height:100%}
   .tile .mini .s{background:var(--green)} .tile .mini .w{background:var(--accent)} .tile .mini .n{background:var(--gold)}
   /* fourth segment: words skipped after the level test. Without it the bar summed to
-     (total-skipped)/total and a unit read 44% empty at B1, 76% at C1 — for a learner who
+     (total-skipped)/total and a unit read 44% empty at B1, 76% at C1 -- for a learner who
      had done nothing wrong. */
   .tile .mini .k{background:var(--line)}
   .big-tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -172,7 +172,7 @@
   .legend div{display:flex;align-items:center;gap:8px;font-size:.86rem}
   .legend i{width:12px;height:12px;border-radius:3px;flex:0 0 auto}
   .legend .s{background:var(--green)} .legend .w{background:var(--accent)} .legend .n{background:var(--gold)}
-  /* דילגתי — words removed from the queue by the level test, not learned here. Deliberately
+  /* דילגתי · words removed from the queue by the level test, not learned here. Deliberately
      the flattest colour in the legend: it is a state, not an achievement. */
   .legend .k{background:var(--line);border:1px solid var(--ink-soft)}
   /* ===== word cloud on the stats screen =====
@@ -247,7 +247,7 @@
     font-size:clamp(1.05rem,3.4vw,1.3rem);line-height:1.7;margin-bottom:20px}
   .s-sent .bl{color:var(--accent);font-weight:700;letter-spacing:.06em}
   /* מספור החסרים בפריט זוג. שני `___` זהים והאפשרות היא "align + differ", כלומר
-     הסדר קובע — והמספר אומר מה לאיפה בלי מילים. */
+     הסדר קובע · והמספר אומר מה לאיפה בלי מילים. */
   .s-sent .bl sup{font-size:.62em;font-weight:700;vertical-align:super;margin-inline-start:1px}
   /* ⚠ יעד המגע של "✕ יציאה" נמדד ב-38px, מתחת למינימום 44. `.topbar .back` הוא
      מחלקה משותפת ל-16 מסכים, ולכן התיקון ממוקד לשני המסכים שנוספו כאן ולא גורף:
@@ -299,7 +299,7 @@
   .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 24px;box-shadow:var(--shadow);text-align:center}
   .q-kind{font-size:.72rem;letter-spacing:.12em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:14px}
   .q-text{font-family:"Frank Ruhl Libre",serif;font-size:clamp(1.4rem,4.6vw,1.9rem);font-weight:700;line-height:1.35}
-  /* speaker sits beside the prompt, never inside it — the prompt is also read by the
+  /* speaker sits beside the prompt, never inside it -- the prompt is also read by the
      print sheet and the exam, and it must stay pure text */
   .q-row{display:flex;align-items:flex-start;gap:10px}
   .q-row .q-text{flex:1;min-width:0}
@@ -336,7 +336,7 @@
   .also{margin-top:8px;font-size:.85rem;color:var(--ink-soft)}
   /* פירוש שכבר נכתב מול פירוש שחסר. שתי מחלקות ולא אחת, כדי שהכלל ינצח את
      `.rev-w span{color:var(--ink-soft)}` בלי !important. */
-  /* לא var(--green). הירוק הכללי #4e7d4e נמדד 4.27:1 על רקע הכרטיס #f6f1e7 — מתחת לסף
+  /* לא var(--green). הירוק הכללי #4e7d4e נמדד 4.27:1 על רקע הכרטיס #f6f1e7 · מתחת לסף
      4.5, והטקסט כאן קטן (0.8rem ברשימת הסיכום) ולכן פטור "טקסט גדול" אינו חל. #3f6a3f
      נמדד 5.58:1 ונשאר מאותה משפחת צבע. הצבע הזה נושא מידע ולכן חייב להיקרא. */
   .sns.got{color:#3f6a3f;font-weight:600}
@@ -350,10 +350,10 @@
      אפור על אפור אינו הדגשה, וההדגשה כאן היא כל תפקיד השורה. */
   /* ⚠ יישור מפורש על הבלוק, ולא הסתמכות על ההורה: `.card` ממורכז ו-`.also` יורש ממנו,
      ולכן בלי הכלל הזה כל שורה קיבלה יישור אחר.
-     הגרסה הקודמת יישרה כל שורה לתחילת השפה שלה — האנגלית לשמאל והעברית לימין. חגי ראה
+     הגרסה הקודמת יישרה כל שורה לתחילת השפה שלה · האנגלית לשמאל והעברית לימין. חגי ראה
      את התוצאה (12.8.2026) וקבע שהיא נראית מוזרה: שתי השורות נדחפות לקצוות מנוגדים,
      ובכרטיס צר הזוג נקרא כשני גושים נפרדים ולא כמשפט ותרגומו. שלוש השורות ממורכזות
-     עכשיו על ציר אחד. `direction:ltr` נשאר על האנגלית — הוא קובע סדר תווים, לא יישור,
+     עכשיו על ציר אחד. `direction:ltr` נשאר על האנגלית · הוא קובע סדר תווים, לא יישור,
      ובלעדיו סימני הפיסוק בקצה המשפט קופצים למקום הלא נכון.
      ⚠ ניסוח ההערה: הגרסה הראשונה השתמשה במילה שהלקסיקון פוסל (`tests/47`), והבדיקה
      סורקת את **כל** הקובץ ולא רק טקסט ממשק. השער צודק, ולכן ההערה שונתה ולא השער. */
@@ -368,7 +368,7 @@
   .was-right{margin-top:12px;background:transparent;border:1px solid var(--line);color:var(--ink-soft);border-radius:999px;padding:7px 16px;font-family:"Heebo";font-size:.85rem}
   @media (hover:hover) and (pointer:fine){.was-right:hover{border-color:var(--green);color:var(--green)}}
   /* המצב המסומן. הכפתור הוא מתג ולא פעולה חד-כיוונית, ולכן הוא חייב להיראות שונה כשהוא
-     דלוק — אחרת "לחץ לביטול" הוא הרמז היחיד שמשהו קרה. */
+     דלוק · אחרת "לחץ לביטול" הוא הרמז היחיד שמשהו קרה. */
   .was-right.on{border-color:var(--green);color:var(--green);background:rgba(47,133,90,.08)}
   .assoc{margin-top:18px;text-align:right;border-top:1px dashed var(--line);padding-top:14px}
   .assoc label{display:block;font-weight:500;font-size:.86rem;color:var(--gold);margin-bottom:7px}
@@ -399,7 +399,7 @@
   .rev-chip{flex:0 0 auto;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-family:"Heebo";font-weight:700;font-size:.82rem;transition:.15s;background:transparent}
   .rev-chip.ok{color:var(--green);border-color:var(--green);background:rgba(78,125,78,.09)}
   .rev-chip.no{color:var(--accent);border-color:var(--accent);background:rgba(181,72,46,.09)}
-  /* ⚠ הניסוח הראשון היה padding:6px 9px, והוא נמדד ב-375px כ-41×29 — יעד מגע נמוך מהסף.
+  /* ⚠ הניסוח הראשון היה padding:6px 9px, והוא נמדד ב-375px כ-41×29 · יעד מגע נמוך מהסף.
      הרמקול נשאר בגודל של .say, ומקבל רק מינימום מפורש כדי שהוא לא יתכווץ בשורה צפופה. */
   .rev-say{min-width:40px;min-height:40px}
 
@@ -428,7 +428,7 @@
   .m-row input{width:18px;height:18px;accent-color:var(--accent);flex:0 0 auto}
   .m-row b{font-family:"Frank Ruhl Libre",serif;min-width:32%}
   .m-row span{color:var(--ink-soft);font-size:.82rem;flex:1}
-  /* "ידעתי" — מצב שבאמצע בין מחיקה לתרגול, ולכן הוא נראה כמו מתג ולא כמו פעולה הרסנית.
+  /* "ידעתי" · מצב שבאמצע בין מחיקה לתרגול, ולכן הוא נראה כמו מתג ולא כמו פעולה הרסנית.
      flex:0 0 auto כדי שהוא לא יידחס כשהפירוש ארוך; הפירוש הוא שמתקצר, לא הכפתור. */
   .m-known{flex:0 0 auto;background:none;border:1px solid var(--line);color:var(--ink-soft);
            border-radius:999px;padding:4px 11px;font-size:.75rem;font-family:inherit;cursor:pointer}
@@ -445,7 +445,7 @@
   .m-head span{margin-inline-start:auto;font-size:.78rem;color:var(--ink-soft)}
   .m-head em{font-style:normal;color:var(--accent)}
   .m-body{display:flex;flex-direction:column;gap:6px;padding:8px 0 4px}
-  /* a deleted word is still listed — this screen is the only way back for it */
+  /* a deleted word is still listed -- this screen is the only way back for it */
   .m-row.is-gone{opacity:.62;border-style:dashed}
   .m-row.is-gone b{text-decoration:line-through}
   .m-undo{flex:0 0 auto;font-family:inherit;font-size:.74rem;cursor:pointer;color:var(--green);
@@ -490,7 +490,7 @@
        border-radius:12px;border:1px solid transparent;cursor:pointer;
        background:linear-gradient(180deg,var(--gold),var(--accent));color:#fff}
   /* Styled as a text link, but it is a button and gets tapped with a thumb. Measured at
-     127×20 before min-height was added — half a finger. Nine buttons inherit this rule, and
+     127×20 before min-height was added -- half a finger. Nine buttons inherit this rule, and
      one of them (#mailAskResend) is the only way out for somebody whose confirmation mail
      never arrived. The padding grows the hit area without changing how it looks. */
   .ask-cancel{margin-top:14px;background:transparent;border:none;color:var(--ink-soft);
@@ -527,7 +527,7 @@
   }
 
   /* the "check your mail" modal.
-     Above #auth, which is z-index 70 — every other .ask sits at 60 and opens over the app, but
+     Above #auth, which is z-index 70 -- every other .ask sits at 60 and opens over the app, but
      this one is the only modal that opens while the login screen is still covering the page. */
   #mailAsk{z-index:80}
   .mail-box{text-align:center}
@@ -575,14 +575,14 @@
        min-width:44px;min-height:44px;border-radius:10px}
   @media (hover:hover) and (pointer:fine){.ask-x:hover{color:var(--ink)}}
 
-  /* ===== auth — "ענבר": near-black walnut, a single amber glow, thin rules, generous air.
+  /* ===== auth · "ענבר": near-black walnut, a single amber glow, thin rules, generous air.
      Full-bleed so it escapes .wrap, and it owns its own dark palette regardless of the app's. ===== */
-  /* Was near-black while every other screen is cream — the first thing a visitor saw looked
+  /* Was near-black while every other screen is cream -- the first thing a visitor saw looked
      like a different product from the one they landed in. Same palette now, and the orange
      stopped being the only bright thing on a dark field, so it can go back to being an accent. */
   /* The page was one flat cream field, so nothing on it could sit forward of anything else.
-     It now has a DIRECTION of light — warm from the top-right, a cooler blush at the lower
-     left — and the form rests on a surface that is lit by it. Still cream; just no longer flat. */
+     It now has a DIRECTION of light -- warm from the top-right, a cooler blush at the lower
+     left -- and the form rests on a surface that is lit by it. Still cream; just no longer flat. */
   #auth{position:fixed;inset:0;z-index:70;overflow-y:auto;color:#2c2620;
        display:flex;flex-direction:column;justify-content:center;isolation:isolate;
        padding:max(34px,env(safe-area-inset-top)) 26px max(34px,env(safe-area-inset-bottom));
@@ -595,7 +595,7 @@
        bottom:-42vh;inset-inline-end:-28vw;pointer-events:none;z-index:-1;filter:blur(60px);
        background:radial-gradient(circle,rgba(201,150,47,.20),transparent 62%)}
   /* The card. Two shadows, not one: a tight contact shadow that says it is TOUCHING the page,
-     and a wide ambient one that says the light is far away. Both warm — a grey shadow on cream
+     and a wide ambient one that says the light is far away. Both warm -- a grey shadow on cream
      reads as dirt. The inset top edge is the specular line: it is the single thing that makes
      a flat rectangle look like a lit physical surface. */
   .au-card{margin-top:26px;padding:6px 22px 22px;border-radius:22px;
@@ -621,7 +621,7 @@
        line-height:1.06;margin-top:15px;letter-spacing:-.012em;text-wrap:balance}
   .au-title em{font-style:normal;color:#a63c26;font-weight:700}
   .au-sub{font-size:.84rem;line-height:1.68;margin-top:12px;color:#6f6558}
-  /* A recessed track with one raised tab in it — the same physics as the fields, so the whole
+  /* A recessed track with one raised tab in it -- the same physics as the fields, so the whole
      card reads as a single lit object instead of a pile of unrelated treatments. */
   .au-tabs{display:flex;gap:4px;margin:16px 0 18px;padding:4px;border-radius:14px;
        background:rgba(232,222,203,.5);
@@ -649,7 +649,7 @@
   .au-field.hidden{display:none!important}
   /* Recessed wells, not hairlines. An empty field under a 1px rule barely reads as somewhere
      you can type; carved into the card it is unmistakable, and the inset shadow is the same
-     light source as the card's own — so the depth is consistent rather than decorative. */
+     light source as the card's own -- so the depth is consistent rather than decorative. */
   .au-field input{width:100%;font-family:"Heebo";font-size:1.02rem;padding:20px 14px 9px;
        background:linear-gradient(180deg,rgba(238,229,213,.55),rgba(248,242,232,.35));
        border:1px solid rgba(196,180,152,.45);border-radius:13px;
@@ -670,7 +670,7 @@
        box-shadow:0 1px 1px rgba(120,84,48,.10),0 8px 18px -10px rgba(120,84,48,.4),
                   inset 0 1px 0 rgba(255,255,255,.9)}
   .au-go i{font-style:normal;transition:.22s}
-  /* was background:#c9962f — white on gold is 2.62:1, the exact failure line 51 already documents
+  /* was background:#c9962f -- white on gold is 2.62:1, the exact failure line 51 already documents
      and fixed for .btn-primary. #7d5718 is this button's own resting text colour, so hover now
      inverts the button into a colour it already wears: 6.36:1. */
   @media (hover:hover) and (pointer:fine){.au-go:hover{background:#7d5718;color:#fffdf8}}
@@ -679,7 +679,7 @@
   .au-link{background:transparent;border:0;color:#8d8274;font-family:"Heebo";font-size:.8rem;
        text-decoration:underline;cursor:pointer;margin-top:5px}
   /* הצהרת הגיל. align-items:flex-start כדי שהתיבה תיצמד לשורה הראשונה אם הטקסט נשבר,
-     ולא תרחף באמצע. 20px ו-min-height:44px כי זו תיבה שנלחצת באגודל — הכפתורים במסכי
+     ולא תרחף באמצע. 20px ו-min-height:44px כי זו תיבה שנלחצת באגודל · הכפתורים במסכי
      ה-ask נמדדו 20 פיקסלים בדפדפן אמיתי, וזה חצי אצבע. */
   .au-check{display:flex;align-items:flex-start;gap:9px;margin-top:14px;min-height:44px;
        font-size:.82rem;line-height:1.5;color:#6b6155;cursor:pointer;text-align:right}
@@ -693,7 +693,7 @@
        background:transparent;border:1px solid transparent;border-radius:10px;padding:6px 10px;
        cursor:pointer;font-family:inherit}
   @media (hover:hover) and (pointer:fine){.user-badge:hover{border-color:var(--line);color:var(--ink)}}
-  /* 37 פיקסלים נמדדו בדפדפן — מתחת לאצבע. .seg מעצב סרגלים שיושבים בתוך מסך תרגול
+  /* 37 פיקסלים נמדדו בדפדפן · מתחת לאצבע. .seg מעצב סרגלים שיושבים בתוך מסך תרגול
      ונלחצים פעם אחת; זה סרגל ניווט שנלחץ הלוך ושוב. */
   .acc-seg{margin:18px auto 4px;max-width:520px}
   .acc-seg button{min-height:44px}
@@ -701,13 +701,13 @@
      נפרד מ-.hidden בכוונה: accProg ו-accAdmin מוסתרים מסיבות משלהם, ולשונית שהייתה
      מסירה את .hidden הייתה חושפת פאנל בקרה למי שאינו אדמין. */
   .tab-off{display:none !important}
-  /* ציון דרך בכרטיס הסיום. צבע חם ולא ירוק — ירוק כבר שייך ל"בשליטה" בפס שמעליו,
+  /* ציון דרך בכרטיס הסיום. צבע חם ולא ירוק · ירוק כבר שייך ל"בשליטה" בפס שמעליו,
      ושני ירוקים באותו כרטיס קוראים כאותו דבר. */
   .up-mile{margin-top:12px;padding:9px 12px;border-radius:12px;text-align:center;
        background:rgba(181,101,29,.10);border:1px solid rgba(181,101,29,.28);
        font-size:.86rem;line-height:1.5;color:var(--ink)}
   /* כרטיס המילה. גובה מינימלי קבוע כדי שחשיפת הפירוש לא תקפיץ את כל מסך הבית
-     מתחתיו — קפיצה כזו גורמת ללחוץ בטעות על מה שהיה שם קודם. */
+     מתחתיו · קפיצה כזו גורמת ללחוץ בטעות על מה שהיה שם קודם. */
   .wcard{position:relative;margin:14px auto 0;max-width:520px;padding:14px 16px 13px;border-radius:18px;
        background:var(--card);border:1px solid var(--line);text-align:center;min-height:156px;
        display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
@@ -720,7 +720,7 @@
   .wc-term{font-size:1.3rem;font-weight:700;line-height:1.35;margin-bottom:11px;color:var(--ink)}
   /* הרמקול נעוץ לשמאל למעלה כמו בתרגול (‏inset-inline-end ב-RTL הוא שמאל, בדיוק כמו
      ב-.wc-x מעליו). נעוץ ולא flex: עם flex:1 המילה נדחקה ימינה בחצי רוחב הכפתור וחדלה
-     להיות ממורכזת מול הכותרת וכפתור "גלה את הפירוש" — נמדד. הריפוד הסימטרי שומר על
+     להיות ממורכזת מול הכותרת וכפתור "גלה את הפירוש" · נמדד. הריפוד הסימטרי שומר על
      המרכוז וגם מונע ממילה ארוכה לרוץ מתחת לכפתור. */
   .wc-row{position:relative;width:100%;padding-inline:45px;margin-bottom:11px}
   .wc-row .wc-term{margin-bottom:0}
@@ -734,7 +734,7 @@
   @media (hover:hover) and (pointer:fine){.wc-reveal:hover{border-color:var(--accent);color:var(--ink)}}
   .wc-mean{font-size:.92rem;line-height:1.55;color:var(--ink);margin-bottom:11px}
   .wc-acts{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-  /* wc-prac ולא wc-go — ראו את ההערה ב-#wcActs. שם מחלקה שחוזר פעמיים בגיליון אחד
+  /* wc-prac ולא wc-go · ראו את ההערה ב-#wcActs. שם מחלקה שחוזר פעמיים בגיליון אחד
      נפתר לטובת האחרון, וזה מה שהפך את הכפתור הזה לעיגול. */
   .wc-prac,.wc-alt{white-space:nowrap;flex:0 0 auto}
   .wc-prac{background:var(--accent);color:#fff;border:0;border-radius:12px;min-height:44px;
@@ -785,7 +785,7 @@
        font-size:.68rem;font-weight:800;line-height:1;vertical-align:middle;
        animation:badgePulse 1.7s ease-out 3}
   /* The pulse animates only the outer ring, never scale or opacity. A scale-in entrance froze at
-     scale(0) when the badge was appended while its screen was still display:none — an invisible
+     scale(0) when the badge was appended while its screen was still display:none -- an invisible
      counter is worse than no counter, so the resting state must not depend on the animation. */
   @keyframes badgePulse{0%{box-shadow:0 0 0 0 rgba(181,72,46,.55)}
        70%{box-shadow:0 0 0 9px rgba(181,72,46,0)}100%{box-shadow:0 0 0 0 rgba(181,72,46,0)}}
@@ -798,7 +798,7 @@
   .adm-sub.due{border-color:var(--accent);color:var(--accent)}
   .adm-sub.off{border-color:var(--line);color:var(--ink-soft)}
   .adm-acts{margin-top:9px;display:flex;flex-wrap:wrap;gap:6px}
-  /* המענה למדווח — פעולה חיובית, ולכן ירוק ולא האדום של .danger. הוא מופיע רק על
+  /* המענה למדווח · פעולה חיובית, ולכן ירוק ולא האדום של .danger. הוא מופיע רק על
      דיווח שכבר סומן "טופל", ושם הוא הצעד הבא ולא אזהרה. */
   .adm-acts button.adm-reply{border-color:rgba(78,125,78,.5);color:var(--green)}
   @media (hover:hover) and (pointer:fine){.adm-acts button.adm-reply:hover{border-color:var(--green);background:rgba(78,125,78,.08)}}
@@ -807,11 +807,11 @@
   .adm-acts button{background:transparent;border:1px solid var(--line);border-radius:999px;
        padding:5px 13px;font-family:"Heebo";font-size:.78rem;color:var(--ink-soft)}
   @media (hover:hover) and (pointer:fine){.adm-acts button:hover{border-color:var(--gold);color:var(--ink)}}
-  /* admin toolbar — search / sort / filter */
+  /* admin toolbar -- search / sort / filter */
   /* ===== progress, one ring per language =====
      The ring carries three quantities at once: the filled arc is what is solid, the paler arc
      behind it is everything met, and the track is the rest. Reading a percentage and a
-     breakdown off the same shape is the point — two numbers side by side do not say which
+     breakdown off the same shape is the point -- two numbers side by side do not say which
      language is ahead, and a shape does it before you read a digit. */
   .acc-prog{margin:6px 0 22px}
   .acc-prog.hidden{display:none!important}
@@ -847,7 +847,7 @@
   .lp-legend i.n{background:var(--paper-deep);border:1px solid var(--line)}
   .lp-foot{margin-top:9px;padding-top:8px;border-top:1px solid var(--line);
        font-size:.68rem;color:#a2968a}
-  /* the streak, under both — it belongs to the person, not to a language */
+  /* the streak, under both -- it belongs to the person, not to a language */
   .lp-streak{margin-top:10px;display:flex;align-items:center;gap:10px;
        background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
   .lp-streak b{font-family:"Frank Ruhl Libre",serif;font-size:1.5rem;font-weight:900;
@@ -877,7 +877,7 @@
        justify-content:center;font-size:1.1rem;color:#fffdf8;
        background:linear-gradient(180deg,#b8492e,#9d3520);
        box-shadow:0 4px 12px -5px rgba(166,60,38,.7)}
-  /* the morning glance — five numbers, above the list, before any scrolling */
+  /* the morning glance -- five numbers, above the list, before any scrolling */
   .adm-glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px;
        margin:2px 0 14px}
   .adm-g{background:var(--card);border:1px solid var(--line);border-radius:12px;
@@ -906,13 +906,13 @@
        background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px;
        transition:.13s;color:var(--ink)}
   /* דיווח משתמשת (5.8.2026): "ברגע שבחרתי תשובה, בשאלה הבאה אותו ריבוע נשאר מסומן קצת".
-     זה לא שריד מצב — lvRender כותב innerHTML מחדש, כך שהכפתורים נהרסים ונבנים, ושום
+     זה לא שריד מצב · lvRender כותב innerHTML מחדש, כך שהכפתורים נהרסים ונבנים, ושום
      מחלקה או פוקוס אינם שורדים. מה ששורד הוא ה-:hover עצמו: במסך מגע הדפדפן משאיר
      hover על מה שנמצא מתחת לאצבע, והכפתור החדש שנבנה באותו מקום יורש אותו. התוצאה היא
-     מסגרת זהב והרמה על אפשרות אחת בלבד — בדיוק "מסומן קצת".
+     מסגרת זהב והרמה על אפשרות אחת בלבד · בדיוק "מסומן קצת".
      hover:hover ו-pointer:fine ביחד: המדיה הזאת נכונה גם למכשירים היברידיים (מסך מגע
      עם עכבר), שבהם hover:hover לבדו עדיין מחזיר אמת באצבע.
-     חל גם על מבחן היחידה — #exOpts נושא את אותה מחלקה. */
+     חל גם על מבחן היחידה · #exOpts נושא את אותה מחלקה. */
   @media (hover:hover) and (pointer:fine){
     .lv-opts button:hover{border-color:var(--gold);transform:translateY(-1px)}
   }
@@ -936,13 +936,13 @@
   .lv-offer{background:var(--card);border:1px solid var(--gold);border-radius:14px;padding:16px 18px;margin-top:20px}
   .lv-offer p{font-size:.92rem;line-height:1.55}
 
-  /* build tag — always know which version you're looking at */
+  /* build tag -- always know which version you're looking at */
   .build-tag{text-align:center;margin-top:22px;font-size:.68rem;color:var(--ink-soft);
        font-family:"Cascadia Mono",Consolas,monospace;letter-spacing:.04em;opacity:.75}
   .build-tag b{font-weight:600;color:var(--gold)}
   .build-tag .stale{color:var(--accent);font-weight:700}
 
-  /* install call-to-action — a real button, not an underlined hint that reads like an error */
+  /* install call-to-action -- a real button, not an underlined hint that reads like an error */
   /* UNIT EXAM */
   .ex-parts{display:flex;flex-direction:column;gap:8px;margin-top:20px}
   .ex-part{display:flex;align-items:center;gap:11px;background:var(--card);border:1px solid var(--line);
@@ -963,7 +963,7 @@
   .ex-miss .yours{font-size:.78rem;color:var(--ink-soft)}
   .ex-hist{font-size:.78rem;color:var(--ink-soft);margin-top:9px;text-align:center}
 
-  /* PRINT SHEET — invisible on screen, the whole page when printing */
+  /* PRINT SHEET -- invisible on screen, the whole page when printing */
   #sheet{display:none}
   /* Ctrl+P from anywhere used to print a blank page: the print rule hides the whole app and
      shows #sheet, which is empty until a worksheet is built. */
@@ -1002,7 +1002,7 @@
      The landing page was a wall of eight identical grey boxes. It is the first thing a stranger
      sees and it had to earn the next tap, so it now reads as a printed page that is being set:
      the rule draws itself, the count runs up, the cards arrive one after another. Slow and
-     small on purpose — this is a study tool, not a launch page. Every motion is opt-out via
+     small on purpose -- this is a study tool, not a launch page. Every motion is opt-out via
      prefers-reduced-motion, and every colour is already in the palette. */
   #intro{position:relative;overflow-x:clip}
   #intro::before{content:"";position:absolute;inset-block:-40px 40%;inset-inline:calc(50% - 50vw);z-index:-1;pointer-events:none;
@@ -1018,7 +1018,7 @@
      after 1.5s and covers an animation that exists but never advances. */
   @supports not (animation-name:rise){ .in-rise{opacity:1} }
   #intro.anim-done .in-rise{opacity:1}
-  /* the intro reuses the shared `rise` keyframes defined above — a second definition
+  /* the intro reuses the shared `rise` keyframes defined above -- a second definition
      here silently overrode them for every other screen that animates in. */
 
   #intro .w-title em{position:relative;font-style:normal;color:var(--accent)}
@@ -1040,7 +1040,7 @@
   .feat{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);
     border-radius:14px;padding:14px 16px 14px 15px;display:flex;gap:11px;align-items:flex-start;
     transition:transform .25s cubic-bezier(.22,.8,.3,1), box-shadow .25s, border-color .25s}
-  /* a gold edge that grows from the top on hover — the reading edge in RTL is the right one */
+  /* a gold edge that grows from the top on hover -- the reading edge in RTL is the right one */
   .feat::before{content:"";position:absolute;inset-block:0;inset-inline-end:0;width:3px;
     background:linear-gradient(180deg,var(--gold),var(--accent));
     transform:scaleY(0);transform-origin:top;transition:transform .3s cubic-bezier(.22,.8,.3,1)}
@@ -1053,7 +1053,7 @@
 
   /* the CTA breathes rather than pulses: a shadow that swells, no size change, so nothing jumps */
   #introTry{position:relative;animation:breathe 3.6s ease-in-out 1.4s infinite}
-  /* side by side: neither is the main action — the primary button above is — and stacking two
+  /* side by side: neither is the main action -- the primary button above is -- and stacking two
      more full-width buttons under it makes the page read as three equal choices */
   .exam-row{cursor:pointer}
   .exam-row input{font-family:"Heebo";font-size:.86rem;border:1px solid var(--line);
@@ -1066,14 +1066,14 @@
        box-shadow:0 1px 2px rgba(120,84,48,.07)}
   .exam-pill.hidden{display:none!important}
   /* שלושת המספרים הם שלושה חלקים של אותה עובדה, ולכן הם באותו גודל. קודם הראשון הוצג
-     ב-1.6rem והשניים האחרים ב-.82rem — מה שנקרא כמספר ענק עם שורת טקסט קטנה שבורה לצדו,
-     ומשך את תשומת הלב לימים שנותרו במקום לעבודה שנותרה. ההדגשה נשארה — בעובי ובצבע. */
+     ב-1.6rem והשניים האחרים ב-.82rem · מה שנקרא כמספר ענק עם שורת טקסט קטנה שבורה לצדו,
+     ומשך את תשומת הלב לימים שנותרו במקום לעבודה שנותרה. ההדגשה נשארה · בעובי ובצבע. */
   .exam-pill span{font-size:.86rem;color:var(--ink-soft);line-height:1.6}
   .exam-pill em{font-style:normal;color:var(--accent);font-weight:800}
   /* שורת ציון הדרך (examTip) יושבת מתחת למספרים ולא לצדם.
      ⚠ `min-width:100%` ולא `flex-basis:100%`. הגרסה הראשונה השתמשה ב-flex-basis,
      ונמדד בדפדפן שהיא לא שברה שורה בכלל: flex-shrink הוא 1 כברירת מחדל, ולכן הפריט
-     התכווץ והתיישב לצד המספרים — שתי עמודות שכל אחת נשברת בתוך עצמה, וזה נקרא כטקסט
+     התכווץ והתיישב לצד המספרים · שתי עמודות שכל אחת נשברת בתוך עצמה, וזה נקרא כטקסט
      מעורבב. min-width אינו ניתן לכיווץ, ולכן הוא באמת דוחף לשורה חדשה.
      שקטה מהמספרים בכוונה: זו הערת דרך, לא נתון. */
   .exam-pill{flex-wrap:wrap}
@@ -1093,7 +1093,7 @@
     #intro .w-title em::after{transform:scaleX(1)}
     .feat{transition:none}
   }
-  /* a new build is ready but the moment was wrong — one tap, no hunting for a reload button */
+  /* a new build is ready but the moment was wrong -- one tap, no hunting for a reload button */
   .upd-bar{position:fixed;inset-inline:0;bottom:0;z-index:200;border:0;width:100%;
     background:linear-gradient(180deg,var(--gold),var(--accent));color:#fff;
     font-family:"Heebo",sans-serif;font-weight:700;font-size:.92rem;
@@ -1102,7 +1102,7 @@
   @keyframes updIn{ from{transform:translateY(100%)} to{transform:none} }
   @media (prefers-reduced-motion:reduce){ .upd-bar{animation:none} }
 
-  /* STORAGE-FULL BAR — stays until a write succeeds, unlike the toast it replaces */
+  /* STORAGE-FULL BAR -- stays until a write succeeds, unlike the toast it replaces */
   .stg-bar{position:fixed;inset-inline:0;bottom:0;z-index:210;width:100%;
     background:#8c3a24;color:#fff;font-family:"Heebo",sans-serif;font-size:.86rem;
     line-height:1.55;padding:12px 16px calc(12px + env(safe-area-inset-bottom));
@@ -1117,7 +1117,7 @@
   .pv-bar span{flex:1}
   .pv-bar button{background:#fff;color:var(--ink);border:0;border-radius:999px;
     padding:5px 13px;font-size:.76rem;font-family:"Heebo";cursor:pointer}
-  /* DASHBOARD — the streak stands alone; everything else lives inside its own language card,
+  /* DASHBOARD -- the streak stands alone; everything else lives inside its own language card,
      so the two languages are never averaged into one number. */
   .dash-streak{display:flex;align-items:center;gap:16px;background:var(--card);
     border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin-bottom:14px}
@@ -1135,10 +1135,10 @@
   .ds-week i.now em{color:var(--accent);font-weight:700}
   /* ספירה לסיום התקופה החינמית. פס ולא כרטיס: הוא נמצא מעל בחירת השפה, כלומר על המסלול
      של כל כניסה, ולכן הוא חייב להימסר במבט אחד ולא לתפוס את מקום התוכן.
-     הזהב ולא האדום — זו תזכורת לתאריך, לא שגיאה. */
+     הזהב ולא האדום · זו תזכורת לתאריך, לא שגיאה. */
   /* הגרדיאנט הוא זה של הכפתור הראשי (.ask-go) ולא צבע חדש: הפס אמור למשוך את העין,
      אבל אלמנט בצבע שאינו קיים בשום מקום אחר נקרא כפרסומת שהודבקה על האפליקציה.
-     המידות קטנות ב-8% מהגרסה הראשונה, לבקשת חגי — 11/16 → 10/15, והטיפוגרפיה יחד איתן. */
+     המידות קטנות ב-8% מהגרסה הראשונה, לבקשת חגי · 11/16 → 10/15, והטיפוגרפיה יחד איתן. */
   .paybar{display:flex;align-items:baseline;gap:9px;justify-content:center;flex-wrap:wrap;
        position:relative;overflow:hidden;
        margin-top:16px;padding:10px 15px;border-radius:13px;
@@ -1148,12 +1148,12 @@
        animation:payBreath 2.8s ease-in-out infinite}
   .paybar.hidden{display:none!important}
   /* טקסט כהה על זהב בוהק, ולא לבן. הגרסה הראשונה כאן הייתה לבן על גרדיאנט זהב→טרהקוטה,
-     ונמדד יחס ניגודיות 2.62 בקצה הזהב — מתחת לסף. זה בדיוק הלקח שכבר נלמד במייל
+     ונמדד יחס ניגודיות 2.62 בקצה הזהב · מתחת לסף. זה בדיוק הלקח שכבר נלמד במייל
      התזכורת: "בוהק שאי אפשר לקרוא אינו בוהק". הזוג הנוכחי נמדד 5.59 בקצה הגרוע. */
   .paybar b{font-family:"Frank Ruhl Libre",serif;font-weight:900;font-size:1.03rem;
        color:#3a2205;animation:payBeat 2.8s ease-in-out infinite}
   .paybar span{font-size:.75rem;color:rgba(58,34,5,.78)}
-  /* ברק שעובר לאט. ::after ולא אלמנט נוסף, כדי שלא ייכנס לעץ הנגישות — הפס נושא
+  /* ברק שעובר לאט. ::after ולא אלמנט נוסף, כדי שלא ייכנס לעץ הנגישות · הפס נושא
      role="status", וקורא מסך אמור לשמוע את הטקסט בלבד. */
   .paybar::after{content:'';position:absolute;top:0;bottom:0;width:38%;
        background:linear-gradient(90deg,transparent,rgba(255,255,255,.26),transparent);
@@ -1181,8 +1181,8 @@
   .install-cta .ar{color:var(--gold);font-size:1.1rem;flex:0 0 auto;transition:.18s}
   @media (hover:hover) and (pointer:fine){.install-cta:hover .ar{transform:translateX(-4px)}}
 
-  /* bug report — a small persistent affordance; MVP users need it one tap away */
-  /* lifted while the update bar is up — the bar used to sit directly on top of it */
+  /* bug report -- a small persistent affordance; MVP users need it one tap away */
+  /* lifted while the update bar is up -- the bar used to sit directly on top of it */
   body.has-upd .fb-fab{bottom:calc(74px + env(safe-area-inset-bottom))}
   .fb-fab{position:fixed;inset-inline-start:16px;bottom:calc(16px + env(safe-area-inset-bottom));
        z-index:55;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);
@@ -1202,7 +1202,7 @@
        background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px;
        outline:none;resize:vertical;color:var(--ink);text-align:right}
   #fbBody:focus{border-color:var(--gold)}
-  /* Was a monospace LTR block that looked like a console. It is now one quiet Hebrew line —
+  /* Was a monospace LTR block that looked like a console. It is now one quiet Hebrew line -- 
      the same information is still sent, it just no longer asks the reporter to parse it. */
   .fb-ctx{margin-top:10px;font-size:.74rem;color:var(--ink-soft);line-height:1.6;
        text-align:center;opacity:.8}
@@ -1239,7 +1239,7 @@
     <button id="pvSignup">צור חשבון</button>
   </div>
 
-  <!-- ===== AUTH — required before anything else ===== -->
+  <!-- ===== AUTH -- required before anything else ===== -->
   <!-- ===== BOOT SPLASH =====
        The ONLY screen without `hidden`, so it is what the first paint shows. Before this, the
        auth section held that position: every load painted a login form, and a signed-in user
@@ -1264,7 +1264,7 @@
            `tests/71-word-counts-match-data.test.js` משווה את השורה הזאת מול
            `data.js` ו-`data-en.js` ונופל ברגע שהם מתפצלים שוב. -->
       <!-- "וההתקדמות עוברת איתך" תוקן על ידי חגי ב-2.8 ל"סנכרון בין כלל המכשירים",
-           והתיקון מעולם לא הוחל כאן. התקדמות לא "עוברת איתך" — היא מסתנכרנת. -->
+           והתיקון מעולם לא הוחל כאן. התקדמות לא "עוברת איתך" · היא מסתנכרנת. -->
       <p class="au-sub" id="authSub">1,717 מילים בעברית · 3,946 באנגלית.<br>חשבון אחד, סנכרון בין כלל המכשירים</p>
 
       <!-- tabs and form share one lit surface: the fields used to float on the page with
@@ -1280,7 +1280,7 @@
         <label class="au-field" id="fUsername">
           <!-- `nickname`, NOT `username`. This is a display name, and when it was marked
                `username` the browser's password manager keyed the saved credential to it
-               instead of to the email — so a generated password came back paired with
+               instead of to the email · so a generated password came back paired with
                "יוסי" and every later sign-in was rejected. -->
           <input id="authUsername" placeholder=" " autocomplete="nickname" maxlength="40">
           <span>שם תצוגה</span>
@@ -1296,17 +1296,17 @@
           <span>סיסמה · 8 תווים לפחות</span>
         </label>
         <!-- תנאי השימוש §2 קובעים סף גיל, ועד היום שום דבר במסך לא שאל עליו. הצהרה, לא
-             יום הולדת: מועד מדויק הוא פיסת מידע אישי נוספת להחזיק, להדליף ולהצדיק —
+             יום הולדת: מועד מדויק הוא פיסת מידע אישי נוספת להחזיק, להדליף ולהצדיק · 
              בשביל תשובה שהסימון כבר נותן. הטקסט קצר בכוונה; משפט משפטי ארוך מסומן בלי שנקרא,
              וזה זהה לאין שער בכלל.
-             aria-describedby מחבר את התיבה ל-#authMsg, שכבר נושא role="alert" — כך
+             aria-describedby מחבר את התיבה ל-#authMsg, שכבר נושא role="alert" · כך
              הסירוב נאמר יחד עם השדה שהוא מדבר עליו, ולא כהודעה מרחפת. -->
         <button type="submit" class="au-go" id="authSubmit">התחבר<i>←</i></button>
         <button type="button" class="au-link" id="authForgot">שכחתי סיסמה</button>
       </form>
       <!-- role="alert" and not role="status": this is the ONLY gate into the app, and a failed
            sign-in interrupts the task rather than reporting on it. Without this the message was
-           painted on screen and never spoken — the learner typed a wrong password and heard
+           painted on screen and never spoken -- the learner typed a wrong password and heard
            nothing at all, with no way to tell a bad password from a dead network. aria-live is
            stated as well as implied so that swapping the role cannot quietly downgrade it. -->
       <p class="au-msg hidden" id="authMsg" role="alert" aria-live="assertive"></p>
@@ -1323,7 +1323,7 @@
     <div id="adminBody"></div>
   </section>
 
-  <!-- ===== INTRO / LANDING — what the app does, and a way in without an account ===== -->
+  <!-- ===== INTRO / LANDING -- what the app does, and a way in without an account ===== -->
   <section id="intro" class="hidden">
     <div class="topbar hidden" id="introTop"><button class="back" id="introBack">→ חזרה</button><div class="sp"></div></div>
     <div class="welcome-head in-rise" style="margin-top:6vh;animation-delay:.05s">
@@ -1348,7 +1348,7 @@
       <button class="btn btn-primary btn-block" id="introTry" style="margin-top:22px">התחל בלי הרשמה ←</button>
       <p class="w-foot" style="margin-top:10px">התנסות במבחן רמה ויחידת לימוד מילים ללא התחייבות ובלי פרטים.<br>
         <b style="color:var(--ink)">ההתקדמות שתעשה כאן תישמר לחשבון שתפתח.</b></p>
-      <!-- Two ways in existed — try it, or sign in — and no way to simply OPEN an account.
+      <!-- Two ways in existed · try it, or sign in · and no way to simply OPEN an account.
            Someone who had already decided had to guess that "כבר יש לי חשבון" leads to a screen
            with a הרשמה tab on it. The decided visitor is the valuable one; do not make them look. -->
       <div class="in-two">
@@ -1385,7 +1385,7 @@
       <div class="kicker" id="greetKicker">ברוך הבא</div>
       <h1 class="w-title" id="greet">שלום!</h1>
       <p class="w-sub" id="greetSub">באיזו שפה תרצה לתרגל היום?</p>
-      <!-- Council item 2: the picker looked like a one-time structural decision. It is not —
+      <!-- Council item 2: the picker looked like a one-time structural decision. It is not -- 
            each language keeps its own progress and you move between them freely. Saying so
            costs one line and removes the hesitation before the first click. -->
       <!-- ⚠ נוסח מתוקן. הגרסה הקודמת אמרה "בלחיצה על כפתור חזרה ובחירת השפה
@@ -1396,7 +1396,7 @@
       <p class="w-note">ההתקדמות בכל שפה נמדדת בנפרד, וניתן לעבור ביניהן דרך כפתור "חזרה".</p>
     </div>
 
-    <!-- ספירה לסיום התקופה החינמית. נבנה ב-JS ונשאר ריק כשהתאריך עבר — ראה renderPayCountdown. -->
+    <!-- ספירה לסיום התקופה החינמית. נבנה ב-JS ונשאר ריק כשהתאריך עבר · ראה renderPayCountdown. -->
     <div class="paybar hidden" id="payBar" role="status"></div>
 
     <div class="dash-streak">
@@ -1413,7 +1413,7 @@
         <div class="lc-nums">
           <span><b id="heLearned">0</b> נלמדו</span>
           <span><b id="hePract">0</b> תורגלו</span>
-          <span class="lc-of" id="heCount">—</span>
+          <span class="lc-of" id="heCount">–</span>
         </div>
       </button>
       <button class="lang-card en" data-lang="en">
@@ -1423,12 +1423,12 @@
         <div class="lc-nums">
           <span><b id="enLearned">0</b> נלמדו</span>
           <span><b id="enPract">0</b> תורגלו</span>
-          <span class="lc-of" id="enCount">—</span>
+          <span class="lc-of" id="enCount">–</span>
         </div>
       </button>
     </div>
     <!-- שני כפתורי מבחן הרמה ישבו כאן, במסך שנפתח בכל כניסה. מבחן רמה כותב תוצאה חדשה
-         על הקודמת ודוחף אותה לענן, ולכן הוא לא שייך למסך מעבר — הוא עבר להגדרות
+         על הקודמת ודוחף אותה לענן, ולכן הוא לא שייך למסך מעבר · הוא עבר להגדרות
          (#accLevelHe / #accLevelEn) מאחורי דיאלוג אישור. -->
     <button class="install-cta hidden" id="notifCta">
       <span class="ic">🔔</span>
@@ -1440,7 +1440,7 @@
       <span class="tx"><b>התקן את האפליקציה</b><em>תרגול מכל מקום, גם בלי אינטרנט</em></span>
       <span class="ar">←</span>
     </button>
-    <!-- קבוצת הוואטסאפ: ערוץ העדכונים והדיווח. קישור ולא כפתור — הוא פותח את אפליקציית
+    <!-- קבוצת הוואטסאפ: ערוץ העדכונים והדיווח. קישור ולא כפתור · הוא פותח את אפליקציית
          הוואטסאפ ישירות, וגם עובד בלי JS. תמיד גלוי (בלי hidden), כי אינו תלוי בהרשאה. -->
     <a class="install-cta" id="waCta" href="https://chat.whatsapp.com/FxJIBhZ6AYu92bTk08Afgg" target="_blank" rel="noopener">
       <span class="ic">💬</span>
@@ -1482,7 +1482,7 @@
     <div id="lvResult" class="hidden">
       <div class="res-head" style="margin-top:4vh">
         <div class="kicker">התוצאה שלך</div>
-        <div class="lv-badge" id="lvBadge">—</div>
+        <div class="lv-badge" id="lvBadge">–</div>
         <p class="w-sub" id="lvVerdict"></p>
       </div>
       <div class="lv-bands" id="lvBands"></div>
@@ -1502,17 +1502,17 @@
   <!-- ===== HOME ===== -->
   <!-- ===== ACCOUNT / SETTINGS =====
        Reached by tapping your own name. Everything here is either rare (install, privacy) or
-       dangerous (reset progress) — both are wrong on a screen you pass through every day. -->
+       dangerous (reset progress) -- both are wrong on a screen you pass through every day. -->
   <section id="account" class="hidden">
     <div class="topbar"><button class="back" id="accBack">→ חזרה</button><div class="sp"></div></div>
     <div class="welcome-head">
       <div class="kicker">החשבון שלי</div>
-      <h1 class="w-title" id="accName">—</h1>
+      <h1 class="w-title" id="accName">–</h1>
       <p class="w-sub" id="accMail"></p>
     </div>
     <!-- משתמש דיווח שהגדרות והתקדמות מעורבבות במסך אחד. הפיצול הוא ללשוניות ולא לשני
          מסכים: מסך שני היה מוסיף ניווט, כפתור חזרה משלו ומצב שאפשר ללכת בו לאיבוד, בשביל
-         הפרדה שאפשר לעשות בשורה אחת. הכניסה מהשם פותחת בפרופיל, הכניסה מ-⚙ בהגדרות —
+         הפרדה שאפשר לעשות בשורה אחת. הכניסה מהשם פותחת בפרופיל, הכניסה מ-⚙ בהגדרות · 
          כל דלת מגיעה למה שחיפשו דרכה. -->
     <div class="seg acc-seg" id="accSeg" role="tablist">
       <button data-tab="profile" class="on" role="tab" aria-selected="true">פרופיל</button>
@@ -1520,28 +1520,28 @@
     </div>
 
     <div class="acc-card">
-      <div class="acc-row"><span>מייל</span><b id="accMail2">—</b></div>
-      <div class="acc-row"><span>שם משתמש</span><b id="accUser">—</b></div>
-      <div class="acc-row"><span>נרשמת</span><b id="accSince">—</b></div>
-      <div class="acc-row"><span>סטטוס גישה</span><b id="accSub">—</b></div>
+      <div class="acc-row"><span>מייל</span><b id="accMail2">–</b></div>
+      <div class="acc-row"><span>שם משתמש</span><b id="accUser">–</b></div>
+      <div class="acc-row"><span>נרשמת</span><b id="accSince">–</b></div>
+      <div class="acc-row"><span>סטטוס גישה</span><b id="accSub">–</b></div>
     </div>
     <!-- progress on the settings page, because this is where someone goes to ask
-         "where am I" — and until now the answer lived only inside a language -->
+         "where am I" -- and until now the answer lived only inside a language -->
     <div class="acc-prog hidden" id="accProg"></div>
 
 
     <h3 class="acc-h" id="accToolsH">כלים</h3>
     <!-- The daily reminder lives HERE, not only as a card that appears on the home screen once
          and is gone. A settings page is where you go looking for the thing you said "not now"
-         to — and a browser notification denial is permanent, so the second chance has to exist
+         to -- and a browser notification denial is permanent, so the second chance has to exist
          somewhere findable. -->
-    <!-- admins only. The owner is also a learner, so this screen belongs to him too — the
+    <!-- admins only. The owner is also a learner, so this screen belongs to him too -- the
          panel is a row here, not a redirect that swallowed the whole account page. -->
     <button class="pbtn hidden" id="accAdmin"><div class="ic">🛠</div><div class="tx"><b>פאנל הבקרה</b>
       <span>משתמשים, דיווחים ומנויים</span></div><div class="cnt">‹</div></button>
     <!-- Council item 4. The exam is the only deadline that matters to this audience, and the
          app knew nothing about it. A date here turns "sometime in three months" into a number
-         that changes every morning — which is the honest kind of urgency, not an invented one. -->
+         that changes every morning -- which is the honest kind of urgency, not an invented one. -->
     <label class="pbtn exam-row" id="accExamRow"><div class="ic">📅</div>
       <div class="tx"><b>מתי המבחן שלך?</b>
         <span id="accExamSub">נוסיף ספירה לאחור למסך הבית</span></div>
@@ -1552,7 +1552,7 @@
       <span>פותח את <bdi>800+</bdi> ממסך הבית, גם בלי אינטרנט</span></div><div class="cnt">‹</div></button>
     <!-- משתמש ביקש דרך לחזור על מה שכבר נלמד. היא הייתה קיימת רק בתוך יחידה בודדת
          (מילים שלמדתי ← בתוך היחידה), ומי שלמד לאורך עשר יחידות לא יכול היה לחזור על
-         הכול במקום אחד. שני הכפתורים חולקים את אותו מאגר — תרגול ודף — כי חזרה על נייר
+         הכול במקום אחד. שני הכפתורים חולקים את אותו מאגר · תרגול ודף · כי חזרה על נייר
          וחזרה על מסך הן אותה בקשה בשני מצבים. -->
     <button class="pbtn" id="accReview"><div class="ic">🎓</div><div class="tx"><b>חזרה על מה שלמדתי</b>
       <span id="accReviewSub">תרגול חוזר של המילים שכבר בשליטה · מכל יחידות הלימוד</span></div><div class="cnt" id="accReviewN">‹</div></button>
@@ -1563,7 +1563,7 @@
     <button class="pbtn" id="accWhat"><div class="ic">❓</div><div class="tx"><b>מה אפשר לעשות באפליקציה</b>
       <span>שמונה יכולות שקיימות באפליקציה, כולל כאלה שנמצאות עמוק בתפריטים</span></div><div class="cnt">‹</div></button>
     <!-- מבחן הרמה הגיע לכאן ממסך בחירת השפה. שם הוא ישב על המסך שנפתח בכל כניסה, בזמן
-         שהוא כותב תוצאה חדשה על הקודמת ודוחף אותה לענן — ובאנגלית הוא גם המסלול היחיד
+         שהוא כותב תוצאה חדשה על הקודמת ודוחף אותה לענן · ובאנגלית הוא גם המסלול היחיד
          שמציע להוציא מילים מהתרגול. שתי השורות פותחות את #lvAsk ולא את המבחן עצמו. -->
     <button class="pbtn" id="accLevelHe"><div class="ic">🎯</div><div class="tx"><b>מבחן רמה בעברית</b>
       <span>10–20 מילים · המבחן מתאים את עצמו לרמה שלך</span></div><div class="cnt">‹</div></button>
@@ -1573,7 +1573,7 @@
     <h3 class="acc-h">יציאה ומחיקה</h3>
     <!-- ההתנתקות עברה לכאן מהשורה העליונה: כפתור "יציאה" ליד "בקרה" ו"החלף שפה" נראה
          כמו ניווט ונלחץ בטעות, ומחירו הוא מסך התחברות במקום המילים. כאן הוא נקרא לפני
-         שלוחצים. ראשון מבין השלושה כי הוא היחיד מהם שאפשר לבטל — פשוט להתחבר שוב. -->
+         שלוחצים. ראשון מבין השלושה כי הוא היחיד מהם שאפשר לבטל · פשוט להתחבר שוב. -->
     <button class="pbtn danger-tile" id="accSignOut"><div class="ic">⎋</div><div class="tx"><b>התנתקות</b>
       <span>ההתקדמות נשמרת בענן וחוזרת בהתחברות הבאה. הנתונים השמורים במכשיר נמחקים,
       ולכן עד ההתחברות הבאה נדרש חיבור לאינטרנט.</span></div><div class="cnt">‹</div></button>
@@ -1591,7 +1591,7 @@
   <section id="home" class="hidden">
     <!-- סדר הכפתורים אינו קישוט. הגלגל ישב בין תווית השם לכפתורי הטקסט, כלומר בערך
          באמצע השורה, ואייקון בודד באמצע נקרא כתקלה ולא ככפתור. הוא הועבר לקצה וצמוד
-         לתווית השם — שתי הדלתות לאותו מסך, זו לצד זו, בפינה אחת. -->
+         לתווית השם · שתי הדלתות לאותו מסך, זו לצד זו, בפינה אחת. -->
     <!-- ⚠ ה-title היה "חזרה לבחירת שפה", ובאנגלית הכפתור מוביל עכשיו לבחירת
          התרגול. אותו שקר שתוקן בהערה שבמסך בחירת השפה, באותו מסך ובאותו יום.
          "חזרה" בלי יעד נקוב נכון לשתי השפות. /HEB §4. -->
@@ -1602,14 +1602,14 @@
       <div class="kicker"><bdi>800+</bdi></div>
       <h1 id="homeTitle">פסיכומטרי · עברית</h1>
       <p id="homeSub">המילון הרשמי · 10 יחידות</p>
-      <div class="totalpill" id="totalPill">—</div>
+      <div class="totalpill" id="totalPill">–</div>
     </div>
 
     <!-- The single most-requested thing in the survey (52 of 66): keep drilling the words I
-         keep getting wrong. It existed — כל המאגר ← מילים לחיזוק — but three taps deep, which
+         keep getting wrong. It existed · כל המאגר ← מילים לחיזוק · but three taps deep, which
          for the top request is the same as not existing. -->
     <!-- שתי משתמשות ביקשו "ג'אדג'ט" במסך הבית, וההגדרה שהתקבלה היא: הצעה למילה עם
-         הפירוש שלה, אינטראקטיבית. זו לא ווידג'ט אלא נקודת כניסה — מי שנכנס ולא יודע
+         הפירוש שלה, אינטראקטיבית. זו לא ווידג'ט אלא נקודת כניסה · מי שנכנס ולא יודע
          מאיפה להתחיל מקבל דבר אחד ללחוץ עליו מיד, במקום עשרה אריחים זהים.
          הפירוש מוסתר בכוונה: מילה שרואים יחד עם התשובה נקראת ולא נלמדת. הניחוש הוא
          מה שהופך את זה לתרגול ולא לשלט. -->
@@ -1618,7 +1618,7 @@
       <div class="wc-kicker" id="wcKicker"></div>
       <!-- הרמקול לצד המילה, כמו בתרגול ובשני המבחנים. הוא מתחיל hidden ו-bindSay מחליט:
            הוא נדלק רק במאגר האנגלי וכשיש קול במכשיר. המילה עצמה כבר גלויה כאן, והפירוש
-           הוא זה שמוסתר — ולכן הקראה אינה מוסרת שום תשובה. -->
+           הוא זה שמוסתר · ולכן הקראה אינה מוסרת שום תשובה. -->
       <div class="wc-row">
         <div class="wc-term" id="wcTerm"></div>
         <button class="say hidden" id="wcSay" title="השמע את המילה" aria-label="השמע את המילה">🔊</button>
@@ -1627,7 +1627,7 @@
       <div class="wc-mean hidden" id="wcMean"></div>
       <div class="wc-acts hidden" id="wcActs">
         <!-- class="wc-prac" ולא "wc-go": wc-go מוגדר פעמיים בגיליון, והשני הוא החץ העגול
-             של "המילים שאתה עדיין מפספס" — עיגול 38px. הוא ניצח, והכפתור הזה הוצג
+             של "המילים שאתה עדיין מפספס" · עיגול 38px. הוא ניצח, והכפתור הזה הוצג
              כעיגול אדום שחתך את הטקסט וכיסה את הכפתור שלידו. -->
         <button class="wc-prac" id="wcPractice">תרגל חולשות</button>
         <button class="wc-alt" id="wcNext">המילה הבאה</button>
@@ -1733,7 +1733,7 @@
     <div id="exResult" class="hidden">
       <div class="res-head" style="margin-top:4vh">
         <div class="kicker">תוצאת המבחן</div>
-        <div class="lv-badge" id="exScore">—</div>
+        <div class="lv-badge" id="exScore">–</div>
         <p class="w-sub" id="exVerdict"></p>
       </div>
       <div class="ex-break" id="exBreak"></div>
@@ -1804,7 +1804,7 @@
         <div class="lc-nums">
           <span><b id="mWordsLearned">0</b> נלמדו</span>
           <span><b id="mWordsPract">0</b> תורגלו</span>
-          <span class="lc-of" id="mWordsCount">—</span>
+          <span class="lc-of" id="mWordsCount">–</span>
         </div>
       </button>
       <button class="lang-card en" data-mode="sent">
@@ -1817,7 +1817,7 @@
                פעם אחת, ולכן "בראשונה" הייתה טענה שאינה נמדדת. גם המין תוקן:
                בשאר האפליקציה נכתב "נכונים". נתפס בציד ב-11.8. -->
           <span><b id="mSentOk">0</b> נכונים</span>
-          <span class="lc-of" id="mSentCount">—</span>
+          <span class="lc-of" id="mSentCount">–</span>
         </div>
       </button>
     </div>
@@ -1863,7 +1863,7 @@
     <div class="actions" style="margin-top:22px">
       <!-- "תרגל את מה שלא ידעתי" described the mechanism. This describes what happens to YOU:
            the count is the point, and the arrow says it starts now. Typo tolerance was measured
-           and abandoned in favour of this button — over 5,617 words a one-edit rule makes 2,371
+           and abandoned in favour of this button · over 5,617 words a one-edit rule makes 2,371
            pairs indistinguishable (advice~advise, affect~effect), and this round is the honest
            second chance: you meet the word again instead of being told you nearly had it. -->
       <button class="btn btn-primary" id="retryMissedBtn">תרגל את <span id="missCount">0</span> המילים שנשארו ←</button>
@@ -1911,7 +1911,7 @@
 
 </div>
 
-<!-- ===== "we sent you a mail" — a modal, not a line of text =====
+<!-- ===== "we sent you a mail" · a modal, not a line of text =====
      A one-line note under the form is read by whoever is already looking there. Someone who has
      just pressed "צור חשבון" is looking at the button, and the single action that decides whether
      they ever get in has to interrupt them. -->
@@ -1928,7 +1928,7 @@
     <div class="size-custom" style="margin-top:10px">
       <input id="delInput" type="email" autocomplete="off" dir="ltr" placeholder="הכתובת שלך">
     </div>
-    <!-- Same paragraph, same silence — on the dialog that deletes the account irreversibly. -->
+    <!-- Same paragraph, same silence -- on the dialog that deletes the account irreversibly. -->
     <p class="au-msg hidden" id="delMsg" role="alert" aria-live="assertive"></p>
     <button class="ask-go" id="delGo" disabled style="background:linear-gradient(180deg,#b8492e,#8f3220)">
       מחק את החשבון לצמיתות</button>
@@ -1990,7 +1990,7 @@
 </div>
 
 <!-- משתמשת דיווחה שלא ידעה שיש התראות באפליקציה בכלל. ה-CTA הקיים הוא כפתור שורה
-     במסך הבית, וקל מאוד לפספס אותו — במיוחד אצל מי שכבר התרגל למסך ולא סורק אותו יותר.
+     במסך הבית, וקל מאוד לפספס אותו · במיוחד אצל מי שכבר התרגל למסך ולא סורק אותו יותר.
      הדיאלוג הזה מוצג פעם אחת בלבד, ורק למי שכבר תרגל יומיים ומעלה. ההיגיון של "לא לשאול
      זר" נשמר: דחייה בדפדפן היא לצמיתות, ובקשה שמוצגת למישהו שעוד לא הבין מה האפליקציה
      עושה נדחית כמעט תמיד. מי שכבר תרגל אינו זר. -->
@@ -2006,9 +2006,9 @@
 </div>
 
 <!-- קבוצת הוואטסאפ: הזמנה קופצת שמוצגת פעם אחת לכל מכשיר (hw_waOffered). חגי ביקש שתקפוץ
-     לכולם בכניסה, וברגע שסוגרים אותה היא לא חוזרת — הכרטיס הקבוע במסך הכניסה (#waCta) נשאר
+     לכולם בכניסה, וברגע שסוגרים אותה היא לא חוזרת · הכרטיס הקבוע במסך הכניסה (#waCta) נשאר
      כאופציה. הכפתור הראשי הוא קישור <a> ולא <button>: הוא פותח את הוואטסאפ ישירות. -->
-<!-- סרטון ההדרכה: אותה תבנית של הזמנת הוואטסאפ — קופץ פעם אחת לכל מכשיר, ונסגר לתמיד.
+<!-- סרטון ההדרכה: אותה תבנית של הזמנת הוואטסאפ · קופץ פעם אחת לכל מכשיר, ונסגר לתמיד.
      ההבדל היחיד הוא שכאן חגי ביקש במפורש את הנוסח "אל תראה לי את זה יותר", ולכן זה
      כתוב על הכפתור ולא מרומז. הכפתור הראשי הוא קישור <a> שנפתח בלשונית נפרדת:
      הסרטון אינו מוטמע בדף, כי הטמעה חיצונית דורשת פתיחת ה-CSP. -->
@@ -2034,15 +2034,15 @@
   </div>
 </div>
 
-<!-- ===== מבחן רמה — האזהרה לפני ההתחלה =====
+<!-- ===== מבחן רמה · האזהרה לפני ההתחלה =====
      כל שורה כאן מתארת מה הקוד עושה, ולא מה שנשמע מסוכן:
-       · lvFinish() עושה LS.set(lvKey(), level) + queueRemoteSync() — התוצאה הקודמת מוחלפת
+       · lvFinish() עושה LS.set(lvKey(), level) + queueRemoteSync() · התוצאה הקודמת מוחלפת
          ונדחפת לענן, ולכן "מסתנכרנת לכלל המכשירים".
-       · שום דבר אחר לא נכתב — hw_stats, ציוני היחידות ורצף הימים לא נגעו, ולכן המשפט השני.
+       · שום דבר אחר לא נכתב · hw_stats, ציוני היחידות ורצף הימים לא נגעו, ולכן המשפט השני.
        · ההצעה להוציא מילים מהתרגול קיימת רק באנגלית ורק כש-hasProgressIn('en') < 10
          (app.js › lvFinish), ולכן #lvAskEn מוצג רק במסלול האנגלי ומנוסח כתנאי ולא כהבטחה.
        · lvApplyKnown כותב src:'lv' ולעולם אינו דורס רשומה קיימת, ולכן "לא נמחקות" ו"ניתן
-         להחזיר" נכונים — #mRestore משחזר בדיוק את הרשומות האלה. -->
+         להחזיר" נכונים · #mRestore משחזר בדיוק את הרשומות האלה. -->
 <div class="ask hidden" id="lvAsk">
   <div class="ask-box">
     <div class="mail-ico" aria-hidden="true">🎯</div>
@@ -2071,7 +2071,7 @@
          another confirmation to an existing unconfirmed account. -->
     <button class="ask-cancel" id="mailAskResend">לא קיבלתי · שלח שוב</button>
     <!-- The dead end this exists for: when the address is ALREADY registered, Supabase returns
-         the same success and sends nothing — deliberately, so nobody can probe which addresses
+         the same success and sends nothing -- deliberately, so nobody can probe which addresses
          exist. The app therefore cannot tell the two cases apart, and without a way out the
          person waits forever for a mail that was never sent. The reset link works either way. -->
     <button class="ask-cancel" id="mailAskExisting">כבר נרשמתי פעם? שלח לי קישור לאיפוס סיסמה</button>
@@ -2133,7 +2133,7 @@
 </div>
 
 <!-- ===== דיווח באג / רעיון ===== -->
-<!-- ===== PRINTABLE SHEET — a direct child of body, so the print rules can hide .wrap
+<!-- ===== PRINTABLE SHEET -- a direct child of body, so the print rules can hide .wrap
      and leave only this behind. Screen CSS keeps it display:none at all times. ===== -->
 <div id="sheet"></div>
 

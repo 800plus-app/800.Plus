@@ -1,12 +1,12 @@
 'use strict';
-/* Bank integrity — what protects a bank edit.
+/* Bank integrity -- what protects a bank edit.
  *
  * data.js and data-en.js are edited by hand and by script, several times a day. Nothing about a
  * bad edit crashes: a duplicate key silently merges two words into one entry, an untranslated
  * gloss silently asks an unanswerable question, a leftover comma silently shows an empty "also"
  * line. Every one of those reaches a learner looking like the app working normally.
  *
- * These run over the real files. They are deliberately whole-bank, not sampled — a rule that
+ * These run over the real files. They are deliberately whole-bank, not sampled -- a rule that
  * only checks the words added today (as scratchpad/nite_v1.js does) cannot catch a regression
  * in a word added last week.
  */
@@ -29,10 +29,10 @@ const LANGS = [
  * Built from strings rather than written as a regex literal, and the invisible characters are
  * given as escapes: a non-breaking space pasted in as a character looks exactly like a space,
  * and the first draft of this rule contained one, which quietly turned it into "match every row"
- * — 3,687 failures that all looked real.
+ * · 3,687 failures that all looked real.
  *
  * Note what is NOT here: bare Hebrew verbs. לבדוק is a legitimate gloss for `check`, and
- * להשלים for `complete`, `accomplish` and `perfect` — both were in the first draft of this list,
+ * להשלים for `complete`, `accomplish` and `perfect` · both were in the first draft of this list,
  * and both failed on correct data. A one-word Hebrew "marker" is almost always somebody's
  * vocabulary. Only multi-word phrases no gloss would ever be, plus never-legitimate characters. */
 const MARKER = new RegExp([
@@ -75,13 +75,13 @@ for (const { lang, file, label } of LANGS) {
         'terms that normalise to nothing, and so can never be looked up or answered:');
     });
 
-    test('every gloss contains Hebrew — in both banks the gloss is the Hebrew side', () => {
+    test('every gloss contains Hebrew · in both banks the gloss is the Hebrew side', () => {
       none(rows.filter(r => !/[֐-׿]/.test(r.gloss)).map(r => `${at(r)} :: ${r.gloss}`),
         'glosses with no Hebrew at all:');
     });
 
-    test('every listed sense contains Hebrew — an untranslated sense is an unanswerable prompt', () => {
-      // Segment-level, not gloss-level. A gloss like "חשבון; account for — להסביר" is fine: the
+    test('every listed sense contains Hebrew · an untranslated sense is an unanswerable prompt', () => {
+      // Segment-level, not gloss-level. A gloss like "חשבון; account for · להסביר" is fine: the
       // Latin is a collocation being glossed. A segment that is ONLY Latin is untranslated text.
       const bad = [];
       for (const r of rows) {
@@ -93,7 +93,7 @@ for (const { lang, file, label } of LANGS) {
     });
 
     test('no Latin letters outside parentheses or a collocation gloss', () => {
-      // Inside parentheses Latin is a usage note and is intended, and "account for — להסביר"
+      // Inside parentheses Latin is a usage note and is intended, and "account for · להסביר"
       // is a collocation being glossed. Anything else is source text that never got translated.
       const strip = g => String(g)
         .replace(/\([^)]*\)/g, ' ')
@@ -113,7 +113,7 @@ for (const { lang, file, label } of LANGS) {
         'a truncated edit left a separator behind:');
     });
 
-    test('parentheses are balanced — maskTerm and meaningSegs both split on them', () => {
+    test('parentheses are balanced · maskTerm and meaningSegs both split on them', () => {
       none(rows.filter(r => (r.gloss.match(/\(/g) || []).length !== (r.gloss.match(/\)/g) || []).length)
         .map(r => `${at(r)} :: ${r.gloss}`),
         'unbalanced parentheses:');
@@ -146,7 +146,7 @@ for (const { lang, file, label } of LANGS) {
       none(Object.keys(data).filter(u => data[u].length === 0).map(u => `unit ${u} is empty`), 'empty units:');
     });
 
-    test('buildBank keeps every entry — nothing is silently folded away', () => {
+    test('buildBank keeps every entry · nothing is silently folded away', () => {
       // If this drifts from the row count, two entries collided on a key and one learner-visible
       // word disappeared from the app without any error being raised anywhere.
       assert.strictEqual(ctx.BANK.length, rows.length);
@@ -166,10 +166,10 @@ for (const { lang, file, label } of LANGS) {
   });
 }
 
-describe('Hebrew bank — one lexeme, one entry', () => {
+describe('Hebrew bank · one lexeme, one entry', () => {
   /* data.js's own first line promises "One word = one entry, senses merged." Key uniqueness
    * (tested above) enforces that only up to niqqud. It cannot see a word entered once
-   * defectively and once plene — עֹל and עֹול normalise to על and עול, two different keys, so
+   * defectively and once plene · עֹל and עֹול normalise to על and עול, two different keys, so
    * the dedupe in buildBank never fires. The learner meets the same word in two units, and
    * progress recorded on one does not count for the other.
    *
@@ -187,7 +187,7 @@ describe('Hebrew bank — one lexeme, one entry', () => {
    * Vowels, not the literal string, because plene spelling adds letters that carry no mark:
    * the vav in עֹול and the yod in אִיכּוּל are maters, so both sides reduce to the same sound
    * and the duplicate is caught. Dagesh is skipped as consonantal EXCEPT on vav, where it is
-   * the shuruq vowel — that single exception is what separates נוּגֶה from נֹגַהּ. */
+   * the shuruq vowel · that single exception is what separates נוּגֶה from נֹגַהּ. */
   const VOWEL = /[ְ-ׇֻ]/;
   function vowels(term) {
     const out = [];
@@ -203,7 +203,7 @@ describe('Hebrew bank — one lexeme, one entry', () => {
     return out.join('');
   }
 
-  test('colliding entries differ in vocalisation — no word is in the bank twice', () => {
+  test('colliding entries differ in vocalisation · no word is in the bank twice', () => {
     const ctx = loadApp({ lang: 'he' });
     const byKey = new Map();
     for (const w of ctx.BANK) byKey.set(ctx.K(w.term), w);
@@ -231,7 +231,7 @@ describe('Hebrew bank — one lexeme, one entry', () => {
   });
 
   /* The other half of the rule. Two words may share a spelling only if they are genuinely two
-   * words, and the gloss is the only thing the learner has to tell them apart — so if the two
+   * words, and the gloss is the only thing the learner has to tell them apart -- so if the two
    * glosses are equal, the vocalisation difference is a typo rather than a distinction. */
   test('a legal homograph pair carries two different meanings', () => {
     const ctx = loadApp({ lang: 'he' });

@@ -5,7 +5,7 @@
  * lying: a rejected correct answer teaches the learner to distrust the app, and an accepted
  * wrong one teaches them the wrong word. Neither shows up in a console.
  *
- * check() itself (app.js:735) cannot be lifted — it reads #answerInput and writes #feedback.
+ * check() itself (app.js:735) cannot be lifted -- it reads #answerInput and writes #feedback.
  * What it decides with is two lines, restated here and nowhere else:
  *     isCorrect(v, w.term) || glossAlts(w).some(t => isCorrect(v, t))
  * Everything those two lines call is the real code.
@@ -29,7 +29,7 @@ const find = (ctx, term) => {
   return w;
 };
 
-describe('isCorrect — exact match', () => {
+describe('isCorrect · exact match', () => {
   test('a term answers itself in both languages', () => {
     assert.strictEqual(he.isCorrect('כֹּפֶר', 'כֹּפֶר'), true);
     assert.strictEqual(en.isCorrect('house', 'house'), true);
@@ -49,7 +49,7 @@ describe('isCorrect — exact match', () => {
   });
 
   test('a punctuation-only answer is never correct', () => {
-    // These normalise to '' — the guard at app.js:488 is what stops them matching everything.
+    // These normalise to '' -- the guard at app.js:488 is what stops them matching everything.
     assert.strictEqual(en.isCorrect('!!!', 'house'), false);
     assert.strictEqual(he.isCorrect('...', 'כֹּפֶר'), false);
     assert.strictEqual(he.isCorrect('״', 'כֹּפֶר'), false);
@@ -61,7 +61,7 @@ describe('isCorrect — exact match', () => {
   });
 });
 
-describe('isCorrect — slash and comma alternatives', () => {
+describe('isCorrect · slash and comma alternatives', () => {
   test('either side of a " - " pair is accepted', () => {
     const w = find(en, '1st - first');
     assert.strictEqual(en.isCorrect('first', w.term), true);
@@ -91,7 +91,7 @@ describe('isCorrect — slash and comma alternatives', () => {
   });
 });
 
-describe('isCorrect — English compounds written both ways', () => {
+describe('isCorrect · English compounds written both ways', () => {
   test('the closed form answers the open form and vice versa', () => {
     for (const [typed, term] of [
       ['bestseller', 'best-seller'], ['best seller', 'best-seller'], ['best-seller', 'bestseller'],
@@ -109,7 +109,7 @@ describe('isCorrect — English compounds written both ways', () => {
   });
 });
 
-describe('isCorrect — Hebrew plene forms', () => {
+describe('isCorrect · Hebrew plene forms', () => {
   test('the everyday unvocalised spelling is accepted for the stored vocalised one', () => {
     for (const [typed, term] of [
       ['כופר', 'כֹּפֶר'], ['סייס', 'סַיָּס'], ['מיכמורת', 'מִכְמוֹרֶת'], ['תקווה', 'תִּקְוָה'],
@@ -118,7 +118,7 @@ describe('isCorrect — Hebrew plene forms', () => {
     }
   });
 
-  test('every Hebrew term accepts its own plene spelling — whole bank', () => {
+  test('every Hebrew term accepts its own plene spelling · whole bank', () => {
     none(Array.from(he.BANK).filter(w => !Array.from(he.heForms(w.term)).every(f => he.isCorrect(f, w.term)))
       .map(w => w.term),
       'terms that reject one of their own generated spellings:');
@@ -130,10 +130,10 @@ describe('isCorrect — Hebrew plene forms', () => {
   });
 });
 
-describe('shared gloss — a different word that means the same thing', () => {
+describe('shared gloss · a different word that means the same thing', () => {
   /* 401 English entries and 47 Hebrew ones carry a gloss identical to another entry's. In the
    * default direction the gloss IS the question, so a learner shown "ענף" can only be answered
-   * with one of זֶרֶד / זַלְזַל / פֹּארָה — and the learner who knows a different one is told they
+   * with one of זֶרֶד / זַלְזַל / פֹּארָה · and the learner who knows a different one is told they
    * are wrong. */
   const cases = [
     { ctx: he, label: 'Hebrew' },
@@ -193,7 +193,7 @@ describe('shared gloss — a different word that means the same thing', () => {
   });
 });
 
-describe('meaning direction — answering with the gloss', () => {
+describe('meaning direction · answering with the gloss', () => {
   test('the exact gloss is accepted', () => {
     assert.strictEqual(he.meaningMatch('אור, זוהר', 'אור, זוהר'), true);
   });
@@ -208,7 +208,7 @@ describe('meaning direction — answering with the gloss', () => {
   });
 
   test('REGRESSION: a word lifted out of a parenthetical example is NOT accepted', () => {
-    /* app.js:714 — "יגור :: פוחד, חושש (אשר יגורתי בא - הדבר ממנו חששתי קרה)" once accepted
+    /* app.js:714 · "יגור :: פוחד, חושש (אשר יגורתי בא - הדבר ממנו חששתי קרה)" once accepted
      * "קרה", a completely different word, and promoted the card to level 3. One whole listed
      * sense is enough; a word from inside an example is not. */
     const gloss = 'פוחד, חושש (אשר יגורתי בא - הדבר ממנו חששתי קרה)';
