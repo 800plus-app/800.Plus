@@ -66,7 +66,7 @@ describe('הגייה · הטקסט שנשלח למנוע ההקראה', () => {
     const at = app.indexOf('  say(text, btn){');
     const body = app.slice(at, at + 400);
     assert.match(body, /new SpeechSynthesisUtterance\(this\.speakable\(text\)\)/,
-      'ההקראה עדיין מקבלת את הטקסט הגולמי — "1st - first" יישמע "one-st dash first"');
+      'ההקראה עדיין מקבלת את הטקסט הגולמי -- "1st - first" יישמע "one-st dash first"');
   });
 
   test('ערך סדר נקרא בצורה המילולית בלבד', () => {
@@ -116,6 +116,6 @@ describe('הגייה · הטקסט שנשלח למנוע ההקראה', () => {
 
     const changed = terms.filter(t => S(t) !== t);
     assert.strictEqual(changed.length, 20,
-      `צפויים 20 ערכים מנורמלים, נמצאו ${changed.length} — המאגר השתנה או שהכלל התרחב`);
+      `צפויים 20 ערכים מנורמלים, נמצאו ${changed.length} -- המאגר השתנה או שהכלל התרחב`);
   });
 });

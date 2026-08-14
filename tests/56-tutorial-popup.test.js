@@ -56,7 +56,7 @@ describe('פופאפ סרטון ההדרכה', () => {
     /* השער שמונע פופאפ שמפנה לשום מקום. */
     assert.match(app, /const TUTORIAL_URL\s*=\s*''/, 'TUTORIAL_URL אינו מוגדר כריק כברירת מחדל');
     assert.match(fn(), /if\(!TUTORIAL_URL\)\s*return/,
-      'הפופאפ אינו נחסם כשאין כתובת — הוא יפנה לקישור שבור');
+      'הפופאפ אינו נחסם כשאין כתובת -- הוא יפנה לקישור שבור');
   });
 
   test('הכתובת מוזרקת לקישור לפני ההצגה', () => {
@@ -64,7 +64,7 @@ describe('פופאפ סרטון ההדרכה', () => {
     const setAt = body.indexOf('a.href=TUTORIAL_URL');
     const showAt = body.indexOf("show($('#vidAsk'))");
     assert.ok(setAt > 0, 'הכתובת אינה מוזרקת ל-#vidAskGo');
-    assert.ok(setAt < showAt, 'הכתובת מוזרקת אחרי ההצגה — הקישור יהיה ריק לרגע');
+    assert.ok(setAt < showAt, 'הכתובת מוזרקת אחרי ההצגה -- הקישור יהיה ריק לרגע');
   });
 
   test('מוצג פעם אחת: הדגל נכתב לפני ההצגה', () => {
@@ -73,7 +73,7 @@ describe('פופאפ סרטון ההדרכה', () => {
     const setAt = body.indexOf("LS.set('hw_vidOffered',1)");
     const showAt = body.indexOf("show($('#vidAsk'))");
     assert.ok(setAt > 0 && setAt < showAt,
-      'הדגל אינו נכתב לפני ההצגה — "אל תראה לי את זה יותר" עלול לא להתקיים');
+      'הדגל אינו נכתב לפני ההצגה -- "אל תראה לי את זה יותר" עלול לא להתקיים');
   });
 
   test('לא נערם על דיאלוג אחר שכבר פתוח', () => {
@@ -92,7 +92,7 @@ describe('פופאפ סרטון ההדרכה', () => {
   test('הדגל שמור מהניקוי בהחלפת חשבון', () => {
     const at = app.indexOf('function wipeAccountKeys');
     assert.match(app.slice(at, at + 400), /k!=='hw_vidOffered'/,
-      'hw_vidOffered אינו ברשימת החריגים — הסרטון יקפוץ מחדש בכל החלפת חשבון');
+      'hw_vidOffered אינו ברשימת החריגים -- הסרטון יקפוץ מחדש בכל החלפת חשבון');
   });
 
   test('כל מסלולי הסגירה מחוברים', () => {

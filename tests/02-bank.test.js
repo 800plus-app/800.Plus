@@ -67,7 +67,7 @@ for (const { lang, file, label } of LANGS) {
         if (seen.has(k)) dupes.push(`${k}  <-  ${seen.get(k)}  vs  "${r.term}" [unit ${r.unit}]`);
         else seen.set(k, `"${r.term}" [unit ${r.unit}]`);
       }
-      none(dupes, 'duplicate normalised keys — one of each pair is invisible in the app:');
+      none(dupes, 'duplicate normalised keys -- one of each pair is invisible in the app:');
     });
 
     test('no normalised key is empty', () => {
@@ -225,8 +225,8 @@ describe('Hebrew bank · one lexeme, one entry', () => {
     }
     none([...pairs.values()],
       'these two rows are the SAME word: same consonants and the same vowels, differing only\n' +
-      'in plene vs defective spelling. Keep one row — the plene spelling, which is the modern\n' +
-      'standard — and merge both glosses into it. A learner who meets the same word in two\n' +
+      'in plene vs defective spelling. Keep one row -- the plene spelling, which is the modern\n' +
+      'standard -- and merge both glosses into it. A learner who meets the same word in two\n' +
       'units builds progress on one that does not count for the other:');
   });
 

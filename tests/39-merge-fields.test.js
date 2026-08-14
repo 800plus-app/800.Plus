@@ -48,7 +48,7 @@ describe('sens שורד מיזוג', () => {
   test('פירוש שנכתב במכשיר אחד אינו נמחק', () => {
     const out = merged(side('x', { sens: [0, 1] }), side('x', {}), 'x');
     assert.deepStrictEqual(Array.from(out.sens || []), [0, 1],
-      'sens נמחק — המילה תיתקע ב"לחיזוק" לנצח, וזה מבטל את creditSense');
+      'sens נמחק -- המילה תיתקע ב"לחיזוק" לנצח, וזה מבטל את creditSense');
   });
 
   test('פירושים משני הצדדים מתאחדים', () => {
@@ -76,7 +76,7 @@ describe('k0 שורד מיזוג', () => {
     const out = merged(side('x', { src: 'known', k0: 2 }), side('x', {}), 'x');
     assert.strictEqual(out.src, 'known');
     assert.strictEqual(out.k0, 2,
-      'k0 נמחק בעוד src שרד — ביטול "ידעתי" יאפס היסטוריית תרגול אמיתית');
+      'k0 נמחק בעוד src שרד -- ביטול "ידעתי" יאפס היסטוריית תרגול אמיתית');
   });
 
   test('כששני הצדדים מחזיקים · הגבוה שורד', () => {
@@ -103,7 +103,7 @@ describe('שלושת מסלולי המיזוג מעבירים את יומן הש
       const call = body.indexOf('mergeProgress(');
       assert.ok(call > 0, fn + ' אינה ממזגת בכלל');
       assert.ok(/undeleted\s*:/.test(body.slice(call, call + 320)),
-        fn + ' ממזגת בלי יומן השחזורים — מילה ששוחזרה תימחק שוב');
+        fn + ' ממזגת בלי יומן השחזורים -- מילה ששוחזרה תימחק שוב');
     });
   }
 });

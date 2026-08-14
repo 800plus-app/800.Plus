@@ -49,26 +49,26 @@ describe('מענה למדווח', () => {
        (data-st="${r.status==='done'?'new':'done'}"). בדיקה שעוברת על קוד שבור היא
        גרועה מאין בדיקה, ולכן היא נעוצה עכשיו בתנאי המדויק ולא בשכונה שלו. */
     assert.ok(app.includes("r.status==='done' && r.email"),
-      'השער על הכפתור אינו התנאי המדויק — הוא עלול להופיע על דיווח פתוח, ואז ההבטחה "תיקנתי" היא שקר');
+      'השער על הכפתור אינו התנאי המדויק -- הוא עלול להופיע על דיווח פתוח, ואז ההבטחה "תיקנתי" היא שקר');
     const at = app.indexOf('data-reply=');
     assert.ok(at > 0, 'הכפתור אינו קיים');
     const gateAt = app.indexOf("r.status==='done' && r.email");
     assert.ok(gateAt > 0 && gateAt < at && at - gateAt < 200,
-      'התנאי אינו צמוד לכפתור — ייתכן שהוא שייך למשהו אחר');
+      'התנאי אינו צמוד לכפתור -- ייתכן שהוא שייך למשהו אחר');
   });
 
   test('נפתח mailto ולא נשלח מהאפליקציה', () => {
     const h = handler();
     assert.match(h, /location\.href='mailto:'/, 'אינו פותח mailto');
     assert.ok(!/RESEND|api\.resend\.com|Bearer/.test(app),
-      'מפתח או קריאה ל-Resend הגיעו לקוד הלקוח — הוא ייחשף לכל מי שפותח את המקור');
+      'מפתח או קריאה ל-Resend הגיעו לקוד הלקוח -- הוא ייחשף לכל מי שפותח את המקור');
   });
 
   test('הכתובת, הנושא והגוף מקודדים', () => {
     /* גוף בעברית עם שורות חדשות חייב encodeURIComponent, אחרת ה-mailto נקטע. */
     const h = handler();
     for (const part of ['encodeURIComponent(r.email)', 'encodeURIComponent(subject)', 'encodeURIComponent(body)'])
-      assert.ok(h.includes(part), `${part} חסר — ה-mailto יישבר על תו מיוחד`);
+      assert.ok(h.includes(part), `${part} חסר -- ה-mailto יישבר על תו מיוחד`);
   });
 
   test('הנוסח הוא זה שחגי אישר', () => {
@@ -76,14 +76,14 @@ describe('מענה למדווח', () => {
     assert.match(h, /התקבל!/, 'שורת הפתיחה שונתה');
     assert.match(h, /בדקתי, מצאתי ותיקנתי/, 'משפט התיקון שונה');
     assert.match(h, /תמשיך לדווח ❤️/, 'שורת הסיום שונתה');
-    assert.match(h, /'שלום,'/, 'הפנייה אינה "שלום," — או שהוכנס שם מומצא');
+    assert.match(h, /'שלום,'/, 'הפנייה אינה "שלום," -- או שהוכנס שם מומצא');
   });
 
   test('הנושא מצטט את מה שהמדווח עצמו כתב', () => {
     /* "באג" אינו אומר כלום שבועיים אחרי; ציטוט שלו מזוהה במבט. */
     const h = handler();
     assert.match(h, /const topic=String\(r\.body\|\|''\)/, 'הנושא אינו נגזר מגוף הדיווח');
-    assert.match(h, /\.slice\(0,\s*50\)/, 'הציטוט אינו נחתך — נושא ארוך ישבור את השורה');
+    assert.match(h, /\.slice\(0,\s*50\)/, 'הציטוט אינו נחתך -- נושא ארוך ישבור את השורה');
   });
 
   test('השם נשלף מ-profiles לפי הכתובת', () => {
@@ -103,7 +103,7 @@ describe('מענה למדווח', () => {
     const at = app.indexOf('function firstNameOf');
     const src = app.slice(at, app.indexOf('async function renderAdminFeedback'));
     const fn = new Function('return ' + src.slice(src.indexOf('function firstNameOf')))();
-    assert.strictEqual(fn('דני כהן'), 'דני', 'שם מלא — נלקח רק הפרטי (HEB §6)');
+    assert.strictEqual(fn('דני כהן'), 'דני', 'שם מלא -- נלקח רק הפרטי (HEB §6)');
     assert.strictEqual(fn('Dana Levi'), 'Dana');
     assert.strictEqual(fn('  יעל  '), 'יעל', 'רווחים מסביב לא נוקו');
     /* הבאג המוכר: "השם שלי הפך למייל" (נספח FIXBUG). "שלום dana@example.com,"
@@ -131,12 +131,12 @@ describe('מענה למדווח', () => {
     const h = handler();
     const body = h.slice(h.indexOf('const body='), h.indexOf('location.href'));
     const dashes = (body.match(/—/g) || []).length;
-    assert.ok(dashes <= 1, `יש ${dashes} מקפים ארוכים בנוסח — HEB §3א מתיר לכל היותר את זה שבמשפט התיקון`);
+    assert.ok(dashes <= 1, `יש ${dashes} מקפים ארוכים בנוסח -- HEB §3א מתיר לכל היותר את זה שבמשפט התיקון`);
   });
 
   test('לכפתור יש עיצוב משלו, ולא של פעולה הרסנית', () => {
     assert.match(html, /\.adm-acts button\.adm-reply\{/, 'אין סגנון ל-.adm-reply');
     assert.match(html, /\.adm-acts button\.adm-reply\{[^}]*var\(--green\)/,
-      'כפתור המענה אינו ירוק — הוא ייראה כמו פעולה מסוכנת');
+      'כפתור המענה אינו ירוק -- הוא ייראה כמו פעולה מסוכנת');
   });
 });

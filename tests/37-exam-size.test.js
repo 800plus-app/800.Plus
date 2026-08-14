@@ -98,11 +98,11 @@ describe('מחובר למסך', () => {
     assert.ok(at > 0, 'renderExSize נעלמה');
     const body = app.slice(at, at + 1400);
     assert.ok(/exSizeSeg/.test(body) && /exParts/.test(body) && /exSub/.test(body),
-      'הבורר והפירוט מצוירים בנפרד — הם יוכלו להראות מספרים שונים');
+      'הבורר והפירוט מצוירים בנפרד -- הם יוכלו להראות מספרים שונים');
   });
 
   test('המבחן עצמו נבנה מהבחירה השמורה', () => {
     assert.ok(/exBuild\(exUnit,\s*LS\.get\(exLenKey\(\)/.test(app),
-      'המבחן נבנה בגודל קבוע — הבורר משנה רק את התצוגה');
+      'המבחן נבנה בגודל קבוע -- הבורר משנה רק את התצוגה');
   });
 });

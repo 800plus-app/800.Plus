@@ -38,7 +38,7 @@ describe('כרטיס המילה · הקראה', () => {
     assert.ok(m, 'אין #wcSay ב-index.html');
     assert.match(m[0], /class="[^"]*\bsay\b/, '#wcSay אינו נושא את המחלקה say');
     assert.match(m[0], /\bhidden\b/,
-      '#wcSay אינו מתחיל מוסתר — הוא יהבהב לפני ש-bindSay מכריע אם יש קול בכלל');
+      '#wcSay אינו מתחיל מוסתר -- הוא יהבהב לפני ש-bindSay מכריע אם יש קול בכלל');
   });
 
   test('renderWordCard מקריא את המילה שהכרטיס מציג', () => {
@@ -54,7 +54,7 @@ describe('כרטיס המילה · הקראה', () => {
     const body = app.slice(at, at + 1100);
     const call = body.match(/bindSay\(\s*'#wcSay'[^)]*\)/)[0];
     assert.ok(!/,\s*true\s*\)/.test(call),
-      'הועבר alwaysEn — הרמקול יופיע גם על מילים עבריות, שבהן אין הקראה בשום מסך אחר');
+      'הועבר alwaysEn -- הרמקול יופיע גם על מילים עבריות, שבהן אין הקראה בשום מסך אחר');
   });
 
   test('המילה מסומנת בשפה ובכיוון שלה', () => {

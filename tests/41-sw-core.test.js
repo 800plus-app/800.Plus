@@ -29,12 +29,12 @@ const coreLine = (src.match(/const CORE\s*=\s*\[([^\]]*)\]/) || [])[1] || '';
 describe('sw · CORE מכיל כל מה שהאפליקציה לא עולה בלעדיו', () => {
 
   test('CORE הוא מערך שנמצא ב-sw.js', () => {
-    assert.ok(coreLine.length > 0, 'לא נמצאה הגדרת CORE ב-sw.js — האם היא שונתה?');
+    assert.ok(coreLine.length > 0, 'לא נמצאה הגדרת CORE ב-sw.js -- האם היא שונתה?');
   });
 
   test('supabase.min.js נמצא ב-CORE', () => {
     assert.ok(/supabase\.min\.js/.test(coreLine),
-      'supabase.min.js אינו ב-CORE. store.js — שכן ב-CORE — לא רץ בלעדיו, ולכן\n' +
+      'supabase.min.js אינו ב-CORE. store.js -- שכן ב-CORE -- לא רץ בלעדיו, ולכן\n' +
       'התקנה שבה supabase.min.js נכשל תעבור, והאפליקציה תישבר באופליין.');
   });
 

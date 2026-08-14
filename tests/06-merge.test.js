@@ -274,7 +274,7 @@ describe('merge · an orphan the cloud still holds must not come back', () => {
     const out = merge(P({ stats: { words: {}, sessions: [] } }),
                       P({ stats: { words: { [ghost]: R({ seen: 4 }) }, sessions: [] } }));
     assert.ok(out.stats.words[ghost],
-      'max-based merge must not silently drop remote records — dropping them is how progress is lost');
+      'max-based merge must not silently drop remote records -- dropping them is how progress is lost');
   });
 
   test('pruning after the merge removes it, and leaves real words untouched', () => {
@@ -285,7 +285,7 @@ describe('merge · an orphan the cloud still holds must not come back', () => {
     live.pruneOrphans();
     assert.ok(!live.stats.words[ghost], 'the orphan record survived the prune');
     assert.ok(!live.assoc[ghost], 'the orphan association survived the prune');
-    assert.ok(live.stats.words[keep], 'a word that IS in the bank was pruned — this deletes real progress');
+    assert.ok(live.stats.words[keep], 'a word that IS in the bank was pruned -- this deletes real progress');
     assert.strictEqual(live.stats.words[keep].seen, 2, 'a surviving record must not be altered');
   });
 

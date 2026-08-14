@@ -35,13 +35,13 @@ describe('מודל הניווט', () => {
       .split(',').map(s => s.trim().replace(/['"]/g, '')).filter(Boolean);
     const missing = screens.filter(s => !listed.includes(s));
     assert.deepStrictEqual(missing, [],
-      'מסכים בלי עומק מוגדר — "אחורה" מהם יתנהג כמו מסך שורש: ' + missing.join(', '));
+      'מסכים בלי עומק מוגדר -- "אחורה" מהם יתנהג כמו מסך שורש: ' + missing.join(', '));
   });
 
   test('הסבב עמוק ממסך היחידה, ומסך היחידה עמוק מהבית', () => {
     const m = app.match(/const\s+NAV_DEPTH\s*=\s*\{([\s\S]*?)\}/)[1];
     const d = k => Number((m.match(new RegExp(k + '\\s*:\\s*(\\d+)')) || [])[1]);
-    assert.strictEqual(d('home'), 0, 'הבית אינו שורש — "אחורה" ממנו לא יצא מהאפליקציה');
+    assert.strictEqual(d('home'), 0, 'הבית אינו שורש -- "אחורה" ממנו לא יצא מהאפליקציה');
     assert.ok(d('scope') > d('home'), 'מסך היחידה אינו עמוק מהבית');
     assert.ok(d('quiz') > d('scope'), 'הסבב אינו עמוק ממסך היחידה');
     assert.ok(d('exam') > d('scope'), 'המבחן אינו עמוק ממסך היחידה');
@@ -51,7 +51,7 @@ describe('מודל הניווט', () => {
     const at = app.indexOf('function goto');
     const body = app.slice(at, at + 1100);
     assert.ok(/navDepth\(id\)\s*>\s*navDepth\(/.test(body),
-      'goto אינו משווה עומקים — כל מעבר מסך יבנה תור היסטוריה');
+      'goto אינו משווה עומקים -- כל מעבר מסך יבנה תור היסטוריה');
     assert.ok(/pushState/.test(body) && /replaceState/.test(body),
       'goto חייב גם לדחוף וגם להחליף');
   });
@@ -68,7 +68,7 @@ describe('מודל הניווט', () => {
     assert.ok(at > 0, 'goBack לא קיימת');
     const body = app.slice(at, at + 400);
     assert.ok(/history\.back\(\)/.test(body),
-      'goBack אינו קורא ל-history.back — הרשומה נשארת והלחיצה הבאה תיבלע');
+      'goBack אינו קורא ל-history.back -- הרשומה נשארת והלחיצה הבאה תיבלע');
   });
 
   test('כפתורי החזרה של הסבב, המבחן והסטטיסטיקה עוברים דרך goBack', () => {
@@ -76,9 +76,9 @@ describe('מודל הניווט', () => {
       /* דווקא ה-onclick: כמה מהמזהים האלה מופיעים קודם גם כ-textContent, וחלון מהמופע
          הראשון היה בודק את השורה הלא נכונה ונכשל על קוד תקין. */
       const at = app.indexOf(`$('#${id}').onclick`);
-      assert.ok(at > 0, id + ' — לא נמצא מאזין onclick');
+      assert.ok(at > 0, id + ' -- לא נמצא מאזין onclick');
       assert.ok(/goBack\(\)/.test(app.slice(at, at + 260)),
-        id + ' אינו קורא ל-goBack — הוא ישאיר רשומת היסטוריה תלויה');
+        id + ' אינו קורא ל-goBack -- הוא ישאיר רשומת היסטוריה תלויה');
     }
   });
 
@@ -90,7 +90,7 @@ describe('מודל הניווט', () => {
     const body = app.slice(at, at + 300);
     assert.ok(/navTo\(/.test(body), 'המאזין אינו מנתב דרך navTo');
     assert.ok(/navPop\s*=\s*true/.test(body) && /navPop\s*=\s*false/.test(body),
-      'המאזין אינו מרים ומוריד את navPop — goto ידחוף רשומה חדשה ויצור לולאה');
+      'המאזין אינו מרים ומוריד את navPop -- goto ידחוף רשומה חדשה ויצור לולאה');
   });
 
   test('navTo מחזיר למסך היחידה ולבית', () => {
@@ -105,6 +105,6 @@ describe('מודל הניווט', () => {
     assert.ok(at > 0, 'navTo לא קיימת');
     const body = app.slice(at, at + 1400);
     assert.ok(/commitSession\(\)/.test(body),
-      'navTo אינו שומר את הסבב — "אחורה" באמצע תרגול יאבד אותו');
+      'navTo אינו שומר את הסבב -- "אחורה" באמצע תרגול יאבד אותו');
   });
 });

@@ -25,7 +25,7 @@ const accepts = (ctx, typed, card) =>
 
 const find = (ctx, term) => {
   const w = Array.from(ctx.BANK).find(x => x.term === term);
-  assert.ok(w, `"${term}" is no longer in the bank — pick another example for this test`);
+  assert.ok(w, `"${term}" is no longer in the bank -- pick another example for this test`);
   return w;
 };
 
@@ -143,7 +143,7 @@ describe('shared gloss · a different word that means the same thing', () => {
   for (const { ctx, label } of cases) {
     test(`${label}: a different word carrying an identical gloss is accepted`, () => {
       const group = Array.from(ctx.GLOSS_ALT.values()).find(a => a.length >= 2);
-      assert.ok(group, `${label} bank has no shared-gloss groups — the index did not build`);
+      assert.ok(group, `${label} bank has no shared-gloss groups -- the index did not build`);
       const [ownTerm, otherTerm] = Array.from(group);
       const card = find(ctx, ownTerm);
 

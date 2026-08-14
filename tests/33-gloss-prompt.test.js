@@ -66,7 +66,7 @@ describe('the rule · a gloss may pose at most one question per round', () => {
     const deck = ['below', 'beneath', 'under', 'underneath'].map(t => card(t, 'מתחת', 'm2w'));
     const before = deck.length;
     EN.oneCardPerGloss(deck);
-    assert.strictEqual(deck.length, before, 'a card was removed — the round is shorter than asked for');
+    assert.strictEqual(deck.length, before, 'a card was removed -- the round is shorter than asked for');
     assert.strictEqual(deck.filter(c => c._dir === 'w2m').length, 3);
     /* Flipped means still practised: every one of the four entries is still in the round. */
     assert.deepStrictEqual(new Set(deck.map(c => c.term)),
@@ -158,7 +158,7 @@ describe('over the real banks', () => {
     }
     const groups = [...by.values()].filter(n => n > 1).length;
     assert.ok(groups > 0,
-      'no English gloss serves two entries any more — the flip rule now protects nothing, ' +
+      'no English gloss serves two entries any more -- the flip rule now protects nothing, ' +
       'and this file should be re-read before it is trusted');
   });
 });
@@ -172,7 +172,7 @@ describe('the rule is actually wired into the round', () => {
     assert.ok(at > 0, 'startRound disappeared');
     const body = app.slice(at, at + 1400);
     assert.ok(/oneCardPerGloss\s*\(/.test(body),
-      'the deck is built without oneCardPerGloss — the duplicate prompts are back');
+      'the deck is built without oneCardPerGloss -- the duplicate prompts are back');
   });
 
   test('the deck it receives is one that already carries _dir', () => {
@@ -186,13 +186,13 @@ describe('the rule is actually wired into the round', () => {
     const arg = app.slice(at + call, at + call + 400);
     const close = arg.indexOf(');');
     assert.ok(close > 0 && /_dir\s*:/.test(arg.slice(0, close)),
-      'oneCardPerGloss is handed a deck whose _dir has not been assigned yet — nothing will flip');
+      'oneCardPerGloss is handed a deck whose _dir has not been assigned yet -- nothing will flip');
   });
 
   test('isCorrect still falls through to glossAlts · the acceptance was never the bug', () => {
     /* Guard on the machinery this fix deliberately did NOT touch: a learner who answers "under"
        to a "beneath" card is right, and must stay right. */
     assert.ok(/glossAlts\(w\)\.find\(t\s*=>\s*isCorrect\(/.test(app),
-      'the synonym fallback is gone — correct answers would now be marked wrong');
+      'the synonym fallback is gone -- correct answers would now be marked wrong');
   });
 });

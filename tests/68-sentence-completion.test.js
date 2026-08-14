@@ -115,14 +115,14 @@ describe('השלמת משפטים · הערבוב באפליקציה', () => {
   test('sentShuffled קיים ומופעל בבניית הסבב', () => {
     assert.match(app, /function sentShuffled\s*\(/, 'פונקציית הערבוב נעלמה מ-app.js');
     assert.match(app, /\.map\(sentShuffled\)/,
-      'הסבב נבנה בלי ערבוב — התשובה הנכונה תהיה תמיד הכפתור הראשון.');
+      'הסבב נבנה בלי ערבוב -- התשובה הנכונה תהיה תמיד הכפתור הראשון.');
   });
 
   test('הערבוב ממפה מחדש o · g · r · a יחד', () => {
     const fn = app.slice(app.indexOf('function sentShuffled'));
     const body = fn.slice(0, fn.indexOf('\n}') + 2);
     for (const k of ['o:', 'g:', 'r:', 'a:'])
-      assert.ok(body.includes(k), `sentShuffled אינו ממפה ${k} — הפירוש יוצמד למילה אחרת.`);
+      assert.ok(body.includes(k), `sentShuffled אינו ממפה ${k} -- הפירוש יוצמד למילה אחרת.`);
     assert.match(body, /idx\.indexOf\(it\.a\)/, 'a אינו מחושב מחדש לפי הערבוב.');
   });
 
@@ -145,7 +145,7 @@ describe('השלמת משפטים · הערבוב באפליקציה', () => {
         assert.ok(mentions(s.r[j], o), `${it.src}: נימוק הוצמד למילה אחרת אחרי ערבוב`);
       });
     }
-    assert.ok(seen.size >= 3, `התשובה נחתה ב-${seen.size} מקומות בלבד — הערבוב אינו מפזר.`);
+    assert.ok(seen.size >= 3, `התשובה נחתה ב-${seen.size} מקומות בלבד -- הערבוב אינו מפזר.`);
   });
 });
 
@@ -154,8 +154,8 @@ describe('השלמת משפטים · החיווט', () => {
   const html = src('index.html');
 
   test('המסך רשום ב-SCREENS ובעומק הניווט', () => {
-    assert.match(app, /const SCREENS=\[[^\]]*'sent'/, "'sent' אינו ב-SCREENS — המסך לא יוסתר במעבר.");
-    assert.match(app, /sent:2/, "'sent' אינו ב-NAV_DEPTH — כפתור 'אחורה' של אנדרואיד יסגור את האפליקציה.");
+    assert.match(app, /const SCREENS=\[[^\]]*'sent'/, "'sent' אינו ב-SCREENS -- המסך לא יוסתר במעבר.");
+    assert.match(app, /sent:2/, "'sent' אינו ב-NAV_DEPTH -- כפתור 'אחורה' של אנדרואיד יסגור את האפליקציה.");
   });
 
   test('כל מזהה שה-JS מחפש קיים ב-HTML', () => {
@@ -168,13 +168,13 @@ describe('השלמת משפטים · החיווט', () => {
 
   test('קובץ הנתונים נטען בהשהיה ולא מתג סקריפט קבוע', () => {
     assert.ok(!/<script[^>]+data-sent-en\.js/.test(html),
-      'data-sent-en.js בתג קבוע — 190KB בכל עליית דף, גם למי שלא נוגע בתרגול.');
+      'data-sent-en.js בתג קבוע -- 190KB בכל עליית דף, גם למי שלא נוגע בתרגול.');
     assert.match(app, /data-sent-en\.js/, 'app.js אינו טוען את קובץ הנתונים כלל.');
   });
 
   test('התרגול מוצג באנגלית בלבד', () => {
     assert.match(app, /const sentOn = LANG==='en'/,
-      'המקטע אינו תלוי בשפה — בצד העברי הוא היה מוביל לתרגול באנגלית.');
+      'המקטע אינו תלוי בשפה -- בצד העברי הוא היה מוביל לתרגול באנגלית.');
   });
 });
 
@@ -225,7 +225,7 @@ describe('השלמת משפטים · מסך בחירת התרגול', () => {
     const fn = app.slice(app.indexOf("$('#switchLang').onclick"));
     const body = fn.slice(0, fn.indexOf('};') + 2);
     assert.match(body, /LANG==='en'/,
-      "כפתור החזרה אינו תלוי בשפה — באנגלית הוא צריך להוביל לבחירת התרגול ולא לבחירת השפה.");
+      "כפתור החזרה אינו תלוי בשפה -- באנגלית הוא צריך להוביל לבחירת התרגול ולא לבחירת השפה.");
   });
 });
 
@@ -242,7 +242,7 @@ describe('השלמת משפטים · מעקב ההתקדמות', () => {
   test('קיימת הגירה מהמבנה הישן, והיא שמרנית', () => {
     const fn = app.slice(app.indexOf('function sentProg('));
     const body = fn.slice(0, fn.indexOf('\n}') + 2);
-    assert.match(body, /SENT_KEY/, 'sentProg אינו קורא את המבנה הישן — התקדמות קיימת תאבד.');
+    assert.match(body, /SENT_KEY/, 'sentProg אינו קורא את המבנה הישן -- התקדמות קיימת תאבד.');
     assert.match(body, /n: 1, ok: 0/,
       'ההגירה חייבת לסמן את הפריטים כנפתרו-ולא-נכונים: התוצאה לא נשמרה, ולהצהיר ' +
       'על שליטה שלא נמדדה זה הכיוון הלא נכון.');
@@ -252,7 +252,7 @@ describe('השלמת משפטים · מעקב ההתקדמות', () => {
     const fn = app.slice(app.indexOf('function startSentRound('));
     const body = fn.slice(0, fn.indexOf('\n}') + 2);
     for (const k of ['fresh', 'failed', 'known', 'slipped', 'solid'])
-      assert.ok(body.includes(k), `סדר העדיפות אינו שלם — חסר ${k}.`);
+      assert.ok(body.includes(k), `סדר העדיפות אינו שלם -- חסר ${k}.`);
     const iF = body.indexOf('concat(shuffle(failed'), iK = body.indexOf('concat(slipped');
     assert.ok(iF > 0 && iK > iF, 'נכשלים חייבים להצטרף לפני ידועים.');
     /* ⛔ הבאג שהיה כאן: shuffle על pool כולו אחרי בניית הסדר, וזה ביטל אותו בשקט. */
@@ -262,7 +262,7 @@ describe('השלמת משפטים · מעקב ההתקדמות', () => {
 
   test('הסנכרון נוסע בבלוב הקיים, בלי טבלה חדשה', () => {
     assert.match(app, /if\(lang==='en'\)\{ const p = LS\.get\(SENT_PROG, null\)/,
-      'collectExtras אינו כולל את התקדמות המשפטים — היא לא תעבור בין מכשירים.');
+      'collectExtras אינו כולל את התקדמות המשפטים -- היא לא תעבור בין מכשירים.');
     assert.match(app, /if\(lang==='en' && isObj\(ex\.sent\)\)/,
       'applyExtras אינו קורא אותה בחזרה.');
   });
@@ -271,7 +271,7 @@ describe('השלמת משפטים · מעקב ההתקדמות', () => {
     const fn = app.slice(app.indexOf('function applyExtras('));
     const body = fn.slice(0, fn.indexOf('\n}\n') + 3);
     assert.match(body, /Math\.max\(Number\(l\.n\)\|\|0, Number\(r\.n\)\|\|0\)/,
-      'n אינו מקסימום — מכשיר שמאחר יוכל לגרור אחורה מכשיר שקדם לו.');
+      'n אינו מקסימום -- מכשיר שמאחר יוכל לגרור אחורה מכשיר שקדם לו.');
     assert.match(body, /Math\.min\(ok, n\)/,
       'ok אינו נחסם ל-n. שורה פגומה מהענן הייתה מפיקה אחוז שליטה מעל 100.');
   });
@@ -305,7 +305,7 @@ describe('השלמת משפטים · מעקב ההתקדמות', () => {
        נענה; ורשומה עם ok גדול מ-n הפיקה 100%. */
     const fn = app.slice(app.indexOf('function saneSentRec('));
     const body = fn.slice(0, fn.indexOf('\n}') + 2);
-    assert.match(body, /Math\.max\(0/, 'n אינו נחסם מלמטה — ערך שלילי ישרוד.');
+    assert.match(body, /Math\.max\(0/, 'n אינו נחסם מלמטה -- ערך שלילי ישרוד.');
     assert.match(body, /Math\.min\(n/, 'ok אינו נחסם ל-n.');
     const pf = app.slice(app.indexOf('function sentProg('));
     assert.match(pf.slice(0, 900), /saneSentRec\(raw\[k\]\)/,
@@ -360,7 +360,7 @@ describe('השלמת משפטים · מעקב ההתקדמות', () => {
     const fn = app.slice(app.indexOf('async function renderMode('));
     const body = fn.slice(0, fn.indexOf('\n}') + 2);
     assert.match(body, /hasHistory/,
-      'renderMode טוען את קובץ הנתונים לכל נכנס — 191KB למי שלא נוגע בתרגול.');
+      'renderMode טוען את קובץ הנתונים לכל נכנס -- 191KB למי שלא נוגע בתרגול.');
   });
 
   test('התשובה נרשמת ומתוזמנת לסנכרון, בלי דחיפה לכל תשובה', () => {
@@ -368,7 +368,7 @@ describe('השלמת משפטים · מעקב ההתקדמות', () => {
     const body = fn.slice(0, fn.indexOf('\n}') + 2);
     assert.match(body, /queueRemoteSync\(\)/, 'התשובה אינה מסומנת לסנכרון כלל.');
     assert.ok(!/flushRemoteSync/.test(body),
-      'דחיפה מיידית לכל תשובה — עשר קריאות רשת בסבב אחד במקום אחת.');
+      'דחיפה מיידית לכל תשובה -- עשר קריאות רשת בסבב אחד במקום אחת.');
     /* ⚠ היה `slice(0, 1400)` · מספר קסם. הוספת בלוק לתוך הפונקציה דחפה את הקריאה
        מעבר לחלון והבדיקה נכשלה על קוד תקין. חיתוך גוף הפונקציה אינו תלוי באורך. */
     const fin = app.slice(app.indexOf('function finishSentRound('));

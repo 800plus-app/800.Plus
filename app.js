@@ -1781,10 +1781,10 @@ function renderUnitProgress(){
    deep green the "בשליטה" key already uses. Fired from the two lower corners, the way real
    fireworks are seen · from below. */
 const CHEERS = [
-  ['יחידה שלמה.', 'כל מילה כאן כבר שלך.'],
-  ['סגרת אותה.', 'זה נראה גדול מבחוץ, ואתה עברת את זה מילה-מילה.'],
-  ['הכול בשליטה.', 'היחידה הזאת כבר לא תפתיע אותך במבחן.'],
-  ['נגמרה היחידה.', 'מי שמגיע לכאן כבר לא מחפש קיצורי דרך.'],
+  ['יחידה שלמה.', 'כל המילים ביחידה בשליטה.'],
+  ['סגרת אותה.', 'עברת את כל המילים ביחידה.'],
+  ['הכול בשליטה.', 'היחידה כולה תורגלה.'],
+  ['נגמרה היחידה.', 'אפשר לעבור ליחידה הבאה.'],
 ];
 function celebrateUnit(scope, title, total){
   const seen = LS.get('hw_celebrated', {});

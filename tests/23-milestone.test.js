@@ -72,7 +72,7 @@ describe('ציון דרך · הקוד באמת מחשב את זה', () => {
 
   test('הנוסחה קיימת ב-app.js ומשתמשת ב-newlySolid, לא במונה נפרד', () => {
     assert.match(app, /solidBefore\s*=\s*c\.strong\s*-\s*newlySolid/,
-      'solidBefore אינו נגזר מהמצב — מונה נפרד יוצא מסנכרון עם מה שהלומד באמת יודע');
+      'solidBefore אינו נגזר מהמצב -- מונה נפרד יוצא מסנכרון עם מה שהלומד באמת יודע');
     assert.match(app, /STEPS\.filter\(n=>solidBefore<n\s*&&\s*solidNow>=n\)\.pop\(\)/,
       'תנאי החצייה השתנה; הבדיקות בקובץ הזה כבר לא מתארות את הקוד');
   });
@@ -81,13 +81,13 @@ describe('ציון דרך · הקוד באמת מחשב את זה', () => {
     const m = app.match(/const\s+STEPS\s*=\s*\[([\d,\s]+)\]/);
     assert.ok(m, 'STEPS לא נמצא ב-app.js');
     assert.deepStrictEqual(m[1].split(',').map(s => Number(s.trim())), STEPS,
-      'הרפים בקוד ובבדיקה נפרדו — הבדיקה מאשרת מספרים שאיש לא רואה');
+      'הרפים בקוד ובבדיקה נפרדו -- הבדיקה מאשרת מספרים שאיש לא רואה');
   });
 
   test('התג מוצג בתוך הכרטיס הקיים ולא כמסך חדש', () => {
     assert.match(app, /class="up-mile"/, 'התג לא נכתב לכרטיס');
     assert.ok(!/showMilestone|milestoneScreen|goto\('milestone'/.test(app),
-      'נוסף מסך נפרד — מסך שקופץ באמצע נסגר מהר וגם מפריע');
-    assert.match(html, /\.up-mile\{/, 'אין עיצוב ל-.up-mile — התג יופיע כטקסט חשוף');
+      'נוסף מסך נפרד -- מסך שקופץ באמצע נסגר מהר וגם מפריע');
+    assert.match(html, /\.up-mile\{/, 'אין עיצוב ל-.up-mile -- התג יופיע כטקסט חשוף');
   });
 });

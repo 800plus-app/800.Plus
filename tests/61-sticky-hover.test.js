@@ -45,7 +45,7 @@ describe('hover דביק במסך מגע', () => {
     /* מחפש אחורה את פתיחת ה-@media הקרובה ומוודא שהיא עוטפת את הכלל. */
     const before = html.slice(Math.max(0, at - 400), at);
     assert.match(before, /@media \(hover:hover\) and \(pointer:fine\)\{[^}]*$/,
-      'הכלל אינו בתוך @media (hover:hover) and (pointer:fine) — הסימון יידבק אחרי נגיעה');
+      'הכלל אינו בתוך @media (hover:hover) and (pointer:fine) -- הסימון יידבק אחרי נגיעה');
   });
 
   test('שתי התכונות נדרשות, לא רק hover', () => {
@@ -58,7 +58,7 @@ describe('hover דביק במסך מגע', () => {
     /* #exOpts משתמש באותה מחלקה, ולכן אין צורך בכלל שני · אבל אם המחלקה תשתנה,
        הבדיקה הזאת תיפול ותזכיר שהמבחן נשאר מאחור. */
     assert.match(html, /class="lv-opts" id="exOpts"/,
-      '#exOpts אינו נושא עוד את .lv-opts — התיקון אינו חל על מבחן היחידה');
+      '#exOpts אינו נושא עוד את .lv-opts -- התיקון אינו חל על מבחן היחידה');
   });
 
   test('אף כלל :hover אינו נשאר בלי סייג', () => {
@@ -76,9 +76,9 @@ describe('hover דביק במסך מגע', () => {
       n++;
       if (!html.slice(0, m.index).trimEnd().endsWith(GUARD)) unguarded.push(m[1].trim());
     }
-    assert.ok(n > 30, `נמצאו רק ${n} כללי :hover — הביטוי אינו תופס`);
+    assert.ok(n > 30, `נמצאו רק ${n} כללי :hover -- הביטוי אינו תופס`);
     assert.strictEqual(unguarded.length, 0,
-      `${unguarded.length} כללי :hover בלי סייג — יידבקו במסך מגע:\n  ${unguarded.slice(0, 8).join('\n  ')}`);
+      `${unguarded.length} כללי :hover בלי סייג -- יידבקו במסך מגע:\n  ${unguarded.slice(0, 8).join('\n  ')}`);
   });
 
   test('ההרמה וההדגשה לא הוסרו מהדסקטופ', () => {
@@ -103,8 +103,8 @@ describe('פוקוס מקלדת במבחן הרמה', () => {
     const at = app.indexOf('function lvRender');
     const body = app.slice(at, app.indexOf('function lvPick'));
     assert.match(body, /if\(lvKeyboardNav && opts\.length\) opts\[0\]\.focus\(\)/,
-      'הפוקוס אינו מוחזר — משתמש מקלדת מאבד את מקומו בכל שאלה');
-    assert.match(body, /lvKeyboardNav=false/, 'הדגל אינו מתאפס — ההחזרה תימשך גם אחרי מעבר לעכבר');
+      'הפוקוס אינו מוחזר -- משתמש מקלדת מאבד את מקומו בכל שאלה');
+    assert.match(body, /lvKeyboardNav=false/, 'הדגל אינו מתאפס -- ההחזרה תימשך גם אחרי מעבר לעכבר');
     const pick = app.slice(app.indexOf('function lvPick'), app.indexOf('function lvPick') + 700);
     assert.match(pick, /matches\(':focus-visible'\)/,
       'ההבחנה בין מקלדת לעכבר אינה נשענת על :focus-visible');

@@ -39,7 +39,7 @@ describe('סימון "ידעתי"', () => {
     ctx.stats.words[ctx.K(TERM)] = { seen: 3, first: 0, ever: 0, wrong: 3, level: 0, last: 1 };
     assert.ok(has(ctx.weakCards(SCOPE), TERM), 'הבדיקה לא התחילה מהמצב שהיא אמורה לבדוק');
     ctx.markKnown(TERM);
-    assert.ok(!has(ctx.weakCards(SCOPE), TERM), 'המילה נשארה בחיזוק — הסימון לא עשה דבר');
+    assert.ok(!has(ctx.weakCards(SCOPE), TERM), 'המילה נשארה בחיזוק -- הסימון לא עשה דבר');
   });
 
   test('המילה נשארת זמינה לתרגול · זה כל ההבדל ממחיקה', () => {
@@ -99,8 +99,8 @@ describe('השדות שורדים טעינה מחדש', () => {
     /* saneRec היא רשימה לבנה. שדה שלא נמצא בה נמחק בטעינה הראשונה · כלומר הסימון היה
        נעלם בפתיחה הבאה של האפליקציה, וזה כשל שאף בדיקה אחרת לא רואה. */
     const out = ctx.saneRec({ seen: 4, level: 3, src: 'known', k0: 2 });
-    assert.strictEqual(out.src, 'known', 'הסימון נמחק בטעינה — המילה תחזור לחיזוק לבד');
-    assert.strictEqual(out.k0, 2, 'הרמה השמורה נמחקה — ביטול הסימון יאפס היסטוריה');
+    assert.strictEqual(out.src, 'known', 'הסימון נמחק בטעינה -- המילה תחזור לחיזוק לבד');
+    assert.strictEqual(out.k0, 2, 'הרמה השמורה נמחקה -- ביטול הסימון יאפס היסטוריה');
   });
 });
 
@@ -108,7 +108,7 @@ describe('מחובר למסך', () => {
   test('כל שורה בניהול מילים נושאת את הכפתור', () => {
     assert.ok(/data-known=/.test(app), 'הכפתור לא נבנה בשורה');
     assert.ok(/\[data-known\][\s\S]{0,200}preventDefault/.test(app),
-      'אין preventDefault — לחיצה על "ידעתי" תסמן את תיבת המחיקה שלצדה');
+      'אין preventDefault -- לחיצה על "ידעתי" תסמן את תיבת המחיקה שלצדה');
   });
 
   test('לכל יחידה יש כניסה לניהול מילים', () => {

@@ -93,7 +93,7 @@ describe('סנכרון לפני טעינה · אסור שייכתב דבר', () 
     const { s } = atWelcomeScreen();
     await s.ctx.syncWithRemoteInner('he');
     assert.deepStrictEqual(Object.keys(s.ctx.stats.words), [],
-      'הזיכרון התמלא ברשומות מהענן. saveStats() כותב בדיוק את זה על הדיסק — ' +
+      'הזיכרון התמלא ברשומות מהענן. saveStats() כותב בדיוק את זה על הדיסק -- ' +
       'ומכאן ההתקדמות האמיתית אבודה גם מקומית וגם בענן.');
     assert.deepStrictEqual(s.ctx.stats.sessions, [], 'היסטוריית הסבבים הוחלפה בזו של הענן');
   });
@@ -141,7 +141,7 @@ describe('סנכרון לפני טעינה · אסור שייכתב דבר', () 
     await new Promise(r => setImmediate(r));
     const rec = s.ctx.stats.words[K('אוֹצֵר')];
     assert.strictEqual(rec.level, 3, 'המיזוג התקין נשבר');
-    assert.strictEqual(rec.seen, 4, 'המונים נלקחים ב-max — 4 מקומי מול 1 בענן');
+    assert.strictEqual(rec.seen, 4, 'המונים נלקחים ב-max -- 4 מקומי מול 1 בענן');
     assert.ok(pushesOf(s).length > 0, 'אחרי טעינה תקינה הסנכרון חייב גם לדחוף');
   });
 

@@ -51,7 +51,7 @@ describe('buckets · partition', () => {
 
     const covered = new Set([...keys(ctx, ctx.newCards(SCOPE)), ...keys(ctx, ctx.weakCards(SCOPE)), ...keys(ctx, ctx.learnedCards(SCOPE))]);
     none(Array.from(all).map(w => ctx.K(w.term)).filter(k => !covered.has(k)),
-      'words in the scope that no bucket claims — unreachable from any practice button:');
+      'words in the scope that no bucket claims -- unreachable from any practice button:');
     assert.strictEqual(covered.size, all.length);
   });
 
@@ -206,7 +206,7 @@ describe('buckets · a round interrupted part-way', () => {
       ctx.commitSession();
     }
     assert.strictEqual(ctx.stats.sessions.length, 1,
-      'a round interrupted twice was logged as three separate rounds — the trend chart draws that');
+      'a round interrupted twice was logged as three separate rounds -- the trend chart draws that');
     assert.strictEqual(ctx.stats.sessions[0].total, 9);
     assert.strictEqual(ctx.stats.sessions[0].correct, 9);
   });
@@ -278,7 +278,7 @@ describe('buckets · scope', () => {
     practiseRound(ctx, ctx.uniqScope('unit:1').slice(0, 10).map(w => [w, 'first']), { scope: 'unit:1' });
     assert.deepStrictEqual(
       { ...ctx.classify('unit:2') }, { ...before },
-      'practising unit 1 changed unit 2 — the scopes are sharing a key');
+      'practising unit 1 changed unit 2 -- the scopes are sharing a key');
   });
 
   test('weakCards is ordered oldest-first so revision reaches the stalest word', () => {

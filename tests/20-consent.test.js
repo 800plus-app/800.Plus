@@ -33,13 +33,13 @@ const appMask = codeMask(app);
 
 const fn = name => {
   const src = extractFunction(app, name, appMask);
-  assert.ok(src, `app.js no longer declares function ${name}() — extraction failed by name ` +
+  assert.ok(src, `app.js no longer declares function ${name}() -- extraction failed by name ` +
                  `rather than leaving a test that quietly passes`);
   return src;
 };
 const decl = name => {
   const src = extractDecl(app, name, appMask);
-  assert.ok(src, `app.js no longer declares ${name} — extraction failed by name`);
+  assert.ok(src, `app.js no longer declares ${name} -- extraction failed by name`);
   return src;
 };
 
@@ -53,9 +53,9 @@ const decl = name => {
 function fbContextKeys() {
   const src = fn('fbContext');
   const lit = src.match(/return\s*\{([\s\S]*?)\n\s*\};/);
-  assert.ok(lit, 'fbContext() no longer ends in a `return { ... };` object literal — reparse it');
+  assert.ok(lit, 'fbContext() no longer ends in a `return { ... };` object literal -- reparse it');
   const keys = [...lit[1].matchAll(/^\s*([A-Za-z_$][\w$]*)\s*:/gm)].map(m => m[1]);
-  assert.ok(keys.length >= 3, 'parsed fewer than 3 keys out of fbContext() — the regex is wrong');
+  assert.ok(keys.length >= 3, 'parsed fewer than 3 keys out of fbContext() -- the regex is wrong');
   return keys;
 }
 
@@ -74,8 +74,8 @@ describe('FIX 1 · every field that travels with a bug report is named in the fo
     /* Control for the whole group. If `ua` and `viewport` were dropped from the payload instead
      * of disclosed, the rest of this group would be testing a promise about nothing. */
     const keys = fbContextKeys();
-    assert.ok(keys.includes('ua'), 'fbContext no longer sends `ua` — re-derive this group');
-    assert.ok(keys.includes('viewport'), 'fbContext no longer sends `viewport` — re-derive this group');
+    assert.ok(keys.includes('ua'), 'fbContext no longer sends `ua` -- re-derive this group');
+    assert.ok(keys.includes('viewport'), 'fbContext no longer sends `viewport` -- re-derive this group');
   });
 
   test('FB_CTX_LABELS covers exactly the keys fbContext() sends · no more, no fewer', () => {
@@ -101,9 +101,9 @@ describe('FIX 1 · every field that travels with a bug report is named in the fo
      * records why). Re-adding raw values would undo that fix in the name of transparency. */
     const { FB_CTX_LABELS, fbCtxSentence } = loadSentence();
     const s = fbCtxSentence(Object.fromEntries(Object.keys(FB_CTX_LABELS).map(k => [k, 'VALUE'])));
-    assert.ok(!s.includes('VALUE'), 'the line prints the values themselves — names only');
-    assert.ok(!/[{}·]|=>/.test(s), 'the line carries code punctuation — it should read as prose');
-    assert.ok(s.length < 220, `the line is ${s.length} chars — too long to be read before sending`);
+    assert.ok(!s.includes('VALUE'), 'the line prints the values themselves -- names only');
+    assert.ok(!/[{}·]|=>/.test(s), 'the line carries code punctuation -- it should read as prose');
+    assert.ok(s.length < 220, `the line is ${s.length} chars -- too long to be read before sending`);
     assert.match(s, /[֐-׿]/, 'the line is not in Hebrew');
   });
 
@@ -119,7 +119,7 @@ describe('FIX 1 · every field that travels with a bug report is named in the fo
   test('openFeedback() derives the line from the real context, not from a literal', () => {
     const src = fn('openFeedback');
     assert.match(src, /\$\('#fbCtx'\)\.textContent\s*=\s*fbCtxSentence\(\s*fbContext\(\)\s*\)/,
-      '#fbCtx is filled from something other than fbCtxSentence(fbContext()) — the displayed ' +
+      '#fbCtx is filled from something other than fbCtxSentence(fbContext()) -- the displayed ' +
       'text can then drift from the payload again');
     assert.ok(!/#fbCtx'\)\.textContent\s*=\s*`?['"`]/.test(src),
       'a hardcoded string is being written into #fbCtx');
@@ -147,7 +147,7 @@ function authSubmitHandler() {
   const { statementEnd, codeMatches } = require('./_harness/scan.js');
   const hits = codeMatches(app, /\$\('#authForm'\)\.addEventListener\('submit'/, appMask);
   assert.strictEqual(hits.length, 1,
-    `app.js binds #authForm submit ${hits.length} times — extraction is ambiguous`);
+    `app.js binds #authForm submit ${hits.length} times -- extraction is ambiguous`);
   const end = statementEnd(app, hits[0].index, appMask);
   assert.ok(end > 0, 'could not find the end of the #authForm submit handler');
   return app.slice(hits[0].index, end + 1);
@@ -169,7 +169,7 @@ describe('FIX 2 · סף הגיל נשאר בתנאי השימוש, ולא בשד
       'index.html carries a birth-date field');
     /* מצומצם לטופס ההרשמה בכוונה: #accExam הוא שדה תאריך לגיטימי · מועד המבחן. */
     const form = html.match(/<form id="authForm"[\s\S]*?<\/form>/);
-    assert.ok(form, 'index.html no longer has <form id="authForm"> — rescope this test');
+    assert.ok(form, 'index.html no longer has <form id="authForm"> -- rescope this test');
     assert.ok(!/type="date"/.test(form[0]), 'the sign-up form carries a date input');
   });
 

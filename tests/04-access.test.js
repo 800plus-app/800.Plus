@@ -35,7 +35,7 @@ describe('access gate · the two cases that cost money', () => {
   test('PAST_DUE keeps access inside the grace window', () => {
     // A declined card is usually an expired card or a bank blocking an unfamiliar merchant.
     const grace = ctx.PAST_DUE_GRACE_DAYS;
-    assert.ok(grace >= 1, 'the grace window has been set to zero — a bank glitch now churns the customer');
+    assert.ok(grace >= 1, 'the grace window has been set to zero -- a bank glitch now churns the customer');
     assert.strictEqual(can({ sub_status: 'past_due', sub_until: at(-0.1) }), true);
     assert.strictEqual(can({ sub_status: 'past_due', sub_until: at(-(grace - 0.1)) }), true);
   });
@@ -165,7 +165,7 @@ describe('access gate · malformed dates', () => {
   test('an unparseable date does NOT lock a paying subscriber', () => {
     for (const bad of ['not-a-date', 'yesterday', '31/07/2026', {}, []]) {
       assert.strictEqual(can({ sub_status: 'active', sub_until: bad }), true,
-        `sub_until=${JSON.stringify(bad)} — an "active" subscriber must keep access when the ` +
+        `sub_until=${JSON.stringify(bad)} -- an "active" subscriber must keep access when the ` +
         `date cannot be read. Locking them is the one failure mode that hits every paying ` +
         `customer at once.`);
     }

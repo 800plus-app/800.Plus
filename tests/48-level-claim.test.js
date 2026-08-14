@@ -37,14 +37,14 @@ describe('מבחן הרמה · הטווח שבמסך תואם לקוד', () => {
 
   test('LV_BLOCK נקרא מהקוד', () => {
     assert.ok(Number.isInteger(LV_BLOCK) && LV_BLOCK > 0,
-      'LV_BLOCK אינו קבוע מספרי פשוט יותר — עדכן את הבדיקה');
+      'LV_BLOCK אינו קבוע מספרי פשוט יותר -- עדכן את הבדיקה');
   });
 
   test('כל טווח "N–M מילים" במסך שווה ל-LV_BLOCK×2 עד LV_BLOCK×4', () => {
     const want = `${LV_BLOCK * MIN_BLOCKS}–${LV_BLOCK * MAX_BLOCKS}`;
     // כל הצהרה בתבנית "מספר–מספר מילים" (מקף עברי או רגיל)
     const found = [...html.matchAll(/(\d+)[–-](\d+)\s*מילים/g)].map(m => `${m[1]}–${m[2]}`);
-    assert.ok(found.length > 0, 'לא נמצאה אף הצהרה על מספר מילים — האם הניסוח השתנה?');
+    assert.ok(found.length > 0, 'לא נמצאה אף הצהרה על מספר מילים -- האם הניסוח השתנה?');
     const wrong = found.filter(r => r !== want);
     assert.deepStrictEqual(wrong, [],
       `הצהרות שאינן תואמות ל-LV_BLOCK=${LV_BLOCK} (הטווח הנכון ${want}): ${wrong.join(', ')}`);
