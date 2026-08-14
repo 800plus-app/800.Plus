@@ -435,12 +435,18 @@ function pruneOrphans(){
 
 /* ===== word bank ===== */
 let BANK = [];
+/* אינדקס הבעלות של המונחים · מפתח מנורמל -> קבוצת הבעלים. נבנה בתוך buildBank ולא
+   במעבר נוסף. הוא מה שהופך קבלה של מילת-מאגר-אחרת לבלתי אפשרית **מבנית**: סף מרחק,
+   כמה שיהיה הדוק, הוא הבטחה הסתברותית שנשברת ברגע שנוסף למאגר זוג קרוב חדש.
+   כולל את `added` של המשתמש, כי מילה שהוא הוסיף היא מילה תפוסה בדיוק כמו כל אחרת. */
+let TERM_VETO = new Map();
 const UNIT_IDS = ['1','2','3','4','5','6','7','8','9','10'];
 /* INVARIANT: after buildBank(), BANK holds each normalized key AT MOST ONCE — within a unit,
    across units, and across personal words. Everything downstream (counts, quizzes, stats)
    relies on this, so it is enforced here rather than trusted from the data files. */
 function buildBank(){
   BANK = [];
+  TERM_VETO = new Map();
   const seen = new Map();       // normalized key -> the one entry that owns it (first unit wins)
   let data = (LANG==='en' ? window.UNIT_DATA_EN : window.UNIT_DATA) || {};
   if(PREVIEW) data = { [PREVIEW_UNIT]: data[PREVIEW_UNIT] || [] };   // preview = unit 1 only
@@ -456,6 +462,11 @@ function buildBank(){
     }
     const w={term, meaning, unit, id:unit+':'+k};
     seen.set(k,w); BANK.push(w);
+    /* בעלות, לא פסילה. כל מפתח שהריצה מקבלת עבור הערך הזה — המילה עצמה וכל כתיב מלא
+       שלה — הוא מפתח תפוס מנקודת המבט של **כל ערך אחר**. מה שהערך עצמו מקבל היום
+       גובר תמיד (nearMatch פוטר מפתח שנמצא במועמדים שלו). */
+    vetoPut(TERM_VETO, k, k);
+    if(LANG!=='en') for(const v of heForms(term)) vetoPut(TERM_VETO, K(v), k);
   };
   for(const uid of Object.keys(data)){
     const rows = Array.isArray(data[uid]) ? data[uid] : [];
@@ -473,6 +484,15 @@ function buildBank(){
    within one unit and only in the exam; practice, where people spend their time, accepted one.
    Built once per bank build: a scan per keystroke over 5,619 entries is not free. */
 let GLOSS_ALT = new Map();
+/* הצד השני של הווטו · מקטע פירוש מנורמל -> קבוצת הבעלים. נבנה בתוך buildGlossIndex,
+   שכבר עובר על אותם מקטעים בדיוק, ולכן בלי מעבר נוסף. */
+let SEG_VETO = new Map();
+function vetoPut(map, key, owner){
+  if(!key) return;
+  let s=map.get(key);
+  if(!s){ s=new Set(); map.set(key,s); }
+  s.add(owner);
+}
 function glossKey(g){
   return String(g||'').replace(/\s*\([^)]*\)/g,'')      // examples are not part of the meaning
     .replace(/\s+/g,' ').replace(/[.,;·]+$/,'').trim().toLowerCase();
@@ -496,10 +516,12 @@ function glossSenses(g){
 }
 function buildGlossIndex(){
   GLOSS_ALT=new Map();
+  SEG_VETO=new Map();
   for(const w of BANK){
     for(const s of glossSenses(w.meaning)){
       let arr=GLOSS_ALT.get(s); if(!arr){ arr=[]; GLOSS_ALT.set(s,arr); }
       if(!arr.includes(w.term)) arr.push(w.term);   // ערך עם אותו פירוש פעמיים לא נספר פעמיים
+      vetoPut(SEG_VETO, s, K(w.term));
     }
   }
   for(const [s,arr] of GLOSS_ALT) if(arr.length<2) GLOSS_ALT.delete(s);
@@ -768,6 +790,361 @@ function maskTerm(meaning, term){
     out = tidy(noAside);
   return /[֐-׿]/.test(out) ? out : meaning;
 }
+/* ===== סובלנות איות · שכבת זמן הריצה =====
+ *
+ * הפרמטרים הופקו במעבדה הלא-מקוונת (`typo-lab/`) ולא נבחרו ביד: אלגוריתם גנטי על
+ * 89,375 וריאציות מתויגות, 5-fold CV ו-holdout של 15% שלא נגע באבולוציה.
+ *   ריצת ה-GA   typo-lab/evolve/v1 · 14.8.2026
+ *   הדאטהסט     typo-lab/dataset/v3 · 89,375 שורות
+ *               dataset-he.jsonl sha256 ff64ae144f8a1bcdbc58a2148ae2682387a15bebf69de651cfb4b63c35b83e81
+ *               dataset-en.jsonl sha256 d91cffc0b38fcddb94a3cce8b6fb58784a7f3e1ab4975426443c5c99d51eba28
+ *   הלקסיקון    typo-lab/runtime-lexicon/v1 · typo-lex.js · 68,096 בתים
+ *               sha256 d690b04c956bb5bdd46fd36a27600523e892898c2d8d2cf0082ce00671d956ba
+ *   שער השילוח  he-word 0 קבלות-שווא · recall 9.66% (רצפה 7.80%)
+ *               en-word 0 קבלות-שווא · recall 48.60% (רצפה 45.04%)
+ *               gloss   0 קבלות-שווא · recall 6.77% (רצפה 5.00%)
+ *
+ * ⛔ ‏enabled=false · השכבה מונחת ואינה פועלת (14.8.2026).
+ * שער המאגר (`typo-lab/bank_gate.js`) מצא **138 התנגשויות אמיתיות** עם הפרמטרים
+ * שלמעלה: "caughtt" התקבל על bought, "tootth" על both, "110th" על "1st - first",
+ * "תיתוורהה" על הִתְוָוה. הסיבה מבנית — האופטימיזציה ניקדה כל וריאציה מול הכרטיס שלה
+ * בלבד ומעולם לא מול 5,662 הערכים האחרים, ולכן שער הדאטהסט עבר בזמן שהאילוץ על כל
+ * המאגר נופל. ה-GA רץ מחדש עם האילוץ החוצה-כרטיסים בתוך הכושר, והפרמטרים ישתנו.
+ * עד אז הערכים כאן הם **מציין מקום**: החלפתם היא עריכת קבוע אחד, בלי שינוי קוד.
+ * ‏false מחזיר את התנהגות היום בדיוק · tests/71 מוכיח זאת על מדגם.
+ *
+ * ‏fp הוא טביעת האצבע של הפרמטרים עצמם. ‏ver זהה בכל ריצה ולכן אינו מזהה, ובלי
+ * טביעת אצבע אפשר לערוך משקל כאן ולשכוח את הארטיפקט (או להפך) בלי שאיש ידע.
+ * ‏tests/71 מחשב אותה מחדש משני הצדדים ומסרב לרוץ על טבלת זהב שאינה תואמת.
+ *
+ * ‏dir אינו מגיע מה-GA · הוא מסמן לאיזה כיוון הסט שייך, כי שומר הנטיות רץ בכיוון
+ * המונח בלבד (מקטע פירוש אינו נוטה).
+ * ⚠ הערכים בדיוק מלא. ‏out/typo-rules.json מציג אותם מעוגלים לארבע ספרות לקריאוּת,
+ * וטבלת הזהב חושבה מהגנום המלא — עיגול כאן היה מפיל אותה. */
+const TYPO_PARAMS = {
+  enabled: false,
+  ver: 'typo-lab/evolve/v1',
+  fp: '5b0cae3b',
+  'he-word': { dir:'word', minLen:8, vetoMargin:1, useLexicon:true,
+    bands:[{maxLen:6,t:2.4869289335089295},{maxLen:6,t:0},{maxLen:11,t:0.2020522901108368},{maxLen:null,t:0}],
+    W:{sub:1,adjSub:0.6712183661591192,transpose:1.156174320127187,ins:1.1832592578499486,del:1.2389657801501401,doubleLetter:0.2,materVI:0.344514251385008,homophone:0.8914303656229486} },
+  'en-word': { dir:'word', minLen:3, vetoMargin:2, useLexicon:true,
+    bands:[{maxLen:2,t:0},{maxLen:9,t:2.3517192302668732},{maxLen:14,t:1.706084886885554},{maxLen:null,t:1.0042727918145562}],
+    W:{sub:1,adjSub:1.8342933392135217,transpose:0.2,ins:1.2946121068009044,del:0.4707501193387129,doubleLetter:0.2,materVI:1.9441832354574702,homophone:0.6849443745930686} },
+  gloss: { dir:'gloss', minLen:8, vetoMargin:1, useLexicon:true,
+    bands:[{maxLen:2,t:0.16317580454752634},{maxLen:9,t:0},{maxLen:14,t:0.7375673604935926},{maxLen:null,t:1.2039969258008019}],
+    W:{sub:1,adjSub:1.6392418459245897,transpose:2.733675003652788,ins:0.8138218399615137,del:0.4067882714072191,doubleLetter:0.2,materVI:0.7829328990735582,homophone:0.2} },
+};
+/* שכנות מקלדת והומופונים · אלה בדיוק הטבלאות שהמעבדה מדדה עליהן (typo-lab/lib/wdist.js,
+   taxonomy-he/en). ההומופונים נגזרו שם מהאופרטור עצמו ולא הועתקו, וכאן הם מודבקים
+   כתוצאה: מקור אמת אחד במעבדה, ארטיפקט אחד בריצה, וטבלת הזהב מוכיחה שהם לא נפרדו. */
+const TYPO_ADJ_HE = {"ק":"גדר","ר":"אגכק","א":"טכער","ט":"אויע","ו":"חטינ","נ":"הוחילמע","מ":"חיכלנפצ","פ":"כמצ","ש":"דז","ד":"גזסקש","ג":"בדכסקר","כ":"אבגהלמעפצרת","ע":"אהטיכנ","י":"וחטמנע","ח":"וילמנצ","ל":"חכמנצת","ז":"דסש","ס":"בגדז","ב":"גהכס","ה":"בכנע","צ":"חכלמפת","ת":"כלצ"};
+const TYPO_ADJ_EN = {"q":"aw","w":"aeqs","e":"drsw","r":"deft","t":"fgry","y":"ghtu","u":"hijy","i":"jkou","o":"iklp","p":"lo","a":"qswz","s":"adewxz","d":"cefrsx","f":"cdgrtv","g":"bfhtvy","h":"bgjnuy","j":"hikmnu","k":"ijlmo","l":"kop","z":"asx","x":"cdsz","c":"dfvx","v":"bcfg","b":"ghnv","n":"bhjm","m":"jkn"};
+const TYPO_HOMO = {"א":"עה","ע":"א","ה":"א","ב":"ו","ו":"ב","ח":"כ","כ":"חק","ט":"ת","ת":"ט","ק":"כ","ס":"ש","ש":"ס"};
+const TYPO_OPS = ['sub','adjSub','transpose','ins','del','doubleLetter','materVI','homophone'];
+/* תקרת הפעולות · קבוע קשיח ולא גן. בלעדיה ה-GA מצא את הפרצה תוך דורות ספורים: הוריד
+   את מחיר ההכנסה והמחיקה ל-0.2, והמסלול הזול הפך ל"למחוק הכול ולכתוב מחדש" —
+   "kqvv" התקבל כטעות הקלדה של "late". שלוש עריכות גולמיות, לא ארבע.
+   MAX_CANDS · לכל היותר שמונת המועמדים הקרובים בסדר קבוע, כדי שהמעבדה והריצה יבחנו
+   את אותה קבוצה בדיוק ולא קבוצה שתלויה בסדר של Set. */
+const TYPO_MAX_OPS = 3, TYPO_MAX_CANDS = 8;
+/* רדיוס אינדקס השכנים, והאורך שמעליו הוא מצטמצם לעומק 1 · זהים ל-gen_dataset.js,
+   שם נמדדה הדו-משמעות שהפרמטרים כוילו מולה. */
+const TYPO_RADIUS = 2, TYPO_LONG = 45, TYPO_LEX_MIN = 2;
+const TYPO_HE_RANGE = /[֐-׿]/;
+
+/* הלקסיקון · typo-lex.js. חסר (אופליין, חסימה, טעינה שנכשלה) = השכבה כולה כבויה,
+   וזה הכיוון הבטוח: נמדד שבלי הלקסיקון אותם פרמטרים פותחים 1/15/6 קבלות-שווא. */
+function typoLex(){ return (typeof window!=='undefined' && window.TYPO_LEX) || null; }
+/* אסימון הוא "מילה אמיתית" אם המסנן מכיר אותו **או** שהוא צורה קבילה במאגר, בשני
+   הכיוונים. שני הפערים שהמדידה תפסה, ושניהם היו קבלות-שווא: "on particular" מול
+   "in particular" ("on" הוא מפתח מונח ולכן הוחסר מהמסנן, אבל המחרוזת השלמה אינה
+   מונח ולכן וטו המאגר לא נורה · פער אסימון-מול-מחרוזת) · "מעניינ" מול "מיניינ"
+   ("מעניינ" הוא מקטע פירוש, והווטו בכיוון המונח בודק מונחים בלבד · פער
+   חוצה-כיוונים). התיקון הוא הפרדיקט, לא הנכס. */
+function lexHit(token, lang){
+  if(!token || token.length < TYPO_LEX_MIN) return false;
+  const L=typoLex();
+  if(L && L.lookup(token, lang==='en'?'en':'he')) return true;
+  return TERM_VETO.has(token) || SEG_VETO.has(token);
+}
+function typoTokens(cands){
+  const s=new Set();
+  for(const c of cands) for(const p of String(c).split(' ')) if(p) s.add(p);
+  return s;
+}
+/* כשמספר המילים זהה נבדקות רק המילים שהשתנו, אחרת כולן · זהה בדיוק לבנאי הלקסיקון
+   במעבדה (0 פערים על 89,375 שורות). אסימון של הכרטיס עצמו אינו מילה זרה. */
+function typoLexWhole(typedKey, srcKey, lang, ownTok){
+  if(!typedKey) return false;
+  const parts=String(typedKey).split(' ').filter(Boolean);
+  if(!parts.length) return false;
+  let check=parts;
+  if(srcKey!=null){
+    const src=String(srcKey).split(' ').filter(Boolean);
+    if(src.length===parts.length){
+      check=parts.filter((p,i)=>p!==src[i]);
+      if(!check.length) return false;
+    }
+  }
+  for(const p of check){
+    if(ownTok && ownTok.has(p)) return false;
+    if(!lexHit(p, lang)) return false;
+  }
+  return true;
+}
+/* **any** על פני המועמדים ולא all, ובכוונה: הריצה אינה יודעת מאיזו צורה הלומד יצא,
+   ולכן היא שואלת "האם קיימת צורה קבילה שביחס אליה זו מילה אמיתית אחרת". השורה
+   הראשונה היא החוק שאין עליו ויכוח — צורה קבילה של הכרטיס אינה נדחית לעולם. */
+function typoLexBlocked(typedKey, cands, lang, ownTok){
+  for(const c of cands) if(c===typedKey) return false;
+  for(const c of cands) if(typoLexWhole(typedKey, c, lang, ownTok)) return true;
+  return false;
+}
+function typoTables(a,b){
+  return (TYPO_HE_RANGE.test(a)||TYPO_HE_RANGE.test(b))
+    ? {adj:TYPO_ADJ_HE, homo:TYPO_HOMO, mater:true}
+    : {adj:TYPO_ADJ_EN, homo:null, mater:false};
+}
+function typoSubKind(ca,cb,T){
+  if(T.homo && (T.homo[ca]||'').indexOf(cb)>=0) return 'homophone';
+  if((T.adj[ca]||'').indexOf(cb)>=0) return 'adjSub';
+  return 'sub';
+}
+/* ו/י כפולה בעברית היא תופעת כתיב מלא ולא אצבע שנתקעה, וזה ההסבר הנכון לה. */
+function typoInsKind(b,j,T){
+  const c=b[j-1];
+  if(T.mater && (c==='ו'||c==='י')) return 'materVI';
+  if((j>=2 && b[j-2]===c) || (j<b.length && b[j]===c)) return 'doubleLetter';
+  return 'ins';
+}
+function typoDelKind(a,i,T){
+  const c=a[i-1];
+  if(T.mater && (c==='ו'||c==='י')) return 'materVI';
+  if((i>=2 && a[i-2]===c) || (i<a.length && a[i]===c)) return 'doubleLetter';
+  return 'del';
+}
+/* כל וקטורי ספירת-הפעולות של יישורים בעד maxOps פעולות, מנוקים מווקטורים נשלטים.
+   חישוב שמתמחר יישור אחד קבוע מראש הוא חסם עליון בלבד, ולכן הוא יכול להראות "אפס
+   קבלות-שווא" בזמן שהמסלול המדויק מקבל — זה נמדד ("uuuf" מול "unit"). */
+function typoVectors(a,b,maxOps){
+  const A=String(a==null?'':a), B=String(b==null?'':b);
+  const m=A.length, n=B.length, cap=maxOps==null?TYPO_MAX_OPS:maxOps;
+  const T=typoTables(A,B);
+  const found=[];
+  const zero=()=>{ const v={}; for(const k of TYPO_OPS) v[k]=0; return v; };
+  const walk=(i,j,budget,vec)=>{
+    while(i<m && j<n && A[i]===B[j]){ i++; j++; }
+    if(i===m && j===n){ found.push(Object.assign({},vec)); return; }
+    if(budget<=0) return;
+    if(Math.abs((m-i)-(n-j))>budget) return;
+    const spend=(kind,ni,nj)=>{ vec[kind]++; walk(ni,nj,budget-1,vec); vec[kind]--; };
+    if(i+1<m && j+1<n && A[i]===B[j+1] && A[i+1]===B[j]) spend('transpose',i+2,j+2);
+    if(i<m && j<n) spend(typoSubKind(A[i],B[j],T),i+1,j+1);
+    if(i<m) spend(typoDelKind(A,i+1,T),i+1,j);
+    if(j<n) spend(typoInsKind(B,j+1,T),i,j+1);
+  };
+  walk(0,0,cap,zero());
+  const out=[];
+  for(const v of found){
+    let dominated=false;
+    for(const u of found){
+      if(u===v) continue;
+      let le=true, lt=false;
+      for(const k of TYPO_OPS){ if(u[k]>v[k]){ le=false; break; } if(u[k]<v[k]) lt=true; }
+      if(le&&lt){ dominated=true; break; }
+    }
+    if(dominated) continue;
+    if(out.some(u=>TYPO_OPS.every(k=>u[k]===v[k]))) continue;
+    out.push(v);
+  }
+  return out;
+}
+function typoWDist(a,b,W,cap,maxOps){
+  const C=(cap==null||!isFinite(cap))?Infinity:cap;
+  let best=Infinity;
+  for(const v of typoVectors(a,b,maxOps)){
+    let s=0; for(const k of TYPO_OPS) s+=v[k]*W[k];
+    if(s<best) best=s;
+  }
+  return best<=C?best:Infinity;
+}
+/* ברירות מחדל שמרניות · סט חסר-שדה אינו נופל לסובלנות רחבה בשקט. */
+const TYPO_PN = new WeakMap();
+function typoNorm(P){
+  let n=TYPO_PN.get(P);
+  if(n) return n;
+  const p=P||{};
+  const W=Object.assign({sub:1,adjSub:1,transpose:2,ins:1,del:1,doubleLetter:1,materVI:1,homophone:1}, p.W||{});
+  let bands=(Array.isArray(p.bands)&&p.bands.length)?p.bands.slice():[{maxLen:Infinity,t:0}];
+  bands=bands.map(b=>({maxLen:b.maxLen==null?Infinity:b.maxLen, t:b.t==null?0:b.t}))
+    .sort((x,y)=>x.maxLen-y.maxLen);
+  n={ dir:p.dir==='gloss'?'gloss':'word', minLen:p.minLen==null?0:p.minLen,
+      vetoMargin:p.vetoMargin==null?1:p.vetoMargin, useLexicon:p.useLexicon!==false, bands, W };
+  TYPO_PN.set(P,n);
+  return n;
+}
+const typoLetters = s => String(s==null?'':s).replace(/ /g,'').length;
+/* סיומות שומר הנטיות. הרשימה זהה לזו שהמעבדה ייצרה ממנה את שורות הנטייה, ו-
+   isCorrect('כפרים','כֹּפֶר') חייב להישאר false — זה מקובע ב-tests/05.
+   למה זה לא יכול להיות משקל: המשקלים אינם יודעים **היכן** נפלה הפעולה, והוספת ה"א
+   בסוף מילה ובאמצעה הן אותה פעולה בדיוק בווקטור הספירה — הראשונה נטייה, השנייה
+   טעות אמיתית שאנחנו רוצים לקבל. הכיוון אדיטיבי בלבד: מוקלד = מועמד ועוד סיומת. */
+function typoSuffixes(lang){ return lang==='en' ? ['s','es','ed','ing','ly'] : ['ימ','ות','ה','י','יות']; }
+function typoInflection(typedKey, cands, lang){
+  /* השם `sufs` ולא `SUF` · app.js כבר מצהיר SUF ברמה העליונה, וארגז החול מחלץ
+     הצהרות לפי שם. שם כפול הופך את החילוץ לדו-משמעי ומפיל בדיקה אחרת לגמרי. */
+  const sufs=typoSuffixes(lang);
+  for(const c of cands){
+    if(typedKey.length<=c.length || !typedKey.startsWith(c)) continue;
+    if(sufs.indexOf(typedKey.slice(c.length))>=0) return true;
+  }
+  return false;
+}
+/* אינדקס השכנים · שתי מחרוזות במרחק ≤d חולקות מחרוזת בסביבת-המחיקות בעומק d, ולכן
+   מאנדקסים את כל תוצאות המחיקה של כל מפתח ושואלים באותה סביבה. נבנה בעצלתיים
+   בהחלטה הפאזית הראשונה ולא בבניית המאגר: מי שאינו טועה אינו משלם עליו.
+   נמדד על המאגר העברי: ‏59ms לאינדקס המונחים, ‏472ms לאינדקס המקטעים, פעם אחת
+   לכל בניית מאגר. ההחלטה עצמה 0.2-0.4ms. אם הבנייה תורגש כשמחלקה A תידלק, המקום
+   לטפל בו הוא כאן (בנייה בזמן סרק) ולא בהחלטה. */
+const TYPO_IX = new WeakMap();
+function typoDeletions(s,d){
+  const all=new Set([s]);
+  let cur=[s];
+  for(let step=0; step<d; step++){
+    const nxt=[];
+    for(const x of cur) for(let i=0;i<x.length;i++){
+      const y=x.slice(0,i)+x.slice(i+1);
+      if(!all.has(y)){ all.add(y); nxt.push(y); }
+    }
+    cur=nxt;
+  }
+  return all;
+}
+function typoIndex(vetoMap){
+  let ix=TYPO_IX.get(vetoMap);
+  if(ix) return ix;
+  const keys=Array.from(vetoMap.keys());
+  const del=new Map();
+  for(let i=0;i<keys.length;i++)
+    for(const v of typoDeletions(keys[i], keys[i].length>TYPO_LONG?1:TYPO_RADIUS)){
+      let a=del.get(v); if(!a){ a=[]; del.set(v,a); }
+      a.push(i);
+    }
+  ix={keys, del};
+  TYPO_IX.set(vetoMap, ix);
+  return ix;
+}
+/* המרחק למפתח הקרוב ביותר במאגר ששייך לערך אחר. אינסוף = אין כזה ברדיוס שהאינדקס
+   מכסה, וזה מספיק: השאלה היחידה שנשאלת עליו היא ההשוואה מול dOwn שכבר קטן מ-3.
+   המרחק כאן הוא editDist ולא המרחק הממושקל, ובכוונה: "האם הקלדת משהו ששייך למילה
+   אחרת" אינו תלוי בכמה נוח היה להקליד אותו. */
+function typoNearestOther(typed, vetoMap, allowOwners){
+  const ix=typoIndex(vetoMap);
+  const seen=new Set();
+  let best=Infinity;
+  for(const v of typoDeletions(typed, typed.length>TYPO_LONG?1:TYPO_RADIUS)){
+    const a=ix.del.get(v);
+    if(!a) continue;
+    for(const i of a){
+      if(seen.has(i)) continue;
+      seen.add(i);
+      const k=ix.keys[i];
+      let other=false;
+      for(const o of vetoMap.get(k)) if(!allowOwners.has(o)){ other=true; break; }
+      if(!other) continue;
+      const d=editDist(k, typed);
+      if(d<best) best=d;
+      if(best===0) return 0;
+    }
+  }
+  return best;
+}
+/* ===== הפונקציה הטהורה שהמעבדה כיילה =====
+ * סדר השכבות, וכל אחת נושאת במשקל:
+ *   1. וטו מבני · המחרוזת היא מילת מאגר של ערך אחר. הכרעת חגי, בלי סף ובלי גן,
+ *      ולפני כל חישוב מרחק כדי שאף צירוף משקלים לא יוכל לעקוף אותה.
+ *   2. וטו הלקסיקון · המחרוזת היא מילה אמיתית של השפה שאינה צורה של הכרטיס.
+ *      בלי השכבה הזאת 1,164 מתוך 1,167 שורות "מילה אמיתית" התקבלו ו-recall העברית
+ *      נחנקה ל-2.49% · היא מה שהופך את הפרמטרים לחוקיים (+6.85/+30.66/+5.32 נקודות,
+ *      נמדד בריצה נגדית).
+ *   3. שער אורך · מתחת ל-minLen אין סובלנות בכלל.
+ *   4. שומר הנטיות · הפרש שהוא סיומת טהורה הוא נטייה, לא טעות הקלדה.
+ *   5. מרחק ממושקל מול סף רצועת האורך.
+ *   6. שולי הדו-משמעות · קבלה שרחוקה ממילה אחרת בדיוק כמו משלך היא הימור בין שני
+ *      ערכים. אחרי המרחק ולא לפניו: ההכרעה זהה בשני הסדרים, אבל הודעת ההתנגשות
+ *      צריכה להופיע רק כשבאמת עמדנו לקבל.
+ *
+ * vetoSet הוא TERM_VETO או SEG_VETO (מפתח -> בעלים) · ownSet הוא קבוצת הבעלים
+ * שאינם "ערך אחר": הכרטיס עצמו, ובכיוון הפירוש גם מי שחולק איתו פירוש.
+ * candidates מנורמלים כבר, וסדרם אינו משפיע (כל השכבות הן מינימום או "קיים").
+ * הפונקציה טהורה: אותה כניסה, אותה יציאה, בלי מצב ובלי תופעות לוואי. */
+function nearMatch(a, candidates, lang, P, vetoSet, ownSet){
+  const off={ok:false, why:null, dist:null};
+  if(!TYPO_PARAMS.enabled || !a || !P) return off;
+  const p=typoNorm(P);
+  if(p.useLexicon && !typoLex()) return off;          // אין לקסיקון = אין סובלנות
+  const cands=candidates||[];
+  const owners=vetoSet && vetoSet.get(a);
+  if(owners && owners.size && cands.indexOf(a)<0){
+    for(const o of owners) if(!ownSet || !ownSet.has(o)) return {ok:false, why:'collision', dist:null};
+  }
+  const L = lang==='en' ? 'en' : 'he';
+  if(p.useLexicon && typoLexBlocked(a, cands, L, typoTokens(cands))) return {ok:false, why:'real-word', dist:null};
+  if(typoLetters(a) < p.minLen) return {ok:false, why:'short', dist:null};
+  if(!cands.length) return {ok:false, why:'far', dist:null};
+  if(p.dir==='word' && typoInflection(a, cands, L)) return {ok:false, why:'inflection', dist:null};
+  const scored=[];
+  let dOwn=Infinity;
+  for(const c of cands){
+    const raw=editDist(a,c);
+    if(raw<dOwn) dOwn=raw;
+    if(raw<=TYPO_MAX_OPS) scored.push({c, raw, len:typoLetters(c)});
+  }
+  if(!scored.length) return {ok:false, why:'far', dist:null};
+  scored.sort((x,y)=>x.raw-y.raw || x.len-y.len || (x.c<y.c?-1:x.c>y.c?1:0));
+  let best=Infinity;
+  for(const s of scored.slice(0,TYPO_MAX_CANDS)){
+    let t=p.bands[p.bands.length-1].t;
+    for(const b of p.bands) if(s.len<=b.maxLen){ t=b.t; break; }
+    if(!(t>0)) continue;                               // אפס סובלנות ברצועה הזו
+    const d=typoWDist(a, s.c, p.W, t, TYPO_MAX_OPS);
+    if(d<best) best=d;
+    if(best===0) break;
+  }
+  if(!isFinite(best)) return {ok:false, why:'far', dist:null};
+  if(p.vetoMargin>0 && vetoSet){
+    const dOther=typoNearestOther(a, vetoSet, ownSet||new Set());
+    if(dOther-dOwn < p.vetoMargin) return {ok:false, why:'collision', dist:null};
+  }
+  return {ok:true, why:null, dist:best};
+}
+/* כל המפתחות שהערך מקבל היום · אותן ארבע שכבות של isCorrect למטה, באותו סדר.
+   הן חייבות להישאר זהות: מפתח שנספר כאן ואינו מתקבל שם היה מסתיר פסילה אמיתית. */
+function typoKeysOf(term){
+  if(term==null) return [];
+  const out=new Set();
+  const add=k=>{ if(k) out.add(k); };
+  const he=LANG!=='en';
+  add(K(term));
+  if(he) for(const v of heForms(term)) add(K(v));
+  const alts=String(term).split(/[\/|,]|\s-\s/).flatMap(x=>he?heForms(x):[x])
+                 .map(x=>K(x)).filter(Boolean);
+  for(const a of alts){ add(a); add(String(a).replace(/\s+/g,'')); }
+  return [...out];
+}
+/* הבעלים שאינם "ערך אחר" בכיוון הפירוש · הכרטיס עצמו וכל מי שחולק איתו פירוש
+   (בדיוק פטור-הנרדפות של glossAlts). בלי הפטור הזה מקטע משותף היה נחשב התנגשות,
+   וזו רגרסיה על 401 הערכים באנגלית ו-47 בעברית שחולקים פירוש. */
+function typoOwners(meaning, card){
+  const own=new Set();
+  if(card && card.term) own.add(K(card.term));
+  for(const s of meaningSegs(meaning)){
+    const arr=GLOSS_ALT.get(s);
+    if(arr) for(const t of arr) own.add(K(t));
+  }
+  return own;
+}
 function isCorrect(input, term){
   const a=K(input); if(!a) return false;
   if(a===K(term)) return true;
@@ -784,7 +1161,13 @@ function isCorrect(input, term){
      this only ever ADDS an accepted form and can never reject one. */
   const squash=x=>String(x).replace(/\s+/g,'');
   if(alts.some(x=>squash(x)===squash(a))) return true;
-  return false;
+  /* השכבה הפאזית אחרונה, תמיד. כל מה שמעליה מדויק, ולכן אין פרמטר שיכול לשבור קבלה
+     קיימת — וממילא אין ריצת GA שיכולה לייצר רגרסיה. הדגל נדלק רק כשהפסילה נגרמה
+     מהתנגשות עם ערך אחר, כי רק לה יש מה להגיד ללומד. */
+  const r=nearMatch(a, typoKeysOf(term), LANG==='en'?'en':'he',
+                    TYPO_PARAMS[LANG==='en'?'en-word':'he-word'], TERM_VETO, new Set([K(term)]));
+  if(r.why==='collision') typoVeto=true;
+  return r.ok;
 }
 
 /* ===== screens ===== */
@@ -1254,7 +1637,10 @@ function renderCard(){
   clearTimeout(focusT);
   focusT=setTimeout(()=>{ if(!$('#quiz').classList.contains('hidden') && !answered) inp.focus(); },30);
 }
-function meaningMatch(input, meaning){
+/* הפרמטר השלישי הוא הכרטיס, והוא רשות · בלעדיו פטור-הנרדפות נגזר מ-GLOSS_ALT בלבד
+   ולכן צר יותר, כלומר מחמיר יותר. אף קורא קיים לא נשבר: שתי השכבות החדשות רק
+   מוסיפות קבלות, ומי שקורא בלי כרטיס מקבל את ההתנהגות הזהירה. */
+function meaningMatch(input, meaning, card){
   // the "meaning" side is Hebrew in both languages → always use the Hebrew normalizer
   const a=norm(input); if(!a) return false;
   if(a===norm(meaning)) return true;
@@ -1270,7 +1656,19 @@ function meaningMatch(input, meaning){
      "עובד בבית מרחץ" — אותה תשובה בדיוק, ורק ה"א הידיעה או אות יחס מבדילה. ראה
      particleMatch להסבר למה זו השוואה סובלנית ולא גזירה. */
   if(segs.some(s=>particleMatch(a, s))) return true;
-  return false;
+  /* שלוש השכבות החדשות, והפאזית אחרונה תמיד. שתי הראשונות מדויקות (מנייה סופית של
+     חלופות, וקנוניזציה של נרדפות) ולכן הן זולות וחסינות; השלישית היא היחידה שמודדת
+     דמיון, ולכן היא רצה רק אחרי שכולן נכשלו. */
+  const own=typoOwners(meaning, card);
+  const blocked=typoSegBlocked(a, segs, own);
+  if(TYPO_GLOSS_RULES.splitOr && !blocked && typoSplitOr(segs).has(a)) return true;
+  if(TYPO_GLOSS_RULES.synonyms && !blocked){
+    const c=typoCanon(a);
+    if(segs.some(s=>typoCanon(s)===c)) return true;
+  }
+  const r=nearMatch(a, segs, 'he', TYPO_PARAMS.gloss, SEG_VETO, own);
+  if(r.why==='collision') typoVeto=true;
+  return r.ok;
 }
 /* מילות יחס וקישור עצמאיות. הן אינן נושאות מידע כשהן מילה שלמה, ו"נרתיק של חרב" מול
    "נרתיק חרב" הוא אותו פירוש. נזרקות משני הצדדים כאחד. */
@@ -1303,6 +1701,106 @@ function particleMatch(a, seg){
     if(j<0) return false;
     used[j]=true; return true;
   });
+}
+/* ===== שני חוקי צד-הפירוש שעברו את שער אפס-ההתנגשויות =====
+ *
+ * שניהם נמדדו ב-typo-lab על שני המאגרים, ושניהם דלוקים: 0 התנגשויות חדשות בכל אחד.
+ * מה שנמדד ו**נדחה** ואינו כאן: ראש-מקטע (34 התנגשויות ששרדו את הווטו), מילה עודפת
+ * (מילת עוצמה היא ההבדל בין ערכים — "כעס" מול "כעס מאוד"), מילת יחס רופפת
+ * (particleMatch כבר מכסה, וכל הרחבה הוסיפה 95+ התנגשויות), וכל 28 וריאנטי
+ * המורפולוגיה (typo-lab/out/morph-report.md). */
+const TYPO_GLOSS_RULES = { splitOr: true, synonyms: true };
+/* B1 · פיצול "או" מחלק. meaningSegs מפצל על פסיק, נקודה-פסיק, קו ונקודתיים · ולא על
+ * "או", ולכן "בעל שיניים או בעל צורה של שיניים" הוא מקטע אחד והקלדת "בעל שיניים"
+ * נדחתה. ה"או" מחבר לרוב רק **חלק** מהמקטע והשאר משותף לשתי החלופות: "אסף עצים או
+ * קש למדורה" = "אסף עצים למדורה" / "אסף קש למדורה", ולכן המנייה היא על כל תחילית
+ * וסיומת משותפות ולא פיצול ישיר.
+ * השומרים הם איחוד ולא AND · כל אחד לבדו מפיל מקרה שהשני פותר (7 מְשֻׁנָּן מול
+ * 15 קוֹשֵׁשׁ), ובתצורה המשולבת שניהם נפתרים:
+ *   ליבה ≥ 2 מילים   חוסם "או" שמחבר בתוך צירוף ("שפת נהר או נחל")
+ *   חלופה ≥ 3 מילים  חוסם תוצאה בת מילה אחת, שהיא לרוב הפירוש המלא של ערך אחר
+ * נמדד: 659 קבלות חדשות, אפס התנגשויות ששורדות את וטו המקטעים · הווטו **נדרש**. */
+const TYPO_OR_GUARDS = [{minSide:2, minAlt:1}, {minSide:1, minAlt:3}];
+function typoSplitOr(segs){
+  const all=new Set();
+  const words=s=>String(s).split(/\s+/).filter(Boolean);
+  for(const g of TYPO_OR_GUARDS){
+    for(const seg of segs){
+      const W=words(seg);
+      if(W.length<3) continue;                 // "או" בקצה, או מקטע שהוא "או" לבדו
+      const ors=[];
+      for(let i=1;i<W.length-1;i++) if(W[i]==='או') ors.push(i);
+      if(!ors.length) continue;
+      const n=W.length;
+      const add=a=>{ if(a.length>=g.minAlt) all.add(a.join(' ')); };
+      for(const i of ors)
+        for(let pre=0; pre<=i-1; pre++)
+          for(let suf=0; suf<=n-i-2; suf++){
+            /* הליבות הן החלופות עצמן · minSide נמדד עליהן ולא על התוצאה, שהתחילית
+               והסיומת המשותפות מנפחות. */
+            const leftCore=W.slice(pre,i), rightCore=W.slice(i+1,n-suf);
+            if(leftCore.length<g.minSide || rightCore.length<g.minSide) continue;
+            const tail=W.slice(n-suf,n);
+            const alt1=W.slice(0,i).concat(tail);
+            const alt2=W.slice(0,pre).concat(rightCore, tail);
+            if(alt1.length) add(alt1);
+            if(alt2.length) add(alt2);
+          }
+    }
+  }
+  for(const s of segs) all.delete(s);           // מקטע קיים אינו קבלה חדשה
+  return all;
+}
+/* E · נרדפות. 55 קבוצות מתוך 102 שנכתבו, אחרי שער אפס-התנגשויות על שני המאגרים
+ * (typo-lab/out/synonym-gate.md). ⛔ המקור הוא אוצר המילים של הפירושים במאגר עצמו,
+ * נכתב בפרויקט הזה · אין כאן ויקימילון, WordNet עברי, האקדמיה ולא שום מקור CC BY-SA.
+ * 47 הקבוצות שנדחו נדחו כולן על התנגשות מדודה, לא על טעם.
+ * ההשוואה היא קנוניזציה מילה-מילה לנציג הקבוצה, בדיוק כמו בשער · לא גזירה ולא
+ * דמיון: מילה שאינה בקבוצה נשארת כמות שהיא. */
+const TYPO_SYN = [
+  ["לפני","טרם"],["בערך","בקירוב","לערך"],["לעיתים","לעתים","לפעמים"],["במהירות","מהר"],
+  ["מחדש","שוב","שנית"],["למרות","חרף"],["מראש","מלכתחילה"],["בעזרת","באמצעות"],
+  ["אדם","איש"],["לאדם","לאיש"],["כוח","עוצמה"],["ספק","פקפוק"],["ערך","שווי"],
+  ["באופן","בצורה"],["תוצאה","תולדה"],["סיבה","עילה"],["רעש","שאון"],["דעה","השקפה"],
+  ["מתנה","שי"],["מעשה","פעולה"],["שכבה","רובד"],["חור","נקב"],["בד","אריג"],
+  ["עץ","אילן"],["זמן","עת"],["אדמה","קרקע"],["האדמה","הקרקע"],["הוצאת","הסרת","עקירת"],
+  ["אונייה","אוניה","ספינה"],["ארוך","ממושך"],["חלש","רפה"],["מוזר","משונה"],
+  ["מיוחד","ייחודי"],["מיוחדת","ייחודית"],["בולט","ניכר"],["ברור","נהיר"],
+  ["קבוע","תמידי"],["מתאים","תואם"],["שניתן","שאפשר"],["שאינו","שלא"],["שיש","שקיים"],
+  ["ערוך","מסודר"],["יכול","מסוגל"],["קרוב","סמוך"],["חשף","גילה"],["להתאים","להלום"],
+  ["להעריך","לאמוד"],["לעשות","לבצע"],["עשה","ביצע"],["לשים","להניח"],
+  ["מניחים","מעמידים","שמים"],["לשבח","להלל","לפאר"],["להבחין","להבדיל"],
+  ["כתב","רשם"],["כלל","כל"]
+];
+let TYPO_SYN_MAP=null;
+function typoSynMap(){
+  if(TYPO_SYN_MAP) return TYPO_SYN_MAP;
+  TYPO_SYN_MAP=new Map();
+  for(const g of TYPO_SYN){
+    const ws=g.map(norm).filter(Boolean);
+    if(!ws.length) continue;
+    for(const w of ws) TYPO_SYN_MAP.set(w, ws[0]);     // הנציג הוא הראשונה בקבוצה
+  }
+  return TYPO_SYN_MAP;
+}
+function typoCanon(s){
+  const m=typoSynMap();
+  let touched=false;
+  const out=String(s).split(' ').map(w=>{
+    const r=m.get(w);
+    if(r===undefined || r===w) return w;
+    touched=true; return r;
+  });
+  return touched ? out.join(' ') : s;
+}
+/* וטו המקטעים · מה ש-isVetoedSeg עשה במעבדה. מקטע שהוא פירוש של ערך אחר נפסל תמיד,
+   ופטור הנרדפות נשמר: מי שחולק פירוש עם הכרטיס אינו "ערך אחר". */
+function typoSegBlocked(a, segs, own){
+  const owners=SEG_VETO.get(a);
+  if(!owners || !owners.size) return false;
+  if(segs.indexOf(a)>=0) return false;
+  for(const o of owners) if(!own.has(o)) return true;
+  return false;
 }
 /* the senses a learner may legitimately answer with: comma/semicolon separated, and never
    the contents of a parenthesis, which explains rather than defines */
@@ -1408,6 +1906,22 @@ function noteSense(w, typed){
      כנכון חייב להיות מזוכה. */
   let i=segs.indexOf(a);
   if(i<0) i=segs.findIndex(s=>particleMatch(a, s));
+  /* שיקוף חובה של שלוש השכבות ש-meaningMatch הוסיפה. זה אינו ייעול אלא האינווריאנט
+     של tests/62: מה שמתקבל כנכון חייב להיות מזוכה. תשובה שהתקבלה ולא זוכתה משאירה
+     את sensesLeft גדול מאפס, והמילה נתקעת ברשימת החיזוק לנצח — בדיוק הבאג שדווח.
+     אותם פרמטרים ואותו nearMatch, כדי שהקבלה והזיכוי יחשבו את אותו אינדקס. */
+  if(i<0 && TYPO_GLOSS_RULES.splitOr && typoSplitOr(segs).has(a))
+    i=segs.findIndex(s=>typoSplitOr([s]).has(a));
+  if(i<0 && TYPO_GLOSS_RULES.synonyms){
+    const c=typoCanon(a);
+    i=segs.findIndex(s=>typoCanon(s)===c);
+  }
+  if(i<0 && nearMatch(a, segs, 'he', TYPO_PARAMS.gloss, SEG_VETO, typoOwners(w.meaning, w)).ok){
+    /* הפירוש הקרוב ביותר במרחק לא-ממושקל. nearMatch מכריעה **אם** מקבלים, וזה מכריע
+       **את מי** מזכים — אותה שאלה שיש לה תשובה אחת רק כשמודדים אותה באותה יחידה. */
+    let bd=Infinity;
+    segs.forEach((s,k)=>{ const d=editDist(a,s); if(d<bd){ bd=d; i=k; } });
+  }
   if(i<0) return;                          // נכון, אבל לא כאחד הפירושים הרשומים
   const r=rec(w.term);
   const s=Array.isArray(r.sens)?r.sens:[];
@@ -1469,6 +1983,12 @@ function creditSense(w, typed){
   if(!s.includes(i)){ s.push(i); r.sens=s.slice(0,8); }
 }
 let acceptedAlt=null;      // set when the answer was a different word with the same gloss
+/* נדלק כשהשכבה הפאזית פסלה בגלל התנגשות · המוקלד הוא מילה אחרת במאגר.
+   הסמנטיקה מדויקת ומצומצמת בכוונה: הדגל משמעותי רק כשהפסק הסופי שגוי. בלולאת
+   glossAlts מועמד מוקדם יכול להדליק אותו ומועמד מאוחר להתקבל, ואז הוא נבלע —
+   ההודעה מרונדרת רק בענף השגוי. איפוס ב-check, קרא-ונקה ב-finishCard: skip והמבחן
+   עוקפים את check לגמרי, ודגל שנשאר דלוק מהם היה מרנדר הודעה על כרטיס אחר. */
+let typoVeto=false;
 function check(){
   if(answered||!deck[idx]) return;
   const w=deck[idx], v=$('#answerInput').value;
@@ -1478,8 +1998,9 @@ function check(){
      שום שער לפניו. החזקת Enter שרפה כך חצי מהחפיסה. */
   if(!String(v).trim()) return;
   acceptedAlt=null;
+  typoVeto=false;
   if(w._dir==='w2m'){
-    const ok=meaningMatch(v, w.meaning);
+    const ok=meaningMatch(v, w.meaning, w);
     /* נרשם כאן ולא ב-commitSession: כאן יש את מה שהלומד הקליד. commitSession רואה רק
        "נכון/לא נכון", ומשם אי אפשר לדעת איזה פירוש הוא נתן. */
     if(ok) noteSense(w, v);
@@ -1495,6 +2016,9 @@ function check(){
 function skip(){ if(answered||!deck[idx]) return; finishCard(false, true); }
 function finishCard(ok, skipped){
   const w=deck[idx]; if(!w) return;
+  /* קרא-ונקה, ובשורה הראשונה: skip() והמבחן מגיעים לכאן בלי לעבור ב-check, ולכן
+     דגל שלא נוקה כאן היה נשאר דלוק לכרטיס הבא. */
+  const vetoed=typoVeto; typoVeto=false;
   answered=true;
   const w2m = w._dir==='w2m';
   $('#answerInput').disabled=true; hide($('#answerActions'));
@@ -1530,6 +2054,12 @@ function finishCard(ok, skipped){
     /* בכיוון מילה→פירוש התשובה הנכונה היא רשימת הפירושים, ולכן היא נצבעת: מה שכבר נתת
        ירוק, מה שחסר שחור. בכיוון ההפוך התשובה היא מילה אחת ואין מה לפצל. */
     (!ok?`<div class="reveal">${label}: <b><bdi>${w2m?senseChips(w.term,answer):esc(answer)}</bdi></b></div>`:'')+
+    /* הפסילה הזאת אינה "לא מדויק" סתם: המוקלד מתאים לערך אחר, ולכן הסובלנות אינה
+       יכולה לקבל אותו בלי להמר בין שתי מילים. הלומד שידע צריך לדעת שיש לו מוצא,
+       ולכן ההודעה מפנה לכפתור שכבר קיים מתחתיה. לא בדילוג ולא על תשובה נכונה. */
+    (!ok && !skipped && vetoed
+      ? `<div class="also typo-veto">מה שכתבת מתאים למילה אחרת במאגר.
+         אם ידעת, לחץ "בעצם ידעתי · סמן כנכון"</div>` : '')+
     (w2m ? senseNeedBlock(w) : '')+
     /* The prompt hid the word inside its own gloss, and in this direction the gloss is never
        shown again — so the example that made it worth reading would have been lost. Now that
