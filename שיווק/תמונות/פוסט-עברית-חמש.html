@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;500;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* פוסט · חמש מילים בעברית · 1080×1350 (4:5).
+ *
+ * ⚠ למה עברית ולמה עכשיו: כל הנכסים שהופקו מאז 10.8 הם באנגלית — חמש תמונות
+ *   השלמת משפטים וקרוסלת הזוגות. חצי מהמאגר עברי וחצי מהקהל ניגש לפסיכומטרי
+ *   ולא לאמיר"ם, ולהם לא דיברנו כלל.
+ *
+ * ⚠ הפירושים **אינם** מוצגים. אותו מנגנון שעובד בתמונות האנגלית: התמונה היא
+ *   מבחן ולא הכרזה, ומי שרוצה לדעת אם צדק נכנס לאתר.
+ *
+ * ⚠ חמש המילים מיחידה 10, ואף אחת לא הופיעה בנכס קודם. נבדק מול `data.js`
+ *   ומול `שיווק/תוכניות/מילים-בשימוש.md` ב-13.8.2026.
+ *   הקריטריון: "אני אמור לדעת את זה" ולא "אף אחד לא יודע את זה".
+ *   `אֶשְׁכָּר` היא העוגן — כמעט כל ישראלי מכיר את הסלנג "אשכרה", וכמעט אף אחד
+ *   לא יודע שהמילה עצמה פירושה מתנה. זה רגע ההיסוס שהפוסט מחפש.
+ */
+:root{--paper:#f6f1e7;--card:#fffdf8;--ink:#2c2620;--soft:#736a5c;
+      --gold:#c9962f;--accent:#b5482e;--line:#e3d8c4}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1350px;position:relative;overflow:hidden;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 16% 12%, rgba(201,150,47,.16), transparent 44%),
+                   radial-gradient(circle at 86% 86%, rgba(181,72,46,.11), transparent 48%);
+  font-family:'Heebo',sans-serif;direction:rtl;
+  /* ⚠ `justify-content:center` על גוף בגובה קבוע דחף את הכרטיס אל תוך הכותרת
+     התחתונה, ו-`בְּחִישָׁה` נחתכה על "כמה מהחמש ידעת". הפריסה עברה לזרימה
+     רגילה עם ריווח עליון מפורש, כך שהכרטיס גדל כלפי מטה ולא לשני הכיוונים.
+     נתפס ב-PNG המרונדר, לא בקוד. */
+  display:flex;flex-direction:column;align-items:center;
+  padding:150px 78px 0;text-align:center}
+.mark{position:absolute;top:64px;font-family:'Frank Ruhl Libre',serif;font-weight:900;
+  font-size:46px;color:var(--gold);direction:ltr;letter-spacing:-.03em}
+.kicker{font-size:30px;color:var(--gold);font-weight:700;letter-spacing:.2em;margin-bottom:24px}
+h1{font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:82px;color:var(--ink);
+  line-height:1.1;margin-bottom:18px}
+h1 span{color:var(--accent)}
+.sub{font-size:36px;color:var(--soft);font-weight:300;margin-bottom:44px}
+
+.list{background:var(--card);border:1px solid var(--line);border-radius:26px;
+  padding:34px 40px;width:100%;display:flex;flex-direction:column;gap:18px}
+.w{font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:62px;color:var(--ink);
+  line-height:1.12}
+/* ניבים ארוכים יורדים בגודל כדי שלא ישברו שורה. הרוחב הפנוי הוא 844px. */
+.w.long{font-size:50px}
+.rule{height:1px;background:var(--line)}
+
+.foot{position:absolute;bottom:62px;display:flex;flex-direction:column;align-items:center;gap:18px}
+.ask{font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:44px;color:var(--ink)}
+.cta{background:var(--accent);color:#fff;border-radius:999px;padding:20px 52px;
+  font-size:38px;font-weight:700;direction:ltr;letter-spacing:.03em}
+</style>
+</head>
+<body>
+  <div class="mark">800+</div>
+
+  <div class="kicker">אוצר מילים לפסיכומטרי</div>
+  <h1>חמש מילים בעברית<br><span>שכולם חושבים שהם יודעים</span></h1>
+  <div class="sub">אף פירוש לא מופיע כאן. בכוונה.</div>
+
+  <div class="list">
+    <div class="w">אֶשְׁכָּר</div>
+    <div class="rule"></div>
+    <div class="w">אַפְסָר</div>
+    <div class="rule"></div>
+    <div class="w long">אִישׁ מָדוֹן</div>
+    <div class="rule"></div>
+    <div class="w long">בְּלִי מֵשִׂים</div>
+    <div class="rule"></div>
+    <div class="w">בְּחִישָׁה</div>
+  </div>
+
+  <div class="foot">
+    <div class="ask">כמה מהחמש ידעת?</div>
+    <div class="cta">800-plus.com</div>
+  </div>
+</body>
+</html>
