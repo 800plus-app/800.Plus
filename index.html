@@ -1259,7 +1259,11 @@
     <div class="au-inner">
       <div class="au-mark">מִילִים</div>
       <h1 class="au-title"><bdi>800+</bdi><br><em>אוצר מילים שנשאר איתך</em></h1>
-      <p class="au-sub" id="authSub">1,719 מילים בעברית · 3,900 באנגלית.<br>חשבון אחד, וההתקדמות עוברת איתך לכל מכשיר.</p>
+      <!-- ⚠ שני המספרים כאן קשיחים, והם התיישנו: הם הציגו 1,719 ו-3,900 בזמן
+           שהמאגר כבר החזיק 1,717 ו-3,946. מספר קשיח הוא תאריך תפוגה נסתר.
+           `tests/71-word-counts-match-data.test.js` משווה את השורה הזאת מול
+           `data.js` ו-`data-en.js` ונופל ברגע שהם מתפצלים שוב. -->
+      <p class="au-sub" id="authSub">1,717 מילים בעברית · 3,946 באנגלית.<br>חשבון אחד, וההתקדמות עוברת איתך לכל מכשיר.</p>
 
       <!-- tabs and form share one lit surface: the fields used to float on the page with
            nothing but a hairline under each, and an empty field did not read as a field -->
