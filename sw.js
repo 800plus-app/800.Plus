@@ -17,6 +17,11 @@ const ASSETS = [
   `./app.js?v=${REV}`, `./data.js?v=${REV}`, `./data-en.js?v=${REV}`, `./data-en-sentences.js?v=${REV}`,
   `./leveltest.js?v=${REV}`, `./leveltest-he.js?v=${REV}`, `./enrank.js?v=${REV}`,
   `./supabase.min.js?v=${REV}`, `./config.js?v=${REV}`, `./store.js?v=${REV}`,
+  /* לקסיקון סובלנות האיות · 68KB, נוצר ב-typo-lab ואינו נערך ביד.
+     לא ב-CORE, בדיוק כמו הפונטים: הוא best-effort, ואין שום סיבה שכישלון בטעינתו
+     יפיל התקנה שלמה. האפליקציה בודקת אותו בזמן ריצה, וכשהוא חסר שכבת הסובלנות
+     כבויה לגמרי — כלומר ההתנהגות של היום, ולא התנהגות מקלה יותר. */
+  `./typo-lex.js?v=${REV}`,
   './icon-192.png', './icon-512.png', './icon-maskable-512.png',
   /* הפונטים. בלי ?v= בכוונה, ושתי סיבות נפרדות מחייבות זאת:
      · ההתאמה ב-cache-first היא על ה-URL המדויק כולל ה-query. ה-@font-face ב-index.html
