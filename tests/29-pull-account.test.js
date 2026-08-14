@@ -43,7 +43,7 @@ describe('התחברות אינה מוחקת יומן תרגול מקומי', ()
     /* בדיוק המצב שמחיקה בכמות משאירה, והמצב שבו hasProgressIn מחזירה 0. */
     const out = fillStats(LOG, CLOUD);
     assert.deepStrictEqual(out, LOG,
-      'היומן המקומי הוחלף בעותק מהענן — ימי התרגול והרצף אבדו');
+      'היומן המקומי הוחלף בעותק מהענן -- ימי התרגול והרצף אבדו');
   });
 
   test('גם יומן של יום אחד נחשב', () => {
@@ -56,7 +56,7 @@ describe('התחברות אינה מוחקת יומן תרגול מקומי', ()
     /* הצד השני, וחשוב לא פחות: תיקון שמפסיק למלא הופך התחברות במכשיר חדש למסך ריק. */
     assert.deepStrictEqual(fillStats(null, CLOUD), CLOUD, 'מכשיר חדש לא קיבל את הענן');
     assert.deepStrictEqual(fillStats({ words: {}, sessions: [] }, CLOUD), CLOUD,
-      'יומן ריק אינו יומן — היה צריך להתמלא');
+      'יומן ריק אינו יומן -- היה צריך להתמלא');
     assert.deepStrictEqual(fillStats({}, CLOUD), CLOUD);
   });
 
@@ -70,10 +70,10 @@ describe('התחברות אינה מוחקת יומן תרגול מקומי', ()
     const { appSource } = require('./_harness/sandbox.js');
     const app = appSource();
     const at = app.indexOf("LS.set('hw_stats'+sk");
-    assert.ok(at > 0, "השורה שכותבת hw_stats ב-pullAccountState לא נמצאה — שונתה או הוסרה");
+    assert.ok(at > 0, "השורה שכותבת hw_stats ב-pullAccountState לא נמצאה -- שונתה או הוסרה");
     const line = app.slice(app.lastIndexOf('\n', at) + 1, app.indexOf('\n', at));
     assert.ok(/hasLog|!\s*hasLog/.test(line),
-      'הכתיבה ל-hw_stats חזרה להיות בלי תנאי — יומן תרגול מקומי נדרס שוב:\n  ' + line.trim());
+      'הכתיבה ל-hw_stats חזרה להיות בלי תנאי -- יומן תרגול מקומי נדרס שוב:\n  ' + line.trim());
 
     /* ושהתנאי באמת נגזר מ-sessions ולא ממשהו שרק נראה דומה. */
     const win = app.slice(Math.max(0, at - 500), at);

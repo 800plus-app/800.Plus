@@ -46,7 +46,7 @@ const appMask = codeMask(app);
 
 const fn = name => {
   const src = extractFunction(app, name, appMask);
-  assert.ok(src, `app.js no longer declares function ${name}() — extraction failed by name ` +
+  assert.ok(src, `app.js no longer declares function ${name}() -- extraction failed by name ` +
                  `rather than leaving a test that quietly passes`);
   return src;
 };
@@ -151,7 +151,7 @@ describe('A11Y-04a · --ink-soft passes AA on both surfaces it is painted on', (
     /* Guards the fix from the other side. "Make it pass" has a trivial wrong answer -- set it to
      * #000 -- which would flatten the whole visual hierarchy the variable exists to create. */
     const c = contrast(ink, paper);
-    assert.ok(c < 8, `--ink-soft on --paper is ${r2(c)}:1 — that is body-ink dark, not soft`);
+    assert.ok(c < 8, `--ink-soft on --paper is ${r2(c)}:1 -- that is body-ink dark, not soft`);
   });
 });
 
@@ -188,7 +188,7 @@ describe('A11Y-02 · focus is moved deliberately after an answer, not dropped on
 
   test('finishCard() then moves focus explicitly to #nextBtn', () => {
     assert.match(src, /\$\('#nextBtn'\)\s*\.focus\(\)/,
-      'nothing in finishCard() calls .focus() on #nextBtn — focus falls to <body>');
+      'nothing in finishCard() calls .focus() on #nextBtn -- focus falls to <body>');
   });
 
   test('the focus move happens AFTER the feedback markup exists', () => {
@@ -198,7 +198,7 @@ describe('A11Y-02 · focus is moved deliberately after an answer, not dropped on
     const focused = src.search(/\$\('#nextBtn'\)\s*\.focus\(\)/);
     assert.ok(built >= 0, 'finishCard no longer builds #feedback via fb.innerHTML');
     assert.ok(focused > built,
-      'focus() on #nextBtn runs before the innerHTML that creates it — it would hit null');
+      'focus() on #nextBtn runs before the innerHTML that creates it -- it would hit null');
   });
 
   test('the target really is the button the round continues through', () => {
@@ -230,14 +230,14 @@ describe('A11Y-01 · the new card is announced, and nothing else is', () => {
     assert.ok(rule, 'index.html declares no .sr-only rule');
     const css = rule[1].replace(/\s+/g, '');
     assert.ok(!/display:none/.test(css) && !/visibility:hidden/.test(css),
-      '.sr-only uses display:none or visibility:hidden — that hides it from the reader too');
+      '.sr-only uses display:none or visibility:hidden -- that hides it from the reader too');
     assert.match(css, /position:absolute/);
     assert.match(css, /clip|clip-path/);
   });
 
   test('renderCard() fills #cardLive', () => {
     assert.match(render, /\$\('#cardLive'\)\.textContent\s*=/,
-      'renderCard writes nothing to #cardLive — the new card stays silent');
+      'renderCard writes nothing to #cardLive -- the new card stays silent');
   });
 
   test('the announcement carries all three facts the audit found missing', () => {
@@ -246,7 +246,7 @@ describe('A11Y-01 · the new card is announced, and nothing else is', () => {
     assert.ok(line, 'no #cardLive assignment to inspect');
     for (const part of ['#qCount', '#qKind', '#qText']) {
       assert.ok(line[1].includes(part),
-        `the announcement omits ${part} — the audit named all three as silent`);
+        `the announcement omits ${part} -- the audit named all three as silent`);
     }
   });
 
@@ -266,7 +266,7 @@ describe('A11Y-01 · the new card is announced, and nothing else is', () => {
     const tag = html.match(/<[^>]*id="qLive"[^>]*>/);
     assert.ok(tag, 'no element with id="qLive"');
     assert.doesNotMatch(tag[0], /aria-live/,
-      '#qLive is still a live region — it will talk over #cardLive on every card');
+      '#qLive is still a live region -- it will talk over #cardLive on every card');
   });
 
   test('#feedback keeps its live region (the verdict must still be announced)', () => {
@@ -281,7 +281,7 @@ describe('A11Y-01 · the new card is announced, and nothing else is', () => {
 
 describe('A11Y-03 · the auth error is announced', () => {
   const msgs = [
-    ['authMsg', 'the only gate into the app — a wrong password is otherwise silent'],
+    ['authMsg', 'the only gate into the app -- a wrong password is otherwise silent'],
     ['delMsg', 'the same paragraph pattern, on the account-deletion dialog'],
   ];
 

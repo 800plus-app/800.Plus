@@ -46,7 +46,7 @@ const html = fs.readFileSync(path.join(שורש, 'index.html'), 'utf8');
 const m = html.match(/id="authSub"[^>]*>([^<]*)</);
 
 test('שורת אוצר המילים במסך ההרשמה קיימת', () => {
-  assert.ok(m, 'לא נמצא <p id="authSub"> ב-index.html. אם המזהה השתנה — לעדכן כאן.');
+  assert.ok(m, 'לא נמצא <p id="authSub"> ב-index.html. אם המזהה השתנה -- לעדכן כאן.');
 });
 
 test('המספרים במסך ההרשמה תואמים למאגר בפועל', () => {
@@ -72,5 +72,5 @@ test('לבדיקה יש שיניים · שורה עם מספר שגוי נתפס
   const m2 = שבור.match(/id="authSub"[^>]*>([^<]*)</);
   const מספרים = (m2[1].match(/[\d,]+/g) || []).map(s => Number(s.replace(/,/g, '')));
   assert.notStrictEqual(מספרים[0], ספור('data.js', 'UNIT_DATA'),
-    'ההשוואה לא תפסה מספר שגוי שהוזרק בכוונה — היא בודקת את הדבר הלא-נכון');
+    'ההשוואה לא תפסה מספר שגוי שהוזרק בכוונה -- היא בודקת את הדבר הלא-נכון');
 });

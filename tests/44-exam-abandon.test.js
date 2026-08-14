@@ -34,12 +34,12 @@ describe('מבחן שננטש · הפס והמונה מתאפסים במסך ה�
   test('openExam מאפס את #exBar', () => {
     assert.ok(/exBar[\s\S]{0,60}(width\s*=\s*['"`]0|width\s*=\s*['"`]0%)/.test(body)
               || /#exBar['"]\)\.style\.width\s*=\s*['"`]0/.test(body),
-      'openExam אינו מאפס את #exBar — פס ההתקדמות של מבחן קודם נשאר גלוי במסך הפתיחה');
+      'openExam אינו מאפס את #exBar -- פס ההתקדמות של מבחן קודם נשאר גלוי במסך הפתיחה');
   });
 
   test('openExam מאפס את #exCount', () => {
     assert.ok(/exCount['"]\)\.textContent\s*=\s*['"`]\s*['"`]/.test(body),
-      'openExam אינו מאפס את #exCount — מונה "7 / 20" של מבחן קודם נשאר גלוי במסך הפתיחה');
+      'openExam אינו מאפס את #exCount -- מונה "7 / 20" של מבחן קודם נשאר גלוי במסך הפתיחה');
   });
 
   test('האיפוס קורה לפני שמסך הפתיחה מוצג', () => {
@@ -47,6 +47,6 @@ describe('מבחן שננטש · הפס והמונה מתאפסים במסך ה�
     const resetAt = body.search(/exBar/);
     const introAt = body.indexOf("show($('#exIntro'))");
     assert.ok(resetAt > 0 && introAt > 0 && resetAt < introAt,
-      'האיפוס בא אחרי הצגת מסך הפתיחה — הערך הישן מהבהב לרגע');
+      'האיפוס בא אחרי הצגת מסך הפתיחה -- הערך הישן מהבהב לרגע');
   });
 });

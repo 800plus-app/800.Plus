@@ -22,7 +22,7 @@ const files = fs.readdirSync(DIR)
   .map(f => path.join(DIR, f));
 
 if (files.length === 0) {
-  console.error('No *.test.js files found in ' + DIR + ' — refusing to report success.');
+  console.error('No *.test.js files found in ' + DIR + ' -- refusing to report success.');
   process.exit(1);
 }
 
@@ -47,13 +47,13 @@ process.on('exit', () => {
   const line = '='.repeat(72);
   process.stdout.write(`\n${line}\n`);
   if (passed + failed === 0) {
-    process.stdout.write(`NO TESTS RAN — treating that as a failure\n${line}\n`);
+    process.stdout.write(`NO TESTS RAN -- treating that as a failure\n${line}\n`);
     return;
   }
   if (failed === 0) {
-    process.stdout.write(`PASS — ${passed} tests, 0 failures (${files.length} files)\n${line}\n`);
+    process.stdout.write(`PASS -- ${passed} tests, 0 failures (${files.length} files)\n${line}\n`);
   } else {
-    process.stdout.write(`FAIL — ${failed} failing of ${passed + failed} tests (${files.length} files)\n\n`);
+    process.stdout.write(`FAIL -- ${failed} failing of ${passed + failed} tests (${files.length} files)\n\n`);
     for (const f of failures) process.stdout.write(`  x ${f}\n`);
     process.stdout.write(`\nEach failure above is a finding about the app or the data, not a\n`);
     process.stdout.write(`flaky test. See tests/README.md for the ones that are already known.\n${line}\n`);

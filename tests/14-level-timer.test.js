@@ -113,7 +113,7 @@ describe('מבחן רמה · יציאה חייבת לבטל את הטיימר ה
     s.exit();
     assert.strictEqual(s.log.welcome, 1, 'the exit handler did not run');
     assert.strictEqual(s.clock.pending, 0,
-      'clearTimeout in #lvExit did not reach the timer scheduled by "לא יודע" — ' +
+      'clearTimeout in #lvExit did not reach the timer scheduled by "לא יודע" -- ' +
       'the handler calls setTimeout without storing the id in lvTimer');
     assert.strictEqual(s.clock.tick(), 0);
     assert.strictEqual(s.log.render, 0, 'the tick rendered onto a screen the learner already left');
@@ -129,7 +129,7 @@ describe('מבחן רמה · יציאה חייבת לבטל את הטיימר ה
     s.exit();
     s.clock.tick();
     assert.strictEqual(s.log.finish, 0,
-      'lvFinish() ran after the learner left — it writes hw_level and calls queueRemoteSync()');
+      'lvFinish() ran after the learner left -- it writes hw_level and calls queueRemoteSync()');
   });
 
   test('answering normally then יציאה · the pending tick must NOT fire (regression)', () => {

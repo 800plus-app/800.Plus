@@ -84,7 +84,7 @@ describe('commitSession · the round log row', () => {
     assert.strictEqual(row.correct, 2, 'correct = first-try + struggled, and nothing else');
     assert.strictEqual(row.firstTry, 1, 'exactly one word was known on the first attempt');
     assert.strictEqual(row.struggled, 1, 'exactly one word was reached on a later attempt');
-    assert.strictEqual(row.newCount, 0, 'all three had been seen before — none of them is new');
+    assert.strictEqual(row.newCount, 0, 'all three had been seen before -- none of them is new');
     assert.strictEqual(row.scope, SCOPE);
     assert.strictEqual(row.mode, 'all');
   });
@@ -128,7 +128,7 @@ describe('commitSession · the round log row', () => {
     answerCard(ctx, b, 'wrong');
     ctx.commitSession();
 
-    assert.strictEqual(ctx.stats.sessions.length, 1, 'one round, one row — not two rounds of one');
+    assert.strictEqual(ctx.stats.sessions.length, 1, 'one round, one row -- not two rounds of one');
     const row = ctx.stats.sessions[0];
     assert.strictEqual(row.total, 2);
     assert.strictEqual(row.correct, 1);
@@ -148,7 +148,7 @@ describe('commitSession · the level a word sits at', () => {
     seed(ctx, a.term, { seen: 5, level: 1 });
 
     practiseRound(ctx, [[a, 'first']], { scope: SCOPE });
-    assert.strictEqual(recOf(ctx, a.term).level, 2, 'level 1 answered correctly becomes 2 — one step, not two, not none');
+    assert.strictEqual(recOf(ctx, a.term).level, 2, 'level 1 answered correctly becomes 2 -- one step, not two, not none');
   });
 
   /* Kills: `Math.min(3, …)` -> `Math.min(4, …)`. 3 is the ceiling the buckets and the donut are
@@ -239,7 +239,7 @@ describe('commitSession · the per-word counters', () => {
     assert.strictEqual(r.seen, 1);
     assert.strictEqual(r.first, 1);
     assert.strictEqual(r.ever, 1);
-    assert.strictEqual(r.wrong, 0, 'answered on the first attempt — nothing to charge');
+    assert.strictEqual(r.wrong, 0, 'answered on the first attempt -- nothing to charge');
   });
 
   /* Kills: `r.ever++` -> `r.ever--` (struggled branch), `e.attempts-1` -> `e.attempts+1`, and
@@ -253,7 +253,7 @@ describe('commitSession · the per-word counters', () => {
     assert.strictEqual(r.seen, 1);
     assert.strictEqual(r.first, 0, 'not known on the first attempt');
     assert.strictEqual(r.ever, 1, 'it was reached in the end, so it counts as answered');
-    assert.strictEqual(r.wrong, 1, 'two attempts = one miss — not two, not three');
+    assert.strictEqual(r.wrong, 1, 'two attempts = one miss -- not two, not three');
   });
 
   /* Kills: `r.wrong++` -> `r.wrong--` (never-got-it branch). */
@@ -285,7 +285,7 @@ describe('commitSession · the per-word counters', () => {
     ctx.session.set(ctx.K(a.term), { w: a, attempts: 1, mastered: true, firstTry: false });
     ctx.commitSession();
 
-    assert.strictEqual(recOf(ctx, a.term).wrong, 0, 'one attempt, reached — nothing to charge');
+    assert.strictEqual(recOf(ctx, a.term).wrong, 0, 'one attempt, reached -- nothing to charge');
     assert.strictEqual(ctx.stats.sessions[0].struggled, 1);
   });
 });
@@ -361,7 +361,7 @@ describe('commitSession · trimming the history', () => {
     practiseRound(ctx, [[a, 'first']], { scope: SCOPE });   // pushes the 200th row
 
     assert.strictEqual(ctx.stats.sessions.length, ctx.MAX_SESSIONS, 'exactly at the ceiling');
-    assert.strictEqual(ctx.stats.sessions, arrayBefore, 'the ceiling is not yet exceeded — nothing to trim');
+    assert.strictEqual(ctx.stats.sessions, arrayBefore, 'the ceiling is not yet exceeded -- nothing to trim');
     assert.strictEqual(ctx.stats.sessions[ctx.MAX_SESSIONS - 1].rid, ctx.sessionRowId,
       'the round just played must be the last row');
   });
@@ -412,7 +412,7 @@ describe('commitSession · trimming the history', () => {
     assert.strictEqual(ctx.stats.sessions.length, ctx.MAX_SESSIONS);
     assert.strictEqual(ctx.stats.sessions.includes(myRow), false, 'this round\'s row was trimmed away');
     assert.strictEqual(ctx.stats.sessions.some(r => r.rid === ctx.sessionRowId), false,
-      'the row is gone, so no row may answer to this id — anything that does is a stranger');
+      'the row is gone, so no row may answer to this id -- anything that does is a stranger');
 
     // and the next commit of the SAME round must open a fresh row rather than grow a stranger
     answerCard(ctx, c, 'first');

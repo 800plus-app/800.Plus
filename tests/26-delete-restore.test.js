@@ -61,12 +61,12 @@ describe('deleteWord מבטל את סימון השחזור', () => {
     const k = he.K(term);
 
     he.markRestored(k);
-    assert.ok(he.restoredMap()[k], 'ההכנה נכשלה — markRestored לא כתב דבר');
+    assert.ok(he.restoredMap()[k], 'ההכנה נכשלה -- markRestored לא כתב דבר');
 
     he.deleteWord(term);
 
     assert.ok(!he.restoredMap()[k],
-      'deleteWord השאיר את המילה מסומנת כמשוחזרת — mergeProgress יחזיר אותה בסנכרון הבא');
+      'deleteWord השאיר את המילה מסומנת כמשוחזרת -- mergeProgress יחזיר אותה בסנכרון הבא');
   });
 
   test('אותה התנהגות בדיוק כמו מחיקה בכמות', () => {

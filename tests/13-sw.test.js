@@ -43,8 +43,8 @@ describe('sw · the worker only ever touches its own origin', () => {
   /* The finding itself. Every one of these is a real URL the app requests while signed in. */
   const SUPABASE = 'https://oycypbnzcvtjliovfsxn.supabase.co';
   const foreign = [
-    [`${SUPABASE}/rest/v1/progress?select=*&user_id=eq.abc`, 'the progress row — one user\'s whole history'],
-    [`${SUPABASE}/auth/v1/user`, 'IDENTICAL url for every user alive — the worst possible cache key'],
+    [`${SUPABASE}/rest/v1/progress?select=*&user_id=eq.abc`, 'the progress row -- one user\'s whole history'],
+    [`${SUPABASE}/auth/v1/user`, 'IDENTICAL url for every user alive -- the worst possible cache key'],
     [`${SUPABASE}/rest/v1/profiles?select=*`, 'names and email addresses'],
     [`${SUPABASE}/rest/v1/assoc_shared?select=*`, 'other people\'s private associations'],
     ['https://esm.sh/anything.js', 'any third party at all'],
@@ -90,7 +90,7 @@ describe('sw · the worker only ever touches its own origin', () => {
     const local = 'http://localhost:8000';
     assert.strictEqual(handles(local + '/app.js', local), true);
     assert.strictEqual(handles(APP + '/app.js', local), false,
-      'running on localhost, the production host is foreign — the check must read the live origin');
+      'running on localhost, the production host is foreign -- the check must read the live origin');
   });
 });
 
@@ -114,7 +114,7 @@ describe('sw · the rest of the file still agrees with itself', () => {
   test('every ?v= in index.html matches sw.js REV', () => {
     const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
     const found = [...html.matchAll(/\?v=(\d+)/g)].map(m => m[1]);
-    assert.ok(found.length > 0, 'index.html no longer version-stamps anything — is the cache-bust gone?');
+    assert.ok(found.length > 0, 'index.html no longer version-stamps anything -- is the cache-bust gone?');
     assert.deepStrictEqual([...new Set(found)].filter(v => v !== REV), [],
       `index.html asks for versions sw.js does not precache (REV=${REV}). Online this is ` +
       `invisible; offline it is a blank screen.`);

@@ -598,7 +598,7 @@ describe('the adaptive ladder · lvNextBand and lvEstimate', () => {
     const html = require('fs').readFileSync(
       require('path').join(__dirname, '..', 'index.html'), 'utf8');
     const m = html.match(/(\d+)–(\d+) מילים/);
-    assert.ok(m, 'the intro screen no longer states a range of words — nothing left to check');
+    assert.ok(m, 'the intro screen no longer states a range of words -- nothing left to check');
     const [lo, hi] = [+m[1], +m[2]];
 
     const lens = runs.filter(r => r.ended).map(r => r.visited.length * en.LV_BLOCK);
@@ -615,7 +615,7 @@ describe('the adaptive ladder · lvNextBand and lvEstimate', () => {
     const wrong = runs.find(r => r.ended && r.pattern.every(p => !p));
     assert.deepStrictEqual(Array.from(wrong.visited), ['B1', 'A2', 'A1']);
     assert.strictEqual(wrong.level, null,
-      'nothing was cleared, so no band was earned — lvFinish stores the fallback "A1"');
+      'nothing was cleared, so no band was earned -- lvFinish stores the fallback "A1"');
   });
 
   test('one short of LV_PASS never promotes · the guessing floor', () => {
@@ -704,7 +704,7 @@ describe('feedback timers · nothing may outlive the exit button', () => {
   test('every deck-advancing timer in the level test is cancellable', () => {
     const untracked = advancing.filter(a => a.which === 'lvIdx' && !/lvTimer\s*=\s*setTimeout/.test(a.src));
     assert.deepStrictEqual(untracked.map(a => 'app.js:' + a.line), [],
-      'these timers advance the deck but store no id, so no exit path can cancel them — ' +
+      'these timers advance the deck but store no id, so no exit path can cancel them -- ' +
       'they fire on a screen the learner has left and can reach lvFinish()');
   });
 
@@ -727,16 +727,16 @@ describe('feedback timers · nothing may outlive the exit button', () => {
    * a future edit could still reintroduce a promise the app cannot keep. */
   test('the exit prompt cannot fire from a screen where the exam is already saved', () => {
     const at = src.indexOf('function navTo');
-    assert.ok(at > 0, 'navTo is gone — the single exit path this rule depends on');
+    assert.ok(at > 0, 'navTo is gone -- the single exit path this rule depends on');
     const body = src.slice(at, at + 900);
 
     assert.match(body, /exQuiz'\)\.classList\.contains\('hidden'\)/,
       'the prompt is not gated on #exQuiz being visible, so it can fire from the result screen ' +
-      'again — where the score has already been written');
+      'again -- where the score has already been written');
     assert.match(body, /רק מבחן שהושלם/,
       'the prompt no longer states the rule');
     assert.ok(!/לא תישמר|לא יישמרו/.test(body),
-      'the prompt promises the result is unsaved — on the result screen it has already been saved');
+      'the prompt promises the result is unsaved -- on the result screen it has already been saved');
   });
 
   test('the ✕ button no longer carries a prompt of its own', () => {
@@ -745,6 +745,6 @@ describe('feedback timers · nothing may outlive the exit button', () => {
     assert.strictEqual(exExit.length, 1);
     const body = src.slice(exExit[0].index, statementEnd(src, exExit[0].index, mask) + 1);
     assert.ok(!/confirm\(/.test(body),
-      '#exExit confirms on its own AND navTo confirms — the learner is asked twice');
+      '#exExit confirms on its own AND navTo confirms -- the learner is asked twice');
   });
 });

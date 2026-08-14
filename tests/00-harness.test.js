@@ -24,7 +24,7 @@ describe('harness · the source scanner', () => {
       const b = braceBalance(src);
       assert.deepStrictEqual(b, { net: 0, min: 0 },
         `${f}: the scanner does not see balanced braces (${JSON.stringify(b)}). Either the file is ` +
-        `broken, or it now uses syntax tests/_harness/scan.js mishandles. Fix the scanner — do NOT ` +
+        `broken, or it now uses syntax tests/_harness/scan.js mishandles. Fix the scanner -- do NOT ` +
         `weaken this assertion, because every other test in this suite depends on it being true.`);
     }
   });

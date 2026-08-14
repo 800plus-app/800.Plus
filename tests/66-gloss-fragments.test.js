@@ -60,8 +60,8 @@ describe('פירוש שנחתך לשבר משפט', () => {
       const ctx = loadApp();
       const hits = vavSegments(ctx, lang);
       assert.deepStrictEqual(hits, [],
-        `${hits.length} מקטעים נפתחים בוי"ו. כל אחד הוא או שבר משפט — ואז המילה דורשת\n` +
-        'פירוש שאי אפשר לתת ונעולה ברשימת החיזוק — או וי"ו שורשית, ואז מקומו ב-ALLOWED:\n  ' +
+        `${hits.length} מקטעים נפתחים בוי"ו. כל אחד הוא או שבר משפט -- ואז המילה דורשת\n` +
+        'פירוש שאי אפשר לתת ונעולה ברשימת החיזוק -- או וי"ו שורשית, ואז מקומו ב-ALLOWED:\n  ' +
         hits.map(h => `${h.term} (יח' ${h.unit}, ${h.n} מקטעים): "${h.seg}"`).join('\n  '));
     });
   }
@@ -77,7 +77,7 @@ describe('פירוש שנחתך לשבר משפט', () => {
       const w = ctx.BANK.find(x => ctx.K(x.term) === ctx.K(term));
       assert.ok(w, `${term} נעלמה מהמאגר`);
       assert.strictEqual(ctx.sensesLeft(w.term, w.meaning), 0,
-        `${w.term} עדיין דורשת פירוש נוסף — "${ctx.meaningSegsRaw(w.meaning).join(' | ')}"`);
+        `${w.term} עדיין דורשת פירוש נוסף -- "${ctx.meaningSegsRaw(w.meaning).join(' | ')}"`);
     }
     /* תִּכְתּוֹבֶת היא המקרה היחיד שנשאר בשני פירושים, ובכוונה: אלה שני פירושים
        אמיתיים · חילופי ההודעות, ואוסף ההודעות. הסרת הפסיק לבדה לא הספיקה לה, כי
@@ -85,7 +85,7 @@ describe('פירוש שנחתך לשבר משפט', () => {
        היא ששני המקטעים יהיו תשובות שאפשר לתת. */
     const tk = ctx.BANK.find(x => ctx.K(x.term) === ctx.K('תכתובת'));
     const segs = ctx.meaningSegsRaw(tk.meaning);
-    assert.strictEqual(segs.length, 2, `תכתובת: ${segs.length} מקטעים — "${segs.join(' | ')}"`);
+    assert.strictEqual(segs.length, 2, `תכתובת: ${segs.length} מקטעים -- "${segs.join(' | ')}"`);
     segs.forEach(s => assert.ok(!/^ו/.test(s.trim()) && s.trim().split(/\s+/).length <= 7,
       `מקטע שאינו תשובה אפשרית: "${s}"`));
   });

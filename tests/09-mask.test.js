@@ -47,7 +47,7 @@ for (const [unit, list] of Object.entries(banks().he))
   for (const p of list) if (Array.isArray(p)) heRows.push({ unit, term: p[0], meaning: p[1] });
 const row = term => {
   const r = heRows.find(x => x.term === term);
-  if (!r) assert.fail(`data.js no longer contains the entry ${term} — this test was built on it`);
+  if (!r) assert.fail(`data.js no longer contains the entry ${term} -- this test was built on it`);
   return r;
 };
 
@@ -242,7 +242,7 @@ describe('maskTerm() over the whole Hebrew bank', () => {
     // If a future edit makes hits() always false, every other test here still passes while the
     // feature does nothing at all. 76 of 1,717 entries are masked today.
     assert.ok(changed.length >= 40,
-      `only ${changed.length} of ${prompts.length} glosses are masked — has hits() stopped matching?`);
+      `only ${changed.length} of ${prompts.length} glosses are masked -- has hits() stopped matching?`);
   });
 
   test('no prompt outside the known-bad list contains a string isCorrect() would accept', () => {
@@ -260,7 +260,7 @@ describe('maskTerm() over the whole Hebrew bank', () => {
     const empty = changed
       .filter(p => p.out.includes(MARK) && words(p.out).length === 0)
       .map(p => `${p.term} → "${p.out}"`);
-    none(empty, 'the prompt is nothing but mask markers — unanswerable');
+    none(empty, 'the prompt is nothing but mask markers -- unanswerable');
   });
 
   test('masking never invents a marker in a gloss it did not change', () => {
@@ -296,9 +296,9 @@ describe('maskTerm() · KNOWN BUGS, pinned to today’s behaviour', () => {
          none(words(out).filter(w => he.isCorrect(w, r.term)), '…'); */
     const r = row('אִבֵּק');
     const out = he.maskTerm(r.meaning, r.term);
-    assert.strictEqual(out, r.meaning, 'the gloss is no longer returned intact — the bug may be fixed');
+    assert.strictEqual(out, r.meaning, 'the gloss is no longer returned intact -- the bug may be fixed');
     assert.ok(words(out).some(w => he.isCorrect(w, r.term)),
-      'the answer is no longer readable in the prompt — the bug may be fixed');
+      'the answer is no longer readable in the prompt -- the bug may be fixed');
   });
 
   test('KNOWN BUG · שָׁוְא · hits() ignores the plene forms isCorrect() accepts', () => {
@@ -311,8 +311,8 @@ describe('maskTerm() · KNOWN BUGS, pinned to today’s behaviour', () => {
     const r = row('שָׁוְא');
     const out = he.maskTerm(r.meaning, r.term);
     assert.ok(he.heForms(r.term).some(f => he.norm(f) === 'שווא'),
-      'heForms no longer produces the plene spelling — the premise of this finding changed');
-    assert.strictEqual(out, r.meaning, 'the plene giveaway is now masked — the bug may be fixed');
+      'heForms no longer produces the plene spelling -- the premise of this finding changed');
+    assert.strictEqual(out, r.meaning, 'the plene giveaway is now masked -- the bug may be fixed');
     assert.ok(words(out).some(w => he.isCorrect(w, r.term)));
   });
 
@@ -338,18 +338,18 @@ describe('maskTerm() · KNOWN BUGS, pinned to today’s behaviour', () => {
     // vm realm, so deepStrictEqual rejects it on the prototype (see tests/README.md).
     const stems = he.heStems('בַּר-מִינָן');
     assert.ok(stems.length > 0 && stems.every(s => s.includes(' ')),
-      `the stems of a hyphenated term are no longer multi-word — the cause may be fixed: ${JSON.stringify(Array.from(stems))}`);
-    assert.strictEqual(hyphenated, gloss, 'a hyphenated term now masks — the bug may be fixed');
+      `the stems of a hyphenated term are no longer multi-word -- the cause may be fixed: ${JSON.stringify(Array.from(stems))}`);
+    assert.strictEqual(hyphenated, gloss, 'a hyphenated term now masks -- the bug may be fixed');
     assert.ok(spaced.includes(MARK), 'the space-written control must still mask, or this proves nothing');
     assert.notStrictEqual(hyphenated, spaced, 'hyphen and space must differ for the bug to exist');
 
     // …and the reason it does not bite yet.
     const hyphenTerms = heRows.filter(r => /[-־]/.test(r.term));
-    assert.ok(hyphenTerms.length > 0, 'no hyphenated terms left in the bank — finding is moot');
+    assert.ok(hyphenTerms.length > 0, 'no hyphenated terms left in the bank -- finding is moot');
     none(hyphenTerms
       .filter(r => words(he.maskTerm(r.meaning, r.term)).some(w => he.isCorrect(w, r.term)))
       .map(r => r.term),
-      'a hyphenated term now leaks its answer — the latent bug above just went live');
+      'a hyphenated term now leaks its answer -- the latent bug above just went live');
   });
 
   test('KNOWN BUG · a non-string gloss is returned un-stringified', () => {
@@ -370,7 +370,7 @@ describe('maskTerm() · KNOWN BUGS, pinned to today’s behaviour', () => {
        The cloud path therefore admits what the disk path rejects. */
     const empty = { assoc: {}, stats: { words: {}, sessions: [] }, deleted: [], added: [], dir: 'w2m' };
     const m = he.mergeProgress(empty, { ...empty, added: [['מילה', null], ['שנייה', { a: 1 }]] });
-    assert.strictEqual(m.added.length, 2, 'the rows are now filtered — the bug may be fixed');
+    assert.strictEqual(m.added.length, 2, 'the rows are now filtered -- the bug may be fixed');
     assert.ok(m.added.every(p => typeof p[1] !== 'string'));
   });
 });

@@ -154,7 +154,7 @@ describe('clock skew · a wrong clock wins the conflict', () => {
     const weak = ctx.weakCards('global').map(w => ctx.K(w.term));
     assert.ok(!weak.includes(k), 'a word the learner keeps missing is not offered under "weak"');
     assert.ok(ctx.learnedCards('global').map(w => ctx.K(w.term)).includes(k),
-      'it is counted as learned instead — on the donut, on the ring and in the reminder');
+      'it is counted as learned instead -- on the donut, on the ring and in the reminder');
   });
 
   test('BUG: a clock stepped BACKWARDS makes a device lose to its own earlier write', () => {
@@ -180,7 +180,7 @@ describe('clock skew · a wrong clock wins the conflict', () => {
     assert.strictEqual(plain(ctx.saneRec({ last: -5 })).last, 0, 'negative is clamped');
     assert.strictEqual(plain(ctx.saneRec({ last: 'tomorrow' })).last, 0, 'unparseable is clamped');
     assert.strictEqual(plain(ctx.saneRec({ last: 4102444800000 })).last, 4102444800000,
-      'the year 2100 is accepted verbatim — there is no upper bound anywhere');
+      'the year 2100 is accepted verbatim -- there is no upper bound anywhere');
   });
 
   /* The fix is two lines and belongs in app.js, so it is written out rather than applied:
@@ -227,7 +227,7 @@ describe('two writers · the same round, twice', () => {
       { assoc: ctx.assoc, stats: ctx.stats, deleted: [], added: [], dir: 'w2m' }, pushed));
     assert.strictEqual(merged.stats.sessions.length, 1, 'the half-finished copy came back as a second round');
     assert.strictEqual(merged.stats.sessions[0].total, 10,
-      'the merge kept the staler copy — ten answers were played and the log must say ten');
+      'the merge kept the staler copy -- ten answers were played and the log must say ten');
   });
 
   test('the fuller copy wins whichever side it arrives from', () => {
@@ -283,7 +283,7 @@ describe('two writers · the same round, twice', () => {
     assert.strictEqual(mine.total, 6, 'the three new answers did not land on the round being played');
     assert.strictEqual(mine.t, T0 + 5 * DAY + 60000);
     const bystander = rows.find(r => r.scope === 'unit:1' && r.t === T0 + 3 * DAY);
-    assert.ok(bystander, 'the three-day-old round vanished — its date was dragged to today');
+    assert.ok(bystander, 'the three-day-old round vanished -- its date was dragged to today');
     assert.strictEqual(bystander.total, 1, 'a bystander round grew');
   });
 
@@ -308,7 +308,7 @@ describe('two writers · the same round, twice', () => {
     const after = new Set(plain(ctx.stats.sessions).map(s => ctx.dayKey(s.t)));
     const lost = [...before].filter(d => !after.has(d));
     assert.deepStrictEqual(lost, [],
-      'a calendar day left the log because a round\'s date was dragged forward onto today — ' +
+      'a calendar day left the log because a round\'s date was dragged forward onto today -- ' +
       'that is a broken streak, and the learner has no way to tell what happened');
   });
 
@@ -446,7 +446,7 @@ describe('day boundaries · the streak', () => {
     // Israel 2026: clocks go 02:00 → 03:00 on Friday 27 March. That day is 23 hours long.
     assert.strictEqual(ctx.dayKey(at(2026, 3, 28, 0, 30)), '2026-3-28');
     assert.strictEqual(ctx.dayKey(at(2026, 3, 28, 0, 30) - DAY), '2026-3-26',
-      '27 March never appears — one subtraction jumps clean over it');
+      '27 March never appears -- one subtraction jumps clean over it');
   });
 
   test('practising on the DST day and opening the app at 00:30 that night keeps the streak', () => {
@@ -628,7 +628,7 @@ describe('the exam countdown', () => {
     const ctx = loadTime();
     const host = withPill(ctx);
     ctx.renderExamPill();
-    assert.ok(host.classList.contains('hidden'), 'nothing set — no nagging row');
+    assert.ok(host.classList.contains('hidden'), 'nothing set -- no nagging row');
     assert.strictEqual(host.onclick, null, 'and nothing to click');
     ctx.LS.set('hw_examDate', '2028-08-05');
     ctx.at(at(2026, 8, 5, 10, 0));                 // 731 days out, past the 400-day guard

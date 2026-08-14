@@ -54,13 +54,13 @@ test('adminUserProgress does not ask the cloud for the association blob', async 
   assert.ok(op, 'adminUserProgress issued no read at all');
 
   const cols = String(op.columns || '').split(',').map(c => c.trim()).filter(Boolean);
-  assert.ok(cols.length, 'adminUserProgress asked for no columns — that means "*", the whole row');
+  assert.ok(cols.length, 'adminUserProgress asked for no columns -- that means "*", the whole row');
 
   /* The bare column `data` is the blob. `data->stats` is a projection of one key out of it and
      is what we want; `data` alone, or `*`, is not. */
   const bare = cols.filter(c => /(^|:)\s*data\s*$/.test(c) || c === '*');
   assert.deepStrictEqual(bare, [],
-    'the admin read still pulls the whole `data` blob (' + op.columns + ') — that blob contains ' +
+    'the admin read still pulls the whole `data` blob (' + op.columns + ') -- that blob contains ' +
     '`assoc`, the learner\'s own associations, which the privacy policy promises are never seen');
 });
 
@@ -69,7 +69,7 @@ test('the admin read pulls stats, and nothing else the learner wrote', async () 
   await s.Store.adminUserProgress('u-9');
   const cols = String(s.calls[0].columns || '');
 
-  assert.match(cols, /data->stats/, 'stats must still be pulled — the panel counts practice from it');
+  assert.match(cols, /data->stats/, 'stats must still be pulled -- the panel counts practice from it');
   for (const secret of ['assoc', 'added', 'extras', 'deleted']) {
     assert.ok(!new RegExp('data\\s*->>?\\s*' + secret).test(cols),
       `the admin read asks for data->${secret}; that is the learner's own writing, not a count`);
@@ -110,13 +110,13 @@ test('a failed read is still not reported as "no progress"', async () => {
 test('the admin panel reads stats off the projected row, not off a blob', () => {
   const src = fs.readFileSync(path.join(ROOT, 'app.js'), 'utf8');
   const code = extractFunction(src, 'openAdmin', codeMask(src));
-  assert.ok(code, 'app.js no longer declares openAdmin — update this test, do not delete it');
+  assert.ok(code, 'app.js no longer declares openAdmin -- update this test, do not delete it');
   /* Matched against real code only -- a comment may legitimately mention p.data to explain
      why it is gone, and a comment is not a read. */
   const mask = codeMask(code);
   assert.ok(codeMatches(code, /adminUserProgress/, mask).length, 'openAdmin no longer calls adminUserProgress');
   assert.strictEqual(codeMatches(code, /\bp\.data\b/, mask).length, 0,
-    'openAdmin still reads p.data — that field is no longer sent, so every count would read 0');
+    'openAdmin still reads p.data -- that field is no longer sent, so every count would read 0');
   assert.ok(codeMatches(code, /\bp\.stats\b/, mask).length,
     'openAdmin must read the projected `stats` field');
 });

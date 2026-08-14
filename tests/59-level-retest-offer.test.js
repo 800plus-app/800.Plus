@@ -47,7 +47,7 @@ describe('מבחן רמה חוזר · ההצעה', () => {
   test('החסימה הרחבה על חשבון עם היסטוריה הוסרה', () => {
     const body = lvFinish();
     assert.ok(!/already\s*<\s*10/.test(body),
-      'ההצעה עדיין נחסמת לפי מספר המילים שתורגלו — מבחן רמה חוזר לא יציע דבר');
+      'ההצעה עדיין נחסמת לפי מספר המילים שתורגלו -- מבחן רמה חוזר לא יציע דבר');
     assert.match(body, /const skippable\s*=\s*\(LV_LANG==='en'\)\s*\?\s*lvCountKnown\(level\)/,
       'הספירה אינה מבוססת על lvCountKnown בלבד');
   });
@@ -61,7 +61,7 @@ describe('מבחן רמה חוזר · ההצעה', () => {
     const at = app.indexOf('function lvCountKnown');
     assert.ok(at > 0, 'lvCountKnown נעלמה');
     assert.match(app.slice(at, at + 700), /words\[k\]\s*\|\|\s*gone\.has\(k\)/,
-      'lvCountKnown אינו פוסל מילים שכבר תורגלו — ההצעה תכלול מילים שהלומד כבר יודע');
+      'lvCountKnown אינו פוסל מילים שכבר תורגלו -- ההצעה תכלול מילים שהלומד כבר יודע');
   });
 
   test('ההחלה לעולם אינה נוגעת ברשומה קיימת', () => {
@@ -69,7 +69,7 @@ describe('מבחן רמה חוזר · ההצעה', () => {
     assert.ok(at > 0, 'lvApplyKnown נעלמה');
     const body = app.slice(at, at + 900);
     assert.match(body, /if\(stats\.words\[k\]\)\s*continue/,
-      'ההחלה עלולה לדרוס התקדמות קיימת — זה הבאג שעלה 2,470 רשומות');
+      'ההחלה עלולה לדרוס התקדמות קיימת -- זה הבאג שעלה 2,470 רשומות');
     const guardAt = body.indexOf('if(stats.words[k]) continue');
     const writeAt = body.indexOf('stats.words[k]={');
     assert.ok(guardAt > 0 && guardAt < writeAt, 'השער אינו לפני הכתיבה');
@@ -84,6 +84,6 @@ describe('מבחן רמה חוזר · ההצעה', () => {
   test('התוצאה נשמרת ומסונכרנת בכל מבחן, גם חוזר', () => {
     const body = lvFinish();
     assert.match(body, /LS\.set\(lvKey\(\),\s*level\|\|'A1'\);\s*queueRemoteSync\(\)/,
-      'התוצאה אינה נדחפת לענן — מבחן חוזר לא יסתנכרן למכשירים האחרים');
+      'התוצאה אינה נדחפת לענן -- מבחן חוזר לא יסתנכרן למכשירים האחרים');
   });
 });

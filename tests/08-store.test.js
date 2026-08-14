@@ -97,7 +97,7 @@ describe('pullProgress · a failed read must never look like an empty cloud', ()
   test('no row at all is ok:true with data null · this is the ONLY real "empty cloud"', async () => {
     const s = loadStore({ respond: { 'progress.select': { data: null } } });
     const res = await s.Store.pullProgress('he');
-    assert.strictEqual(res.ok, true, 'a genuinely absent row is not a failure — a new account has one');
+    assert.strictEqual(res.ok, true, 'a genuinely absent row is not a failure -- a new account has one');
     assert.strictEqual(res.data, null);
   });
 
@@ -108,7 +108,7 @@ describe('pullProgress · a failed read must never look like an empty cloud', ()
       const res = await s.Store.pullProgress('he');
       if (res.ok !== false || res.data !== null) bad.push(`${name} -> ${JSON.stringify(plain(res))}`);
     }
-    none(bad, 'a failed read reported success — the caller will overwrite the cloud with local state:');
+    none(bad, 'a failed read reported success -- the caller will overwrite the cloud with local state:');
   });
 
   test('a dropped read is not followed by a write, end to end', async () => {
@@ -116,7 +116,7 @@ describe('pullProgress · a failed read must never look like an empty cloud', ()
     const ok = await s.ctx.flushRemoteSync();
     assert.strictEqual(ok, false, 'a flush that never wrote must not report success');
     none(s.fake.of('progress', 'upsert').map(c => JSON.stringify(plain(c.row))),
-      'a failed read was followed by a write — this is how a whole account is erased:');
+      'a failed read was followed by a write -- this is how a whole account is erased:');
     assert.strictEqual(s.ctx.syncPending.he, true,
       'the pending save was thrown away by a failed read; nothing would ever retry it');
   });
@@ -152,7 +152,7 @@ describe('pullProgress · a failed read must never look like an empty cloud', ()
     const s = loadStore({ respond: { 'progress.select': { data: { updated_at: '2026-01-01T00:00:00Z' } } } });
     const res = await s.Store.pullProgress('he');
     assert.strictEqual(res.ok, false,
-      'a row that exists but cannot be read was reported as ok — the caller answers that by ' +
+      'a row that exists but cannot be read was reported as ok -- the caller answers that by ' +
       'pushing the device over it');
     assert.ok(!res.data);
   });
@@ -185,7 +185,7 @@ describe('pullProgress · a failed read must never look like an empty cloud', ()
      * the documented shape gets an unhandled rejection instead of a verdict. */
     const s = loadStore({ respond: () => { throw new TypeError('Failed to fetch'); } });
     await assert.rejects(() => s.Store.pullProgress('he'), /Failed to fetch/,
-      'if this stops rejecting, the contract is now honest — replace this with an ok:false check');
+      'if this stops rejecting, the contract is now honest -- replace this with an ok:false check');
   });
 });
 
@@ -293,7 +293,7 @@ describe('flushRemoteSync · the round trip the app actually runs', () => {
     await s.ctx.flushRemoteSync();
     const pushed = plain(s.fake.of('progress', 'upsert')[0].row.data.stats.words);
     assert.deepStrictEqual(Object.keys(pushed).sort(), [localWord, remoteWord].sort(),
-      'the write dropped one side — whichever device syncs last would win outright');
+      'the write dropped one side -- whichever device syncs last would win outright');
   });
 
   test('a language switch while the read is in flight cancels the write', async () => {
@@ -331,7 +331,7 @@ describe('flushRemoteSync · the round trip the app actually runs', () => {
     assert.strictEqual(s.fake.of('progress', 'upsert').length, 1, 'sanity: the write really was attempted');
     assert.strictEqual(saved, false,
       'the cloud refused the write and flushRemoteSync still said "saved". signOutNow clears ' +
-      'localStorage on exactly this word — do not loosen this assertion, fix the caller.');
+      'localStorage on exactly this word -- do not loosen this assertion, fix the caller.');
   });
 
   /* FIXED alongside the test above -- same edit, and deliberately so. syncPending used to be
@@ -344,7 +344,7 @@ describe('flushRemoteSync · the round trip the app actually runs', () => {
     });
     await s.ctx.flushRemoteSync();
     assert.strictEqual(s.ctx.syncPending.he, true,
-      'the round is unsaved AND unqueued — nothing will ever retry it');
+      'the round is unsaved AND unqueued -- nothing will ever retry it');
   });
 
   /* FIXED 1.8.2026 -- house-check 2, finding #5. Pruning BEFORE a merge is not pruning: the merge
@@ -363,7 +363,7 @@ describe('flushRemoteSync · the round trip the app actually runs', () => {
     await s.ctx.flushRemoteSync();
     const pushed = s.fake.of('progress', 'upsert')[0].row.data;
     assert.ok(!s.ctx.stats.words[GHOST], 'the orphan is back in local state after the merge');
-    assert.ok(!pushed.stats.words[GHOST], 'and was written straight back to the cloud — this is what made it immortal');
+    assert.ok(!pushed.stats.words[GHOST], 'and was written straight back to the cloud -- this is what made it immortal');
     // asserted separately: the association is the half that carries the learner's own writing
     assert.ok(!pushed.assoc[GHOST], 'its association came back too');
   });
@@ -384,7 +384,7 @@ describe('syncWithRemoteInner · prune after merge, the way the fix intended', (
     await s.ctx.syncWithRemoteInner('he');
     await settle();
     const pushed = s.fake.of('progress', 'upsert')[0].row.data;
-    assert.ok(!s.ctx.stats.words[GHOST], 'the orphan survived locally — the prune ran before the merge, or not at all');
+    assert.ok(!s.ctx.stats.words[GHOST], 'the orphan survived locally -- the prune ran before the merge, or not at all');
     assert.ok(!pushed.stats.words[GHOST], 'the orphan was pushed back to the cloud, which is what made it immortal');
     // The association is pruned by the same pass and is the half that carries the learner's own
     // writing, so it is asserted separately rather than trusted to ride along with the record.
@@ -398,7 +398,7 @@ describe('syncWithRemoteInner · prune after merge, the way the fix intended', (
     s.ctx.stats.words[real] = s.ctx.saneRec(R({ seen: 6, level: 2, last: 4 }));
     await s.ctx.syncWithRemoteInner('he');
     await settle();
-    assert.ok(s.ctx.stats.words[real], 'the prune deleted a real word — this destroys progress');
+    assert.ok(s.ctx.stats.words[real], 'the prune deleted a real word -- this destroys progress');
     assert.strictEqual(s.ctx.stats.words[real].seen, 6);
   });
 
@@ -487,7 +487,7 @@ describe('myProfile · the same bug pullProgress was fixed for, still open', () 
     const absent = loadStore({ respond: { 'profiles.select': { data: null } } });
     assert.strictEqual(await failed.Store.myProfile(), null);
     assert.strictEqual(await absent.Store.myProfile(), null,
-      'if these two ever differ, the distinction has been made — rewrite this test around it');
+      'if these two ever differ, the distinction has been made -- rewrite this test around it');
   });
 
   test('no session returns null without querying the profiles table', async () => {
@@ -607,7 +607,7 @@ describe('deletion · the two paths that remove data', () => {
     const s = loadStore({ respond: {} });
     await s.Store.adminDeleteUserData('victim');
     none(s.calls.filter(c => !c.filters.some(f => f[2] === 'victim')).map(c => c.table + '.' + c.verb),
-      'a delete ran without being filtered to the target user — this would empty the whole table:');
+      'a delete ran without being filtered to the target user -- this would empty the whole table:');
   });
 
   test('a missing id deletes nothing at all', async () => {
@@ -661,7 +661,7 @@ describe('auth · what the caller is told', () => {
     const r = await s.Store.signIn('a@b.c', 'wrong');
     assert.strictEqual(r.user, null);
     assert.strictEqual(r.error.message, 'Invalid login credentials',
-      'translateAuthError (app.js:2779) matches on the message text — flattening it loses every ' +
+      'translateAuthError (app.js:2779) matches on the message text -- flattening it loses every ' +
       'specific message the user needs');
   });
 
@@ -678,7 +678,7 @@ describe('auth · what the caller is told', () => {
     assert.ok(r.user, 'the sign-in itself succeeded');
     assert.ok(upd, 'the last_seen write was issued');
     assert.strictEqual(upd.settled, false,
-      'pinned: signIn resolved while the write was still in flight — a tab closed here loses it');
+      'pinned: signIn resolved while the write was still in flight -- a tab closed here loses it');
     await new Promise(res => setTimeout(res, 40));
     assert.strictEqual(upd.settled, true, 'sanity: the write did eventually come back, and it failed');
     none(s.warnings, 'expected the failure to be logged nowhere at all (that is the finding):');
@@ -723,7 +723,7 @@ describe('the harness · why these tests lift app.js the way they do', () => {
     const naive = extractFunction(src, 'f', codeMask(src));
     assert.ok(!naive.startsWith('async'), 'extract.js matches at `function`, so `async` is dropped');
     assert.throws(() => new Function(naive), SyntaxError,
-      'and the result is not valid code — a silently mis-lifted function is the failure mode ' +
+      'and the result is not valid code -- a silently mis-lifted function is the failure mode ' +
       'tests/README.md calls worse than having no tests');
     const { liftAsync } = require('./_harness/fakeSupabase.js');
     assert.ok(liftAsync(src, 'f', codeMask(src)).startsWith('async function f'));

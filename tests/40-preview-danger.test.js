@@ -49,12 +49,12 @@ describe('רשת הביטחון · מה שקובע', () => {
        אינו רישיון למחוק סבב עברית שלא הגיע לענן. */
     assert.ok(/localStorage\.clear/.test(signOut) &&
               /!\s*syncPending\.he\s*&&\s*!\s*syncPending\.en/.test(signOut),
-      'המחיקה שוב מסתמכת על השפה הפעילה בלבד — עבודה בשפה השנייה תימחק');
+      'המחיקה שוב מסתמכת על השפה הפעילה בלבד -- עבודה בשפה השנייה תימחק');
   });
 
   test('ויש ענף שמסביר למה לא נמחק', () => {
     assert.ok(/else[\s\S]{0,140}console\.warn/.test(signOut),
-      'המקרה שבו לא מוחקים עובר בשקט — אין דרך לדעת שזה קרה');
+      'המקרה שבו לא מוחקים עובר בשקט -- אין דרך לדעת שזה קרה');
   });
 
   test('הסבב האחרון נשמר לפני הכול', () => {
@@ -89,6 +89,6 @@ describe('אזור מסוכן במצב הצצה', () => {
     const at = app.indexOf('const ACC_TABS');
     const tabs = app.slice(at, at + 500);
     for (const id of ['accSignOut', 'accReset', 'accDelete'])
-      assert.ok(new RegExp(id).test(tabs), id + ' נעלם מ-ACC_TABS — הבדיקה כבר לא שומרת עליו');
+      assert.ok(new RegExp(id).test(tabs), id + ' נעלם מ-ACC_TABS -- הבדיקה כבר לא שומרת עליו');
   });
 });

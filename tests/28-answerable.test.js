@@ -48,7 +48,7 @@ describe('כל ערך במאגר ניתן למענה', () => {
     const dead = HE.filter(e => he.meaningSegs(e.meaning).length === 0)
                    .map(e => `יחידה ${e.unit} · ${e.term} → "${e.meaning}"`);
     expectNone(assert, dead,
-      'ערכים שאף תשובה אינה מתקבלת בהם — הכרטיס נכשל תמיד וחוזר דווקא בגלל זה:');
+      'ערכים שאף תשובה אינה מתקבלת בהם -- הכרטיס נכשל תמיד וחוזר דווקא בגלל זה:');
   });
 
   test('האנגלית · אותו כלל', () => {
@@ -79,13 +79,13 @@ describe('כל ערך במאגר ניתן למענה', () => {
       .filter(e => e.meaning.includes('·') && he.meaningSegs(e.meaning).length < 2)
       .map(e => `${e.term} → "${e.meaning.slice(0, 70)}"`);
     expectNone(assert, bad,
-      'פירושים שמופרדים ב-`·` בלבד — המנגנון רואה אותם כפירוש אחד ארוך:');
+      'פירושים שמופרדים ב-`·` בלבד -- המנגנון רואה אותם כפירוש אחד ארוך:');
   });
 
   test('הבדיקה באמת בודקת · ערך פגום מומצא נתפס', () => {
     /* בלי זה כל האמור למעלה יכול לעבור בירוק על מאגר ריק או על meaningSegs שבורה. */
     assert.strictEqual(he.meaningSegs('(לפצל לשני ערכים)').length, 0,
-      'הפירוש שהיה שבור בפועל אינו מזוהה עוד כשבור — meaningSegs השתנתה');
+      'הפירוש שהיה שבור בפועל אינו מזוהה עוד כשבור -- meaningSegs השתנתה');
     assert.ok(he.meaningSegs('סדק צר, פתח צר').length >= 2,
       'פירוש תקין מזוהה כשבור');
     assert.ok(HE.length > 1700 && EN.length > 3800,

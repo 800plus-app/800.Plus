@@ -43,10 +43,10 @@ describe('store · שליחה חוזרת של מייל האישור', () => {
     const call = fake.authCalls.find(c => c.m === 'resend');
     assert.ok(call, 'לא נקרא auth.resend בכלל');
     assert.strictEqual(call.args.type, 'signup',
-      'type אחר שולח מייל אחר לגמרי — magiclink או recovery, לא אישור הרשמה');
+      'type אחר שולח מייל אחר לגמרי -- magiclink או recovery, לא אישור הרשמה');
     assert.strictEqual(call.args.email, 'a@b.com');
     assert.ok(!fake.authCalls.some(c => c.m === 'signUp'),
-      'signUp חוזר על חשבון קיים מחזיר הצלחה ולא שולח כלום — זה בדיוק המלכוד שהכפתור בא לפתור');
+      'signUp חוזר על חשבון קיים מחזיר הצלחה ולא שולח כלום -- זה בדיוק המלכוד שהכפתור בא לפתור');
   });
 
   test('הכתובת מנוקה מרווחים לפני השליחה', async () => {
@@ -60,7 +60,7 @@ describe('store · שליחה חוזרת של מייל האישור', () => {
     const r = await Store.resendConfirmation('   ');
     assert.strictEqual(r.ok, false);
     assert.ok(!fake.authCalls.some(c => c.m === 'resend'),
-      'קריאה בלי כתובת שורפת מהמכסה של Supabase ומחזירה שגיאה — עדיף לא לצאת');
+      'קריאה בלי כתובת שורפת מהמכסה של Supabase ומחזירה שגיאה -- עדיף לא לצאת');
   });
 
   test('הצלחה מוחזרת כ-ok:true', async () => {
@@ -96,7 +96,7 @@ describe('index.html · הכפתור נמצא, ובמקום הנכון', () => {
     const start = idx('mailAsk');
     const end = html.indexOf('id="sizeAsk"');
     const btn = idx('mailAskResend');
-    assert.ok(start > 0 && end > start, 'מבנה index.html השתנה — לא מצאתי את גבולות #mailAsk');
+    assert.ok(start > 0 && end > start, 'מבנה index.html השתנה -- לא מצאתי את גבולות #mailAsk');
     assert.ok(btn > start && btn < end, 'הכפתור מחוץ לדיאלוג, ולכן לא נראה כשצריך אותו');
   });
 
@@ -131,7 +131,7 @@ describe('app.js · הכפתור באמת מחובר', () => {
 
   test('יש הצמדה ל-#mailAskResend', () => {
     assert.ok(/\$\('#mailAskResend'\)\s*\.\s*onclick\s*=/.test(app),
-      'כפתור בלי onclick לא זורק שום שגיאה — הוא פשוט לא עושה כלום, וזה הכשל השקט ביותר');
+      'כפתור בלי onclick לא זורק שום שגיאה -- הוא פשוט לא עושה כלום, וזה הכשל השקט ביותר');
   });
 
   test('ההצמדה קוראת ל-Store.resendConfirmation', () => {
@@ -151,7 +151,7 @@ describe('app.js · הכפתור באמת מחובר', () => {
     const from = app.indexOf("$('#mailAskResend')");
     const body = app.slice(from, from + 900);
     assert.ok(/mailAskMsg/.test(body),
-      'התוצאה חייבת להגיע לאלמנט ההודעה של הדיאלוג — אחרת הלחיצה נראית כאילו לא קרה כלום');
+      'התוצאה חייבת להגיע לאלמנט ההודעה של הדיאלוג -- אחרת הלחיצה נראית כאילו לא קרה כלום');
   });
 });
 
@@ -162,7 +162,7 @@ describe('הנוסח · לא להבטיח מייל שאולי לא ייראה', 
      מבחינה טכנית ומטעה מבחינה מעשית: המייל אכן נשלח, אכן נמסר, ואיש לא ראה אותו. */
   test('ההודעה שאחרי ההרשמה מזכירה שהמייל עלול לא להופיע', () => {
     const m = app.match(/textContent\s*=\s*'([^']*אשר את המייל[^']*)'/);
-    assert.ok(m, 'לא מצאתי את הודעת ההרשמה — השתנתה?');
+    assert.ok(m, 'לא מצאתי את הודעת ההרשמה -- השתנתה?');
     assert.ok(/ספאם|לא הגיע|קידומי/.test(m[1]),
       'הנוסח מבטיח בביטחון ולא מכין לאפשרות היחידה שקרתה בפועל: ' + JSON.stringify(m[1]));
   });

@@ -66,7 +66,7 @@ describe('כלל 1 · היסטוריה לעולם אינה נדרסת', () => {
     const words = { alpha: Object.assign({}, real) };
     applyKnown(words, 1000, rankOf, DATA);
     assert.deepStrictEqual(words.alpha, real,
-      'מילה עם היסטוריה נדרסה — זה בדיוק הבאג שמחק 2,470 רשומות');
+      'מילה עם היסטוריה נדרסה -- זה בדיוק הבאג שמחק 2,470 רשומות');
   });
 
   test('גם רשומה חלשה מאוד גוברת על הסימון', () => {
@@ -82,7 +82,7 @@ describe('כלל 1 · היסטוריה לעולם אינה נדרסת', () => {
     const words = {};
     const first = applyKnown(words, 1000, rankOf, DATA);
     const second = applyKnown(words, 1000, rankOf, DATA);
-    assert.strictEqual(second, 0, 'ריצה שנייה סימנה שוב — הספירה מנופחת');
+    assert.strictEqual(second, 0, 'ריצה שנייה סימנה שוב -- הספירה מנופחת');
     assert.ok(first > 0);
   });
 });
@@ -94,7 +94,7 @@ describe('כלל 2 · הסימון שמאפשר לבטל', () => {
     applyKnown(words, 1000, rankOf, DATA);
     for (const k of Object.keys(words))
       assert.strictEqual(words[k].src, 'lv',
-        `${k} נכתב בלי סימון — אי אפשר להבדיל בינו לבין תרגול אמיתי, ו"שחזור" לא ימצא אותו`);
+        `${k} נכתב בלי סימון -- אי אפשר להבדיל בינו לבין תרגול אמיתי, ו"שחזור" לא ימצא אותו`);
   });
 
   test('רשומות אמיתיות אינן מקבלות את הסימון', () => {
@@ -149,7 +149,7 @@ describe('הסף · LV_CUT', () => {
     const marked = applyKnown(words, en.LV_CUT.C2, () => 1, EN);   // כל המילים מדורגות ומתחת לסף
     assert.ok(marked > 0);
     assert.ok(en.LV_CUT.C2 < 20000,
-      `סף C2 הוא ${en.LV_CUT.C2} — גבוה מספיק כדי לכסות את כל הבנק המדורג`);
+      `סף C2 הוא ${en.LV_CUT.C2} -- גבוה מספיק כדי לכסות את כל הבנק המדורג`);
   });
 });
 
@@ -160,7 +160,7 @@ describe('המספר שבמסך האישור הוא המספר שהכפתור מ
        והמסך ביקש הסכמה למספר שלא קרה. */
     const words = { alpha: { seen: 2 } };
     const n = applyKnown(Object.assign({}, words), 1000, rankOf, DATA);
-    assert.strictEqual(n, 2, `הספירה החזירה ${n} — alpha כבר קיימת ואמורה לרדת מהמניין`);
+    assert.strictEqual(n, 2, `הספירה החזירה ${n} -- alpha כבר קיימת ואמורה לרדת מהמניין`);
   });
 
   test('lvCountKnown ב-app.js אכן מדלגת על רשומות קיימות ועל מחוקות', () => {
@@ -176,9 +176,9 @@ describe('המספר שבמסך האישור הוא המספר שהכפתור מ
     assert.ok(at > 0, 'lvApplyKnown נעלמה');
     const body = app.slice(at, at + 900);
     assert.ok(/if\s*\(\s*stats\.words\[k\]\s*\)\s*continue/.test(body),
-      'כלל 1 נעלם — רשומה קיימת כבר אינה מוגנת, וזה הבאג שמחק 2,470 רשומות');
-    assert.ok(/src:\s*'lv'/.test(body), "כלל 2 נעלם — הרשומות נכתבות בלי src:'lv'");
+      'כלל 1 נעלם -- רשומה קיימת כבר אינה מוגנת, וזה הבאג שמחק 2,470 רשומות');
+    assert.ok(/src:\s*'lv'/.test(body), "כלל 2 נעלם -- הרשומות נכתבות בלי src:'lv'");
     assert.ok(/LANG\s*=\s*wasLang|LANG\s*=\s*here/.test(app.slice(at, at + 2600)),
-      'LANG אינה מוחזרת — האפליקציה נשארת באנגלית אחרי מבחן רמה בעברית');
+      'LANG אינה מוחזרת -- האפליקציה נשארת באנגלית אחרי מבחן רמה בעברית');
   });
 });

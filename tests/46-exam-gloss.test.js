@@ -42,12 +42,12 @@ describe('מבחן היחידה · פירוש אחד לכל שאלה', () => {
 
   test('אין שתי שאלות עם אותו פירוש', () => {
     const items = ctx.exBuild('2', 130);
-    assert.ok(items.length > 0, 'exBuild החזיר מבחן ריק — האם היחידה או הכלים השתנו?');
+    assert.ok(items.length > 0, 'exBuild החזיר מבחן ריק -- האם היחידה או הכלים השתנו?');
     const glosses = items.map(it => glossKey(it.it.meaning));
     const seen = new Set(), dup = [];
     for (const g of glosses) { if (g.length >= 2 && seen.has(g)) dup.push(g); else seen.add(g); }
     assert.deepStrictEqual(dup, [],
-      'שני פריטים במבחן חולקים פירוש — אותה שאלה מופיעה פעמיים: ' + dup.join(', '));
+      'שני פריטים במבחן חולקים פירוש -- אותה שאלה מופיעה פעמיים: ' + dup.join(', '));
   });
 
   test('בחירת "כל היחידה" עדיין מחזירה את כל המילים', () => {

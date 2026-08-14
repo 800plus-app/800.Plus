@@ -69,7 +69,7 @@ describe('capSampled · הדגימה שמונעת "אותן מילים חוזר�
             b = Array.from(c.capSampled(l, 20)).join();
       if (a === b) same++;
     }
-    assert.ok(same < 20, 'כל הסבבים יצאו זהים — הדגימה אינה דוגמת, והתלונה המקורית חזרה');
+    assert.ok(same < 20, 'כל הסבבים יצאו זהים -- הדגימה אינה דוגמת, והתלונה המקורית חזרה');
   });
 
   test('בלי כפילויות', () => {
@@ -94,7 +94,7 @@ describe('EX_GRADE · המשפט על מוכנות למבחן', () => {
     const t = c.EX_GRADE.map(g => g[0]);
     for (let i = 1; i < t.length; i++)
       assert.ok(t[i] < t[i - 1], `הספים אינם יורדים: ${JSON.stringify(t)}`);
-    assert.strictEqual(t[t.length - 1], 0, 'אין סף 0 — ציון נמוך לא יקבל שום משפט');
+    assert.strictEqual(t[t.length - 1], 0, 'אין סף 0 -- ציון נמוך לא יקבל שום משפט');
   });
 
   test('ציון מלא וציון אפס מקבלים את הקצוות הנכונים', () => {
@@ -130,7 +130,7 @@ describe('mayAutoReload · התקציב שמונע לולאת ריענון', () 
     const c = withStore(good());
     assert.strictEqual(c.mayAutoReload(), true,  'הריענון הראשון נחסם');
     assert.strictEqual(c.mayAutoReload(), true,  'הריענון השני נחסם');
-    assert.strictEqual(c.mayAutoReload(), false, 'הריענון השלישי עבר — זו לולאת A→B→A→B');
+    assert.strictEqual(c.mayAutoReload(), false, 'הריענון השלישי עבר -- זו לולאת A→B→A→B');
   });
 
   test('אחסון ששותק · לא מרעננים בכלל', () => {
@@ -138,7 +138,7 @@ describe('mayAutoReload · התקציב שמונע לולאת ריענון', () 
        המונה לעולם אינו עולה וכל קריאה תאשר ריענון · ריענון אינסופי. */
     const silent = { getItem: () => null, setItem: () => {} };
     assert.strictEqual(withStore(silent).mayAutoReload(), false,
-      'אחסון שבולע כתיבה אישר ריענון — הלולאה שנכתבה כדי למנוע אותה');
+      'אחסון שבולע כתיבה אישר ריענון -- הלולאה שנכתבה כדי למנוע אותה');
     const throws = { getItem: () => { throw new Error('denied'); },
                      setItem: () => { throw new Error('denied'); } };
     assert.strictEqual(withStore(throws).mayAutoReload(), false, 'אחסון שזורק אישר ריענון');
@@ -196,7 +196,7 @@ describe('ציון המבחן · החשבון והתקרה', () => {
   test('היסטוריית המבחנים חסומה ב-20', () => {
     /* בלי התקרה הרשומה גדלה בלי גבול ונדחפת לענן בכל מבחן. */
     assert.ok(/slice\(-20\)/.test(app),
-      'תקרת היסטוריית המבחנים (slice(-20)) נעלמה — הרשומה תתפח בלי גבול');
+      'תקרת היסטוריית המבחנים (slice(-20)) נעלמה -- הרשומה תתפח בלי גבול');
     const arr = Array.from({ length: 25 }, (_, i) => i);
     assert.deepStrictEqual(arr.slice(-20)[0], 5, 'התקרה שומרת את האחרונים ולא את הראשונים');
   });
@@ -209,7 +209,7 @@ describe('ציון המבחן · החשבון והתקרה', () => {
     assert.ok(at > 0, 'exAnswer נעלמה');
     const body = app.slice(at, app.indexOf('setTimeout', at));
     assert.ok(/disabled\s*=\s*true/.test(body),
-      'exAnswer אינה מנטרלת את הפקדים לפני ההמתנה — תשובה כפולה תיספר פעמיים');
+      'exAnswer אינה מנטרלת את הפקדים לפני ההמתנה -- תשובה כפולה תיספר פעמיים');
     assert.ok(body.indexOf('exAns.push') < body.lastIndexOf('disabled=true') ||
               /disabled\s*=\s*true/.test(body),
       'סדר הנטרול והרישום השתנה');

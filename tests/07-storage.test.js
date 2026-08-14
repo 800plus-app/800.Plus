@@ -237,7 +237,7 @@ describe('LS.get · nothing read back from disk is trusted', () => {
       c.ls.setItem(k, j);
       try { c.LS.get(k, 'D'); } catch (e) { threw.push(`${k} = ${JSON.stringify(j)} -> ${e.message}`); }
     }
-    none(threw, 'LS.get threw on a corrupt value — a boot that throws here shows a blank app:');
+    none(threw, 'LS.get threw on a corrupt value -- a boot that throws here shows a blank app:');
   });
 
   test('a stored null reads as the default, so "written as null" and "never written" are the same', () => {
@@ -339,8 +339,8 @@ describe('LS.set · a full disk', () => {
     const c = loadStorage();
     const cyclic = {}; cyclic.self = cyclic;
     assert.strictEqual(c.LS.set('hw_stats', cyclic), false);
-    assert.strictEqual(c.__toasts.length, 0, 'a toast now appears — good; update this test');
-    assert.strictEqual(c.storageBarOn, false, 'the bar now appears — good; update this test');
+    assert.strictEqual(c.__toasts.length, 0, 'a toast now appears -- good; update this test');
+    assert.strictEqual(c.storageBarOn, false, 'the bar now appears -- good; update this test');
   });
 
   test('a rejected write leaves the previous value on disk intact', () => {
@@ -361,7 +361,7 @@ describe('shedStorage · what a quota failure costs', () => {
     c.stats = withHistory(150);
     assert.strictEqual(c.shedStorage(), true);
     assert.strictEqual(c.stats.sessions.length, 40);
-    assert.strictEqual(c.stats.sessions[39].t, 149, 'the trim kept the OLDEST rounds — it must keep the newest');
+    assert.strictEqual(c.stats.sessions[39].t, 149, 'the trim kept the OLDEST rounds -- it must keep the newest');
   });
 
   test('it also trims the OTHER language, straight off disk', () => {
@@ -401,7 +401,7 @@ describe('shedStorage · what a quota failure costs', () => {
     c.ls.setItem('hw_stats', JSON.stringify(c.stats));
     c.LS.set('hw_exam:3', [{ t: 1, pct: 80, n: 10 }]);
     assert.strictEqual(c.ls.read('hw_stats').sessions.length, 40,
-      'the on-disk history was NOT trimmed — if that is a fix, invert this test in the same commit');
+      'the on-disk history was NOT trimmed -- if that is a fix, invert this test in the same commit');
     assert.strictEqual(c.stats.sessions.length, 40);
   });
 
@@ -413,7 +413,7 @@ describe('shedStorage · what a quota failure costs', () => {
     c.stats = withHistory(150);
     assert.strictEqual(c.LS.set('hw_celebrated', { 'he:unit:3': 1 }), false);
     assert.strictEqual(c.stats.sessions.length, 40,
-      'the history is no longer trimmed on a failed retry — if that is a fix, invert this test');
+      'the history is no longer trimmed on a failed retry -- if that is a fix, invert this test');
   });
 
   test('FINDING: sessions are the ONLY thing shed · assoc, added and exam history are never touched', () => {
@@ -427,7 +427,7 @@ describe('shedStorage · what a quota failure costs', () => {
     c.added = [['w', 'g']];
     c.ls.setItem('hw_assoc', JSON.stringify(c.assoc));
     c.ls.setItem('hw_exam:3', JSON.stringify([{ t: 1, pct: 1, n: 1 }]));
-    assert.strictEqual(c.shedStorage(), false, 'shedStorage now frees something other than sessions — update this test');
+    assert.strictEqual(c.shedStorage(), false, 'shedStorage now frees something other than sessions -- update this test');
     assert.strictEqual(c.ls.read('hw_assoc').a.length, 5000, 'associations were shed');
     assert.strictEqual(c.ls.read('hw_exam:3').length, 1, 'exam history was shed');
   });
@@ -452,7 +452,7 @@ describe('loadLangState · coercing whatever is on disk', () => {
         if (c.direction !== c.DEFAULT_DIR) bad.push(`${j}: direction became ${c.direction}`);
       } catch (e) { bad.push(`${j}: THREW ${e.message}`); }
     }
-    none(bad, 'a corrupt store did not load cleanly — this runs on every enterLang():');
+    none(bad, 'a corrupt store did not load cleanly -- this runs on every enterLang():');
   });
 
   test('a corrupt word record is coerced by saneRec rather than propagated', () => {
@@ -465,7 +465,7 @@ describe('loadLangState · coercing whatever is on disk', () => {
     const r = plain(c.stats.words.w);
     assert.deepStrictEqual(r, { seen: 0, first: 0, ever: 0, wrong: 0, level: 3, last: 0 });
     none(Object.entries(r).filter(([, v]) => !Number.isFinite(v)).map(([k, v]) => `${k} = ${v}`),
-      'a non-finite value reached the stats model — one NaN turns every counter into NaN forever:');
+      'a non-finite value reached the stats model -- one NaN turns every counter into NaN forever:');
   });
 
   test('the level-test marker survives the load', () => {
@@ -497,7 +497,7 @@ describe('loadLangState · coercing whatever is on disk', () => {
     c.ls.setItem('hw_added', JSON.stringify([['w', 'g'], ['', 'no key'], ['no gloss', ''], 'junk', null, ['w2', 'g2', 'extra']]));
     c.loadLangState();
     assert.deepStrictEqual(Array.from(c.deleted), ['ok', ''],
-      'the deletion list took a non-string — buildBank compares it against normalised keys');
+      'the deletion list took a non-string -- buildBank compares it against normalised keys');
     assert.deepStrictEqual(plain(c.added), [['w', 'g'], ['w2', 'g2', 'extra']]);
   });
 
@@ -520,8 +520,8 @@ describe('loadLangState · coercing whatever is on disk', () => {
     const c = loadStorage();
     const r = plain(c.saneRec({ seen: 1e21, last: Number.MAX_SAFE_INTEGER * 4, level: 99, wrong: -3 }));
     assert.strictEqual(r.level, 3, 'level is no longer clamped');
-    assert.ok(r.last > 1e15, 'last is now bounded — good; update this test and the report');
-    assert.ok(r.seen > 1e20, 'seen is now bounded — good; update this test and the report');
+    assert.ok(r.last > 1e15, 'last is now bounded -- good; update this test and the report');
+    assert.ok(r.seen > 1e20, 'seen is now bounded -- good; update this test and the report');
   });
 });
 
@@ -558,9 +558,9 @@ describe('the association budget', () => {
     const big = {}; for (let i = 0; i < 2000; i++) big['k' + i] = 'x'.repeat(200);
     c.ls.setItem('hw_assoc', JSON.stringify(big));
     c.loadLangState();
-    assert.ok(Object.keys(c.assoc).length < 2000, 'nothing was dropped — update this test');
-    assert.strictEqual(c.__toasts.length, 0, 'the learner is now told — good; invert this test');
-    assert.strictEqual(c.storageBarOn, false, 'the bar now appears — good; invert this test');
+    assert.ok(Object.keys(c.assoc).length < 2000, 'nothing was dropped -- update this test');
+    assert.strictEqual(c.__toasts.length, 0, 'the learner is now told -- good; invert this test');
+    assert.strictEqual(c.storageBarOn, false, 'the bar now appears -- good; invert this test');
   });
 
   test('FINDING: …and the next save writes the truncation back over the full copy', () => {
@@ -574,7 +574,7 @@ describe('the association budget', () => {
     const before = Object.keys(c.ls.read('hw_assoc')).length;
     c.loadLangState();
     const kept = Object.keys(c.assoc).length;
-    assert.strictEqual(c.saveAssoc(), true, 'the truncated payload no longer saves — update this test');
+    assert.strictEqual(c.saveAssoc(), true, 'the truncated payload no longer saves -- update this test');
     const after = Object.keys(c.ls.read('hw_assoc')).length;
     assert.strictEqual(after, kept);
     assert.ok(after < before, `disk went ${before} -> ${after} associations, silently`);
@@ -596,7 +596,7 @@ describe('migrateStores / remapHyphenKeys · a one-way door', () => {
     c.stats = { words: { [rawKey]: R({ seen: 5 }) }, sessions: [] };
     c.migrateStores();
     assert.ok(c.stats.words[rawKey],
-      'the migration ran again at version 8 — that is fine, but this test pinned that it does not');
+      'the migration ran again at version 8 -- that is fine, but this test pinned that it does not');
   });
 
   test('a version written as a STRING still counts as done', () => {
@@ -605,7 +605,7 @@ describe('migrateStores / remapHyphenKeys · a one-way door', () => {
     c.ls.setItem('hw_migr', '"8"');                      // "8" >= 8 coerces to true
     c.stats = { words: { [rawKey]: R({ seen: 5 }) }, sessions: [] };
     c.migrateStores();
-    assert.ok(c.stats.words[rawKey], 'a string version no longer short-circuits — update this test');
+    assert.ok(c.stats.words[rawKey], 'a string version no longer short-circuits -- update this test');
   });
 
   test('the v8 full migration folds duplicate keys by SUMMING the counts', () => {
@@ -699,9 +699,9 @@ describe('migrateStores / remapHyphenKeys · a one-way door', () => {
     }, sessions: [] };
     c.remapHyphenKeys();
     assert.strictEqual(c.stats.words[newK].seen, 1,
-      'the records now fold — good; invert this test and the report entry in the same commit');
+      'the records now fold -- good; invert this test and the report entry in the same commit');
     c.pruneOrphans();
-    assert.ok(!c.stats.words[oldK], 'the abandoned record is no longer pruned — update this test');
+    assert.ok(!c.stats.words[oldK], 'the abandoned record is no longer pruned -- update this test');
   });
 
   test('FINDING: nothing is saved when only an association or a deletion moved', () => {
@@ -720,17 +720,17 @@ describe('migrateStores / remapHyphenKeys · a one-way door', () => {
     c.ls.setItem('hw_assoc', JSON.stringify(c.assoc));
     c.ls.setItem('hw_deleted', JSON.stringify([oldK]));
 
-    assert.strictEqual(c.remapHyphenKeys(), 0, 'moved now counts assoc/deleted too — invert this test');
+    assert.strictEqual(c.remapHyphenKeys(), 0, 'moved now counts assoc/deleted too -- invert this test');
     assert.ok(c.assoc[newK], 'memory did move to the new key');
     assert.deepStrictEqual(plain(c.ls.read('hw_assoc')), { [oldK]: 'האסוציאציה שלי' },
-      'the disk was written — if that is a fix, invert this test in the same commit');
+      'the disk was written -- if that is a fix, invert this test in the same commit');
 
     // …and now the next boot, exactly as enterLang runs it
     c.ls.setItem('hw_migr', '8');
     c.loadLangState();
     c.migrateStores();
     c.pruneOrphans();
-    assert.deepStrictEqual(plain(c.assoc), {}, 'the association survived — update this test');
+    assert.deepStrictEqual(plain(c.assoc), {}, 'the association survived -- update this test');
     assert.deepStrictEqual(plain(c.ls.read('hw_assoc')), {},
       'the association is now gone from disk too, permanently');
   });
@@ -750,7 +750,7 @@ describe('migrateStores / remapHyphenKeys · a one-way door', () => {
     c.ls.seed('hw_stats', plain(c.stats));
     c.migrateStores();
     assert.notStrictEqual(c.ls.read('hw_migr'), 8,
-      'the stamp says the migration is done while the disk still holds the un-migrated key — ' +
+      'the stamp says the migration is done while the disk still holds the un-migrated key -- ' +
       'the next boot will skip the migration and pruneOrphans will delete every one of them');
     assert.ok(c.ls.read('hw_stats').words['כֹּפֶר'], 'sanity: the write really was blocked');
   });
@@ -767,7 +767,7 @@ describe('migrateStores / remapHyphenKeys · a one-way door', () => {
     c.ls.seed('hw_stats', plain(c.stats));
     c.migrateStores();
     assert.notStrictEqual(c.ls.read('hw_migr'), 8,
-      'the association did not reach the disk, and the stamp says the migration is complete — ' +
+      'the association did not reach the disk, and the stamp says the migration is complete -- ' +
       'pruneOrphans deletes what it finds under the un-migrated key on the next boot');
   });
 
@@ -778,7 +778,7 @@ describe('migrateStores / remapHyphenKeys · a one-way door', () => {
     c.stats = { words: {}, sessions: [] };
     c.migrateStores();
     assert.notStrictEqual(c.ls.read('hw_migr'), 8,
-      'the deletion list did not land — the next boot resurrects every word the learner removed');
+      'the deletion list did not land -- the next boot resurrects every word the learner removed');
   });
 
   test('a disk holding something that is not a stats object is refused, not walked', () => {
@@ -879,7 +879,7 @@ describe('migrateStores / remapHyphenKeys · a one-way door', () => {
     b2.migrateStores();
     b2.pruneOrphans();
     assert.strictEqual(Object.keys(b2.stats.words).length, 60,
-      'every record was deleted by the sequence that used to erase them — the migration must ' +
+      'every record was deleted by the sequence that used to erase them -- the migration must ' +
       'have re-run on boot 2, which it only does if boot 1 refused to stamp');
     assert.strictEqual(Object.keys(b2.ls.read('hw_stats').words).length, 60,
       'the records survived in memory but not on disk, so the next boot loses them anyway');
@@ -890,7 +890,7 @@ describe('migrateStores / remapHyphenKeys · a one-way door', () => {
        records are still there, because boot 1 refused to lie about having migrated them. */
     assert.ok(!b2.ls.read('hw_migr') || b2.ls.read('hw_migr') < 8 ||
       Object.keys(b2.ls.read('hw_stats').words).every(k => k in b2.stats.words),
-      'the stamp was written while the disk and memory still disagree — the next boot will skip ' +
+      'the stamp was written while the disk and memory still disagree -- the next boot will skip ' +
       'the migration and pruneOrphans will delete what it cannot recognise');
   });
 });
@@ -988,7 +988,7 @@ describe('the restore log (hw_undeleted)', () => {
       const c = loadStorage();
       c.ls.setItem('hw_undeleted', junk);
       assert.throws(() => c.markRestored('word'), e => e.name === 'TypeError',
-        `hw_undeleted = ${junk} no longer throws — that is the fix; invert this test`);
+        `hw_undeleted = ${junk} no longer throws -- that is the fix; invert this test`);
     }
   });
 
@@ -1001,7 +1001,7 @@ describe('the restore log (hw_undeleted)', () => {
     c.ls.setItem('hw_undeleted', '[]');
     c.markRestored('word');
     assert.deepStrictEqual(plain(c.ls.read('hw_undeleted')), [],
-      'the restore is now recorded — good; invert this test and the report entry');
+      'the restore is now recorded -- good; invert this test and the report entry');
     assert.strictEqual(c.restoredMap().word, undefined);
   });
 
@@ -1015,9 +1015,9 @@ describe('the restore log (hw_undeleted)', () => {
     c.markRestored('מילה-שכבר-לא-במאגר');
     c.pruneOrphans();
     assert.ok(c.ls.read('hw_undeleted')['מילה-שכבר-לא-במאגר'],
-      'the restore log is now pruned — good; update this test');
+      'the restore log is now pruned -- good; update this test');
     assert.ok(!JSON.stringify(plain(c.collectExtras('he'))).includes('undeleted'),
-      'the restore log now syncs — good; update this test and app.js:2721');
+      'the restore log now syncs -- good; update this test and app.js:2721');
   });
 });
 

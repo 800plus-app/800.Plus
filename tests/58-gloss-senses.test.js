@@ -42,7 +42,7 @@ describe('פירוש משותף · לפי פירושים בודדים', () => {
     const at = app.indexOf('function glossSenses');
     assert.ok(at > 0, 'glossSenses נעלמה');
     assert.match(app.slice(at, at + 900), /return meaningSegs\(g\)/,
-      'glossSenses אינה מחזירה את meaningSegs — שתי הגדרות שיתיישנו בנפרד');
+      'glossSenses אינה מחזירה את meaningSegs -- שתי הגדרות שיתיישנו בנפרד');
   });
 
   test('הזוגות ש-glossKey פספס מזוהים עכשיו, לשני הכיוונים', () => {
@@ -72,7 +72,7 @@ describe('פירוש משותף · לפי פירושים בודדים', () => {
     /* "מ-" הוא הפירוש של from, of ו-than. אם הוא נזרק, שלושתם מוצגים עם אותו פרומפט. */
     const F = find(en, 'from'), T = find(en, 'than');
     assert.ok(F && T, 'from/than אינם במאגר');
-    assert.ok(en.glossAlts(F).includes('than'), '"מ-" נזרק — from ו-than אינם חולקים פירוש');
+    assert.ok(en.glossAlts(F).includes('than'), '"מ-" נזרק -- from ו-than אינם חולקים פירוש');
   });
 
   test('oneCardPerGloss תופס לפי פירוש בודד', () => {
@@ -87,7 +87,7 @@ describe('פירוש משותף · לפי פירושים בודדים', () => {
     /* אותו כלל, מאגר אחר. 23 קבוצות פירוש בעברית. */
     let linked = 0;
     for (const w of he.BANK) if (he.glossAlts(w).length) linked++;
-    assert.ok(linked > 0, 'אף ערך עברי אינו מזוהה כחולק פירוש — האינדקס ריק');
+    assert.ok(linked > 0, 'אף ערך עברי אינו מזוהה כחולק פירוש -- האינדקס ריק');
   });
 
   test('אף ערך לא הפך לחסר תשובה', () => {

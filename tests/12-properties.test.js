@@ -362,7 +362,7 @@ describe('property · a word only one side has ever seen', () => {
     const W = r => ({ stats: { words: { w: Object.assign({ seen: 9, first: 0, ever: 0, wrong: 0, level: 3, last: 0 }, r) }, sessions: [] } });
 
     assert.strictEqual(merge(P({}), P(W({}))).stats.words.w.level, 3,
-      'remote-only with last:0 must arrive whole — an absent local side is not a record, and cannot win a tie');
+      'remote-only with last:0 must arrive whole -- an absent local side is not a record, and cannot win a tie');
     assert.strictEqual(merge(P(W({})), P({})).stats.words.w.level, 3,
       'local-only with last:0 must keep its level');
     // and with any real timestamp at all, both directions were already correct
@@ -411,7 +411,7 @@ describe('a stamp from the future cannot outrank the present', () => {
     const phone = P(W({ seen: 5, first: 5, ever: 5, wrong: 0, level: 3, last: T0 + 2 * DAY }));
     const m = atClock(T0, () => merge(laptop, phone));
     assert.ok(m.stats.words.w.last <= T0 + SLACK,
-      `the record kept a stamp ${m.stats.words.w.last - T0}ms in the future — it now outranks every honest answer until real time reaches it`);
+      `the record kept a stamp ${m.stats.words.w.last - T0}ms in the future -- it now outranks every honest answer until real time reaches it`);
   });
 
   test('an hour later the honest device takes the level back', () => {
@@ -442,7 +442,7 @@ describe('a stamp from the future cannot outrank the present', () => {
   test('ordinary drift still wins · the slack is not zero', () => {
     const m = atClock(T0, () => merge(P(W({ level: 0, last: T0 - 60000 })), P(W({ level: 3, last: T0 + 30000 }))));
     assert.strictEqual(m.stats.words.w.level, 3,
-      'a device half a minute ahead is drifting, not lying — it must still win');
+      'a device half a minute ahead is drifting, not lying -- it must still win');
   });
 });
 
