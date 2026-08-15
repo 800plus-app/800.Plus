@@ -82,6 +82,35 @@ const PAIR_CONFIGS = M.BINYAN_PAIRS.map(pr => ({
   label: 'זוג בודד · ' + pr.he,
 }));
 
+/* ===== תצורות לפי **מחלקת טרנספורמציה** · תוספת אדיטיבית =====
+ * ‏`PAIR_CONFIGS` מפרק זוג-זוג ו-`CONFIGS` מאגד הכול או את `CONSERVATIVE`. חסרה
+ * הרמה שביניהן: קיבוץ לפי מה שהטרנספורמציה עושה למשמעות. ההגדרות כאן זהות ל-`XFORM`
+ * ב-`typo-lab/he_morph_split.js`, ובכוונה — שתי רשימות שנכתבות פעמיים נסחפות.
+ *   A · נטייה              אותה לקסמה, צורה דקדוקית אחרת
+ *   B · גזירה משמרת-תוכן   לקסמה אחרת, אותו אירוע/תכונה
+ *   C · גזירה מחליפת-לקסמה דיאתזה, סבילות, שינוי בניין
+ * ‏`strictRoot: false` בכוונה · זה בדיוק המרחב ש-`he_morph_split` מדד, וכל הידוק
+ * צריך להיות מדיד בנפרד ולא אפוי לתוך ההגדרה.
+ */
+const XFORM_GROUPS = {
+  'C-INF': ['pa-inf', 'hit-inf'],
+  'C-PART': ['pa-act'],
+  'C-ACTNOUN': ['act-pa', 'act-inf', 'hif-act'],
+  'C-ABSNOUN': ['adj-abs'],
+  'C-AGENT': ['act-agent'],
+  'C-VOICE': ['act-pass'],
+  'C-BINYAN': ['pa-hit', 'nif-pa'],
+  'C-A': ['pa-inf', 'hit-inf', 'pa-act'],
+  'C-B': ['act-pa', 'act-inf', 'hif-act', 'adj-abs'],
+  'C-AB': ['pa-inf', 'hit-inf', 'pa-act', 'act-pa', 'act-inf', 'hif-act', 'adj-abs'],
+  'C-C': ['act-agent', 'act-pass', 'pa-hit', 'nif-pa'],
+};
+const CLASS_CONFIGS = Object.keys(XFORM_GROUPS).map(k => ({
+  key: k, rule: 'binyanPair',
+  params: { pairs: XFORM_GROUPS[k], strictRoot: false },
+  label: 'מחלקה · ' + k.slice(2) + ' · ' + XFORM_GROUPS[k].join(','),
+}));
+
 const LANGS = ['he', 'en'];
 const EX_OTHER_CAP = 40;      // תקרת דוגמאות ליחידה אחרת
 const SAME_LIST_CAP = 60;     // כמה התנגשויות-באותה-יחידה מוצגות בשמן לכל וריאנט
@@ -692,7 +721,7 @@ function main() {
 if (require.main === module) main();
 
 module.exports = {
-  CASES24, CONFIGS, PAIR_CONFIGS, LANGS, loadLang, resolveCases, measureBenefit, measureRisk,
+  CASES24, CONFIGS, PAIR_CONFIGS, CLASS_CONFIGS, XFORM_GROUPS, LANGS, loadLang, resolveCases, measureBenefit, measureRisk,
   measureConflation, offenders, run, md, alreadyToday, particleForms, sampleMismatch,
   candidatesFor, FAST_SAMPLE, TERM_SAMPLE,
 };

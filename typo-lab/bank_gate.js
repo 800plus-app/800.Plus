@@ -566,7 +566,7 @@ function morphSweep(M, dsForms, glossCfg) {
   const MM = require('./measure_morph.js');
   const { isVetoedSeg } = require('./lib/veto.js');
 
-  const mcfg = MM.CONFIGS.concat(MM.PAIR_CONFIGS).find(c => c.key === MORPH_RULE);
+  const mcfg = MM.CONFIGS.concat(MM.PAIR_CONFIGS, MM.CLASS_CONFIGS).find(c => c.key === MORPH_RULE);
   if (!mcfg) { say('⛔ MORPH_RULE לא מוכר · ' + MORPH_RULE); process.exit(2); }
   const rule = MR.BY_NAME.get(mcfg.rule);
   const params = Object.assign({}, rule.defaults, mcfg.params);
