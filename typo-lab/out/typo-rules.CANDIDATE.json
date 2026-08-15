@@ -8325,22 +8325,5 @@
    "report": "out/bank-gate.GLOSSGREEN.md"
   }
  },
- "promoted": [
-  {
-   "set": "en-word",
-   "from": "typo-rules.CANDIDATE.json",
-   "source": "CANDIDATE · shortword.stages.gradedRefined על en-word בלבד. שאר הסטים ביט-זהים לנשלח.",
-   "fingerprintBefore": "c55ef6f9ef34",
-   "fingerprintAfter": "fd76ab7ce13e",
-   "bankGate": {
-    "file": "bank-gate.typo-rules.CANDIDATE.md",
-    "pairs": 10165462
-   },
-   "staleBlocks": [
-    "results.en-word",
-    "exact.en-word",
-    "shipGate.en-word"
-   ]
-  }
- ]
+ "candidateNote": "CANDIDATE · shortword.stages.gradedRefined על en-word בלבד. שאר הסטים ביט-זהים לנשלח."
 }

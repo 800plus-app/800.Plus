@@ -164,7 +164,7 @@
    },
    "vetoMargin": 1,
    "marginHard": 1,
-   "marginSoft": 2,
+   "marginSoft": 99,
    "bands": [
     {
      "maxLen": 1,
@@ -246,91 +246,91 @@
    "bandsTight": [
     {
      "maxLen": 1,
-     "t": 0
+     "t": 2.2
     },
     {
      "maxLen": 2,
-     "t": 0
+     "t": 2.2
     },
     {
      "maxLen": 3,
-     "t": 1.9
+     "t": 2.2
     },
     {
      "maxLen": 4,
-     "t": 0.9
+     "t": 2.2
     },
     {
      "maxLen": 5,
-     "t": 0.8
+     "t": 2.2
     },
     {
      "maxLen": 6,
-     "t": 1
+     "t": 2.2
     },
     {
      "maxLen": 7,
-     "t": 0.9
+     "t": 2.2
     },
     {
      "maxLen": 8,
-     "t": 1.9
+     "t": 2.2
     },
     {
      "maxLen": 9,
-     "t": 1.9
+     "t": 2.2
     },
     {
      "maxLen": 10,
-     "t": 1.9
+     "t": 2.2
     },
     {
      "maxLen": 11,
-     "t": 1.9
+     "t": 2.2
     },
     {
      "maxLen": 12,
-     "t": 1.9
+     "t": 2.2
     },
     {
      "maxLen": 13,
-     "t": 1.9
+     "t": 2.2
     },
     {
      "maxLen": 14,
-     "t": 1
+     "t": 2.2
     },
     {
      "maxLen": 15,
-     "t": 0
+     "t": 2.2
     },
     {
      "maxLen": 16,
-     "t": 0
+     "t": 2.2
     },
     {
      "maxLen": 17,
-     "t": 0
+     "t": 2.2
     },
     {
      "maxLen": 18,
-     "t": 0
+     "t": 2.2
     },
     {
      "maxLen": null,
-     "t": 0
+     "t": 2.2
     }
    ],
    "dir": "word",
    "WTight": {
-    "sub": 99,
-    "adjSub": 99,
-    "transpose": 0.765,
-    "ins": 0.967,
-    "del": 99,
-    "doubleLetter": 0.857,
-    "materVI": 99,
-    "homophone": 99
+    "sub": 1,
+    "adjSub": 1.35,
+    "transpose": 0.7759,
+    "ins": 1.1296,
+    "del": 0.4303,
+    "doubleLetter": 0.5616,
+    "materVI": 0.3821,
+    "homophone": 1.7916
    }
   },
   "gloss": {
@@ -8325,22 +8325,5 @@
    "report": "out/bank-gate.GLOSSGREEN.md"
   }
  },
- "promoted": [
-  {
-   "set": "en-word",
-   "from": "typo-rules.CANDIDATE.json",
-   "source": "CANDIDATE · shortword.stages.gradedRefined על en-word בלבד. שאר הסטים ביט-זהים לנשלח.",
-   "fingerprintBefore": "c55ef6f9ef34",
-   "fingerprintAfter": "fd76ab7ce13e",
-   "bankGate": {
-    "file": "bank-gate.typo-rules.CANDIDATE.md",
-    "pairs": 10165462
-   },
-   "staleBlocks": [
-    "results.en-word",
-    "exact.en-word",
-    "shipGate.en-word"
-   ]
-  }
- ]
+ "candidateNote": "REDGRADED · הוכחת שיניים לשער. לא ארטיפקט ייצור."
 }
