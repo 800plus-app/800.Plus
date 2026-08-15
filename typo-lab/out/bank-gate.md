@@ -1,6 +1,6 @@
 # שער כל המאגר · אפס התנגשויות חדשות
 
-נוצר: 2026-08-15T07:10:45.825Z · ‏`node typo-lab/bank_gate.js`
+נוצר: 2026-08-15T08:41:41.286Z · ‏`node typo-lab/bank_gate.js`
 
 ## הטענה
 
@@ -10,14 +10,14 @@
 
 ## מה נבדק
 
-· פרמטרים: `out/typo-rules.json` ver=`typo-lab/evolve/v1` · טביעת אצבע `fd76ab7ce13e` · enabled=true
+· פרמטרים: `out/typo-rules.json` ver=`typo-lab/evolve/v1` · טביעת אצבע `a764cc77584a` · enabled=true
 · חוק צד-הפירוש: `B1-union` · פיצול "או" מחלק · איחוד שני השומרים (ליבה≥2 או חלופה≥3)
 · נרדפות: 55 קבוצות בסטטוס approved מתוך 102
 · דאטהסט: 89375 שורות
 
 | שכבה | EFF | צורות | מועמדים | זוגות שחושבו | חדשות | של היום | אותה מילה |
 |---|---|---|---|---|---|---|---|
-| he/he-word | 3 | 18249 | 2268155 | 2247775 | 0 | 12 | 25 |
+| he/he-word | 3 | 18249 | 2268155 | 2247775 | 0 | 12 | 27 |
 | en/en-word | 3 | 25770 | 2009937 | 1977014 | 0 | 17 | 17 |
 | he/gloss + B1-union | 3 | 6390 | 636278 | 629547 | 0 | 16 | 0 |
 | en/gloss + B1-union | 3 | 9264 | 5325615 | 5311126 | 0 | 692 | 0 |
@@ -92,7 +92,7 @@
 של הכרטיס עצמו, ולכן אינה התנגשות. מה שכן נשאר אדום: מחרוזת שהיא **צורה קבילה** של
 הערך האחר ואינה צורה קבילה של הכרטיס.
 
-42 מקרים. הראשונים:
+44 מקרים. הראשונים:
 
 | שפה | כיוון | כרטיס | הוקלד | הערך החולק |
 |---|---|---|---|---|
@@ -113,15 +113,15 @@
 | he | term | הִתְנוֹדֵד | התנוודד | נד התנודד |
 | he | term | הִתְנוֹדֵד | היתנוודד | נד התנודד |
 | he | term | הִתְנוֹדֵד | היתננודד | נד התנודד |
-| he | term | הִתְנוֹדֵד | התנוודג | נד התנודד |
-| he | term | הִתְנוֹדֵד | התנווגד | נד התנודד |
+| he | term | הִתְנוֹדֵד | היתונודד | נד התנודד |
+| he | term | הִתְנוֹדֵד | התנודדד | נד התנודד |
+| he | term | הִתְנוֹדֵד | תהנודד | נד התנודד |
+| he | term | הִתְנוֹדֵד | תהנוודד | נד התנודד |
 | he | term | מַשְׂאַת לֵב / נֶפֶש | נפש | פזור דעת נפש |
 | he | term | מַשְׂאַת לֵב / נֶפֶש | נפשש | פזור דעת נפש |
 | he | term | פִּזּוּר דַּעַת / נֶפֶש | נפש | משאת לב נפש |
 | he | term | פִּזּוּר דַּעַת / נֶפֶש | נפשש | משאת לב נפש |
-| he | term | פְּעָמָיו | פעמיו | החיש את צעדיו פעמיו |
-| he | term | פְּעָמָיו | פפעמיו | החיש את צעדיו פעמיו |
-| ... | | ועוד 17 | | |
+| ... | | ועוד 19 | | |
 
 ## הכיוון ההפוך · חמשת זוגות הצירה שהוחזרו
 
@@ -147,4 +147,4 @@
 · ‏via=exact הוא ההתנהגות של היום, והשער אינו מתיימר לתקן אותה.
 · איכות התוכן, ניסוח ההודעה למשתמש, וההתנהגות בדפדפן אינן נמדדות כאן.
 
-<!-- bank-gate: {"ver":"typo-lab/evolve/v1","paramsFp":"fd76ab7ce13e","enabled":true,"cfg":"B1-union","cards":5663,"candidates":10239985,"pairs":10165462,"newCollisions":0,"baselineExact":737,"sameWord":42,"synonymGroups":55,"tsereRejected":5,"tserePairs":5,"layers":[{"lang":"he","set":"he-word","eff":3,"forms":18249,"pairs":2247775,"collisions":0},{"lang":"en","set":"en-word","eff":3,"forms":25770,"pairs":1977014,"collisions":0},{"lang":"he","set":"gloss","eff":3,"forms":6390,"pairs":629547,"collisions":0},{"lang":"en","set":"gloss","eff":3,"forms":9264,"pairs":5311126,"collisions":0}],"pass":true} -->
+<!-- bank-gate: {"ver":"typo-lab/evolve/v1","paramsFp":"a764cc77584a","enabled":true,"cfg":"B1-union","cards":5663,"candidates":10239985,"pairs":10165462,"newCollisions":0,"baselineExact":737,"sameWord":44,"synonymGroups":55,"tsereRejected":5,"tserePairs":5,"layers":[{"lang":"he","set":"he-word","eff":3,"forms":18249,"pairs":2247775,"collisions":0},{"lang":"en","set":"en-word","eff":3,"forms":25770,"pairs":1977014,"collisions":0},{"lang":"he","set":"gloss","eff":3,"forms":6390,"pairs":629547,"collisions":0},{"lang":"en","set":"gloss","eff":3,"forms":9264,"pairs":5311126,"collisions":0}],"pass":true} -->
