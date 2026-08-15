@@ -46,3 +46,10 @@ he-cross.json
 # עותקי דאטהסט ישנים · v1-old/ ו-v2/ הם גיבויים מקומיים של ריצות קודמות.
 v1-old/
 v2/
+
+# דאמפים של סבב המורפולוגיה · עד 1MB כל אחד, כולם משוחזרים מ-morph_veto_search.js
+# ומ-measure_morph.js. הדוחות (‏morph-*-report.md) כן נכנסים — הם מה שקוראים.
+morph-residual.*.json
+morph-veto-search.json
+morph-dump.*.json
+morph-cases-gate.log
