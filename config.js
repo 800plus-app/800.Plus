@@ -8,4 +8,4 @@ window.SUPA_KEY = 'sb_publishable_iU2ZF4HHduq_a972pp8naQ_VB8Ar_NH';
    כדי לזהות את השולח, והמפתח הפרטי (שאינו כאן ולעולם לא יהיה) הוא מה שחותם.
    ריק = אין Push, והאפליקציה ממשיכה לעבוד עם שני ערוצי ההתראה האחרים.
    לייצור: bash scripts/vapid_keys.sh ואז להדביק כאן את הפומבי בלבד. */
-window.VAPID_PUBLIC = '';
+window.VAPID_PUBLIC = 'BNPRpotOtCLCsfbjLlOrU_UjvGdr3FhBOeAlw_KRQTZQY7GZQgbTh-6aX5awREoQocdNk7jKSxAyhvqQR7oEq3s';
