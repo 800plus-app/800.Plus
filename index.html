@@ -255,6 +255,19 @@
      שינוי גלובלי היה מזיז פריסה בכל האפליקציה. הפער בשאר המסכים קדם לשינוי הזה. */
   #sent .topbar .back, #mode .topbar .back{min-height:44px}
   .s-opts{display:flex;flex-direction:column;gap:9px}
+  /* שורת אפשרות: הכפתור והרמקול כאחים בתוך עטיפה.
+     ⚠ העטיפה אינה קישוט. `<button>` בתוך `<button>` אינו HTML חוקי, והדפדפן מפרק
+     את העץ ומעיף את הפנימי החוצה — כלומר הרמקול היה נוחת מחוץ לאפשרות.
+     `direction:ltr` על השורה, כמו על `.s-opt` עצמו: התוכן אנגלי, והרמקול נופל
+     לקצה שאחרי המילה. `flex:1` על הכפתור הוא מה שמצמיד את ארבעת הרמקולים לאותו
+     קו אנכי, כך שהעין לא רודפת אחריהם בין שורה לשורה.
+     `align-items:stretch` ולא center — הרמקול מקבל את גובה האפשרות המלא, וזה גם
+     יעד מגע גדול וגם שורה שלא נראית שבורה. */
+  .s-optrow{display:flex;direction:ltr;align-items:stretch;gap:8px}
+  .s-optrow .s-opt{flex:1;min-width:0}
+  /* ⚠ 44 ולא 40. `.rev-say` נקבע ב-40 והנימוק שם כתוב, אבל במסך הזה כבר נמדד
+     שהסף הוא 44 (`#sent .topbar .back`), ואין סיבה להכניס אליו יעד קטן יותר. */
+  .s-say{flex:0 0 auto;min-width:44px;min-height:44px}
   .s-opt{direction:ltr;text-align:left;background:var(--card);border:1px solid var(--line);
     border-radius:12px;padding:13px 16px;font-family:"Heebo",sans-serif;font-size:1rem;
     color:var(--ink);width:100%;transition:.15s}
@@ -271,7 +284,12 @@
     text-transform:uppercase;margin-bottom:7px}
   .s-exp section{margin-bottom:16px}
   .s-exp section:last-child{margin-bottom:0}
-  .s-g{direction:ltr;text-align:left;font-size:.9rem;color:var(--ink-soft);padding:2px 0}
+  /* אותה פריסה בדיוק כמו `.s-optrow`, ומאותה סיבה: רמקול על כל אחת מארבע שורות
+     "המילים". `flex:1` על הטקסט מיישר את הרמקולים לקו אחד, וזה אותו קו שבו הם
+     יושבים בשורות האפשרויות שמעל — כלומר הם לא זזים כשההסבר נפתח. */
+  .s-g{display:flex;direction:ltr;align-items:center;gap:8px;
+    text-align:left;font-size:.9rem;color:var(--ink-soft);padding:2px 0}
+  .s-gt{flex:1;min-width:0}
   .s-g.key{color:var(--ink);font-weight:700}
   /* שורת המשפט באנגלית, מעל התרגום. `direction:ltr` על הבלוק ולא רק על ה-bdi,
      אחרת הנקודה בסוף המשפט נודדת לשמאלו במסך RTL. */
