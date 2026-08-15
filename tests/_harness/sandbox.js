@@ -149,7 +149,11 @@ function loadApp(opts = {}) {
   ctx.globalThis = ctx;
   vm.createContext(ctx);
 
-  const src = appSource();
+  /* ‏opts.source · טקסט app.js חלופי, לשימוש שער-שיניים בלבד: הוכחה ששער מסוים
+     באמת מאדים דורשת להריץ אותו על קוד שבור, ובלי הווסת הזה היה צריך לכתוב את
+     app.js השבור לדיסק ולקוות שהוא נמחק. ברירת המחדל היא הקובץ האמיתי, והמטמון
+     שלו אינו נגוע · מוטנט אינו מזהם הרצה הבאה. */
+  const src = opts.source || appSource();
   for (const { name, code } of extractAll(src, SYMBOLS)) {
     try { vm.runInContext(code, ctx, { filename: `app.js:${name}` }); }
     catch (e) { throw new Error(`lifting ${name} out of app.js failed: ${e.message}\n---\n${code.slice(0, 400)}\n---`); }

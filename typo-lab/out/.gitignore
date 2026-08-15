@@ -8,3 +8,34 @@
 # אדום. אם היא לא בגיט, הבדיקה הזאת אינה קיימת אצל אף אחד חוץ ממי שהריץ evolve.
 # ‏2.2MB, ‏10,002 החלטות, דטרמיניסטית (אומת: שתי ריצות מפיקות קובץ זהה ביט-אחר-ביט).
 !golden.jsonl
+
+# מטמון בלבד · coverage.js בונה אותו מחדש מ-buildCrossCard (‏432 שניות) והוא נמחק
+# אוטומטית כשה-sha של הדאטהסט משתנה. ‏574KB של נגזרת · אין סיבה שייכנס לריפו ציבורי.
+coverage-cross.json
+
+# נגזרות כבדות · כל אחת משוחזרת בפקודה אחת מהקוד שבגיט, וכל אחת היא מאות KB עד
+# מגה בריפו **ציבורי**. הדוח המקביל (‏*-report.md) כן נכנס, כי הוא מה שקוראים.
+budget-sweep.json
+enbank-coverage.json
+coverage.json
+coverage-uncovered.json
+gloss-search.json
+
+# אוצר המילים שנכרה מהפירושים · ‏1.2MB, נגזר מ-data.js על ידי mine_gloss_vocab.js.
+# ⚠ הוא **קלט** לבניית לקסיקון הריצה (‏lib/lexicon.js FILES), ולכן היעדרו מהגיט
+# פוגע בשחזור הלקסיקון. ראה STATE · הנכס הנשלח ממילא אינו משוחזר מהבנאי היום.
+gloss-vocab.json
+
+# מועמדים · נוצרים ב-make_candidate.js/promote_candidate.js מתוך shortword.json.
+# שני יוצאי הדופן למטה הם אלה ש**שער המאגר רץ עליהם בפועל**, ובלעדיהם אי אפשר
+# לשחזר לא את הירוק ולא את הוכחת השיניים.
+*-candidate-rules.json
+graded-minlen3-rules.json
+RED-teeth-rules.json
+typo-rules.*.json
+!typo-rules.CANDIDATE.json
+!typo-rules.REDGRADED.json
+
+# עותקי דאטהסט ישנים · v1-old/ ו-v2/ הם גיבויים מקומיים של ריצות קודמות.
+v1-old/
+v2/

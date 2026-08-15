@@ -80,11 +80,21 @@ const r4 = x => Number(Number(x).toFixed(4));
    בשדה `params`. הקישור נעשה מול השדה הזה ולא מול הגנום: הגנום הוא פנימי של
    evolve.js, והשחזור ממנו תלוי בפונקציה שיכולה להשתנות בין ריצות. */
 function canonOf(P, round) {
+  const nb = (bs, r) => Array.from(bs).map(b => [(b.maxLen == null || !isFinite(b.maxLen)) ? null : b.maxLen, r ? r4(b.t) : b.t]);
+  const nw = (w, r) => OPS.map(k => (w[k] == null ? null : (r ? r4(w[k]) : w[k])));
   return JSON.stringify(SETS.map(s => {
     const p = P[s];
+    /* גני המשטר הצר נכנסים לצורה הקנונית · בלעדיהם שני סטים שנבדלים **רק** בו
+       מקבלים אותה טביעה, והבדיקה "‏TYPO_PARAMS נושא את טביעת האצבע של הפרמטרים
+       שבתוכו" הופכת לעיוורת בדיוק לגן שהיא אמורה לשמור עליו. אותו כשל בדיוק נמצא
+       ותוקן ב-typo-lab/bank_gate.js, ושם הוא הוכח: שני ארטיפקטים שונים קיבלו את
+       הטביעה 99db507cb8a5. ‏null מפורש כדי שסט בלי המשטר יישאר יציב. */
     return [p.minLen, p.vetoMargin, p.useLexicon !== false ? 1 : 0,
-      p.bands.map(b => [(b.maxLen == null || !isFinite(b.maxLen)) ? null : b.maxLen, round ? r4(b.t) : b.t]),
-      OPS.map(k => round ? r4(p.W[k]) : p.W[k])];
+      nb(p.bands, round), nw(p.W, round),
+      p.marginHard == null ? null : p.marginHard,
+      p.marginSoft == null ? null : p.marginSoft,
+      p.bandsTight ? nb(p.bandsTight, round) : null,
+      p.WTight ? nw(p.WTight, round) : null];
   }));
 }
 function fnv(sIn) {
@@ -209,6 +219,18 @@ describe('סובלנות איות · שקילות מעבדה↔ריצה', () => 
         JSON.stringify(art.bands.map(b => [b.maxLen, r4(b.t)])), `${s} · bands`);
       assert.strictEqual(JSON.stringify(OPS.map(k => r4(mine.W[k]))),
         JSON.stringify(OPS.map(k => r4(art.W[k]))), `${s} · W`);
+      /* השוליים המדורגים · מושווים במפורש ולא דרך הטביעה בלבד, כדי שכשהם ייפרדו
+         השורה תגיד **איזה** שדה נפרד ולא רק שהטביעות שונות. */
+      assert.strictEqual(mine.marginHard == null ? null : mine.marginHard,
+        art.marginHard == null ? null : art.marginHard, `${s} · marginHard`);
+      assert.strictEqual(mine.marginSoft == null ? null : mine.marginSoft,
+        art.marginSoft == null ? null : art.marginSoft, `${s} · marginSoft`);
+      assert.strictEqual(
+        mine.bandsTight ? JSON.stringify(Array.from(mine.bandsTight).map(b => [b.maxLen, r4(b.t)])) : null,
+        art.bandsTight ? JSON.stringify(art.bandsTight.map(b => [b.maxLen, r4(b.t)])) : null, `${s} · bandsTight`);
+      assert.strictEqual(
+        mine.WTight ? JSON.stringify(OPS.map(k => r4(mine.WTight[k]))) : null,
+        art.WTight ? JSON.stringify(OPS.map(k => r4(art.WTight[k]))) : null, `${s} · WTight`);
     }
     assert.strictEqual(linkOf(HE.TYPO_PARAMS), ARTIFACT_LINK);
   });
@@ -261,30 +283,44 @@ describe('סובלנות איות · מתג הכיבוי והתלות בלקסי
     assert.strictEqual(HE.TYPO_GLOSS_RULES.synonyms, true);
   });
 
-  test('צד הפירוש רדום מבנית · כל רצועות הסף אפס', () => {
-    /* לא כיול אלא מבנה. שער המאגר מצא שתי התנגשויות בצד הזה ("רסיס עצ" על אֵגֶל,
-       "משא כבד" על יָצוּעַ), ושתיהן הגיעו דרך תוצרי ההרחבה של B1 — שאינם מקטע
-       פירוש גולמי, ולכן שקופים גם לשולי הדו-משמעות וגם לקבוצת האילוץ
-       החוצה-כרטיסים. סף 0 בכל הרצועות הופך התנגשות חדשה לבלתי אפשרית, ולא
-       לבלתי סבירה. מי שיחזיר סף כאן חייב קודם להזרים את צורות ההרחבה של B1
-       לתוך בנאי האילוץ החוצה-כרטיסים. */
-    for (const b of Array.from(HE.TYPO_PARAMS.gloss.bands))
-      assert.strictEqual(b.t, 0, `רצועת סף בצד הפירוש חזרה לחיים (maxLen ${b.maxLen}) · שתי ההתנגשויות של השער נפתחות איתה`);
-    /* וההוכחה ההתנהגותית, לא רק הערך: שום וריאציה של מקטע אינה מתקבלת בפאזי. */
-    let accepted = 0, tried = 0;
-    for (const w of Array.from(HE.BANK).slice(0, 400)) {
+  /* ⚠ הבדיקה הזאת החליפה בדיקה קודמת שקבעה "צד הפירוש רדום מבנית · כל רצועות הסף
+     אפס". **ההנחה ההיא הייתה שגויה, והיא תועדה כאן כעובדה במשך יממה.** האפס לא היה
+     מבנה אלא כשל חיפוש: שורת שכבה-1 יחידה ("כל" על הפירוש "כלל", via=exact) נפלה בסט
+     האימון של חמש מתוך שש הרצות ה-GA, העניקה לכל גנום את אותו עונש ‎-1e6‎, השטיחה את
+     נוף הכושר, וההרצה נעצרה בדור 23 והחזירה את גנום הזריעה. ‏gloss/fold1 — ההרצה
+     היחידה שהשורה נפלה אצלה בוולידציה — רצה 130 דורות והגיעה לכושר חיובי.
+
+     הלקח לבדיקה עצמה: "כל הספים אפס" הוא **פרוקסי**, לא המאפיין. הוא נראה כמו בדיקה
+     חזקה ("התנגשות בלתי אפשרית מבנית") אבל הוא קיבע תוצאה של באג. הבדיקה הזאת מקבעת
+     את **המאפיין עצמו** — שתי ההתנגשויות שהשער מצא בפועל נדחות — ולכן היא נשארת
+     נכונה גם כשהכיול זז, ונופלת אם מישהו יחזיר סף שפותח אותן. */
+  test('שתי ההתנגשויות שהשער תפס בצד הפירוש נדחות · והסט חי', () => {
+    /* שתיהן הגיעו דרך תוצרי ההרחבה של B1: תוצר הרחבה אינו מקטע פירוש גולמי, ולכן
+       הוא שקוף גם לשולי הדו-משמעות (dOther=9) וגם לקבוצה חוצת-הכרטיסים (אפס שורות
+       gloss). התיקון היה להזרים את expandOf(B1-union) לתוך האילוץ. */
+    const CASES = [
+      { typed: 'רסיס עצ', term: 'אֵגֶל', intruder: 'שבב' },
+      { typed: 'משא כבד', term: 'יָצוּעַ', intruder: 'עול' },
+    ];
+    for (const cs of CASES) {
+      const w = Array.from(HE.BANK).find(x => x.term === cs.term);
+      /* אי-מציאת הכרטיס הייתה הופכת את הבדיקה לירוקה-ריקה · לכן היא כשל. */
+      assert.ok(w, `הכרטיס ${cs.term} לא נמצא במאגר · הבדיקה אינה יכולה לרוץ`);
       const segs = Array.from(HE.meaningSegs(w.meaning));
+      assert.ok(segs.length > 0, `אין מקטעי פירוש ל-${cs.term} · הבדיקה ריקה`);
       const own = HE.typoOwners(w.meaning, w);
-      for (const s of segs) {
-        if (s.length < 6) continue;
-        const mut = s.slice(0, 2) + s[3] + s[2] + s.slice(4);
-        if (segs.includes(mut)) continue;
-        tried++;
-        if (HE.nearMatch(mut, segs, 'he', HE.TYPO_PARAMS.gloss, HE.SEG_VETO, own).ok) accepted++;
-      }
+      const v = HE.nearMatch(HE.norm(cs.typed), segs, 'he', HE.TYPO_PARAMS.gloss, HE.SEG_VETO, own);
+      assert.strictEqual(v.ok, false,
+        `"${cs.typed}" התקבל על ${cs.term} · הוא שייך ל-${cs.intruder}, וזו בדיוק ההתנגשות ששער המאגר פסל`);
+      /* וגם דרך הכניסה האמיתית של האפליקציה, לא רק דרך nearMatch ישירות. */
+      assert.strictEqual(HE.meaningMatch(cs.typed, w.meaning, w), false,
+        `meaningMatch קיבל "${cs.typed}" על ${cs.term}`);
     }
-    assert.ok(tried > 100, 'המדגם ריק');
-    assert.strictEqual(accepted, 0, 'הפאזי בצד הפירוש קיבל וריאציה · הרדימה נפרצה');
+
+    /* חיוּת · בלי זה אפשר "לעבור" את הבדיקה בכך שמחזירים את כל הספים לאפס, כלומר
+       בדיוק המצב השגוי שהבדיקה הזאת באה להחליף. */
+    assert.ok(Array.from(HE.TYPO_PARAMS.gloss.bands).some(b => b.t > 0),
+      'כל רצועות הסף בצד הפירוש אפס · הסט רדום. אם זו הכוונה — זו הכרעה, ומקומה בהערה מעל הקבוע');
   });
 
   test('enabled:false מחזיר את התנהגות היום בדיוק · 500 שורות לכל כיוון', () => {
@@ -352,9 +388,13 @@ describe('סובלנות איות · מתג הכיבוי והתלות בלקסי
     }));
     /* המספרים נמדדו על אותה טבלת זהב. הם מוצמדים ולא מושווים ל"גדול מאפס":
        שכבה שנחלשת בשקט היא בדיוק מה שהבדיקה הזאת אמורה לתפוס.
-       gloss הוא 0 כי צד הפירוש רדום מבנית (כל הרצועות 0) · שם הלקסיקון אינו
-       השכבה שמחזיקה, וזה נכון ולא ליקוי. */
-    assert.deepStrictEqual(opened, { 'he-word': 8, 'en-word': 12, gloss: 0 },
+       ‏gloss עלה 0 → 5 כשצד הפירוש הופעל. הערך 0 הקודם לא העיד שהלקסיקון מיותר שם
+       אלא שכל הספים היו אפס ולכן לא היה מה לפתוח · עכשיו הוא נושא במשקל גם בסט
+       הזה, וחמש שורות real-word נפתחות בלעדיו.
+       ‏en-word עלה 12 → 21 עם השוליים המדורגים. הכיוון הזה הוא **הנכון**: הסובלנות
+       האנגלית התרחבה, ולכן יש יותר מחרוזות שרק הלקסיקון עוצר. ירידה כאן הייתה
+       הסימן המדאיג · היא הייתה אומרת שהשכבה נחלשה בשקט. */
+    assert.deepStrictEqual(opened, { 'he-word': 8, 'en-word': 21, gloss: 5 },
       'המחיר של כיבוי הלקסיקון השתנה · השכבה או הפרדיקט שלה זזו');
   });
 

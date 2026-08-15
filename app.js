@@ -843,17 +843,53 @@ function maskTerm(meaning, term){
 const TYPO_PARAMS = {
   enabled: true,
   ver: 'typo-lab/evolve/v1',
-  fp: 'f92493aa',
+  fp: '486000a6',
   'he-word': { dir:'word', minLen:3, vetoMargin:1, useLexicon:true,
     bands:[{maxLen:2,t:0.2141},{maxLen:3,t:0.7978},{maxLen:4,t:0.2471},{maxLen:5,t:0.2314},{maxLen:6,t:0.1891},{maxLen:7,t:0.9093},{maxLen:8,t:0},{maxLen:9,t:1.2466},{maxLen:10,t:0.8147},{maxLen:11,t:1.1089},{maxLen:12,t:0},{maxLen:null,t:0}],
     W:{sub:1,adjSub:2,transpose:2.7953,ins:1.8144,del:0.6004,doubleLetter:0.2105,materVI:1.7155,homophone:1.1389} },
-  'en-word': { dir:'word', minLen:3, vetoMargin:2, useLexicon:true,
-    bands:[{maxLen:2,t:0.3891},{maxLen:3,t:0.6708},{maxLen:4,t:1.3113},{maxLen:5,t:1.4126},{maxLen:6,t:1.5486},{maxLen:7,t:1.984},{maxLen:8,t:2.6077},{maxLen:9,t:2.3994},{maxLen:10,t:1.218},{maxLen:11,t:2.5053},{maxLen:12,t:1.9009},{maxLen:null,t:1.0834}],
-    W:{sub:1,adjSub:1.35,transpose:0.7759,ins:1.1296,del:0.4303,doubleLetter:0.5616,materVI:0.3821,homophone:1.7916} },
-  /* כל שתים-עשרה הרצועות 0 · הרדימה שההערה למעלה מסבירה. אין כאן סף להרפות. */
-  gloss: { dir:'gloss', minLen:0, vetoMargin:1, useLexicon:true,
-    bands:[{maxLen:2,t:0},{maxLen:3,t:0},{maxLen:4,t:0},{maxLen:5,t:0},{maxLen:6,t:0},{maxLen:7,t:0},{maxLen:8,t:0},{maxLen:9,t:0},{maxLen:10,t:0},{maxLen:11,t:0},{maxLen:12,t:0},{maxLen:null,t:0}],
-    W:{sub:1,adjSub:1,transpose:2,ins:1,del:1,doubleLetter:1,materVI:1,homophone:1} },
+  /* ‏השוליים המדורגים · הגן היחיד שפתח את האנגלית הקצרה.
+     מה שהיה חסום: ‏`vetoMargin:2` דחה כל הקלדה שהמרחק שלה ממילת מאגר זרה גדול
+     ממרחקה מהמילה שלה בפחות מ-2 — **לפני** שמישהו הסתכל על סף מרחק בכלל. באנגלית
+     ‏96%-98% משורות ה-accept באורך 3-4 נמצאות בדיוק ב-gap 1, ולכן כמעט כל הקצר מת
+     שם. פתיחת הספים לא הזיזה את זה (‏+0 באורך 3): השכבה שחוסמת רצה לפניהם.
+     מה שהוחלף: ‏`marginHard` (‏1 · מתחתיו נדחה תמיד, זו הכרעת חגי ואין עליה גן)
+     ו-`marginSoft` (‏2). ‏gap שיושב בין השניים נכנס ל**משטר צר** — אותו סדר שכבות
+     בדיוק, עם `bandsTight` ו-`WTight` משלו. זהו **הידוק ולא הרפיה**: המשטר הצר
+     מתמחר sub/adjSub/del/materVI/homophone ב-99 ומתיר בפועל רק עריכות **מאריכות**
+     (‏transpose · ins · doubleLetter). המכניקה: ב-gap 1 הכנסה או הכפלת אות כמעט
+     אף פעם לא נוחתות על מילת מאגר אחרת, בעוד שהחלפה ומחיקה כן — fought/bought,
+     speak/speck, tenth/tent. זה ההבדל בין "שכחתי אות" לבין "התכוונתי לשנייה".
+     ‏holdout 49.73% → 69.09%, וכיסוי המאגר 2,795 → 3,621 מתוך 3,946. מ-6 אותיות
+     ומעלה — 100%. אורך 5 נשאר הרצועה החלשה (44.7%) וזו התוצאה הכנה.
+     ⚠ אנגלית בלבד. על עברית אותו גן עולה קבלת-שווא אחת ולכן אינו נשלח שם.
+     שער המאגר על הנקודה הזאת: ‏10,165,462 זוגות · אפס התנגשויות חדשות. השיניים
+     הודגמו על `typo-rules.REDGRADED.json` — אותו גנום עם משטר צר פרוץ — 102
+     התנגשויות חדשות (fougght→bought, knew→new, teenth→teeth). */
+  'en-word': { dir:'word', minLen:0, vetoMargin:1, marginHard:1, marginSoft:2, useLexicon:true,
+    bands:[{maxLen:1,t:0},{maxLen:2,t:0},{maxLen:3,t:0.6},{maxLen:4,t:1.5},{maxLen:5,t:1.4},{maxLen:6,t:1.5},{maxLen:7,t:1.5},{maxLen:8,t:2.2},{maxLen:9,t:2.2},{maxLen:10,t:1.2},{maxLen:11,t:2.2},{maxLen:12,t:1.5},{maxLen:13,t:1.5},{maxLen:14,t:1.5},{maxLen:15,t:1},{maxLen:16,t:1.4},{maxLen:17,t:1.4},{maxLen:18,t:0},{maxLen:null,t:1.4}],
+    bandsTight:[{maxLen:1,t:0},{maxLen:2,t:0},{maxLen:3,t:1.9},{maxLen:4,t:0.9},{maxLen:5,t:0.8},{maxLen:6,t:1},{maxLen:7,t:0.9},{maxLen:8,t:1.9},{maxLen:9,t:1.9},{maxLen:10,t:1.9},{maxLen:11,t:1.9},{maxLen:12,t:1.9},{maxLen:13,t:1.9},{maxLen:14,t:1},{maxLen:15,t:0},{maxLen:16,t:0},{maxLen:17,t:0},{maxLen:18,t:0},{maxLen:null,t:0}],
+    W:{sub:1,adjSub:1.35,transpose:0.7759,ins:1.1296,del:0.4303,doubleLetter:0.5616,materVI:0.3821,homophone:1.7916},
+    WTight:{sub:99,adjSub:99,transpose:0.765,ins:0.967,del:99,doubleLetter:0.857,materVI:99,homophone:99} },
+  /* ‏gloss אינו מגיע מריצת ה-GA · ראה glossProvenance בארטיפקט. האפס שהיה כאן לא
+     היה תוצאה אלא **כשל חיפוש**: שורת שכבה-1 יחידה ("כל" מתקבל על הפירוש "כלל",
+     via=exact, מתקבלת היום בלי קשר לשום פרמטר) נפלה בסט האימון של חמש מתוך שש
+     הרצות ה-GA. היא מעניקה לכל גנום את אותו עונש מוות ‎-1e6‎, נוף הכושר משתטח,
+     ‏sinceImprove מטפס עד patience ו-ההרצה נעצרת בדור 23 · הגנום המוחזר הוא מנצח
+     דור 0, כלומר גנום הזריעה של אפס-סובלנות. הלוג מראה את זה במפורש:
+     ‏gloss/fold1 (היחיד שהשורה נפלה אצלו בוולידציה) רץ 130 דורות והגיע ל-bestEver
+     חיובי; כל השאר נעצרו בדור 23 על ‎-1000000‎ בדיוק, כלומר fa=1 ולעולם לא 2.
+     ‏11.61% ב-holdout, אפס קבלות-שווא שהגנום גורם. הספים ממוזערים לקורת המינימום
+     ששומרת על סט ההחלטות ביט-אחר-ביט · אין כאן רצועה שיושבת בתקרה "כי אף שורה לא
+     מגבילה אותה", וזו הייתה גרסה קודמת שנפסלה.
+     ⚠ הגרסה ההיא **נכשלה בשער המאגר** עם שתי התנגשויות · "רסיס עצ" על אֵגֶל
+     (שייך ל-שבב) ו-"משא כבד" על יָצוּעַ (שייך ל-עול). שתיהן תוצרי ההרחבה של חוק
+     B1, שאינם מקטעי פירוש גולמיים ולכן היו שקופים גם למרווח הדו-משמעות וגם לקבוצה
+     חוצת-הכרטיסים. התיקון היה להזרים את expandOf(B1-union) לתוך האילוץ — לא להרפות
+     ולא להדק סף ביד — ורצועת maxLen 4 ירדה מ-2.2 ל-0.4, שזה בדיוק מה שמוציא את
+     dist 0.6 של שלוש המחיקות. ‏holdout לא זז בכלל. */
+  gloss: { dir:'gloss', minLen:6, vetoMargin:2, useLexicon:true,
+    bands:[{maxLen:1,t:0},{maxLen:2,t:0},{maxLen:3,t:1.8},{maxLen:4,t:0.4},{maxLen:5,t:0},{maxLen:6,t:0},{maxLen:7,t:0.4},{maxLen:8,t:0.4},{maxLen:9,t:0},{maxLen:10,t:0.5},{maxLen:11,t:1.8},{maxLen:12,t:0.5},{maxLen:13,t:0.5},{maxLen:14,t:1.9},{maxLen:15,t:1.8},{maxLen:16,t:1.1},{maxLen:17,t:2},{maxLen:18,t:2},{maxLen:19,t:2},{maxLen:20,t:0.6},{maxLen:null,t:0}],
+    W:{sub:1,adjSub:1.9,transpose:1.9,ins:2,del:0.2,doubleLetter:0.2,materVI:0.6,homophone:0.5} },
 };
 /* שכנות מקלדת והומופונים · אלה בדיוק הטבלאות שהמעבדה מדדה עליהן (typo-lab/lib/wdist.js,
    taxonomy-he/en). ההומופונים נגזרו שם מהאופרטור עצמו ולא הועתקו, וכאן הם מודבקים
@@ -995,12 +1031,24 @@ function typoNorm(P){
   let n=TYPO_PN.get(P);
   if(n) return n;
   const p=P||{};
-  const W=Object.assign({sub:1,adjSub:1,transpose:2,ins:1,del:1,doubleLetter:1,materVI:1,homophone:1}, p.W||{});
-  let bands=(Array.isArray(p.bands)&&p.bands.length)?p.bands.slice():[{maxLen:Infinity,t:0}];
-  bands=bands.map(b=>({maxLen:b.maxLen==null?Infinity:b.maxLen, t:b.t==null?0:b.t}))
+  const UNIT={sub:1,adjSub:1,transpose:2,ins:1,del:1,doubleLetter:1,materVI:1,homophone:1};
+  const nb=bs=>bs.map(b=>({maxLen:b.maxLen==null?Infinity:b.maxLen, t:b.t==null?0:b.t}))
     .sort((x,y)=>x.maxLen-y.maxLen);
+  const W=Object.assign({}, UNIT, p.W||{});
+  const bands=nb((Array.isArray(p.bands)&&p.bands.length)?p.bands.slice():[{maxLen:Infinity,t:0}]);
+  const vetoMargin=p.vetoMargin==null?1:p.vetoMargin;
+  /* השוליים המדורגים · הירושה היא בכיוון אחד בלבד, ולכן פרמטרים ישנים אינם יכולים
+     לקבל משטר צר בטעות: בלי marginSoft הוא שווה ל-marginHard, והתנאי שמדליק את
+     המשטר (soft > hard) כבוי מבנית. זהה מילה-במילה ל-typo-lab/lib/checker.js. */
+  const marginHard=p.marginHard==null?vetoMargin:p.marginHard;
+  const marginSoft=p.marginSoft==null?marginHard:p.marginSoft;
+  if(marginSoft<marginHard) throw new Error('typoNorm: marginSoft ('+marginSoft+') is below marginHard ('+marginHard+') · negative window');
+  const bandsTight=(Array.isArray(p.bandsTight)&&p.bandsTight.length)?nb(p.bandsTight.slice()):bands;
+  const WTight=p.WTight?Object.assign({}, UNIT, p.WTight):W;
   n={ dir:p.dir==='gloss'?'gloss':'word', minLen:p.minLen==null?0:p.minLen,
-      vetoMargin:p.vetoMargin==null?1:p.vetoMargin, useLexicon:p.useLexicon!==false, bands, W };
+      vetoMargin, marginHard, marginSoft,
+      useLexicon:p.useLexicon!==false, bands, W, bandsTight, WTight,
+      graded:marginSoft>marginHard };
   TYPO_PN.set(P,n);
   return n;
 }
@@ -1123,20 +1171,28 @@ function nearMatch(a, candidates, lang, P, vetoSet, ownSet){
   }
   if(!scored.length) return {ok:false, why:'far', dist:null};
   scored.sort((x,y)=>x.raw-y.raw || x.len-y.len || (x.c<y.c?-1:x.c>y.c?1:0));
+  /* הפער נחשב **לפני** לולאת המרחק, כי הוא זה שבוחר את המשטר; הפסילה הקשה עצמה
+     נשארת אחרי הלולאה כדי שהודעת ההתנגשות תופיע רק כשבאמת עמדנו לקבל.
+     מחרוזת שרחוקה מהכול צריכה להיפסל על מרחק, לא על "הקלדת מילה אחרת". */
+  let hardReject=false, tight=false;
+  if((p.marginHard>0 || p.graded) && vetoSet){
+    const gap=typoNearestOther(a, vetoSet, ownSet||new Set()) - dOwn;
+    if(p.marginHard>0 && gap<p.marginHard) hardReject=true;
+    tight = p.graded && gap<p.marginSoft;
+  }
+  const tBands = tight ? p.bandsTight : p.bands;
+  const tW = tight ? p.WTight : p.W;
   let best=Infinity;
   for(const s of scored.slice(0,TYPO_MAX_CANDS)){
-    let t=p.bands[p.bands.length-1].t;
-    for(const b of p.bands) if(s.len<=b.maxLen){ t=b.t; break; }
+    let t=tBands[tBands.length-1].t;
+    for(const b of tBands) if(s.len<=b.maxLen){ t=b.t; break; }
     if(!(t>0)) continue;                               // אפס סובלנות ברצועה הזו
-    const d=typoWDist(a, s.c, p.W, t, TYPO_MAX_OPS);
+    const d=typoWDist(a, s.c, tW, t, TYPO_MAX_OPS);
     if(d<best) best=d;
     if(best===0) break;
   }
   if(!isFinite(best)) return {ok:false, why:'far', dist:null};
-  if(p.vetoMargin>0 && vetoSet){
-    const dOther=typoNearestOther(a, vetoSet, ownSet||new Set());
-    if(dOther-dOwn < p.vetoMargin) return {ok:false, why:'collision', dist:null};
-  }
+  if(hardReject) return {ok:false, why:'collision', dist:null};
   return {ok:true, why:null, dist:best};
 }
 /* כל המפתחות שהערך מקבל היום · אותן ארבע שכבות של isCorrect למטה, באותו סדר.

@@ -69,7 +69,12 @@ const OUT = path.join(__dirname, 'out');
    פרמטרים שמרניים השער חייב לרדת לירוק") ובדיקה של מועמד לפני שהוא נכתב ל-out. ברירת
    המחדל היא הארטיפקט האמיתי, ואין כאן שום ערך מקובע. */
 const RULES_PATH = process.env.TYPO_RULES || path.join(OUT, 'typo-rules.json');
-const MD_PATH = path.join(OUT, 'bank-gate.md');
+/* ‏ריצה על ארטיפקט חלופי אינה מורשית לדרוס את דוח הריצה של הפרמטרים הנשלחים · אחרת
+   בדיקת מועמד או הדגמת שיניים משאירה אחריה `bank-gate.md` שמתאר משהו אחר לגמרי,
+   ובדיוק זו הטעות ש-`fingerprint` נועד לתפוס. הדוח נכתב לצד הארטיפקט שנבדק. */
+const MD_PATH = process.env.TYPO_RULES
+  ? path.join(OUT, 'bank-gate.' + path.basename(RULES_PATH).replace(/\.json$/, '') + '.md')
+  : path.join(OUT, 'bank-gate.md');
 
 const say = s => process.stdout.write(s + '\n');
 const md = [];
@@ -83,10 +88,22 @@ function shipParams() {
     process.exit(2);
   }
   const j = JSON.parse(fs.readFileSync(RULES_PATH, 'utf8'));
-  const norm = q => ({
-    minLen: q.minLen, vetoMargin: q.vetoMargin, W: q.W,
-    bands: q.bands.map(b => ({ maxLen: b.maxLen == null ? Infinity : b.maxLen, t: b.t })),
-  });
+  const nb = bs => bs.map(b => ({ maxLen: b.maxLen == null ? Infinity : b.maxLen, t: b.t }));
+  /* ‏גני השוליים המדורגים חייבים לעבור כאן במפורש. הם **אינם** נופלים לברירת המחדל
+     הנכונה אם משמיטים אותם: ‏normalizeParams יורש marginSoft מ-marginHard ומכבה את
+     המשטר הצר, כלומר ארטיפקט מדורג היה נבדק כאן כאילו הוא אינו מדורג — שער ירוק על
+     פרמטרים שאינם אלה שנשלחים. זה הכיוון המסוכן מבין השניים, ולכן הוא מפורש. */
+  const norm = q => {
+    const o = {
+      minLen: q.minLen, vetoMargin: q.vetoMargin, W: q.W,
+      bands: nb(q.bands),
+    };
+    if (q.marginHard != null) o.marginHard = q.marginHard;
+    if (q.marginSoft != null) o.marginSoft = q.marginSoft;
+    if (Array.isArray(q.bandsTight) && q.bandsTight.length) o.bandsTight = nb(q.bandsTight);
+    if (q.WTight) o.WTight = q.WTight;
+    return o;
+  };
   const sets = {};
   for (const k of ['he-word', 'en-word', 'gloss']) {
     if (!j.params || !j.params[k]) { say(`⛔ out/typo-rules.json בלי params.${k}`); process.exit(2); }
@@ -101,10 +118,19 @@ function shipParams() {
  * שער שמדווח מספרים משני ארטיפקטים שונים אינו מדווח על אף אחד מהם, ולכן verify_all
  * משווה את הטביעה ומכריז אדום על אי-התאמה. */
 function fingerprint(sets) {
+  const nb = bs => (bs || []).map(b => [b.maxLen === Infinity || b.maxLen == null ? -1 : b.maxLen, b.t]);
+  const nw = w => Object.keys(w || {}).sort().map(k => [k, w[k]]);
+  /* ‏שני ארטיפקטים שנבדלים רק במשטר הצר חייבים לקבל טביעות שונות · אחרת verify_all
+     משווה טביעה, מוצא התאמה, ומכריז שהדוח מתאר את הפרמטרים שנשלחים בזמן שהוא מתאר
+     ריצה אחרת לגמרי. ‏null מפורש (ולא השמטה) כדי שגנום בלי המשטר יקבל טביעה יציבה. */
   const norm = q => ({
     minLen: q.minLen, vetoMargin: q.vetoMargin,
-    bands: (q.bands || []).map(b => [b.maxLen === Infinity || b.maxLen == null ? -1 : b.maxLen, b.t]),
-    W: Object.keys(q.W || {}).sort().map(k => [k, q.W[k]]),
+    bands: nb(q.bands),
+    W: nw(q.W),
+    marginHard: q.marginHard == null ? null : q.marginHard,
+    marginSoft: q.marginSoft == null ? null : q.marginSoft,
+    bandsTight: q.bandsTight ? nb(q.bandsTight) : null,
+    WTight: q.WTight ? nw(q.WTight) : null,
   });
   const keys = Object.keys(sets).sort();
   return crypto.createHash('sha256')
@@ -114,9 +140,18 @@ function fingerprint(sets) {
 
 /* חסם מספר הפעולות שנגזר מהפרמטרים · ראה ההסבר בראש הקובץ. */
 function effOps(P) {
-  const ws = Object.keys(P.W).map(k => P.W[k]).filter(x => typeof x === 'number' && x > 0);
+  /* ‏החסם נלקח על **איחוד** שני המשטרים. הצר אינו בהכרח הצר יותר בכל גן: הוא הודק
+     במשקלים ויכול להיות רחב יותר ברצועה בודדת, ואז חסם שנגזר מהמשטר הראשי בלבד
+     היה מייצר אינדקס-מחיקות רדוד מדי — כלומר זוגות שלא הגיעו לחישוב ושער ירוק
+     שנובע מאי-בדיקה. במועמד הנוכחי הראשי ממילא שולט; זה נכתב כדי שיישאר נכון. */
+  const ws = [];
+  for (const w of [P.W, P.WTight]) if (w) for (const k of Object.keys(w)) {
+    const x = w[k]; if (typeof x === 'number' && x > 0) ws.push(x);
+  }
   const minW = ws.length ? Math.min.apply(null, ws) : 0;
-  const maxT = Math.max.apply(null, P.bands.map(b => (typeof b.t === 'number' ? b.t : 0)));
+  const ts = [];
+  for (const bs of [P.bands, P.bandsTight]) if (bs) for (const b of bs) ts.push(typeof b.t === 'number' ? b.t : 0);
+  const maxT = ts.length ? Math.max.apply(null, ts) : 0;
   if (!(maxT > 0)) return 0;
   if (!(minW > 0)) return MAX_OPS;
   return Math.max(0, Math.min(MAX_OPS, Math.floor(maxT / minW + 1e-9)));
@@ -710,7 +745,7 @@ function main() {
 
   const wall = ((Date.now() - T0) / 1000).toFixed(1);
   say('');
-  say(`נכתב out/bank-gate.md · ${wall} שניות`);
+  say(`נכתב out/${path.basename(MD_PATH)} · ${wall} שניות`);
   if (fail) {
     say(`⛔ ${newHits.length} התנגשויות חדשות · ${tsereBad.length} זוגות צירה נפרצו`);
     for (const h of newHits.slice(0, 20)) say(`   [${h.lang}/${h.dir}] "${h.typed}" מתקבל על "${h.card}" · שייך ל-${h.intruder}`);
@@ -723,4 +758,7 @@ function main() {
 
 if (require.main === module) main();
 
-module.exports = { effOps, delVariants, makeNear, shipParams, fingerprint, TSERE };
+/* ‏expandOf מיוצא כדי שהחיפוש יוכל לבנות את אותה קבוצת-הרחבה שהשער בודק, במקום
+   לכתוב אותה מחדש. זו בדיוק הסיבה שהשער דחה את מועמד ה-gloss הראשון: הכושר של ה-GA
+   אינו מדלל את ערוץ B1, ולכן החיפוש הציע נקודה שהשער פוסל. מקור אמת אחד לשני הצדדים. */
+module.exports = { effOps, delVariants, makeNear, shipParams, fingerprint, TSERE, expandOf };

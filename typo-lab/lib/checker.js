@@ -43,6 +43,30 @@
  * הנימוק אינו. הודעת ההתנגשות ("הקלדת מילה אחרת · בעצם ידעתי") צריכה להופיע רק כשבאמת
  * עמדנו לקבל. מחרוזת שרחוקה מהכול תיפסל בגלל מרחק, וזה מה שהיא צריכה להגיד.
  *
+ * ===== 4ג · השוליים המדורגים · marginHard / marginSoft / bandsTight / WTight =====
+ *
+ * מספר יחיד אחד (vetoMargin) מכריח את אותה סובלנות על שני מצבים שאינם דומים: מחרוזת
+ * שהמאגר שקט סביבה, ומחרוזת שיש לה שכן זר במרחק נשיפה. השוליים המדורגים מפצלים אותם:
+ *
+ *   marginHard · מתחתיו נדחה **תמיד**. זו הכרעת חגי משכבה 4ב ואין עליה ויכוח ואין לה גן.
+ *   marginSoft · פער שיושב ב-[marginHard, marginSoft) נכנס ל**משטר הצר** · אותו סדר
+ *                שכבות בדיוק, אבל עם וקטור ספים משלו (bandsTight) ומשקלי אופרטורים
+ *                משלו (WTight). זהו הידוק, לא הרפיה: המשטר הצר רואה פחות, לא יותר.
+ *
+ * ‏marginSoft === marginHard (או marginSoft חסר) משחזר **בדיוק** את ההתנהגות של
+ * vetoMargin היחיד · אין רגרסיה אפשרית בארטיפקטים קיימים, וזה נבדק על מפת הביטים
+ * המלאה של ההחלטות על שני הדאטהסטים ולא על סקלר ה-recall.
+ *
+ * ‏WTight הוא הגן שנושא כאן במשקל, ולא הספים. הנקודה שנמדדה נותנת לו 99 על sub/adjSub/
+ * del/materVI/homophone ומחיר ממשי רק על transpose/ins/doubleLetter · כלומר בפער צר
+ * מתקבלות רק עריכות **מאריכות** (הקלדה כפולה, אות שנשמטה, היפוך), ולעולם לא החלפת אות.
+ * זה בדיוק ההבדל בין "שכחתי אות" לבין "התכוונתי למילה השנייה".
+ *
+ * ברירות המחדל שומרות על התאימות לאחור בכיוון היחיד שאינו יכול להפתיע: marginHard
+ * יורש מ-vetoMargin, marginSoft יורש מ-marginHard, bandsTight יורש מ-bands, ו-WTight
+ * יורש מ-W. גנום ישן מהדיסק מקבל בדיוק את מה שהיה לו. ‏marginSoft < marginHard הוא
+ * צירוף חסר משמעות (חלון שלילי) והוא זורק, ולא נבלע בשקט.
+ *
  * ===== 3ב · שומר הנטיות · אילוץ קשיח, לא גן =====
  *
  * ‏isCorrect('כפרים','כֹּפֶר') חייב להישאר false · זה מקובע ב-tests/05 ומופיע בתוכנית
@@ -244,19 +268,37 @@ function suffixesFor(ctx) {
 }
 
 /* ברירות מחדל שמרניות · גנום חסר-גן אינו נופל לסובלנות רחבה בשקט. */
+const UNIT_DEFAULTS = { sub: 1, adjSub: 1, transpose: 2, ins: 1, del: 1, doubleLetter: 1, materVI: 1, homophone: 1 };
+const normBands = b => b.map(x => ({ maxLen: x.maxLen == null ? Infinity : x.maxLen, t: x.t == null ? 0 : x.t }))
+  .sort((a, b) => a.maxLen - b.maxLen);
+
 function normalizeParams(params) {
   const p = params || {};
-  const W = Object.assign({ sub: 1, adjSub: 1, transpose: 2, ins: 1, del: 1, doubleLetter: 1, materVI: 1, homophone: 1 }, p.W || {});
-  let bands = Array.isArray(p.bands) && p.bands.length ? p.bands.slice() : [{ maxLen: Infinity, t: 0 }];
-  bands = bands.map(b => ({ maxLen: b.maxLen == null ? Infinity : b.maxLen, t: b.t == null ? 0 : b.t }))
-    .sort((a, b) => a.maxLen - b.maxLen);
+  const W = Object.assign({}, UNIT_DEFAULTS, p.W || {});
+  const bands = normBands(Array.isArray(p.bands) && p.bands.length ? p.bands.slice() : [{ maxLen: Infinity, t: 0 }]);
+
+  const vetoMargin = p.vetoMargin == null ? 1 : p.vetoMargin;
+  /* ‏4ג · הירושה היא בכיוון אחד בלבד, ולכן גנום ישן אינו יכול לקבל משטר צר בטעות:
+     בלי marginSoft, soft === hard, והתנאי `soft > hard` שמדליק את המשטר כבוי מבנית. */
+  const marginHard = p.marginHard == null ? vetoMargin : p.marginHard;
+  const marginSoft = p.marginSoft == null ? marginHard : p.marginSoft;
+  if (marginSoft < marginHard) {
+    throw new Error(`normalizeParams: marginSoft (${marginSoft}) is below marginHard (${marginHard}) · negative window`);
+  }
+  /* ‏bandsTight/WTight יורשים את המשטר הראשי כשהם חסרים · **אותם אובייקטים**, לא עותק
+     שיוכל לסטות. כשהמשטר הצר כבוי ממילא אין מי שיקרא אותם, וכשהוא דלוק בלי ספים משלו
+     ההתנהגות שווה למשטר הראשי בדיוק, וזו הברירה הבטוחה. */
+  const bandsTight = Array.isArray(p.bandsTight) && p.bandsTight.length ? normBands(p.bandsTight.slice()) : bands;
+  const WTight = p.WTight ? Object.assign({}, UNIT_DEFAULTS, p.WTight) : W;
+
   return {
     minLen: p.minLen == null ? 0 : p.minLen,
-    vetoMargin: p.vetoMargin == null ? 1 : p.vetoMargin,
+    vetoMargin,
+    marginHard, marginSoft,
     /* ברירת המחדל היא **דלוק**. פרמטרים ישנים שנטענים מהדיסק בלי השדה הזה מקבלים את
        השכבה, ולא מאבדים אותה בשקט · זה הכיוון הבטוח מבין השניים. */
     useLexicon: p.useLexicon !== false,
-    bands, W
+    bands, W, bandsTight, WTight
   };
 }
 
@@ -267,10 +309,16 @@ function makeChecker(params, ctx, veto, lang) {
   const P = normalizeParams(params);
   const IX = indexesFor(veto);
 
-  const thresholdFor = len => {
-    for (const b of P.bands) if (len <= b.maxLen) return b.t;
-    return P.bands[P.bands.length - 1].t;
+  const thrOn = bands => len => {
+    for (const b of bands) if (len <= b.maxLen) return b.t;
+    return bands[bands.length - 1].t;
   };
+  const thresholdFor = thrOn(P.bands);
+  /* ‏4ג · כשאין bandsTight משלו זה **אותו** מערך, ולכן זו אותה פונקציה לכל דבר. */
+  const thresholdTightFor = P.bandsTight === P.bands ? thresholdFor : thrOn(P.bandsTight);
+  /* המשטר הצר קיים רק כשיש חלון · חלון ריק פירושו שהענף כולו מת, ואז אין שום מסלול
+     שבו bandsTight/WTight יכולים לדלוף אל ההחלטה הרגילה. */
+  const GRADED = P.marginSoft > P.marginHard;
 
   /* acceptedKeys/acceptedSegs נקראות שוב ושוב על אותם כרטיסים (גם מתוך veto.js), והן
      בונות Set מחדש בכל קריאה. מטמון לכל בודק · אינו משנה תוצאה, רק זמן. */
@@ -336,21 +384,29 @@ function makeChecker(params, ctx, veto, lang) {
     if (!scored.length) return { ok: false, why: 'far' };
     scored.sort((a, b) => a.raw - b.raw || a.len - b.len || (a.c < b.c ? -1 : a.c > b.c ? 1 : 0));
 
+    /* ‏4ג · הפער נחשב **לפני** לולאת המרחק, כי הוא זה שבוחר את המשטר. הפסילה הקשה עצמה
+       נדחית לאחרי הלולאה · ההכרעה זהה בשני הסדרים, אבל הנימוק אינו, וההודעה ללומד
+       ("הקלדת מילה אחרת") צריכה להופיע רק כשבאמת עמדנו לקבל. ראה 4ב. */
+    let hardReject = false, tight = false;
+    if (P.marginHard > 0 || GRADED) {
+      const gap = nearestOther(typedKey, index, allow, ctx) - dOwn;
+      if (P.marginHard > 0 && gap < P.marginHard) hardReject = true;
+      tight = GRADED && gap < P.marginSoft;
+    }
+    const bandOf = tight ? thresholdTightFor : thresholdFor;
+    const wOf = tight ? P.WTight : P.W;
+
     let best = Infinity;
     for (const s of scored.slice(0, MAX_CANDS)) {
-      const t = thresholdFor(s.len);
+      const t = bandOf(s.len);
       if (!(t > 0)) continue;                                  // אפס סובלנות ברצועה הזו · אין מה לחשב
-      const d = wEditDist(typedKey, s.c, P.W, t, MAX_OPS);
+      const d = wEditDist(typedKey, s.c, wOf, t, MAX_OPS);
       if (d < best) best = d;
       if (best === 0) break;
     }
     if (!isFinite(best)) return { ok: false, why: 'far' };
-
-    if (P.vetoMargin > 0) {
-      const dOther = nearestOther(typedKey, index, allow, ctx);
-      if (dOther - dOwn < P.vetoMargin) return { ok: false, why: 'collision' };
-    }
-    return { ok: true, via: 'typo', dist: best };
+    if (hardReject) return { ok: false, why: 'collision' };
+    return { ok: true, via: 'typo', dist: best, regime: tight ? 'tight' : 'main' };
   }
 
   function acceptWord(typed, card) {
