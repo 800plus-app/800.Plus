@@ -35,6 +35,12 @@ RED-teeth-rules.json
 typo-rules.*.json
 !typo-rules.CANDIDATE.json
 !typo-rules.REDGRADED.json
+!typo-rules.HE-CANDIDATE.json
+!typo-rules.HE-REDGRADED.json
+
+# ‏he-cross.json · הקבוצה חוצת-הכרטיסים שנבנתה מחדש (614 שניות) אחרי שהתגלה
+# ש-coverage-cross.json מעופש. ‏560KB נגזרת, ומסונן מאותה סיבה בדיוק.
+he-cross.json
 
 # עותקי דאטהסט ישנים · v1-old/ ו-v2/ הם גיבויים מקומיים של ריצות קודמות.
 v1-old/

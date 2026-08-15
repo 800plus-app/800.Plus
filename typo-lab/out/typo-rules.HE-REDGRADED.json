@@ -88,7 +88,7 @@
    "minLen": 0,
    "vetoMargin": 1,
    "marginHard": 1,
-   "marginSoft": 3,
+   "marginSoft": 99,
    "useLexicon": true,
    "W": {
     "sub": 1,
@@ -101,14 +101,14 @@
     "homophone": 1.1389
    },
    "WTight": {
-    "sub": 99,
-    "adjSub": 99,
-    "transpose": 1.695,
-    "ins": 99,
-    "del": 99,
-    "doubleLetter": 1.333,
-    "materVI": 99,
-    "homophone": 99
+    "sub": 1,
+    "adjSub": 2,
+    "transpose": 2.7953,
+    "ins": 1.8144,
+    "del": 0.6004,
+    "doubleLetter": 0.2105,
+    "materVI": 1.7155,
+    "homophone": 1.1389
    },
    "bands": [
     {
@@ -191,79 +191,79 @@
    "bandsTight": [
     {
      "maxLen": 1,
-     "t": 0
+     "t": 2.2
     },
     {
      "maxLen": 2,
-     "t": 0
+     "t": 2.2
     },
     {
      "maxLen": 3,
-     "t": 1.4
+     "t": 2.2
     },
     {
      "maxLen": 4,
-     "t": 1.4
+     "t": 2.2
     },
     {
      "maxLen": 5,
-     "t": 1.7
+     "t": 2.2
     },
     {
      "maxLen": 6,
-     "t": 1.7
+     "t": 2.2
     },
     {
      "maxLen": 7,
-     "t": 1.7
+     "t": 2.2
     },
     {
      "maxLen": 8,
-     "t": 1.7
+     "t": 2.2
     },
     {
      "maxLen": 9,
-     "t": 1.7
+     "t": 2.2
     },
     {
      "maxLen": 10,
-     "t": 1.7
+     "t": 2.2
     },
     {
      "maxLen": 11,
-     "t": 1.7
+     "t": 2.2
     },
     {
      "maxLen": 12,
-     "t": 0
+     "t": 2.2
     },
     {
      "maxLen": 13,
-     "t": 0
+     "t": 2.2
     },
     {
      "maxLen": 14,
-     "t": 0
+     "t": 2.2
     },
     {
      "maxLen": 15,
-     "t": 0
+     "t": 2.2
     },
     {
      "maxLen": 16,
-     "t": 0
+     "t": 2.2
     },
     {
      "maxLen": 17,
-     "t": 0
+     "t": 2.2
     },
     {
      "maxLen": 18,
-     "t": 0
+     "t": 2.2
     },
     {
      "maxLen": null,
-     "t": 0
+     "t": 2.2
     }
    ],
    "dir": "word"
@@ -8460,22 +8460,7 @@
     "exact.en-word",
     "shipGate.en-word"
    ]
-  },
-  {
-   "set": "he-word",
-   "from": "typo-rules.HE-CANDIDATE.json",
-   "source": "CANDIDATE · typo-lab/out/he-graded-search.json על he-word בלבד. שאר הסטים ביט-זהים לנשלח.",
-   "fingerprintBefore": "fd76ab7ce13e",
-   "fingerprintAfter": "a764cc77584a",
-   "bankGate": {
-    "file": "bank-gate.typo-rules.HE-CANDIDATE.md",
-    "pairs": 10165462
-   },
-   "staleBlocks": [
-    "results.he-word",
-    "exact.he-word",
-    "shipGate.he-word"
-   ]
   }
- ]
+ ],
+ "candidateNote": "REDGRADED · הוכחת שיניים לשער. לא ארטיפקט ייצור."
 }

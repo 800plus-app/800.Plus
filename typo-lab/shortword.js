@@ -22,7 +22,19 @@
  * ⚠ הקובץ אינו כותב פרמטרים לייצור ואינו מריץ את השער הממצה. מועמד נבדק ב-bank_gate
  * לפני שנאמר עליו משהו.
  *
- * הרצה · node typo-lab/shortword.js [--selftest] [--quick]
+ * ===== --set · באיזה סט מתבצעת המדידה הראשית =====
+ *
+ * שלבים 2 עד 7ב נכתבו סביב שאלה אנגלית, אבל אף אחד מהם אינו תלוי באנגלית בקוד · הם
+ * תלויים בסט אחד שנבחר. ‏`--set` בוחר אותו, וברירת המחדל היא `en-word` **בדיוק** כפי
+ * שהיה קודם: אותם קבצי פלט, אותו סדר קריאות ל-rng, אותו שלב 8 (שרץ תמיד על שאר הסטים,
+ * ובברירת המחדל זה he-word ואז gloss · בדיוק הרשימה שהייתה כתובה כאן ביד).
+ * ⚠ אי-הרגרסיה **נמדדה ולא הוצהרה**: הרצה מלאה לפני ואחרי השינוי, עם אותו
+ * `out/typo-rules.json`, נותנת `stages` זהים בית-בית.
+ *
+ * הדוח בעברית (`writeReport`) מנוסח על אנגלית לאורך כל הטקסט, ולכן הוא נכתב **רק**
+ * בברירת המחדל. סט אחר מקבל את ה-JSON בלבד · דוח מנוסח על השפה הלא נכונה גרוע מאין דוח.
+ *
+ * הרצה · node typo-lab/shortword.js [--set <he-word|en-word|gloss>] [--selftest] [--quick]
  */
 
 const fs = require('fs');
@@ -39,6 +51,16 @@ const ARGS = process.argv.slice(2);
 const has = f => ARGS.includes(f);
 const SELFTEST = has('--selftest');
 const QUICK = has('--quick');
+/* ‏--set · הסט שנמדד בשלבים 2-7ב. ברירת המחדל היא en-word, וכל מסלול הקוד איתה זהה
+   למה שהיה כאן לפני הדגל. סט לא מוכר עוצר · שם עם שגיאת כתיב לא ימדוד בשקט את אנגלית. */
+const argVal = (f, d) => { const i = ARGS.indexOf(f); return i >= 0 && ARGS[i + 1] ? ARGS[i + 1] : d; };
+const SET = argVal('--set', 'en-word');
+if (!EV.SETS.includes(SET)) {
+  process.stdout.write(`⛔ --set ${SET} · הסטים המוכרים הם ${EV.SETS.join(', ')}\n`);
+  process.exit(2);
+}
+/* סיומת שם הקובץ · ריקה ל-en-word, ולכן הארטיפקטים האנגליים נשארים בדיוק במקומם. */
+const FSUF = SET === 'en-word' ? '' : '.' + SET;
 const say = s => process.stdout.write(s + '\n');
 const pct = v => v == null ? '-' : (v * 100).toFixed(2) + '%';
 const MAXL = SE.MAXL;
@@ -287,7 +309,13 @@ function main() {
   const eqRun = broken => {
     let diff = 0, checked = 0, acc = 0;
     for (const pr of probes) {
-      const E0 = EV.makeFastEval(pr.P);
+      /* ‏evolve.makeFastEval אינו יכול לבטא משטר צר · וקטור משקלים אחד, מטמון ספים אחד,
+         ‏margin יחיד · ומאז 15.8 הוא **זורק** על גנים מדורגים במקום להתעלם מהם בשקט.
+         השער הזה משווה ממילא רק את הצד הלא-מדורג (‏E1 למטה מקבל marginHard=marginSoft=
+         vetoMargin), ולכן ההיטל נעשה כאן במפורש. זה אינו משנה אף החלטה: makeFastEval
+         קורא bands/W/minLen/vetoMargin/useLexicon בלבד. */
+      const flat = Object.assign({}, pr.P, { marginHard: pr.P.vetoMargin, marginSoft: pr.P.vetoMargin });
+      const E0 = EV.makeFastEval(flat);
       const wv = SE.constW(pr.P.W);
       const E1 = SE.mkE(Object.assign({}, pr.P, {
         marginHard: broken === 'margin' ? 0 : pr.P.vetoMargin,
@@ -325,7 +353,7 @@ function main() {
 
   /* ================= שלב 2 · אבחון הקיר ================= */
   say('\n===== שלב 2 · איזו שכבה בדיוק חוסמת את האנגלית הקצרה =====');
-  const set = 'en-word';
+  const set = SET;
   const Sen = S[set], Xen = X[set];
 
   const gapTab = [];
@@ -654,7 +682,8 @@ function main() {
   /* ⚠ ל-gloss אין קבוצה חוצת-כרטיסים (‏0 שורות), ולכן אילוץ אפס-קבלות-השווא שם מודד
      פחות ממה שהוא מודד באנגלית. השער הממצה נשאר הסמכות · זה נאמר ולא נבלע. */
   const others = {};
-  for (const s2 of ['he-word', 'gloss']) {
+  /* שאר הסטים, בסדר של EV.SETS · בברירת המחדל זה בדיוק ['he-word','gloss'] שהיה כאן ביד. */
+  for (const s2 of EV.SETS.filter(x => x !== set)) {
     const P2 = CH.normalizeParams(SHIP[s2]);
     const wv2 = SE.constW(P2.W);
     const scn2 = makeScn(S[s2], NH[s2], X[s2], xI[s2]);
@@ -693,7 +722,8 @@ function main() {
   const candidates = [];
   for (const v of inSpace) if (v) candidates.push({
     name: `בתוך מרחב הגנים · שוליים ${v.margin}`, holdoutRecall: v.holdoutRecall, fullRecall: v.fullRecall,
-    byLengthFull: v.byLengthFull, byLengthHold: v.byLengthHold, params: v.params, W: v.W, needsCheckerChange: false
+    byLengthFull: v.byLengthFull, byLengthHold: v.byLengthHold, params: v.params, W: v.W, needsCheckerChange: false,
+    fullFA: v.fullFA, holdoutFA: v.holdoutFA
   });
   for (const [name, f] of Object.entries(filtRes)) if (f) candidates.push({
     name: `שוליים מדורגים · מסנן ${name}`, filter: name, holdoutRecall: f.holdoutRecall, fullRecall: f.fullRecall,
@@ -760,18 +790,28 @@ function main() {
        ולכן הוא מהודר מחדש למשקלים שנשלחו לפני שמודדים את הבסיס. */
     compileFor(scnFull, AUX[set], XAUX[set], wvShip, null, null, null);
     const holdShip = SE.evalSubset(Sen, HO[set], shipE, scnFull.CN, scnFull.CT).recall;
-    if (winShippable.holdoutRecall > holdShip + 1e-9) {
-      const out = { ver: 'typo-lab/evolve/v1+shortword-candidate', generatedAt: new Date().toISOString(), note: 'en-word בלבד · he-word ו-gloss זהים בית-בית ל-out/typo-rules.json', params: {} };
+    /* ⚠ מועמד חייב להיות נקי על **הסט המלא**, לא רק על שורות האימון שעליהן כויל.
+       ‏tune מבטיח אפס קבלות-שווא רק על מה שהוא ראה, וזה בדיוק הכשל שחזר בפרויקט הזה
+       פעמיים (‏gloss/fold1, והנקודה העברית). נמדד: ב-he-word הנקודה הטובה ביותר
+       "בתוך המרחב" נותנת holdout 18.38% עם **קבלת-שווא אחת**, והיא נכתבה כמועמד לפני
+       השורה הזאת. קובץ ששמו "מועמד" ונושא קבלת-שווא הוא מלכודת, לא ארטיפקט.
+       ‏(ב-en-word הנקודה הזאת נקייה, ולכן התנאי אינו משנה שם דבר · נמדד ולא הוצהר.) */
+    const dirty = (winShippable.fullFA || 0) > 0 || (winShippable.holdoutFA || 0) > 0;
+    if (dirty) {
+      say(`  לא נכתב קובץ מועמד · הטוב ביותר שאפשר לשלוח נושא ${winShippable.fullFA} קבלות-שווא בסט המלא (‏${winShippable.holdoutFA} מהן ב-holdout)`);
+    } else if (winShippable.holdoutRecall > holdShip + 1e-9) {
+      const others2 = EV.SETS.filter(x => x !== set).join(' ו-');
+      const out = { ver: 'typo-lab/evolve/v1+shortword-candidate', generatedAt: new Date().toISOString(), note: `${set} בלבד · ${others2} זהים בית-בית ל-out/typo-rules.json`, params: {} };
       for (const s2 of EV.SETS) out.params[s2] = SHIP[s2];
       const P = winShippable.params;
-      out.params['en-word'] = {
+      out.params[set] = {
         minLen: P.minLen, vetoMargin: P.vetoMargin, useLexicon: true,
         bands: P.bands.map(b => ({ maxLen: isFinite(b.maxLen) ? b.maxLen : null, t: b.t })),
         W: Object.assign({ sub: 1 }, winShippable.W)
       };
-      fs.writeFileSync(path.join(OUT, 'shortword-candidate-rules.json'), JSON.stringify(out, null, 1));
+      fs.writeFileSync(path.join(OUT, `shortword-candidate-rules${FSUF}.json`), JSON.stringify(out, null, 1));
       wroteCandidate = true;
-      say(`  נכתב out/shortword-candidate-rules.json · holdout ${pct(winShippable.holdoutRecall)} מול ${pct(holdShip)} שנשלח`);
+      say(`  נכתב out/shortword-candidate-rules${FSUF}.json · holdout ${pct(winShippable.holdoutRecall)} מול ${pct(holdShip)} שנשלח`);
     } else {
       say(`  לא נכתב קובץ מועמד · הטוב ביותר שאפשר לשלוח (‏${pct(winShippable.holdoutRecall)}) אינו עוקף את מה שנשלח (‏${pct(holdShip)})`);
     }
@@ -779,10 +819,17 @@ function main() {
   rep.candidateWritten = wroteCandidate;
 
   rep.shippedSource = SHIP_META;
+  rep.set = set;
   rep.wallClockSec = (Date.now() - T0) / 1000;
-  fs.writeFileSync(path.join(OUT, 'shortword.json'), JSON.stringify(rep, null, 1));
-  writeReport(rep);
-  say(`\nנכתבו out/shortword.json ו-out/shortword-report.md · ${rep.wallClockSec.toFixed(1)}s`);
+  fs.writeFileSync(path.join(OUT, `shortword${FSUF}.json`), JSON.stringify(rep, null, 1));
+  /* הדוח מנוסח על אנגלית מהכותרת ועד הדוגמאות (‏teeth/tenth), ולכן הוא נכתב רק לסט
+     שהוא נכתב עבורו. סט אחר מקבל JSON, ומי שרוצה דוח עבורו כותב אותו במקום הנכון. */
+  if (set === 'en-word') {
+    writeReport(rep);
+    say(`\nנכתבו out/shortword.json ו-out/shortword-report.md · ${rep.wallClockSec.toFixed(1)}s`);
+  } else {
+    say(`\nנכתב out/shortword${FSUF}.json · ${rep.wallClockSec.toFixed(1)}s (הדוח המנוסח קיים ל-en-word בלבד)`);
+  }
   return rep;
 }
 
@@ -986,6 +1033,7 @@ function writeReport(rep) {
    כדי שתיקון נוסח לא ידרוש 20 דקות חישוב, ולכן הוא **אינו** מחשב שום מספר חדש. */
 if (require.main === module) {
   if (has('--report-only')) {
+    if (SET !== 'en-word') { say('⛔ --report-only קיים ל-en-word בלבד · הדוח מנוסח על אנגלית'); process.exit(2); }
     const j = JSON.parse(fs.readFileSync(path.join(OUT, 'shortword.json'), 'utf8'));
     writeReport(j);
     say('נכתב out/shortword-report.md מתוך out/shortword.json הקיים');
