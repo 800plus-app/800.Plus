@@ -45,10 +45,43 @@ function acceptedSegs(card, ctx) {
 }
 
 /* חוק הקבלה הקנוני של check(), במקום אחד · מנוסח מחדש ב-tests/05-answer.test.js:23.
-   check() עצמה נוגעת ב-DOM ולכן אינה ניתנת להרמה; שתי השורות שהיא מכריעה בהן הן אלה. */
+   check() עצמה נוגעת ב-DOM ולכן אינה ניתנת להרמה; שתי השורות שהיא מכריעה בהן הן אלה.
+
+   ⛔ **"היום" כאן פירושו לפני שכבת הסובלנות, ועכשיו זה כתוב ולא במקרה.**
+
+   ‏bank_gate מגדיר "התנגשות **חדשה**" בדיוק על ההבחנה הזאת: `via='exact'` היא
+   ההתנהגות הקיימת, `via='typo'` היא של השכבה החדשה, והפסק האדום הוא על השנייה
+   בלבד. ההבחנה נשענת כולה על הפונקציה הזאת.
+
+   ומה שנמצא: ‏`lib/ctx.js` אינו מזריק את `typo-lex.js`, ולכן `typoLex()` מחזירה
+   null, ‏`nearMatch` יוצאת בשורה הראשונה, והשכבה **כבויה מעצמה**. כלומר המשמעות
+   הנכונה התקבלה כאן **בטעות**, מהיעדר הזרקה — ולא מהצהרה.
+   נמדד: על 304 שיבושי אות-כפולה, ‏`acceptsToday` החזירה 31 בלי לקסיקון ו-228
+   איתו. הזרקה אחת במקום הלא נכון הייתה מרחיבה פי שבעה את מה שנחשב "מתקבל היום",
+   מכווצת באותו שיעור את מה שהשער סופר כחדש, ומחלישה בשקט את השער החשוב בפרויקט.
+
+   לכן השכבה מכובה כאן **במפורש**. זה no-op היום, וזו בדיוק הנקודה: הוא ימשיך
+   להיות נכון גם אחרי שמישהו יזריק את הלקסיקון לקונטקסט של המעבדה.
+   ⚠ מי שרוצה את ההתנהגות **המלאה** של האפליקציה (כולל סובלנות) — למשל כדי לשאול
+   "כמה מ-24 המקרים נפתרים באמת היום" — צריך פונקציה אחרת ולא את זו. שתי השאלות
+   נפרדות, והן היו מעורבבות. */
 function acceptsToday(ctx, typed, card) {
+  const P = ctx.TYPO_PARAMS;
+  const was = P ? P.enabled : undefined;
+  if (P) P.enabled = false;
+  try {
+    return ctx.isCorrect(typed, card.term) ||
+      Array.from(ctx.glossAlts(card)).some(t => ctx.isCorrect(typed, t));
+  } finally {
+    if (P) P.enabled = was;
+  }
+}
+
+/* ההתנהגות המלאה של האפליקציה · כולל שכבת הסובלנות, כמו שהלומד רואה אותה.
+   זו השאלה "מה באמת מתקבל היום", והיא **אינה** השאלה שהשער שואל. */
+function acceptsLive(ctx, typed, card) {
   return ctx.isCorrect(typed, card.term) ||
     Array.from(ctx.glossAlts(card)).some(t => ctx.isCorrect(typed, t));
 }
 
-module.exports = { acceptedKeys, acceptedSegs, acceptsToday, squash };
+module.exports = { acceptedKeys, acceptedSegs, acceptsToday, acceptsLive, squash };
