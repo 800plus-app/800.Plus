@@ -83,7 +83,18 @@ ok('החוק אכן מוסיף קבלות', clean.newAccepts + clean.freeChecked
   `· ${clean.newAccepts} ביקום, ${clean.freeChecked} מחוצה לו`);
 ok('ובכל זאת אפס התנגשויות', clean.sameUnit + clean.otherUnit + clean.freeCollisions === 0,
   `· ${clean.sameUnit}/${clean.otherUnit}/${clean.freeCollisions}`);
-ok('והוא פותר מקרה אמיתי', cleanBen.solved.length > 0, `· מקרה ${cleanBen.solved.join(', ')}`);
+/* ⚠ הבדיקה הזאת דרשה `cleanBen.solved.length > 0`, והיא נכתבה כש-B1 **טרם נשלח**.
+   מאז הוא חי ב-app.js, ו-`measureBenefit` סופר תועלת **תוספתית** בלבד: שורה 374
+   שם מדלגת על כל מקרה ש-`meaningMatch` כבר מקבל היום. לכן חוק-B1 שתול מוסיף
+   בהכרח 0 · האפס הוא המדידה הנכונה, והדרישה היא שהתיישנה.
+   מה שהתוצאה כן צריכה להוכיח, וזה מה שנבדק כאן: שהאפס נובע מכך שהמקרים **כבר
+   פתורים**, ולא מכך שהמדידה עיוורת. מטרייה עיוורת לא הייתה מראה אף אחד משני
+   הצדדים. ‏24 המקרים שנפתרים היום: 1, 3 (נרדפות) · 7, 15 (‏B1) · 13, 20 (צד
+   הפירוש). המספר מקובע · ירידה בו היא רגרסיה אמיתית. */
+const today24 = M.alreadyToday(he, resolved);
+ok('שישה מקרים אמיתיים כבר נפתרים היום', today24.join(',') === '1,3,7,13,15,20', `· ${today24.join(', ')}`);
+ok('ולכן חוק B1 שתול אינו מוסיף תועלת תוספתית', cleanBen.solved.length === 0 && today24.includes(7) && today24.includes(15),
+  `· תוספתי ${cleanBen.solved.length} · 7 ו-15 כבר בפנים`);
 
 /* ===== ד · כיבוי לכל חוק בנפרד ===== */
 log('');
