@@ -12,10 +12,16 @@
  *
  *   node typo-lab/graded_runtime_probe.js                  → המועמד מ-out/typo-rules.CANDIDATE.json
  *   node typo-lab/graded_runtime_probe.js --rules <path>   → ארטיפקט אחר
+ *   node typo-lab/graded_runtime_probe.js --set he-word    → הצד העברי
  *   node typo-lab/graded_runtime_probe.js --mutant         → שיניים · שובר את app.js בזיכרון
  *
  * ‏--mutant מחליף בטקסט של app.js את בחירת המשטר ב-`bandOf`/`wOf` כך שהמשטר הראשי
  * ירוץ תמיד, ומריץ את אותה השוואה. שער שאינו מודגם אדום אינו עדות (‏CLAUDE.md).
+ *
+ * ‏--set · הקובץ נכתב על en-word בלבד (הוא קרא params['en-word'] ועבר על המאגר האנגלי).
+ * הדגל מכליל אותו לכל סט מילים · הפרמטרים, ההקשר, הווטו, מאגר ההקלדות ואלפבית השיבוש
+ * כולם נגזרים מהסט. ברירת המחדל נשארה en-word, ולכן הפקודה הישנה מודדת בדיוק כמו קודם.
+ * ‏gloss אינו נתמך: הוא עובר דרך acceptGloss ו-meaningMatch, וזו השוואה אחרת.
  */
 
 const fs = require('fs');
@@ -30,6 +36,17 @@ const ri = argv.indexOf('--rules');
 const RULES_PATH = ri >= 0 && argv[ri + 1]
   ? path.resolve(argv[ri + 1])
   : path.join(__dirname, 'out', 'typo-rules.CANDIDATE.json');
+const si = argv.indexOf('--set');
+const SET = si >= 0 && argv[si + 1] ? argv[si + 1] : 'en-word';
+const LANG_OF = { 'en-word': 'en', 'he-word': 'he' };
+const LANG = LANG_OF[SET];
+if (!LANG) {
+  say(`⛔ --set ${SET} · נתמכים ${Object.keys(LANG_OF).join(', ')} בלבד (‏gloss עובר ב-acceptGloss וזו השוואה אחרת)`);
+  process.exit(2);
+}
+/* אלפבית השיבוש · חייב להיות של השפה, אחרת "שיבוש" באנגלית על מפתח עברי מייצר מחרוזת
+   שאף צד לא יקבל ושתי הפונקציות מסכימות בריק. */
+const ALPHA = { en: 'abcdefghijklmnopqrstuvwxyz', he: 'אבגדהוזחטיכלמנסעפצקרשת' }[LANG];
 
 const { loadApp } = require(path.join(ROOTD, 'tests', '_harness', 'sandbox.js'));
 const { makeChecker } = require('./lib/checker.js');
@@ -61,38 +78,39 @@ function appCtx(lang) {
 
 function main() {
   const rules = JSON.parse(fs.readFileSync(RULES_PATH, 'utf8'));
-  const P = rules.params['en-word'];
+  const P = rules.params[SET];
+  if (!P) { say(`⛔ אין params['${SET}'] בארטיפקט`); process.exit(2); }
   const graded = P.marginSoft != null && P.marginHard != null && P.marginSoft > P.marginHard;
-  say(`ארטיפקט · ${path.basename(RULES_PATH)} · en-word marginHard=${P.marginHard} marginSoft=${P.marginSoft} · מדורג=${graded ? 'כן' : 'לא'}`);
+  say(`ארטיפקט · ${path.basename(RULES_PATH)} · ${SET} marginHard=${P.marginHard} marginSoft=${P.marginSoft} · מדורג=${graded ? 'כן' : 'לא'}`);
   if (!graded) {
     say('⛔ הארטיפקט אינו מדורג · הפרובה הזאת לא הייתה בודקת כלום');
     process.exit(2);
   }
 
-  const ctx = getCtx('en');
+  const ctx = getCtx(LANG);
   const veto = buildVeto(ctx);
-  const ck = makeChecker(P, ctx, veto, 'en');
+  const ck = makeChecker(P, ctx, veto, LANG);
 
-  const app = appCtx('en');
+  const app = appCtx(LANG);
   /* מזריקים את פרמטרי המועמד למופע שבזיכרון · הקובץ על הדיסק לא נגוע. */
-  app.TYPO_PARAMS['en-word'] = JSON.parse(JSON.stringify(P));
+  app.TYPO_PARAMS[SET] = JSON.parse(JSON.stringify(P));
   app.TYPO_PARAMS.enabled = true;
 
   const cards = Array.from(ctx.BANK);
-  say(`מאגר אנגלי · ${cards.length} ערכים`);
+  say(`מאגר ${LANG === 'he' ? 'עברי' : 'אנגלי'} · ${cards.length} ערכים`);
 
   /* מחוללים הקלדות · כל צורה קבילה של כל ערך, ועליה שיבושים דטרמיניסטיים. הכיסוי
      חשוב פחות מהעובדה ששני הצדדים מקבלים **בדיוק** את אותה מחרוזת ואת אותם מועמדים. */
   let s = 0x9e3779b9 >>> 0;
   const rnd = () => { s ^= s << 13; s >>>= 0; s ^= s >> 17; s ^= s << 5; s >>>= 0; return s / 4294967296; };
-  const AL = 'abcdefghijklmnopqrstuvwxyz';
+  const AL = ALPHA;
   const mutate = w => {
     const i = Math.floor(rnd() * w.length);
     const k = Math.floor(rnd() * 4);
     if (k === 0) return w.slice(0, i) + w.slice(i + 1);                      // מחיקה
-    if (k === 1) return w.slice(0, i) + AL[Math.floor(rnd() * 26)] + w.slice(i);  // הכנסה
+    if (k === 1) return w.slice(0, i) + AL[Math.floor(rnd() * AL.length)] + w.slice(i);  // הכנסה
     if (k === 2) return w.slice(0, i) + w[i] + w.slice(i);                   // הכפלה
-    return w.slice(0, i) + AL[Math.floor(rnd() * 26)] + w.slice(i + 1);      // החלפה
+    return w.slice(0, i) + AL[Math.floor(rnd() * AL.length)] + w.slice(i + 1);      // החלפה
   };
 
   const bad = [];
@@ -109,7 +127,7 @@ function main() {
       if (!a) continue;
       n++;
       const lab = ck.acceptWord(t, card);
-      const run = app.nearMatch(a, cands, 'en', app.TYPO_PARAMS['en-word'], app.TERM_VETO, own);
+      const run = app.nearMatch(a, cands, LANG, app.TYPO_PARAMS[SET], app.TERM_VETO, own);
       /* ‏acceptWord כולל את שכבה 1 (‏via='exact'), ש-nearMatch אינה מכילה · משווים
          רק שורות שהמעבדה הכריעה בהן דרך הפאזי או דרך פסילה. */
       if (lab.via === 'exact') continue;

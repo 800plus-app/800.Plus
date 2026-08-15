@@ -843,10 +843,29 @@ function maskTerm(meaning, term){
 const TYPO_PARAMS = {
   enabled: true,
   ver: 'typo-lab/evolve/v1',
-  fp: '486000a6',
-  'he-word': { dir:'word', minLen:3, vetoMargin:1, useLexicon:true,
-    bands:[{maxLen:2,t:0.2141},{maxLen:3,t:0.7978},{maxLen:4,t:0.2471},{maxLen:5,t:0.2314},{maxLen:6,t:0.1891},{maxLen:7,t:0.9093},{maxLen:8,t:0},{maxLen:9,t:1.2466},{maxLen:10,t:0.8147},{maxLen:11,t:1.1089},{maxLen:12,t:0},{maxLen:null,t:0}],
-    W:{sub:1,adjSub:2,transpose:2.7953,ins:1.8144,del:0.6004,doubleLetter:0.2105,materVI:1.7155,homophone:1.1389} },
+  fp: '82d11b9e',
+  /* ‏השוליים המדורגים בעברית · 18.10% → 23.73% ב-holdout.
+     ⚠ **המשטר הצר העברי אינו המשטר הצר האנגלי, וזה נמדד ולא הונח.** באנגלית שורדות
+     כל העריכות המאריכות (transpose · ins · doubleLetter); בעברית שורדים **רק שניים**
+     — `transpose` ו-`doubleLetter`. ‏`ins` נופל, ואיתו `materVI` (כתיב מלא/חסר,
+     ‏77,444 זוגות · הטעות העברית הנפוצה ביותר) ו-`homophone` (ת/ט · כ/ק · א/ע).
+     הניסוח הנכון צר יותר מהאנגלי: בפער צר מתקבלת רק טעות **מוטורית**, לא טעות
+     **כתיב**. הסיבה מבנית — בעברית `vetoMargin` שנשלח היה 1, ולכן שורות gap=1
+     מתקבלות כבר היום; הגן כאן **מפריד אוכלוסייה קיימת** במקום לפתוח קבוצה חסומה.
+     ⚠ הרווח **אינו פארטו**: אורך 6 קופץ 0.34%→20.54%, אבל אורכים 4, 9 ו-10 יורדים.
+     שער המאגר: ‏10,165,462 זוגות · אפס התנגשויות חדשות · חמשת זוגות הצירה נשארו
+     דחויים. שיניים: ‏`typo-rules.HE-REDGRADED.json` → **38 התנגשויות** (`תוכוחה`
+     על תּוּגָה, `בליבו` על בְּאִיבּוֹ).
+     ⚠ **הסייג שנמדד ולא נבלע:** האפס של הנקודה הזאת נספר על כל השורות, ולכן הוא
+     מבנה ולא הכללה. אימות צולב של הפרוצדורה: בלי הגן 13 קבלות-שווא מחוץ למדגם,
+     איתו 14 · כלומר הגן קונה 4.95 נקודות recall במחיר קבלת-שווא אחת מחוץ למדגם,
+     כולן מדלי `real-word` (מילה עברית אמיתית שאינה התשובה) ואף אחת חוצת-כרטיסים.
+     החזרה היא עריכת קבוע אחד + `fp`. */
+  'he-word': { dir:'word', minLen:0, vetoMargin:1, marginHard:1, marginSoft:3, useLexicon:true,
+    bands:[{maxLen:1,t:0},{maxLen:2,t:0},{maxLen:3,t:0},{maxLen:4,t:0.3},{maxLen:5,t:0.9},{maxLen:6,t:0},{maxLen:7,t:0.9},{maxLen:8,t:0},{maxLen:9,t:1.4},{maxLen:10,t:0.9},{maxLen:11,t:1.1},{maxLen:12,t:0},{maxLen:13,t:0},{maxLen:14,t:1},{maxLen:15,t:1.9},{maxLen:16,t:1},{maxLen:17,t:1},{maxLen:18,t:1.8},{maxLen:null,t:1}],
+    bandsTight:[{maxLen:1,t:0},{maxLen:2,t:0},{maxLen:3,t:1.4},{maxLen:4,t:1.4},{maxLen:5,t:1.7},{maxLen:6,t:1.7},{maxLen:7,t:1.7},{maxLen:8,t:1.7},{maxLen:9,t:1.7},{maxLen:10,t:1.7},{maxLen:11,t:1.7},{maxLen:12,t:0},{maxLen:13,t:0},{maxLen:14,t:0},{maxLen:15,t:0},{maxLen:16,t:0},{maxLen:17,t:0},{maxLen:18,t:0},{maxLen:null,t:0}],
+    W:{sub:1,adjSub:2,transpose:2.7953,ins:1.8144,del:0.6004,doubleLetter:0.2105,materVI:1.7155,homophone:1.1389},
+    WTight:{sub:99,adjSub:99,transpose:1.695,ins:99,del:99,doubleLetter:1.333,materVI:99,homophone:99} },
   /* ‏השוליים המדורגים · הגן היחיד שפתח את האנגלית הקצרה.
      מה שהיה חסום: ‏`vetoMargin:2` דחה כל הקלדה שהמרחק שלה ממילת מאגר זרה גדול
      ממרחקה מהמילה שלה בפחות מ-2 — **לפני** שמישהו הסתכל על סף מרחק בכלל. באנגלית

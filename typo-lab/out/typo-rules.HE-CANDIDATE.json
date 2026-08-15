@@ -8460,22 +8460,7 @@
     "exact.en-word",
     "shipGate.en-word"
    ]
-  },
-  {
-   "set": "he-word",
-   "from": "typo-rules.HE-CANDIDATE.json",
-   "source": "CANDIDATE · typo-lab/out/he-graded-search.json על he-word בלבד. שאר הסטים ביט-זהים לנשלח.",
-   "fingerprintBefore": "fd76ab7ce13e",
-   "fingerprintAfter": "a764cc77584a",
-   "bankGate": {
-    "file": "bank-gate.typo-rules.HE-CANDIDATE.md",
-    "pairs": 10165462
-   },
-   "staleBlocks": [
-    "results.he-word",
-    "exact.he-word",
-    "shipGate.he-word"
-   ]
   }
- ]
+ ],
+ "candidateNote": "CANDIDATE · typo-lab/out/he-graded-search.json על he-word בלבד. שאר הסטים ביט-זהים לנשלח."
 }
