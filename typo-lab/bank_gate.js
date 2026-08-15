@@ -72,9 +72,18 @@ const RULES_PATH = process.env.TYPO_RULES || path.join(OUT, 'typo-rules.json');
 /* ‏ריצה על ארטיפקט חלופי אינה מורשית לדרוס את דוח הריצה של הפרמטרים הנשלחים · אחרת
    בדיקת מועמד או הדגמת שיניים משאירה אחריה `bank-gate.md` שמתאר משהו אחר לגמרי,
    ובדיוק זו הטעות ש-`fingerprint` נועד לתפוס. הדוח נכתב לצד הארטיפקט שנבדק. */
+/* ‏MORPH_RULE · ערוץ המורפולוגיה. **כבוי כברירת מחדל**: בלי המשתנה הזה הקובץ מתנהג
+   בדיוק כמו קודם, אותו פלט ואותה טביעה. מחלקת המורפולוגיה מעולם לא נשלחה, ולכן אין לה
+   ייצוג ב-`typo-rules.json` · הרצת השער עליה בלי הערוץ הזה הייתה ירוק שלא הסתכל.
+   ‏MORPH_VETO בוחר איזה ווטו נבדק · `V1t` (יקום הקבלה המלא) או `V0` (הווטו של היום,
+   מצב השיניים: הוא **חייב** להחזיר אדום). */
+const MORPH_RULE = process.env.MORPH_RULE || '';
+const MORPH_VETO = process.env.MORPH_VETO || 'V1t';
 const MD_PATH = process.env.TYPO_RULES
   ? path.join(OUT, 'bank-gate.' + path.basename(RULES_PATH).replace(/\.json$/, '') + '.md')
-  : path.join(OUT, 'bank-gate.md');
+  : MORPH_RULE
+    ? path.join(OUT, `bank-gate.morph.${MORPH_RULE}.${MORPH_VETO}.md`)
+    : path.join(OUT, 'bank-gate.md');
 
 const say = s => process.stdout.write(s + '\n');
 const md = [];
@@ -540,6 +549,106 @@ function glossSweep(M, P, dsForms, cfg) {
 
 /* ===== 3 · הנרדפות ===== */
 
+/* ===== ערוץ המורפולוגיה · אופציונלי =====
+ *
+ * למה זה כאן ולא במעבדה בלבד: יקום הצורות של השער **אינו** יקום הקבלה של
+ * `measure_morph`. הוא כולל בנוסף (א) את תוצרי ההרחבה של `B1-union` ו-(ב) את צורות
+ * הדאטהסט שתויגו accept. שתי הקבוצות האלה אינן מקטע פירוש ואינן בענף `particleMatch`,
+ * ולכן הן **בלתי נראות** לכל ווטו שנבנה מהמאגר בלבד. זו בדיוק הנקודה העיוורת שהפילה
+ * את מועמד ה-gloss הראשון, והיא הסיבה היחידה שהערוץ הזה שווה משהו.
+ *
+ * מקור אמת אחד: יקום הקבלה שמשמש כווטו מיובא מ-`measure_morph` (‏`SINGLE`) ואינו
+ * ממומש כאן מחדש · בדיוק כפי ש-`expandOf` מיוצא כדי שהחיפוש לא יכתוב אותו שוב.
+ */
+function morphSweep(M, dsForms, glossCfg) {
+  const ctx = M.ctx;
+  const MR = require('./lib/morphrules.js');
+  const MM = require('./measure_morph.js');
+  const { isVetoedSeg } = require('./lib/veto.js');
+
+  const mcfg = MM.CONFIGS.concat(MM.PAIR_CONFIGS).find(c => c.key === MORPH_RULE);
+  if (!mcfg) { say('⛔ MORPH_RULE לא מוכר · ' + MORPH_RULE); process.exit(2); }
+  const rule = MR.BY_NAME.get(mcfg.rule);
+  const params = Object.assign({}, rule.defaults, mcfg.params);
+
+  const gRule = BY_NAME.get(glossCfg.rule);
+  const gParams = Object.assign({}, gRule.defaults, glossCfg.params);
+
+  /* יקום הקבלה בנות מילה אחת · מיובא, לא ממומש מחדש. */
+  const LM = MM.loadLang(M.L);
+  const cardByKey = new Map();
+  for (const c of LM.cards) if (!cardByKey.has(c.key)) cardByKey.set(c.key, c);
+
+  /* יקום הצורות · ארבעה מקורות. שלושת הראשונים זהים ל-glossSweep.
+     ⚠ הרביעי הוא **החובה**, ובלעדיו השער הזה היה ירוק ששקר: `glossSweep` מטפל בענף
+     `particleMatch` דרך קיבוץ `rootIdx` ולא דרך הוספת צורות, ולכן מחרוזת שהיא תשובה
+     קבילה של כרטיס אחר **רק** דרך הענף הזה אינה במפה. אלה בדיוק ארבע ההתנגשויות
+     שהמעבדה מצאה ("תכננ" על content, "לושמ" על oil), והריצה הראשונה של הערוץ הזה
+     החזירה 0 עליהן. זה נמדד ותוקן, לא נוחש. */
+  const owners = new Map();
+  const put = (f, o) => { if (!f || !o) return; let s = owners.get(f); if (!s) { s = new Set(); owners.set(f, s); } s.add(o); };
+  let fromRule = 0, fromDataset = 0, fromParticle = 0;
+  for (const e of M.info) {
+    for (const s of e.segs) put(s, e.owner);
+    for (const s of expandOf(gRule, e.segs, ctx, gParams)) {
+      const k = ctx.norm(s); if (!k) continue;
+      if (!owners.has(k)) fromRule++;
+      put(k, e.owner);
+    }
+  }
+  for (const [f, os] of dsForms) { if (!owners.has(f)) fromDataset++; for (const o of os) put(f, o); }
+  for (const [f, os] of LM.SINGLE) { if (!owners.has(f)) fromParticle++; for (const o of os) put(f, o); }
+
+  const blocked = (f, e) => {
+    const lc = cardByKey.get(e.owner);
+    if (MORPH_VETO === 'V0') return isVetoedSeg(f, e.w, M.veto, ctx);
+    if (MORPH_VETO === 'none') return false;
+    if (lc && lc.singles.has(f)) return false;                 // מתקבל היום · לעולם לא רגרסיה
+    const os = LM.SINGLE.get(f);
+    if (os) for (const o of os) if (!e.allowed.has(o)) return true;
+    const fk = ctx.K(f);
+    const to = fk ? M.veto.termKeys.get(fk) : null;
+    if (to && to.size && !acceptedKeys(e.w, ctx).has(fk)) return true;
+    return false;
+  };
+
+  /* אינדקס לפי מפתח החוק · בלי זה זו מכפלה של אלפי כרטיסים בעשרות אלפי צורות. */
+  const forms = Array.from(owners.keys());
+  const keyIx = new Map();
+  forms.forEach((f, i) => {
+    for (const k of rule.keysTyped(f, ctx, params)) {
+      let a = keyIx.get(k); if (!a) { a = []; keyIx.set(k, a); } a.push(i);
+    }
+  });
+
+  const collisions = [], baseline = [];
+  let pairs = 0, cands = 0;
+  for (const e of M.info) {
+    const segK = rule.keysSeg(e.segs, ctx, params);
+    if (!segK.size) continue;
+    const seen = new Set();
+    for (const k of segK) { const a = keyIx.get(k); if (a) for (const i of a) seen.add(i); }
+    for (const i of seen) {
+      cands++;
+      let outside = null;
+      for (const o of owners.get(forms[i])) if (!e.allowed.has(o)) { outside = o; break; }
+      if (outside == null) continue;
+      const f = forms[i];
+      if (!rule.accepts(f, e.segs, ctx, params)) continue;
+      pairs++;
+      const hit = { lang: M.L, dir: 'morph-rule', card: e.term, unit: e.unit, typed: f, intruder: outside, via: 'morph', by: mcfg.key };
+      if (ctx.meaningMatch(f, e.w.meaning)) { hit.via = 'exact'; baseline.push(hit); continue; }
+      if (blocked(f, e)) continue;
+      collisions.push(hit);
+    }
+  }
+  return {
+    lang: M.L, set: 'morph:' + MORPH_RULE + '/' + MORPH_VETO, depth: 0, forms: forms.length,
+    fromRule, fromDataset, fromParticle, cards: M.info.length, cands, pairs, rulePairs: 0,
+    collisions, baseline, sameWord: [],
+  };
+}
+
 function synonymLayer() {
   let lex = null;
   try { lex = GS.loadLexicon(); } catch (e) { return { error: e.message, groups: 0, hits: [] }; }
@@ -606,10 +715,14 @@ function main() {
 
   const termRes = [termSweep(models.he, P, DS.forms.word.he), termSweep(models.en, P, DS.forms.word.en)];
   const glossRes = [glossSweep(models.he, P, DS.forms.gloss.he, cfg), glossSweep(models.en, P, DS.forms.gloss.en, cfg)];
+  const morphRes = MORPH_RULE
+    ? [morphSweep(models.he, DS.forms.gloss.he, cfg), morphSweep(models.en, DS.forms.gloss.en, cfg)]
+    : [];
+  if (MORPH_RULE) say(`ערוץ מורפולוגיה · ${MORPH_RULE} · ווטו ${MORPH_VETO}`);
   const syn = synonymLayer();
   const tsere = tsereGate(models.he, P);
 
-  const all = termRes.concat(glossRes);
+  const all = termRes.concat(glossRes).concat(morphRes);
   const newHits = all.reduce((a, r) => a.concat(r.collisions), []).concat(syn.hits.map(h => ({
     lang: h.lang, dir: 'synonym', card: h.victimTerm, unit: h.victimUnit,
     typed: h.victimSeg, intruder: h.intruderTerm, via: 'synonym',
@@ -761,4 +874,4 @@ if (require.main === module) main();
 /* ‏expandOf מיוצא כדי שהחיפוש יוכל לבנות את אותה קבוצת-הרחבה שהשער בודק, במקום
    לכתוב אותה מחדש. זו בדיוק הסיבה שהשער דחה את מועמד ה-gloss הראשון: הכושר של ה-GA
    אינו מדלל את ערוץ B1, ולכן החיפוש הציע נקודה שהשער פוסל. מקור אמת אחד לשני הצדדים. */
-module.exports = { effOps, delVariants, makeNear, shipParams, fingerprint, TSERE, expandOf };
+module.exports = { effOps, delVariants, makeNear, shipParams, fingerprint, TSERE, expandOf, morphSweep, langModel, scanDataset };
