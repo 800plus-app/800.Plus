@@ -26,6 +26,7 @@ const { wEditDist, opVectors, opCounts, OP_KEYS, UNIT_W } = require('./lib/wdist
 const { makeChecker, normalizeParams, MAX_OPS } = require('./lib/checker.js');
 const { mulberry32 } = require('./lib/rng.js');
 const EV = require('./evolve.js');
+const BG = require('./bank_gate.js');
 
 const OUT = path.join(__dirname, 'out');
 const say = s => process.stdout.write(s + '\n');
@@ -171,9 +172,12 @@ function checkFitness(packs) {
     /* 1ב · בודק שבור על הפרמטרים **הנשלחים**. זו השן החדה באמת: על הפרמטרים הטובים
        יש 0 קבלות-שווא, ובלי הווטו הם חייבים להתפוצץ. */
     const ship = normalizeParams(shipParams()[set]);
-    const sRes = EV.evalSubset(S, all, EV.makeFastEval(ship));
+    /* סט מדורג נמדד דרך הבודק האמיתי · המסלול המהיר זורק עליו במכוון. */
+    const sRes = isGraded(ship)
+      ? shipFalseAccepts(set, S.rows, shipParams()[set])
+      : (r => ({ fa: r.faOwn, faRealWord: r.faRealWord, faToday: r.faToday }))(EV.evalSubset(S, all, EV.makeFastEval(ship)));
     const sBroken = brokenEval(S, ship);
-    check(`[1] ${set} · הפרמטרים הנשלחים: 0 קבלות-שווא`, sRes.faOwn === 0, `${sRes.faOwn} · real-word ${sRes.faRealWord} · via=exact ${sRes.faToday}`);
+    check(`[1] ${set} · הפרמטרים הנשלחים: 0 קבלות-שווא`, sRes.fa === 0, `${sRes.fa} · real-word ${sRes.faRealWord} · via=exact ${sRes.faToday}` + (isGraded(ship) ? ' · דרך הבודק האמיתי' : ''));
     /* סט בלי שום סובלנות (כל הספים 0) אינו מקבל דבר, ולכן הסרת הווטו אינה יכולה לשבור
        אותו · השן נוגסת באוויר ומדולגת במפורש במקום לדווח ירוק כוזב. */
     const anyTol = ship.bands.some(b => b.t > 0);
@@ -292,15 +296,22 @@ function checkV2Semantics(packs) {
 
     /* המספר עצמו · על הפרמטרים הנשלחים. זה מספר הבטיחות החשוב ביותר בריצה. */
     const ship = normalizeParams(shipParams()[set]);
-    const sRes = EV.evalSubset(S, all, EV.makeFastEval(ship));
+    const G = isGraded(ship);
+    /* סט מדורג נמדד דרך הבודק האמיתי · המסלול המהיר זורק עליו במכוון. */
+    const sRes = G
+      ? shipFalseAccepts(set, S.rows, shipParams()[set])
+      : (r => ({ fa: r.faOwn, faRealWord: r.faRealWord, faToday: r.faToday }))(EV.evalSubset(S, all, EV.makeFastEval(ship)));
 
     /* שן · **השכבה נושאת במשקל**. אותם פרמטרים בדיוק בלי הלקסיקון חייבים לייצר
        קבלות-שווא על real-word. אם לא · השכבה קישוט, וכל הדוח שנשען עליה שקרי.
        נמדד בריצה: he-word 1 · en-word 15 · gloss 6 קבלות-שווא נפתחות בלעדיה. */
-    const noLex = EV.evalSubset(S, all, EV.makeFastEval(Object.assign({}, ship, { useLexicon: false })));
+    const noLexP = Object.assign({}, shipParams()[set], { useLexicon: false });
+    const noLex = G
+      ? shipFalseAccepts(set, S.rows, noLexP)
+      : (r => ({ fa: r.faOwn, faRealWord: r.faRealWord }))(EV.evalSubset(S, all, EV.makeFastEval(Object.assign({}, ship, { useLexicon: false }))));
     if (ship.bands.some(b => b.t > 0)) {
       check(`[7] ${set} · שן · בלי הלקסיקון אותם פרמטרים נשברים`, noLex.faRealWord > 0 && sRes.faRealWord === 0,
-        `real-word FA ${sRes.faRealWord} → ${noLex.faRealWord} · FA כולל ${sRes.faOwn} → ${noLex.faOwn}`);
+        `real-word FA ${sRes.faRealWord} → ${noLex.faRealWord} · FA כולל ${sRes.fa} → ${noLex.fa}` + (G ? ' · דרך הבודק האמיתי' : ''));
     } else say(`  ⊘ [7] ${set} · אין סובלנות בכלל · שן הלקסיקון אינה ישימה`);
 
     /* שן · ההוצאה חייבת **לשנות** את המספר בסטים שבהם יש לא-מהימנות · ונמדדת בנקודת
@@ -318,6 +329,13 @@ function checkV2Semantics(packs) {
   for (const set of EV.SETS) {
     const S = packs[set];
     const all = Int32Array.from({ length: S.N }, (_, i) => i);
+    /* הבדיקה הזאת היא **עקביות פנימית של המסלול המהיר** · שהפילוח לפי אורך מסתכם
+       במונה הכולל שלו עצמו. על סט מדורג המסלול המהיר אינו רץ בכלל, ולכן אין כאן
+       מה לבדוק · דילוג מפורש, ולא ירוק כוזב על מספר שלא נמדד. */
+    if (isGraded(normalizeParams(shipParams()[set]))) {
+      say(`  ⊘ [7] ${set} · סט מדורג · המסלול המהיר אינו רץ עליו, ואין פילוח שלו לאמת`);
+      continue;
+    }
     const E = EV.makeFastEval(normalizeParams(shipParams()[set]));
     const tot = EV.evalSubset(S, all, E);
     const by = EV.recallByLength(S, all, E);
@@ -330,7 +348,14 @@ function checkV2Semantics(packs) {
 /* בודק שבור · מדלג על הווטו, על שומר הנטיות ועל שולי הדו-משמעות. מימוש נפרד ולא דגל
    בקוד האמיתי: דגל "אל תבדוק וטו" בקובץ הייצור הוא בדיוק המתג שיישכח דלוק. */
 function brokenEval(S, P) {
-  const E = EV.makeFastEval(P);
+  /* הבודק השבור הוא "אותם פרמטרים **בלי הווטו**". בלי הווטו אין `nearestOther`,
+     ולכן אין `gap`, ולכן אין מה שיבחר בין המשטרים · המשטר הצר אינו קיים כאן מבנית
+     ולא "הושמט". הסרת הגנים המדורגים היא אפוא המודל הנכון ולא ויתור, והיא גם מה
+     שמאפשר למסלול המהיר לרוץ (הוא זורק עליהם · ראה evolve.makeFastEval). */
+  const flat = Object.assign({}, P);
+  delete flat.marginSoft; delete flat.marginHard;
+  delete flat.bandsTight; delete flat.WTight;
+  const E = EV.makeFastEval(flat);
   const K = OP_KEYS.length;
   let tp = 0, nAcc = 0, fa = 0, nRej = 0;
   for (let i = 0; i < S.N; i++) {
@@ -356,18 +381,45 @@ function brokenEval(S, P) {
   return { tp, nAcc, fa, nRej, recall: nAcc ? tp / nAcc : 0 };
 }
 
+/* ⚠ כאן ישבה **העתקה שלישית** של נרמול הפרמטרים, והיא בנתה מחדש
+   ‏`{minLen, vetoMargin, W, bands}` בלבד · כלומר השמיטה בשקט את גני השוליים
+   המדורגים. התוצאה: ‏973 פערים בהרצה החוזרת של טבלת הזהב, עם `regime:"main"` בכל
+   שורה — כי `marginSoft` ירש את `marginHard` ו-`GRADED` יצא false.
+   מקור אמת אחד · `bank_gate.shipParams`. אותה תקלה נמצאה שם, ב-`canonOf` של
+   ‏tests/71 וב-`budget_sweep`; ארבע העתקות, ארבע הזדמנויות לשכוח גן. */
 function shipParams() {
-  const j = JSON.parse(fs.readFileSync(path.join(OUT, 'typo-rules.json'), 'utf8'));
-  const out = {};
-  for (const set of EV.SETS) {
-    const p = j.params[set];
-    out[set] = {
-      minLen: p.minLen, vetoMargin: p.vetoMargin, W: p.W,
-      bands: p.bands.map(b => ({ maxLen: b.maxLen == null ? Infinity : b.maxLen, t: b.t }))
-    };
-  }
-  return out;
+  return BG.shipParams().sets;
 }
+
+/* מדידת קבלות-שווא דרך הבודק **האמיתי**. נחוצה לסטים מדורגים, שבהם
+   ‏`EV.makeFastEval` זורק במכוון · ראה ההערה שם. הפלט מצומצם לשני המספרים ששתי
+   הבדיקות למטה באמת טוענות עליהם: קבלות-שווא, ומתוכן אלה שעל `real-word`.
+   ‏`via='exact'` אינה נספרת · היא ההתנהגות של היום ואינה של שום פרמטר. */
+const EXACT_CTX = {};
+function shipFalseAccepts(set, rows, params) {
+  let fa = 0, faRealWord = 0, faToday = 0, nRejectRealWord = 0;
+  const ck = {}, cards = {};
+  for (const r of rows) {
+    if (r.label === 'accept') continue;
+    if (r.why === 'real-word') nRejectRealWord++;
+    if (!ck[r.lang]) {
+      const ctx = EXACT_CTX[r.lang] || (EXACT_CTX[r.lang] = getCtx(r.lang));
+      ck[r.lang] = makeChecker(params, ctx, buildVeto(ctx), r.lang);
+      const m = new Map();
+      for (const w of Array.from(ctx.BANK)) m.set(w.term + '|' + w.unit, w);
+      cards[r.lang] = m;
+    }
+    const card = cards[r.lang].get(r.term + '|' + r.unit);
+    if (!card) continue;
+    const v = set === 'gloss' ? ck[r.lang].acceptGloss(r.typed, card) : ck[r.lang].acceptWord(r.typed, card);
+    if (!v.ok) continue;
+    if (v.via === 'exact') { faToday++; continue; }
+    fa++;
+    if (r.why === 'real-word') faRealWord++;
+  }
+  return { fa, faRealWord, faToday, nRejectRealWord };
+}
+const isGraded = p => p.marginSoft != null && p.marginHard != null && p.marginSoft > p.marginHard;
 
 /* ===== אילוצים קשיחים מהתוכנית ===== */
 function checkHardConstraints(rowsBySet, langs) {
@@ -448,7 +500,15 @@ function checkGolden(langs) {
      באוויר. עם אפס-סובלנות המספר ידוע מראש: כל הקבלות שהגיעו דרך הנתיב הפאזי, בדיוק. */
   const expect = lines.map(l => JSON.parse(l)).filter(g => g.verdict.ok && g.verdict.via === 'typo').length;
   const zeroed = {};
-  for (const set of EV.SETS) zeroed[set] = Object.assign({}, P[set], { bands: P[set].bands.map(b => ({ maxLen: b.maxLen, t: 0 })) });
+  /* ‏אפס-סובלנות חייב לאפס **את שני** וקטורי הספים. אפס רק ל-`bands` השאיר את
+     המשטר הצר חי, ‏447 קבלות שרדו, והשן נמדדה 1,638 מול 2,085 · כלומר "אפס
+     סובלנות" שאינו אפס. זה הופיע מיד כשהמשטר הצר נשלח, וזו בדיוק העדות שהשן
+     הזאת אמורה לתת. */
+  const zeroBands = bs => (bs || []).map(b => ({ maxLen: b.maxLen, t: 0 }));
+  for (const set of EV.SETS) {
+    zeroed[set] = Object.assign({}, P[set], { bands: zeroBands(P[set].bands) });
+    if (P[set].bandsTight) zeroed[set].bandsTight = zeroBands(P[set].bandsTight);
+  }
   const ck2 = {};
   let diff = 0;
   for (const line of lines) {

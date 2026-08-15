@@ -563,6 +563,18 @@ function packSet(rows) {
  * הדו-משמעות. סדר אחר היה מייצר recall אחר מזה שהריצה תיתן.
  */
 function makeFastEval(P) {
+  /* ⛔ המסלול המהיר אינו יכול לבטא משטר צר · ראה מה שהוא מחזיר: וקטור משקלים **אחד**,
+     מטמון ספים **אחד**, ו-margin יחיד. אין בו מקום שבו `bandsTight`/`WTight` יכולים
+     להתקיים, ולכן גנום מדורג שמוערך כאן נמדד כאילו כל שורה במשטר הראשי — כלומר בודק
+     **מתירני יותר** מזה שרץ בפועל.
+     זה לא היה תיאורטי: `selfcheck34` דיווח כך 19 קבלות-שווא לפרמטרים הנשלחים, וכולן
+     נדחו בפועל על ידי `lib/checker.js` (‏typo-lab/graded_eval_probe.js · 19 → 0).
+     זריקה ולא השלמה שקטה · מספר בטיחות שגוי גרוע ממחסום רועש. ה-GA עצמו אינו נוגע
+     בזה: הגנומים שלו לעולם אינם נושאים את הגנים האלה. */
+  if (P.marginSoft != null && P.marginHard != null && P.marginSoft > P.marginHard) {
+    throw new Error('makeFastEval: פרמטרים מדורגים (marginSoft ' + P.marginSoft +
+      ' > marginHard ' + P.marginHard + ') · המסלול המהיר מעריך בודק מתירני יותר · השתמשו ב-exactEval');
+  }
   const bands = P.bands;
   const wv = new Float64Array(OP_KEYS.length);
   for (let j = 0; j < OP_KEYS.length; j++) wv[j] = P.W[OP_KEYS[j]];
