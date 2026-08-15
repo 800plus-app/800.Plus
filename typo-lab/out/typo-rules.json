@@ -91,7 +91,7 @@
    "marginSoft": 3,
    "useLexicon": true,
    "W": {
-    "sub": 1,
+    "sub": 2,
     "adjSub": 2,
     "transpose": 2.7953,
     "ins": 1.8144,
@@ -272,7 +272,7 @@
    "minLen": 0,
    "useLexicon": true,
    "W": {
-    "sub": 1,
+    "sub": 2,
     "adjSub": 1.35,
     "transpose": 0.7759,
     "ins": 1.1296,
@@ -8475,6 +8475,33 @@
     "results.he-word",
     "exact.he-word",
     "shipGate.he-word"
+   ]
+  },
+  {
+   "set": "he-word,en-word",
+   "from": "typo-rules.SUB2.json",
+   "source": "הכרעת חגי · פחות סלחני על החלפת אות שרירותית",
+   "change": "W.sub 1 → 2",
+   "effect": {
+    "en-word": {
+     "recall": "71.71% → 70.38%",
+     "firstLetterSub": "43.2% → 25.4%"
+    },
+    "he-word": {
+     "recall": "23.53% → 22.93%",
+     "firstLetterSub": "7.5% → 1.4%"
+    }
+   },
+   "falseAccepts": 0,
+   "fingerprintBefore": "a764cc77584a",
+   "fingerprintAfter": "08d92b1f6975",
+   "staleBlocks": [
+    "results.he-word",
+    "results.en-word",
+    "exact.he-word",
+    "exact.en-word",
+    "shipGate.he-word",
+    "shipGate.en-word"
    ]
   }
  ]
