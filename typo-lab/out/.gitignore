@@ -37,6 +37,7 @@ typo-rules.*.json
 !typo-rules.REDGRADED.json
 !typo-rules.HE-CANDIDATE.json
 !typo-rules.HE-REDGRADED.json
+!typo-rules.SUB2.json
 
 # ‏he-cross.json · הקבוצה חוצת-הכרטיסים שנבנתה מחדש (614 שניות) אחרי שהתגלה
 # ש-coverage-cross.json מעופש. ‏560KB נגזרת, ומסונן מאותה סיבה בדיוק.

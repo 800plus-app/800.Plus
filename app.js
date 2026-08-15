@@ -840,10 +840,22 @@ function maskTerm(meaning, term){
  * המונח בלבד (מקטע פירוש אינו נוטה).
  * ⚠ הערכים מועתקים מילה במילה מבלוק `params` שבארטיפקט, בארבע ספרות. זו הדיוק
  * שממנו הופקה טבלת הזהב, ולכן ההשוואה ב-tests/71 היא זהות ולא סובלנות. */
+/* ⚖ הכרעת חגי · 15.8 · `W.sub` הועלה מ-1 ל-2 בשני סטי המילים.
+   מה שהיא מתקנת: הקלדה עם אות **שרירותית** במקום הנכונה — `zngry` על angry —
+   התקבלה ב-43.2% ממילות המאגר האנגלי וב-7.5% מהעברי. זה נמצא רק כשסוכן ישב
+   והקליד באתר עצמו, ולא באף שער.
+   ⚠ למה שום שער לא תפס את זה: אילוץ אפס-הקבלות-שווא קונס קבלה של **מילת מאגר
+   אחרת** (הווטו) ושל **מילה אמיתית של השפה** (הלקסיקון). ‏`zngry` אינו אף אחד
+   משניהם — הוא אינו מילה כלל — ולכן שום שכבה לא עצרה אותו, והוא נזקף ללומד
+   כידיעה. הפער היה בפונקציית המטרה, לא בכיול.
+   המחיר, מדוד: אנגלית 71.71% → 70.38% ו-43.2% → 25.4%; עברית 23.53% → 22.93%
+   ו-7.5% → 1.4%. **אפס קבלות-שווא בשתיהן**, ושער המאגר ירוק.
+   הידוק אינו יכול לייצר התנגשות חדשה — הוא רק מסיר קבלות — והשער רץ בכל זאת,
+   כי "מובטח מטיעון" הוא בדיוק מה שהפרויקט הזה לא סומך עליו. */
 const TYPO_PARAMS = {
   enabled: true,
   ver: 'typo-lab/evolve/v1',
-  fp: '82d11b9e',
+  fp: 'e203e75a',
   /* ‏השוליים המדורגים בעברית · 18.10% → 23.73% ב-holdout.
      ⚠ **המשטר הצר העברי אינו המשטר הצר האנגלי, וזה נמדד ולא הונח.** באנגלית שורדות
      כל העריכות המאריכות (transpose · ins · doubleLetter); בעברית שורדים **רק שניים**
@@ -864,7 +876,7 @@ const TYPO_PARAMS = {
   'he-word': { dir:'word', minLen:0, vetoMargin:1, marginHard:1, marginSoft:3, useLexicon:true,
     bands:[{maxLen:1,t:0},{maxLen:2,t:0},{maxLen:3,t:0},{maxLen:4,t:0.3},{maxLen:5,t:0.9},{maxLen:6,t:0},{maxLen:7,t:0.9},{maxLen:8,t:0},{maxLen:9,t:1.4},{maxLen:10,t:0.9},{maxLen:11,t:1.1},{maxLen:12,t:0},{maxLen:13,t:0},{maxLen:14,t:1},{maxLen:15,t:1.9},{maxLen:16,t:1},{maxLen:17,t:1},{maxLen:18,t:1.8},{maxLen:null,t:1}],
     bandsTight:[{maxLen:1,t:0},{maxLen:2,t:0},{maxLen:3,t:1.4},{maxLen:4,t:1.4},{maxLen:5,t:1.7},{maxLen:6,t:1.7},{maxLen:7,t:1.7},{maxLen:8,t:1.7},{maxLen:9,t:1.7},{maxLen:10,t:1.7},{maxLen:11,t:1.7},{maxLen:12,t:0},{maxLen:13,t:0},{maxLen:14,t:0},{maxLen:15,t:0},{maxLen:16,t:0},{maxLen:17,t:0},{maxLen:18,t:0},{maxLen:null,t:0}],
-    W:{sub:1,adjSub:2,transpose:2.7953,ins:1.8144,del:0.6004,doubleLetter:0.2105,materVI:1.7155,homophone:1.1389},
+    W:{sub:2,adjSub:2,transpose:2.7953,ins:1.8144,del:0.6004,doubleLetter:0.2105,materVI:1.7155,homophone:1.1389},
     WTight:{sub:99,adjSub:99,transpose:1.695,ins:99,del:99,doubleLetter:1.333,materVI:99,homophone:99} },
   /* ‏השוליים המדורגים · הגן היחיד שפתח את האנגלית הקצרה.
      מה שהיה חסום: ‏`vetoMargin:2` דחה כל הקלדה שהמרחק שלה ממילת מאגר זרה גדול
@@ -887,7 +899,7 @@ const TYPO_PARAMS = {
   'en-word': { dir:'word', minLen:0, vetoMargin:1, marginHard:1, marginSoft:2, useLexicon:true,
     bands:[{maxLen:1,t:0},{maxLen:2,t:0},{maxLen:3,t:0.6},{maxLen:4,t:1.5},{maxLen:5,t:1.4},{maxLen:6,t:1.5},{maxLen:7,t:1.5},{maxLen:8,t:2.2},{maxLen:9,t:2.2},{maxLen:10,t:1.2},{maxLen:11,t:2.2},{maxLen:12,t:1.5},{maxLen:13,t:1.5},{maxLen:14,t:1.5},{maxLen:15,t:1},{maxLen:16,t:1.4},{maxLen:17,t:1.4},{maxLen:18,t:0},{maxLen:null,t:1.4}],
     bandsTight:[{maxLen:1,t:0},{maxLen:2,t:0},{maxLen:3,t:1.9},{maxLen:4,t:0.9},{maxLen:5,t:0.8},{maxLen:6,t:1},{maxLen:7,t:0.9},{maxLen:8,t:1.9},{maxLen:9,t:1.9},{maxLen:10,t:1.9},{maxLen:11,t:1.9},{maxLen:12,t:1.9},{maxLen:13,t:1.9},{maxLen:14,t:1},{maxLen:15,t:0},{maxLen:16,t:0},{maxLen:17,t:0},{maxLen:18,t:0},{maxLen:null,t:0}],
-    W:{sub:1,adjSub:1.35,transpose:0.7759,ins:1.1296,del:0.4303,doubleLetter:0.5616,materVI:0.3821,homophone:1.7916},
+    W:{sub:2,adjSub:1.35,transpose:0.7759,ins:1.1296,del:0.4303,doubleLetter:0.5616,materVI:0.3821,homophone:1.7916},
     WTight:{sub:99,adjSub:99,transpose:0.765,ins:0.967,del:99,doubleLetter:0.857,materVI:99,homophone:99} },
   /* ‏gloss אינו מגיע מריצת ה-GA · ראה glossProvenance בארטיפקט. האפס שהיה כאן לא
      היה תוצאה אלא **כשל חיפוש**: שורת שכבה-1 יחידה ("כל" מתקבל על הפירוש "כלל",
