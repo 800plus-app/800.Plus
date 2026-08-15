@@ -312,7 +312,7 @@ function dump(L, cfg) {
  * ⚠ אפשרי רק לחוקי `kind='gen'` · ל-M1/M2 קבוצת הקבלות אינה סופית.
  */
 function residual(cfgKey) {
-  const cfg = MM.CONFIGS.concat(MM.PAIR_CONFIGS).find(c => c.key === cfgKey);
+  const cfg = MM.CONFIGS.concat(MM.PAIR_CONFIGS, MM.CLASS_CONFIGS).find(c => c.key === cfgKey);
   if (!cfg) throw new Error('וריאנט לא מוכר · ' + cfgKey);
   const rule = M.BY_NAME.get(cfg.rule);
   if (rule.kind !== 'gen') return { cfgKey, gen: false };
@@ -361,7 +361,7 @@ function main() {
   const di = process.argv.indexOf('--dump');
   if (di >= 0 && process.argv[di + 1]) {
     const key = process.argv[di + 1];
-    const cfg = MM.CONFIGS.concat(MM.PAIR_CONFIGS).find(c => c.key === key);
+    const cfg = MM.CONFIGS.concat(MM.PAIR_CONFIGS, MM.CLASS_CONFIGS).find(c => c.key === key);
     if (!cfg) { say('⛔ וריאנט לא מוכר · ' + key); process.exit(2); }
     const all = [];
     for (const lang of LANGS) all.push(...dump(MM.loadLang(lang), cfg));
@@ -386,7 +386,7 @@ function main() {
 
   const oi = process.argv.indexOf('--only');
   const ONLY = oi >= 0 && process.argv[oi + 1] ? new Set(process.argv[oi + 1].split(',')) : null;
-  const CONFIGS = MM.CONFIGS.concat(MM.PAIR_CONFIGS).filter(c => !ONLY || ONLY.has(c.key));
+  const CONFIGS = MM.CONFIGS.concat(MM.PAIR_CONFIGS, MM.CLASS_CONFIGS).filter(c => !ONLY || ONLY.has(c.key));
   const rows = [];
   for (const cfg of CONFIGS) {
     const per = {};

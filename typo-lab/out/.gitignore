@@ -53,3 +53,21 @@ morph-residual.*.json
 morph-veto-search.json
 morph-dump.*.json
 morph-cases-gate.log
+
+# ===== סבב העברית · 15.8 =====
+# מאגר המועמדים · 884KB נגזרת, נבנה מחדש ב-`node typo-lab/he_morph_split.js --pool`
+# ‏(‏~90 שניות) מתוך data.js. אין בו מידע שאינו משוחזר, והריפו ציבורי.
+morph-pool.json
+
+# אצוות הקלט לשופטים · נגזרות מ-morph-pool.json בפקודה אחת (`--emit`, `--emit-pos`,
+# `--emit-blind`, `he_verb_gate --emit`). ‏180KB שאין סיבה לשמור.
+panel/batch-*.tsv
+panel/pos-[0-9]*.tsv
+panel/vg-[0-9]*.tsv
+
+# ⚠ הפסקים עצמם (`panel/*verdict*.tsv`, ‏83KB) **כן** נכנסים, וזו הכרעה ולא שכחה:
+# הם פלט של שופטי-LLM ולכן **אינם משוחזרים ביט-אחר-ביט**. בלעדיהם אי אפשר לשחזר
+# לא את הכיול, לא שיעורי שימור-המשמעות, ולא את פסק שער חלק-הדיבר · כלומר כל
+# המדידה של הסבב הזה הופכת לטענה בלי ראיה. אותו שיקול חל על
+# `semantic-blind.labeled.tsv` — 40 התיוגים של חגי הם ה-ground truth היחיד כאן
+# ואין דרך לייצר אותם מחדש.
