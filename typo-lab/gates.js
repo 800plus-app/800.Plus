@@ -114,7 +114,16 @@ function makeEngine(kind, env) {
     let params = base[setKey];
     let veto = M.veto;
     if (kind === 'bad') params = BAD_PARAMS;
-    else if (kind === 'zero') params = Object.assign({}, params, { bands: params.bands.map(b => ({ maxLen: b.maxLen, t: 0 })) });
+    /* ‏`zero` הוא המודל של `enabled:false`, ולכן הוא חייב לאפס **את שני** וקטורי
+       הספים. אפס רק ל-`bands` השאיר את המשטר הצר חי, ושער [6] דיווח 15 פערים
+       ("miitgate" ~ mitigate התקבל כשהשכבה "כבויה"). המתג עצמו ב-app.js תקין —
+       ‏`nearMatch` יוצאת בשורה הראשונה — זה **המודל כאן** שהתיישן ברגע שנשלח
+       המשטר הצר, וזו בדיוק העדות שהשער אמור לתת. */
+    else if (kind === 'zero') {
+      const z = bs => (bs || []).map(b => ({ maxLen: b.maxLen, t: 0 }));
+      params = Object.assign({}, params, { bands: z(params.bands) });
+      if (params.bandsTight) params.bandsTight = z(params.bandsTight);
+    }
     else if (kind === 'noVeto') {
       /* ריקון האינדקסים ולא דגל בקוד · דגל "אל תבדוק וטו" בקובץ ייצור הוא המתג שיישכח
          דלוק. שולי הדו-משמעות מכובים איתו, כי הם השכבה השנייה של אותו רעיון. */
