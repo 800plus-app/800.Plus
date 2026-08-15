@@ -265,6 +265,7 @@ function main() {
     const ok2 = r2 && fillTemplate('123נ', r2) === 'מרדנ';
     say(`  ${ok2 ? '✅' : '⛔'} המחולל מייצר מורד → מרדנ (‏act-agent · קבוצה C)`);
     /* כל מחלקה מיוצגת · מחלקה ריקה פירושה שהמדידה עליה היא היעדר-מדידה */
+    let t2 = true;
     const seenCls = new Set(rows.map(r => r.cls));
     const missing = ['INF', 'PART', 'ACTNOUN', 'ABSNOUN', 'AGENT', 'VOICE', 'BINYAN'].filter(x => !seenCls.has(x));
     say(`  ${missing.length ? '⛔' : '✅'} כל שבע המחלקות מיוצגות${missing.length ? ' · חסרות: ' + missing.join(',') : ''}`);
@@ -273,13 +274,18 @@ function main() {
     const idx = new Set(); for (let i = 0; i < bankSize && idx.size < 300; i += step) idx.add(i);
     const sub = rows.filter(r => idx.has(r.cardIdx));
     const dedup = new Set(sub.map(r => r.cardIdx + ' ' + r.variant));
-    say(`  ℹ שחזור מדגם 300 · ${dedup.size} ווריאציות נבדלות (‏he_morph_30 דיווח 397)`);
+    /* ⛔ היה כאן `ℹ` ולכן לא יכל להאדים · המבקר תפס. ‏397 הוא פין שאומת
+       מול הרצה חיה של `he_morph_30.js --n 300`, ומול הפרש סימטרי ריק
+       שהמבקר חישב בעצמו. עכשיו הוא נופל בשמו אם המרחב ייסחף. */
+    const PIN30 = 397;
+    t2 = dedup.size === PIN30;
+    say(`  ${t2 ? '✅' : '⛔'} שחזור מדגם 300 · ${dedup.size} ווריאציות נבדלות · פין ${PIN30} מ-he_morph_30`);
     /* דטרמיניזם · אותו זרע, אותה דגימה */
     const f = rows.filter(r => r.status === 'free');
     const s1 = sample(rngFor('semantic-blind', 'he', 'v1'), f, 40).map(r => r.id).join(',');
     const s2 = sample(rngFor('semantic-blind', 'he', 'v1'), f, 40).map(r => r.id).join(',');
     say(`  ${s1 === s2 ? '✅' : '⛔'} הדגימה דטרמיניסטית · אותו זרע ⇒ אותם 40 זוגות`);
-    if (!(ok1 && ok2 && !missing.length && s1 === s2)) process.exitCode = 1;
+    if (!(ok1 && ok2 && t2 && !missing.length && s1 === s2)) process.exitCode = 1;
   }
 }
 

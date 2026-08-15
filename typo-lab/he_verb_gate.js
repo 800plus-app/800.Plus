@@ -60,7 +60,9 @@ try { LEX = require(path.join(OUT, 'runtime-lexicon.js')); } catch (e) { LEX = n
 
 function ctxFor(lang) {
   const c = loadApp({ lang });
-  try { c.window.TYPO_LEX = require(LEX_PATH); } catch (e) { /* אין · נבדק למטה */ }
+  /* ⛔ ‏catch ריק כאן היה מכבה את שכבת הסובלנות בשקט, מנפח את "אינו מתקבל היום",
+     ומשאיר את השיניים ירוקות · המבקר תפס את זה. נופל בשמו. */
+  c.window.TYPO_LEX = require(LEX_PATH);
   return c;
 }
 
@@ -128,8 +130,15 @@ function readPos() {
       if (!k || k === 'key') continue;
       const v = String(t || '').trim();
       if (!v || !'פשתא'.includes(v)) continue;
-      if (!out.has(k)) out.set(k, {});
-      out.get(k)[who] = v;
+      /* ⛔ שני מרחבי מפתחות לאותו דבר · `P<idx>.<word>` (שופטי A/B) מול
+         `H<idx>.<word>` (שופט VG). שניהם ממופתחים על **אותו** אינדקס במאגר העברי,
+         ובלי האיחוד הזה 354 התיוגים של A/B לא התאימו לאף שורה, וכל 131 החלטות
+         השער נשענו על שופט יחיד — כשענף "אי-הסכמה חוסמת" בשיניים מעולם לא רץ.
+         המבקר תפס את זה. ‏`E…` (אנגלית) נשאר כשלעצמו · אין לו תאום ב-P. */
+      for (const kk of (k[0] === 'P' ? ['P' + k.slice(1), 'H' + k.slice(1)] : [k])) {
+        if (!out.has(kk)) out.set(kk, {});
+        out.get(kk)[who] = v;
+      }
     }
   }
   return out;
@@ -219,6 +228,12 @@ function selftest() {
   t(!isVerb({ A: 'פ', B: 'ש' }), 'אי-הסכמה ⇒ חסום · ספק אינו קבלה');
   t(!isVerb({ A: 'ש', B: 'ש' }), 'שניהם "שם עצם" ⇒ חסום');
   t(!isVerb(undefined), 'מילה בלי תיוג ⇒ חסומה · היעדר מדידה אינו היתר');
+  /* ⭐ הענף שמעולם לא רץ · השיניים היו ירוקות עליו כי אף שורה לא הגיעה אליו */
+  const P = readPos();
+  const sig = new Map();
+  for (const v of P.values()) { const s2 = ['A', 'B', 'VG'].filter(x => v[x]).join('+'); sig.set(s2, (sig.get(s2) || 0) + 1); }
+  const multi = Array.from(sig.entries()).filter(([k2]) => k2.includes('+')).reduce((n, [, v]) => n + v, 0);
+  t(multi > 0, `יש מפתחות עם יותר משופט אחד · ${multi} · חתימות: ${Array.from(sig.entries()).map(([a, b2]) => a + '=' + b2).join(' ')}`);
   /* המחולל · הזוג המתועד */
   const c = ctxFor('he');
   const g = M.binyanPair.expand(['עקב'], c, PARAMS);

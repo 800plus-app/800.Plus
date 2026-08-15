@@ -28,8 +28,10 @@ const SELFTEST = process.argv.includes('--selftest');
 
 const CLASSES = ['C-INF', 'C-PART', 'C-ACTNOUN', 'C-ABSNOUN', 'C-AGENT', 'C-VOICE', 'C-BINYAN'];
 /* שיעור שימור-המשמעות שהפאנל מדד לכל מחלקה · פה אחד משלוש עדשות.
-   מוזן כאן כמספר ולא מחושב מחדש, כי הוא בא מ-`semantic_panel.js --score`. */
-const SAFE = { 'C-INF': '64.9%', 'C-PART': '46.4%', 'C-ACTNOUN': '1.7%', 'C-ABSNOUN': '0.0%', 'C-AGENT': '5.6%', 'C-VOICE': '2.0%', 'C-BINYAN': '3.2%' };
+   ⚠ מוזן כאן כמחרוזת ואינו מחושב מחדש · המקור הוא `semantic_panel.js --score`,
+   והמספרים האלה **זזו כבר פעם** (‏PART 46.4%→47.7% אחרי תיקון באג הדריסה).
+   מי שמריץ את הפאנל מחדש חייב לעדכן את השורה הזאת. */
+const SAFE = { 'C-INF': '64.9%', 'C-PART': '47.7%', 'C-ACTNOUN': '1.7%', 'C-ABSNOUN': '0.0% (0/4)', 'C-AGENT': '5.6% (1/18)', 'C-VOICE': '2.0%', 'C-BINYAN': '3.2%' };
 
 function main() {
   const c = loadApp({ lang: 'he' });

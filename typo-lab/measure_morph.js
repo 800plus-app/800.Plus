@@ -105,6 +105,21 @@ const XFORM_GROUPS = {
   'C-AB': ['pa-inf', 'hit-inf', 'pa-act', 'act-pa', 'act-inf', 'hif-act', 'adj-abs'],
   'C-C': ['act-agent', 'act-pass', 'pa-hit', 'nif-pa'],
 };
+/* ⛔ שער כיסוי · הלקח של "נרמול פרמטרים אחד". ‏`he_morph_split.js` זורק על זוג בלי
+   מחלקה; הרשימה כאן נקראת דרך `CLASS_CONFIGS` בשלושה קבצים אחרים, וקודם לא היה לה
+   שער. זוג 12 היה מפיל קובץ אחד ברעש ומשאיר את השני מודד מרחב קטן יותר **בשקט**. */
+{
+  const singles = ['C-INF', 'C-PART', 'C-ACTNOUN', 'C-ABSNOUN', 'C-AGENT', 'C-VOICE', 'C-BINYAN'];
+  const seen = new Map();
+  for (const k of singles) for (const id of XFORM_GROUPS[k]) {
+    if (seen.has(id)) throw new Error(`measure_morph: הזוג ${id} בשתי מחלקות · ${seen.get(id)} ו-${k}`);
+    seen.set(id, k);
+  }
+  const missing = M.BINYAN_PAIRS.map(p => p.id).filter(id => !seen.has(id));
+  if (missing.length) throw new Error('measure_morph: זוגות בלי מחלקה · ' + missing.join(','));
+  const unknown = Array.from(seen.keys()).filter(id => !M.BINYAN_PAIRS.some(p => p.id === id));
+  if (unknown.length) throw new Error('measure_morph: מחלקה מפנה לזוג שאינו קיים · ' + unknown.join(','));
+}
 const CLASS_CONFIGS = Object.keys(XFORM_GROUPS).map(k => ({
   key: k, rule: 'binyanPair',
   params: { pairs: XFORM_GROUPS[k], strictRoot: false },
