@@ -1,0 +1,167 @@
+{
+  "seed": "typo-lab/dataset/v3",
+  "foldSalt": "typo-lab/fold/v1",
+  "holdoutSalt": "typo-lab/holdout/v1",
+  "folds": 5,
+  "holdoutRate": 0.15,
+  "budgets": {
+    "MIN_LEN": 3,
+    "POS_PER_KEY": 7,
+    "POS_PER_SEG": 2,
+    "NEG_PER_CARD": 5,
+    "NEG_GLOSS_PER_CARD": 3,
+    "MAX_D": 2,
+    "SEG_MAX_WORDS": 3,
+    "SEG_MAX_LETTERS": 20,
+    "GARBAGE_FLOOR": 2,
+    "UNVERIFIED_MAX_LETTERS": 6,
+    "NEG_CAP": {
+      "d1-partner": 2,
+      "other-variant": 2,
+      "inflection": 1,
+      "garbage": 1
+    },
+    "NEG_GLOSS_CAP": {
+      "other-gloss-seg": 2,
+      "garbage": 1
+    }
+  },
+  "lexicon": {
+    "files": 599,
+    "bytes": 5942957,
+    "heTypes": 35205,
+    "enTypes": 9753
+  },
+  "consistencyFlips": 5,
+  "broken": {
+    "op": false,
+    "fold": false,
+    "limitCards": 0
+  },
+  "total": 89375,
+  "counts": {
+    "set": {
+      "en-word": 35278,
+      "gloss": 28880,
+      "he-word": 25217
+    },
+    "label": {
+      "accept": 44894,
+      "reject": 44481
+    },
+    "op": {
+      "adj": 19279,
+      "double": 9519,
+      "drop": 13547,
+      "homophone": 5330,
+      "mater": 5538,
+      "neg/d1-partner": 2756,
+      "neg/garbage": 2978,
+      "neg/inflection": 356,
+      "neg/other-gloss-seg": 11326,
+      "neg/other-variant": 5223,
+      "pattern/c/k": 547,
+      "pattern/c/s": 262,
+      "pattern/dbl-cons": 2132,
+      "pattern/ie/ei": 43,
+      "pattern/ph/f": 236,
+      "pattern/silent-e": 374,
+      "pattern/y/i": 189,
+      "transpose": 9740
+    },
+    "why": {
+      "ambiguous": 24574,
+      "cross-card": 5,
+      "garbage": 2490,
+      "inflection": 208,
+      "novel": 40799,
+      "novel-unverified": 4095,
+      "other-variant": 25,
+      "real-word": 2019,
+      "veto": 15160
+    },
+    "setLabel": {
+      "en-word/accept": 21663,
+      "en-word/reject": 13615,
+      "gloss/accept": 8781,
+      "gloss/reject": 20099,
+      "he-word/accept": 14450,
+      "he-word/reject": 10767
+    },
+    "trusted": {
+      "false": 4095,
+      "true": 85280
+    }
+  },
+  "files": [
+    {
+      "name": "dataset-he.jsonl",
+      "rows": 33670,
+      "bytes": 7494098,
+      "sha256": "ff64ae144f8a1bcdbc58a2148ae2682387a15bebf69de651cfb4b63c35b83e81"
+    },
+    {
+      "name": "dataset-en.jsonl",
+      "rows": 55705,
+      "bytes": 11099135,
+      "sha256": "d91cffc0b38fcddb94a3cce8b6fb58784a7f3e1ab4975426443c5c99d51eba28"
+    }
+  ],
+  "runtimeLexicon": {
+    "file": "runtime-lexicon.js",
+    "bytes": 68096,
+    "sha256": "d690b04c956bb5bdd46fd36a27600523e892898c2d8d2cf0082ce00671d956ba",
+    "fprTarget": 0.005,
+    "he": {
+      "n": 29296,
+      "m": 323072,
+      "k": 8,
+      "bytes": 40384
+    },
+    "en": {
+      "n": 5928,
+      "m": 65376,
+      "k": 8,
+      "bytes": 8172
+    },
+    "removedBankForms": {
+      "he": 5909,
+      "en": 3825
+    },
+    "empiricalFPR": {
+      "he": 0.00507,
+      "en": 0.00517,
+      "sample": 200000
+    },
+    "recallCost": {
+      "lost": 209,
+      "accept": 44894,
+      "rate": 0.00466
+    },
+    "coverage": {
+      "he-word": {
+        "total": 1167,
+        "caught": 803,
+        "bankOnly": 364,
+        "missed": 0
+      },
+      "gloss": {
+        "total": 729,
+        "caught": 452,
+        "bankOnly": 277,
+        "missed": 0
+      },
+      "en-word": {
+        "total": 123,
+        "caught": 100,
+        "bankOnly": 23,
+        "missed": 0
+      }
+    },
+    "excludedSources": [
+      "דוחות/מאגר-נקי/01-גלם.tsv",
+      "דוחות/מאגר-נקי/19-צירופים-מהרשת.tsv",
+      "pipeline_output/*.json"
+    ]
+  }
+}
