@@ -537,4 +537,4 @@ if (require.main === module) {
   } catch (e) { say('⛔ ' + e.message); say(e.stack); process.exitCode = 1; }
 }
 
-module.exports = { loadS, itemFor, makeOracle, queueOrder, plan, report, SET };
+module.exports = { loadS, itemFor, makeOracle, queueOrder, plan, report, anchoredModel, SET };
