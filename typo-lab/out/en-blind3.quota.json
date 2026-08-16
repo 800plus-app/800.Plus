@@ -1,0 +1,49 @@
+{
+ "what": "מכסות en-blind3 · מוכרזות לפני הדגימה",
+ "lock_commit": "7ad6c3550838db52bcee209aca84f31abcdc3b8a",
+ "declared_at": "2026-08-16",
+ "source": "typo-lab/out/answers-en.jsonl",
+ "filter": {
+  "split": "holdout",
+  "one_row_per_group": true,
+  "exclude_ids_from": "en-blind2"
+ },
+ "seed": "typo-lab/teacher/en3/v1",
+ "n": 40,
+ "floors": {
+  "word|neg-garbage": 5,
+  "gloss|neg-garbage": 3,
+  "gloss|sp-adj": 4,
+  "gloss|sp-drop": 3,
+  "gloss|sp-transpose": 3,
+  "gloss|sp-double": 2
+ },
+ "floors_rationale": "neg-garbage · מחלקה A שהפילה את החוק ונכנסה לסט 2 במקרה. gloss/sp-* · מחלקה B, 5 מ-11 ההחטאות, נעדרה מסט 1 לגמרי.",
+ "method": "יתרה (40 פחות רצפות) מתחלקת largest-remainder על כל התאים · הרצפות נוספות מעליה · דגימה ב-PRNG בזרע קבוע",
+ "quota": {
+  "gloss": {
+   "neg-other-gloss": 2,
+   "neg-equidistant": 1,
+   "extra-word": 1,
+   "sp-adj": 5,
+   "sp-transpose": 3,
+   "neg-garbage": 4,
+   "neg-real-word": 1,
+   "func-prefix": 1,
+   "sp-drop": 3,
+   "neg-morph-overreach": 1,
+   "sp-double": 2
+  },
+  "word": {
+   "neg-other-term": 2,
+   "neg-other-variant": 1,
+   "sp-double": 1,
+   "sp-pattern": 1,
+   "sp-adj": 2,
+   "sp-transpose": 1,
+   "sp-drop": 1,
+   "neg-garbage": 6,
+   "neg-equidistant": 1
+  }
+ }
+}
