@@ -114,6 +114,15 @@ function shipParams() {
        שמפעיל אותו היה נבדק כאן כאילו הוא כבוי — שער ירוק על פרמטרים שאינם
        הנשלחים. זה הכיוון המסוכן, ולכן הוא מפורש. */
     if (q.segConcat != null) o.segConcat = q.segConcat;
+    /* ⚠⚠ 16.8 · **הגן הרביעי, ואותה משפחה בדיוק.** ‏`useLexicon` קיים בשלושת הסטים
+       ב-`typo-rules.json`, ‏`lib/checker.js` קורא אותו, ו-`tests/71:canonOf` מטביע
+       אותו — **ורק כאן הוא נשמט**, גם מהנרמול וגם מהטביעה. כלומר ארטיפקט עם
+       `useLexicon:false` היה נבדק כאן כאילו הלקסיקון דלוק, ומקבל טביעה **זהה**
+       לארטיפקט שהלקסיקון בו דלוק. אומת: שתי הצורות החזירו `8a4707170aa4`.
+       ⭐ מועבר **רק כשהוא `false` במפורש**, מאותו נימוק שכתוב על מקדמי התכונה:
+       העברה בלתי-מותנית הייתה מזיזה את הטביעה של כל ארטיפקט קיים והופכת כל טביעה
+       שנרשמה בעבר לשקרית בשקט. */
+    if (q.useLexicon === false) o.useLexicon = false;
     if (Array.isArray(q.bandsTight) && q.bandsTight.length) o.bandsTight = nb(q.bandsTight);
     if (q.WTight) o.WTight = q.WTight;
     /* ‏4ד · מקדמי התכונה חייבים לעבור כאן במפורש, **מאותו נימוק בדיוק** שכתוב למעלה
@@ -166,6 +175,9 @@ function fingerprint(sets) {
     const o = norm(q);
     const ks = ['aFirst', 'aShare', 'aFirstTight', 'aShareTight'].filter(k => q[k] != null);
     if (ks.length) for (const k of ks) o[k] = q[k];
+    /* ⚠⚠ הגן הרביעי · ראה ההערה ב-`shipParams`. מותנה, כדי לשמור על הטביעה של כל
+       ארטיפקט קיים · אומת: הנשלח נשאר `8a4707170aa4` לפני ואחרי. */
+    if (q.useLexicon === false) o.useLexicon = false;
     return o;
   };
   const keys = Object.keys(sets).sort();
