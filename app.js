@@ -855,7 +855,7 @@ function maskTerm(meaning, term){
 const TYPO_PARAMS = {
   enabled: true,
   ver: 'typo-lab/evolve/v1',
-  fp: 'e203e75a',
+  fp: 'fec09ca1',
   /* ‏השוליים המדורגים בעברית · 18.10% → 23.73% ב-holdout.
      ⚠ **המשטר הצר העברי אינו המשטר הצר האנגלי, וזה נמדד ולא הונח.** באנגלית שורדות
      כל העריכות המאריכות (transpose · ins · doubleLetter); בעברית שורדים **רק שניים**
@@ -897,10 +897,11 @@ const TYPO_PARAMS = {
      הודגמו על `typo-rules.REDGRADED.json` — אותו גנום עם משטר צר פרוץ — 102
      התנגשויות חדשות (fougght→bought, knew→new, teenth→teeth). */
   'en-word': { dir:'word', minLen:0, vetoMargin:1, marginHard:1, marginSoft:2, useLexicon:true,
-    bands:[{maxLen:1,t:0},{maxLen:2,t:0},{maxLen:3,t:0.6},{maxLen:4,t:1.5},{maxLen:5,t:1.4},{maxLen:6,t:1.5},{maxLen:7,t:1.5},{maxLen:8,t:2.2},{maxLen:9,t:2.2},{maxLen:10,t:1.2},{maxLen:11,t:2.2},{maxLen:12,t:1.5},{maxLen:13,t:1.5},{maxLen:14,t:1.5},{maxLen:15,t:1},{maxLen:16,t:1.4},{maxLen:17,t:1.4},{maxLen:18,t:0},{maxLen:null,t:1.4}],
-    bandsTight:[{maxLen:1,t:0},{maxLen:2,t:0},{maxLen:3,t:1.9},{maxLen:4,t:0.9},{maxLen:5,t:0.8},{maxLen:6,t:1},{maxLen:7,t:0.9},{maxLen:8,t:1.9},{maxLen:9,t:1.9},{maxLen:10,t:1.9},{maxLen:11,t:1.9},{maxLen:12,t:1.9},{maxLen:13,t:1.9},{maxLen:14,t:1},{maxLen:15,t:0},{maxLen:16,t:0},{maxLen:17,t:0},{maxLen:18,t:0},{maxLen:null,t:0}],
-    W:{sub:2,adjSub:1.35,transpose:0.7759,ins:1.1296,del:0.4303,doubleLetter:0.5616,materVI:0.3821,homophone:1.7916},
-    WTight:{sub:99,adjSub:99,transpose:0.765,ins:0.967,del:99,doubleLetter:0.857,materVI:99,homophone:99} },
+    aFirst:0, aShare:3, aFirstTight:0.2, aShareTight:1.5,
+    bands:[{maxLen:1,t:0},{maxLen:2,t:0},{maxLen:3,t:1.05},{maxLen:4,t:2.1},{maxLen:5,t:1.95},{maxLen:6,t:1.9},{maxLen:7,t:1.85},{maxLen:8,t:3.35},{maxLen:9,t:3.25},{maxLen:10,t:1.45},{maxLen:11,t:3.15},{maxLen:12,t:1.65},{maxLen:13,t:1.65},{maxLen:14,t:1.6},{maxLen:15,t:1},{maxLen:16,t:1.55},{maxLen:17,t:1.55},{maxLen:18,t:0},{maxLen:19,t:0},{maxLen:20,t:0},{maxLen:null,t:1.5}],
+    bandsTight:[{maxLen:1,t:0},{maxLen:2,t:0},{maxLen:3,t:1.75},{maxLen:4,t:0.85},{maxLen:5,t:0.7},{maxLen:6,t:1.25},{maxLen:7,t:1.15},{maxLen:8,t:1.65},{maxLen:9,t:1.65},{maxLen:10,t:1.4},{maxLen:11,t:1.4},{maxLen:12,t:1.4},{maxLen:13,t:2.4},{maxLen:14,t:0.95},{maxLen:15,t:0},{maxLen:16,t:0},{maxLen:17,t:0},{maxLen:18,t:0},{maxLen:19,t:0},{maxLen:20,t:0},{maxLen:null,t:0}],
+    W:{sub:1.8,adjSub:1.35,transpose:1,ins:1.1296,del:0.3,doubleLetter:0.3,materVI:0.3821,homophone:1.7916},
+    WTight:{sub:2.4,adjSub:99,transpose:0.1,ins:0.8,del:1.8,doubleLetter:0.45,materVI:99,homophone:99} },
   /* ‏gloss אינו מגיע מריצת ה-GA · ראה glossProvenance בארטיפקט. האפס שהיה כאן לא
      היה תוצאה אלא **כשל חיפוש**: שורת שכבה-1 יחידה ("כל" מתקבל על הפירוש "כלל",
      via=exact, מתקבלת היום בלי קשר לשום פרמטר) נפלה בסט האימון של חמש מתוך שש
@@ -1014,44 +1015,88 @@ function typoDelKind(a,i,T){
 /* כל וקטורי ספירת-הפעולות של יישורים בעד maxOps פעולות, מנוקים מווקטורים נשלטים.
    חישוב שמתמחר יישור אחד קבוע מראש הוא חסם עליון בלבד, ולכן הוא יכול להראות "אפס
    קבלות-שווא" בזמן שהמסלול המדויק מקבל — זה נמדד ("uuuf" מול "unit"). */
+/* ‏המניין · שיקוף מדויק של typo-lab/features.js:alignments, והסדר אינו רשות.
+   כל יישור נושא איתו את **המיקום המוקדם ביותר** שבו נפלה פעולה (אינדקס במחרוזת
+   המוקלדת), כי זו המחרוזת שהלומד הקליד ועליה נשאלת השאלה "היכן טעית".
+   הסדר: איחוד לפי מפתח-ספירה עם שמירת ה-pos המוקדם, **ואז** ניקוי שליטה על הספירה
+   בלבד. הפוך היה נותן את אותה קבוצת ווקטורים אבל pos אחר, ואז המעבדה והריצה היו
+   מתמחרות אותו יישור בשני מחירים.
+   ⚠ pos מוגדר **לא-מנייתי** בכוונה: הצורה המנייתית של הווקטור היא החוזה שלו (שמונה
+   מפתחות אופרטור), ושלושת הקוראים החיצוניים (tests/71, he_miss_anatomy, he_sanity)
+   קוראים רק v[k]. מפתח מנייתי חדש היה משנה JSON.stringify אצל אחד מהם. */
 function typoVectors(a,b,maxOps){
   const A=String(a==null?'':a), B=String(b==null?'':b);
   const m=A.length, n=B.length, cap=maxOps==null?TYPO_MAX_OPS:maxOps;
   const T=typoTables(A,B);
   const found=[];
   const zero=()=>{ const v={}; for(const k of TYPO_OPS) v[k]=0; return v; };
-  const walk=(i,j,budget,vec)=>{
+  const walk=(i,j,budget,vec,firstPos)=>{
     while(i<m && j<n && A[i]===B[j]){ i++; j++; }
-    if(i===m && j===n){ found.push(Object.assign({},vec)); return; }
+    if(i===m && j===n){ found.push({v:Object.assign({},vec), pos:firstPos}); return; }
     if(budget<=0) return;
     if(Math.abs((m-i)-(n-j))>budget) return;
-    const spend=(kind,ni,nj)=>{ vec[kind]++; walk(ni,nj,budget-1,vec); vec[kind]--; };
+    const fp = firstPos<0 ? i : firstPos;
+    const spend=(kind,ni,nj)=>{ vec[kind]++; walk(ni,nj,budget-1,vec,fp); vec[kind]--; };
     if(i+1<m && j+1<n && A[i]===B[j+1] && A[i+1]===B[j]) spend('transpose',i+2,j+2);
     if(i<m && j<n) spend(typoSubKind(A[i],B[j],T),i+1,j+1);
     if(i<m) spend(typoDelKind(A,i+1,T),i+1,j);
     if(j<n) spend(typoInsKind(B,j+1,T),i,j+1);
   };
-  walk(0,0,cap,zero());
+  walk(0,0,cap,zero(),-1);
+  const byKey=new Map();
+  for(const f of found){
+    const key=TYPO_OPS.map(k=>f.v[k]).join(',');
+    const hit=byKey.get(key);
+    if(!hit) byKey.set(key,f);
+    else if(f.pos>=0 && (hit.pos<0 || f.pos<hit.pos)) hit.pos=f.pos;
+  }
+  const uniq=Array.from(byKey.values());
   const out=[];
-  for(const v of found){
+  for(const f of uniq){
     let dominated=false;
-    for(const u of found){
-      if(u===v) continue;
+    for(const g of uniq){
+      if(g===f) continue;
       let le=true, lt=false;
-      for(const k of TYPO_OPS){ if(u[k]>v[k]){ le=false; break; } if(u[k]<v[k]) lt=true; }
+      for(const k of TYPO_OPS){ if(g.v[k]>f.v[k]){ le=false; break; } if(g.v[k]<f.v[k]) lt=true; }
       if(le&&lt){ dominated=true; break; }
     }
     if(dominated) continue;
-    if(out.some(u=>TYPO_OPS.every(k=>u[k]===v[k]))) continue;
-    out.push(v);
+    Object.defineProperty(f.v,'pos',{value:f.pos, enumerable:false, writable:false, configurable:true});
+    out.push(f.v);
   }
   return out;
 }
-function typoWDist(a,b,W,cap,maxOps){
+/* יחס התווים המשותפים · שיקוף מדויק של typo-lab/features.js:shareRatio.
+   מפת ריבוי, מכנה הוא האורך הגדול מהשניים, ואפס כשהמכנה אפס. */
+function typoShare(a,b){
+  const m=new Map();
+  for(const c of a) m.set(c,(m.get(c)||0)+1);
+  let shared=0;
+  for(const c of b){ const v=m.get(c); if(v>0){ shared++; m.set(c,v-1); } }
+  const d=Math.max(a.length,b.length);
+  return d ? shared/d : 0;
+}
+/* ‏aFirst/aShare בסוף ועם ברירת מחדל 0, כדי שקורא קיים לא ישתנה. כששניהם 0 זהו
+   **בדיוק** הלולאה שרצה כאן קודם — לא "שקולה לה" — ולכן הוספתם אינה יכולה להזיז
+   החלטה קיימת. שיקוף של typo-lab/lib/checker.js:featureCost.
+   ⚠ סדר הסכימה חייב להישאר זהה לשם: off, ואז קנס האות הראשונה, ואז צבירה על
+   TYPO_OPS. חיבור בסדר אחר נבדל ב-ULP, וזה מספיק כדי לפצל החלטה שיושבת בדיוק על
+   הסף — נמדד בפועל על "differejce"~"difference" (עלות 0.4 מול סף 0.4). */
+function typoWDist(a,b,W,cap,maxOps,aFirst,aShare){
   const C=(cap==null||!isFinite(cap))?Infinity:cap;
+  const aF=aFirst||0, aS=aShare||0;
   let best=Infinity;
+  if(!(aF>0) && !(aS>0)){
+    for(const v of typoVectors(a,b,maxOps)){
+      let s=0; for(const k of TYPO_OPS) s+=v[k]*W[k];
+      if(s<best) best=s;
+    }
+    return best<=C?best:Infinity;
+  }
+  const off = aS>0 ? aS*(1-typoShare(String(a),String(b))) : 0;
   for(const v of typoVectors(a,b,maxOps)){
-    let s=0; for(const k of TYPO_OPS) s+=v[k]*W[k];
+    let s=off+(v.pos===0?aF:0);
+    for(const k of TYPO_OPS) s+=v[k]*W[k];
     if(s<best) best=s;
   }
   return best<=C?best:Infinity;
@@ -1076,9 +1121,21 @@ function typoNorm(P){
   if(marginSoft<marginHard) throw new Error('typoNorm: marginSoft ('+marginSoft+') is below marginHard ('+marginHard+') · negative window');
   const bandsTight=(Array.isArray(p.bandsTight)&&p.bandsTight.length)?nb(p.bandsTight.slice()):bands;
   const WTight=p.WTight?Object.assign({}, UNIT, p.WTight):W;
+  /* מקדמי התכונה · ברירת מחדל 0 = ההתנהגות של אתמול, ביט-אחר-ביט. הצר יורש מהרגיל
+     כשהוא חסר — אותו כיוון-ירושה חד-כיווני של bandsTight/WTight, ולכן גנום ישן מקבל
+     בדיוק את מה שהיה לו. זהה מילה-במילה ל-typo-lab/lib/checker.js:normalizeParams.
+     ⛔ מקדם שלילי הופך את חסם העלות ללא-תקף (וגם את effOps ב-bank_gate, שממנו נגזר
+     עומק אינדקס-המחיקות) · זריקה, לא השלמה שקטה. */
+  const num=(v,d)=>v==null?d:v;
+  const aFirst=num(p.aFirst,0), aShare=num(p.aShare,0);
+  const aFirstTight=num(p.aFirstTight,aFirst), aShareTight=num(p.aShareTight,aShare);
+  for(const [k,v] of [['aFirst',aFirst],['aShare',aShare],['aFirstTight',aFirstTight],['aShareTight',aShareTight]]){
+    if(!(v>=0)) throw new Error('typoNorm: '+k+' = '+v+' · מקדם שלילי הופך את חסם העלות ללא-תקף');
+  }
   n={ dir:p.dir==='gloss'?'gloss':'word', minLen:p.minLen==null?0:p.minLen,
       vetoMargin, marginHard, marginSoft,
       useLexicon:p.useLexicon!==false, bands, W, bandsTight, WTight,
+      aFirst, aShare, aFirstTight, aShareTight,
       graded:marginSoft>marginHard };
   TYPO_PN.set(P,n);
   return n;
@@ -1213,12 +1270,15 @@ function nearMatch(a, candidates, lang, P, vetoSet, ownSet){
   }
   const tBands = tight ? p.bandsTight : p.bands;
   const tW = tight ? p.WTight : p.W;
+  /* מקדמי התכונה לפי המשטר · בדיוק כמו ב-makeChecker. */
+  const aF = tight ? p.aFirstTight : p.aFirst;
+  const aS = tight ? p.aShareTight : p.aShare;
   let best=Infinity;
   for(const s of scored.slice(0,TYPO_MAX_CANDS)){
     let t=tBands[tBands.length-1].t;
     for(const b of tBands) if(s.len<=b.maxLen){ t=b.t; break; }
     if(!(t>0)) continue;                               // אפס סובלנות ברצועה הזו
-    const d=typoWDist(a, s.c, tW, t, TYPO_MAX_OPS);
+    const d=typoWDist(a, s.c, tW, t, TYPO_MAX_OPS, aF, aS);
     if(d<best) best=d;
     if(best===0) break;
   }
@@ -6212,11 +6272,13 @@ async function openAdmin(){
      a round is a different one. Conflating them is how a dead product looks alive. */
   const DAY=864e5, now=Date.now();
   const roundIn = d => admUsers.filter(u=>u.lastRound && now-u.lastRound < d*DAY).length;
+  /* ⚠ "סבבים בסך הכול" ו"מילים שתורגלו" הוסרו מהלוח (בקשת חגי, 14.8.2026): מדד
+     מצטבר שרק עולה אינו אומר מה קרה השבוע, ולכן אי אפשר להחליט לפיו כלום.
+     הסכימה עצמה הוסרה ולא רק התצוגה — שדה מחושב שאיש אינו קורא הוא עבודה
+     שרצה על כל משתמש בכל טעינה של הלוח, בלי שאף אחד רואה את התוצאה. */
   const glance = {
     today: roundIn(1), week: roundIn(7),
     never: admUsers.filter(u=>!u.rounds).length,
-    words: admUsers.reduce((n,u)=>n+u.practised,0),
-    rounds: admUsers.reduce((n,u)=>n+u.rounds,0),
   };
   const gcard = (n, label, hint, warn) =>
     `<div class="adm-g${warn&&n?' warn':''}"><b>${n}</b><span>${label}</span>`+
@@ -6226,8 +6288,6 @@ async function openAdmin(){
       ${gcard(glance.today,'תרגלו היום','')}
       ${gcard(glance.week,'תרגלו השבוע','')}
       ${gcard(glance.never,'נרשמו ולא תרגלו','אף פעם',true)}
-      ${gcard(glance.rounds,'סבבים בסך הכול','')}
-      ${gcard(glance.words,'מילים שתורגלו','בלי מבחן רמה')}
     </div>
     <div class="adm-tools">
       <input class="adm-search" id="admSearch" type="search" inputmode="search"
