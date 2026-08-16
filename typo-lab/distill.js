@@ -444,7 +444,7 @@ function report() {
 
   say('| שיטה | חוק | פסקים | קבלות | דחיות | holdout | ⛔ FA לא-נראה | מול 74.63% | שארית · מילים · לא-מילה |');
   say('|---|---|---:|---:|---:|---:|---:|---|---|');
-  for (const rk of ['R0', 'R2']) {
+  for (const rk of ['R0', 'R2', 'R3']) {
     const oracle = makeOracle(S, RULES[rk], null, hashOf);
     for (const B of budgets(st)) {
       const lab = st.labeled.slice(0, B);

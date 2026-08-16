@@ -402,6 +402,305 @@
      }
     ]
    }
+  },
+  {
+   "mode": "עיגון",
+   "rule": "R3",
+   "budget": 250,
+   "pos": 164,
+   "negLabeled": 84,
+   "negStructural": 146065,
+   "unsure": 2,
+   "raised": 0,
+   "lowered": 1,
+   "opened": 0,
+   "unreachable": 0,
+   "holdoutRecall": 0.7280453257790368,
+   "faUnseen": 0,
+   "residue": {
+    "accepted": 16180,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 16180,
+    "newAccepts": 0,
+    "newCorrect": 0,
+    "newFalse": 0,
+    "newNotAWord": 0,
+    "sample": [],
+    "badSample": []
+   }
+  },
+  {
+   "mode": "חיפוש",
+   "rule": "R3",
+   "budget": 250,
+   "pos": 164,
+   "negLabeled": 84,
+   "negStructural": 146065,
+   "unsure": 2,
+   "holdoutRecall": 0.3065785332074284,
+   "faUnseen": 2,
+   "residue": {
+    "accepted": 6715,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 6715,
+    "newAccepts": 126,
+    "newCorrect": 124,
+    "newFalse": 2,
+    "newNotAWord": 126,
+    "sample": [
+     {
+      "typed": "nother",
+      "term": "another"
+     },
+     {
+      "typed": "xplain",
+      "term": "explain"
+     },
+     {
+      "typed": "achine",
+      "term": "machine"
+     },
+     {
+      "typed": "eeting",
+      "term": "meeting"
+     },
+     {
+      "typed": "rganic",
+      "term": "organic"
+     },
+     {
+      "typed": "rotect",
+      "term": "protect"
+     },
+     {
+      "typed": "erious",
+      "term": "serious"
+     },
+     {
+      "typed": "edroom",
+      "term": "bedroom"
+     },
+     {
+      "typed": "rastic",
+      "term": "drastic"
+     },
+     {
+      "typed": "arlier",
+      "term": "earlier"
+     },
+     {
+      "typed": "xtreme",
+      "term": "extreme"
+     },
+     {
+      "typed": "ashion",
+      "term": "fashion"
+     },
+     {
+      "typed": "ission",
+      "term": "mission"
+     },
+     {
+      "typed": "pinion",
+      "term": "opinion"
+     },
+     {
+      "typed": "ictory",
+      "term": "victory"
+     },
+     {
+      "typed": "bility",
+      "term": "ability"
+     },
+     {
+      "typed": "apture",
+      "term": "capture"
+     },
+     {
+      "typed": "omplex",
+      "term": "complex"
+     },
+     {
+      "typed": "estiny",
+      "term": "destiny"
+     },
+     {
+      "typed": "isease",
+      "term": "disease"
+     }
+    ],
+    "badSample": [
+     {
+      "typed": "niform",
+      "term": "uniform",
+      "why": "other-variant"
+     },
+     {
+      "typed": "ersist",
+      "term": "persist",
+      "why": "other-variant"
+     }
+    ]
+   }
+  },
+  {
+   "mode": "עיגון",
+   "rule": "R3",
+   "budget": 500,
+   "pos": 397,
+   "negLabeled": 99,
+   "negStructural": 146065,
+   "unsure": 4,
+   "raised": 0,
+   "lowered": 5,
+   "opened": 0,
+   "unreachable": 49,
+   "holdoutRecall": 0.6883852691218131,
+   "faUnseen": 0,
+   "residue": {
+    "accepted": 15172,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 15172,
+    "newAccepts": 0,
+    "newCorrect": 0,
+    "newFalse": 0,
+    "newNotAWord": 0,
+    "sample": [],
+    "badSample": []
+   }
+  },
+  {
+   "mode": "חיפוש",
+   "rule": "R3",
+   "budget": 500,
+   "pos": 397,
+   "negLabeled": 99,
+   "negStructural": 146065,
+   "unsure": 4,
+   "holdoutRecall": 0.6688700031476236,
+   "faUnseen": 5,
+   "residue": {
+    "accepted": 14787,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 14787,
+    "newAccepts": 129,
+    "newCorrect": 124,
+    "newFalse": 5,
+    "newNotAWord": 129,
+    "sample": [
+     {
+      "typed": "nother",
+      "term": "another"
+     },
+     {
+      "typed": "xplain",
+      "term": "explain"
+     },
+     {
+      "typed": "achine",
+      "term": "machine"
+     },
+     {
+      "typed": "eeting",
+      "term": "meeting"
+     },
+     {
+      "typed": "rganic",
+      "term": "organic"
+     },
+     {
+      "typed": "rotect",
+      "term": "protect"
+     },
+     {
+      "typed": "erious",
+      "term": "serious"
+     },
+     {
+      "typed": "edroom",
+      "term": "bedroom"
+     },
+     {
+      "typed": "rastic",
+      "term": "drastic"
+     },
+     {
+      "typed": "arlier",
+      "term": "earlier"
+     },
+     {
+      "typed": "xtreme",
+      "term": "extreme"
+     },
+     {
+      "typed": "ashion",
+      "term": "fashion"
+     },
+     {
+      "typed": "ission",
+      "term": "mission"
+     },
+     {
+      "typed": "pinion",
+      "term": "opinion"
+     },
+     {
+      "typed": "ictory",
+      "term": "victory"
+     },
+     {
+      "typed": "bility",
+      "term": "ability"
+     },
+     {
+      "typed": "apture",
+      "term": "capture"
+     },
+     {
+      "typed": "omplex",
+      "term": "complex"
+     },
+     {
+      "typed": "estiny",
+      "term": "destiny"
+     },
+     {
+      "typed": "isease",
+      "term": "disease"
+     }
+    ],
+    "badSample": [
+     {
+      "typed": "niform",
+      "term": "uniform",
+      "why": "other-variant"
+     },
+     {
+      "typed": "ingredienst",
+      "term": "ingredient",
+      "why": "other-variant"
+     },
+     {
+      "typed": "ocncurrence",
+      "term": "occurrence",
+      "why": "other-variant"
+     },
+     {
+      "typed": "ersist",
+      "term": "persist",
+      "why": "other-variant"
+     },
+     {
+      "typed": "congential",
+      "term": "congenial",
+      "why": "other-variant"
+     }
+    ]
+   }
   }
  ]
 }
