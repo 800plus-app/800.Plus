@@ -56,6 +56,56 @@
   },
   {
    "mode": "עיגון",
+   "rule": "R0",
+   "budget": 500,
+   "pos": 34,
+   "negLabeled": 466,
+   "negStructural": 146065,
+   "unsure": 0,
+   "raised": 0,
+   "lowered": 28,
+   "opened": 0,
+   "unreachable": 0,
+   "holdoutRecall": 0.44255587031791,
+   "faUnseen": 0,
+   "residue": {
+    "accepted": 10089,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 10089,
+    "newAccepts": 0,
+    "newCorrect": 0,
+    "newFalse": 0,
+    "newNotAWord": 0,
+    "sample": [],
+    "badSample": []
+   }
+  },
+  {
+   "mode": "חיפוש",
+   "rule": "R0",
+   "budget": 500,
+   "pos": 34,
+   "negLabeled": 466,
+   "negStructural": 146065,
+   "unsure": 0,
+   "holdoutRecall": 0,
+   "faUnseen": 0,
+   "residue": {
+    "accepted": 0,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 0,
+    "newAccepts": 0,
+    "newCorrect": 0,
+    "newFalse": 0,
+    "newNotAWord": 0,
+    "sample": [],
+    "badSample": []
+   }
+  },
+  {
+   "mode": "עיגון",
    "rule": "R2",
    "budget": 250,
    "pos": 162,
@@ -191,6 +241,163 @@
      {
       "typed": "ersist",
       "term": "persist",
+      "why": "other-variant"
+     }
+    ]
+   }
+  },
+  {
+   "mode": "עיגון",
+   "rule": "R2",
+   "budget": 500,
+   "pos": 392,
+   "negLabeled": 104,
+   "negStructural": 146065,
+   "unsure": 4,
+   "raised": 0,
+   "lowered": 9,
+   "opened": 0,
+   "unreachable": 69,
+   "holdoutRecall": 0.6260623229461756,
+   "faUnseen": 0,
+   "residue": {
+    "accepted": 13960,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 13960,
+    "newAccepts": 0,
+    "newCorrect": 0,
+    "newFalse": 0,
+    "newNotAWord": 0,
+    "sample": [],
+    "badSample": []
+   }
+  },
+  {
+   "mode": "חיפוש",
+   "rule": "R2",
+   "budget": 500,
+   "pos": 392,
+   "negLabeled": 104,
+   "negStructural": 146065,
+   "unsure": 4,
+   "holdoutRecall": 0.5656279508970727,
+   "faUnseen": 5,
+   "residue": {
+    "accepted": 12544,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 12544,
+    "newAccepts": 129,
+    "newCorrect": 124,
+    "newFalse": 5,
+    "newNotAWord": 129,
+    "sample": [
+     {
+      "typed": "nother",
+      "term": "another"
+     },
+     {
+      "typed": "xplain",
+      "term": "explain"
+     },
+     {
+      "typed": "achine",
+      "term": "machine"
+     },
+     {
+      "typed": "eeting",
+      "term": "meeting"
+     },
+     {
+      "typed": "rganic",
+      "term": "organic"
+     },
+     {
+      "typed": "rotect",
+      "term": "protect"
+     },
+     {
+      "typed": "erious",
+      "term": "serious"
+     },
+     {
+      "typed": "edroom",
+      "term": "bedroom"
+     },
+     {
+      "typed": "rastic",
+      "term": "drastic"
+     },
+     {
+      "typed": "arlier",
+      "term": "earlier"
+     },
+     {
+      "typed": "xtreme",
+      "term": "extreme"
+     },
+     {
+      "typed": "ashion",
+      "term": "fashion"
+     },
+     {
+      "typed": "ission",
+      "term": "mission"
+     },
+     {
+      "typed": "pinion",
+      "term": "opinion"
+     },
+     {
+      "typed": "ictory",
+      "term": "victory"
+     },
+     {
+      "typed": "bility",
+      "term": "ability"
+     },
+     {
+      "typed": "apture",
+      "term": "capture"
+     },
+     {
+      "typed": "omplex",
+      "term": "complex"
+     },
+     {
+      "typed": "estiny",
+      "term": "destiny"
+     },
+     {
+      "typed": "isease",
+      "term": "disease"
+     }
+    ],
+    "badSample": [
+     {
+      "typed": "niform",
+      "term": "uniform",
+      "why": "other-variant"
+     },
+     {
+      "typed": "ingredienst",
+      "term": "ingredient",
+      "why": "other-variant"
+     },
+     {
+      "typed": "ocncurrence",
+      "term": "occurrence",
+      "why": "other-variant"
+     },
+     {
+      "typed": "ersist",
+      "term": "persist",
+      "why": "other-variant"
+     },
+     {
+      "typed": "congential",
+      "term": "congenial",
       "why": "other-variant"
      }
     ]
