@@ -156,3 +156,8 @@ teacher-queue.jsonl
 !teacher/ledger.en40.jsonl
 !teacher/en2.jsonl
 !teacher/ledger.en2.jsonl
+
+# מנייה מלאה של כדור מרחק-1 סביב כל המאגר האנגלי · 17MB של נגזרת בריפו **ציבורי**.
+# משוחזר דטרמיניסטית ב-`node typo-lab/lex_gap.js` (399ש). הראיות שנקראות — הדגימות
+# שנשפטו, עקומת החסם העליון והמפתחות — קטנות וכן נכנסות.
+lexgap-universe.json
