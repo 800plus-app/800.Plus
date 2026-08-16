@@ -1,0 +1,200 @@
+{
+ "set": "en-word",
+ "baseline": 0.7463015423355367,
+ "baselineFA": 0,
+ "ceiling": 0.7456720176266919,
+ "rows": [
+  {
+   "mode": "עיגון",
+   "rule": "R0",
+   "budget": 250,
+   "pos": 34,
+   "negLabeled": 216,
+   "negStructural": 146065,
+   "unsure": 0,
+   "raised": 0,
+   "lowered": 10,
+   "opened": 0,
+   "unreachable": 0,
+   "holdoutRecall": 0.46081208687440983,
+   "faUnseen": 0,
+   "residue": {
+    "accepted": 10562,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 10562,
+    "newAccepts": 0,
+    "newCorrect": 0,
+    "newFalse": 0,
+    "newNotAWord": 0,
+    "sample": [],
+    "badSample": []
+   }
+  },
+  {
+   "mode": "חיפוש",
+   "rule": "R0",
+   "budget": 250,
+   "pos": 34,
+   "negLabeled": 216,
+   "negStructural": 146065,
+   "unsure": 0,
+   "holdoutRecall": 0,
+   "faUnseen": 0,
+   "residue": {
+    "accepted": 0,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 0,
+    "newAccepts": 0,
+    "newCorrect": 0,
+    "newFalse": 0,
+    "newNotAWord": 0,
+    "sample": [],
+    "badSample": []
+   }
+  },
+  {
+   "mode": "עיגון",
+   "rule": "R2",
+   "budget": 250,
+   "pos": 162,
+   "negLabeled": 86,
+   "negStructural": 146065,
+   "unsure": 2,
+   "raised": 0,
+   "lowered": 3,
+   "opened": 0,
+   "unreachable": 22,
+   "holdoutRecall": 0.6342461441611583,
+   "faUnseen": 0,
+   "residue": {
+    "accepted": 14167,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 14167,
+    "newAccepts": 0,
+    "newCorrect": 0,
+    "newFalse": 0,
+    "newNotAWord": 0,
+    "sample": [],
+    "badSample": []
+   }
+  },
+  {
+   "mode": "חיפוש",
+   "rule": "R2",
+   "budget": 250,
+   "pos": 162,
+   "negLabeled": 86,
+   "negStructural": 146065,
+   "unsure": 2,
+   "holdoutRecall": 0.27447277305634243,
+   "faUnseen": 2,
+   "residue": {
+    "accepted": 6045,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 6045,
+    "newAccepts": 126,
+    "newCorrect": 124,
+    "newFalse": 2,
+    "newNotAWord": 126,
+    "sample": [
+     {
+      "typed": "nother",
+      "term": "another"
+     },
+     {
+      "typed": "xplain",
+      "term": "explain"
+     },
+     {
+      "typed": "achine",
+      "term": "machine"
+     },
+     {
+      "typed": "eeting",
+      "term": "meeting"
+     },
+     {
+      "typed": "rganic",
+      "term": "organic"
+     },
+     {
+      "typed": "rotect",
+      "term": "protect"
+     },
+     {
+      "typed": "erious",
+      "term": "serious"
+     },
+     {
+      "typed": "edroom",
+      "term": "bedroom"
+     },
+     {
+      "typed": "rastic",
+      "term": "drastic"
+     },
+     {
+      "typed": "arlier",
+      "term": "earlier"
+     },
+     {
+      "typed": "xtreme",
+      "term": "extreme"
+     },
+     {
+      "typed": "ashion",
+      "term": "fashion"
+     },
+     {
+      "typed": "ission",
+      "term": "mission"
+     },
+     {
+      "typed": "pinion",
+      "term": "opinion"
+     },
+     {
+      "typed": "ictory",
+      "term": "victory"
+     },
+     {
+      "typed": "bility",
+      "term": "ability"
+     },
+     {
+      "typed": "apture",
+      "term": "capture"
+     },
+     {
+      "typed": "omplex",
+      "term": "complex"
+     },
+     {
+      "typed": "estiny",
+      "term": "destiny"
+     },
+     {
+      "typed": "isease",
+      "term": "disease"
+     }
+    ],
+    "badSample": [
+     {
+      "typed": "niform",
+      "term": "uniform",
+      "why": "other-variant"
+     },
+     {
+      "typed": "ersist",
+      "term": "persist",
+      "why": "other-variant"
+     }
+    ]
+   }
+  }
+ ]
+}

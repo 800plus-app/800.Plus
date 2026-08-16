@@ -235,7 +235,11 @@ function plan() {
     const rule = has('--r0') ? RULES.R0 : RULES.R2;
     const hashOf = buildHashMap(S, st);
     const oracle = makeOracle(S, rule, null, hashOf);
-    const model = LOOP.fitOn(S, st.labeled, fitOpts(shipped), structuralNeg, oracle);
+    /* ⛔ **העיגון ולא `fitOn`, וזה לא פרט.** ‏`FIT.solveThresholds` מאפס כל רצועה
+       בלי חיובית מתויגת (ראה §5ב), ולכן מודל שנבנה מ-250 תוויות הוא כמעט-ריק —
+       ורכישה שרצה מולו מודדת מרחק מגבול שאינו קיים. העיגון נותן את המודל שהתלמיד
+       באמת מחזיק עכשיו, וזה מה ש"היכן התלמיד חולק על המורה" אמור להימדד מולו. */
+    const model = anchoredModel(S, shipped, st.labeled, oracle, structuralNeg);
     const M = FIT.modelCoef(model);
     const rest = sp.train.filter(i => !already.has(i));
     picked = LOOP.acquire(S, rest, M, K);
@@ -277,6 +281,114 @@ function buildHashMap(S, st) {
   };
 }
 
+/* ===================== 5ב · ⭐ העיגון · והבאג שהוא עוקף =====================
+ *
+ * ⛔⛔ **‏`FIT.solveThresholds` הורג כל רצועה שאין בה חיובית מתויגת.** שלוש שורות:
+ *
+ *     if (posMax[c] === -Infinity) t[c] = 0;            // אף חיובית · הרצועה מתה
+ *     else t[c] = Math.min(t[c], snapBelow(posMax[c] + GRID));
+ *
+ * ⭐ **בהתאמה מלאה זה נכון**, וההערה שם מסבירה למה: ‏24,000 חיוביות מכסות כמעט כל
+ * תא ‎(משטר, רצועה)‎, וסף שאף חיובית אינה צריכה הוא בדיוק "רצועה שיושבת בתקרה כי
+ * הדאטה שותק שם" — הצורה שנפסלה בסבב ה-gloss.
+ *
+ * ⛔ **בלמידה פעילה זה קטלני, והוא נכשל בשקט.** ‏162 חיוביות מתפרסות על 42 תאים,
+ * רוב התאים נשארים ריקים, וכל אחד מהם מקבל סף **0**. המודל לא "לא השתפר" — הוא
+ * נמחק. ‏R0 הוא המקרה הקיצוני: ‏34 הקבלות שלו כולן שורות `gated` (הטיות), הלולאה
+ * מדלגת עליהן, ולכן **כל** הספים אופסו ו-recall יצא **0.00%** בדיוק.
+ *
+ * ⭐ זה בדיוק הדפוס שהפרויקט הזה מוצא שוב ושוב: **שומר שנכון באוכלוסייה אחת
+ * והרסני באחרת, ונופל בלי להרים דגל** — המספר פשוט נראה כמו "המורה לא עזר".
+ *
+ * ===== מה שהעיגון עושה במקומו =====
+ *
+ * הסמנטיקה הנכונה לזיקוק אינה "בנה מודל מאפס מ-162 תוויות" אלא **"קח את מה
+ * שנשלח, ותן למורה לתקן אותו היכן שיש לו עדות"**:
+ *
+ *     t[תא] = min( גבול_הבטיחות[תא] , max( הסף_הנשלח[תא] , מה_שהמורה_דורש[תא] ) )
+ *
+ *   · **המורה שותק בתא** ⇒ הסף הנשלח נשאר. אין הידוק ואין הרפיה.
+ *   · **המורה קיבל** שורה שנדחית היום ⇒ הסף עולה, עד גבול הבטיחות ולא מעבר.
+ *   · **המורה דחה** שורה שמתקבלת היום ⇒ גבול הבטיחות יורד מתחת לנשלח ⇒ הידוק.
+ *
+ * ⭐ **והשן שמוכיחה שזה לא קסם:** באפס תוויות מורה, העיגון מחזיר את המודל הנשלח
+ * **ביט-אחר-ביט על מפת ההחלטות המלאה** — כי המודל הנשלח כבר מקיים אפס קבלות-שווא
+ * מול השליליות המבניות, ולכן גבול הבטיחות שלהן אינו נמוך מהסף הנשלח באף תא.
+ * ⚠ זו אינה טענה · היא נבדקת ב-`--selftest` על הקורפוס האמיתי, וזורקת על הפרש אחד.
+ */
+
+const GRID = FIT.GRID;
+const snapBelow = v => {
+  if (!isFinite(v)) return Infinity;
+  return Math.max(0, Math.round(Math.floor((v - 1e-9) / GRID) * GRID * 1e6) / 1e6);
+};
+const snapAtLeast = v => Math.max(0, Math.round(Math.ceil((v - 1e-9) / GRID) * GRID * 1e6) / 1e6);
+
+function anchoredModel(S, shipped, labeled, verdictOf, structuralNeg) {
+  const M = FIT.modelCoef(shipped);
+  const cuts = shipped.cuts, NB = FIT.NBAND;
+  const NR = cuts.length + 1, CELLS = NR * NB;
+  const minLen = shipped.minLen || 0;
+  const usable = i => !(S.gated[i] || FIT.hardGated(S, i, M.marginHard) || S.tLen[i] < minLen);
+
+  const pos = [], neg = (structuralNeg || []).slice();
+  let unsure = 0;
+  for (const i of labeled) {
+    const v = verdictOf(i);
+    if (v === 'accept') pos.push(i);
+    else if (v === 'reject') neg.push(i);
+    else unsure++;
+  }
+
+  /* גבול הבטיחות · העלות הזולה ביותר של שלילית בכל תא */
+  const negMin = new Float64Array(CELLS).fill(Infinity);
+  for (const i of neg) {
+    if (!usable(i)) continue;
+    const R = FIT.regimeOf(S.gap[i], cuts), g = M.per[R], hi = S.off[i + 1];
+    for (let p = S.off[i]; p < hi; p++) {
+      const c = FIT.pairCost(S, p, g.wv, g.aFirst, g.aShare);
+      const cell = R * NB + S.pBand[p];
+      if (c < negMin[cell]) negMin[cell] = c;
+    }
+  }
+  const bound = new Float64Array(CELLS);
+  for (let c = 0; c < CELLS; c++) bound[c] = snapBelow(negMin[c]);
+
+  /* מה שהמורה דורש · לכל קבלה, הזוג **הזול ביותר שגבול הבטיחות מרשה** */
+  const need = new Float64Array(CELLS).fill(-Infinity);
+  let opened = 0, unreachable = 0;
+  for (const i of pos) {
+    if (!usable(i)) continue;
+    const R = FIT.regimeOf(S.gap[i], cuts), g = M.per[R], hi = S.off[i + 1];
+    let bc = Infinity, bcell = -1;
+    for (let p = S.off[i]; p < hi; p++) {
+      const c = FIT.pairCost(S, p, g.wv, g.aFirst, g.aShare);
+      const cell = R * NB + S.pBand[p];
+      if (c <= bound[cell] && c < bc) { bc = c; bcell = cell; }
+    }
+    if (bcell < 0) { unreachable++; continue; }   /* ⚠ קבלת מורה שהבטיחות אוסרת · נספרת ומדווחת */
+    const want = snapAtLeast(bc);
+    if (want > need[bcell]) need[bcell] = want;
+    if (want > M.t[bcell]) opened++;
+  }
+
+  const out = JSON.parse(JSON.stringify(shipped));
+  let raised = 0, lowered = 0;
+  for (let R = 0; R < NR; R++) {
+    for (let b = 0; b < NB; b++) {
+      const cell = R * NB + b, t0 = M.t[cell];
+      const want = need[cell] === -Infinity ? t0 : Math.max(t0, need[cell]);
+      const tf = Math.min(bound[cell], want);
+      out.regimes[R].bands[b].t = isFinite(tf) ? tf : t0;
+      if (out.regimes[R].bands[b].t > t0) raised++;
+      if (out.regimes[R].bands[b].t < t0) lowered++;
+    }
+  }
+  out.trainedOn = { pos: pos.length, negLabeled: neg.length - (structuralNeg || []).length,
+    negStructural: (structuralNeg || []).length, unsure, raised, lowered, opened, unreachable };
+  return out;
+}
+
 /* ===================== 6 · --report · עקומת הלמידה ===================== */
 
 function report() {
@@ -307,27 +419,38 @@ function report() {
   say('');
 
   const out = { set: 'en-word', baseline: base.recall, baselineFA: bFA, ceiling: ceil.recall, rows: [] };
-  say('| חוק | פסקים | קבלות מורה | דחיות | unsure | holdout recall | ⛔ FA לא-נראה | מול 74.63% |');
-  say('|---|---:|---:|---:|---:|---:|---:|---|');
 
+  /* ⭐ שער העיגון · באפס תוויות הוא **חייב** להחזיר את הנשלח, על מפת ההחלטות המלאה. */
+  const noop = anchoredModel(S, shipped, [], () => 'unsure', structuralNeg);
+  const nM = FIT.modelCoef(noop);
+  let diff = 0;
+  for (const i of sp.all) if (FIT.decideModel(S, i, nM) !== FIT.decideModel(S, i, bM)) diff++;
+  if (diff) throw new Error(`⛔ העיגון אינו no-op באפס תוויות · ${diff} החלטות נבדלות`);
+  say(`✅ שער העיגון · אפס תוויות ⇒ ${S.N} החלטות זהות למודל הנשלח, ביט-אחר-ביט`);
+  say('');
+
+  const evalRow = (tag, rk, B, m, lab) => {
+    const M = FIT.modelCoef(m);
+    const h = FIT.evalModel(S, sp.holdout, m);
+    const labSet = new Set(lab);
+    let fa = 0;
+    for (const i of sp.trainNeg) if (!labSet.has(i) && FIT.decideModel(S, i, M)) fa++;
+    for (const i of sp.holdNeg.concat(structuralNeg)) if (FIT.decideModel(S, i, M)) fa++;
+    const res = FIT.residue(S, sp.train.concat(sp.holdout, sp.cross), m, shipped);
+    const d = h.recall - base.recall;
+    out.rows.push({ mode: tag, rule: rk, budget: B, ...m.trainedOn, holdoutRecall: h.recall, faUnseen: fa, residue: res });
+    say(`| ${tag} | ${rk} | ${B} | ${m.trainedOn.pos} | ${m.trainedOn.negLabeled} | ${pct(h.recall)} | ${fa === 0 ? '**0** ✅' : '**' + fa + '** ⛔'} | ${d >= 0 ? '+' : ''}${(100 * d).toFixed(2)} | ${res.accepted} · ${res.realWord} · ${res.notAWord} |`);
+  };
+
+  say('| שיטה | חוק | פסקים | קבלות | דחיות | holdout | ⛔ FA לא-נראה | מול 74.63% | שארית · מילים · לא-מילה |');
+  say('|---|---|---:|---:|---:|---:|---:|---|---|');
   for (const rk of ['R0', 'R2']) {
-    const rule = RULES[rk];
-    const oracle = makeOracle(S, rule, null, hashOf);
-    let acc = 0;
+    const oracle = makeOracle(S, RULES[rk], null, hashOf);
     for (const B of budgets(st)) {
       const lab = st.labeled.slice(0, B);
-      const m = LOOP.fitOn(S, lab, o, structuralNeg, oracle);
-      const M = FIT.modelCoef(m);
-      const h = FIT.evalModel(S, sp.holdout, m);
-      let fa = 0;
-      for (const i of sp.trainNeg) if (!lab.includes(i) && FIT.decideModel(S, i, M)) fa++;
-      for (const i of sp.holdNeg.concat(structuralNeg)) if (FIT.decideModel(S, i, M)) fa++;
-      const d = h.recall - base.recall;
-      out.rows.push({ rule: rk, budget: B, ...m.trainedOn, holdoutRecall: h.recall, faUnseen: fa });
-      say(`| ${rk} | ${B} | ${m.trainedOn.pos} | ${m.trainedOn.negLabeled} | ${m.trainedOn.unsure} | ${pct(h.recall)} | ${fa} | ${d >= 0 ? '+' : ''}${(100 * d).toFixed(2)} |`);
-      acc = h.recall;
+      evalRow('עיגון', rk, B, anchoredModel(S, shipped, lab, oracle, structuralNeg), lab);
+      evalRow('חיפוש', rk, B, LOOP.fitOn(S, lab, o, structuralNeg, oracle), lab);
     }
-    void acc;
   }
   fs.writeFileSync(path.join(OUT, 'distill-curve.json'), JSON.stringify(out, null, 1));
   say('');
