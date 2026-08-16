@@ -25,6 +25,10 @@ const path = require('path');
 const OUT = path.join(__dirname, 'out');
 const argv = process.argv.slice(2);
 const CHECK = argv.includes('--check');
+/* ‏--out · תוספת אדיטיבית · ברירת המחדל לא זזה. קיימת כדי שאפשר יהיה להפיק
+   טבלת זהב **למועמד** בלי לדרוס את זו שנשלחת · ראה golden.STUDENT.jsonl. */
+const oi = argv.indexOf('--out');
+const OUT_FILE = oi >= 0 && argv[oi + 1] ? path.resolve(argv[oi + 1]) : null;
 const ri = argv.indexOf('--rules');
 const RULES_PATH = ri >= 0 && argv[ri + 1]
   ? path.resolve(argv[ri + 1])
@@ -54,7 +58,7 @@ function main() {
   const nOk = golden.filter(g => g.verdict.ok).length;
   say(`טבלת זהב · ${golden.length} החלטות · ${nOk} קבלות · ${golden.length - nOk} פסילות`);
 
-  const file = path.join(OUT, 'golden.jsonl');
+  const file = OUT_FILE || path.join(OUT, 'golden.jsonl');
   if (CHECK) {
     if (!fs.existsSync(file)) { say('⛔ out/golden.jsonl חסר'); process.exit(1); }
     /* ‏\r?\n · ‏git ממיר ל-CRLF ב-checkout על ווינדוס, ולכן ההשוואה היא שורה-שורה
@@ -80,12 +84,12 @@ function main() {
   fs.writeFileSync(file, text, 'utf8');
   /* ‏tests/71 משווה את מספר השורות מול השדה בארטיפקט · בלי העדכון הזה הבדיקה
      נופלת על "מספר השורות אינו זה שהארטיפקט מדווח", וזה נכון שהיא תיפול. */
-  if (!rules.golden || rules.golden.rows !== golden.length) {
+  if (!OUT_FILE && (!rules.golden || rules.golden.rows !== golden.length)) {
     rules.golden = { rows: golden.length, file: 'golden.jsonl' };
     fs.writeFileSync(RULES_PATH, JSON.stringify(rules, null, 1), 'utf8');
     say(`  עודכן ${path.basename(RULES_PATH)} · golden.rows = ${golden.length}`);
   }
-  say(`נכתב out/golden.jsonl · ${((Date.now() - t0) / 1000).toFixed(1)}s`);
+  say(`נכתב ${path.basename(file)} · ${((Date.now() - t0) / 1000).toFixed(1)}s`);
 }
 
 if (require.main === module) main();

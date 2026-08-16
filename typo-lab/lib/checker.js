@@ -310,6 +310,57 @@ function featureCost(a, b, W, cap, aFirst, aShare) {
   return best <= cap ? best : Infinity;
 }
 
+/* ===== שכבה 5 · צירוף מקטעים חלקי · `segConcat` =====
+ *
+ * מה זה פותר · מקרה H16-3 של חגי (16.8): `cosmopolitan` מפורש
+ * "קוסמופוליטי, רב-תרבותי, בעל אופי בין-לאומי", והוא הקליד `קוסמופוליטי רב תרבותי`
+ * — **שני מקטעים נכונים ברצף**. ‏`norm` מסירה את הפסיק, ולכן צירוף **כל** המקטעים
+ * בסדרם כבר שווה ל-`norm(meaning)` ומתקבל בשכבה הראשונה; צירוף **חלקי** אינו שווה
+ * לכלום, ואף שכבה לא הגיעה אליו. הפסק היה `far` במרחק 10.
+ *
+ * ⚠ **התאמה מדויקת בלבד, ולא הזנה למכונת המרחק.** הצורות שנוספות אינן נכנסות
+ * ל-`cands`: מחרוזת מתקבלת רק אם היא **שווה** לאחד הצירופים. זה בדיוק מה שנמדד
+ * (‏`measure_segconcat.js`), והזנה למכונת המרחק הייתה מרחיבה את שטח הפנים מעבר
+ * למה שנמדד.
+ *
+ * ⚠ **רצופים ובסדרם בלבד** (`C1`). שתי ההרפיות נמדדו ונדחו: `C2` (לא-רצופים)
+ * אינו קונה דבר מעל C1, ו-`C3` (כל סדר) מכפיל את שטח הפנים פי 17 (‏56,349 מול
+ * 3,244) וגדל **פקטוריאלית** במספר המקטעים.
+ *
+ * המדידה, תוך-מאגר, עם הפרמטרים הנשלחים:
+ *   ‏3,243 מחרוזות נוספות · **אפס** התנגשויות מדויקות · אפס בשער האמיתי
+ *   (‏`langModel` + `makeChecker`, ‏72 זוגות הגיעו לבודק).
+ */
+const SEG_CONCAT_MAX = 5;          // מקטעים ראשונים · מעבר לזה הגידול מתפוצץ
+
+/* ⛔ החריג · **נתון ליד המנגנון, לא `if` בתוך הלוגיקה.**
+ * ‏`tie` מחזיק [לקשור · קשר · עניבה]. הצירוף הצמוד של שני הראשונים מייצר
+ * `"לקשור קשר"` — שאינו "לקשור קשר פיזי" אלא **ניב** שמשמעותו להתחבר בקנוניה,
+ * והוא הפירוש הרשום של `plot`. כלומר הצירוף התמים של שני מקטעים **חוצה משמעות**.
+ * זה בדיוק מה שהווטו קיים בשבילו, ולכן הזוג נחסם נקודתית ולא על ידי הזזת סף.
+ * ‏`measure_segconcat --selftest` מוכיח אדום בלי החריג וירוק איתו. */
+const SEG_CONCAT_EXCEPTIONS = [
+  { term: 'tie', typed: 'לקשור קשר', why: 'צירוף שני מקטעים מייצר ניב · הפירוש של plot' },
+];
+
+function segConcatFormsOf(card, ctx, segs) {
+  const use = segs.slice(0, SEG_CONCAT_MAX);
+  const out = new Set();
+  if (use.length < 2) return out;
+  const full = segs.join(' ');
+  for (let i = 0; i < use.length; i++) {
+    for (let j = i + 1; j < use.length; j++) {
+      const s = use.slice(i, j + 1).join(' ');
+      if (s !== full) out.add(s);          // הצירוף המלא בסדרו כבר מתקבל היום
+    }
+  }
+  const own = ctx.K(card && card.term);
+  for (const e of SEG_CONCAT_EXCEPTIONS) {
+    if (ctx.K(e.term) === own) out.delete(ctx.norm(e.typed));
+  }
+  return out;
+}
+
 /* ברירות מחדל שמרניות · גנום חסר-גן אינו נופל לסובלנות רחבה בשקט. */
 const UNIT_DEFAULTS = { sub: 1, adjSub: 1, transpose: 2, ins: 1, del: 1, doubleLetter: 1, materVI: 1, homophone: 1 };
 const normBands = b => b.map(x => ({ maxLen: x.maxLen == null ? Infinity : x.maxLen, t: x.t == null ? 0 : x.t }))
@@ -351,6 +402,10 @@ function normalizeParams(params) {
     /* ברירת המחדל היא **דלוק**. פרמטרים ישנים שנטענים מהדיסק בלי השדה הזה מקבלים את
        השכבה, ולא מאבדים אותה בשקט · זה הכיוון הבטוח מבין השניים. */
     useLexicon: p.useLexicon !== false,
+    /* ⛔ ברירת המחדל **כבויה**, והכיוון הפוך מ-`useLexicon` בכוונה: זו שכבה
+       ש**מוסיפה** קבלות, ולכן גנום ישן שנטען מהדיסק בלי השדה חייב לקבל בדיוק
+       את ההתנהגות של היום. ‏`=== true` ולא `!== false` — הפעלה היא הצהרה. */
+    segConcat: p.segConcat === true,
     bands, W, bandsTight, WTight
   };
 }
@@ -471,10 +526,24 @@ function makeChecker(params, ctx, veto, lang) {
     return decide(key, keysOf(card), isVetoedTerm(key, card, veto, ctx), IX.term, allowOf(card).term, true, ctx.LANG);
   }
 
+  const concatCache = new Map();
+  const concatOf = card => {
+    const id = cardId(card);
+    let v = concatCache.get(id);
+    if (!v) { v = segConcatFormsOf(card, ctx, segsOf(card)); concatCache.set(id, v); }
+    return v;
+  };
+
   function acceptGloss(typed, card) {
     if (ctx.meaningMatch(typed, card && card.meaning)) return { ok: true, via: 'exact' };
     const seg = ctx.norm(typed);
     if (!seg) return { ok: false, why: 'far' };
+    /* ‏5 · צירוף מקטעים חלקי · **אחרי** שכבת היום ו**לפני** מכונת המרחק.
+       הווטו נבדק כאן במפורש: צירוף שהוא פירוש של ערך אחר נפסל, בדיוק כמו כל
+       מחרוזת אחרת. בלי זה השכבה הייתה עוקפת את הווטו שהיא יושבת מעליו. */
+    if (P.segConcat && concatOf(card).has(seg) && !isVetoedSeg(seg, card, veto, ctx)) {
+      return { ok: true, via: 'typo', by: 'seg-concat', dist: 0 };
+    }
     /* ‏'he' תמיד · מקטע פירוש הוא עברית גם כשהמאגר אנגלי, וזו אותה הבחנה שפה-**וסט**
        שהמטמון של הבודק עושה. לקסיקון אנגלי על "כר דשא" היה שכבה מתה. */
     return decide(seg, segsOf(card), isVetoedSeg(seg, card, veto, ctx), IX.seg, allowOf(card).seg, false, 'he');

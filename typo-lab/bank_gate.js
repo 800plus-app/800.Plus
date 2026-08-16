@@ -109,6 +109,11 @@ function shipParams() {
     };
     if (q.marginHard != null) o.marginHard = q.marginHard;
     if (q.marginSoft != null) o.marginSoft = q.marginSoft;
+    /* ⚠ 16.8 · הגן החדש `segConcat` חייב לעבור כאן במפורש, מאותה סיבה בדיוק
+       שהמשטר הצר חייב: `normalizeParams` מכבה אותו כברירת מחדל, ולכן ארטיפקט
+       שמפעיל אותו היה נבדק כאן כאילו הוא כבוי — שער ירוק על פרמטרים שאינם
+       הנשלחים. זה הכיוון המסוכן, ולכן הוא מפורש. */
+    if (q.segConcat != null) o.segConcat = q.segConcat;
     if (Array.isArray(q.bandsTight) && q.bandsTight.length) o.bandsTight = nb(q.bandsTight);
     if (q.WTight) o.WTight = q.WTight;
     /* ‏4ד · מקדמי התכונה חייבים לעבור כאן במפורש, **מאותו נימוק בדיוק** שכתוב למעלה
@@ -145,6 +150,9 @@ function fingerprint(sets) {
     marginSoft: q.marginSoft == null ? null : q.marginSoft,
     bandsTight: q.bandsTight ? nb(q.bandsTight) : null,
     WTight: q.WTight ? nw(q.WTight) : null,
+    /* ⚠ 16.8 · כל גן חדש נכנס לטביעה. זה נפל כאן פעמיים (משטר צר, ואז מקדמי
+       התכונה), ובשתי הפעמים השער היה עיוור בדיוק לגן שהוא שומר עליו. */
+    segConcat: q.segConcat == null ? null : !!q.segConcat,
   });
   /* ‏4ד · שני ארטיפקטים שנבדלים רק במקדמי התכונה חייבים לקבל טביעות שונות · אחרת
      `verify_all` משווה טביעה, מוצא התאמה, ומכריז שהדוח מתאר את מה שנשלח בזמן שהוא
