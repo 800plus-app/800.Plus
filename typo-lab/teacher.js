@@ -551,7 +551,11 @@ function loadBlindTsv(file, hasDir) {
   if (!fs.existsSync(p)) throw new Error(`חסר ${file} · הרץ  node typo-lab/calib_mine.js`);
   const base = file.replace(/\.tsv$/, '');
   const { m: lab, note } = loadLabels(base);
-  const lines = fs.readFileSync(p, 'utf8').replace(/^﻿/, '').split(/\r?\n/).filter(Boolean).slice(1);
+  /* ⚠ שורות `#` הן **פרובננס ולא נתונים** — `en-blind2.tsv` נושא בראשו את hash
+     הנעילה. סינון לפני ה-`slice(1)`, אחרת שורת ההערה נבלעת ככותרת ושורת
+     הכותרת האמיתית נקראת כנתון. זה שינוי ב**קורא** בלבד · אינו נוגע ב-`decide()`. */
+  const lines = fs.readFileSync(p, 'utf8').replace(/^﻿/, '').split(/\r?\n/)
+    .filter(l => l.trim() && !l.startsWith('#')).slice(1);
   return lines.map(l => {
     const c = l.split('\t');
     const o = hasDir
@@ -564,6 +568,7 @@ function loadBlindTsv(file, hasDir) {
 const BLIND_SETS = {
   nearneg24: () => loadBlindTsv('near-neg-blind.tsv', false),
   en40: () => loadBlindTsv('en-blind.tsv', true),
+  en2: () => loadBlindTsv('en-blind2.tsv', true),
 };
 
 function buildBlind(name) {
@@ -877,7 +882,7 @@ function scoreSet(name) {
   const raw = new Map(fs.readFileSync(setPath(name), 'utf8').split(/\r?\n/).filter(Boolean)
     .map(l => JSON.parse(l)).map(r => [itemOf(r).h, r]));
   const led = loadLedger(name);
-  const dp = path.join(OUT, name === 'en40' ? 'en-blind.design.json' : 'near-neg-blind.design.json');
+  const dp = path.join(OUT, name === 'en40' ? 'en-blind.design.json' : name === 'en2' ? 'en-blind2.design.json' : 'near-neg-blind.design.json');
   const design = fs.existsSync(dp) ? new Map(JSON.parse(fs.readFileSync(dp, 'utf8')).rows.map(r => [r.id, r])) : new Map();
 
   const rows = items.map(it => {
@@ -1380,4 +1385,4 @@ if (require.main === module) {
   } catch (e) { say('⛔ ' + e.message); process.exitCode = 1; }
 }
 
-module.exports = { judge, isTautology, ablate, negtest, scoreSet, buildBlind, BLIND_SETS, buildNeg, RETIRED, ALL_IDS, itemOf, decide, majority, applicable, appliesTo, wordDiff, LENSES, LENS_IDS, loadLedger, ingest, emit, loadSet, humanTruth };
+module.exports = { judge, isTautology, isNominalization, isMorphPair, ablate, negtest, scoreSet, buildBlind, BLIND_SETS, buildNeg, RETIRED, ALL_IDS, itemOf, decide, majority, applicable, appliesTo, wordDiff, LENSES, LENS_IDS, loadLedger, ingest, emit, loadSet, humanTruth };
