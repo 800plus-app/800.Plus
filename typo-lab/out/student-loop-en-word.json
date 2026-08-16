@@ -1,0 +1,401 @@
+{
+ "set": "en-word",
+ "cache": {
+  "file": "C:\\Users\\03hag\\Claude projects\\800+\\typo-lab\\out\\cache\\en-word.json",
+  "withCross": true
+ },
+ "teacher": "dataset-labels (זמני · המורה האמיתי טרם נבנה)",
+ "baselineHoldoutRecall": 0.6792571608435631,
+ "ceiling": {
+  "holdoutRecall": 0.8108278249921309,
+  "faUnseen": 1,
+  "labels": 30042
+ },
+ "curve": [
+  {
+   "budget": 250,
+   "mode": "uniform",
+   "labels": 250,
+   "holdoutRecall": 0.8278249921309412,
+   "faUnseen": 7,
+   "faUnlabeled": 6,
+   "faHoldout": 1,
+   "faCross": 0
+  },
+  {
+   "budget": 250,
+   "mode": "boundary",
+   "labels": 250,
+   "holdoutRecall": 0.8278249921309412,
+   "faUnseen": 7,
+   "faUnlabeled": 6,
+   "faHoldout": 1,
+   "faCross": 0
+  },
+  {
+   "budget": 500,
+   "mode": "uniform",
+   "labels": 500,
+   "holdoutRecall": 0.8508026440037771,
+   "faUnseen": 9,
+   "faUnlabeled": 8,
+   "faHoldout": 1,
+   "faCross": 0
+  },
+  {
+   "budget": 500,
+   "mode": "boundary",
+   "labels": 500,
+   "holdoutRecall": 0.8709474346868115,
+   "faUnseen": 9,
+   "faUnlabeled": 8,
+   "faHoldout": 1,
+   "faCross": 0
+  },
+  {
+   "budget": 1000,
+   "mode": "uniform",
+   "labels": 1000,
+   "holdoutRecall": 0.8800755429650614,
+   "faUnseen": 12,
+   "faUnlabeled": 10,
+   "faHoldout": 2,
+   "faCross": 0
+  },
+  {
+   "budget": 1000,
+   "mode": "boundary",
+   "labels": 1000,
+   "holdoutRecall": 0.8750393452943028,
+   "faUnseen": 4,
+   "faUnlabeled": 3,
+   "faHoldout": 1,
+   "faCross": 0
+  },
+  {
+   "budget": 2000,
+   "mode": "uniform",
+   "labels": 2000,
+   "holdoutRecall": 0.8816493547371734,
+   "faUnseen": 12,
+   "faUnlabeled": 10,
+   "faHoldout": 2,
+   "faCross": 0
+  },
+  {
+   "budget": 2000,
+   "mode": "boundary",
+   "labels": 2000,
+   "holdoutRecall": 0.8750393452943028,
+   "faUnseen": 4,
+   "faUnlabeled": 3,
+   "faHoldout": 1,
+   "faCross": 0
+  },
+  {
+   "budget": 4000,
+   "mode": "uniform",
+   "labels": 4000,
+   "holdoutRecall": 0.8800755429650614,
+   "faUnseen": 11,
+   "faUnlabeled": 9,
+   "faHoldout": 2,
+   "faCross": 0
+  },
+  {
+   "budget": 4000,
+   "mode": "boundary",
+   "labels": 4000,
+   "holdoutRecall": 0.8750393452943028,
+   "faUnseen": 4,
+   "faUnlabeled": 3,
+   "faHoldout": 1,
+   "faCross": 0
+  },
+  {
+   "budget": 8000,
+   "mode": "uniform",
+   "labels": 8000,
+   "holdoutRecall": 0.8800755429650614,
+   "faUnseen": 10,
+   "faUnlabeled": 8,
+   "faHoldout": 2,
+   "faCross": 0
+  },
+  {
+   "budget": 8000,
+   "mode": "boundary",
+   "labels": 8000,
+   "holdoutRecall": 0.8750393452943028,
+   "faUnseen": 4,
+   "faUnlabeled": 3,
+   "faHoldout": 1,
+   "faCross": 0
+  },
+  {
+   "budget": 16000,
+   "mode": "uniform",
+   "labels": 16000,
+   "holdoutRecall": 0.8788164935473717,
+   "faUnseen": 10,
+   "faUnlabeled": 8,
+   "faHoldout": 2,
+   "faCross": 0
+  },
+  {
+   "budget": 16000,
+   "mode": "boundary",
+   "labels": 16000,
+   "holdoutRecall": 0.8136606861819327,
+   "faUnseen": 1,
+   "faUnlabeled": 0,
+   "faHoldout": 1,
+   "faCross": 0
+  },
+  {
+   "budget": 30042,
+   "mode": "uniform",
+   "labels": 30042,
+   "holdoutRecall": 0.8108278249921309,
+   "faUnseen": 1,
+   "faUnlabeled": 0,
+   "faHoldout": 1,
+   "faCross": 0
+  },
+  {
+   "budget": 30042,
+   "mode": "boundary",
+   "labels": 18468,
+   "holdoutRecall": 0.8108278249921309,
+   "faUnseen": 1,
+   "faUnlabeled": 0,
+   "faHoldout": 1,
+   "faCross": 0
+  }
+ ],
+ "reachedCeiling": {
+  "boundary": 16000,
+  "uniform": 30042
+ },
+ "stoppingRun": {
+  "rounds": 21,
+  "labels": 5250,
+  "perRound": [
+   {
+    "round": 0,
+    "labels": 250,
+    "holdoutRecall": 0.8278249921309412,
+    "holdoutTp": 2630,
+    "faUnlabeled": 6,
+    "faHoldout": 1,
+    "faCross": 0,
+    "faUnseen": 7
+   },
+   {
+    "round": 1,
+    "labels": 500,
+    "holdoutRecall": 0.8709474346868115,
+    "holdoutTp": 2767,
+    "faUnlabeled": 8,
+    "faHoldout": 1,
+    "faCross": 0,
+    "faUnseen": 9
+   },
+   {
+    "round": 2,
+    "labels": 750,
+    "holdoutRecall": 0.8756688700031476,
+    "holdoutTp": 2782,
+    "faUnlabeled": 8,
+    "faHoldout": 1,
+    "faCross": 0,
+    "faUnseen": 9
+   },
+   {
+    "round": 3,
+    "labels": 1000,
+    "holdoutRecall": 0.8750393452943028,
+    "holdoutTp": 2780,
+    "faUnlabeled": 3,
+    "faHoldout": 1,
+    "faCross": 0,
+    "faUnseen": 4
+   },
+   {
+    "round": 4,
+    "labels": 1250,
+    "holdoutRecall": 0.8750393452943028,
+    "holdoutTp": 2780,
+    "faUnlabeled": 3,
+    "faHoldout": 1,
+    "faCross": 0,
+    "faUnseen": 4
+   },
+   {
+    "round": 5,
+    "labels": 1500,
+    "holdoutRecall": 0.8750393452943028,
+    "holdoutTp": 2780,
+    "faUnlabeled": 3,
+    "faHoldout": 1,
+    "faCross": 0,
+    "faUnseen": 4
+   },
+   {
+    "round": 6,
+    "labels": 1750,
+    "holdoutRecall": 0.8750393452943028,
+    "holdoutTp": 2780,
+    "faUnlabeled": 3,
+    "faHoldout": 1,
+    "faCross": 0,
+    "faUnseen": 4
+   },
+   {
+    "round": 7,
+    "labels": 2000,
+    "holdoutRecall": 0.8750393452943028,
+    "holdoutTp": 2780,
+    "faUnlabeled": 3,
+    "faHoldout": 1,
+    "faCross": 0,
+    "faUnseen": 4
+   },
+   {
+    "round": 8,
+    "labels": 2250,
+    "holdoutRecall": 0.8750393452943028,
+    "holdoutTp": 2780,
+    "faUnlabeled": 3,
+    "faHoldout": 1,
+    "faCross": 0,
+    "faUnseen": 4
+   },
+   {
+    "round": 9,
+    "labels": 2500,
+    "holdoutRecall": 0.8750393452943028,
+    "holdoutTp": 2780,
+    "faUnlabeled": 3,
+    "faHoldout": 1,
+    "faCross": 0,
+    "faUnseen": 4
+   },
+   {
+    "round": 10,
+    "labels": 2750,
+    "holdoutRecall": 0.8750393452943028,
+    "holdoutTp": 2780,
+    "faUnlabeled": 3,
+    "faHoldout": 1,
+    "faCross": 0,
+    "faUnseen": 4
+   },
+   {
+    "round": 11,
+    "labels": 3000,
+    "holdoutRecall": 0.8750393452943028,
+    "holdoutTp": 2780,
+    "faUnlabeled": 3,
+    "faHoldout": 1,
+    "faCross": 0,
+    "faUnseen": 4
+   },
+   {
+    "round": 12,
+    "labels": 3250,
+    "holdoutRecall": 0.8750393452943028,
+    "holdoutTp": 2780,
+    "faUnlabeled": 3,
+    "faHoldout": 1,
+    "faCross": 0,
+    "faUnseen": 4
+   },
+   {
+    "round": 13,
+    "labels": 3500,
+    "holdoutRecall": 0.8750393452943028,
+    "holdoutTp": 2780,
+    "faUnlabeled": 3,
+    "faHoldout": 1,
+    "faCross": 0,
+    "faUnseen": 4
+   },
+   {
+    "round": 14,
+    "labels": 3750,
+    "holdoutRecall": 0.8750393452943028,
+    "holdoutTp": 2780,
+    "faUnlabeled": 3,
+    "faHoldout": 1,
+    "faCross": 0,
+    "faUnseen": 4
+   },
+   {
+    "round": 15,
+    "labels": 4000,
+    "holdoutRecall": 0.8750393452943028,
+    "holdoutTp": 2780,
+    "faUnlabeled": 3,
+    "faHoldout": 1,
+    "faCross": 0,
+    "faUnseen": 4
+   },
+   {
+    "round": 16,
+    "labels": 4250,
+    "holdoutRecall": 0.8750393452943028,
+    "holdoutTp": 2780,
+    "faUnlabeled": 3,
+    "faHoldout": 1,
+    "faCross": 0,
+    "faUnseen": 4
+   },
+   {
+    "round": 17,
+    "labels": 4500,
+    "holdoutRecall": 0.8750393452943028,
+    "holdoutTp": 2780,
+    "faUnlabeled": 3,
+    "faHoldout": 1,
+    "faCross": 0,
+    "faUnseen": 4
+   },
+   {
+    "round": 18,
+    "labels": 4750,
+    "holdoutRecall": 0.8750393452943028,
+    "holdoutTp": 2780,
+    "faUnlabeled": 3,
+    "faHoldout": 1,
+    "faCross": 0,
+    "faUnseen": 4
+   },
+   {
+    "round": 19,
+    "labels": 5000,
+    "holdoutRecall": 0.8750393452943028,
+    "holdoutTp": 2780,
+    "faUnlabeled": 3,
+    "faHoldout": 1,
+    "faCross": 0,
+    "faUnseen": 4
+   },
+   {
+    "round": 20,
+    "labels": 5250,
+    "holdoutRecall": 0.8750393452943028,
+    "holdoutTp": 2780,
+    "faUnlabeled": 3,
+    "faHoldout": 1,
+    "faCross": 0,
+    "faUnseen": 4
+   }
+  ]
+ },
+ "pairwise": {
+  "boundary": 6,
+  "uniform": 0,
+  "tie": 2
+ }
+}
