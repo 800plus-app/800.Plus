@@ -62,12 +62,17 @@ const RULES = {
   R0: { name: 'נעול · כמו teacher.js', drops: () => false, quorum: () => 3 },
   R1: { name: 'T5 אינה חלה ב-word', drops: (l, it) => l === 'T5' && it.direction === 'word', quorum: () => 3 },
   R2: { name: 'T5 יוצאת + מכסה 2 ב-word', drops: (l, it) => l === 'T5' && it.direction === 'word', quorum: it => (it.direction === 'word' ? 2 : 3) },
+  /* ⭐ ‏R3 · ‏R2 + השומר על וטו שם-הפעולה · ראה `--nominal`. ההכרעה של חגי נשמרת
+     במלואה (גזירה אמיתית עדיין נדחית בכיוון `word`); מה שמשתנה הוא שהווטו מפסיק
+     לירות על **שגיאת הקלדה שפגעה בסיומת נומינלית** (`ment`→`ent` · `ure`→`re`). */
+  R3: { name: 'R2 + שומר על וטו שם-הפעולה', drops: (l, it) => l === 'T5' && it.direction === 'word', quorum: it => (it.direction === 'word' ? 2 : 3), guardNom: true },
 };
 
 function decideBy(rule, it, v) {
   if (!v) return 'unsure';
   if (T.isTautology(it)) return 'reject';
-  if (it.direction === 'word' && T.isNominalization(it.term, it.typed)) return 'reject';
+  if (it.direction === 'word' && T.isNominalization(it.term, it.typed)
+      && !(rule.guardNom && typoGuard(it.term, it.typed))) return 'reject';
   const app = T.applicable(it).filter(l => !rule.drops(l, it));
   const got = app.filter(l => v[l]);
   if (app.some(l => v[l] === 'ל')) return 'reject';
