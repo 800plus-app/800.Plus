@@ -127,6 +127,44 @@ const num = (f, d) => { const v = arg(f, null); return v === null ? d : Number(v
 
 const LABELS = ['כ', 'ל', '?'];
 
+/* ═══════════════════════════════════════════════════════════════════════════
+ * ⭐ **הכרעת חגי · 16.8.2026 · שם-פעולה מול פועל · תלוי כיוון**
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ *   כיוון `word`  · הלומד מקליד את **המילה עצמה**  ⇒ ⛔ **לדחות**
+ *                   צריך את הצורה המדויקת · זה בדיוק מה שנבחן במסך הזה.
+ *   כיוון `gloss` · הלומד מקליד את **הפירוש**      ⇒ ✅ **לקבל**
+ *                   שם הוא ממילא מנסח בלשונו, והצורה אינה הנשאלת.
+ *
+ * הנימוק שהוצג לו והוא בחר בו: **המסך שואל שתי שאלות שונות**, ולכן חוק אחיד
+ * היה טועה באחת מהן בהכרח.
+ *
+ * מה שההכרעה סוגרת · המחלקה שחזרה בשתי השפות:
+ *   אנגלית · `E38/E39/E40` · `להחליט`→`החלטה` · `להרוס`→`הרס` · `להגיע`→`הגעה`
+ *   עברית  · `M1116.1676` (טיפש→טיפשות) · `M145.228` (חסר→חוסר) · ועוד שתיים
+ *
+ * ⚠ **היסטוריה · אל תחזיר אותה.** עד ההכרעה `--calib` הדפיס **שני** ניקודים
+ * זה לצד זה (‏"?"=ל ו-"?"=כ) כי לא היה מותר להכריע. עכשיו יש הכרעה, ושני
+ * מספרים היו הופכים לרעש שמטעה את הסוכן הבא. מודפס ניקוד **אחד**.
+ * הניקוד השני נשמר בהיסטוריית הגיט ובהערה הזאת בלבד.
+ *
+ * ⚠⚠ **הנעילה קדמה להכרעה.** ‏`teacher.js` ננעל בקומיט `95c4448` **לפני**
+ * שחגי הכריע, ולכן החוק שהמורה ננעל עליו **אינו כולל** את ההכרעה הזאת.
+ * לסט `en-blind2` יש מזה משמעות ישירה — ראה `EN2_CAVEAT` למטה.
+ */
+const RULING_Q = it => (it.direction === 'gloss' ? 'כ' : 'ל');
+
+/* ⛔ **הסייג על הסט החוץ-מדגמי · לא לבלוע אותו.**
+ * ‏`en-blind2` נדגם אחרי הנעילה כדי לבחון חוק שננעל לפניו. ההכרעה של חגי
+ * נכנסה **אחרי** הנעילה וגם אחרי הדגימה. לכן:
+ *   · אם התוצאה על `en-blind2` **אינה** מושפעת מההכרעה — הוא נשאר בדיקה
+ *     חוץ-מדגמית נקייה של החוק הנעול.
+ *   · אם היא **כן** מושפעת (יש בו שורות מהמחלקה הזאת) — הוא בוחן חוק
+ *     שנערך אחרי שננעל, ומעמדו כבדיקה חוץ-מדגמית **נחלש**. זה צריך להיאמר
+ *     במפורש בדוח, לא להיבלע.
+ * המדידה עצמה תיעשה רק אחרי שיחזרו התיוגים. */
+const EN2_CAVEAT = 'הנעילה 95c4448 קדמה להכרעת 16.8 · ראה RULING_Q';
+
 /* הקנוניזציה היא **חלק מהחוזה**. שינוי כאן מבטל את כל הפנקס, ולכן היא מינימלית:
    רווחים מנורמלים, קצוות נחתכים. אין הסרת ניקוד ואין נרמול אותיות סופיות —
    אלה שינויי משמעות פוטנציאליים והמורה צריך לראות בדיוק את מה שהאפליקציה ראתה. */
@@ -251,8 +289,35 @@ const applicable = it => LENS_IDS.filter(l => appliesTo(l, it));
  * הסתכלות על אותן 24 שורות שהוא מנוקד עליהן, והוא מגיע שם ל-24/24. **אין
  * להסיק מזה הכללה.** נדרש סט אנגלי שני, שנבנה ותויג בלי לראות את החוק הזה,
  * לפני שמאמנים עליו משהו. זה כתוב כאן ולא בדוח כי הדוח נזרק והקוד נשאר. */
+/* ⭐ אכיפת הכרעת חגי בכיוון `word` · שם-פעולה נדחה.
+ *
+ * גזירה **נומינלית** (פועל→שם פעולה) מזוהה מבנית: גזע משותף באורך ≥4 ואחד
+ * הצדדים נושא סיומת שם-פעולה שהשני אינו נושא. `decide`→`decision` ·
+ * `arrive`→`arrival` · `destroy`→`destruction`.
+ *
+ * ⚠ **זה עובד באנגלית בלבד.** בעברית שם-פעולה נגזר בתבנית ולא בסיומת
+ * (`להסית`→`הסתה`), וזיהוי שלו דורש לקסיקון — שאסור כאן משפטית (‏AGPL ·
+ * `המשך-מכאן.md §1`). לכן בעברית ההכרעה נאכפת ב**ניקוד** (`RULING_Q`) ולא
+ * בהתנהגות, ואין למורה דרך מבנית לקבל את המחלקה הזאת בכיוון `word` העברי.
+ * ‏⚠ אין היום אף פריט כיול בכיוון `word` בעברית, ולכן זה גם לא נמדד. */
+const EN_NOMINAL = ['ation', 'ition', 'tion', 'sion', 'ment', 'ance', 'ence', 'ure', 'al', 'age', 'ity', 'ness'];
+function isNominalization(a, b) {
+  const x = lc(a), y = lc(b);
+  if (x === y) return false;
+  const stem = (() => { let i = 0; while (i < x.length && i < y.length && x[i] === y[i]) i++; return i; })();
+  if (stem < 4) return false;
+  /* ⛔ הבדיקה היא על **הזנב שנבדל**, לא על המילה השלמה.
+     הבאג שה-selftest תפס: `bandage` **מסתיימת** ב-`age` במקרה, ולכן בדיקה על
+     המילה השלמה סיווגה את `bandage`→`bandages` — ריבוי רגיל — כגזירה נומינלית,
+     ובכיוון `word` זה היה הופך קבלה נכונה לדחייה. מה שקובע הוא מה **נוסף**. */
+  const nomTail = s => s.length > 0 && EN_NOMINAL.some(suf => s === suf || s.endsWith(suf));
+  return nomTail(x.slice(stem)) !== nomTail(y.slice(stem));
+}
+
 function decideWordDir(it, v) {
   const d = wordDiff(it);
+  /* ⛔ הכרעת חגי 16.8 · בכיוון `word` צריך את הצורה המדויקת · קודם לכל שאר הענפים */
+  if (isNominalization(it.term, it.typed)) return 'reject';
   const isWord = v.T5 === 'כ', notWord = v.T5 === 'ל';
   const morph = d && isMorphPair(lc(d.from), lc(d.to));
   if (!v.T5) return 'unsure';
@@ -707,22 +772,26 @@ function calib() {
   }
   if (!covered.length) { say(''); say('⛔ אין פסקים · המורה אינו עדות עד שיכויל'); process.exitCode = 1; return; }
 
-  /* ⚠ ארבעת ה-`?` שבתיוג העיוור מנוקדים **פעמיים** ושני המספרים מוצגים. הם גבול
-     ההחלטה (שינוי חלק דיבר בין אדם/תואר לשם מופשט) · ניקוד יחיד היה מכריע
-     אותו בשקט במקום להציג אותו. */
+  /* ⛔ **ניקוד אחד, לא שניים.** עד 16.8 הודפסו כאן שני ניקודים ("?"=ל ו-"?"=כ)
+     כי המחלקה הייתה פתוחה ואסור היה להכריע אותה. חגי הכריע (`RULING_Q`), ומאותו
+     רגע שני מספרים זה לצד זה אינם זהירות אלא **רעש שמטעה את הסוכן הבא** — הוא
+     יצטרך לנחש איזה מהם התקף. הניקוד השני נשמר בהיסטוריית הגיט.
+     ⛔ אל תחזיר את הלולאה הכפולה בלי הכרעה חדשה של חגי. */
   let redFA = 0;
-  for (const qMode of ['reject', 'accept']) {
+  {
     for (const [rn, fn] of [['פה אחד', decide], ['רוב', majority]]) {
       let tp = 0, fp = 0, tn = 0, fnn = 0; const bad = [];
       for (const r of covered) {
         const p = fn(r.it, r.v) === 'accept';
-        const h = r.human === 'כ' || (qMode === 'accept' && r.human === '?');
+        const lab = r.human === '?' ? RULING_Q(r.it) : r.human;
+        const h = lab === 'כ';
         if (p && h) tp++; else if (p && !h) fp++; else if (!p && !h) tn++; else fnn++;
         if (p !== h) bad.push(r);
       }
       const tot = tp + tn + fp + fnn;
+      const nq = covered.filter(r => r.human === '?').length;
       say('');
-      say(`## חוק **${rn}** · ה-"?" שבתיוג נספר כ-${qMode === 'reject' ? '**ל**' : '**כ**'}`);
+      say(`## חוק **${rn}** · הכרעת חגי 16.8 · ה-"?" בכיוון \`gloss\` = **כ**${nq ? ` (${nq} שורות)` : ''}`);
       say('');
       say('| | אמת המידה: כ | אמת המידה: ל |');
       say('|---|---|---|');
@@ -730,7 +799,7 @@ function calib() {
       say(`| המורה דוחה | ${fnn} | ${tn} |`);
       say('');
       say(`דיוק ${(100 * (tp + tn) / tot).toFixed(1)}% · precision ${tp + fp ? (100 * tp / (tp + fp)).toFixed(1) + '%' : '—'} · recall ${tp + fnn ? (100 * tp / (tp + fnn)).toFixed(1) + '%' : '—'}`);
-      if (rn === 'פה אחד' && qMode === 'reject') {
+      if (rn === 'פה אחד') {
         redFA = fp;
         say('');
         say('### כל אי-ההתאמות · אחת-אחת');
@@ -743,7 +812,8 @@ function calib() {
           const d = wordDiff(r.it);
           const mv = d ? `${d.from} → ${d.to}` : `«${r.it.typed}»`;
           const cells = LENS_IDS.map(l => appliesTo(l, r.it) ? (r.v[l] || '·') : '–').join(' | ');
-          say(`| ${r.id} | ${r.it.term} | ${mv} | **${r.human}** | ${fn(r.it, r.v)} | ${cells} | ${note.get(r.id) || ''} |`);
+          const lab = r.human === '?' ? `${RULING_Q(r.it)}←?` : r.human;
+          say(`| ${r.id} | ${r.it.term} | ${mv} | **${lab}** | ${fn(r.it, r.v)} | ${cells} | ${note.get(r.id) || ''} |`);
         }
         if (!bad.length) say('| — | — | — | — | — |' + LENS_IDS.map(() => ' — |').join('') + ' אין |');
       }
@@ -824,15 +894,17 @@ function scoreSet(name) {
   const table = (sub, title) => {
     if (!sub.length) return;
     say(''); say(`## ${title} · ${sub.length} פריטים`); say('');
-    for (const q of (hist['?'] ? ['reject', 'accept'] : ['reject'])) {
+    /* ניקוד אחד · ה-"?" מוכרע לפי `RULING_Q` (הכרעת חגי 16.8) · ראה ההערה ב-calib */
+    {
       let tp = 0, fp = 0, tn = 0, fn = 0;
       for (const r of sub) {
         const p = decide(r.it, r.v) === 'accept';
-        const h = r.label === 'כ' || (q === 'accept' && r.label === '?');
+        const h = (r.label === '?' ? RULING_Q(r.it) : r.label) === 'כ';
         if (p && h) tp++; else if (p && !h) fp++; else if (!p && !h) tn++; else fn++;
       }
       const tot = tp + fp + tn + fn;
-      const lbl = hist['?'] ? ` · ה-"?" נספר כ-${q === 'reject' ? '**ל**' : '**כ**'}` : '';
+      const nq = sub.filter(r => r.label === '?').length;
+      const lbl = nq ? ` · ה-"?" מוכרע לפי כיוון (${nq} שורות)` : '';
       say(`**חוק פה אחד**${lbl}`);
       say('');
       say('| | אמת המידה: כ | אמת המידה: ל |');
@@ -858,7 +930,7 @@ function scoreSet(name) {
     let ok = 0, n = 0, fa = 0, fr = 0;
     for (const r of rows) {
       if (!appliesTo(L.id, r.it) || !r.v[L.id]) continue;
-      n++; const p = r.v[L.id] === 'כ', h = r.label === 'כ';
+      n++; const p = r.v[L.id] === 'כ', h = (r.label === '?' ? RULING_Q(r.it) : r.label) === 'כ';
       if (p === h) ok++; if (p && !h) fa++; if (!p && h) fr++;
     }
     if (n) say(`| ${L.id} · ${L.he} | ${n} | ${ok}/${n} | **${(100 * ok / n).toFixed(1)}%** | ${fa} | ${fr} |`);
@@ -870,7 +942,8 @@ function scoreSet(name) {
     if (!g.has(k)) g.set(k, { n: 0, ok: 0, miss: [] });
     const b = g.get(k); b.n++;
     const p = decide(r.it, r.v) === 'accept';
-    if (p === (r.label === 'כ')) b.ok++; else b.miss.push(r.id + (r.label === 'כ' ? '(נדחה)' : '(התקבל)'));
+    const lab = r.label === '?' ? RULING_Q(r.it) : r.label;
+    if (p === (lab === 'כ')) b.ok++; else b.miss.push(r.id + (lab === 'כ' ? '(נדחה)' : '(התקבל)'));
   }
   say('');
   say('## לפי מחלקת התכן · "?" = ל');
@@ -887,10 +960,11 @@ function scoreSet(name) {
   let bad = 0;
   for (const r of rows) {
     const p = decide(r.it, r.v) === 'accept';
-    if (p === (r.label === 'כ')) continue;
+    const lab = r.label === '?' ? RULING_Q(r.it) : r.label;
+    if (p === (lab === 'כ')) continue;
     bad++;
     const cells = LENS_IDS.map(l => appliesTo(l, r.it) ? (r.v[l] || '·') : '–').join(' | ');
-    say(`| ${r.id} | ${r.dir} | ${r.it.term} | «${r.it.typed}» | **${r.label}** | ${decide(r.it, r.v)} | ${cells} | ${r.note.slice(0, 55)} |`);
+    say(`| ${r.id} | ${r.dir} | ${r.it.term} | «${r.it.typed}» | **${lab}${r.label==="?"?"←?":""}** | ${decide(r.it, r.v)} | ${cells} | ${r.note.slice(0, 55)} |`);
   }
   if (!bad) say('| — | — | — | — | — | — |' + LENS_IDS.map(() => ' — |').join('') + ' אין |');
 }
@@ -1198,6 +1272,26 @@ function selftest() {
   t(decide(en('abacus', 'abavus'), {}) === 'unsure', '⛔ בלי T5 אין הכרעה · לא accept');
   t(!appliesTo('T4', en('abacus', 'abavus')), '⛔ T4 אינה חלה על רעש מקלדת באנגלית · השאלה שלה אינה מוגדרת שם');
   t(appliesTo('T4', en('bandage', 'bandages')), 'T4 כן חלה על הדבקת סיומת · שם השאלה מוגדרת');
+
+  say('## ב4 · הכרעת חגי 16.8 · שם-פעולה תלוי כיוון');
+  const enW = (term, typed) => itemOf({ lang: 'en', direction: 'word', term, gloss: 'g', written: term, typed });
+  const enG = (term, gloss, typed) => itemOf({ lang: 'en', direction: 'gloss', term, gloss, written: gloss, typed });
+  t(isNominalization('decide', 'decision'), 'decide/decision מזוהה כגזירה נומינלית');
+  t(isNominalization('arrive', 'arrival'), 'arrive/arrival מזוהה');
+  t(isNominalization('govern', 'government'), 'govern/government מזוהה');
+  t(!isNominalization('bandage', 'bandages'), '⛔ bandage/bandages **אינה** גזירה נומינלית · הטיה רגילה');
+  t(!isNominalization('blend', 'bend'), '⛔ blend/bend אינה גזירה · גזע משותף קצר מדי');
+  t(!isNominalization('abacus', 'abavus'), '⛔ שגיאת הקלדה אינה גזירה');
+  /* ⛔ הענף שההכרעה קובעת · כיוון word דוחה, כיוון gloss מקבל */
+  t(decide(enW('decide', 'decision'), { T5: 'כ', T3: 'כ', T2: 'כ' }) === 'reject',
+    '⛔ כיוון word · שם-פעולה ⇒ **reject** · גם כשכל העדשות אמרו "כ"');
+  const g1 = enG('decide', 'להחליט', 'החלטה');
+  t(decide(g1, Object.fromEntries(applicable(g1).map(l => [l, 'כ']))) === 'accept',
+    '✅ כיוון gloss · שם-פעולה ⇒ **accept** · אותה מחלקה, הכרעה הפוכה');
+  t(RULING_Q(g1) === 'כ' && RULING_Q(enW('decide', 'decision')) === 'ל',
+    'ניקוד ה-"?" עצמו תלוי כיוון · gloss=כ · word=ל');
+  t(decide(enW('bandage', 'bandages'), { T5: 'כ' }) === 'accept',
+    'והטיה רגילה בכיוון word עדיין מתקבלת · ההכרעה לא בלעה מחלקה אחרת');
 
   say('## ג · שער הקליטה · ⛔ פלט פגום של שופט');
   const tmpSet = 'selftest';
