@@ -51,7 +51,7 @@ const SYMBOLS = [
   'TYPO_MAX_OPS', 'TYPO_RADIUS', 'TYPO_HE_RANGE', 'TYPO_PN', 'TYPO_IX',
   'TERM_VETO', 'SEG_VETO',
   'typoLex', 'lexHit', 'typoTokens', 'typoLexWhole', 'typoLexBlocked',
-  'typoTables', 'typoSubKind', 'typoInsKind', 'typoDelKind', 'typoVectors', 'typoWDist',
+  'typoTables', 'typoSubKind', 'typoInsKind', 'typoDelKind', 'typoVectors', 'typoShare', 'typoWDist',
   'typoNorm', 'typoLetters', 'typoSuffixes', 'typoInflection',
   'typoDeletions', 'typoIndex', 'typoNearestOther', 'nearMatch', 'typoKeysOf', 'typoOwners',
   'TYPO_GLOSS_RULES', 'TYPO_OR_GUARDS', 'typoSplitOr', 'TYPO_SYN', 'TYPO_SYN_MAP',
