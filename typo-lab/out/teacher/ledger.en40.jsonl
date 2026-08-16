@@ -1,0 +1,158 @@
+{"h":"7c53583b06163f633f3aa456d9488dbc9e4ee27934b8029584fa8d1886a175e9","k":"7c53583b0616","lens":"T2","v":"כ","why":"abavus = שגיאת הקלדה ב-abacus (v במקום c); אינה מילה אנגלית אחרת"}
+{"h":"9f4d90990d66e272838db5eab2b5ce16cd06dbe03b2b0b0d27045797323acc5c","k":"9f4d90990d66","lens":"T2","v":"כ","why":"achoeve = שגיאת הקלדה ב-achieve (o במקום i); אינה מילה אחרת"}
+{"h":"9e574b4b31cc0482ed30379b546306c20842a61641063c892ef946543bd1b6e3","k":"9e574b4b31cc","lens":"T2","v":"כ","why":"advoxate = שגיאת הקלדה ב-advocate (x במקום c); אינה מילה אחרת"}
+{"h":"1d21a26e6a14e54285bd6b60d911caf6bde9d7226174af9dcf9fa3f22f86c968","k":"1d21a26e6a14","lens":"T2","v":"כ","why":"alwsys = שגיאת הקלדה ב-always (s במקום a); אינה מילה אחרת"}
+{"h":"59f2d690bf07f7a9c787b3d0f3ecdf03da0ddea409b1c387668fc204efc17145","k":"59f2d690bf07","lens":"T2","v":"כ","why":"appase = appease חסרת e; אינה מילה אחרת"}
+{"h":"eabd322dbafe0451e5cdbae36c5fda148ab96a2e6717b244d8ee6222e00393c5","k":"eabd322dbafe","lens":"T2","v":"כ","why":"asert = assert עם s אחת; אינה מילה אחרת"}
+{"h":"324494e7771b855a41c174f9c1ff650dbdd3f619a91300c6bc19a255f58c4153","k":"324494e7771b","lens":"T2","v":"כ","why":"autombile = automobile חסרת o; אינה מילה אחרת"}
+{"h":"6ef5a7a4e2f07f1eaf8890ac827092cacbfc6543cef44e38ac1b019dae482b02","k":"6ef5a7a4e2f0","lens":"T2","v":"כ","why":"bertay = היפוך אותיות ב-betray; אינה מילה אחרת"}
+{"h":"47e8eea9eee196d6a0c81123d25e26b72b1143c41e0c1d11a3679f996cd4af6a","k":"47e8eea9eee1","lens":"T2","v":"כ","why":"calcluate = היפוך אותיות ב-calculate; אינה מילה אחרת"}
+{"h":"e2efa85b986a0cb2db8b28f144ab5a5cdbeaf18a92d0a761d04d16eab37cf382","k":"e2efa85b986a","lens":"T2","v":"כ","why":"certtain = certain עם t כפולה; אינה מילה אחרת"}
+{"h":"9a0a7356119c5afed515f8170283643ee53d1a6a1f9db3942ca73ff45dda8968","k":"9a0a7356119c","lens":"T2","v":"כ","why":"cockrroach = cockroach עם r כפולה; אינה מילה אחרת"}
+{"h":"a1fc9a3d27de6b2e9603b985488ef7499591d5720eafbe75406f1d31e6106e4b","k":"a1fc9a3d27de","lens":"T2","v":"כ","why":"sommunity = community עם s במקום c; אינה מילה אחרת"}
+{"h":"130b3dd16c3d6e21539642eae2d654797910264912eb0bb52cfa4f952c7f7c03","k":"130b3dd16c3d","lens":"T2","v":"ל","why":"bend היא מילה אנגלית אחרת (לכופף), לא blend"}
+{"h":"0d4d98bfd0e6c4833fd2097bfddecb9a416a28d073954259848c9ee0b91c6804","k":"0d4d98bfd0e6","lens":"T2","v":"ל","why":"cure היא מילה אנגלית אחרת (לרפא, תרופה), לא curve"}
+{"h":"4ee7aa1e2b9a5cf557bb97573a7827e25b2db7404682d3e6a04363798b7cda4d","k":"4ee7aa1e2b9a","lens":"T2","v":"ל","why":"genus היא מילה אנגלית אחרת (סוג טקסונומי), לא genius"}
+{"h":"c9dfade87f13f21b51bcb3973130a640fe62e871ca97b9cf220605bac24617eb","k":"c9dfade87f13","lens":"T2","v":"ל","why":"part היא מילה אנגלית אחרת (חלק), לא party"}
+{"h":"f9c4521b4d444afa240915625f0105366d0d5837a8abcdd01b1d515dbd45d828","k":"f9c4521b4d44","lens":"T2","v":"ל","why":"evoke היא מילה אנגלית אחרת (לעורר) — האיבר השני בזוג המתחלף revoke/evoke"}
+{"h":"0814baf5b4a5e8fab1985c7eb763b7489923b07177ac0e2369e5712bf7d3da0e","k":"0814baf5b4a5","lens":"T2","v":"ל","why":"wing היא מילה אנגלית אחרת (כנף), לא swing"}
+{"h":"ace58dbed068fcf5407c2b1a582987f822460d68a651925e2fadbeeb66a2ceac","k":"ace58dbed068","lens":"T2","v":"כ","why":"bandages = צורת הרבים של bandage; אותה מילה, לא מילה אחרת"}
+{"h":"46cad7aa7db01f54daacc5badffcda1192bc2963e53f8d19e1dc9bcb9fd87489","k":"46cad7aa7db0","lens":"T2","v":"כ","why":"desperating = נטייה שגויה של desperate; אינה מילה אנגלית אחרת"}
+{"h":"9d688932e1af0cf35432cec36a43672f6842d44d3128f35df28b0a00b404a6c9","k":"9d688932e1af","lens":"T2","v":"כ","why":"generaled = נטייה שגויה של General; אינה מילה אנגלית אחרת"}
+{"h":"8d9a864d6f544f2fc87a153301904a146fe42d66a3b2b7f0cb83d979c72a7d87","k":"8d9a864d6f54","lens":"T2","v":"כ","why":"misbehaves = נטיית הווה של misbehave; אותה מילה"}
+{"h":"b2d2931559b4bebd6ab18821967d4baea1ffd1bd4e29c5e4966d05b8f00cefcd","k":"b2d2931559b4","lens":"T2","v":"כ","why":"recalling = צורת ing של recall; אותה מילה"}
+{"h":"9f24ca131559a8ae0c7c647382d67ab813ce8f110f7494cf974cb2a6958ebb93","k":"9f24ca131559","lens":"T2","v":"כ","why":"terrified = צורת עבר של terrify; אותה מילה"}
+{"h":"3993d8e87a6b5224b32e47f389f1b00b5d3d287d531cd1de50bd0d7310698967","k":"3993d8e87a6b","lens":"T2","v":"כ","why":"להשפיל הוא הפירוש השני של demean; נכון"}
+{"h":"cb6e7f5b0e59bfe3a2cc5d8832fd28311964ecac6698e615b923d347f51221e7","k":"cb6e7f5b0e59","lens":"T2","v":"כ","why":"להתקדם הוא הפירוש השני של progress; נכון"}
+{"h":"5d3b1f4de5d5f560333500d9a04d2fd12991ab8862740ab079d7fbc61bae0c0e","k":"5d3b1f4de5d5","lens":"T2","v":"כ","why":"מגונדר הוא הפירוש השני של fancy; נכון"}
+{"h":"dd8b7b7111b117ba0f4d64dd64c0993e238db7bda3e9cfb45ec2ecbb82d1c11a","k":"dd8b7b7111b1","lens":"T2","v":"כ","why":"בעצם הוא הפירוש השני של virtually; נכון"}
+{"h":"289d46155c885076f567410cce82cd4bd9fe39f11d6487b621f89a82c95736b2","k":"289d46155c88","lens":"T2","v":"ל","why":"קללה = curse, לא course; אינו מפירושי הכרטיס (מנה/קורס/מסלול)"}
+{"h":"7943850a4c4276083a94ecec76f1b7cfb390bda7e19c9d45816b1479b141d6d5","k":"7943850a4c42","lens":"T2","v":"ל","why":"להצטרף = join (פועל); joint אינו פועל ואין לו הפירוש הזה"}
+{"h":"7427e730ee2ca42ca1d1fab14d61a5fde162d99d0111c348ad5406f57cacfabf","k":"7427e730ee2c","lens":"T2","v":"ל","why":"להופיע = appear, לא raise (להעלות)"}
+{"h":"4fd5cbe48f099ef4193bb24040b51a060d4a5b35ddef70504a5f01bed761569e","k":"4fd5cbe48f09","lens":"T2","v":"ל","why":"גל = wave, לא weave (לארוג); בלבול בין הצמד wave/weave"}
+{"h":"0866e1eadb90be476fbfad3eea9174d47f14f2c78e8ec7c8f92bdfb03678783d","k":"0866e1eadb90","lens":"T2","v":"כ","why":"אמיץ לב = נרדף מורחב ל\"אמיץ\"; אין בו רכיב שגוי ל-brave"}
+{"h":"062761a7aabc61675563af66cf3c2e522b719371ef072eb966e813f21a17be7a","k":"062761a7aabc","lens":"T2","v":"כ","why":"ענק = נרדף ל\"עצום\"; נכון ל-enormous"}
+{"h":"0fa87f3c28950c9b4052b87d6480417194aa60e72888b6086949eddaea0cf302","k":"0fa87f3c2895","lens":"T2","v":"כ","why":"חרישי = נרדף ל\"דומם/שקט\"; נכון ל-silent"}
+{"h":"ed1aed38431f10943c77fa4a714ddcc7911b2c8f20a1508a2fca9fdc38be1642","k":"ed1aed38431f","lens":"T2","v":"כ","why":"זריז = נרדף ל\"מהיר\"; נכון ל-rapid"}
+{"h":"a98d655714c7f9a2e21fd1ce225e08c36fc008ba5788dd4c1356a9d95b4ef448","k":"a98d655714c7","lens":"T2","v":"כ","why":"עתיק יומין = נרדף ל\"עתיק/קדום\"; נכון ל-ancient"}
+{"h":"2435193b7c2a513db10e7eefa446c9e5539eac67169c3f4b0b290e5291ea10ad","k":"2435193b7c2a","lens":"T2","v":"כ","why":"החלטה = שם הפעולה של להחליט; אותו לקסמה, אין רכיב שגוי ל-decide"}
+{"h":"5da14aa0c61f15a0efc44d6fabcd8ac35b3ee58aae20eb938675afa68127aac3","k":"5da14aa0c61f","lens":"T2","v":"כ","why":"הרס = שם הפעולה/עבר של להרוס; אותו לקסמה, אין רכיב שגוי ל-destroy"}
+{"h":"e2a7061fdd5764bdc291a1edd32b37fcef7b5cc8b1a6e5839d3efb0e544d1b85","k":"e2a7061fdd57","lens":"T2","v":"כ","why":"הגעה = שם הפעולה של להגיע; אותו לקסמה, אין רכיב שגוי ל-arrive"}
+{"h":"7c53583b06163f633f3aa456d9488dbc9e4ee27934b8029584fa8d1886a175e9","k":"7c53583b0616","lens":"T3","v":"כ","why":"abavus אינה מילה אנגלית; מכוונת ברור ל-abacus"}
+{"h":"9f4d90990d66e272838db5eab2b5ce16cd06dbe03b2b0b0d27045797323acc5c","k":"9f4d90990d66","lens":"T3","v":"כ","why":"achoeve אינה מילה; הגעתי ל-achieve"}
+{"h":"9e574b4b31cc0482ed30379b546306c20842a61641063c892ef946543bd1b6e3","k":"9e574b4b31cc","lens":"T3","v":"כ","why":"advoxate אינה מילה; הגעתי ל-advocate"}
+{"h":"1d21a26e6a14e54285bd6b60d911caf6bde9d7226174af9dcf9fa3f22f86c968","k":"1d21a26e6a14","lens":"T3","v":"כ","why":"alwsys אינה מילה; הגעתי ל-always"}
+{"h":"59f2d690bf07f7a9c787b3d0f3ecdf03da0ddea409b1c387668fc204efc17145","k":"59f2d690bf07","lens":"T3","v":"כ","why":"appase אינה מילה; הגעתי ל-appease"}
+{"h":"eabd322dbafe0451e5cdbae36c5fda148ab96a2e6717b244d8ee6222e00393c5","k":"eabd322dbafe","lens":"T3","v":"כ","why":"asert אינה מילה; הגעתי ל-assert"}
+{"h":"324494e7771b855a41c174f9c1ff650dbdd3f619a91300c6bc19a255f58c4153","k":"324494e7771b","lens":"T3","v":"כ","why":"autombile אינה מילה; הגעתי ל-automobile"}
+{"h":"6ef5a7a4e2f07f1eaf8890ac827092cacbfc6543cef44e38ac1b019dae482b02","k":"6ef5a7a4e2f0","lens":"T3","v":"כ","why":"bertay אינה מילה; שיכול אותיות שהגיע ל-betray"}
+{"h":"47e8eea9eee196d6a0c81123d25e26b72b1143c41e0c1d11a3679f996cd4af6a","k":"47e8eea9eee1","lens":"T3","v":"כ","why":"calcluate אינה מילה; הגעתי ל-calculate"}
+{"h":"e2efa85b986a0cb2db8b28f144ab5a5cdbeaf18a92d0a761d04d16eab37cf382","k":"e2efa85b986a","lens":"T3","v":"כ","why":"certtain אינה מילה; הגעתי ל-certain"}
+{"h":"9a0a7356119c5afed515f8170283643ee53d1a6a1f9db3942ca73ff45dda8968","k":"9a0a7356119c","lens":"T3","v":"כ","why":"cockrroach אינה מילה; הגעתי ל-cockroach"}
+{"h":"a1fc9a3d27de6b2e9603b985488ef7499591d5720eafbe75406f1d31e6106e4b","k":"a1fc9a3d27de","lens":"T3","v":"כ","why":"sommunity אינה מילה; הגעתי ל-community"}
+{"h":"130b3dd16c3d6e21539642eae2d654797910264912eb0bb52cfa4f952c7f7c03","k":"130b3dd16c3d","lens":"T3","v":"ל","why":"הגעתי ל-bend, מילה אנגלית תקנית אחרת (לכופף), לא blend"}
+{"h":"0d4d98bfd0e6c4833fd2097bfddecb9a416a28d073954259848c9ee0b91c6804","k":"0d4d98bfd0e6","lens":"T3","v":"ל","why":"הגעתי ל-cure, מילה תקנית אחרת (מרפא), לא curve"}
+{"h":"4ee7aa1e2b9a5cf557bb97573a7827e25b2db7404682d3e6a04363798b7cda4d","k":"4ee7aa1e2b9a","lens":"T3","v":"ל","why":"הגעתי ל-genus, מילה תקנית אחרת (סוג במיון הביולוגי), לא genius"}
+{"h":"c9dfade87f13f21b51bcb3973130a640fe62e871ca97b9cf220605bac24617eb","k":"c9dfade87f13","lens":"T3","v":"ל","why":"הגעתי ל-part, מילה תקנית אחרת (חלק), לא party"}
+{"h":"f9c4521b4d444afa240915625f0105366d0d5837a8abcdd01b1d515dbd45d828","k":"f9c4521b4d44","lens":"T3","v":"ל","why":"הגעתי ל-evoke, מילה תקנית אחרת (לעורר), לא revoke"}
+{"h":"0814baf5b4a5e8fab1985c7eb763b7489923b07177ac0e2369e5712bf7d3da0e","k":"0814baf5b4a5","lens":"T3","v":"ל","why":"הגעתי ל-wing, מילה תקנית אחרת (כנף), לא swing"}
+{"h":"ace58dbed068fcf5407c2b1a582987f822460d68a651925e2fadbeeb66a2ceac","k":"ace58dbed068","lens":"T3","v":"כ","why":"bandages היא צורת הרבים; הגעתי ל-bandage"}
+{"h":"46cad7aa7db01f54daacc5badffcda1192bc2963e53f8d19e1dc9bcb9fd87489","k":"46cad7aa7db0","lens":"T3","v":"כ","why":"desperating אינה מילה; הגזע desperat- הצביע ל-desperate"}
+{"h":"9d688932e1af0cf35432cec36a43672f6842d44d3128f35df28b0a00b404a6c9","k":"9d688932e1af","lens":"T3","v":"כ","why":"generaled אינה מילה תקנית; הגעתי ל-general"}
+{"h":"8d9a864d6f544f2fc87a153301904a146fe42d66a3b2b7f0cb83d979c72a7d87","k":"8d9a864d6f54","lens":"T3","v":"כ","why":"misbehaves היא הטיית הווה; הגעתי ל-misbehave"}
+{"h":"b2d2931559b4bebd6ab18821967d4baea1ffd1bd4e29c5e4966d05b8f00cefcd","k":"b2d2931559b4","lens":"T3","v":"כ","why":"recalling היא הטיית -ing; הגעתי ל-recall"}
+{"h":"9f24ca131559a8ae0c7c647382d67ab813ce8f110f7494cf974cb2a6958ebb93","k":"9f24ca131559","lens":"T3","v":"כ","why":"terrified היא הטיית עבר; הגעתי ל-terrify"}
+{"h":"3993d8e87a6b5224b32e47f389f1b00b5d3d287d531cd1de50bd0d7310698967","k":"3993d8e87a6b","lens":"T3","v":"כ","why":"להשפיל מתאר את demean"}
+{"h":"cb6e7f5b0e59bfe3a2cc5d8832fd28311964ecac6698e615b923d347f51221e7","k":"cb6e7f5b0e59","lens":"T3","v":"כ","why":"להתקדם מתאר את progress במשמעות הפועל"}
+{"h":"5d3b1f4de5d5f560333500d9a04d2fd12991ab8862740ab079d7fbc61bae0c0e","k":"5d3b1f4de5d5","lens":"T3","v":"כ","why":"מגונדר מתאר את fancy במשמעותה השנייה"}
+{"h":"dd8b7b7111b117ba0f4d64dd64c0993e238db7bda3e9cfb45ec2ecbb82d1c11a","k":"dd8b7b7111b1","lens":"T3","v":"כ","why":"בעצם מתאר את virtually"}
+{"h":"289d46155c885076f567410cce82cd4bd9fe39f11d6487b621f89a82c95736b2","k":"289d46155c88","lens":"T3","v":"ל","why":"קללה מתארת את curse, לא course"}
+{"h":"7943850a4c4276083a94ecec76f1b7cfb390bda7e19c9d45816b1479b141d6d5","k":"7943850a4c42","lens":"T3","v":"ל","why":"להצטרף מתאר את join, לא joint"}
+{"h":"7427e730ee2ca42ca1d1fab14d61a5fde162d99d0111c348ad5406f57cacfabf","k":"7427e730ee2c","lens":"T3","v":"ל","why":"להופיע מתאר את appear, לא raise"}
+{"h":"4fd5cbe48f099ef4193bb24040b51a060d4a5b35ddef70504a5f01bed761569e","k":"4fd5cbe48f09","lens":"T3","v":"ל","why":"גל מתאר את wave, לא weave"}
+{"h":"0866e1eadb90be476fbfad3eea9174d47f14f2c78e8ec7c8f92bdfb03678783d","k":"0866e1eadb90","lens":"T3","v":"כ","why":"אמיץ לב מתאר את brave"}
+{"h":"062761a7aabc61675563af66cf3c2e522b719371ef072eb966e813f21a17be7a","k":"062761a7aabc","lens":"T3","v":"כ","why":"ענק מתאר את enormous"}
+{"h":"0fa87f3c28950c9b4052b87d6480417194aa60e72888b6086949eddaea0cf302","k":"0fa87f3c2895","lens":"T3","v":"כ","why":"חרישי מתאר את silent"}
+{"h":"ed1aed38431f10943c77fa4a714ddcc7911b2c8f20a1508a2fca9fdc38be1642","k":"ed1aed38431f","lens":"T3","v":"כ","why":"זריז מתאר את rapid"}
+{"h":"a98d655714c7f9a2e21fd1ce225e08c36fc008ba5788dd4c1356a9d95b4ef448","k":"a98d655714c7","lens":"T3","v":"כ","why":"עתיק יומין מתאר את ancient"}
+{"h":"2435193b7c2a513db10e7eefa446c9e5539eac67169c3f4b0b290e5291ea10ad","k":"2435193b7c2a","lens":"T3","v":"כ","why":"החלטה מצביעה על decide, שם פעולה במקום פועל"}
+{"h":"5da14aa0c61f15a0efc44d6fabcd8ac35b3ee58aae20eb938675afa68127aac3","k":"5da14aa0c61f","lens":"T3","v":"כ","why":"הרס מצביע על destroy, שם פעולה במקום פועל"}
+{"h":"e2a7061fdd5764bdc291a1edd32b37fcef7b5cc8b1a6e5839d3efb0e544d1b85","k":"e2a7061fdd57","lens":"T3","v":"כ","why":"הגעה מצביעה על arrive, שם פעולה במקום פועל"}
+{"h":"7c53583b06163f633f3aa456d9488dbc9e4ee27934b8029584fa8d1886a175e9","k":"7c53583b0616","lens":"T4","v":"ל","why":"שם עצם — Y אינה צורה קיימת באנגלית (abavus), החלפת אות ולא הטיה של אותה לקסמה"}
+{"h":"9f4d90990d66e272838db5eab2b5ce16cd06dbe03b2b0b0d27045797323acc5c","k":"9f4d90990d66","lens":"T4","v":"ל","why":"פועל בבסיס — Y אינה צורה קיימת (achoeve), שיבוש אותיות ולא הטיה"}
+{"h":"9e574b4b31cc0482ed30379b546306c20842a61641063c892ef946543bd1b6e3","k":"9e574b4b31cc","lens":"T4","v":"ל","why":"שם עצם/פועל בבסיס — Y אינה מילה קיימת (advoxate), אין כאן שינוי הטיה"}
+{"h":"1d21a26e6a14e54285bd6b60d911caf6bde9d7226174af9dcf9fa3f22f86c968","k":"1d21a26e6a14","lens":"T4","v":"ל","why":"תואר הפועל — Y אינה צורה קיימת (alwsys), ותואר הפועל ממילא אינו מקבל הטיה"}
+{"h":"59f2d690bf07f7a9c787b3d0f3ecdf03da0ddea409b1c387668fc204efc17145","k":"59f2d690bf07","lens":"T4","v":"ל","why":"פועל בבסיס — Y אינה צורה קיימת (appase), לא בסיס ולא הטיה תקנית"}
+{"h":"eabd322dbafe0451e5cdbae36c5fda148ab96a2e6717b244d8ee6222e00393c5","k":"eabd322dbafe","lens":"T4","v":"ל","why":"פועל בבסיס — Y אינה צורה קיימת (asert), השמטת אות ולא הטיה"}
+{"h":"324494e7771b855a41c174f9c1ff650dbdd3f619a91300c6bc19a255f58c4153","k":"324494e7771b","lens":"T4","v":"ל","why":"שם עצם — Y אינה צורה קיימת (autombile), לא יחיד ולא רבים"}
+{"h":"6ef5a7a4e2f07f1eaf8890ac827092cacbfc6543cef44e38ac1b019dae482b02","k":"6ef5a7a4e2f0","lens":"T4","v":"ל","why":"פועל בבסיס — Y אינה צורה קיימת (bertay), שיכול אותיות ולא הטיה"}
+{"h":"47e8eea9eee196d6a0c81123d25e26b72b1143c41e0c1d11a3679f996cd4af6a","k":"47e8eea9eee1","lens":"T4","v":"ל","why":"פועל בבסיס — Y אינה צורה קיימת (calcluate), שיכול אותיות ולא הטיה"}
+{"h":"e2efa85b986a0cb2db8b28f144ab5a5cdbeaf18a92d0a761d04d16eab37cf382","k":"e2efa85b986a","lens":"T4","v":"ל","why":"שם תואר — Y אינה צורה קיימת (certtain), הכפלת אות ולא דרגת השוואה"}
+{"h":"9a0a7356119c5afed515f8170283643ee53d1a6a1f9db3942ca73ff45dda8968","k":"9a0a7356119c","lens":"T4","v":"ל","why":"שם עצם — Y אינה צורה קיימת (cockrroach), הכפלת אות ולא ריבוי"}
+{"h":"a1fc9a3d27de6b2e9603b985488ef7499591d5720eafbe75406f1d31e6106e4b","k":"a1fc9a3d27de","lens":"T4","v":"ל","why":"שם עצם — Y אינה צורה קיימת (sommunity), החלפת אות פותחת ולא הטיה"}
+{"h":"130b3dd16c3d6e21539642eae2d654797910264912eb0bb52cfa4f952c7f7c03","k":"130b3dd16c3d","lens":"T4","v":"ל","why":"פועל בבסיס — Y היא לקסמה אחרת (bend, לכופף) ולא הטיה של blend"}
+{"h":"0d4d98bfd0e6c4833fd2097bfddecb9a416a28d073954259848c9ee0b91c6804","k":"0d4d98bfd0e6","lens":"T4","v":"ל","why":"שם עצם — Y היא לקסמה אחרת (cure, מרפא/לרפא) ולא צורה של curve"}
+{"h":"4ee7aa1e2b9a5cf557bb97573a7827e25b2db7404682d3e6a04363798b7cda4d","k":"4ee7aa1e2b9a","lens":"T4","v":"ל","why":"שם עצם — Y היא לקסמה אחרת (genus, סוג טקסונומי); genius ברבים הוא geniuses"}
+{"h":"c9dfade87f13f21b51bcb3973130a640fe62e871ca97b9cf220605bac24617eb","k":"c9dfade87f13","lens":"T4","v":"ל","why":"שם עצם — Y היא לקסמה אחרת (part, חלק) ואינה צורת יחיד/רבים של party"}
+{"h":"f9c4521b4d444afa240915625f0105366d0d5837a8abcdd01b1d515dbd45d828","k":"f9c4521b4d44","lens":"T4","v":"ל","why":"פועל בבסיס — Y היא לקסמה אחרת (evoke, לעורר); התחילית שונה, לא ההטיה"}
+{"h":"0814baf5b4a5e8fab1985c7eb763b7489923b07177ac0e2369e5712bf7d3da0e","k":"0814baf5b4a5","lens":"T4","v":"ל","why":"פועל בבסיס — Y היא לקסמה אחרת ושם עצם (wing, כנף), לא הטיה של swing"}
+{"h":"ace58dbed068fcf5407c2b1a582987f822460d68a651925e2fadbeeb66a2ceac","k":"ace58dbed068","lens":"T4","v":"כ","why":"שם עצם — Y היא צורת הרבים התקנית של אותה לקסמה (bandage → bandages)"}
+{"h":"46cad7aa7db01f54daacc5badffcda1192bc2963e53f8d19e1dc9bcb9fd87489","k":"46cad7aa7db0","lens":"T4","v":"ל","why":"שם תואר — Y מדביקה סיומת ing- על מילה שאינה פועל; desperating אינה צורה קיימת"}
+{"h":"9d688932e1af0cf35432cec36a43672f6842d44d3128f35df28b0a00b404a6c9","k":"9d688932e1af","lens":"T4","v":"ל","why":"שם עצם (דרגה צבאית) — Y מדביקה סיומת ed- על שם עצם; generaled אינה צורה קיימת"}
+{"h":"8d9a864d6f544f2fc87a153301904a146fe42d66a3b2b7f0cb83d979c72a7d87","k":"8d9a864d6f54","lens":"T4","v":"כ","why":"פועל בבסיס — Y היא צורת גוף שלישי יחיד התקנית של אותה לקסמה (misbehaves)"}
+{"h":"b2d2931559b4bebd6ab18821967d4baea1ffd1bd4e29c5e4966d05b8f00cefcd","k":"b2d2931559b4","lens":"T4","v":"כ","why":"פועל בבסיס — Y היא צורת ing- התקנית של אותה לקסמה (recalling)"}
+{"h":"9f24ca131559a8ae0c7c647382d67ab813ce8f110f7494cf974cb2a6958ebb93","k":"9f24ca131559","lens":"T4","v":"כ","why":"פועל בבסיס — Y היא צורת העבר/הבינוני התקנית של אותה לקסמה (terrify → terrified)"}
+{"h":"3993d8e87a6b5224b32e47f389f1b00b5d3d287d531cd1de50bd0d7310698967","k":"3993d8e87a6b","lens":"T4","v":"ל","why":"צורת מקור (שם פועל) — Y שם פועל של לקסמה אחרת (שורש שפל מול נמך), לא הטיה"}
+{"h":"cb6e7f5b0e59bfe3a2cc5d8832fd28311964ecac6698e615b923d347f51221e7","k":"cb6e7f5b0e59","lens":"T4","v":"ל","why":"שם פעולה — Y שם פועל (להתקדם); מעבר משם עצם לפועל, לא הטיה של אותה לקסמה"}
+{"h":"5d3b1f4de5d5f560333500d9a04d2fd12991ab8862740ab079d7fbc61bae0c0e","k":"5d3b1f4de5d5","lens":"T4","v":"ל","why":"פועל בהווה — Y שם תואר של לקסמה אחרת (מגונדר), גם המשמעות וגם חלק הדיבר משתנים"}
+{"h":"dd8b7b7111b117ba0f4d64dd64c0993e238db7bda3e9cfb45ec2ecbb82d1c11a","k":"dd8b7b7111b1","lens":"T4","v":"ל","why":"תואר הפועל — Y לקסמה אחרת (בעצם), לא הטיה של למעשה"}
+{"h":"289d46155c885076f567410cce82cd4bd9fe39f11d6487b621f89a82c95736b2","k":"289d46155c88","lens":"T4","v":"ל","why":"שם עצם — Y שם עצם של לקסמה אחרת לגמרי (קללה), המשמעות נהרסת"}
+{"h":"7943850a4c4276083a94ecec76f1b7cfb390bda7e19c9d45816b1479b141d6d5","k":"7943850a4c42","lens":"T4","v":"ל","why":"שם תואר — Y שם פועל של לקסמה אחרת (שורש צרפ מול שתפ), מעבר תואר לפועל"}
+{"h":"7427e730ee2ca42ca1d1fab14d61a5fde162d99d0111c348ad5406f57cacfabf","k":"7427e730ee2c","lens":"T4","v":"ל","why":"צורת מקור — Y שם פועל של לקסמה אחרת (להופיע), לא הטיה של להעלות"}
+{"h":"4fd5cbe48f099ef4193bb24040b51a060d4a5b35ddef70504a5f01bed761569e","k":"4fd5cbe48f09","lens":"T4","v":"ל","why":"צורת מקור — Y שם עצם של לקסמה אחרת (גל), לא צורה של לארוג"}
+{"h":"062761a7aabc61675563af66cf3c2e522b719371ef072eb966e813f21a17be7a","k":"062761a7aabc","lens":"T4","v":"ל","why":"שם תואר — Y לקסמה אחרת (ענק), לא הטיה של עצום"}
+{"h":"0fa87f3c28950c9b4052b87d6480417194aa60e72888b6086949eddaea0cf302","k":"0fa87f3c2895","lens":"T4","v":"ל","why":"שם תואר — Y לקסמה אחרת (חרישי), לא הטיה של דומם"}
+{"h":"ed1aed38431f10943c77fa4a714ddcc7911b2c8f20a1508a2fca9fdc38be1642","k":"ed1aed38431f","lens":"T4","v":"ל","why":"שם תואר — Y לקסמה אחרת (זריז), לא הטיה של מהיר"}
+{"h":"2435193b7c2a513db10e7eefa446c9e5539eac67169c3f4b0b290e5291ea10ad","k":"2435193b7c2a","lens":"T4","v":"ל","why":"צורת מקור — Y שם פעולה (החלטה); מעבר מפועל לשם עצם, לא הטיה של אותה לקסמה"}
+{"h":"5da14aa0c61f15a0efc44d6fabcd8ac35b3ee58aae20eb938675afa68127aac3","k":"5da14aa0c61f","lens":"T4","v":"ל","why":"צורת מקור — Y שם פעולה (הרס); מעבר מפועל לשם עצם, לא הטיה של אותה לקסמה"}
+{"h":"e2a7061fdd5764bdc291a1edd32b37fcef7b5cc8b1a6e5839d3efb0e544d1b85","k":"e2a7061fdd57","lens":"T4","v":"ל","why":"צורת מקור — Y שם פעולה (הגעה); מעבר מפועל לשם עצם, לא הטיה של אותה לקסמה"}
+{"h":"7c53583b06163f633f3aa456d9488dbc9e4ee27934b8029584fa8d1886a175e9","k":"7c53583b0616","lens":"T5","v":"ל","why":"abavus אינה מילה אנגלית"}
+{"h":"9f4d90990d66e272838db5eab2b5ce16cd06dbe03b2b0b0d27045797323acc5c","k":"9f4d90990d66","lens":"T5","v":"ל","why":"achoeve אינה מילה אנגלית"}
+{"h":"9e574b4b31cc0482ed30379b546306c20842a61641063c892ef946543bd1b6e3","k":"9e574b4b31cc","lens":"T5","v":"ל","why":"advoxate אינה מילה אנגלית"}
+{"h":"1d21a26e6a14e54285bd6b60d911caf6bde9d7226174af9dcf9fa3f22f86c968","k":"1d21a26e6a14","lens":"T5","v":"ל","why":"alwsys אינה מילה אנגלית"}
+{"h":"59f2d690bf07f7a9c787b3d0f3ecdf03da0ddea409b1c387668fc204efc17145","k":"59f2d690bf07","lens":"T5","v":"ל","why":"appase אינה מילה אנגלית"}
+{"h":"eabd322dbafe0451e5cdbae36c5fda148ab96a2e6717b244d8ee6222e00393c5","k":"eabd322dbafe","lens":"T5","v":"ל","why":"asert אינה מילה אנגלית"}
+{"h":"324494e7771b855a41c174f9c1ff650dbdd3f619a91300c6bc19a255f58c4153","k":"324494e7771b","lens":"T5","v":"ל","why":"autombile אינה מילה אנגלית"}
+{"h":"6ef5a7a4e2f07f1eaf8890ac827092cacbfc6543cef44e38ac1b019dae482b02","k":"6ef5a7a4e2f0","lens":"T5","v":"ל","why":"bertay אינה מילה אנגלית"}
+{"h":"47e8eea9eee196d6a0c81123d25e26b72b1143c41e0c1d11a3679f996cd4af6a","k":"47e8eea9eee1","lens":"T5","v":"ל","why":"calcluate אינה מילה אנגלית"}
+{"h":"e2efa85b986a0cb2db8b28f144ab5a5cdbeaf18a92d0a761d04d16eab37cf382","k":"e2efa85b986a","lens":"T5","v":"ל","why":"certtain אינה מילה אנגלית"}
+{"h":"9a0a7356119c5afed515f8170283643ee53d1a6a1f9db3942ca73ff45dda8968","k":"9a0a7356119c","lens":"T5","v":"ל","why":"cockrroach אינה מילה אנגלית"}
+{"h":"a1fc9a3d27de6b2e9603b985488ef7499591d5720eafbe75406f1d31e6106e4b","k":"a1fc9a3d27de","lens":"T5","v":"ל","why":"sommunity אינה מילה אנגלית"}
+{"h":"130b3dd16c3d6e21539642eae2d654797910264912eb0bb52cfa4f952c7f7c03","k":"130b3dd16c3d","lens":"T5","v":"כ","why":"bend מילה אנגלית תקנית"}
+{"h":"0d4d98bfd0e6c4833fd2097bfddecb9a416a28d073954259848c9ee0b91c6804","k":"0d4d98bfd0e6","lens":"T5","v":"כ","why":"cure מילה אנגלית תקנית"}
+{"h":"4ee7aa1e2b9a5cf557bb97573a7827e25b2db7404682d3e6a04363798b7cda4d","k":"4ee7aa1e2b9a","lens":"T5","v":"כ","why":"genus מילה אנגלית תקנית"}
+{"h":"c9dfade87f13f21b51bcb3973130a640fe62e871ca97b9cf220605bac24617eb","k":"c9dfade87f13","lens":"T5","v":"כ","why":"part מילה אנגלית תקנית"}
+{"h":"f9c4521b4d444afa240915625f0105366d0d5837a8abcdd01b1d515dbd45d828","k":"f9c4521b4d44","lens":"T5","v":"כ","why":"evoke מילה אנגלית תקנית"}
+{"h":"0814baf5b4a5e8fab1985c7eb763b7489923b07177ac0e2369e5712bf7d3da0e","k":"0814baf5b4a5","lens":"T5","v":"כ","why":"wing מילה אנגלית תקנית"}
+{"h":"ace58dbed068fcf5407c2b1a582987f822460d68a651925e2fadbeeb66a2ceac","k":"ace58dbed068","lens":"T5","v":"כ","why":"bandages צורת רבים תקנית"}
+{"h":"46cad7aa7db01f54daacc5badffcda1192bc2963e53f8d19e1dc9bcb9fd87489","k":"46cad7aa7db0","lens":"T5","v":"ל","why":"desperating אינה צורה קיימת, desperate שם תואר"}
+{"h":"9d688932e1af0cf35432cec36a43672f6842d44d3128f35df28b0a00b404a6c9","k":"9d688932e1af","lens":"T5","v":"ל","why":"generaled אינה צורה קיימת, general אינו פועל"}
+{"h":"8d9a864d6f544f2fc87a153301904a146fe42d66a3b2b7f0cb83d979c72a7d87","k":"8d9a864d6f54","lens":"T5","v":"כ","why":"misbehaves הווה תקני"}
+{"h":"b2d2931559b4bebd6ab18821967d4baea1ffd1bd4e29c5e4966d05b8f00cefcd","k":"b2d2931559b4","lens":"T5","v":"כ","why":"recalling בינוני תקני"}
+{"h":"9f24ca131559a8ae0c7c647382d67ab813ce8f110f7494cf974cb2a6958ebb93","k":"9f24ca131559","lens":"T5","v":"כ","why":"terrified עבר תקני"}
+{"h":"3993d8e87a6b5224b32e47f389f1b00b5d3d287d531cd1de50bd0d7310698967","k":"3993d8e87a6b","lens":"T5","v":"כ","why":"להשפיל מילה עברית קיימת"}
+{"h":"cb6e7f5b0e59bfe3a2cc5d8832fd28311964ecac6698e615b923d347f51221e7","k":"cb6e7f5b0e59","lens":"T5","v":"כ","why":"להתקדם מילה עברית קיימת"}
+{"h":"5d3b1f4de5d5f560333500d9a04d2fd12991ab8862740ab079d7fbc61bae0c0e","k":"5d3b1f4de5d5","lens":"T5","v":"כ","why":"מגונדר מילה עברית קיימת"}
+{"h":"dd8b7b7111b117ba0f4d64dd64c0993e238db7bda3e9cfb45ec2ecbb82d1c11a","k":"dd8b7b7111b1","lens":"T5","v":"כ","why":"בעצם מילה עברית קיימת"}
+{"h":"289d46155c885076f567410cce82cd4bd9fe39f11d6487b621f89a82c95736b2","k":"289d46155c88","lens":"T5","v":"כ","why":"קללה מילה עברית קיימת"}
+{"h":"7943850a4c4276083a94ecec76f1b7cfb390bda7e19c9d45816b1479b141d6d5","k":"7943850a4c42","lens":"T5","v":"כ","why":"להצטרף מילה עברית קיימת"}
+{"h":"7427e730ee2ca42ca1d1fab14d61a5fde162d99d0111c348ad5406f57cacfabf","k":"7427e730ee2c","lens":"T5","v":"כ","why":"להופיע מילה עברית קיימת"}
+{"h":"4fd5cbe48f099ef4193bb24040b51a060d4a5b35ddef70504a5f01bed761569e","k":"4fd5cbe48f09","lens":"T5","v":"כ","why":"גל מילה עברית קיימת"}
+{"h":"0866e1eadb90be476fbfad3eea9174d47f14f2c78e8ec7c8f92bdfb03678783d","k":"0866e1eadb90","lens":"T5","v":"כ","why":"אמיץ, לב — שתיהן קיימות"}
+{"h":"062761a7aabc61675563af66cf3c2e522b719371ef072eb966e813f21a17be7a","k":"062761a7aabc","lens":"T5","v":"כ","why":"ענק מילה עברית קיימת"}
+{"h":"0fa87f3c28950c9b4052b87d6480417194aa60e72888b6086949eddaea0cf302","k":"0fa87f3c2895","lens":"T5","v":"כ","why":"חרישי מילה עברית קיימת"}
+{"h":"ed1aed38431f10943c77fa4a714ddcc7911b2c8f20a1508a2fca9fdc38be1642","k":"ed1aed38431f","lens":"T5","v":"כ","why":"זריז מילה עברית קיימת"}
+{"h":"a98d655714c7f9a2e21fd1ce225e08c36fc008ba5788dd4c1356a9d95b4ef448","k":"a98d655714c7","lens":"T5","v":"כ","why":"עתיק, יומין — צירוף קיים"}
+{"h":"2435193b7c2a513db10e7eefa446c9e5539eac67169c3f4b0b290e5291ea10ad","k":"2435193b7c2a","lens":"T5","v":"כ","why":"החלטה מילה עברית קיימת"}
+{"h":"5da14aa0c61f15a0efc44d6fabcd8ac35b3ee58aae20eb938675afa68127aac3","k":"5da14aa0c61f","lens":"T5","v":"כ","why":"הרס מילה עברית קיימת"}
+{"h":"e2a7061fdd5764bdc291a1edd32b37fcef7b5cc8b1a6e5839d3efb0e544d1b85","k":"e2a7061fdd57","lens":"T5","v":"כ","why":"הגעה מילה עברית קיימת"}

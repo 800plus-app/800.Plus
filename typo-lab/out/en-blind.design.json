@@ -1,0 +1,311 @@
+{
+ "generated": "typo-lab/calib_mine.js --en",
+ "what": "כיול אנגלית · שני כיוונים · אין לו קודם, המורה היה בלי כיול אנגלי בכלל",
+ "truth": "לא ידועה · דורש תיוג אנושי",
+ "sampling": "כיוון word · פרופורציונלי למשקלי lib/taxonomy-en.js (adj2 drop2 transpose1 double1 pattern1). שלילי קרוב ומורפולוגיה נוספו מעליה בכוונה ואינם בטקסונומיה.",
+ "hand_written": 8,
+ "plan": {
+  "word": {
+   "typo": 12,
+   "nearneg": 6,
+   "morph": 6
+  },
+  "gloss": {
+   "syn": 5,
+   "partial": 4,
+   "nearneg": 4,
+   "morph": 3
+  }
+ },
+ "byCls": {
+  "word·typo": 12,
+  "word·nearneg": 6,
+  "word·morph": 6,
+  "gloss·partial": 4,
+  "gloss·nearneg": 4,
+  "gloss·syn": 5,
+  "gloss·morph": 3
+ },
+ "rows": [
+  {
+   "id": "E01",
+   "dir": "word",
+   "cls": "word·typo·adj",
+   "why": "אופרטור adj · לא נחת על מילת מאגר",
+   "card": "10:abacus"
+  },
+  {
+   "id": "E02",
+   "dir": "word",
+   "cls": "word·typo·adj",
+   "why": "אופרטור adj · לא נחת על מילת מאגר",
+   "card": "5:achieve"
+  },
+  {
+   "id": "E03",
+   "dir": "word",
+   "cls": "word·typo·adj",
+   "why": "אופרטור adj · לא נחת על מילת מאגר",
+   "card": "8:advocate"
+  },
+  {
+   "id": "E04",
+   "dir": "word",
+   "cls": "word·typo·adj",
+   "why": "אופרטור adj · לא נחת על מילת מאגר",
+   "card": "1:always"
+  },
+  {
+   "id": "E05",
+   "dir": "word",
+   "cls": "word·typo·drop",
+   "why": "אופרטור drop · לא נחת על מילת מאגר",
+   "card": "10:appease"
+  },
+  {
+   "id": "E06",
+   "dir": "word",
+   "cls": "word·typo·drop",
+   "why": "אופרטור drop · לא נחת על מילת מאגר",
+   "card": "9:assert"
+  },
+  {
+   "id": "E07",
+   "dir": "word",
+   "cls": "word·typo·drop",
+   "why": "אופרטור drop · לא נחת על מילת מאגר",
+   "card": "4:automobile"
+  },
+  {
+   "id": "E08",
+   "dir": "word",
+   "cls": "word·typo·transpose",
+   "why": "אופרטור transpose · לא נחת על מילת מאגר",
+   "card": "6:betray"
+  },
+  {
+   "id": "E09",
+   "dir": "word",
+   "cls": "word·typo·transpose",
+   "why": "אופרטור transpose · לא נחת על מילת מאגר",
+   "card": "4:calculate"
+  },
+  {
+   "id": "E10",
+   "dir": "word",
+   "cls": "word·typo·double",
+   "why": "אופרטור double · לא נחת על מילת מאגר",
+   "card": "4:certain"
+  },
+  {
+   "id": "E11",
+   "dir": "word",
+   "cls": "word·typo·double",
+   "why": "אופרטור double · לא נחת על מילת מאגר",
+   "card": "8:cockroach"
+  },
+  {
+   "id": "E12",
+   "dir": "word",
+   "cls": "word·typo·pattern",
+   "why": "אופרטור pattern · לא נחת על מילת מאגר",
+   "card": "3:community"
+  },
+  {
+   "id": "E13",
+   "dir": "word",
+   "cls": "word·nearneg",
+   "why": "drop · נחת על מילת המאגר «bend» (לכופף)",
+   "card": "5:blend"
+  },
+  {
+   "id": "E14",
+   "dir": "word",
+   "cls": "word·nearneg",
+   "why": "drop · נחת על מילת המאגר «cure» (מרפא, תרופה; לרפא)",
+   "card": "5:curve"
+  },
+  {
+   "id": "E15",
+   "dir": "word",
+   "cls": "word·nearneg",
+   "why": "drop · נחת על מילת המאגר «genus» (סוג, מין)",
+   "card": "2:genius"
+  },
+  {
+   "id": "E16",
+   "dir": "word",
+   "cls": "word·nearneg",
+   "why": "drop · נחת על מילת המאגר «part» (חלק)",
+   "card": "4:party"
+  },
+  {
+   "id": "E17",
+   "dir": "word",
+   "cls": "word·nearneg",
+   "why": "drop · נחת על מילת המאגר «evoke» (לעורר, להעלות)",
+   "card": "10:revoke"
+  },
+  {
+   "id": "E18",
+   "dir": "word",
+   "cls": "word·nearneg",
+   "why": "drop · נחת על מילת המאגר «wing» (כנף)",
+   "card": "5:swing"
+  },
+  {
+   "id": "E19",
+   "dir": "word",
+   "cls": "word·morph",
+   "why": "הטיה · bandage → bandages",
+   "card": "7:bandage"
+  },
+  {
+   "id": "E20",
+   "dir": "word",
+   "cls": "word·morph",
+   "why": "הטיה · desperate → desperating",
+   "card": "4:desperate"
+  },
+  {
+   "id": "E21",
+   "dir": "word",
+   "cls": "word·morph",
+   "why": "הטיה · general → generaled",
+   "card": "1:general"
+  },
+  {
+   "id": "E22",
+   "dir": "word",
+   "cls": "word·morph",
+   "why": "הטיה · misbehave → misbehaves",
+   "card": "7:misbehave"
+  },
+  {
+   "id": "E23",
+   "dir": "word",
+   "cls": "word·morph",
+   "why": "הטיה · recall → recalling",
+   "card": "6:recall"
+  },
+  {
+   "id": "E24",
+   "dir": "word",
+   "cls": "word·morph",
+   "why": "הטיה · terrify → terrified",
+   "card": "7:terrify"
+  },
+  {
+   "id": "E25",
+   "dir": "gloss",
+   "cls": "gloss·partial",
+   "why": "מקטע אחרון מתוך 2",
+   "card": "10:demean"
+  },
+  {
+   "id": "E26",
+   "dir": "gloss",
+   "cls": "gloss·partial",
+   "why": "מקטע אחרון מתוך 2",
+   "card": "3:progress"
+  },
+  {
+   "id": "E27",
+   "dir": "gloss",
+   "cls": "gloss·partial",
+   "why": "מקטע אחרון מתוך 2",
+   "card": "6:fancy"
+  },
+  {
+   "id": "E28",
+   "dir": "gloss",
+   "cls": "gloss·partial",
+   "why": "מקטע אחרון מתוך 2",
+   "card": "8:virtually"
+  },
+  {
+   "id": "E29",
+   "dir": "gloss",
+   "cls": "gloss·nearneg",
+   "why": "הפירוש של «curse» · שכנה במרחק 1",
+   "card": "4:course"
+  },
+  {
+   "id": "E30",
+   "dir": "gloss",
+   "cls": "gloss·nearneg",
+   "why": "הפירוש של «join» · שכנה במרחק 1",
+   "card": "6:joint"
+  },
+  {
+   "id": "E31",
+   "dir": "gloss",
+   "cls": "gloss·nearneg",
+   "why": "הפירוש של «arise» · שכנה במרחק 1",
+   "card": "3:raise"
+  },
+  {
+   "id": "E32",
+   "dir": "gloss",
+   "cls": "gloss·nearneg",
+   "why": "הפירוש של «wave» · שכנה במרחק 1",
+   "card": "8:weave"
+  },
+  {
+   "id": "E33",
+   "dir": "gloss",
+   "cls": "gloss·syn",
+   "why": "הרחבה כבולה של אמיץ",
+   "card": "3:brave"
+  },
+  {
+   "id": "E34",
+   "dir": "gloss",
+   "cls": "gloss·syn",
+   "why": "נרדפת של עצום",
+   "card": "6:enormous"
+  },
+  {
+   "id": "E35",
+   "dir": "gloss",
+   "cls": "gloss·syn",
+   "why": "נרדפת של שקט/דומם",
+   "card": "2:silent"
+  },
+  {
+   "id": "E36",
+   "dir": "gloss",
+   "cls": "gloss·syn",
+   "why": "נרדפת של מהיר",
+   "card": "4:rapid"
+  },
+  {
+   "id": "E37",
+   "dir": "gloss",
+   "cls": "gloss·syn",
+   "why": "נרדפת של קדום/עתיק",
+   "card": "4:ancient"
+  },
+  {
+   "id": "E38",
+   "dir": "gloss",
+   "cls": "gloss·morph",
+   "why": "שם פועל → שם פעולה",
+   "card": "2:decide"
+  },
+  {
+   "id": "E39",
+   "dir": "gloss",
+   "cls": "gloss·morph",
+   "why": "שם פועל → שם פעולה",
+   "card": "2:destroy"
+  },
+  {
+   "id": "E40",
+   "dir": "gloss",
+   "cls": "gloss·morph",
+   "why": "שם פועל → שם פעולה",
+   "card": "3:arrive"
+  }
+ ]
+}
