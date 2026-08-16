@@ -537,6 +537,178 @@ function en2Sample() {
   say(`כיוון word ${design.filter(d => d.dir === 'word').length} · כיוון gloss ${design.filter(d => d.dir === 'gloss').length}`);
 }
 
+/* ===================== 4 · הסט השלישי · en-blind3 =====================
+ *
+ * אותה מכניקה בדיוק כמו `en-blind2` — נעילה → מכסות מוכרזות → דגימה מכנית
+ * מ-`holdout` → hash בראש הקובץ → עצירה. מה ש**שונה** הוא רק ההרכב, ושתי
+ * הדרישות שנגזרות ישירות מ-11 ההחטאות של הסבב הקודם:
+ *
+ *   ⭐ **`neg-garbage` במכסה מפורשת.** מחלקה A (`X20` `X21` · מחרוזת רחוקה
+ *      מכל דבר) הפילה את החוק הקודם — והיא נכנסה לסט השני **במקרה**, כי
+ *      הדגימה הפרופורציונלית הגרילה 3 שורות. סמיכות על מקריות אינה תכנון.
+ *
+ *   ⭐ **שגיאות כתיב עבריות בכיוון `gloss` במכסה מפורשת.** מחלקה B
+ *      (`דברוימ` `בופשה` `אסקה` `בטיחת` `געריני`) היא **5 מ-11** ההחטאות,
+ *      והיא לא הייתה בסט הראשון **בכלל**. זו בדיוק האוכלוסייה שבה הפאנל
+ *      המוחזר קורס היום (‏T5 דוחה כל מחרוזת שאינה מילה).
+ *
+ * ⛔ הרצפות מוכרזות ב-`--en3-quota` **לפני** הדגימה, בדיוק כמו כל מכסה אחרת.
+ * רצפה אינה בחירה ידנית של שורות: היא קובעת **כמה** מכל מחלקה, והזרע קובע
+ * **אילו**. שאר המכסה מתחלק פרופורציונלית כמו קודם. */
+const EN3_SEED = 'typo-lab/teacher/en3/v1';
+const EN3_N = 40;
+const EN3_FLOORS = {
+  'word|neg-garbage': 5,
+  'gloss|neg-garbage': 3,
+  'gloss|sp-adj': 4,
+  'gloss|sp-drop': 3,
+  'gloss|sp-transpose': 3,
+  'gloss|sp-double': 2,
+};
+const EN3_QUOTA = path.join(OUT, 'en-blind3.quota.json');
+
+function en3Quota() {
+  const all = readCorpus().filter(r => r.split === EN2_SPLIT);
+  const byDir = {};
+  for (const r of all) {
+    (byDir[r.direction] || (byDir[r.direction] = { n: 0, cls: {} })).n++;
+    byDir[r.direction].cls[r.source_class] = (byDir[r.direction].cls[r.source_class] || 0) + 1;
+  }
+  const floorTotal = Object.values(EN3_FLOORS).reduce((a, b) => a + b, 0);
+  const rest = EN3_N - floorTotal;
+  if (rest < 0) throw new Error('הרצפות עולות על גודל הסט');
+
+  const largestRemainder = (weights, N) => {
+    const keys = Object.keys(weights).sort();
+    const sum = keys.reduce((a, k) => a + weights[k], 0);
+    if (!sum || N <= 0) return Object.fromEntries(keys.map(k => [k, 0]));
+    const exact = keys.map(k => ({ k, x: N * weights[k] / sum }));
+    const out = {}; let used = 0;
+    for (const e of exact) { out[e.k] = Math.floor(e.x); used += out[e.k]; }
+    exact.sort((a, b) => (b.x - Math.floor(b.x)) - (a.x - Math.floor(a.x)) || a.k.localeCompare(b.k));
+    for (let i = 0; used < N; i++, used++) out[exact[i % exact.length].k]++;
+    return out;
+  };
+
+  /* היתרה מתחלקת פרופורציונלית על **כל** התאים, והרצפות נוספות מעליה */
+  const flat = {};
+  for (const d of Object.keys(byDir)) for (const c of Object.keys(byDir[d].cls)) flat[d + '|' + c] = byDir[d].cls[c];
+  const spread = largestRemainder(flat, rest);
+  const quota = {};
+  for (const key of new Set([...Object.keys(flat), ...Object.keys(EN3_FLOORS)])) {
+    const [d, c] = key.split('|');
+    const v = (spread[key] || 0) + (EN3_FLOORS[key] || 0);
+    if (!v) continue;
+    const avail = (byDir[d] && byDir[d].cls[c]) || 0;
+    if (v > avail) throw new Error(`⛔ ${key} · נדרשו ${v} ובאוכלוסייה יש ${avail}`);
+    (quota[d] || (quota[d] = {}))[c] = v;
+  }
+  const tot = Object.values(quota).reduce((a, o) => a + Object.values(o).reduce((x, y) => x + y, 0), 0);
+  if (tot !== EN3_N) throw new Error(`⛔ סכום המכסות ${tot} ולא ${EN3_N}`);
+
+  let lock = 'UNKNOWN';
+  try { lock = require('child_process').execFileSync('git', ['rev-parse', 'HEAD'], { cwd: ROOT }).toString().trim(); } catch (e) { /* ריפו לא זמין */ }
+
+  fs.writeFileSync(EN3_QUOTA, JSON.stringify({
+    what: 'מכסות en-blind3 · מוכרזות לפני הדגימה',
+    lock_commit: lock, declared_at: new Date().toISOString().slice(0, 10),
+    source: 'typo-lab/out/answers-en.jsonl',
+    filter: { split: EN2_SPLIT, one_row_per_group: true, exclude_ids_from: 'en-blind2' },
+    seed: EN3_SEED, n: EN3_N,
+    floors: EN3_FLOORS,
+    floors_rationale: 'neg-garbage · מחלקה A שהפילה את החוק ונכנסה לסט 2 במקרה. gloss/sp-* · מחלקה B, 5 מ-11 ההחטאות, נעדרה מסט 1 לגמרי.',
+    method: 'יתרה (40 פחות רצפות) מתחלקת largest-remainder על כל התאים · הרצפות נוספות מעליה · דגימה ב-PRNG בזרע קבוע',
+    quota,
+  }, null, 1), 'utf8');
+
+  say(`# מכסות · en-blind3 · ננעל על ${lock.slice(0, 7)}`);
+  say('');
+  say(`רצפות מוכרזות (${floorTotal} שורות) · יתרה פרופורציונלית (${rest} שורות)`);
+  say('');
+  say('| כיוון | source_class | מכסה | מזה רצפה |');
+  say('|---|---|---|---|');
+  for (const d of Object.keys(quota).sort()) for (const c of Object.keys(quota[d]).sort())
+    say(`| ${d} | ${c} | **${quota[d][c]}** | ${EN3_FLOORS[d + '|' + c] || '—'} |`);
+  say('');
+  say(`סה"כ ${tot}`);
+  say(`נכתב · ${path.relative(ROOT, EN3_QUOTA)}`);
+}
+
+function en3Sample() {
+  if (!fs.existsSync(EN3_QUOTA)) throw new Error('⛔ אין קובץ מכסות · הרץ קודם --en3-quota');
+  const q = JSON.parse(fs.readFileSync(EN3_QUOTA, 'utf8'));
+  const all = readCorpus().filter(r => r.split === q.filter.split);
+  /* ⛔⛔ **מניעת החפיפה מפתחת על תוכן ולא על מזהה. זה לא קוסמטי.**
+   *
+   * מה שהתגלה: `answers-en.jsonl` **נבנה מחדש** על ידי סוכן הקורפוס אחרי
+   * ש-`en-blind2` נדגם. נבדק: ‏38 מתוך 40 מזהי-הקורפוס של `en-blind2` מצביעים
+   * היום על **תוכן אחר** (`en-g-001628` היה `luck→מזל ממש`, היום `luck→זל`).
+   *
+   * לכן `prev.has(r.id)` היה עושה בדיוק את ההפך ממה שנועד: מחריג 40 שורות
+   * שרירותיות, ו**לא** מונע דגימה חוזרת של אותו תוכן שכבר נשרף בסט השני.
+   * מפתח התוכן `direction|term|typed` יציב מול בנייה מחדש של הקורפוס.
+   *
+   * ⚠ `en-blind2` עצמו לא נפגע — הוא קובץ קפוא, והציון חושב מולו ולא מול
+   * הקורפוס. מה שנפגע הוא רק ההנחה שאפשר להצביע ממנו חזרה לקורפוס. */
+  const ckey = (dir, term, typed) => [dir, String(term).trim(), String(typed).trim()].join('');
+  const prev = new Set();
+  const pt = path.join(OUT, 'en-blind2.tsv');
+  if (fs.existsSync(pt)) {
+    const lines = fs.readFileSync(pt, 'utf8').split(/\r?\n/).filter(l => l.trim() && !l.startsWith('#')).slice(1);
+    for (const l of lines) { const c = l.split('\t'); prev.add(ckey(c[1], c[2], c[5])); }
+  }
+  if (!prev.size) throw new Error('⛔ לא נטענו שורות מ-en-blind2 · מניעת החפיפה לא תעבוד');
+
+  const rows = [], design = [], usedGroups = new Set();
+  for (const dir of Object.keys(q.quota).sort()) {
+    for (const cls of Object.keys(q.quota[dir]).sort()) {
+      const need = q.quota[dir][cls];
+      const pool = all.filter(r => r.direction === dir && r.source_class === cls && !prev.has(ckey(r.direction, r.card_term, r.typed)))
+        .sort((a, b) => a.id.localeCompare(b.id));
+      const rnd = rngOf(q.seed + '|' + dir + '|' + cls);
+      for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+      let took = 0;
+      for (const r of pool) {
+        if (took >= need) break;
+        if (q.filter.one_row_per_group && usedGroups.has(r.group)) continue;
+        usedGroups.add(r.group); took++;
+        const id = 'Y' + String(rows.length + 1).padStart(2, '0');
+        rows.push({ id, dir: r.direction, term: r.card_term, gloss: r.card_gloss, written: r.direction === 'word' ? r.card_term : r.card_gloss, typed: r.typed });
+        design.push({ id, dir: r.direction, cls: r.source_class, why: 'נדגם מכנית', corpus_id: r.id, group: r.group });
+      }
+      if (took < need) say(`⚠ ${dir}/${cls} · נדרשו ${need} ונמצאו ${took}`);
+    }
+  }
+  if (rows.length !== EN3_N) throw new Error(`⛔ נדגמו ${rows.length} ולא ${EN3_N}`);
+
+  const hdr = `# en-blind3 · סט חוץ-מדגם שלישי · נדגם מכנית מ-answers-en.jsonl (split=${q.filter.split})\n`
+    + `# ⛔ הפאנל שנבחן כאן ננעל בקומיט ${q.lock_commit} **לפני** שנדגמה שורה אחת\n`
+    + `# זרע ${q.seed} · מכסות ורצפות ב-en-blind3.quota.json · אין חפיפה עם en-blind2\n`
+    + EN_HDR;
+  const clean = s => String(s == null ? '' : s).replace(/[\t\r\n]+/g, ' ').trim();
+  fs.writeFileSync(path.join(OUT, 'en-blind3.tsv'),
+    [hdr].concat(rows.map(r => ['id', 'dir', 'term', 'gloss', 'written', 'typed'].map(c => clean(r[c])).join('\t') + '\t')).join('\n') + '\n', 'utf8');
+  fs.writeFileSync(path.join(OUT, 'en-blind3.design.json'), JSON.stringify({
+    generated: 'typo-lab/calib_mine.js --en3', lock_commit: q.lock_commit, seed: q.seed,
+    truth: 'לא ידועה · דורש תיוג אנושי', rows: design,
+  }, null, 1), 'utf8');
+
+  const txt = fs.readFileSync(path.join(OUT, 'en-blind3.tsv'), 'utf8');
+  for (const bad of [...new Set(design.map(d => d.cls))]) if (txt.includes(bad)) throw new Error(`⛔ «${bad}» דלף לקובץ העיוור`);
+  const overlap = rows.filter(r => prev.has(ckey(r.dir, r.term, r.typed))).length;
+  if (overlap) throw new Error(`⛔ ${overlap} שורות חופפות ל-en-blind2`);
+
+  const byCls = {};
+  for (const d of design) byCls[d.dir + '·' + d.cls] = (byCls[d.dir + '·' + d.cls] || 0) + 1;
+  say(`נכתב · out/en-blind3.tsv · ${rows.length} שורות · ננעל על ${q.lock_commit.slice(0, 7)} · אפס חפיפה עם en-blind2`);
+  say('');
+  say('| כיוון·מחלקה | שורות |');
+  say('|---|---|');
+  for (const k of Object.keys(byCls).sort()) say(`| ${k} | ${byCls[k]} |`);
+  say('');
+  say(`word ${design.filter(d => d.dir === 'word').length} · gloss ${design.filter(d => d.dir === 'gloss').length}`);
+}
+
 /* ===================== שיניים ===================== */
 
 function selftest() {
@@ -552,7 +724,7 @@ function selftest() {
   t(jac(A, far) < JACCARD_MIN, '⛔ שני פירושים זרים ⇒ נפסלים גם הם · הסט אינו "כל זוג"');
 
   say('## ב · הקובץ העיוור נשאר עיוור');
-  for (const f of ['near-neg-blind', 'en-blind', 'en-blind2']) {
+  for (const f of ['near-neg-blind', 'en-blind', 'en-blind2', 'en-blind3']) {
     const p = path.join(OUT, f + '.tsv');
     if (!fs.existsSync(p)) { say(`  · ${f}.tsv טרם נוצר · דילוג`); continue; }
     const txt = fs.readFileSync(p, 'utf8');
@@ -591,25 +763,42 @@ function selftest() {
     } finally { if (fs.existsSync(p)) fs.unlinkSync(p); }
   }
 
-  say('## ב2 · הסדר מוכח ולא מוצהר · en-blind2');
-  {
-    const qp = path.join(OUT, 'en-blind2.quota.json'), tp = path.join(OUT, 'en-blind2.tsv');
-    if (!fs.existsSync(qp) || !fs.existsSync(tp)) say('  · en-blind2 טרם נוצר · דילוג');
-    else {
-      const q = JSON.parse(fs.readFileSync(qp, 'utf8'));
-      const txt = fs.readFileSync(tp, 'utf8');
-      t(/^[0-9a-f]{40}$/.test(q.lock_commit), `hash הנעילה תקין · ${q.lock_commit.slice(0, 7)}`);
-      t(txt.includes(q.lock_commit), '⭐ **hash הנעילה כתוב בראש הקובץ** · הסדר מוכח מהגיט ולא מוצהר');
-      t(q.filter.split === 'holdout', 'נדגם מ-holdout בלבד');
-      const d = JSON.parse(fs.readFileSync(path.join(OUT, 'en-blind2.design.json'), 'utf8'));
-      const got = {};
-      for (const r of d.rows) { (got[r.dir] || (got[r.dir] = {}))[r.cls] = (got[r.dir][r.cls] || 0) + 1; }
-      let match = true;
-      for (const dir of Object.keys(q.quota)) for (const c of Object.keys(q.quota[dir])) {
-        if ((q.quota[dir][c] || 0) !== ((got[dir] || {})[c] || 0)) match = false;
+  say('## ב2 · הסדר מוכח ולא מוצהר');
+  for (const nm of ['en-blind2', 'en-blind3']) {
+    const qp = path.join(OUT, nm + '.quota.json'), tp = path.join(OUT, nm + '.tsv');
+    if (!fs.existsSync(qp) || !fs.existsSync(tp)) { say(`  · ${nm} טרם נוצר · דילוג`); continue; }
+    const q = JSON.parse(fs.readFileSync(qp, 'utf8'));
+    const txt = fs.readFileSync(tp, 'utf8');
+    const d = JSON.parse(fs.readFileSync(path.join(OUT, nm + '.design.json'), 'utf8'));
+    t(/^[0-9a-f]{40}$/.test(q.lock_commit), `${nm} · hash הנעילה תקין · ${q.lock_commit.slice(0, 7)}`);
+    t(txt.includes(q.lock_commit), `${nm} · ⭐ **hash הנעילה כתוב בראש הקובץ** · הסדר מוכח מהגיט`);
+    t(q.filter.split === 'holdout', `${nm} · נדגם מ-holdout בלבד`);
+    const got = {};
+    for (const r of d.rows) (got[r.dir] || (got[r.dir] = {}))[r.cls] = (got[r.dir][r.cls] || 0) + 1;
+    let match = true;
+    for (const dir of Object.keys(q.quota)) for (const c of Object.keys(q.quota[dir])) {
+      if ((q.quota[dir][c] || 0) !== ((got[dir] || {})[c] || 0)) match = false;
+    }
+    t(match, `${nm} · ⭐ **המדגם תואם למכסה שהוכרזה** · אף שכבה לא הורחבה בדיעבד`);
+    t(new Set(d.rows.map(r => r.group)).size === d.rows.length, `${nm} · שורה אחת לכל כרטיס`);
+    /* ⭐ שתי הדרישות שנגזרו מ-11 ההחטאות · חייבות להיות בסט השלישי */
+    if (nm === 'en-blind3') {
+      const cnt = f => d.rows.filter(f).length;
+      const garbage = cnt(r => r.cls === 'neg-garbage');
+      const heTypo = cnt(r => r.dir === 'gloss' && /^sp-/.test(r.cls));
+      t(garbage >= 8, `⭐ neg-garbage · ${garbage} שורות · מחלקה A שהפילה את החוק`);
+      t(heTypo >= 10, `⭐ שגיאות כתיב עבריות בכיוון gloss · ${heTypo} שורות · מחלקה B`);
+      /* ⛔ אפס חפיפה עם הסט השני · **לפי תוכן**, כי הקורפוס נבנה מחדש */
+      const p2 = path.join(OUT, 'en-blind2.tsv');
+      if (fs.existsSync(p2)) {
+        const key = (a, b, c2) => [a, String(b).trim(), String(c2).trim()].join('');
+        const prev = new Set(fs.readFileSync(p2, 'utf8').split(/\r?\n/)
+          .filter(l => l.trim() && !l.startsWith('#')).slice(1)
+          .map(l => { const c2 = l.split('\t'); return key(c2[1], c2[2], c2[5]); }));
+        const mine = txt.split(/\r?\n/).filter(l => l.trim() && !l.startsWith('#')).slice(1)
+          .map(l => { const c2 = l.split('\t'); return key(c2[1], c2[2], c2[5]); });
+        t(prev.size > 0 && !mine.some(k => prev.has(k)), '⭐ ⛔ אפס חפיפת **תוכן** עם en-blind2 · לא לפי מזהה, כי הקורפוס נבנה מחדש');
       }
-      t(match, '⭐ **המדגם תואם למכסה שהוכרזה** · אף שכבה לא הורחבה ולא צומצמה בדיעבד');
-      t(new Set(d.rows.map(r => r.group)).size === d.rows.length, 'שורה אחת לכל כרטיס · כפי שהוכרז מראש');
     }
   }
 
@@ -628,9 +817,11 @@ if (require.main === module) {
     else if (has('--en')) enSet();
     else if (has('--en2-quota')) en2Quota();
     else if (has('--en2')) en2Sample();
+    else if (has('--en3-quota')) en3Quota();
+    else if (has('--en3')) en3Sample();
     else if (has('--selftest')) { say('# שיניים · calib_mine.js'); say(''); selftest(); }
-    else say('שימוש: --near-neg | --en | --en2-quota | --en2 | --selftest');
+    else say('שימוש: --near-neg | --en | --en2-quota | --en2 | --en3-quota | --en3 | --selftest');
   } catch (e) { say('⛔ ' + e.message); process.exitCode = 1; }
 }
 
-module.exports = { nearNeg, enSet, en2Quota, en2Sample, skel, jac, JACCARD_MIN, JACCARD_MAX };
+module.exports = { nearNeg, enSet, en2Quota, en2Sample, en3Quota, en3Sample, skel, jac, JACCARD_MIN, JACCARD_MAX };

@@ -1,0 +1,44 @@
+# en-blind3 · סט חוץ-מדגם שלישי · נדגם מכנית מ-answers-en.jsonl (split=holdout)
+# ⛔ הפאנל שנבחן כאן ננעל בקומיט 7ad6c3550838db52bcee209aca84f31abcdc3b8a **לפני** שנדגמה שורה אחת
+# זרע typo-lab/teacher/en3/v1 · מכסות ורצפות ב-en-blind3.quota.json · אין חפיפה עם en-blind2
+id	כיוון	מילה בכרטיס	הפירוש המקורי	מה כתוב במאגר	מה הלומד כתב	האם הלומד ידע את המילה? כ / ל / ?
+Y01	gloss	between	בין	בין	בינ במיוחד	
+Y02	gloss	marine	ימי	ימי	וימי	
+Y03	gloss	statue	פסל	פסל	פס	
+Y04	gloss	owing to	בגלל, עקב, בשל	בגלל, עקב, בשל	זקטל	
+Y05	gloss	nursery	חדר ילדים, פעוטון; משתלה	חדר ילדים, פעוטון; משתלה	צעדאדחעה	
+Y06	gloss	catalogue	קטלוג, רשימת פריטים	קטלוג, רשימת פריטים	לנוצז	
+Y07	gloss	again	שוב	שוב	גמס	
+Y08	gloss	veracity	אמיתוּת, דבקות באמת; דיוק, התאמה לעובדות	אמיתוּת, דבקות באמת; דיוק, התאמה לעובדות	חיטטות	
+Y09	gloss	flock	לנהור, עדר, המון	לנהור, עדר, המון	אמנה	
+Y10	gloss	shell	קליפה, מעטפת; פגז	קליפה, מעטפת; פגז	להקיפ במסלול	
+Y11	gloss	orchestrate	לתאם, לתזמר	לתאם, לתזמר	מתאמ	
+Y12	gloss	cockroach	מקק, ג'וק	מקק, ג'וק	גוד	
+Y13	gloss	provided that	בתנאי ש-	בתנאי ש-	בתנעי ש	
+Y14	gloss	arm	לחמש; זרוע	לחמש; זרוע	זרוא	
+Y15	gloss	collision	התנגשות	התנגשות	התנגשנת	
+Y16	gloss	neighbor	שכן	שכן	שמנ	
+Y17	gloss	communicate	לתקשר	לתקשר	ללתקשר	
+Y18	gloss	expedite	לזרז	לזרז	לזזרז	
+Y19	gloss	reigned	משל, שלט	משל, שלט	של	
+Y20	gloss	envy	קנאה, לקנא	קנאה, לקנא	לנא	
+Y21	gloss	sometimes	לעיתים, לפעמים	לעיתים, לפעמים	לעיתמ	
+Y22	gloss	humble	צנוע; להשפיל	צנוע; להשפיל	להפשיל	
+Y23	gloss	quench	לספק, להרוות	לספק, להרוות	להורות	
+Y24	gloss	fort	מצודה, מבצר	מצודה, מבצר	במצר	
+Y25	word	snake	נחש	snake	sake	
+Y26	word	favored	מועדף	favored	cvjzhze	
+Y27	word	hot	חם; חריף	hot	yhb	
+Y28	word	propel	להניע, לדחוף	propel	gjmliy	
+Y29	word	harmony	הרמוניה	harmony	qlrlkjx	
+Y30	word	false	שקרי, כוזב, לא נכון; מזויף	false	iosxg	
+Y31	word	sensitivity	רגישות	sensitivity	cinoqyqvkpt	
+Y32	word	object	פריט, אובייקט; להתנגד	object	always	
+Y33	word	drug	סם, תרופה, לסמם	drug	rule	
+Y34	word	whom	מי	whom	hoot	
+Y35	word	drastic	דרסטי	drastic	drastif	
+Y36	word	present	להציג; מתנה; הווה, נוכח, קיים	present	presenr	
+Y37	word	bridge	גשר, לגשר	bridge	briddge	
+Y38	word	consequently	כתוצאה מכך	consequently	consquently	
+Y39	word	usually	בדרך-כלל	usually	usualli	
+Y40	word	on the contrary	להפך, אדרבא, נהפוך הוא	on the contrary	on the conrtary	
