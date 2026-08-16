@@ -63,6 +63,16 @@ const SYMBOLS = [
      זה קרה כאן פעמיים · קודם על `typoShare`. **פונקציה חדשה ש-meaningMatch או
      isCorrect קוראות לה חייבת להיכנס לרשימה באותו שינוי.** */
   'typoSegConcat', 'TYPO_SEG_CONCAT_MAX', 'TYPO_SEG_CONCAT_EXCEPT',
+  /* ⚠ 16.8.2026 · **שלוש פעמים באותו יום, אותו כשל בדיוק** — `typoShare`,
+     `typoSegConcat`, ועכשיו `fullVetoPass`. פונקציה חדשה נוספה ל-app.js, נקראה
+     מתוך פונקציה שכן מורמת, ולא נרשמה כאן. התסמין מטעה: בפעם השנייה 19 בדיקות
+     האדימו בשמות סמנטיים ("מילה שונה לגמרי עדיין נדחית"), ובפעם השלישית
+     **140 בדיקות** נפלו כולל `harness — lifting app.js` עצמה. הסיבה בכל הפעמים
+     היא ReferenceError אחד.
+     ⭐ הכלל, ולא רק התיקון: **ההרמה אינה מגלה תלויות בעצמה.** מי שמוסיף פונקציה
+     ש-`buildBank`/`isCorrect`/`meaningMatch` קוראות לה חייב להוסיף אותה לכאן
+     **באותו שינוי**. בדיקה `00-harness` היא זו שתתפוס, והיא נופלת רועש — וזה טוב. */
+  'fullVetoPass',
   'editDist', 'creditSense', 'typoVeto',
   // stats model and the three practice buckets
   'rec', 'scopeWords', 'lvl', 'lastOf', 'wasSkipped', 'seenCount',

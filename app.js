@@ -474,6 +474,54 @@ function buildBank(){
   }
   for(const pair of added) add(pair[0], pair[1], 'custom');   // unit copy always wins
   buildGlossIndex();
+  fullVetoPass();
+}
+
+/* ⛔ 16.8.2026 · הווטו במצב הצצה היה קטן פי עשרה, וזה נמדד ולא הונח.
+ *
+ * `PREVIEW` מסנן את הנתונים ליחידה 1 לפני שהלולאה מעליה רצה — וזה **נכון** עבור
+ * `BANK`, כי מה שמתרגלים באמת הוא יחידה 1. אבל הווטו נבנה מאותה לולאה, והוא אינו
+ * רשימת "מה מתרגלים" אלא רשימת **"מה תפוס בשפה"**. הצמצום שלו אינו החלטה — הוא
+ * תופעת לוואי.
+ *
+ * מה שנמדד על כל 395 כרטיסי יחידה 1, מנייה מלאה ולא דגימה:
+ *   · TERM_VETO ‏3,946 → 395 ‏(10.0%) · SEG_VETO ‏4,695 → 578 ‏(12.3%)
+ *   · **17,345 מחרוזות** מתקבלות אצל אורח ונדחות אצל משתמש רשום.
+ *   · מהן **10 הן תשובה קבילה של ערך אחר** — כלומר לומד חדש מקבל "נכון" על מילה
+ *     שהוא לא התכוון אליה:
+ *       monkey על money · crash על cash · though על through · resident על president
+ *       farther על father · latter על later · joint על join · enter על center
+ *       mistaken על mistake · probable על probably
+ *
+ * ⚠ והערוץ העיקרי הפתיע: לא הווטו עצמו (‏618) אלא **`far`** (‏16,727). `nearestOther`
+ * נבנה מהווטו, ובשכונה דלילה ה-gap גדול, המשטר הצר אינו נדלק, וההכרעה עוברת
+ * לספים הרפויים. כלומר הווטו קובע הרבה מעבר לפסילה הישירה.
+ *
+ * ⭐ למה מעבר נוסף ולא הרחבת הלולאות הקיימות: `buildGlossIndex` בונה `SEG_VETO`
+ * ו-`GLOSS_ALT` יחד, ולשתיהן דרישות **הפוכות** — הווטו הוא גלובלי, ו-`GLOSS_ALT`
+ * ("שני ערכים חולקים פירוש") חייב להישאר צמוד ל-`BANK`. הרחבה משותפת נמדדה כמוסיפה
+ * **212 פטורי-נרדפות** לכרטיסי יחידה 1 (‏`able` היה מקבל `capable`) — כלומר קבלה
+ * **רחבה יותר** לאורח, בדיוק ההפך מהמטרה.
+ *
+ * ואף תשובה נכונה אינה נפגעת: `acceptsToday` נבדקת ראשונה, ו-`isVetoedTerm` פוטרת
+ * כל צורה של הכרטיס עצמו. כל 17,345 הן מחרוזות שאינן מתקבלות בשכבה המדויקת.
+ * המחיר, מדוד: **+17ms חד-פעמי · ~1.5MB · אפס רשת** — `data-en.js` נטען ממילא. */
+function fullVetoPass(){
+  if(!PREVIEW) return;                       // no-op למשתמש רשום · הלולאות כבר מלאות
+  const all = (LANG==='en' ? window.UNIT_DATA_EN : window.UNIT_DATA) || {};
+  for(const uid of Object.keys(all)){
+    const rows = Array.isArray(all[uid]) ? all[uid] : [];
+    for(const pair of rows){
+      if(!Array.isArray(pair)) continue;
+      const term=pair[0], meaning=pair[1];
+      if(typeof term!=='string' || !term.trim()) continue;
+      const k=K(term);
+      if(!k || deleted.has(k)) continue;
+      vetoPut(TERM_VETO, k, k);
+      if(LANG!=='en') for(const v of heForms(term)) vetoPut(TERM_VETO, K(v), k);
+      for(const s of glossSenses(typeof meaning==='string' ? meaning : '')) vetoPut(SEG_VETO, s, k);
+    }
+  }
 }
 
 /* ===== words that share a gloss =====
