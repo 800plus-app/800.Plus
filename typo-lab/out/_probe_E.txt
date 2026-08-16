@@ -1,0 +1,28 @@
+
+━━ OP-mater+homo ━━
+יקום: 819,682 וריאציות · התקבלו 164,287 · 281ש
+recall · holdout 30.52% (553/1812) · סט מלא 30.25% (3682/12173)
+שארית · bank 0 · real-word 0 · non-word 164287
+   ins           bank    0 · real     0 · non 137730
+   doubleLetter  bank    0 · real     0 · non  10395
+   materVI       bank    0 · real     0 · non   9771
+   homophone     bank    0 · real     0 · non   3617
+   sub           bank    0 · real     0 · non   1321
+   transpose     bank    0 · real     0 · non    909
+   adjSub        bank    0 · real     0 · non    431
+   del           bank    0 · real     0 · non    113
+   דוגמאות non-word: הבניימ ← אָבְנַיִים [homophone] | עבניימ ← אָבְנַיִים [homophone] | אנביימ ← אָבְנַיִים [transpose] | אוניימ ← אָבְנַיִים [homophone] | אבינימ ← אָבְנַיִים [transpose] | אבנימי ← אָבְנַיִים [transpose] | אבנייממ ← אָבְנַיִים [doubleLetter] | אובניימ ← אָבְנַיִים [materVI]
+
+━━ BAND0-safe+OPhomo ━━
+יקום: 819,682 וריאציות · התקבלו 237,417 · 217ש
+recall · holdout 31.73% (575/1812) · סט מלא 32.00% (3895/12173)
+שארית · bank 0 · real-word 0 · non-word 237417
+   ins           bank    0 · real     0 · non 217045
+   doubleLetter  bank    0 · real     0 · non  12205
+   homophone     bank    0 · real     0 · non   3618
+   materVI       bank    0 · real     0 · non   1758
+   sub           bank    0 · real     0 · non   1359
+   transpose     bank    0 · real     0 · non    910
+   adjSub        bank    0 · real     0 · non    409
+   del           bank    0 · real     0 · non    113
+   דוגמאות non-word: אאבניימ ← אָבְנַיִים [doubleLetter] | הבניימ ← אָבְנַיִים [homophone] | עבניימ ← אָבְנַיִים [homophone] | אבבניימ ← אָבְנַיִים [doubleLetter] | אנביימ ← אָבְנַיִים [transpose] | אוניימ ← אָבְנַיִים [homophone] | אבנניימ ← אָבְנַיִים [doubleLetter] | אבינימ ← אָבְנַיִים [transpose]

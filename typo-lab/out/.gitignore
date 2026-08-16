@@ -71,3 +71,8 @@ panel/vg-[0-9]*.tsv
 # המדידה של הסבב הזה הופכת לטענה בלי ראיה. אותו שיקול חל על
 # `semantic-blind.labeled.tsv` — 40 התיוגים של חגי הם ה-ground truth היחיד כאן
 # ואין דרך לייצר אותם מחדש.
+
+# דאמפים כבדים מסבב טעויות ההקלדה בעברית · משוחזרים מ-he_mater_closed.js
+# ומ-he_delta_residue.js. ריפו ציבורי · הדוחות כן נכנסים, הדאמפים לא.
+he-mater-closed.*.json
+he-delta.*.json
