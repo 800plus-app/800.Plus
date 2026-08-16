@@ -48,18 +48,32 @@ const say = s => process.stdout.write(s + '\n');
 const pct = x => (100 * x).toFixed(2) + '%';
 
 /* ===== המורה · נקודת ההחלפה היחידה =====
- * ⚠ זמני. כשהמורה האמיתי יהיה מוכן, הפונקציה הזאת נקראת אליו והמונה נשאר כמו שהוא.
+ *
+ * ⭐ **המורה האמיתי חובר · 16.8.2026.** `oracle` הוא פונקציה `i → 'accept'|'reject'|'unsure'`
+ * שנבנית ב-`distill.js` מעל הפנקס של `teacher.js`. בלעדיה ההתנהגות **זהה לחלוטין**
+ * למה שהיה — תוויות הדאטהסט — וזה נבדק ביט-אחר-ביט מול הארטיפקט הקודם.
+ *
+ * ⭐ שלושה ערכים ולא שניים, וזה לא קוסמטי. `teacher.js` כותב את זה במפורש:
+ * *"המאמן של התלמיד צריך לדעת את ההבדל בין 'המורה אמר לא' לבין 'המורה לא ידע' ·
+ * לאמן על השני כשלילי זה ללמד רעש."* ‏`unsure` **משלם תקציב ואינו נכנס לאימון**.
+ * ⚠ ובכיוון ההפוך: `unsure` שנספר כשלילי היה מהדק ספים על סמך אי-ידיעה, כלומר
+ * מוריד recall בשם עדות שאינה קיימת.
  */
-function makeTeacher(S) {
+function makeTeacher(S, oracle) {
   let asked = 0;
-  const seen = new Set();
+  const seen = new Map();
   return {
     ask(i) {
-      if (!seen.has(i)) { seen.add(i); asked++; }
-      return S.isAcc[i] === 1 ? 'accept' : 'reject';
+      if (seen.has(i)) return seen.get(i);
+      asked++;
+      const v = oracle ? oracle(i) : (S.isAcc[i] === 1 ? 'accept' : 'reject');
+      if (v !== 'accept' && v !== 'reject' && v !== 'unsure') throw new Error(`makeTeacher: פסק לא חוקי "${v}" על שורה ${i}`);
+      seen.set(i, v);
+      return v;
     },
+    verdict(i) { return seen.get(i); },
     get count() { return asked; },
-    source: 'dataset-labels (זמני · המורה האמיתי טרם נבנה)',
+    source: oracle ? (oracle.source || 'oracle חיצוני') : 'dataset-labels (זמני · המורה האמיתי טרם נבנה)',
   };
 }
 
@@ -178,10 +192,19 @@ function uniformPick(pool, k, seed) {
  * כלומר בדיוק מה ששער המאגר פוסל. אילוץ שאפשר למנות אותו במלואו חייב להיאכף מבנית ולא
  * להישאב לדגימה.
  */
-function fitOn(S, labeled, opts, structuralNeg) {
+function fitOn(S, labeled, opts, structuralNeg, verdictOf) {
+  const vf = verdictOf || (i => (S.isAcc[i] === 1 ? 'accept' : 'reject'));
   const pos = [], neg = (structuralNeg || []).slice();
-  for (const i of labeled) (S.isAcc[i] === 1 ? pos : neg).push(i);
-  return FIT.fitStudent(S, neg, pos, opts);
+  let unsure = 0;
+  for (const i of labeled) {
+    const v = vf(i);
+    if (v === 'accept') pos.push(i);
+    else if (v === 'reject') neg.push(i);
+    else unsure++;                       /* ⛔ "המורה לא ידע" אינו שלילי · ראה makeTeacher */
+  }
+  const m = FIT.fitStudent(S, neg, pos, opts);
+  m.trainedOn = { pos: pos.length, negLabeled: neg.length - (structuralNeg || []).length, negStructural: (structuralNeg || []).length, unsure };
+  return m;
 }
 
 /* ===== הלולאה המלאה =====
