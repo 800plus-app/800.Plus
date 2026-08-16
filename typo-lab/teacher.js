@@ -314,22 +314,7 @@ function isNominalization(a, b) {
   return nomTail(x.slice(stem)) !== nomTail(y.slice(stem));
 }
 
-function decideWordDir(it, v) {
-  const d = wordDiff(it);
-  /* ⛔ הכרעת חגי 16.8 · בכיוון `word` צריך את הצורה המדויקת · קודם לכל שאר הענפים */
-  if (isNominalization(it.term, it.typed)) return 'reject';
-  const isWord = v.T5 === 'כ', notWord = v.T5 === 'ל';
-  const morph = d && isMorphPair(lc(d.from), lc(d.to));
-  if (!v.T5) return 'unsure';
-  if (morph) {
-    /* ניסיון הטיה · מתקבל רק אם הצורה **קיימת** (`bandages` כן · `generaled` לא) */
-    return isWord ? 'accept' : (notWord ? 'reject' : 'unsure');
-  }
-  if (notWord) return 'accept';                 /* אינה מילה ואינה הטיה ⇒ שגיאת הקלדה */
-  /* מילה קיימת שאינה הטיה של המונח ⇒ מילה אחרת. T4 אינה חלה כאן, ולכן T3 מכריעה */
-  if (!v.T3) return 'unsure';
-  return v.T3 === 'כ' ? 'accept' : 'reject';
-}
+
 
 /* ⛔ **וטו הטאוטולוגיה · תשובה שחוזרת על המונח עצמה אינה עדות לידיעה.**
  *
@@ -366,10 +351,43 @@ function isTautology(it) {
   return !!t && t === y;
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+ * ⛔ **ביטול העקיפה · `decideWordDir` הוסרה · 16.8.2026**
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ * כאן עמדה שורה אחת שעקפה את הפאנל כולו בכיוון `word`:
+ *
+ *     if (it.lang === 'en' && it.direction === 'word') return decideWordDir(it, v);
+ *
+ * ‏`decideWordDir` הכריעה לפי `T5` לבדה בשני ענפים — `אינה מילה ⇒ accept`
+ * ו-`ניסיון הטיה ⇒ T5 מכריעה`. **שניהם אותו שורש בשני סימנים:** הם התייחסו
+ * ל-`isRealWord` כאל עדות דו-כיוונית, והיא אינה כזאת באף כיוון.
+ *
+ * מה שהפיל אותה · `en-blind2`, סט חוץ-מדגמי שנבנה במיוחד לבחון אותה:
+ *
+ *   | | דיוק | קבלות-שווא |
+ *   |---|---|---|
+ *   | ‏`decideWordDir` | 72.5% | **3** |
+ *   | ‏T3 לבדה         | **100%** | **0** |
+ *
+ * ⭐ ובשלוש קבלות-השווא (`X20` `X21` `X27`) **כל שלוש העדשות אמרו `ל`**,
+ * והענף `if (notWord) return 'accept'` החזיר accept **בלי להתייעץ באף אחת מהן**.
+ * זה לא קיצור דרך — זו עקיפה של המנגנון. הפאנל ידע; החוק זרק את הידע.
+ *
+ * ⚠ **מה שנשאר, ולמה:** הכרעת חגי (שם-פעולה בכיוון `word` נדחה) **אינה** חלק
+ * מהעקיפה — היא החלטת מוצר שלו, והיא **וטו בלבד**: היא יכולה רק לדחות, לעולם
+ * לא לקבל. לכן היא עברה לכאן, לצד וטו הטאוטולוגיה, ואינה עוקפת את הפאנל.
+ *
+ * ⛔ **ולא כוונן שום דבר מעבר לזה.** לא נבחרו עדשות, לא נוסף תנאי מרחק, ולא
+ * תוקן `isNominalization` — למרות ש**ידוע** שהוא יורה שקרית על `X32`
+ * (`advantage`→`advantwge`). תיקון שנעשה על סמך סט שכבר נראה הופך אותו
+ * לבתוך-מדגם. הבאג מתועד וממתין לסט השלישי.
+ */
 function decide(it, v) {
   if (!v) return 'unsure';
   if (isTautology(it)) return 'reject';
-  if (it.lang === 'en' && it.direction === 'word') return decideWordDir(it, v);
+  /* הכרעת חגי 16.8 · כיוון `word` דורש את הצורה המדויקת · **וטו, לא ענף קבלה** */
+  if (it.direction === 'word' && isNominalization(it.term, it.typed)) return 'reject';
   const app = applicable(it);
   const got = app.filter(l => v[l]);
   if (app.some(l => v[l] === 'ל')) return 'reject';
@@ -1268,13 +1286,22 @@ function selftest() {
   const wdir = itemOf({ lang: 'en', direction: 'word', term: 'abacus', gloss: 'חשבונייה', written: 'abacus', typed: 'abacus' });
   t(!isTautology(wdir), '⛔ בכיוון word התשובה **אמורה** להיות המונח · הווטו אינו חל שם');
 
-  say('## ב3 · כיוון word באנגלית · חוק נפרד');
+  say('## ב3 · כיוון word באנגלית · **הפאנל הוחזר** · אין עוד חוק נפרד');
   const en = (term, typed) => itemOf({ lang: 'en', direction: 'word', term, gloss: 'g', written: term, typed });
-  t(decide(en('abacus', 'abavus'), { T5: 'ל' }) === 'accept', 'אינה מילה ואינה הטיה ⇒ שגיאת הקלדה ⇒ accept');
-  t(decide(en('blend', 'bend'), { T5: 'כ', T3: 'ל' }) === 'reject', '⛔ מילה אנגלית אחרת ⇒ reject');
-  t(decide(en('bandage', 'bandages'), { T5: 'כ' }) === 'accept', 'הטיה קיימת ⇒ accept');
-  t(decide(en('desperate', 'desperating'), { T5: 'ל' }) === 'reject', '⛔ ניסיון הטיה שאינו צורה קיימת ⇒ reject · **לא** נחשב שגיאת הקלדה');
-  t(decide(en('abacus', 'abavus'), {}) === 'unsure', '⛔ בלי T5 אין הכרעה · לא accept');
+  /* ⭐ הבדיקה שמוכיחה שהעקיפה הוסרה · זה בדיוק המקרה שהפיל אותה:
+     שלוש עדשות אמרו `ל`, והחוק הישן החזיר accept בלי להתייעץ. עכשיו `ל` אחת דוחה. */
+  t(decide(en('notwithstanding', 'awfagivlffawwvs'), { T2: 'ל', T3: 'ל', T5: 'ל' }) === 'reject',
+    '⭐ ⛔ שלוש עדשות אמרו "ל" ⇒ **reject** · X20 · העקיפה החזירה כאן accept');
+  t(decide(en('blend', 'bend'), { T2: 'ל', T3: 'ל', T5: 'כ' }) === 'reject', '⛔ מילה אנגלית אחרת ⇒ reject');
+  t(decide(en('bandage', 'bandages'), { T2: 'כ', T3: 'כ', T4: 'כ', T5: 'כ' }) === 'accept', 'פה אחד ⇒ accept · הפאנל אינו "דוחה הכול" (T4 חלה כאן · הדבקת סיומת)');
+  t(decide(en('abacus', 'abavus'), { T5: 'ל' }) === 'reject', '⛔ פסק חלקי עם "ל" ⇒ reject · T5 לבדה אינה מקבלת עוד');
+  t(decide(en('abacus', 'abavus'), { T2: 'כ', T3: 'כ' }) === 'unsure', '⛔ שתי עדשות בלבד ⇒ unsure · פחות משלוש אינו קבלה');
+  /* ⚠ החולשה הידועה שההחזרה מחזירה איתה · מתועדת ולא מתוקנת */
+  t(decide(en('abacus', 'abavus'), { T2: 'כ', T3: 'כ', T5: 'ל' }) === 'reject',
+    '⚠ שגיאת הקלדה שאינה מילה ⇒ **reject** · T5 וטו · זו החולשה שהסט השלישי אמור לכמת');
+  /* הכרעת חגי · שרדה את ההחזרה, כי היא וטו ולא ענף קבלה */
+  t(decide(en('decide', 'decision'), { T2: 'כ', T3: 'כ', T5: 'כ' }) === 'reject',
+    '⭐ הכרעת חגי שרדה · שם-פעולה בכיוון word ⇒ reject גם בפה אחד "כ"');
   t(!appliesTo('T4', en('abacus', 'abavus')), '⛔ T4 אינה חלה על רעש מקלדת באנגלית · השאלה שלה אינה מוגדרת שם');
   t(appliesTo('T4', en('bandage', 'bandages')), 'T4 כן חלה על הדבקת סיומת · שם השאלה מוגדרת');
 
@@ -1295,7 +1322,7 @@ function selftest() {
     '✅ כיוון gloss · שם-פעולה ⇒ **accept** · אותה מחלקה, הכרעה הפוכה');
   t(RULING_Q(g1) === 'כ' && RULING_Q(enW('decide', 'decision')) === 'ל',
     'ניקוד ה-"?" עצמו תלוי כיוון · gloss=כ · word=ל');
-  t(decide(enW('bandage', 'bandages'), { T5: 'כ' }) === 'accept',
+  t(decide(enW('bandage', 'bandages'), { T2: 'כ', T3: 'כ', T4: 'כ', T5: 'כ' }) === 'accept',
     'והטיה רגילה בכיוון word עדיין מתקבלת · ההכרעה לא בלעה מחלקה אחרת');
 
   say('## ג · שער הקליטה · ⛔ פלט פגום של שופט');
