@@ -185,5 +185,95 @@ function main() {
   say(`כלומר ‏R1 משנה את הפסק על **${onlyT5}** שורות בדיוק, וכל השאר נדחות ממילא.`);
 }
 
-if (require.main === module) main();
-module.exports = { decideBy, RULES, rowsOf, score };
+/* ═══════════════════════════════════════════════════════════════════════════
+ * ⛔⛔ **‏`isNominalization` יורה על שגיאות הקלדה רגילות** · `--nominal`
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ *   node typo-lab/teacher_rule_probe.js --nominal
+ *
+ * וטו שם-הפעולה הוא המימוש המבני של **הכרעת חגי מ-16.8**: בכיוון `word` הלומד
+ * צריך את הצורה המדויקת, ולכן `decide`→`decision` נדחה. ההכרעה נכונה. ⛔ **המימוש
+ * תופס גם דבר אחר לגמרי.**
+ *
+ * ‏`isNominalization` משווה את **הזנבות הנבדלים** ושואל אם בדיוק אחד מהם "נראה
+ * נומינלי". שגיאת הקלדה ש**פוגעת בסיומת נומינלית** מהפכת בדיוק צד אחד:
+ *
+ *   ‏`accomplishment`→`accomplishent`  זנבות ‎[ment|ent]‎  ⇒ ⛔ נחשב גזירה
+ *   ‏`explanation`   →`explanaion`     זנבות ‎[tion|ion]‎  ⇒ ⛔ נחשב גזירה
+ *   ‏`leisure`       →`leisre`         זנבות ‎[ure|re]‎    ⇒ ⛔ נחשב גזירה
+ *
+ * ⚠ ‏`teacher.js` כבר מתעד **קבלת-שווא אחת** ידועה מהמשפחה הזאת (`advantage`→
+ * `advantwge` · X32) וכותב "הבאג מתועד וממתין לסט השלישי". **הסט השלישי הגיע.**
+ * המנייה למטה היא על כל `en-word`, ממחולל אחר לגמרי.
+ *
+ * ⭐ **השומר המוצע · חסר-לקסיקון, ולכן נקי משפטית** (‏`CLAUDE.md` אוסר לקסיקון
+ * חיצוני, ו-`typo-lex.js` אינו מילון אנגלי אלא רשימת ווטו ממוקדת — נבדק:
+ * ‏`animal` · `leisure` · `advantage` כולן מחזירות `false`):
+ *
+ *   בגזירה אמיתית שני הזנבות **אינם דומים** — ‎[de|sion]‎ · ‎[|ment]‎ · ‎[oy|uction]‎.
+ *   בשגיאת הקלדה שפגעה בסיומת הם רחוקים **עריכה אחת** — ‎[ment|ent]‎ · ‎[ure|re]‎.
+ *
+ * ⚠ הסייג: `animal`→`animla` הוא **שיכול** (מרחק 2) ועדיין חומק. שומר שמוסיף
+ * בדיקת שיכול היה תופס אותו בלי לפגוע ב-`arrive`→`arrival` (גם הוא מרחק 2, אבל
+ * אינו שיכול). לא נמדד כאן.
+ */
+function editDist(a, b) {
+  const m = a.length, n = b.length;
+  let prev = Array.from({ length: n + 1 }, (_, j) => j);
+  for (let i = 1; i <= m; i++) {
+    const cur = [i];
+    for (let j = 1; j <= n; j++) cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    prev = cur;
+  }
+  return prev[n];
+}
+function diffTails(a, b) {
+  const x = String(a).toLowerCase(), y = String(b).toLowerCase();
+  let i = 0;
+  while (i < x.length && i < y.length && x[i] === y[i]) i++;
+  return [x.slice(i), y.slice(i)];
+}
+const typoGuard = (a, b) => { const [x, y] = diffTails(a, b); return editDist(x, y) <= 1; };
+
+function nominal() {
+  const rows = fs.readFileSync(path.join(OUT, 'dataset-en.jsonl'), 'utf8').split('\n')
+    .filter(Boolean).map(l => JSON.parse(l)).filter(r => r.set === 'en-word');
+
+  say('# ⛔ וטו שם-הפעולה · מנייה מלאה על `en-word`');
+  say('');
+  say('| זוג | זנבות | מרחק | `isNominalization` | השומר המוצע |');
+  say('|---|---|---:|---|---|');
+  const probe = [['decide', 'decision'], ['arrive', 'arrival'], ['govern', 'government'], ['destroy', 'destruction'],
+    ['accomplishment', 'accomplishent'], ['explanation', 'explanaion'], ['leisure', 'leisre'],
+    ['advantage', 'advantwge'], ['animal', 'animla']];
+  for (const [a, b] of probe) {
+    const [x, y] = diffTails(a, b);
+    say(`| \`${a}\` → \`${b}\` | ‎[${x || '∅'}|${y || '∅'}]‎ | ${editDist(x, y)} | ${T.isNominalization(a, b) ? '⛔ גזירה' : '✅ לא'} | ${typoGuard(a, b) ? 'שגיאת הקלדה' : 'גזירה'} |`);
+  }
+
+  let fire = 0, fireAcc = 0, sup = 0, supAcc = 0, keptAcc = 0;
+  const ex = [];
+  for (const r of rows) {
+    if (!T.isNominalization(r.term, r.typed)) continue;
+    fire++;
+    const isAcc = r.label === 'accept';
+    if (isAcc) { fireAcc++; if (ex.length < 8) ex.push(`\`${r.typed}\`~${r.term}`); }
+    if (typoGuard(r.term, r.typed)) { sup++; if (isAcc) supAcc++; }
+    else if (isAcc) keptAcc++;
+  }
+  say('');
+  say(`‏${rows.length} שורות \`en-word\`. הווטו יורה על **${fire}** מהן, ומתוכן **${fireAcc}** (‏${(100 * fireAcc / fire).toFixed(1)}%) מתויגות \`accept\` בדאטהסט.`);
+  say('');
+  say(`דוגמאות: ${ex.join(' · ')}`);
+  say('');
+  say('| | ירי | מהן `accept` |');
+  say('|---|---:|---:|');
+  say(`| היום | ${fire} | **${fireAcc}** ⛔ |`);
+  say(`| עם השומר | ${fire - sup} | **${keptAcc}** |`);
+  say('');
+  say(`⭐ השומר מדכא ${sup} ירי, מהם **${supAcc}** על שורות \`accept\` · הירי השגוי יורד מ-${fireAcc} ל-${keptAcc}.`);
+  say(`⚠ ומחירו: ${sup - supAcc} שורות \`reject\` שהוא מפסיק לדחות דרך הווטו הזה (הן עדיין עוברות את שאר הפאנל).`);
+}
+
+if (require.main === module) { if (process.argv.includes('--nominal')) nominal(); else main(); }
+module.exports = { decideBy, RULES, rowsOf, score, typoGuard, diffTails, editDist };
