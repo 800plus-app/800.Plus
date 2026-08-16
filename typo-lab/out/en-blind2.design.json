@@ -1,0 +1,328 @@
+{
+ "generated": "typo-lab/calib_mine.js --en2",
+ "lock_commit": "95c44488ee08dee7590b2f9b45d154d7ec208a0a",
+ "seed": "typo-lab/teacher/en2/v1",
+ "truth": "לא ידועה · דורש תיוג אנושי",
+ "rows": [
+  {
+   "id": "X01",
+   "dir": "gloss",
+   "cls": "extra-word",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-028552",
+   "group": "g|לאפיינ"
+  },
+  {
+   "id": "X02",
+   "dir": "gloss",
+   "cls": "extra-word",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-001628",
+   "group": "g|מזל"
+  },
+  {
+   "id": "X03",
+   "dir": "gloss",
+   "cls": "mater",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-006414",
+   "group": "g|דברימ"
+  },
+  {
+   "id": "X04",
+   "dir": "gloss",
+   "cls": "neg-equidistant",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-006716",
+   "group": "g|חופשה"
+  },
+  {
+   "id": "X05",
+   "dir": "gloss",
+   "cls": "neg-garbage",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-008529",
+   "group": "g|פציעה"
+  },
+  {
+   "id": "X06",
+   "dir": "gloss",
+   "cls": "neg-morph-overreach",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-016529",
+   "group": "g|לשחזר"
+  },
+  {
+   "id": "X07",
+   "dir": "gloss",
+   "cls": "neg-morph-overreach",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-023286",
+   "group": "g|השתתפ"
+  },
+  {
+   "id": "X08",
+   "dir": "gloss",
+   "cls": "neg-other-gloss",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-013922",
+   "group": "g|להשיג"
+  },
+  {
+   "id": "X09",
+   "dir": "gloss",
+   "cls": "neg-other-gloss",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-022606",
+   "group": "g|להשפיל"
+  },
+  {
+   "id": "X10",
+   "dir": "gloss",
+   "cls": "neg-other-gloss",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-020552",
+   "group": "g|אישי"
+  },
+  {
+   "id": "X11",
+   "dir": "gloss",
+   "cls": "neg-other-gloss",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-002972",
+   "group": "g|כרטיס"
+  },
+  {
+   "id": "X12",
+   "dir": "gloss",
+   "cls": "neg-real-word",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-033930",
+   "group": "g|בעל חשיבות עליונה"
+  },
+  {
+   "id": "X13",
+   "dir": "gloss",
+   "cls": "neg-real-word",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-021266",
+   "group": "g|תעלה"
+  },
+  {
+   "id": "X14",
+   "dir": "gloss",
+   "cls": "sp-adj",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-022619",
+   "group": "g|השערה"
+  },
+  {
+   "id": "X15",
+   "dir": "gloss",
+   "cls": "sp-adj",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-024247",
+   "group": "g|עסקה"
+  },
+  {
+   "id": "X16",
+   "dir": "gloss",
+   "cls": "sp-drop",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-009607",
+   "group": "g|בטיחות"
+  },
+  {
+   "id": "X17",
+   "dir": "gloss",
+   "cls": "sp-transpose",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-008959",
+   "group": "g|גרעיני"
+  },
+  {
+   "id": "X18",
+   "dir": "word",
+   "cls": "neg-equidistant",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-020664",
+   "group": "w|en|lack"
+  },
+  {
+   "id": "X19",
+   "dir": "word",
+   "cls": "neg-equidistant",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-009548",
+   "group": "w|en|award"
+  },
+  {
+   "id": "X20",
+   "dir": "word",
+   "cls": "neg-garbage",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-042939",
+   "group": "w|en|notwithstanding"
+  },
+  {
+   "id": "X21",
+   "dir": "word",
+   "cls": "neg-garbage",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-006226",
+   "group": "w|en|explode"
+  },
+  {
+   "id": "X22",
+   "dir": "word",
+   "cls": "neg-other-term",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-000751",
+   "group": "w|en|color"
+  },
+  {
+   "id": "X23",
+   "dir": "word",
+   "cls": "neg-other-term",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-013042",
+   "group": "w|en|ship"
+  },
+  {
+   "id": "X24",
+   "dir": "word",
+   "cls": "neg-other-term",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-016014",
+   "group": "w|en|interact"
+  },
+  {
+   "id": "X25",
+   "dir": "word",
+   "cls": "neg-other-term",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-035522",
+   "group": "w|en|tendency"
+  },
+  {
+   "id": "X26",
+   "dir": "word",
+   "cls": "neg-other-variant",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-006558",
+   "group": "w|en|giant"
+  },
+  {
+   "id": "X27",
+   "dir": "word",
+   "cls": "neg-other-variant",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-042950",
+   "group": "w|en|nourish"
+  },
+  {
+   "id": "X28",
+   "dir": "word",
+   "cls": "neg-real-word",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-007530",
+   "group": "w|en|on top of"
+  },
+  {
+   "id": "X29",
+   "dir": "word",
+   "cls": "sp-adj",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-008495",
+   "group": "w|en|solve"
+  },
+  {
+   "id": "X30",
+   "dir": "word",
+   "cls": "sp-adj",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-018243",
+   "group": "w|en|whom"
+  },
+  {
+   "id": "X31",
+   "dir": "word",
+   "cls": "sp-adj",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-001644",
+   "group": "w|en|half"
+  },
+  {
+   "id": "X32",
+   "dir": "word",
+   "cls": "sp-adj",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-013879",
+   "group": "w|en|advantage"
+  },
+  {
+   "id": "X33",
+   "dir": "word",
+   "cls": "sp-double",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-019072",
+   "group": "w|en|cheerful"
+  },
+  {
+   "id": "X34",
+   "dir": "word",
+   "cls": "sp-double",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-020162",
+   "group": "w|en|fund"
+  },
+  {
+   "id": "X35",
+   "dir": "word",
+   "cls": "sp-drop",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-038614",
+   "group": "w|en|negligent"
+  },
+  {
+   "id": "X36",
+   "dir": "word",
+   "cls": "sp-drop",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-008088",
+   "group": "w|en|ring rang"
+  },
+  {
+   "id": "X37",
+   "dir": "word",
+   "cls": "sp-pattern",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-039177",
+   "group": "w|en|prosperous"
+  },
+  {
+   "id": "X38",
+   "dir": "word",
+   "cls": "sp-pattern",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-016785",
+   "group": "w|en|propaganda"
+  },
+  {
+   "id": "X39",
+   "dir": "word",
+   "cls": "sp-transpose",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-008608",
+   "group": "w|en|spy"
+  },
+  {
+   "id": "X40",
+   "dir": "word",
+   "cls": "sp-transpose",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-029661",
+   "group": "w|en|manufacture"
+  }
+ ]
+}

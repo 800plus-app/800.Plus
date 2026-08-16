@@ -371,6 +371,172 @@ function enSet() {
   say('⚠ הפירוש במאגר האנגלי הוא **עברית** · כיוון gloss שופט טקסט עברי מול מילה אנגלית.');
 }
 
+/* ===================== 3 · הסט החוץ-מדגמי · אנגלית · en-blind2 =====================
+ *
+ * ⛔⛔ **הקובץ הזה קיים כדי לבחון חוק שאני עצמי גזרתי, ולכן אני עצמי הסיכון.**
+ *
+ * החוק לכיוון `word` (`teacher.js :: decideWordDir`) הגיע ל-24/24 על `en40` —
+ * והוא נגזר **תוך הסתכלות על אותן 24 שורות**. אם אני גם בונה את הסט שאמור
+ * לבחון אותו, הידיעה תדלוף לבחירה גם בלי כוונה: אבחר "דוגמה מעניינת", אסנן
+ * שורה שנראית לי לא הוגנת, ארחיב מחלקה שאני יודע שהחוק חזק בה.
+ *
+ * שלוש ההגנות, ושלושתן מבניות ולא הבטחות:
+ *
+ *   ‏1. **החוק ננעל בגיט לפני שנבנתה שורה אחת.** ‏hash הקומיט נכתב בראש
+ *      הקובץ שנוצר. הסדר מוכח מהגיט, לא מוצהר על ידי.
+ *   ‏2. **המכסות מוכרזות בקובץ נפרד לפני הדגימה** (`--en2-quota`), והן נגזרות
+ *      **משיעורי האוכלוסייה בלבד** — לא מהמדגם ולא ממה שנוח. `--en2` מסרב
+ *      לרוץ בלי קובץ המכסות.
+ *   ‏3. **הדגימה מכנית**: ‏PRNG בזרע קבוע בתוך כל שכבה. אין בחירה ידנית, אין
+ *      סינון "קל/קשה", אין דילוג. שורה משעממת נכנסת.
+ *
+ * ⭐ **דוגמים מ-`split: "holdout"` בלבד.** מחולל הקורפוס כבר הפריש 15% לחלוקה
+ * הזאת בדיוק למטרה הזאת, והשימוש בה הוא הבחירה המכנית הנכונה — לא הצטמצמות
+ * שלי לתת-קבוצה שנוחה לי. */
+
+const EN2_SEED = 'typo-lab/teacher/en2/v1';
+const EN2_N = 40;
+const EN2_SPLIT = 'holdout';
+const EN2_ONE_PER_GROUP = true;      /* לכל היותר שורה אחת לכל כרטיס · מוכרז מראש */
+
+/* ‏PRNG דטרמיניסטי · xmur3 + mulberry32. אותו זרע ⇒ אותו מדגם, לנצח. */
+function rngOf(str) {
+  let h = 1779033703 ^ str.length;
+  for (let i = 0; i < str.length; i++) { h = Math.imul(h ^ str.charCodeAt(i), 3432918353); h = h << 13 | h >>> 19; }
+  let a = (h ^ h >>> 16) >>> 0;
+  return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+}
+
+const EN2_SRC = path.join(OUT, 'answers-en.jsonl');
+const EN2_QUOTA = path.join(OUT, 'en-blind2.quota.json');
+
+function readCorpus() {
+  if (!fs.existsSync(EN2_SRC)) throw new Error(`חסר ${path.relative(ROOT, EN2_SRC)} · הסוכן שבונה את הקורפוס טרם סיים`);
+  return fs.readFileSync(EN2_SRC, 'utf8').split(/\r?\n/).filter(Boolean).map(l => JSON.parse(l));
+}
+
+/* ---- שלב 1 · הכרזת המכסות · חייב לרוץ לפני הדגימה ---- */
+function en2Quota() {
+  const all = readCorpus().filter(r => r.split === EN2_SPLIT);
+  const byDir = {};
+  for (const r of all) {
+    (byDir[r.direction] || (byDir[r.direction] = { n: 0, cls: {} })).n++;
+    byDir[r.direction].cls[r.source_class] = (byDir[r.direction].cls[r.source_class] || 0) + 1;
+  }
+  const total = all.length;
+
+  /* חלוקה פרופורציונלית עם **שארית גדולה** · דטרמיניסטי, בלי הטיה לכיוון אחד */
+  const largestRemainder = (weights, N) => {
+    const keys = Object.keys(weights).sort();
+    const sum = keys.reduce((a, k) => a + weights[k], 0);
+    const exact = keys.map(k => ({ k, x: N * weights[k] / sum }));
+    const out = {}; let used = 0;
+    for (const e of exact) { out[e.k] = Math.floor(e.x); used += out[e.k]; }
+    exact.sort((a, b) => (b.x - Math.floor(b.x)) - (a.x - Math.floor(a.x)) || a.k.localeCompare(b.k));
+    for (let i = 0; used < N; i++, used++) out[exact[i % exact.length].k]++;
+    return out;
+  };
+
+  const dirQuota = largestRemainder(Object.fromEntries(Object.keys(byDir).map(d => [d, byDir[d].n])), EN2_N);
+  const quota = {};
+  for (const d of Object.keys(dirQuota).sort()) quota[d] = largestRemainder(byDir[d].cls, dirQuota[d]);
+
+  /* execFileSync ולא execSync · אין כאן מחרוזת שרצה דרך shell ולכן אין משטח הזרקה,
+     גם אם מתישהו מישהו יכניס לכאן ערך מבחוץ. */
+  let lock = 'UNKNOWN';
+  try { lock = require('child_process').execFileSync('git', ['rev-parse', 'HEAD'], { cwd: ROOT }).toString().trim(); } catch (e) { /* ריפו לא זמין */ }
+
+  const doc = {
+    what: 'מכסות הדגימה לסט en-blind2 · מוכרזות לפני הדגימה ונגזרות משיעורי האוכלוסייה בלבד',
+    lock_commit: lock,
+    declared_at: new Date().toISOString().slice(0, 10),
+    source: 'typo-lab/out/answers-en.jsonl',
+    filter: { split: EN2_SPLIT, one_row_per_group: EN2_ONE_PER_GROUP },
+    seed: EN2_SEED, n: EN2_N,
+    population: { total_holdout: total, by_direction: Object.fromEntries(Object.keys(byDir).map(d => [d, byDir[d].n])) },
+    method: 'largest-remainder על שיעורי source_class בתוך כל כיוון · דגימה ב-PRNG בזרע קבוע בתוך כל שכבה',
+    quota,
+  };
+  fs.writeFileSync(EN2_QUOTA, JSON.stringify(doc, null, 1), 'utf8');
+  say(`# מכסות · en-blind2 · ננעל על ${lock.slice(0, 7)}`);
+  say('');
+  say(`אוכלוסייה · ${total.toLocaleString('en')} שורות ב-split=${EN2_SPLIT}`);
+  say('');
+  say('| כיוון | source_class | באוכלוסייה | מכסה |');
+  say('|---|---|---|---|');
+  for (const d of Object.keys(quota).sort()) for (const c of Object.keys(quota[d]).sort()) {
+    if (!quota[d][c]) continue;
+    say(`| ${d} | ${c} | ${byDir[d].cls[c].toLocaleString('en')} | **${quota[d][c]}** |`);
+  }
+  const tot = Object.values(quota).reduce((a, o) => a + Object.values(o).reduce((x, y) => x + y, 0), 0);
+  say('');
+  say(`סה"כ ${tot} · כיוונים: ${Object.keys(dirQuota).sort().map(d => d + '=' + dirQuota[d]).join(' · ')}`);
+  say('');
+  say(`נכתב · ${path.relative(ROOT, EN2_QUOTA)}`);
+  say('⛔ מכאן ואילך המכסות קפואות · `--en2` קורא מהקובץ הזה ואינו מחשב מחדש.');
+}
+
+/* ---- שלב 2 · הדגימה · מכנית לחלוטין ---- */
+function en2Sample() {
+  if (!fs.existsSync(EN2_QUOTA)) throw new Error('⛔ אין קובץ מכסות · הרץ קודם  node typo-lab/calib_mine.js --en2-quota');
+  const q = JSON.parse(fs.readFileSync(EN2_QUOTA, 'utf8'));
+  const all = readCorpus().filter(r => r.split === q.filter.split);
+
+  const rows = [], design = [];
+  const usedGroups = new Set();
+  for (const dir of Object.keys(q.quota).sort()) {
+    for (const cls of Object.keys(q.quota[dir]).sort()) {
+      const need = q.quota[dir][cls];
+      if (!need) continue;
+      /* מיון יציב לפי id ⇒ אותה שכבה בכל הרצה · ואז ערבוב בזרע קבוע */
+      const pool = all.filter(r => r.direction === dir && r.source_class === cls).sort((a, b) => a.id.localeCompare(b.id));
+      const rnd = rngOf(q.seed + '|' + dir + '|' + cls);
+      for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+      let took = 0;
+      for (const r of pool) {
+        if (took >= need) break;
+        if (q.filter.one_row_per_group && usedGroups.has(r.group)) continue;
+        usedGroups.add(r.group);
+        took++;
+        const id = 'X' + String(rows.length + 1).padStart(2, '0');
+        rows.push({ id, dir: r.direction, term: r.card_term, gloss: r.card_gloss, written: r.direction === 'word' ? r.card_term : r.card_gloss, typed: r.typed });
+        design.push({ id, dir: r.direction, cls: r.source_class, why: 'נדגם מכנית', corpus_id: r.id, group: r.group });
+      }
+      if (took < need) say(`⚠ ${dir}/${cls} · נדרשו ${need} ונמצאו ${took} · השכבה קטנה מהמכסה`);
+    }
+  }
+  if (rows.length !== EN2_N) throw new Error(`⛔ נדגמו ${rows.length} ולא ${EN2_N}`);
+
+  /* ⛔ ראש הקובץ נושא את hash הנעילה · הסדר מוכח ולא מוצהר */
+  const hdr = `# en-blind2 · סט חוץ-מדגם · נדגם מכנית מ-answers-en.jsonl (split=${q.filter.split})\n`
+    + `# ⛔ החוק שנבחן כאן ננעל בקומיט ${q.lock_commit} **לפני** שנדגמה שורה אחת\n`
+    + `# זרע ${q.seed} · מכסות ב-en-blind2.quota.json · בלי בחירה ידנית ובלי סינון\n`
+    + EN_HDR;
+  const clean = s => String(s == null ? '' : s).replace(/[\t\r\n]+/g, ' ').trim();
+  fs.writeFileSync(path.join(OUT, 'en-blind2.tsv'),
+    [hdr].concat(rows.map(r => ['id', 'dir', 'term', 'gloss', 'written', 'typed'].map(c => clean(r[c])).join('\t') + '\t')).join('\n') + '\n', 'utf8');
+  fs.writeFileSync(path.join(OUT, 'en-blind2.design.json'), JSON.stringify({
+    generated: 'typo-lab/calib_mine.js --en2', lock_commit: q.lock_commit, seed: q.seed,
+    truth: 'לא ידועה · דורש תיוג אנושי', rows: design,
+  }, null, 1), 'utf8');
+
+  /* שער · הקובץ העיוור חייב להישאר עיוור */
+  const txt = fs.readFileSync(path.join(OUT, 'en-blind2.tsv'), 'utf8');
+  for (const bad of [...new Set(design.map(d => d.cls))]) {
+    if (txt.includes(bad)) throw new Error(`⛔ שם המחלקה «${bad}» דלף לקובץ העיוור`);
+  }
+  const byCls = {};
+  for (const d of design) byCls[d.dir + '·' + d.cls] = (byCls[d.dir + '·' + d.cls] || 0) + 1;
+  say(`נכתב · out/en-blind2.tsv · ${rows.length} שורות · ננעל על ${q.lock_commit.slice(0, 7)}`);
+  say(`נכתב · out/en-blind2.design.json · ⛔ לא לשלוח לשופט ולא למתייג`);
+  say('');
+  say('| כיוון·מחלקה | שורות |');
+  say('|---|---|');
+  for (const k of Object.keys(byCls).sort()) say(`| ${k} | ${byCls[k]} |`);
+  say('');
+  say(`כיוון word ${design.filter(d => d.dir === 'word').length} · כיוון gloss ${design.filter(d => d.dir === 'gloss').length}`);
+}
+
 /* ===================== שיניים ===================== */
 
 function selftest() {
@@ -386,18 +552,65 @@ function selftest() {
   t(jac(A, far) < JACCARD_MIN, '⛔ שני פירושים זרים ⇒ נפסלים גם הם · הסט אינו "כל זוג"');
 
   say('## ב · הקובץ העיוור נשאר עיוור');
-  for (const f of ['near-neg-blind', 'en-blind']) {
+  for (const f of ['near-neg-blind', 'en-blind', 'en-blind2']) {
     const p = path.join(OUT, f + '.tsv');
     if (!fs.existsSync(p)) { say(`  · ${f}.tsv טרם נוצר · דילוג`); continue; }
     const txt = fs.readFileSync(p, 'utf8');
     const d = JSON.parse(fs.readFileSync(path.join(OUT, f + '.design.json'), 'utf8'));
     const classes = [...new Set(d.rows.map(r => r.cls))];
     t(!classes.some(x => txt.includes(x)), `${f}.tsv · אין בו אף שם מחלקה (${classes.length} מחלקות נבדקו)`);
-    const lines = txt.split(/\r?\n/).filter(Boolean).slice(1);
-    const nCol = txt.split(/\r?\n/)[0].split('\t').length;
+    /* שורות `#` הן פרובננס (‏hash הנעילה) ואינן נתונים · מדלגים עליהן */
+    const body = txt.split(/\r?\n/).filter(l => l.trim() && !l.startsWith('#'));
+    const head = body[0], lines = body.slice(1);
+    const nCol = head.split('\t').length;
     t(lines.every(l => l.split('\t').length === nCol), `${f}.tsv · לכל שורה ${nCol} עמודות`);
     t(lines.every(l => l.split('\t')[nCol - 1].trim() === ''), `${f}.tsv · **עמודת התווית ריקה בכל השורות**`);
     t(lines.length === d.rows.length, `${f}.tsv · ${lines.length} שורות = ${d.rows.length} ברישום התכן`);
+    /* ⛔ שום עמודה שאינה קלט · פסק, ניקוד, margin, מרחק, מקור */
+    const BANNED = ['margin', 'verdict', 'score', 'label', 'source_class', 'פסק', 'ניקוד', 'מרחק', 'confidence', 'dist'];
+    const hit = BANNED.filter(b => head.toLowerCase().includes(b.toLowerCase()));
+    t(!hit.length, `${f}.tsv · אין עמודת פסק/margin/מקור בכותרת${hit.length ? ' ⛔ נמצא: ' + hit.join(',') : ''}`);
+    t(!/\b(margin|verdict|conf(idence)?)\b/i.test(txt), `${f}.tsv · אין margin/verdict בשום מקום בגוף`);
+  }
+
+  /* ⭐ שיניים · קובץ מורעל **חייב** להיכשל בשער. שער שלא נראה אדום אינו שער. */
+  {
+    const p = path.join(OUT, '_selftest-blind.tsv');
+    const check = txt => {
+      const body = txt.split(/\r?\n/).filter(l => l.trim() && !l.startsWith('#'));
+      const head = body[0], lines = body.slice(1), nCol = head.split('\t').length;
+      const emptyLabel = lines.every(l => l.split('\t')[nCol - 1].trim() === '');
+      const noBanned = !['margin', 'verdict', 'score'].some(b => head.toLowerCase().includes(b));
+      return emptyLabel && noBanned;
+    };
+    try {
+      t(check('a\tb\tתווית\nX1\ty\t\n'), 'קובץ נקי עובר את השער · השער אינו "פוסל הכול"');
+      t(!check('a\tb\tתווית\nX1\ty\tכ\n'), '⛔ קובץ עם תווית מלאה ⇒ **נכשל**');
+      t(!check('a\tb\tmargin\nX1\ty\t0.3\n'), '⛔ קובץ עם עמודת margin ⇒ **נכשל**');
+      t(!check('a\tb\tverdict\nX1\ty\taccept\n'), '⛔ קובץ עם עמודת verdict ⇒ **נכשל**');
+    } finally { if (fs.existsSync(p)) fs.unlinkSync(p); }
+  }
+
+  say('## ב2 · הסדר מוכח ולא מוצהר · en-blind2');
+  {
+    const qp = path.join(OUT, 'en-blind2.quota.json'), tp = path.join(OUT, 'en-blind2.tsv');
+    if (!fs.existsSync(qp) || !fs.existsSync(tp)) say('  · en-blind2 טרם נוצר · דילוג');
+    else {
+      const q = JSON.parse(fs.readFileSync(qp, 'utf8'));
+      const txt = fs.readFileSync(tp, 'utf8');
+      t(/^[0-9a-f]{40}$/.test(q.lock_commit), `hash הנעילה תקין · ${q.lock_commit.slice(0, 7)}`);
+      t(txt.includes(q.lock_commit), '⭐ **hash הנעילה כתוב בראש הקובץ** · הסדר מוכח מהגיט ולא מוצהר');
+      t(q.filter.split === 'holdout', 'נדגם מ-holdout בלבד');
+      const d = JSON.parse(fs.readFileSync(path.join(OUT, 'en-blind2.design.json'), 'utf8'));
+      const got = {};
+      for (const r of d.rows) { (got[r.dir] || (got[r.dir] = {}))[r.cls] = (got[r.dir][r.cls] || 0) + 1; }
+      let match = true;
+      for (const dir of Object.keys(q.quota)) for (const c of Object.keys(q.quota[dir])) {
+        if ((q.quota[dir][c] || 0) !== ((got[dir] || {})[c] || 0)) match = false;
+      }
+      t(match, '⭐ **המדגם תואם למכסה שהוכרזה** · אף שכבה לא הורחבה ולא צומצמה בדיעבד');
+      t(new Set(d.rows.map(r => r.group)).size === d.rows.length, 'שורה אחת לכל כרטיס · כפי שהוכרז מראש');
+    }
   }
 
   say('## ג · דטרמיניזם');
@@ -413,9 +626,11 @@ if (require.main === module) {
   try {
     if (has('--near-neg')) nearNeg();
     else if (has('--en')) enSet();
+    else if (has('--en2-quota')) en2Quota();
+    else if (has('--en2')) en2Sample();
     else if (has('--selftest')) { say('# שיניים · calib_mine.js'); say(''); selftest(); }
-    else say('שימוש: --near-neg | --en | --selftest');
+    else say('שימוש: --near-neg | --en | --en2-quota | --en2 | --selftest');
   } catch (e) { say('⛔ ' + e.message); process.exitCode = 1; }
 }
 
-module.exports = { nearNeg, enSet, skel, jac, JACCARD_MIN, JACCARD_MAX };
+module.exports = { nearNeg, enSet, en2Quota, en2Sample, skel, jac, JACCARD_MIN, JACCARD_MAX };
