@@ -3250,8 +3250,24 @@ if(TTS.ok){
   try{
     TTS.pick();
     speechSynthesis.onvoiceschanged=()=>{
-      const had=!!TTS.voice; TTS.voice=null;
-      if(TTS.pick() && !had) sayBound.forEach((v,sel)=>bindSay(sel, v[0], v[1]));
+      /* ⚠ 15.8.2026 · כאן עמד שומר `const had=!!TTS.voice; … && !had` שנועד לדלג על
+         שחזור מיותר. הוא נמדד כשבור: `TTS.voice` נקבע כ**תופעת לוואי** של
+         `TTS.available()`, ו-`available()` נקראת גם מ-`renderReview`, מ-`TTS.say`,
+         ומ-`bindSay` של מסך **אחר**. כלומר כל מסך שהצליח להדליק רמקול אחרי שמסך
+         קודם נכשל היה מכבה בכך את השחזור של הקודם · והאירוע היחיד שיכול היה להציל
+         אותו דילג עליו. נמדד בדפדפן: אותו voiceschanged בדיוק, ההבדל היחיד קריאה
+         אחת ל-available() באמצע, hidden:false מול hidden:true. ראה tests/74.
+         מה שנשאר הוא הערכה מחדש בלי תנאי. `bindSay` אידמפוטנטית · היא קוראת את
+         הטקסט העדכני מ-`sayBound` ומכריעה מחדש · ולכן ניגון חוזר כשדבר לא השתנה
+         אינו עושה דבר, וכשקול **נעלם** הוא מסתיר כפתור שכבר אינו יודע להגות. */
+      TTS.voice=null; TTS.pick();
+      sayBound.forEach((v,sel)=>bindSay(sel, v[0], v[1]));
+      /* ⚠ sayBound היא מפה לפי **סלקטור**, ולכן היא מכסה רק כפתורים סטטיים.
+         הרמקולים של השלמת המשפטים נבנים לכל שאלה מחדש ואינם בה. ראה
+         sentSayRefresh. ה-try כאן כי הפונקציה נוגעת ב-`sentQ`, שמוצהר בהמשך
+         הקובץ ב-let · האירוע אמנם מגיע אחרי שהסקריפט הסתיים, אבל כשל כאן
+         היה מפיל גם את שחזור הכפתורים הסטטיים שכבר רץ. */
+      try{ sentSayRefresh(); }catch(e){}
     };
   }catch(e){}
 }
@@ -5853,6 +5869,52 @@ const sEsc = s => String(s==null?'':s)
    על התוכן והתג נוסף בסוף. */
 const sBold = s => sEsc(s).replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>');
 const sLabel = o => Array.isArray(o) ? o.join(' + ') : String(o);
+/* ⚠ מה שנשמע אינו מה שכתוב. `sLabel` מחבר פריט זוג ב-" + " כי על המסך הפלוס הוא
+   שאומר "שתי המילים ביחד", אבל מנוע ההקראה מבטא אותו "plus" ומה שנשמע הוא
+   "collect plus pass". פסיק נותן בדיוק את ההפסקה הטבעית שבין שתי מילים, וזו אותה
+   הכרעה שכבר עשה TTS.speakable על "knife (knives)". */
+const sSpeak = o => Array.isArray(o) ? o.join(', ') : String(o);
+/* התווית נגזרת מהפריט ולא קבועה: פריט זוג הוא שתי מילים, ו"השמע את המילה" עליו
+   אינו עברית תקינה. /HEB §5 · התאמת מספר היא חלק מהניסוח, לא קישוט. */
+const sSayLbl = o => (Array.isArray(o) && o.length > 1) ? 'השמע את המילים' : 'השמע את המילה';
+/* כפתור רמקול לאפשרות אחת. נבנה בקוד ולא במחרוזת HTML כי הוא נדרש בשני מקומות
+   (שורת האפשרות ושורת ההסבר) ובשני תזמונים (רינדור, ואז הגעת קול מאוחרת).
+   ⚠ שני דברים שנראים מיותרים ואינם:
+     · העטיפה `.s-optrow` קיימת כי `<button>` בתוך `<button>` אינו HTML חוקי ·
+       הדפדפן מפרק את העץ ומוציא את הפנימי החוצה. הרמקול הוא **אח** של `.s-opt`.
+     · `stopPropagation` לצד `preventDefault`. היום הרמקול אח ולא צאצא, ולכן
+       הלחיצה ממילא אינה מגיעה ל-`.s-opt`. זו הגנה על **מחר**: ברגע שמישהו יתלה
+       מטפל על השורה עצמה (טפיחה על השורה = בחירה), לחיצה על הרמקול תענה על
+       השאלה, וזה כשל שקשה לייחס. */
+function sentSayBtn(o){
+  const s = document.createElement('button');
+  s.className = 'say s-say'; s.type = 'button';
+  s.textContent = '🔊';
+  const lbl = sSayLbl(o);
+  s.title = lbl; s.setAttribute('aria-label', lbl);
+  s.onclick = (e)=>{ e.preventDefault(); e.stopPropagation(); TTS.say(sSpeak(o), s); };
+  return s;
+}
+/* הקולות מגיעים אסינכרונית, ולעתים קרובות אחרי שהשאלה כבר על המסך. `sayBound`
+   משחזרת רק כפתורים **סטטיים** לפי סלקטור, והרמקולים כאן נבנים בקוד לכל שאלה
+   מחדש · כלומר הם אינם שם ולא היו משוחזרים. בלי הפונקציה הזאת השאלה הראשונה
+   בסבב הייתה יוצאת בלי רמקולים, והם היו מופיעים רק בשאלה הבאה.
+   ⚠ הזרקה **מוסיפה** ולא רינדור מחדש, וזו הכרעה: רינדור מחדש של שורות האפשרויות
+   היה מוחק את ה-✓/✗, את `is-right/is-wrong` ואת `disabled` שכבר נקבעו · כלומר
+   שאלה שכבר נענתה הייתה נפתחת לתשובה שנייה בגלל הגעת קול. */
+function sentSayRefresh(){
+  if(!(LANG==='en' && TTS.available())) return;
+  const card = $('#sentCard');
+  if(!card || card.classList.contains('hidden')) return;
+  const it = sentQ[sentI]; if(!it || !Array.isArray(it.o)) return;
+  const hang = (row, j)=>{
+    if(row && !row.querySelector('.s-say') && it.o[j] !== undefined) row.appendChild(sentSayBtn(it.o[j]));
+  };
+  const box = $('#sentOpts');
+  if(box) box.querySelectorAll('.s-opt').forEach((b,j)=> hang(b.parentElement, j));
+  const exp = $('#sentExp');
+  if(exp && !exp.classList.contains('hidden')) exp.querySelectorAll('.s-g').forEach(hang);
+}
 
 /* גרסת הבנייה נשלפת מתג הסקריפט של app.js עצמו, ולא נכתבת ביד: מספר גרסה כתוב
    ביד הוא מספר גרסה שיישכח בדיפלוי הבא, והקובץ היה נשלף מהמטמון לנצח. */
@@ -6048,12 +6110,22 @@ function renderSentCard(){
       : '<span class="bl">___</span>';
   });
   const box = $('#sentOpts'); box.innerHTML = '';
+  /* LANG==='en' ולא TTS.available() לבדו · TTS.pick בוחר קול אנגלי בלבד. אותו נימוק
+     שכבר כתוב מעל bindSay ובמסך הסיכום: כפתור שאינו יודע להגות את מה שכתוב עליו
+     גרוע מהיעדרו, ולכן הוא לא מוזרק בכלל ולא מוזרק מושבת.
+     ⚠ המסך הזה קיים רק במצב אנגלית (`sentOn`), כך שהתנאי אינו אמור להיכשל כאן.
+     הוא נשאר מפורש כדי שהכלל יהיה קריא באתר אחד עם שאר הרמקולים באפליקציה. */
+  const canSay = LANG==='en' && TTS.available();
   it.o.forEach((o,j)=>{
+    const row = document.createElement('div');
+    row.className = 's-optrow';
     const b = document.createElement('button');
     b.className = 's-opt'; b.type = 'button';
     b.textContent = sLabel(o);
     b.onclick = ()=> answerSent(j);
-    box.appendChild(b);
+    row.appendChild(b);
+    if(canSay) row.appendChild(sentSayBtn(o));
+    box.appendChild(row);
   });
   $('#sentExp').classList.add('hidden');
   $('#sentActions').classList.add('hidden');
@@ -6067,7 +6139,14 @@ function answerSent(pick){
   const right = pick === it.a;
   if(right) sentOk++;
   sentRecord(it.src, right);
-  Array.from($('#sentOpts').children).forEach((b,j)=>{
+  /* ⚠ `.s-opt` ולא `.children`. הילדים של `#sentOpts` הם היום `.s-optrow` · עטיפות
+     שנוספו כדי שהרמקול יוכל להיות אח של הכפתור ולא צאצא שלו. עם `.children`
+     ה-✓/✗ היו נשתלים בתוך העטיפה ולא בכפתור, `is-right` היה נוחת על ה-div
+     (שאין לו כזה כלל ב-CSS), ו-`disabled` על div אינו עושה דבר · כלומר אפשר היה
+     לענות פעמיים על אותה שאלה. נבדק ב-tests/73.
+     ⭐ ומכאן גם התשובה לדרישה "הרמקול נשאר פעיל אחרי מענה": הוא פשוט אינו בלולאה.
+     אח של `.s-opt`, ולא ילד · ולכן `disabled` אינו נוגע בו. */
+  $('#sentOpts').querySelectorAll('.s-opt').forEach((b,j)=>{
     b.disabled = true;
     if(j === it.a){ b.classList.add('is-right'); b.insertAdjacentHTML('afterbegin','<span class="mk">✓</span>'); }
     else if(j === pick){ b.classList.add('is-wrong'); b.insertAdjacentHTML('afterbegin','<span class="mk">✗</span>'); }
@@ -6076,8 +6155,14 @@ function answerSent(pick){
 
   /* ההסבר, בשלושת החלקים ובסדר שנקבע. הלומד רואה **שני** נימוקים בלבד: של
      הבחירה שלו ושל התשובה הנכונה. הצגת כל הארבעה היא בדיוק מה שהתבקש לקצר. */
+  /* רמקול גם כאן, ולא רק בשאלה. זה הרגע שבו הלומד באמת רוצה לשמוע: הוא כבר יודע
+     מה התשובה, והשאלה שנשארה היא איך הוגים אותה.
+     ⚠ מה שמושמע הוא `it.o[j]` ולא `it.g[j]`. `it.g[j]` הוא מחרוזת תצוגה בצורה
+     "pay = לשלם" · מנוע ההקראה האנגלי היה מבטא בה גם את סימן השוויון וגם את
+     העברית. המקור הנקי הוא `it.o[j]`, ומשם גם הרמקול בשאלה שואב. */
+  const canSay = LANG==='en' && TTS.available();
   const g = (it.g||[]).map((x,j)=>
-    `<div class="s-g${j===it.a?' key':''}">${j===it.a?'✓ ':''}${sEsc(x)}</div>`).join('');
+    `<div class="s-g${j===it.a?' key':''}"><span class="s-gt">${j===it.a?'✓ ':''}${sEsc(x)}</span></div>`).join('');
   const r = it.r || [];
   const why = right
     ? `<p class="vd ok">בחרת <code>${sEsc(sLabel(it.o[pick]))}</code> וצדקת</p><p>${sEsc(r[pick]||'')}</p>`
@@ -6088,6 +6173,11 @@ function answerSent(pick){
     + `<section><h4>המשפט</h4><p class="s-en"><bdi lang="en" dir="ltr">${sentFull(it)}</bdi></p>`
       + `<p class="s-tr">${sBold(it.t)}</p></section>`
     + `<section class="s-why"><h4>${right?'למה זה נכון':'למה הבחירה שלך אינה נכונה'}</h4>${why}</section>`;
+  /* הרמקולים נתלים אחרי ה-innerHTML ולא בתוכו: מטפל שנכתב כמחרוזת חייב להיות
+     `onclick="..."` גלובלי, וה-CSP של הפרויקט חוסם inline script. אותו דפוס בדיוק
+     כמו `.rev-say` במסך הסיכום. */
+  if(canSay) $('#sentExp').querySelectorAll('.s-g').forEach((row,j)=>
+    row.appendChild(sentSayBtn(it.o[j])));
   $('#sentExp').classList.remove('hidden');
   $('#sentNext').textContent = (sentI+1 >= sentQ.length) ? 'סיום ←' : 'הבא ←';
   $('#sentActions').classList.remove('hidden');
