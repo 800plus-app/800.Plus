@@ -56,6 +56,13 @@ const SYMBOLS = [
   'typoDeletions', 'typoIndex', 'typoNearestOther', 'nearMatch', 'typoKeysOf', 'typoOwners',
   'TYPO_GLOSS_RULES', 'TYPO_OR_GUARDS', 'typoSplitOr', 'TYPO_SYN', 'TYPO_SYN_MAP',
   'typoSynMap', 'typoCanon', 'typoSegBlocked',
+  /* ⚠ שכבת צירוף המקטעים · שלושת אלה נדרשים יחד. `meaningMatch` קוראת ל-
+     `typoSegConcat`, וזו קוראת לשני הקבועים · בלי אחד מהם כל בדיקה שנוגעת
+     בהתאמת פירוש נופלת ב-ReferenceError, ו-19 בדיקות מאדימות בשמות שנשמעים
+     סמנטיים ("מילה שונה לגמרי עדיין נדחית") בזמן שהסיבה היא סימבול חסר.
+     זה קרה כאן פעמיים · קודם על `typoShare`. **פונקציה חדשה ש-meaningMatch או
+     isCorrect קוראות לה חייבת להיכנס לרשימה באותו שינוי.** */
+  'typoSegConcat', 'TYPO_SEG_CONCAT_MAX', 'TYPO_SEG_CONCAT_EXCEPT',
   'editDist', 'creditSense', 'typoVeto',
   // stats model and the three practice buckets
   'rec', 'scopeWords', 'lvl', 'lastOf', 'wasSkipped', 'seenCount',

@@ -42,6 +42,28 @@ const RADIUS = 2;                 // אותו רדיוס שאינדקס-המחי
 const MAX_SEGS = 5;               // מקטעים ראשונים שנלקחים בחשבון
 const MAX_PER_CARD = 400;         // תקרת מחרוזות לכרטיס
 
+/* ===== ⭐ תיחום · תוך-מאגר, וזו הכרעה שנמדדה ולא הונחה =====
+ * ‏`buildGlossIndex` רץ על `BANK`, ו-`BANK` הוא פר-שפה · לכן `GLOSS_ALT` אינו
+ * יכול לקשור כרטיס עברי לאנגלי, **מבנית**. ‏`bank_gate` מריץ `glossSweep(he)`
+ * ו-`glossSweep(en)` בנפרד ולעולם אינו משווה ביניהם. ובריצה: `LANG` הוא משתנה
+ * מודול ורק מאגר אחד טעון — **לומד שמתרגל עברית לעולם אינו רואה את `fatigue`**.
+ * ⛔ הגרסה הראשונה כאן בנתה יקום **מאוחד** (שיקוף של `gen_dataset`, שעושה זאת
+ * לצורך תיוג) והחזירה 13 התנגשויות ל-C1. ‏12 מהן היו זוגות he↔en שאינם ניתנים
+ * להשגה על ידי משתמש. התיחום הנכון מחזיר **1**. */
+const langOf = key => key.slice(0, 2);
+
+/* ===== החריג המפורש · זוג יחיד, עם נימוק ולא כרשימת-היתרים =====
+ * ‏`tie` מחזיק את המקטעים [לקשור | קשר | עניבה]. הצירוף הצמוד של השניים
+ * הראשונים מייצר `"לקשור קשר"` — ש**אינו** "לקשור קשר פיזי" אלא **ניב** שמשמעותו
+ * להתחבר בקנוניה, והוא הפירוש הרשום של `plot`. כלומר הצירוף התמים של שני מקטעים
+ * חוצה משמעות. זה בדיוק מה שהווטו קיים בשבילו, ולכן הזוג נחסם נקודתית — ולא
+ * מתוקן על ידי הזזת סף. */
+const EXCEPTIONS = [
+  { card: 'en:tie', typed: 'לקשור קשר', why: 'צירוף שני מקטעים מייצר ניב · הפירוש של plot' },
+];
+const exceptKey = (cardKey, s) => cardKey + '' + s;
+const EXCEPT_SET = new Set(EXCEPTIONS.map(e => exceptKey(e.card, e.typed)));
+
 /* ===== המנגנון · מראה, לא שליחה ===== */
 function concatsOf(allSegs, cfg) {
   const out = new Set();
@@ -65,8 +87,12 @@ function concatsOf(allSegs, cfg) {
        ו-C3 החזירו את **אותם מספרים בדיוק**. */
     if (idx.length < (cfg.minPick || 2)) continue;
     const adjacent = idx.every((v, k) => k === 0 || v === idx[k - 1] + 1);
-    if (cfg.id === 'C1') { if (adjacent) push(idx); continue; }
-    if (cfg.id === 'C2') { push(idx); continue; }
+    /* ⛔ `base || id` · ולא `id` לבדו. תצורות נגזרות (`C1u`, `C1x`) נושאות id
+       משלהן, ובענף לפי id בלבד הן היו נופלות ל-C3 ומודדות מנגנון אחר לגמרי —
+       בדיוק סוג הבאג של השן הריקה. נתפס לפני ההרצה. */
+    const shape = cfg.base || cfg.id;
+    if (shape === 'C1') { if (adjacent) push(idx); continue; }
+    if (shape === 'C2') { push(idx); continue; }
     /* C3 · כל התמורות */
     const perm = (arr, cur) => {
       if (!arr.length) { push(cur); return; }
@@ -78,12 +104,18 @@ function concatsOf(allSegs, cfg) {
 }
 
 const CONFIGS = [
-  { id: 'C1', label: 'רצופים ובסדרם · `AB` `BC`' },
+  { id: 'C1u', label: '‏C1 · יקום **מאוחד** (המדידה השגויה הקודמת)', base: 'C1', unified: true },
+  { id: 'C1', label: '‏C1 · רצופים ובסדרם · **תוך-מאגר**' },
+  { id: 'C1x', label: '⭐ ‏C1 · תוך-מאגר · **עם החריג המפורש**', base: 'C1', except: true },
   { id: 'C2', label: 'בסדרם, גם לא רצופים · ‏+ `AC`' },
   { id: 'C3', label: 'כל סדר · ‏+ `BA` `CA` `CB`' },
   /* ⛔ שן · תצורה שבורה בכוונה · מתירה **מקטע בודד**, כלומר "כל מקטע של כל
      כרטיס מתקבל על כל כרטיס". חייבת להחזיר אדום. */
   { id: 'BROKEN', label: '⛔ שן · מתיר מקטע בודד', minPick: 1, broken: true },
+  /* ⛔ שן שנייה · מנטרלת את **פטור הנרדפות** (`allow`). בתוך מאגר, מקטע משותף
+     בין שני ערכים הוא בדיוק מה שהפטור קיים בשבילו, ולכן ניטרולו חייב להציף
+     התנגשויות. בלי השן הזאת, "1" ב-C1 היה יכול להיות היעדר מדידה. */
+  { id: 'NOALLOW', label: '⛔ שן · בלי פטור הנרדפות', base: 'C1', noAllow: true },
 ];
 
 function buildUniverse() {
@@ -134,7 +166,7 @@ function measure(U, cfg) {
 
   const res = {
     id: cfg.id, label: cfg.label, cards: 0, added: 0,
-    exactCross: 0, crossSynonym: 0, crossDistinct: 0, fuzzyCross: 0, ex: [], fex: [],
+    exactCross: 0, crossSynonym: 0, crossDistinct: 0, fuzzyCross: 0, crossBankOnly: 0, excepted: 0, ex: [], fex: [],
     allTokensReal: 0, someTokenNotReal: 0, tokens: 0,
   };
   for (const c of U.cards) {
@@ -142,15 +174,21 @@ function measure(U, cfg) {
     if (!e.size) continue;
     res.cards++;
     for (const s of e) {
+      /* --- 0 · החריג המפורש · המחרוזת אינה נכנסת לקבוצת הקבלות כלל --- */
+      if (cfg.except && EXCEPT_SET.has(exceptKey(c.key, s))) { res.excepted++; continue; }
       res.added++;
       /* --- שארית · מהן המחרוזות --- */
       const toks = s.split(' ').filter(Boolean);
       res.tokens += toks.length;
       if (toks.every(t => LEX.he.has(t))) res.allTokensReal++; else res.someTokenNotReal++;
-      /* --- 1 · התנגשות מדויקת · מנייה מלאה --- */
+      /* --- 1 · התנגשות מדויקת · מנייה מלאה, **בתוך המאגר** --- */
       const o = owners.get(s);
       let foreign = null;
-      if (o) for (const k of o) if (!c.allow.has(k)) { foreign = k; break; }
+      if (o) for (const k of o) {
+        if (!cfg.noAllow && c.allow.has(k)) continue;
+        if (!cfg.unified && langOf(k) !== c.L) { res.crossBankOnly++; continue; }
+        foreign = k; break;
+      }
       if (foreign) {
         res.exactCross++;
         /* ⭐ סיווג · האם שני הכרטיסים הם בכלל **אותה משמעות**.
@@ -182,7 +220,11 @@ function measure(U, cfg) {
         const k = index.keys[i];
         if (k === s) continue;
         let f = null;
-        for (const ow of index.owners[i]) if (!c.allow.has(ow)) { f = ow; break; }
+        for (const ow of index.owners[i]) {
+          if (!cfg.noAllow && c.allow.has(ow)) continue;
+          if (!cfg.unified && langOf(ow) !== c.L) continue;   // אותו תיחום בדיוק כמו במדויקת
+          f = ow; break;
+        }
         if (!f) continue;
         if (c.ctx.editDist(k, s) > RADIUS) continue;
         near = { k, f }; break;
@@ -213,7 +255,53 @@ function anchors(U, cfg) {
   return out;
 }
 
-function md(rows, anch) {
+/* ===== ⭐ 3 · שער המאגר · הקריטריון האמיתי ולא פרוקסי =====
+ * "פאזי" למעלה הוא **קרבה** (מרחק עריכה ≤2), לא קבלה. השאלה של `bank_gate` היא
+ * אחרת: האם ה**בודק** מקבל את המחרוזת על כרטיס אחר, עם הפרמטרים הנשלחים.
+ * כאן זה נמדד ישירות — עם `langModel` של `bank_gate` עצמו (הבנאי שלו, לא העתק)
+ * ועם `makeChecker` על `TYPO_PARAMS.gloss` — ולכן זו אותה הכרעה ולא מימוש שני.
+ */
+function gateSweep(U, cfg) {
+  const BG = require('./bank_gate.js');
+  const { makeChecker } = require('./lib/checker.js');
+  const out = { checked: 0, pairs: 0, collisions: [], byLang: {} };
+  for (const L of ['he', 'en']) {
+    const M = BG.langModel(L);
+    const ctx = M.ctx;
+    const ck = makeChecker(ctx.TYPO_PARAMS.gloss, ctx, M.veto, L);
+    /* אינדקס מקטעים גולמיים של אותה שפה · דרכו נמצאים הכרטיסים המועמדים */
+    const segOwn = new Map();
+    for (const e of M.info) for (const sg of e.segs) {
+      let a = segOwn.get(sg); if (!a) { a = new Set(); segOwn.set(sg, a); } a.add(e.owner);
+    }
+    const idx = buildIndex(segOwn);
+    const byOwner = new Map(M.info.map(e => [e.owner, e]));
+    let n = 0, pairs = 0;
+    for (const e of M.info) {
+      for (const f of concatsOf(e.segs, cfg)) {
+        if (cfg.except && EXCEPT_SET.has(exceptKey(L + ':' + e.owner, f))) continue;
+        n++;
+        const seen = new Set();
+        for (const i of idx.near(f, RADIUS)) {
+          for (const ow of idx.owners[i]) {
+            if (ow === e.owner || e.allowed.has(ow) || seen.has(ow)) continue;
+            seen.add(ow);
+            const other = byOwner.get(ow);
+            if (!other) continue;
+            pairs++;
+            const v = ck.acceptGloss(f, other.w);
+            if (v && v.ok) out.collisions.push({ lang: L, from: String(e.term), typed: f, onto: String(other.term), via: v.via });
+          }
+        }
+      }
+    }
+    out.byLang[L] = { forms: n, pairs };
+    out.checked += n; out.pairs += pairs;
+  }
+  return out;
+}
+
+function md(rows, anch, gate) {
   const L = [];
   const n = x => Number(x || 0).toLocaleString('en-US');
   L.push('# ‏`seg-concat` החלקי · המדידה המלאה', '');
@@ -276,6 +364,25 @@ function md(rows, anch) {
     for (const e of c1.fex) L.push(`| ${e.term} | \`${e.typed}\` | \`${e.other}\` | ${e.foreign} |`);
     L.push('');
   }
+  if (gate) {
+    L.push('## ⭐ שער המאגר · הקריטריון האמיתי', '');
+    L.push('‏"פאזי" למעלה הוא **קרבה** ולא קבלה. כאן נמדדת השאלה של `bank_gate` עצמו:');
+    L.push('האם ה**בודק**, עם הפרמטרים הנשלחים, מקבל את המחרוזת על כרטיס אחר.');
+    L.push('נעשה עם `langModel` של `bank_gate` (הבנאי שלו) ועם `makeChecker` על');
+    L.push('`TYPO_PARAMS.gloss` — אותה הכרעה, לא מימוש שני.', '');
+    L.push('| | |', '|---|---:|');
+    L.push(`| מחרוזות שנבדקו | ${n(gate.checked)} |`);
+    L.push(`| זוגות (מחרוזת × כרטיס זר) שהגיעו לבודק | ${n(gate.pairs)} |`);
+    L.push(`| ⛔ **התנגשויות חדשות** | **${gate.collisions.length}** |`, '');
+    if (gate.collisions.length) {
+      L.push('| שפה | מהכרטיס | המחרוזת | התקבלה על | via |', '|---|---|---|---|---|');
+      for (const c of gate.collisions.slice(0, 20)) L.push(`| ${c.lang} | ${c.from} | \`${c.typed}\` | **${c.onto}** | ${c.via} |`);
+      L.push('');
+    } else {
+      L.push('✅ **אפס.** תשע ה"פאזיות" קרובות לתשובה של כרטיס אחר אבל **אינן מתקבלות** עליו:');
+      L.push('שכבות הווטו והספים של צד הפירוש עוצרות את כולן.', '');
+    }
+  }
   L.push('## ⛔ השן', '');
   L.push('תצורה `BROKEN` מתירה **מקטע בודד** — כלומר "כל מקטע של כל כרטיס מתקבל על');
   L.push(`כל כרטיס". היא מחזירה **${n(brk ? brk.exactCross : 0)} התנגשויות מדויקות**, מול **${n(c1 ? c1.exactCross : 0)}** ב-\`C1\`.`);
@@ -300,27 +407,62 @@ function selftest() {
   ok('ה · מקטע בודד אינו מיוצר', !c1.has('אאא') && !c3.has('בבב'));
   ok('ו · כרטיס עם מקטע אחד אינו מייצר דבר', concatsOf(['אאא'], { id: 'C3' }).size === 0);
 
+  const c1x = concatsOf(segs, CONFIGS.find(c => c.id === 'C1x'));
+  const c1u = concatsOf(segs, CONFIGS.find(c => c.id === 'C1u'));
+  const c1base = concatsOf(segs, CONFIGS.find(c => c.id === 'C1'));
+  const same = (a, b) => a.size === b.size && Array.from(a).every(x => b.has(x));
+  ok('ו2 · ⛔ תצורות נגזרות שומרות על צורת C1', same(c1x, c1base) && same(c1u, c1base),
+    `C1=${c1base.size} C1x=${c1x.size} C1u=${c1u.size}`);
+
   const U = buildUniverse();
-  const r1 = measure(U, CONFIGS[0]);
-  const rb = measure(U, CONFIGS[3]);
-  const r3 = measure(U, CONFIGS[2]);
+  /* ⛔ חיפוש לפי id ולא לפי אינדקס · הוספת שתי תצורות הזיזה את CONFIGS[3]
+     מ-BROKEN ל-C2, ושער ז השווה בשקט את הזוג הלא נכון. אינדקס מיקומי בשער הוא
+     בדיוק סוג השבריריות שמייצרת שן ריקה. */
+  const byId = id => CONFIGS.find(c => c.id === id);
+  const r1 = measure(U, byId('C1'));
+  const rb = measure(U, byId('BROKEN'));
+  const r3 = measure(U, byId('C3'));
   /* ⛔ השן חייבת להיות שונה **גם מ-C3**, אחרת היא רק מודדת ש-C3 גדול מ-C1.
      זה בדיוק מה שקרה בגרסה הראשונה, והבדיקה הזאת היא מה שתפס את זה. */
   ok('ז · ⛔ שן · התצורה השבורה שונה מכל התצורות האמיתיות',
     rb.exactCross > r3.exactCross && rb.added > r3.added,
     `C1=${r1.exactCross} · C3=${r3.exactCross} · BROKEN=${rb.exactCross}`);
   ok('ז2 · התצורה השבורה אכן מייצרת מקטע בודד',
-    concatsOf(['אאא', 'בבב'], CONFIGS[3]).has('אאא'));
-  const a1 = anchors(U, CONFIGS[0]);
+    concatsOf(['אאא', 'בבב'], byId('BROKEN')).has('אאא'));
+  const a1 = anchors(U, byId('C1'));
   ok('ח · ‏H16-1 נשאר נדחה בכל תצורה',
     CONFIGS.every(c => { const a = anchors(U, c); return a.H16_1 && !a.H16_1.accepts; }));
   ok('ט · ‏H16-3 נפתר כבר ב-C1', a1.H16_3 && a1.H16_3.accepts);
+
+  /* ⭐ החריג · חייב להוריד בדיוק את ההתנגשות האחת, ולא יותר */
+  const rx = measure(U, byId('C1x'));
+  ok('י · ⭐ החריג מוריד את ההתנגשות היחידה לאפס',
+    r1.exactCross === 1 && rx.exactCross === 0, `C1=${r1.exactCross} → C1x=${rx.exactCross}`);
+  ok('י2 · החריג מסיר מחרוזת אחת בלבד', rx.excepted === 1 && rx.added === r1.added - 1,
+    `excepted=${rx.excepted} · added ${r1.added}→${rx.added}`);
+  ok('י3 · ‏H16-3 עדיין נפתר עם החריג', anchors(U, byId('C1x')).H16_3.accepts);
+  /* ⛔ והתיחום עצמו · היקום המאוחד חייב להחזיר מספר אחר, אחרת התיקון הוא no-op */
+  const ru = measure(U, byId('C1u'));
+  const rna = measure(U, byId('NOALLOW'));
+  ok('יא2 · ⛔ שן · ניטרול פטור הנרדפות מציף התנגשויות',
+    rna.exactCross > 20 * Math.max(1, r1.exactCross), `C1=${r1.exactCross} · בלי פטור=${rna.exactCross}`);
+  ok('יא · ⛔ שן · התיחום תוך-מאגר משנה את התוצאה',
+    ru.exactCross > r1.exactCross, `מאוחד ${ru.exactCross} · תוך-מאגר ${r1.exactCross}`);
+
+  /* ⭐ ⛔ אדום לפני ירוק · על **הקריטריון האמיתי** של השער ולא על הפרוקסי.
+     הפרוקסי (`fuzzyCross`) מודד קרבה; זה מודד קבלה בפועל דרך הבודק הנשלח. */
+  const gRed = gateSweep(U, byId('C1'));
+  const gGreen = gateSweep(U, byId('C1x'));
+  ok('יב · ⛔ שער המאגר · **אדום** בלי החריג', gRed.collisions.length === 1,
+    gRed.collisions.map(c => '"' + c.typed + '" → ' + c.onto).join(' | '));
+  ok('יב2 · ✅ שער המאגר · **ירוק** עם החריג', gGreen.collisions.length === 0,
+    `${gGreen.checked} מחרוזות · ${gGreen.pairs} זוגות הגיעו לבודק`);
 
   process.stdout.write(out.join('\n') + '\n' + (all ? '\n✅ כל השערים עברו\n' : '\n⛔ שער נכשל\n'));
   return all;
 }
 
-module.exports = { concatsOf, buildUniverse, measure, anchors, CONFIGS, selftest };
+module.exports = { concatsOf, buildUniverse, measure, anchors, gateSweep, CONFIGS, EXCEPTIONS, selftest };
 
 if (require.main === module) {
   if (process.argv.includes('--selftest')) process.exit(selftest() ? 0 : 1);
@@ -331,7 +473,11 @@ if (require.main === module) {
     rows.push(r); anch[cfg.id] = anchors(U, cfg);
     process.stdout.write(`${cfg.id.padEnd(8)} נוספו ${String(r.added).padStart(6)} · מדויקות ${String(r.exactCross).padStart(5)} · פאזיות ${String(r.fuzzyCross).padStart(5)}\n`);
   }
-  fs.writeFileSync(path.join(OUT, 'segconcat-report.md'), md(rows, anch), 'utf8');
+  /* ⭐ שער המאגר על התצורה שמוצעת בפועל · C1 + החריג */
+  const gate = gateSweep(U, CONFIGS.find(c => c.id === 'C1x'));
+  process.stdout.write(`שער המאגר · ${gate.checked} מחרוזות · ${gate.pairs} זוגות לבודק · ⛔ ${gate.collisions.length} התנגשויות חדשות\n`);
+  for (const c of gate.collisions.slice(0, 10)) process.stdout.write(`   ⛔ ${c.lang} · "${c.typed}" (מ-${c.from}) התקבל על ${c.onto} · via=${c.via}\n`);
+  fs.writeFileSync(path.join(OUT, 'segconcat-report.md'), md(rows, anch, gate), 'utf8');
   process.stdout.write('נכתב ל-out/segconcat-report.md\n');
   const c1 = rows.find(r => r.id === 'C1');
   process.exit(c1 && c1.exactCross === 0 ? 0 : 3);

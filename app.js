@@ -855,7 +855,7 @@ function maskTerm(meaning, term){
 const TYPO_PARAMS = {
   enabled: true,
   ver: 'typo-lab/evolve/v1',
-  fp: 'fec09ca1',
+  fp: '6099a5c8',
   /* ‏השוליים המדורגים בעברית · 18.10% → 23.73% ב-holdout.
      ⚠ **המשטר הצר העברי אינו המשטר הצר האנגלי, וזה נמדד ולא הונח.** באנגלית שורדות
      כל העריכות המאריכות (transpose · ins · doubleLetter); בעברית שורדים **רק שניים**
@@ -1829,6 +1829,17 @@ function meaningMatch(input, meaning, card){
   const own=typoOwners(meaning, card);
   const blocked=typoSegBlocked(a, segs, own);
   if(TYPO_GLOSS_RULES.splitOr && !blocked && typoSplitOr(segs).has(a)) return true;
+  /* צירוף מקטעים חלקי · המקרה של חגי מ-16.8: `cosmopolitan` מחזיק שלושה מקטעים,
+     הוא כתב שניים מהם ברצף — "קוסמופוליטי רב תרבותי" — ונדחה כ-`far`.
+     ⚠ למה זו שכבה ולא כלום: `norm` מסירה את הפסיק, ולכן צירוף **כל** המקטעים
+     בסדרם שווה ל-`norm(meaning)` ומתקבל כבר בשורה הראשונה. צירוף **חלקי** אינו
+     שווה לכלום, ואף שכבה לא הגיעה אליו · 293 שורות בקורפוס, אפס מתקבלות.
+     רצופים ובסדרם בלבד (C1). ‏C2 (לא רצופים) אינו קונה דבר מעליה, ו-C3 (כל סדר)
+     מכפיל את שטח הפנים פי 17 וגדל פקטוריאלית — כרטיס בן 8 מקטעים מייצר מעל
+     100,000 מחרוזות. שניהם נמדדו ונדחו.
+     ‏`!blocked` כמו בשתי השכבות שמעל · הווטו נבדק על המחרוזת הזאת כמו על כל
+     אחרת, אחרת השכבה עוקפת בדיוק את מה שהיא יושבת מעליו. */
+  if(TYPO_GLOSS_RULES.segConcat && !blocked && typoSegConcat(segs, card).has(a)) return true;
   if(TYPO_GLOSS_RULES.synonyms && !blocked){
     const c=typoCanon(a);
     if(segs.some(s=>typoCanon(s)===c)) return true;
@@ -1876,7 +1887,15 @@ function particleMatch(a, seg){
  * (מילת עוצמה היא ההבדל בין ערכים — "כעס" מול "כעס מאוד"), מילת יחס רופפת
  * (particleMatch כבר מכסה, וכל הרחבה הוסיפה 95+ התנגשויות), וכל 28 וריאנטי
  * המורפולוגיה (typo-lab/out/morph-report.md). */
-const TYPO_GLOSS_RULES = { splitOr: true, synonyms: true };
+const TYPO_GLOSS_RULES = { splitOr: true, synonyms: true, segConcat: true };
+/* תקרה על מספר המקטעים שנכנסים לצירוף · ראה typoSegConcat. */
+const TYPO_SEG_CONCAT_MAX = 5;
+/* ⛔ החריג היחיד · נתון ליד המנגנון, לא `if` בתוך הלוגיקה.
+   הכרטיס `tie` מחזיק [לקשור | קשר | עניבה]. הצירוף הצמוד של שני הראשונים מייצר
+   **ניב** — "לקשור קשר" במובן להתחבר בקנוניה — שהוא הפירוש הרשום של `plot`.
+   הצירוף התמים חוצה משמעות, וזו בדיוק ההתנגשות היחידה שהמנגנון ייצר על כל
+   המאגר: שער המאגר החזיר 1 בלעדיו ו-0 איתו. */
+const TYPO_SEG_CONCAT_EXCEPT = [{ term: 'tie', typed: 'לקשור קשר' }];
 /* B1 · פיצול "או" מחלק. meaningSegs מפצל על פסיק, נקודה-פסיק, קו ונקודתיים · ולא על
  * "או", ולכן "בעל שיניים או בעל צורה של שיניים" הוא מקטע אחד והקלדת "בעל שיניים"
  * נדחתה. ה"או" מחבר לרוב רק **חלק** מהמקטע והשאר משותף לשתי החלופות: "אסף עצים או
@@ -1968,6 +1987,23 @@ function typoSegBlocked(a, segs, own){
   if(segs.indexOf(a)>=0) return false;
   for(const o of owners) if(!own.has(o)) return true;
   return false;
+}
+/* צירופים חלקיים של מקטעים סמוכים · רצופים ובסדרם בלבד.
+   הצירוף **המלא** אינו נכנס: הוא כבר שווה ל-norm(meaning) ומתקבל בשורה הראשונה
+   של meaningMatch, והכנסתו לכאן הייתה כפילות שמסתירה מה השכבה באמת מוסיפה.
+   TYPO_SEG_CONCAT_MAX חוסם את הפיצוץ · בלי תקרה, כרטיס בן 8 מקטעים מייצר עשרות
+   אלפי מחרוזות, וזה נמדד כ-OOM אמיתי בסבב שבו זה נבנה. */
+function typoSegConcat(segs, card){
+  const use=segs.slice(0, TYPO_SEG_CONCAT_MAX), out=new Set();
+  if(use.length<2) return out;
+  const full=segs.join(' ');
+  for(let i=0;i<use.length;i++) for(let j=i+1;j<use.length;j++){
+    const s=use.slice(i,j+1).join(' ');
+    if(s!==full) out.add(s);
+  }
+  const own=K(card && card.term);
+  for(const e of TYPO_SEG_CONCAT_EXCEPT) if(K(e.term)===own) out.delete(norm(e.typed));
+  return out;
 }
 /* the senses a learner may legitimately answer with: comma/semicolon separated, and never
    the contents of a parenthesis, which explains rather than defines */

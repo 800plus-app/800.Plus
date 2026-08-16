@@ -106,7 +106,14 @@ function canonOf(P, round) {
       p.marginSoft == null ? null : p.marginSoft,
       p.bandsTight ? nb(p.bandsTight, round) : null,
       p.WTight ? nw(p.WTight, round) : null,
-      co('aFirst'), co('aShare'), co('aFirstTight'), co('aShareTight')];
+      co('aFirst'), co('aShare'), co('aFirstTight'), co('aShareTight'),
+      /* ⚠ 16.8.2026 · הגן השלישי · `segConcat`. הוא נחת **באותו שינוי** שהדביק
+         את הגן ל-app.js ועדכן את `fp` ל-6099a5c8 — כי כל הוספה כאן מזיזה את
+         הטביעה **גם כשהערך null** (‏JSON.stringify על מערך ארוך יותר), והיא
+         מושווית ל-fp שכתוב קשיח שם. שלושתם יחד או אף אחד.
+         ⭐ וזה מה שההערה שמעל דורשת, בפעם הראשונה שהיא מתקיימת מראש ולא
+         אחרי שהתגלה שהשער היה עיוור. */
+      p.segConcat == null ? null : (p.segConcat ? 1 : 0)];
   }));
 }
 function fnv(sIn) {
@@ -807,5 +814,62 @@ describe('סובלנות איות · טסט הסיום של שתי המילים'
       assert.strictEqual(r.ok, false, `"${typo}" התקבל עבור אָמִיר`);
       assert.strictEqual(r.why, why, `"${typo}" נפסל מהסיבה ${r.why} במקום ${why}`);
     }
+  });
+
+  /* ===== ⭐ 16.8.2026 · שומר התנהגותי לגן `segConcat` · צירוף מקטעים חלקי =====
+   *
+   * ⛔ **למה טבלה שנייה.** טבלת הזהב הראשית נדגמת מ-`dataset-*.jsonl`, ואין בו
+   * אף שורה שהיא צירוף חלקי של שני מקטעים. נמדד: זהב שהופק עם הגן דלוק יצא
+   * **זהה ביט-אחר-ביט** לזהב הנשלח — כלומר הטביעה מכסה את הגן, אבל **שום החלטה
+   * בטבלה אינה מפעילה אותו**. זו בדיוק המשפחה שנפלה כאן שלוש פעמים (משטר צר,
+   * מקדמי התכונה, וכעת), ולכן הגן מקבל טבלה ייעודית משלו.
+   *
+   * ‏`out/golden.segconcat.jsonl` · 236 שורות · `typo-lab/make_golden_segconcat.js`.
+   * כל שורה נושאת **שתי עמודות**: `off` (הפסק של היום) ו-`on` (הפסק אחרי
+   * ההדבקה). הבדיקה בוחרת את העמודה לפי מצב הדגל ב-`app.js` **בפועל**, ולכן
+   * היא חיה בשני המצבים ואינה מדלגת אף פעם.
+   */
+  const SEGC_FILE = path.join(LAB, 'golden.segconcat.jsonl');
+
+  test('טבלת הזהב של segConcat נמצאת ונושאת את ארבע הקבוצות', () => {
+    assert.ok(fs.existsSync(SEGC_FILE), 'typo-lab/out/golden.segconcat.jsonl חסר · הוא השומר ההתנהגותי היחיד של הגן');
+    const rows = fs.readFileSync(SEGC_FILE, 'utf8').trim().split('\n').map(JSON.parse);
+    const g = k => rows.filter(r => r.group === k).length;
+    for (const k of ['accept-partial', 'reject', 'accept-today', 'exception']) {
+      assert.ok(g(k) > 0, `הקבוצה ${k} חסרה מטבלת הזהב של segConcat`);
+    }
+    /* ⭐ השן · אם שתי העמודות זהות, הטבלה אינה שומר אלא קישוט. */
+    const flips = rows.filter(r => r.off.ok !== r.on.ok).length;
+    assert.ok(flips > 0, 'העמודות off ו-on זהות · הטבלה אינה מבחינה בין הגן דלוק לכבוי, כלומר אינה שומרת עליו');
+  });
+
+  test('‏segConcat · הזהב הייעודי משוחזר על הפונקציה המורמת מ-app.js', () => {
+    const rows = fs.readFileSync(SEGC_FILE, 'utf8').trim().split('\n').map(JSON.parse);
+    const CTX = { he: HE, en: EN };
+    const by = { he: new Map(), en: new Map() };
+    for (const l of ['he', 'en']) for (const w of Array.from(CTX[l].BANK)) by[l].set(w.term + '|' + w.unit, w);
+    /* איזו עמודה קובעת · לפי מה ש-app.js באמת מריץ, ולא לפי מה שהטבלה מקווה. */
+    const GR = HE.TYPO_GLOSS_RULES || {};
+    const on = GR.segConcat === true;
+    let bad = 0; const ex = [];
+    for (const r of rows) {
+      const w = by[r.lang].get(r.term + '|' + r.unit);
+      assert.ok(w, `הכרטיס ${r.term} מטבלת segConcat לא אותר במאגר`);
+      const got = !!CTX[r.lang].meaningMatch(r.typed, w.meaning, w);
+      const want = on ? r.on.ok : r.off.ok;
+      if (got !== want) { bad++; if (ex.length < 5) ex.push(`${r.term} ← "${r.typed}" · צפוי ${want} התקבל ${got}`); }
+    }
+    assert.strictEqual(bad, 0,
+      `${bad} שורות אינן תואמות את הזהב של segConcat (הדגל ${on ? 'דלוק' : 'כבוי'})\n     ` + ex.join('\n     '));
+  });
+
+  test('⭐ segConcat · החריג · "לקשור קשר" נשאר דחוי על tie בשני המצבים', () => {
+    /* הצירוף הצמוד של שני מקטעי tie מייצר **ניב** שמשמעותו להתחבר בקנוניה,
+       והוא הפירוש הרשום של plot. זו ההתנגשות היחידה שהמנגנון ייצר, והחריג הוא
+       מה שמחזיר אותו לאפס · בלי הבדיקה הזאת החריג עצמו חסר שומר. */
+    const tie = Array.from(EN.BANK).find(w => EN.K(w.term) === EN.K('tie'));
+    assert.ok(tie, 'הכרטיס tie לא אותר · החריג של segConcat חסר שומר');
+    assert.strictEqual(!!EN.meaningMatch('לקשור קשר', tie.meaning, tie), false,
+      '"לקשור קשר" מתקבל על tie · זהו הפירוש של plot, והחריג נשבר');
   });
 });
