@@ -19,11 +19,23 @@ function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('sh
 let storageWarned = false;
 const LS = {
   get(k,d){ try{ const v=JSON.parse(localStorage.getItem(k)); return v==null?d:v; }catch(e){ return d; } },
-  set(k,v){
+  set(k,v,opts){
     let payload;
     try{ payload = JSON.stringify(v); }catch(e){ return false; }
-    try{ localStorage.setItem(k, payload); if(storageBarOn) hideStorageBar(); return true; }
+    /* ⚠ כתיבה מתכלה · `LS.set(k,v,{expendable:true})`.
+       יומן האבחון הוא הכותב היחיד שמשתמש בזה, ושתי הפעולות שכתיבה רגילה עושה
+       כשאין מקום אסורות עליו:
+         · shedStorage · הוא גוזם את היסטוריית הסבבים של הלומד. לתת ליומן מדידה
+           לקנות לעצמו מקום במחיר התקדמות אמיתית הופך כלי אבחון לנזק.
+         · פס ההתראה · הוא אומר "ההתקדמות שלך לא נשמרת", וכשמה שנפל הוא רשומת
+           אבחון זה פשוט לא נכון.
+       כתיבה כזאת נופלת בשקט, וזו ההתנהגות הנכונה עבורה.
+       וגם בהצלחה היא אינה מורידה את הפס: רשומה בת 80 בתים שנכנסה אינה מוכיחה
+       שהבלוב של הסטטיסטיקה נכנס, והורדת הפס הייתה אות שקט כוזב. */
+    const cheap = !!(opts && opts.expendable);
+    try{ localStorage.setItem(k, payload); if(storageBarOn && !cheap) hideStorageBar(); return true; }
     catch(e){
+      if(cheap) return false;
       /* quota exceeded (or storage disabled) -- shed the least valuable data and retry once.
          The retry must re-serialize: shedStorage trims stats.sessions in memory, and `v` is
          usually that very object, so re-sending the payload built above would write back
@@ -66,12 +78,23 @@ function hideStorageBar(){
   const bar=document.getElementById('stgBar');
   if(bar) bar.classList.add('hidden');
 }
+/* מפתח יומן האבחון. מוצהר כאן, למעלה, ולא יחד עם שאר הסעיף שלו · shedStorage
+   זורק אותו ראשון וחייב להכיר את השם. הסעיף המלא נמצא מיד אחריו. */
+const DIAG_KEY = 'hw_diag_log';
 /* Sessions history is the only unbounded-ish store; drop the old tail first.
    The live `stats` object is trimmed FIRST and from memory, because it holds the round that
    just ended -- the one that triggered the overflow and is not on disk yet. Reading the disk
    copy and assigning it back over stats.sessions threw that round away. */
 function shedStorage(){
   let freed=false;
+  /* ⭐ יומן האבחון נזרק ראשון, לפני שנוגעים בהיסטוריה של הלומד · והוא נזרק גם
+     כשגיזום הסבבים לבדו היה מספיק. הוא כלי מדידה של חגי ואפשר לייצר אותו שוב
+     בסבב תרגול אחד; סבב שנגזם אבוד לתמיד. הסדר כאן הוא כל ההבדל.
+     ⚠ בלי `return` באמצע: ל-LS.set יש ניסיון חוזר אחד בלבד, ולכן שחרור חלקי
+     שמסתפק ביומן היה מפיל כתיבה שגיזום הסבבים כן היה מציל. שני השלבים רצים. */
+  try{
+    if(localStorage.getItem(DIAG_KEY)!=null){ localStorage.removeItem(DIAG_KEY); freed=true; }
+  }catch(e){}
   const live=KEY('hw_stats');
   if(stats && Array.isArray(stats.sessions) && stats.sessions.length>40){
     stats.sessions=stats.sessions.slice(-40);
@@ -91,6 +114,183 @@ function shedStorage(){
   }
   return freed;
 }
+
+/* ===== מונה דחיות · כבוי כברירת מחדל, מקומי בלבד =====
+ *
+ * למה הוא קיים
+ * -------------
+ * חמישה צילומי מסך של דחיות מעצבנות שחגי שלח לימדו יותר מ-115,881 שורות
+ * סינתטיות שיוצרו, כי הן אמיתיות. האפליקציה מעולם לא שמרה **מה הוקלד**, ולכן
+ * ברגע שהצילום נסגר לא נשאר ממנו כלום ואין ממה ללמוד. כאן זה נשמר.
+ *
+ * ⭐ ושני דברים נרשמים, לא אחד: הדחייה עצמה, ולחיצה על "בעצם ידעתי" שמסמנת
+ * אותה כשגויה בדיעבד. היחס ביניהן הוא `override rate` · המדד שהמחקר הצביע
+ * עליו כנכון יותר מ-recall, כי הוא מודד את הבודק ולא את הלומד.
+ *
+ * ⛔ ארבעה גבולות. כל אחד מהם נבדק ב-tests/75, ולכל בדיקה הוכחו שיניים
+ * ---------------------------------------------------------------------
+ * 1. **כבוי כברירת מחדל, ולחלוטין.** בלי הדגל `hw_diag`, diagLog יוצא בשורה
+ *    הראשונה ואינו נוגע באחסון כלל · אפס כתיבות, אפס אחסון, אפס נתונים אצל
+ *    כל מי שאינו חגי. איסוף מידע על נרשמים אמיתיים דורש גילוי והסכמה, ואלה
+ *    אינם קיימים כאן, ולכן ברירת המחדל אינה "כמעט כלום" אלא כלום.
+ * 2. **מקומי בלבד.** אין בסעיף הזה `fetch` ואין `sb.from`. המפתח `hw_diag_log`
+ *    גם אינו נאסף לענן בדרך עקיפה: collectExtras סורק את התחילית `hw_exam:`
+ *    בלבד, והבלוב המסונכרן בנוי מ-assoc/stats/deleted/added/dir/extras. חגי
+ *    מייצא ביד.
+ * 3. **תקרה קשיחה של 500 רשומות**, מעגלית, והישנה נזרקת ראשונה.
+ * 4. **נכתב דרך LS.set**, ככתיבה מתכלה. הוא לעולם אינו גוזם התקדמות אמיתית
+ *    ולעולם אינו מרים את פס ההתראה. ראה את ההערה ב-LS.set ואת הסדר בתוך
+ *    shedStorage · שם היומן הוא הראשון שנזרק.
+ *
+ * ⚠ החלפת חשבון מכבה את המונה. wipeAccountKeys מוחק כל מפתח `hw_` שאינו
+ * ברשימת ההיתר, ולכן כניסה או יציאה מוחקות גם את הדגל וגם את היומן. זה נכון
+ * ומכוון · היומן מחזיק את מה שאדם הקליד, ואין להעביר אותו לחשבון של אדם אחר.
+ * המחיר: אחרי החלפת חשבון צריך להדליק שוב.
+ */
+const DIAG_FLAG = 'hw_diag';     // המתג. חגי מדליק ביד, ואף קוד אינו מדליק אותו
+const DIAG_MAX  = 500;           // התקרה הקשיחה
+const DIAG_COLS = ['id','ts','lang','dir','term','typed','why','near','dist','ovr'];
+let diagSeq = 0;                 // מזהה רץ, בתוך חיי טעינה אחת
+
+function diagOn(){
+  /* קריאה בלבד. מפתח חסר אינו נכתב, ולכן עצם הבדיקה אינה מייצרת אחסון אצל
+     מי שלא הדליק · וזו בדיוק הדרישה. `'1'` מתקבל לצד `1` כי חגי עשוי להקליד
+     `localStorage['hw_diag']='1'` ישירות, וזה שומר מחרוזת גולמית. */
+  try{ const v = LS.get(DIAG_FLAG, 0); return v===1 || v==='1'; }catch(e){ return false; }
+}
+/* המתג הגלובלי. `hwDiag()` בלי ארגומנט מחזיר את המצב בלי לשנות אותו. */
+function hwDiag(on){
+  if(on===undefined) return diagOn();
+  if(on) LS.set(DIAG_FLAG, 1);
+  else { LS.del(DIAG_FLAG); LS.del(DIAG_KEY); }   // כיבוי מוחק גם את מה שנאסף
+  return diagOn();
+}
+function diagRead(){
+  try{ const v = LS.get(DIAG_KEY, []); return Array.isArray(v) ? v : []; }catch(e){ return []; }
+}
+function diagLog(row){
+  try{
+    if(!diagOn()) return 0;                       // ⛔ השער. לפני כל נגיעה באחסון
+    const log = diagRead();
+    row.id = ++diagSeq;
+    log.push(row);
+    /* slice ולא הסרה של אחד: אם היומן שעל הדיסק כבר ארוך מהתקרה · קובץ שנערך
+       ביד, או תקרה שהורדה בגרסה חדשה · הסרת רשומה אחת לא הייתה מחזירה אותו
+       אל מתחת לגבול, והחריגה הייתה נשארת לנצח. */
+    const kept = log.length>DIAG_MAX ? log.slice(log.length-DIAG_MAX) : log;
+    /* מזהה מוחזר רק אם הרשומה באמת ירדה לדיסק. כתיבה מתכלה נופלת בשקט כשאין
+       מקום, ומזהה לרשומה שאינה קיימת היה שולח את diagMark לחפש אותה לשווא. */
+    return LS.set(DIAG_KEY, kept, {expendable:true}) ? row.id : 0;
+  }catch(e){ return 0; }                          // אבחון לעולם אינו מפיל תרגול
+}
+/* סימון "בעצם ידעתי" על רשומה קיימת. מתג ולא פעולה חד-כיוונית, בדיוק כמו
+   הכפתור עצמו · ביטול הלחיצה חייב להחזיר את הרשומה ל-0, אחרת override rate
+   סופר לחיצות שבוטלו. */
+function diagMark(id, on){
+  try{
+    if(!id || !diagOn()) return false;
+    const log = diagRead();
+    /* מהסוף להתחלה: diagSeq מתאפס בכל טעינת עמוד ולכן מזהה יכול לחזור על עצמו
+       בין טעינות. הרשומה שנכתבה לפני רגע היא האחרונה שנושאת את המזהה הזה. */
+    for(let i=log.length-1;i>=0;i--){
+      if(log[i] && log[i].id===id){
+        log[i].ovr = on?1:0;
+        LS.set(DIAG_KEY, log, {expendable:true});
+        return true;
+      }
+    }
+    return false;
+  }catch(e){ return false; }
+}
+/* למה נדחתה · נגזר בדיעבד, מאותן פונקציות שהכריעו, בלי לגעת באף אחת מהן.
+   מוחזרת שלישייה ולא תווית אחת, כי תווית לבדה אינה ניתנת לבדיקה חוזרת:
+   `near` היא התשובה הקבילה הקרובה ביותר ו-`dist` הוא מרחק העריכה אליה, ולכן
+   אפשר לחלוק על הסיווג בלי לאבד את הנתון. */
+function diagWhy(w, typed, w2m){
+  const out = { why:'', near:'', dist:'' };
+  try{
+    const a = w2m ? norm(typed) : K(typed);
+    if(!a){ out.why='empty'; return out; }
+    let targets = w2m
+      ? (meaningSegs(w.meaning)||[]).slice()
+      : [w.term].concat(glossAlts(w)||[]).map(t=>K(t));
+    if(w2m && !targets.length) targets = [norm(w.meaning)];
+    targets = targets.filter(Boolean);
+    if(!targets.length){ out.why='no-target'; return out; }
+    let best='', bd=Infinity;
+    for(const t of targets){ const d=editDist(a,t); if(d<bd){ bd=d; best=t; } }
+    out.near=best; out.dist=bd;
+    /* אותו סף שבו creditSense מזכה · שליש מאורך הפירוש, לפחות 1. מתחתיו זו
+       שגיאת כתיב ולא פירוש אחר, וזו בדיוק הדחייה שחגי צילם. */
+    const tol = Math.max(1, Math.floor(best.length/3));
+    if(bd===0)        out.why='exact';    // ⚠ התאמה מדויקת שנדחתה. ממצא בפני עצמו
+    else if(bd<=tol)  out.why='typo';
+    /* התשובה נמצאת בתוך הפירוש המלא אבל אינה פירוש קביל · כמעט תמיד מילה
+       שנשלפה מתוך הסוגריים המסבירים, ש-meaningSegs מסירה במכוון. */
+    else if(w2m && String(w.meaning).indexOf(String(typed).trim())>=0) out.why='in-gloss';
+    else              out.why='other';
+  }catch(e){ out.why='err'; }
+  return out;
+}
+/* רשומת דחייה אחת. נקראת מ-finishCard בענף "לא נכון" בלבד.
+   ⚠ דילוג אינו דחייה · הלומד לא ענה, אין מחרוזת שהוקלד, וספירתו הייתה
+   מדללת את override rate במכנה שאין לו מונה. */
+function diagReject(w, typed, w2m){
+  if(!diagOn()) return 0;
+  const r = diagWhy(w, typed, w2m);
+  return diagLog({
+    ts: new Date().toISOString(),
+    lang: LANG||'', dir: w2m?'w2m':'m2w',
+    term: w.term, typed: String(typed==null?'':typed),
+    why: r.why, near: r.near, dist: r.dist, ovr: 0
+  });
+}
+/* TSV ולא JSON · חגי מעתיק את הפלט לצ'אט וצריך שיהיה קריא בעין ובטבלה.
+   טאב או שורה חדשה בתוך מה שהוקלד היו שוברים את הרשת, ולכן הם הופכים לרווח. */
+function hwDiagTsv(){
+  const cell = v => String(v==null?'':v).replace(/[\t\r\n]+/g,' ');
+  return [DIAG_COLS.join('\t')]
+    .concat(diagRead().map(r => DIAG_COLS.map(c=>cell(r&&r[c])).join('\t')))
+    .join('\n');
+}
+function diagCountText(n){
+  /* "1 רשומות" אינו עברית. אותו כלל שחל על שורת הספירה למבחן. */
+  if(n===0) return 'אין עדיין רשומות';
+  if(n===1) return 'רשומה אחת';
+  if(n===2) return 'שתי רשומות';
+  return n+' רשומות';
+}
+/* העתקה מהמסך. הורדת קובץ אוטומטית אינה תמיד עובדת, ולכן הדרך הראשית היא
+   textarea מסומן שאפשר להעתיק ממנו · ו-`copy(hwDiagTsv())` בקונסול נשאר
+   כדרך שנייה, בלתי תלויה בזו. */
+function hwDiagShow(){
+  const rows = diagRead();
+  const box = document.createElement('div');
+  const old = document.getElementById('diagBox'); if(old) old.remove();
+  box.id='diagBox';
+  box.style.cssText='position:fixed;inset:6vh 4vw;z-index:99999;background:#fff;color:#111;'
+    +'border:2px solid #333;border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:8px';
+  const h=document.createElement('div');
+  h.textContent='יומן דחיות · '+(diagOn()?diagCountText(rows.length):'המונה כבוי · hwDiag(true) להדלקה');
+  h.style.cssText='direction:rtl;font-weight:700';
+  const ta=document.createElement('textarea');
+  ta.value=hwDiagTsv(); ta.readOnly=true;
+  ta.style.cssText='flex:1;width:100%;direction:ltr;white-space:pre;font-family:monospace;font-size:12px';
+  const tip=document.createElement('div');
+  tip.textContent='הטקסט מסומן · Ctrl+C להעתקה';
+  tip.style.cssText='direction:rtl;font-size:13px;opacity:.75';
+  const btn=document.createElement('button');
+  btn.textContent='סגור'; btn.onclick=()=>box.remove();
+  btn.style.cssText='align-self:flex-start;padding:6px 18px';
+  box.appendChild(h); box.appendChild(ta); box.appendChild(tip); box.appendChild(btn);
+  document.body.appendChild(box);
+  ta.focus(); ta.select();
+  return rows.length;
+}
+/* מונגשים במפורש ל-window · חגי מפעיל אותם מהקונסול. הצהרה מפורשת ולא הסתמכות
+   על כך שהצהרת פונקציה בקובץ קלאסי נוחתת על window ממילא. */
+try{ window.hwDiag=hwDiag; window.hwDiagTsv=hwDiagTsv; window.hwDiagShow=hwDiagShow; }catch(e){}
+
 /* ---- language layer: Hebrew keeps the ORIGINAL keys so existing progress is never lost ---- */
 let LANG = LS.get('hw_lang', null);            // 'he' | 'en' | null (not chosen yet)
 if(LANG!=='he' && LANG!=='en') LANG=null;
@@ -1504,6 +1704,11 @@ function finishCard(ok, skipped){
   const e=sess(w); e.attempts++;
   if(ok){ correct++; e.mastered=true; if(e.attempts===1)e.firstTry=true; }
   else { missed.push(w); }
+  /* מונה הדחיות · כבוי כברירת מחדל, ואצל כל מי שלא הדליק diagReject יוצא לפני
+     שהוא נוגע באחסון. נרשמת רק דחייה של תשובה שהוקלדה: דילוג אינו דחייה.
+     המזהה נשמר כאן כי הכפתור "בעצם ידעתי", שנקשר בהמשך הפונקציה, מסמן בעזרתו
+     בדיוק את הרשומה הזאת. */
+  const diagId = (!ok && !skipped) ? diagReject(w, $('#answerInput').value, w2m) : 0;
   $('#qLive').textContent=`✓ ${correct}`;
   const fb=$('#feedback');
   const answer = w2m ? w.meaning : w.term;    // the correct answer for this direction
@@ -1639,6 +1844,7 @@ function finishCard(ok, skipped){
     let marked=false, sensBefore=null;
     wr.onclick=()=>{
       marked=!marked;
+      diagMark(diagId, marked);        // מדד ה-override rate · ראה "מונה דחיות"
       if(marked){
         correct++;
         const i=missed.indexOf(w); if(i>=0) missed.splice(i,1);
