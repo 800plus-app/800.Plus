@@ -1,0 +1,43 @@
+
+━━ H1-x2 ━━
+יקום: 819,682 וריאציות · התקבלו 152,172 · 162ש
+recall · holdout 23.68% (429/1812) · סט מלא 23.19% (2823/12173)
+שארית · bank 0 · real-word 0 · non-word 152172
+   ins           bank    0 · real     0 · non 137150
+   doubleLetter  bank    0 · real     0 · non   9539
+   materVI       bank    0 · real     0 · non   1841
+   sub           bank    0 · real     0 · non   1368
+   transpose     bank    0 · real     0 · non    910
+   homophone     bank    0 · real     0 · non    841
+   adjSub        bank    0 · real     0 · non    411
+   del           bank    0 · real     0 · non    112
+   דוגמאות non-word: אנביימ ← אָבְנַיִים [transpose] | אבינימ ← אָבְנַיִים [transpose] | אבנימי ← אָבְנַיִים [transpose] | אבנייממ ← אָבְנַיִים [doubleLetter] | אאוצר ← אוֹצֵר [doubleLetter] | אוצצר ← אוֹצֵר [doubleLetter] | אוצרר ← אוֹצֵר [doubleLetter] | אוצור ← אוֹצֵר [materVI]
+
+━━ H1-x3 ━━
+יקום: 819,682 וריאציות · התקבלו 152,255 · 153ש
+recall · holdout 23.68% (429/1812) · סט מלא 23.19% (2823/12173)
+שארית · bank 0 · real-word 0 · non-word 152255
+   ins           bank    0 · real     0 · non 137190
+   doubleLetter  bank    0 · real     0 · non   9539
+   materVI       bank    0 · real     0 · non   1871
+   sub           bank    0 · real     0 · non   1376
+   transpose     bank    0 · real     0 · non    910
+   homophone     bank    0 · real     0 · non    841
+   adjSub        bank    0 · real     0 · non    416
+   del           bank    0 · real     0 · non    112
+   דוגמאות non-word: אנביימ ← אָבְנַיִים [transpose] | אבינימ ← אָבְנַיִים [transpose] | אבנימי ← אָבְנַיִים [transpose] | אבנייממ ← אָבְנַיִים [doubleLetter] | אאוצר ← אוֹצֵר [doubleLetter] | אוצצר ← אוֹצֵר [doubleLetter] | אוצרר ← אוֹצֵר [doubleLetter] | אוצור ← אוֹצֵר [materVI]
+
+━━ H1-open ━━
+יקום: 819,682 וריאציות · התקבלו 450,455 · 188ש
+recall · holdout 57.51% (1042/1812) · סט מלא 56.46% (6873/12173)
+שארית · bank 14 · real-word 0 · non-word 450441
+   ins           bank    2 · real     0 · non 299777
+   sub           bank    9 · real     0 · non  90623
+   adjSub        bank    2 · real     0 · non  28248
+   materVI       bank    0 · real     0 · non  13527
+   doubleLetter  bank    0 · real     0 · non  10568
+   homophone     bank    0 · real     0 · non   4138
+   del           bank    1 · real     0 · non   2650
+   transpose     bank    0 · real     0 · non    910
+   דוגמאות bank: צדע ← צִדֵד [sub] | גמא ← גַּיְא [adjSub] | גמע ← גָּרַע [sub] | הארצ ← הֵאִיץ [sub] | אומצ ← גָּמַר בְּדַעְתּוֹ / בְּלִבּוֹ / אוֹמֶר [sub] | בליבו ← בְּאִיבּוֹ [sub] | כנ ← כָּפַן [del] | מגופ ← מָגוֹר [sub]
+   דוגמאות non-word: בניימ ← אָבְנַיִים [del] | גבניימ ← אָבְנַיִים [sub] | הבניימ ← אָבְנַיִים [homophone] | ובניימ ← אָבְנַיִים [sub] | חבניימ ← אָבְנַיִים [sub] | יבניימ ← אָבְנַיִים [sub] | כבניימ ← אָבְנַיִים [adjSub] | לבניימ ← אָבְנַיִים [sub]

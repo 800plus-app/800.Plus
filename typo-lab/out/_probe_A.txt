@@ -1,0 +1,56 @@
+
+━━ SHIPPED ━━
+יקום: 819,682 וריאציות · התקבלו 151,970 · 158ש
+recall · holdout 23.29% (422/1812) · סט מלא 22.93% (2791/12173)
+שארית · bank 0 · real-word 0 · non-word 151970
+   ins           bank    0 · real     0 · non 137101
+   doubleLetter  bank    0 · real     0 · non   9539
+   materVI       bank    0 · real     0 · non   1758
+   sub           bank    0 · real     0 · non   1315
+   transpose     bank    0 · real     0 · non    908
+   homophone     bank    0 · real     0 · non    836
+   adjSub        bank    0 · real     0 · non    401
+   del           bank    0 · real     0 · non    112
+   דוגמאות non-word: אנביימ ← אָבְנַיִים [transpose] | אבינימ ← אָבְנַיִים [transpose] | אבנימי ← אָבְנַיִים [transpose] | אבנייממ ← אָבְנַיִים [doubleLetter] | אאוצר ← אוֹצֵר [doubleLetter] | אוצצר ← אוֹצֵר [doubleLetter] | אוצרר ← אוֹצֵר [doubleLetter] | אוצור ← אוֹצֵר [materVI]
+
+━━ OP-mater ━━
+יקום: 819,682 וריאציות · התקבלו 160,876 · 153ש
+recall · holdout 25.99% (471/1812) · סט מלא 25.43% (3096/12173)
+שארית · bank 0 · real-word 0 · non-word 160876
+   ins           bank    0 · real     0 · non 137103
+   doubleLetter  bank    0 · real     0 · non  10395
+   materVI       bank    0 · real     0 · non   9771
+   sub           bank    0 · real     0 · non   1319
+   transpose     bank    0 · real     0 · non    909
+   homophone     bank    0 · real     0 · non    836
+   adjSub        bank    0 · real     0 · non    431
+   del           bank    0 · real     0 · non    112
+   דוגמאות non-word: אנביימ ← אָבְנַיִים [transpose] | אבינימ ← אָבְנַיִים [transpose] | אבנימי ← אָבְנַיִים [transpose] | אבנייממ ← אָבְנַיִים [doubleLetter] | אובניימ ← אָבְנַיִים [materVI] | אבוניימ ← אָבְנַיִים [materVI] | אבנויימ ← אָבְנַיִים [materVI] | אאוצר ← אוֹצֵר [doubleLetter]
+
+━━ OP-ins ━━
+יקום: 819,682 וריאציות · התקבלו 155,443 · 185ש
+recall · holdout 27.87% (505/1812) · סט מלא 27.85% (3390/12173)
+שארית · bank 0 · real-word 0 · non-word 155443
+   ins           bank    0 · real     0 · non 137101
+   doubleLetter  bank    0 · real     0 · non   9539
+   del           bank    0 · real     0 · non   2547
+   sub           bank    0 · real     0 · non   2079
+   materVI       bank    0 · real     0 · non   1759
+   transpose     bank    0 · real     0 · non    908
+   homophone     bank    0 · real     0 · non    885
+   adjSub        bank    0 · real     0 · non    625
+   דוגמאות non-word: בניימ ← אָבְנַיִים [del] | אניימ ← אָבְנַיִים [del] | אנביימ ← אָבְנַיִים [transpose] | אביימ ← אָבְנַיִים [del] | אבינימ ← אָבְנַיִים [transpose] | אבנימי ← אָבְנַיִים [transpose] | אבניי ← אָבְנַיִים [del] | אבנייממ ← אָבְנַיִים [doubleLetter]
+
+━━ OP-ins+mater ━━
+יקום: 819,682 וריאציות · התקבלו 164,349 · 280ש
+recall · holdout 30.57% (554/1812) · סט מלא 30.35% (3695/12173)
+שארית · bank 0 · real-word 0 · non-word 164349
+   ins           bank    0 · real     0 · non 137103
+   doubleLetter  bank    0 · real     0 · non  10395
+   materVI       bank    0 · real     0 · non   9772
+   del           bank    0 · real     0 · non   2547
+   sub           bank    0 · real     0 · non   2083
+   transpose     bank    0 · real     0 · non    909
+   homophone     bank    0 · real     0 · non    885
+   adjSub        bank    0 · real     0 · non    655
+   דוגמאות non-word: בניימ ← אָבְנַיִים [del] | אניימ ← אָבְנַיִים [del] | אנביימ ← אָבְנַיִים [transpose] | אביימ ← אָבְנַיִים [del] | אבינימ ← אָבְנַיִים [transpose] | אבנימי ← אָבְנַיִים [transpose] | אבניי ← אָבְנַיִים [del] | אבנייממ ← אָבְנַיִים [doubleLetter]
