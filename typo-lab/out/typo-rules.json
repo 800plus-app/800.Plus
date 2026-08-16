@@ -269,99 +269,12 @@
    "dir": "word"
   },
   "en-word": {
+   "dir": "word",
    "minLen": 0,
-   "useLexicon": true,
-   "W": {
-    "sub": 2,
-    "adjSub": 1.35,
-    "transpose": 0.7759,
-    "ins": 1.1296,
-    "del": 0.4303,
-    "doubleLetter": 0.5616,
-    "materVI": 0.3821,
-    "homophone": 1.7916
-   },
    "vetoMargin": 1,
+   "useLexicon": true,
    "marginHard": 1,
    "marginSoft": 2,
-   "bands": [
-    {
-     "maxLen": 1,
-     "t": 0
-    },
-    {
-     "maxLen": 2,
-     "t": 0
-    },
-    {
-     "maxLen": 3,
-     "t": 0.6
-    },
-    {
-     "maxLen": 4,
-     "t": 1.5
-    },
-    {
-     "maxLen": 5,
-     "t": 1.4
-    },
-    {
-     "maxLen": 6,
-     "t": 1.5
-    },
-    {
-     "maxLen": 7,
-     "t": 1.5
-    },
-    {
-     "maxLen": 8,
-     "t": 2.2
-    },
-    {
-     "maxLen": 9,
-     "t": 2.2
-    },
-    {
-     "maxLen": 10,
-     "t": 1.2
-    },
-    {
-     "maxLen": 11,
-     "t": 2.2
-    },
-    {
-     "maxLen": 12,
-     "t": 1.5
-    },
-    {
-     "maxLen": 13,
-     "t": 1.5
-    },
-    {
-     "maxLen": 14,
-     "t": 1.5
-    },
-    {
-     "maxLen": 15,
-     "t": 1
-    },
-    {
-     "maxLen": 16,
-     "t": 1.4
-    },
-    {
-     "maxLen": 17,
-     "t": 1.4
-    },
-    {
-     "maxLen": 18,
-     "t": 0
-    },
-    {
-     "maxLen": null,
-     "t": 1.4
-    }
-   ],
    "bandsTight": [
     {
      "maxLen": 1,
@@ -373,51 +286,51 @@
     },
     {
      "maxLen": 3,
-     "t": 1.9
+     "t": 1.75
     },
     {
      "maxLen": 4,
-     "t": 0.9
+     "t": 0.85
     },
     {
      "maxLen": 5,
-     "t": 0.8
+     "t": 0.7
     },
     {
      "maxLen": 6,
-     "t": 1
+     "t": 1.25
     },
     {
      "maxLen": 7,
-     "t": 0.9
+     "t": 1.15
     },
     {
      "maxLen": 8,
-     "t": 1.9
+     "t": 1.65
     },
     {
      "maxLen": 9,
-     "t": 1.9
+     "t": 1.65
     },
     {
      "maxLen": 10,
-     "t": 1.9
+     "t": 1.4
     },
     {
      "maxLen": 11,
-     "t": 1.9
+     "t": 1.4
     },
     {
      "maxLen": 12,
-     "t": 1.9
+     "t": 1.4
     },
     {
      "maxLen": 13,
-     "t": 1.9
+     "t": 2.4
     },
     {
      "maxLen": 14,
-     "t": 1
+     "t": 0.95
     },
     {
      "maxLen": 15,
@@ -436,21 +349,128 @@
      "t": 0
     },
     {
+     "maxLen": 19,
+     "t": 0
+    },
+    {
+     "maxLen": 20,
+     "t": 0
+    },
+    {
      "maxLen": null,
      "t": 0
     }
    ],
-   "dir": "word",
    "WTight": {
-    "sub": 99,
+    "sub": 2.4,
     "adjSub": 99,
-    "transpose": 0.765,
-    "ins": 0.967,
-    "del": 99,
-    "doubleLetter": 0.857,
+    "transpose": 0.1,
+    "ins": 0.8,
+    "del": 1.8,
+    "doubleLetter": 0.45,
     "materVI": 99,
     "homophone": 99
-   }
+   },
+   "bands": [
+    {
+     "maxLen": 1,
+     "t": 0
+    },
+    {
+     "maxLen": 2,
+     "t": 0
+    },
+    {
+     "maxLen": 3,
+     "t": 1.05
+    },
+    {
+     "maxLen": 4,
+     "t": 2.1
+    },
+    {
+     "maxLen": 5,
+     "t": 1.95
+    },
+    {
+     "maxLen": 6,
+     "t": 1.9
+    },
+    {
+     "maxLen": 7,
+     "t": 1.85
+    },
+    {
+     "maxLen": 8,
+     "t": 3.35
+    },
+    {
+     "maxLen": 9,
+     "t": 3.25
+    },
+    {
+     "maxLen": 10,
+     "t": 1.45
+    },
+    {
+     "maxLen": 11,
+     "t": 3.15
+    },
+    {
+     "maxLen": 12,
+     "t": 1.65
+    },
+    {
+     "maxLen": 13,
+     "t": 1.65
+    },
+    {
+     "maxLen": 14,
+     "t": 1.6
+    },
+    {
+     "maxLen": 15,
+     "t": 1
+    },
+    {
+     "maxLen": 16,
+     "t": 1.55
+    },
+    {
+     "maxLen": 17,
+     "t": 1.55
+    },
+    {
+     "maxLen": 18,
+     "t": 0
+    },
+    {
+     "maxLen": 19,
+     "t": 0
+    },
+    {
+     "maxLen": 20,
+     "t": 0
+    },
+    {
+     "maxLen": null,
+     "t": 1.5
+    }
+   ],
+   "W": {
+    "sub": 1.8,
+    "adjSub": 1.35,
+    "transpose": 1,
+    "ins": 1.1296,
+    "del": 0.3,
+    "doubleLetter": 0.3,
+    "materVI": 0.3821,
+    "homophone": 1.7916
+   },
+   "aFirstTight": 0.2,
+   "aShareTight": 1.5,
+   "aFirst": 0,
+   "aShare": 3
   },
   "gloss": {
    "minLen": 6,
@@ -8504,5 +8524,34 @@
     "shipGate.en-word"
    ]
   }
- ]
+ ],
+ "studentProvenance": {
+  "tag": "STUDENT",
+  "note": "המועמד · aFirstTight/aShareTight על en-word",
+  "generatedAt": "2026-08-16T10:35:51.091Z",
+  "from": "typo-lab/fit.js · V1 (posFirst + shareRatio) · פרוטוקול A",
+  "teacher": "⚠ זמני · תיוגי הדאטהסט. המורה האמיתי (teacher.js) טרם חובר ללולאה",
+  "measured": {
+   "baselineHoldout": 0.6792571608435631,
+   "candidateHoldout": 0.7463015423355367,
+   "falseAcceptsHoldTrainCross": [
+    0,
+    0,
+    0
+   ],
+   "newAccepts": 1342,
+   "newFalse": 0,
+   "cacheWithCross": true
+  },
+  "unchanged": [
+   "he-word",
+   "gloss"
+  ],
+  "heWordMeasuredNotShipped": {
+   "from": 0.2329,
+   "to": 0.3173,
+   "why": "חגי ביקש את הבסיס באנגלית · שפה אחת לשער"
+  }
+ },
+ "fp": "f947b11639d3"
 }

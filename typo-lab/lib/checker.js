@@ -85,7 +85,8 @@
  * מדבר עליה; מקטע פירוש אינו נוטה.
  */
 
-const { wEditDist } = require('./wdist.js');
+const { wEditDist, OP_KEYS } = require('./wdist.js');
+const FEAT = require('../features.js');
 const { acceptedKeys, acceptedSegs, acceptsToday } = require('./keys.js');
 const { isVetoedTerm, isVetoedSeg } = require('./veto.js');
 const { buildIndex } = require('../gen_dataset.js');
@@ -267,6 +268,48 @@ function suffixesFor(ctx) {
   return out;
 }
 
+/* ===== 4ד · שני מקדמי תכונה · aFirst / aShare =====
+ *
+ * מה שהמשטר הצר עושה היום הוא איסור גס: ‏`WTight` נותן 99 ל-sub/adjSub/del ולכן
+ * בפער צר מתקבלות **רק** עריכות מאריכות. זה עובד, אבל הוא מוותר על כל השגיאות
+ * שאינן מאריכות גם כשהן ברורות. שני המקדמים מחליפים את האיסור בקנס רציף:
+ *
+ *   ‎cost = Σ_op W[op]·count[op] + aFirst·[העריכה נוגעת באות הראשונה]
+ *                                + aShare·(1 − יחס התווים המשותפים)
+ *
+ * ‏`fought`/`bought` נבדלות באות הראשונה · `speak`/`speck` חולקות 4 מתוך 5 תווים.
+ * שתי התכונות תופסות בדיוק את ההבדל בין "פספסתי אות" לבין "התכוונתי למילה השנייה",
+ * וזה מה שהאיסור הגס לא יכול לבטא. נמדד על `en-word`: ‏67.93% → 80.96% ב-holdout,
+ * באפס קבלות-שווא, **בלי אף רגרסיה ברצועת אורך**.
+ *
+ * ⚠ **תאימות לאחור מוחלטת:** ברירת המחדל של שניהם היא 0, וכששניהם 0 הקוד יורד
+ * למסלול `wEditDist` המקורי — **אותה שורת קוד בדיוק** שרצה היום, ולא "שקול לה".
+ * ‏`graded_probe` מודד את זה על מפת ההחלטות המלאה.
+ *
+ * ⚠ **ומה שחייב להיאמר על המניין, כי הוא אינו מדויק והוא נראה מדויק.**
+ * ‏`FEAT.alignments` מנקה יישורים **נשלטים לפי ספירה**, בדיוק כמו `opVectors`, ובין
+ * ווקטורי-ספירה זהים הוא שומר את **המיקום המוקדם ביותר**. ברגע ש-`aFirst > 0` הניקוי
+ * הזה כבר אינו שקול-עלות: יישור נשלט בספירה יכול להיות זול יותר בסך הכול אם המיקום
+ * שלו מאוחר. כלומר המספר שמוחזר כאן הוא **חסם עליון** על העלות המינימלית האמיתית.
+ *   · הכיוון בטוח · עלות גבוהה יותר = פחות קבלות, לעולם לא יותר. מקדם אינו יכול
+ *     לייצר קבלת-שווא שהמסלול המדויק היה מונע.
+ *   · ‏**המעבדה, השער והריצה חייבים להשתמש באותו כלל בדיוק.** ההתאמה נעשתה תחת
+ *     הכלל הזה, השער רץ תחתיו, וטבלת הזהב היא מה שיתפוס אם `app.js` יסטה ממנו.
+ * מקדם שלילי היה הופך את החסם ללא-תקף (וגם את `effOps` ב-`bank_gate`), ולכן הוא
+ * **זורק** ואינו נבלע.
+ */
+function featureCost(a, b, W, cap, aFirst, aShare) {
+  if (!(aFirst > 0) && !(aShare > 0)) return wEditDist(a, b, W, cap, MAX_OPS);
+  const off = aShare > 0 ? aShare * (1 - FEAT.shareRatio(String(a), String(b))) : 0;
+  let best = Infinity;
+  for (const al of FEAT.alignments(a, b, MAX_OPS)) {
+    let s = off + (al.pos === 0 ? aFirst : 0);
+    for (const k of OP_KEYS) s += al.v[k] * W[k];
+    if (s < best) best = s;
+  }
+  return best <= cap ? best : Infinity;
+}
+
 /* ברירות מחדל שמרניות · גנום חסר-גן אינו נופל לסובלנות רחבה בשקט. */
 const UNIT_DEFAULTS = { sub: 1, adjSub: 1, transpose: 2, ins: 1, del: 1, doubleLetter: 1, materVI: 1, homophone: 1 };
 const normBands = b => b.map(x => ({ maxLen: x.maxLen == null ? Infinity : x.maxLen, t: x.t == null ? 0 : x.t }))
@@ -291,7 +334,17 @@ function normalizeParams(params) {
   const bandsTight = Array.isArray(p.bandsTight) && p.bandsTight.length ? normBands(p.bandsTight.slice()) : bands;
   const WTight = p.WTight ? Object.assign({}, UNIT_DEFAULTS, p.WTight) : W;
 
+  /* ‏4ד · ברירת מחדל 0 = ההתנהגות של היום, ביט-אחר-ביט. הצר יורש מהרגיל אם הושמט,
+     באותו כיוון-ירושה של bandsTight/WTight · גנום ישן מקבל בדיוק את מה שהיה לו. */
+  const num = (v, d) => (v == null ? d : v);
+  const aFirst = num(p.aFirst, 0), aShare = num(p.aShare, 0);
+  const aFirstTight = num(p.aFirstTight, aFirst), aShareTight = num(p.aShareTight, aShare);
+  for (const [k, v] of [['aFirst', aFirst], ['aShare', aShare], ['aFirstTight', aFirstTight], ['aShareTight', aShareTight]]) {
+    if (!(v >= 0)) throw new Error(`normalizeParams: ${k} = ${v} · מקדם שלילי הופך את חסם העלות ללא-תקף (גם effOps ב-bank_gate) ולכן אינו מותר`);
+  }
+
   return {
+    aFirst, aShare, aFirstTight, aShareTight,
     minLen: p.minLen == null ? 0 : p.minLen,
     vetoMargin,
     marginHard, marginSoft,
@@ -395,12 +448,14 @@ function makeChecker(params, ctx, veto, lang) {
     }
     const bandOf = tight ? thresholdTightFor : thresholdFor;
     const wOf = tight ? P.WTight : P.W;
+    const aF = tight ? P.aFirstTight : P.aFirst;
+    const aS = tight ? P.aShareTight : P.aShare;
 
     let best = Infinity;
     for (const s of scored.slice(0, MAX_CANDS)) {
       const t = bandOf(s.len);
       if (!(t > 0)) continue;                                  // אפס סובלנות ברצועה הזו · אין מה לחשב
-      const d = wEditDist(typedKey, s.c, wOf, t, MAX_OPS);
+      const d = featureCost(typedKey, s.c, wOf, t, aF, aS);
       if (d < best) best = d;
       if (best === 0) break;
     }

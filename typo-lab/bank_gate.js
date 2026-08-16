@@ -111,6 +111,11 @@ function shipParams() {
     if (q.marginSoft != null) o.marginSoft = q.marginSoft;
     if (Array.isArray(q.bandsTight) && q.bandsTight.length) o.bandsTight = nb(q.bandsTight);
     if (q.WTight) o.WTight = q.WTight;
+    /* ‏4ד · מקדמי התכונה חייבים לעבור כאן במפורש, **מאותו נימוק בדיוק** שכתוב למעלה
+       על הגנים המדורגים: ‏normalizeParams מאפסת אותם כשהם חסרים, כלומר ארטיפקט עם
+       מקדמים היה נבדק כאן כאילו אין לו — שער ירוק על פרמטרים שאינם אלה שנשלחים.
+       זה הכיוון המסוכן מבין השניים, וזו הטעות שכבר קרתה כאן פעם אחת. */
+    for (const k of ['aFirst', 'aShare', 'aFirstTight', 'aShareTight']) if (q[k] != null) o[k] = q[k];
     return o;
   };
   const sets = {};
@@ -141,9 +146,23 @@ function fingerprint(sets) {
     bandsTight: q.bandsTight ? nb(q.bandsTight) : null,
     WTight: q.WTight ? nw(q.WTight) : null,
   });
+  /* ‏4ד · שני ארטיפקטים שנבדלים רק במקדמי התכונה חייבים לקבל טביעות שונות · אחרת
+     `verify_all` משווה טביעה, מוצא התאמה, ומכריז שהדוח מתאר את מה שנשלח בזמן שהוא
+     מתאר ריצה אחרת לגמרי.
+     ⚠ **והשדות נוספים רק כשהם קיימים בפועל.** הוספה בלתי-מותנית הייתה משנה את
+     הטביעה של **כל ארטיפקט ישן** (‏נמדד: `fd76ab7ce13e` → `8a56f85b599b`), ואז כל
+     טביעה שנרשמה בעבר — `promoted[].fingerprintBefore/After`, כל דוח שער שמור —
+     הופכת לשקרית בשקט. זה בדיוק סוג הכשל שהפונקציה הזאת קיימת כדי למנוע, ולכן
+     גנום בלי מקדמים חייב לשמור על הטביעה שהייתה לו. */
+  const withFeat = q => {
+    const o = norm(q);
+    const ks = ['aFirst', 'aShare', 'aFirstTight', 'aShareTight'].filter(k => q[k] != null);
+    if (ks.length) for (const k of ks) o[k] = q[k];
+    return o;
+  };
   const keys = Object.keys(sets).sort();
   return crypto.createHash('sha256')
-    .update(JSON.stringify(keys.map(k => [k, norm(sets[k])])))
+    .update(JSON.stringify(keys.map(k => [k, withFeat(sets[k])])))
     .digest('hex').slice(0, 12);
 }
 
@@ -160,6 +179,15 @@ function effOps(P) {
   const minW = ws.length ? Math.min.apply(null, ws) : 0;
   const ts = [];
   for (const bs of [P.bands, P.bandsTight]) if (bs) for (const b of bs) ts.push(typeof b.t === 'number' ? b.t : 0);
+  /* ‏4ד · מקדמי התכונה **אינם** מרפים את החסם: הם מוסיפים עלות אי-שלילית לכל יישור,
+     ולכן העלות בפועל ≥ המכפלה הסקלרית שהחסם נגזר ממנה, והעומק שמחושב כאן נשאר חסם
+     עליון תקף. מקדם **שלילי** היה שובר בדיוק את הטיעון הזה — היה אפשר להגיע לעלות
+     נמוכה יותר ולכן לעומק גדול יותר מזה שהאינדקס נבנה אליו, כלומר זוגות שלא הגיעו
+     לחישוב ושער ירוק שנובע מאי-בדיקה. לכן זריקה, ולא השלמה שקטה. */
+  for (const k of ['aFirst', 'aShare', 'aFirstTight', 'aShareTight']) {
+    const v = P[k];
+    if (v != null && !(v >= 0)) throw new Error(`effOps: ${k} = ${v} · מקדם שלילי פוסל את חסם העומק`);
+  }
   const maxT = ts.length ? Math.max.apply(null, ts) : 0;
   if (!(maxT > 0)) return 0;
   if (!(minW > 0)) return MAX_OPS;
