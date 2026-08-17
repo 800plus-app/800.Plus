@@ -22,10 +22,23 @@ New-Item -ItemType Directory -Force $stage | Out-Null
 # ⚠ Remotion מושך את שני הגופנים מ-fonts.gstatic.com בכל רינדור, וההורדה
 #   נכשלת מדי פעם ב-ERR_CONNECTION_RESET. כישלון כזה מפיל שקופית אחת באמצע
 #   סדרה, ובלי ניסיון חוזר מגלים את זה רק כשמסתכלים בתיקייה. שלושה ניסיונות.
+# ⚠⚠ למה `$ErrorActionPreference` מושבת סביב הקריאה, והשבתתו אינה רשלנות:
+#   Remotion כותב אזהרת גופנים ל-stderr בכל רינדור מוצלח ("Made 45 network
+#   requests to load fonts"). PowerShell עוטף כל שורת stderr של תוכנית חיצונית
+#   ב-NativeCommandError, ועם 'Stop' זו שגיאה מסיימת — כך שהסקריפט נפל **אחרי**
+#   שהרינדור הצליח והקובץ כבר נכתב. במשך שבוע הוא נחשב שבור, ובפועל היה תקין.
+#
+#   ההשבתה בטוחה כאן כי **סימן ההצלחה אינו קוד היציאה אלא `Test-Path $Expect`**:
+#   הקובץ קיים או שלא, ואת זה stderr לא יכול לזייף. זה גם למה יש כאן שלושה
+#   ניסיונות מלכתחילה — הכשל האמיתי שנצפה הוא ERR_CONNECTION_RESET בהורדת גופן,
+#   שמפיל שקופית אחת באמצע סדרה בלי לומר דבר.
 function Invoke-WithRetry {
   param([scriptblock]$Cmd, [string]$Expect, [string]$Label)
   foreach ($try in 1..3) {
-    & $Cmd
+    if (Test-Path $Expect) { Remove-Item $Expect -Force }   # שארית מניסיון קודם אינה הצלחה
+    $prev = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    try { & $Cmd 2>&1 | Out-Null } catch { } finally { $ErrorActionPreference = $prev }
     if (Test-Path $Expect) { return $true }
     if ($try -lt 3) { Write-Host "  ~ $Label נכשל, ניסיון $($try+1)" -ForegroundColor Yellow }
   }
