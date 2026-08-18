@@ -5791,11 +5791,13 @@ async function openAdmin(){
      a round is a different one. Conflating them is how a dead product looks alive. */
   const DAY=864e5, now=Date.now();
   const roundIn = d => admUsers.filter(u=>u.lastRound && now-u.lastRound < d*DAY).length;
+  /* ⚠ "סבבים בסך הכול" ו"מילים שתורגלו" הוסרו מהלוח (בקשת חגי, 14.8.2026): מדד
+     מצטבר שרק עולה אינו אומר מה קרה השבוע, ולכן אי אפשר להחליט לפיו כלום.
+     הסכימה עצמה הוסרה ולא רק התצוגה. שדה מחושב שאיש אינו קורא הוא עבודה
+     שרצה על כל משתמש בכל טעינה של הלוח, בלי שאף אחד רואה את התוצאה. */
   const glance = {
     today: roundIn(1), week: roundIn(7),
     never: admUsers.filter(u=>!u.rounds).length,
-    words: admUsers.reduce((n,u)=>n+u.practised,0),
-    rounds: admUsers.reduce((n,u)=>n+u.rounds,0),
   };
   const gcard = (n, label, hint, warn) =>
     `<div class="adm-g${warn&&n?' warn':''}"><b>${n}</b><span>${label}</span>`+
@@ -5805,8 +5807,6 @@ async function openAdmin(){
       ${gcard(glance.today,'תרגלו היום','')}
       ${gcard(glance.week,'תרגלו השבוע','')}
       ${gcard(glance.never,'נרשמו ולא תרגלו','אף פעם',true)}
-      ${gcard(glance.rounds,'סבבים בסך הכול','')}
-      ${gcard(glance.words,'מילים שתורגלו','בלי מבחן רמה')}
     </div>
     <div class="adm-tools">
       <input class="adm-search" id="admSearch" type="search" inputmode="search"
