@@ -7596,7 +7596,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "session",
-   "מושב"
+   "מפגש, פגישה; מושב"
   ],
   [
    "sheet",
