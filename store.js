@@ -35,7 +35,7 @@ const Store = {
      Supabase rate-limits this per address (the SMTP screen's "minimum interval per user"),
      so a second tap inside a minute is a 429 and the learner must be told that in words. */
   /* מנוי Push אחד למכשיר. upsert על endpoint ולא insert: הדפדפן מחדש מנוי מדי פעם
-     מיוזמתו, ו-insert היה מייצר שורה נוספת לכל חידוש — כלומר אותו אדם היה מקבל את
+     מיוזמתו, ו-insert היה מייצר שורה נוספת לכל חידוש · כלומר אותו אדם היה מקבל את
      אותה התראה פעמיים, ואז שלוש. */
   async savePushSub(endpoint, p256dh, auth) {
     try {
@@ -65,10 +65,10 @@ const Store = {
     const { data } = await sb.auth.getSession();
     return data && data.session;
   },
-  /* הפעלה שמורה, נקראת מהדיסק בלבד — בלי רשת ובלי המתנה.
+  /* הפעלה שמורה, נקראת מהדיסק בלבד · בלי רשת ובלי המתנה.
      getSession() נראית מקומית ואינה: כשה-token פג היא יוצאת לרענון ברשת, וברשת איטית או
      בלי רשת היא פשוט לא חוזרת. האתחול מריץ אותה במרוץ מול פסק זמן, ולכן התוצאה הייתה
-     "אין הפעלה" — כלומר מסך התחברות למי שמעולם לא התנתק. זה מה שהוציא את המשתמש שוב ושוב.
+     "אין הפעלה" · כלומר מסך התחברות למי שמעולם לא התנתק. זה מה שהוציא את המשתמש שוב ושוב.
      כאן קוראים ישירות את מה ש-supabase-js שמר. token שפג עדיין מזהה מי המשתמש, וזה כל מה
      שנדרש כדי להציג את החשבון ולטעון את הנתונים המקומיים; autoRefreshToken יחדש אותו
      ברקע כשתהיה רשת. */
@@ -86,7 +86,7 @@ const Store = {
   },
 
   /* האירוע מועבר הלאה ולא נבלע. "אין הפעלה" ו"המשתמש התנתק" הם שני מצבים שונים לגמרי:
-     supabase-js משדר INITIAL_SESSION עם null כשהיא לא הצליחה לקרוא הפעלה — למשל בלי רשת —
+     supabase-js משדר INITIAL_SESSION עם null כשהיא לא הצליחה לקרוא הפעלה · למשל בלי רשת ·
      ומי שמתייחס לזה כאל התנתקות מוחק את המשתמש בדיוק אחרי שהאתחול שחזר אותו מהדיסק. */
   onAuthChange(cb) { sb.auth.onAuthStateChange((evt, session) => cb(session, evt)); },
   async myProfile() {
@@ -97,7 +97,7 @@ const Store = {
   },
 
   /* ההכרעה על מנוי, חתוכה בשרת. מחזירה את ה-jsonb של my_entitlement או null.
-     null בכל מצב של כשל — אין רשת, אין הפעלה, או שהפונקציה לא נפרסה — ו-accessOk
+     null בכל מצב של כשל · אין רשת, אין הפעלה, או שהפונקציה לא נפרסה · ו-accessOk
      נופלת חזרה לבדיקה המקומית. **לא לשנות את זה ל-throw**: השער הזה נכשל־פתוח
      בכוונה, וחריגה כאן הייתה נועלת מכשיר שאין לו רשת. ראה app.js › entVerdict. */
   async myEntitlement() {
@@ -105,7 +105,7 @@ const Store = {
     if (error) {
       // 42883 = הפונקציה אינה קיימת, כלומר migrations/11.sql לא הורץ.
       console.warn('my_entitlement נכשלה' + (error.code === '42883'
-        ? ' — נראה ש-migrations/11.sql לא הורץ' : ': ' + error.message));
+        ? ' · נראה ש-migrations/11.sql לא הורץ' : ': ' + error.message));
       return null;
     }
     return data || null;
@@ -281,7 +281,7 @@ const Store = {
       // 42883 = the function does not exist, i.e. migrations/9.sql was never run. Silence here
       // meant the whole "what others wrote" feature simply never appeared, with no error anywhere.
       console.warn('shared_assoc נכשלה' + (error.code === '42883'
-        ? ' — נראה ש-migrations/9.sql לא הורץ' : ': ' + error.message));
+        ? '. נראה ש-migrations/9.sql לא הורץ' : ': ' + error.message));
       return { ok: false, rows: [], mine: false };
     }
     const rows = data || [];
@@ -328,7 +328,7 @@ const Store = {
   async deleteMyAccount() {
     const { data: s } = await sb.auth.getSession();
     const token = s && s.session && s.session.access_token;
-    if (!token) return { ok: false, error: { message: 'אין חיבור פעיל — התחבר שוב ונסה' } };
+    if (!token) return { ok: false, error: { message: 'אין חיבור פעיל. התחבר שוב ונסה' } };
     let res;
     try {
       res = await fetch(window.SUPA_URL + '/functions/v1/delete-account', {
