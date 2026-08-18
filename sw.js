@@ -11,7 +11,7 @@ const V = 'hw-v' + REV;
 const DATA = 'hw-data';
 const ASSETS = [
   './', './index.html', './manifest.webmanifest',
-  /* הדפים המשפטיים: סטטיים, קטנים, ובלי ?v= — הם נטענים בניווט (network-first),
+  /* הדפים המשפטיים: סטטיים, קטנים, ובלי ?v= · הם נטענים בניווט (network-first),
      וה-precache כאן רק מאפשר לפתוח אותם גם באופליין. */
   './terms.html', './privacy.html', './deletion.html', './accessibility.html',
   `./app.js?v=${REV}`, `./data.js?v=${REV}`, `./data-en.js?v=${REV}`, `./data-en-sentences.js?v=${REV}`,
@@ -20,16 +20,16 @@ const ASSETS = [
   /* לקסיקון סובלנות האיות · 68KB, נוצר ב-typo-lab ואינו נערך ביד.
      לא ב-CORE, בדיוק כמו הפונטים: הוא best-effort, ואין שום סיבה שכישלון בטעינתו
      יפיל התקנה שלמה. האפליקציה בודקת אותו בזמן ריצה, וכשהוא חסר שכבת הסובלנות
-     כבויה לגמרי — כלומר ההתנהגות של היום, ולא התנהגות מקלה יותר. */
+     כבויה לגמרי · כלומר ההתנהגות של היום, ולא התנהגות מקלה יותר. */
   `./typo-lex.js?v=${REV}`,
   './icon-192.png', './icon-512.png', './icon-maskable-512.png',
   /* הפונטים. בלי ?v= בכוונה, ושתי סיבות נפרדות מחייבות זאת:
      · ההתאמה ב-cache-first היא על ה-URL המדויק כולל ה-query. ה-@font-face ב-index.html
-       מפנה ל-fonts/x.woff2 בלי query, ולכן רשומה עם ?v=${REV} לא הייתה נענית לעולם —
+       מפנה ל-fonts/x.woff2 בלי query, ולכן רשומה עם ?v=${REV} לא הייתה נענית לעולם ·
        הפונטים היו יורדים מהרשת בכל פעם, כלומר בדיוק הבאג שהמעבר הזה בא לתקן.
-     · הקבצים immutable — התוכן שלהם לא משתנה בין דיפלויים. תלייתם ב-REV הייתה מכריחה
+     · הקבצים immutable · התוכן שלהם לא משתנה בין דיפלויים. תלייתם ב-REV הייתה מכריחה
        הורדה חוזרת של 152KB בכל העלאת גרסה, בפרויקט שסופר רוחב פס.
-     לא ב-CORE: install נכשל כולו אם קובץ אחד שם לא נטען, ופונט הוא best-effort — הוא
+     לא ב-CORE: install נכשל כולו אם קובץ אחד שם לא נטען, ופונט הוא best-effort · הוא
      לא שווה כישלון התקנה. */
   './fonts/frank-ruhl-libre-hebrew.woff2', './fonts/frank-ruhl-libre-latin.woff2',
   './fonts/frank-ruhl-libre-latin-ext.woff2',
