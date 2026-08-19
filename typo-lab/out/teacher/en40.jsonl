@@ -1,0 +1,40 @@
+{"id":"E01","direction":"word","term":"abacus","gloss":"חשבונייה","written":"abacus","typed":"abavus","label":"כ","note":"abavus · אינה מילה","src":"en","lang":"en"}
+{"id":"E02","direction":"word","term":"achieve","gloss":"להשיג","written":"achieve","typed":"achoeve","label":"כ","note":"achoeve · אינה מילה","src":"en","lang":"en"}
+{"id":"E03","direction":"word","term":"advocate","gloss":"תומך, מצדד; פרקליט; לדגול ב-, לתמוך בגלוי ב-","written":"advocate","typed":"advoxate","label":"כ","note":"advoxate · אינה מילה","src":"en","lang":"en"}
+{"id":"E04","direction":"word","term":"always","gloss":"תמיד","written":"always","typed":"alwsys","label":"כ","note":"alwsys · אינה מילה","src":"en","lang":"en"}
+{"id":"E05","direction":"word","term":"appease","gloss":"לפייס","written":"appease","typed":"appase","label":"כ","note":"appase · אינה מילה","src":"en","lang":"en"}
+{"id":"E06","direction":"word","term":"assert","gloss":"לטעון בתוקף, להצהיר","written":"assert","typed":"asert","label":"כ","note":"asert · אינה מילה","src":"en","lang":"en"}
+{"id":"E07","direction":"word","term":"automobile","gloss":"כלי רכב, אוטו","written":"automobile","typed":"autombile","label":"כ","note":"autombile · אינה מילה","src":"en","lang":"en"}
+{"id":"E08","direction":"word","term":"betray","gloss":"לבגוד","written":"betray","typed":"bertay","label":"כ","note":"bertay · אינה מילה","src":"en","lang":"en"}
+{"id":"E09","direction":"word","term":"calculate","gloss":"לחשב","written":"calculate","typed":"calcluate","label":"כ","note":"calcluate · אינה מילה","src":"en","lang":"en"}
+{"id":"E10","direction":"word","term":"certain","gloss":"בטוח; מסוים","written":"certain","typed":"certtain","label":"כ","note":"certtain · אינה מילה","src":"en","lang":"en"}
+{"id":"E11","direction":"word","term":"cockroach","gloss":"מקק, ג'וק","written":"cockroach","typed":"cockrroach","label":"כ","note":"cockrroach · אינה מילה","src":"en","lang":"en"}
+{"id":"E12","direction":"word","term":"community","gloss":"קהילה","written":"community","typed":"sommunity","label":"כ","note":"sommunity · אינה מילה","src":"en","lang":"en"}
+{"id":"E13","direction":"word","term":"blend","gloss":"לערבב","written":"blend","typed":"bend","label":"ל","note":"⭐ bend · מילה אמיתית ואחרת. blend≠bend","src":"en","lang":"en"}
+{"id":"E14","direction":"word","term":"curve","gloss":"עקומה, פניה","written":"curve","typed":"cure","label":"ל","note":"⭐ cure · מילה אמיתית ואחרת","src":"en","lang":"en"}
+{"id":"E15","direction":"word","term":"genius","gloss":"גאון","written":"genius","typed":"genus","label":"ל","note":"⭐ genus · מילה אמיתית ואחרת (סוג ביולוגי)","src":"en","lang":"en"}
+{"id":"E16","direction":"word","term":"party","gloss":"מפלגה; מסיבה","written":"party","typed":"part","label":"ל","note":"⭐ part · מילה אמיתית ואחרת","src":"en","lang":"en"}
+{"id":"E17","direction":"word","term":"revoke","gloss":"לבטל, לשלול","written":"revoke","typed":"evoke","label":"ל","note":"⭐ evoke · מילה אמיתית ואחרת. revoke=לבטל, evoke=לעורר","src":"en","lang":"en"}
+{"id":"E18","direction":"word","term":"swing","gloss":"לנדנד, נדנדה","written":"swing","typed":"wing","label":"ל","note":"⭐ wing · מילה אמיתית ואחרת","src":"en","lang":"en"}
+{"id":"E19","direction":"word","term":"bandage","gloss":"תחבושת","written":"bandage","typed":"bandages","label":"כ","note":"bandages · ריבוי, אותה לקסמה","src":"en","lang":"en"}
+{"id":"E20","direction":"word","term":"desperate","gloss":"נואש","written":"desperate","typed":"desperating","label":"ל","note":"desperating · אינה צורה קיימת באנגלית. desperate הוא תואר","src":"en","lang":"en"}
+{"id":"E21","direction":"word","term":"General","gloss":"גנרל (דרגה צבאית); כללי","written":"General","typed":"generaled","label":"ל","note":"generaled · אינה צורה קיימת","src":"en","lang":"en"}
+{"id":"E22","direction":"word","term":"misbehave","gloss":"להתנהג בצורה לא הולמת","written":"misbehave","typed":"misbehaves","label":"כ","note":"misbehaves · הווה גוף שלישי, אותה לקסמה","src":"en","lang":"en"}
+{"id":"E23","direction":"word","term":"recall","gloss":"להיזכר; להחזיר, להשיב צלצול","written":"recall","typed":"recalling","label":"כ","note":"recalling · גרונד, אותה לקסמה","src":"en","lang":"en"}
+{"id":"E24","direction":"word","term":"terrify","gloss":"להפחיד, להבעית","written":"terrify","typed":"terrified","label":"כ","note":"terrified · עבר, אותה לקסמה","src":"en","lang":"en"}
+{"id":"E25","direction":"gloss","term":"demean","gloss":"להנמיך, להשפיל","written":"להנמיכ","typed":"להשפיל","label":"כ","note":"\"להשפיל\" הוא המקטע השני בכרטיס עצמו","src":"en","lang":"en"}
+{"id":"E26","direction":"gloss","term":"progress","gloss":"התקדמות, להתקדם","written":"התקדמות","typed":"להתקדמ","label":"כ","note":"\"להתקדם\" הוא המקטע השני בכרטיס עצמו","src":"en","lang":"en"}
+{"id":"E27","direction":"gloss","term":"fancy","gloss":"מחבב; מגונדר","written":"מחבב","typed":"מגונדר","label":"כ","note":"\"מגונדר\" הוא המקטע השני בכרטיס עצמו","src":"en","lang":"en"}
+{"id":"E28","direction":"gloss","term":"virtually","gloss":"למעשה, בעצם","written":"למעשה","typed":"בעצמ","label":"כ","note":"\"בעצם\" הוא המקטע השני בכרטיס עצמו","src":"en","lang":"en"}
+{"id":"E29","direction":"gloss","term":"course","gloss":"מנה; קורס; מסלול","written":"מנה","typed":"קללה","label":"ל","note":"קללה = curse. בלבול course/curse","src":"en","lang":"en"}
+{"id":"E30","direction":"gloss","term":"joint","gloss":"משותף; מפרק, חיבור","written":"משותפ","typed":"להצטרפ","label":"ל","note":"\"להצטרף\" = to join. joint אינו join","src":"en","lang":"en"}
+{"id":"E31","direction":"gloss","term":"raise","gloss":"להעלות","written":"להעלות","typed":"להופיע","label":"ל","note":"\"להופיע\" · אין קשר ל-raise","src":"en","lang":"en"}
+{"id":"E32","direction":"gloss","term":"weave","gloss":"לארוג, לשזור; להתפתל בין (בתנועה)","written":"לארוג","typed":"גל","label":"ל","note":"\"גל\" = wave. בלבול weave/wave","src":"en","lang":"en"}
+{"id":"E33","direction":"gloss","term":"brave","gloss":"אמיץ","written":"אמיצ","typed":"אמיץ לב","label":"כ","note":"\"אמיץ לב\" · מילה עודפת, אותה משמעות","src":"en","lang":"en"}
+{"id":"E34","direction":"gloss","term":"enormous","gloss":"עצום","written":"עצומ","typed":"ענק","label":"כ","note":"\"ענק\" · נרדפת של עצום","src":"en","lang":"en"}
+{"id":"E35","direction":"gloss","term":"silent","gloss":"דומם, שקט","written":"דוממ","typed":"חרישי","label":"כ","note":"\"חרישי\" · נרדפת של שקט, שהוא המקטע השני בכרטיס","src":"en","lang":"en"}
+{"id":"E36","direction":"gloss","term":"rapid","gloss":"מהיר; אֶשֶד, זרם מים מהיר בנהר","written":"מהיר","typed":"זריז","label":"כ","note":"\"זריז\" · נרדפת קרובה של מהיר. גבולי אבל הלומד יודע","src":"en","lang":"en"}
+{"id":"E37","direction":"gloss","term":"ancient","gloss":"קדום, עתיק","written":"קדומ","typed":"עתיק יומינ","label":"כ","note":"\"עתיק יומין\" · הגברה של \"עתיק\", שהוא המקטע השני בכרטיס","src":"en","lang":"en"}
+{"id":"E38","direction":"gloss","term":"decide","gloss":"להחליט","written":"להחליט","typed":"החלטה","label":"?","note":"להחליט→החלטה · פועל→שם פעולה. ראה הערה למטה","src":"en","lang":"en"}
+{"id":"E39","direction":"gloss","term":"destroy","gloss":"להרוס","written":"להרוס","typed":"הרס","label":"?","note":"להרוס→הרס · אותה מחלקה","src":"en","lang":"en"}
+{"id":"E40","direction":"gloss","term":"arrive","gloss":"להגיע","written":"להגיע","typed":"הגעה","label":"?","note":"להגיע→הגעה · אותה מחלקה","src":"en","lang":"en"}

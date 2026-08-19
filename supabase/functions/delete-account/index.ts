@@ -78,10 +78,17 @@ Deno.serve(async (req) => {
     const { error, count } = await admin.from(table).delete({ count: 'exact' }).eq(col, uid);
     // A table that does not exist in this project is not a failure — assoc_shared and
     // subscription were both added later and may be absent in an older environment.
+    // Any OTHER error is: a delete that silently "succeeds" leaves the user's rows on the
+    // server while the UI reports the account gone — the exact broken promise the privacy
+    // audit flagged. Abort BEFORE deleteUser, so the user can retry with their account intact.
+    if (error && !/does not exist/i.test(error.message))
+      return json({ error: `מחיקת ${table} נכשלה: ${error.message}`, removed }, 500);
     removed[table] = error ? `skipped: ${error.message}` : (count ?? 0);
   }
 
   const { error: pErr } = await admin.from('profiles').delete().eq('id', uid);
+  if (pErr && !/does not exist/i.test(pErr.message))
+    return json({ error: `מחיקת profiles נכשלה: ${pErr.message}`, removed }, 500);
   removed['profiles'] = pErr ? `skipped: ${pErr.message}` : 1;
 
   // and only now the account itself

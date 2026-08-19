@@ -31,7 +31,7 @@ node --test tests/03-buckets.test.js
 **171 tests · 166 pass · 4 fail · 1 skipped.**
 
 The four failures are real findings about the word banks, not broken tests. They are described
-in [`דוחות/בדק-בית-בדיקות.md`](../דוחות/בדק-בית-בדיקות.md) and summarised at the bottom of this
+in [`דוחות/סיכומים/בדק-בית-בדיקות.md`](../דוחות/סיכומים/בדק-בית-בדיקות.md) and summarised at the bottom of this
 file. **Do not silence them.** Fixing them means editing `data.js` / `data-en.js`.
 
 ---
@@ -205,7 +205,7 @@ down reads as a tested one.
 ## The four failing tests
 
 All four are in `02-bank.test.js` and all four are data, not code. Full detail in
-[`דוחות/בדק-בית-בדיקות.md`](../דוחות/בדק-בית-בדיקות.md).
+[`דוחות/סיכומים/בדק-בית-בדיקות.md`](../דוחות/סיכומים/בדק-בית-בדיקות.md).
 
 1. **`no sense is listed twice inside one entry` (English, 4 entries.)** `before :: לפני, מול; לפני`,
    `store :: חנות, לאחסן; לאחסן`, `propose :: להציע; להציע, להציע נישואין`,

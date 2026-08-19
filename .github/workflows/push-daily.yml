@@ -1,0 +1,105 @@
+name: התראת תרגול יומית
+
+# מפעיל את `supabase/functions/send-push`. הפונקציה קיימת מזמן ואף אחד לא קרא לה,
+# ולכן אף התראה מעולם לא נשלחה.
+#
+# מה שולט על קהל היעד, ולמה זה בנוי כך
+# --------------------------------------
+# ⛔ ברירת המחדל היא **נמען אחד**, לא כולם. שליחה המונית שיוצאת בטעות היא פעולה
+# שאי אפשר לבטל, וההגנה היחידה שעובדת היא שהמצב הבטוח יהיה גם המצב שקורה כשלא
+# עושים כלום. אותו היגיון של DRY_RUN ב-weekly-nudge.
+#
+#   הפעלה ידנית  → בוחרים audience בטופס. ברירת המחדל `me`.
+#   ריצה מתוזמנת → קוראת את המשתנה PUSH_AUDIENCE. לא הוגדר = `me`.
+#
+# ⭐ אחרי שהבדיקה עוברת: Settings → Variables → PUSH_AUDIENCE = all. זו הפעולה
+# היחידה שפותחת את זה לכל המשתמשים, והיא הפיכה בשנייה.
+#
+# סודות שצריך להגדיר (Settings → Secrets):
+#   PUSH_TRIGGER_SECRET · אותו ערך בדיוק שהוגדר ב-Supabase → Edge Functions → Secrets
+#   PUSH_TEST_EMAIL     · הכתובת שמקבלת את הבדיקה
+#   SUPABASE_URL        · כבר קיים בריפו
+#
+# ⛔ הכתובת יושבת בסוד ולא בקובץ. הריפו ציבורי, וכתובות מייל כבר דלפו ממנו פעם.
+
+on:
+  schedule:
+    # 16:00 UTC = 19:00 בישראל בקיץ, 18:00 בחורף.
+    # ⚠ cron של גיטהאב אינו מכיר שעון קיץ. השעה תזוז בשעה פעמיים בשנה, וזה מקובל
+    # לתזכורת לימוד — אבל זה נאמר כאן כדי שלא ייחשב לתקלה.
+    - cron: '0 16 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'להריץ בלי לשלוח (מחשב ומדווח בלבד)'
+        type: boolean
+        default: true
+      audience:
+        description: 'למי לשלוח'
+        type: choice
+        options: [me, all]
+        default: me
+
+permissions:
+  contents: read
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: בדיקת מוכנות
+        env:
+          TRIGGER: ${{ secrets.PUSH_TRIGGER_SECRET }}
+          TEST_EMAIL: ${{ secrets.PUSH_TEST_EMAIL }}
+          AUD: ${{ inputs.audience || vars.PUSH_AUDIENCE || 'me' }}
+        run: |
+          set -euo pipefail
+          # ⚠ כל חוליה חסרה נאמרת בשמה. "0 נשלחו" בלי סיבה הוא בדיוק סוג התקלה
+          # שנמשכת חודשים, ולכן הריצה נופלת כאן ולא מדווחת הצלחה ריקה.
+          miss=0
+          [ -n "${TRIGGER:-}" ] || { echo "::error::PUSH_TRIGGER_SECRET חסר. להגדיר בגיטהאב וגם ב-Supabase, באותו ערך"; miss=1; }
+          if [ "$AUD" = "me" ] && [ -z "${TEST_EMAIL:-}" ]; then
+            echo "::error::PUSH_TEST_EMAIL חסר — במצב 'me' אין למי לשלוח"; miss=1
+          fi
+          [ "$miss" = "0" ] || exit 1
+          echo "קהל יעד: $AUD"
+
+      - name: שליחה
+        env:
+          URL: ${{ secrets.SUPABASE_URL }}
+          TRIGGER: ${{ secrets.PUSH_TRIGGER_SECRET }}
+          TEST_EMAIL: ${{ secrets.PUSH_TEST_EMAIL }}
+          AUD: ${{ inputs.audience || vars.PUSH_AUDIENCE || 'me' }}
+          # ריצה מתוזמנת: `inputs.dry_run` אינו מוגדר, ולכן התנאי נכשל ו-DRY נשאר
+          # 'false'. זו התנהגות מכוונת — התזמון אמור לשלוח באמת, וההגנה היא בקהל
+          # היעד ולא ביובש. הפעלה ידנית היא זו שיבשה כברירת מחדל.
+          DRY: ${{ inputs.dry_run == true && 'true' || 'false' }}
+        run: |
+          set -euo pipefail
+          BASE="${URL:-https://oycypbnzcvtjliovfsxn.supabase.co}"
+          if [ "$AUD" = "all" ]; then
+            Q="audience=all"
+            echo "::warning::שליחה לכל המנויים"
+          else
+            # --data-urlencode דרך curl היה הופך את זה ל-POST; מקודדים ידנית.
+            Q="only=$(python3 -c 'import sys,urllib.parse;print(urllib.parse.quote(sys.argv[1]))' "$TEST_EMAIL")"
+          fi
+          [ "$DRY" = "true" ] && Q="$Q&dry=true"
+
+          code=$(curl -sS -o out.json -w '%{http_code}' -X POST \
+            -H "x-trigger-secret: $TRIGGER" \
+            "$BASE/functions/v1/send-push?$Q")
+
+          echo "HTTP $code"
+          cat out.json
+          echo
+          # ⛔ 200 עם sent=0 אינו הצלחה. הפונקציה כבר מחזירה 404 כשאין מנוי,
+          # אבל אם היא תשתנה — השער הזה עדיין יתפוס שליחה שלא שלחה כלום.
+          if [ "$code" != "200" ]; then
+            echo "::error::send-push החזירה $code"; exit 1
+          fi
+          sent=$(python3 -c "import json;print(json.load(open('out.json')).get('sent',0))")
+          if [ "$sent" = "0" ]; then
+            echo "::error::0 התראות נשלחו — יש מנויים? המכשיר אישר התראות?"; exit 1
+          fi
+          echo "✓ נשלחו $sent"

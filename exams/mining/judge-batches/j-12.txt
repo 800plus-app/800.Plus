@@ -1,0 +1,80 @@
+העידו	העידו	completion	1	1	0.0	autumn_2024·פרק2·ש12·אפשרות 2	miss
+העיסוק	העיסוק	completion	1	1	0.0	summer_2025·פרק1·ש16·אפשרות 1	miss
+העיצוב	העיצוב	completion	1	1	0.0	autumn_2024·פרק1·ש13·אפשרות 1	miss
+העישון	העישון	completion	1	1	0.0	summer_2023·פרק2·ש17·אפשרות 3	miss
+העיתונות	העיתונות	completion	1	1	0.0	summer_2024·פרק2·ש9·אפשרות 2	miss
+העכשווי	העכשווי	completion	1	1	0.0	2020_autumn·פרק1·ש13·אפשרות 4	miss
+העלאת	העלאת	completion	1	1	0.0	summer_2023·פרק2·ש16·אפשרות 4	miss
+העלה מתהום הנשייה	העלה מתהום הנשייה	analogy	1	1	6.0	spring_2025·פרק1·ש6·רגל	close:העלה
+העליב	העליב	analogy	1	1	2.0	2020_autumn·פרק1·ש2·מסיח 3	miss
+הענבים	הענבים	completion	1	1	0.0	summer_2022·פרק1·ש9·אפשרות 4	miss
+הענקה	הענקה	analogy	1	1	3.0	winter_2022·פרק2·ש3·רגל	close:ענק
+הערך	הערך	completion	1	1	0.0	winter_2023·פרק1·ש11·אפשרות 1	miss
+הפופולרית	הפופולרית	completion	1	1	0.0	summer_2024·פרק2·ש9·אפשרות 2	miss
+הפושע	הפושע	completion	1	1	0.0	spring_2025·פרק1·ש12·אפשרות 4	miss
+הפידלים	הפידלים	completion	1	1	0.0	spring_2023·פרק2·ש7·אפשרות 4	miss
+הפיוטית	הפיוטית	completion	1	1	0.0	2020_spring·פרק1·ש9·אפשרות 4	miss
+הפיח בו תקווה	הפיח בו תקווה	analogy	1	1	6.0	spring_2024·פרק1·ש6·מסיח 1	close:הפיח
+הפיל	הפיל	analogy	1	1	3.0	autumn_2024·פרק2·ש3·מסיח 4	miss
+הפיס את דעתו	הפיס את דעתו	analogy	1	1	5.0	2020_spring·פרק2·ש5·מסיח 1	close:דעתו
+הפסיק	הפסיק	completion	1	1	0.0	summer_2024·פרק2·ש10·אפשרות 1	miss
+הפסיקו	הפסיקו	completion	1	1	0.0	autumn_2023·פרק2·ש14·אפשרות 1	miss
+הפרדה	הפרדה	analogy	1	1	1.0	summer_2024·פרק1·ש1·מסיח 4	close:פרד
+הפרטים	הפרטים	completion	1	1	0.0	summer_2022·פרק1·ש9·אפשרות 3	miss
+הפתיע	הפתיע	analogy	1	1	1.0	spring_2023·פרק2·ש1·מסיח 1	miss
+הצחיק	הצחיק	analogy	1	1	5.0	2019_spring·פרק2·ש5·לא-זוהה	miss
+הצטדק	הצטדק	analogy	1	1	5.0	spring_2022·פרק1·ש5·מסיח 3	miss
+הצטווה	הצטווה	analogy	1	1	6.0	summer_2022·פרק2·ש6·מסיח 3	miss
+הצטננות	הצטננות	analogy	1	1	1.0	summer_2021·פרק1·ש1·מסיח 3	miss
+הציבורי	הציבורי	completion	1	1	0.0	summer_2021·פרק2·ש10·אפשרות 2	miss
+הציגה	הציגה	completion	1	1	0.0	2019_winter·פרק2·ש8·אפשרות 1	miss
+הצית	הצית	analogy	1	1	5.0	2020_autumn·פרק1·ש5·מסיח 4	miss
+הצמיד	הצמיד	analogy	1	1	6.0	summer_2022·פרק2·ש6·מסיח 1	miss
+הצעת	הצעת	completion	1	1	0.0	2019_winter·פרק2·ש10·אפשרות 4	miss
+הצעתה	הצעתה	completion	1	1	0.0	spring_2024·פרק1·ש17·אפשרות 4	miss
+הצפויה	הצפויה	completion	1	1	0.0	autumn_2021·פרק2·ש12·אפשרות 1	miss
+הצפיפות	הצפיפות	completion	1	1	0.0	winter_2022·פרק1·ש10·אפשרות 2	miss
+הקדמה	הקדמה	analogy	1	1	5.0	summer_2025·פרק2·ש5·מסיח 1	close:דמה
+הקו	הקו	completion	1	1	0.0	summer_2025·פרק2·ש7·אפשרות 2	miss
+הקיים	הקיים	completion	1	1	0.0	summer_2022·פרק1·ש9·אפשרות 2	miss
+הקמת	הקמת	completion	1	1	0.0	spring_2022·פרק1·ש11·אפשרות 3	miss
+הקרוב	הקרוב	completion	1	1	0.0	autumn_2021·פרק1·ש12·אפשרות 3	miss
+הקרובות	הקרובות	completion	1	1	0.0	autumn_2021·פרק1·ש12·אפשרות 2	miss
+הקשיב	הקשיב	analogy	1	1	2.0	summer_2021·פרק1·ש2·רגל	miss
+הר	הר	analogy	1	1	1.0	2020_summer·פרק1·ש1·מסיח 3	miss
+הראוי	הראוי	completion	1	1	0.0	2020_autumn·פרק1·ש12·אפשרות 3	miss
+הראיות	הראיות	completion	1	1	0.0	autumn_2023·פרק2·ש14·אפשרות 4	miss
+הרבים	הרבים	completion	1	1	0.0	summer_2024·פרק1·ש16·אפשרות 1	miss
+הרגיע	הרגיע	analogy	1	1	5.0	summer_2021·פרק2·ש5·מסיח 4	miss
+הרוב	הרוב	completion	1	1	0.0	spring_2022·פרק2·ש17·אפשרות 3	miss
+הרחק	הרחק	completion	1	1	0.0	2020_autumn·פרק2·ש16·אפשרות 2	miss
+הרחקה	הרחקה	analogy	1	1	1.0	2020_autumn·פרק1·ש1·מסיח 1	close:חקה
+הריכוז	הריכוז	completion	1	1	0.0	spring_2025·פרק1·ש10·אפשרות 2	miss
+הרלוונטיים	הרלוונטיים	completion	1	1	0.0	autumn_2025·פרק1·ש10·אפשרות 4	miss
+הרמה	הרמה	analogy	1	1	1.0	2020_winter·פרק2·ש1·מסיח 2	close:רמה
+הרמת ידיים	הרמת ידיים	analogy	1	1	1.0	summer_2021·פרק1·ש1·רגל	miss
+הרנדומיזציה	הרנדומיזציה	completion	1	1	0.0	summer_2021·פרק2·ש10·אפשרות 4	miss
+הרס	הרס	analogy	1	1	3.0	autumn_2024·פרק2·ש3·מסיח 1	miss
+הרעיש	הרעיש	analogy	1	1	6.0	winter_2022·פרק1·ש6·מסיח 1	miss
+הרפתקה	הרפתקה	analogy	1	1	6.0	2020_winter·פרק1·ש6·מסיח 3	miss
+הרפתקנות	הרפתקנות	analogy	1	1	6.0	2020_winter·פרק1·ש6·מסיח 3	miss
+הרצון	הרצון	completion	1	1	0.0	summer_2025·פרק1·ש16·אפשרות 1	miss
+הרצין	הרצין	analogy	1	1	3.0	2019_spring·פרק1·ש3·לא-זוהה	miss
+הרשה	הרשה	analogy	1	1	1.0	autumn_2021·פרק2·ש1·רגל	miss
+הרשויות	הרשויות	completion	1	1	0.0	autumn_2025·פרק1·ש11·אפשרות 4	miss
+השאיפה	השאיפה	completion	1	1	0.0	spring_2023·פרק2·ש8·אפשרות 4	miss
+השביע את רצונו	השביע את רצונו	analogy	1	1	6.0	spring_2024·פרק1·ש6·מסיח 4	close:השביע
+השבתתו	השבתתו	completion	1	1	0.0	summer_2021·פרק2·ש11·אפשרות 1	miss
+השגות	השגות	analogy	1	1	6.0	2020_autumn·פרק1·ש6·מסיח 2	miss
+השגתי	השגתי	completion	1	1	0.0	2020_summer·פרק2·ש12·אפשרות 2	miss
+השוויון	השוויון	completion	1	1	0.0	spring_2022·פרק1·ש11·אפשרות 1	miss
+השטח	השטח	completion	1	1	0.0	summer_2021·פרק2·ש10·אפשרות 4	miss
+השכרה	השכרה	analogy	1	1	3.0	winter_2022·פרק2·ש3·מסיח 2	close:כרה
+השם	השם	completion	1	1	0.0	summer_2022·פרק1·ש8·אפשרות 1	miss
+השניא	השניא	analogy	1	1	6.0	2020_summer·פרק1·ש6·רגל	miss
+השקיעו	השקיעו	completion	1	1	0.0	spring_2023·פרק1·ש13·אפשרות 2	miss
+השקעה	השקעה	completion	1	1	0.0	spring_2023·פרק1·ש13·אפשרות 4	miss
+השר"	השר"	completion	1	1	0.0	autumn_2025·פרק1·ש11·אפשרות 1	miss
+השתוקק	השתוקק	completion	1	1	0.0	summer_2025·פרק1·ש15·אפשרות 2	miss
+השתחרר	השתחרר	analogy	1	1	1.0	summer_2024·פרק2·ש1·מסיח 2	close:חרר
+השתמש	השתמש	completion	1	1	0.0	autumn_2023·פרק1·ש13·אפשרות 3	miss

@@ -2,7 +2,7 @@
    ONE place to bump on every deploy: REV. It names the cache *and* the asset query strings,
    so the URLs precached here are byte-for-byte the URLs index.html requests. When those drift
    apart the app silently keeps serving an old build -- which is exactly what used to happen. */
-const REV = '195';
+const REV = '202';
 const V = 'hw-v' + REV;
 /* App DATA must not live in a versioned cache. The personalised reminder text was written into
    hw-v<REV>, so the next deploy deleted it along with the assets -- and it was never rewritten,
@@ -11,13 +11,21 @@ const V = 'hw-v' + REV;
 const DATA = 'hw-data';
 const ASSETS = [
   './', './index.html', './manifest.webmanifest',
+  /* הדפים המשפטיים: סטטיים, קטנים, ובלי ?v= · הם נטענים בניווט (network-first),
+     וה-precache כאן רק מאפשר לפתוח אותם גם באופליין. */
+  './terms.html', './privacy.html', './deletion.html', './accessibility.html',
   `./app.js?v=${REV}`, `./data.js?v=${REV}`, `./data-en.js?v=${REV}`, `./data-en-sentences.js?v=${REV}`,
   `./leveltest.js?v=${REV}`, `./leveltest-he.js?v=${REV}`, `./enrank.js?v=${REV}`,
   `./supabase.min.js?v=${REV}`, `./config.js?v=${REV}`, `./store.js?v=${REV}`,
+  /* לקסיקון סובלנות האיות · 68KB, נוצר ב-typo-lab ואינו נערך ביד.
+     לא ב-CORE, בדיוק כמו הפונטים: הוא best-effort, ואין שום סיבה שכישלון בטעינתו
+     יפיל התקנה שלמה. האפליקציה בודקת אותו בזמן ריצה, וכשהוא חסר שכבת הסובלנות
+     כבויה לגמרי · כלומר ההתנהגות של היום, ולא התנהגות מקלה יותר. */
+  `./typo-lex.js?v=${REV}`,
   './icon-192.png', './icon-512.png', './icon-maskable-512.png',
   /* הפונטים. בלי ?v= בכוונה, ושתי סיבות נפרדות מחייבות זאת:
      · ההתאמה ב-cache-first היא על ה-URL המדויק כולל ה-query. ה-@font-face ב-index.html
-       מפנה ל-fonts/x.woff2 בלי query, ולכן רשומה עם ?v=${REV} לא הייתה נענית לעולם · 
+       מפנה ל-fonts/x.woff2 בלי query, ולכן רשומה עם ?v=${REV} לא הייתה נענית לעולם ·
        הפונטים היו יורדים מהרשת בכל פעם, כלומר בדיוק הבאג שהמעבר הזה בא לתקן.
      · הקבצים immutable · התוכן שלהם לא משתנה בין דיפלויים. תלייתם ב-REV הייתה מכריחה
        הורדה חוזרת של 152KB בכל העלאת גרסה, בפרויקט שסופר רוחב פס.

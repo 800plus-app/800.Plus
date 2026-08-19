@@ -1,0 +1,80 @@
+grandmother	סבתא	My grandmother taught me how to bake cookies when I was young.
+grow	לגדול, לגדל	The tree grows taller each year with adequate water and sunshine.
+guard	שומר, לשמור	The guard kept watch at the entrance to prevent any intruders.
+gym	אולם ספורט	She lifts weights at the gym three times a week.
+harmony	הרמוניה	The voices blended together in perfect harmony, with no one singing off-key.
+hero	גיבור	The soldier was hailed as a hero for single-handedly saving the village.
+hid from	התחבא מ-	She hid from her friends behind the large tree in the park.
+hidden	חבוי, נסתר	Behind the locked door was a hidden vault filled with stolen jewels.
+hobby	תחביב	She devoted every free moment to her hobby of collecting rare coins.
+horror	אימה	She screamed in horror when the spider crawled across her face.
+ideal	אידיאל, אידיאלי	An ideal house would have three bedrooms, a backyard, and good schools nearby.
+in case	למקרה ש-, שמא; אם במקרה	Always carry a first-aid kit in case of unexpected injuries.
+in other words	במילים אחרות	The economy is failing, which is, in other words, hurting everyone's savings.
+in that case	במקרה הזה	If you cannot attend, in that case you must send a substitute.
+in the same way	באותו אופן	Leaves fall in autumn in the same way that flowers bloom in spring.
+including	כולל	All team members are happy, including the tired goalkeeper.
+installation	התקנה	The electrician completed the installation of the new lighting system in one afternoon.
+intellectual	אינטלקטואלי	An intellectual enjoys solving complex puzzles and debating philosophy.
+international	בינלאומי	The international agreement was signed by representatives from twelve nations.
+interview	לראיין, ראיון	The reporter interviewed the athlete about his career and future plans.
+intuition	אינטואיציה	She trusted her intuition and left the party early, avoiding a serious accident.
+invite	להזמין	We invited all our relatives to celebrate at the family reunion.
+ironic	אירוני	It was ironic that the lifeguard drowned in the swimming pool.
+journey	מסע	The journey through the mountains tested the explorers' endurance and courage.
+juice	מיץ	Every morning, I drink fresh orange juice for breakfast.
+jungle	ג'ונגל	Deep in the jungle, monkeys swung through thick vines and towering trees.
+just as	בדיוק כמו	Just as a bridge connects two sides, love connects two hearts.
+kick	לבעוט, בעיטה	During the soccer match, he kicked the ball powerfully into the goal.
+kind	סוג; טוב לב, אדיב, נעים	That kind of behavior, rude and dishonest, will not be tolerated here.
+knife (knives)	סכין (סכינים)	Cutting the bread into even slices is easy with a sharp knife.
+language	שפה	Learning a new language requires years of practice and exposure.
+largest	הגדול ביותר	The blue whale is the largest animal that has ever lived on Earth.
+last	אחרון; המשיך, החזיק מעמד	The marriage lasted only three years before they divorced.
+leader	מנהיג	A good leader admits mistakes and listens to people who disagree.
+legal	משפטי; חוקי	They needed legal papers to prove their ownership of the house.
+level	לאזן, להשוות; רמה, דרגה, מפלס	The carpenter used a tool to level the foundation before building the walls.
+liberal	ליברלי, מתירני	Her liberal approach to parenting allowed her children to make their own choices.
+library	ספריה	Yesterday afternoon, I borrowed three books from the library.
+lifestyle	אורח חיים	A healthy lifestyle includes regular exercise, good nutrition, and adequate sleep.
+local	מקומי	She preferred local products and supported small businesses in her community.
+lock	מנעול, לנעול	She always locked her diary so no one could read her private thoughts.
+losing	מפסיד	The team began losing confidence after their third defeat in a row.
+loud	רועש, קולני, רם	The loud speaker at the concert made it impossible to hear clearly.
+magical	קסום	Wearing the ring felt magical, as if anything in the world was possible.
+mail	דואר	He mailed the package to his sister and hoped she would get it safely.
+main	עיקרי	The main character in the novel was a detective solving crimes.
+makeup	איפור	She applied makeup to cover the scar on her face.
+male	זכר	Male peacocks display brilliant colors to attract females during mating season.
+manipulation	מניפולציה, תמרון	His manipulation of the facts caused people to believe false information.
+map	מפה, למפות	Before the trip, she mapped out the entire route carefully.
+market	שוק	Fresh vegetables from the farmers' market taste better than supermarket ones.
+master	להתמחות, לשלוט; אדון, שליט	He mastered the art of cooking through years of practice and patience.
+member	חבר (בקבוצה מסוימת)	As a member of the sports club, she had access to all facilities.
+mental	נפשי	Mental strength is as important as physical fitness for success.
+mentor	מדריך רוחני	Her mentor helped her navigate the challenges of starting a business.
+metal	מתכת, מתכתי	Metal expands and contracts with changes in temperature.
+miss	להתגעגע; לפספס	He missed his family deeply while working far away from home.
+mission	משימה	The rescue mission involved ten skilled climbers working together.
+molecule	מולקולה	Water molecules form when two hydrogen atoms bond with one oxygen atom.
+monkey	קוף	Monkeys have long tails and swing effortlessly through jungle trees.
+mood	מצב רוח	His mood changed from cheerful to angry when he heard the news.
+muscle	שריר	Strong muscles develop when you exercise regularly and eat enough protein.
+mutation	מוטציה	The genetic mutation caused the family disease to pass from parents to children.
+natural	טבעי	Water naturally flows downhill because of gravity.
+nature	טבע	The beauty of nature inspired artists and poets for centuries.
+neck	צוואר	He broke his neck in the accident and spent months in recovery.
+negative	שלילי	Her negative comments about the plan discouraged the team.
+neighbor	שכן	My neighbor helped me when my car broke down on the street.
+network	רשת	The computer network connects all the offices in the building.
+neutral	ניטרלי	Switzerland's neutral position meant it did not support either side.
+newspaper	עיתון	She reads the newspaper every morning to stay informed about world events.
+noise	רעש	The noise from the construction woke everyone at 5 AM.
+norm	נורמה, תקן	In many cultures, removing shoes before entering a house is the norm.
+nurse	אחות	The nurse carefully checked the patient's vital signs.
+obsession	אובססיה, דיבוק	Her obsession with perfection made it hard for her to enjoy life.
+of course... but...	כמובן... אך...	Of course everyone wants success, but few are willing to work for it.
+official	רשמי, מאושר	The official government statement denied all allegations.
+oil	נפט, שמן, לשמן	She oiled the leather bag to keep it soft and protect it.
+on top of	על, מעל	Jumping on top of the fence, the cat looked around.
+opinion	דעה	In my opinion, this restaurant serves the best pizza in town.

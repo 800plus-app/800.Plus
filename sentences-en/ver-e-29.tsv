@@ -1,0 +1,80 @@
+oppose	OK
+orchestrate	OK
+ordinary	OK
+organ	OK
+orientation	OK
+originality	OK
+outdated	OK
+overcome	OK
+palm	OK
+parenting	OK
+particular	OK
+passive	OK
+patiently	OK
+patrol	OK
+permit	OK
+phase	OK
+physicist	OK
+pit	OK
+plague	OK
+plot	OK
+pole	OK
+polish	FIX	The Polish embroidery featured intricate patterns passed down through generations.	First sense is Polish (adj) not "to shine" (verb)
+possession	OK
+poverty	OK
+praise	OK
+precise	OK
+preferable	OK
+prestigious	OK
+prevention	OK
+prey	OK
+prior	OK
+prior to	OK
+procedure	FIX	Follow the correct procedure when operating this heavy machinery.	"Safely" dangles awkwardly; creates grammatical ambiguity
+profitable	OK
+progressive	OK
+property	OK
+publication	OK
+quantity	OK
+radical	OK
+radically	OK
+rather	FIX	I would rather stay home than go to the party.	Uses second sense (somewhat) instead of first sense (preferable)
+recall	OK
+refund	OK
+refusal	OK
+refuse	OK
+remains	OK
+remarkable	OK
+renew	OK
+reservation	OK
+residence	OK
+respectfully	OK
+result in	OK
+retire	OK
+retreat	OK
+revolutionary	OK
+rubbish	OK
+sacred	OK
+sanction	FIX	International sanctions were imposed on the country for violating human rights.	Uses verb sense (to approve) instead of first sense (punishment/restriction)
+scale	FIX	The scale showed that he had gained ten pounds since last year.	Uses second sense (to climb) instead of first sense (weighing scale)
+season	OK
+sensitivity	OK
+sequel	OK
+severe	OK
+shortly	OK
+shuffle	OK
+similarly	OK
+simplify	OK
+simulate	OK
+skepticism	OK
+slight	OK
+snap	OK
+sober	OK
+sophisticated	OK
+spare	OK
+specialize	OK
+species	OK
+spectacular	OK
+spontaneously	OK
+spring	OK
+stability	OK

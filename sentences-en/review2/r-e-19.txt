@@ -1,0 +1,80 @@
+priest	כומר	The priest performed the wedding ceremony in the old stone church.
+prime	ראשוני, עיקרי, מובחר	The prime reason for the meeting was to discuss the budget cuts.
+primitive	קדום, חסר תרבות	Primitive humans hunted animals with simple stone tools and spears.
+propaganda	תעמולה	The government used propaganda to convince citizens the war was just.
+proper	מתאים, הולם	Wearing proper business attire is expected at the job interview.
+properly	כראוי	You must properly wash your hands before cooking or eating.
+prove	להוכיח	The scientist proved his theory was correct through careful experiments.
+provide	לפרנס; לספק	Parents must provide for their children by working hard.
+publish	לפרסם, להוציא לאור	The author published her novel after working on it for five years.
+purchase	לקנות, לרכוש	I purchased a new laptop computer for work yesterday.
+quite	למדי	The beach was quite crowded during the summer vacation period.
+quote	ציטוט	The article began with a famous quote from the president.
+race	מרוץ; גזע	The runners prepared for the race by stretching and warming up.
+raid	פשיטה	In the police raid on the warehouse, five suspected criminals were arrested.
+rainfall	ירידת גשמים	The rainfall last week was heavy enough to cause some flooding.
+rainstorm	סערת גשמים	A sudden rainstorm forced us to cancel the outdoor picnic.
+randomly	באקראיות	The teacher randomly selected students to answer questions in class.
+range	טווח; רכס; מטווח	The school offers a wide range of sports and club activities.
+rank	דרגה	She earned the rank of captain after serving in the military.
+rapid	מהיר; אֶשֶד, זרם מים מהיר בנהר	The river had rapid currents that made crossing very dangerous.
+rather than	במקום, יותר מ-	I prefer tea rather than coffee in the morning.
+rational	הגיוני, רציונאלי	His rational approach to the problem helped solve it quickly.
+ray	קרן, אלומת אור	A ray of sunlight streamed through the window into the room.
+reader	קורא	The reader finished the book in just two days.
+rebel	מורד	The rebel fought against the government's unfair laws and policies.
+reborn	נולד מחדש	After recovery, he felt reborn with a new zest for life.
+recordings	הקלטות	The recordings of the concert were released as an album.
+recycle	למחזר	We recycle paper, plastic, and glass to protect the environment.
+recycling	מחזור	Recycling helps reduce waste and conserve natural resources.
+redhead	ג'ינג'י (סלנג)	The redhead stood out in the crowd with her bright red hair.
+reduce	להפחית	We need to reduce spending this year by cutting unnecessary costs.
+reform	שינוי, רפורמה	The new education reform changed how schools teach mathematics.
+regret	להתחרט, חרטה	I regret not studying harder for the test last week.
+regularly	באופן קבוע	She regularly exercises three times per week at the gym.
+relations	יחסים	The business relations between the two companies are improving.
+reorganize	לארגן מחדש	We reorganized the files to make them easier to find.
+replacement	מחליף	His replacement started work on Monday at the company.
+replica	העתק מדויק	The museum displayed a replica of the ancient Greek statue.
+reply	להשיב	She replied to his email within an hour of receiving it.
+resource	משאב	Water is our most important natural resource for survival.
+rest	מנוחה; יתר, שאר	After the long trip, she needed rest to recover.
+retroactive	רטרואקטיבי, למפרע	The pay raise was retroactive to January of this year.
+rhythm	קֶצֶב	The music had a strong rhythm that made people dance.
+rough	קשה, מחוספס	The rough surface of the stone hurt his skin.
+ruin	להרוס	Poor decisions ruined his chances of getting a good job.
+sacrifice	להקריב, קורבן	Parents sacrifice their time and money for their children.
+savanna	ערבה, סוואנה	Many wild animals live in the African savanna.
+seafood	פירות ים	She ordered seafood at the restaurant because she loves fish.
+seeds	זרעים	Farmers plant seeds in spring to grow crops.
+seek	לחפש, לתור אחר; לשאוף ל-; לבקש	The police seek information about the missing person.
+segment	קטע, מקטע	This segment of the movie was the most exciting part.
+select	לבחור	Students select which classes they want to take next year.
+selective	סלקטיבי	He is selective about which movies he watches.
+self-confidence	בטחון-עצמי	Her self-confidence grew as she practiced the piano.
+separately	בנפרד	The boys and girls ate lunch separately in different areas.
+separation	הפרדה	The separation of the two groups made them feel unhappy.
+several	אחדים, כמה	Several students failed the test because they didn't study.
+share	מניה; לחלוק	He owns a share of the company worth one million dollars.
+shelf (shelves)	מדף (מדפים)	The shelf in the kitchen held many plates and dishes.
+shift	משמרת; להזיז	She works the night shift at the hospital.
+side effect	תופעת לוואי	The medicine helped his illness but had bad side effects.
+sight	ראייה, כוונת	His sight improved after the eye surgery.
+significantly	באופן משמעותי	The temperature rose significantly during the summer months.
+silently	בשקט	The cat silently crept through the dark room.
+slavery	עבדות	Slavery was abolished in the United States in eighteen sixty-five.
+so long as	כל עוד	You can stay here so long as you follow the rules.
+sound	קול; בריא	The sound of the alarm woke everyone in the building.
+speaker	דובר	The speaker at the conference was a famous scientist.
+spice	תבלין, לתבל	She added spice to the soup to make it taste better.
+spot	כתם; לזהות	There was a spot of dirt on his white shirt.
+spread	התפשטות, פיזור; ממרח, למרוח	The fire spread quickly through the old wooden building.
+stadium	אצטדיון	Thousands of fans filled the stadium to watch the game.
+stamina	כושר עמידה, סיבולת	Long-distance runners need great stamina to finish the race.
+statement	הצהרה	The president made a statement about the new policy.
+stock	מלאי; מניה; לאחסן	The store keeps a large stock of winter clothing.
+storage	אחסון	We need more storage space for all these boxes.
+study	מחקר; חדר עבודה	His study showed that exercise improves mental health.
+subject	נושא; נתין, אזרח; נבדק; להכפיף, לחשוף ל-; נתון ל-, כפוף ל-	The subject of today's lesson is ancient Egyptian history.
+sundown	שקיעה	We must return before sundown or we will be trapped.
+surface	פני שטח	The surface of the lake was smooth and calm.

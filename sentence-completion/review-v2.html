@@ -1,0 +1,296 @@
+<meta charset="utf-8">
+<title>השלמת משפטים · גיליון בחינה · שלב 0</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+@font-face{font-family:FRL;src:url('../fonts/frank-ruhl-libre-hebrew.woff2') format('woff2');unicode-range:U+0590-05FF,U+FB1D-FB4F;font-display:swap}
+@font-face{font-family:FRL;src:url('../fonts/frank-ruhl-libre-latin.woff2') format('woff2');unicode-range:U+0000-00FF;font-display:swap}
+:root{
+  --paper:#f4f1ea; --ink:#1a1714; --ink2:#5c554c; --rule:#d5cec1;
+  --red:#a8332a; --green:#2f5d43; --amber:#8a6a1f;
+  --band0:#4a6fa5; --band1:#2f7d5f; --band2:#9a6a2a; --band3:#8c3d5e;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:FRL,Georgia,serif;
+  direction:rtl;line-height:1.65;
+  background-image:radial-gradient(circle at 15% 8%,rgba(168,51,42,.035),transparent 42%),
+                   radial-gradient(circle at 88% 92%,rgba(47,93,67,.04),transparent 45%);
+  background-attachment:fixed}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.32;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+.wrap{max-width:920px;margin:0 auto;padding:clamp(24px,5vw,72px) clamp(18px,4vw,44px) 96px}
+
+header{border-bottom:2.5px solid var(--ink);padding-bottom:14px;margin-bottom:6px;
+  display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+h1{font-size:clamp(26px,4.4vw,42px);font-weight:700;margin:0;letter-spacing:-.02em;line-height:1.12}
+h1 small{display:block;font-size:.42em;font-weight:400;color:var(--ink2);letter-spacing:.16em;
+  margin-bottom:8px;text-transform:none}
+.stamp{font-size:12px;letter-spacing:.14em;border:1.5px solid var(--green);color:var(--green);
+  padding:7px 13px;transform:rotate(-1.6deg);white-space:nowrap;font-weight:700}
+.meta{display:flex;gap:26px;flex-wrap:wrap;font-size:13px;color:var(--ink2);
+  border-bottom:1px solid var(--rule);padding:10px 0 22px;margin-bottom:38px;
+  animation:rise .7s .06s cubic-bezier(.2,.7,.2,1) both}
+.meta b{color:var(--ink);font-weight:700}
+
+.tabs{display:flex;gap:0;margin-bottom:34px;border-bottom:1px solid var(--rule);
+  animation:rise .7s .12s cubic-bezier(.2,.7,.2,1) both}
+.tab{background:none;border:0;border-bottom:2.5px solid transparent;font-family:inherit;
+  font-size:16px;color:var(--ink2);padding:10px 20px;cursor:pointer;margin-bottom:-1px;
+  transition:color .18s,border-color .18s}
+.tab[aria-selected=true]{color:var(--ink);border-bottom-color:var(--red);font-weight:700}
+@media(hover:hover){.tab:hover{color:var(--ink)}}
+
+.lvhead{display:flex;align-items:center;gap:14px;margin:44px 0 20px}
+.lvhead:first-child{margin-top:0}
+.lvhead h2{font-size:20px;margin:0;font-weight:700;white-space:nowrap}
+.lvhead .ln{flex:1;height:1px;background:var(--rule)}
+.lvhead .cap{font-size:12px;color:var(--ink2);letter-spacing:.08em;white-space:nowrap}
+
+.item{border:1px solid var(--rule);background:rgba(255,255,255,.42);padding:22px 24px;
+  margin-bottom:16px;position:relative}
+.item::before{content:attr(data-n);position:absolute;top:-1px;right:-1px;background:var(--ink);
+  color:var(--paper);font-size:11px;padding:4px 9px;letter-spacing:.06em;font-weight:700}
+.sent{direction:ltr;text-align:left;font-size:clamp(16px,2.2vw,19px);line-height:1.75;
+  margin:6px 0 18px;padding-right:44px}
+.sent .bl{border-bottom:2px solid var(--red);padding:0 26px;margin:0 3px}
+.sent .cw{background:linear-gradient(transparent 62%,rgba(168,51,42,.18) 62%);font-weight:700}
+.sent .fill{color:var(--green);font-weight:700;border-bottom:2px solid var(--green);padding:0 4px}
+.sent .fill.bad{color:var(--red);border-color:var(--red);text-decoration:line-through}
+
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:8px;margin-bottom:4px}
+.opt{direction:ltr;text-align:left;font-family:inherit;font-size:15px;background:rgba(255,255,255,.7);
+  border:1px solid var(--rule);padding:9px 13px;cursor:pointer;position:relative;
+  transition:border-color .16s,background .16s,transform .16s}
+@media(hover:hover) and (pointer:fine){.opt:hover:not(.done){border-color:var(--ink);transform:translateY(-1px)}}
+.opt .r{position:absolute;top:3px;left:6px;font-size:10px;color:var(--ink2);direction:ltr;
+  font-variant-numeric:tabular-nums}
+.opt.ok{border-color:var(--green);border-width:2px;background:rgba(47,93,67,.09)}
+.opt.no{border-color:var(--red);background:rgba(168,51,42,.07);opacity:.72}
+.opt.done{cursor:default}
+.exp{border-right:2.5px solid var(--amber);padding:9px 14px;margin-top:14px;font-size:14.5px;
+  color:var(--ink2);background:rgba(138,106,31,.05)}
+.exp b{color:var(--ink)}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;font-size:11.5px;letter-spacing:.05em}
+.tag{border:1px solid var(--rule);padding:3px 9px;color:var(--ink2)}
+.tag.b0{border-color:var(--band0);color:var(--band0)}
+.tag.b1{border-color:var(--band1);color:var(--band1)}
+.tag.b2{border-color:var(--band2);color:var(--band2)}
+.tag.b3{border-color:var(--band3);color:var(--band3)}
+.tag.fl{border-color:var(--amber);color:var(--amber)}
+.tag.two{border-color:var(--red);color:var(--red);font-weight:700}
+.hid{display:none}
+
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px}
+th{text-align:right;font-size:11.5px;letter-spacing:.07em;color:var(--ink2);font-weight:400;
+  border-bottom:1.5px solid var(--ink);padding:7px 9px;white-space:nowrap}
+td{border-bottom:1px solid var(--rule);padding:8px 9px;vertical-align:top}
+tbody tr:nth-child(even){background:rgba(255,255,255,.34)}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+td.en{direction:ltr;text-align:left;font-size:13px}
+.ok-c{color:var(--green);font-weight:700}
+.note{font-size:13.5px;color:var(--ink2);border-top:1px solid var(--rule);margin-top:44px;padding-top:18px}
+.note b{color:var(--ink)}
+.note ul{padding-right:20px;margin:8px 0}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.item{animation:rise .55s cubic-bezier(.2,.7,.2,1) both}
+</style>
+<div class="wrap">
+<header>
+  <h1><small>800+ · אנגלית · שלב 0 · הוכחת היתכנות</small>השלמת משפטים</h1>
+  <div class="stamp">השער עבר · 0 כשלים</div>
+</header>
+<div class="meta">
+  <span><b>8</b> פריטים</span>
+  <span><b>4</b> רמות · 10 לכל אחת</span>
+  <span>דו־חסר: <b>0</b></span>
+  <span>דגלים: <b>1</b></span>
+  <span>הרמה <b>נגזרת</b> מ־EN_RANK, לא מוצהרת</span>
+</div>
+
+<div class="tabs" role="tablist">
+  <button class="tab" role="tab" aria-selected="true" data-v="practice">תרגול — תבחן את הפריטים</button>
+  <button class="tab" role="tab" aria-selected="false" data-v="proof">גיליון מלא — כל הנתונים</button>
+</div>
+
+<div id="practice"><div class="lvhead"><h2>בינוני</h2><span class="ln"></span>
+    <span class="cap">2,001–5,000 · max EN_RANK על המסיחים</span></div><div class="item" data-n="בינוני#1" data-a="0" style="animation-delay:0ms">
+        <div class="sent">The car started every morning, so the mechanic looked for a small <span class="bl" data-b="0"></span> in the wiring rather than a broken cable.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">3</span>fault</button><button class="opt" data-i="1"><span class="r">1</span>break</button><button class="opt" data-i="2"><span class="r">4</span>waste</button><button class="opt" data-i="3"><span class="r">1</span>place</button></div>
+        <div class="exp hid"><b>סיבה ותוצאה</b> · so — fault הוא הצירוף לתקל בחיווט. break נשלל בגוף המשפט — מכונית שמתניעה כל בוקר אינה מנותקת; waste ו-place אינם תקלים.</div>
+        <div class="tags">
+          <span class="tag b1">נגזרת: בינוני · max 4</span>
+          <span class="tag">נשיאה: 6</span>
+          
+          <span class="tag fl">⚠ מילת נשיאה ברצועת מתקדם</span>
+        </div></div><div class="lvhead"><h2>מתקדם</h2><span class="ln"></span>
+    <span class="cap">5,001–10,000 · max EN_RANK על המסיחים</span></div><div class="item" data-n="מתקדם#1" data-a="0" style="animation-delay:0ms">
+        <div class="sent">Because two centuries of grazing stripped the slope, the valley now bakes without shade or water, and travellers call it a <span class="bl" data-b="0"></span>.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">6</span>desert</button><button class="opt" data-i="1"><span class="r">2</span>jungle</button><button class="opt" data-i="2"><span class="r">5</span>territory</button><button class="opt" data-i="3"><span class="r">8</span>estate</button></div>
+        <div class="exp hid"><b>סיבה ותוצאה</b> · because — הרמז האקלימי במשפט — אופה, בלי צל ובלי מים — פוסל את jungle במפורש. territory הוא שטח בלי מטען של צחיחות, ו-estate הוא רכוש בבעלות. רק desert נושא את הצחיחות עצמה.</div>
+        <div class="tags">
+          <span class="tag b2">נגזרת: מתקדם · max 8</span>
+          <span class="tag">נשיאה: 7</span>
+          
+          
+        </div></div><div class="item" data-n="מתקדם#2" data-a="0" style="animation-delay:40ms">
+        <div class="sent">He did not give up the theory; he chose only to <span class="bl" data-b="0"></span> it from the journal until the new data arrived.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">6</span>withdraw</button><button class="opt" data-i="1"><span class="r">6</span>abandon</button><button class="opt" data-i="2"><span class="r">5</span>reject</button><button class="opt" data-i="3"><span class="r">8</span>dismiss</button></div>
+        <div class="exp hid"><b>ניגוד</b> · did not · only — המשפט שולל נטישה במפורש ומגביל בזמן, ולכן abandon, reject ו-dismiss נופלים — שלושתם סופיים. רק withdraw הוא הסרה זמנית שניתן לחזור ממנה.</div>
+        <div class="tags">
+          <span class="tag b2">נגזרת: מתקדם · max 8</span>
+          <span class="tag">נשיאה: 1</span>
+          
+          
+        </div></div><div class="item" data-n="מתקדם#3" data-a="0" style="animation-delay:80ms">
+        <div class="sent">Unless the images improve, the laboratory cannot <span class="bl" data-b="0"></span> the chemical composition, even though the crystals themselves are already clearly visible.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">4</span>analyze</button><button class="opt" data-i="1"><span class="r">4</span>examine</button><button class="opt" data-i="2"><span class="r">5</span>observe</button><button class="opt" data-i="3"><span class="r">7</span>survey</button></div>
+        <div class="exp hid"><b>תנאי וזמן</b> · unless — composition נבדק ב-analyze. examine ו-observe הם ראייה — והמשפט כבר מוסר שרואים את הגבישים, ולכן הם מיותרים; survey חל על שטח או על אוכלוסייה.</div>
+        <div class="tags">
+          <span class="tag b2">נגזרת: מתקדם · max 7</span>
+          <span class="tag">נשיאה: 6</span>
+          
+          
+        </div></div><div class="item" data-n="מתקדם#4" data-a="0" style="animation-delay:120ms">
+        <div class="sent">The drug does not merely ease the symptoms for a few hours; taken daily, it can actually <span class="bl" data-b="0"></span> the illness.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">3</span>cure</button><button class="opt" data-i="1"><span class="r">4</span>treat</button><button class="opt" data-i="2"><span class="r">7</span>relieve</button><button class="opt" data-i="3"><span class="r">8</span>remedy</button></div>
+        <div class="exp hid"><b>ניגוד</b> · not merely — המשפט שולל במפורש הקלה זמנית, ולכן treat ו-relieve נופלים — הם בדיוק מה שנשלל. remedy חל על מצב או על פגם, לא על מחלה. רק cure הוא חיסול המחלה עצמה.</div>
+        <div class="tags">
+          <span class="tag b2">נגזרת: מתקדם · max 8</span>
+          <span class="tag">נשיאה: 8</span>
+          
+          
+        </div></div><div class="item" data-n="מתקדם#5" data-a="0" style="animation-delay:160ms">
+        <div class="sent">Every fact in the deed has already been checked and found true; even so, it carries no legal force until the registrar agrees to <span class="bl" data-b="0"></span> it.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">7</span>authorize</button><button class="opt" data-i="1"><span class="r">5</span>verify</button><button class="opt" data-i="2"><span class="r">3</span>confirm</button><button class="opt" data-i="3"><span class="r">4</span>examine</button></div>
+        <div class="exp hid"><b>ניגוד</b> · even so — המשפט מוסר שהעובדות כבר נבדקו ואומתו, ולכן verify, confirm ו-examine כבר נעשו — הם אינם החסר. מה שנשאר הוא סמכות, וזה authorize: הוא מעניק תוקף, לא אמת.</div>
+        <div class="tags">
+          <span class="tag b2">נגזרת: מתקדם · max 7</span>
+          <span class="tag">נשיאה: 4</span>
+          
+          
+        </div></div><div class="lvhead"><h2>אקדמי</h2><span class="ln"></span>
+    <span class="cap">מעל 10,000 · max EN_RANK על המסיחים</span></div><div class="item" data-n="אקדמי#1" data-a="0" style="animation-delay:0ms">
+        <div class="sent">She had given her word and everyone expected her to keep it; instead, she chose to <span class="bl" data-b="0"></span> the promise without a word of explanation.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">1</span>break</button><button class="opt" data-i="1"><span class="r">6</span>abandon</button><button class="opt" data-i="2"><span class="r">6</span>betray</button><button class="opt" data-i="3"><span class="r">10</span>forsake</button></div>
+        <div class="exp hid"><b>ניגוד</b> · instead — הבטחה באנגלית נשברת — break. ארבעתם פעלי נטישה, אבל abandon חל על תוכנית או מקום, betray על אדם או על אמון, ו-forsake על אנשים, מקומות ואמונות. אף אחד מהם אינו לוקח promise.</div>
+        <div class="tags">
+          <span class="tag b3">נגזרת: אקדמי · max 10</span>
+          <span class="tag">נשיאה: 10</span>
+          
+          
+        </div></div><div class="item" data-n="אקדמי#2" data-a="0" style="animation-delay:40ms">
+        <div class="sent">He apologised at length, but the committee doubted his <span class="bl" data-b="0"></span>; furthermore, he repeated the same conduct the following week.</div>
+        <div class="opts"><button class="opt" data-i="0"><span class="r">8</span>sincerity</button><button class="opt" data-i="1"><span class="r">9</span>virtue</button><button class="opt" data-i="2"><span class="r">8</span>conduct</button><button class="opt" data-i="3"><span class="r">6</span>confession</button></div>
+        <div class="exp hid"><b>הוספה</b> · furthermore · but — הספק הוא אם ההתנצלות הייתה כנה — sincerity. conduct דווקא אינו בספק, המשפט מוסר אותו כעובדה; virtue רחב מדי (אופי מוסרי כללי, לא ההתנצלות), ו-confession הוא מעשה דיבור אחר.</div>
+        <div class="tags">
+          <span class="tag b3">נגזרת: אקדמי · max 9</span>
+          <span class="tag">נשיאה: 8</span>
+          
+          
+        </div></div></div>
+
+<div id="proof" class="hid">
+<table><thead><tr>
+  <th>פריט</th><th>רמה נגזרת</th><th>max</th><th>נשיאה</th><th>סוג</th><th>קישור</th>
+  <th>המשפט</th><th>תשובה</th><th>מסיחים</th>
+</tr></thead><tbody>
+<tr>
+    <td class="num">בינוני#1</td>
+    <td>בינוני</td>
+    <td class="num">4</td>
+    <td class="num " style="color:var(--amber);font-weight:700">6</td>
+    <td>סיבה ותוצאה</td><td class="en">so</td>
+    <td class="en">The car started every morning, so the mechanic looked for a small ___ in the wiring rather than a broken cable.</td>
+    <td class="en ok-c">fault</td>
+    <td class="en">break · waste · place</td></tr><tr>
+    <td class="num">מתקדם#1</td>
+    <td>מתקדם</td>
+    <td class="num">8</td>
+    <td class="num" >7</td>
+    <td>סיבה ותוצאה</td><td class="en">because</td>
+    <td class="en">Because two centuries of grazing stripped the slope, the valley now bakes without shade or water, and travellers call it a ___.</td>
+    <td class="en ok-c">desert</td>
+    <td class="en">jungle · territory · estate</td></tr><tr>
+    <td class="num">מתקדם#2</td>
+    <td>מתקדם</td>
+    <td class="num">8</td>
+    <td class="num" >1</td>
+    <td>ניגוד</td><td class="en">did not, only</td>
+    <td class="en">He did not give up the theory; he chose only to ___ it from the journal until the new data arrived.</td>
+    <td class="en ok-c">withdraw</td>
+    <td class="en">abandon · reject · dismiss</td></tr><tr>
+    <td class="num">מתקדם#3</td>
+    <td>מתקדם</td>
+    <td class="num">7</td>
+    <td class="num" >6</td>
+    <td>תנאי וזמן</td><td class="en">unless</td>
+    <td class="en">Unless the images improve, the laboratory cannot ___ the chemical composition, even though the crystals themselves are already clearly visible.</td>
+    <td class="en ok-c">analyze</td>
+    <td class="en">examine · observe · survey</td></tr><tr>
+    <td class="num">מתקדם#4</td>
+    <td>מתקדם</td>
+    <td class="num">8</td>
+    <td class="num" >8</td>
+    <td>ניגוד</td><td class="en">not merely</td>
+    <td class="en">The drug does not merely ease the symptoms for a few hours; taken daily, it can actually ___ the illness.</td>
+    <td class="en ok-c">cure</td>
+    <td class="en">treat · relieve · remedy</td></tr><tr>
+    <td class="num">מתקדם#5</td>
+    <td>מתקדם</td>
+    <td class="num">7</td>
+    <td class="num" >4</td>
+    <td>ניגוד</td><td class="en">even so</td>
+    <td class="en">Every fact in the deed has already been checked and found true; even so, it carries no legal force until the registrar agrees to ___ it.</td>
+    <td class="en ok-c">authorize</td>
+    <td class="en">verify · confirm · examine</td></tr><tr>
+    <td class="num">אקדמי#1</td>
+    <td>אקדמי</td>
+    <td class="num">10</td>
+    <td class="num" >10</td>
+    <td>ניגוד</td><td class="en">instead</td>
+    <td class="en">She had given her word and everyone expected her to keep it; instead, she chose to ___ the promise without a word of explanation.</td>
+    <td class="en ok-c">break</td>
+    <td class="en">abandon · betray · forsake</td></tr><tr>
+    <td class="num">אקדמי#2</td>
+    <td>אקדמי</td>
+    <td class="num">9</td>
+    <td class="num" >8</td>
+    <td>הוספה</td><td class="en">furthermore, but</td>
+    <td class="en">He apologised at length, but the committee doubted his ___; furthermore, he repeated the same conduct the following week.</td>
+    <td class="en ok-c">sincerity</td>
+    <td class="en">virtue · conduct · confession</td></tr>
+</tbody></table>
+</div>
+
+<div class="note">
+<b>מה הגיליון הזה מוכיח, ומה לא.</b>
+<ul>
+<li><b>הרמה נגזרת ולא מוצהרת.</b> ⟵ העמודה "נגזרת" מחושבת מ-EN_RANK על ארבעת המסיחים. אם היא הייתה מוקלדת ביד, לא היה כאן שום מנגנון.</li>
+<li><b>⚠ שינוי מהתוכנית.</b> §6.3 גייט 2 דורש שכל מילה במשפט תהיה ב-EN_RANK. EN_RANK הוא 3,175 מונחי מאגר ולא אנגלית כללית — <code>the</code>, <code>they</code>, <code>months</code> חסרות, והמשפט לדוגמה של §3 נכשל בשער של §6.3 בשבע מילים. לכן הרמה נגזרת מהמסיחים, ומילות הנשיאה מדווחות בעמודה נפרדת כדגל לעין אנושית.</li>
+<li><b>⚠ מה שאי אפשר לאמת כאן.</b> אין במאגר רשימת תדירות של אנגלית כללית, ולכן <b>אין דרך אוטומטית לאמת שמשפט הנשיאה מתאים לרמה</b>. שבעת הדגלים הם כל מה שיש.</li>
+<li><b>⚠ גייט 4 לא נבדק.</b> חד-משמעיות (§6.3) דורשת קריאת LLM שפותרת את השאלה בלי לדעת את התשובה. זה השער היחיד שתופס "שני מסיחים שסבירים שניהם", וזו גם התקלה הקשה ביותר בהשלמת משפטים. הוא לא מיושם, והסקריפט אומר את זה במקום לשתוק.</li>
+<li><b>הרצועה האקדמית צרה.</b> 694 מונחי מאגר מעל 10,000, ומהם צריך ארבעה מסיחים דקדוקיים לכל פריט. חמש חפיפות בין פריטים נתפסו ותוקנו — ב-1,000 פריטים זה יהיה החסם האמיתי, לא העלות.</li>
+</ul>
+</div>
+</div>
+<script>
+const D=[{"a":0,"o":["fault","break","waste","place"]},{"a":0,"o":["desert","jungle","territory","estate"]},{"a":0,"o":["withdraw","abandon","reject","dismiss"]},{"a":0,"o":["analyze","examine","observe","survey"]},{"a":0,"o":["cure","treat","relieve","remedy"]},{"a":0,"o":["authorize","verify","confirm","examine"]},{"a":0,"o":["break","abandon","betray","forsake"]},{"a":0,"o":["sincerity","virtue","conduct","confession"]}];
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',x===t));
+  practice.classList.toggle('hid',t.dataset.v!=='practice');
+  proof.classList.toggle('hid',t.dataset.v!=='proof');
+});
+document.querySelectorAll('.item').forEach(item=>{
+  const a=+item.dataset.a, opts=[...item.querySelectorAll('.opt')];
+  opts.forEach(b=>b.onclick=()=>{
+    if(b.classList.contains('done'))return;
+    const pick=+b.dataset.i, right=pick===a;
+    opts.forEach(o=>{o.classList.add('done');
+      if(+o.dataset.i===a)o.classList.add('ok'); else if(o===b)o.classList.add('no');});
+    const words=[].concat(D[[...document.querySelectorAll('.item')].indexOf(item)].o[pick]);
+    item.querySelectorAll('.bl').forEach((bl,j)=>{
+      bl.outerHTML='<span class="fill'+(right?'':' bad')+'">'+words[j]+'</span>';});
+    item.querySelector('.exp').classList.remove('hid');
+  });
+});
+</script>

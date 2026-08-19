@@ -1,0 +1,80 @@
+רימה	רימה	analogy	1	1	4.0	2020_spring·פרק1·ש4·מסיח 3	close:רמה
+ריפוד	ריפוד	analogy	1	1	1.0	summer_2023·פרק2·ש1·מסיח 3	miss
+ריקם	ריקם	completion	1	1	0.0	2020_spring·פרק1·ש11·אפשרות ?	miss
+רך לבב	רך לבב	analogy	1	1	1.0	summer_2024·פרק2·ש1·מסיח 3	close:לבב
+רכבת	רכבת	analogy	1	1	2.0	2020_winter·פרק2·ש2·מסיח 3	close:רכב
+רכוש	רכוש	analogy	1	1	1.0	spring_2025·פרק2·ש1·רגל	miss
+רכישתה	רכישתה	completion	1	1	0.0	2020_autumn·פרק2·ש17·אפשרות 2	miss
+רכש	רכש	analogy	1	1	6.0	2020_winter·פרק2·ש6·מסיח 1	miss
+רלוונטיות	רלוונטיות	analogy	1	1	5.0	summer_2024·פרק2·ש5·רגל	miss
+רם	רם	analogy	1	1	6.0	2019_spring·פרק2·ש6·רגל	miss
+רמות	רמות	completion	1	1	0.0	autumn_2021·פרק1·ש11·אפשרות 2	miss
+רמזור	רמזור	analogy	1	1	2.0	summer_2023·פרק2·ש2·מסיח 3	close:מזר
+רמקול	רמקול	analogy	1	1	5.0	summer_2022·פרק2·ש5·רגל	miss
+רסק	רסק	analogy	1	1	4.0	autumn_2021·פרק2·ש4·מסיח 1	miss
+רעבתנות	רעבתנות	analogy	1	1	6.0	summer_2024·פרק1·ש6·מסיח 2	close:עבת
+רעיון	רעיון	completion	1	1	0.0	winter_2022·פרק2·ש13·אפשרות 1	miss
+רעיל	רעיל	analogy	1	1	1.0	autumn_2025·פרק1·ש1·מסיח 3	close:רעל
+רעל	רעל	analogy	1	1	1.0	2020_autumn·פרק1·ש1·מסיח 3	close:רעל
+רענן	רענן	analogy	1	1	3.0	summer_2026·פרק2·ש3·מסיח 1	miss
+רעש	רעש	analogy	1	1	4.0	summer_2026·פרק2·ש4·מסיח 1	miss
+רפת	רפת	analogy	1	1	1.0	autumn_2021·פרק1·ש1·רגל	miss
+רץ	רץ	analogy	1	1	2.0	summer_2025·פרק2·ש2·מסיח 3	miss
+רצונה	רצונה	completion	1	1	0.0	summer_2021·פרק2·ש11·אפשרות 3	miss
+רצוני	רצוני	completion	1	1	0.0	2020_summer·פרק2·ש11·אפשרות 4	miss
+רצונך	רצונך	completion	1	1	0.0	summer_2026·פרק2·ש12·אפשרות 4	miss
+רצופת	רצופת	completion	1	1	0.0	autumn_2023·פרק2·ש15·אפשרות 2	miss
+רציונליים	רציונליים	completion	1	1	0.0	summer_2021·פרק1·ש11·אפשרות 4	miss
+רצינית	רצינית	completion	1	1	0.0	2020_spring·פרק1·ש9·אפשרות 1	miss
+רציפות	רציפות	analogy	1	1	2.0	autumn_2024·פרק2·ש2·רגל	miss
+רצף	רצף	analogy	1	1	4.0	2019_spring·פרק2·ש4·רגל	miss
+רשת	רשת	analogy	1	1	4.0	spring_2023·פרק1·ש4·מסיח 4	miss
+שאביו	שאביו	completion	1	1	0.0	summer_2022·פרק1·ש10·אפשרות 1	miss
+שאופיר	שאופיר	completion	1	1	0.0	summer_2021·פרק2·ש10·אפשרות 4	miss
+שאילו	שאילו	completion	1	1	0.0	2020_autumn·פרק2·ש15·אפשרות 3	miss
+שאיש	שאיש	completion	1	1	0.0	autumn_2025·פרק1·ש10·אפשרות 2	miss
+שאלו	שאלו	completion	1	1	0.0	summer_2022·פרק1·ש8·אפשרות 1	miss
+שאלון	שאלון	analogy	1	1	5.0	autumn_2024·פרק2·ש5·מסיח 1	miss
+שאליהו	שאליהו	completion	1	1	0.0	2020_spring·פרק1·ש11·אפשרות 2	miss
+שאם	שאם	completion	1	1	0.0	autumn_2024·פרק1·ש15·אפשרות 1	miss
+שאסרו	שאסרו	completion	1	1	0.0	autumn_2023·פרק1·ש14·אפשרות 4	miss
+שאף	שאף	completion	1	1	0.0	autumn_2024·פרק1·ש15·אפשרות 2	miss
+שאפתן	שאפתן	analogy	1	1	2.0	spring_2022·פרק2·ש2·מסיח 4	miss
+שביניהם	שביניהם	completion	1	1	0.0	summer_2021·פרק1·ש11·אפשרות 2	miss
+שביקר	שביקר	completion	1	1	0.0	summer_2024·פרק1·ש15·אפשרות 3	miss
+שבמדענים	שבמדענים	completion	1	1	0.0	winter_2022·פרק1·ש7·אפשרות 1	miss
+שבנוגע	שבנוגע	completion	1	1	0.0	summer_2025·פרק1·ש14·אפשרות 1	miss
+שגויות	שגויות	completion	1	1	0.0	autumn_2025·פרק1·ש10·אפשרות 3	miss
+שדווקא	שדווקא	completion	1	1	0.0	spring_2025·פרק1·ש12·אפשרות 4	miss
+שדי	שדי	completion	1	1	0.0	2020_spring·פרק2·ש9·אפשרות 2	miss
+שה	שה	completion	1	1	0.0	autumn_2024·פרק2·ש13·אפשרות 2	miss
+שהגיש	שהגיש	completion	1	1	0.0	autumn_2025·פרק2·ש16·אפשרות 2	miss
+שהוגשה	שהוגשה	completion	1	1	0.0	autumn_2025·פרק2·ש16·אפשרות 1	miss
+שהוכח	שהוכח	completion	1	1	0.0	spring_2024·פרק1·ש17·אפשרות 2	miss
+שהופיעו	שהופיעו	completion	1	1	0.0	spring_2024·פרק2·ש10·אפשרות 4	miss
+שהוצגה	שהוצגה	completion	1	1	0.0	spring_2024·פרק1·ש17·אפשרות 1	miss
+שהושמעה	שהושמעה	completion	1	1	0.0	winter_2022·פרק1·ש7·אפשרות 4	miss
+שהטיח	שהטיח	completion	1	1	0.0	2020_spring·פרק1·ש11·אפשרות 3	miss
+שהיו	שהיו	completion	1	1	0.0	2019_winter·פרק2·ש9·אפשרות 1	miss
+שהכין	שהכין	completion	1	1	0.0	summer_2022·פרק1·ש9·אפשרות 4	miss
+שהמדיניות	שהמדיניות	completion	1	1	0.0	2020_spring·פרק1·ש10·אפשרות 1	miss
+שהניב	שהניב	completion	1	1	0.0	summer_2022·פרק1·ש9·אפשרות 4	miss
+שהסרט	שהסרט	completion	1	1	0.0	winter_2022·פרק2·ש12·אפשרות 3	miss
+שהעונש	שהעונש	completion	1	1	0.0	spring_2025·פרק1·ש12·אפשרות 2	miss
+שהצבים	שהצבים	completion	1	1	0.0	spring_2024·פרק2·ש9·אפשרות 2	miss
+שהצטבר	שהצטבר	completion	1	1	0.0	summer_2022·פרק1·ש9·אפשרות 2	miss
+שהציבור	שהציבור	completion	1	1	0.0	spring_2022·פרק2·ש16·אפשרות 4	miss
+שהציגה	שהציגה	completion	1	1	0.0	autumn_2023·פרק2·ש14·אפשרות 4	miss
+שהצעתי	שהצעתי	completion	1	1	0.0	autumn_2025·פרק1·ש11·אפשרות 4	miss
+שהקונים	שהקונים	completion	1	1	0.0	autumn_2024·פרק1·ש13·אפשרות 2	miss
+שהרוח	שהרוח	completion	1	1	0.0	autumn_2021·פרק2·ש13·אפשרות 4	miss
+שהשימוש	שהשימוש	completion	1	1	0.0	spring_2024·פרק1·ש17·אפשרות 3	miss
+שואל	שואל	analogy	1	1	1.0	summer_2023·פרק1·ש1·מסיח 4	miss
+שואף	שואף	completion	1	1	0.0	spring_2024·פרק2·ש11·אפשרות 4	miss
+שוב	שוב	completion	1	1	0.0	spring_2025·פרק2·ש15·אפשרות 1	miss
+שוטרים	שוטרים	analogy	1	1	5.0	summer_2022·פרק1·ש5·מסיח 3	close:טרמ
+שולחן	שולחן	analogy	1	1	2.0	2020_winter·פרק2·ש2·מסיח 2	close:שלח
+שומע	שומע	analogy	1	1	6.0	autumn_2025·פרק1·ש6·מסיח 2	miss
+שונא	שונא	analogy	1	1	6.0	2020_summer·פרק1·ש6·רגל	miss
+שוני	שוני	analogy	1	1	3.0	spring_2025·פרק2·ש3·מסיח 1	miss
+שופט	שופט	analogy	1	1	2.0	spring_2022·פרק1·ש2·מסיח 3	miss

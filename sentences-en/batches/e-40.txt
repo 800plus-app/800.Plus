@@ -1,0 +1,80 @@
+8	subtraction	חיסור (חשבון)
+8	superficial	שטחי
+8	supplement	תוסף
+8	surrounding	מקיף, סובב
+8	sustain	לתמוך; סבל מ-; להמשיך באותה צורה
+8	tame	לאלף, לבית
+8	tendency	נטייה
+8	tender	רך
+8	testify	להעיד
+8	tin	בדיל, עשוי מפח
+8	toad	קרפדה
+8	tolerate	לסבול
+8	trait	תכונה
+8	transcript	תמליל, פרוטוקול
+8	transplant	להשתיל, להעביר ממקום למקום; השתלה
+8	treaty	אמנה,הסכם, חוזה
+8	unbearable	בלתי נסבל
+8	undoubtedly	ללא ספק
+8	unrest	חוסר שקט
+8	urge	לעודד, לדחוף ; דחף, רצון, תשוקה
+8	urine	שתן
+8	vacant	פנוי, ריק
+8	validity	תוקף
+8	vast	עצום, נרחב, רחב ידיים
+8	verdict	פסק דין, פסיקה
+8	vice versa	להיפך
+8	vinegar	חומץ
+8	violate	להפר, לחלל
+8	violation	עבירה, הפרה
+8	viper	צפע
+8	virtually	למעשה, בעצם
+8	wage	לערוך, לנהל; משכורת
+8	wanted	מבוקש
+8	wardrobe	ארון בגדים; מלתחה
+8	warfare	לוחמה
+8	wasp	צרעה
+8	weave	לארוג, לשזור; להתפתל בין (בתנועה)
+8	welfare	סעד
+8	widespread	נפוץ
+8	withstand	להתמודד, לעמוד ב-
+9	abduct	חטיפה, לחטוף
+9	abundance	שפע
+9	accentuate	להבליט, להדגיש
+9	accommodate	להכיל, לפנות מקום ל-; להתאים (לצרכים); לאכסן, לשכן
+9	accumulate	לצבור, לאסוף
+9	accustomed	מורגל
+9	acquisition	רכישה
+9	acquitted	זוכה מאשמה
+9	adhere	לדבוק ב-, לדגול ב-
+9	adjacent to	ליד
+9	administer	לנהל, לפקח; לתת, לחלק
+9	adolescence	גיל ההתבגרות
+9	aisle	מעבר
+9	algae	אצות
+9	alienation	ניכור, הרחקה
+9	allocate	להקצות
+9	alterations	שינויים
+9	ambiguous	דו משמעי, לא לגמרי ברור
+9	amend	לתקן, לשנות (חוק/מסמך)
+9	amid	בקרב, בין
+9	ample	מספיק, שופע, גדול
+9	amputation	קטיעה
+9	anesthesia	הרדמה
+9	annually	אחת לשנה, בכל שנה
+9	anticipate	לצפות
+9	anxiety	חרדה
+9	apparatus	מכשיר, ציוד, מערכת מכשירים; מנגנון
+9	apparent	ברור, נראה לעין; לכאורה, מדומה
+9	appoint	למנות
+9	appropriately	כראוי, כיאות, באופן מתאים
+9	arguably	ניתן לטעון ש-, כנראה
+9	arise, arose	לקום, קם
+9	ark	תיבה
+9	array	מערך; מגוון
+9	assert	לטעון בתוקף, להצהיר
+9	assertion	טענה, קביעה
+9	assess	להעריך, לאמוד
+9	at your disposal	לרשותך
+9	attain	להשיג, להגיע
+9	attendant	משרת, מטפל, מלווה

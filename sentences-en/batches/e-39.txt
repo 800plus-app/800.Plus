@@ -1,0 +1,80 @@
+8	petition	עצומה, עתירה, לעתור
+8	petty	קטן, חסר חשיבות; קטנוני
+8	phenomenon	תופעה
+8	pinch	לצבוט
+8	pioneer	חלוץ
+8	plaster	טיח
+8	plead	לעתור, להתחנן
+8	pledge	להתחייב
+8	plentiful	מלא, שופע
+8	possess	להיות בעלים של, להחזיק ב-
+8	prejudice	דעה קדומה
+8	premature	מוקדם מדי
+8	presume	להניח
+8	prick	לדקור
+8	principal	מנהל בית ספר; ראשי, עיקרי; קרן (הלוואה)
+8	probe	לחטט, לברר, לגשש
+8	prohibit	לאסור, למנוע
+8	prominent	בולט, חשוב
+8	propel	להניע, לדחוף
+8	prophecy	נבואה
+8	prosper	לשגשג
+8	proverb	פתגם, אמרה
+8	province	מחוז, אזור
+8	pursue	לרדוף
+8	query	שאלה, חקירה
+8	rail	מעקה, מסילה
+8	rare	נא (בשר); נדיר
+8	recreation	בילוי
+8	recruitment	גיוס
+8	recur	קרה שוב
+8	refined	מעודן, מלוטש
+8	regard	להתייחס, להחשיב
+8	regulate	לווסת
+8	rehearsal	חזרה
+8	rehearse	לחזור, לתרגל
+8	reinforce	לתגבר, לחזק
+8	relic	שארית, שריד
+8	rely	להסתמך
+8	remainder	שארית
+8	remedy	תרופה
+8	repelled	דחה, הגעיל
+8	resemble	דומה
+8	reservoir	מאגר
+8	resilience	חוסן, עמידות, כושר התאוששות
+8	restoration	שיקום, השבה
+8	restrain	לרסן
+8	restrict	להגביל
+8	retain	להחזיק, לשמור
+8	retrieve	לאחזר, לשלוף, להשיג בחזרה
+8	revenue	הכנסות, פדיון
+8	revitalize	להחיות
+8	rid	להיפטר מ-
+8	rim	שפה
+8	rural	כפרי
+8	salvation	ישועה, גאולה
+8	scarce	נדיר
+8	scatter	לפזר
+8	sensible	נבון
+8	sentiments	רגשות
+8	settle	להתיישב; להסדיר
+8	shatter	לנפץ, להרוס, לקעקע
+8	shepherd	רועה צאן
+8	shortage	מחסור
+8	sighting	תצפית, מראה
+8	sincerity	כנות
+8	skinned	פשט עור
+8	slaughterhouse	בית מטבחיים
+8	slender	רזה
+8	soil	אדמה; לכלוך
+8	solely	בלבד, רק
+8	solitary	מבודד
+8	sorrow	עצב, צער
+8	spectator	צופה, משקיף
+8	spike	יתד
+8	steer	לנווט, להוביל
+8	stem	גבעול, גזע; לנבוע מ-, להיווצר מ-
+8	stiff	נוקשה
+8	stimulate	לעורר, להמריץ
+8	straightforward	פשוט, לא מסובך, ברור; ישיר, גלוי
+8	subsequently	לאחר מכן, אחר כך, בהמשך

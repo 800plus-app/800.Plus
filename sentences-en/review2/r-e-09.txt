@@ -1,0 +1,80 @@
+option	אפשרות, אופציה	When buying a new phone, you have the option to pay in installments or upfront.
+orchestra	תזמורת	An orchestra combines dozens of different instruments playing together under one conductor.
+order	סדר; פקודה, לצוות; להזמין; מסדר (דתי)	She arranged her books in order by color and size on the wooden shelf.
+organism	אורגניזם, יצור חי	Every organism that lives in the ocean depends on salt water to survive.
+original	מקורי	The artist's original painting sold for much more than copies could cost.
+owner	בעלים	The house owner held the exclusive right to decide what happens on the land.
+package	חפיסה, חבילה	The delivery driver left the package at the door while nobody was home.
+painting	ציור	The colorful painting on the museum wall depicted a stormy seascape with dramatic clouds.
+panic	פאניקה, בהלה	When the fire alarm rang, the crowd started to panic and run fast.
+paradox	סתירה, פרדוקס	The paradox is that spending money on exercise gear made her too broke to exercise.
+parent	הורה	A parent must provide food, shelter, education, and emotional support to their children.
+path	דרך, נתיב	She followed the narrow forest path as it wound between ancient tall trees.
+pause	הפסקה, להפסיק	She hit pause on the movie to answer the important phone call quickly.
+pepper	פלפל	The chef sprinkled hot pepper into the soup to add heat and spice.
+percent	אחוז	Eighty percent of the students passed the test because they studied well.
+pet	חיית מחמד	She kept a dog as a pet and took it for walks every morning.
+philosophical	פילוסופי	His philosophical approach examined fundamental truths and the nature of human existence.
+philosophy	פילוסופיה	She studied philosophy to learn what ethics, knowledge, and truth really mean.
+phobia	פוביה, פחד כרוני	His phobia of heights was so intense he couldn't even use stairs.
+photograph	צילום, לצלם	The photographer captured a stunning photograph using a slow shutter and bright light.
+physical	פיזי, גופני	Physical education includes running, jumping, sports, and exercises for the body.
+pick	לקטוף, לבחור; מפרט לגיטרה	She was allowed to pick any book she wanted from the library shelf.
+pilot	טייס	The pilot controlled the plane's speed, direction, and altitude before landing.
+potential	אפשרי, פוטנציאלי	The young athlete showed potential to become an Olympic champion within five years.
+powerful	רב כוח	The powerful storm knocked down trees and shattered windows across town.
+prehistoric	קדמון, פרה-היסטורי	Prehistoric people used stone tools to hunt animals and gather wild plants.
+prepare	התכונן	She prepared carefully for the exam by reviewing notes and taking practice tests.
+presentation	מצגת	Her presentation used slides and statistics to convince the audience about climate.
+price	מחיר	The high price of that designer shirt made me decide not to buy it.
+professional	מקצועי	The professional chef trained for years to master cooking techniques and flavors.
+program	תכנית; תכניה; לתכנת	The after-school program teaches music, art, and sports to interested children.
+puzzle	חידה, פאזל	The crossword puzzle had difficult clues that required knowledge and patience.
+quality	איכות	The quality of that restaurant's food impressed everyone with its taste and freshness.
+question	להטיל ספק; שאלה	The reporter questioned the politician about the controversial new government policy.
+rainbow	קשת	A colorful rainbow appeared in the sky after the rain, spanning the entire horizon.
+random	מקרי, אקראי	She picked random students to answer questions, with no particular system or pattern.
+rat	עכברוש	The large gray rat scurried across the kitchen and disappeared into a wall.
+reality	מציאות	The reality of the situation was harsh; working hard alone cannot guarantee success.
+receive	לקבל	She will receive her diploma when she completes all required courses.
+reflex	רפלקס, תגובה אוטומטית	When he touched the hot stove his hand pulled back by natural reflex.
+relevant	רלוונטי, קשור	Her comment was relevant because it directly addressed the main point of the debate.
+remove	להסיר	Please remove your shoes before stepping onto the clean white carpet inside.
+repeat	לחזור; שידור/מאורע חוזר	The teacher asked the confused student to repeat her answer more slowly and loudly.
+respond	להגיב, תגובה, תשובה	He did not respond to her message because he was too busy working.
+responsibility	אחריות	A parent's main responsibility is feeding, sheltering, and protecting their children.
+responsible	אחראי	The responsible student completed her homework, studied hard, and never skipped class.
+result	תוצאה	The result of her hard work was finally passing the difficult exam.
+revolution	מהפכה	The revolution overthrew the old government and transformed how people lived and governed.
+ring, rang	לצלצל, צלצל	The telephone rang loudly three times before she rushed to pick it up.
+risk	סיכון, לסכן	He chose to risk his savings by investing in an untested new business idea.
+river	נהר	The river flows downward from the mountains, eventually reaching the vast ocean.
+rocket	טיל	The rocket launched vertically through the clouds carrying astronauts to the space station.
+role	תפקיד	She played the role of the evil queen and received praise from the audience.
+roof	גג	The roof of the house needs new shingles and some structural repairs soon.
+root	שורש	The tree's root system grew very deep into the ground to find water.
+rope	חבל	She tied the rope tightly to the boat so it would not drift away.
+rule	לשלוט, לפסוק, להחליט; כלל, חוק, שלטון	The school rule requires that all students arrive at least ten minutes early.
+saga	סיפור, סאגה	The saga of the family's troubles spanned multiple generations and decades.
+scan	סריקה, לסרוק	She scanned the crowd quickly with her eyes to find her friend.
+science	מדע	Science uses careful experiments and observation to understand how nature works.
+scientist	מדען	The scientist conducted experiments in her lab to test her new medical theory.
+seem	נראה כ-, דומה ל-	The movie seemed dull at first but became more interesting as it progressed.
+sense	היגיון, תודעה; חוש, לחוש	She felt a deep sense of pride watching her daughter graduate from college.
+series	סדרה	She watched the entire series of episodes about the detective in just two days.
+serve	לשרת; לְרַצּוֹת (עונש); להגיש	The waiter served the hot food to the hungry customers at their table.
+set up	להרכיב, לארגן, לסדר	They set up the tent before the sun went down that evening.
+shape	צורה, לעצב (צורה)	The artist shaped the clay into a beautiful statue with her hands carefully.
+sharp	חד	The sharp knife cut through the bread easily and without any resistance.
+shield	מגן, להגן	The metal shield protected the ancient warrior from arrows and sword blows.
+shoulder	כתף	He put his arm around her shoulder to comfort and support her emotionally.
+silent	דומם, שקט	The library was silent so that everyone could study and read without noise.
+silver	כסף, כסוף	Her grandmother gave her a delicate silver bracelet for her eighteenth birthday.
+size	גודל	The size of the shoes was too large and they slipped off her feet constantly.
+skill	יכולת, מיומנות	Playing the piano requires years of practice to build genuine musical skill.
+skin	עור	Sunscreen protects your skin from damage caused by strong and direct sunlight.
+slave	עבד	The slave had no freedom and could be bought or sold like property.
+smoke	עשן, לעשן	Gray smoke rose from the chimney as the wood fire burned inside.
+soccer	כדורגל	The soccer team scored three goals and won the championship game.
+social	חברתי	She avoided social gatherings because she felt anxious around large groups of people.
+sold	מכר	She sold her old car to a young couple last summer.

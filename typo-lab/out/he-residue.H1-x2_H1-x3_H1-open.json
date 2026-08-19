@@ -1,0 +1,284 @@
+[
+ {
+  "tag": "H1-x2",
+  "rows": 819682,
+  "nAcc": 152172,
+  "cnt": {
+   "bank": 0,
+   "real-word": 0,
+   "non-word": 152172
+  },
+  "rec": {
+   "hoN": 1812,
+   "hoTP": 429,
+   "allN": 12173,
+   "allTP": 2823
+  },
+  "byOp": {
+   "transpose": {
+    "bank": 0,
+    "real-word": 0,
+    "non-word": 910
+   },
+   "doubleLetter": {
+    "bank": 0,
+    "real-word": 0,
+    "non-word": 9539
+   },
+   "materVI": {
+    "bank": 0,
+    "real-word": 0,
+    "non-word": 1841
+   },
+   "ins": {
+    "bank": 0,
+    "real-word": 0,
+    "non-word": 137150
+   },
+   "homophone": {
+    "bank": 0,
+    "real-word": 0,
+    "non-word": 841
+   },
+   "sub": {
+    "bank": 0,
+    "real-word": 0,
+    "non-word": 1368
+   },
+   "adjSub": {
+    "bank": 0,
+    "real-word": 0,
+    "non-word": 411
+   },
+   "del": {
+    "bank": 0,
+    "real-word": 0,
+    "non-word": 112
+   }
+  },
+  "samples": {
+   "bank": [],
+   "real-word": [],
+   "non-word": [
+    "אנביימ ← אָבְנַיִים [transpose]",
+    "אבינימ ← אָבְנַיִים [transpose]",
+    "אבנימי ← אָבְנַיִים [transpose]",
+    "אבנייממ ← אָבְנַיִים [doubleLetter]",
+    "אאוצר ← אוֹצֵר [doubleLetter]",
+    "אוצצר ← אוֹצֵר [doubleLetter]",
+    "אוצרר ← אוֹצֵר [doubleLetter]",
+    "אוצור ← אוֹצֵר [materVI]",
+    "אאווצר ← אוֹצֵר [doubleLetter]",
+    "אווצצר ← אוֹצֵר [doubleLetter]",
+    "אווצרר ← אוֹצֵר [doubleLetter]",
+    "אאחו ← אָחוּ [doubleLetter]",
+    "אחחו ← אָחוּ [doubleLetter]",
+    "אאיחוי ← אִיחוּי [doubleLetter]",
+    "איחחוי ← אִיחוּי [doubleLetter]",
+    "איוחוי ← אִיחוּי [materVI]",
+    "איחויו ← אִיחוּי [materVI]",
+    "אאיחווי ← אִיחוּי [doubleLetter]",
+    "יאחווי ← אִיחוּי [transpose]",
+    "איחחווי ← אִיחוּי [doubleLetter]",
+    "אאלולא ← אִלוּלֵא [doubleLetter]",
+    "אללולא ← אִלוּלֵא [doubleLetter]",
+    "אלוללא ← אִלוּלֵא [doubleLetter]",
+    "אלולאא ← אִלוּלֵא [doubleLetter]",
+    "יאלולא ← אִלוּלֵא [materVI]"
+   ]
+  }
+ },
+ {
+  "tag": "H1-x3",
+  "rows": 819682,
+  "nAcc": 152255,
+  "cnt": {
+   "bank": 0,
+   "real-word": 0,
+   "non-word": 152255
+  },
+  "rec": {
+   "hoN": 1812,
+   "hoTP": 429,
+   "allN": 12173,
+   "allTP": 2823
+  },
+  "byOp": {
+   "transpose": {
+    "bank": 0,
+    "real-word": 0,
+    "non-word": 910
+   },
+   "doubleLetter": {
+    "bank": 0,
+    "real-word": 0,
+    "non-word": 9539
+   },
+   "materVI": {
+    "bank": 0,
+    "real-word": 0,
+    "non-word": 1871
+   },
+   "ins": {
+    "bank": 0,
+    "real-word": 0,
+    "non-word": 137190
+   },
+   "homophone": {
+    "bank": 0,
+    "real-word": 0,
+    "non-word": 841
+   },
+   "sub": {
+    "bank": 0,
+    "real-word": 0,
+    "non-word": 1376
+   },
+   "adjSub": {
+    "bank": 0,
+    "real-word": 0,
+    "non-word": 416
+   },
+   "del": {
+    "bank": 0,
+    "real-word": 0,
+    "non-word": 112
+   }
+  },
+  "samples": {
+   "bank": [],
+   "real-word": [],
+   "non-word": [
+    "אנביימ ← אָבְנַיִים [transpose]",
+    "אבינימ ← אָבְנַיִים [transpose]",
+    "אבנימי ← אָבְנַיִים [transpose]",
+    "אבנייממ ← אָבְנַיִים [doubleLetter]",
+    "אאוצר ← אוֹצֵר [doubleLetter]",
+    "אוצצר ← אוֹצֵר [doubleLetter]",
+    "אוצרר ← אוֹצֵר [doubleLetter]",
+    "אוצור ← אוֹצֵר [materVI]",
+    "אאווצר ← אוֹצֵר [doubleLetter]",
+    "אווצצר ← אוֹצֵר [doubleLetter]",
+    "אווצרר ← אוֹצֵר [doubleLetter]",
+    "אאחו ← אָחוּ [doubleLetter]",
+    "אחחו ← אָחוּ [doubleLetter]",
+    "אאיחוי ← אִיחוּי [doubleLetter]",
+    "איחחוי ← אִיחוּי [doubleLetter]",
+    "איוחוי ← אִיחוּי [materVI]",
+    "איחויו ← אִיחוּי [materVI]",
+    "אאיחווי ← אִיחוּי [doubleLetter]",
+    "יאחווי ← אִיחוּי [transpose]",
+    "איחחווי ← אִיחוּי [doubleLetter]",
+    "אאלולא ← אִלוּלֵא [doubleLetter]",
+    "אללולא ← אִלוּלֵא [doubleLetter]",
+    "אלוללא ← אִלוּלֵא [doubleLetter]",
+    "אלולאא ← אִלוּלֵא [doubleLetter]",
+    "יאלולא ← אִלוּלֵא [materVI]"
+   ]
+  }
+ },
+ {
+  "tag": "H1-open",
+  "rows": 819682,
+  "nAcc": 450455,
+  "cnt": {
+   "bank": 14,
+   "real-word": 0,
+   "non-word": 450441
+  },
+  "rec": {
+   "hoN": 1812,
+   "hoTP": 1042,
+   "allN": 12173,
+   "allTP": 6873
+  },
+  "byOp": {
+   "del": {
+    "bank": 1,
+    "real-word": 0,
+    "non-word": 2650
+   },
+   "sub": {
+    "bank": 9,
+    "real-word": 0,
+    "non-word": 90623
+   },
+   "homophone": {
+    "bank": 0,
+    "real-word": 0,
+    "non-word": 4138
+   },
+   "adjSub": {
+    "bank": 2,
+    "real-word": 0,
+    "non-word": 28248
+   },
+   "transpose": {
+    "bank": 0,
+    "real-word": 0,
+    "non-word": 910
+   },
+   "doubleLetter": {
+    "bank": 0,
+    "real-word": 0,
+    "non-word": 10568
+   },
+   "ins": {
+    "bank": 2,
+    "real-word": 0,
+    "non-word": 299777
+   },
+   "materVI": {
+    "bank": 0,
+    "real-word": 0,
+    "non-word": 13527
+   }
+  },
+  "samples": {
+   "bank": [
+    "צדע ← צִדֵד [sub]",
+    "גמא ← גַּיְא [adjSub]",
+    "גמע ← גָּרַע [sub]",
+    "הארצ ← הֵאִיץ [sub]",
+    "אומצ ← גָּמַר בְּדַעְתּוֹ / בְּלִבּוֹ / אוֹמֶר [sub]",
+    "בליבו ← בְּאִיבּוֹ [sub]",
+    "כנ ← כָּפַן [del]",
+    "מגופ ← מָגוֹר [sub]",
+    "מגוופ ← מָגוֹר [sub]",
+    "עלמה ← עֲלָטָה [sub]",
+    "עוולל ← הוֹלֵל [adjSub]",
+    "קרטוב ← קִטּוּב [ins]",
+    "קרטווב ← קִטּוּב [ins]",
+    "גלמי ← גַשְׁמִי [sub]"
+   ],
+   "real-word": [],
+   "non-word": [
+    "בניימ ← אָבְנַיִים [del]",
+    "גבניימ ← אָבְנַיִים [sub]",
+    "הבניימ ← אָבְנַיִים [homophone]",
+    "ובניימ ← אָבְנַיִים [sub]",
+    "חבניימ ← אָבְנַיִים [sub]",
+    "יבניימ ← אָבְנַיִים [sub]",
+    "כבניימ ← אָבְנַיִים [adjSub]",
+    "לבניימ ← אָבְנַיִים [sub]",
+    "נבניימ ← אָבְנַיִים [sub]",
+    "עבניימ ← אָבְנַיִים [homophone]",
+    "פבניימ ← אָבְנַיִים [sub]",
+    "צבניימ ← אָבְנַיִים [sub]",
+    "קבניימ ← אָבְנַיִים [sub]",
+    "רבניימ ← אָבְנַיִים [adjSub]",
+    "אניימ ← אָבְנַיִים [del]",
+    "אנביימ ← אָבְנַיִים [transpose]",
+    "אאניימ ← אָבְנַיִים [sub]",
+    "אגניימ ← אָבְנַיִים [adjSub]",
+    "אדניימ ← אָבְנַיִים [sub]",
+    "אהניימ ← אָבְנַיִים [adjSub]",
+    "אוניימ ← אָבְנַיִים [homophone]",
+    "אזניימ ← אָבְנַיִים [sub]",
+    "אחניימ ← אָבְנַיִים [sub]",
+    "אטניימ ← אָבְנַיִים [sub]",
+    "איניימ ← אָבְנַיִים [sub]"
+   ]
+  }
+ }
+]

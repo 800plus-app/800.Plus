@@ -1,0 +1,44 @@
+# en-blind2 · סט חוץ-מדגם · נדגם מכנית מ-answers-en.jsonl (split=holdout)
+# ⛔ החוק שנבחן כאן ננעל בקומיט 95c44488ee08dee7590b2f9b45d154d7ec208a0a **לפני** שנדגמה שורה אחת
+# זרע typo-lab/teacher/en2/v1 · מכסות ב-en-blind2.quota.json · בלי בחירה ידנית ובלי סינון
+id	כיוון	מילה בכרטיס	הפירוש המקורי	מה כתוב במאגר	מה הלומד כתב	האם הלומד ידע את המילה? כ / ל / ?
+X01	gloss	characterize	לאפיין	לאפיין	לאפיינ ביותר	
+X02	gloss	luck	מזל	מזל	מזל ממש	
+X03	gloss	stuff	דברים; למלא, לפחלץ	דברים; למלא, לפחלץ	דברוימ	
+X04	gloss	vacation	חופשה	חופשה	בופשה	
+X05	gloss	injury	פציעה	פציעה	גישבמ	
+X06	gloss	restore	לשקם, לשחזר	לשקם, לשחזר	לבט	
+X07	gloss	participate	השתתף	השתתף	ותר	
+X08	gloss	achieve	להשיג	להשיג	להיפכ	
+X09	gloss	humble	צנוע; להשפיל	צנוע; להשפיל	התרחשות בו זמנית	
+X10	gloss	subjective	אישי, משוחד בדעתו	אישי, משוחד בדעתו	אכיל	
+X11	gloss	ticket	כרטיס	כרטיס	סלח	
+X12	gloss	paramount	בעל חשיבות עליונה	בעל חשיבות עליונה	על חשיבות עליונה	
+X13	gloss	canal	תעלה	תעלה	תעל	
+X14	gloss	hypothesis	השערה	השערה	השארה	
+X15	gloss	transaction	עסקה	עסקה	אסקה	
+X16	gloss	safety	בטיחות	בטיחות	בטיחת	
+X17	gloss	nuclear	גרעיני	גרעיני	געריני	
+X18	word	lack	מחסור	lack	lask	
+X19	word	award	פרס, להעניק פרס	award	auard	
+X20	word	notwithstanding	למרות, על אף	notwithstanding	awfagivlffawwvs	
+X21	word	explode	להתפוצץ	explode	zrhbsih	
+X22	word	color	לצבוע; צבע	color	approve	
+X23	word	ship	לשלוח; אוניה	ship	design	
+X24	word	interact	ליצור אינטראקציה, לתקשר, להשפיע הדדית	interact	strain	
+X25	word	tendency	נטייה	tendency	footprints	
+X26	word	giant	ענק	giant	gat	
+X27	word	nourish	להזין, לספק מזון; לטפח	nourish	tourisst	
+X28	word	on top of	על, מעל	on top of	ln top of	
+X29	word	solve	לפתור	solve	splve	
+X30	word	whom	מי	whom	ahom	
+X31	word	half	חצי	half	ualf	
+X32	word	advantage	יתרון	advantage	advantwge	
+X33	word	cheerful	עליז, שמח	cheerful	cheerfuul	
+X34	word	fund	קרן; לממן	fund	ffund	
+X35	word	negligent	רשלני	negligent	neglgent	
+X36	word	ring, rang	לצלצל, צלצל	ring, rang	rin rang	
+X37	word	prosperous	משגשג, מצליח	prosperous	prosperrous	
+X38	word	propaganda	תעמולה	propaganda	propagandda	
+X39	word	spy	מרגל, לרגל	spy	psy	
+X40	word	manufacture	ייצר	manufacture	maunfacture	

@@ -1,0 +1,207 @@
+# 34 sentence-completion items. Choose the ONE option that best completes each sentence.
+# Two blanks (___ ... ___) means the option supplies both words, in order.
+
+1. Climbers carry heavy ___, such as ropes, metal hooks and a lamp for the last hours of the night.
+   A) device
+   B) equipment
+   C) machine
+   D) material
+
+2. Although the teacher said the word aloud twice, the small child still could not ___ it without help.
+   A) answer
+   B) copy
+   C) continue
+   D) repeat
+
+3. Until the office finds a new sponsor, it cannot ___ the water bill, and the service will stop.
+   A) sell
+   B) pay
+   C) save
+   D) spend
+
+4. Since the wording is not wrong, only out of date, the council agrees to ___ the clause rather than replace it entirely.
+   A) correct
+   B) repair
+   C) restore
+   D) amend
+
+5. Once the last form is stamped, the court can ___ the contract that both sides have already agreed to in full.
+   A) obey
+   B) impose
+   C) dictate
+   D) enforce
+
+6. Until the missing log is found, the office cannot ___ the exact hour at which the alarm was first raised.
+   A) estimate
+   B) ascertain
+   C) recall
+   D) confirm
+
+7. Although the vase had been glued twice already, one light knock was enough to ___ it into a dozen pieces.
+   A) crack
+   B) fracture
+   C) shatter
+   D) bend
+
+8. The hall was too small; furthermore, the ___ the club set for the season did not allow renting a larger one.
+   A) price
+   B) cost
+   C) budget
+   D) expense
+
+9. Unless the roof is fixed before the rain, the leak will cause serious ___ to the wooden floor.
+   A) harm
+   B) damage
+   C) ruin
+   D) injury
+
+10. Because the storm ruined a whole year of fruit, the growers asked the council to ___ them for the loss.
+   A) refund
+   B) insure
+   C) reward
+   D) compensate
+
+11. The soup needs salt and a little pepper; likewise, a spoon of vinegar will ___ the flavor of the beans.
+   A) inflate
+   B) enhance
+   C) enlarge
+   D) exaggerate
+
+12. Because only three people signed up, the club decided to ___ the meeting and give back the money.
+   A) close
+   B) cancel
+   C) delete
+   D) remove
+
+13. The fog did not stop the search altogether; even so, it was enough to ___ the volunteers, who reached the ridge two hours late.
+   A) prevent
+   B) halt
+   C) block
+   D) hinder
+
+14. A skilled teacher can ___ the whole idea in a single hour; yet a pupil may need a year to ___ it fully.
+   A) instill … absorb
+   B) impart … absorb
+   C) impart … obtain
+   D) absorb … impart
+
+15. Everyone understood the rules and nobody found a mistake in them, but no child could ___ the puzzle.
+   A) solve
+   B) explain
+   C) correct
+   D) answer
+
+16. The big room was empty and every step was heard twice; each word also came back as a clear ___.
+   A) echo
+   B) noise
+   C) voice
+   D) tone
+
+17. Each clerk counted the crates twice and made no error; furthermore, neither of them could explain the ___ between the two totals.
+   A) mistake
+   B) conflict
+   C) contradiction
+   D) discrepancy
+
+18. He had defended the figure for a whole hour; even so, once the audit proved him wrong, he agreed to ___ the argument.
+   A) concede
+   B) surrender
+   C) forfeit
+   D) abandon
+
+19. Some hardy shrubs, such as the thorn and the wild olive, ___ on bare slopes and still bear fruit every single year.
+   A) survive
+   B) persist
+   C) linger
+   D) thrive
+
+20. Although the plan was reasonable, the council decided to ___ it after a single short debate.
+   A) forbid
+   B) resist
+   C) reject
+   D) deny
+
+21. The tribe kept no written history; however, its elders could ___ every name in the family line without a single mistake.
+   A) retrieve
+   B) recall
+   C) recognize
+   D) memorize
+
+22. Because the river rose for days, nothing of the old bridge was left; the water managed to ___ it completely.
+   A) break
+   B) destroy
+   C) burn
+   D) damage
+
+23. She checks the lock twice every night, and she also bites her nails; each is a small ___ she cannot explain.
+   A) reflex
+   B) tradition
+   C) obsession
+   D) habit
+
+24. Because the team trained through the winter, it was able to ___ every goal it had set in autumn.
+   A) achieve
+   B) earn
+   C) gain
+   D) win
+
+25. The match had already begun and two goals had been scored, yet the referee agreed to ___ play until the storm passed.
+   A) postpone
+   B) suspend
+   C) abandon
+   D) cancel
+
+26. Because the two maps came from one survey, their coastlines should ___; where they ___, a clerk has made a copying error.
+   A) combine … differ
+   B) differ … align
+   C) align … combine
+   D) align … differ
+
+27. The manual clearly warns against overloading the shelf; even so, the workers chose to ___ the instruction.
+   A) forget
+   B) ignore
+   C) doubt
+   D) avoid
+
+28. Since the bridge had collapsed and no boat was available, the river itself became the main ___ to their journey.
+   A) objection
+   B) restriction
+   C) boundary
+   D) obstacle
+
+29. Food vanishes from the high meadow in winter, and several small mammals, such as the ground squirrel, ___ rather than move to lower ground.
+   A) settle
+   B) migrate
+   C) retreat
+   D) hibernate
+
+30. Since the bonus reaches every worker whether the quota is met or not, the scheme leaves no real ___ to work faster.
+   A) incentive
+   B) prize
+   C) reward
+   D) privilege
+
+31. The grant cannot remove the shortage of housing; moreover, it is far too small to ___ the crowding in the older districts.
+   A) suppress
+   B) alleviate
+   C) cure
+   D) eliminate
+
+32. The lecture was clear and well ordered; furthermore, the speaker used simple diagrams to ___ each new term.
+   A) demonstrate
+   B) decorate
+   C) illustrate
+   D) exaggerate
+
+33. The valley is fertile, so the terraces ___ a heavy crop, and the growers then ___ it before the autumn rains ruin the grain.
+   A) yield … cultivate
+   B) yield … harvest
+   C) harvest … yield
+   D) cultivate … harvest
+
+34. Because the paint was still wet, the crew agreed to ___ the opening by two days.
+   A) prevent
+   B) cancel
+   C) delay
+   D) interrupt
+

@@ -1,0 +1,908 @@
+{
+  "generated": "typo-lab/probe_accepts.js",
+  "ours": 180,
+  "cross": 0,
+  "orphan": 180,
+  "ids": [
+    {
+      "id": "en-g-001930",
+      "layer": "synonyms",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-g-002683",
+      "layer": "synonyms",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-g-005767",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "en-g-007861",
+      "layer": "nearMatch",
+      "cls": "neg-equidistant"
+    },
+    {
+      "id": "en-g-009727",
+      "layer": "synonyms",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-g-011198",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-g-015259",
+      "layer": "synonyms",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-g-015392",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-g-016329",
+      "layer": "synonyms",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-g-022627",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-g-023797",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-g-025371",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-g-025381",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "en-g-026326",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "en-g-028117",
+      "layer": "nearMatch",
+      "cls": "neg-gloss-swap"
+    },
+    {
+      "id": "en-g-030129",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-g-030726",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-w-001941",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-w-005007",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "en-w-005234",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-w-006760",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-w-006797",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-w-007182",
+      "layer": "nearMatch",
+      "cls": "neg-garbage"
+    },
+    {
+      "id": "en-w-008083",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-w-011430",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-w-012690",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "en-w-013060",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "en-w-013061",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "en-w-013711",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "en-w-013712",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "en-w-013943",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-w-015895",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-w-016089",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-w-017480",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "en-w-017784",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "en-w-017785",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "en-w-019939",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "en-w-019940",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "en-w-021511",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "en-w-021517",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "en-w-025481",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "en-w-026309",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-w-026486",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "en-w-032692",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "en-w-032693",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "en-w-033743",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "en-w-033744",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "en-w-038055",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "en-w-039380",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "en-w-039563",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-000086",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-000119",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-000122",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-000156",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-000264",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-000559",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-000606",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-000741",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-000839",
+      "layer": "nearMatch",
+      "cls": "neg-synonym-rejected"
+    },
+    {
+      "id": "he-g-000972",
+      "layer": "nearMatch",
+      "cls": "neg-gloss-swap"
+    },
+    {
+      "id": "he-g-001125",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-001136",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-001317",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-001324",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-001387",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-001424",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-001467",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-001676",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-001992",
+      "layer": "nearMatch",
+      "cls": "neg-equidistant"
+    },
+    {
+      "id": "he-g-001993",
+      "layer": "nearMatch",
+      "cls": "neg-equidistant"
+    },
+    {
+      "id": "he-g-002017",
+      "layer": "nearMatch",
+      "cls": "neg-gloss-swap"
+    },
+    {
+      "id": "he-g-002116",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-002119",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-002136",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-002137",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-002367",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-002385",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-002388",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-002542",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-003025",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-003114",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-003145",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-003178",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-003361",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-004052",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-004187",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-004212",
+      "layer": "nearMatch",
+      "cls": "neg-gloss-swap"
+    },
+    {
+      "id": "he-g-004403",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-004432",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-004536",
+      "layer": "synonyms",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-004816",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-004819",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-005202",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-005385",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-005466",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-005483",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-005709",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-006111",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-006426",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-006427",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-006472",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-006552",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-006555",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-006677",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-006715",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-006833",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-006838",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-006841",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-006919",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-006922",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-006938",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-007081",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-007136",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-007235",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-007324",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-007586",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-008084",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-008143",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-008147",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-008173",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-008351",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-008440",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-008667",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-009466",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-009520",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-009522",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-010015",
+      "layer": "nearMatch",
+      "cls": "neg-gloss-swap"
+    },
+    {
+      "id": "he-g-010027",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-010278",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-010314",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-010396",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-010513",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-010555",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-010774",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-010827",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-011004",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-011331",
+      "layer": "nearMatch",
+      "cls": "neg-synonym-rejected"
+    },
+    {
+      "id": "he-g-012004",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-012384",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-012464",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-013209",
+      "layer": "nearMatch",
+      "cls": "neg-synonym-rejected"
+    },
+    {
+      "id": "he-g-013496",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-013640",
+      "layer": "nearMatch",
+      "cls": "neg-gloss-swap"
+    },
+    {
+      "id": "he-g-013749",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-013757",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-014048",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-014081",
+      "layer": "nearMatch",
+      "cls": "neg-gloss-swap"
+    },
+    {
+      "id": "he-g-014226",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-014246",
+      "layer": "nearMatch",
+      "cls": "neg-gloss-swap"
+    },
+    {
+      "id": "he-g-014468",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-014543",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-014641",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-g-014659",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-g-014849",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-w-001234",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-w-002608",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "he-w-002983",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-w-003240",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-w-004325",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "he-w-005040",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "he-w-005655",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "he-w-005963",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-w-006986",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-w-007496",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-w-008048",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-w-008205",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-w-009103",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-w-010733",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-w-010770",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "he-w-012458",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-w-012491",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-w-012591",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-w-012951",
+      "layer": "nearMatch",
+      "cls": "neg-other-variant"
+    },
+    {
+      "id": "he-w-015482",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-w-017560",
+      "layer": "nearMatch",
+      "cls": "neg-homophone-word"
+    },
+    {
+      "id": "he-w-017998",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-w-017999",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-w-018114",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-w-019163",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    },
+    {
+      "id": "he-w-020828",
+      "layer": "nearMatch",
+      "cls": "neg-real-word"
+    }
+  ]
+}

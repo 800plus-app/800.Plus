@@ -1,0 +1,80 @@
+in conclusion	לסיכום	In conclusion, this research shows that exercise improves our physical and mental health.
+income	הכנסה	Her income from writing two books helped her pay for college tuition.
+increase	להגדיל, להגביר	The company plans to increase its prices by ten percent next month.
+indication	אינדיקציה, סימן ל-	Dark clouds are an indication that rain is coming very soon.
+industry	תעשייה	The automobile industry employs millions of workers across North America.
+infected	הודבק	The infected wound needed immediate medical treatment to prevent disease.
+infection	זיהום	A serious infection can spread quickly through your body without antibiotics.
+infinite	אינסופי	The universe seems infinite in size, stretching beyond what we see.
+inform	להודיע, לעדכן	The doctor will inform you of the test results by tomorrow.
+ingredients	מרכיבים	The recipe requires simple ingredients like flour, eggs, butter, and sugar.
+initial	ראשי תיבות; התחלתי, ראשוני	What are the initial letters of your full name?
+initially	בתחילה	Initially, the students were nervous about the exam, but they relaxed quickly.
+insanity	אי שפיות	His insanity meant he could not stand trial for the crime.
+inspiration	השראה	Her grandmother was a great inspiration for becoming a scientist.
+inspiring	נותן השראה	The coach gave an inspiring speech before the championship game started.
+institute	מוסד, מכון; לכונן	The university will institute a new policy requiring all students to volunteer.
+insult	להעליב; עלבון	He did not mean to insult her, but his comment was quite offensive.
+intention	כוונה	My intention was to help, not to make things worse for everyone.
+internal	פנימי	Internal organs require careful surgery to repair or replace safely.
+interrupt	להפריע	Please do not interrupt me while I am speaking to the principal.
+invent	להמציא	Who invented the telephone, and when did this discovery change communication?
+investment	השקעה	Her investment in real estate has made her very wealthy over time.
+isolate	לבודד	Scientists isolate the virus in the laboratory to study its behavior.
+justify	להצדיק	You cannot justify breaking the law, no matter what your reasons are.
+labor	להתאמץ; עבודה, עמל, לעמול	She labored in the fields from sunrise until sunset every single day.
+lack	מחסור	The lack of rain caused a serious drought throughout the region.
+lame	צולע	The lame horse could not walk properly after its serious injury.
+leather	עור	She wore a leather belt with her new jeans to the party.
+lifetime	תקופת החיים, במשך החיים	She spent her lifetime teaching chemistry to high school students.
+liver	כבד	The liver is the largest organ in the human body system.
+loan	הלוואה	He took out a loan to buy his first house.
+locate	לאתר	The rescue team worked hard to locate the missing child safely.
+log	יומן, לתעד ביומן; בול עץ	The captain kept a daily log of the ship's position and weather.
+lone	בודד, יחיד	A lone wolf was spotted walking through the forest at night.
+loneliness	בדידות	Loneliness can have serious effects on your physical and mental health.
+lung	ריאה	Smoking damages your lungs and increases the risk of cancer.
+luxury	מותרות	Living in luxury means having access to expensive cars and jewelry.
+mainly	בעיקר	The restaurant serves mainly Italian food, but has some other cuisines.
+majority	רוב	The majority of students passed the exam with flying colors.
+meanwhile	בינתיים	She studied hard; meanwhile, her brother played video games all day.
+measure	אמצעי; למדוד	The government took measures to reduce pollution in the city.
+Mediterranean	ים תיכוני	Many tourists visit countries around the Mediterranean for their beautiful beaches.
+melt	להמיס	The ice cream melted quickly in the hot summer sun.
+minor	קטין; סולם מינור (במוזיקה); קטן, שולי	A minor cannot sign a legal contract without parental consent.
+mistaken	שגוי, מוטעה, טועה	If you think I am mistaken, please show me the correct answer.
+moral	מוסר	The moral of the story is that honesty is always the best policy.
+mortal	קטלני; אנושי, בן תמותה	That wound looked mortal, and the soldier did not survive the battle.
+native	יליד, מקומי, טבעי	Native Americans lived in North America for thousands of years.
+nest	קן, לקנן	The birds built a nest high in the old oak tree.
+notify	להודיע, ליידע	The university will notify you of your admission decision by email.
+nowadays	כיום	Nowadays, most people use smartphones instead of computers for browsing.
+objective	אובייקטיבי, ענייני; מטרה, יעד	The judge must remain objective and never favor one side over another.
+observation	תצפית, התבוננות; הערה, הבחנה	Her observation about the problem was very insightful and helpful.
+observe	להתבונן, להבחין	The scientists observe the animals in their natural habitat every day.
+offend	להעליב	I did not mean to offend you with my comments.
+offensive	מעליב, פוגעני	His offensive language made everyone uncomfortable during the meeting.
+operate	לפעול, להפעיל, לתפעל; לנתח	The factory operates twenty-four hours a day to meet demand.
+opponent	יריב, מתנגד	My tennis opponent was much stronger, but I played my best.
+orbit	מסלול (סביב גרם שמים); להקיף במסלול, לחוג	The Earth's orbit around the sun takes exactly 365 days to complete.
+origin	מקור, מוצא	The origin of language remains a mystery to scientists.
+outer	חיצוני	The outer walls of the castle were made of thick stone.
+outstanding	יוצא מן הכלל, מצוין	Her outstanding performance in the play earned her a scholarship.
+oven	תנור בישול	Heat the oven to 350 degrees before putting in the pizza.
+oxygen	חמצן	Plants produce oxygen, which humans and animals need to breathe.
+pad	לרפד	Athletes pad their joints to prevent injuries during intense sports.
+pan	מחבת	She heated the pan on the stove before adding the butter.
+parallel	מקביל	The two streets run parallel to each other through the city.
+particularly	במיוחד, בפרט	I like all fruits, but I particularly enjoy eating fresh strawberries.
+pattern	תבנית, דפוס, מתכונת; דוגמת עיטור	The pattern on her dress consisted of bright blue and red squares.
+peach	אפרסק	A ripe peach is sweet, juicy, and delicious to eat.
+perform	לבצע, להציג	The actor performed brilliantly in the lead role of the play.
+permanently	באופן קבוע, לצמיתות	He moved to Australia permanently and never returned to his hometown.
+pharmacy	בית מרקחת	I need to go to the pharmacy to pick up my prescription.
+poet	משורר	The famous poet wrote beautiful verses about love and nature.
+poisonous	רעיל	Some mushrooms are poisonous and can cause serious illness if eaten.
+polar	קוטבי, הפוך לחלוטין	Their opinions are polar opposites, so they rarely agree about anything.
+policy	מדיניות	The school's policy requires students to wear uniforms every day.
+poorly	בצורה גרועה	He performed poorly on the exam because he did not study.
+population	אוכלוסייה	The population of the city has grown to over two million people.
+portrait	דיוקן	The portrait of the king hung in the museum for centuries.

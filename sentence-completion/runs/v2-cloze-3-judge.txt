@@ -1,0 +1,8 @@
+1: LOOSE | fault, break, short, glitch
+2: FORCED | wasteland, desert, badland
+3: FORCED | sincerity, remorse, contrition
+4: LOOSE | certify, validate, authenticate
+5: FORCED | break, renege on, betray
+6: LOOSE | determine, identify, analyse
+7: FORCED | cure, eradicate, eliminate
+8: FORCED | defuse, resolve, mediate

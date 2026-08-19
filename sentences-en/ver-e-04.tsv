@@ -1,0 +1,79 @@
+pay	OK
+peace	OK
+people	OK
+perfect	FIX	She practiced for weeks to perfect every technical detail in her performance.	Swap test: "improve" fits equally; needs context where "perfect" is necessary
+perhaps	FIX	Perhaps I left my keys in the car, but I cannot be sure.	Swap test: "maybe" or "possibly" fit the same way
+person	FIX	The tall person wearing a red jacket helped me find the subway station.	Swap test: "individual" fits equally; needs identifying detail that requires "person"
+personal	FIX	She spoke about her personal experiences growing up in a refugee camp.	Swap test: "private" fits equally; "personal" must show individual ownership, not just privacy
+picture	FIX	She drew a beautiful picture of the sunset using only colored pencils.	Swap test: "photo" is a synonym; needs artistic/drawn context to distinguish
+place	FIX	The quiet corner near the window is my favorite place to read and think.	Swap test: "spot" or "location" fit; needs specific qualities that require "place"
+plan	FIX	We plan to drive across the country and camp at national parks for six weeks.	Swap test: "intend" or "aim" fit; needs specific, detailed intention
+plane	OK
+play	OK
+pool	OK
+poor	FIX	The poor family could not afford food, rent, or medical care.	Swap test: "impoverished" fits; needs to show extreme lack, not just low income
+possible	FIX	It is possible to learn a language if you study consistently for several months.	Swap test: "feasible" fits; needs to show conditions that make it possible
+potato	OK
+present	FIX	The students must present their science projects to the whole class today.	Swap test: "demonstrate" or "show" fit; needs context where "present" is specifically required
+president	OK
+printer	OK
+private	FIX	His private thoughts about his family should never appear in a public diary.	Swap test: "personal" fits equally; needs to show secrecy/exclusion from others
+probably	OK
+problem	OK
+promise	FIX	I made a promise to visit my grandmother every weekend without fail.	Swap test: "commitment" fits; needs to show a binding personal obligation
+protect	FIX	Parents protect their children by teaching them to look both ways before crossing streets.	Swap test: "guard" or "defend" fit; needs specific preventive action
+queen	OK
+quick	FIX	He gave a quick reply to each question, answering in just one or two words.	Swap test: "fast" fits equally; needs to show that speed is the defining characteristic
+quiet	FIX	The quiet classroom allowed students to concentrate without any distraction whatsoever.	Swap test: "silent" fits; needs to emphasize peaceful conditions for concentration
+rain	OK
+reason	FIX	The main reason she quit her job was that her boss never respected her ideas.	Swap test: "cause" fits; needs to show underlying motivation/logic
+record	FIX	The company keeps a record of every employee's work hours and vacation days.	Swap test: "file" or "document" fit; needs specific documented information purpose
+relationship	FIX	Their relationship grew stronger after they spent more time talking and listening to each other.	Swap test: "connection" fits; needs to show how it develops
+relax	FIX	I relax by turning off my phone and lying in the garden with a book.	Swap test: "unwind" fits; needs specific calming activity
+report	FIX	You must report any safety hazards to your supervisor immediately.	Swap test: "notify" or "inform" fit; needs mandatory disclosure context
+respect	FIX	The team respects their coach because he admits his mistakes and learns from them.	Swap test: "admire" fits; needs to show why respect is earned
+restaurant	OK
+rice	OK
+rich	FIX	The rich businessman donated half his fortune to build schools for poor children.	Swap test: "wealthy" fits; needs to show wealth enabling large-scale action
+ride	OK
+right	OK
+ring	FIX	She twisted the silver ring around her finger while she waited nervously.	Swap test: "band" fits equally; needs to show it as a distinct object/detail
+road	FIX	The mountain road twisted and turned so steeply that driving it made my hands shake.	Swap test: "path" or "route" fit; needs specific challenging characteristics
+run, ran	OK
+safe	FIX	The safe harbor protected ships from dangerous storms and strong waves.	Swap test: "secure" fits equally; needs specific sheltering context
+salt	OK
+save	FIX	The lifeguard saved the swimmer who had been pulled under by the current.	Swap test: "rescue" is synonymous; needs context where rescue action is shown
+saw, see	FIX	I saw a rare bird that the ornithologist had not documented before.	Swap test: "spotted" or "observed" fit; needs specific rare sighting
+scene	FIX	The movie scene showed a massive explosion that made the theater shake.	Swap test: "moment" fits; needs visual/spectacular element
+school	OK
+search	FIX	Police search for clues by examining the crime scene with special equipment and dogs.	Swap test: "hunt" fits; needs specific searching method
+secret	OK
+sell	FIX	They sell their handmade goods only at the local market on weekends.	Swap test: "vend" or "offer" fit; needs specific venue/restriction
+send	FIX	Send the package using express mail so it arrives within two days.	Swap test: "mail" fits; needs specific shipping method
+serious	FIX	The patient's condition became serious when his breathing became difficult and shallow.	Swap test: "grave" fits; needs medical/critical context
+service	OK
+shop	FIX	I bought groceries at the crowded shop, which closed at nine in the evening.	Swap test: "store" is synonymous; needs specific shop characteristic
+short	FIX	The short film told a complete story in just five minutes.	Swap test: "brief" fits; needs to show duration matters for the medium
+show	FIX	The magic show amazed children by making objects disappear right before their eyes.	Swap test: "performance" fits; needs specific spectacle/display type
+side	FIX	The sunny side of the street is much warmer than the shaded side.	Swap test: "edge" or "part" fit; needs to show physical division/contrast
+sign	OK
+simple	FIX	The simple design used only basic shapes and solid colors.	Swap test: "basic" fits; needs to show lack of complexity in form
+since	FIX	Since we arrived early, we decided to explore the neighborhood before the meeting.	Swap test: "because" fits; needs to show timing relationship
+singer	FIX	The singer had a voice so powerful that people in the back could hear every note clearly.	Swap test: "vocalist" fits; needs to show distinctive vocal quality
+single	FIX	She wore a single diamond on a thin gold chain around her neck.	Swap test: "one" fits contextually; needs to show solitary/alone quality
+sir	OK
+situation	FIX	The situation at work improved when the new manager began listening to employees.	Swap test: "condition" fits; needs to show change/improvement dynamic
+sky	OK
+sleep	FIX	Children sleep deeply after playing outside all afternoon.	Swap test: "rest" fits; needs to show depth/quality of sleep
+slow	FIX	The slow internet connection made downloading the file take several hours.	Swap test: "sluggish" fits; needs to show impact/consequence
+snake	OK
+snow	OK
+so	OK
+so that	FIX	I saved money each month so that I could buy a used car.	Swap test: "in order that" fits; needs to show clear purpose/goal
+soldier	FIX	The soldier carried heavy equipment on long marches through difficult terrain.	Swap test: "fighter" fits; needs to show specific military duties
+sometimes	FIX	Sometimes the bus is late, but mostly it arrives on schedule.	Swap test: "occasionally" fits; needs contrast with normal pattern
+soon	FIX	The doctor said I would feel better soon, probably within three or four days.	Swap test: "shortly" fits; needs approximate timing
+South	OK
+special	FIX	She wore a special dress embroidered with gold thread that her grandmother made.	Swap test: "elegant" fits; needs to show why it is special/unique
+spend	FIX	I spend my weekends hiking in the mountains near my home.	Swap test: "waste" fits but differs in connotation; needs positive/neutral spending
+stand	OK

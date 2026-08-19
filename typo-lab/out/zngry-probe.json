@@ -1,0 +1,111 @@
+{
+ "generatedAt": "2026-08-16T10:37:57.792Z",
+ "definition": "החלפת אות אחת · לא מתקבלת היום · לא מילת מאגר · לא מילה בלקסיקון",
+ "caveat": "יורש את פער 667 המילים של הלקסיקון · המספר הוא חסם עליון",
+ "cards": 3946,
+ "universe": {
+  "FIRST": 96446,
+  "LAST": 97408
+ },
+ "results": [
+  {
+   "tag": "בסיס · מה שנשלח היום",
+   "FIRST": {
+    "accepted": 23556,
+    "cards": 1834,
+    "pctCards": 0.4647744551444501,
+    "sample": [
+     "qgainst~against",
+     "sgainst~against",
+     "wgainst~against",
+     "zgainst~against",
+     "qlways~always",
+     "slways~always",
+     "wlways~always",
+     "zlways~always"
+    ]
+   },
+   "LAST": {
+    "accepted": 24608,
+    "cards": 2004,
+    "pctCards": 0.5078560567663457,
+    "sample": [
+     "seconc~second",
+     "seconf~second",
+     "seconr~second",
+     "secons~second",
+     "seconx~second",
+     "absolutell~absolutely",
+     "almosf~almost",
+     "almosr~almost"
+    ]
+   }
+  },
+  {
+   "tag": "מועמד · התלמיד",
+   "FIRST": {
+    "accepted": 23459,
+    "cards": 1737,
+    "pctCards": 0.44019260010136846,
+    "sample": [
+     "qgainst~against",
+     "sgainst~against",
+     "wgainst~against",
+     "zgainst~against",
+     "qlways~always",
+     "slways~always",
+     "wlways~always",
+     "zlways~always"
+    ]
+   },
+   "LAST": {
+    "accepted": 24608,
+    "cards": 2004,
+    "pctCards": 0.5078560567663457,
+    "sample": [
+     "seconc~second",
+     "seconf~second",
+     "seconr~second",
+     "secons~second",
+     "seconx~second",
+     "absolutell~absolutely",
+     "almosf~almost",
+     "almosr~almost"
+    ]
+   }
+  },
+  {
+   "tag": "שבור בכוונה · בלי המקדמים",
+   "FIRST": {
+    "accepted": 24033,
+    "cards": 2241,
+    "pctCards": 0.5679168778509883,
+    "sample": [
+     "eecond~second",
+     "qgainst~against",
+     "sgainst~against",
+     "wgainst~against",
+     "zgainst~against",
+     "llmost~almost",
+     "qlways~always",
+     "slways~always"
+    ]
+   },
+   "LAST": {
+    "accepted": 25153,
+    "cards": 2389,
+    "pctCards": 0.6054232133806386,
+    "sample": [
+     "seconc~second",
+     "seconf~second",
+     "seconn~second",
+     "seconr~second",
+     "secons~second",
+     "seconx~second",
+     "absolutell~absolutely",
+     "almosf~almost"
+    ]
+   }
+  }
+ ]
+}

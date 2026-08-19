@@ -86,7 +86,7 @@ const Store = {
   },
 
   /* האירוע מועבר הלאה ולא נבלע. "אין הפעלה" ו"המשתמש התנתק" הם שני מצבים שונים לגמרי:
-     supabase-js משדר INITIAL_SESSION עם null כשהיא לא הצליחה לקרוא הפעלה · למשל בלי רשת · 
+     supabase-js משדר INITIAL_SESSION עם null כשהיא לא הצליחה לקרוא הפעלה · למשל בלי רשת ·
      ומי שמתייחס לזה כאל התנתקות מוחק את המשתמש בדיוק אחרי שהאתחול שחזר אותו מהדיסק. */
   onAuthChange(cb) { sb.auth.onAuthStateChange((evt, session) => cb(session, evt)); },
   async myProfile() {
@@ -189,7 +189,7 @@ const Store = {
 
   /* ---------- willingness-to-pay survey (one shot per learner) ---------- */
   /* Asked once, ever. The flag lives in the table and not only in localStorage, because a
-     learner who switches phone or clears storage would otherwise be asked a second time -- 
+     learner who switches phone or clears storage would otherwise be asked a second time --
      and a survey that reappears reads as nagging rather than as a question.
      Returns true = already asked (answered or dismissed) → do not show.
      On any error, including the table not existing yet (42P01), returns true: never show a

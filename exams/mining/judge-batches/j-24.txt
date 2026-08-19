@@ -1,0 +1,80 @@
+מתנה	מתנה	analogy	1	1	1.0	summer_2025·פרק2·ש1·מסיח 4	close:מתנ
+מתנוסס	מתנוסס	analogy	1	1	3.0	2020_autumn·פרק2·ש3·רגל	close:מתנ
+מתנצל	מתנצל	analogy	1	1	1.0	summer_2023·פרק1·ש1·רגל	close:מתנ
+מתעכב	מתעכב	analogy	1	1	3.0	2019_winter·פרק2·ש3·מסיח 2	miss
+מתפכח	מתפכח	analogy	1	1	3.0	2019_winter·פרק2·ש3·רגל	close:פכח
+מתפלג	מתפלג	analogy	1	1	3.0	2019_winter·פרק2·ש3·מסיח 1	close:תפל
+מתפתה	מתפתה	analogy	1	1	5.0	spring_2023·פרק2·ש5·מסיח 4	close:פתה
+מתק תק	מתק תק	analogy	1	1	6.0	summer_2025·פרק1·ש6·מסיח 1	close:מתק
+מתרושש	מתרושש	analogy	1	1	3.0	2019_winter·פרק2·ש3·מסיח 4	close:רשש
+נאבק	נאבק	analogy	1	1	5.0	spring_2022·פרק1·ש5·מסיח 1	close:אבק
+נאלצה	נאלצה	completion	1	1	0.0	summer_2023·פרק2·ש16·אפשרות 2	miss
+נאשם	נאשם	analogy	1	1	5.0	2019_winter·פרק2·ש5·מסיח 1	close:אשמ
+נבול	נבול	analogy	1	1	4.0	autumn_2023·פרק1·ש4·מסיח 1	miss
+נבחרו	נבחרו	completion	1	1	0.0	spring_2022·פרק2·ש17·אפשרות 1	miss
+נבחרי	נבחרי	completion	1	1	0.0	spring_2022·פרק2·ש17·אפשרות 3	miss
+נבחריו	נבחריו	completion	1	1	0.0	spring_2022·פרק2·ש16·אפשרות 4	miss
+נגזר דינו	נגזר דינו	analogy	1	1	1.0	spring_2025·פרק2·ש1·מסיח 1	close:גזר
+נגינתו	נגינתו	completion	1	1	0.0	2019_winter·פרק1·ש14·אפשרות ?	miss
+נגנים	נגנים	analogy	1	1	5.0	summer_2022·פרק1·ש5·מסיח 1	miss
+נגרייה	נגרייה	analogy	1	1	5.0	2020_winter·פרק1·ש5·מסיח 2	close:נגר
+נדד	נדד	analogy	1	1	1.0	2020_winter·פרק1·ש1·מסיח 2	miss
+נדנוד	נדנוד	analogy	1	1	2.0	summer_2023·פרק1·ש2·מסיח 4	close:נדנ
+נדרשו	נדרשו	completion	1	1	0.0	spring_2025·פרק1·ש11·אפשרות 1	miss
+נהגתי	נהגתי	completion	1	1	0.0	summer_2022·פרק1·ש9·אפשרות 3	miss
+נהדר	נהדר	analogy	1	1	3.0	autumn_2021·פרק1·ש3·מסיח 4	close:הדר
+נו"ן	נו"ן	analogy	1	1	1.0	2020_autumn·פרק2·ש1·רגל	miss
+נובחים	נובחים	completion	1	1	0.0	2019_winter·פרק2·ש10·אפשרות 1	miss
+נוגעות	נוגעות	completion	1	1	0.0	spring_2023·פרק1·ש13·אפשרות 4	miss
+נוגעים	נוגעים	completion	1	1	0.0	spring_2023·פרק2·ש7·אפשרות 3	miss
+נודע	נודע	completion	1	1	0.0	autumn_2023·פרק2·ש15·אפשרות 1	miss
+נוהג	נוהג	completion	1	1	0.0	summer_2025·פרק1·ש15·אפשרות 4	miss
+נוטים	נוטים	completion	1	1	0.0	2020_summer·פרק1·ש9·אפשרות 3	miss
+נוסע	נוסע	analogy	1	1	2.0	spring_2025·פרק2·ש2·מסיח 3	miss
+נוספים	נוספים	completion	1	1	0.0	autumn_2025·פרק1·ש11·אפשרות 2	miss
+נוף	נוף	analogy	1	1	6.0	autumn_2025·פרק2·ש6·מסיח 2	miss
+נופי	נופי	completion	1	1	0.0	spring_2024·פרק2·ש11·אפשרות 2	miss
+נורמה	נורמה	analogy	1	1	1.0	summer_2022·פרק2·ש1·מסיח 1	close:רמה
+נזהר	נזהר	analogy	1	1	6.0	summer_2022·פרק2·ש6·מסיח 4	close:זהר
+נזוף	נזוף	analogy	1	1	1.0	summer_2026·פרק2·ש1·רגל	miss
+נזיפות	נזיפות	analogy	1	1	6.0	2020_autumn·פרק1·ש6·רגל	miss
+נזכר	נזכר	analogy	1	1	5.0	spring_2022·פרק1·ש5·מסיח 2	close:זכר
+נזעמת	נזעמת	completion	1	1	0.0	summer_2021·פרק2·ש10·אפשרות 2	miss
+נזף	נזף	analogy	1	1	1.0	summer_2026·פרק2·ש1·רגל	miss
+נחבל	נחבל	analogy	1	1	4.0	spring_2024·פרק1·ש4·מסיח 1	close:חבל
+נחוץ	נחוץ	analogy	1	1	3.0	autumn_2021·פרק1·ש3·מסיח 3	miss
+נחוצה	נחוצה	completion	1	1	0.0	winter_2023·פרק1·ש12·אפשרות 3	miss
+נחוש	נחוש	analogy	1	1	5.0	summer_2026·פרק1·ש5·מסיח 2	miss
+נחרב	נחרב	analogy	1	1	3.0	autumn_2024·פרק2·ש3·מסיח 1	close:חרב
+נחשב	נחשב	completion	1	1	0.0	spring_2025·פרק1·ש12·אפשרות 3	miss
+נחשפים	נחשפים	completion	1	1	0.0	spring_2025·פרק1·ש12·אפשרות 2	miss
+נחשק	נחשק	analogy	1	1	4.0	summer_2024·פרק1·ש4·מסיח 1	close:חשק
+נטווה	נטווה	analogy	1	1	4.0	spring_2023·פרק2·ש4·מסיח 4	close:נטה
+נטיעה	נטיעה	analogy	1	1	6.0	2020_spring·פרק2·ש6·מסיח 3	close:נטע
+נידוי	נידוי	analogy	1	1	3.0	2020_spring·פרק2·ש3·מסיח 4	miss
+ניחא	ניחא	analogy	1	1	6.0	2019_winter·פרק2·ש6·מסיח 4	miss
+נילי	נילי	completion	1	1	0.0	summer_2023·פרק2·ש16·אפשרות 4	miss
+נימוס	נימוס	analogy	1	1	3.0	summer_2025·פרק2·ש3·מסיח 3	miss
+ניסה	ניסה	analogy	1	1	6.0	2020_winter·פרק2·ש6·מסיח 4	miss
+ניסוי	ניסוי	completion	1	1	0.0	autumn_2023·פרק2·ש13·אפשרות 4	miss
+ניסח	ניסח	completion	1	1	0.0	summer_2022·פרק1·ש10·אפשרות 1	miss
+ניסר	ניסר	analogy	1	1	5.0	2020_winter·פרק1·ש5·מסיח 2	close:נסר
+ניסתה	ניסתה	completion	1	1	0.0	summer_2023·פרק2·ש16·אפשרות 4	miss
+ניער	ניער	analogy	1	1	4.0	2020_summer·פרק1·ש4·מסיח 2	close:נער
+ניצים	ניצים	analogy	1	1	4.0	winter_2023·פרק2·ש4·רגל	miss
+ניצל	ניצל	analogy	1	1	5.0	summer_2021·פרק2·ש5·מסיח 3	miss
+ניצן"	ניצן"	completion	1	1	0.0	2020_winter·פרק2·ש11·אפשרות 3	miss
+ניקיון	ניקיון	analogy	1	1	3.0	summer_2023·פרק2·ש3·מסיח 3	miss
+נכלא	נכלא	analogy	1	1	4.0	spring_2024·פרק1·ש4·מסיח 4	close:נכל
+נכס	נכס	analogy	1	1	6.0	summer_2026·פרק2·ש6·מסיח 1	miss
+נכסים	נכסים	analogy	1	1	6.0	autumn_2024·פרק1·ש6·מסיח 1	miss
+נלהבת	נלהבת	completion	1	1	0.0	summer_2021·פרק2·ש10·אפשרות 1	miss
+נלכד	נלכד	analogy	1	1	4.0	spring_2023·פרק1·ש4·מסיח 4	close:לכד
+נמוכים	נמוכים	completion	1	1	0.0	autumn_2025·פרק2·ש15·אפשרות 3	miss
+נמלט	נמלט	analogy	1	1	2.0	summer_2021·פרק1·ש2·מסיח 4	miss
+נמלט בעור שיניו	נמלט בעור שיניו	analogy	1	1	5.0	summer_2021·פרק2·ש5·מסיח 3	close:בעור
+נמלך בדעתו	נמלך בדעתו	analogy	1	1	5.0	autumn_2021·פרק2·ש5·מסיח 2	close:נמלך
+נמש	נמש	analogy	1	1	2.0	winter_2023·פרק2·ש2·מסיח 1	miss
+ננטש	ננטש	analogy	1	1	4.0	spring_2024·פרק1·ש4·מסיח 3	close:נטש
+נסיעה	נסיעה	analogy	1	1	2.0	summer_2023·פרק2·ש2·מסיח 3	miss
+נסיעתו	נסיעתו	completion	1	1	0.0	autumn_2023·פרק1·ש14·אפשרות 4	miss

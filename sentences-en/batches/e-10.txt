@@ -1,0 +1,80 @@
+2	solution	פתרון
+2	solve	לפתור
+2	sort	למיין
+2	speak, spoke	לדבר, דיבר
+2	speed	מהירות
+2	sperm	זרע
+2	spicy	פיקנטי
+2	spider	עכביש
+2	sponsor	נותן חסות
+2	spontaneous	ספונטני, לא מתוכנן, מתרחש מאליו
+2	spray	לרסס, לפזר
+2	spy	מרגל, לרגל
+2	steal	לגנוב
+2	stereotype	סטריאוטיפ
+2	stone	אבן
+2	storm	סערה
+2	strategy	אסטרטגיה
+2	stress	להדגיש; מתח, לחץ, מצוקה
+2	stuff	דברים; למלא, לפחלץ
+2	success	הצלחה
+2	such as	כמו למשל
+2	suggest	להציע
+2	suicide	התאבדות
+2	sunlight	אור שמש, קרינת השמש
+2	survival	הישרדות
+2	sword	חרב
+2	symbol	סמל
+2	syrup	סירופ
+2	talent	כשרון
+2	tax	מס
+2	think, thought	לחשוב, חשב
+2	thriller	מותחן
+2	tiny	קטנטן
+2	tone	טון
+2	tour	סיור
+2	tourist	תייר
+2	tower	מגדל
+2	town	עיר, עיירה
+2	toxic	רעיל
+2	tragic	טרגי
+2	treasure	אוצר, לנצור
+2	triple	פי 3
+2	twins	תאומים
+2	type	להקליד; סוג
+2	ugly	מכוער
+2	uncle	דוד
+2	unique	יחיד במינו, ייחודי; מיוחד
+2	unit	יחידה
+2	unlock	לפתוח, לשחרר
+2	unsafe	לא בטוח
+2	update	עדכון, לעדכן
+2	upgrade	לשדרג
+2	use	תועלת, תכלית; לנצל; להשתמש
+2	vacation	חופשה
+2	vegetarian	צמחוני
+2	versions	גרסאות
+2	victory	ניצחון
+2	virtual	מדומה, וירטואלי
+2	vote	קול, הצבעה, להצביע
+2	warning	אזהרה
+2	wave	גל
+2	weapon	נשק
+2	weight	משקל
+2	while	בזמן ש-, בעוד ש-; ואילו, אף על פי ש-; כל עוד
+2	wise	חכם, פיקח
+2	wolf (wolves)	זאב (זאבים)
+2	wood	עץ
+2	worldwide	כלל עולמי, בכל העולם
+2	worry	דאגה, לדאוג
+2	zone	אזור
+3	ability	יכולת
+3	above all	מעל לכל
+3	absurd	מגוחך, לא סביר
+3	accept	לקבל
+3	accident	תאונה
+3	according	לפי
+3	across	בצד השני, לרוחב
+3	active	פעיל
+3	actress	שחקנית (בהצגה או סרט)
+3	adult	מבוגר

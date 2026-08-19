@@ -1,0 +1,80 @@
+4	priest	כומר
+4	prime	ראשוני, עיקרי, מובחר
+4	primitive	קדום, חסר תרבות
+4	propaganda	תעמולה
+4	proper	מתאים, הולם
+4	properly	כראוי
+4	prove	להוכיח
+4	provide	לפרנס; לספק
+4	publish	לפרסם, להוציא לאור
+4	purchase	לקנות, לרכוש
+4	quite	למדי
+4	quote	ציטוט
+4	race	מרוץ; גזע
+4	raid	פשיטה
+4	rainfall	ירידת גשמים
+4	rainstorm	סערת גשמים
+4	randomly	באקראיות
+4	range	טווח; רכס; מטווח
+4	rank	דרגה
+4	rapid	מהיר; אֶשֶד, זרם מים מהיר בנהר
+4	rather than	במקום, יותר מ-
+4	rational	הגיוני, רציונאלי
+4	ray	קרן, אלומת אור
+4	reader	קורא
+4	rebel	מורד
+4	reborn	נולד מחדש
+4	recordings	הקלטות
+4	recycle	למחזר
+4	recycling	מחזור
+4	redhead	ג'ינג'י (סלנג)
+4	reduce	להפחית
+4	reform	שינוי, רפורמה
+4	regret	להתחרט, חרטה
+4	regularly	באופן קבוע
+4	relations	יחסים
+4	reorganize	לארגן מחדש
+4	replacement	מחליף
+4	replica	העתק מדויק
+4	reply	להשיב
+4	resource	משאב
+4	rest	מנוחה; יתר, שאר
+4	retroactive	רטרואקטיבי, למפרע
+4	rhythm	קֶצֶב
+4	rough	קשה, מחוספס
+4	ruin	להרוס
+4	sacrifice	להקריב, קורבן
+4	savanna	ערבה, סוואנה
+4	seafood	פירות ים
+4	seeds	זרעים
+4	seek	לחפש, לתור אחר; לשאוף ל-; לבקש
+4	segment	קטע, מקטע
+4	select	לבחור
+4	selective	סלקטיבי
+4	self-confidence	בטחון-עצמי
+4	separately	בנפרד
+4	separation	הפרדה
+4	several	אחדים, כמה
+4	share	מניה; לחלוק
+4	shelf (shelves)	מדף (מדפים)
+4	shift	משמרת; להזיז
+4	side effect	תופעת לוואי
+4	sight	ראייה, כוונת
+4	significantly	באופן משמעותי
+4	silently	בשקט
+4	slavery	עבדות
+4	so long as	כל עוד
+4	sound	קול; בריא
+4	speaker	דובר
+4	spice	תבלין, לתבל
+4	spot	כתם; לזהות
+4	spread	התפשטות, פיזור; ממרח, למרוח
+4	stadium	אצטדיון
+4	stamina	כושר עמידה, סיבולת
+4	statement	הצהרה
+4	stock	מלאי; מניה; לאחסן
+4	storage	אחסון
+4	study	מחקר; חדר עבודה
+4	subject	נושא; נתין, אזרח; נבדק; להכפיף, לחשוף ל-; נתון ל-, כפוף ל-
+4	sundown	שקיעה
+4	surface	פני שטח

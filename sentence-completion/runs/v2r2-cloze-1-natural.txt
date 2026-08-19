@@ -1,0 +1,8 @@
+1: fault, glitch, break
+2: wasteland, desert, badland
+3: sincerity, contrition, remorse
+4: register, ratify, validate
+5: renege on, break, abandon
+6: determine, identify, ascertain
+7: cure, reverse, eradicate
+8: withdrew, withheld, pulled

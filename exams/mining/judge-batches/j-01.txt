@@ -1,0 +1,80 @@
+חלק	חלק	analogy+completion	8	8	3.5	autumn_2024·פרק2·ש14·אפשרות 2 ; summer_2022·פרק1·ש9·אפשרות 4 ; summer_2024·פרק1·ש5·מסיח 1	close:חלק
+ספק	ספק	analogy+completion	7	8	4.5	autumn_2023·פרק2·ש15·אפשרות 2 ; summer_2023·פרק1·ש3·רגל ; summer_2024·פרק2·ש11·אפשרות 1	close:ספק
+תמיד	תמיד	completion	7	7	0.0	autumn_2021·פרק2·ש13·אפשרות 4 ; autumn_2024·פרק1·ש14·אפשרות 2 ; spring_2022·פרק1·ש10·אפשרות 4	miss
+תועלת	תועלת	analogy+completion	6	6	4.7	autumn_2021·פרק1·ש10·אפשרות 2 ; spring_2025·פרק1·ש5·מסיח 2 ; summer_2023·פרק1·ש3·מסיח 1	miss
+אמת	אמת	analogy+completion	5	5	4.0	spring_2025·פרק2·ש15·אפשרות 2 ; summer_2023·פרק1·ש5·מסיח 4 ; 2020_autumn·פרק1·ש12·אפשרות 3	close:אמת
+ביקש	ביקש	analogy+completion	5	5	3.5	autumn_2021·פרק2·ש1·מסיח 3 ; autumn_2024·פרק2·ש4·רגל ; autumn_2025·פרק1·ש5·רגל	close:בקש
+גינה	גינה	analogy+completion	5	5	4.0	spring_2022·פרק1·ש11·אפשרות 1 ; summer_2021·פרק1·ש3·מסיח 3 ; summer_2024·פרק2·ש3·מסיח 2	close:גנה
+הופתעתי	הופתעתי	completion	5	5	0.0	autumn_2021·פרק1·ש11·אפשרות 1 ; autumn_2023·פרק1·ש14·אפשרות 1 ; spring_2022·פרק2·ש16·אפשרות 1	miss
+הסכמה	הסכמה	analogy	5	5	2.8	autumn_2021·פרק2·ש1·מסיח 3 ; spring_2025·פרק2·ש3·רגל ; summer_2021·פרק1·ש1·מסיח 2	close:סכמ
+ורק	ורק	completion	5	5	0.0	spring_2022·פרק2·ש17·אפשרות 1 ; spring_2024·פרק1·ש16·אפשרות 4 ; spring_2025·פרק1·ש11·אפשרות 3	miss
+טובה	טובה	completion	5	5	0.0	autumn_2024·פרק1·ש15·אפשרות 1 ; autumn_2025·פרק1·ש11·אפשרות 3 ; summer_2022·פרק2·ש17·אפשרות 1	miss
+טעם	טעם	analogy+completion	5	5	5.5	autumn_2021·פרק1·ש10·אפשרות 4 ; spring_2024·פרק2·ש5·מסיח 1 ; summer_2023·פרק1·ש11·אפשרות 1	close:טעמ
+כסף	כסף	analogy+completion	5	5	1.5	autumn_2024·פרק2·ש12·אפשרות 1 ; spring_2022·פרק2·ש2·מסיח 2 ; spring_2023·פרק2·ש2·מסיח 2	close:כספ
+מכונית	מכונית	analogy	5	5	3.0	summer_2021·פרק1·ש3·מסיח 4 ; summer_2022·פרק1·ש2·מסיח 1 ; 2020_autumn·פרק2·ש2·מסיח 3	miss
+מקום	מקום	analogy+completion	5	5	4.3	autumn_2021·פרק1·ש5·מסיח 3 ; autumn_2024·פרק2·ש5·מסיח 4 ; spring_2022·פרק2·ש17·אפשרות 3	miss
+משקל	משקל	analogy+completion	5	5	2.3	autumn_2023·פרק2·ש3·מסיח 2 ; spring_2023·פרק2·ש2·מסיח 4 ; spring_2024·פרק1·ש17·אפשרות 4	miss
+נדיר	נדיר	analogy+completion	5	5	5.0	autumn_2021·פרק1·ש11·אפשרות 2 ; autumn_2023·פרק1·ש14·אפשרות 2 ; spring_2024·פרק1·ש5·רגל	miss
+שינה	שינה	analogy+completion	5	5	2.0	summer_2021·פרק1·ש1·מסיח 1 ; summer_2022·פרק1·ש1·מסיח 3 ; summer_2025·פרק1·ש14·אפשרות 3	miss
+תשובה	תשובה	analogy+completion	5	5	1.5	autumn_2025·פרק2·ש2·מסיח 2 ; spring_2024·פרק2·ש2·רגל ; summer_2023·פרק1·ש1·מסיח 4	close:שבה
+בגד	בגד	analogy	4	4	2.8	spring_2024·פרק2·ש6·מסיח 2 ; summer_2021·פרק1·ש3·רגל ; 2020_summer·פרק2·ש1·מסיח 3	miss
+בית	בית	analogy+completion	4	4	3.5	spring_2022·פרק2·ש17·אפשרות 1 ; summer_2023·פרק1·ש6·רגל ; summer_2024·פרק1·ש15·אפשרות 4	miss
+ברור	ברור	analogy+completion	4	4	1.0	autumn_2021·פרק2·ש14·אפשרות 2 ; spring_2023·פרק2·ש8·אפשרות 2 ; 2019_winter·פרק2·ש1·מסיח 1	miss
+החלטה	החלטה	analogy+completion	4	4	2.0	autumn_2024·פרק1·ש15·אפשרות 1 ; autumn_2025·פרק2·ש2·מסיח 1 ; spring_2023·פרק1·ש12·אפשרות 4	miss
+יער	יער	analogy+completion	4	4	4.3	autumn_2023·פרק2·ש13·אפשרות 1 ; summer_2024·פרק2·ש6·מסיח 2 ; 2020_spring·פרק2·ש6·מסיח 3	close:יער
+להיענות	להיענות	analogy+completion	4	4	5.0	autumn_2024·פרק1·ש5·מסיח 4 ; summer_2023·פרק2·ש16·אפשרות 1 ; summer_2026·פרק1·ש9·אפשרות 1	miss
+לקנות	לקנות	analogy+completion	4	4	3.7	spring_2025·פרק1·ש11·אפשרות 3 ; summer_2024·פרק1·ש3·מסיח 1 ; 2020_autumn·פרק1·ש6·מסיח 4	miss
+לקרוא	לקרוא	analogy+completion	4	4	2.0	autumn_2023·פרק1·ש2·מסיח 2 ; spring_2023·פרק1·ש2·מסיח 3 ; summer_2021·פרק2·ש10·אפשרות 1	miss
+לרדוף	לרדוף	analogy	4	4	3.2	spring_2022·פרק2·ש3·מסיח 1 ; summer_2021·פרק1·ש2·מסיח 4 ; winter_2023·פרק2·ש3·מסיח 2	miss
+לשבח	לשבח	analogy+completion	4	4	5.5	autumn_2021·פרק1·ש11·אפשרות 1 ; spring_2025·פרק2·ש5·מסיח 2 ; 2019_winter·פרק1·ש14·אפשרות ?	miss
+מדי	מדי	completion	4	4	0.0	spring_2022·פרק1·ש9·אפשרות 1 ; spring_2025·פרק1·ש12·אפשרות 4 ; winter_2022·פרק1·ש7·אפשרות 3	miss
+מזון	מזון	analogy+completion	4	4	2.7	autumn_2024·פרק2·ש1·מסיח 3 ; spring_2024·פרק2·ש9·אפשרות 3 ; summer_2023·פרק1·ש4·מסיח 1	miss
+מרבית	מרבית	completion	4	4	0.0	summer_2023·פרק1·ש9·אפשרות 3 ; summer_2026·פרק1·ש10·אפשרות 1 ; 2019_winter·פרק2·ש10·אפשרות 2	miss
+נגן	נגן	analogy	4	4	1.8	spring_2025·פרק2·ש2·מסיח 2 ; summer_2026·פרק1·ש1·מסיח 3 ; 2020_spring·פרק2·ש2·מסיח 4	miss
+עניין	עניין	analogy+completion	4	4	6.0	autumn_2024·פרק1·ש15·אפשרות 2 ; summer_2026·פרק2·ש12·אפשרות 1 ; 2019_spring·פרק2·ש6·לא-זוהה	miss
+פירורים	פירורים	analogy	4	4	5.0	autumn_2021·פרק2·ש4·רגל ; spring_2023·פרק2·ש6·מסיח 4 ; summer_2023·פרק2·ש4·רגל	miss
+פרח	פרח	analogy	4	4	4.0	autumn_2023·פרק1·ש4·מסיח 1 ; spring_2022·פרק2·ש5·מסיח 3 ; summer_2021·פרק1·ש3·מסיח 3	close:פרח
+פרי	פרי	analogy+completion	4	4	2.0	spring_2025·פרק1·ש2·מסיח 1 ; summer_2022·פרק2·ש3·מסיח 2 ; winter_2022·פרק2·ש13·אפשרות 3	close:פרי
+פשע	פשע	analogy	4	4	3.2	autumn_2023·פרק1·ש3·מסיח 4 ; spring_2023·פרק2·ש1·רגל ; 2020_spring·פרק2·ש4·מסיח 4	miss
+רבה	רבה	completion	4	4	0.0	autumn_2021·פרק1·ש10·אפשרות 2 ; autumn_2024·פרק1·ש13·אפשרות 2 ; summer_2023·פרק2·ש15·אפשרות 4	miss
+שמחה	שמחה	analogy+completion	4	4	1.0	autumn_2021·פרק1·ש12·אפשרות 1 ; summer_2021·פרק1·ש1·מסיח 4 ; summer_2026·פרק1·ש8·אפשרות 4	close:שמחה
+תורם	תורם	analogy+completion	4	4	4.0	autumn_2023·פרק2·ש4·מסיח 3 ; spring_2023·פרק2·ש4·מסיח 3 ; spring_2025·פרק1·ש10·אפשרות 2	miss
+אופניים	אופניים	analogy	3	3	3.0	summer_2022·פרק1·ש2·רגל ; summer_2026·פרק1·ש6·מסיח 2 ; winter_2022·פרק2·ש1·רגל	close:פנמ
+אור	אור	analogy	3	3	1.7	autumn_2023·פרק2·ש2·מסיח 2 ; autumn_2024·פרק2·ש1·רגל ; summer_2023·פרק1·ש2·רגל	miss
+איסור	איסור	analogy+completion	3	3	2.5	autumn_2024·פרק1·ש2·מסיח 3 ; spring_2024·פרק2·ש9·אפשרות 2 ; 2020_spring·פרק2·ש3·מסיח 2	miss
+אכזבה	אכזבה	analogy+completion	3	3	3.0	autumn_2021·פרק1·ש12·אפשרות 4 ; summer_2023·פרק1·ש3·מסיח 2 ; 2020_spring·פרק1·ש3·מסיח 1	close:כזב
+אכל	אכל	analogy	3	3	4.3	spring_2023·פרק2·ש6·מסיח 4 ; spring_2025·פרק2·ש4·מסיח 2 ; winter_2023·פרק2·ש3·מסיח 3	close:אכל
+אליהם	אליהם	completion	3	3	0.0	autumn_2023·פרק1·ש13·אפשרות 2 ; spring_2024·פרק2·ש11·אפשרות 2 ; summer_2024·פרק2·ש9·אפשרות 4	miss
+אפשרות	אפשרות	analogy	3	3	4.0	autumn_2025·פרק1·ש4·רגל ; summer_2022·פרק1·ש4·מסיח 4 ; summer_2026·פרק2·ש4·מסיח 2	close:פשר
+אש	אש	analogy	3	3	2.0	autumn_2023·פרק2·ש2·רגל ; autumn_2024·פרק2·ש1·מסיח 1 ; 2020_autumn·פרק1·ש3·מסיח 4	miss
+בהתאם	בהתאם	completion	3	3	0.0	spring_2022·פרק2·ש17·אפשרות 1 ; summer_2024·פרק2·ש9·אפשרות 3 ; 2020_winter·פרק1·ש8·אפשרות ?	miss
+במידת	במידת	completion	3	3	0.0	spring_2024·פרק1·ש17·אפשרות 4 ; summer_2026·פרק2·ש13·אפשרות 3 ; 2020_winter·פרק2·ש11·אפשרות 2	miss
+בעיניי	בעיניי	completion	3	3	0.0	spring_2024·פרק1·ש17·אפשרות 1 ; summer_2026·פרק2·ש12·אפשרות 1 ; winter_2022·פרק2·ש12·אפשרות 3	miss
+גפרור	גפרור	analogy	3	3	3.7	autumn_2024·פרק2·ש1·מסיח 1 ; spring_2024·פרק2·ש6·מסיח 4 ; 2019_spring·פרק1·ש4·לא-זוהה	miss
+גרזן	גרזן	analogy	3	3	2.3	autumn_2023·פרק1·ש2·מסיח 4 ; autumn_2024·פרק1·ש3·רגל ; summer_2021·פרק2·ש2·רגל	close:רזנ
+הייתי	הייתי	completion	3	3	0.0	autumn_2023·פרק2·ש15·אפשרות 1 ; autumn_2025·פרק1·ש12·אפשרות 1 ; summer_2022·פרק2·ש17·אפשרות 1	miss
+היסוד	היסוד	completion	3	3	0.0	spring_2022·פרק1·ש10·אפשרות 4 ; 2020_autumn·פרק1·ש14·אפשרות 1 ; 2020_winter·פרק1·ש9·אפשרות 3	miss
+הנאה	הנאה	analogy+completion	3	3	3.5	autumn_2023·פרק2·ש3·מסיח 1 ; summer_2021·פרק2·ש4·רגל ; winter_2023·פרק1·ש11·אפשרות 2	close:נאה
+התברר	התברר	completion	3	3	0.0	spring_2022·פרק2·ש15·אפשרות 4 ; summer_2024·פרק2·ש10·אפשרות 4 ; 2020_spring·פרק1·ש10·אפשרות 1	miss
+ולו	ולו	completion	3	3	0.0	autumn_2021·פרק1·ש12·אפשרות 3 ; spring_2022·פרק2·ש17·אפשרות 2 ; winter_2022·פרק2·ש14·אפשרות 3	miss
+זהיר	זהיר	analogy	3	3	4.3	autumn_2024·פרק1·ש2·מסיח 2 ; spring_2024·פרק1·ש5·מסיח 4 ; winter_2023·פרק2·ש6·מסיח 1	close:זהר
+חולצה	חולצה	analogy	3	3	2.3	autumn_2021·פרק1·ש4·מסיח 1 ; winter_2022·פרק1·ש2·מסיח 3 ; 2020_summer·פרק2·ש1·מסיח 3	close:חלצ
+חוקי	חוקי	analogy+completion	3	3	1.0	autumn_2024·פרק2·ש14·אפשרות 2 ; spring_2022·פרק2·ש16·אפשרות 4 ; spring_2023·פרק2·ש1·רגל	miss
+חיובית	חיובית	completion	3	3	0.0	summer_2023·פרק1·ש11·אפשרות 1 ; winter_2022·פרק2·ש12·אפשרות 3 ; 2020_winter·פרק1·ש9·אפשרות 1	miss
+חיונית	חיונית	completion	3	3	0.0	summer_2024·פרק2·ש9·אפשרות 2 ; winter_2023·פרק1·ש12·אפשרות 2 ; 2020_spring·פרק2·ש7·אפשרות 3	miss
+חינם	חינם	analogy+completion	3	3	3.5	spring_2024·פרק2·ש1·מסיח 2 ; winter_2022·פרק2·ש6·מסיח 2 ; 2020_summer·פרק2·ש12·אפשרות 2	miss
+חלופה	חלופה	analogy+completion	3	3	6.0	spring_2025·פרק2·ש16·אפשרות 3 ; summer_2021·פרק2·ש11·אפשרות 2 ; 2019_winter·פרק2·ש6·רגל	close:חלפ
+חמוץ	חמוץ	analogy	3	3	3.7	summer_2025·פרק1·ש6·רגל ; 2019_spring·פרק1·ש1·לא-זוהה ; 2020_autumn·פרק1·ש4·מסיח 3	close:חמצ
+חשוב	חשוב	analogy+completion	3	3	1.0	autumn_2024·פרק2·ש13·אפשרות 4 ; spring_2023·פרק2·ש1·מסיח 4 ; summer_2023·פרק2·ש16·אפשרות 4	miss
+חתונה	חתונה	analogy	3	3	4.3	summer_2025·פרק2·ש3·מסיח 4 ; winter_2023·פרק2·ש4·מסיח 3 ; 2019_spring·פרק1·ש6·לא-זוהה	miss
+ידיים	ידיים	analogy+completion	3	3	4.0	spring_2024·פרק1·ש3·מסיח 4 ; summer_2023·פרק1·ש9·אפשרות 2 ; summer_2025·פרק1·ש5·מסיח 4	close:ידי
+יהלום	יהלום	analogy+completion	3	3	2.5	autumn_2023·פרק2·ש13·אפשרות 4 ; summer_2026·פרק1·ש4·מסיח 3 ; 2020_spring·פרק2·ש1·רגל	close:הלמ
+יין	יין	analogy	3	3	3.3	autumn_2021·פרק1·ש1·מסיח 3 ; summer_2026·פרק2·ש5·מסיח 2 ; 2020_autumn·פרק2·ש4·מסיח 2	miss
+ישן	ישן	analogy	3	3	3.7	autumn_2023·פרק2·ש5·מסיח 2 ; winter_2022·פרק1·ש1·מסיח 2 ; winter_2023·פרק2·ש5·מסיח 3	miss
+כה	כה	completion	3	3	0.0	autumn_2021·פרק1·ש12·אפשרות 4 ; winter_2022·פרק2·ש12·אפשרות 2 ; 2020_winter·פרק2·ש11·אפשרות 2	miss
+כעס	כעס	analogy	3	3	5.0	autumn_2023·פרק1·ש6·מסיח 2 ; summer_2025·פרק1·ש4·מסיח 1 ; 2019_spring·פרק2·ש5·לא-זוהה	miss
+כרם	כרם	analogy	3	3	3.3	autumn_2021·פרק1·ש1·מסיח 3 ; 2020_autumn·פרק2·ש4·מסיח 2 ; 2020_winter·פרק1·ש5·רגל	miss
+לאכול	לאכול	analogy+completion	3	3	2.0	autumn_2021·פרק1·ש12·אפשרות 2 ; autumn_2023·פרק1·ש2·רגל ; 2020_summer·פרק2·ש2·מסיח 2	close:אכל
+לבקש	לבקש	analogy	3	3	3.7	autumn_2024·פרק1·ש5·מסיח 4 ; spring_2025·פרק1·ש3·מסיח 1 ; winter_2022·פרק1·ש3·מסיח 4	close:בקש
+להאזין	להאזין	analogy	3	3	2.3	spring_2022·פרק2·ש3·מסיח 2 ; spring_2023·פרק1·ש2·מסיח 1 ; 2020_spring·פרק2·ש2·מסיח 4	miss
+להאמין	להאמין	analogy+completion	3	3	1.0	autumn_2023·פרק2·ש15·אפשרות 3 ; 2019_winter·פרק2·ש1·מסיח 4 ; 2020_spring·פרק1·ש11·אפשרות 1	close:אמנ

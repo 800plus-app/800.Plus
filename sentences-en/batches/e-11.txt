@@ -1,0 +1,80 @@
+3	adventure	הרפתקה
+3	agency	סוכנות
+3	agreement	הסכמה; הסכם
+3	alarm	דאגה, להדאיג; אזעקה
+3	allow	להרשות
+3	anger	כעס, להכעיס
+3	arrive	להגיע
+3	as a result	כתוצאה
+3	attention	תשומת לב
+3	attractive	נאה, מושך
+3	available	זמין
+3	awake	ער, להתעורר
+3	award	פרס, להעניק פרס
+3	badly	בצורה גרועה, רע; קשות, נואשות
+3	balance	שיווי משקל; איזון, לאזן
+3	bank	בנק; גדה; לערום
+3	battle	קרב, התכתשות; מאבק, מלחמה; להיאבק, להילחם
+3	beard	זקן
+3	beat	מקצב; מכה, להכות
+3	behavior	התנהגות
+3	bell	פעמון
+3	below	מתחת
+3	birth	לידה
+3	bite	לנשוך, נשיכה
+3	blind	עיוור
+3	block	חסימה; לבנה, גוש, חלק
+3	bone	עצם
+3	border	גבול
+3	bottom	תחתית; ישבן
+3	brave	אמיץ
+3	built	בנה, נבנה (עבר/בינוני פעול של build); בנוי, בנוי היטב
+3	cancer	סרטן (מחלה)
+3	capture	ללכוד
+3	carefully	בזהירות
+3	carry	לסחוב
+3	castle	טירה
+3	cell	תא
+3	central	מרכזי
+3	certainly	בהחלט, בוודאי
+3	challenge	לאתגר; אתגר
+3	chapter	פרק
+3	chase	לרדוף, מרדף
+3	cheer	לעודד
+3	childhood	ילדות
+3	choice	בחירה
+3	cigarette	סיגריה
+3	climb	לטפס
+3	coat	מעיל; שכבה (של צבע, בטון וכו')
+3	coin	מטבע
+3	colleague	עמית, קולגה
+3	coma	תרדמת
+3	combat	להילחם ב-, להיאבק ב-; קרב, לחימה
+3	comfortable	נוח
+3	command	פקודה, לפקוד
+3	communicate	לתקשר
+3	community	קהילה
+3	competition	תחרות
+3	complete	שלם, מלא, מושלם; להשלים, לסיים
+3	complex	מסובך
+3	concept	רעיון, מושג
+3	condition	תנאי, מצב, מעמד; להכשיר, להתאים
+3	confirm	לאשר, לאמת
+3	conflict	עימות, סכסוך
+3	content	תוכן; שביעות רצון
+3	core	ליבה
+3	corner	פינה, לדחוק לפינה
+3	cost	מחיר, עלות
+3	courage	אומץ
+3	court	מגרש (ספורט); בית משפט
+3	cover	לכסות; לסקר, לכלול; כיסוי, מכסה
+3	culture	תרבות
+3	cure	מרפא, תרופה; לרפא
+3	curious	סקרן
+3	currently	כרגע, נכון לעכשיו
+3	customer	לקוח, צרכן
+3	daily	יומיומי
+3	defend	להגן
+3	delay	עיכוב, לאחר, לדחות
+3	delivery	משלוח
+3	department	מחלקה

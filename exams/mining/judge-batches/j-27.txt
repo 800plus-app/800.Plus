@@ -1,0 +1,80 @@
+פטפטן	פטפטן	completion	1	1	0.0	spring_2022·פרק2·ש15·אפשרות 4	miss
+פטר	פטר	analogy	1	1	1.0	autumn_2021·פרק2·ש1·מסיח 4	close:פטר
+פיה	פיה	completion	1	1	0.0	summer_2023·פרק2·ש15·אפשרות 2	miss
+פיהוק	פיהוק	analogy	1	1	1.0	summer_2021·פרק1·ש1·מסיח 1	miss
+פיהק	פיהק	analogy	1	1	5.0	2019_spring·פרק2·ש5·לא-זוהה	miss
+פיטורין	פיטורין	analogy	1	1	3.0	winter_2022·פרק2·ש3·מסיח 1	close:פטר
+פייס	פייס	analogy	1	1	6.0	winter_2023·פרק1·ש6·מסיח 4	miss
+פיל	פיל	analogy	1	1	3.0	spring_2024·פרק2·ש3·מסיח 2	miss
+פילוסופיה	פילוסופיה	analogy	1	1	5.0	summer_2023·פרק2·ש5·מסיח 2	close:פלס
+פיסוק	פיסוק	analogy	1	1	1.0	2020_winter·פרק2·ש1·מסיח 1	miss
+פיצי	פיצי	completion	1	1	0.0	spring_2023·פרק1·ש13·אפשרות 4	miss
+פירש	פירש	analogy	1	1	3.0	summer_2026·פרק2·ש3·מסיח 3	close:פרש
+פישט	פישט	analogy	1	1	6.0	winter_2022·פרק1·ש6·מסיח 4	close:פשט
+פיתוח	פיתוח	completion	1	1	0.0	2019_winter·פרק2·ש9·אפשרות 4	miss
+פלבל	פלבל	analogy	1	1	4.0	spring_2022·פרק1·ש4·מסיח 4	close:לבל
+פנו	פנו	completion	1	1	0.0	spring_2025·פרק1·ש11·אפשרות 3	miss
+פניו	פניו	completion	1	1	0.0	2020_spring·פרק1·ש11·אפשרות 1	miss
+פנינו	פנינו	completion	1	1	0.0	2020_spring·פרק1·ש11·אפשרות ?	miss
+פנס	פנס	analogy	1	1	5.0	spring_2023·פרק1·ש5·מסיח 1	miss
+פס	פס	analogy	1	1	2.0	winter_2023·פרק2·ש2·רגל	miss
+פסול	פסול	analogy	1	1	5.0	summer_2026·פרק1·ש5·מסיח 1	close:פסל
+פסים	פסים	analogy	1	1	3.0	spring_2024·פרק2·ש3·מסיח 1	miss
+פסל	פסל	analogy	1	1	5.0	autumn_2024·פרק2·ש5·מסיח 2	close:פסל
+פסלון	פסלון	analogy	1	1	5.0	autumn_2024·פרק2·ש5·מסיח 2	close:פסל
+פסנתר	פסנתר	analogy	1	1	4.0	2019_winter·פרק2·ש4·מסיח 2	close:נתר
+פסע	פסע	analogy	1	1	6.0	spring_2023·פרק2·ש6·מסיח 3	miss
+פעוטון	פעוטון	analogy	1	1	5.0	autumn_2024·פרק2·ש5·מסיח 3	close:פעט
+פפריקה	פפריקה	analogy	1	1	5.0	2020_spring·פרק1·ש5·רגל	close:רקה
+פצוע	פצוע	analogy	1	1	2.0	summer_2026·פרק2·ש2·מסיח 2	close:פצע
+פציעה	פציעה	analogy	1	1	6.0	spring_2023·פרק1·ש6·מסיח 4	close:פצע
+פצע	פצע	analogy	1	1	6.0	2020_summer·פרק2·ש6·מסיח 4	close:פצע
+פקע	פקע	analogy	1	1	3.0	winter_2023·פרק2·ש3·מסיח 4	close:פקע
+פרחוני	פרחוני	analogy	1	1	5.0	spring_2022·פרק2·ש5·מסיח 3	close:פרח
+פרט	פרט	completion	1	1	0.0	spring_2024·פרק2·ש10·אפשרות 1	miss
+פרטים	פרטים	completion	1	1	0.0	summer_2022·פרק1·ש9·אפשרות 3	miss
+פרי הדר	פרי הדר	analogy	1	1	1.0	winter_2023·פרק2·ש1·רגל	close:פרי
+פריטה	פריטה	analogy	1	1	2.0	summer_2023·פרק2·ש2·מסיח 1	close:רטה
+פרימה	פרימה	analogy	1	1	2.0	summer_2023·פרק2·ש2·מסיח 4	close:פרמ
+פריעה	פריעה	analogy	1	1	3.0	2020_spring·פרק2·ש3·רגל	close:פרע
+פרנסה	פרנסה	analogy	1	1	5.0	summer_2024·פרק2·ש5·מסיח 1	miss
+פרסומות	פרסומות	analogy	1	1	6.0	2020_autumn·פרק1·ש6·מסיח 4	close:פרס
+פרסות	פרסות	analogy	1	1	3.0	spring_2024·פרק2·ש3·מסיח 3	close:פרס
+פרפר	פרפר	analogy	1	1	2.0	spring_2025·פרק1·ש2·מסיח 2	miss
+פרשן	פרשן	analogy	1	1	3.0	summer_2026·פרק2·ש3·מסיח 3	close:פרש
+פשט יד	פשט יד	analogy	1	1	3.0	summer_2026·פרק1·ש3·מסיח 4	close:פשט
+פשיטת רגל	פשיטת רגל	analogy	1	1	5.0	autumn_2025·פרק2·ש5·מסיח 2	close:פשט
+פשרה	פשרה	analogy	1	1	5.0	spring_2022·פרק1·ש5·מסיח 1	close:שרה
+פתוח	פתוח	analogy	1	1	4.0	autumn_2023·פרק1·ש4·מסיח 3	miss
+פתוחה	פתוחה	completion	1	1	0.0	2019_winter·פרק2·ש10·אפשרות 2	miss
+פתח	פתח	analogy	1	1	4.0	2019_spring·פרק1·ש4·לא-זוהה	miss
+פתח סגור ליבו	פתח סגור ליבו	analogy	1	1	5.0	autumn_2021·פרק2·ש5·מסיח 3	close:סגור
+פתיחת	פתיחת	completion	1	1	0.0	summer_2023·פרק2·ש15·אפשרות 4	miss
+פתיר	פתיר	analogy	1	1	6.0	summer_2022·פרק1·ש6·מסיח 2	miss
+פתרוהו	פתרוהו	analogy	1	1	5.0	autumn_2021·פרק1·ש5·מסיח 4	close:תרה
+צאצאים	צאצאים	analogy	1	1	6.0	autumn_2024·פרק1·ש6·מסיח 2	miss
+צהובים	צהובים	completion	1	1	0.0	spring_2023·פרק1·ש13·אפשרות 4	miss
+צוללת	צוללת	analogy	1	1	2.0	summer_2022·פרק1·ש2·מסיח 3	close:צלל
+צופה	צופה	analogy	1	1	2.0	spring_2025·פרק2·ש2·מסיח 4	miss
+צחק	צחק	analogy	1	1	5.0	2019_spring·פרק2·ש5·לא-זוהה	miss
+ציבור	ציבור	completion	1	1	0.0	spring_2022·פרק2·ש17·אפשרות 3	miss
+ציטוטים	ציטוטים	completion	1	1	0.0	2020_spring·פרק1·ש9·אפשרות 1	miss
+צל	צל	analogy	1	1	1.0	summer_2024·פרק1·ש1·רגל	miss
+צלחת	צלחת	analogy	1	1	3.0	2020_winter·פרק1·ש3·מסיח 3	close:צלח
+צליעה	צליעה	analogy	1	1	1.0	summer_2022·פרק1·ש1·מסיח 4	miss
+צמא	צמא	analogy	1	1	2.0	spring_2024·פרק1·ש2·רגל	miss
+צמות	צמות	analogy	1	1	3.0	2019_spring·פרק2·ש3·לא-זוהה	close:צמת
+צמחייה	צמחייה	analogy	1	1	5.0	summer_2022·פרק1·ש5·רגל	close:מחה
+צמחים	צמחים	analogy	1	1	5.0	summer_2022·פרק1·ש5·רגל	miss
+צמצום	צמצום	completion	1	1	0.0	summer_2021·פרק1·ש11·אפשרות 3	miss
+צמר	צמר	analogy	1	1	3.0	autumn_2025·פרק1·ש3·מסיח 1	miss
+צמרת	צמרת	analogy	1	1	3.0	spring_2024·פרק1·ש3·מסיח 3	close:מרת
+צנח	צנח	analogy	1	1	5.0	autumn_2023·פרק1·ש5·מסיח 2	miss
+צנחן	צנחן	analogy	1	1	4.0	2020_summer·פרק2·ש4·מסיח 2	miss
+צעיף	צעיף	analogy	1	1	3.0	autumn_2025·פרק1·ש3·מסיח 1	miss
+צפויה	צפויה	completion	1	1	0.0	autumn_2021·פרק2·ש12·אפשרות 2	miss
+צפוני	צפוני	analogy	1	1	2.0	autumn_2021·פרק1·ש2·מסיח 1	close:צפנ
+צפיפות	צפיפות	analogy	1	1	3.0	2020_summer·פרק2·ש3·מסיח 3	miss
+צרות עין	צרות עין	analogy	1	1	5.0	autumn_2025·פרק2·ש5·מסיח 4	close:עין
+צרידות	צרידות	analogy	1	1	1.0	summer_2022·פרק1·ש1·רגל	miss
+קו פרשת המים	קו פרשת המים	analogy	1	1	5.0	winter_2022·פרק1·ש5·מסיח 1	close:פרש

@@ -1,0 +1,80 @@
+1	star	כוכב, לככב
+1	start	להתחיל
+1	station	תחנה; להציב
+1	step	צעד, לצעוד
+1	still	עדיין, למרות זאת; נייח, דומם, שקט
+1	store	חנות; לאחסן
+1	strange	מוזר
+1	strong	חזק
+1	studio	סטודיו
+1	stupid	טיפש
+1	suddenly	לפתע
+1	sugar	סוכר
+1	summer	קיץ
+1	support	תמיכה, לתמוך
+1	surprise	הפתעה
+1	sweet	מתוק, ממתק
+1	system	מערכת; שיטה
+1	taste	טעם, לטעום
+1	team	צוות
+1	teeth, tooth	שיניים, שן
+1	than	מ-
+1	thank	תודה, להודות
+1	thanks to	תודות ל-
+1	that	ש-
+1	theater	תיאטרון; בית קולנוע
+1	then	אז
+1	theory	תיאוריה
+1	there	שם
+1	thousand	אלף
+1	through	דרך, מבעד
+1	ticket	כרטיס
+1	time	זמן
+1	together with	יחד עם
+1	too	גם; יותר מידי
+1	touch	מגע, לגעת
+1	trust	אמון, לבטוח
+1	truth	אמת
+1	turn	לפנות, סיבוב
+1	under	מתחת
+1	understand	להבין
+1	until	עד ש-
+1	until now	עד עתה
+1	up	למעלה
+1	usually	בדרך-כלל
+1	village	כפר
+1	visit	לבקר
+1	voice	קול, להשמיע קול
+1	wait	להמתין, המתנה
+1	wall	קיר
+1	want	לרצות
+1	war	מלחמה
+1	watch	להסתכל, להשגיח; שעון
+1	way	דרך
+1	weekend	סוף שבוע
+1	West	מערב
+1	what	מה, איזה
+1	when	כאשר, כש-
+1	where	בעוד ש-; היכן, איפה
+1	which	איזה; אשר, ש-
+1	who	מי, ש-
+1	why	מדוע
+1	wide	רחב
+1	wife	אישה, רעיה
+1	win	ניצחון, לנצח
+1	wine	יין
+1	winter	חורף
+1	wish	משאלה; לאחל, לייחל, לרצות
+1	with	באמצעות, עם
+1	without	מבלי, ללא
+1	wonderful	נפלא
+1	work	עבודה, לעבוד
+1	worse	גרוע יותר
+1	writer	סופר
+1	young	צעיר
+1	zoo	גן חיות
+2	10th - tenth	עשירי
+2	4th - fourth	רביעי
+2	5th - fifth	חמישי
+2	6th - sixth	שישי
+2	7th - seventh	שביעי

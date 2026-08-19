@@ -1,0 +1,80 @@
+3	period	נקודה; משך זמן, מחזור; תקופה
+3	permanent	קבוע
+3	permission	רשות, היתר
+3	personality	אישיות
+3	piece	יצירה; חתיכה, חלק
+3	pipe	צינור
+3	plant	צמח; לשתול; מפעל (power ___)
+3	plate	צלחת, לוח
+3	pleasure	תענוג, לענג
+3	polite	מנומס
+3	position	מיקום, למקם; תנוחה; תפקיד, משרה
+3	pot	סיר, קדרה
+3	practice	לתרגל, תרגול
+3	precious	יקר
+3	pregnant	הרה (בהריון)
+3	prevent	למנוע
+3	previous	קודם
+3	pride	גאווה
+3	priority	עדיפות
+3	prison	כלא
+3	prize	פרס
+3	process	לעכל, לעבד; תהליך
+3	product	מוצר
+3	profit	רווח
+3	progress	התקדמות, להתקדם
+3	project	לתכנן; פרוייקט, מיזם; להשליך, להקרין
+3	proof	הוכחה, ראיה; חסין, עמיד (סיומת)
+3	protest	למחות, הפגנה
+3	public	ציבורי
+3	pump	משאבה, לשאוב
+3	punish	להעניש
+3	pure	טהור
+3	purpose	כוונה, מטרה
+3	quarter	רבע
+3	rage	זעם
+3	raise	להעלות
+3	react	להגיב
+3	reaction	תגובה
+3	realize	הבין
+3	recent	שארע לאחרונה
+3	recently	לאחרונה
+3	recognize	לזהות
+3	recommend	להמליץ
+3	register	להירשם
+3	release	לשחרר
+3	religion	דת
+3	religious	דתי
+3	remote	מרוחק
+3	repair	לתקן
+3	replace	להחליף
+3	reporter	עיתונאי
+3	represent	לייצג, מייצג
+3	request	בקשה, לבקש
+3	rescue	להציל
+3	research	מחקר
+3	review	ביקורת; לסקור, סקירה
+3	reward	פרס, לתגמל
+3	ridiculous	מגוחך
+3	rise	עליה, לעלות
+3	route	מסלול, דרך
+3	safety	בטיחות
+3	salary	שכר
+3	sample	מדגם, דגימה, דוגמה
+3	scare	פחד, להפחיד
+3	schedule	לוח זמנים
+3	screen	לסרוק; מסך, צג, וילון; לסנן
+3	script	תסריט
+3	seat	מושב, להושיב
+3	section	יחידה, חלק
+3	senior	בכיר; זקן
+3	sensitive	רגיש
+3	sentence	משפט; גזר דין
+3	shadow	צל, להאפיל
+3	shave	גילוח, לגלח
+3	ship	לשלוח; אוניה
+3	shy	ביישן
+3	signal	אות, סימן, לאותת
+3	signature	חתימה
+3	similar	דומה
+3	simply	בפשטות

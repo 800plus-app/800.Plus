@@ -1,0 +1,80 @@
+1	1st - first	ראשון
+1	2nd - second	שני
+1	3rd - third	שלישי
+1	able	יכול, מסוגל
+1	about	ליד, בערך; אודות
+1	absolutely	לחלוטין
+1	after	אחרי
+1	again	שוב
+1	against	כנגד, ממול
+1	agree	להסכים
+1	almost	כמעט
+1	alone	לבד
+1	also	גם
+1	always	תמיד
+1	and	ו-
+1	angry	כועס
+1	animal	חיה
+1	another	נוסף; אחר
+1	answer	תשובה
+1	area	אזור, תחום
+1	army	צבא
+1	around	מסביב; בערך
+1	art	אמנות
+1	as	כאשר, כש-; כמו
+1	ask	לשאול
+1	at	אצל, ב-
+1	at first	בהתחלה
+1	at least	לפחות
+1	attack	לתקוף, מתקפה
+1	because	כי, מפני ש-, משום ש-
+1	because of	בגלל
+1	before	לפני, מול
+1	beginning	התחלה
+1	behind	מאחורי; ישבן
+1	best	הכי טוב
+1	better	טוב יותר
+1	between	בין
+1	blood	דם
+1	boat	סירה
+1	body	גוויה, גוף
+1	both	שניהם
+1	bought	קנה
+1	brain	מוח, שכל
+1	break	לשבור
+1	building	בניין
+1	burn	לשרוף, להישרף
+1	but	אך, אבל; מלבד, חוץ מ-
+1	by	ליד, בסמוך ל-; עד, לא יאוחר מ-; באמצעות, על-ידי
+1	call	לקרוא, להתקשר
+1	camera	מצלמה
+1	cash	לפדות; מזומן
+1	center	מרכז
+1	chance	סיכוי
+1	check	לבדוק
+1	child	ילד
+1	children	ילדים
+1	church	כנסיה
+1	clean	נקי, לנקות
+1	close	קרוב; סגור, לסגור
+1	club	מועדון
+1	code	קוד
+1	cold	קר, התקררות
+1	color	לצבוע; צבע
+1	company	חברה
+1	contact	ליצור קשר, מגע
+1	continue	להמשיך
+1	control	לוח בקרה, פיקוח; שליטה, לשלוט
+1	cool	לצנן, צונן
+1	crime	פשע
+1	dance	לרקוד
+1	dangerous	מסוכן
+1	daughter	בת
+1	Dead Sea	ים המלח
+1	deal	עסקה; להתמודד
+1	death	מוות
+1	deep	עמוק
+1	die	מת, למות
+1	diet	דיאטה, תזונה
+1	difference	הבדל
+1	different	שונה

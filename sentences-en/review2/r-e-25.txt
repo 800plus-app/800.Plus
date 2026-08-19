@@ -1,0 +1,80 @@
+stream	לזרום, נחל, זרם	The mountain stream flows cold and clear through the valley below.
+strict	נוקשה	Her strict teacher did not allow any talking during the test.
+stripes	פסים	The zebra's black and white stripes help it blend into the grassland.
+struggle	מאבק, מאמץ	The farmer must struggle hard to harvest all the crops before winter.
+stubborn	עקשן	That stubborn donkey refused to move no matter how hard we pulled.
+stunt	פעלול	The actor performed a dangerous stunt without any safety equipment.
+submit	להגיש; להיכנע	You must submit your homework by Friday morning or lose points.
+substance	חומר, תוכן	That white substance on the table turned out to be salt.
+succeed	הצליח	She will succeed in medical school if she studies every night.
+suitable	ראוי, מתאים, יאה	This formal suit is suitable for job interviews and business meetings.
+sum	סכום, סך, לסכם	The final sum he owed the bank was ten thousand dollars.
+supportive	תומך	His supportive family encouraged him to follow his dreams no matter what.
+supreme	עליון	The Supreme Court made the final decision about the law.
+suspicious	חשוד (משהו)	She looked suspicious when her brother asked about the missing money.
+swallow	לבלוע	She swallowed the medicine with a glass of water.
+swing	לנדנד, נדנדה	The old swing in the park moved back and forth slowly.
+temporary	זמני	This job is temporary and only lasts three months this summer.
+territory	תחום, שטח	The lion claimed a large territory where no other lions lived.
+thick	סמיך; עבה	The thick fog made it impossible to see across the street.
+threaten	לאיים	The dark clouds threaten to bring rain to the picnic tomorrow.
+toes	בהונות	He stubbed his toes on the sharp corner of the table.
+tomb	קבר	The ancient tomb was hidden deep underground for thousands of years.
+toward	אל, אל עבר	The students walked toward the school building after the morning bell.
+traffic jam	פקק תנועה	The rush hour traffic jam made him thirty minutes late to work.
+transition	מעבר, שינוי	The transition from high school to college was difficult for most students.
+trigger	הדק	He pulled the trigger on the gun but it would not fire.
+triggered	גרם, עורר, הוביל ל-	His angry words triggered an argument that lasted all evening long.
+twist	סיבוך, סיבוב	The story had a surprising twist at the very end that shocked everyone.
+typically	בדרך כלל, על פי רוב; באופן אופייני	She typically drinks coffee every morning before she starts her work.
+ultimate	מוחלט, סופי	His ultimate goal was to become a successful engineer after university.
+uncertain	לא בטוח	He felt uncertain about whether he should accept the job offer.
+underestimate	הערכה נמוכה, לזלזל	Never underestimate your opponent because they might be stronger than you think.
+unfortunate	מצער	It is unfortunate that she had to leave the party so early.
+unlike	שלא כמו	Unlike his brother, he preferred quiet nights at home to loud parties.
+unnecessary	לא הכרחי	All those extra decorations were unnecessary for such a simple birthday party.
+unstable	לא יציב	The unstable chair wobbled whenever he sat down in it.
+urgent	דחוף	This urgent matter requires your immediate attention before tomorrow morning.
+valid	תקף	Your passport is valid only if it does not expire this year.
+valuable	יקר ערך	That valuable painting was worth more than the entire house cost.
+variety	מבחר, מגוון	The store offered a wide variety of colors to choose from.
+various	מגוון	Various books filled the shelves from the floor to the ceiling.
+verify	לוודא, לאמת	She needed to verify her identity before they would give her the money.
+via	דרך	He sent the important document via email instead of by mail.
+vital	חיוני	Clean water is vital for survival in the harsh desert climate.
+volunteer	להתנדב, מתנדב	Many people volunteer at the hospital because they want to help others.
+warmth	חום	The warmth of the sun felt wonderful on her cold skin.
+warrior	לוחם	The brave warrior fought hard to protect his people and land.
+wealth	עושר	His great wealth allowed him to buy whatever he wanted.
+wealthy	עשיר	The wealthy man donated millions of dollars to various charities.
+weigh	לשקול	The scale will weigh your suitcase to make sure it is not too heavy.
+wheat	חיטה	Golden wheat fields stretched across the entire valley that summer.
+whistle	משרוקית, לשרוק	The referee used a whistle to signal the end of the game.
+wildlife	חיות בר	The national park protects various wildlife including elephants and lions.
+wisdom	חכמה, בינה	She had the wisdom to know when to speak and when to listen.
+wrap	לעטוף, מעטפת	She wrapped the gift carefully in colorful paper before the party.
+abandon	לנטוש, לזנוח	The family had to abandon their house when the river flooded everything.
+absence	היעדרות, היעדר; אי-נוכחות	His absence from class was noticed by the teacher immediately.
+abuse	התעללות, ניצול; להתעלל, לנצל	The company faced charges of abuse after workers reported dangerous conditions.
+account	חשבון; דיווח, תיאור; account for — להסביר; take into account — להתחשב	She gave a detailed account of what happened during the accident.
+accurate	מדויק	The doctor needed an accurate measurement of his height and weight.
+actual	ממשי	The actual cost of the project was higher than the original estimate.
+adaptation	הסתגלות; עיבוד	The film is an adaptation of a popular novel by a famous author.
+admire	להעריץ	Many people admire her for her courage and determination in life.
+admit	להודות; להכניס, לקבל לתוך קבוצה	He finally admitted that he had made a terrible mistake.
+advance	להתקדם, לקדם; התקדמות; מקדמה; מוקדם, מראש	She will advance to the next level if she passes this test.
+advertise	לפרסם, להודיע ברבים	The company will advertise its new product on television and online.
+advise	לייעץ	I advise you to study hard if you want a good grade.
+alike	דומה	The twin sisters look so alike that nobody can tell them apart.
+ally (allies)	בן-ברית (בנות-ברית)	Germany and Japan were allies during the Second World War.
+ambition	שאפתנות, שאיפה	His ambition was to become a doctor and help poor patients.
+analogy	אנלוגיה, הקבלה	He used an analogy to explain how the computer works to his grandmother.
+announcement	הכרזה	The principal made an announcement about the school's new rules.
+apathy	אפאתיה, אדישות	His apathy toward his studies concerned his parents very much.
+apology	התנצלות	She gave him an apology for breaking his expensive camera.
+apparently	כנראה	Apparently he did not know that the store was closed today.
+appearance	מראה, הופעה	Her appearance changed dramatically after she cut and dyed her long hair.
+appetite	תיאבון, רצון עז	The appetizer increased his appetite for the main course at dinner.
+appreciate	להעריך, להוקיר; (כלכלי) לעלות בערך	I really appreciate all the help you have given me this year.
+approach	גישה, שיטה; להתקרב, לפנות אל	His approach to the problem was different from everyone else's method.
+appropriate	מתאים	Jeans are not appropriate for formal business meetings and weddings.

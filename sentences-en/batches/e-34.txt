@@ -1,0 +1,80 @@
+7	prediction	חיזוי, ניבוי
+7	preserve	לשמר
+7	primarily	בעיקר
+7	probable	סביר, מתקבל על הדעת
+7	prolong	להאריך, למשוך (בזמן)
+7	promote	לקדם
+7	proportion	שיעור, מידה
+7	proposition	הצעה
+7	publicized	פורסם
+7	pupil	תלמיד
+7	purification	טיהור
+7	purposely	בכוונה
+7	puzzled	מבולבל
+7	quake	רעד
+7	qualify	להיות מוסמך
+7	railroad	מסילת רכבת
+7	rates	שיעור , היקף, תעריף
+7	readiness	מוכנות
+7	rebellious	סורר, מרדני
+7	reconstruct	לשחזר
+7	recreate	לשחזר, ליצור מחדש
+7	recruit	לגייס
+7	recurring	חוזר, נשנה
+7	refer	מתייחס
+7	reflect	להרהר; לשקף, להחזיר אור
+7	reflection	השתקפות
+7	refugee	פליט
+7	regain	להשיג מחדש
+7	regardless	למרות, ללא קשר
+7	regime	שלטון, משטר
+7	regulation	תקנה
+7	rehabilitation	שיקום
+7	relate	להתייחס, לקשר
+7	relating	מתייחס
+7	relieve	להקל, להפיג, לשחרר (מתפקיד)
+7	relocate	למקם מחדש
+7	renovation	שיפוץ
+7	repetition	חזרה
+7	reproduce	להתרבות, לשכפל
+7	reside	להתגורר, לשכון
+7	resigned	התפטר
+7	resolve	לפתור, להחליט; נחישות
+7	restriction	הגבלה
+7	resume	להמשיך
+7	revert	לחזור למצב קודם
+7	revise	לתקן, לשפר
+7	revision	בדיקה מחדש לצורך שיפור
+7	revived	קם לתחייה, התחדש
+7	revolt	מרד
+7	rhyme	חרוז
+7	rivalry	יריבות
+7	robe	חלוק
+7	ruler	סרגל; מושל, שליט
+7	safeguard	להגן; אמצעי הגנה
+7	sanitary	תברואתי, היגייני
+7	scenery	נוף
+7	scholar	אקדמאי, בעל מלגה, מלומד
+7	sensation	תחושה
+7	shipment	משלוח
+7	shuttle	מעבורת
+7	sibling	אח או אחות
+7	sideways	הצידה
+7	significance	משמעות, חשיבות
+7	simplicity	פשטות
+7	simultaneously	בו זמנית
+7	skyscraper	גורד שחקים
+7	slaughter	לטבוח, לשחוט, טֶבַח
+7	slope	שיפוע, מדרון
+7	sneeze	להתעטש
+7	spark	גיץ, ניצוץ
+7	specify	לפרט
+7	spinach	תרד
+7	stabilize	לייצב
+7	stain	כתם
+7	stalk	גבעול, קנה; לעקוב/לארוב אחרי, להטריד
+7	stove	תנור, כיריים
+7	stunned	נדהם, היה המום
+7	substitute	תחליף
+7	suburb	פרבר
+7	sufficient	מספיק
