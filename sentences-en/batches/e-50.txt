@@ -1,0 +1,26 @@
+10	thwart	לסכל, להכשיל
+10	tinker	להתעסק, לחטט, לנסות לשפר בשינויים קטנים
+10	tormented	לייסר, לענות
+10	tranquilize	להרגיע, להרדים
+10	transcend	להתעלות
+10	transpire	להתרחש; להתברר
+10	uncharted	לא ממופה, לא נחקר, לא נודע
+10	underlies	מונח ביסוד, נמצא מתחת ל-
+10	unpardonable	בלתי נסלח
+10	upheaval	מהפך
+10	uphold	להחזיק, לתמוך, לדגול
+10	upholstery	ריפוד
+10	uproar	רעש, מהומה
+10	usher	סדרן
+10	utter	לבטא, להגות; (ת') מוחלט, גמור
+10	veracity	אמיתוּת, דבקות באמת; דיוק, התאמה לעובדות
+10	vertebrate	בעל חוליות
+10	vibrant	תוסס, עז
+10	vie	להתחרות
+10	vigorously	במרץ
+10	vocation	מקצוע
+10	vociferous	קולני, צעקני, המביע דעה בקול רם ובתוקף
+10	well	באר; טוב, היטב; בריא
+10	withhold	לעכב, לעצור, לא לתת
+10	wrought	מעוצב, מחושל
+10	zealot	קנאי, פנט

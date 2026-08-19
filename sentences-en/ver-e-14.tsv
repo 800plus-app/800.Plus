@@ -1,0 +1,78 @@
+period	OK
+permanent	OK
+permission	OK
+personality	OK
+piece	FIX	She performed a beautiful piano piece at the concert.	Demonstrates second sense (chunk) not first (work/composition)
+pipe	OK
+plant	OK
+plate	OK
+pleasure	OK
+polite	OK
+position	FIX	She adjusted her position on the chair to be more comfortable.	Demonstrates third sense (job) not first (location)
+pot	OK
+practice	OK
+precious	OK
+pregnant	OK
+prevent	OK
+previous	OK
+pride	OK
+priority	OK
+prison	OK
+prize	OK
+process	OK
+product	FIX	The company tested their new product for quality issues.	Too generic; meaning not revealed distinctly
+project	FIX	Their engineering project to build a bridge took three years.	Too generic; could swap with "task" or "assignment"
+proof	OK
+protest	OK
+public	OK
+pump	OK
+punish	OK
+pure	OK
+purpose	OK
+quarter	OK
+raise	OK
+react	OK
+reaction	OK
+realize	OK
+recent	OK
+recently	OK
+recognize	OK
+recommend	OK
+register	OK
+release	OK
+religion	OK
+religious	OK
+remote	OK
+repair	OK
+replace	OK
+reporter	OK
+represent	OK
+request	OK
+rescue	OK
+research	OK
+review	FIX	She wrote a harsh review of the new film.	Demonstrates second sense (examine) not first (critique)
+reward	OK
+ridiculous	OK
+rise	OK
+route	OK
+safety	OK
+salary	OK
+sample	OK
+scare	OK
+schedule	OK
+screen	FIX	Security screened all bags before passengers entered the building.	Demonstrates noun (display) not verb sense (scan)
+script	OK
+seat	OK
+section	OK
+senior	OK
+sensitive	OK
+sentence	OK
+shadow	OK
+shave	OK
+ship	OK
+shy	OK
+signal	OK
+signature	FIX	Please write your signature at the bottom of the form.	Redundant phrasing (sign with signature)
+similar	OK
+simply	OK
+rage	FIX	His rage was so intense he threw things across the room.	Awkward modifier; "fierce" doesn't fit rage idiomatically

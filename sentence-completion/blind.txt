@@ -1,0 +1,243 @@
+# 40 sentence-completion items. Choose the ONE option that best completes each sentence.
+# Two blanks (___ ... ___) means the option supplies both words, in order.
+
+1. The recipe seemed simple; however, the result was far more ___ than the author claimed.
+   A) organic
+   B) sophisticated
+   C) naval
+   D) convenient
+
+2. The medicine will not ___ the illness unless the patient takes it daily.
+   A) describe
+   B) demand
+   C) deliver
+   D) defeat
+
+3. The tourists hesitated because the path ahead looked ___.
+   A) organic
+   B) facial
+   C) naval
+   D) bizarre
+
+4. Because the dialect was nearly ___, the linguist could not ___ the old inscription.
+   A) unclear … imitate
+   B) unclear … decipher
+   C) passive … imitate
+   D) passive … decipher
+
+5. Although she studied all night, she still could not ___ the last question.
+   A) consider
+   B) prepare
+   C) explain
+   D) recognize
+
+6. Despite the heavy ___, the ambassador continued his visit as planned.
+   A) noon
+   B) pride
+   C) threat
+   D) bee
+
+7. The evidence was weak; nevertheless, the scholar refused to ___ his theory.
+   A) conquer
+   B) withdraw
+   C) relieve
+   D) rehearse
+
+8. The northern province is fertile, whereas the south is almost a ___.
+   A) laboratory
+   B) exhibition
+   C) stadium
+   D) wilderness
+
+9. The road was closed because a heavy ___ had blocked the bridge.
+   A) pleasure
+   B) stone
+   C) signal
+   D) memory
+
+10. Simple daily habits, such as walking and drinking milk, help you ___ your health.
+   A) owe
+   B) support
+   C) destroy
+   D) blame
+
+11. Once the alarm stopped, everyone in the building felt ___ again.
+   A) guilty
+   B) heavy
+   C) slow
+   D) quiet
+
+12. Because the epidemic spread so fast, the ministry had to ___ new limits on travel.
+   A) exaggerate
+   B) impose
+   C) imitate
+   D) minimize
+
+13. You will not ___ the trip unless you book the tickets today.
+   A) afford
+   B) record
+   C) carry
+   D) invite
+
+14. Since the prison had no free ___, the new inmate waited in the hallway.
+   A) cell
+   B) wall
+   C) light
+   D) engine
+
+15. Practical skills matter: for instance, a worker who can ___ a conflict is valuable to any team.
+   A) spoil
+   B) scare
+   C) drag
+   D) solve
+
+16. The teacher explained the rule, and she also gave the class a short ___ to practice at home.
+   A) question
+   B) castle
+   C) forest
+   D) divorce
+
+17. The new law protects workers; moreover, it lets them ___ a dangerous order without losing their job.
+   A) embrace
+   B) spoil
+   C) approve
+   D) ignore
+
+18. The council will not ___ the request unless every document is valid.
+   A) rehearse
+   B) bounce
+   C) satisfy
+   D) conquer
+
+19. Although the company had a strong ___, sales fell sharply last year.
+   A) rumor
+   B) reputation
+   C) conspiracy
+   D) confession
+
+20. The village looked ___ at sundown, but by dawn the streets were ___ with traders.
+   A) desolate … damp
+   B) desolate … hectic
+   C) orderly … damp
+   D) hectic … desolate
+
+21. The scholar published widely; moreover, his insight helped others ___ the whole field.
+   A) conquer
+   B) depart
+   C) drip
+   D) analyze
+
+22. The engine looked perfect, but the mechanic found a small ___ in the design.
+   A) fault
+   B) group
+   C) trip
+   D) chance
+
+23. Unless the committee can ___ the document, its ___ will remain in doubt.
+   A) authorize … mischief
+   B) authorize … accuracy
+   C) harass … mischief
+   D) harass … accuracy
+
+24. The critic praised the film's aesthetic, yet called its plot utterly ___.
+   A) disciplined
+   B) irresistible
+   C) esteemed
+   D) mediocre
+
+25. The first trial failed, and likewise the second could not ___ the result.
+   A) hesitate
+   B) justify
+   C) glance
+   D) bounce
+
+26. The bank will release the ___ provided that both partners sign the document.
+   A) beard
+   B) jungle
+   C) illness
+   D) deposit
+
+27. Once the crew managed to ___ the storm, the voyage finally resumed.
+   A) adjust
+   B) sketch
+   C) rehearse
+   D) endure
+
+28. The new medicine reduced the pain, and it also helped patients ___ more easily.
+   A) breathe
+   B) owe
+   C) blame
+   D) destroy
+
+29. Provided that the trait is ___, breeders can transmit it to the next generation.
+   A) biblical
+   B) continuous
+   C) rural
+   D) reluctant
+
+30. The factory dumped fuel into the river, and as a result the whole ___ was poisoned.
+   A) conference
+   B) kingdom
+   C) territory
+   D) estate
+
+31. The school raised money for books; in addition, it asked local shops to ___ the project.
+   A) warn
+   B) support
+   C) bury
+   D) dump
+
+32. His courage was obvious, yet his ___ of the danger was completely wrong.
+   A) wagon
+   B) charity
+   C) knowledge
+   D) tribe
+
+33. The plan was cheap; however, it was much harder to ___ than anyone expected.
+   A) copy
+   B) invite
+   C) owe
+   D) handle
+
+34. The activist was expelled from the union; furthermore, the newspaper questioned her ___ altogether.
+   A) sincerity
+   B) dialect
+   C) glacier
+   D) commerce
+
+35. Some traditions survive for centuries — a wedding ___, for instance, rarely changes.
+   A) luxury
+   B) dentist
+   C) ritual
+   D) onion
+
+36. Because the government wants growth, the new rule will ___ local commerce; similarly, it will ___ the confidence of foreign investors.
+   A) stimulate … minimize
+   B) neglect … stabilize
+   C) stimulate … stabilize
+   D) neglect … minimize
+
+37. Some habits reveal character — a person who will ___ a promise, for instance, is rarely trusted again.
+   A) forsake
+   B) clarify
+   C) visualize
+   D) elect
+
+38. The lens was cracked; hence the laboratory could not ___ the sample properly.
+   A) trim
+   B) depart
+   C) conquer
+   D) examine
+
+39. Although the report seemed ___, the committee found its conclusions entirely ___.
+   A) passive … widespread
+   B) articulate … incomprehensible
+   C) articulate … widespread
+   D) passive … incomprehensible
+
+40. The farmers could not grow enough wheat because the ___ was poor.
+   A) envelope
+   B) statue
+   C) wagon
+   D) soil
+

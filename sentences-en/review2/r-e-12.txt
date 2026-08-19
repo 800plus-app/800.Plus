@@ -1,0 +1,80 @@
+describe	לתאר	The teacher asked us to describe what we saw in the painting.
+described	מתואר	The newspaper article described the accident in great detail.
+description	תיאור	Her detailed description of the movie revealed every plot twist and character.
+deserve	מגיע (לו)	Hard work over many years meant he deserved the promotion.
+dessert	קינוח	After dinner, they served chocolate cake for dessert.
+destiny	גורל	Some believe fate controls our destiny; others think we choose it.
+develop	לפתח	Cities develop when more businesses and people move to them.
+development	התפתחות, פיתוח	The development of the internet changed everything about how we work.
+device	מכשיר	She used a heating device to keep her hands warm.
+director	במאי; מנהל	The director told the actors exactly how to perform each scene.
+disappear	להעלם	The magician made the rabbit disappear right before everyone's eyes.
+disaster	אסון	The storm was a disaster that destroyed homes and farms.
+discuss	לדון, להתווכח	We need to discuss this problem together and share our different viewpoints.
+disease	מחלה	Malaria is a serious disease spread by infected mosquitoes.
+display	להציג	The museum decided to display the ancient statues in the main room.
+disturb	להפריע	Don't disturb your brother while he studies; he needs silence to concentrate.
+drag	לגרור	He had to drag the heavy suitcase up the stairs slowly.
+dump	לשפוך	She decided to dump the old furniture at the recycling center.
+during	תוך כדי, במשך	He slept during the entire movie at the theater.
+eagle	נשר	The eagle soared high above the mountains looking for food.
+economy	כלכלה	A strong economy creates jobs and helps people earn money.
+editor	עורך	The editor reviewed the manuscript and suggested many changes.
+education	השכלה	Good education opens doors and gives you better job choices.
+effect	תוצאה, אפקט; רושם, השפעה	The medicine quickly had a positive effect on her health.
+effective	יעיל, אפקטיבי	Exercise is an effective way to stay healthy and fit.
+effort	מאמץ	She made a great effort to finish the project on time.
+electricity	חשמל	We need electricity to power our lights, phones, and appliances.
+emotion	רגש	A rush of emotion filled her, joy mixed with longing, when she saw her old friend.
+engineer	מהנדס, להנדס	The engineer designed the bridge to be strong and safe.
+entertainment	בידור	Movies, games, and sports are forms of entertainment.
+entrance	כניסה	The entrance to the building was blocked by construction equipment.
+environment	סביבה	We must protect the environment for future generations to enjoy.
+equipment	ציוד	The gym had new equipment for strength training.
+especially	במיוחד	Children especially enjoy playing in parks on warm days.
+exact	מדויק	She gave the exact amount of money needed for the bill.
+except	מלבד, חוץ מ-	Everyone came to the party except John, who was sick.
+except for	למעט	I like all fruits except for lemons.
+exchange	להחליף, חלופה	She decided to exchange the shirt for a larger size.
+excitement	התרגשות	Fans showed their excitement by jumping, cheering, and screaming throughout the final game.
+exercise	תרגיל; להתאמן; לממש, ליישם	Regular exercise keeps your body healthy and strong.
+exist	קיים	Dinosaurs no longer exist; they died millions of years ago.
+expect	לצפות	We expect the package to arrive by Tuesday based on the tracking information.
+experiment	ניסוי, להתנסות	The chemistry experiment produced an unexpected result.
+extraordinary	בלתי רגיל	Her talent was extraordinary; she played violin better than professionals.
+failure	כשלון	His failure to prepare for the test resulted in a failing grade.
+fan	מעריץ, אוהד; מאוורר, לאוורר	He was a huge fan of basketball and watched every game.
+farmer	חוואי	The farmer grows corn and wheat in his large fields.
+fault	פגם, תקלה; אשמה	There was a fault in the engine that caused the breakdown.
+fever	חום (של מחלה)	The child had a fever and needed to rest in bed.
+field	תחום, שדה	Agriculture is her field of study at university.
+financial	כספי	Financial problems forced the company to cut costs.
+fishing	דיג	He enjoyed fishing for trout in the mountain streams.
+fit	בכושר; להתאים	She kept fit by running five miles every morning.
+flat	שטוח; דירה	The land in this area is very flat with few hills.
+flew	עף	The bird flew south for the winter.
+flip	לזרוק, להעיף; סלטה; להפוך צד	He decided to flip the pancake onto the other side.
+fool	טיפש, לשטות במישהו	Don't be a fool; always wear your seatbelt in cars.
+for instance	לדוגמה	Some plants need shade; for instance, ferns naturally grow under tall trees.
+foreign	חוץ; זר, נוכרי	She studied foreign languages including French and Spanish.
+forgive	לסלוח	I hope you can forgive me for being late.
+form	צורה; ליצור, להקים	The clouds began to form interesting shapes in the sky.
+frame	מסגרת, למסגר	She placed the photo in a wooden frame for display.
+friendship	חברות	Their friendship lasted more than forty years despite the distance.
+function	תפקוד, לתפקד	The heart's main function is to pump blood.
+garbage	זבל	Please take out the garbage bin before the rotting food starts to stink.
+gene	גן (תורשתי)	He inherited a gene for red hair from his father.
+generation	דור	This generation grew up with computers and smartphones.
+gentle	עדין	She spoke in a gentle voice to calm the scared child.
+governor	מושל	The governor announced new environmental protection laws yesterday.
+grade	כיתה; ציון, דרגה, מעמד; שיפוע	He got a B grade on his chemistry exam.
+grandson	נכד	Her grandson visits every Sunday for dinner and stories.
+guide	להדריך	The museum guide explained the history of each artifact.
+guilty	אשם	The jury decided he was guilty of the crime.
+hall	מסדרון; היכל	The hall echoed with noise as students rushed noisily between classes.
+harm	לפגוע, להזיק	Smoking can harm your lungs and overall health.
+heat	חום, לחמם	The sun provides heat that keeps Earth warm.
+height	גובה	The height of the mountain made the climb very difficult.
+highway	כביש ראשי	Traffic on the highway was backed up for miles.
+hill	גבעה	We climbed the hill to see the view from the top.
+honest	הגון	An honest person always tells the truth even when difficult.

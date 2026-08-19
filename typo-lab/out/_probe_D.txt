@@ -1,0 +1,28 @@
+
+━━ BAND0-safe ━━
+יקום: 819,682 וריאציות · התקבלו 234,006 · 292ש
+recall · holdout 27.21% (493/1812) · סט מלא 27.18% (3309/12173)
+שארית · bank 0 · real-word 0 · non-word 234006
+   ins           bank    0 · real     0 · non 216418
+   doubleLetter  bank    0 · real     0 · non  12205
+   materVI       bank    0 · real     0 · non   1758
+   sub           bank    0 · real     0 · non   1357
+   transpose     bank    0 · real     0 · non    910
+   homophone     bank    0 · real     0 · non    837
+   adjSub        bank    0 · real     0 · non    409
+   del           bank    0 · real     0 · non    112
+   דוגמאות non-word: אאבניימ ← אָבְנַיִים [doubleLetter] | אבבניימ ← אָבְנַיִים [doubleLetter] | אנביימ ← אָבְנַיִים [transpose] | אבנניימ ← אָבְנַיִים [doubleLetter] | אבינימ ← אָבְנַיִים [transpose] | אבנימי ← אָבְנַיִים [transpose] | אבנייממ ← אָבְנַיִים [doubleLetter] | גאבניימ ← אָבְנַיִים [ins]
+
+━━ BAND0-mater ━━
+יקום: 819,682 וריאציות · התקבלו 243,348 · 216ש
+recall · holdout 32.51% (589/1812) · סט מלא 32.58% (3966/12173)
+שארית · bank 0 · real-word 0 · non-word 243348
+   ins           bank    0 · real     0 · non 216418
+   doubleLetter  bank    0 · real     0 · non  12871
+   materVI       bank    0 · real     0 · non   7827
+   homophone     bank    0 · real     0 · non   2316
+   sub           bank    0 · real     0 · non   2153
+   transpose     bank    0 · real     0 · non    958
+   adjSub        bank    0 · real     0 · non    693
+   del           bank    0 · real     0 · non    112
+   דוגמאות non-word: אאבניימ ← אָבְנַיִים [doubleLetter] | אבבניימ ← אָבְנַיִים [doubleLetter] | אנביימ ← אָבְנַיִים [transpose] | אבנניימ ← אָבְנַיִים [doubleLetter] | אבינימ ← אָבְנַיִים [transpose] | אבנייימ ← אָבְנַיִים [doubleLetter] | אבנימי ← אָבְנַיִים [transpose] | אבנייממ ← אָבְנַיִים [doubleLetter]

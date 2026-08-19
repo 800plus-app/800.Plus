@@ -44,7 +44,36 @@ const SYMBOLS = [
   // HTML escaping, and hiding the answer inside its own gloss (09-mask.test.js)
   'esc', 'CLITIC', 'HSUF', 'heStems', 'maskTerm',
   // bank + shared-gloss index
-  'UNIT_IDS', 'PREVIEW_UNIT', 'GLOSS_ALT', 'buildBank', 'glossKey', 'glossSenses', 'buildGlossIndex', 'glossAlts',
+  'UNIT_IDS', 'PREVIEW_UNIT', 'GLOSS_ALT', 'vetoPut', 'buildBank', 'glossKey', 'glossSenses', 'buildGlossIndex', 'glossAlts',
+  /* סובלנות איות · tests/71. הסדר כאן הוא סדר ההערכה, ולכן הקבועים לפני הפונקציות
+     שקוראות להם. TERM_VETO ו-SEG_VETO מוצהרים כאן ונבנים ב-buildBank/buildGlossIndex. */
+  'TYPO_PARAMS', 'TYPO_ADJ_HE', 'TYPO_ADJ_EN', 'TYPO_HOMO', 'TYPO_OPS',
+  'TYPO_MAX_OPS', 'TYPO_RADIUS', 'TYPO_HE_RANGE', 'TYPO_PN', 'TYPO_IX',
+  'TERM_VETO', 'SEG_VETO',
+  'typoLex', 'lexHit', 'typoTokens', 'typoLexWhole', 'typoLexBlocked',
+  'typoTables', 'typoSubKind', 'typoInsKind', 'typoDelKind', 'typoVectors', 'typoShare', 'typoWDist',
+  'typoNorm', 'typoLetters', 'typoSuffixes', 'typoInflection',
+  'typoDeletions', 'typoIndex', 'typoNearestOther', 'nearMatch', 'typoKeysOf', 'typoOwners',
+  'TYPO_GLOSS_RULES', 'TYPO_OR_GUARDS', 'typoSplitOr', 'TYPO_SYN', 'TYPO_SYN_MAP',
+  'typoSynMap', 'typoCanon', 'typoSegBlocked',
+  /* ⚠ שכבת צירוף המקטעים · שלושת אלה נדרשים יחד. `meaningMatch` קוראת ל-
+     `typoSegConcat`, וזו קוראת לשני הקבועים · בלי אחד מהם כל בדיקה שנוגעת
+     בהתאמת פירוש נופלת ב-ReferenceError, ו-19 בדיקות מאדימות בשמות שנשמעים
+     סמנטיים ("מילה שונה לגמרי עדיין נדחית") בזמן שהסיבה היא סימבול חסר.
+     זה קרה כאן פעמיים · קודם על `typoShare`. **פונקציה חדשה ש-meaningMatch או
+     isCorrect קוראות לה חייבת להיכנס לרשימה באותו שינוי.** */
+  'typoSegConcat', 'TYPO_SEG_CONCAT_MAX', 'TYPO_SEG_CONCAT_EXCEPT',
+  /* ⚠ 16.8.2026 · **שלוש פעמים באותו יום, אותו כשל בדיוק** — `typoShare`,
+     `typoSegConcat`, ועכשיו `fullVetoPass`. פונקציה חדשה נוספה ל-app.js, נקראה
+     מתוך פונקציה שכן מורמת, ולא נרשמה כאן. התסמין מטעה: בפעם השנייה 19 בדיקות
+     האדימו בשמות סמנטיים ("מילה שונה לגמרי עדיין נדחית"), ובפעם השלישית
+     **140 בדיקות** נפלו כולל `harness — lifting app.js` עצמה. הסיבה בכל הפעמים
+     היא ReferenceError אחד.
+     ⭐ הכלל, ולא רק התיקון: **ההרמה אינה מגלה תלויות בעצמה.** מי שמוסיף פונקציה
+     ש-`buildBank`/`isCorrect`/`meaningMatch` קוראות לה חייב להוסיף אותה לכאן
+     **באותו שינוי**. בדיקה `00-harness` היא זו שתתפוס, והיא נופלת רועש — וזה טוב. */
+  'fullVetoPass',
+  'editDist', 'creditSense', 'typoVeto',
   // stats model and the three practice buckets
   'rec', 'scopeWords', 'lvl', 'lastOf', 'wasSkipped', 'seenCount',
   'classify', 'uniqScope', 'newCards', 'weakCards', 'learnedCards', 'weakCtaText',
@@ -68,7 +97,10 @@ const SYMBOLS = [
 /* Symbols that must exist on the context afterwards. Superset of SYMBOLS: it also names the
  * ones that ride along inside a grouped declaration (const HOLAM=…, QUBUTS=…, HIRIQ=…), so a
  * rename of QUBUTS is caught even though QUBUTS is never extracted by name. */
-const REQUIRED = SYMBOLS.concat(['QUBUTS', 'HIRIQ', 'DAGESH']);
+const REQUIRED = SYMBOLS.concat(['QUBUTS', 'HIRIQ', 'DAGESH',
+  /* נוסעים בתוך הצהרה משותפת: const TYPO_MAX_OPS = 3, TYPO_MAX_CANDS = 8 וכו'.
+     אי אפשר לחלץ אותם בשמם, ולכן הם נבדקים כאן — שינוי שם ייתפס גם בהם. */
+  'TYPO_MAX_CANDS', 'TYPO_LONG', 'TYPO_LEX_MIN']);
 
 let cachedSource = null;
 function appSource() {
@@ -134,7 +166,11 @@ function loadApp(opts = {}) {
   ctx.globalThis = ctx;
   vm.createContext(ctx);
 
-  const src = appSource();
+  /* ‏opts.source · טקסט app.js חלופי, לשימוש שער-שיניים בלבד: הוכחה ששער מסוים
+     באמת מאדים דורשת להריץ אותו על קוד שבור, ובלי הווסת הזה היה צריך לכתוב את
+     app.js השבור לדיסק ולקוות שהוא נמחק. ברירת המחדל היא הקובץ האמיתי, והמטמון
+     שלו אינו נגוע · מוטנט אינו מזהם הרצה הבאה. */
+  const src = opts.source || appSource();
   for (const { name, code } of extractAll(src, SYMBOLS)) {
     try { vm.runInContext(code, ctx, { filename: `app.js:${name}` }); }
     catch (e) { throw new Error(`lifting ${name} out of app.js failed: ${e.message}\n---\n${code.slice(0, 400)}\n---`); }

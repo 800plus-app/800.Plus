@@ -1,0 +1,78 @@
+hybrid	OK
+iceberg	OK
+illusion	OK
+importance	OK
+improve	OK
+in addition	OK
+in particular	OK
+incident	OK
+indeed	OK
+independence	OK
+innocent	OK
+insect	OK
+inspire	OK
+instantly	OK
+instrument	OK
+insurance	OK
+interact	OK
+introduction	OK
+irregular	OK
+issue	OK
+label	OK
+laboratory	OK
+layer	OK
+lead, led	OK
+leadership	OK
+leaf (leaves)	OK
+legend	OK
+length	OK
+likely	OK
+load	OK
+logic	OK
+loyalty	FIX	The dog showed great loyalty to its owner.	awkward adverb placement at end
+marketing	OK
+mass	OK
+mate	OK
+maximize	OK
+mercy	OK
+mind	FIX	Mind the gap when you exit the train.	uses 4th sense "care" not 1st sense "notice/pay attention"
+minimize	OK
+minister	OK
+miracle	OK
+missile	OK
+mode	OK
+monument	OK
+motif	OK
+motivate	OK
+mountaintop	OK
+mouse (mice)	OK
+narrow	OK
+navigate	OK
+nickname	OK
+not only... but also...	OK
+not... but...	OK
+numeric	OK
+nut	OK
+object	OK
+olive	OK
+on one hand...on the other hand	OK
+operation	FIX	She needs an operation to fix her injured knee.	"surgical operation" is redundant
+opposition	OK
+organize	OK
+otherwise	OK
+overall	OK
+owe	OK
+painter	OK
+pardon	OK
+party	FIX	The winning party announced its new campaign platform.	shows 2nd sense (celebration) not 1st sense (political party)
+pathology	OK
+penalty	OK
+pigment	OK
+post	OK
+prank	OK
+predator	OK
+pregnancy	OK
+preparation for	OK
+presence	OK
+pretend	OK
+previously	OK

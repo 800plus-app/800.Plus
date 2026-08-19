@@ -1,0 +1,81 @@
+8th - eighth	OK
+9th - ninth	OK
+above	OK
+academic	OK
+actor	FIX	The actor improvised a dramatic monologue for three minutes.	Swap test fails (musician/performer fits equally)
+address	OK
+afraid	OK
+after all	OK
+agenda	OK
+aggressive	OK
+ahead of	OK
+airplane	FIX	The airplane's engines roared as it prepared for takeoff.	Swap test fails (helicopter/jet fits equally)
+alien	FIX	The immigration officer checked the alien's work visa carefully.	Swap test fails (foreigner fits equally)
+alive	OK
+allergic	FIX	My brother is allergic to peanuts and tree nuts.	Redundancy: peanuts are nuts
+along	FIX	They walked along the shoreline where waves crashed continuously.	Swap test fails (beside/alongside fits equally)
+along with	FIX	She ordered pizza and also a green salad.	Swap test fails (and/together with fit equally)
+although	FIX	Even though it was raining, we went to the park.	Swap test fails (even though/despite that are identical); better to use "Despite the rain" instead to show meaning distinctly
+after	FIX	Despite the rain, we went to the park.	Shows contrast without being interchangeable with synonyms
+architect	OK
+artist	FIX	The artist sculpted a beautiful figure from marble.	Swap test fails (sculptor fits equally with oils/marble specified)
+as if	FIX	He acted as though he didn't hear her.	Swap test fails (as though is identical synonym)
+as long as	OK
+as soon as	FIX	Call me the moment you arrive home.	Swap test fails (when/moment both work identically)
+as well as	FIX	She speaks French fluently as well as German.	Misplaced modifier; "fluently" should modify both languages equally
+asked for	FIX	He requested a promotion at work.	Swap test fails (requested is identical)
+astronomy	FIX	Astronomers study stars and planets.	Rule 6 violated: defines rather than demonstrates; show it instead
+at last	FIX	We finally reached our destination after hours of driving.	Redundancy: "at last" + "finally" both convey endpoint
+authentic	FIX	This recipe produces genuine Italian pasta, not the boxed kind.	Swap test fails (genuine/real fit equally)
+background	FIX	She has extensive experience in engineering and computer science.	Swap test fails (experience/training fit equally)
+band	FIX	The rock band played all night at the concert.	Swap test fails (ensemble/group fit equally)
+base	FIX	The military base housed tanks and barracks.	Swap test fails (installation/camp fit equally)
+based on	FIX	The novel is adapted from a true story.	Swap test fails (adapted from/inspired by fit equally)
+bath	OK
+beach	FIX	They spent the day swimming at the sandy shore.	Swap test fails (shore/coast fit equally); changed to show specific beach activity
+beast	FIX	The wild animal snarled and lunged forward.	Swap test fails (animal/creature fit equally)
+beauty	FIX	The sunset's magnificence left her speechless.	Swap test fails (magnificence/elegance fit equally)
+bedroom	OK
+bee	FIX	A bee buzzed around the bright yellow flower.	Swap test fails (insect/bug fit equally)
+begin/an/un	FIX	The class starts at nine in the morning.	Swap test fails (starts/commences fit identically)
+boring	FIX	That tedious movie put me to sleep.	Swap test fails (tedious/dull fit equally)
+both... and...	FIX	She enjoys tennis and swimming every week.	Swap test fails; "both...and" adds no meaning beyond "and"
+bottle	OK
+bread	OK
+bridge	FIX	The bridge spanning the river connects the two towns.	Swap test fails (road/crossing fit equally)
+build	FIX	The workers will construct a new house.	Swap test fails (construct/create fit equally)
+cable	FIX	The TV cord was damaged in the accident.	Swap test fails (cord/wire fit equally)
+cancel	FIX	Please postpone my appointment for next Friday.	Swap test fails (postpone/call off fit closely)
+candy	FIX	The sweet was delicious.	Swap test fails (treat/dessert fit equally); removes redundant "sweet and delicious"
+care	FIX	She cares deeply for her entire family.	Grammar: "cares about" needs "for" with this construction
+case	FIX	In this situation, you should wait longer.	Swap test fails (situation/instance/circumstance fit identically)
+casino	OK
+catalogue	FIX	The store's inventory includes hundreds of products.	Swap test fails (inventory/list/menu fit equally)
+catch, caught	FIX	He grabbed the ball with one hand.	Swap test fails (grabbed/snagged fit equally)
+cause	FIX	The actual reason for the accident remained unclear.	Swap test fails (reason/source fit equally)
+celebrate	FIX	We honored her birthday yesterday with a party.	Swap test fails (honored/commemorated fit equally)
+change	FIX	The weather shifted overnight without warning.	Swap test fails (shifted/transformed fit equally)
+cheap	FIX	These shoes are inexpensive and quite comfortable.	Swap test fails (inexpensive/affordable fit equally)
+cheat	OK
+chemical	OK
+choose	FIX	You can select any color you want.	Swap test fails (select/pick fit identically)
+chronic	FIX	He suffers from persistent back pain.	Swap test fails (persistent/ongoing fit equally)
+circle	OK
+clock	FIX	The wall clock shows three o'clock right now.	Swap test fails (watch fits unless wall specified)
+cloud	OK
+collect	OK
+comic	FIX	The comedian made everyone laugh very hard.	Swap test fails (comedian is identical noun)
+connect	FIX	These cables link directly to your computer.	Swap test fails (link/attach fit equally)
+container	FIX	The large container held several glass bottles.	Grammar error: "held carefully" dangles; remove or restructure
+conversation	FIX	We had a long discussion about life.	Swap test fails (discussion/dialogue fit equally)
+copy	FIX	Please duplicate this document before noon.	Swap test fails (duplicate works identically)
+correct	FIX	Your answer is right on this test.	Swap test fails (right/accurate fit equally)
+country	FIX	She moved to a new nation last year.	Swap test fails (nation/land fit equally)
+couple	FIX	The pair got married last month.	Swap test fails (pair/twosome fit equally)
+coupon	FIX	I found a discount voucher for fifty percent off.	Swap test fails (voucher/discount fit equally)
+cousin	OK
+cow	OK
+crash	FIX	The car collision happened on the main highway.	Swap test fails (collision/accident fit identically)
+create	FIX	The artist makes beautiful sculptures from stone.	Swap test fails (makes/produces fit equally)
+criteria	FIX	These standards are very strict.	Swap test fails (standards/benchmarks fit identically); removed redundant "difficult"
+cross	FIX	She traversed the street very carefully in the rain.	Swap test fails (traversed/went across fit equally)

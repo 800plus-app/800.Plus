@@ -1,0 +1,80 @@
+6	steady	קבוע, יציב
+6	steam	אד, לאדות
+6	strengthen	לחזק
+6	strike	הכה, התקיף; שביתה
+6	stun	להמם
+6	subjective	אישי, משוחד בדעתו
+6	summary	סיכום, תמצית
+6	superior	עליון
+6	surveillance	מעקב
+6	suspense	השהיה, מתח
+6	sweep	לטאטא
+6	temple	מקדש
+6	tend	נוטה
+6	tension	מתח
+6	terminate	לסיים, לחסל
+6	throughout	במשך, בכל
+6	thus	לכן, כך ש-
+6	to begin with	בתור התחלה
+6	trace	סימן, עִקְבָה; לעקוב, למצוא
+6	transparent	שקוף
+6	trial	נסיון; משפט
+6	tribe	שבט
+6	trip	למעוד; טיול
+6	unattractive	לא מושך
+6	unconscious	מחוסר הכרה
+6	uncountable	אינספור
+6	uncritical	לא ביקורתי
+6	underneath	מתחת
+6	unexplored	לא נחקר, לא נבדק
+6	unfamiliar	לא מוכר
+6	unforgettable	בלתי נשכח
+6	unimaginable	בלתי נתפס
+6	union	איגוד, איחוד
+6	unjust	לא צודק
+6	unless	אלא אם כן
+6	unorthodox	לא שגרתי, לא מקובל
+6	unwilling	לא מוכן, ממאן
+6	upside down	הפוך
+6	using up	לכלות, לנצל עד תום
+6	variable	משתנה
+6	vertical	מאונך
+6	viewer	צופה
+6	visualize	לדמיין
+6	vocal	קולני; קולי
+6	volcanic	וולקני, געשי
+6	volume	נפח; כרך; עוצמת קול
+6	vulnerable	פגיע, חשוף לפגיעה
+6	withdraw	לסגת, לפרוש
+6	worthy	ראוי
+6	yet	אך, אולם; עדיין, בכל זאת
+7	accelerate	להאיץ
+7	acceptance	קבלה, קבלת דבר; הסכמה, השלמה
+7	accessible	נגיש, זמין
+7	accuracy	דיוק
+7	accusation	האשמה
+7	adopt	לאמץ
+7	adore	העריץ, אהב
+7	adulthood	בגרות
+7	advisor	יועץ
+7	affair	עניין, פרשה; רומן
+7	agony	ייסורים
+7	align	להסתדר בשורה
+7	alongside	לצד, במקביל
+7	altogether	בסך הכל; לגמרי
+7	amusement	שעשוע
+7	anchor	עוגן
+7	anticipation	ציפייה, צפייה מראש
+7	antique	עתיק, ענתיקה
+7	apathetic	אדיש
+7	applicant	מועמד
+7	artifact	חפץ מעשה ידי אדם, מוצג ארכיאולוגי
+7	aspect	היבט, פן
+7	assassination	התנקשות, רצח פוליטי
+7	asset	נכס
+7	assign	למנות, להקצות
+7	authorize	להרשות, להסמיך
+7	availability	זמינות
+7	await	להמתין
+7	awareness	מודעות
+7	bandage	תחבושת

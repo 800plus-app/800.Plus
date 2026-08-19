@@ -1,0 +1,80 @@
+in	OK
+in a moment	OK
+in fact	OK
+in front of	OK
+in order to	OK
+information	OK
+inside	OK
+into	FIX	He poured water into the glass until it was full.	Swap test: "in" works identically; "into" requires direction/motion shown here
+island	OK
+Jew	OK
+join	OK
+joke	OK
+jump	OK
+kill	OK
+king	OK
+know, knew	OK
+large	OK
+late	OK
+later	OK
+laugh	OK
+law	OK
+left	OK
+less	FIX	This coffee has less sugar than yesterday's drink.	Grammar: "the drink yesterday" is not standard English; needs possessive or "from"
+lie	OK
+light	OK
+like	OK
+link	OK
+list	OK
+listen	OK
+luck	OK
+lunch	OK
+machine	OK
+made	FIX	She made a cake from scratch using butter and eggs.	Swap test: "baked" fits identically; clarify unique sense of "made"
+make sure	OK
+maybe	OK
+media	OK
+meeting	FIX	The meeting lasted two hours and was very productive.	Grammar: "was productive today" has redundant time reference; remove "today"
+memory	OK
+message	FIX	I sent her a message about the meeting but she hasn't responded yet.	Swap test: "email" or "note" fits as well; context needed to narrow it
+middle	FIX	She sat in the middle of the room where everyone could see her.	Grammar: "where everyone saw" is incomplete; needs "could see" or "see her"
+milk	OK
+mistake	OK
+mix	OK
+model	FIX	The new car model featured a sleek design that impressed the engineers.	Ambiguity: could mean person or design; clarify which sense (דגם/דגם vs דוגמן)
+money	OK
+monster	FIX	The monster in the movie scared the children in the theater.	Grammar: "in theater" missing article; should be "in the theater"
+most	OK
+mountain	OK
+mouth	OK
+move	OK
+must	OK
+near	OK
+need	OK
+never	OK
+new	OK
+next	OK
+next to	OK
+North	FIX	The train headed North toward the mountains in the early morning.	Grammar: "early morning" needs article "in the"; awkward without preposition
+nose	OK
+not only	OK
+now	OK
+number	OK
+ocean	OK
+of	OK
+of course	OK
+offer	OK
+often	OK
+on	OK
+once	OK
+only	OK
+open	OK
+or	OK
+organic	OK
+outside	OK
+over	OK
+own	OK
+pain	OK
+part	OK
+pass	OK
+past	OK

@@ -1,0 +1,80 @@
+5	stream	לזרום, נחל, זרם
+5	strict	נוקשה
+5	stripes	פסים
+5	struggle	מאבק, מאמץ
+5	stubborn	עקשן
+5	stunt	פעלול
+5	submit	להגיש; להיכנע
+5	substance	חומר, תוכן
+5	succeed	הצליח
+5	suitable	ראוי, מתאים, יאה
+5	sum	סכום, סך, לסכם
+5	supportive	תומך
+5	supreme	עליון
+5	suspicious	חשוד (משהו)
+5	swallow	לבלוע
+5	swing	לנדנד, נדנדה
+5	temporary	זמני
+5	territory	תחום, שטח
+5	thick	סמיך; עבה
+5	threaten	לאיים
+5	toes	בהונות
+5	tomb	קבר
+5	toward	אל, אל עבר
+5	traffic jam	פקק תנועה
+5	transition	מעבר, שינוי
+5	trigger	הדק
+5	triggered	גרם, עורר, הוביל ל-
+5	twist	סיבוך, סיבוב
+5	typically	בדרך כלל, על פי רוב; באופן אופייני
+5	ultimate	מוחלט, סופי
+5	uncertain	לא בטוח
+5	underestimate	הערכה נמוכה, לזלזל
+5	unfortunate	מצער
+5	unlike	שלא כמו
+5	unnecessary	לא הכרחי
+5	unstable	לא יציב
+5	urgent	דחוף
+5	valid	תקף
+5	valuable	יקר ערך
+5	variety	מבחר, מגוון
+5	various	מגוון
+5	verify	לוודא, לאמת
+5	via	דרך
+5	vital	חיוני
+5	volunteer	להתנדב, מתנדב
+5	warmth	חום
+5	warrior	לוחם
+5	wealth	עושר
+5	wealthy	עשיר
+5	weigh	לשקול
+5	wheat	חיטה
+5	whistle	משרוקית, לשרוק
+5	wildlife	חיות בר
+5	wisdom	חכמה, בינה
+5	wrap	לעטוף, מעטפת
+6	abandon	לנטוש, לזנוח
+6	absence	היעדרות, היעדר; אי-נוכחות
+6	abuse	התעללות, ניצול; להתעלל, לנצל
+6	account	חשבון; דיווח, תיאור; account for — להסביר; take into account — להתחשב
+6	accurate	מדויק
+6	actual	ממשי
+6	adaptation	הסתגלות; עיבוד
+6	admire	להעריץ
+6	admit	להודות; להכניס, לקבל לתוך קבוצה
+6	advance	להתקדם, לקדם; התקדמות; מקדמה; מוקדם, מראש
+6	advertise	לפרסם, להודיע ברבים
+6	advise	לייעץ
+6	alike	דומה
+6	ally (allies)	בן-ברית (בנות-ברית)
+6	ambition	שאפתנות, שאיפה
+6	analogy	אנלוגיה, הקבלה
+6	announcement	הכרזה
+6	apathy	אפאתיה, אדישות
+6	apology	התנצלות
+6	apparently	כנראה
+6	appearance	מראה, הופעה
+6	appetite	תיאבון, רצון עז
+6	appreciate	להעריך, להוקיר; (כלכלי) לעלות בערך
+6	approach	גישה, שיטה; להתקרב, לפנות אל
+6	appropriate	מתאים

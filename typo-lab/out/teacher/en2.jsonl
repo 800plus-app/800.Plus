@@ -1,0 +1,40 @@
+{"id":"X01","direction":"gloss","term":"characterize","gloss":"לאפיין","written":"לאפיין","typed":"לאפיינ ביותר","label":"כ","note":"לאפיין + \"ביותר\" · מילה עודפת חסרת משמעות, הליבה נכונה","src":"en-blind2.tsv","lang":"en"}
+{"id":"X02","direction":"gloss","term":"luck","gloss":"מזל","written":"מזל","typed":"מזל ממש","label":"כ","note":"מזל + \"ממש\" · מילה עודפת","src":"en-blind2.tsv","lang":"en"}
+{"id":"X03","direction":"gloss","term":"stuff","gloss":"דברים; למלא, לפחלץ","written":"דברים; למלא, לפחלץ","typed":"דברוימ","label":"כ","note":"דברוים · ו' עודפת בתוך \"דברים\". אינה מילה","src":"en-blind2.tsv","lang":"en"}
+{"id":"X04","direction":"gloss","term":"vacation","gloss":"חופשה","written":"חופשה","typed":"בופשה","label":"כ","note":"בופשה · ח→ב. אינה מילה","src":"en-blind2.tsv","lang":"en"}
+{"id":"X05","direction":"gloss","term":"injury","gloss":"פציעה","written":"פציעה","typed":"גישבמ","label":"ל","note":"גישבם · זבל, אין קשר","src":"en-blind2.tsv","lang":"en"}
+{"id":"X06","direction":"gloss","term":"restore","gloss":"לשקם, לשחזר","written":"לשקם, לשחזר","typed":"לבט","label":"ל","note":"לבט · אין קשר","src":"en-blind2.tsv","lang":"en"}
+{"id":"X07","direction":"gloss","term":"participate","gloss":"השתתף","written":"השתתף","typed":"ותר","label":"ל","note":"ותר · אין קשר","src":"en-blind2.tsv","lang":"en"}
+{"id":"X08","direction":"gloss","term":"achieve","gloss":"להשיג","written":"להשיג","typed":"להיפכ","label":"ל","note":"להיפך · אין קשר","src":"en-blind2.tsv","lang":"en"}
+{"id":"X09","direction":"gloss","term":"humble","gloss":"צנוע; להשפיל","written":"צנוע; להשפיל","typed":"התרחשות בו זמנית","label":"ל","note":"\"התרחשות בו זמנית\" · פירוש של כרטיס אחר לגמרי","src":"en-blind2.tsv","lang":"en"}
+{"id":"X10","direction":"gloss","term":"subjective","gloss":"אישי, משוחד בדעתו","written":"אישי, משוחד בדעתו","typed":"אכיל","label":"ל","note":"אכיל · אין קשר","src":"en-blind2.tsv","lang":"en"}
+{"id":"X11","direction":"gloss","term":"ticket","gloss":"כרטיס","written":"כרטיס","typed":"סלח","label":"ל","note":"סלח · אין קשר","src":"en-blind2.tsv","lang":"en"}
+{"id":"X12","direction":"gloss","term":"paramount","gloss":"בעל חשיבות עליונה","written":"בעל חשיבות עליונה","typed":"על חשיבות עליונה","label":"כ","note":"⭐ \"בעל\"→\"על\" · אות אחת במילת שימוש. אותה מחלקה כמו שבו/בו של חגי","src":"en-blind2.tsv","lang":"en"}
+{"id":"X13","direction":"gloss","term":"canal","gloss":"תעלה","written":"תעלה","typed":"תעל","label":"כ","note":"תעל · השמטת ה'","src":"en-blind2.tsv","lang":"en"}
+{"id":"X14","direction":"gloss","term":"hypothesis","gloss":"השערה","written":"השערה","typed":"השארה","label":"כ","note":"⚠ השערה→השארה · ע/א. **\"השארה\" היא מילה עברית אמיתית** — ובכל זאת כ, כי אין שום מסלול שבו לומד חושב ש-hypothesis הוא \"השארה\". הסמנטיקה מכריעה, לא הלקסיקון","src":"en-blind2.tsv","lang":"en"}
+{"id":"X15","direction":"gloss","term":"transaction","gloss":"עסקה","written":"עסקה","typed":"אסקה","label":"כ","note":"אסקה · ע→א. אינה מילה","src":"en-blind2.tsv","lang":"en"}
+{"id":"X16","direction":"gloss","term":"safety","gloss":"בטיחות","written":"בטיחות","typed":"בטיחת","label":"כ","note":"בטיחת · השמטת ו'","src":"en-blind2.tsv","lang":"en"}
+{"id":"X17","direction":"gloss","term":"nuclear","gloss":"גרעיני","written":"גרעיני","typed":"געריני","label":"כ","note":"געריני · היפוך ר/ע. אינה מילה","src":"en-blind2.tsv","lang":"en"}
+{"id":"X18","direction":"word","term":"lack","gloss":"מחסור","written":"lack","typed":"lask","label":"כ","note":"lask · אינה מילה","src":"en-blind2.tsv","lang":"en"}
+{"id":"X19","direction":"word","term":"award","gloss":"פרס, להעניק פרס","written":"award","typed":"auard","label":"כ","note":"auard · אינה מילה","src":"en-blind2.tsv","lang":"en"}
+{"id":"X20","direction":"word","term":"notwithstanding","gloss":"למרות, על אף","written":"notwithstanding","typed":"awfagivlffawwvs","label":"ל","note":"⚠ awfagivlffawwvs · **אינה מילה, ובכל זאת ל** — היא רחוקה מכל דבר. ראה הערה למטה","src":"en-blind2.tsv","lang":"en"}
+{"id":"X21","direction":"word","term":"explode","gloss":"להתפוצץ","written":"explode","typed":"zrhbsih","label":"ל","note":"⚠ zrhbsih · אותו דבר","src":"en-blind2.tsv","lang":"en"}
+{"id":"X22","direction":"word","term":"color","gloss":"לצבוע; צבע","written":"color","typed":"approve","label":"ל","note":"approve · מילה אמיתית ואחרת לגמרי","src":"en-blind2.tsv","lang":"en"}
+{"id":"X23","direction":"word","term":"ship","gloss":"לשלוח; אוניה","written":"ship","typed":"design","label":"ל","note":"design · מילה אמיתית ואחרת","src":"en-blind2.tsv","lang":"en"}
+{"id":"X24","direction":"word","term":"interact","gloss":"ליצור אינטראקציה, לתקשר, להשפיע הדדית","written":"interact","typed":"strain","label":"ל","note":"strain · מילה אמיתית ואחרת","src":"en-blind2.tsv","lang":"en"}
+{"id":"X25","direction":"word","term":"tendency","gloss":"נטייה","written":"tendency","typed":"footprints","label":"ל","note":"footprints · מילה אמיתית ואחרת","src":"en-blind2.tsv","lang":"en"}
+{"id":"X26","direction":"word","term":"giant","gloss":"ענק","written":"giant","typed":"gat","label":"ל","note":"giant→gat · שתי השמטות מתוך חמש אותיות, לא רצופות. אינו מדגים ידיעה","src":"en-blind2.tsv","lang":"en"}
+{"id":"X27","direction":"word","term":"nourish","gloss":"להזין, לספק מזון; לטפח","written":"nourish","typed":"tourisst","label":"ל","note":"nourish→tourisst · nour→tour. נראה כמו tourist, מילה אחרת","src":"en-blind2.tsv","lang":"en"}
+{"id":"X28","direction":"word","term":"on top of","gloss":"על, מעל","written":"on top of","typed":"ln top of","label":"כ","note":"ln top of · o→l שכן מקלדת","src":"en-blind2.tsv","lang":"en"}
+{"id":"X29","direction":"word","term":"solve","gloss":"לפתור","written":"solve","typed":"splve","label":"כ","note":"splve · o→p שכן מקלדת","src":"en-blind2.tsv","lang":"en"}
+{"id":"X30","direction":"word","term":"whom","gloss":"מי","written":"whom","typed":"ahom","label":"כ","note":"ahom · w→a","src":"en-blind2.tsv","lang":"en"}
+{"id":"X31","direction":"word","term":"half","gloss":"חצי","written":"half","typed":"ualf","label":"כ","note":"ualf · h→u","src":"en-blind2.tsv","lang":"en"}
+{"id":"X32","direction":"word","term":"advantage","gloss":"יתרון","written":"advantage","typed":"advantwge","label":"כ","note":"advantwge · a→w שכן מקלדת","src":"en-blind2.tsv","lang":"en"}
+{"id":"X33","direction":"word","term":"cheerful","gloss":"עליז, שמח","written":"cheerful","typed":"cheerfuul","label":"כ","note":"cheerfuul · אות כפולה","src":"en-blind2.tsv","lang":"en"}
+{"id":"X34","direction":"word","term":"fund","gloss":"קרן; לממן","written":"fund","typed":"ffund","label":"כ","note":"ffund · אות כפולה","src":"en-blind2.tsv","lang":"en"}
+{"id":"X35","direction":"word","term":"negligent","gloss":"רשלני","written":"negligent","typed":"neglgent","label":"כ","note":"neglgent · השמטת i","src":"en-blind2.tsv","lang":"en"}
+{"id":"X36","direction":"word","term":"ring, rang","gloss":"לצלצל, צלצל","written":"ring, rang","typed":"rin rang","label":"כ","note":"\"rin rang\" · השמטת g ופסיק","src":"en-blind2.tsv","lang":"en"}
+{"id":"X37","direction":"word","term":"prosperous","gloss":"משגשג, מצליח","written":"prosperous","typed":"prosperrous","label":"כ","note":"prosperrous · אות כפולה","src":"en-blind2.tsv","lang":"en"}
+{"id":"X38","direction":"word","term":"propaganda","gloss":"תעמולה","written":"propaganda","typed":"propagandda","label":"כ","note":"propagandda · אות כפולה","src":"en-blind2.tsv","lang":"en"}
+{"id":"X39","direction":"word","term":"spy","gloss":"מרגל, לרגל","written":"spy","typed":"psy","label":"כ","note":"spy→psy · היפוך. מילה בת 3 אותיות, סיכון גבוה — אבל השאלה היא אם ידע, והוא ידע","src":"en-blind2.tsv","lang":"en"}
+{"id":"X40","direction":"word","term":"manufacture","gloss":"ייצר","written":"manufacture","typed":"maunfacture","label":"כ","note":"maunfacture · היפוך nu/un","src":"en-blind2.tsv","lang":"en"}

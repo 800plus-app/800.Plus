@@ -1,0 +1,362 @@
+{
+  "seed": "typo-lab/answers/v2",
+  "splitSalt": "typo-lab/answers/split/v1",
+  "splitRates": {
+    "train": 0.7,
+    "val": 0.15,
+    "holdout": 0.15
+  },
+  "budgets": {
+    "SLOTS": {
+      "wordPos": 6,
+      "wordNeg": 7,
+      "glossPos": 4,
+      "glossNeg": 5
+    },
+    "EDGE_W": 0.35,
+    "EDGE_SHARE": 0.7,
+    "EDGE_SCAN": 20,
+    "MIN_LEN": 3,
+    "MAX_D": 3,
+    "GARBAGE_FLOOR": 3,
+    "NIQQUD_EVERY": 3,
+    "SEG_MAX_WORDS": 4,
+    "SEG_MAX_LETTERS": 24
+  },
+  "againstParams": {
+    "fp": "e203e75a",
+    "ver": "typo-lab/evolve/v1"
+  },
+  "lexicon": {
+    "files": 599,
+    "bytes": 5942957,
+    "heTypes": 35205,
+    "enTypes": 9753
+  },
+  "synonyms": {
+    "approved": 55,
+    "rejected": 47
+  },
+  "external": {
+    "cases": 24,
+    "blockedTermKeys": 62,
+    "blockedSegs": 40,
+    "blockedTyped": 24
+  },
+  "total": 115883,
+  "negatives": 59995,
+  "negativeShare": 0.5177,
+  "hardNegatives": 53786,
+  "hardNegativeShare": 0.4641,
+  "boundary": 48034,
+  "boundaryShare": 0.4145,
+  "boundaryStrict": 26180,
+  "boundaryStrictShare": 0.2259,
+  "acceptedTodayRows": 4505,
+  "emptyClasses": [],
+  "dropped": {
+    "blockedCards": 24,
+    "blockedStrings": 29,
+    "crossSplit": 308050
+  },
+  "mirrorCheck": {
+    "checked": 115883,
+    "falsePos": 0,
+    "falseNeg": 3892,
+    "examples": [
+      {
+        "dir": "gloss",
+        "typed": "מתקנ מסתובב להכנת ככלי חרס",
+        "card": "אָבְנַיִים"
+      },
+      {
+        "dir": "gloss",
+        "typed": "מסתובב מתקנ להכנת כלי חרס",
+        "card": "אָבְנַיִים"
+      },
+      {
+        "dir": "gloss",
+        "typed": "הממונה המוצגימ על במוזיאונ",
+        "card": "אוֹצֵר"
+      },
+      {
+        "dir": "gloss",
+        "typed": "דשא כר",
+        "card": "אָחוּ"
+      },
+      {
+        "dir": "gloss",
+        "typed": "וחיבור חלקימ",
+        "card": "אִיחוּי"
+      },
+      {
+        "dir": "gloss",
+        "typed": "חיבור וחלקימ",
+        "card": "אִיחוּי"
+      },
+      {
+        "dir": "word",
+        "typed": "לולא",
+        "card": "אִלוּלֵא"
+      },
+      {
+        "dir": "gloss",
+        "typed": "אור קרנ",
+        "card": "אֲלוּמָּת אוֹר"
+      }
+    ],
+    "fpExamples": []
+  },
+  "leakChecks": {
+    "groupsInTwoSplits": 0,
+    "case24Leaks": 0,
+    "groups": 10253
+  },
+  "counts": {
+    "class": {
+      "extra-word": 4995,
+      "func-prefix": 2198,
+      "homophone": 1572,
+      "ktiv-haser": 1765,
+      "mater": 3318,
+      "morph-pair": 1500,
+      "neg-equidistant": 8453,
+      "neg-garbage": 6209,
+      "neg-gloss-swap": 1518,
+      "neg-homophone-word": 1351,
+      "neg-inflection": 338,
+      "neg-morph-overreach": 4370,
+      "neg-other-gloss": 10007,
+      "neg-other-term": 10787,
+      "neg-other-variant": 6891,
+      "neg-participle": 179,
+      "neg-real-word": 9526,
+      "neg-synonym-rejected": 366,
+      "niqqud-none": 74,
+      "niqqud-partial": 98,
+      "niqqud-wrong": 113,
+      "partial-cut": 89,
+      "partial-head": 1109,
+      "seg-concat": 867,
+      "sp-adj": 15044,
+      "sp-double": 5960,
+      "sp-drop": 6203,
+      "sp-pattern": 3761,
+      "sp-transpose": 6300,
+      "synonym": 180,
+      "word-order": 742
+    },
+    "langDir": {
+      "en/gloss": 35059,
+      "en/word": 44499,
+      "he/gloss": 15178,
+      "he/word": 21147
+    },
+    "split": {
+      "holdout": 16946,
+      "train": 81680,
+      "val": 17257
+    },
+    "splitClass": {
+      "holdout|neg": 8588,
+      "holdout|pos": 8358,
+      "train|neg": 42682,
+      "train|pos": 38998,
+      "val|neg": 8725,
+      "val|pos": 8532
+    },
+    "edge": {
+      "false": 67849,
+      "true": 48034
+    },
+    "edgeStrict": {
+      "false": 89703,
+      "true": 26180
+    },
+    "edgeWhy": {
+      "E1": 11471,
+      "E1+E2": 1754,
+      "E1+E2+E3": 1,
+      "E1+E2+E3+E5": 19,
+      "E1+E2+E5": 1040,
+      "E1+E3": 1893,
+      "E1+E3+E4": 160,
+      "E1+E3+E5": 2973,
+      "E1+E4": 30,
+      "E1+E5": 3502,
+      "E2": 3130,
+      "E2+E3": 3,
+      "E2+E3+E5": 39,
+      "E2+E5": 679,
+      "E3": 2061,
+      "E3+E4": 54,
+      "E3+E5": 1180,
+      "E4": 15346,
+      "E5": 2699
+    },
+    "classLangDir": {
+      "extra-word|en|gloss": 3862,
+      "extra-word|he|gloss": 1133,
+      "func-prefix|en|gloss": 1618,
+      "func-prefix|he|gloss": 580,
+      "homophone|en|gloss": 629,
+      "homophone|he|gloss": 293,
+      "homophone|he|word": 650,
+      "ktiv-haser|en|gloss": 744,
+      "ktiv-haser|he|gloss": 458,
+      "ktiv-haser|he|word": 563,
+      "mater|en|gloss": 1265,
+      "mater|he|gloss": 548,
+      "mater|he|word": 1505,
+      "morph-pair|en|gloss": 601,
+      "morph-pair|he|gloss": 158,
+      "morph-pair|he|word": 741,
+      "neg-equidistant|en|gloss": 2259,
+      "neg-equidistant|en|word": 4189,
+      "neg-equidistant|he|gloss": 425,
+      "neg-equidistant|he|word": 1580,
+      "neg-garbage|en|gloss": 1889,
+      "neg-garbage|en|word": 2858,
+      "neg-garbage|he|gloss": 635,
+      "neg-garbage|he|word": 827,
+      "neg-gloss-swap|en|gloss": 585,
+      "neg-gloss-swap|he|gloss": 933,
+      "neg-homophone-word|en|gloss": 359,
+      "neg-homophone-word|he|gloss": 536,
+      "neg-homophone-word|he|word": 456,
+      "neg-inflection|en|word": 265,
+      "neg-inflection|he|word": 73,
+      "neg-morph-overreach|en|gloss": 3123,
+      "neg-morph-overreach|he|gloss": 1247,
+      "neg-other-gloss|en|gloss": 7386,
+      "neg-other-gloss|he|gloss": 2621,
+      "neg-other-term|en|word": 7746,
+      "neg-other-term|he|word": 3041,
+      "neg-other-variant|en|word": 4781,
+      "neg-other-variant|he|word": 2110,
+      "neg-participle|he|word": 179,
+      "neg-real-word|en|gloss": 3664,
+      "neg-real-word|en|word": 1188,
+      "neg-real-word|he|gloss": 1873,
+      "neg-real-word|he|word": 2801,
+      "neg-synonym-rejected|en|gloss": 206,
+      "neg-synonym-rejected|he|gloss": 160,
+      "niqqud-none|he|word": 74,
+      "niqqud-partial|he|word": 98,
+      "niqqud-wrong|he|word": 113,
+      "partial-cut|en|gloss": 3,
+      "partial-cut|he|gloss": 86,
+      "partial-head|en|gloss": 373,
+      "partial-head|he|gloss": 736,
+      "seg-concat|en|gloss": 526,
+      "seg-concat|he|gloss": 341,
+      "sp-adj|en|gloss": 3459,
+      "sp-adj|en|word": 7892,
+      "sp-adj|he|gloss": 976,
+      "sp-adj|he|word": 2717,
+      "sp-double|en|gloss": 610,
+      "sp-double|en|word": 3946,
+      "sp-double|he|gloss": 282,
+      "sp-double|he|word": 1122,
+      "sp-drop|en|gloss": 752,
+      "sp-drop|en|word": 3929,
+      "sp-drop|he|gloss": 307,
+      "sp-drop|he|word": 1215,
+      "sp-pattern|en|word": 3761,
+      "sp-transpose|en|gloss": 731,
+      "sp-transpose|en|word": 3944,
+      "sp-transpose|he|gloss": 343,
+      "sp-transpose|he|word": 1282,
+      "synonym|en|gloss": 82,
+      "synonym|he|gloss": 98,
+      "word-order|en|gloss": 333,
+      "word-order|he|gloss": 409
+    },
+    "classEdge": {
+      "extra-word": 5,
+      "func-prefix": 801,
+      "homophone": 549,
+      "ktiv-haser": 527,
+      "mater": 1226,
+      "morph-pair": 498,
+      "neg-equidistant": 2172,
+      "neg-garbage": 739,
+      "neg-gloss-swap": 534,
+      "neg-homophone-word": 645,
+      "neg-inflection": 248,
+      "neg-morph-overreach": 1082,
+      "neg-other-gloss": 6038,
+      "neg-other-term": 1629,
+      "neg-other-variant": 6301,
+      "neg-real-word": 3238,
+      "neg-synonym-rejected": 159,
+      "partial-cut": 1,
+      "partial-head": 118,
+      "sp-adj": 7360,
+      "sp-double": 3678,
+      "sp-drop": 3973,
+      "sp-pattern": 2360,
+      "sp-transpose": 4153
+    },
+    "classToday": {
+      "func-prefix": 1333,
+      "homophone": 19,
+      "ktiv-haser": 6,
+      "mater": 220,
+      "morph-pair": 27,
+      "neg-equidistant": 174,
+      "neg-gloss-swap": 4,
+      "neg-homophone-word": 84,
+      "neg-other-gloss": 41,
+      "neg-other-term": 9,
+      "neg-other-variant": 1,
+      "neg-participle": 6,
+      "neg-real-word": 576,
+      "neg-synonym-rejected": 27,
+      "niqqud-none": 74,
+      "niqqud-partial": 98,
+      "niqqud-wrong": 113,
+      "partial-cut": 51,
+      "partial-head": 17,
+      "seg-concat": 283,
+      "sp-adj": 159,
+      "sp-double": 207,
+      "sp-drop": 54,
+      "synonym": 180,
+      "word-order": 742
+    }
+  },
+  "files": [
+    {
+      "name": "answers-he.jsonl",
+      "rows": 36325,
+      "bytes": 11848231,
+      "sha256": "5432ce3576ac32658cdee7adce8200d653003f850c89c45e0ba2f88d6d9ad68a"
+    },
+    {
+      "name": "answers-en.jsonl",
+      "rows": 79558,
+      "bytes": 20772256,
+      "sha256": "3b24f8908efc221fc1a3d85e81fd7b33e8f13dfde43d53c34b33820ad04e35c1"
+    },
+    {
+      "name": "answers-dx-he.jsonl",
+      "rows": 36325,
+      "bytes": 8652528,
+      "sha256": "520654a17ad91a100befd1fcafa492f1223af42545e9aa646503a5ffb7395511"
+    },
+    {
+      "name": "answers-dx-en.jsonl",
+      "rows": 79558,
+      "bytes": 19034834,
+      "sha256": "24847ccd6c59e0e0417c8ee2e0aca451c6c6326d896ae9324a67563154d9feec"
+    },
+    {
+      "name": "answers-cases24.jsonl",
+      "rows": 24,
+      "bytes": 6991,
+      "sha256": "32d4d7628e71aa2d5ca5bf7ddcfb00a0bdeab198fb8f0f0d266c936f8a1d4985"
+    }
+  ],
+  "elapsedSec": 103.4
+}

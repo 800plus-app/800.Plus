@@ -1,0 +1,755 @@
+[
+ {
+  "s": "If the garrison in the citadel joins the crowd rather than firing on it, what began as a riot over the price of bread becomes an ___.",
+  "o": [
+   "insurrection",
+   "uproar",
+   "defiance",
+   "atrocity"
+  ],
+  "a": 0,
+  "k": "condition",
+  "w": [
+   "if"
+  ],
+  "g": [
+   "insurrection = התקוממות",
+   "uproar = מהומה",
+   "defiance = מרי",
+   "atrocity = זוועה"
+  ],
+  "t": "אם חיל המצב במצודה יצטרף להמון ולא יירה בו, מה שהתחיל כפרעות על מחיר הלחם הופך ל**התקוממות**.",
+  "r": [
+   "insurrection הוא התקוממות מזוינת נגד השלטון, וחיל מצב שמצטרף להמון יוצר בדיוק אותה.",
+   "uproar הוא רעש ומהומה, וההמון היה רועש כבר לפני שחיל המצב הצטרף אליו.",
+   "defiance הוא סירוב לציית, והוא מתאר את עמדת חיל המצב ולא את מה שהאירוע נעשה.",
+   "atrocity הוא זוועה, והמשפט מוסר שחיל המצב דווקא אינו יורה בהמון."
+  ]
+ },
+ {
+  "s": "The judge described the theft as calculated and mean; even so, because the boy was fifteen and had never been charged before, she showed unusual ___.",
+  "o": [
+   "leniency",
+   "reassurance",
+   "humility",
+   "disdain"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "even so"
+  ],
+  "g": [
+   "leniency = ותרנות",
+   "reassurance = הרגעה",
+   "humility = ענוה",
+   "disdain = זלזול"
+  ],
+  "t": "השופטת תיארה את הגנבה כמחושבת וכנבזית, ואף על פי כן, מפני שהנער היה בן חמש עשרה ולא הועמד לדין קודם לכן, היא גילתה **ותרנות** חריגה.",
+  "r": [
+   "leniency הוא ותרנות והקלה בעונש, וגילו של הנער והיעדר עבר פלילי הם הנימוק לה.",
+   "reassurance הוא הרגעה והבטחה שניתנות לאדם, ואינן החלטה על חומרת העונש.",
+   "humility הוא ענוה של אדם כלפי עצמו, ואילו כאן מדובר ביחס השופטת אל הנער.",
+   "disdain הוא זלזול ובוז, והמשפט מוסר שהשופטת דווקא התחשבה בנער."
+  ]
+ },
+ {
+  "s": "The share held its value all through the spring, and then the published audit made it ___ to a tenth of its price in a single afternoon.",
+  "o": [
+   "plummet",
+   "soar",
+   "dwindle",
+   "stumble"
+  ],
+  "a": 0,
+  "k": "sequence",
+  "w": [
+   "then"
+  ],
+  "g": [
+   "plummet = לרדת בחדות",
+   "soar = להמריא",
+   "dwindle = התמעט",
+   "stumble = למעוד"
+  ],
+  "t": "המנייה שמרה על ערכה במשך כל האביב, ואז דוח הביקורת שפורסם גרם לה **לצנוח** לעשירית ממחירה באחר צהריים אחד.",
+  "r": [
+   "plummet הוא ירידה חדה ומהירה, ונפילה לעשירית המחיר בתוך אחר צהריים אחד היא בדיוק זאת.",
+   "soar הוא המראה כלפי מעלה, וזה הפוך מירידה לעשירית המחיר.",
+   "dwindle הוא התמעטות הדרגתית לאורך זמן, והמשפט מוסר נפילה של אחר צהריים אחד.",
+   "stumble הוא מעידה קטנה, ואיבוד תשעה עשירים מהמחיר אינו מעידה."
+  ]
+ },
+ {
+  "s": "A crop that yields little food, for instance the lupin, can still ___ the soil it grows in by returning nitrogen to it.",
+  "o": [
+   "nourish",
+   "cultivate",
+   "deplete",
+   "drench"
+  ],
+  "a": 0,
+  "k": "example",
+  "w": [
+   "for instance"
+  ],
+  "g": [
+   "nourish = להזין",
+   "cultivate = לעבד",
+   "deplete = לדלדל",
+   "drench = להרטיב"
+  ],
+  "t": "יבול שמניב מעט מזון, למשל הלופין, יכול בכל זאת **להזין** את הקרקע שבה הוא גדל בכך שהוא מחזיר לה חנקן.",
+  "r": [
+   "nourish הוא הזנה שמספקת חומר מזין, והחנקן שהצמח מחזיר לקרקע הוא בדיוק זה.",
+   "cultivate הוא עיבוד הקרקע בחריש ובזריעה, ולא הוספת חומר מזין אליה.",
+   "deplete הוא דלדול הקרקע, וזה הפוך מהחזרת חנקן אליה.",
+   "drench הוא הספגה במים, והמשפט מוסר חנקן ולא השקיה."
+  ]
+ },
+ {
+  "s": "Although the scanner does not replace the clerks, who go on checking every crate by hand, it does ___ their work by reading each label aloud.",
+  "o": [
+   "facilitate",
+   "compel",
+   "undertake",
+   "standardize"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "although"
+  ],
+  "g": [
+   "facilitate = להקל",
+   "compel = לאלץ",
+   "undertake = לקחת על עצמך",
+   "standardize = לתקנן"
+  ],
+  "t": "אף שהסורק אינו מחליף את הפקידים, שממשיכים לבדוק כל תיבה ביד, הוא כן **מקל** על עבודתם בכך שהוא קורא כל תווית בקול.",
+  "r": [
+   "facilitate הוא הקלה על עבודה שנמשכת כרגיל, וקריאת התוויות בקול חוסכת לפקידים מאמץ.",
+   "compel הוא כפייה, והסורק אינו מחייב את הפקידים לעשות דבר.",
+   "undertake הוא לקיחת המשימה על עצמך, והמשפט מוסר שהסורק אינו מחליף את הפקידים.",
+   "standardize הוא לקבוע תקן אחיד לעבודה, וקריאת תווית בקול אינה קובעת שום תקן."
+  ]
+ },
+ {
+  "s": "The panel accepted the builder's records without question, and since no other paper ever reached it, it agreed to ___ the tower safe in a note that was never made public.",
+  "o": [
+   "deem",
+   "proclaim",
+   "appraise",
+   "render"
+  ],
+  "a": 0,
+  "k": "cause",
+  "w": [
+   "since"
+  ],
+  "g": [
+   "deem = לראות כ-",
+   "proclaim = להכריז בפומבי",
+   "appraise = לאמוד",
+   "render = להפוך ל-"
+  ],
+  "t": "הוועדה קיבלה את רשומות הבונה בלי לערער עליהן, ומפני שלא הגיע אליה שום מסמך אחר היא הסכימה **לראות** את המגדל כבטוח בפתק שלא פורסם מעולם.",
+  "r": [
+   "deem הוא קביעת שיפוט שדבר הוא כזה או אחר, וזה מה שהוועדה עשתה על סמך הרשומות.",
+   "proclaim הוא הכרזה בפומבי, והמשפט מוסר פתק שלא פורסם מעולם.",
+   "appraise הוא אמידת שווי או היקף במידה, והוועדה לא מדדה את המגדל כלל.",
+   "render הוא הפיכת דבר למצב חדש, וועדה אינה הופכת מגדל לבטוח בהחלטה."
+  ]
+ },
+ {
+  "s": "Because the correspondent never left the capital and the village he described does not appear on any map, the inquiry ruled that he had set out to ___ the whole report.",
+  "o": [
+   "fabricate",
+   "embellish",
+   "feign",
+   "slander"
+  ],
+  "a": 0,
+  "k": "cause",
+  "w": [
+   "because"
+  ],
+  "g": [
+   "fabricate = לבדות",
+   "embellish = להוסיף פרטים מומצאים",
+   "feign = להעמיד פנים",
+   "slander = להשמיץ"
+  ],
+  "t": "מאחר שהכתב מעולם לא יצא מהעיר, והכפר שתיאר אינו מופיע בשום מפה, החקירה קבעה שהוא יצא מלכתחילה **לבדות** את הדיווח כולו.",
+  "r": [
+   "fabricate הוא בדיית דבר מאפס, והכפר עצמו אינו קיים ולכן הדיווח כולו בדוי.",
+   "embellish הוא הוספת פרטים מומצאים לגרעין אמיתי, וכאן אין גרעין כזה כלל.",
+   "feign הוא העמדת פנים של רגש או של מצב, ואינו כתיבה של מסמך.",
+   "slander הוא השמצת אדם מסוים, והמשפט אינו מזכיר אדם שנפגע."
+  ]
+ },
+ {
+  "s": "The river had been feared for a century, yet a single low weir was enough to ___ its current, and the mill it now drives lights the whole valley.",
+  "o": [
+   "harness",
+   "divert",
+   "subdue",
+   "inhibit"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "yet"
+  ],
+  "g": [
+   "harness = לרתום",
+   "divert = להסיט",
+   "subdue = להכניע",
+   "inhibit = לרסן"
+  ],
+  "t": "הנהר היה מקור לפחד במשך מאה שנה, אך סכר נמוך אחד הספיק כדי **לרתום** את הזרם שלו, והטחנה שהוא מניע כיום מאירה את העמק כולו.",
+  "r": [
+   "harness הוא רתימת כוח לעבודה מועילה, והטחנה שמאירה את העמק היא התוצאה.",
+   "divert הוא הסטת הזרם לכיוון אחר, והסטה בלבד אינה מפעילה טחנה.",
+   "subdue הוא הכנעה שמשתיקה כוח, ואילו כאן הזרם ממשיך לזרום ועובד.",
+   "inhibit הוא ריסון שמאט את הזרם, והמשפט מוסר שהזרם הוא שמפעיל את הטחנה."
+  ]
+ },
+ {
+  "s": "Unless the committee can point to one ___ result by spring, a repaired road or a new well, the council will not renew the grant.",
+  "o": [
+   "tangible",
+   "figurative",
+   "tentative",
+   "flimsy"
+  ],
+  "a": 0,
+  "k": "condition",
+  "w": [
+   "unless"
+  ],
+  "g": [
+   "tangible = מוחשי",
+   "figurative = מטאפורי",
+   "tentative = זמני",
+   "flimsy = רעוע"
+  ],
+  "t": "אם הוועדה לא תוכל להצביע על תוצאה **מוחשית** אחת עד האביב, כביש מתוקן או באר חדשה, המועצה לא תחדש את המענק.",
+  "r": [
+   "tangible הוא מוחשי וניתן להצביע עליו, וכביש מתוקן או באר חדשה הם בדיוק כאלה.",
+   "figurative הוא ציורי ולא מילולי, ואילו כאן נדרשת תוצאה שקיימת בשטח.",
+   "tentative הוא זמני ולא סופי, וכביש מתוקן אינו תוצאה מהוססת.",
+   "flimsy הוא רעוע וקלוש, והמועצה מבקשת תוצאה טובה ולא תוצאה חלשה."
+  ]
+ },
+ {
+  "s": "Since the chicks had never seen a hawk and no adult bird was present to warn them, their alarm at the shape overhead can only be ___.",
+  "o": [
+   "innate",
+   "predestined",
+   "deliberate",
+   "rudimentary"
+  ],
+  "a": 0,
+  "k": "cause",
+  "w": [
+   "since"
+  ],
+  "g": [
+   "innate = מולד",
+   "predestined = נקבע מראש",
+   "deliberate = מכוון",
+   "rudimentary = בסיסי"
+  ],
+  "t": "מכיוון שהאפרוחים מעולם לא ראו נץ ולא היה שם עוף בוגר שיזהיר אותם, הבהלה שלהם מהצורה שמעל יכולה להיות **מולדת** בלבד.",
+  "r": [
+   "innate הוא מולד וקיים בלי למידה, וזה ההסבר היחיד לאפרוח שלא ראה נץ מעולם.",
+   "predestined הוא נקבע מראש בידי גורל, ואילו כאן מדובר בתגובה שנולדה עם האפרוח.",
+   "deliberate הוא מכוון ונשקל, ואפרוח אינו בוחר להיבהל.",
+   "rudimentary הוא בסיסי ולא מפותח, והמשפט שואל מאין באה התגובה ולא כמה היא מורכבת."
+  ]
+ },
+ {
+  "s": "Once a step has been explained twice in plain words, a third diagram of the same step is ___ and may be dropped from the next edition.",
+  "o": [
+   "superfluous",
+   "obscure",
+   "elaborate",
+   "erroneous"
+  ],
+  "a": 0,
+  "k": "condition",
+  "w": [
+   "once"
+  ],
+  "g": [
+   "superfluous = מיותר",
+   "obscure = סתום",
+   "elaborate = מפורט",
+   "erroneous = שגוי"
+  ],
+  "t": "לאחר ששלב הוסבר פעמיים בלשון פשוטה, תרשים שלישי של אותו שלב הוא **מיותר** וניתן להשמיט אותו מהמהדורה הבאה.",
+  "r": [
+   "superfluous הוא מיותר מפני שיש ממנו יותר מן הדרוש, וההסבר כבר נמסר פעמיים.",
+   "obscure הוא סתום ולא ברור, והמשפט מוסר שההסבר נמסר בלשון פשוטה.",
+   "elaborate הוא מפורט ומשוכלל, וריבוי פירוט אינו סיבה להשמיט תרשים שחוזר על עצמו.",
+   "erroneous הוא שגוי, והמשפט מוסר שההסבר נמסר כראוי ולא בטעות."
+  ]
+ },
+ {
+  "s": "Although the editor kept every step of the argument, she chose to ___ the two paragraphs that repeated it, and the chapter lost nothing.",
+  "o": [
+   "omit",
+   "condense",
+   "elaborate",
+   "embellish"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "although"
+  ],
+  "g": [
+   "omit = להשמיט",
+   "condense = לצמצם",
+   "elaborate = להרחיב",
+   "embellish = לייפות"
+  ],
+  "t": "אף שהעורכת שמרה על כל שלב בטיעון, היא בחרה **להשמיט** את שתי הפסקאות שחזרו עליו, והפרק לא איבד דבר.",
+  "r": [
+   "omit הוא השמטה מלאה, ולכן שתי הפסקאות הכופלות אינן מופיעות עוד בפרק.",
+   "condense הוא צמצום שמשאיר את הפסקאות בקוצר, והמשפט מוסר שהפרק לא איבד דבר.",
+   "elaborate הוא הרחבה ופירוט, וזה ההפך ממה שנעשה לפסקאות שחזרו על עצמן.",
+   "embellish הוא ייפוי וקישוט, ואילו כאן העורכת מקצרת ואינה מקשטת."
+  ]
+ },
+ {
+  "s": "The bird is no larger than a thumb and its song is faint, yet the scarlet patch on its throat makes it ___ even among thick leaves.",
+  "o": [
+   "conspicuous",
+   "inconspicuous",
+   "luminous",
+   "flagrant"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "yet"
+  ],
+  "g": [
+   "conspicuous = בולט",
+   "inconspicuous = לא בולט",
+   "luminous = זוהר",
+   "flagrant = בוטה"
+  ],
+  "t": "הציפור אינה גדולה מאגודל ושירתה חלושה, אך כתם הארגמן בגרונה הופך אותה ל**בולטת** גם בין עלים צפופים.",
+  "r": [
+   "conspicuous הוא בולט ונתפס בעין מיד, וכתם ארגמן עושה זאת גם בין עלים.",
+   "inconspicuous הוא ההפך, לא בולט, והמשפט מוסר שהכתם דווקא מסגיר את הציפור.",
+   "luminous הוא זוהר מאור של עצמו, וכתם ארגמן משקף אור ואינו פולט אותו.",
+   "flagrant הוא בוטה, והוא נאמר על הפרה או על מעשה ולא על צבע של ציפור."
+  ]
+ },
+ {
+  "s": "No document from the period survives, and so the date printed in most textbooks is a careful ___ rather than a recorded fact.",
+  "o": [
+   "conjecture",
+   "assertion",
+   "hearsay",
+   "testimony"
+  ],
+  "a": 0,
+  "k": "cause",
+  "w": [
+   "so"
+  ],
+  "g": [
+   "conjecture = סברה",
+   "assertion = טענה",
+   "hearsay = שמועה",
+   "testimony = עדות"
+  ],
+  "t": "לא שרד שום מסמך מן התקופה, ולכן התאריך שמודפס ברוב ספרי הלימוד הוא **סברה** זהירה ולא עובדה מתועדת.",
+  "r": [
+   "conjecture הוא סברה שנשענת על היסק ולא על תיעוד, וזה מצבו של התאריך.",
+   "assertion הוא טענה שנאמרת בתוקף, והמשפט מדגיש שאין תיעוד ולא שיש קביעה נחרצת.",
+   "hearsay הוא שמועה שעברה מפה לאוזן, ואין כאן מי שהעביר את התאריך הלאה.",
+   "testimony הוא עדות של מי שראה במו עיניו, ואין עד מן התקופה הזאת."
+  ]
+ },
+ {
+  "s": "The harvest failed for the third year running; in addition, the tax on salt was doubled that autumn, and the two together brought on the ___ that ended the dynasty.",
+  "o": [
+   "upheaval",
+   "recession",
+   "standstill",
+   "fluctuation"
+  ],
+  "a": 0,
+  "k": "addition",
+  "w": [
+   "in addition"
+  ],
+  "g": [
+   "upheaval = מהפך",
+   "recession = מיתון",
+   "standstill = קיפאון",
+   "fluctuation = חוסר יציבות"
+  ],
+  "t": "היבול נכשל בשנה השלישית ברציפות, ונוסף על כך המס על המלח הוכפל באותו סתיו, ושני הדברים יחד הביאו את ה**מהפך** שסיים את השושלת.",
+  "r": [
+   "upheaval הוא מהפך שמטלטל סדר קיים, וסיום של שושלת שלטון הוא מהפך כזה.",
+   "recession הוא מיתון כלכלי, ומיתון כשלעצמו אינו מפיל שושלת שלטון.",
+   "standstill הוא קיפאון ועצירה מוחלטת, ואילו כאן הסדר הישן התחלף ולא נעצר.",
+   "fluctuation הוא חוסר יציבות שנע הלוך וחזור, וזה חלש מכדי לסיים שושלת."
+  ]
+ },
+ {
+  "s": "A well known ___, such as the oak, holds dozens of separate species that no gardener would call by the same name.",
+  "o": [
+   "genus",
+   "caste",
+   "constituent",
+   "lineage"
+  ],
+  "a": 0,
+  "k": "example",
+  "w": [
+   "such as"
+  ],
+  "g": [
+   "genus = סוג, מין",
+   "caste = מעמד חברתי",
+   "constituent = מרכיב",
+   "lineage = שושלת"
+  ],
+  "t": "**סוג** מוכר, כמו האלון, מכיל עשרות מינים נפרדים שאף גנן לא היה קורא להם באותו שם.",
+  "r": [
+   "genus הוא הדרגה שמעל המין במיון, והיא מכילה מינים אחדים, וזה מצבו של האלון.",
+   "caste הוא מעמד חברתי בקרב אנשים, ואינו דרגה במיון של צמחים.",
+   "constituent הוא מרכיב בתוך שלם, ואילו הדרגה המבוקשת היא המסגרת שמכילה את המינים.",
+   "lineage הוא שושלת של מוצא, וצמחים שנכללים יחד במיון אינם שושלת אחת."
+  ]
+ },
+ {
+  "s": "Every pump in the town was working, yet the water rose faster than the crews could empty it, and by midnight the effort was plainly ___.",
+  "o": [
+   "futile",
+   "frivolous",
+   "lamentable",
+   "mediocre"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "yet"
+  ],
+  "g": [
+   "futile = חסר תוחלת",
+   "frivolous = קל דעת",
+   "lamentable = מצער",
+   "mediocre = בינוני"
+  ],
+  "t": "כל משאבה בעיירה פעלה, אך המים עלו מהר יותר מכפי שהצוותים הצליחו לשאוב, ועד חצות היה המאמץ **חסר תוחלת** בעליל.",
+  "r": [
+   "futile הוא חסר תוחלת מפני שאין בו סיכוי להצליח, והמים עולים מהר מקצב השאיבה.",
+   "frivolous הוא קל דעת ולא רציני, והמשפט מוסר שכל משאבה בעיירה עבדה.",
+   "lamentable הוא מצער, וזו הערכה רגשית ולא קביעה שהמאמץ אינו יכול להצליח.",
+   "mediocre הוא בינוני באיכות, ואילו כאן העבודה נעשתה במלואה ובכל זאת לא הועילה."
+  ]
+ },
+ {
+  "s": "A strong climber would find the wall itself merely hard, whereas for a wheelchair the single step at the gate is ___, since no ramp was ever built.",
+  "o": [
+   "insurmountable",
+   "formidable",
+   "interminable",
+   "unpardonable"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "whereas"
+  ],
+  "g": [
+   "insurmountable = שאין להתגבר עליו",
+   "formidable = מאיים",
+   "interminable = נצחי",
+   "unpardonable = בלתי נסלח"
+  ],
+  "t": "מטפס חזק היה מוצא את החומה עצמה קשה בלבד, בעוד שלכיסא גלגלים המדרגה הבודדת בשער היא מחסום **שאין להתגבר עליו**, שכן רמפה לא נבנתה שם מעולם.",
+  "r": [
+   "insurmountable הוא מה שאין דרך להתגבר עליו כלל, ובלי רמפה המדרגה חוסמת לחלוטין.",
+   "formidable הוא מאיים וקשה אך עביר, והמשפט מייחד את הקושי הזה לחומה עצמה.",
+   "interminable הוא נצחי באורכו, ומדרגה בודדת אינה ארוכה.",
+   "unpardonable הוא בלתי נסלח, וזה שיפוט מוסרי ולא תיאור של מחסום."
+  ]
+ },
+ {
+  "s": "The clerk had no reason to hide the file; furthermore, he did not know that anyone was looking for it, and he had ___ left it in the wrong drawer.",
+  "o": [
+   "inadvertently",
+   "invariably",
+   "perpetually",
+   "readily"
+  ],
+  "a": 0,
+  "k": "addition",
+  "w": [
+   "furthermore"
+  ],
+  "g": [
+   "inadvertently = בלי כוונה",
+   "invariably = תמיד",
+   "perpetually = ללא הרף",
+   "readily = ללא קושי"
+  ],
+  "t": "לפקיד לא היה מניע להסתיר את התיק, ויותר מזה, הוא לא ידע שמישהו מחפש אותו, והוא הניח אותו במגירה הלא נכונה **בלי כוונה**.",
+  "r": [
+   "inadvertently הוא בלי כוונה, וזה מה שנובע משני הנתונים: אין מניע ואין ידיעה.",
+   "invariably הוא בכל פעם בלי יוצא מן הכלל, והמשפט מוסר מקרה אחד.",
+   "perpetually הוא ללא הרף, וגם הוא מחייב חזרה שאין לה סימן במשפט.",
+   "readily הוא ללא קושי, והשאלה כאן היא אם הייתה כוונה ולא אם היה קל."
+  ]
+ },
+ {
+  "s": "Two members voted for the motion and one against it; since the fourth would gain personally from the decision, he thought it right to ___.",
+  "o": [
+   "abstain",
+   "agonize",
+   "linger",
+   "intervene"
+  ],
+  "a": 0,
+  "k": "cause",
+  "w": [
+   "since"
+  ],
+  "g": [
+   "abstain = להימנע ממשהו",
+   "agonize = להתלבט קשות",
+   "linger = להשתהות",
+   "intervene = להתערב"
+  ],
+  "t": "שני חברים הצביעו בעד ההצעה ואחד נגדה, ומאחר שהרביעי היה מרוויח מההחלטה באופן אישי, הוא סבר שראוי **להימנע**.",
+  "r": [
+   "abstain הוא הימנעות מהצבעה, וזו הדרך המקובלת לנהוג כשלמצביע יש עניין אישי.",
+   "agonize הוא התלבטות קשה, ומצביע שהתלבט עדיין מצביע בסופו של דבר.",
+   "linger הוא השתהות והישארות, ואינו אחת מן האפשרויות בהצבעה.",
+   "intervene הוא התערבות ונטילת חלק, וזה הפוך מהתרחקות מן ההחלטה."
+  ]
+ },
+ {
+  "s": "Camera traps in the same clearing caught the animal eleven times and every image was taken between midnight and four; the species is therefore ___.",
+  "o": [
+   "nocturnal",
+   "diurnal",
+   "indigenous",
+   "inconspicuous"
+  ],
+  "a": 0,
+  "k": "cause",
+  "w": [
+   "therefore"
+  ],
+  "g": [
+   "nocturnal = לילי",
+   "diurnal = פעיל ביום",
+   "indigenous = ילידי",
+   "inconspicuous = לא בולט"
+  ],
+  "t": "מלכודות מצלמה באותה קרחת יער תפסו את החיה אחת עשרה פעמים, וכל תמונה צולמה בין חצות לארבע, ולכן המין הוא **לילי**.",
+  "r": [
+   "nocturnal הוא לילי, ואחת עשרה תמונות בין חצות לארבע קובעות בדיוק את זה.",
+   "diurnal הוא פעיל ביום, וכל התמונות צולמו בשעות החשוכות.",
+   "indigenous הוא ילידי למקום, ושעת הצילום אינה מלמדת על מקורו של המין.",
+   "inconspicuous הוא לא בולט, והמלכודות דווקא צילמו את החיה אחת עשרה פעמים."
+  ]
+ },
+ {
+  "s": "Although the composer burned most of his scores and cared nothing for an audience, two works were saved for ___ by a copyist who disobeyed him.",
+  "o": [
+   "posterity",
+   "ancestry",
+   "heredity",
+   "renown"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "although"
+  ],
+  "g": [
+   "posterity = הדורות הבאים",
+   "ancestry = מוצא",
+   "heredity = תורשה",
+   "renown = תהילה"
+  ],
+  "t": "אף שהמלחין שרף את מרבית התווים שלו ולא היה לו עניין בקהל, שתי יצירות נשמרו ל**דורות הבאים** בידי מעתיק שהמרה את פיו.",
+  "r": [
+   "posterity הוא הדורות הבאים, והמעתיק שמר את היצירות כדי שיגיעו אליהם.",
+   "ancestry הוא מוצא ושושלת שקדמו לאדם, וכאן מדובר במה שיבוא אחריו.",
+   "heredity הוא תורשה ביולוגית, ואינו קשור לשמירת כתבי יד.",
+   "renown הוא תהילה, והמשפט מוסר שהמלחין לא חפץ בקהל כלל."
+  ]
+ },
+ {
+  "s": "Cost matters to the company and speed matters to the drivers, but on a mountain road the safety of the passengers is ___, and every other consideration gives way to it.",
+  "o": [
+   "paramount",
+   "momentous",
+   "notable",
+   "mundane"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "but"
+  ],
+  "g": [
+   "paramount = בעל חשיבות עליונה",
+   "momentous = הרה גורל",
+   "notable = ראוי לציון",
+   "mundane = שגרתי"
+  ],
+  "t": "העלות חשובה לחברה והמהירות חשובה לנהגים, אך בכביש הרים בטיחות הנוסעים היא **בעלת חשיבות עליונה**, וכל שיקול אחר נסוג מפניה.",
+  "r": [
+   "paramount הוא בעל חשיבות עליונה, ולכן כל שיקול אחר נסוג מפניו.",
+   "momentous הוא הרה גורל ונאמר על מקרה או על החלטה, ולא על סדר עדיפויות קבוע.",
+   "notable הוא ראוי לציון, וזה חלש מכדי להסביר מדוע כל שיקול אחר נסוג.",
+   "mundane הוא שגרתי ויומיומי, וזה הפוך ממה שהמשפט קובע."
+  ]
+ },
+ {
+  "s": "In the northern half of the valley every field is irrigated and green, while the southern half has had no water for ten years, and the contrast is ___.",
+  "o": [
+   "stark",
+   "subtle",
+   "bleak",
+   "figurative"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "while"
+  ],
+  "g": [
+   "stark = בוטה, מוחלט",
+   "subtle = כמעט בלתי מורגש",
+   "bleak = עגום",
+   "figurative = מטאפורי"
+  ],
+  "t": "בחצי הצפוני של העמק כל שדה מושקה וירוק, בעוד שהחצי הדרומי לא קיבל מים עשר שנים, והניגוד **בוטה**.",
+  "r": [
+   "stark הוא בוטה ומוחלט, ושדות ירוקים מול אדמה יבשה עשר שנים הם ניגוד כזה.",
+   "subtle הוא דק וכמעט בלתי מורגש, וההבדל כאן נראה מקצה אחד של העמק.",
+   "bleak הוא עגום, והוא נאמר על נוף או על סיכוי ולא על עוצמת ניגוד.",
+   "figurative הוא ציורי ולא מילולי, וההבדל בין שני חצאי העמק הוא ממשי."
+  ]
+ },
+ {
+  "s": "The language had fewer than two hundred speakers in 1950, yet the schools opened since then have brought a genuine ___, and children now use it at home.",
+  "o": [
+   "resurgence",
+   "emergence",
+   "relapse",
+   "immersion"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "yet"
+  ],
+  "g": [
+   "resurgence = תחייה",
+   "emergence = הופעה",
+   "relapse = הישנות",
+   "immersion = שקיעה מוחלטת"
+  ],
+  "t": "לשפה היו פחות ממאתיים דוברים ב-1950, אך בתי הספר שנפתחו מאז הביאו **תחייה** אמיתית, וילדים משתמשים בה כיום בבית.",
+  "r": [
+   "resurgence הוא תחייה של דבר שדעך, והשפה חוזרת לשימוש יומיומי אחרי שכמעט אבדה.",
+   "emergence הוא הופעה ראשונה, והמשפט מוסר שהשפה כבר הייתה מדוברת ב-1950.",
+   "relapse הוא הישנות של מצב רע, וכאן המצב דווקא השתפר.",
+   "immersion הוא שקיעה מוחלטת בנושא, והוא שם של שיטת הוראה ולא של גידול במספר הדוברים."
+  ]
+ },
+ {
+  "s": "The statute fixes the order plainly: the trustees must first ___ a chairman for the inquiry, and only then may he ___ at a hearing where evidence is taken.",
+  "o": [
+   [
+    "designate",
+    "preside"
+   ],
+   [
+    "preside",
+    "designate"
+   ],
+   [
+    "designate",
+    "intervene"
+   ],
+   [
+    "counsel",
+    "preside"
+   ]
+  ],
+  "a": 0,
+  "k": "sequence",
+  "w": [
+   "then"
+  ],
+  "g": [
+   "designate = למנות · preside = לנהל",
+   "preside = לנהל · designate = למנות",
+   "designate = למנות · intervene = להתערב",
+   "counsel = לייעץ · preside = לנהל"
+  ],
+  "t": "החוק קובע את הסדר במפורש: על הנאמנים **למנות** קודם יושב ראש לחקירה, ורק אחר כך הוא רשאי **לנהל** דיון שבו נשמעות עדויות.",
+  "r": [
+   "designate למינוי ו-preside לניהול: קודם ממנים יושב ראש, ורק אחר כך הוא מנהל דיון.",
+   "הסדר הפוך: preside בא רק לאחר המינוי, והנאמנים אינם ממונים בידי יושב הראש.",
+   "intervene הוא התערבות מבחוץ בדיון, והחוק מעניק ליושב הראש את הניהול עצמו.",
+   "counsel הוא מתן ייעוץ, והנאמנים אינם מייעצים ליושב ראש אלא ממנים אותו."
+  ]
+ },
+ {
+  "s": "The first review was written by his old teacher and set out to ___ every page of the play, whereas the second came from a rival who took the trouble to ___ the very same scenes.",
+  "o": [
+   [
+    "laud",
+    "disparage"
+   ],
+   [
+    "disparage",
+    "laud"
+   ],
+   [
+    "laud",
+    "demean"
+   ],
+   [
+    "gratify",
+    "disparage"
+   ]
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "whereas"
+  ],
+  "g": [
+   "laud = לשבח · disparage = לזלזל",
+   "disparage = לזלזל · laud = לשבח",
+   "laud = לשבח · demean = להשפיל",
+   "gratify = להשביע רצון · disparage = לזלזל"
+  ],
+  "t": "הביקורת הראשונה נכתבה בידי מורו הזקן ויצאה **לשבח** כל עמוד במחזה, בעוד שהשנייה באה מיריב שטרח **לזלזל** באותן סצנות עצמן.",
+  "r": [
+   "laud לשבח ו-disparage לזלזול: המורה הזקן משבח כל עמוד, והיריב מזלזל באותן סצנות.",
+   "הסדר הפוך: laud בחריץ השני היה הופך את היריב למשבח, והמשפט מציג אותו כמי שטורח לזלזל.",
+   "demean הוא השפלה של אדם, ואילו כאן מדובר בסצנות שנכתבו ולא באדם.",
+   "gratify הוא השבעת רצונו של אדם, ואין משביעים את רצונו של עמוד במחזה."
+  ]
+ }
+]

@@ -1,0 +1,228 @@
+[
+ {
+  "s": "The car started every morning, so the mechanic looked for a small ___ in the wiring rather than a broken cable.",
+  "o": [
+   "fault",
+   "break",
+   "waste",
+   "place"
+  ],
+  "a": 0,
+  "k": "cause",
+  "w": [
+   "so"
+  ],
+  "e": "fault הוא הצירוף לתקל בחיווט. break נשלל בגוף המשפט, מכונית שמתניעה כל בוקר אינה מנותקת; waste ו-place אינם תקלים.",
+  "g": [
+   "fault = תקלה, פגם",
+   "break = לשבור",
+   "waste = בזבוז",
+   "place = מקום"
+  ],
+  "r": [
+   "fault הוא התקלה הקטנה שמחפשים בחיווט, ו-started every morning מוסר שהמעגל שלם.",
+   "break פירושו שבר או ניתוק, ומכונית שמתניעה כל בוקר אינה מנותקת.",
+   "waste הוא בזבוז, ולא סוג של תקלה בחיווט.",
+   "place הוא מקום, ולא תקלה שמחפשים בחיווט."
+  ],
+  "t": "המכונית התניעה בכל בוקר, ולכן המכונאי חיפש **תקלה** קטנה בחיווט ולא כבל שבור."
+ },
+ {
+  "s": "Because two centuries of grazing stripped the slope, the valley now bakes without shade or water, and travellers call it a ___.",
+  "o": [
+   "desert",
+   "jungle",
+   "territory",
+   "estate"
+  ],
+  "a": 0,
+  "k": "cause",
+  "w": [
+   "because"
+  ],
+  "e": "הרמז האקלימי במשפט, אופה, בלי צל ובלי מים, פוסל את jungle במפורש. territory הוא שטח בלי מטען של צחיחות, ו-estate הוא רכוש בבעלות. רק desert נושא את הצחיחות עצמה.",
+  "g": [
+   "desert = מדבר",
+   "jungle = ג'ונגל",
+   "territory = שטח",
+   "estate = נכס, אחוזה"
+  ],
+  "r": [
+   "desert הוא השטח הצחיח עצמו, וזה מה שהמשפט מתאר: נצלה בשמש, בלי צל ובלי מים.",
+   "jungle הוא יער טרופי לח, והמשפט מוסר עמק צחיח בלי צל ובלי מים.",
+   "territory הוא שטח בלי מטען של צחיחות, ואינו מוסר דבר על אקלים.",
+   "estate הוא נכס בבעלות, ולא תיאור של אקלים או של צחיחות."
+  ],
+  "t": "מפני שמאתיים שנים של רעייה חשפו את המדרון, העמק נצלה בשמש כיום, בלי צל ובלי מים, והנוסעים קוראים לו **מדבר**."
+ },
+ {
+  "s": "He did not give up the theory; he chose only to ___ it from the journal until the new data arrived.",
+  "o": [
+   "withdraw",
+   "abandon",
+   "reject",
+   "dismiss"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "did not",
+   "only"
+  ],
+  "e": "המשפט שולל נטישה במפורש ומגביל בזמן, ולכן abandon, reject ו-dismiss נופלים, שלושתם סופיים. רק withdraw הוא הסרה זמנית שניתן לחזור ממנה.",
+  "g": [
+   "withdraw = לסגת, לפרוש",
+   "abandon = לנטוש",
+   "reject = לדחות",
+   "dismiss = לבטל"
+  ],
+  "r": [
+   "withdraw הוא הסרה זמנית שניתן לחזור ממנה, וזה מה ש-until the new data arrived מחייב.",
+   "abandon הוא נטישה סופית, והמשפט שולל אותה במפורש: did not give up.",
+   "reject הוא דחייה סופית של התאוריה, והמשפט מוסר הסרה זמנית עד שיגיעו נתונים.",
+   "dismiss הוא ביטול מוחלט, והמשפט מוסר שהוא לא זנח את התאוריה."
+  ],
+  "t": "הוא לא זנח את התאוריה; הוא בחר רק **למשוך** אותה מכתב העת עד שיגיעו הנתונים החדשים."
+ },
+ {
+  "s": "Unless the images improve, the laboratory cannot ___ the chemical composition, even though the crystals themselves are already clearly visible.",
+  "o": [
+   "analyze",
+   "examine",
+   "observe",
+   "survey"
+  ],
+  "a": 0,
+  "k": "condition",
+  "w": [
+   "unless"
+  ],
+  "e": "composition נבדק ב-analyze. examine ו-observe הם ראייה, והמשפט כבר מוסר שרואים את הגבישים, ולכן הם מיותרים; survey חל על שטח או על אוכלוסייה.",
+  "g": [
+   "analyze = לנתח",
+   "examine = לבחון",
+   "observe = להתבונן",
+   "survey = לסקור"
+  ],
+  "r": [
+   "analyze הוא הצירוף לבדיקת הרכב כימי, וזה מה שהמעבדה אינה יכולה לעשות בלי תמונות טובות.",
+   "examine הוא בחינה בעין, והמשפט מוסר שהגבישים כבר נראים בבירור.",
+   "observe הוא התבוננות, והמשפט מוסר שרואים את הגבישים כבר עכשיו.",
+   "survey חל על שטח או על אוכלוסייה, ולא על הרכב כימי."
+  ],
+  "t": "אלא אם התמונות ישתפרו, המעבדה אינה יכולה **לנתח** את ההרכב הכימי, אף שהגבישים עצמם נראים כבר בבירור."
+ },
+ {
+  "s": "The drug does not merely ease the symptoms for a few hours; taken daily, it can actually ___ the illness.",
+  "o": [
+   "cure",
+   "treat",
+   "relieve",
+   "remedy"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "not merely"
+  ],
+  "e": "המשפט שולל במפורש הקלה זמנית, ולכן treat ו-relieve נופלים, הם בדיוק מה שנשלל. remedy חל על מצב או על פגם, לא על מחלה. רק cure הוא חיסול המחלה עצמה.",
+  "g": [
+   "cure = לרפא",
+   "treat = להתייחס",
+   "relieve = להקל, להפיג",
+   "remedy = תרופה"
+  ],
+  "r": [
+   "cure הוא חיסול המחלה עצמה, וזה מה ש-not merely ease the symptoms מחייב.",
+   "treat הוא טיפול במחלה בלי לחסל אותה, והמשפט דורש יותר מהקלה זמנית.",
+   "relieve הוא הקלה על הסימפטומים, וזה בדיוק מה שהמשפט שולל ב-not merely.",
+   "remedy חל על מצב או על פגם, ולא על מחלה."
+  ],
+  "t": "התרופה אינה מקלה על הסימפטומים למשך שעות ספורות בלבד; בנטילה יומית היא יכולה ממש **לרפא** את המחלה."
+ },
+ {
+  "s": "Every clause has already been checked and found true; even so, the treaty carries no legal force until both parliaments ___ it.",
+  "o": [
+   "ratify",
+   "authorize",
+   "verify",
+   "confirm"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "even so"
+  ],
+  "e": "אמנה מאשררים (ratify). המשפט מוסר שהסעיפים כבר נבדקו ואומתו, ולכן verify ו-confirm כבר נעשו ואינם החסר; authorize חל על אדם או על פעולה, לא על אמנה. מה שחסר הוא תוקף, וזה אשרור.",
+  "g": [
+   "ratify = לאשרר",
+   "authorize = להסמיך",
+   "verify = לאמת",
+   "confirm = לאשר"
+  ],
+  "r": [
+   "ratify הוא אשרור אמנה, ומה שחסר במשפט הוא תוקף חוקי.",
+   "authorize חל על אדם או על פעולה, ולא על אמנה.",
+   "verify הוא אימות, והמשפט מוסר שכל סעיף כבר נבדק ונמצא נכון.",
+   "confirm הוא אישור של עובדה, והמשפט מוסר שהבדיקה כבר נעשתה."
+  ],
+  "t": "כל סעיף כבר נבדק ונמצא נכון; עם זאת, לאמנה אין תוקף חוקי עד ששני הפרלמנטים **יאשררו** אותה."
+ },
+ {
+  "s": "She had given her word and everyone expected her to keep it; instead, she chose to ___ the promise without a word of explanation.",
+  "o": [
+   "break",
+   "abandon",
+   "betray",
+   "forsake"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "instead"
+  ],
+  "e": "הבטחה באנגלית נשברת (break). ארבעתם פעלי נטישה, אבל abandon חל על תוכנית או מקום, betray על אדם או על אמון, ו-forsake על אנשים, מקומות ואמונות. אף אחד מהם אינו לוקח promise.",
+  "g": [
+   "break = לשבור",
+   "abandon = לנטוש",
+   "betray = לבגוד",
+   "forsake = לזנוח"
+  ],
+  "r": [
+   "break the promise הוא הצירוף הקבוע באנגלית להפרת הבטחה.",
+   "abandon חל על תוכנית או על מקום, ולא על הבטחה.",
+   "betray חל על אדם או על אמון, ולא על ההבטחה עצמה.",
+   "forsake חל על אנשים, על מקומות ועל אמונות, ולא על הבטחה."
+  ],
+  "t": "היא נתנה את מילתה וכולם ציפו שתעמוד בה; במקום זאת, היא בחרה **להפר** את ההבטחה בלי מילת הסבר אחת."
+ },
+ {
+  "s": "He apologised at length, but the committee doubted his ___; furthermore, he repeated the same conduct the following week.",
+  "o": [
+   "sincerity",
+   "virtue",
+   "conduct",
+   "confession"
+  ],
+  "a": 0,
+  "k": "addition",
+  "w": [
+   "furthermore",
+   "but"
+  ],
+  "e": "הספק הוא אם ההתנצלות הייתה כנה (sincerity). conduct דווקא אינו בספק, המשפט מוסר אותו כעובדה; virtue רחב מדי (אופי מוסרי כללי, לא ההתנצלות), ו-confession הוא מעשה דיבור אחר.",
+  "g": [
+   "sincerity = כנות",
+   "virtue = מעלה",
+   "conduct = התנהגות",
+   "confession = וידוי"
+  ],
+  "r": [
+   "sincerity הוא הכנות שבהתנצלות, וזה מה שהוועדה פקפקה בו.",
+   "virtue הוא אופי מוסרי כללי, רחב מדי לספק שנוגע להתנצלות עצמה.",
+   "conduct דווקא אינו בספק, שכן המשפט מוסר אותו כעובדה: הוא חזר על אותה התנהגות.",
+   "confession הוא וידוי, מעשה דיבור אחר מהתנצלות."
+  ],
+  "t": "הוא התנצל בארוכה, אך הוועדה פקפקה ב**כנות** שלו; בנוסף, הוא חזר על אותה התנהגות בשבוע שלאחר מכן."
+ }
+]

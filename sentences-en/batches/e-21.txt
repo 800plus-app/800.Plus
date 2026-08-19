@@ -1,0 +1,80 @@
+5	assist	לעזור, לסייע
+5	association	אסוציאציה; איגוד
+5	athlete	ספורטאי, אתלט
+5	attach	לחבר, לייחס
+5	attempt	ניסיון
+5	attract	למשוך
+5	attraction	משיכה
+5	autograph	חתימה
+5	autumn	סתיו
+5	average	ממוצע, רגיל
+5	awkward	מגושם; מוזר, מביך
+5	baggage	מטען, מזוודה
+5	baker	אופה
+5	bald	קרח
+5	ban	חרם, איסור
+5	barrier	מחסום
+5	bass	בס (במוזיקה)
+5	behave	להתנהג
+5	beside	ליד
+5	blade	להב
+5	blank	ריק, רווח
+5	blend	לערבב
+5	boil	להרתיח
+5	bond	קשר
+5	boost	דחף, המריץ
+5	boot	מגף
+5	bore	לשעמם, שעמום; לקדוח (חור)
+5	bounce	לקפץ, ניתור
+5	branch	ענף, סניף
+5	brick	לבנה
+5	budget	תקציב, לתקצב
+5	bully	בריון
+5	bury	לקבור
+5	bush	שיח; ערבה
+5	cabin	בקתה
+5	cage	כלוב, לכלוא
+5	camel	גמל
+5	cargo	מטען
+5	carpet	שטיח
+5	cashier	קופאי
+5	cathedral	קתדרלה
+5	cereal	דגני בוקר
+5	charity	צדקה
+5	charm	קסם
+5	chart	גיליון, תרשים
+5	cheerful	עליז, שמח
+5	citizen	אזרח
+5	cliff	צוק
+5	climate	אקלים
+5	column	טור; עמוד
+5	comfort	נוחות, רווחה; נחמה; לנחם
+5	commercial	מסחרי; סרטון פרסומת
+5	commit	ביצוע/ לבצע; להתחייב
+5	compare	להשוות
+5	complain	להתלונן
+5	concentrate	להתרכז
+5	confident	בטוח בעצמו
+5	conservative	שמרני
+5	conspiracy	קשר, מזימה
+5	constant	קבוע, רצוף
+5	constantly	כל הזמן, ללא הרף, בהתמדה; לעיתים תכופות
+5	consult	להתייעץ
+5	contain	להכיל, מכיל
+5	continent	יבשת
+5	conventional	שגרתי, קונבנציונאלי
+5	convert	להמיר; מומר
+5	cooperation	שיתוף פעולה
+5	corrupt	להשחית, מושחת
+5	cotton	כותנה
+5	cough	שיעול, להשתעל
+5	craft	אומנות, מלאכה; כלי טייס / כלי שייט
+5	crisis	משבר
+5	critic	מבקר
+5	crown	כתר, להכתיר
+5	cruel	אכזרי
+5	cult	כת
+5	curiosity	סקרנות
+5	curtain	וילון
+5	curve	עקומה, פניה
+5	deaf	חרש

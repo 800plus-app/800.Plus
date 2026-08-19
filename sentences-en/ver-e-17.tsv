@@ -1,0 +1,80 @@
+deliver	OK
+depend on	OK
+desire	OK
+desperate	OK
+despite	OK
+dimension	OK
+disadvantage	OK
+disagreement	OK
+discoveries	OK
+divide	OK
+divorce	OK
+dominate	OK
+donate	OK
+doubt	OK
+due to	OK
+dust	OK
+duty	OK
+earn	OK
+earthquake	OK
+edge	OK
+either... or...	OK
+empathy	OK
+emperor	OK
+enable	OK
+enzyme	OK
+epic	OK
+epidemic	OK
+ethical	OK
+even	OK
+even so	OK
+eventually	OK
+evidence	FIX	The evidence at the scene proved he was completely innocent.	"completely" misplaced — moves after "innocent"
+evolve	OK
+examination	OK
+examine	OK
+excite	OK
+exclusive	OK
+expectations	OK
+explore	OK
+explosive	OK
+export	OK
+external	OK
+factor	OK
+fairy	OK
+fairytale	OK
+faith	OK
+fall apart	OK
+familiar	OK
+fatal	OK
+fate	OK
+favor	OK
+fiction	OK
+filmmaker	OK
+fingerprint	OK
+flavor	OK
+flexible	OK
+folklore	OK
+fork	OK
+formal	OK
+fortune	OK
+from time to time	OK
+frustration	OK
+fundamental	OK
+further	OK
+generally	OK
+generate	OK
+generated	OK
+genre	OK
+given	OK
+glitch	OK
+grammatical	OK
+grand	OK
+Gulf War	OK
+handle	OK
+heartbeat	FIX	You can feel your heartbeat by placing your hand on your chest.	Missing "your" before "chest"
+hint	OK
+historian	OK
+hold back	OK
+horn	OK
+humorous	OK

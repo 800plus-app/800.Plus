@@ -1,0 +1,4612 @@
+{
+ "set": "en-word",
+ "cache": {
+  "file": "C:\\Users\\03hag\\Claude projects\\800+\\typo-lab\\out\\cache\\en-word.json",
+  "withCross": true
+ },
+ "baseline": {
+  "name": "בסיס · מה שנשלח היום",
+  "holdoutRecall": 0.6792571608435631,
+  "holdoutTp": 2158,
+  "holdoutN": 3177,
+  "holdoutFA": 0,
+  "trainRecall": 0.7079952396408092,
+  "trainFA": 0,
+  "crossFA": 0,
+  "zngryFA": 0,
+  "zngryN": 145668,
+  "faRealWord": 0,
+  "residue": {
+   "accepted": 15246,
+   "realWord": 0,
+   "bankWord": 0,
+   "notAWord": 15246,
+   "newAccepts": 0,
+   "newCorrect": 0,
+   "newFalse": 0,
+   "newNotAWord": 0,
+   "sample": [],
+   "badSample": []
+  },
+  "byLength": [
+   {
+    "len": "3",
+    "n": 21,
+    "tp": 12,
+    "recall": 0.5714285714285714
+   },
+   {
+    "len": "4",
+    "n": 180,
+    "tp": 80,
+    "recall": 0.4444444444444444
+   },
+   {
+    "len": "5",
+    "n": 344,
+    "tp": 36,
+    "recall": 0.10465116279069768
+   },
+   {
+    "len": "6",
+    "n": 498,
+    "tp": 358,
+    "recall": 0.7188755020080321
+   },
+   {
+    "len": "7",
+    "n": 572,
+    "tp": 323,
+    "recall": 0.5646853146853147
+   },
+   {
+    "len": "8",
+    "n": 463,
+    "tp": 402,
+    "recall": 0.8682505399568035
+   },
+   {
+    "len": "9",
+    "n": 425,
+    "tp": 404,
+    "recall": 0.9505882352941176
+   },
+   {
+    "len": "10",
+    "n": 336,
+    "tp": 231,
+    "recall": 0.6875
+   },
+   {
+    "len": "11",
+    "n": 168,
+    "tp": 161,
+    "recall": 0.9583333333333334
+   },
+   {
+    "len": "12+",
+    "n": 170,
+    "tp": 151,
+    "recall": 0.888235294117647
+   }
+  ],
+  "regimes": 2,
+  "model": {
+   "cuts": [
+    2
+   ],
+   "minLen": 0,
+   "marginHard": 1,
+   "regimes": [
+    {
+     "maxGap": 2,
+     "W": {
+      "sub": 99,
+      "adjSub": 99,
+      "transpose": 0.765,
+      "ins": 0.967,
+      "del": 99,
+      "doubleLetter": 0.857,
+      "materVI": 99,
+      "homophone": 99
+     },
+     "aFirst": 0,
+     "aShare": 0,
+     "bands": [
+      {
+       "maxLen": 1,
+       "t": 0
+      },
+      {
+       "maxLen": 2,
+       "t": 0
+      },
+      {
+       "maxLen": 3,
+       "t": 1.9
+      },
+      {
+       "maxLen": 4,
+       "t": 0.9
+      },
+      {
+       "maxLen": 5,
+       "t": 0.8
+      },
+      {
+       "maxLen": 6,
+       "t": 1
+      },
+      {
+       "maxLen": 7,
+       "t": 0.9
+      },
+      {
+       "maxLen": 8,
+       "t": 1.9
+      },
+      {
+       "maxLen": 9,
+       "t": 1.9
+      },
+      {
+       "maxLen": 10,
+       "t": 1.9
+      },
+      {
+       "maxLen": 11,
+       "t": 1.9
+      },
+      {
+       "maxLen": 12,
+       "t": 1.9
+      },
+      {
+       "maxLen": 13,
+       "t": 1.9
+      },
+      {
+       "maxLen": 14,
+       "t": 1
+      },
+      {
+       "maxLen": 15,
+       "t": 0
+      },
+      {
+       "maxLen": 16,
+       "t": 0
+      },
+      {
+       "maxLen": 17,
+       "t": 0
+      },
+      {
+       "maxLen": 18,
+       "t": 0
+      },
+      {
+       "maxLen": 19,
+       "t": 0
+      },
+      {
+       "maxLen": 20,
+       "t": 0
+      },
+      {
+       "maxLen": null,
+       "t": 0
+      }
+     ]
+    },
+    {
+     "maxGap": null,
+     "W": {
+      "sub": 2,
+      "adjSub": 1.35,
+      "transpose": 0.7759,
+      "ins": 1.1296,
+      "del": 0.4303,
+      "doubleLetter": 0.5616,
+      "materVI": 0.3821,
+      "homophone": 1.7916
+     },
+     "aFirst": 0,
+     "aShare": 0,
+     "bands": [
+      {
+       "maxLen": 1,
+       "t": 0
+      },
+      {
+       "maxLen": 2,
+       "t": 0
+      },
+      {
+       "maxLen": 3,
+       "t": 0.6
+      },
+      {
+       "maxLen": 4,
+       "t": 1.5
+      },
+      {
+       "maxLen": 5,
+       "t": 1.4
+      },
+      {
+       "maxLen": 6,
+       "t": 1.5
+      },
+      {
+       "maxLen": 7,
+       "t": 1.5
+      },
+      {
+       "maxLen": 8,
+       "t": 2.2
+      },
+      {
+       "maxLen": 9,
+       "t": 2.2
+      },
+      {
+       "maxLen": 10,
+       "t": 1.2
+      },
+      {
+       "maxLen": 11,
+       "t": 2.2
+      },
+      {
+       "maxLen": 12,
+       "t": 1.5
+      },
+      {
+       "maxLen": 13,
+       "t": 1.5
+      },
+      {
+       "maxLen": 14,
+       "t": 1.5
+      },
+      {
+       "maxLen": 15,
+       "t": 1
+      },
+      {
+       "maxLen": 16,
+       "t": 1.4
+      },
+      {
+       "maxLen": 17,
+       "t": 1.4
+      },
+      {
+       "maxLen": 18,
+       "t": 0
+      },
+      {
+       "maxLen": 19,
+       "t": 1.4
+      },
+      {
+       "maxLen": 20,
+       "t": 1.4
+      },
+      {
+       "maxLen": null,
+       "t": 1.4
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "baselineFull": {
+  "tp": 15246,
+  "nAcc": 21663,
+  "recall": 0.7037806398005816,
+  "fa": 0,
+  "nRej": 159679,
+  "faRealWord": 0
+ },
+ "A": [
+  {
+   "name": "V0 · ספים בנוסחה סגורה · בלי תכונה חדשה",
+   "holdoutRecall": 0.6792571608435631,
+   "holdoutTp": 2158,
+   "holdoutN": 3177,
+   "holdoutFA": 0,
+   "trainRecall": 0.7083198095856323,
+   "trainFA": 0,
+   "crossFA": 0,
+   "zngryFA": 0,
+   "zngryN": 145668,
+   "faRealWord": 0,
+   "residue": {
+    "accepted": 15252,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 15252,
+    "newAccepts": 6,
+    "newCorrect": 6,
+    "newFalse": 0,
+    "newNotAWord": 6,
+    "sample": [
+     {
+      "typed": "autograf",
+      "term": "autograph"
+     },
+     {
+      "typed": "demografic",
+      "term": "demographic"
+     },
+     {
+      "typed": "emfasis",
+      "term": "emphasis"
+     },
+     {
+      "typed": "paragraf",
+      "term": "paragraph"
+     },
+     {
+      "typed": "discemination",
+      "term": "dissemination"
+     },
+     {
+      "typed": "sarcofagus",
+      "term": "sarcophagus"
+     }
+    ],
+    "badSample": []
+   },
+   "byLength": [
+    {
+     "len": "3",
+     "n": 21,
+     "tp": 12,
+     "recall": 0.5714285714285714
+    },
+    {
+     "len": "4",
+     "n": 180,
+     "tp": 80,
+     "recall": 0.4444444444444444
+    },
+    {
+     "len": "5",
+     "n": 344,
+     "tp": 36,
+     "recall": 0.10465116279069768
+    },
+    {
+     "len": "6",
+     "n": 498,
+     "tp": 358,
+     "recall": 0.7188755020080321
+    },
+    {
+     "len": "7",
+     "n": 572,
+     "tp": 323,
+     "recall": 0.5646853146853147
+    },
+    {
+     "len": "8",
+     "n": 463,
+     "tp": 402,
+     "recall": 0.8682505399568035
+    },
+    {
+     "len": "9",
+     "n": 425,
+     "tp": 404,
+     "recall": 0.9505882352941176
+    },
+    {
+     "len": "10",
+     "n": 336,
+     "tp": 231,
+     "recall": 0.6875
+    },
+    {
+     "len": "11",
+     "n": 168,
+     "tp": 161,
+     "recall": 0.9583333333333334
+    },
+    {
+     "len": "12+",
+     "n": 170,
+     "tp": 151,
+     "recall": 0.888235294117647
+    }
+   ],
+   "regimes": 2,
+   "model": {
+    "cuts": [
+     2
+    ],
+    "minLen": 0,
+    "marginHard": 1,
+    "regimes": [
+     {
+      "maxGap": 2,
+      "W": {
+       "sub": 99,
+       "adjSub": 99,
+       "transpose": 0.1,
+       "ins": 0.6,
+       "del": 1.35,
+       "doubleLetter": 0.45,
+       "materVI": 99,
+       "homophone": 99
+      },
+      "aFirst": 0,
+      "aShare": 0,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 1.05
+       },
+       {
+        "maxLen": 4,
+        "t": 0.45
+       },
+       {
+        "maxLen": 5,
+        "t": 0.1
+       },
+       {
+        "maxLen": 6,
+        "t": 0.6
+       },
+       {
+        "maxLen": 7,
+        "t": 0.45
+       },
+       {
+        "maxLen": 8,
+        "t": 1.05
+       },
+       {
+        "maxLen": 9,
+        "t": 1.05
+       },
+       {
+        "maxLen": 10,
+        "t": 1.05
+       },
+       {
+        "maxLen": 11,
+        "t": 1.05
+       },
+       {
+        "maxLen": 12,
+        "t": 1.05
+       },
+       {
+        "maxLen": 13,
+        "t": 1.8
+       },
+       {
+        "maxLen": 14,
+        "t": 0.6
+       },
+       {
+        "maxLen": 15,
+        "t": 0
+       },
+       {
+        "maxLen": 16,
+        "t": 0
+       },
+       {
+        "maxLen": 17,
+        "t": 0
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 0
+       }
+      ]
+     },
+     {
+      "maxGap": null,
+      "W": {
+       "sub": 1.8,
+       "adjSub": 1.35,
+       "transpose": 0.7759,
+       "ins": 1.1296,
+       "del": 0.4303,
+       "doubleLetter": 0.5616,
+       "materVI": 0.3821,
+       "homophone": 1.7916
+      },
+      "aFirst": 0,
+      "aShare": 0,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 0.6
+       },
+       {
+        "maxLen": 4,
+        "t": 1.35
+       },
+       {
+        "maxLen": 5,
+        "t": 1.35
+       },
+       {
+        "maxLen": 6,
+        "t": 1.45
+       },
+       {
+        "maxLen": 7,
+        "t": 1.45
+       },
+       {
+        "maxLen": 8,
+        "t": 2.7
+       },
+       {
+        "maxLen": 9,
+        "t": 2.7
+       },
+       {
+        "maxLen": 10,
+        "t": 1.15
+       },
+       {
+        "maxLen": 11,
+        "t": 2.7
+       },
+       {
+        "maxLen": 12,
+        "t": 1.35
+       },
+       {
+        "maxLen": 13,
+        "t": 1.45
+       },
+       {
+        "maxLen": 14,
+        "t": 1.35
+       },
+       {
+        "maxLen": 15,
+        "t": 0.8
+       },
+       {
+        "maxLen": 16,
+        "t": 1.35
+       },
+       {
+        "maxLen": 17,
+        "t": 1.35
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 1.35
+       }
+      ]
+     }
+    ],
+    "trainRecall": 0.7083198095856323,
+    "clamp": {
+     "lowered": 8,
+     "saved": 7.65,
+     "identical": true
+    }
+   },
+   "clamp": {
+    "lowered": 8,
+    "saved": 7.65,
+    "identical": true
+   }
+  },
+  {
+   "name": "V1 · + posFirst + shareRatio",
+   "holdoutRecall": 0.7463015423355367,
+   "holdoutTp": 2371,
+   "holdoutN": 3177,
+   "holdoutFA": 0,
+   "trainRecall": 0.7690684842583577,
+   "trainFA": 0,
+   "crossFA": 0,
+   "zngryFA": 0,
+   "zngryN": 145668,
+   "faRealWord": 0,
+   "residue": {
+    "accepted": 16588,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 16588,
+    "newAccepts": 1342,
+    "newCorrect": 1342,
+    "newFalse": 0,
+    "newNotAWord": 1342,
+    "sample": [
+     {
+      "typed": "firsst",
+      "term": "1st - first"
+     },
+     {
+      "typed": "aafter",
+      "term": "after"
+     },
+     {
+      "typed": "aftter",
+      "term": "after"
+     },
+     {
+      "typed": "aggain",
+      "term": "again"
+     },
+     {
+      "typed": "againn",
+      "term": "again"
+     },
+     {
+      "typed": "agaist",
+      "term": "against"
+     },
+     {
+      "typed": "aalone",
+      "term": "alone"
+     },
+     {
+      "typed": "allone",
+      "term": "alone"
+     },
+     {
+      "typed": "angrry",
+      "term": "angry"
+     },
+     {
+      "typed": "anoter",
+      "term": "another"
+     },
+     {
+      "typed": "at fist",
+      "term": "at first"
+     },
+     {
+      "typed": "at leas",
+      "term": "at least"
+     },
+     {
+      "typed": "becase",
+      "term": "because"
+     },
+     {
+      "typed": "becaue",
+      "term": "because"
+     },
+     {
+      "typed": "brreak",
+      "term": "break"
+     },
+     {
+      "typed": "chilld",
+      "term": "child"
+     },
+     {
+      "typed": "cleean",
+      "term": "clean"
+     },
+     {
+      "typed": "cllean",
+      "term": "clean"
+     },
+     {
+      "typed": "closse",
+      "term": "close"
+     },
+     {
+      "typed": "coolor",
+      "term": "color"
+     }
+    ],
+    "badSample": []
+   },
+   "byLength": [
+    {
+     "len": "3",
+     "n": 21,
+     "tp": 12,
+     "recall": 0.5714285714285714
+    },
+    {
+     "len": "4",
+     "n": 180,
+     "tp": 80,
+     "recall": 0.4444444444444444
+    },
+    {
+     "len": "5",
+     "n": 344,
+     "tp": 142,
+     "recall": 0.4127906976744186
+    },
+    {
+     "len": "6",
+     "n": 498,
+     "tp": 358,
+     "recall": 0.7188755020080321
+    },
+    {
+     "len": "7",
+     "n": 572,
+     "tp": 430,
+     "recall": 0.7517482517482518
+    },
+    {
+     "len": "8",
+     "n": 463,
+     "tp": 402,
+     "recall": 0.8682505399568035
+    },
+    {
+     "len": "9",
+     "n": 425,
+     "tp": 404,
+     "recall": 0.9505882352941176
+    },
+    {
+     "len": "10",
+     "n": 336,
+     "tp": 231,
+     "recall": 0.6875
+    },
+    {
+     "len": "11",
+     "n": 168,
+     "tp": 161,
+     "recall": 0.9583333333333334
+    },
+    {
+     "len": "12+",
+     "n": 170,
+     "tp": 151,
+     "recall": 0.888235294117647
+    }
+   ],
+   "regimes": 2,
+   "model": {
+    "cuts": [
+     2
+    ],
+    "minLen": 0,
+    "marginHard": 1,
+    "regimes": [
+     {
+      "maxGap": 2,
+      "W": {
+       "sub": 2.4,
+       "adjSub": 99,
+       "transpose": 0.1,
+       "ins": 0.8,
+       "del": 1.8,
+       "doubleLetter": 0.45,
+       "materVI": 99,
+       "homophone": 99
+      },
+      "aFirst": 0.2,
+      "aShare": 1.5,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 1.75
+       },
+       {
+        "maxLen": 4,
+        "t": 0.85
+       },
+       {
+        "maxLen": 5,
+        "t": 0.7
+       },
+       {
+        "maxLen": 6,
+        "t": 1.25
+       },
+       {
+        "maxLen": 7,
+        "t": 1.15
+       },
+       {
+        "maxLen": 8,
+        "t": 1.65
+       },
+       {
+        "maxLen": 9,
+        "t": 1.65
+       },
+       {
+        "maxLen": 10,
+        "t": 1.4
+       },
+       {
+        "maxLen": 11,
+        "t": 1.4
+       },
+       {
+        "maxLen": 12,
+        "t": 1.4
+       },
+       {
+        "maxLen": 13,
+        "t": 2.4
+       },
+       {
+        "maxLen": 14,
+        "t": 0.95
+       },
+       {
+        "maxLen": 15,
+        "t": 0
+       },
+       {
+        "maxLen": 16,
+        "t": 0
+       },
+       {
+        "maxLen": 17,
+        "t": 0
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 0
+       }
+      ]
+     },
+     {
+      "maxGap": null,
+      "W": {
+       "sub": 1.8,
+       "adjSub": 1.35,
+       "transpose": 1,
+       "ins": 1.1296,
+       "del": 0.3,
+       "doubleLetter": 0.3,
+       "materVI": 0.3821,
+       "homophone": 1.7916
+      },
+      "aFirst": 0,
+      "aShare": 3,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 1.05
+       },
+       {
+        "maxLen": 4,
+        "t": 2.1
+       },
+       {
+        "maxLen": 5,
+        "t": 1.95
+       },
+       {
+        "maxLen": 6,
+        "t": 1.9
+       },
+       {
+        "maxLen": 7,
+        "t": 1.85
+       },
+       {
+        "maxLen": 8,
+        "t": 3.35
+       },
+       {
+        "maxLen": 9,
+        "t": 3.25
+       },
+       {
+        "maxLen": 10,
+        "t": 1.45
+       },
+       {
+        "maxLen": 11,
+        "t": 3.15
+       },
+       {
+        "maxLen": 12,
+        "t": 1.65
+       },
+       {
+        "maxLen": 13,
+        "t": 1.65
+       },
+       {
+        "maxLen": 14,
+        "t": 1.6
+       },
+       {
+        "maxLen": 15,
+        "t": 1
+       },
+       {
+        "maxLen": 16,
+        "t": 1.55
+       },
+       {
+        "maxLen": 17,
+        "t": 1.55
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 1.5
+       }
+      ]
+     }
+    ],
+    "trainRecall": 0.7690684842583577,
+    "clamp": {
+     "lowered": 7,
+     "saved": 6.9,
+     "identical": true
+    }
+   },
+   "clamp": {
+    "lowered": 7,
+    "saved": 6.9,
+    "identical": true
+   }
+  },
+  {
+   "name": "V2 · שלושה משטרי gap",
+   "holdoutRecall": 0.7459867799811143,
+   "holdoutTp": 2370,
+   "holdoutN": 3177,
+   "holdoutFA": 0,
+   "trainRecall": 0.7687439143135346,
+   "trainFA": 0,
+   "crossFA": 0,
+   "zngryFA": 0,
+   "zngryN": 145668,
+   "faRealWord": 0,
+   "residue": {
+    "accepted": 16581,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 16581,
+    "newAccepts": 1343,
+    "newCorrect": 1343,
+    "newFalse": 0,
+    "newNotAWord": 1343,
+    "sample": [
+     {
+      "typed": "firsst",
+      "term": "1st - first"
+     },
+     {
+      "typed": "aafter",
+      "term": "after"
+     },
+     {
+      "typed": "aftter",
+      "term": "after"
+     },
+     {
+      "typed": "aggain",
+      "term": "again"
+     },
+     {
+      "typed": "againn",
+      "term": "again"
+     },
+     {
+      "typed": "agaist",
+      "term": "against"
+     },
+     {
+      "typed": "aalone",
+      "term": "alone"
+     },
+     {
+      "typed": "allone",
+      "term": "alone"
+     },
+     {
+      "typed": "angrry",
+      "term": "angry"
+     },
+     {
+      "typed": "anoter",
+      "term": "another"
+     },
+     {
+      "typed": "at fist",
+      "term": "at first"
+     },
+     {
+      "typed": "at leas",
+      "term": "at least"
+     },
+     {
+      "typed": "becase",
+      "term": "because"
+     },
+     {
+      "typed": "becaue",
+      "term": "because"
+     },
+     {
+      "typed": "brreak",
+      "term": "break"
+     },
+     {
+      "typed": "chilld",
+      "term": "child"
+     },
+     {
+      "typed": "cleean",
+      "term": "clean"
+     },
+     {
+      "typed": "cllean",
+      "term": "clean"
+     },
+     {
+      "typed": "closse",
+      "term": "close"
+     },
+     {
+      "typed": "coolor",
+      "term": "color"
+     }
+    ],
+    "badSample": []
+   },
+   "byLength": [
+    {
+     "len": "3",
+     "n": 21,
+     "tp": 12,
+     "recall": 0.5714285714285714
+    },
+    {
+     "len": "4",
+     "n": 180,
+     "tp": 80,
+     "recall": 0.4444444444444444
+    },
+    {
+     "len": "5",
+     "n": 344,
+     "tp": 141,
+     "recall": 0.40988372093023256
+    },
+    {
+     "len": "6",
+     "n": 498,
+     "tp": 358,
+     "recall": 0.7188755020080321
+    },
+    {
+     "len": "7",
+     "n": 572,
+     "tp": 430,
+     "recall": 0.7517482517482518
+    },
+    {
+     "len": "8",
+     "n": 463,
+     "tp": 402,
+     "recall": 0.8682505399568035
+    },
+    {
+     "len": "9",
+     "n": 425,
+     "tp": 404,
+     "recall": 0.9505882352941176
+    },
+    {
+     "len": "10",
+     "n": 336,
+     "tp": 231,
+     "recall": 0.6875
+    },
+    {
+     "len": "11",
+     "n": 168,
+     "tp": 161,
+     "recall": 0.9583333333333334
+    },
+    {
+     "len": "12+",
+     "n": 170,
+     "tp": 151,
+     "recall": 0.888235294117647
+    }
+   ],
+   "regimes": 3,
+   "model": {
+    "cuts": [
+     2,
+     3
+    ],
+    "minLen": 0,
+    "marginHard": 1,
+    "regimes": [
+     {
+      "maxGap": 2,
+      "W": {
+       "sub": 2.4,
+       "adjSub": 99,
+       "transpose": 0.1,
+       "ins": 0.8,
+       "del": 1.8,
+       "doubleLetter": 0.45,
+       "materVI": 99,
+       "homophone": 99
+      },
+      "aFirst": 0.2,
+      "aShare": 1.5,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 1.75
+       },
+       {
+        "maxLen": 4,
+        "t": 0.85
+       },
+       {
+        "maxLen": 5,
+        "t": 0.7
+       },
+       {
+        "maxLen": 6,
+        "t": 1.25
+       },
+       {
+        "maxLen": 7,
+        "t": 1.15
+       },
+       {
+        "maxLen": 8,
+        "t": 1.65
+       },
+       {
+        "maxLen": 9,
+        "t": 1.65
+       },
+       {
+        "maxLen": 10,
+        "t": 1.4
+       },
+       {
+        "maxLen": 11,
+        "t": 1.4
+       },
+       {
+        "maxLen": 12,
+        "t": 1.4
+       },
+       {
+        "maxLen": 13,
+        "t": 2.4
+       },
+       {
+        "maxLen": 14,
+        "t": 0.95
+       },
+       {
+        "maxLen": 15,
+        "t": 0
+       },
+       {
+        "maxLen": 16,
+        "t": 0
+       },
+       {
+        "maxLen": 17,
+        "t": 0
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 0
+       }
+      ]
+     },
+     {
+      "maxGap": 3,
+      "W": {
+       "sub": 1.8,
+       "adjSub": 1.35,
+       "transpose": 0.7759,
+       "ins": 1,
+       "del": 0.4303,
+       "doubleLetter": 0.45,
+       "materVI": 0.3821,
+       "homophone": 1.7916
+      },
+      "aFirst": 0,
+      "aShare": 0,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 0.45
+       },
+       {
+        "maxLen": 4,
+        "t": 1.35
+       },
+       {
+        "maxLen": 5,
+        "t": 1.35
+       },
+       {
+        "maxLen": 6,
+        "t": 1.35
+       },
+       {
+        "maxLen": 7,
+        "t": 1.35
+       },
+       {
+        "maxLen": 8,
+        "t": 2.45
+       },
+       {
+        "maxLen": 9,
+        "t": 1.45
+       },
+       {
+        "maxLen": 10,
+        "t": 1
+       },
+       {
+        "maxLen": 11,
+        "t": 1.35
+       },
+       {
+        "maxLen": 12,
+        "t": 1.35
+       },
+       {
+        "maxLen": 13,
+        "t": 1.35
+       },
+       {
+        "maxLen": 14,
+        "t": 1
+       },
+       {
+        "maxLen": 15,
+        "t": 0
+       },
+       {
+        "maxLen": 16,
+        "t": 0
+       },
+       {
+        "maxLen": 17,
+        "t": 0
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 0
+       }
+      ]
+     },
+     {
+      "maxGap": null,
+      "W": {
+       "sub": 1,
+       "adjSub": 0.8,
+       "transpose": 0,
+       "ins": 0.6,
+       "del": 0.3,
+       "doubleLetter": 0.3,
+       "materVI": 1,
+       "homophone": 1
+      },
+      "aFirst": 0,
+      "aShare": 3,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 0
+       },
+       {
+        "maxLen": 4,
+        "t": 2.2
+       },
+       {
+        "maxLen": 5,
+        "t": 1.4
+       },
+       {
+        "maxLen": 6,
+        "t": 1.35
+       },
+       {
+        "maxLen": 7,
+        "t": 1.3
+       },
+       {
+        "maxLen": 8,
+        "t": 1.9
+       },
+       {
+        "maxLen": 9,
+        "t": 2.2
+       },
+       {
+        "maxLen": 10,
+        "t": 0.9
+       },
+       {
+        "maxLen": 11,
+        "t": 2.05
+       },
+       {
+        "maxLen": 12,
+        "t": 1.1
+       },
+       {
+        "maxLen": 13,
+        "t": 1.1
+       },
+       {
+        "maxLen": 14,
+        "t": 1.1
+       },
+       {
+        "maxLen": 15,
+        "t": 0.5
+       },
+       {
+        "maxLen": 16,
+        "t": 1
+       },
+       {
+        "maxLen": 17,
+        "t": 1
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 0.95
+       }
+      ]
+     }
+    ],
+    "trainRecall": 0.7687439143135346,
+    "clamp": {
+     "lowered": 11,
+     "saved": 14.75,
+     "identical": true
+    }
+   },
+   "clamp": {
+    "lowered": 11,
+    "saved": 14.75,
+    "identical": true
+   }
+  },
+  {
+   "name": "VA · אבלציה · posFirst בלבד",
+   "holdoutRecall": 0.7126219704123387,
+   "holdoutTp": 2264,
+   "holdoutN": 3177,
+   "holdoutFA": 0,
+   "trainRecall": 0.7395867142702586,
+   "trainFA": 0,
+   "crossFA": 0,
+   "zngryFA": 0,
+   "zngryN": 145668,
+   "faRealWord": 0,
+   "residue": {
+    "accepted": 15936,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 15936,
+    "newAccepts": 690,
+    "newCorrect": 690,
+    "newFalse": 0,
+    "newNotAWord": 690,
+    "sample": [
+     {
+      "typed": "agaist",
+      "term": "against"
+     },
+     {
+      "typed": "anoter",
+      "term": "another"
+     },
+     {
+      "typed": "at fist",
+      "term": "at first"
+     },
+     {
+      "typed": "at leas",
+      "term": "at least"
+     },
+     {
+      "typed": "becase",
+      "term": "because"
+     },
+     {
+      "typed": "becaue",
+      "term": "because"
+     },
+     {
+      "typed": "compan",
+      "term": "company"
+     },
+     {
+      "typed": "cotact",
+      "term": "contact"
+     },
+     {
+      "typed": "contct",
+      "term": "contact"
+     },
+     {
+      "typed": "contrl",
+      "term": "control"
+     },
+     {
+      "typed": "cotrol",
+      "term": "control"
+     },
+     {
+      "typed": "exatly",
+      "term": "exactly"
+     },
+     {
+      "typed": "explan",
+      "term": "explain"
+     },
+     {
+      "typed": "feelng",
+      "term": "feeling"
+     },
+     {
+      "typed": "fially",
+      "term": "finally"
+     },
+     {
+      "typed": "forwad",
+      "term": "forward"
+     },
+     {
+      "typed": "forard",
+      "term": "forward"
+     },
+     {
+      "typed": "huband",
+      "term": "husband"
+     },
+     {
+      "typed": "husban",
+      "term": "husband"
+     },
+     {
+      "typed": "machin",
+      "term": "machine"
+     }
+    ],
+    "badSample": []
+   },
+   "byLength": [
+    {
+     "len": "3",
+     "n": 21,
+     "tp": 12,
+     "recall": 0.5714285714285714
+    },
+    {
+     "len": "4",
+     "n": 180,
+     "tp": 80,
+     "recall": 0.4444444444444444
+    },
+    {
+     "len": "5",
+     "n": 344,
+     "tp": 36,
+     "recall": 0.10465116279069768
+    },
+    {
+     "len": "6",
+     "n": 498,
+     "tp": 358,
+     "recall": 0.7188755020080321
+    },
+    {
+     "len": "7",
+     "n": 572,
+     "tp": 429,
+     "recall": 0.75
+    },
+    {
+     "len": "8",
+     "n": 463,
+     "tp": 402,
+     "recall": 0.8682505399568035
+    },
+    {
+     "len": "9",
+     "n": 425,
+     "tp": 404,
+     "recall": 0.9505882352941176
+    },
+    {
+     "len": "10",
+     "n": 336,
+     "tp": 231,
+     "recall": 0.6875
+    },
+    {
+     "len": "11",
+     "n": 168,
+     "tp": 161,
+     "recall": 0.9583333333333334
+    },
+    {
+     "len": "12+",
+     "n": 170,
+     "tp": 151,
+     "recall": 0.888235294117647
+    }
+   ],
+   "regimes": 2,
+   "model": {
+    "cuts": [
+     2
+    ],
+    "minLen": 0,
+    "marginHard": 1,
+    "regimes": [
+     {
+      "maxGap": 2,
+      "W": {
+       "sub": 99,
+       "adjSub": 99,
+       "transpose": 0.1,
+       "ins": 0.8,
+       "del": 1.8,
+       "doubleLetter": 0.6,
+       "materVI": 99,
+       "homophone": 99
+      },
+      "aFirst": 0.1,
+      "aShare": 0,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 1.4
+       },
+       {
+        "maxLen": 4,
+        "t": 0.6
+       },
+       {
+        "maxLen": 5,
+        "t": 0.2
+       },
+       {
+        "maxLen": 6,
+        "t": 0.9
+       },
+       {
+        "maxLen": 7,
+        "t": 0.8
+       },
+       {
+        "maxLen": 8,
+        "t": 1.5
+       },
+       {
+        "maxLen": 9,
+        "t": 1.5
+       },
+       {
+        "maxLen": 10,
+        "t": 1.4
+       },
+       {
+        "maxLen": 11,
+        "t": 1.4
+       },
+       {
+        "maxLen": 12,
+        "t": 1.4
+       },
+       {
+        "maxLen": 13,
+        "t": 2.4
+       },
+       {
+        "maxLen": 14,
+        "t": 0.8
+       },
+       {
+        "maxLen": 15,
+        "t": 0
+       },
+       {
+        "maxLen": 16,
+        "t": 0
+       },
+       {
+        "maxLen": 17,
+        "t": 0
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 0
+       }
+      ]
+     },
+     {
+      "maxGap": null,
+      "W": {
+       "sub": 1.8,
+       "adjSub": 1.35,
+       "transpose": 0.7759,
+       "ins": 1.1296,
+       "del": 0.4303,
+       "doubleLetter": 0.5616,
+       "materVI": 0.3821,
+       "homophone": 1.7916
+      },
+      "aFirst": 0,
+      "aShare": 0,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 0.6
+       },
+       {
+        "maxLen": 4,
+        "t": 1.35
+       },
+       {
+        "maxLen": 5,
+        "t": 1.35
+       },
+       {
+        "maxLen": 6,
+        "t": 1.45
+       },
+       {
+        "maxLen": 7,
+        "t": 1.45
+       },
+       {
+        "maxLen": 8,
+        "t": 2.7
+       },
+       {
+        "maxLen": 9,
+        "t": 2.7
+       },
+       {
+        "maxLen": 10,
+        "t": 1.15
+       },
+       {
+        "maxLen": 11,
+        "t": 2.7
+       },
+       {
+        "maxLen": 12,
+        "t": 1.35
+       },
+       {
+        "maxLen": 13,
+        "t": 1.45
+       },
+       {
+        "maxLen": 14,
+        "t": 1.35
+       },
+       {
+        "maxLen": 15,
+        "t": 0.8
+       },
+       {
+        "maxLen": 16,
+        "t": 1.35
+       },
+       {
+        "maxLen": 17,
+        "t": 1.35
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 1.35
+       }
+      ]
+     }
+    ],
+    "trainRecall": 0.7395867142702586,
+    "clamp": {
+     "lowered": 8,
+     "saved": 7.95,
+     "identical": true
+    }
+   },
+   "clamp": {
+    "lowered": 8,
+    "saved": 7.95,
+    "identical": true
+   }
+  },
+  {
+   "name": "VB · אבלציה · shareRatio בלבד",
+   "holdoutRecall": 0.7132514951211835,
+   "holdoutTp": 2266,
+   "holdoutN": 3177,
+   "holdoutFA": 0,
+   "trainRecall": 0.7379097695553392,
+   "trainFA": 0,
+   "crossFA": 0,
+   "zngryFA": 0,
+   "zngryN": 145668,
+   "faRealWord": 0,
+   "residue": {
+    "accepted": 15907,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 15907,
+    "newAccepts": 661,
+    "newCorrect": 661,
+    "newFalse": 0,
+    "newNotAWord": 661,
+    "sample": [
+     {
+      "typed": "firsst",
+      "term": "1st - first"
+     },
+     {
+      "typed": "aafter",
+      "term": "after"
+     },
+     {
+      "typed": "aftter",
+      "term": "after"
+     },
+     {
+      "typed": "aggain",
+      "term": "again"
+     },
+     {
+      "typed": "againn",
+      "term": "again"
+     },
+     {
+      "typed": "aalone",
+      "term": "alone"
+     },
+     {
+      "typed": "allone",
+      "term": "alone"
+     },
+     {
+      "typed": "angrry",
+      "term": "angry"
+     },
+     {
+      "typed": "at fist",
+      "term": "at first"
+     },
+     {
+      "typed": "at leas",
+      "term": "at least"
+     },
+     {
+      "typed": "brreak",
+      "term": "break"
+     },
+     {
+      "typed": "chilld",
+      "term": "child"
+     },
+     {
+      "typed": "cleean",
+      "term": "clean"
+     },
+     {
+      "typed": "cllean",
+      "term": "clean"
+     },
+     {
+      "typed": "closse",
+      "term": "close"
+     },
+     {
+      "typed": "coolor",
+      "term": "color"
+     },
+     {
+      "typed": "daance",
+      "term": "dance"
+     },
+     {
+      "typed": "dead cea",
+      "term": "Dead Sea"
+     },
+     {
+      "typed": "deatth",
+      "term": "death"
+     },
+     {
+      "typed": "ddirty",
+      "term": "dirty"
+     }
+    ],
+    "badSample": []
+   },
+   "byLength": [
+    {
+     "len": "3",
+     "n": 21,
+     "tp": 12,
+     "recall": 0.5714285714285714
+    },
+    {
+     "len": "4",
+     "n": 180,
+     "tp": 80,
+     "recall": 0.4444444444444444
+    },
+    {
+     "len": "5",
+     "n": 344,
+     "tp": 142,
+     "recall": 0.4127906976744186
+    },
+    {
+     "len": "6",
+     "n": 498,
+     "tp": 358,
+     "recall": 0.7188755020080321
+    },
+    {
+     "len": "7",
+     "n": 572,
+     "tp": 325,
+     "recall": 0.5681818181818182
+    },
+    {
+     "len": "8",
+     "n": 463,
+     "tp": 402,
+     "recall": 0.8682505399568035
+    },
+    {
+     "len": "9",
+     "n": 425,
+     "tp": 404,
+     "recall": 0.9505882352941176
+    },
+    {
+     "len": "10",
+     "n": 336,
+     "tp": 231,
+     "recall": 0.6875
+    },
+    {
+     "len": "11",
+     "n": 168,
+     "tp": 161,
+     "recall": 0.9583333333333334
+    },
+    {
+     "len": "12+",
+     "n": 170,
+     "tp": 151,
+     "recall": 0.888235294117647
+    }
+   ],
+   "regimes": 2,
+   "model": {
+    "cuts": [
+     2
+    ],
+    "minLen": 0,
+    "marginHard": 1,
+    "regimes": [
+     {
+      "maxGap": 2,
+      "W": {
+       "sub": 1,
+       "adjSub": 1,
+       "transpose": 0.1,
+       "ins": 0.45,
+       "del": 1.35,
+       "doubleLetter": 0.2,
+       "materVI": 1,
+       "homophone": 1
+      },
+      "aFirst": 0,
+      "aShare": 1.5,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 1.15
+       },
+       {
+        "maxLen": 4,
+        "t": 0.6
+       },
+       {
+        "maxLen": 5,
+        "t": 0.45
+       },
+       {
+        "maxLen": 6,
+        "t": 0.7
+       },
+       {
+        "maxLen": 7,
+        "t": 0.65
+       },
+       {
+        "maxLen": 8,
+        "t": 0.85
+       },
+       {
+        "maxLen": 9,
+        "t": 0.85
+       },
+       {
+        "maxLen": 10,
+        "t": 0.8
+       },
+       {
+        "maxLen": 11,
+        "t": 0.8
+       },
+       {
+        "maxLen": 12,
+        "t": 0.8
+       },
+       {
+        "maxLen": 13,
+        "t": 0.8
+       },
+       {
+        "maxLen": 14,
+        "t": 0.6
+       },
+       {
+        "maxLen": 15,
+        "t": 0
+       },
+       {
+        "maxLen": 16,
+        "t": 0
+       },
+       {
+        "maxLen": 17,
+        "t": 0
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 0
+       }
+      ]
+     },
+     {
+      "maxGap": null,
+      "W": {
+       "sub": 1.8,
+       "adjSub": 1.35,
+       "transpose": 1,
+       "ins": 1.1296,
+       "del": 0.3,
+       "doubleLetter": 0.3,
+       "materVI": 0.3821,
+       "homophone": 1.7916
+      },
+      "aFirst": 0,
+      "aShare": 3,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 1.05
+       },
+       {
+        "maxLen": 4,
+        "t": 2.1
+       },
+       {
+        "maxLen": 5,
+        "t": 1.95
+       },
+       {
+        "maxLen": 6,
+        "t": 1.9
+       },
+       {
+        "maxLen": 7,
+        "t": 1.85
+       },
+       {
+        "maxLen": 8,
+        "t": 3.35
+       },
+       {
+        "maxLen": 9,
+        "t": 3.25
+       },
+       {
+        "maxLen": 10,
+        "t": 1.45
+       },
+       {
+        "maxLen": 11,
+        "t": 3.15
+       },
+       {
+        "maxLen": 12,
+        "t": 1.65
+       },
+       {
+        "maxLen": 13,
+        "t": 1.65
+       },
+       {
+        "maxLen": 14,
+        "t": 1.6
+       },
+       {
+        "maxLen": 15,
+        "t": 1
+       },
+       {
+        "maxLen": 16,
+        "t": 1.55
+       },
+       {
+        "maxLen": 17,
+        "t": 1.55
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 1.5
+       }
+      ]
+     }
+    ],
+    "trainRecall": 0.7379097695553392,
+    "clamp": {
+     "lowered": 6,
+     "saved": 6.45,
+     "identical": true
+    }
+   },
+   "clamp": {
+    "lowered": 6,
+    "saved": 6.45,
+    "identical": true
+   }
+  },
+  {
+   "name": "V4 · V1 + שומר פארטו לפי אורך",
+   "holdoutRecall": 0.7463015423355367,
+   "holdoutTp": 2371,
+   "holdoutN": 3177,
+   "holdoutFA": 0,
+   "trainRecall": 0.7690684842583577,
+   "trainFA": 0,
+   "crossFA": 0,
+   "zngryFA": 0,
+   "zngryN": 145668,
+   "faRealWord": 0,
+   "residue": {
+    "accepted": 16588,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 16588,
+    "newAccepts": 1342,
+    "newCorrect": 1342,
+    "newFalse": 0,
+    "newNotAWord": 1342,
+    "sample": [
+     {
+      "typed": "firsst",
+      "term": "1st - first"
+     },
+     {
+      "typed": "aafter",
+      "term": "after"
+     },
+     {
+      "typed": "aftter",
+      "term": "after"
+     },
+     {
+      "typed": "aggain",
+      "term": "again"
+     },
+     {
+      "typed": "againn",
+      "term": "again"
+     },
+     {
+      "typed": "agaist",
+      "term": "against"
+     },
+     {
+      "typed": "aalone",
+      "term": "alone"
+     },
+     {
+      "typed": "allone",
+      "term": "alone"
+     },
+     {
+      "typed": "angrry",
+      "term": "angry"
+     },
+     {
+      "typed": "anoter",
+      "term": "another"
+     },
+     {
+      "typed": "at fist",
+      "term": "at first"
+     },
+     {
+      "typed": "at leas",
+      "term": "at least"
+     },
+     {
+      "typed": "becase",
+      "term": "because"
+     },
+     {
+      "typed": "becaue",
+      "term": "because"
+     },
+     {
+      "typed": "brreak",
+      "term": "break"
+     },
+     {
+      "typed": "chilld",
+      "term": "child"
+     },
+     {
+      "typed": "cleean",
+      "term": "clean"
+     },
+     {
+      "typed": "cllean",
+      "term": "clean"
+     },
+     {
+      "typed": "closse",
+      "term": "close"
+     },
+     {
+      "typed": "coolor",
+      "term": "color"
+     }
+    ],
+    "badSample": []
+   },
+   "byLength": [
+    {
+     "len": "3",
+     "n": 21,
+     "tp": 12,
+     "recall": 0.5714285714285714
+    },
+    {
+     "len": "4",
+     "n": 180,
+     "tp": 80,
+     "recall": 0.4444444444444444
+    },
+    {
+     "len": "5",
+     "n": 344,
+     "tp": 142,
+     "recall": 0.4127906976744186
+    },
+    {
+     "len": "6",
+     "n": 498,
+     "tp": 358,
+     "recall": 0.7188755020080321
+    },
+    {
+     "len": "7",
+     "n": 572,
+     "tp": 430,
+     "recall": 0.7517482517482518
+    },
+    {
+     "len": "8",
+     "n": 463,
+     "tp": 402,
+     "recall": 0.8682505399568035
+    },
+    {
+     "len": "9",
+     "n": 425,
+     "tp": 404,
+     "recall": 0.9505882352941176
+    },
+    {
+     "len": "10",
+     "n": 336,
+     "tp": 231,
+     "recall": 0.6875
+    },
+    {
+     "len": "11",
+     "n": 168,
+     "tp": 161,
+     "recall": 0.9583333333333334
+    },
+    {
+     "len": "12+",
+     "n": 170,
+     "tp": 151,
+     "recall": 0.888235294117647
+    }
+   ],
+   "regimes": 2,
+   "model": {
+    "cuts": [
+     2
+    ],
+    "minLen": 0,
+    "marginHard": 1,
+    "regimes": [
+     {
+      "maxGap": 2,
+      "W": {
+       "sub": 2.4,
+       "adjSub": 99,
+       "transpose": 0.1,
+       "ins": 0.8,
+       "del": 1.8,
+       "doubleLetter": 0.45,
+       "materVI": 99,
+       "homophone": 99
+      },
+      "aFirst": 0.2,
+      "aShare": 1.5,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 1.75
+       },
+       {
+        "maxLen": 4,
+        "t": 0.85
+       },
+       {
+        "maxLen": 5,
+        "t": 0.7
+       },
+       {
+        "maxLen": 6,
+        "t": 1.25
+       },
+       {
+        "maxLen": 7,
+        "t": 1.15
+       },
+       {
+        "maxLen": 8,
+        "t": 1.65
+       },
+       {
+        "maxLen": 9,
+        "t": 1.65
+       },
+       {
+        "maxLen": 10,
+        "t": 1.4
+       },
+       {
+        "maxLen": 11,
+        "t": 1.4
+       },
+       {
+        "maxLen": 12,
+        "t": 1.4
+       },
+       {
+        "maxLen": 13,
+        "t": 2.4
+       },
+       {
+        "maxLen": 14,
+        "t": 0.95
+       },
+       {
+        "maxLen": 15,
+        "t": 0
+       },
+       {
+        "maxLen": 16,
+        "t": 0
+       },
+       {
+        "maxLen": 17,
+        "t": 0
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 0
+       }
+      ]
+     },
+     {
+      "maxGap": null,
+      "W": {
+       "sub": 1.8,
+       "adjSub": 1.35,
+       "transpose": 1,
+       "ins": 1.1296,
+       "del": 0.3,
+       "doubleLetter": 0.3,
+       "materVI": 0.3821,
+       "homophone": 1.7916
+      },
+      "aFirst": 0,
+      "aShare": 3,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 1.05
+       },
+       {
+        "maxLen": 4,
+        "t": 2.1
+       },
+       {
+        "maxLen": 5,
+        "t": 1.95
+       },
+       {
+        "maxLen": 6,
+        "t": 1.9
+       },
+       {
+        "maxLen": 7,
+        "t": 1.85
+       },
+       {
+        "maxLen": 8,
+        "t": 3.35
+       },
+       {
+        "maxLen": 9,
+        "t": 3.25
+       },
+       {
+        "maxLen": 10,
+        "t": 1.45
+       },
+       {
+        "maxLen": 11,
+        "t": 3.15
+       },
+       {
+        "maxLen": 12,
+        "t": 1.65
+       },
+       {
+        "maxLen": 13,
+        "t": 1.65
+       },
+       {
+        "maxLen": 14,
+        "t": 1.6
+       },
+       {
+        "maxLen": 15,
+        "t": 1
+       },
+       {
+        "maxLen": 16,
+        "t": 1.55
+       },
+       {
+        "maxLen": 17,
+        "t": 1.55
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 1.5
+       }
+      ]
+     }
+    ],
+    "trainRecall": 0.7690684842583577,
+    "clamp": {
+     "lowered": 7,
+     "saved": 6.9,
+     "identical": true
+    }
+   },
+   "clamp": {
+    "lowered": 7,
+    "saved": 6.9,
+    "identical": true
+   }
+  }
+ ],
+ "B": [
+  {
+   "name": "V0 · ספים בנוסחה סגורה · בלי תכונה חדשה",
+   "holdoutRecall": 0.7223796033994334,
+   "holdoutTp": 2295,
+   "holdoutN": 3177,
+   "holdoutFA": 1,
+   "trainRecall": 0.747105917991994,
+   "trainFA": 0,
+   "crossFA": 0,
+   "zngryFA": 43293,
+   "zngryN": 145668,
+   "faRealWord": 0,
+   "residue": {
+    "accepted": 16107,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 16107,
+    "newAccepts": 0,
+    "newCorrect": 0,
+    "newFalse": 0,
+    "newNotAWord": 0,
+    "sample": [],
+    "badSample": []
+   },
+   "byLength": [
+    {
+     "len": "3",
+     "n": 21,
+     "tp": 20,
+     "recall": 0.9523809523809523
+    },
+    {
+     "len": "4",
+     "n": 180,
+     "tp": 80,
+     "recall": 0.4444444444444444
+    },
+    {
+     "len": "5",
+     "n": 344,
+     "tp": 38,
+     "recall": 0.11046511627906977
+    },
+    {
+     "len": "6",
+     "n": 498,
+     "tp": 364,
+     "recall": 0.7309236947791165
+    },
+    {
+     "len": "7",
+     "n": 572,
+     "tp": 339,
+     "recall": 0.5926573426573427
+    },
+    {
+     "len": "8",
+     "n": 463,
+     "tp": 450,
+     "recall": 0.9719222462203023
+    },
+    {
+     "len": "9",
+     "n": 425,
+     "tp": 422,
+     "recall": 0.9929411764705882
+    },
+    {
+     "len": "10",
+     "n": 336,
+     "tp": 250,
+     "recall": 0.7440476190476191
+    },
+    {
+     "len": "11",
+     "n": 168,
+     "tp": 166,
+     "recall": 0.9880952380952381
+    },
+    {
+     "len": "12+",
+     "n": 170,
+     "tp": 166,
+     "recall": 0.9764705882352941
+    }
+   ],
+   "regimes": 2,
+   "model": {
+    "cuts": [
+     2
+    ],
+    "minLen": 0,
+    "marginHard": 1,
+    "regimes": [
+     {
+      "maxGap": 2,
+      "W": {
+       "sub": 1.35,
+       "adjSub": 1,
+       "transpose": 0.1,
+       "ins": 0.6,
+       "del": 1.8,
+       "doubleLetter": 0.45,
+       "materVI": 99,
+       "homophone": 99
+      },
+      "aFirst": 0,
+      "aShare": 0,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 1.05
+       },
+       {
+        "maxLen": 4,
+        "t": 0.45
+       },
+       {
+        "maxLen": 5,
+        "t": 0.1
+       },
+       {
+        "maxLen": 6,
+        "t": 0.7
+       },
+       {
+        "maxLen": 7,
+        "t": 0.45
+       },
+       {
+        "maxLen": 8,
+        "t": 1.05
+       },
+       {
+        "maxLen": 9,
+        "t": 1.05
+       },
+       {
+        "maxLen": 10,
+        "t": 1.6
+       },
+       {
+        "maxLen": 11,
+        "t": 4.5
+       },
+       {
+        "maxLen": 12,
+        "t": 3.75
+       },
+       {
+        "maxLen": 13,
+        "t": 3.75
+       },
+       {
+        "maxLen": 14,
+        "t": 2.4
+       },
+       {
+        "maxLen": 15,
+        "t": 0
+       },
+       {
+        "maxLen": 16,
+        "t": 0
+       },
+       {
+        "maxLen": 17,
+        "t": 0
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 0
+       }
+      ]
+     },
+     {
+      "maxGap": null,
+      "W": {
+       "sub": 1,
+       "adjSub": 1.35,
+       "transpose": 1,
+       "ins": 1.1296,
+       "del": 0.4303,
+       "doubleLetter": 0.5616,
+       "materVI": 0.3821,
+       "homophone": 1.7916
+      },
+      "aFirst": 0,
+      "aShare": 0,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 1.3
+       },
+       {
+        "maxLen": 4,
+        "t": 1.8
+       },
+       {
+        "maxLen": 5,
+        "t": 1.35
+       },
+       {
+        "maxLen": 6,
+        "t": 1.45
+       },
+       {
+        "maxLen": 7,
+        "t": 1.95
+       },
+       {
+        "maxLen": 8,
+        "t": 2.95
+       },
+       {
+        "maxLen": 9,
+        "t": 3.35
+       },
+       {
+        "maxLen": 10,
+        "t": 1.15
+       },
+       {
+        "maxLen": 11,
+        "t": 3.35
+       },
+       {
+        "maxLen": 12,
+        "t": 3.15
+       },
+       {
+        "maxLen": 13,
+        "t": 3.35
+       },
+       {
+        "maxLen": 14,
+        "t": 3.15
+       },
+       {
+        "maxLen": 15,
+        "t": 1
+       },
+       {
+        "maxLen": 16,
+        "t": 2
+       },
+       {
+        "maxLen": 17,
+        "t": 2.45
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 2
+       }
+      ]
+     }
+    ],
+    "trainRecall": 0.747105917991994
+   }
+  },
+  {
+   "name": "V1 · + posFirst + shareRatio",
+   "holdoutRecall": 0.8133459238275103,
+   "holdoutTp": 2584,
+   "holdoutN": 3177,
+   "holdoutFA": 1,
+   "trainRecall": 0.8321432435356486,
+   "trainFA": 0,
+   "crossFA": 0,
+   "zngryFA": 45377,
+   "zngryN": 145668,
+   "faRealWord": 0,
+   "residue": {
+    "accepted": 17968,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 17968,
+    "newAccepts": 0,
+    "newCorrect": 0,
+    "newFalse": 0,
+    "newNotAWord": 0,
+    "sample": [],
+    "badSample": []
+   },
+   "byLength": [
+    {
+     "len": "3",
+     "n": 21,
+     "tp": 20,
+     "recall": 0.9523809523809523
+    },
+    {
+     "len": "4",
+     "n": 180,
+     "tp": 80,
+     "recall": 0.4444444444444444
+    },
+    {
+     "len": "5",
+     "n": 344,
+     "tp": 141,
+     "recall": 0.40988372093023256
+    },
+    {
+     "len": "6",
+     "n": 498,
+     "tp": 368,
+     "recall": 0.7389558232931727
+    },
+    {
+     "len": "7",
+     "n": 572,
+     "tp": 449,
+     "recall": 0.784965034965035
+    },
+    {
+     "len": "8",
+     "n": 463,
+     "tp": 450,
+     "recall": 0.9719222462203023
+    },
+    {
+     "len": "9",
+     "n": 425,
+     "tp": 422,
+     "recall": 0.9929411764705882
+    },
+    {
+     "len": "10",
+     "n": 336,
+     "tp": 322,
+     "recall": 0.9583333333333334
+    },
+    {
+     "len": "11",
+     "n": 168,
+     "tp": 166,
+     "recall": 0.9880952380952381
+    },
+    {
+     "len": "12+",
+     "n": 170,
+     "tp": 166,
+     "recall": 0.9764705882352941
+    }
+   ],
+   "regimes": 2,
+   "model": {
+    "cuts": [
+     2
+    ],
+    "minLen": 0,
+    "marginHard": 1,
+    "regimes": [
+     {
+      "maxGap": 2,
+      "W": {
+       "sub": 0.45,
+       "adjSub": 0.2,
+       "transpose": 0,
+       "ins": 0,
+       "del": 0.6,
+       "doubleLetter": 0,
+       "materVI": 1,
+       "homophone": 1
+      },
+      "aFirst": 0.1,
+      "aShare": 3,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 1.35
+       },
+       {
+        "maxLen": 4,
+        "t": 0.6
+       },
+       {
+        "maxLen": 5,
+        "t": 0.5
+       },
+       {
+        "maxLen": 6,
+        "t": 0.65
+       },
+       {
+        "maxLen": 7,
+        "t": 0.5
+       },
+       {
+        "maxLen": 8,
+        "t": 0.7
+       },
+       {
+        "maxLen": 9,
+        "t": 0.7
+       },
+       {
+        "maxLen": 10,
+        "t": 0.85
+       },
+       {
+        "maxLen": 11,
+        "t": 1.75
+       },
+       {
+        "maxLen": 12,
+        "t": 1.3
+       },
+       {
+        "maxLen": 13,
+        "t": 1.3
+       },
+       {
+        "maxLen": 14,
+        "t": 0.85
+       },
+       {
+        "maxLen": 15,
+        "t": 0
+       },
+       {
+        "maxLen": 16,
+        "t": 0
+       },
+       {
+        "maxLen": 17,
+        "t": 0
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 0
+       }
+      ]
+     },
+     {
+      "maxGap": null,
+      "W": {
+       "sub": 1,
+       "adjSub": 1.35,
+       "transpose": 1,
+       "ins": 1.1296,
+       "del": 0.4303,
+       "doubleLetter": 0.5616,
+       "materVI": 0.3821,
+       "homophone": 1.7916
+      },
+      "aFirst": 0.2,
+      "aShare": 0,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 1.5
+       },
+       {
+        "maxLen": 4,
+        "t": 1.8
+       },
+       {
+        "maxLen": 5,
+        "t": 1.35
+       },
+       {
+        "maxLen": 6,
+        "t": 1.7
+       },
+       {
+        "maxLen": 7,
+        "t": 1.95
+       },
+       {
+        "maxLen": 8,
+        "t": 2.95
+       },
+       {
+        "maxLen": 9,
+        "t": 3.35
+       },
+       {
+        "maxLen": 10,
+        "t": 1.45
+       },
+       {
+        "maxLen": 11,
+        "t": 3.35
+       },
+       {
+        "maxLen": 12,
+        "t": 3.25
+       },
+       {
+        "maxLen": 13,
+        "t": 3.35
+       },
+       {
+        "maxLen": 14,
+        "t": 3.15
+       },
+       {
+        "maxLen": 15,
+        "t": 1
+       },
+       {
+        "maxLen": 16,
+        "t": 2
+       },
+       {
+        "maxLen": 17,
+        "t": 2.45
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 2
+       }
+      ]
+     }
+    ],
+    "trainRecall": 0.8321432435356486
+   }
+  },
+  {
+   "name": "V2 · שלושה משטרי gap",
+   "holdoutRecall": 0.8127163991186654,
+   "holdoutTp": 2582,
+   "holdoutN": 3177,
+   "holdoutFA": 1,
+   "trainRecall": 0.8317645786000216,
+   "trainFA": 0,
+   "crossFA": 0,
+   "zngryFA": 40591,
+   "zngryN": 145668,
+   "faRealWord": 0,
+   "residue": {
+    "accepted": 17959,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 17959,
+    "newAccepts": 0,
+    "newCorrect": 0,
+    "newFalse": 0,
+    "newNotAWord": 0,
+    "sample": [],
+    "badSample": []
+   },
+   "byLength": [
+    {
+     "len": "3",
+     "n": 21,
+     "tp": 20,
+     "recall": 0.9523809523809523
+    },
+    {
+     "len": "4",
+     "n": 180,
+     "tp": 80,
+     "recall": 0.4444444444444444
+    },
+    {
+     "len": "5",
+     "n": 344,
+     "tp": 142,
+     "recall": 0.4127906976744186
+    },
+    {
+     "len": "6",
+     "n": 498,
+     "tp": 366,
+     "recall": 0.7349397590361446
+    },
+    {
+     "len": "7",
+     "n": 572,
+     "tp": 449,
+     "recall": 0.784965034965035
+    },
+    {
+     "len": "8",
+     "n": 463,
+     "tp": 450,
+     "recall": 0.9719222462203023
+    },
+    {
+     "len": "9",
+     "n": 425,
+     "tp": 422,
+     "recall": 0.9929411764705882
+    },
+    {
+     "len": "10",
+     "n": 336,
+     "tp": 321,
+     "recall": 0.9553571428571429
+    },
+    {
+     "len": "11",
+     "n": 168,
+     "tp": 166,
+     "recall": 0.9880952380952381
+    },
+    {
+     "len": "12+",
+     "n": 170,
+     "tp": 166,
+     "recall": 0.9764705882352941
+    }
+   ],
+   "regimes": 3,
+   "model": {
+    "cuts": [
+     2,
+     3
+    ],
+    "minLen": 0,
+    "marginHard": 1,
+    "regimes": [
+     {
+      "maxGap": 2,
+      "W": {
+       "sub": 0.45,
+       "adjSub": 0.2,
+       "transpose": 0,
+       "ins": 0,
+       "del": 0.6,
+       "doubleLetter": 0,
+       "materVI": 1,
+       "homophone": 1
+      },
+      "aFirst": 0.1,
+      "aShare": 3,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 1.35
+       },
+       {
+        "maxLen": 4,
+        "t": 0.6
+       },
+       {
+        "maxLen": 5,
+        "t": 0.5
+       },
+       {
+        "maxLen": 6,
+        "t": 0.65
+       },
+       {
+        "maxLen": 7,
+        "t": 0.5
+       },
+       {
+        "maxLen": 8,
+        "t": 0.7
+       },
+       {
+        "maxLen": 9,
+        "t": 0.7
+       },
+       {
+        "maxLen": 10,
+        "t": 0.85
+       },
+       {
+        "maxLen": 11,
+        "t": 1.75
+       },
+       {
+        "maxLen": 12,
+        "t": 1.3
+       },
+       {
+        "maxLen": 13,
+        "t": 1.3
+       },
+       {
+        "maxLen": 14,
+        "t": 0.85
+       },
+       {
+        "maxLen": 15,
+        "t": 0
+       },
+       {
+        "maxLen": 16,
+        "t": 0
+       },
+       {
+        "maxLen": 17,
+        "t": 0
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 0
+       }
+      ]
+     },
+     {
+      "maxGap": 3,
+      "W": {
+       "sub": 0.2,
+       "adjSub": 0.1,
+       "transpose": 0,
+       "ins": 0,
+       "del": 0,
+       "doubleLetter": 0,
+       "materVI": 1,
+       "homophone": 1
+      },
+      "aFirst": 0,
+      "aShare": 0,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 0.2
+       },
+       {
+        "maxLen": 4,
+        "t": 0.2
+       },
+       {
+        "maxLen": 5,
+        "t": 0.6
+       },
+       {
+        "maxLen": 6,
+        "t": 0.1
+       },
+       {
+        "maxLen": 7,
+        "t": 0.5
+       },
+       {
+        "maxLen": 8,
+        "t": 0.4
+       },
+       {
+        "maxLen": 9,
+        "t": 0.4
+       },
+       {
+        "maxLen": 10,
+        "t": 0.4
+       },
+       {
+        "maxLen": 11,
+        "t": 0.4
+       },
+       {
+        "maxLen": 12,
+        "t": 0.4
+       },
+       {
+        "maxLen": 13,
+        "t": 0.1
+       },
+       {
+        "maxLen": 14,
+        "t": 0.2
+       },
+       {
+        "maxLen": 15,
+        "t": 0
+       },
+       {
+        "maxLen": 16,
+        "t": 0
+       },
+       {
+        "maxLen": 17,
+        "t": 0
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 0
+       }
+      ]
+     },
+     {
+      "maxGap": null,
+      "W": {
+       "sub": 0.6,
+       "adjSub": 0.6,
+       "transpose": 0.1,
+       "ins": 0.2,
+       "del": 0.1,
+       "doubleLetter": 0.1,
+       "materVI": 1,
+       "homophone": 1
+      },
+      "aFirst": 0.35,
+      "aShare": 0.1,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 0
+       },
+       {
+        "maxLen": 4,
+        "t": 0.75
+       },
+       {
+        "maxLen": 5,
+        "t": 0.35
+       },
+       {
+        "maxLen": 6,
+        "t": 0.75
+       },
+       {
+        "maxLen": 7,
+        "t": 0.9
+       },
+       {
+        "maxLen": 8,
+        "t": 1.7
+       },
+       {
+        "maxLen": 9,
+        "t": 1.85
+       },
+       {
+        "maxLen": 10,
+        "t": 0.65
+       },
+       {
+        "maxLen": 11,
+        "t": 1.85
+       },
+       {
+        "maxLen": 12,
+        "t": 1.55
+       },
+       {
+        "maxLen": 13,
+        "t": 1.85
+       },
+       {
+        "maxLen": 14,
+        "t": 1.7
+       },
+       {
+        "maxLen": 15,
+        "t": 0.2
+       },
+       {
+        "maxLen": 16,
+        "t": 1.2
+       },
+       {
+        "maxLen": 17,
+        "t": 1.35
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 1.2
+       }
+      ]
+     }
+    ],
+    "trainRecall": 0.8317645786000216
+   }
+  },
+  {
+   "name": "VA · אבלציה · posFirst בלבד",
+   "holdoutRecall": 0.7780925401322002,
+   "holdoutTp": 2472,
+   "holdoutN": 3177,
+   "holdoutFA": 1,
+   "trainRecall": 0.7987666342096722,
+   "trainFA": 0,
+   "crossFA": 0,
+   "zngryFA": 44691,
+   "zngryN": 145668,
+   "faRealWord": 0,
+   "residue": {
+    "accepted": 17239,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 17239,
+    "newAccepts": 0,
+    "newCorrect": 0,
+    "newFalse": 0,
+    "newNotAWord": 0,
+    "sample": [],
+    "badSample": []
+   },
+   "byLength": [
+    {
+     "len": "3",
+     "n": 21,
+     "tp": 21,
+     "recall": 1
+    },
+    {
+     "len": "4",
+     "n": 180,
+     "tp": 80,
+     "recall": 0.4444444444444444
+    },
+    {
+     "len": "5",
+     "n": 344,
+     "tp": 36,
+     "recall": 0.10465116279069768
+    },
+    {
+     "len": "6",
+     "n": 498,
+     "tp": 364,
+     "recall": 0.7309236947791165
+    },
+    {
+     "len": "7",
+     "n": 572,
+     "tp": 445,
+     "recall": 0.777972027972028
+    },
+    {
+     "len": "8",
+     "n": 463,
+     "tp": 450,
+     "recall": 0.9719222462203023
+    },
+    {
+     "len": "9",
+     "n": 425,
+     "tp": 422,
+     "recall": 0.9929411764705882
+    },
+    {
+     "len": "10",
+     "n": 336,
+     "tp": 322,
+     "recall": 0.9583333333333334
+    },
+    {
+     "len": "11",
+     "n": 168,
+     "tp": 166,
+     "recall": 0.9880952380952381
+    },
+    {
+     "len": "12+",
+     "n": 170,
+     "tp": 166,
+     "recall": 0.9764705882352941
+    }
+   ],
+   "regimes": 2,
+   "model": {
+    "cuts": [
+     2
+    ],
+    "minLen": 0,
+    "marginHard": 1,
+    "regimes": [
+     {
+      "maxGap": 2,
+      "W": {
+       "sub": 1.8,
+       "adjSub": 1.35,
+       "transpose": 0,
+       "ins": 0.8,
+       "del": 2.4,
+       "doubleLetter": 0.6,
+       "materVI": 99,
+       "homophone": 99
+      },
+      "aFirst": 0.1,
+      "aShare": 0,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 1.8
+       },
+       {
+        "maxLen": 4,
+        "t": 0.6
+       },
+       {
+        "maxLen": 5,
+        "t": 0.1
+       },
+       {
+        "maxLen": 6,
+        "t": 0.9
+       },
+       {
+        "maxLen": 7,
+        "t": 0.8
+       },
+       {
+        "maxLen": 8,
+        "t": 1.5
+       },
+       {
+        "maxLen": 9,
+        "t": 1.5
+       },
+       {
+        "maxLen": 10,
+        "t": 2.15
+       },
+       {
+        "maxLen": 11,
+        "t": 6
+       },
+       {
+        "maxLen": 12,
+        "t": 5
+       },
+       {
+        "maxLen": 13,
+        "t": 5
+       },
+       {
+        "maxLen": 14,
+        "t": 3.2
+       },
+       {
+        "maxLen": 15,
+        "t": 0
+       },
+       {
+        "maxLen": 16,
+        "t": 0
+       },
+       {
+        "maxLen": 17,
+        "t": 0
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 0
+       }
+      ]
+     },
+     {
+      "maxGap": null,
+      "W": {
+       "sub": 1,
+       "adjSub": 1.35,
+       "transpose": 1,
+       "ins": 1.1296,
+       "del": 0.4303,
+       "doubleLetter": 0.5616,
+       "materVI": 0.3821,
+       "homophone": 1.7916
+      },
+      "aFirst": 0.2,
+      "aShare": 0,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 1.5
+       },
+       {
+        "maxLen": 4,
+        "t": 1.8
+       },
+       {
+        "maxLen": 5,
+        "t": 1.35
+       },
+       {
+        "maxLen": 6,
+        "t": 1.7
+       },
+       {
+        "maxLen": 7,
+        "t": 1.95
+       },
+       {
+        "maxLen": 8,
+        "t": 2.95
+       },
+       {
+        "maxLen": 9,
+        "t": 3.35
+       },
+       {
+        "maxLen": 10,
+        "t": 1.45
+       },
+       {
+        "maxLen": 11,
+        "t": 3.35
+       },
+       {
+        "maxLen": 12,
+        "t": 3.25
+       },
+       {
+        "maxLen": 13,
+        "t": 3.35
+       },
+       {
+        "maxLen": 14,
+        "t": 3.15
+       },
+       {
+        "maxLen": 15,
+        "t": 1
+       },
+       {
+        "maxLen": 16,
+        "t": 2
+       },
+       {
+        "maxLen": 17,
+        "t": 2.45
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 2
+       }
+      ]
+     }
+    ],
+    "trainRecall": 0.7987666342096722
+   }
+  },
+  {
+   "name": "VB · אבלציה · shareRatio בלבד",
+   "holdoutRecall": 0.7535410764872521,
+   "holdoutTp": 2394,
+   "holdoutN": 3177,
+   "holdoutFA": 2,
+   "trainRecall": 0.7766417829708969,
+   "trainFA": 0,
+   "crossFA": 0,
+   "zngryFA": 44253,
+   "zngryN": 145668,
+   "faRealWord": 0,
+   "residue": {
+    "accepted": 16753,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 16753,
+    "newAccepts": 0,
+    "newCorrect": 0,
+    "newFalse": 0,
+    "newNotAWord": 0,
+    "sample": [],
+    "badSample": []
+   },
+   "byLength": [
+    {
+     "len": "3",
+     "n": 21,
+     "tp": 20,
+     "recall": 0.9523809523809523
+    },
+    {
+     "len": "4",
+     "n": 180,
+     "tp": 80,
+     "recall": 0.4444444444444444
+    },
+    {
+     "len": "5",
+     "n": 344,
+     "tp": 143,
+     "recall": 0.41569767441860467
+    },
+    {
+     "len": "6",
+     "n": 498,
+     "tp": 368,
+     "recall": 0.7389558232931727
+    },
+    {
+     "len": "7",
+     "n": 572,
+     "tp": 329,
+     "recall": 0.5751748251748252
+    },
+    {
+     "len": "8",
+     "n": 463,
+     "tp": 450,
+     "recall": 0.9719222462203023
+    },
+    {
+     "len": "9",
+     "n": 425,
+     "tp": 422,
+     "recall": 0.9929411764705882
+    },
+    {
+     "len": "10",
+     "n": 336,
+     "tp": 250,
+     "recall": 0.7440476190476191
+    },
+    {
+     "len": "11",
+     "n": 168,
+     "tp": 166,
+     "recall": 0.9880952380952381
+    },
+    {
+     "len": "12+",
+     "n": 170,
+     "tp": 166,
+     "recall": 0.9764705882352941
+    }
+   ],
+   "regimes": 2,
+   "model": {
+    "cuts": [
+     2
+    ],
+    "minLen": 0,
+    "marginHard": 1,
+    "regimes": [
+     {
+      "maxGap": 2,
+      "W": {
+       "sub": 0.2,
+       "adjSub": 0.1,
+       "transpose": 0,
+       "ins": 0,
+       "del": 0.45,
+       "doubleLetter": 0,
+       "materVI": 1,
+       "homophone": 1
+      },
+      "aFirst": 0,
+      "aShare": 2,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 0.8
+       },
+       {
+        "maxLen": 4,
+        "t": 0.45
+       },
+       {
+        "maxLen": 5,
+        "t": 0.35
+       },
+       {
+        "maxLen": 6,
+        "t": 0.4
+       },
+       {
+        "maxLen": 7,
+        "t": 0.25
+       },
+       {
+        "maxLen": 8,
+        "t": 0.4
+       },
+       {
+        "maxLen": 9,
+        "t": 0.4
+       },
+       {
+        "maxLen": 10,
+        "t": 0.5
+       },
+       {
+        "maxLen": 11,
+        "t": 1.05
+       },
+       {
+        "maxLen": 12,
+        "t": 0.85
+       },
+       {
+        "maxLen": 13,
+        "t": 0.85
+       },
+       {
+        "maxLen": 14,
+        "t": 0.6
+       },
+       {
+        "maxLen": 15,
+        "t": 0
+       },
+       {
+        "maxLen": 16,
+        "t": 0
+       },
+       {
+        "maxLen": 17,
+        "t": 0
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 0
+       }
+      ]
+     },
+     {
+      "maxGap": null,
+      "W": {
+       "sub": 1,
+       "adjSub": 1.35,
+       "transpose": 1,
+       "ins": 1.1296,
+       "del": 0.4303,
+       "doubleLetter": 0.5616,
+       "materVI": 0.3821,
+       "homophone": 1.7916
+      },
+      "aFirst": 0,
+      "aShare": 0,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 1.3
+       },
+       {
+        "maxLen": 4,
+        "t": 1.8
+       },
+       {
+        "maxLen": 5,
+        "t": 1.35
+       },
+       {
+        "maxLen": 6,
+        "t": 1.45
+       },
+       {
+        "maxLen": 7,
+        "t": 1.95
+       },
+       {
+        "maxLen": 8,
+        "t": 2.95
+       },
+       {
+        "maxLen": 9,
+        "t": 3.35
+       },
+       {
+        "maxLen": 10,
+        "t": 1.15
+       },
+       {
+        "maxLen": 11,
+        "t": 3.35
+       },
+       {
+        "maxLen": 12,
+        "t": 3.15
+       },
+       {
+        "maxLen": 13,
+        "t": 3.35
+       },
+       {
+        "maxLen": 14,
+        "t": 3.15
+       },
+       {
+        "maxLen": 15,
+        "t": 1
+       },
+       {
+        "maxLen": 16,
+        "t": 2
+       },
+       {
+        "maxLen": 17,
+        "t": 2.45
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 2
+       }
+      ]
+     }
+    ],
+    "trainRecall": 0.7766417829708969
+   }
+  },
+  {
+   "name": "V4 · V1 + שומר פארטו לפי אורך",
+   "holdoutRecall": 0.7903682719546742,
+   "holdoutTp": 2511,
+   "holdoutN": 3177,
+   "holdoutFA": 1,
+   "trainRecall": 0.8092610624256193,
+   "trainFA": 0,
+   "crossFA": 0,
+   "zngryFA": 44218,
+   "zngryN": 145668,
+   "faRealWord": 0,
+   "residue": {
+    "accepted": 17472,
+    "realWord": 0,
+    "bankWord": 0,
+    "notAWord": 17472,
+    "newAccepts": 0,
+    "newCorrect": 0,
+    "newFalse": 0,
+    "newNotAWord": 0,
+    "sample": [],
+    "badSample": []
+   },
+   "byLength": [
+    {
+     "len": "3",
+     "n": 21,
+     "tp": 21,
+     "recall": 1
+    },
+    {
+     "len": "4",
+     "n": 180,
+     "tp": 80,
+     "recall": 0.4444444444444444
+    },
+    {
+     "len": "5",
+     "n": 344,
+     "tp": 142,
+     "recall": 0.4127906976744186
+    },
+    {
+     "len": "6",
+     "n": 498,
+     "tp": 368,
+     "recall": 0.7389558232931727
+    },
+    {
+     "len": "7",
+     "n": 572,
+     "tp": 446,
+     "recall": 0.7797202797202797
+    },
+    {
+     "len": "8",
+     "n": 463,
+     "tp": 450,
+     "recall": 0.9719222462203023
+    },
+    {
+     "len": "9",
+     "n": 425,
+     "tp": 422,
+     "recall": 0.9929411764705882
+    },
+    {
+     "len": "10",
+     "n": 336,
+     "tp": 250,
+     "recall": 0.7440476190476191
+    },
+    {
+     "len": "11",
+     "n": 168,
+     "tp": 166,
+     "recall": 0.9880952380952381
+    },
+    {
+     "len": "12+",
+     "n": 170,
+     "tp": 166,
+     "recall": 0.9764705882352941
+    }
+   ],
+   "regimes": 2,
+   "model": {
+    "cuts": [
+     2
+    ],
+    "minLen": 0,
+    "marginHard": 1,
+    "regimes": [
+     {
+      "maxGap": 2,
+      "W": {
+       "sub": 2.4,
+       "adjSub": 1.8,
+       "transpose": 0.1,
+       "ins": 0.8,
+       "del": 3,
+       "doubleLetter": 0.6,
+       "materVI": 99,
+       "homophone": 99
+      },
+      "aFirst": 0.5,
+      "aShare": 3,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 3.75
+       },
+       {
+        "maxLen": 4,
+        "t": 1.35
+       },
+       {
+        "maxLen": 5,
+        "t": 1.1
+       },
+       {
+        "maxLen": 6,
+        "t": 1.9
+       },
+       {
+        "maxLen": 7,
+        "t": 1.65
+       },
+       {
+        "maxLen": 8,
+        "t": 2.7
+       },
+       {
+        "maxLen": 9,
+        "t": 2.65
+       },
+       {
+        "maxLen": 10,
+        "t": 3.2
+       },
+       {
+        "maxLen": 11,
+        "t": 8.05
+       },
+       {
+        "maxLen": 12,
+        "t": 6.45
+       },
+       {
+        "maxLen": 13,
+        "t": 6.45
+       },
+       {
+        "maxLen": 14,
+        "t": 4.05
+       },
+       {
+        "maxLen": 15,
+        "t": 0
+       },
+       {
+        "maxLen": 16,
+        "t": 0
+       },
+       {
+        "maxLen": 17,
+        "t": 0
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 0
+       }
+      ]
+     },
+     {
+      "maxGap": null,
+      "W": {
+       "sub": 1,
+       "adjSub": 1.35,
+       "transpose": 1,
+       "ins": 1.1296,
+       "del": 0.4303,
+       "doubleLetter": 0.5616,
+       "materVI": 0.3821,
+       "homophone": 1.7916
+      },
+      "aFirst": 0,
+      "aShare": 0,
+      "bands": [
+       {
+        "maxLen": 1,
+        "t": 0
+       },
+       {
+        "maxLen": 2,
+        "t": 0
+       },
+       {
+        "maxLen": 3,
+        "t": 1.3
+       },
+       {
+        "maxLen": 4,
+        "t": 1.8
+       },
+       {
+        "maxLen": 5,
+        "t": 1.35
+       },
+       {
+        "maxLen": 6,
+        "t": 1.45
+       },
+       {
+        "maxLen": 7,
+        "t": 1.95
+       },
+       {
+        "maxLen": 8,
+        "t": 2.95
+       },
+       {
+        "maxLen": 9,
+        "t": 3.35
+       },
+       {
+        "maxLen": 10,
+        "t": 1.15
+       },
+       {
+        "maxLen": 11,
+        "t": 3.35
+       },
+       {
+        "maxLen": 12,
+        "t": 3.15
+       },
+       {
+        "maxLen": 13,
+        "t": 3.35
+       },
+       {
+        "maxLen": 14,
+        "t": 3.15
+       },
+       {
+        "maxLen": 15,
+        "t": 1
+       },
+       {
+        "maxLen": 16,
+        "t": 2
+       },
+       {
+        "maxLen": 17,
+        "t": 2.45
+       },
+       {
+        "maxLen": 18,
+        "t": 0
+       },
+       {
+        "maxLen": 19,
+        "t": 0
+       },
+       {
+        "maxLen": 20,
+        "t": 0
+       },
+       {
+        "maxLen": null,
+        "t": 2
+       }
+      ]
+     }
+    ],
+    "trainRecall": 0.8092610624256193
+   }
+  }
+ ]
+}

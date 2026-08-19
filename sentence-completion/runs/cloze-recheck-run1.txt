@@ -1,0 +1,18 @@
+1: audit, scrutinize, examine
+2: administer + determine, manage + decide, run + allocate
+3: accumulate + spend, build + draw, amass + deplete
+4: contaminate + exclude, infect + omit, spoil + drop
+5: predict, deduce, derive
+6: concur + dissent, agree + differ, side + depart
+7: impartial, unbiased, objective
+8: eloquent, memorable, quotable
+9: coincide + diverge, match + differ, align + disagree
+10: retain, keep, use
+11: brittle, fragile, flimsy
+12: melt + rise, thaw + swell, soften + surge
+13: wrap + fasten, pack + secure, cushion + screw
+14: stop + withstand, block + endure, shut + resist
+15: distract, disturb, interrupt
+16: skill, craft, technique
+17: question, query, riddle
+18: boil, simmer, steep

@@ -1,0 +1,731 @@
+[
+ {
+  "s": "He repeated the request three times and even raised his voice, yet none of that was enough to ___ the board, which voted against the plan again.",
+  "o": [
+   "persuade",
+   "urge",
+   "advise",
+   "insist"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "yet"
+  ],
+  "g": [
+   "persuade = לשכנע",
+   "urge = לעודד, לדחוף",
+   "advise = לייעץ",
+   "insist = להתעקש"
+  ],
+  "t": "הוא חזר על הבקשה שלוש פעמים ואף הרים את קולו, ובכל זאת לא היה בכך די כדי **לשכנע** את המועצה, שהצביעה שוב נגד התוכנית.",
+  "r": [
+   "persuade הוא להביא את הצד השני להסכים, וזה מה שההצבעה החוזרת מראה שלא הושג.",
+   "urge הוא לדחוף ולהאיץ, וזה בדיוק מה שהוא כן עשה כשחזר על הבקשה והרים את קולו.",
+   "advise הוא לייעץ למי שמבקש עצה, והמועצה כאן אינה מבקשת את עצתו.",
+   "insist הוא להתעקש, והמשפט מתאר מה שההתעקשות שלו לא השיגה."
+  ]
+ },
+ {
+  "s": "Wood from the valley costs little and its quality is high, yet it is so ___ that a builder must order it a year in advance.",
+  "o": [
+   "scarce",
+   "plentiful",
+   "costly",
+   "inferior"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "yet"
+  ],
+  "g": [
+   "scarce = נדיר",
+   "plentiful = שופע",
+   "costly = יקר",
+   "inferior = נחות"
+  ],
+  "t": "העץ מן העמק עולה מעט ואיכותו גבוהה, ובכל זאת הוא כה **נדיר** שבנאי חייב להזמין אותו שנה מראש.",
+  "r": [
+   "scarce מתאר דבר שכמעט אינו בהישג יד, ולכן ההזמנה נעשית שנה מראש.",
+   "plentiful הוא ההפך: עץ שופע אינו מחייב הזמנה שנה מראש.",
+   "costly נשלל בפתיחה, שאומרת שהעץ עולה מעט.",
+   "inferior נשלל בפתיחה, שאומרת שאיכות העץ גבוהה."
+  ]
+ },
+ {
+  "s": "The report names no official and makes no accusation; however, its last paragraph does ___ that money left the fund without any record.",
+  "o": [
+   "imply",
+   "indicate",
+   "declare",
+   "specify"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "however"
+  ],
+  "g": [
+   "imply = לרמוז",
+   "indicate = להצביע על",
+   "declare = להכריז",
+   "specify = לפרט"
+  ],
+  "t": "הדוח אינו מזכיר שם של פקיד ואינו מעלה האשמה, אך פסקת הסיום שלו כן **רומזת** שכספים יצאו מהקרן בלי כל תיעוד.",
+  "r": [
+   "imply הוא לרמוז בלי לומר במפורש, וזה מה שפסקת הסיום עושה.",
+   "indicate הוא להצביע על ממצא בגלוי, והדוח נמנע מלהצביע על איש.",
+   "declare הוא להכריז, והמשפט אומר שהדוח אינו מעלה שום האשמה.",
+   "specify הוא לפרט, והדוח דווקא נמנע מכל פירוט של שמות."
+  ]
+ },
+ {
+  "s": "Although the wreck had lain under salt water for two centuries, the sealed chest in the hold came up ___, without a single crack in its lid.",
+  "o": [
+   "intact",
+   "damp",
+   "hollow",
+   "bare"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "although"
+  ],
+  "g": [
+   "intact = ללא פגע",
+   "damp = לח",
+   "hollow = חלול",
+   "bare = חשוף"
+  ],
+  "t": "אף שהספינה הטרופה שכבה במים מלוחים מאתיים שנה, התיבה האטומה במחסן עלתה **ללא פגע**, בלי סדק אחד במכסה.",
+  "r": [
+   "intact אומר שהתיבה עלתה שלמה, וזה מתיישב עם היעדר סדק במכסה.",
+   "damp מתאר לחות, וזה מובן מאליו אחרי מאתיים שנה במים ואינו הניגוד שהמשפט בונה.",
+   "hollow אומר שהתיבה חלולה מבפנים, והמשפט מדבר על מצב הדפנות והמכסה.",
+   "bare אומר שהתיבה חשופה, אך היא תוארה כאטומה."
+  ]
+ },
+ {
+  "s": "Extra lighting in the hall is pleasant and does no harm; the second fire door, in contrast, is ___, and the hall may not open without it.",
+  "o": [
+   "crucial",
+   "beneficial",
+   "adequate",
+   "convenient"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "in contrast"
+  ],
+  "g": [
+   "crucial = מכריע, קריטי",
+   "beneficial = מועיל",
+   "adequate = מספיק",
+   "convenient = נוח"
+  ],
+  "t": "תאורה נוספת באולם נעימה ואינה מזיקה; דלת החירום השנייה, לעומת זאת, **קריטית**, והאולם אינו רשאי להיפתח בלעדיה.",
+  "r": [
+   "crucial אומר שבלי הדבר עצמו אין פעילות, והמשפט קובע שהאולם לא ייפתח בלעדיו.",
+   "beneficial הוא מועיל, וזה בדיוק התיאור של התאורה שהמשפט מציב מול הדלת.",
+   "adequate שואל אם משהו מספיק, והמשפט אינו מודד את הדלת אלא קובע שהיא הכרחית.",
+   "convenient הוא נוח, והמשפט מבחין בין נוחות לבין תנאי לפתיחת האולם."
+  ]
+ },
+ {
+  "s": "The columnist did not challenge a single figure in the study; instead she chose to ___ its author, and the whole column was a string of jokes about his clothes.",
+  "o": [
+   "mock",
+   "criticize",
+   "blame",
+   "praise"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "instead"
+  ],
+  "g": [
+   "mock = ללעוג",
+   "criticize = לבקר",
+   "blame = להאשים",
+   "praise = לשבח"
+  ],
+  "t": "הפרשנית לא ערערה על נתון אחד במחקר; במקום זאת בחרה **ללעוג** למחברו, וכל המדור היה שרשרת בדיחות על לבושו.",
+  "r": [
+   "mock הוא ללעוג, ומדור שכולו בדיחות על לבושו של הכותב הוא לעג ולא דיון.",
+   "criticize הוא לבקר לגוף העניין, והמשפט פותח בכך שהיא לא ערערה על נתון אחד.",
+   "blame הוא להאשים במשהו, ואין במדור האשמה אלא בדיחות.",
+   "praise הוא לשבח, וזה ההפך ממה שהמדור עושה."
+  ]
+ },
+ {
+  "s": "The museum has shown the mask in its main room for forty years, yet it does not ___ the piece, which is on loan from a family in the south.",
+  "o": [
+   "possess",
+   "acquire",
+   "exhibit",
+   "obtain"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "yet"
+  ],
+  "g": [
+   "possess = להיות בעלים של",
+   "acquire = לרכוש",
+   "exhibit = להציג",
+   "obtain = להשיג"
+  ],
+  "t": "המוזיאון מציג את המסכה באולם המרכזי ארבעים שנה, ובכל זאת אינו **הבעלים שלה**: הפריט מושאל ממשפחה בדרום.",
+  "r": [
+   "possess הוא להיות הבעלים, וההשאלה מהמשפחה מותירה את הבעלות בידיה.",
+   "acquire הוא לרכוש, כלומר פעולת הקנייה עצמה, והמשפט עוסק במי הבעלים כרגע.",
+   "exhibit הוא להציג, והמשפט פותח בכך שהמוזיאון כן מציג את המסכה ארבעים שנה.",
+   "obtain הוא להשיג פריט, והמוזיאון אכן השיג אותו: הוא נמצא אצלו בהשאלה."
+  ]
+ },
+ {
+  "s": "The calculation itself contains no error; nevertheless it rests on the ___ that the river's flow will not change for fifty years, and nobody has tested that.",
+  "o": [
+   "assumption",
+   "conclusion",
+   "prediction",
+   "argument"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "nevertheless"
+  ],
+  "g": [
+   "assumption = הנחה",
+   "conclusion = מסקנה",
+   "prediction = חיזוי",
+   "argument = טיעון"
+  ],
+  "t": "בחישוב עצמו אין שגיאה, ולמרות זאת הוא נשען על ה**הנחה** שזרימת הנהר לא תשתנה חמישים שנה, ואיש לא בדק אותה.",
+  "r": [
+   "assumption היא הנחה שנלקחת כנתון בלי בדיקה, וזה בדיוק מה שהחישוב נשען עליו.",
+   "conclusion היא מסקנה שמתקבלת בסוף החישוב, והמשפט מדבר על מה שנמצא בבסיסו.",
+   "prediction הוא חיזוי שמוצג כדי להיבדק, וכאן הזרימה הקבועה כלל אינה נבדקת.",
+   "argument הוא טיעון שמוצג ונדון בגלוי, וכאן הטענה על הזרימה כלל אינה נדונה."
+  ]
+ },
+ {
+  "s": "The two churches were built three centuries apart, and neither guild had ever seen the other's drawings; even so, the smaller one has come to ___ the older so closely that visitors confuse them.",
+  "o": [
+   "resemble",
+   "imitate",
+   "recreate",
+   "reproduce"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "even so"
+  ],
+  "g": [
+   "resemble = דומה",
+   "imitate = לחקות",
+   "recreate = לשחזר",
+   "reproduce = לשכפל"
+  ],
+  "t": "שתי הכנסיות נבנו בהפרש של שלוש מאות שנה, ואף אחת מהאגודות לא ראתה את שרטוטי האחרת; ובכל זאת הקטנה מהן **דומה** לעתיקה עד כדי כך שמבקרים מתבלבלים ביניהן.",
+  "r": [
+   "resemble הוא דמיון שיכול להיווצר בלי כל קשר בין השניים, וזה המצב שהמשפט מתאר.",
+   "imitate הוא לחקות מתוך היכרות עם המקור, והמשפט אומר שאיש לא ראה את שרטוטי האחר.",
+   "recreate הוא לשחזר מבנה מוכר, וכאן לא היה לבנאים מה לשחזר.",
+   "reproduce הוא לשכפל דבר קיים, וזה מחייב לראות אותו קודם."
+  ]
+ },
+ {
+  "s": "The workshop owns two buildings and a large store of copper, yet its ___ in the winter months is barely enough to pay six workers.",
+  "o": [
+   "revenue",
+   "capital",
+   "asset",
+   "currency"
+  ],
+  "a": 0,
+  "k": "contrast",
+  "w": [
+   "yet"
+  ],
+  "g": [
+   "revenue = הכנסות",
+   "capital = הון",
+   "asset = נכס",
+   "currency = מטבע"
+  ],
+  "t": "בית המלאכה מחזיק שני בניינים ומחסן נחושת גדול, ובכל זאת ה**הכנסות** שלו בחודשי החורף מספיקות בקושי לשכר של שישה עובדים.",
+  "r": [
+   "revenue הוא הכספים שנכנסים מהמכירות, וזה מה שנמדד כאן מול המשכורות.",
+   "capital הוא ההון שעומד לרשות בית המלאכה, ושני הבניינים והנחושת הם ההון הזה.",
+   "asset הוא נכס בודד, והמשפט כבר מנה את הנכסים ועובר למה שנכנס לקופה.",
+   "currency הוא סוג המטבע שבו משלמים, ולא הסכום שנכנס."
+  ]
+ },
+ {
+  "s": "Since the glacier loses more ice each summer than it gains each winter, its disappearance is ___, and only the year is still in question.",
+  "o": [
+   "inevitable",
+   "probable",
+   "evident",
+   "desirable"
+  ],
+  "a": 0,
+  "k": "cause",
+  "w": [
+   "since"
+  ],
+  "g": [
+   "inevitable = בלתי נמנע",
+   "probable = סביר",
+   "evident = ברור, נראה לעין",
+   "desirable = נחשק"
+  ],
+  "t": "מאחר שהקרחון מאבד בכל קיץ יותר קרח משהוא צובר בכל חורף, היעלמותו **בלתי נמנעת**, ורק השנה עדיין בספק.",
+  "r": [
+   "inevitable אומר שהתוצאה ודאית, והמשפט משאיר בספק את המועד בלבד.",
+   "probable משאיר את ההתרחשות עצמה בספק, והמשפט קובע שהיא תקרה.",
+   "evident אומר שהדבר נראה לעין כבר עכשיו, וההיעלמות עצמה טרם קרתה.",
+   "desirable אומר שרוצים בכך, ואיש אינו רוצה בהיעלמות הקרחון."
+  ]
+ },
+ {
+  "s": "Because the witness said the room had been locked all evening and then said she had walked into it at nine, the clerk marked the ___ in the margin of her statement.",
+  "o": [
+   "contradiction",
+   "distinction",
+   "coincidence",
+   "comparison"
+  ],
+  "a": 0,
+  "k": "cause",
+  "w": [
+   "because"
+  ],
+  "g": [
+   "contradiction = סתירה",
+   "distinction = הבחנה",
+   "coincidence = צירוף מקרים",
+   "comparison = השוואה"
+  ],
+  "t": "מאחר שהעדה אמרה שהחדר היה נעול כל הערב ואחר כך אמרה שנכנסה אליו בתשע, סימן הפקיד את ה**סתירה** בשולי ההודעה שלה.",
+  "r": [
+   "contradiction היא שתי טענות שאינן יכולות להיות נכונות יחד, וזה מה שהעדה אמרה.",
+   "distinction היא הבחנה בין שני דברים שונים, וכאן מדובר באותו חדר ובאותו ערב.",
+   "coincidence הוא צירוף מקרים, והמשפט מתאר שתי טענות שנוגדות זו את זו.",
+   "comparison היא השוואה בין שני דברים, והפקיד סימן פגם בעדות ולא השוואה."
+  ]
+ },
+ {
+  "s": "The two blocks have the same size and the same shape, but one sinks and the other floats, because their ___ is not the same.",
+  "o": [
+   "density",
+   "volume",
+   "quantity",
+   "proportion"
+  ],
+  "a": 0,
+  "k": "cause",
+  "w": [
+   "because"
+  ],
+  "g": [
+   "density = צפיפות",
+   "volume = נפח",
+   "quantity = כמות",
+   "proportion = שיעור"
+  ],
+  "t": "לשתי הקוביות אותו גודל ואותה צורה, אך אחת שוקעת והשנייה צפה, מפני שה**צפיפות** שלהן שונה.",
+  "r": [
+   "density הוא היחס בין המשקל לנפח, וזה מה שמכריע אם גוף שוקע או צף.",
+   "volume הוא הנפח, והמשפט פותח בכך שלשתי הקוביות אותו גודל ואותה צורה.",
+   "quantity היא כמות של פריטים, ומדובר בשתי קוביות בודדות.",
+   "proportion הוא שיעור מתוך שלם, והמשפט משווה בין שני גופים שלמים."
+  ]
+ },
+ {
+  "s": "Her two papers settled a question that had stood open for a century; therefore she became, in that small field, the most ___ figure of her generation.",
+  "o": [
+   "prominent",
+   "distinctive",
+   "prestigious",
+   "superior"
+  ],
+  "a": 0,
+  "k": "cause",
+  "w": [
+   "therefore"
+  ],
+  "g": [
+   "prominent = בולט, חשוב",
+   "distinctive = מיוחד",
+   "prestigious = יוקרתי",
+   "superior = עליון"
+  ],
+  "t": "שני מאמריה הכריעו שאלה שעמדה פתוחה מאה שנה, ולכן היא הפכה, בתחום הקטן הזה, לדמות ה**בולטת** ביותר בדורה.",
+  "r": [
+   "prominent הוא מי שכל העוסקים בתחום מכירים וסופרים, וזה מה ששני המאמרים הקנו לה.",
+   "distinctive אומר שדבר נבדל מאחרים באופיו, ולא שהוא נחשב לחשוב שבהם.",
+   "prestigious מתאר מוסד או פרס יוקרתי, ולא אדם שהכריע שאלה מקצועית.",
+   "superior אומר עליון בדרגה, והמשפט אינו מדבר על מדרג ארגוני."
+  ]
+ },
+ {
+  "s": "Since neither army could hold the pass through another winter, the two kings signed a ___ that fixed the border at the river.",
+  "o": [
+   "treaty",
+   "transaction",
+   "declaration",
+   "mandate"
+  ],
+  "a": 0,
+  "k": "cause",
+  "w": [
+   "since"
+  ],
+  "g": [
+   "treaty = אמנה",
+   "transaction = עסקה",
+   "declaration = הכרזה",
+   "mandate = ייפוי כוח"
+  ],
+  "t": "מאחר שאף אחד משני הצבאות לא היה יכול להחזיק את המעבר חורף נוסף, חתמו שני המלכים על **אמנה** שקבעה את הגבול בנהר.",
+  "r": [
+   "treaty הוא הסכם בין שני צדדים לוחמים, וקביעת גבול בחתימת שני מלכים היא בדיוק זה.",
+   "transaction היא עסקה מסחרית בין קונה למוכר, ולא הסדר גבול.",
+   "declaration היא הכרזה של צד אחד, והמשפט מתאר מסמך ששני המלכים חתמו עליו.",
+   "mandate הוא ייפוי כוח שגוף אחד מקבל, ולא הסכמה הדדית על קו גבול."
+  ]
+ },
+ {
+  "s": "His eyes were tested twice and found perfect; the doctors thus turned to his ___ of depth, which no lens could correct.",
+  "o": [
+   "perception",
+   "eyesight",
+   "cognition",
+   "sensation"
+  ],
+  "a": 0,
+  "k": "cause",
+  "w": [
+   "thus"
+  ],
+  "g": [
+   "perception = תפיסה",
+   "eyesight = חוש הראייה",
+   "cognition = הכרה",
+   "sensation = תחושה"
+  ],
+  "t": "עיניו נבדקו פעמיים ונמצאו מושלמות, ולכן פנו הרופאים אל **תפיסת** העומק שלו, שאין עדשה שמתקנת אותה.",
+  "r": [
+   "perception הוא האופן שבו המוח מעבד את מה שהעין מעבירה, וכאן העין עצמה תקינה.",
+   "eyesight הוא חוש הראייה, והמשפט פותח בכך שהעיניים נבדקו ונמצאו מושלמות.",
+   "cognition הוא ההכרה כולה, והבדיקה כאן מצומצמת לעומק בלבד.",
+   "sensation היא התחושה הגולמית שהחושים מעבירים, ולא הפירוש שלה כעומק."
+  ]
+ },
+ {
+  "s": "The valley is closed to visitors from March to June; moreover, the birds on its two ridges are so ___ that their cries drown out the stream below.",
+  "o": [
+   "numerous",
+   "diverse",
+   "vast",
+   "widespread"
+  ],
+  "a": 0,
+  "k": "addition",
+  "w": [
+   "moreover"
+  ],
+  "g": [
+   "numerous = מרובה",
+   "diverse = מגוון",
+   "vast = עצום",
+   "widespread = נפוץ"
+  ],
+  "t": "העמק סגור למבקרים ממרץ ועד יוני; זאת ועוד, העופות שעל שני הרכסים שלו **מרובים** כל כך שקריאותיהם מחרישות את קול הנחל שלמטה.",
+  "r": [
+   "numerous אומר רבים במספר, וזה מה שמסביר את עוצמת הקולות.",
+   "diverse אומר מגוון בסוגיו, והמשפט מודד מספר ולא מגוון.",
+   "vast מתאר גודל של שטח או של גוף, ולא מספר של פרטים.",
+   "widespread מתאר פרישה על שטח רחב, והמשפט מרכז את העופות בשני רכסים בלבד."
+  ]
+ },
+ {
+  "s": "The station notes the exact hour of every tremor; in addition, it records the ___ of each one, so that a small shock is never confused with a great one.",
+  "o": [
+   "magnitude",
+   "frequency",
+   "quantity",
+   "volume"
+  ],
+  "a": 0,
+  "k": "addition",
+  "w": [
+   "in addition"
+  ],
+  "g": [
+   "magnitude = גודל",
+   "frequency = תדירות",
+   "quantity = כמות",
+   "volume = עוצמת קול"
+  ],
+  "t": "התחנה רושמת את השעה המדויקת של כל רעד; נוסף על כך היא רושמת את ה**גודל** של כל אחד מהם, כדי שזעזוע קטן לא יתחלף בגדול.",
+  "r": [
+   "magnitude הוא הגודל של הרעד עצמו, וזה מה שמבדיל בין זעזוע קטן לגדול.",
+   "frequency היא תדירות הרעידות, וזה בדיוק מה שרישום השעות כבר נותן.",
+   "quantity היא כמות של פריטים, ולא מידה של רעד אחד.",
+   "volume הוא עוצמת קול, והתחנה מודדת רעד באדמה ולא צליל."
+  ]
+ },
+ {
+  "s": "The library already owns the poet's letters and his three notebooks; furthermore, it holds the only ___ of the last poem, which was never printed and survives in ink on twelve loose sheets.",
+  "o": [
+   "manuscript",
+   "transcript",
+   "edition",
+   "publication"
+  ],
+  "a": 0,
+  "k": "addition",
+  "w": [
+   "furthermore"
+  ],
+  "g": [
+   "manuscript = כתב יד",
+   "transcript = תמליל",
+   "edition = מהדורה",
+   "publication = פרסום"
+  ],
+  "t": "הספרייה מחזיקה כבר את מכתבי המשורר ואת שלוש מחברותיו; יתרה מזאת, ברשותה **כתב היד** היחיד של השיר האחרון, שמעולם לא הודפס ושרד בדיו על שנים עשר דפים בודדים.",
+  "r": [
+   "manuscript הוא כתב היד של המחבר עצמו, וזה מה שדיו על דפים בודדים מתאר.",
+   "transcript הוא תמליל של דברים שנאמרו, והשיר נכתב ולא הוקלט.",
+   "edition היא מהדורה מודפסת, והמשפט אומר שהשיר מעולם לא הודפס.",
+   "publication הוא פרסום שיצא לאור, והשיר הזה לא יצא לאור כלל."
+  ]
+ },
+ {
+  "s": "Draining the marsh lowered the water in every well in the village; moreover, it destroyed the ___ of the whole bird colony, which has not returned since.",
+  "o": [
+   "habitat",
+   "boundary",
+   "landscape",
+   "residence"
+  ],
+  "a": 0,
+  "k": "addition",
+  "w": [
+   "moreover"
+  ],
+  "g": [
+   "habitat = סביבת מגורים",
+   "boundary = גבול",
+   "landscape = נוף",
+   "residence = מגורים"
+  ],
+  "t": "ייבוש הביצה הוריד את מפלס המים בכל באר בכפר; זאת ועוד, הוא הרס את **סביבת המגורים** של כל מושבת העופות, שלא חזרה מאז.",
+  "r": [
+   "habitat הוא סביבת המגורים שמין תלוי בה, ובלעדיה המושבה אינה חוזרת.",
+   "boundary הוא קו הגבול של השטח, ולא התנאים שמאפשרים לעופות לחיות בו.",
+   "landscape הוא הנוף כפי שהוא נראה לעין, ולא התנאים שהעופות זקוקים להם.",
+   "residence הוא מקום מגורים של אדם, ולא הסביבה שמין חי בה."
+  ]
+ },
+ {
+  "s": "The editor now checks every figure against the original table; she has also grown so ___ that no page leaves her desk before a second reader has seen it.",
+  "o": [
+   "cautious",
+   "careless",
+   "modest",
+   "sensible"
+  ],
+  "a": 0,
+  "k": "addition",
+  "w": [
+   "also"
+  ],
+  "g": [
+   "cautious = זהיר",
+   "careless = לא זהיר, רשלני",
+   "modest = צנוע",
+   "sensible = נבון"
+  ],
+  "t": "העורכת בודקת עכשיו כל נתון מול הטבלה המקורית; היא גם נעשתה כה **זהירה** שאין דף שיוצא משולחנה לפני שקורא שני ראה אותו.",
+  "r": [
+   "cautious הוא זהיר עד כדי בדיקה נוספת, וזה מה שהקורא השני נועד לתת.",
+   "careless הוא ההפך: מי שרשלן אינו מוסיף קורא שני לכל דף.",
+   "modest הוא צנוע בהתנהגות או בהערכה עצמית, ואינו נוגע לבדיקת נתונים.",
+   "sensible הוא נבון בשיקול דעת, וזה אינו מסביר את הבדיקה הכפולה של כל דף."
+  ]
+ },
+ {
+  "s": "The clerk copies each entry by hand, and he must ___ the forty separate registers into a single book as well, before the audit begins.",
+  "o": [
+   "compile",
+   "classify",
+   "duplicate",
+   "distribute"
+  ],
+  "a": 0,
+  "k": "addition",
+  "w": [
+   "as well"
+  ],
+  "g": [
+   "compile = לאסוף, לקבץ",
+   "classify = לסווג",
+   "duplicate = לשכפל",
+   "distribute = להפיץ"
+  ],
+  "t": "הפקיד מעתיק כל רשומה ביד, ועליו גם **לקבץ** את ארבעים הפנקסים הנפרדים לספר אחד לפני שהביקורת מתחילה.",
+  "r": [
+   "compile הוא לאסוף חומר ממקורות שונים לכלל דבר אחד, וזה מה שספר אחד מארבעים דורש.",
+   "classify הוא לסווג לפי קבוצות, והמשפט מבקש לאחד ולא למיין.",
+   "duplicate הוא לשכפל, וארבעים העתקים אינם ספר אחד.",
+   "distribute הוא להפיץ החוצה, וכאן התנועה היא פנימה אל ספר אחד."
+  ]
+ },
+ {
+  "s": "Once the judge had set the ___, the accused was free to go home and wait months for the trial.",
+  "o": [
+   "bail",
+   "verdict",
+   "sanction",
+   "petition"
+  ],
+  "a": 0,
+  "k": "condition",
+  "w": [
+   "once"
+  ],
+  "g": [
+   "bail = ערבות",
+   "verdict = פסק דין",
+   "sanction = עונש",
+   "petition = עתירה"
+  ],
+  "t": "לאחר שהשופטת קבעה את ה**ערבות**, היה הנאשם חופשי לחזור לביתו ולהמתין חודשים למשפט.",
+  "r": [
+   "bail היא הערבות שמאפשרת לנאשם להמתין למשפט בביתו.",
+   "verdict הוא פסק הדין, והמשפט טרם נערך: הנאשם עוד ממתין לו.",
+   "sanction הוא עונש שמוטל לאחר הכרעה, ואין כאן הכרעה.",
+   "petition היא עתירה שצד מגיש, ולא דבר שהשופטת קובעת."
+  ]
+ },
+ {
+  "s": "Unless a second patrol car is already close behind them, the two officers are told not to ___ the car, but only to note its number and report it.",
+  "o": [
+   "pursue",
+   "patrol",
+   "stalk",
+   "overtake"
+  ],
+  "a": 0,
+  "k": "condition",
+  "w": [
+   "unless"
+  ],
+  "g": [
+   "pursue = לרדוף",
+   "patrol = לסייר",
+   "stalk = לארוב אחרי",
+   "overtake = לעקוף"
+  ],
+  "t": "אלא אם כן ניידת שנייה נמצאת כבר קרוב מאחוריהם, נאמר לשני השוטרים שלא **לרדוף** אחרי המכונית אלא רק לרשום את מספרה ולדווח.",
+  "r": [
+   "pursue הוא לרדוף אחרי הרכב בנסיעה, וזו הפעולה שמסוכן לעשות בלי ניידת נוספת בשטח.",
+   "patrol הוא לסייר באזור לפי מסלול קבוע, ולא לנוע אחרי רכב מסוים.",
+   "stalk הוא לארוב במסתור לאורך זמן, והמשפט מתאר החלטה מיידית בכביש.",
+   "overtake הוא לעקוף את המכונית ולעבור אותה, וההוראה כאן היא רק לרשום מספר."
+  ]
+ },
+ {
+  "s": "If a form is long, it need not be hard: every question on this one is so ___ that no clerk is needed to explain a single line.",
+  "o": [
+   "straightforward",
+   "brief",
+   "literal",
+   "superficial"
+  ],
+  "a": 0,
+  "k": "condition",
+  "w": [
+   "if"
+  ],
+  "g": [
+   "straightforward = פשוט, ברור",
+   "brief = תמציתי",
+   "literal = מילולי",
+   "superficial = שטחי"
+  ],
+  "t": "אם טופס ארוך, אין זה אומר שהוא קשה: כל שאלה בטופס הזה כה **פשוטה וברורה** שאין צורך בפקיד שיסביר אפילו שורה אחת.",
+  "r": [
+   "straightforward אומר ברור ופשוט להבנה, ולכן אין צורך בפקיד שיסביר.",
+   "brief הוא קצר ותמציתי, והמשפט פותח בכך שהטופס ארוך.",
+   "literal הוא כפשוטו מול מושאל, וזה אינו מה שהופך שאלה לקלה למילוי.",
+   "superficial הוא שטחי, וזו טענה על עומק התוכן ולא על בהירותו."
+  ]
+ },
+ {
+  "s": "A painted board in the hall names every ___ of the family, such as the sailor who founded the boatyard in 1740.",
+  "o": [
+   "ancestor",
+   "sibling",
+   "heritage",
+   "ruler"
+  ],
+  "a": 0,
+  "k": "example",
+  "w": [
+   "such as"
+  ],
+  "g": [
+   "ancestor = אב קדמון",
+   "sibling = אח או אחות",
+   "heritage = מורשת",
+   "ruler = מושל"
+  ],
+  "t": "לוח מצויר באולם מונה כל **אב קדמון** של המשפחה, כמו המלח שייסד את המספנה ב-1740.",
+  "r": [
+   "ancestor הוא אב קדמון, והמלח שייסד את המספנה לפני מאות שנים הוא דור רחוק כזה.",
+   "sibling הוא אח או אחות, כלומר קרוב מאותו דור ולא מדור קדום.",
+   "heritage היא המורשת עצמה ולא אדם, ואי אפשר למנות שמות של מורשת.",
+   "ruler הוא מושל, והלוח מונה בני משפחה ולא שליטים."
+  ]
+ },
+ {
+  "s": "She turned the letter over, and then a single ___ at the top line showed her that the year could not be right.",
+  "o": [
+   "glance",
+   "sighting",
+   "reflection",
+   "gesture"
+  ],
+  "a": 0,
+  "k": "sequence",
+  "w": [
+   "then"
+  ],
+  "g": [
+   "glance = מבט חטוף",
+   "sighting = תצפית",
+   "reflection = השתקפות",
+   "gesture = מחווה"
+  ],
+  "t": "היא הפכה את המכתב, ואז **מבט חטוף** אחד בשורה העליונה הראה לה שהשנה אינה יכולה להיות נכונה.",
+  "r": [
+   "glance הוא מבט חטוף אחד, וזה כל מה שנדרש כדי לראות שהשנה שגויה.",
+   "sighting היא תצפית שבה מבחינים בדבר רחוק או נדיר, ולא הצצה בשורה בדף.",
+   "reflection היא השתקפות באור, ואין כאן משטח מחזיר.",
+   "gesture היא מחווה של הגוף, ולא הסתכלות בכתוב."
+  ]
+ }
+]

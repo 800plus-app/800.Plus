@@ -1,0 +1,246 @@
+1: obsolete, outdated
+2: endemic, common
+3: deficiency, shortage
+4: reluctant, unwilling, loath
+5: augment, enrich, supplement
+6: luminous, luminescent, phosphorescent
+7: apparatus, instrument, appliance
+8: hazard, danger, risk
+9: mundane, ordinary, prosaic
+10: secular, non-religious
+11: intervene, interfere, meddle
+12: confiscate, seize, impound
+13: testimony, evidence
+14: arguably, reputedly, probably
+15: rarely, seldom, never
+16: severity, gravity, seriousness
+17: hypocrisy
+18: proclaim, announce, publish
+19: compel, oblige, require
+20: rigid, inflexible, fragile
+21: feasible, practicable, viable
+22: deliberate, intentional
+23: emulate, capture, reproduce
+24: alienation, estrangement, detachment
+25: advent + demise, appearance + disappearance, rise + decline
+26: commence + culminate, open + conclude, begin + end
+27: induce + suppress, induce + depress, bring + arrest
+28: insurrection, uprising, rebellion
+29: leniency, clemency, mercy
+30: plummeted, plunged, collapsed
+31: enrich, fertilize, replenish
+32: supplement, assist, complement
+33: certify, declare, pronounce
+34: fabricate, invent, falsify
+35: tame, harness, check
+36: tangible, concrete, visible
+37: innate, instinctive, inborn
+38: redundant, superfluous, unnecessary
+39: delete, excise, cut
+40: conspicuous, visible, noticeable
+41: estimate, conjecture, guess
+42: rebellion, revolt, uprising
+43: genus, group, family
+44: futile, hopeless, useless
+45: insurmountable, impassable, prohibitive
+46: inadvertently, accidentally, mistakenly
+47: abstain, withdraw, recuse
+48: nocturnal
+49: posterity, publication
+50: paramount, decisive, supreme
+51: stark, striking, dramatic
+52: revival, resurgence, renaissance
+53: appoint + preside, choose + sit, nominate + preside
+54: praise + disparage, extol + criticize, commend + condemn
+55: extrapolate, estimate, predict
+56: intermediary, go-between, mediator
+57: consolidate, merge, amalgamate
+58: circulate, pass, send
+59: rodent, pest, animal
+60: famine, starvation
+61: anaesthesia, an anaesthetic, chloroform
+62: hearsay, rumour
+63: subsequent, succeeding, later
+64: reinforce, strengthen, buttress
+65: pervasive, penetrating, persistent
+66: overlooked, missed, ignored
+67: repel, thwart, prevent
+68: pollutant, contaminant, gas
+69: furnish, fit, equip
+70: contraband, smuggled, suspect
+71: heredity, genetics, inheritance
+72: expenditure, outlay, spending
+73: resumption, restoration, revival
+74: elusive, inconspicuous, secretive
+75: proliferate, multiply, spread
+76: pastime, hobby, pursuit
+77: pretext, excuse
+78: devise + complete, design + finish, produce + fill
+79: indigenous, native, endemic
+80: enlist + undergo, enrol + begin, register + complete
+81: uncorroborated, unsupported, unsubstantiated
+82: apology, retraction
+83: committee, subcommittee, board
+84: contest, challenge, dispute
+85: establish, create, constitute
+86: determine, establish, ascertain
+87: compromise, agree, settle
+88: compatible, matched
+89: genuine, authentic, original
+90: transparent, public, open
+91: minority
+92: poverty, destitution, debt
+93: terminate, end, cancel
+94: copy, duplicate, reproduce
+95: praise + criticize, commend + condemn, note + expose
+96: only, exclusively, solely
+97: quantity, amount, proportion
+98: surveillance, monitoring, watch
+99: sensitivity, response
+100: broad, general, wide
+101: instinct, intuition, judgment
+102: entitled, allowed, permitted
+103: finalize, settle, complete
+104: substance, narcotic, drug
+105: protocol, procedure, routine
+106: domestic, domesticated, farm
+107: insert + inject, introduce + push, place + send
+108: trace, follow, track
+109: blunt, dull
+110: continue, complete, finish
+111: flaw, defect, fault
+112: consequence, result, effect
+113: sufficient, enough, adequate
+114: gradually, slowly, steadily
+115: hypothesis, theory, claim
+116: immune, protected, resistant
+117: interrupt, disrupt, cut
+118: substitute, replacement
+119: margin, difference, gap
+120: recruit, hire, engage
+121: vanish, disappear, fade
+122: uncover, expose, reveal
+123: milestone, landmark, turning point
+124: confront, present, face
+125: exclude, omit, miss
+126: fierce, intense, bitter
+127: readiness, preparedness
+128: expand, broaden, extend
+129: denial, refusal
+130: expertise, specialization, experience
+131: artefact, object, find
+132: terrain, ground, country
+133: supervise, oversee, manage
+134: frequent, common, regular
+135: conquer + occupy, seize + hold, take + govern
+136: predict + confirm, forecast + verify, estimate + check
+137: persuade, sway, convince
+138: scarce, rare, sought-after
+139: imply, suggest, hint
+140: intact, undamaged, unharmed
+141: mandatory, obligatory, essential
+142: ridicule, mock, disparage
+143: own, possess
+144: assumption, premise, supposition
+145: resemble, imitate, echo
+146: income, revenue, turnover
+147: inevitable, certain, unavoidable
+148: contradiction, inconsistency, discrepancy
+149: density, weight
+150: eminent, authoritative, influential
+151: treaty, truce, peace
+152: perception, judgment, sense
+153: numerous, abundant, plentiful
+154: magnitude, strength, intensity
+155: manuscript, copy, version
+156: habitat, nesting ground, breeding ground
+157: cautious, meticulous, scrupulous
+158: consolidate, combine, merge
+159: bail, bond, surety
+160: pursue, chase, stop
+161: clear, plain, straightforward
+162: ancestor, forebear, forefather
+163: glance, look, detail
+164: vote, decide, ballot
+165: cheap, inexpensive, cheaper
+166: weight, mass
+167: architect, designer
+168: nurse, sister
+169: cow
+170: river, stream
+171: cheat, copy
+172: receives, gets, opens
+173: hidden, kept, locked
+174: theory, guess, hypothesis
+175: sunlight, light, sun
+176: wave
+177: sold + bought, sold + got
+178: shorten, condense, tighten
+179: harmony, tune, time
+180: dilemma, choice, problem
+181: panic, fear, terror
+182: shield, spear, axe
+183: genes, heights, bodies
+184: interview, meeting
+185: rope, cable, chain
+186: filter, pump, tank
+187: container, crate, box
+188: crime, offence
+189: wash, clean, rinse
+190: salt, spice, seasoning
+191: roof, ceiling
+192: neighbour, witness
+193: advice, a suggestion, guidance
+194: capture, trap, catch
+195: symptom, sign
+196: required, necessary, essential
+197: surface, top
+198: diagnose + cure, name + treat, recognize + cure
+199: punish, fine, suspend
+200: reduce, muffle, deaden
+201: audience, crowd, congregation
+202: narrow, tight
+203: translate, render
+204: storage, storing, packing
+205: crack, fissure, flaw
+206: century, hundred years
+207: pack + deliver, bury + bring, store + carry
+208: proof, evidence, confirmation
+209: ancient, historic, old
+210: insurance, cover, policy
+211: sow + harvest, plant + reap, sow + reap
+212: drawback, disadvantage, nuisance
+213: resource, asset, attraction
+214: nickname
+215: earthquake, tremor, quake
+216: instrument, load, case
+217: legend, tale, myth
+218: arrest, conviction, detention
+219: beg, plead, wait
+220: temporary, provisional
+221: urgent, immediate
+222: reliable, dependable, robust
+223: justify, defend, explain
+224: eliminate, remove, banish
+225: check, verify, confirm
+226: extend, prolong, postpone
+227: guarantee, promise, offer
+228: demand, warning, threat
+229: stubborn, obstinate, lazy
+230: suspicious, odd, strange
+231: insult, offence, rebuke
+232: defeat, loss
+233: assault, attempt, push
+234: essential, indispensable, vital
+235: poisonous, toxic, deadly
+236: radiation, rays, X-rays
+237: population
+238: reputation, trust, goodwill
+239: retirement, pension
+240: originality, imagination, creativity
+241: efficient, economical
+242: citizen, member
+243: crisis, panic, collapse
+244: policy, rule, price
+245: hold + move, seat + transfer, accommodate + send
+246: corrode + repair, eat + replace, rust + restore

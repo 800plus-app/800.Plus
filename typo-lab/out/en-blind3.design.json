@@ -1,0 +1,328 @@
+{
+ "generated": "typo-lab/calib_mine.js --en3",
+ "lock_commit": "7ad6c3550838db52bcee209aca84f31abcdc3b8a",
+ "seed": "typo-lab/teacher/en3/v1",
+ "truth": "לא ידועה · דורש תיוג אנושי",
+ "rows": [
+  {
+   "id": "Y01",
+   "dir": "gloss",
+   "cls": "extra-word",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-000315",
+   "group": "g|בינ"
+  },
+  {
+   "id": "Y02",
+   "dir": "gloss",
+   "cls": "func-prefix",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-019528",
+   "group": "g|ימי"
+  },
+  {
+   "id": "Y03",
+   "dir": "gloss",
+   "cls": "neg-equidistant",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-016889",
+   "group": "g|פסל"
+  },
+  {
+   "id": "Y04",
+   "dir": "gloss",
+   "cls": "neg-garbage",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-033919",
+   "group": "g|בגלל"
+  },
+  {
+   "id": "Y05",
+   "dir": "gloss",
+   "cls": "neg-garbage",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-026748",
+   "group": "g|חדר ילדימ"
+  },
+  {
+   "id": "Y06",
+   "dir": "gloss",
+   "cls": "neg-garbage",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-003863",
+   "group": "g|קטלוג"
+  },
+  {
+   "id": "Y07",
+   "dir": "gloss",
+   "cls": "neg-garbage",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-000064",
+   "group": "g|שוב"
+  },
+  {
+   "id": "Y08",
+   "dir": "gloss",
+   "cls": "neg-morph-overreach",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-034963",
+   "group": "g|אמיתות"
+  },
+  {
+   "id": "Y09",
+   "dir": "gloss",
+   "cls": "neg-other-gloss",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-029485",
+   "group": "g|המונ"
+  },
+  {
+   "id": "Y10",
+   "dir": "gloss",
+   "cls": "neg-other-gloss",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-016726",
+   "group": "g|מעטפת"
+  },
+  {
+   "id": "Y11",
+   "dir": "gloss",
+   "cls": "neg-real-word",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-019801",
+   "group": "g|לתאמ"
+  },
+  {
+   "id": "Y12",
+   "dir": "gloss",
+   "cls": "sp-adj",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-024992",
+   "group": "g|גוק"
+  },
+  {
+   "id": "Y13",
+   "dir": "gloss",
+   "cls": "sp-adj",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-030685",
+   "group": "g|בתנאי ש"
+  },
+  {
+   "id": "Y14",
+   "dir": "gloss",
+   "cls": "sp-adj",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-017667",
+   "group": "g|זרוע"
+  },
+  {
+   "id": "Y15",
+   "dir": "gloss",
+   "cls": "sp-adj",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-021365",
+   "group": "g|התנגשות"
+  },
+  {
+   "id": "Y16",
+   "dir": "gloss",
+   "cls": "sp-adj",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-005432",
+   "group": "g|שכנ"
+  },
+  {
+   "id": "Y17",
+   "dir": "gloss",
+   "cls": "sp-double",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-007418",
+   "group": "g|לתקשר"
+  },
+  {
+   "id": "Y18",
+   "dir": "gloss",
+   "cls": "sp-double",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-032898",
+   "group": "g|לזרז"
+  },
+  {
+   "id": "Y19",
+   "dir": "gloss",
+   "cls": "sp-drop",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-034318",
+   "group": "g|משל"
+  },
+  {
+   "id": "Y20",
+   "dir": "gloss",
+   "cls": "sp-drop",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-015037",
+   "group": "g|לקנא"
+  },
+  {
+   "id": "Y21",
+   "dir": "gloss",
+   "cls": "sp-drop",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-002690",
+   "group": "g|לעיתימ"
+  },
+  {
+   "id": "Y22",
+   "dir": "gloss",
+   "cls": "sp-transpose",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-022607",
+   "group": "g|להשפיל"
+  },
+  {
+   "id": "Y23",
+   "dir": "gloss",
+   "cls": "sp-transpose",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-034249",
+   "group": "g|להרוות"
+  },
+  {
+   "id": "Y24",
+   "dir": "gloss",
+   "cls": "sp-transpose",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-g-018845",
+   "group": "g|מבצר"
+  },
+  {
+   "id": "Y25",
+   "dir": "word",
+   "cls": "neg-equidistant",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-003712",
+   "group": "w|en|snake"
+  },
+  {
+   "id": "Y26",
+   "dir": "word",
+   "cls": "neg-garbage",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-024477",
+   "group": "w|en|favored"
+  },
+  {
+   "id": "Y27",
+   "dir": "word",
+   "cls": "neg-garbage",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-001770",
+   "group": "w|en|hot"
+  },
+  {
+   "id": "Y28",
+   "dir": "word",
+   "cls": "neg-garbage",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-034792",
+   "group": "w|en|propel"
+  },
+  {
+   "id": "Y29",
+   "dir": "word",
+   "cls": "neg-garbage",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-006674",
+   "group": "w|en|harmony"
+  },
+  {
+   "id": "Y30",
+   "dir": "word",
+   "cls": "neg-garbage",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-006274",
+   "group": "w|en|false"
+  },
+  {
+   "id": "Y31",
+   "dir": "word",
+   "cls": "neg-garbage",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-026405",
+   "group": "w|en|sensitivity"
+  },
+  {
+   "id": "Y32",
+   "dir": "word",
+   "cls": "neg-other-term",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-016470",
+   "group": "w|en|object"
+  },
+  {
+   "id": "Y33",
+   "dir": "word",
+   "cls": "neg-other-term",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-005953",
+   "group": "w|en|drug"
+  },
+  {
+   "id": "Y34",
+   "dir": "word",
+   "cls": "neg-other-variant",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-018234",
+   "group": "w|en|whom"
+  },
+  {
+   "id": "Y35",
+   "dir": "word",
+   "cls": "sp-adj",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-005945",
+   "group": "w|en|drastic"
+  },
+  {
+   "id": "Y36",
+   "dir": "word",
+   "cls": "sp-adj",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-003097",
+   "group": "w|en|present"
+  },
+  {
+   "id": "Y37",
+   "dir": "word",
+   "cls": "sp-double",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-005274",
+   "group": "w|en|bridge"
+  },
+  {
+   "id": "Y38",
+   "dir": "word",
+   "cls": "sp-drop",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-036747",
+   "group": "w|en|consequently"
+  },
+  {
+   "id": "Y39",
+   "dir": "word",
+   "cls": "sp-pattern",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-004351",
+   "group": "w|en|usually"
+  },
+  {
+   "id": "Y40",
+   "dir": "word",
+   "cls": "sp-transpose",
+   "why": "נדגם מכנית",
+   "corpus_id": "en-w-025725",
+   "group": "w|en|on the contrary"
+  }
+ ]
+}

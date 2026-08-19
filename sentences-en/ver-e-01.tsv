@@ -1,0 +1,80 @@
+1st - first	OK
+2nd - second	FIX	She placed second in the race.	"coming in second place in the running race" is awkward phrasing
+3rd - third	OK
+able	OK
+about	FIX	The meeting is in about an hour.	Swap test fails: "roughly" or "approximately" fit equally well
+absolutely	FIX	She was completely certain about her decision to move.	Swap test fails: "completely" is interchangeable
+after	OK
+again	FIX	He tried once more and this time succeeded.	Swap test fails: "once more" fits; also "finally succeeded completely" is redundant
+against	OK
+agree	FIX	The two friends finally agreed on the best solution.	Verb tense error: "agree" should be "agreed"
+almost	FIX	He nearly fell off the ladder but caught himself.	Swap test fails: "nearly" is interchangeable
+alone	FIX	She sat by herself in the empty library reading.	Swap test fails: "by herself" or "solitary" fit equally well
+also	FIX	She plays soccer and basketball on weekends.	Redundant structure: "also plays...plays" is poor
+always	FIX	She arrives on time for every meeting.	Swap test fails: "constantly" fits; also awkward with "every single"
+and	OK
+angry	FIX	He was furious when they canceled the entire trip.	Swap test fails: "mad" or "furious" fit equally well
+animal	FIX	The small creature ran quickly across the open field.	Swap test fails: "creature" or "beast" fit equally well
+another	FIX	She wants one more chance to try the exam.	Violates "no exam/app" rule: mentions "test"
+answer	OK
+area	FIX	The downtown area has many good restaurants.	Grammar: "very full of" is awkward; should be simpler
+army	OK
+around	OK
+art	OK
+as	OK
+ask	OK
+at	OK
+at first	FIX	At first, he thought it was very hard.	Violates "no exam" rule: mentions "test"
+at least	FIX	You should review at least two hours each night.	Violates "no exam" rule: "study" implies studying
+attack	OK
+because	OK
+because of	OK
+before	FIX	She left before the party ended.	"could actually end" is awkward phrasing
+beginning	OK
+behind	FIX	The old house sat behind very tall trees.	Remove awkward "completely" at the end
+best	FIX	That is the finest pizza restaurant in town.	Swap test fails: "finest" fits equally well
+better	FIX	This book is much better than the last one.	Swap test fails: "superior" or "preferable" fit; "totally" is AI-sounding
+between	OK
+blood	OK
+boat	OK
+body	FIX	Her body grew strong from daily exercise.	Grammar: "daily exercise routine" is awkward; should be simpler
+both	FIX	Both children like to play outside together.	Remove redundant "really...often together"
+bought	OK
+brain	OK
+break	OK
+building	OK
+burn	OK
+but	OK
+by	OK
+call	FIX	I will call you tomorrow morning.	Redundant: "later this afternoon soon" is unclear and overstuffed
+camera	FIX	The camera is very expensive and high quality.	Grammar: should be "of high quality" not "high quality"
+cash	OK
+center	OK
+chance	FIX	You have one final chance to move forward.	Violates "no exam" rule: "pass the test"
+check	OK
+child	OK
+children	FIX	The kids are playing loudly in the park.	Swap test fails: "kids" or "youngsters" fit equally well
+church	FIX	She goes to church every Sunday morning.	Redundant: "every single...always" double-marks time
+clean	OK
+close	FIX	The store is near my house.	Swap test fails: "near" is interchangeable
+club	OK
+code	OK
+cold	FIX	It is cold and snowy outside.	Redundant: "today now" is unclear
+color	OK
+company	FIX	The company is large and very successful.	Poor style: repeated "very very"
+contact	FIX	He will contact you tomorrow morning.	Redundant: "early...afternoon...soon" is unclear
+continue	OK
+control	OK
+cool	FIX	The water is cool and refreshing.	Poor style: repeated "very very"
+crime	FIX	The crime was very serious and shocking.	Grammar: "shocking news" is awkward; should be one adjective
+dance	FIX	She will dance all night at the party.	Redundant: "at the party tonight" has "tonight" twice
+dangerous	FIX	That road is very dangerous at night.	Grammar: "the dark night" is awkward
+daughter	FIX	His daughter is smart and kind.	Poor style: repeated "very very" and awkward "always" placement
+Dead Sea	OK
+deal	OK
+death	OK
+deep	OK
+die	OK
+diet	FIX	She recently started a strict new diet.	Awkward: "here" at the end is odd/unnecessary
+difference	OK
+different	OK

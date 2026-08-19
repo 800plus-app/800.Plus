@@ -1,0 +1,72 @@
+
+━━ OP-homo ━━
+יקום: 819,682 וריאציות · התקבלו 155,381 · 161ש
+recall · holdout 27.81% (504/1812) · סט מלא 27.74% (3377/12173)
+שארית · bank 0 · real-word 0 · non-word 155381
+   ins           bank    0 · real     0 · non 137728
+   doubleLetter  bank    0 · real     0 · non   9539
+   homophone     bank    0 · real     0 · non   3617
+   materVI       bank    0 · real     0 · non   1758
+   sub           bank    0 · real     0 · non   1317
+   transpose     bank    0 · real     0 · non    908
+   adjSub        bank    0 · real     0 · non    401
+   del           bank    0 · real     0 · non    113
+   דוגמאות non-word: הבניימ ← אָבְנַיִים [homophone] | עבניימ ← אָבְנַיִים [homophone] | אנביימ ← אָבְנַיִים [transpose] | אוניימ ← אָבְנַיִים [homophone] | אבינימ ← אָבְנַיִים [transpose] | אבנימי ← אָבְנַיִים [transpose] | אבנייממ ← אָבְנַיִים [doubleLetter] | אאוצר ← אוֹצֵר [doubleLetter]
+
+━━ OP-adjSub ━━
+יקום: 819,682 וריאציות · התקבלו 179,235 · 153ש
+recall · holdout 40.01% (725/1812) · סט מלא 39.19% (4771/12173)
+שארית · bank 1 · real-word 0 · non-word 179234
+   ins           bank    0 · real     0 · non 140366
+   adjSub        bank    1 · real     0 · non  23430
+   doubleLetter  bank    0 · real     0 · non   9560
+   materVI       bank    0 · real     0 · non   2701
+   sub           bank    0 · real     0 · non   1321
+   transpose     bank    0 · real     0 · non    908
+   homophone     bank    0 · real     0 · non    836
+   del           bank    0 · real     0 · non    112
+   דוגמאות bank: עוולל ← הוֹלֵל [adjSub]
+   דוגמאות non-word: כבניימ ← אָבְנַיִים [adjSub] | רבניימ ← אָבְנַיִים [adjSub] | אנביימ ← אָבְנַיִים [transpose] | אגניימ ← אָבְנַיִים [adjSub] | אהניימ ← אָבְנַיִים [adjSub] | אכניימ ← אָבְנַיִים [adjSub] | אסניימ ← אָבְנַיִים [adjSub] | אבינימ ← אָבְנַיִים [transpose]
+
+━━ OP-del ━━
+יקום: 819,682 וריאציות · התקבלו 255,695 · 190ש
+recall · holdout 25.28% (458/1812) · סט מלא 24.78% (3017/12173)
+שארית · bank 1 · real-word 0 · non-word 255694
+   ins           bank    1 · real     0 · non 240791
+   doubleLetter  bank    0 · real     0 · non   9539
+   materVI       bank    0 · real     0 · non   1759
+   sub           bank    0 · real     0 · non   1340
+   transpose     bank    0 · real     0 · non    908
+   homophone     bank    0 · real     0 · non    837
+   adjSub        bank    0 · real     0 · non    408
+   del           bank    0 · real     0 · non    112
+   דוגמאות bank: קרטווב ← קִטּוּב [ins]
+   דוגמאות non-word: אנביימ ← אָבְנַיִים [transpose] | אבינימ ← אָבְנַיִים [transpose] | אבנימי ← אָבְנַיִים [transpose] | אבנייממ ← אָבְנַיִים [doubleLetter] | באבניימ ← אָבְנַיִים [ins] | מאבניימ ← אָבְנַיִים [ins] | ארבניימ ← אָבְנַיִים [ins] | אבנקיימ ← אָבְנַיִים [ins]
+
+━━ LEN-short ━━
+יקום: 819,682 וריאציות · התקבלו 152,053 · 280ש
+recall · holdout 23.68% (429/1812) · סט מלא 23.17% (2820/12173)
+שארית · bank 0 · real-word 0 · non-word 152053
+   ins           bank    0 · real     0 · non 137103
+   doubleLetter  bank    0 · real     0 · non   9550
+   materVI       bank    0 · real     0 · non   1826
+   sub           bank    0 · real     0 · non   1315
+   transpose     bank    0 · real     0 · non    910
+   homophone     bank    0 · real     0 · non    836
+   adjSub        bank    0 · real     0 · non    401
+   del           bank    0 · real     0 · non    112
+   דוגמאות non-word: אנביימ ← אָבְנַיִים [transpose] | אבינימ ← אָבְנַיִים [transpose] | אבנימי ← אָבְנַיִים [transpose] | אבנייממ ← אָבְנַיִים [doubleLetter] | אאוצר ← אוֹצֵר [doubleLetter] | אוצצר ← אוֹצֵר [doubleLetter] | אוצרר ← אוֹצֵר [doubleLetter] | אוצור ← אוֹצֵר [materVI]
+
+━━ LEN-long ━━
+יקום: 819,682 וריאציות · התקבלו 151,970 · 207ש
+recall · holdout 23.29% (422/1812) · סט מלא 22.93% (2791/12173)
+שארית · bank 0 · real-word 0 · non-word 151970
+   ins           bank    0 · real     0 · non 137101
+   doubleLetter  bank    0 · real     0 · non   9539
+   materVI       bank    0 · real     0 · non   1758
+   sub           bank    0 · real     0 · non   1315
+   transpose     bank    0 · real     0 · non    908
+   homophone     bank    0 · real     0 · non    836
+   adjSub        bank    0 · real     0 · non    401
+   del           bank    0 · real     0 · non    112
+   דוגמאות non-word: אנביימ ← אָבְנַיִים [transpose] | אבינימ ← אָבְנַיִים [transpose] | אבנימי ← אָבְנַיִים [transpose] | אבנייממ ← אָבְנַיִים [doubleLetter] | אאוצר ← אוֹצֵר [doubleLetter] | אוצצר ← אוֹצֵר [doubleLetter] | אוצרר ← אוֹצֵר [doubleLetter] | אוצור ← אוֹצֵר [materVI]

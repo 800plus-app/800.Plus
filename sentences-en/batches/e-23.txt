@@ -1,0 +1,80 @@
+5	in conclusion	לסיכום
+5	income	הכנסה
+5	increase	להגדיל, להגביר
+5	indication	אינדיקציה, סימן ל-
+5	industry	תעשייה
+5	infected	הודבק
+5	infection	זיהום
+5	infinite	אינסופי
+5	inform	להודיע, לעדכן
+5	ingredients	מרכיבים
+5	initial	ראשי תיבות; התחלתי, ראשוני
+5	initially	בתחילה
+5	insanity	אי שפיות
+5	inspiration	השראה
+5	inspiring	נותן השראה
+5	institute	מוסד, מכון; לכונן
+5	insult	להעליב; עלבון
+5	intention	כוונה
+5	internal	פנימי
+5	interrupt	להפריע
+5	invent	להמציא
+5	investment	השקעה
+5	isolate	לבודד
+5	justify	להצדיק
+5	labor	להתאמץ; עבודה, עמל, לעמול
+5	lack	מחסור
+5	lame	צולע
+5	leather	עור
+5	lifetime	תקופת החיים, במשך החיים
+5	liver	כבד
+5	loan	הלוואה
+5	locate	לאתר
+5	log	יומן, לתעד ביומן; בול עץ
+5	lone	בודד, יחיד
+5	loneliness	בדידות
+5	lung	ריאה
+5	luxury	מותרות
+5	mainly	בעיקר
+5	majority	רוב
+5	meanwhile	בינתיים
+5	measure	אמצעי; למדוד
+5	Mediterranean	ים תיכוני
+5	melt	להמיס
+5	minor	קטין; סולם מינור (במוזיקה); קטן, שולי
+5	mistaken	שגוי, מוטעה, טועה
+5	moral	מוסר
+5	mortal	קטלני; אנושי, בן תמותה
+5	native	יליד, מקומי, טבעי
+5	nest	קן, לקנן
+5	notify	להודיע, ליידע
+5	nowadays	כיום
+5	objective	אובייקטיבי, ענייני; מטרה, יעד
+5	observation	תצפית, התבוננות; הערה, הבחנה
+5	observe	להתבונן, להבחין
+5	offend	להעליב
+5	offensive	מעליב, פוגעני
+5	operate	לפעול, להפעיל, לתפעל; לנתח
+5	opponent	יריב, מתנגד
+5	orbit	מסלול (סביב גרם שמים); להקיף במסלול, לחוג
+5	origin	מקור, מוצא
+5	outer	חיצוני
+5	outstanding	יוצא מן הכלל, מצוין
+5	oven	תנור בישול
+5	oxygen	חמצן
+5	pad	לרפד
+5	pan	מחבת
+5	parallel	מקביל
+5	particularly	במיוחד, בפרט
+5	pattern	תבנית, דפוס, מתכונת; דוגמת עיטור
+5	peach	אפרסק
+5	perform	לבצע, להציג
+5	permanently	באופן קבוע, לצמיתות
+5	pharmacy	בית מרקחת
+5	poet	משורר
+5	poisonous	רעיל
+5	polar	קוטבי, הפוך לחלוטין
+5	policy	מדיניות
+5	poorly	בצורה גרועה
+5	population	אוכלוסייה
+5	portrait	דיוקן

@@ -1,0 +1,80 @@
+7	diversity	מגוון
+7	downhill	מדרון, מורד
+7	drain	לנקז; ניקוז
+7	drift	זרם, סחף
+7	drip	לטפטף
+7	duel	דו-קרב
+7	dwarf	לגמד, גמד
+7	dye	צבע, לצבוע
+7	dynasty	שושלת
+7	edition	מהדורה
+7	elect	לבחור
+7	emblem	סמל
+7	emphasis	הדגשה, דגש
+7	emphasize	להדגיש
+7	enforce	לאכוף, לכפות
+7	enlarge	להגדיל
+7	enrage	להרגיז, להכעיס
+7	enrich	להעשיר
+7	enroll	להירשם
+7	enthusiasm	התלהבות
+7	envious	מקנא, מלא קנאה
+7	equivalent	מקבילה
+7	erosion	סחף, כרסום
+7	essentially	בעיקרו, במהותו
+7	estimate	להעריך, לאמוד
+7	evaluate	להעריך, לאמוד
+7	evaluation	הערכה
+7	evenly	באופן שווה
+7	evident	ברור, נראה לעין
+7	exceptional	יוצא דופן, מעולה
+7	exclude	לא לכלול, להוציא מן הכלל, להדיר; למנוע כניסה
+7	exhausting	מתיש, מעייף
+7	exhibit	להציג, מוצג
+7	exhibition	תערוכה
+7	expedition	משלחת
+7	expertise	מומחיות, ידע מקצועי
+7	explicit	מפורש, ברור, בוטה
+7	exposure	חשיפה
+7	exterior	חיצוני
+7	extinct	נכחד
+7	extract	לחלץ, להוציא, לעקור; להפיק; תמצית
+7	faithful	נאמן
+7	farther	רחוק יותר, הלאה, יותר
+7	fasten	להדק
+7	fiber	סיב
+7	fierce	עז, פראי
+7	findings	ממצאים
+7	flaw	פגם, ליקוי
+7	flee, fled	להימלט, נמלט
+7	fluent	שוטף
+7	fluid	נוזל
+7	fossil	מאובן
+7	fragile	עדין, שביר
+7	frequency	תדר, תדירות
+7	frequent	תדיר, שכיח
+7	fury	זעם
+7	garlic	שום
+7	govern	למשול
+7	gradually	בהדרגה
+7	grain	גרגר, גרעין; תבואה, דגן
+7	grapes	ענבים
+7	grateful	אסיר תודה
+7	grave	קבר; חמור
+7	grocery	מכולת
+7	guidance	הנחיה, הכוונה, הנהגה
+7	handful	קומץ
+7	handicap	מוגבלות, נכות; חיסרון, מגבלה; להכביד, להגביל
+7	harass	להטריד, להציק ללא הרף, לרדוף
+7	harmful	מזיק
+7	herb	עשב
+7	heroine	גיבורה
+7	hesitate	להסס
+7	housemaid	עוזרת בית, מנקה
+7	humble	צנוע; להשפיל
+7	hypothesis	השערה
+7	identical	זהה
+7	identically	באופן זהה
+7	idolize	להעריץ
+7	illustrate	להמחיש, להדגים; לאייר
+7	imitation	חיקוי

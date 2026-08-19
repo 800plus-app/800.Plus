@@ -1,0 +1,80 @@
+2	option	אפשרות, אופציה
+2	orchestra	תזמורת
+2	order	סדר; פקודה, לצוות; להזמין; מסדר (דתי)
+2	organism	אורגניזם, יצור חי
+2	original	מקורי
+2	owner	בעלים
+2	package	חפיסה, חבילה
+2	painting	ציור
+2	panic	פאניקה, בהלה
+2	paradox	סתירה, פרדוקס
+2	parent	הורה
+2	path	דרך, נתיב
+2	pause	הפסקה, להפסיק
+2	pepper	פלפל
+2	percent	אחוז
+2	pet	חיית מחמד
+2	philosophical	פילוסופי
+2	philosophy	פילוסופיה
+2	phobia	פוביה, פחד כרוני
+2	photograph	צילום, לצלם
+2	physical	פיזי, גופני
+2	pick	לקטוף, לבחור; מפרט לגיטרה
+2	pilot	טייס
+2	potential	אפשרי, פוטנציאלי
+2	powerful	רב כוח
+2	prehistoric	קדמון, פרה-היסטורי
+2	prepare	התכונן
+2	presentation	מצגת
+2	price	מחיר
+2	professional	מקצועי
+2	program	תכנית; תכניה; לתכנת
+2	puzzle	חידה, פאזל
+2	quality	איכות
+2	question	להטיל ספק; שאלה
+2	rainbow	קשת
+2	random	מקרי, אקראי
+2	rat	עכברוש
+2	reality	מציאות
+2	receive	לקבל
+2	reflex	רפלקס, תגובה אוטומטית
+2	relevant	רלוונטי, קשור
+2	remove	להסיר
+2	repeat	לחזור; שידור/מאורע חוזר
+2	respond	להגיב, תגובה, תשובה
+2	responsibility	אחריות
+2	responsible	אחראי
+2	result	תוצאה
+2	revolution	מהפכה
+2	ring, rang	לצלצל, צלצל
+2	risk	סיכון, לסכן
+2	river	נהר
+2	rocket	טיל
+2	role	תפקיד
+2	roof	גג
+2	root	שורש
+2	rope	חבל
+2	rule	לשלוט, לפסוק, להחליט; כלל, חוק, שלטון
+2	saga	סיפור, סאגה
+2	scan	סריקה, לסרוק
+2	science	מדע
+2	scientist	מדען
+2	seem	נראה כ-, דומה ל-
+2	sense	היגיון, תודעה; חוש, לחוש
+2	series	סדרה
+2	serve	לשרת; לְרַצּוֹת (עונש); להגיש
+2	set up	להרכיב, לארגן, לסדר
+2	shape	צורה, לעצב (צורה)
+2	sharp	חד
+2	shield	מגן, להגן
+2	shoulder	כתף
+2	silent	דומם, שקט
+2	silver	כסף, כסוף
+2	size	גודל
+2	skill	יכולת, מיומנות
+2	skin	עור
+2	slave	עבד
+2	smoke	עשן, לעשן
+2	soccer	כדורגל
+2	social	חברתי
+2	sold	מכר

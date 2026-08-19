@@ -1,0 +1,211 @@
+{
+ "n": 35277,
+ "diff": 0,
+ "missing": 1,
+ "teeth": {
+  "M1": 166,
+  "M2": 4019,
+  "M3": 2789
+ },
+ "carries": 28,
+ "binding": 0,
+ "slack": 0,
+ "perBand": [
+  {
+   "regime": 0,
+   "band": 3,
+   "t": 1.75,
+   "losesAcceptsWhenLowered": 3,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 0,
+   "band": 4,
+   "t": 0.85,
+   "losesAcceptsWhenLowered": 2,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 0,
+   "band": 5,
+   "t": 0.7,
+   "losesAcceptsWhenLowered": 630,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 0,
+   "band": 6,
+   "t": 1.25,
+   "losesAcceptsWhenLowered": 120,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 0,
+   "band": 7,
+   "t": 1.15,
+   "losesAcceptsWhenLowered": 3,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 0,
+   "band": 8,
+   "t": 1.65,
+   "losesAcceptsWhenLowered": 2,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 0,
+   "band": 9,
+   "t": 1.65,
+   "losesAcceptsWhenLowered": 1,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 0,
+   "band": 10,
+   "t": 1.4,
+   "losesAcceptsWhenLowered": 3,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 0,
+   "band": 11,
+   "t": 1.4,
+   "losesAcceptsWhenLowered": 3,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 0,
+   "band": 12,
+   "t": 1.4,
+   "losesAcceptsWhenLowered": 3,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 0,
+   "band": 13,
+   "t": 2.4,
+   "losesAcceptsWhenLowered": 1,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 0,
+   "band": 14,
+   "t": 0.95,
+   "losesAcceptsWhenLowered": 1,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 1,
+   "band": 3,
+   "t": 1.05,
+   "losesAcceptsWhenLowered": 1,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 1,
+   "band": 4,
+   "t": 2.1,
+   "losesAcceptsWhenLowered": 2,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 1,
+   "band": 5,
+   "t": 1.95,
+   "losesAcceptsWhenLowered": 41,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 1,
+   "band": 6,
+   "t": 1.9,
+   "losesAcceptsWhenLowered": 327,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 1,
+   "band": 7,
+   "t": 1.85,
+   "losesAcceptsWhenLowered": 5,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 1,
+   "band": 8,
+   "t": 3.35,
+   "losesAcceptsWhenLowered": 1,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 1,
+   "band": 9,
+   "t": 3.25,
+   "losesAcceptsWhenLowered": 2,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 1,
+   "band": 10,
+   "t": 1.45,
+   "losesAcceptsWhenLowered": 433,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 1,
+   "band": 11,
+   "t": 3.15,
+   "losesAcceptsWhenLowered": 2,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 1,
+   "band": 12,
+   "t": 1.65,
+   "losesAcceptsWhenLowered": 147,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 1,
+   "band": 13,
+   "t": 1.65,
+   "losesAcceptsWhenLowered": 1,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 1,
+   "band": 14,
+   "t": 1.6,
+   "losesAcceptsWhenLowered": 34,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 1,
+   "band": 15,
+   "t": 1,
+   "losesAcceptsWhenLowered": 5,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 1,
+   "band": 16,
+   "t": 1.55,
+   "losesAcceptsWhenLowered": 2,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 1,
+   "band": 17,
+   "t": 1.55,
+   "losesAcceptsWhenLowered": 2,
+   "admitsRejectsWhenRaised": 0
+  },
+  {
+   "regime": 1,
+   "band": 21,
+   "t": 1.5,
+   "losesAcceptsWhenLowered": 2,
+   "admitsRejectsWhenRaised": 0
+  }
+ ]
+}

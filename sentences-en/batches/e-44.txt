@@ -1,0 +1,80 @@
+9	poverty-stricken	מוכה עוני
+9	precedent	תקדים
+9	preceding	קודם
+9	predictive	חיזויי, מנבא
+9	predominantly	בעיקר, ברובו, בעיקרו של דבר
+9	prescribe	לרשום מרשם
+9	prescription	מרשם
+9	presently	כעת
+9	prevalent	נפוץ, שכיח, רווח
+9	probation	תקופת מבחן
+9	proclaim	להכריז בפומבי
+9	profound	עמוק, מעמיק; מוחלט, מרחיק לכת
+9	profoundly	עמוקות
+9	prone	נוטה
+9	prospective	צפוי, עתידי
+9	prosperity	צמיחה, שגשוג
+9	prosperous	משגשג, מצליח
+9	provided that	בתנאי ש-
+9	proximity	קרבה
+9	punctuation	פיסוק, סימני פיסוק
+9	pursuit	מרדף
+9	quantify	לכמת
+9	ratify	לאשרר, לאשר הסכם או חוזה
+9	rationalize	להצדיק, להסביר
+9	readily	ללא קושי
+9	reap	לקצור
+9	rear	אחורי; לטפח, לגדל
+9	recession	מיתון
+9	recipient	נמען
+9	recollection	זיכרון
+9	redeem	לפדות, לגאול
+9	refuge	מקלט, מחסה
+9	reign	שלטון
+9	reincarnation	גלגול נשמות
+9	reliance	הסתמכות
+9	reluctant	מסויג, לא מעוניין
+9	renovate	לחדש, לשפץ
+9	repressive	מדכא
+9	resourceful	בעל תושייה
+9	riddle	חידה
+9	ridicule	ללעוג
+9	rigid	נוקשה, מחמיר
+9	robust	איתן, חזק ובריא
+9	rodent	מכרסם
+9	sake	תועלת, עניין
+9	sanctuary	מקדש; מקלט
+9	saturated	רווי
+9	saw	מסור
+9	scope	היקף, טווח
+9	score	לחתוך, לחרוץ; תוצאה; לזכות בניקוד
+9	secular	חילוני
+9	sedative	סם הרגעה, משכך
+9	seek, sought	לחפש, חיפש
+9	segregation	הפרדה
+9	seismic	ססמי (קשור לרעידות אדמה)
+9	seizure	התקף
+9	seldom	לעיתים רחוקות
+9	self-indulgence	פינוק עצמי, התמכרות להנאות, התפנקות
+9	severity	חומרה
+9	silkworm	תולעת משי
+9	skyrocket	להאמיר
+9	smog	ערפיח
+9	spacious	מרווח
+9	span	להימתח, להקיף; מרווח
+9	spectacle	מחזה; ראווה
+9	splendid	נהדר, מהולל
+9	spring, sprang	קפיץ ; לקפוץ, קפץ
+9	standardize	לתקנן
+9	standstill	עצירה מוחלטת, קיפאון
+9	steamship	אוניית קיטור
+9	strain	מתח נפשי; להתאמץ, למתוח, לנקוע
+9	stride	צעד, לצעוד
+9	strive	לשאוף
+9	stroke	ליטוף; מכה; שבץ/אירוע מוחי
+9	stumble	למעוד
+9	sturdy	חסון, מוצק
+9	subsequent	עוקב
+9	subtle	דק, עדין, כמעט בלתי מורגש; מרומז
+9	suburban	פרברי
+9	successor	יורש

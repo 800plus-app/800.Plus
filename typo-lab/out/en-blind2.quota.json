@@ -1,0 +1,56 @@
+{
+ "what": "מכסות הדגימה לסט en-blind2 · מוכרזות לפני הדגימה ונגזרות משיעורי האוכלוסייה בלבד",
+ "lock_commit": "95c44488ee08dee7590b2f9b45d154d7ec208a0a",
+ "declared_at": "2026-08-16",
+ "source": "typo-lab/out/answers-en.jsonl",
+ "filter": {
+  "split": "holdout",
+  "one_row_per_group": true
+ },
+ "seed": "typo-lab/teacher/en2/v1",
+ "n": 40,
+ "population": {
+  "total_holdout": 11690,
+  "by_direction": {
+   "gloss": 5031,
+   "word": 6659
+  }
+ },
+ "method": "largest-remainder על שיעורי source_class בתוך כל כיוון · דגימה ב-PRNG בזרע קבוע בתוך כל שכבה",
+ "quota": {
+  "gloss": {
+   "extra-word": 2,
+   "homophone": 0,
+   "mater": 1,
+   "morph-pair": 0,
+   "neg-equidistant": 1,
+   "neg-garbage": 1,
+   "neg-gloss-swap": 0,
+   "neg-homophone-word": 0,
+   "neg-morph-overreach": 2,
+   "neg-other-gloss": 4,
+   "neg-real-word": 2,
+   "neg-synonym-rejected": 0,
+   "partial-head": 0,
+   "sp-adj": 2,
+   "sp-double": 0,
+   "sp-drop": 1,
+   "sp-transpose": 1,
+   "synonym": 0,
+   "word-order": 0
+  },
+  "word": {
+   "neg-equidistant": 2,
+   "neg-garbage": 2,
+   "neg-inflection": 0,
+   "neg-other-term": 4,
+   "neg-other-variant": 2,
+   "neg-real-word": 1,
+   "sp-adj": 4,
+   "sp-double": 2,
+   "sp-drop": 2,
+   "sp-pattern": 2,
+   "sp-transpose": 2
+  }
+ }
+}

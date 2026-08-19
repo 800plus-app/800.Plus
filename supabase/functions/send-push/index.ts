@@ -25,6 +25,14 @@
  *   VAPID_PUBLIC   · אותו ערך שנמצא ב-config.js. פומבי.
  *   VAPID_PRIVATE  · לעולם לא בקוד ולא במאגר.
  *   VAPID_SUBJECT  · mailto:admin@800-plus.com
+ *
+ * קהל היעד — פרמטרים ב-query
+ * ---------------------------
+ *   ?only=<email>    שולח למנויים של נמען אחד בלבד. זה מצב הבדיקה.
+ *   ?audience=all    שולח לכל המנויים.
+ *   ?dry=true        מחשב ומדווח, ולא שולח דבר.
+ * ⛔ בלי `only` ובלי `audience=all` הפונקציה מסרבת. אין ברירת מחדל, כי ברירת
+ *   מחדל של "כולם" היא הדרך שבה שליחה המונית קורית בטעות.
  */
 
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!;
@@ -119,12 +127,48 @@ Deno.serve(async (req) => {
       { status: 500, headers: { 'Content-Type': 'application/json' } });
   }
 
-  const dry = new URL(req.url).searchParams.get('dry') === 'true';
+  const q = new URL(req.url).searchParams;
+  const dry = q.get('dry') === 'true';
+  const only = (q.get('only') ?? '').trim();          // כתובת מייל אחת — מצב בדיקה
+  const audience = (q.get('audience') ?? '').trim();  // 'all' — כל המנויים
 
-  const subs = await rest('push_sub?select=id,endpoint,fail_count').then(r => r.json());
+  /* ⛔ אין ברירת מחדל. קריאה בלי `only` ובלי `audience=all` נדחית.
+     קודם הפונקציה שלחה לכל המנויים כשלא נאמר דבר, וזו בדיוק הצורה שבה שליחה
+     לכולם קורית בטעות — הפעלה ידנית שנשכח בה פרמטר. אותו היגיון של fail-closed
+     שכבר קיים כאן על TRIGGER_SECRET, מוחל גם על קהל היעד. */
+  if (!only && audience !== 'all') {
+    return new Response(JSON.stringify({
+      error: 'חסר קהל יעד',
+      hint: 'only=<email> לבדיקה על נמען אחד, או audience=all לכל המנויים',
+    }), { status: 400, headers: { 'Content-Type': 'application/json' } });
+  }
+
+  /* מיקוד לנמען אחד: מייל → user_id → המנויים שלו. */
+  let filter = 'push_sub?select=id,endpoint,fail_count';
+  if (only) {
+    const prof = await rest(`profiles?email=eq.${encodeURIComponent(only)}&select=id`)
+      .then(r => r.json()).catch(() => null);
+    if (!Array.isArray(prof) || !prof.length) {
+      // נכשל בקול: "0 נשלחו" על כתובת שגויה נראה בדיוק כמו "אין מנויים".
+      return new Response(JSON.stringify({ error: 'לא נמצא משתמש עם הכתובת הזאת', only }),
+        { status: 404, headers: { 'Content-Type': 'application/json' } });
+    }
+    filter += `&user_id=eq.${prof[0].id}`;
+  }
+
+  const subs = await rest(filter).then(r => r.json());
   if (!Array.isArray(subs)) {
     return new Response(JSON.stringify({ error: 'push_sub לא נקראה', detail: subs }),
       { status: 500, headers: { 'Content-Type': 'application/json' } });
+  }
+  /* מנוי אפס במצב בדיקה אינו הצלחה — פירושו שהמכשיר לא נרשם, וזו התקלה הצפויה
+     ביותר בשרשרת הזאת. אומרים אותה ולא מחזירים 200 שקט. */
+  if (only && !subs.length) {
+    return new Response(JSON.stringify({
+      error: 'למשתמש הזה אין מנוי Push',
+      hint: 'לפתוח את האפליקציה המותקנת במכשיר ולאשר התראות',
+      only,
+    }), { status: 404, headers: { 'Content-Type': 'application/json' } });
   }
 
   let sent = 0, gone = 0, failed = 0;

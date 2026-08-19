@@ -1,0 +1,80 @@
+4	surprisingly	במפתיע
+4	suspect	חשוד (מישהו); לחשוד
+4	symbolize	לסמל
+4	symmetry	סימטריה, התאמה
+4	symptom	סימפטום
+4	syndrome	תסמונת
+4	tact	טקט
+4	take place	התרחש
+4	teach, taught	ללמד, לימד
+4	terms	מונחים; תנאים
+4	texture	מרקם, טקסטורה
+4	theoretically	תיאורטית, לכאורה
+4	therefore	לכן
+4	though	למרות זאת; למרות ש-
+4	tight	הדוק, לחוץ, צמוד
+4	timeline	ציר זמן
+4	to sum up	כדי לסכם; לסכם
+4	topic	נושא
+4	trade	להחליף; לסחור, מסחר
+4	trance	טראנס, מצב היפנוטי
+4	transform	לשנות צורה
+4	translate	לתרגם
+4	translator	מתרגם
+4	transportation	תחבורה
+4	treat	להתייחס; פינוק, ממתק; לפנק
+4	tropical	טרופי
+4	unclear	לא ברור
+4	uniform	מדים; אחיד
+4	unite	לאחד
+4	universe	יקום
+4	unofficial	בלתי רשמי
+4	unorganized	לא מאורגן
+4	unrealistic	לא מציאותי
+4	unwanted	לא רצוי
+4	upon	על
+4	vaccine	חיסון
+4	valley	עמק
+4	variation	שינוי, וריאציה
+4	vegetable	ירק
+4	vehicle	כלי רכב
+4	verbal	ורבלי, מילולי
+4	veteran	ותיק; חייל משוחרר, יוצא צבא
+4	victim	קורבן
+4	view	דעה, השקפה; נוף, מראה; שדה ראייה; לראות, לצפות; להתייחס ל-
+4	villain	רשע, נבל
+4	wagon	עגלה
+4	waste	בזבוז, לבזבז; הפסולת
+4	waterfall	מפל
+4	weaken	להחליש
+4	whale	לוויתן
+4	whenever	בכל פעם ש-, מתי ש-; לא משנה מתי
+4	wherever	בכל מקום, לא משנה היכן
+4	whom	מי
+4	whose	של מי; אשר שלו, ש...שלו
+4	willing	מוכן
+4	within	בתוך
+4	witness	עד, להעיד
+4	wonder	לתהות, להטיל ספק; פלא
+4	woods	יער
+4	worm	תולעת
+5	abroad	חו"ל
+5	absent	חסר, לא נוכח
+5	absolute	מוחלט
+5	acceptable	מקובל
+5	achieve	להשיג
+5	activate	להפעיל
+5	adapt	להתאים; לעבד; להסתגל
+5	addition	תוספת, הוספה
+5	administration	מנהל
+5	affect	להשפיע
+5	afterwards	לאחר מכן
+5	aid	עזרה, לסייע
+5	aim	לכוון, מטרה
+5	annoy	להציק
+5	apply	ליישם, להחיל; לחול על; להגיש בקשה, לפנות
+5	approve	לאשר
+5	arrange	לסדר
+5	article	מאמר; פריט
+5	artificial	מלאכותי
+5	assignment	משימה, מטלה
