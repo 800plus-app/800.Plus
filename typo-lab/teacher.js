@@ -301,9 +301,62 @@ const applicable = it => LENS_IDS.filter(l => appliesTo(l, it));
  * בהתנהגות, ואין למורה דרך מבנית לקבל את המחלקה הזאת בכיוון `word` העברי.
  * ‏⚠ אין היום אף פריט כיול בכיוון `word` בעברית, ולכן זה גם לא נמדד. */
 const EN_NOMINAL = ['ation', 'ition', 'tion', 'sion', 'ment', 'ance', 'ence', 'ure', 'al', 'age', 'ity', 'ness'];
+/* ⛔⛔ **התיקון · 19.8.2026 · הבאג הזה הרג את המורה, ואפשר לכמת בכמה.**
+ *
+ * המימוש הקודם השווה את **הזנבות הנבדלים** ושאל אם בדיוק אחד מהם "נראה נומינלי".
+ * ⭐ **שגיאת הקלדה שנוחתת בתוך סיומת נומינלית מהפכת בדיוק צד אחד**, ולכן נספרה
+ * כגזירה: ‎[ment|ent]‎ · ‎[tion|ion]‎ · ‎[ure|re]‎ · ‎[age|wge]‎.
+ *
+ * נמדד על כל 35,278 שורות `en-word` (‏`teacher_rule_probe.js --nominal`):
+ * הווטו ירה על **560** שורות, ומהן **487 (87.0%) מתויגות `accept`**. כלומר
+ * ‏87% מירי הווטו היה הפיכת קבלה נכונה לדחייה — וזה קרה **לפני** שהפאנל בכלל
+ * הצביע, כי זה וטו. זו הסיבה המרכזית שכל תצורה מזוקקת יצאה **מתחת** ל-74.63%.
+ *
+ * ⚠ הבאג נשבר באותו דפוס **שלוש פעמים**: `bandage` (הסיומת נמצאת במקרה בסוף
+ * המילה) · `advantage`→`advantwge` (השגיאה **בתוך** הסיומת, תועדה ולא תוקנה) ·
+ * ו-487 השורות. כל תיקון קודם טיפל בדוגמה, לא במחלקה.
+ *
+ * ═══ שלושת התנאים · כל אחד נגזר מהגדרת גזירה, לא מכיול על מספר ═══
+ *
+ *   ‏1. **גזירה מאריכה.** סיומת נומינלית מוסיפה תווים; המילה הגזורה ארוכה
+ *      מהבסיס ו**היא** זו שנושאת את הסיומת. שוות אורך ⇒ אינה גזירה
+ *      (`advantage`/`advantwge` · `animal`/`animla`).
+ *   ‏2. **עריכה אחת אינה מורפולוגיה, היא שגיאת הקלדה.** בגזירה אמיתית שני
+ *      הזנבות רחוקים: ‎[de|sion]=4‎ · ‎[|ment]=4‎ · ‎[e|al]=2‎. בשגיאה שפגעה
+ *      בסיומת הם רחוקים **אחד**. המרחק הוא **דמראו** ולא לוינשטיין, כי
+ *      `animal`→`animla` הוא שיכול: לוינשטיין 2, דמראו 1.
+ *   ‏3. **טוקן יחיד.** האפליקציה מנרמלת מקף לרווח, ולכן ב`self-confidence`
+ *      מול «self confidenc» הזנב הנבדל הוא סימן פיסוק ולא מורפולוגיה.
+ *      במונח רב-מילי המבחן המבני אינו מוגדר, ולכן אינו חל.
+ *
+ * ⭐ **המחיר, מדוד ומוצהר:** הווטו יורה עכשיו על **22** שורות במקום 560.
+ * ‏**0** מהן `accept` (היה 487) · **22** מהן `reject` (היה 73). ‏51 שורות
+ * `reject` מפסיקות להידחות **דרך הווטו** — הן עדיין עוברות את כל הפאנל.
+ * ⚠ ומהצד השני: `create`→`creation` אינו מזוהה גם היום ולא היה מזוהה קודם
+ * (‏`ion` אינו ברשימה, ולכן שני הזנבות אינם נומינליים) — זה חור **קיים**
+ * שהתיקון הזה לא נגע בו ולא סגר.
+ * ⚠ ו-22 השורות שכן נותרו אינן כולן גזירות: `natural`→`natur` הוא קיצוץ,
+ * לא נומינליזציה. הן מתויגות `reject` ממילא, ולכן הווטו צודק שם **בתוצאה
+ * ולא במנגנון**. בלי לקסיקון (אסור · `CLAUDE.md`) אין דרך מבנית להבדיל
+ * בין `natural`→`natur` לבין `arrive`→`arrival`. */
+/* דמראו–לוינשטיין (‏OSA) · שיכול נספר כעריכה אחת */
+function damerau(a, b) {
+  const m = a.length, n = b.length;
+  if (!m) return n;
+  if (!n) return m;
+  const d = Array.from({ length: m + 1 }, (_, i) => Array.from({ length: n + 1 }, (_, j) => (i === 0 ? j : j === 0 ? i : 0)));
+  for (let i = 1; i <= m; i++) for (let j = 1; j <= n; j++) {
+    const c = a[i - 1] === b[j - 1] ? 0 : 1;
+    d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + c);
+    if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + 1);
+  }
+  return d[m][n];
+}
 function isNominalization(a, b) {
   const x = lc(a), y = lc(b);
   if (x === y) return false;
+  if (/[^a-z]/.test(x) || /[^a-z]/.test(y)) return false;      /* ‏3 · טוקן יחיד באותיות בלבד */
+  if (x.length === y.length) return false;                     /* ‏1 · גזירה מאריכה */
   const stem = (() => { let i = 0; while (i < x.length && i < y.length && x[i] === y[i]) i++; return i; })();
   if (stem < 4) return false;
   /* ⛔ הבדיקה היא על **הזנב שנבדל**, לא על המילה השלמה.
@@ -311,7 +364,10 @@ function isNominalization(a, b) {
      המילה השלמה סיווגה את `bandage`→`bandages` — ריבוי רגיל — כגזירה נומינלית,
      ובכיוון `word` זה היה הופך קבלה נכונה לדחייה. מה שקובע הוא מה **נוסף**. */
   const nomTail = s => s.length > 0 && EN_NOMINAL.some(suf => s === suf || s.endsWith(suf));
-  return nomTail(x.slice(stem)) !== nomTail(y.slice(stem));
+  const xt = x.slice(stem), yt = y.slice(stem);
+  if (nomTail(xt) === nomTail(yt)) return false;
+  if (damerau(xt, yt) <= 1) return false;                      /* ‏2 · עריכה אחת = שגיאת הקלדה */
+  return nomTail(x.length > y.length ? xt : yt);               /* ‏1 · והארוכה היא שנושאת את הסיומת */
 }
 
 
@@ -469,7 +525,10 @@ function buildFromBlind() {
    נגזרים מהטבלה ב-`דוחות/סיכומים/מדידת-כלל-מורפולוגי.md`. עמודות "תופס" ו"קטגוריה"
    **אינן** נכנסות לפריט: שופט שרואה "נרדפות" מדרג את התווית ולא את התשובה. */
 function buildFromReal24() {
-  const p = path.join(ROOT, 'דוחות', 'מדידת-כלל-מורפולוגי.md');
+  /* ⚠ הנתיב עודכן ב-19.8: `e6df161` העביר 72 דוחות לתת-תיקיות ו-`teacher.js` נשאר
+     מאחור. כל שאר `typo-lab/` כבר הצביע ל-`דוחות/סיכומים/`; רק כאן זה נשבר, ולכן
+     ‏`teacher_rule_probe.js` (בלי דגלים) זרק ENOENT וכל מדידת פאנל הייתה חסומה. */
+  const p = path.join(ROOT, 'דוחות', 'סיכומים', 'מדידת-כלל-מורפולוגי.md');
   const out = [];
   for (const line of fs.readFileSync(p, 'utf8').split(/\r?\n/)) {
     if (!line.startsWith('|')) continue;
@@ -587,6 +646,9 @@ const BLIND_SETS = {
   nearneg24: () => loadBlindTsv('near-neg-blind.tsv', false),
   en40: () => loadBlindTsv('en-blind.tsv', true),
   en2: () => loadBlindTsv('en-blind2.tsv', true),
+  /* ⭐ הסט השלישי · ננעל על `7ad6c35` **לפני** שנדגמה שורה אחת, ואיש לא הריץ
+     עליו כלום. הוא זה שמכריע את שאלת T5 · ראה `typo-lab/blind3_verdict.js`. */
+  en3: () => loadBlindTsv('en-blind3.tsv', true),
 };
 
 function buildBlind(name) {
@@ -1308,12 +1370,57 @@ function selftest() {
   say('## ב4 · הכרעת חגי 16.8 · שם-פעולה תלוי כיוון');
   const enW = (term, typed) => itemOf({ lang: 'en', direction: 'word', term, gloss: 'g', written: term, typed });
   const enG = (term, gloss, typed) => itemOf({ lang: 'en', direction: 'gloss', term, gloss, written: gloss, typed });
+  /* ⭐ הבקרה החיובית · 28 גזירות אמיתיות. אם אחת מהן נופלת, השומר חתך את ההכרעה
+     של חגי במקום את הבאג. הרשימה נבנתה **לפני** שנכתב השומר. */
+  const NOM_TRUE = [['decide', 'decision'], ['arrive', 'arrival'], ['govern', 'government'],
+    ['destroy', 'destruction'], ['accept', 'acceptance'], ['differ', 'difference'],
+    ['propose', 'proposal'], ['survive', 'survival'], ['manage', 'management'],
+    ['measure', 'measurement'], ['appear', 'appearance'], ['prefer', 'preference'],
+    ['divide', 'division'], ['expand', 'expansion'], ['conclude', 'conclusion'],
+    ['describe', 'description'], ['maintain', 'maintenance'], ['break', 'breakage'],
+    ['dark', 'darkness'], ['real', 'reality'], ['close', 'closure'], ['fail', 'failure'],
+    ['refuse', 'refusal'], ['approve', 'approval'], ['press', 'pressure'],
+    ['intend', 'intention'], ['permit', 'permission'], ['pronounce', 'pronunciation']];
+  const nomMissed = NOM_TRUE.filter(([a, b]) => !isNominalization(a, b));
+  t(nomMissed.length === 0, `⭐ כל ${NOM_TRUE.length} הגזירות האמיתיות מזוהות · הכרעת חגי לא נחתכה${nomMissed.length ? ' · נפלו: ' + nomMissed.map(p => p.join('→')).join(', ') : ''}`);
   t(isNominalization('decide', 'decision'), 'decide/decision מזוהה כגזירה נומינלית');
-  t(isNominalization('arrive', 'arrival'), 'arrive/arrival מזוהה');
+  t(isNominalization('arrive', 'arrival'), 'arrive/arrival מזוהה · +1 תו בלבד, ועדיין גזירה');
   t(isNominalization('govern', 'government'), 'govern/government מזוהה');
+  t(isNominalization('decision', 'decide'), 'וההכרעה סימטרית · גם בכיוון ההפוך');
   t(!isNominalization('bandage', 'bandages'), '⛔ bandage/bandages **אינה** גזירה נומינלית · הטיה רגילה');
   t(!isNominalization('blend', 'bend'), '⛔ blend/bend אינה גזירה · גזע משותף קצר מדי');
   t(!isNominalization('abacus', 'abavus'), '⛔ שגיאת הקלדה אינה גזירה');
+  /* ═══ ⛔ הבאג שהרג את המורה · שגיאת הקלדה שפוגעת בסיומת נומינלית ═══
+     ‏`isNominalization` השווה את **הזנבות הנבדלים** ושאל אם בדיוק אחד "נראה נומינלי".
+     שגיאת הקלדה שנוחתת **בתוך** הסיומת מהפכת בדיוק צד אחד, ולכן נחשבה גזירה.
+     נמדד על כל `en-word`: הווטו ירה על 560 שורות, ‏**487 מהן (87.0%) מתויגות
+     `accept`** — וכל אחת מהן היא קבלה נכונה שהמורה הפך לדחייה.
+     ⚠ הוא כבר נשבר פעמיים באותו דפוס לפני זה — `bandage` (הסיומת במקרה בסוף
+     המילה) ו-`advantage`→`advantwge` (השגיאה **בתוך** הסיומת). שתיהן למטה. */
+  const NOM_FALSE = [['advantage', 'advantwge'], ['animal', 'animla'], ['leisure', 'leisre'],
+    ['explanation', 'explanaion'], ['accomplishment', 'accomplishent'], ['hospital', 'hospitl'],
+    ['experience', 'experince'], ['government', 'governjent'], ['animal', 'animaal'],
+    ['animal', 'animsl'], ['in a moment', 'in a moent'], ['in a moment', 'in a momment'],
+    ['self-confidence', 'self confidenc'], ['self-indulgence', 'self indulgnce']];
+  const nomFired = NOM_FALSE.filter(([a, b]) => isNominalization(a, b));
+  t(nomFired.length === 0, `⛔ אף אחת מ-${NOM_FALSE.length} שגיאות ההקלדה אינה גזירה${nomFired.length ? ' · עדיין יורה על: ' + nomFired.map(p => p.join('→')).join(', ') : ''}`);
+  t(!isNominalization('advantage', 'advantwge'), '⛔⛔ X32 · השגיאה נוחתת **בתוך** `age` · זה מה שהיה מתועד ולא תוקן');
+  t(!isNominalization('animal', 'animla'), '⛔ שיכול · ‎[al|la]‎ · מרחק לוינשטיין 2 אבל דמראו 1');
+  t(!isNominalization('accomplishment', 'accomplishent'), '⛔ ‎[ment|ent]‎ · עריכה אחת בתוך הסיומת');
+  t(!isNominalization('self-confidence', 'self confidenc'), '⛔ מונח רב-מילי · המקף מול הרווח אינו מורפולוגיה');
+  /* ⭐⛔ **השן שמודדת את הנזק עצמו, לא דוגמאות** · 35,278 שורות `en-word`.
+     ‏12 זוגות ידניים אפשר להתאים אליהם; ל-487 שורות אי אפשר. השן הזאת היא
+     המספר מהמשימה, והיא נופלת אם המימוש חוזר לירות על קבלות. */
+  const dsEn = path.join(OUT, 'dataset-en.jsonl');
+  if (!fs.existsSync(dsEn)) t(false, `⛔ ${path.relative(ROOT, dsEn)} חסר · השן הקורפוסית לא נמדדה · שער שלא ירה אינו עדות`);
+  else {
+    const wrows = fs.readFileSync(dsEn, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l)).filter(r => r.set === 'en-word');
+    let fire = 0, fireAcc = 0;
+    for (const r of wrows) { if (!isNominalization(r.term, r.typed)) continue; fire++; if (r.label === 'accept') fireAcc++; }
+    t(wrows.length > 30000, `הקורפוס נטען · ${wrows.length} שורות \`en-word\` · השן אינה יורה על אפס שורות`);
+    t(fire > 0, `הווטו עדיין יורה על ${fire} שורות · הוא לא בוטל בטעות`);
+    t(fireAcc === 0, `⭐⛔ **${fireAcc}** קבלות נחתכות בווטו · היה **487** · זה מה שהרג את המורה`);
+  }
   /* ⛔ הענף שההכרעה קובעת · כיוון word דוחה, כיוון gloss מקבל */
   t(decide(enW('decide', 'decision'), { T5: 'כ', T3: 'כ', T2: 'כ' }) === 'reject',
     '⛔ כיוון word · שם-פעולה ⇒ **reject** · גם כשכל העדשות אמרו "כ"');
