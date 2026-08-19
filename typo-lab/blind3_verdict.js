@@ -41,7 +41,11 @@
  *
  * ═══ ⭐⛔ הקריטריון · שני התנאים · שניהם חייבים להתקיים ═══
  *
- *   על שורות `en-blind3` בכיוון **`word`** שחגי תייג במפורש `כ` או `ל`:
+ *   על שורות `en-blind3` בכיוון **`word`** שתויגו במפורש `כ` או `ל`:
+ *   ⚠⚠ **התיוג נעשה על ידי הסשן הראשי · לא על ידי חגי.** חגי לא תייג אף סט —
+ *   לא את זה, לא את `en40` ולא את `en2`. זה עדיין ground truth תקף, כי הוא
+ *   נקבע לפני שנראה פסק כלשהו — אבל לקרוא לו "חגי" מנפח את מעמדו, וזה תוקן
+ *   כבר פעם אחת בכל `teacher.js`.
  *
  *     ‏(א)  ‏R2 עושה **אפס קבלות-שווא**   (‏FA = 0)
  *     ‏(ב)  ‏recall של R2 **גבוה** מזה של R0   (חד-משמעי · שוויון אינו עובר)
@@ -52,7 +56,7 @@
  *
  * ⚠ **מה שנקבע כאן מראש כדי שלא ייבחר אחר כך:**
  *   ‏1. **כל 16 שורות ה-`word` נספרות.** אין סינון, אין הוצאת מקרה קשה.
- *   ‏2. שורות שחגי סימן `?` **אינן** בקריטריון. הן מדווחות בנפרד תחת המוסכמה
+ *   ‏2. שורות שסומנו `?` **אינן** בקריטריון. הן מדווחות בנפרד תחת המוסכמה
  *      של `RULING_Q` (‏`word` ⇒ `ל`), כי המוסכמה הזאת היא הכרעת מוצר ולא תיוג,
  *      ולתת לה להכריע פסק סטטיסטי זה לתת למוסכמה להוכיח את עצמה.
  *   ‏3. ‏24 שורות ה-`gloss` מדווחות כ**בקרה**: ‏R0 ו-R2 חייבים לצאת שם זהים.
@@ -117,7 +121,7 @@ function rows() {
   const unlabeled = raw.filter(r => !['כ', 'ל', '?'].includes((r.label || '').trim()));
   if (unlabeled.length) {
     throw new Error(`⛔ ${unlabeled.length}/${raw.length} שורות ב-en-blind3.tsv עדיין ללא תיוג (${unlabeled.slice(0, 5).map(r => r.id).join(' ')}…)\n`
-      + '   הסט ממתין לחגי · עמודת «האם הלומד ידע את המילה? כ / ל / ?»\n'
+      + '   הסט ממתין לתיוג · `en-blind3.labeled.tsv` · id · תווית · הערה\n'
       + '   אחרי התיוג:  node typo-lab/teacher.js --build-blind --set en3');
   }
   /* ⛔ פנקס חלקי · לא מודדים ומשלימים. סט עיוור נשרף בהרצה הראשונה. */
@@ -177,6 +181,47 @@ function verdict() {
     const ls = T.applicable(r.it).map(l => `${l}=${r.v[l] || '—'}`).join(' ');
     say(`| ${r.id} \`${r.it.term}\`→\`${r.it.typed}\` | ${r.truth} | ${decideBy(RULES.R0, r.it, r.v)} | ${decideBy(RULES.R2, r.it, r.v)} | ${ls} |`);
   }
+  say('');
+
+  /* ⭐ פילוח לשלוש מחלקות · **דיווח בלבד** · נוסף אחרי שהגיעו התיוגים, לבקשת
+     הסשן הראשי. ⛔ `CRITERION` לא נגע — הפילוח אינו משנה מי עובר, רק **היכן**
+     החוק נופל, כי "זבל רחוק" ו"מילה אחרת" הם שני תיקונים שונים לגמרי.
+     ⚠ המחלקות נגזרות מהנתונים ולא מרשימה שהודבקה: אות הלקסיקליות היא **פסק
+     T5** (זו בדיוק השאלה שלו), והקרבה היא מרחק דמראו מ-`written`. ⚠ שימוש
+     ב-T5 לפילוח לגיטימי לדיווח, אבל הוא **לא** ראיה עצמאית — הוא אותו פסק
+     ש-R2 מתעלם ממנו. */
+  const dam = (a, b) => {
+    const m = a.length, n = b.length;
+    const d = Array.from({ length: m + 1 }, (_, i) => Array.from({ length: n + 1 }, (_, j) => (i === 0 ? j : j === 0 ? i : 0)));
+    for (let i = 1; i <= m; i++) for (let j = 1; j <= n; j++) {
+      d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+      if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + 1);
+    }
+    return d[m][n];
+  };
+  const bucketOf = r => {
+    if (r.v.T5 === 'כ') return 'מילה אחרת אמיתית';
+    return dam(String(r.it.written).toLowerCase(), String(r.it.typed).toLowerCase()) <= 2
+      ? 'אינה מילה · קרובה' : 'זבל רחוק';
+  };
+  const BUCKETS = ['אינה מילה · קרובה', 'מילה אחרת אמיתית', 'זבל רחוק'];
+  say('## ⭐ פילוח לפי מחלקה · היכן כל חוק נופל');
+  say('');
+  say('| מחלקה | n | תיוג כ | ‏R0 מקבל | ‏R2 מקבל | ⛔ ‏R0 שגה | ⛔ ‏R2 שגה |');
+  say('|---|---:|---:|---:|---:|---:|---:|');
+  for (const b of BUCKETS) {
+    const rs = scored.filter(r => bucketOf(r) === b);
+    if (!rs.length) { say(`| ${b} | 0 | — | — | — | — | — |`); continue; }
+    const yes = rs.filter(r => r.truth === 'כ').length;
+    const a0 = rs.filter(r => decideBy(RULES.R0, r.it, r.v) === 'accept').length;
+    const a2 = rs.filter(r => decideBy(RULES.R2, r.it, r.v) === 'accept').length;
+    const e0 = rs.filter(r => (decideBy(RULES.R0, r.it, r.v) === 'accept') !== (r.truth === 'כ')).length;
+    const e2 = rs.filter(r => (decideBy(RULES.R2, r.it, r.v) === 'accept') !== (r.truth === 'כ')).length;
+    say(`| ${b} | ${rs.length} | ${yes} | ${a0} | ${a2} | ${e0 === 0 ? '**0** ✅' : '**' + e0 + '** ⛔'} | ${e2 === 0 ? '**0** ✅' : '**' + e2 + '** ⛔'} |`);
+  }
+  say('');
+  say('⚠ «זבל רחוק» היא המלכודת: המחרוזות **אינן מילים** ובכל זאת תויגו `ל`.');
+  say('כלומר «אינה מילה ⇒ הלומד ידע» שגוי בלי תנאי קרבה — וזה בדיוק מה שהפיל את `decideWordDir` (X20/X21).');
   say('');
 
   const results = CRITERION.requires.map(c => ({ ...c, ok: c.test(r0, r2) }));
