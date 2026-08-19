@@ -112,24 +112,38 @@ function score(rows, rule) {
 }
 
 function main() {
-  /* ===== שן 0 · ‏R0 חייב להיות זהה ל-`teacher.js` על כל שורה ===== */
+  /* ═══ שן 0 · ⭐ **החוק הנעול התחלף ב-19.8** ═══
+     עד `en-blind3`, ‏`teacher.decide` היה R0 והשן כאן אימתה את זה. הסט הוכרע
+     (‏16/16 · אפס קבלות-שווא · `blind3_verdict.js`), ‏**R2 נבחר ונכנס ל-`decide`**,
+     ולכן השן מכוונת עכשיו אליו. ⛔ ‏R0 נשאר בקובץ בכוונה — הוא הבסיס שמולו
+     נמדד השינוי, ואי אפשר לדווח "מ-X ל-Y" בלי לשמור את X. */
   let checked = 0;
   for (const set of SETS) {
     for (const r of rowsOf(set)) {
-      const mine = decideBy(RULES.R0, r.it, r.v);
+      const mine = decideBy(RULES.R2, r.it, r.v);
       const theirs = T.decide(r.it, r.v);
-      if (mine !== theirs) throw new Error(`⛔ R0 סוטה מ-teacher.decide · ${set}/${r.id} · "${mine}" מול "${theirs}"`);
+      if (mine !== theirs) throw new Error(`⛔ R2 סוטה מ-teacher.decide · ${set}/${r.id} · "${mine}" מול "${theirs}"`);
       checked++;
     }
   }
-  say(`✅ שן · ‏R0 זהה ל-\`teacher.decide\` על ${checked} שורות בחמישה סטים`);
+  say(`✅ שן · ‏R2 (החוק הנעול מ-19.8) זהה ל-\`teacher.decide\` על ${checked} שורות בחמישה סטים`);
   /* ושן הפוכה · חוק שהוזז חייב **להיבדל**, אחרת ההשוואה ריקה */
   let differs = 0;
   for (const set of SETS) for (const r of rowsOf(set)) {
     if (decideBy(RULES.R0, r.it, r.v) !== decideBy(RULES.R2, r.it, r.v)) differs++;
   }
   if (!differs) throw new Error('⛔ R2 מכריע בדיוק כמו R0 על כל השורות · אין מה להשוות');
-  say(`✅ שן · ‏R2 נבדל מ-R0 ב-${differs} שורות · ההשוואה אינה ריקה`);
+  say(`✅ שן · ‏R0 (הקודם) נבדל מ-R2 ב-${differs} שורות · ההשוואה אינה ריקה`);
+  /* ⚠ ‏R3 היה "R2 + שומר על וטו שם-הפעולה". התיקון של `isNominalization`
+     (‏19.8) בולע את השומר, ולכן R3 ו-R2 אמורים להיות **זהים** מכאן והלאה.
+     השן הזאת היא מה שיתריע אם הם נפרדים שוב. */
+  let r23 = 0;
+  for (const set of SETS) for (const r of rowsOf(set)) {
+    if (decideBy(RULES.R2, r.it, r.v) !== decideBy(RULES.R3, r.it, r.v)) r23++;
+  }
+  say(r23 === 0
+    ? '✅ שן · ‏R3 זהה ל-R2 · תיקון `isNominalization` בלע את השומר, כצפוי'
+    : `⚠ ‏R3 נבדל מ-R2 ב-${r23} שורות · השומר עדיין קונה משהו · בדוק את התיקון`);
   say('');
 
   say('# חוקי הכרעה חלופיים · כולם על אותו פנקס, בלי פסק חדש');
