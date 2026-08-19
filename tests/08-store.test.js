@@ -496,12 +496,24 @@ describe('myProfile — the same bug pullProgress was fixed for, still open', ()
     none(s.calls.map(c => c.table), 'profiles was queried with no user to scope it by:');
   });
 
-  test('BUG: adminUserProgress reports a failed read as "this learner has no progress"', async () => {
-    // The admin screen (app.js:3789) renders the result directly, so a dropped request shows an
-    // empty account — the one screen where that reads as "their data is gone".
+  // Was pinned as "BUG: a failed read is indistinguishable from an empty account". It is fixed:
+  // adminUserProgress returns { rows, error }. The bug it caused was visible, not theoretical ·
+  // the panel counted every dropped request under "signed up and never practised", so the card
+  // moved between refreshes with nobody signing up. These two tests are the fix's teeth: the
+  // first fails if the error is swallowed again, the second fails if every read starts looking
+  // like an error. Both directions have to hold, or the count is wrong in one direction or the other.
+  test('adminUserProgress hands a failed read back instead of reporting an empty account', async () => {
     const s = loadStore({ respond: { 'progress.select': { error: ERRORS.timeout() } } });
-    const rows = await s.Store.adminUserProgress('u-9');
-    none(rows, 'expected the failure to be indistinguishable from empty (pinned):');
+    const r = await s.Store.adminUserProgress('u-9');
+    assert.ok(r.error, 'adminUserProgress swallowed the error · a dropped request will again be counted as "never practised"');
+    none(r.rows, 'a failed read must not also claim rows:');
+  });
+
+  test('a genuinely empty account is NOT reported as an error', async () => {
+    const s = loadStore({ respond: { 'progress.select': { data: [] } } });
+    const r = await s.Store.adminUserProgress('u-9');
+    assert.strictEqual(r.error, null, 'an empty account was reported as a failed read');
+    none(r.rows, 'expected no rows:');
   });
 
   test('adminListUsers and adminListFeedback DO hand the error back', async () => {

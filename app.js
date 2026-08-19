@@ -6321,8 +6321,14 @@ async function openAdmin(){
        and it never moved afterwards. It measured a test, not learning.
        Practised and skipped are now two separate numbers, because they answer two questions. */
     let learnedHe=0, learnedEn=0, skipped=0, rounds=0, practised=0, last=u.last_seen, lastRound=0;
+    /* ⛔ readFailed is not bookkeeping, it is the difference between "this learner never
+       practised" and "we did not manage to ask". Before it existed both looked identical
+       on screen, and the second one silently inflated the "never practised" card. */
+    let readFailed=false;
     try{
-      for(const p of await Store.adminUserProgress(u.id)){
+      const { rows, error: pErr } = await Store.adminUserProgress(u.id);
+      if(pErr) readFailed=true;
+      for(const p of rows){
         /* `stats` arrives as its own field: adminUserProgress projects it out of the jsonb and
            deliberately never pulls the rest of the blob, so p.data does not exist here. */
         const st=(p&&p.stats)||{};
@@ -6342,36 +6348,55 @@ async function openAdmin(){
         for(const s of ses){ const t=Number(s&&s.t); if(t>lastRound) lastRound=t; }
         if(!last || (p.updated_at && p.updated_at>last)) last=p.updated_at;
       }
-    }catch(e){}
+    }catch(e){ readFailed=true; }
     const ts=last?Date.parse(last):NaN;
     return { id:u.id, username:u.username||'', email:u.email||'', role:u.role,
              created_at:u.created_at, last, lastTs:isNaN(ts)?0:ts,
              learnedHe, learnedEn, learnedTotal:learnedHe+learnedEn,
-             skipped, rounds, practised, lastRound };
+             skipped, rounds, practised, lastRound, readFailed };
   }));
 
   /* The morning glance. The list below answers "who is this person"; this answers the only
      question worth asking every day — is anybody actually practising. Rounds, not logins:
      signing up and confirming an email is a small effort, and opening the app and answering
      a round is a different one. Conflating them is how a dead product looks alive. */
-  const DAY=864e5, now=Date.now();
-  const roundIn = d => admUsers.filter(u=>u.lastRound && now-u.lastRound < d*DAY).length;
+  /* ⛔ "היום" and "השבוע" used to be rolling windows · now-lastRound < 1 day, < 7 days.
+     So at 09:00 a round from 23:00 last night still counted as today, and "this week"
+     meant "the last 168 hours" and never started over on Sunday. The labels promised a
+     calendar and the code measured a stopwatch, which is why the numbers looked wrong
+     to somebody reading them as "today". Both now start at local midnight. */
+  const midnight = () => { const d=new Date(); d.setHours(0,0,0,0); return d; };
+  const startOfToday = midnight().getTime();
+  const startOfWeek  = (() => { const d=midnight(); d.setDate(d.getDate()-d.getDay()); return d.getTime(); })();
+  const since = from => admUsers.filter(u=>u.lastRound && u.lastRound >= from).length;
   /* ⚠ "סבבים בסך הכול" ו"מילים שתורגלו" הוסרו מהלוח (בקשת חגי, 14.8.2026): מדד
      מצטבר שרק עולה אינו אומר מה קרה השבוע, ולכן אי אפשר להחליט לפיו כלום.
      הסכימה עצמה הוסרה ולא רק התצוגה · שדה מחושב שאיש אינו קורא הוא עבודה
      שרצה על כל משתמש בכל טעינה של הלוח, בלי שאף אחד רואה את התוצאה. */
   const glance = {
-    today: roundIn(1), week: roundIn(7),
-    never: admUsers.filter(u=>!u.rounds).length,
+    today: since(startOfToday),
+    week:  since(startOfWeek),
+    /* ⛔ A learner whose progress could not be read is NOT counted here. That was the bug:
+       a dropped request became a person who "never practised". They are counted in
+       `failed` instead, and the panel says so out loud. */
+    never: admUsers.filter(u=>!u.readFailed && !u.rounds).length,
+    failed: admUsers.filter(u=>u.readFailed).length,
   };
   const gcard = (n, label, hint, warn) =>
     `<div class="adm-g${warn&&n?' warn':''}"><b>${n}</b><span>${label}</span>`+
     (hint?`<i>${hint}</i>`:'')+`</div>`;
 
-  body.innerHTML=`<div class="adm-glance">
-      ${gcard(glance.today,'תרגלו היום','')}
-      ${gcard(glance.week,'תרגלו השבוע','')}
-      ${gcard(glance.never,'נרשמו ולא תרגלו','אף פעם',true)}
+  /* ⚠ The one line that makes the three numbers checkable. Without it a failed read is
+     invisible and the cards look authoritative while being short a few people. */
+  const failNote = glance.failed
+    ? `<p class="msg err">הנתונים של ${glance.failed===1?'משתמש אחד':glance.failed+' משתמשים'} `
+      + `לא נטענו. המספרים כאן אינם כוללים אותם.</p>`
+    : '';
+
+  body.innerHTML=failNote+`<div class="adm-glance">
+      ${gcard(glance.today,'תרגלו היום','מחצות')}
+      ${gcard(glance.week,'תרגלו השבוע','מיום ראשון')}
+      ${gcard(glance.never,'נרשמו ולא תרגלו','לא השלימו סבב',true)}
     </div>
     <div class="adm-tools">
       <input class="adm-search" id="admSearch" type="search" inputmode="search"
