@@ -84,7 +84,7 @@ test('the read is still scoped to the one user being inspected', async () => {
 
 test('a returned row carries the counts the panel needs and no prose', async () => {
   const s = progressCall({ data: [{ lang: 'he', updated_at: '2026-01-01T00:00:00Z', stats: FULL_BLOB.stats }] });
-  const rows = await s.Store.adminUserProgress('u-9');
+  const { rows } = await s.Store.adminUserProgress('u-9');
   assert.strictEqual(rows.length, 1);
   const r = rows[0];
   assert.strictEqual(r.lang, 'he');
@@ -96,13 +96,13 @@ test('a returned row carries the counts the panel needs and no prose', async () 
     'an association came back from an admin read');
 });
 
-test('a failed read is still not reported as "no progress"', async () => {
-  /* 08-store.test.js pins this; repeated here because the projection change is the kind of edit
-     that quietly reintroduces `return data || []` on an error path. */
+test('a failed read is reported as a failure, not as "no progress"', async () => {
+  /* 08-store.test.js owns the shape; repeated here because the projection change is the kind of
+     edit that quietly reintroduces `return data || []` on an error path, and this file is the one
+     that gets edited when the projected columns change. */
   const s = progressCall({ data: null, error: { code: '42501', message: 'rls' } });
-  const rows = await s.Store.adminUserProgress('u-9');
-  assert.ok(!Array.isArray(rows) || rows.error !== undefined || rows.length === 0,
-    'sanity: the error path returns something the caller can handle');
+  const r = await s.Store.adminUserProgress('u-9');
+  assert.ok(r && r.error, 'the RLS refusal was swallowed · the panel will count this learner as "never practised"');
 });
 
 /* ---- the other side of the seam: the panel must read what is now sent ---- */
@@ -119,6 +119,35 @@ test('the admin panel reads stats off the projected row, not off a blob', () => 
     'openAdmin still reads p.data — that field is no longer sent, so every count would read 0');
   assert.ok(codeMatches(code, /\bp\.stats\b/, mask).length,
     'openAdmin must read the projected `stats` field');
+});
+
+/* The three cards on the panel are the only numbers anybody reads daily, and both ways they
+   were wrong were invisible from the screen · a rolling 24h window labelled "today", and a
+   dropped request counted as a person who never practised. Source-level because openAdmin
+   needs a live Supabase to execute, which is the same reason this file already inspects it
+   rather than running it. A source guard is weaker than a run, and it is what is available. */
+test('the glance counts by calendar day, not by a rolling window', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'app.js'), 'utf8');
+  const code = extractFunction(src, 'openAdmin', codeMask(src));
+  assert.ok(code, 'app.js no longer declares openAdmin — update this test, do not delete it');
+  const mask = codeMask(code);
+  assert.ok(codeMatches(code, /setHours\(\s*0\s*,\s*0\s*,\s*0\s*,\s*0\s*\)/, mask).length,
+    '"today" is not anchored to midnight — it is a rolling window again, and a round from last night counts as today');
+  assert.ok(codeMatches(code, /getDay\(\)/, mask).length,
+    '"this week" does not start on Sunday — it is a rolling 168 hours again');
+  assert.strictEqual(codeMatches(code, /now\s*-\s*u\.lastRound/, mask).length, 0,
+    'the rolling-window comparison is back');
+});
+
+test('a learner whose progress failed to load is not counted as "never practised"', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'app.js'), 'utf8');
+  const code = extractFunction(src, 'openAdmin', codeMask(src));
+  const mask = codeMask(code);
+  assert.ok(codeMatches(code, /readFailed/, mask).length,
+    'openAdmin no longer tracks failed reads — a dropped request is being counted as a person');
+  const never = codeMatches(code, /never:[^\n]*/, mask).map(h => h.match[0]).join(' ');
+  assert.ok(/readFailed/.test(never),
+    'the "never practised" count does not exclude failed reads: ' + never);
 });
 
 test('no other admin query pulls the progress blob', () => {
