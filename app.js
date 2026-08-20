@@ -6539,7 +6539,7 @@ $('#notifCta').onclick=async()=>{
 };
 $('#lockContact').onclick=()=>{
   const mail=(currentUser&&currentUser.email)||'';
-  location.href='mailto:03hagay@gmail.com?subject='+encodeURIComponent('חידוש מנוי · 800+')
+  location.href='mailto:admin@800-plus.com?subject='+encodeURIComponent('חידוש מנוי · 800+')
     +'&body='+encodeURIComponent('החשבון שלי: '+mail);
 };
 
