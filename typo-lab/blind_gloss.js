@@ -222,6 +222,69 @@ function writeResidue(cmp) {
 
 /* ===================== 6 · שלב 2 · דירוג עיוור · מועמדים מעורבלים ===================== */
 
+/* ⛔⛔ הטיית סדר הדגימה · נמדדה כאן, ואל תסיר את האזהרה הזאת ═════════════
+ *
+ * `emit2` מייצר אצוות **בסדר `res`**, ו-`res` בא מ-`compare` שרץ על `bank`
+ * בסדרו — כלומר **לפי יחידות, כלומר לפי שכיחות**. התוצאה: האצוות הראשונות
+ * הן מילים שכיחות בלבד.
+ *
+ * ⭐ **וזה משנה את המספר, לא רק את הסדר.** מילים שכיחות רב-משמעיות הרבה
+ * יותר, ולכן שיעור השרידה שלהן הוא **הגבוה ביותר שיימדד**. נמדד בפועל:
+ *
+ *     יחידות 1–2 · 240 פריטים · שרדו 60%
+ *     יחידות 4–10 · 1,428 פריטים · **אפס נבדקו**
+ *
+ * ⛔ **הכפלת 60% ב-1,971 נותנת מספר מנופח.** זו המחלקה שהפילה את הפרויקט
+ * הזה שוב ושוב: מספר **נכון על מה שנמדד ושקרי על מה שמסיקים ממנו**.
+ * ⚠ המגמה 48%→54%→60% לאורך הגלים אינה החמרה במאגר — היא **הצטברות של אותן
+ * יחידות שכיחות**. מי שיקרא אותה כהחמרה יטעה.
+ *
+ * ⭐ **ולכן `emitStrat` קיים:** הוא מרבד את השארית לשלוש רצועות ומדווח שיעור
+ * **לכל רצועה בנפרד**. שלושה מספרים אומרים משהו; ממוצע משוקלל על דגימה מוטה
+ * אינו אומר דבר. ⛔ אין לדווח שיעור אחד בלי לציין מאיזו רצועה נמדד. */
+const STRATA = [
+  { id: 'D1', units: [1, 2, 3], he: 'שכיח' },
+  { id: 'D2', units: [4, 5, 6], he: 'בינוני' },
+  { id: 'D3', units: [7, 8, 9, 10], he: 'נדיר' },
+];
+
+/* משגר אצוות מרובדות מן השארית **שטרם נשפטה**, כדי לא לשלם פעמיים. */
+function emitStrat(res, bank) {
+  const unit = new Map(bank.map(r => [r.k, Number(r.unit)]));
+  const judged = new Set();
+  if (fs.existsSync(D('verdict2')))
+    for (const f of fs.readdirSync(D('verdict2')).filter(x => x.endsWith('.tsv')))
+      for (const l of fs.readFileSync(path.join(D('verdict2'), f), 'utf8').split(/\r?\n/))
+        if (l.trim()) judged.add(l.split('\t')[0].trim());
+  /* גם 360 המפתחות של C-01..C-06 יוצאים — הם כבר בתור */
+  const inC = new Set(res.slice(0, 360).map(c => c.k));
+  const pool = res.filter(c => !judged.has(c.k) && !inC.has(c.k));
+  const items = pool.map(c => {
+    const uniq = [], seen = new Set();
+    for (const s of c.blind.concat(senses(c.gloss))) {
+      const cs = canon(s);
+      if (cs && !seen.has(cs)) { seen.add(cs); uniq.push(s.trim()); }
+    }
+    return { k: c.k, term: c.term, cands: shuffled(uniq, seedOf(c.k)) };
+  });
+  fs.mkdirSync(D('batch2s'), { recursive: true });
+  const out = [];
+  for (const S of STRATA) {
+    const mine = shuffled(items.filter(x => S.units.includes(unit.get(x.k))), SEED + S.units[0]);
+    let n = 0;
+    for (let i = 0; i < mine.length; i += BATCH2) {
+      n++;
+      const id = S.id + '-' + String(n).padStart(2, '0');
+      fs.writeFileSync(path.join(D('batch2s'), id + '.tsv'),
+        ['k\tterm\tcands'].concat(mine.slice(i, i + BATCH2).map(x => x.k + '\t' + x.term + '\t' + x.cands.join(' | '))).join('\n') + '\n');
+    }
+    out.push(S.id + ' (' + S.he + ' · יחידות ' + S.units.join(',') + ') · ' + mine.length + ' פריטים · ' + n + ' אצוות');
+  }
+  fs.writeFileSync(D('cands-strat.json'), JSON.stringify(items));
+  out.forEach(say);
+  return items;
+}
+
 function emit2(res) {
   let n = 0;
   const items = res.map(c => {
@@ -565,4 +628,14 @@ if (has('--broad')) {
   const rows = broad(bank);
   say('מסלול ב · ' + rows.length + ' מובנים משמשים ≥3 מילים · out/gloss-broad.tsv');
   rows.slice(0, 25).forEach(r => say('  ' + r.sense + ' (' + r.n + ') · ' + r.terms.join(', ')));
+}
+
+/* ⭐ דגימה מרובדת · `--emit2s` · ראה את בלוק האזהרה שמעל `emitStrat`.
+   מוציא רק את השארית שטרם נשפטה, כדי לא לשלם פעמיים על אותו פריט. */
+if (has('--emit2s')) {
+  const p1s = ingest1(bank);
+  const cmps = compare(bank, p1s);
+  const ress = cmps.filter(c => c.missing.length > 0);
+  say('שארית כוללת · ' + ress.length);
+  emitStrat(ress, bank);
 }
