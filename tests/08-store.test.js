@@ -475,24 +475,36 @@ describe('identity — the account is resolved twice per sync, independently', (
 });
 
 /* ================================================================ profile and admin reads ==== */
-describe('myProfile — the same bug pullProgress was fixed for, still open', () => {
-  test('BUG: a failed profile read is indistinguishable from having no profile', async () => {
-    /* store.js:40 destructures only `data` and drops `error`. Both outcomes are null.
-     * accessOk (app.js:3528-3535) fails OPEN on null — deliberate, and harmless.
-     * showAdminIfAllowed (app.js:3562-3567) fails CLOSED: one dropped request and the admin
-     * loses the control-centre button until reload.
-     * openAccount (app.js:3164-3169) leaves "טוען…" on screen forever.
-     * A fix looks exactly like pullProgress's: return {ok,profile} and let each caller choose. */
+describe('myProfile — the same bug pullProgress was fixed for, now closed', () => {
+  /* Was pinned as open: the function dropped `error`, so a failed read and an account with no
+     profile row were both `null`, and the three callers each guessed differently. It now returns
+     {ok,profile}, the pullProgress shape the old note asked for. These two tests are the fix's
+     teeth and they pull in opposite directions · one fails if the error is swallowed again, the
+     other fails if an ordinary account starts being reported as an outage. */
+  test('a failed profile read is distinguishable from having no profile', async () => {
     const failed = loadStore({ respond: { 'profiles.select': { error: ERRORS.down() } } });
     const absent = loadStore({ respond: { 'profiles.select': { data: null } } });
-    assert.strictEqual(await failed.Store.myProfile(), null);
-    assert.strictEqual(await absent.Store.myProfile(), null,
-      'if these two ever differ, the distinction has been made — rewrite this test around it');
+    const f = await failed.Store.myProfile(), a = await absent.Store.myProfile();
+    assert.strictEqual(f.ok, false, 'a failed read still reports ok · showAdminIfAllowed will drop the button again');
+    assert.strictEqual(a.ok, true, 'an account with no profile row was reported as a failed read');
+    assert.strictEqual(f.profile, null);
+    assert.strictEqual(a.profile, null);
   });
 
-  test('no session returns null without querying the profiles table', async () => {
+  test('a real profile comes back under `profile`, with ok', async () => {
+    const s = loadStore({ respond: { 'profiles.select': { data: { id: 'u-9', role: 'admin', username: 'x' } } } });
+    const r = await s.Store.myProfile();
+    assert.strictEqual(r.ok, true);
+    assert.strictEqual(r.profile.role, 'admin', 'the caller reads role off .profile · admin detection depends on it');
+  });
+
+  test('no session returns no profile without querying the profiles table', async () => {
     const s = loadStore({ user: null });
-    assert.strictEqual(await s.Store.myProfile(), null);
+    const r = await s.Store.myProfile();
+    assert.strictEqual(r.profile, null);
+    /* ok:false, matching pullProgress · "there is nobody signed in" is not an answer about
+       an account, and a caller that treats it as one is asking the wrong question. */
+    assert.strictEqual(r.ok, false);
     none(s.calls.map(c => c.table), 'profiles was queried with no user to scope it by:');
   });
 

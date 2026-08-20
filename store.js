@@ -89,11 +89,19 @@ const Store = {
      supabase-js משדר INITIAL_SESSION עם null כשהיא לא הצליחה לקרוא הפעלה · למשל בלי רשת ·
      ומי שמתייחס לזה כאל התנתקות מוחק את המשתמש בדיוק אחרי שהאתחול שחזר אותו מהדיסק. */
   onAuthChange(cb) { sb.auth.onAuthStateChange((evt, session) => cb(session, evt)); },
+  /* ⛔ Returns { ok, profile }, the same shape pullProgress uses, and for the same reason:
+     `return prof` made "the read failed" and "this account has no profile row" the same
+     value. Each caller then guessed, and they guessed differently · accessOk failed open
+     (harmless), openAccount printed "פתוח" as if it had checked the subscription, and
+     showAdminIfAllowed failed CLOSED, so one dropped request took the control-centre button
+     away until reload. A caller cannot choose correctly between two outcomes it cannot tell
+     apart, so the distinction is made here, once. */
   async myProfile() {
     const { data } = await sb.auth.getUser();
-    if (!data || !data.user) return null;
-    const { data: prof } = await sb.from('profiles').select('*').eq('id', data.user.id).maybeSingle();
-    return prof;
+    if (!data || !data.user) return { ok: false, profile: null };
+    const { data: prof, error } = await sb.from('profiles').select('*').eq('id', data.user.id).maybeSingle();
+    if (error) { console.warn('myProfile failed', error.message); return { ok: false, profile: null }; }
+    return { ok: true, profile: prof || null };
   },
 
   /* ההכרעה על מנוי, חתוכה בשרת. מחזירה את ה-jsonb של my_entitlement או null.
