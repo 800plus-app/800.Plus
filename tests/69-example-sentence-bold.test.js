@@ -104,6 +104,63 @@ describe('משפט הדוגמה · שלמות הנתונים', () => {
   });
 });
 
+/* ⛔ כיסוי · לכל מילה במאגר האנגלי יש משפט.
+ *
+ * למה זה שער ולא הנחה: עד עכשיו אף בדיקה לא אכפה את זה. הקובץ הזה בדק הדגשה,
+ * בריחת תגים ופריסה · כולם על המשפטים ש**קיימים** · ואיש לא בדק שהם קיימים לכולם.
+ * מילה שנוספת ל-`data-en.js` בלי משפט הייתה נכנסת בשקט, ומופיעה ללומד ככרטיס
+ * בלי משפט דוגמה. נמדד ב-20.8: 3,946 מתוך 3,946, אפס חסרות.
+ *
+ * ⚠ ו"יש מפתח" אינו "יש משפט". חמש הדרישות נבדקות בנפרד כי כל אחת נשברת לבד
+ * ונראית ללומד אותו דבר · כרטיס בלי משפט:
+ *   קיים · מערך של שניים · אנגלית לא ריקה · תרגום לא ריק · המילה מודגשת
+ * בלי התרגום השורה השלישית בכרטיס ריקה; בלי ההדגשה הלומד לא יודע איזו מילה שלו.
+ */
+describe('משפט הדוגמה · כיסוי מלא של המאגר האנגלי', () => {
+  const bank = load('data-en.js').UNIT_DATA_EN;
+  const words = [];
+  for (const rows of Object.values(bank)) {
+    if (!Array.isArray(rows)) continue;
+    for (const r of rows) {
+      const w = Array.isArray(r) ? r[0] : r;
+      if (typeof w === 'string' && w.trim()) words.push(w);
+    }
+  }
+  const nonEmpty = v => typeof v === 'string' && v.trim().length > 0;
+  const show = list => list.slice(0, 8).join(' · ') + (list.length > 8 ? ` (ועוד ${list.length - 8})` : '');
+
+  test('לכל מילה במאגר יש ערך בקובץ המשפטים', () => {
+    const missing = words.filter(w => EX[w] === undefined);
+    assert.deepStrictEqual(missing, [],
+      `${missing.length} מ-${words.length} מילים בלי משפט דוגמה: ${show(missing)}`);
+  });
+
+  test('כל ערך הוא [משפט, תרגום] · ושניהם אינם ריקים', () => {
+    const badShape = words.filter(w => EX[w] !== undefined && (!Array.isArray(EX[w]) || EX[w].length < 2));
+    assert.deepStrictEqual(badShape, [], `צורה שגויה: ${show(badShape)}`);
+    const emptyEn = words.filter(w => Array.isArray(EX[w]) && !nonEmpty(EX[w][0]));
+    assert.deepStrictEqual(emptyEn, [], `משפט אנגלי ריק: ${show(emptyEn)}`);
+    const emptyHe = words.filter(w => Array.isArray(EX[w]) && !nonEmpty(EX[w][1]));
+    assert.deepStrictEqual(emptyHe, [],
+      `תרגום עברי ריק · השורה השלישית בכרטיס תופיע ריקה: ${show(emptyHe)}`);
+  });
+
+  test('בכל משפט אנגלי המילה הנלמדת מודגשת', () => {
+    const noBold = words.filter(w => Array.isArray(EX[w]) && !/<b>[^<]+<\/b>/.test(String(EX[w][0])));
+    assert.deepStrictEqual(noBold, [],
+      `בלי הדגשה · הלומד לא יידע איזו מילה במשפט היא שלו: ${show(noBold)}`);
+  });
+
+  /* הכיוון ההפוך · משפט למילה שאינה במאגר הוא סימן שהמאגר השתנה והמשפטים לא
+     עודכנו איתו. בעברית זה בדיוק מה שקרה: 1,188 משפטים נכתבו למילים שיצאו. */
+  test('אין משפטים יתומים · לכל משפט יש מילה במאגר', () => {
+    const inBank = new Set(words);
+    const orphans = Object.keys(EX).filter(k => !inBank.has(k));
+    assert.deepStrictEqual(orphans, [],
+      `${orphans.length} משפטים למילים שאינן במאגר · המאגר השתנה והמשפטים לא: ${show(orphans)}`);
+  });
+});
+
 describe('משפט הדוגמה · התצוגה', () => {
   const app = src('app.js');
   const html = src('index.html');
