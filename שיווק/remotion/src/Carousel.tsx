@@ -20,17 +20,20 @@ import { C, paperBackground } from "./brand";
 
 type Slide = { w: string; d: string; ltr?: boolean };
 
+/* ⚠ עשר המילים של 9.8 **נשרפו** ומתועדות ב-`תוכניות/מילים-בשימוש.md`.
+   הסט הזה הוא הסבב השני, נשלף מיחידות 8 עד 10 ב-`data.js` וב-`data-en.js`
+   ונבדק מול רשימת השרופות. **לפני כל סבב הבא — לבדוק שם שוב.** */
 const WORDS: Slide[] = [
-  { w: "בְּרַם", d: "אולם · אבל · עם זאת" },
-  { w: "superfluous", d: "מיותר, עודף", ltr: true },
-  { w: "אָשְׁיוֹת", d: "מסד · בסיס · יסוד" },
-  { w: "obstinate", d: "עקשן", ltr: true },
-  { w: "גַּחֲמָה", d: "רצון פתאומי בלי טעם הגיוני · קפריזה" },
-  { w: "disparage", d: "לזלזל, להמעיט בערך", ltr: true },
-  { w: "הַלָּה", d: "ההוא · המדובר" },
-  { w: "frugal", d: "חסכני", ltr: true },
-  { w: "הִלְעִיז", d: "השמיץ · פרסם שקרים על מישהו" },
-  { w: "condone", d: "לסלוח, למחול", ltr: true },
+  { w: "הִסְכִּין", d: "התרגל · הסתגל" },
+  { w: "profound", d: "עמוק, מעמיק; מוחלט", ltr: true },
+  { w: "הִכְפִּישׁ", d: "דיבר בגנות" },
+  { w: "sheer", d: "מוחלט, לחלוטין; תלול", ltr: true },
+  { w: "הֶחְרִישׁ", d: "שתק · נאלם · דמם" },
+  { w: "probation", d: "תקופת מבחן", ltr: true },
+  { w: "הִתְרִיס", d: "מחה · התנגד" },
+  { w: "utter", d: "לבטא, להגות; מוחלט, גמור", ltr: true },
+  { w: "הִרְכִּין", d: "כפף · הטה כלפי מטה" },
+  { w: "inquiry", d: "חקירה", ltr: true },
 ];
 
 export const CAROUSEL_SLIDES = WORDS.length + 2; // שער + עשר מילים + סיום
@@ -85,8 +88,11 @@ export const Carousel: React.FC = () => {
         <div style={{ fontFamily: "Frank Ruhl Libre, serif", fontWeight: 900, fontSize: 128, color: C.ink, lineHeight: 1.02 }}>
           10 מילים
         </div>
+        {/* ⚠ `מהיחידה הקשה ביותר` בלשון יחיד היה נכון לסט של 9.8, שכולו יחידה 10.
+            סט ב' נשלף מיחידות 8 עד 10, ולכן **לשון רבים**. פרט שגוי אחד הופך
+            את הנכס לתפאורה, וזה בדיוק מה ש-`/VIS §4` בא למנוע. */}
         <div style={{ fontFamily: "Frank Ruhl Libre, serif", fontWeight: 900, fontSize: 74, color: C.accent, lineHeight: 1.15, marginTop: 18 }}>
-          מהיחידה הקשה ביותר
+          מהיחידות הקשות
         </div>
         <div style={{ fontSize: 40, color: C.inkSoft, marginTop: 46, fontWeight: 300, lineHeight: 1.45 }}>
           כמה מהן אתה מכיר?
@@ -101,19 +107,22 @@ export const Carousel: React.FC = () => {
   if (i === CAROUSEL_SLIDES - 1) {
     return (
       <Frame>
+        {/* ⚠ שתי הסרות מכוונות, 20.8:
+            · **המספר `5,652` ירד.** הוא התיישן פעמיים (המאגר עומד על 5,663),
+              וחגי כבר הורה במפורש לא לפרט מספרי מילים — מספר גדול נקרא כפרסומת.
+            · **`חינם עד 30.8` ירד.** הגבייה מתחילה באמצע ספטמבר, ונכס עם
+              תאריך שנשרף בתוכו הופך לשקר ביום שאחרי.
+            · **`כתבו בתגובות` הוחלף בבקשת שמירה ושליחה.** נמדד: 4 תגובות
+              מ-3,657 צפיות, ושמירות 0.14% מול סף בריא של 1.5%. */}
         <div style={{ fontFamily: "Frank Ruhl Libre, serif", fontWeight: 900, fontSize: 92, color: C.ink, lineHeight: 1.12 }}>
           כמה ידעת?
           <br />
-          <span style={{ color: C.accent }}>כתבו בתגובות</span>
+          <span style={{ color: C.accent }}>שמרו לחזרה</span>
         </div>
         <div style={{ fontSize: 42, color: C.ink, marginTop: 52, lineHeight: 1.5 }}>
-          יש עוד{" "}
-          <b style={{ fontFamily: "Frank Ruhl Libre, serif", fontWeight: 900, color: C.accentDeep, fontSize: 54 }}>
-            5,652
-          </b>{" "}
-          כאלה
+          מכירים מישהו שניגש?
           <br />
-          <span style={{ fontSize: 34, color: C.inkSoft }}>בעברית ובאנגלית</span>
+          <span style={{ fontSize: 36, color: C.inkSoft }}>שלחו לו את זה</span>
         </div>
         <div
           style={{
@@ -124,7 +133,6 @@ export const Carousel: React.FC = () => {
         >
           800-plus.com
         </div>
-        <div style={{ fontSize: 32, color: C.inkSoft, marginTop: 20, fontWeight: 300 }}>חינם עד 30.8</div>
       </Frame>
     );
   }
