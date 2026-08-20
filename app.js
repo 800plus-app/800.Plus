@@ -5159,7 +5159,7 @@ async function afterAuthed(justSignedUp){
      hw_name כבר נשמר כאן מאז ומעולם; פשוט אף אחד לא קרא אותו במסלול הכישלון. */
   const cachedName = () => { const n=LS.get('hw_name',''); return (typeof n==='string' && n) ? n : ''; };
   try{
-    const p=await Store.myProfile();
+    const { profile:p }=await Store.myProfile();
     if(p && p.username){
       setBadges(p.username);
       LS.set('hw_name', p.username);  // the dashboard greets by name before any network call returns
@@ -5387,12 +5387,14 @@ async function openAccount(tab){
   renderAccExam();
   goto('account');
   try{
-    const p=await Store.myProfile();
+    const { ok, profile:p }=await Store.myProfile();
     if(p){
       if(p.username){ $('#accUser').textContent=p.username; $('#accName').textContent=p.username; }
       if(p.created_at) $('#accSince').textContent=fmtDate(p.created_at).split(' ')[0];
       $('#accSub').textContent = FREE_PHASE && p.sub_status==='none' ? 'פתוח · שלב חינמי' : subLabel(p);
-    } else $('#accSub').textContent='פתוח';
+    /* ⛔ "פתוח" only when the read actually came back. It used to print here on a failed
+       read too, which is a claim about somebody's subscription made without checking it. */
+    } else $('#accSub').textContent = ok ? 'פתוח' : 'לא ידוע';
   }catch(e){ $('#accSub').textContent='לא ידוע'; }
 }
 /* ===== כרטיס המילה · חיווט ===== */
@@ -6058,12 +6060,15 @@ async function accessOk(){
   if(verdict===false){
     /* השרת הכריע. showLocked צריכה שדות מהפרופיל לניסוח הסיבה, ולכן היא עדיין
        נמשכת · אבל היא כבר לא זו שמכריעה. */
-    let pr=null; try{ pr=await Store.myProfile(); }catch(e){}
+    let pr=null; try{ pr=(await Store.myProfile()).profile; }catch(e){}
     showLocked(pr || { sub_status: ent && ent.status, sub_until: ent && ent.until });
     return false;
   }
   let p=null;
-  try{ p=await Store.myProfile(); }catch(e){ return true; }
+  /* Fail-open on a failed read, stated rather than inferred: `ok:false` now means "we did not
+     manage to ask", and locking somebody out over our own outage is the one outcome this gate
+     must never produce. Same verdict as before · the reason is just no longer a guess. */
+  try{ const r=await Store.myProfile(); if(!r.ok) return true; p=r.profile; }catch(e){ return true; }
   /* Deliberately fail-open: a missing profile means the subscription columns aren't deployed
      yet, or the sign-up trigger did not fire — locking a paying learner out over our own
      infrastructure fault is worse than a free day. The one path that USED to manufacture a
@@ -6096,8 +6101,16 @@ function showLocked(p){
    Deliberately has no way to reveal a password: none is stored in readable form. ===== */
 let isAdmin=false;
 async function showAdminIfAllowed(){
-  isAdmin=false;
-  try{ const p=await Store.myProfile(); isAdmin = !!(p && p.role==='admin'); }catch(e){}
+  /* ⛔ This used to start with `isAdmin=false` and then set it from a read that could fail
+     silently, so a single dropped request took the control-centre button away until reload.
+     A failed read now changes nothing · the previous answer stands. It can only ever KEEP an
+     answer already earned, never invent one, and the panel behind the button is protected by
+     RLS in any case, so the button is an affordance and not the permission. */
+  const wasAdmin=isAdmin;
+  try{
+    const { ok, profile:p }=await Store.myProfile();
+    isAdmin = ok ? !!(p && p.role==='admin') : wasAdmin;
+  }catch(e){ isAdmin=wasAdmin; }
   $('#adminBtn').classList.toggle('hidden', !isAdmin);
   $('#adminBtn2').classList.toggle('hidden', !isAdmin);
   if(isAdmin) refreshFbBadge();
