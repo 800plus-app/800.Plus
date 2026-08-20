@@ -71,7 +71,7 @@
      הכתובת, ולא הכפתור. */
   body.ios-web .wrap{padding-bottom:calc(60px + 68px)}
   .hidden{display:none!important}
-  /* For text that only a screen reader should get. NOT display:none and NOT visibility:hidden —
+  /* For text that only a screen reader should get. NOT display:none and NOT visibility:hidden -- 
      both of those remove the node from the accessibility tree, which would make a live region
      announce nothing at all. The clip-rect technique keeps it in the tree at zero visual size. */
   .sr-only{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
@@ -151,7 +151,7 @@
   .tile .mini i{height:100%}
   .tile .mini .s{background:var(--green)} .tile .mini .w{background:var(--accent)} .tile .mini .n{background:var(--gold)}
   /* fourth segment: words skipped after the level test. Without it the bar summed to
-     (total-skipped)/total and a unit read 44% empty at B1, 76% at C1 — for a learner who
+     (total-skipped)/total and a unit read 44% empty at B1, 76% at C1 -- for a learner who
      had done nothing wrong. */
   .tile .mini .k{background:var(--line)}
   .big-tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -319,7 +319,7 @@
   /* #8a6512 ולא --gold: הזהב על הכרטיס = 2.61:1, מתחת ל-AA. */
   .q-kind{font-size:.72rem;letter-spacing:.12em;color:#8a6512;font-weight:700;text-transform:uppercase;margin-bottom:14px}
   .q-text{font-family:"Frank Ruhl Libre",serif;font-size:clamp(1.4rem,4.6vw,1.9rem);font-weight:700;line-height:1.35}
-  /* speaker sits beside the prompt, never inside it — the prompt is also read by the
+  /* speaker sits beside the prompt, never inside it -- the prompt is also read by the
      print sheet and the exam, and it must stay pure text */
   .q-row{display:flex;align-items:flex-start;gap:10px}
   .q-row .q-text{flex:1;min-width:0}
@@ -465,7 +465,7 @@
   .m-head span{margin-inline-start:auto;font-size:.78rem;color:var(--ink-soft)}
   .m-head em{font-style:normal;color:var(--accent)}
   .m-body{display:flex;flex-direction:column;gap:6px;padding:8px 0 4px}
-  /* a deleted word is still listed — this screen is the only way back for it */
+  /* a deleted word is still listed -- this screen is the only way back for it */
   .m-row.is-gone{opacity:.62;border-style:dashed}
   .m-row.is-gone b{text-decoration:line-through}
   .m-undo{flex:0 0 auto;font-family:inherit;font-size:.74rem;cursor:pointer;color:var(--green);
@@ -510,7 +510,7 @@
        border-radius:12px;border:1px solid transparent;cursor:pointer;
        background:linear-gradient(180deg,var(--gold),var(--accent));color:#fff}
   /* Styled as a text link, but it is a button and gets tapped with a thumb. Measured at
-     127×20 before min-height was added — half a finger. Nine buttons inherit this rule, and
+     127×20 before min-height was added -- half a finger. Nine buttons inherit this rule, and
      one of them (#mailAskResend) is the only way out for somebody whose confirmation mail
      never arrived. The padding grows the hit area without changing how it looks. */
   .ask-cancel{margin-top:14px;background:transparent;border:none;color:var(--ink-soft);
@@ -547,7 +547,7 @@
   }
 
   /* the "check your mail" modal.
-     Above #auth, which is z-index 70 — every other .ask sits at 60 and opens over the app, but
+     Above #auth, which is z-index 70 -- every other .ask sits at 60 and opens over the app, but
      this one is the only modal that opens while the login screen is still covering the page. */
   #mailAsk{z-index:80}
   .mail-box{text-align:center}
@@ -597,12 +597,12 @@
 
   /* ===== auth · "ענבר": near-black walnut, a single amber glow, thin rules, generous air.
      Full-bleed so it escapes .wrap, and it owns its own dark palette regardless of the app's. ===== */
-  /* Was near-black while every other screen is cream — the first thing a visitor saw looked
+  /* Was near-black while every other screen is cream -- the first thing a visitor saw looked
      like a different product from the one they landed in. Same palette now, and the orange
      stopped being the only bright thing on a dark field, so it can go back to being an accent. */
   /* The page was one flat cream field, so nothing on it could sit forward of anything else.
-     It now has a DIRECTION of light — warm from the top-right, a cooler blush at the lower
-     left — and the form rests on a surface that is lit by it. Still cream; just no longer flat. */
+     It now has a DIRECTION of light -- warm from the top-right, a cooler blush at the lower
+     left -- and the form rests on a surface that is lit by it. Still cream; just no longer flat. */
   #auth{position:fixed;inset:0;z-index:70;overflow-y:auto;color:#2c2620;
        display:flex;flex-direction:column;justify-content:center;isolation:isolate;
        padding:max(34px,env(safe-area-inset-top)) 26px max(34px,env(safe-area-inset-bottom));
@@ -615,7 +615,7 @@
        bottom:-42vh;inset-inline-end:-28vw;pointer-events:none;z-index:-1;filter:blur(60px);
        background:radial-gradient(circle,rgba(201,150,47,.20),transparent 62%)}
   /* The card. Two shadows, not one: a tight contact shadow that says it is TOUCHING the page,
-     and a wide ambient one that says the light is far away. Both warm — a grey shadow on cream
+     and a wide ambient one that says the light is far away. Both warm -- a grey shadow on cream
      reads as dirt. The inset top edge is the specular line: it is the single thing that makes
      a flat rectangle look like a lit physical surface. */
   .au-card{margin-top:26px;padding:6px 22px 22px;border-radius:22px;
@@ -641,7 +641,7 @@
        line-height:1.06;margin-top:15px;letter-spacing:-.012em;text-wrap:balance}
   .au-title em{font-style:normal;color:#a63c26;font-weight:700}
   .au-sub{font-size:.84rem;line-height:1.68;margin-top:12px;color:#6f6558}
-  /* A recessed track with one raised tab in it — the same physics as the fields, so the whole
+  /* A recessed track with one raised tab in it -- the same physics as the fields, so the whole
      card reads as a single lit object instead of a pile of unrelated treatments. */
   .au-tabs{display:flex;gap:4px;margin:16px 0 18px;padding:4px;border-radius:14px;
        background:rgba(232,222,203,.5);
@@ -669,7 +669,7 @@
   .au-field.hidden{display:none!important}
   /* Recessed wells, not hairlines. An empty field under a 1px rule barely reads as somewhere
      you can type; carved into the card it is unmistakable, and the inset shadow is the same
-     light source as the card's own — so the depth is consistent rather than decorative. */
+     light source as the card's own -- so the depth is consistent rather than decorative. */
   .au-field input{width:100%;font-family:"Heebo";font-size:1.02rem;padding:20px 14px 9px;
        background:linear-gradient(180deg,rgba(238,229,213,.55),rgba(248,242,232,.35));
        border:1px solid rgba(196,180,152,.45);border-radius:13px;
@@ -690,7 +690,7 @@
        box-shadow:0 1px 1px rgba(120,84,48,.10),0 8px 18px -10px rgba(120,84,48,.4),
                   inset 0 1px 0 rgba(255,255,255,.9)}
   .au-go i{font-style:normal;transition:.22s}
-  /* was background:#c9962f — white on gold is 2.62:1, the exact failure line 51 already documents
+  /* was background:#c9962f -- white on gold is 2.62:1, the exact failure line 51 already documents
      and fixed for .btn-primary. #7d5718 is this button's own resting text colour, so hover now
      inverts the button into a colour it already wears: 6.36:1. */
   @media (hover:hover) and (pointer:fine){.au-go:hover{background:#7d5718;color:#fffdf8}}
@@ -808,7 +808,7 @@
        font-size:.68rem;font-weight:800;line-height:1;vertical-align:middle;
        animation:badgePulse 1.7s ease-out 3}
   /* The pulse animates only the outer ring, never scale or opacity. A scale-in entrance froze at
-     scale(0) when the badge was appended while its screen was still display:none — an invisible
+     scale(0) when the badge was appended while its screen was still display:none -- an invisible
      counter is worse than no counter, so the resting state must not depend on the animation. */
   @keyframes badgePulse{0%{box-shadow:0 0 0 0 rgba(181,72,46,.55)}
        70%{box-shadow:0 0 0 9px rgba(181,72,46,0)}100%{box-shadow:0 0 0 0 rgba(181,72,46,0)}}
@@ -830,11 +830,11 @@
   .adm-acts button{background:transparent;border:1px solid var(--line);border-radius:999px;
        padding:5px 13px;font-family:"Heebo";font-size:.78rem;color:var(--ink-soft)}
   @media (hover:hover) and (pointer:fine){.adm-acts button:hover{border-color:var(--gold);color:var(--ink)}}
-  /* admin toolbar — search / sort / filter */
+  /* admin toolbar -- search / sort / filter */
   /* ===== progress, one ring per language =====
      The ring carries three quantities at once: the filled arc is what is solid, the paler arc
      behind it is everything met, and the track is the rest. Reading a percentage and a
-     breakdown off the same shape is the point — two numbers side by side do not say which
+     breakdown off the same shape is the point -- two numbers side by side do not say which
      language is ahead, and a shape does it before you read a digit. */
   .acc-prog{margin:6px 0 22px}
   .acc-prog.hidden{display:none!important}
@@ -870,7 +870,7 @@
   .lp-legend i.n{background:var(--paper-deep);border:1px solid var(--line)}
   .lp-foot{margin-top:9px;padding-top:8px;border-top:1px solid var(--line);
        font-size:.68rem;color:#a2968a}
-  /* the streak, under both — it belongs to the person, not to a language */
+  /* the streak, under both -- it belongs to the person, not to a language */
   .lp-streak{margin-top:10px;display:flex;align-items:center;gap:10px;
        background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
   .lp-streak b{font-family:"Frank Ruhl Libre",serif;font-size:1.5rem;font-weight:900;
@@ -900,7 +900,7 @@
        justify-content:center;font-size:1.1rem;color:#fffdf8;
        background:linear-gradient(180deg,#b8492e,#9d3520);
        box-shadow:0 4px 12px -5px rgba(166,60,38,.7)}
-  /* the morning glance — five numbers, above the list, before any scrolling */
+  /* the morning glance -- five numbers, above the list, before any scrolling */
   .adm-glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px;
        margin:2px 0 14px}
   .adm-g{background:var(--card);border:1px solid var(--line);border-radius:12px;
@@ -959,14 +959,14 @@
   .lv-offer{background:var(--card);border:1px solid var(--gold);border-radius:14px;padding:16px 18px;margin-top:20px}
   .lv-offer p{font-size:.92rem;line-height:1.55}
 
-  /* build tag — always know which version you're looking at */
+  /* build tag -- always know which version you're looking at */
   /* בלי opacity וזהב כהה: השקיפות הפילה את --ink-soft אל 2.84, והזהב על נייר הוא 1.81. */
   .build-tag{text-align:center;margin-top:22px;font-size:.68rem;color:var(--ink-soft);
        font-family:"Cascadia Mono",Consolas,monospace;letter-spacing:.04em}
   .build-tag b{font-weight:600;color:#8a6512}
   .build-tag .stale{color:var(--accent);font-weight:700}
 
-  /* install call-to-action — a real button, not an underlined hint that reads like an error */
+  /* install call-to-action -- a real button, not an underlined hint that reads like an error */
   /* UNIT EXAM */
   .ex-parts{display:flex;flex-direction:column;gap:8px;margin-top:20px}
   .ex-part{display:flex;align-items:center;gap:11px;background:var(--card);border:1px solid var(--line);
@@ -987,12 +987,12 @@
   .ex-miss .yours{font-size:.78rem;color:var(--ink-soft)}
   .ex-hist{font-size:.78rem;color:var(--ink-soft);margin-top:9px;text-align:center}
 
-  /* PRINT SHEET — invisible on screen, the whole page when printing */
+  /* PRINT SHEET -- invisible on screen, the whole page when printing */
   #sheet{display:none}
   /* Ctrl+P from anywhere used to print a blank page: the print rule hides the whole app and
      shows #sheet, which is empty until a worksheet is built. */
   @media print{
-    #sheet:empty::after{content:"אין דף מבחן להדפסה. פתחו יחידה ולחצו \"דף מבחן להדפסה\".";
+    #sheet:empty::after{content:"כדי להדפיס דף מבחן, פתח יחידה ולחץ \"דף מבחן להדפסה\".";
       display:block;padding:40px;font-size:14px;text-align:center;color:#444}
     #sizeAsk,#sheetAsk{display:none!important}
 
@@ -1026,7 +1026,7 @@
      The landing page was a wall of eight identical grey boxes. It is the first thing a stranger
      sees and it had to earn the next tap, so it now reads as a printed page that is being set:
      the rule draws itself, the count runs up, the cards arrive one after another. Slow and
-     small on purpose — this is a study tool, not a launch page. Every motion is opt-out via
+     small on purpose -- this is a study tool, not a launch page. Every motion is opt-out via
      prefers-reduced-motion, and every colour is already in the palette. */
   #intro{position:relative;overflow-x:clip}
   #intro::before{content:"";position:absolute;inset-block:-40px 40%;inset-inline:calc(50% - 50vw);z-index:-1;pointer-events:none;
@@ -1042,7 +1042,7 @@
      after 1.5s and covers an animation that exists but never advances. */
   @supports not (animation-name:rise){ .in-rise{opacity:1} }
   #intro.anim-done .in-rise{opacity:1}
-  /* the intro reuses the shared `rise` keyframes defined above — a second definition
+  /* the intro reuses the shared `rise` keyframes defined above -- a second definition
      here silently overrode them for every other screen that animates in. */
 
   #intro .w-title em{position:relative;font-style:normal;color:var(--accent)}
@@ -1064,7 +1064,7 @@
   .feat{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);
     border-radius:14px;padding:14px 16px 14px 15px;display:flex;gap:11px;align-items:flex-start;
     transition:transform .25s cubic-bezier(.22,.8,.3,1), box-shadow .25s, border-color .25s}
-  /* a gold edge that grows from the top on hover — the reading edge in RTL is the right one */
+  /* a gold edge that grows from the top on hover -- the reading edge in RTL is the right one */
   .feat::before{content:"";position:absolute;inset-block:0;inset-inline-end:0;width:3px;
     background:linear-gradient(180deg,var(--gold),var(--accent));
     transform:scaleY(0);transform-origin:top;transition:transform .3s cubic-bezier(.22,.8,.3,1)}
@@ -1077,7 +1077,7 @@
 
   /* the CTA breathes rather than pulses: a shadow that swells, no size change, so nothing jumps */
   #introTry{position:relative;animation:breathe 3.6s ease-in-out 1.4s infinite}
-  /* side by side: neither is the main action — the primary button above is — and stacking two
+  /* side by side: neither is the main action -- the primary button above is -- and stacking two
      more full-width buttons under it makes the page read as three equal choices */
   .exam-row{cursor:pointer}
   .exam-row input{font-family:"Heebo";font-size:.86rem;border:1px solid var(--line);
@@ -1118,7 +1118,7 @@
     #intro .w-title em::after{transform:scaleX(1)}
     .feat{transition:none}
   }
-  /* a new build is ready but the moment was wrong — one tap, no hunting for a reload button */
+  /* a new build is ready but the moment was wrong -- one tap, no hunting for a reload button */
   .upd-bar{position:fixed;inset-inline:0;bottom:0;z-index:200;border:0;width:100%;
     background:linear-gradient(180deg,var(--gold),var(--accent));color:#fff;
     font-family:"Heebo",sans-serif;font-weight:700;font-size:.92rem;
@@ -1127,7 +1127,7 @@
   @keyframes updIn{ from{transform:translateY(100%)} to{transform:none} }
   @media (prefers-reduced-motion:reduce){ .upd-bar{animation:none} }
 
-  /* STORAGE-FULL BAR — stays until a write succeeds, unlike the toast it replaces */
+  /* STORAGE-FULL BAR -- stays until a write succeeds, unlike the toast it replaces */
   .stg-bar{position:fixed;inset-inline:0;bottom:0;z-index:210;width:100%;
     background:#8c3a24;color:#fff;font-family:"Heebo",sans-serif;font-size:.86rem;
     line-height:1.55;padding:12px 16px calc(12px + env(safe-area-inset-bottom));
@@ -1143,7 +1143,7 @@
   .pv-bar span{flex:1}
   .pv-bar button{background:#fff;color:var(--ink);border:0;border-radius:999px;
     padding:5px 13px;font-size:.76rem;font-family:"Heebo";cursor:pointer}
-  /* DASHBOARD — the streak stands alone; everything else lives inside its own language card,
+  /* DASHBOARD -- the streak stands alone; everything else lives inside its own language card,
      so the two languages are never averaged into one number. */
   .dash-streak{display:flex;align-items:center;gap:16px;background:var(--card);
     border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin-bottom:14px}
@@ -1207,8 +1207,8 @@
   .install-cta .ar{color:var(--gold);font-size:1.1rem;flex:0 0 auto;transition:.18s}
   @media (hover:hover) and (pointer:fine){.install-cta:hover .ar{transform:translateX(-4px)}}
 
-  /* bug report — a small persistent affordance; MVP users need it one tap away */
-  /* lifted while the update bar is up — the bar used to sit directly on top of it */
+  /* bug report -- a small persistent affordance; MVP users need it one tap away */
+  /* lifted while the update bar is up -- the bar used to sit directly on top of it */
   body.has-upd .fb-fab{bottom:calc(74px + env(safe-area-inset-bottom))}
   .fb-fab{position:fixed;inset-inline-start:16px;bottom:calc(16px + env(safe-area-inset-bottom));
        z-index:55;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);
@@ -1228,7 +1228,7 @@
        background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px;
        outline:none;resize:vertical;color:var(--ink);text-align:right}
   #fbBody:focus{border-color:var(--gold)}
-  /* Was a monospace LTR block that looked like a console. It is now one quiet Hebrew line —
+  /* Was a monospace LTR block that looked like a console. It is now one quiet Hebrew line -- 
      the same information is still sent, it just no longer asks the reporter to parse it. */
   .fb-ctx{margin-top:10px;font-size:.74rem;color:var(--ink-soft);line-height:1.6;
        text-align:center;opacity:.8}
@@ -1262,10 +1262,10 @@
          hands the preview cache to a brand-new account on sign-up. The screen was talking a
          visitor out of the exact thing the preview was built to prove. -->
     <span>מצב הצצה · יחידה 1 · ההתקדמות תעבור לחשבון שתפתח</span>
-    <button id="pvSignup">צור חשבון</button>
+    <button id="pvSignup">פתח חשבון</button>
   </div>
 
-  <!-- ===== AUTH — required before anything else ===== -->
+  <!-- ===== AUTH -- required before anything else ===== -->
   <!-- ===== BOOT SPLASH =====
        The ONLY screen without `hidden`, so it is what the first paint shows. Before this, the
        auth section held that position: every load painted a login form, and a signed-in user
@@ -1285,7 +1285,13 @@
     <div class="au-inner">
       <div class="au-mark">מִילִים</div>
       <h1 class="au-title"><bdi>800+</bdi><br><em>אוצר מילים שנשאר איתך</em></h1>
-      <p class="au-sub" id="authSub">1,719 מילים בעברית · 3,900 באנגלית.<br>חשבון אחד, וההתקדמות עוברת איתך לכל מכשיר.</p>
+      <!-- ⚠ שני המספרים כאן קשיחים, והם התיישנו: הם הציגו 1,719 ו-3,900 בזמן
+           שהמאגר כבר החזיק 1,717 ו-3,946. מספר קשיח הוא תאריך תפוגה נסתר.
+           `tests/71-word-counts-match-data.test.js` משווה את השורה הזאת מול
+           `data.js` ו-`data-en.js` ונופל ברגע שהם מתפצלים שוב. -->
+      <!-- "וההתקדמות עוברת איתך" תוקן על ידי חגי ב-2.8 ל"סנכרון בין כלל המכשירים",
+           והתיקון מעולם לא הוחל כאן. התקדמות לא "עוברת איתך" · היא מסתנכרנת. -->
+      <p class="au-sub" id="authSub">1,717 מילים בעברית · 3,946 באנגלית.<br>חשבון אחד, סנכרון בין כלל המכשירים</p>
 
       <!-- tabs and form share one lit surface: the fields used to float on the page with
            nothing but a hairline under each, and an empty field did not read as a field -->
@@ -1300,7 +1306,7 @@
         <label class="au-field" id="fUsername">
           <!-- `nickname`, NOT `username`. This is a display name, and when it was marked
                `username` the browser's password manager keyed the saved credential to it
-               instead of to the email — so a generated password came back paired with
+               instead of to the email · so a generated password came back paired with
                "יוסי" and every later sign-in was rejected. -->
           <input id="authUsername" placeholder=" " autocomplete="nickname" maxlength="40">
           <span>שם תצוגה</span>
@@ -1330,7 +1336,7 @@
         ול<a href="privacy.html" target="_blank" rel="noopener">מדיניות הפרטיות</a></p>
       <!-- role="alert" and not role="status": this is the ONLY gate into the app, and a failed
            sign-in interrupts the task rather than reporting on it. Without this the message was
-           painted on screen and never spoken — the learner typed a wrong password and heard
+           painted on screen and never spoken -- the learner typed a wrong password and heard
            nothing at all, with no way to tell a bad password from a dead network. aria-live is
            stated as well as implied so that swapping the role cannot quietly downgrade it. -->
       <p class="au-msg hidden" id="authMsg" role="alert" aria-live="assertive"></p>
@@ -1347,7 +1353,7 @@
     <div id="adminBody"></div>
   </section>
 
-  <!-- ===== INTRO / LANDING — what the app does, and a way in without an account ===== -->
+  <!-- ===== INTRO / LANDING -- what the app does, and a way in without an account ===== -->
   <section id="intro" class="hidden">
     <div class="topbar hidden" id="introTop"><button class="back" id="introBack">→ חזרה</button><div class="sp"></div></div>
     <div class="welcome-head in-rise" style="margin-top:6vh;animation-delay:.05s">
@@ -1359,8 +1365,8 @@
 
     <div class="feat-grid">
       <div class="feat in-rise" style="animation-delay:.30s"><i>🎯</i><div><b>מבחן רמה מסתגל</b><span>בעברית ובאנגלית · בוחן מילים מכלל היחידות ומתאים את עצמו לרמה שלך</span></div></div>
-      <div class="feat in-rise" style="animation-delay:.36s"><i>🔁</i><div><b>תרגול שמותאם אליך</b><span>לכל מילה דירוג הצלחה המתעדכן עם כל תשובה · מילה שטעית בה חוזרת · מילה שלמדת יוצאת מהמאגר</span></div></div>
-      <div class="feat in-rise" style="animation-delay:.42s"><i>📝</i><div><b>מבחן לכל יחידה</b><span>שלושה פורמטים · זיהוי, שליפה וכתיבה עצמאית · עם ציון שאפשר למדוד לפיו התקדמות</span></div></div>
+      <div class="feat in-rise" style="animation-delay:.36s"><i>🔁</i><div><b>תרגול שמותאם אליך</b><span>לכל מילה דירוג הצלחה המתעדכן עם כל תשובה · מילה שטעית בה חוזרת · מילה שלמדת עוברת ל"מילים שלמדתי"</span></div></div>
+      <div class="feat in-rise" style="animation-delay:.42s"><i>📝</i><div><b>מבחן לכל יחידה</b><span>שלושה פורמטים: זיהוי, שליפה וכתיבה עצמאית · ציון שאפשר למדוד לפיו התקדמות</span></div></div>
       <div class="feat in-rise" style="animation-delay:.48s"><i>🖨</i><div><b>דף מבחן מסכם להדפסה</b><span>למי שלומד יותר טוב על נייר</span></div></div>
       <div class="feat in-rise" style="animation-delay:.54s"><i>🔊</i><div><b>הקראה קולית</b><span>שמיעת ההגייה של כל מילה באנגלית כחלק מהתרגול</span></div></div>
       <div class="feat in-rise" style="animation-delay:.60s"><i>📶</i><div><b>עובד ללא אינטרנט</b><span>מותקן כאפליקציה בטלפון · כלל הנתונים מסתנכרנים גם באופליין</span></div></div>
@@ -1372,11 +1378,11 @@
       <button class="btn btn-primary btn-block" id="introTry" style="margin-top:22px">התחל בלי הרשמה ←</button>
       <p class="w-foot" style="margin-top:10px">התנסות במבחן רמה ויחידת לימוד מילים ללא התחייבות ובלי פרטים.<br>
         <b style="color:var(--ink)">ההתקדמות שתעשה כאן תישמר לחשבון שתפתח.</b></p>
-      <!-- Two ways in existed — try it, or sign in — and no way to simply OPEN an account.
+      <!-- Two ways in existed · try it, or sign in · and no way to simply OPEN an account.
            Someone who had already decided had to guess that "כבר יש לי חשבון" leads to a screen
            with a הרשמה tab on it. The decided visitor is the valuable one; do not make them look. -->
       <div class="in-two">
-        <button class="btn btn-ghost" id="introSignup">פתח חשבון חדש</button>
+        <button class="btn btn-ghost" id="introSignup">פתח חשבון</button>
         <button class="btn btn-ghost" id="introAuth">כבר יש לי חשבון</button>
       </div>
     </div>
@@ -1388,16 +1394,16 @@
     <div class="welcome-head">
       <div class="kicker">הגישה מושהית</div>
       <h1 class="w-title">המנוי אינו פעיל</h1>
-      <p class="w-sub" id="lockWhy">אין מנוי פעיל לחשבון הזה.</p>
+      <p class="w-sub" id="lockWhy">כדי לחדש, שלח הודעה ונחזור אליך.</p>
     </div>
     <div class="dash-streak" style="display:block">
       <p style="font-size:.88rem;line-height:1.7">
-        <b>ההתקדמות שלך נשמרת במלואה</b> וממתינה לך. שום מילה שלמדת לא נמחקת.
+        <b>ההתקדמות שלך נשמרת במלואה.</b>
         ברגע שהמנוי יחודש תמשיך בדיוק מאותה נקודה.</p>
       <p style="font-size:.8rem;color:var(--ink-soft);margin-top:10px">
         החשבון: <b id="lockMail"></b></p>
     </div>
-    <button class="btn btn-primary btn-block" id="lockContact" style="margin-top:16px">✉ צור קשר לחידוש</button>
+    <button class="btn btn-primary btn-block" id="lockContact" style="margin-top:16px">✉ שלח בקשה לחידוש המנוי</button>
   </section>
 
   <!-- ===== WELCOME / LANGUAGE PICKER ===== -->
@@ -1408,8 +1414,8 @@
     <div class="welcome-head">
       <div class="kicker" id="greetKicker">ברוך הבא</div>
       <h1 class="w-title" id="greet">שלום!</h1>
-      <p class="w-sub" id="greetSub">מוכן לתרגל? בחר את השפה שתרצה לתרגל היום</p>
-      <!-- Council item 2: the picker looked like a one-time structural decision. It is not —
+      <p class="w-sub" id="greetSub">באיזו שפה תרצה לתרגל היום?</p>
+      <!-- Council item 2: the picker looked like a one-time structural decision. It is not -- 
            each language keeps its own progress and you move between them freely. Saying so
            costs one line and removes the hesitation before the first click. -->
       <!-- ⚠ נוסח מתוקן. הגרסה הקודמת אמרה "בלחיצה על כפתור חזרה ובחירת השפה
@@ -1425,7 +1431,7 @@
 
     <div class="dash-streak">
       <div class="ds-left"><span class="ds-fire">🔥</span>
-        <b id="dStreak">0</b><span class="ds-lbl" id="dStreakLbl">ימים רצוף</span></div>
+        <b id="dStreak">0</b><span class="ds-lbl" id="dStreakLbl">רצף ימים</span></div>
       <div class="ds-week" id="dWeek" aria-hidden="true"></div>
     </div>
 
@@ -1437,7 +1443,7 @@
         <div class="lc-nums">
           <span><b id="heLearned">0</b> נלמדו</span>
           <span><b id="hePract">0</b> תורגלו</span>
-          <span class="lc-of" id="heCount">—</span>
+          <span class="lc-of" id="heCount">–</span>
         </div>
       </button>
       <button class="lang-card en" data-lang="en">
@@ -1447,7 +1453,7 @@
         <div class="lc-nums">
           <span><b id="enLearned">0</b> נלמדו</span>
           <span><b id="enPract">0</b> תורגלו</span>
-          <span class="lc-of" id="enCount">—</span>
+          <span class="lc-of" id="enCount">–</span>
         </div>
       </button>
     </div>
@@ -1461,7 +1467,7 @@
     </button>
     <button class="install-cta hidden" id="installHint2">
       <span class="ic">📲</span>
-      <span class="tx"><b>התקן את האפליקציה</b><em>תרגול מכל מקום, גם בלי אינטרנט</em></span>
+      <span class="tx"><b>התקנה כאפליקציה</b><em>תרגול מכל מקום, גם בלי אינטרנט</em></span>
       <span class="ar">←</span>
     </button>
     <!-- קבוצת הוואטסאפ: ערוץ העדכונים והדיווח. קישור ולא כפתור · הוא פותח את אפליקציית
@@ -1485,7 +1491,7 @@
         <div class="kicker">מבחן רמה · <span id="lvIntroLang">אנגלית</span></div>
         <h1 class="w-title">איפה כדאי לך להתחיל?</h1>
         <!-- ההבטחה בסוף המשפט נקבעת לפי השפה (renderLvIntro): רק באנגלית יש דילוג -->
-        <p class="w-sub" id="lvIntroSub">מבחן קצר ואדפטיבי: 10–20 מילים, 2–3 דקות. המבחן מתחיל ברמה בינונית ומתאים את עצמו לפי התשובות שלך. בסיום מתקבלת הערכה של רמת אוצר המילים.</p>
+        <p class="w-sub" id="lvIntroSub">מבחן קצר: 10–20 מילים. המבחן מתחיל ברמה בינונית ומתאים את עצמו לפי התשובות שלך. בסיום מתקבלת הערכה של רמת אוצר המילים.</p>
       </div>
       <button class="btn btn-primary btn-block" id="lvStart">מתחילים</button>
       <button class="ask-cancel" id="lvSkip" style="display:block;margin:14px auto 0">אולי אחר כך</button>
@@ -1506,7 +1512,7 @@
     <div id="lvResult" class="hidden">
       <div class="res-head" style="margin-top:4vh">
         <div class="kicker">התוצאה שלך</div>
-        <div class="lv-badge" id="lvBadge">—</div>
+        <div class="lv-badge" id="lvBadge">–</div>
         <p class="w-sub" id="lvVerdict"></p>
       </div>
       <div class="lv-bands" id="lvBands"></div>
@@ -1526,12 +1532,12 @@
   <!-- ===== HOME ===== -->
   <!-- ===== ACCOUNT / SETTINGS =====
        Reached by tapping your own name. Everything here is either rare (install, privacy) or
-       dangerous (reset progress) — both are wrong on a screen you pass through every day. -->
+       dangerous (reset progress) -- both are wrong on a screen you pass through every day. -->
   <section id="account" class="hidden">
     <div class="topbar"><button class="back" id="accBack">→ חזרה</button><div class="sp"></div></div>
     <div class="welcome-head">
       <div class="kicker">החשבון שלי</div>
-      <h1 class="w-title" id="accName">—</h1>
+      <h1 class="w-title" id="accName">–</h1>
       <p class="w-sub" id="accMail"></p>
     </div>
     <!-- משתמש דיווח שהגדרות והתקדמות מעורבבות במסך אחד. הפיצול הוא ללשוניות ולא לשני
@@ -1550,22 +1556,22 @@
       <div class="acc-row"><span>סטטוס גישה</span><b id="accSub">–</b></div>
     </div>
     <!-- progress on the settings page, because this is where someone goes to ask
-         "where am I" — and until now the answer lived only inside a language -->
+         "where am I" -- and until now the answer lived only inside a language -->
     <div class="acc-prog hidden" id="accProg"></div>
 
 
     <h3 class="acc-h" id="accToolsH">כלים</h3>
     <!-- The daily reminder lives HERE, not only as a card that appears on the home screen once
          and is gone. A settings page is where you go looking for the thing you said "not now"
-         to — and a browser notification denial is permanent, so the second chance has to exist
+         to -- and a browser notification denial is permanent, so the second chance has to exist
          somewhere findable. -->
-    <!-- admins only. The owner is also a learner, so this screen belongs to him too — the
+    <!-- admins only. The owner is also a learner, so this screen belongs to him too -- the
          panel is a row here, not a redirect that swallowed the whole account page. -->
     <button class="pbtn hidden" id="accAdmin"><div class="ic">🛠</div><div class="tx"><b>פאנל הבקרה</b>
       <span>משתמשים, דיווחים ומנויים</span></div><div class="cnt">‹</div></button>
     <!-- Council item 4. The exam is the only deadline that matters to this audience, and the
          app knew nothing about it. A date here turns "sometime in three months" into a number
-         that changes every morning — which is the honest kind of urgency, not an invented one. -->
+         that changes every morning -- which is the honest kind of urgency, not an invented one. -->
     <label class="pbtn exam-row" id="accExamRow"><div class="ic">📅</div>
       <div class="tx"><b>מתי המבחן שלך?</b>
         <span id="accExamSub">נוסיף ספירה לאחור למסך הבית</span></div>
@@ -1573,7 +1579,7 @@
     <button class="pbtn" id="accNotif"><div class="ic">🔔</div><div class="tx"><b>תזכורת יומית</b>
       <span id="accNotifSub">הודעה קצרה בבוקר שמזכירה לתרגל</span></div><div class="cnt" id="accNotifState">‹</div></button>
     <button class="pbtn" id="accInstall"><div class="ic">📲</div><div class="tx"><b>התקנה כאפליקציה</b>
-      <span>פותח את 800+ ממסך הבית, גם בלי אינטרנט</span></div><div class="cnt">‹</div></button>
+      <span>פותח את <bdi>800+</bdi> ממסך הבית, גם בלי אינטרנט</span></div><div class="cnt">‹</div></button>
     <!-- משתמש ביקש דרך לחזור על מה שכבר נלמד. היא הייתה קיימת רק בתוך יחידה בודדת
          (מילים שלמדתי ← בתוך היחידה), ומי שלמד לאורך עשר יחידות לא יכול היה לחזור על
          הכול במקום אחד. שני הכפתורים חולקים את אותו מאגר · תרגול ודף · כי חזרה על נייר
@@ -1582,10 +1588,10 @@
       <span id="accReviewSub">תרגול חוזר של המילים שכבר בשליטה · מכל יחידות הלימוד</span></div><div class="cnt" id="accReviewN">‹</div></button>
     <button class="pbtn" id="accLearnedSheet"><div class="ic">📄</div><div class="tx"><b>דף המילים שלמדתי</b>
       <span id="accLearnedSub">כל המילים שבשליטה כדף אחד להדפסה או ל-PDF</span></div><div class="cnt">‹</div></button>
-    <button class="pbtn" id="accSheet"><div class="ic">🖨</div><div class="tx"><b>דף המילים שאתה מפספס</b>
+    <button class="pbtn" id="accSheet"><div class="ic">🖨</div><div class="tx"><b>דף המילים לחיזוק</b>
       <span id="accSheetSub">כל המילים לחיזוק מכל היחידות, כדף אחד להדפסה או ל-PDF</span></div><div class="cnt">‹</div></button>
-    <button class="pbtn" id="accWhat"><div class="ic">❓</div><div class="tx"><b>מה האפליקציה יודעת לעשות</b>
-      <span>שמונה יכולות שכבר קיימות, רובן אף אחד לא מוצא לבד</span></div><div class="cnt">‹</div></button>
+    <button class="pbtn" id="accWhat"><div class="ic">❓</div><div class="tx"><b>מה אפשר לעשות באפליקציה</b>
+      <span>שמונה יכולות שקיימות באפליקציה, כולל כאלה שנמצאות עמוק בתפריטים</span></div><div class="cnt">‹</div></button>
     <!-- מבחן הרמה הגיע לכאן ממסך בחירת השפה. שם הוא ישב על המסך שנפתח בכל כניסה, בזמן
          שהוא כותב תוצאה חדשה על הקודמת ודוחף אותה לענן · ובאנגלית הוא גם המסלול היחיד
          שמציע להוציא מילים מהתרגול. שתי השורות פותחות את #lvAsk ולא את המבחן עצמו. -->
@@ -1594,24 +1600,28 @@
     <button class="pbtn" id="accLevelEn"><div class="ic">🎯</div><div class="tx"><b>מבחן רמה באנגלית</b>
       <span>10–20 מילים · המבחן מתאים את עצמו לרמה שלך</span></div><div class="cnt">‹</div></button>
 
-    <h3 class="acc-h">אזור מסוכן</h3>
+    <h3 class="acc-h">יציאה ומחיקה</h3>
     <!-- ההתנתקות עברה לכאן מהשורה העליונה: כפתור "יציאה" ליד "בקרה" ו"החלף שפה" נראה
          כמו ניווט ונלחץ בטעות, ומחירו הוא מסך התחברות במקום המילים. כאן הוא נקרא לפני
          שלוחצים. ראשון מבין השלושה כי הוא היחיד מהם שאפשר לבטל · פשוט להתחבר שוב. -->
     <button class="pbtn danger-tile" id="accSignOut"><div class="ic">⎋</div><div class="tx"><b>התנתקות</b>
       <span>ההתקדמות נשמרת בענן וחוזרת בהתחברות הבאה. הנתונים השמורים במכשיר נמחקים,
-      ולכן עד ההתחברות הבאה האפליקציה לא תעבוד ללא אינטרנט.</span></div><div class="cnt">‹</div></button>
+      ולכן עד ההתחברות הבאה נדרש חיבור לאינטרנט.</span></div><div class="cnt">‹</div></button>
     <button class="pbtn danger-tile" id="accReset"><div class="ic">⚠️</div><div class="tx"><b>איפוס התקדמות</b>
       <span>מוחק את כל ההיסטוריה שלך בשתי השפות: מילים שלמדת, ציונים, רצף ימים.
       החשבון עצמו נשאר. אין דרך לבטל.</span></div><div class="cnt">‹</div></button>
     <button class="pbtn danger-tile" id="accDelete"><div class="ic">🗑</div><div class="tx"><b>מחיקת החשבון</b>
-      <span>מוחק את החשבון עצמו ואת כל מה שקשור אליו: התקדמות, דיווחים, הכתובת.
-      אי-אפשר לשחזר.</span></div><div class="cnt">‹</div></button>
+      <span>מוחק את החשבון עצמו ואת כל מה שקשור אליו: התקדמות, דיווחים וכתובת המייל.
+      לא נשאר שום זכר, ואי אפשר לשחזר.</span></div><div class="cnt">‹</div></button>
 
     <p class="acc-legal"><a href="terms.html" target="_blank" rel="noopener">תנאי שימוש</a> ·
       <a href="privacy.html" target="_blank" rel="noopener">מדיניות פרטיות</a> ·
       <a href="deletion.html" target="_blank" rel="noopener">מחיקת חשבון ונתונים</a> ·
       <a href="accessibility.html" target="_blank" rel="noopener">נגישות</a></p>
+
+    <!-- ‏main הבטיח כאן גם הצהרת פרטיות ונגישות · שתיהן קיימות עכשיו כקישורים למעלה,
+         ולכן נשארה רק ההבטחה שטרם מומשה. -->
+    <p class="acc-soon">בהמשך יופיעו כאן פרטי המנוי: איזו חבילה, מתי התחילה וכמה זמן נשאר.</p>
   </section>
 
   <section id="home" class="hidden">
@@ -1627,8 +1637,8 @@
     <div class="home-head">
       <div class="kicker"><bdi>800+</bdi></div>
       <h1 id="homeTitle">פסיכומטרי · עברית</h1>
-      <p id="homeSub">המילון הרשמי · 10 יחידות</p>
-      <div class="totalpill" id="totalPill">—</div>
+      <p id="homeSub">המאגר הראשי · 10 יחידות</p>
+      <div class="totalpill" id="totalPill">–</div>
     </div>
 
     <!-- The single most-requested thing in the survey (52 of 66): keep drilling the words I
@@ -1662,17 +1672,17 @@
     <!-- role=status: קורא מסך מקריא את הספירה כשהיא מופיעה או משתנה, בלי לחטוף פוקוס -->
     <div class="exam-pill hidden" id="examPill" role="status"></div>
     <button class="weak-cta hidden" id="homeWeak">
-      <div class="wc-tx"><b>המילים שאתה עדיין מפספס</b><span id="homeWeakSub"></span></div>
+      <div class="wc-tx"><b>מילים שדורשות תרגול נוסף</b><span id="homeWeakSub"></span></div>
       <div class="wc-go">←</div>
     </button>
 
     <div class="section-t">כיוון התרגול</div>
     <div class="seg" id="dirSegHome"></div>
 
-    <div class="section-t">מצב כללי</div>
+    <div class="section-t">תרגול כללי</div>
     <div class="big-tiles">
-      <button class="big-tile" data-scope="global"><div class="emoji">📚</div><h3>כל המאגר</h3><p>תרגול מקיף של כלל המילים · ללא חלוקה ליחידות לימוד</p></button>
-      <button class="big-tile" data-scope="random"><div class="emoji">🎲</div><h3>אקראי</h3><p>סבב מהיר בלי לבחור כלום, מילים אקראיות מכל היחידות</p></button>
+      <button class="big-tile" data-scope="global"><div class="emoji">📚</div><h3>כל המאגר</h3><p>תרגול של כלל המילים יחד, מכל יחידות הלימוד</p></button>
+      <button class="big-tile" data-scope="random"><div class="emoji">🎲</div><h3>אקראי</h3><p>סבב מהיר של מילים אקראיות מכל היחידות</p></button>
     </div>
 
     <div class="section-t">יחידות</div>
@@ -1694,7 +1704,7 @@
 
   <!-- ===== SCOPE ===== -->
   <section id="scope" class="hidden">
-    <div class="topbar"><button class="back" data-home>→ בית</button><div class="sp"></div><div class="brand" id="scopeBrand"></div></div>
+    <div class="topbar"><button class="back" data-home>🏠 חזרה</button><div class="sp"></div><div class="brand" id="scopeBrand"></div></div>
     <div class="scope-head"><h1 id="scopeTitle"></h1></div>
     <div class="rule"></div>
     <div class="donut-wrap">
@@ -1704,17 +1714,17 @@
     <p class="scope-prog" id="scopeProg"></p>
     <div class="seg" id="dirSegScope" style="margin-bottom:14px"></div>
     <div class="practice-btns">
-      <button class="pbtn" id="pbNew"><div class="ic">✨</div><div class="tx"><b>מילים חדשות</b><span>מילים שעוד לא תרגלת · ללמוד לראשונה</span></div><div class="cnt" id="cntNew">0</div></button>
-      <button class="pbtn" id="pbWeak"><div class="ic">💪</div><div class="tx"><b>תרגל חלשות</b><span>מילים שתרגלת ולא ידעת</span></div><div class="cnt" id="cntWeak">0</div></button>
-      <button class="pbtn" id="pbLearned"><div class="ic">🎓</div><div class="tx"><b>מילים שלמדתי</b><span>כל המילים שכבר נתקלת בהן · למבחן עצמי</span></div><div class="cnt" id="cntLearned">0</div></button>
+      <button class="pbtn" id="pbNew"><div class="ic">✨</div><div class="tx"><b>מילים שטרם תרגלת</b><span>מילים שלא נתקלת בהן עדיין</span></div><div class="cnt" id="cntNew">0</div></button>
+      <button class="pbtn" id="pbWeak"><div class="ic">💪</div><div class="tx"><b>תרגל חולשות</b><span>מילים שתרגלת ולא שלטת בהן</span></div><div class="cnt" id="cntWeak">0</div></button>
+      <button class="pbtn" id="pbLearned"><div class="ic">🎓</div><div class="tx"><b>מילים שלמדתי</b><span>כל מילה שכבר הופיעה בתרגול · למבחן עצמי</span></div><div class="cnt" id="cntLearned">0</div></button>
       <button class="pbtn" id="pbAll"><div class="ic">🔀</div><div class="tx"><b>תרגל הכל</b><span id="pbAllSub">כל המילים בערבוב</span></div><div class="cnt" id="cntAll">0</div></button>
-      <button class="pbtn" id="pbStats"><div class="ic">📊</div><div class="tx"><b>סטטיסטיקה מפורטת</b><span>חוזק כל מילה + היסטוריה</span></div><div class="cnt">‹</div></button>
+      <button class="pbtn" id="pbStats"><div class="ic">📊</div><div class="tx"><b>סטטיסטיקה מפורטת</b><span>דירוג ההצלחה של כל מילה · היסטוריית התרגול</span></div><div class="cnt">‹</div></button>
       <button class="pbtn" id="pbManage"><div class="ic">✏️</div><div class="tx"><b>ניהול מילות היחידה</b><span>סימון מילים שכבר ידועות · מחיקה ושחזור</span></div><div class="cnt">‹</div></button>
     </div>
     <div class="section-t" id="examSectionT">מבחן</div>
     <div class="practice-btns">
       <button class="pbtn" id="pbExam"><div class="ic">📝</div><div class="tx"><b>היבחן ביחידה</b><span id="pbExamSub">ציון על השליטה שלך במילים של היחידה</span></div><div class="cnt" id="cntExam">›</div></button>
-      <button class="pbtn" id="pbSheet"><div class="ic">🖨</div><div class="tx"><b>דף מבחן להדפסה</b><span>PDF להדפסה ומילוי בעט · עם דף פתרונות</span></div><div class="cnt">‹</div></button>
+      <button class="pbtn" id="pbSheet"><div class="ic">🖨</div><div class="tx"><b>דף מבחן להדפסה</b><span>PDF להדפסה ומילוי בעט · כולל דף פתרונות</span></div><div class="cnt">‹</div></button>
     </div>
   </section>
 
@@ -1759,14 +1769,14 @@
     <div id="exResult" class="hidden">
       <div class="res-head" style="margin-top:4vh">
         <div class="kicker">תוצאת המבחן</div>
-        <div class="lv-badge" id="exScore">—</div>
+        <div class="lv-badge" id="exScore">–</div>
         <p class="w-sub" id="exVerdict"></p>
       </div>
       <div class="ex-break" id="exBreak"></div>
-      <div class="section-t">מה לא ידעת</div>
+      <div class="section-t">מילים לחיזוק</div>
       <div id="exMissed"></div>
       <div class="row" style="margin-top:18px">
-        <button class="btn btn-primary" id="exPractice">לתרגל את השגיאות</button>
+        <button class="btn btn-primary" id="exPractice">תרגל את המילים לחיזוק</button>
         <button class="btn btn-ghost" id="exAgain">מבחן נוסף</button>
       </div>
       <button class="btn btn-ghost btn-block" id="exDone" style="margin-top:10px">חזרה ליחידה</button>
@@ -1789,12 +1799,12 @@
          the accessibility audit verified does reach Chromium's accessibility tree. -->
     <div class="sr-only" id="cardLive" aria-live="polite" aria-atomic="true"></div>
     <div class="card">
-      <div class="q-kind" id="qKind">מהו הפירוש? כתוב את המילה</div>
+      <div class="q-kind" id="qKind">מה הפירוש? כתוב את המילה</div>
       <div class="q-row">
         <div class="q-text" id="qText"></div>
         <button class="say hidden" id="qSay" title="השמע את המילה" aria-label="השמע את המילה">🔊</button>
       </div>
-      <input class="answer-input" id="answerInput" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="המילה…">
+      <input class="answer-input" id="answerInput" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="כתוב את התשובה…">
       <div class="actions" id="answerActions">
         <button class="btn btn-primary" id="checkBtn">בדיקה</button>
         <button class="btn btn-ghost" id="skipBtn">לא יודע / הצג</button>
@@ -1820,7 +1830,7 @@
            "חזרה" מוביל דווקא **לבחירת השפה**; החזרה לכאן היא מדף הבית או מכפתור
            "✕ יציאה" שבתרגול המשפטים. הפניה לכפתור אחד שיש לו שני יעדים היא בדיוק
            מה ש-/HEB §4 אוסר. הנוסח החדש אומר את העובדה בלי להפנות. -->
-      <p class="w-note">ההתקדמות בכל תרגול נמדדת בנפרד, וניתן לעבור ביניהם בכל רגע.</p>
+      <p class="w-note">ההתקדמות בכל תרגול נמדדת בנפרד. למעבר, לחץ "🏠 חזרה".</p>
     </div>
     <div class="lang-cards">
       <button class="lang-card" data-mode="words">
@@ -1830,7 +1840,7 @@
         <div class="lc-nums">
           <span><b id="mWordsLearned">0</b> נלמדו</span>
           <span><b id="mWordsPract">0</b> תורגלו</span>
-          <span class="lc-of" id="mWordsCount">—</span>
+          <span class="lc-of" id="mWordsCount">–</span>
         </div>
       </button>
       <button class="lang-card en" data-mode="sent">
@@ -1843,7 +1853,7 @@
                פעם אחת, ולכן "בראשונה" הייתה טענה שאינה נמדדת. גם המין תוקן:
                בשאר האפליקציה נכתב "נכונים". נתפס בציד ב-11.8. -->
           <span><b id="mSentOk">0</b> נכונים</span>
-          <span class="lc-of" id="mSentCount">—</span>
+          <span class="lc-of" id="mSentCount">–</span>
         </div>
       </button>
     </div>
@@ -1883,16 +1893,16 @@
       <div class="score-of" id="finalOf"></div>
     </div>
     <div id="unitProg"></div>
-    <div class="section-t">עבור על התשובות · לחץ ✓/✗ כדי לתקן</div>
+    <div class="section-t">עבור על התשובות · סמן ✓ או ✗ כדי לתקן</div>
     <div class="review-list" id="reviewList"></div>
-    <p class="msg ok hidden" id="allGood">מושלם. ידעת את כולן! 🎉</p>
+    <p class="msg ok hidden" id="allGood">מושלם. ידעת את כולן 🎉</p>
     <div class="actions" style="margin-top:22px">
       <!-- "תרגל את מה שלא ידעתי" described the mechanism. This describes what happens to YOU:
            the count is the point, and the arrow says it starts now. Typo tolerance was measured
-           and abandoned in favour of this button — over 5,617 words a one-edit rule makes 2,371
+           and abandoned in favour of this button · over 5,617 words a one-edit rule makes 2,371
            pairs indistinguishable (advice~advise, affect~effect), and this round is the honest
            second chance: you meet the word again instead of being told you nearly had it. -->
-      <button class="btn btn-primary" id="retryMissedBtn">סגור את ה-<span id="missCount">0</span> שנשארו ←</button>
+      <button class="btn btn-primary" id="retryMissedBtn">תרגל את <span id="missCount">0</span> המילים שנשארו ←</button>
       <button class="btn btn-ghost" id="resBackBtn">חזרה</button>
     </div>
   </section>
@@ -1907,10 +1917,10 @@
 
   <!-- ===== MANAGE ===== -->
   <section id="manage" class="hidden">
-    <div class="topbar"><button class="back" data-home>→ בית</button><div class="sp"></div></div>
+    <div class="topbar"><button class="back" data-home>🏠 חזרה</button><div class="sp"></div></div>
     <div class="scope-head"><h1>ניהול מילים</h1></div>
     <div class="rule"></div>
-    <p style="color:var(--ink-soft);font-size:.9rem">סמן מילים למחיקה. מחיקה נשמרת מקומית וניתן לשחזר.</p>
+    <p style="color:var(--ink-soft);font-size:.9rem">סמן מילים למחיקה. מחיקה חלה על המכשיר הזה בלבד, וניתן לשחזר בכל רגע.</p>
     <input class="search" id="mSearch" placeholder="חפש מילה או פירוש…">
     <div style="display:flex;align-items:center;gap:10px;margin:12px 2px;font-size:.85rem;color:var(--ink-soft)">
       <span id="mCount">0 נבחרו</span><div style="flex:1"></div>
@@ -1923,10 +1933,10 @@
 
   <!-- ===== ADD ===== -->
   <section id="add" class="hidden">
-    <div class="topbar"><button class="back" data-home>→ בית</button><div class="sp"></div></div>
+    <div class="topbar"><button class="back" data-home>🏠 חזרה</button><div class="sp"></div></div>
     <div class="scope-head"><h1>הוסף מילה</h1></div>
     <div class="rule"></div>
-    <p style="color:var(--ink-soft);font-size:.9rem">מילים שתוסיף נשמרות מקומית ומצטרפות למאגר הכללי.</p>
+    <p style="color:var(--ink-soft);font-size:.9rem">מילים שתוסיף נשמרות במכשיר הזה ומצטרפות לתרגול שלך.</p>
     <div class="add-form">
       <input id="addTerm" placeholder="המילה (עם ניקוד אם תרצה)">
       <input id="addMeaning" placeholder="הפירוש">
@@ -1937,7 +1947,7 @@
 
 </div>
 
-<!-- ===== "we sent you a mail" — a modal, not a line of text =====
+<!-- ===== "we sent you a mail" · a modal, not a line of text =====
      A one-line note under the form is read by whoever is already looking there. Someone who has
      just pressed "צור חשבון" is looking at the button, and the single action that decides whether
      they ever get in has to interrupt them. -->
@@ -1948,13 +1958,13 @@
   <div class="ask-box">
     <h3>למחוק את החשבון?</h3>
     <p>נמחקים: ההתקדמות בשתי השפות, האסוציאציות שכתבת, הדיווחים ששלחת,
-      והכתובת עצמה. <b>אין שחזור</b>, גם לא על ידי.</p>
+      וכתובת המייל. <b>אין שחזור</b>, גם לא על ידי.</p>
     <p style="margin-top:12px">כדי לאשר, הקלד את כתובת המייל שלך:</p>
     <p class="mail-to" id="delMail" dir="ltr"></p>
     <div class="size-custom" style="margin-top:10px">
       <input id="delInput" type="email" autocomplete="off" dir="ltr" placeholder="הכתובת שלך">
     </div>
-    <!-- Same paragraph, same silence — on the dialog that deletes the account irreversibly. -->
+    <!-- Same paragraph, same silence -- on the dialog that deletes the account irreversibly. -->
     <p class="au-msg hidden" id="delMsg" role="alert" aria-live="assertive"></p>
     <button class="ask-go" id="delGo" disabled style="background:linear-gradient(180deg,#b8492e,#8f3220)">
       מחק את החשבון לצמיתות</button>
@@ -1977,10 +1987,20 @@
     <div class="kicker">שלוש שאלות</div>
     <h3>עוזר לי להחליט מה יהיה אחרי 30.8</h3>
 
-    <!-- A sum, never "would you pay?". A hypothetical with no price attached collects a polite
-         yes from somebody who would not spend a shekel, and '0' is a real answer: without it
-         whoever would not pay just closes the card and the sample keeps only the happy ones. -->
-    <p class="wtp-q">כמה היית משלם לחודש?</p>
+    <!-- ⚠ סדר השאלות התהפך ב-11.8.2026, ולא מטעמי עיצוב. נמדד: מתוך 6 הצגות
+         ראשונות **5 נסגרו בלי מענה** ורק אחת ענתה. שאלת הכסף פתחה את הכרטיס,
+         והיא השאלה הכי לא נוחה לשאול מישהו שקיבל משהו בחינם לפני ארבע דקות.
+         עכשיו פותחים בשאלה הקלה, ושאלת הסכום יורדת לסוף אחרי שכבר נוצרה מחויבות. -->
+    <p class="wtp-q">מה הכי עזר לך עד עכשיו?</p>
+    <textarea id="wtpHelped" rows="2" placeholder="במשפט אחד" maxlength="300"></textarea>
+
+    <p class="wtp-q">מה היה גורם לך להפסיק להשתמש? <span>· לא חובה</span></p>
+    <textarea id="wtpStop" rows="2" placeholder="במשפט אחד" maxlength="300"></textarea>
+
+    <!-- סכום, לעולם לא "האם היית משלם?". שאלה היפותטית בלי מחיר מקבלת "כן" מנומס
+         ממישהו שלא יוציא שקל, ו-'0' הוא תשובה אמיתית: בלעדיו מי שלא היה משלם פשוט
+         סוגר את הכרטיס והמדגם שומר רק את המרוצים. -->
+    <p class="wtp-q">כמה היית משלם לחודש? <span>· לא חובה</span></p>
     <div class="wtp-prices" id="wtpPrices">
       <button data-v="0">0</button>
       <button data-v="10">10 ₪</button>
@@ -1989,13 +2009,7 @@
       <button data-v="more">יותר</button>
     </div>
 
-    <p class="wtp-q">מה הכי עזר לך עד עכשיו? <span>· לא חובה</span></p>
-    <textarea id="wtpHelped" rows="2" placeholder="במשפט אחד" maxlength="300"></textarea>
-
-    <p class="wtp-q">מה היה גורם לך להפסיק להשתמש? <span>· לא חובה</span></p>
-    <textarea id="wtpStop" rows="2" placeholder="במשפט אחד" maxlength="300"></textarea>
-
-    <button class="ask-go" id="wtpGo" disabled>שלח תשובה</button>
+    <button class="ask-go" id="wtpGo" disabled>שלח</button>
   </div>
 </div>
 
@@ -2007,7 +2021,7 @@
     <h2 id="cheerTitle"></h2>
     <p class="cheer-unit" id="cheerUnit"></p>
     <p class="cheer-sub" id="cheerSub"></p>
-    <button type="button" class="ask-go" id="cheerOk">אפשר להמשיך</button>
+    <button type="button" class="ask-go" id="cheerOk">המשך לתרגל</button>
   </div>
 </div>
 
@@ -2020,7 +2034,7 @@
   <div class="ask-box">
     <div class="mail-ico" aria-hidden="true">🔔</div>
     <h3>תזכורת יומית?</h3>
-    <p>הודעה קצרה בבוקר שמזכירה לתרגל ומראה כמה מילים עומדות ליפול מהזיכרון.</p>
+    <p>הודעה קצרה בבוקר שמזכירה לתרגל ומראה כמה מילים לחיזוק יש.</p>
     <p class="mail-tip">אפשר לכבות בכל רגע מההגדרות.</p>
     <button class="ask-go" id="notifAskYes">כן, הזכר לי</button>
     <button class="ask-cancel" id="notifAskNo">לא עכשיו</button>
@@ -2049,7 +2063,7 @@
   <div class="ask-box">
     <button class="ask-x" id="waAskX" aria-label="סגירה" title="סגירה">✕</button>
     <div class="mail-ico" aria-hidden="true">💬</div>
-    <h3>קבוצת הוואטסאפ של 800+</h3>
+    <h3>קבוצת הוואטסאפ של <bdi>800+</bdi></h3>
     <p>עדכונים על גרסאות חדשות, ומקום לדווח על תקלות ורעיונות.</p>
     <a class="ask-go" id="waAskGo" href="https://chat.whatsapp.com/FxJIBhZ6AYu92bTk08Afgg" target="_blank" rel="noopener">הצטרף לקבוצה</a>
     <button class="ask-cancel" id="waAskNo">לא עכשיו</button>
@@ -2072,7 +2086,7 @@
     <p>התוצאה מחליפה את רמת ה<span id="lvAskLang2">עברית</span> ששמורה אצלך, ומסתנכרנת לכלל המכשירים.</p>
     <p>מילים שכבר תרגלת, ציוני המבחנים ורצף הימים נשארים כמו שהם.</p>
     <p class="mail-tip hidden" id="lvAskEn">בסיום, חשבון שכמעט לא תרגל אנגלית מקבל הצעה להוציא
-      מילים קלות מהתרגול. הן לא נמחקות. ניתן להחזיר אותן ב"ניהול מילים" ← "שחזר מחיקות".</p>
+      מילים קלות מהתרגול. ניתן להחזיר אותן ב"ניהול מילים" ← "שחזר מחיקות".</p>
     <button class="ask-go" id="lvAskGo">התחל מבחן רמה</button>
     <button class="ask-cancel" id="lvAskNo">ביטול</button>
   </div>
@@ -2085,7 +2099,7 @@
     <p class="mail-to" id="mailAskTo" dir="ltr"></p>
     <p>פתח אותו ולחץ על <b>אישור הכתובת</b>. בלי זה לא נוכל להכניס אותך.</p>
     <p class="mail-tip">לא הגיע תוך דקה? בדוק בספאם או בקידומי מכירות ·
-      מיילים אוטומטיים נוחתים שם לפעמים.</p>
+      מיילים אוטומטיים מגיעים לשם לפעמים.</p>
     <button class="ask-go" id="mailAskOk">הבנתי, אני בודק</button>
     <!-- Ordered by what to try first. Two real users were stranded here: the mail was delivered
          and sat unseen in spam, and signing up again sent nothing at all, so the screen was a
@@ -2093,7 +2107,7 @@
          another confirmation to an existing unconfirmed account. -->
     <button class="ask-cancel" id="mailAskResend">לא קיבלתי · שלח שוב</button>
     <!-- The dead end this exists for: when the address is ALREADY registered, Supabase returns
-         the same success and sends nothing — deliberately, so nobody can probe which addresses
+         the same success and sends nothing -- deliberately, so nobody can probe which addresses
          exist. The app therefore cannot tell the two cases apart, and without a way out the
          person waits forever for a mail that was never sent. The reset link works either way. -->
     <button class="ask-cancel" id="mailAskExisting">כבר נרשמתי פעם? שלח לי קישור לאיפוס סיסמה</button>
@@ -2105,7 +2119,7 @@
 <div class="ask hidden" id="sizeAsk">
   <div class="ask-box">
     <h3>כמה מילים בסבב?</h3>
-    <p>אפשר לשנות בכל פעם. הבחירה נשמרת כברירת מחדל.</p>
+    <p>הבחירה נשמרת לסבבים הבאים, וניתן לשנות אותה בכל פעם.</p>
     <div class="ask-opts" id="sizeOpts"></div>
     <div class="size-custom hidden" id="sizeCustom">
       <input id="sizeCustomN" type="number" inputmode="numeric" min="1" max="999" placeholder="מספר מילים">
@@ -2118,7 +2132,7 @@
 <div class="ask hidden" id="sheetAsk">
   <div class="ask-box">
     <h3>כמה מילים בדף?</h3>
-    <p id="sheetAskSub">הדף נפתח בחלון ההדפסה. משם אפשר להדפיס או לשמור כ-PDF.</p>
+    <p id="sheetAskSub">הדף נפתח בחלון ההדפסה, ומשם אפשר להדפיס או לשמור כ-PDF.</p>
     <div class="ask-opts" id="sheetOpts"></div>
     <button class="ask-cancel" id="sheetCancel">ביטול</button>
   </div>
@@ -2128,8 +2142,8 @@
 <div class="ask hidden" id="installAsk">
   <div class="ask-box install-box">
     <div class="inst-icon">📲</div>
-    <h3 id="instTitle">שים את האפליקציה במסך הבית</h3>
-    <p id="instSub">כך תוכל לתרגל מכל מקום, גם בלי אינטרנט, בלי לחפש את הקישור.</p>
+    <h3 id="instTitle">התקנה כאפליקציה</h3>
+    <p id="instSub">כך תוכל לתרגל מכל מקום, גם ללא אינטרנט, בפתיחה אחת מהמסך.</p>
 
     <!-- אנדרואיד: התקנה בלחיצה -->
     <div id="instAuto" class="hidden">
@@ -2155,7 +2169,7 @@
 </div>
 
 <!-- ===== דיווח באג / רעיון ===== -->
-<!-- ===== PRINTABLE SHEET — a direct child of body, so the print rules can hide .wrap
+<!-- ===== PRINTABLE SHEET -- a direct child of body, so the print rules can hide .wrap
      and leave only this behind. Screen CSS keeps it display:none at all times. ===== -->
 <div id="sheet"></div>
 
@@ -2163,12 +2177,12 @@
 
 <div class="ask hidden" id="fbAsk">
   <div class="ask-box fb-box">
-    <h3>מה לא עבד?</h3>
+    <h3>מה תרצה לספר לנו?</h3>
     <!-- This used to name two of the seven fields that ride along with a report, and the privacy
          policy promised that all of them are shown here. Enumerating them twice is how the two
          lists drifted; the full list is now generated from the payload into #fbCtx below, and
          this paragraph only points at it. -->
-    <p>כתוב במילים שלך. יחד עם הדיווח נשלחים גם כמה פרטים טכניים, כדי שנוכל לשחזר. הרשימה המלאה מופיעה למטה.</p>
+    <p>כתוב במילים שלך. יחד עם הדיווח נשלחים גם פרטים טכניים, כדי שנוכל לשחזר. הרשימה המלאה מופיעה למטה.</p>
 
     <div class="fb-kinds" id="fbKinds">
       <button data-k="bug" class="active">🐞 באג</button>
@@ -2177,7 +2191,7 @@
     </div>
 
     <textarea id="fbBody" rows="5" maxlength="1200"
-      placeholder="למשל: לחצתי על &quot;מילים חדשות&quot; והמסך נשאר ריק…"></textarea>
+      placeholder="למשל: לחצתי על &quot;מילים שטרם תרגלת&quot; והמסך נשאר ריק…"></textarea>
     <div class="fb-ctx" id="fbCtx"></div>
 
     <button class="btn btn-primary btn-block" id="fbSend">שלח</button>
