@@ -92,6 +92,10 @@ const SYMBOLS = [
   'PAST_DUE_GRACE_DAYS', 'FREE_PHASE', 'hasAccess', 'subActive',
   /* ההכרעה של השרת קודמת ל-hasAccess ואינה מחליפה אותה — tests/67 בודק את שתיהן. */
   'ENT_KEY', 'entVerdict',
+  /* ⭐ מורמת כדי שמדד "תרגלו ביום שנרשמו" ייבדק ב**הרצה** ולא בקריאת מקור.
+     שאר מדדי לוח הבקרה חיים בתוך openAdmin, שדורשת Supabase חי, ולכן נבדקים
+     רק כשער מקור · חלש יותר. זו נכתבה בחוץ במכוון כדי לצאת מהמלכודת הזאת. */
+  'sameLocalDay',
 ];
 
 /* Symbols that must exist on the context afterwards. Superset of SYMBOLS: it also names the

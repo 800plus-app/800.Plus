@@ -28,6 +28,7 @@ const fs = require('fs');
 const path = require('path');
 const { loadStore, ROOT } = require('./_harness/fakeSupabase.js');
 const { codeMask, codeMatches } = require('./_harness/scan.js');
+const { loadApp } = require('./_harness/sandbox.js');
 const { extractFunction } = require('./_harness/extract.js');
 
 /* The shape a real row has. If the query asked for the whole blob, this is what would arrive. */
@@ -148,6 +149,44 @@ test('a learner whose progress failed to load is not counted as "never practised
   const never = codeMatches(code, /never:[^\n]*/, mask).map(h => h.match[0]).join(' ');
   assert.ok(/readFailed/.test(never),
     'the "never practised" count does not exclude failed reads: ' + never);
+});
+
+/* ===== מדד "תרגלו ביום שנרשמו" =====
+   הכרעת המוצר שהמדד הזה משרת: 13 מתוך 15 שנרשמו לא תרגלו מעולם. כל עוד לא ידוע
+   כמה מהם נשרו **ביום הראשון**, אי אפשר לדעת אם הבעיה היא הבאת משתמשים או השעה
+   הראשונה שלהם, ושתי התשובות מובילות לעבודה הפוכה.
+   ⭐ `sameLocalDay` נכתבה כפונקציה top-level ולא בתוך openAdmin בדיוק כדי שהחלק
+   שאפשר לטעות בו · גבול היום · ייבדק בהרצה אמיתית ולא בקריאת מקור. */
+test('sameLocalDay חותך ביום קלנדרי מקומי, לא בהפרש 24 שעות', () => {
+  const { sameLocalDay } = loadApp();
+
+  const at = (y, m, d, hh, mm) => new Date(y, m - 1, d, hh, mm).getTime();
+
+  assert.strictEqual(sameLocalDay(at(2026,8,20, 9,0), at(2026,8,20, 23,59)), true,
+    'שתי חותמות באותו יום נחשבו לימים שונים');
+  /* ⛔ המקרה שכל המדד תלוי בו: 20 דקות הפרש, ובכל זאת שני ימים. השוואה
+     בהפרש שעות הייתה מחזירה true כאן ומנפחת את המדד. */
+  assert.strictEqual(sameLocalDay(at(2026,8,20, 23,50), at(2026,8,21, 0,10)), false,
+    'הרשמה ב-23:50 וסבב ב-00:10 נספרו כאותו יום');
+  assert.strictEqual(sameLocalDay(at(2026,8,20, 12,0), at(2026,9,20, 12,0)), false, 'חודש שונה');
+  assert.strictEqual(sameLocalDay(at(2025,8,20, 12,0), at(2026,8,20, 12,0)), false, 'שנה שונה');
+});
+
+test('הכרטיס סופר רק מי שהקריאה עליו הצליחה, ואינו מחלק באפס', () => {
+  const src = fs.readFileSync(path.join(ROOT, 'app.js'), 'utf8');
+  const code = extractFunction(src, 'openAdmin', codeMask(src));
+  assert.ok(code, 'app.js no longer declares openAdmin — update this test, do not delete it');
+  const mask = codeMask(code);
+
+  const line = k => codeMatches(code, new RegExp(k + ':[^\\n]*'), mask).map(h => h.match[0]).join(' ');
+  /* המונה והמכנה חייבים **שניהם** להחריג readFailed. אם רק אחד מהם מחריג,
+     האחוז שקרי בכיוון אחד בלי שום סימן על המסך. */
+  assert.ok(/readFailed/.test(line('dayOne')), 'המונה אינו מחריג קריאה שנכשלה: ' + line('dayOne'));
+  assert.ok(/readFailed/.test(line('known')),  'המכנה אינו מחריג קריאה שנכשלה: ' + line('known'));
+  assert.ok(codeMatches(code, /glance\.known \?/, mask).length,
+    'אין שער חלוקה באפס · לוח עם NaN% נראה כמו מוצר שבור');
+  assert.ok(codeMatches(code, /sameLocalDay/, mask).length,
+    'openAdmin כבר לא משתמש ב-sameLocalDay · המדד חושב מחדש במקום, ובלי בדיקה');
 });
 
 test('no other admin query pulls the progress blob', () => {
