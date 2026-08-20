@@ -5365,7 +5365,7 @@ async function afterAuthed(justSignedUp){
      hw_name כבר נשמר כאן מאז ומעולם; פשוט אף אחד לא קרא אותו במסלול הכישלון. */
   const cachedName = () => { const n=LS.get('hw_name',''); return (typeof n==='string' && n) ? n : ''; };
   try{
-    const p=await Store.myProfile();
+    const { profile:p }=await Store.myProfile();
     if(p && p.username){
       setBadges(p.username);
       LS.set('hw_name', p.username);  // the dashboard greets by name before any network call returns
@@ -5593,12 +5593,14 @@ async function openAccount(tab){
   renderAccExam();
   goto('account');
   try{
-    const p=await Store.myProfile();
+    const { ok, profile:p }=await Store.myProfile();
     if(p){
       if(p.username){ $('#accUser').textContent=p.username; $('#accName').textContent=p.username; }
       if(p.created_at) $('#accSince').textContent=fmtDate(p.created_at).split(' ')[0];
       $('#accSub').textContent = FREE_PHASE && p.sub_status==='none' ? 'פתוח · שלב חינמי' : subLabel(p);
-    } else $('#accSub').textContent='פתוח';
+    /* ⛔ "פתוח" only when the read actually came back. It used to print here on a failed
+       read too, which is a claim about somebody's subscription made without checking it. */
+    } else $('#accSub').textContent = ok ? 'פתוח' : 'לא ידוע';
   }catch(e){ $('#accSub').textContent='לא ידוע'; }
 }
 /* ===== כרטיס המילה · חיווט ===== */
@@ -6274,12 +6276,15 @@ async function accessOk(){
   if(verdict===false){
     /* השרת הכריע. showLocked צריכה שדות מהפרופיל לניסוח הסיבה, ולכן היא עדיין
        נמשכת · אבל היא כבר לא זו שמכריעה. */
-    let pr=null; try{ pr=await Store.myProfile(); }catch(e){}
+    let pr=null; try{ pr=(await Store.myProfile()).profile; }catch(e){}
     showLocked(pr || { sub_status: ent && ent.status, sub_until: ent && ent.until });
     return false;
   }
   let p=null;
-  try{ p=await Store.myProfile(); }catch(e){ return true; }
+  /* Fail-open on a failed read, stated rather than inferred: `ok:false` now means "we did not
+     manage to ask", and locking somebody out over our own outage is the one outcome this gate
+     must never produce. Same verdict as before · the reason is just no longer a guess. */
+  try{ const r=await Store.myProfile(); if(!r.ok) return true; p=r.profile; }catch(e){ return true; }
   /* Deliberately fail-open: a missing profile means the subscription columns aren't deployed
      yet, or the sign-up trigger did not fire -- locking a paying learner out over our own
      infrastructure fault is worse than a free day. The one path that USED to manufacture a
@@ -6312,8 +6317,16 @@ function showLocked(p){
    Deliberately has no way to reveal a password: none is stored in readable form. ===== */
 let isAdmin=false;
 async function showAdminIfAllowed(){
-  isAdmin=false;
-  try{ const p=await Store.myProfile(); isAdmin = !!(p && p.role==='admin'); }catch(e){}
+  /* ⛔ This used to start with `isAdmin=false` and then set it from a read that could fail
+     silently, so a single dropped request took the control-centre button away until reload.
+     A failed read now changes nothing · the previous answer stands. It can only ever KEEP an
+     answer already earned, never invent one, and the panel behind the button is protected by
+     RLS in any case, so the button is an affordance and not the permission. */
+  const wasAdmin=isAdmin;
+  try{
+    const { ok, profile:p }=await Store.myProfile();
+    isAdmin = ok ? !!(p && p.role==='admin') : wasAdmin;
+  }catch(e){ isAdmin=wasAdmin; }
   $('#adminBtn').classList.toggle('hidden', !isAdmin);
   $('#adminBtn2').classList.toggle('hidden', !isAdmin);
   if(isAdmin) refreshFbBadge();
@@ -6537,8 +6550,14 @@ async function openAdmin(){
        and it never moved afterwards. It measured a test, not learning.
        Practised and skipped are now two separate numbers, because they answer two questions. */
     let learnedHe=0, learnedEn=0, skipped=0, rounds=0, practised=0, last=u.last_seen, lastRound=0;
+    /* ⛔ readFailed is not bookkeeping, it is the difference between "this learner never
+       practised" and "we did not manage to ask". Before it existed both looked identical
+       on screen, and the second one silently inflated the "never practised" card. */
+    let readFailed=false;
     try{
-      for(const p of await Store.adminUserProgress(u.id)){
+      const { rows, error: pErr } = await Store.adminUserProgress(u.id);
+      if(pErr) readFailed=true;
+      for(const p of rows){
         /* `stats` arrives as its own field: adminUserProgress projects it out of the jsonb and
            deliberately never pulls the rest of the blob, so p.data does not exist here. */
         const st=(p&&p.stats)||{};
@@ -6558,36 +6577,55 @@ async function openAdmin(){
         for(const s of ses){ const t=Number(s&&s.t); if(t>lastRound) lastRound=t; }
         if(!last || (p.updated_at && p.updated_at>last)) last=p.updated_at;
       }
-    }catch(e){}
+    }catch(e){ readFailed=true; }
     const ts=last?Date.parse(last):NaN;
     return { id:u.id, username:u.username||'', email:u.email||'', role:u.role,
              created_at:u.created_at, last, lastTs:isNaN(ts)?0:ts,
              learnedHe, learnedEn, learnedTotal:learnedHe+learnedEn,
-             skipped, rounds, practised, lastRound };
+             skipped, rounds, practised, lastRound, readFailed };
   }));
 
   /* The morning glance. The list below answers "who is this person"; this answers the only
      question worth asking every day -- is anybody actually practising. Rounds, not logins:
      signing up and confirming an email is a small effort, and opening the app and answering
      a round is a different one. Conflating them is how a dead product looks alive. */
-  const DAY=864e5, now=Date.now();
-  const roundIn = d => admUsers.filter(u=>u.lastRound && now-u.lastRound < d*DAY).length;
+  /* ⛔ "היום" and "השבוע" used to be rolling windows · now-lastRound < 1 day, < 7 days.
+     So at 09:00 a round from 23:00 last night still counted as today, and "this week"
+     meant "the last 168 hours" and never started over on Sunday. The labels promised a
+     calendar and the code measured a stopwatch, which is why the numbers looked wrong
+     to somebody reading them as "today". Both now start at local midnight. */
+  const midnight = () => { const d=new Date(); d.setHours(0,0,0,0); return d; };
+  const startOfToday = midnight().getTime();
+  const startOfWeek  = (() => { const d=midnight(); d.setDate(d.getDate()-d.getDay()); return d.getTime(); })();
+  const since = from => admUsers.filter(u=>u.lastRound && u.lastRound >= from).length;
   /* ⚠ "סבבים בסך הכול" ו"מילים שתורגלו" הוסרו מהלוח (בקשת חגי, 14.8.2026): מדד
      מצטבר שרק עולה אינו אומר מה קרה השבוע, ולכן אי אפשר להחליט לפיו כלום.
      הסכימה עצמה הוסרה ולא רק התצוגה. שדה מחושב שאיש אינו קורא הוא עבודה
      שרצה על כל משתמש בכל טעינה של הלוח, בלי שאף אחד רואה את התוצאה. */
   const glance = {
-    today: roundIn(1), week: roundIn(7),
-    never: admUsers.filter(u=>!u.rounds).length,
+    today: since(startOfToday),
+    week:  since(startOfWeek),
+    /* ⛔ A learner whose progress could not be read is NOT counted here. That was the bug:
+       a dropped request became a person who "never practised". They are counted in
+       `failed` instead, and the panel says so out loud. */
+    never: admUsers.filter(u=>!u.readFailed && !u.rounds).length,
+    failed: admUsers.filter(u=>u.readFailed).length,
   };
   const gcard = (n, label, hint, warn) =>
     `<div class="adm-g${warn&&n?' warn':''}"><b>${n}</b><span>${label}</span>`+
     (hint?`<i>${hint}</i>`:'')+`</div>`;
 
-  body.innerHTML=`<div class="adm-glance">
-      ${gcard(glance.today,'תרגלו היום','')}
-      ${gcard(glance.week,'תרגלו השבוע','')}
-      ${gcard(glance.never,'נרשמו ולא תרגלו','אף פעם',true)}
+  /* ⚠ The one line that makes the three numbers checkable. Without it a failed read is
+     invisible and the cards look authoritative while being short a few people. */
+  const failNote = glance.failed
+    ? `<p class="msg err">הנתונים של ${glance.failed===1?'משתמש אחד':glance.failed+' משתמשים'} `
+      + `לא נטענו. המספרים כאן אינם כוללים אותם.</p>`
+    : '';
+
+  body.innerHTML=failNote+`<div class="adm-glance">
+      ${gcard(glance.today,'תרגלו היום','מחצות')}
+      ${gcard(glance.week,'תרגלו השבוע','מיום ראשון')}
+      ${gcard(glance.never,'נרשמו ולא תרגלו','לא השלימו סבב',true)}
     </div>
     <div class="adm-tools">
       <input class="adm-search" id="admSearch" type="search" inputmode="search"

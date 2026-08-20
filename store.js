@@ -89,11 +89,19 @@ const Store = {
      supabase-js משדר INITIAL_SESSION עם null כשהיא לא הצליחה לקרוא הפעלה · למשל בלי רשת ·
      ומי שמתייחס לזה כאל התנתקות מוחק את המשתמש בדיוק אחרי שהאתחול שחזר אותו מהדיסק. */
   onAuthChange(cb) { sb.auth.onAuthStateChange((evt, session) => cb(session, evt)); },
+  /* ⛔ Returns { ok, profile }, the same shape pullProgress uses, and for the same reason:
+     `return prof` made "the read failed" and "this account has no profile row" the same
+     value. Each caller then guessed, and they guessed differently · accessOk failed open
+     (harmless), openAccount printed "פתוח" as if it had checked the subscription, and
+     showAdminIfAllowed failed CLOSED, so one dropped request took the control-centre button
+     away until reload. A caller cannot choose correctly between two outcomes it cannot tell
+     apart, so the distinction is made here, once. */
   async myProfile() {
     const { data } = await sb.auth.getUser();
-    if (!data || !data.user) return null;
-    const { data: prof } = await sb.from('profiles').select('*').eq('id', data.user.id).maybeSingle();
-    return prof;
+    if (!data || !data.user) return { ok: false, profile: null };
+    const { data: prof, error } = await sb.from('profiles').select('*').eq('id', data.user.id).maybeSingle();
+    if (error) { console.warn('myProfile failed', error.message); return { ok: false, profile: null }; }
+    return { ok: true, profile: prof || null };
   },
 
   /* ההכרעה על מנוי, חתוכה בשרת. מחזירה את ה-jsonb של my_entitlement או null.
@@ -241,10 +249,18 @@ const Store = {
      practised, and a word the learner typed in with the meaning they wrote for it is writing,
      not a count. Nothing in the panel ever used it. Anything the panel needs later gets added
      here by name -- never by widening this back to the blob. */
+  /* ⛔ Returns { rows, error } and not a bare array, and that shape is the whole point.
+     It used to return `data || []`, so a timeout, an RLS refusal and a genuinely empty
+     account were the same value. The admin panel then counted that learner under
+     "signed up and never practised" · a failed read rendered as a fact about a person.
+     The panel loads one of these per user, so on 40 accounts a single flaky request is
+     enough to move the number, which is exactly what "the dashboard is wrong and keeps
+     changing" looked like. `adminListUsers` two functions up already hands the error
+     back; this now matches it. */
   async adminUserProgress(userId) {
-    const { data } = await sb.from('progress')
+    const { data, error } = await sb.from('progress')
       .select('lang,updated_at,stats:data->stats').eq('user_id', userId);
-    return data || [];
+    return { rows: data || [], error: error || null };
   },
   async adminSendReset(email) { return this.resetPasswordFor(email); },
 
