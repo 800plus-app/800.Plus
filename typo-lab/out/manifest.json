@@ -28,36 +28,36 @@
   },
   "lexicon": {
     "files": 599,
-    "bytes": 5942957,
-    "heTypes": 35205,
+    "bytes": 5943001,
+    "heTypes": 35284,
     "enTypes": 9753
   },
-  "consistencyFlips": 5,
+  "consistencyFlips": 6,
   "broken": {
     "op": false,
     "fold": false,
     "limitCards": 0
   },
-  "total": 89375,
+  "total": 90488,
   "counts": {
     "set": {
-      "en-word": 35278,
-      "gloss": 28880,
+      "en-word": 35272,
+      "gloss": 29999,
       "he-word": 25217
     },
     "label": {
-      "accept": 44894,
-      "reject": 44481
+      "accept": 45350,
+      "reject": 45138
     },
     "op": {
-      "adj": 19279,
-      "double": 9519,
-      "drop": 13547,
-      "homophone": 5330,
-      "mater": 5538,
-      "neg/d1-partner": 2756,
-      "neg/garbage": 2978,
-      "neg/inflection": 356,
+      "adj": 19606,
+      "double": 9692,
+      "drop": 13717,
+      "homophone": 5479,
+      "mater": 5683,
+      "neg/d1-partner": 2739,
+      "neg/garbage": 2981,
+      "neg/inflection": 364,
       "neg/other-gloss-seg": 11326,
       "neg/other-variant": 5223,
       "pattern/c/k": 547,
@@ -67,101 +67,44 @@
       "pattern/ph/f": 236,
       "pattern/silent-e": 374,
       "pattern/y/i": 189,
-      "transpose": 9740
+      "transpose": 9895
     },
     "why": {
-      "ambiguous": 24574,
-      "cross-card": 5,
-      "garbage": 2490,
-      "inflection": 208,
-      "novel": 40799,
-      "novel-unverified": 4095,
+      "ambiguous": 25163,
+      "cross-card": 6,
+      "garbage": 2491,
+      "inflection": 217,
+      "novel": 41153,
+      "novel-unverified": 4197,
       "other-variant": 25,
-      "real-word": 2019,
-      "veto": 15160
+      "real-word": 2044,
+      "veto": 15192
     },
     "setLabel": {
-      "en-word/accept": 21663,
-      "en-word/reject": 13615,
-      "gloss/accept": 8781,
-      "gloss/reject": 20099,
-      "he-word/accept": 14450,
-      "he-word/reject": 10767
+      "en-word/accept": 21664,
+      "en-word/reject": 13608,
+      "gloss/accept": 9238,
+      "gloss/reject": 20761,
+      "he-word/accept": 14448,
+      "he-word/reject": 10769
     },
     "trusted": {
-      "false": 4095,
-      "true": 85280
+      "false": 4197,
+      "true": 86291
     }
   },
   "files": [
     {
       "name": "dataset-he.jsonl",
       "rows": 33670,
-      "bytes": 7494098,
-      "sha256": "ff64ae144f8a1bcdbc58a2148ae2682387a15bebf69de651cfb4b63c35b83e81"
+      "bytes": 7494213,
+      "sha256": "e2bfefda08737c5252d359a165cb677eab5bb024b4c909bb3e22741f46c950ff"
     },
     {
       "name": "dataset-en.jsonl",
-      "rows": 55705,
-      "bytes": 11099135,
-      "sha256": "d91cffc0b38fcddb94a3cce8b6fb58784a7f3e1ab4975426443c5c99d51eba28"
+      "rows": 56818,
+      "bytes": 11326123,
+      "sha256": "e526ab1c8fe58687bb54b66a254a48337292bd5e98613a781669e677c8bf9ee0"
     }
-  ],
-  "runtimeLexicon": {
-    "file": "runtime-lexicon.js",
-    "bytes": 68096,
-    "sha256": "d690b04c956bb5bdd46fd36a27600523e892898c2d8d2cf0082ce00671d956ba",
-    "fprTarget": 0.005,
-    "he": {
-      "n": 29296,
-      "m": 323072,
-      "k": 8,
-      "bytes": 40384
-    },
-    "en": {
-      "n": 5928,
-      "m": 65376,
-      "k": 8,
-      "bytes": 8172
-    },
-    "removedBankForms": {
-      "he": 5909,
-      "en": 3825
-    },
-    "empiricalFPR": {
-      "he": 0.00507,
-      "en": 0.00517,
-      "sample": 200000
-    },
-    "recallCost": {
-      "lost": 209,
-      "accept": 44894,
-      "rate": 0.00466
-    },
-    "coverage": {
-      "he-word": {
-        "total": 1167,
-        "caught": 803,
-        "bankOnly": 364,
-        "missed": 0
-      },
-      "gloss": {
-        "total": 729,
-        "caught": 452,
-        "bankOnly": 277,
-        "missed": 0
-      },
-      "en-word": {
-        "total": 123,
-        "caught": 100,
-        "bankOnly": 23,
-        "missed": 0
-      }
-    },
-    "excludedSources": [
-      "דוחות/מאגר-נקי/01-גלם.tsv",
-      "דוחות/מאגר-נקי/19-צירופים-מהרשת.tsv",
-      "pipeline_output/*.json"
-    ]
-  }
+  ]
 }
