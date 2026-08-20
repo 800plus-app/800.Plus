@@ -6357,6 +6357,17 @@ document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) refresh
 const fmtDate = t => t ? new Date(t).toLocaleDateString('he-IL',{day:'2-digit',month:'2-digit',year:'2-digit'})
                         +' '+new Date(t).toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'}) : '–';
 
+/* ⛔ יום מקומי, לא הפרש של 24 שעות · שתי חותמות באותו יממה קלנדרית מקומית.
+   ההבדל אינו תיאורטי: הרשמה ב-23:50 וסבב ב-00:10 הם הפרש של 20 דקות ובכל
+   זאת **שני ימים**, וזה הדין הנכון למדד "תרגל ביום שנרשם". השוואה בהפרש
+   שעות הייתה סופרת אותו כהצלחה, ומנפחת בדיוק את המספר שאמור לקבוע החלטה.
+   getFullYear/getMonth/getDate הן מקומיות, ולכן אזור הזמן של הצופה נלקח
+   בחשבון מעצמו בלי חישוב היסט. */
+const sameLocalDay = (a, b) => {
+  const x = new Date(a), y = new Date(b);
+  return x.getFullYear()===y.getFullYear() && x.getMonth()===y.getMonth() && x.getDate()===y.getDate();
+};
+
 /* Users are fetched once per visit and kept here; search / sort / filter all run
    in memory over this array, so typing never hits the network. Session-only state
    by design -- nothing is persisted to localStorage. */
@@ -6554,6 +6565,13 @@ async function openAdmin(){
        practised" and "we did not manage to ask". Before it existed both looked identical
        on screen, and the second one silently inflated the "never practised" card. */
     let readFailed=false;
+    /* ⭐ הנתון היחיד שמפריד פער-מוצר מפער-שיווק: האם האדם הזה תרגל **ביום שנרשם**.
+       מי שנרשם ולא פתח באותו יום כמעט אף פעם לא חוזר, ולכן זה לא "עוד מדד" אלא
+       המספר שאומר אם להשקיע בהבאת משתמשים או בשעה הראשונה שלהם.
+       ⚠ ההשוואה היא ביום מקומי ולא בהפרש שעות · מי שנרשם ב-23:50 ותרגל ב-00:10
+       תרגל **למחרת**, וזה הדין הנכון: זה כבר לא אותו רגע של כוונה. */
+    const createdTs = u.created_at ? Date.parse(u.created_at) : NaN;
+    let firstDayRound = false;
     try{
       const { rows, error: pErr } = await Store.adminUserProgress(u.id);
       if(pErr) readFailed=true;
@@ -6574,7 +6592,10 @@ async function openAdmin(){
         rounds+=ses.length;
         // session.t is Date.now() -- a number. Date.parse() on it returns NaN and every round
         // would have looked like it never happened.
-        for(const s of ses){ const t=Number(s&&s.t); if(t>lastRound) lastRound=t; }
+        for(const s of ses){
+          const t=Number(s&&s.t); if(t>lastRound) lastRound=t;
+          if(!firstDayRound && t>0 && !isNaN(createdTs) && sameLocalDay(t, createdTs)) firstDayRound=true;
+        }
         if(!last || (p.updated_at && p.updated_at>last)) last=p.updated_at;
       }
     }catch(e){ readFailed=true; }
@@ -6582,7 +6603,7 @@ async function openAdmin(){
     return { id:u.id, username:u.username||'', email:u.email||'', role:u.role,
              created_at:u.created_at, last, lastTs:isNaN(ts)?0:ts,
              learnedHe, learnedEn, learnedTotal:learnedHe+learnedEn,
-             skipped, rounds, practised, lastRound, readFailed };
+             skipped, rounds, practised, lastRound, readFailed, firstDayRound };
   }));
 
   /* The morning glance. The list below answers "who is this person"; this answers the only
@@ -6610,7 +6631,14 @@ async function openAdmin(){
        `failed` instead, and the panel says so out loud. */
     never: admUsers.filter(u=>!u.readFailed && !u.rounds).length,
     failed: admUsers.filter(u=>u.readFailed).length,
+    /* ⭐ המדד שקובע איפה להשקיע. `known` הוא המכנה, ומכיל **רק** את מי שהקריאה
+       עליו הצליחה · אחרת כישלון רשת היה מוריד את האחוז ונראה כמו בעיית מוצר. */
+    dayOne: admUsers.filter(u=>!u.readFailed && u.firstDayRound).length,
+    known:  admUsers.filter(u=>!u.readFailed).length,
   };
+  /* ⚠ 0 נרשמים ידועים אינו 0 אחוז · הוא "אין מה לחשב". חלוקה באפס כאן הייתה
+     מדפיסה NaN%, ומספר שבור על לוח נראה כמו מוצר שבור. */
+  const dayOnePct = glance.known ? Math.round(glance.dayOne / glance.known * 100) : null;
   const gcard = (n, label, hint, warn) =>
     `<div class="adm-g${warn&&n?' warn':''}"><b>${n}</b><span>${label}</span>`+
     (hint?`<i>${hint}</i>`:'')+`</div>`;
@@ -6626,6 +6654,8 @@ async function openAdmin(){
       ${gcard(glance.today,'תרגלו היום','מחצות')}
       ${gcard(glance.week,'תרגלו השבוע','מיום ראשון')}
       ${gcard(glance.never,'נרשמו ולא תרגלו','לא השלימו סבב',true)}
+      ${gcard(dayOnePct===null ? '–' : dayOnePct+'%', 'תרגלו ביום שנרשמו',
+              dayOnePct===null ? 'אין נתונים' : `${glance.dayOne} מתוך ${glance.known}`)}
     </div>
     <div class="adm-tools">
       <input class="adm-search" id="admSearch" type="search" inputmode="search"
