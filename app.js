@@ -2265,6 +2265,43 @@ function check(){
   finishCard(false, false);
 }
 function skip(){ if(answered||!deck[idx]) return; finishCard(false, true); }
+
+/* משפט הדוגמה · שלוש שורות: תווית · המשפט באנגלית · התרגום.
+   מוצג רק אחרי שהכרטיס נסגר: בכיוון פירוש→מילה המשפט מכיל את התשובה, ולכן לפני
+   המענה הוא היה מסגיר אותה. bdi+dir כי משפט אנגלי בתוך מסך RTL. הערך הוא
+   [משפט, תרגום], ובשניהם המילה הנלמדת עטופה ב-<b> על ידי המחולל. */
+function exSentHtml(term){
+  const r = (window.EX_SENT_EN||{})[term];
+  if(!r) return '';
+  return `<div class="also ex-sent"><span class="ex-lbl">משפט לדוגמה</span>`
+    + `<span class="ex-en"><bdi lang="en" dir="ltr">${exBold(r[0])}</bdi></span>`
+    + `<span class="ex-he">${exBold(r[1])}</span></div>`;
+}
+
+/* ⛔ הבאג שזה מתקן, ומשתמש דיווח עליו: "לא לכל מילה יש משפט, אבל להרוב".
+   הדאטה שלמה · 3,946 מתוך 3,946 · ולא חסרה בה אף מילה. מה שחסר היה **הזמן**:
+   `data-en-sentences.js` הוא 706KB שנטענים ברקע בכניסה לאנגלית (fire-and-forget),
+   וההגשה בדקה את `window.EX_SENT_EN` **סינכרונית**. מי שענה על הכרטיסים הראשונים
+   לפני שהקובץ ירד לא ראה משפט, והכרטיס לא רונדר מחדש כשהוא הגיע. לכן זה נראה
+   כמו חור בתוכן, והיה מירוץ רשת · ומספר המילים "החסרות" השתנה לפי מהירות הקו.
+   ⚠ ההערה הקודמת כאן העריכה את הקובץ ב-300KB. הוא 706KB, יותר מפי שניים.
+
+   התיקון לא חוסם את ההגשה על הרשת: הכרטיס נפתח מיד, ומוזרק לו עוגן ריק. כשהקובץ
+   מגיע, `fillExSent` ממלא את העוגן · אבל רק אם הלומד עדיין על אותו כרטיס, ולכן
+   `data-term` נבדק מול המילה הנוכחית ולא רק נוכחות האלמנט. */
+function exSentBlock(term){
+  if(LANG!=='en') return '';
+  if(window.EX_SENT_EN) return exSentHtml(term);
+  return `<div id="exSentSlot" data-term="${esc(term)}"></div>`;
+}
+function fillExSent(term){
+  if(LANG!=='en' || window.EX_SENT_EN) return;
+  loadExSentData().then(()=>{
+    const slot = document.getElementById('exSentSlot');
+    if(slot && slot.dataset.term === term) slot.outerHTML = exSentHtml(term);
+  });
+}
+
 function finishCard(ok, skipped){
   const w=deck[idx]; if(!w) return;
   /* קרא-ונקה, ובשורה הראשונה: skip() והמבחן מגיעים לכאן בלי לעבור ב-check, ולכן
@@ -2322,10 +2359,7 @@ function finishCard(ok, skipped){
        הערך הוא [משפט, תרגום], ובשניהם המילה הנלמדת עטופה ב-<b> על ידי המחולל.
        שלוש שורות ולא שורה אחת מתגלגלת: תווית · המשפט באנגלית · התרגום. בגרסה
        הקודמת התווית והמשפט האנגלי חלקו שורה, ובמסך צר האנגלית נשברה באמצע. */
-    (LANG==='en' && (window.EX_SENT_EN||{})[w.term]
-      ? `<div class="also ex-sent"><span class="ex-lbl">משפט לדוגמה</span>`
-        + `<span class="ex-en"><bdi lang="en" dir="ltr">${exBold(window.EX_SENT_EN[w.term][0])}</bdi></span>`
-        + `<span class="ex-he">${exBold(window.EX_SENT_EN[w.term][1])}</span></div>` : '')+
+    exSentBlock(w.term)+
     (!ok?`<button class="was-right" id="wasRight">בעצם ידעתי · סמן כנכון</button>`:'')+
     `<div class="assoc">
        <label>💡 האסוציאציה שלי ל"${esc(w.term)}"</label>
@@ -2339,6 +2373,7 @@ function finishCard(ok, skipped){
      <button class="del-live" id="delLive">🗑 אני מכיר את המילה · מחק מהמאגר</button>
      <div class="actions" style="margin-top:14px"><button class="btn btn-primary" id="nextBtn">${idx+1<deck.length?'הבא ←':'לסיכום'}</button></div>`;
   fb.classList.remove('hidden');
+  fillExSent(w.term);   // ⛔ אחרי ההצגה, לא לפניה · הכרטיס לא ממתין לרשת
   /* The line above disabled #answerInput while it held the focus, and HTML says focus on an
      element that becomes disabled falls back to <body>. Measured: 6 Tab presses to get from
      <body> back to "הבא ←", every one of them passing over 🗑 "מחק מהמאגר" on the way · a
