@@ -22,6 +22,8 @@ const assert = require('node:assert');
 const fs = require('fs');
 const path = require('path');
 const { ROOT } = require('./_harness/sandbox.js');
+/* מסכת קוד · כדי שבדיקת מקור לא תתאים למחרוזת שיושבת בתוך הערה */
+const { codeMask, codeMatches } = require('./_harness/scan.js');
 
 const src = rel => fs.readFileSync(path.join(ROOT, rel), 'utf8').split('\r\n').join('\n');
 const load = rel => {
@@ -102,6 +104,63 @@ describe('משפט הדוגמה · שלמות הנתונים', () => {
   });
 });
 
+/* ⛔ כיסוי · לכל מילה במאגר האנגלי יש משפט.
+ *
+ * למה זה שער ולא הנחה: עד עכשיו אף בדיקה לא אכפה את זה. הקובץ הזה בדק הדגשה,
+ * בריחת תגים ופריסה · כולם על המשפטים ש**קיימים** · ואיש לא בדק שהם קיימים לכולם.
+ * מילה שנוספת ל-`data-en.js` בלי משפט הייתה נכנסת בשקט, ומופיעה ללומד ככרטיס
+ * בלי משפט דוגמה. נמדד ב-20.8: 3,946 מתוך 3,946, אפס חסרות.
+ *
+ * ⚠ ו"יש מפתח" אינו "יש משפט". חמש הדרישות נבדקות בנפרד כי כל אחת נשברת לבד
+ * ונראית ללומד אותו דבר · כרטיס בלי משפט:
+ *   קיים · מערך של שניים · אנגלית לא ריקה · תרגום לא ריק · המילה מודגשת
+ * בלי התרגום השורה השלישית בכרטיס ריקה; בלי ההדגשה הלומד לא יודע איזו מילה שלו.
+ */
+describe('משפט הדוגמה · כיסוי מלא של המאגר האנגלי', () => {
+  const bank = load('data-en.js').UNIT_DATA_EN;
+  const words = [];
+  for (const rows of Object.values(bank)) {
+    if (!Array.isArray(rows)) continue;
+    for (const r of rows) {
+      const w = Array.isArray(r) ? r[0] : r;
+      if (typeof w === 'string' && w.trim()) words.push(w);
+    }
+  }
+  const nonEmpty = v => typeof v === 'string' && v.trim().length > 0;
+  const show = list => list.slice(0, 8).join(' · ') + (list.length > 8 ? ` (ועוד ${list.length - 8})` : '');
+
+  test('לכל מילה במאגר יש ערך בקובץ המשפטים', () => {
+    const missing = words.filter(w => EX[w] === undefined);
+    assert.deepStrictEqual(missing, [],
+      `${missing.length} מ-${words.length} מילים בלי משפט דוגמה: ${show(missing)}`);
+  });
+
+  test('כל ערך הוא [משפט, תרגום] · ושניהם אינם ריקים', () => {
+    const badShape = words.filter(w => EX[w] !== undefined && (!Array.isArray(EX[w]) || EX[w].length < 2));
+    assert.deepStrictEqual(badShape, [], `צורה שגויה: ${show(badShape)}`);
+    const emptyEn = words.filter(w => Array.isArray(EX[w]) && !nonEmpty(EX[w][0]));
+    assert.deepStrictEqual(emptyEn, [], `משפט אנגלי ריק: ${show(emptyEn)}`);
+    const emptyHe = words.filter(w => Array.isArray(EX[w]) && !nonEmpty(EX[w][1]));
+    assert.deepStrictEqual(emptyHe, [],
+      `תרגום עברי ריק · השורה השלישית בכרטיס תופיע ריקה: ${show(emptyHe)}`);
+  });
+
+  test('בכל משפט אנגלי המילה הנלמדת מודגשת', () => {
+    const noBold = words.filter(w => Array.isArray(EX[w]) && !/<b>[^<]+<\/b>/.test(String(EX[w][0])));
+    assert.deepStrictEqual(noBold, [],
+      `בלי הדגשה · הלומד לא יידע איזו מילה במשפט היא שלו: ${show(noBold)}`);
+  });
+
+  /* הכיוון ההפוך · משפט למילה שאינה במאגר הוא סימן שהמאגר השתנה והמשפטים לא
+     עודכנו איתו. בעברית זה בדיוק מה שקרה: 1,188 משפטים נכתבו למילים שיצאו. */
+  test('אין משפטים יתומים · לכל משפט יש מילה במאגר', () => {
+    const inBank = new Set(words);
+    const orphans = Object.keys(EX).filter(k => !inBank.has(k));
+    assert.deepStrictEqual(orphans, [],
+      `${orphans.length} משפטים למילים שאינן במאגר · המאגר השתנה והמשפטים לא: ${show(orphans)}`);
+  });
+});
+
 describe('משפט הדוגמה · התצוגה', () => {
   const app = src('app.js');
   const html = src('index.html');
@@ -129,10 +188,42 @@ describe('משפט הדוגמה · התצוגה', () => {
       assert.ok(html.includes(sel), `חסר ב-CSS: ${sel}. בלי display:block הכול נשפך לשורה אחת`));
   });
 
+  /* ⚠ נצמד ל-`exBold(` ולא ל-`exBold(window.EX_SENT_EN`. הדרישה היא שהתרגום
+     יעבור דרך exBold; מאיפה נשלף הערך אינו הדרישה, וההצמדה לשם המשתנה הפילה
+     את השער על ריפקטור שהתנהגותו זהה. מה שהשער חייב לתפוס · esc במקום exBold ·
+     עדיין נתפס, וזה נבדק בשלילה מפורשת. */
   test('התרגום עובר דרך exBold ולא דרך esc', () => {
     const line = app.split('\n').find(l => l.includes('class="ex-he"'));
-    assert.ok(line && /exBold\(window\.EX_SENT_EN/.test(line),
+    assert.ok(line, 'שורת ex-he אינה קיימת');
+    assert.ok(/exBold\(/.test(line),
       'התרגום מוצג עם esc, ולכן ההדגשה תופיע כטקסט &lt;b&gt; על המסך');
+    assert.ok(!/\besc\(/.test(line), 'התרגום עובר דרך esc · ההדגשה תיראה כטקסט');
+  });
+
+  /* ⛔ הבאג שמשתמש דיווח עליו: "לא לכל מילה יש משפט אבל להרוב". הדאטה שלמה
+     (3,946/3,946) · מה שנכשל היה התזמון. הקובץ 706KB נטען ברקע, וההגשה בדקה
+     אותו סינכרונית, ולכן הכרטיסים הראשונים נפתחו בלי משפט ולא רונדרו מחדש.
+     שלוש הדרישות שמונעות את חזרתו, וכל אחת נבדקה על קוד שבור בכוונה. */
+  test('כרטיס שנפתח לפני שקובץ המשפטים ירד מקבל את המשפט כשהוא מגיע', () => {
+    assert.ok(/function fillExSent\(/.test(app),
+      'fillExSent הוסרה · כרטיס שהקדים את הטעינה יישאר בלי משפט לתמיד');
+    assert.ok(/id="exSentSlot"/.test(app),
+      'אין עוגן להזרקה · אין לאן למלא את המשפט כשהקובץ מגיע');
+    /* בלי בדיקת המילה, לומד שהספיק לעבור כרטיס יקבל את המשפט של הקודם */
+    const fn = app.slice(app.indexOf('function fillExSent('));
+    assert.ok(/dataset\.term\s*===/.test(fn.slice(0, 400)),
+      'fillExSent אינה מוודאת שהלומד עדיין על אותו כרטיס');
+    /* וההגשה לא ממתינה לרשת: המילוי קורה אחרי שהפאנל כבר הוצג.
+       ⛔ דרך `codeMask` ולא `indexOf` גולמי. הגרסה הראשונה של הבדיקה הזאת עברה
+       גם כשהקריאה הייתה `//fillExSent(w.term);` · המחרוזת נמצאת גם בתוך הערה,
+       וזה בדיוק הכשל ש-`CLAUDE.md` מונה: שער שבודק את הדבר הלא נכון. */
+    const mask = codeMask(app);
+    const shown = codeMatches(app, /fb\.classList\.remove\('hidden'\)/, mask);
+    assert.ok(shown.length, "לא נמצאה הצגת הפאנל בקוד ממשי");
+    const at = shown[0].index;
+    const calls = codeMatches(app, /fillExSent\(/, mask).filter(h => h.index > at && h.index - at < 200);
+    assert.ok(calls.length,
+      'fillExSent אינה נקראת בקוד ממשי מיד אחרי הצגת הפאנל · כרטיס שהקדים את הטעינה יישאר ריק');
   });
 });
 

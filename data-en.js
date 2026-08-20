@@ -944,7 +944,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "own",
-   "משלו; בעלות על משהו"
+   "משלו; להיות הבעלים של"
   ],
   [
    "pain",
@@ -3200,7 +3200,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "actress",
-   "שחקנית (בהצגה או סרט)"
+   "שחקנית"
   ],
   [
    "adult",
@@ -5454,7 +5454,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "iceberg",
-   "קרחון"
+   "הר קרח"
   ],
   [
    "illusion",
@@ -7744,7 +7744,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "suspicious",
-   "חשוד (משהו)"
+   "חשוד (משהו); חשדן"
   ],
   [
    "swallow",
@@ -10760,7 +10760,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "revision",
-   "בדיקה מחדש לצורך שיפור"
+   "תיקון, עדכון"
   ],
   [
    "revived",
@@ -13484,7 +13484,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "ingest",
-   "להכניס משהו לגוף דרך הפה"
+   "לבלוע, לצרוך"
   ],
   [
    "inhibit",
@@ -13708,7 +13708,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "overdue",
-   "שעבר זמן ההגשה שלו"
+   "באיחור; שעבר זמנו"
   ],
   [
    "overlooked",
@@ -15522,7 +15522,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "rotary",
-   "נע על ציר סיבובי"
+   "סיבובי; כיכר תנועה"
   ],
   [
    "rudimentary",
