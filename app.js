@@ -3196,21 +3196,40 @@ function openStats(scope){
      than folded into "עוד לא נפגשתם" · which would have been the same lie in a quieter place. */
   const skippedN=all.filter(w=>wasSkipped(w.term)).length;
   const untouched=all.length-arr.length-skippedN;
-  const sess=stats.sessions.filter(s=>s.scope===scope).slice(-8);
+  /* ⭐ נבנה מחדש 21.8.2026, לפי הכרעת חגי: "לא משנה כמה הוא צדק · משנה במה הוא
+     טעה ומה הוא לא יודע".
+     מה שירד, ולמה:
+     · ⛔ גרף שמונת הסבבים. `.trend` גבוה 84px והתווית אוכלת 19, ולכן **כל אחוז
+       מ-77 ומעלה צייר עמודה זהה** · אצל חגי שבע מתוך שמונה יצאו 64.66px, כולל
+       82% ו-80%. הגרף היה עיוור בדיוק בטווח שבו לומד לפני מבחן נמצא.
+       ובנוסף הוא ערבב סוגי סבבים: `mode` נכתב על כל שורה ומעולם לא סונן, ולכן
+       סבב חיזוק ב-60% הוצג לצד מבחן עצמי ב-100% כאילו השני עבודה טובה יותר.
+     · ⛔ כרטיס "16/16 נכונים". ציון של עבודה שנגמרה אינו פעולה.
+     · ⛔ "ידעת מיד: N". מונה מילים שמעולם לא טעית בהן, כלומר גדל כשלא עושים
+       את העבודה הקשה.
+     מה שנשאר הוא מה שנותר לעשות, וכפתור שמתחיל אותו. */
+  const cls=classify(scope);
+  const ex=examDays();
   let html='';
-  if(sess.length){
-    const last=sess[sess.length-1], prev=sess.length>1?sess[sess.length-2]:null;
-    const pct=x=>x.total?Math.round(100*x.correct/x.total):0;
-    let cmp='';
-    if(prev){ const d=pct(last)-pct(prev); cmp = d>0?`<span style="color:var(--green);font-weight:700">▲ ${d}%</span>`:d<0?`<span style="color:var(--accent);font-weight:700">▼ ${-d}%</span>`:'ללא שינוי'; }
-    html+=`<div class="section-t">היסטוריית סבבים</div>
-      <div style="background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px">
-      <div><b style="font-family:'Frank Ruhl Libre';font-size:1.2rem;color:var(--accent)">${last.correct}/${last.total}</b> נכונים · ${last.firstTry} בפעם הראשונה</div>
-      <div style="font-size:.8rem;color:var(--ink-soft);margin-top:3px">${fmt(last.t)}${cmp?' · השוואה: '+cmp:''}</div></div>
-      <div class="trend">`+sess.map(x=>{const p=pct(x);return `<div class="tbar" title="${fmt(x.t)} · ${x.correct}/${x.total}"><i style="height:${Math.max(5,p)}%"></i><em>${p}%</em></div>`;}).join('')+`</div>`;
-  }else{
-    html+=`<div class="section-t">היסטוריית סבבים</div><p class="msg" style="color:var(--ink-soft)">עדיין לא סיימת סבב מלא בתחום הזה.</p>`;
-  }
+  const lines=[];
+  if(untouched) lines.push(`<em>${untouched}</em> מילים שטרם תרגלת`);
+  if(ex && ex.days>=0) lines.push(ex.days===0 ? 'המבחן <em>היום</em>'
+    : ex.days===1 ? 'המבחן <em>מחר</em>'
+    : ex.days===2 ? 'נשארו <em>יומיים</em>' : `נשארו <em>${ex.days}</em> ימים`);
+  const shown=cls.strong+cls.weak+cls.fresh;
+  const pc=n=>shown? (100*n/shown).toFixed(1) : 0;
+  html+=`<div class="section-t">מה עכשיו</div><div class="nx">`
+    + (lines.length?`<div class="nx-line">${lines.join(' · ')}</div>`:'')
+    + `<div class="statebar" role="img" aria-label="בשליטה ${cls.strong} · לחיזוק ${cls.weak} · טרם תורגלו ${cls.fresh}">
+         <i class="sb-a" style="width:${pc(cls.strong)}%"></i>
+         <i class="sb-b" style="width:${pc(cls.weak)}%"></i>
+         <i class="sb-c" style="width:${pc(cls.fresh)}%"></i></div>
+       <div class="sb-legend">
+         <span><i class="dot sb-a"></i>בשליטה ${cls.strong}</span>
+         <span><i class="dot sb-b"></i>לחיזוק ${cls.weak}</span>
+         <span><i class="dot sb-c"></i>טרם תורגלו ${cls.fresh}</span></div>`
+    + (cls.fresh?`<button class="btn btn-primary btn-block" id="drillFresh">תרגל ${Math.min(cls.fresh,20)} מילים שטרם תרגלת ←</button>`:'')
+    + `</div>`;
   /* ===== the word cloud =====
      The old screen was a flat list, weakest first, every row the same size -- so the eleven words
      that keep beating you looked exactly like the six hundred you got right on sight. The list
@@ -3231,47 +3250,76 @@ function openStats(scope){
   const bySc=(a,b)=>score(b)-score(a);
   fight.sort(bySc); nearly.sort(bySc);
 
-  const chip=(w,t)=>{ const r=stats.words[K(w.term)];
-    return `<button class="cw t${t}" data-w="${esc(w.term)}" title="נראתה ${int0(r.seen)}× · ${int0(r.first)} בפעם הראשונה · ${int0(r.wrong)} טעויות"
-      ><bdi>${esc(w.term)}</bdi>${int0(r.wrong)?`<em>${int0(r.wrong)}</em>`:''}</button>`; };
-  const cloud=(list,id)=>`<div class="cloud" id="${id}">${list.map(w=>chip(w,tier(score(w)))).join('')}</div>`;
+  /* ⭐ רשימה ולא ענן. חגי: "המילים זה אחלה אבל לא כעננים · זה קצת מוזר · אולי כרשימה".
+     ושתי שגיאות שהיו בענן ואינן יכולות לחזור כאן:
+     · ⛔ הכיתוב אמר "ככל שמילה גדולה יותר כך טעית בה יותר", בזמן שהגודל נגזר מ-
+       `wrong − first` והמספר שהוצג היה `wrong` לבדו · המילה הגדולה נשאה 3 והקטנה 5.
+       ברשימה יש ציר אחד, והמיון והמספר הם אותו נתון.
+     · ⛔ המשקל לא נשא מידע: Heebo נחתך ב-700 ב-@font-face שלו, ולכן `t3` במשקל 800
+       ו-`t2` במשקל 700 רונדרו זהים. נמדד ברוחב גליפים.
+     ⭐ ו-`last` מוצג לראשונה. הוא יושב בכל רשומה ושימש רק למיון · "לא תרגלת 12 ימים"
+     הוא מה שמסביר למה טעית, ולא רק שטעית. */
+  const DAY=864e5;
+  const sinceText=d=> d<=0 ? 'תרגלת היום' : d===1 ? 'לא תרגלת מאתמול'
+    : d===2 ? 'לא תרגלת יומיים' : `לא תרגלת ${d} ימים`;
+  const missed=[...fight,...nearly].sort((a,b)=>{
+    const wa=int0(stats.words[K(a.term)].wrong), wb=int0(stats.words[K(b.term)].wrong);
+    if(wa!==wb) return wb-wa;
+    return int0(stats.words[K(a.term)].last)-int0(stats.words[K(b.term)].last);
+  });
+  const LIST_CAP=12;
+  const row=w=>{ const r=stats.words[K(w.term)];
+    const n=int0(r.wrong), d=Math.round((Date.now()-int0(r.last))/DAY);
+    /* ארבע דרגות עוצמה על הפס הצדדי · ערוץ שקט שאינו משנה את גודל הטקסט */
+    const t=n>=5?3:n>=3?2:n>=2?1:0;
+    return `<button class="wrow" data-w="${esc(w.term)}" aria-expanded="false">
+      <i class="wbar b${t}" aria-hidden="true"></i>
+      <span class="ww"><b><bdi>${esc(w.term)}</bdi></b><span>${sinceText(d)}</span></span>
+      <span class="wn">${n===1?'טעות אחת':`${n} טעויות`}</span></button>`; };
 
-  html+=`<div class="section-t">המילים שאתה טועה בהן</div>`;
+  html+=`<div class="section-t">המילים שטעית בהן</div>`;
   if(!arr.length){
     html+=`<p class="msg" style="color:var(--ink-soft)">עדיין לא תרגלת מילים בתחום הזה. תרגל סבב אחד והתמונה תופיע כאן.</p>`;
+  }else if(!missed.length){
+    html+=`<p class="msg" style="color:var(--ink-soft)">אין כרגע מילים שטעית בהן ולא סגרת</p>`;
   }else{
-    html+=`<p class="cloud-note">ככל שמילה גדולה וכהה יותר, כך טעית בה יותר פעמים.
-      המספר לידה הוא מספר הטעויות. לחיצה על מילה מראה את הפירוש.</p>`;
-    if(fight.length){
-      html+=`<p class="cloud-note" style="margin-bottom:2px"><b>${fight.length} מילים שטעית בהן יותר מפעם אחת.</b></p>`
-        + cloud(fight.slice(0,80),'cloudFight')
-        + `<button class="btn btn-primary btn-block" id="drillFight" style="margin:6px 0 18px">תרגל בדיוק את ${Math.min(fight.length,30)} המילים האלה ←</button>`;
-    }
-    if(nearly.length) html+=`<p class="cloud-note" style="margin-bottom:2px">${nearly.length} מילים כמעט בשליטה.</p>`
-      + cloud(nearly.slice(0,80),'cloudNearly');
-    /* The two quiet groups get a line each and no cloud. Drawing six hundred words you already
-       know is exactly the noise this screen was rebuilt to remove. */
-    if(settled.length||instant.length||skippedN){
-      html+=`<div class="quiet-line" style="margin-top:14px">`
-        + (settled.length?`<div>טעית וכבר בשליטה: <b>${settled.length}</b> מילים שטעית בהן בעבר וכבר יודע.</div>`:'')
-        + (instant.length?`<div style="margin-top:6px">ידעת מיד: <b>${instant.length}</b> מילים, בלי טעות אחת.</div>`:'')
-        + (untouched?`<div style="margin-top:6px">טרם תרגלת: <b>${untouched}</b> מילים.</div>`:'')
-        + (skippedN?`<div style="margin-top:6px">דילגת אחרי מבחן הרמה: <b>${skippedN}</b> מילים.
-             <span style="opacity:.75">ניתן להחזיר ב"ניהול מילים" ← "שחזר מחיקות"</span></div>`:'')
-        + `</div>`;
-    }
+    html+=`<div class="wlist" id="missList">`
+      + missed.slice(0,LIST_CAP).map(row).join('')
+      + (missed.length>LIST_CAP?`<button class="wmore" id="missMore">הצג עוד ${missed.length-LIST_CAP} ←</button>`:'')
+      + `</div>`
+      + `<button class="btn btn-primary btn-block" id="drillFight" style="margin:12px 0 4px">תרגל בדיוק את ${Math.min(missed.length,30)} המילים האלה ←</button>`;
+  }
+  if(settled.length||untouched||skippedN){
+    html+=`<div class="quiet-line" style="margin-top:16px">`
+      + (settled.length?`<div>טעית וכבר בשליטה: <b>${settled.length}</b> מילים</div>`:'')
+      + (untouched?`<div style="margin-top:6px">טרם תרגלת: <b>${untouched}</b> מילים</div>`:'')
+      + (skippedN?`<div style="margin-top:6px">דילגת אחרי מבחן הרמה: <b>${skippedN}</b> מילים
+           <span style="opacity:.75">ניתן להחזיר ב"ניהול מילים" ← "שחזר מחיקות"</span></div>`:'')
+      + `</div>`;
   }
   body.innerHTML=html;
-  /* Tapping a word reveals its meaning under the row it sits in, and tapping again hides it.
-     A tooltip would be unreachable on the phones most of these learners use. */
-  body.querySelectorAll('.cw').forEach(b=>b.onclick=()=>{
+  /* לחיצה על שורה פותחת את הפירוש מתחתיה, ולחיצה שנייה סוגרת · אותה התנהגות
+     שהייתה בענן. tooltip אינו נגיש בטלפון, וזה המכשיר של רוב הלומדים. */
+  const bind=()=>body.querySelectorAll('.wrow').forEach(b=>b.onclick=()=>{
     const nx=b.nextElementSibling;
-    if(nx && nx.classList.contains('cw-meaning')){ nx.remove(); return; }
+    if(nx && nx.classList.contains('wmean')){ nx.remove(); b.setAttribute('aria-expanded','false'); return; }
     const w=byTerm.get(K(b.dataset.w)); if(!w) return;
-    b.insertAdjacentHTML('afterend', `<div class="cw-meaning"><b><bdi>${esc(w.term)}</bdi></b> · ${esc(w.meaning)}</div>`);
+    b.insertAdjacentHTML('afterend', `<div class="wmean">${esc(w.meaning)}</div>`);
+    b.setAttribute('aria-expanded','true');
   });
+  bind();
+  const more=$('#missMore');
+  if(more) more.onclick=()=>{
+    more.insertAdjacentHTML('beforebegin', missed.slice(LIST_CAP).map(row).join(''));
+    more.remove(); bind();
+  };
   const drill=$('#drillFight');
-  if(drill) drill.onclick=()=>startRound(fight.slice(0,30), scope, 'weak');
+  if(drill) drill.onclick=()=>startRound(missed.slice(0,30), scope, 'weak');
+  const fresh=$('#drillFresh');
+  if(fresh) fresh.onclick=()=>{
+    const list=uniqScope(scope).filter(w=>!wasSkipped(w.term) && seenCount(w.term)===0);
+    if(list.length) startRound(capSampled(list,20), scope, 'new');
+  };
   goto('stats');
 }
 $('#statsBack').onclick=()=>goBack();
