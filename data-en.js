@@ -76,7 +76,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "answer",
-   "תשובה"
+   "תשובה; לענות"
   ],
   [
    "area",
@@ -100,7 +100,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "ask",
-   "לשאול"
+   "לשאול; לבקש"
   ],
   [
    "at",
@@ -176,7 +176,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "break",
-   "לשבור"
+   "לשבור; הפסקה"
   ],
   [
    "building",
@@ -196,7 +196,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "call",
-   "לקרוא, להתקשר"
+   "לקרוא, להתקשר; שיחה"
   ],
   [
    "camera",
@@ -212,7 +212,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "chance",
-   "סיכוי"
+   "סיכוי; הזדמנות"
   ],
   [
    "check",
@@ -272,7 +272,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "cool",
-   "לצנן, צונן"
+   "קריר, לצנן, צונן; מגניב"
   ],
   [
    "crime",
@@ -516,7 +516,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "gift",
-   "מתנה"
+   "מתנה; כישרון"
   ],
   [
    "glass",
@@ -728,7 +728,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "left",
-   "שמאלה"
+   "שמאל, שמאלה; לעזוב"
   ],
   [
    "less",
@@ -736,7 +736,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "lie",
-   "לשקר, שקר"
+   "לשקר, שקר; לשכב"
   ],
   [
    "light",
@@ -796,7 +796,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "message",
-   "הודעה"
+   "הודעה; מסר"
   ],
   [
    "middle",
@@ -920,7 +920,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "only",
-   "רק"
+   "רק; יחיד"
   ],
   [
    "open",
@@ -940,7 +940,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "over",
-   "על, מעל; מחדש, שוב"
+   "על, מעל; מחדש, שוב; נגמר"
   ],
   [
    "own",
@@ -1088,7 +1088,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "relationship",
-   "מערכת יחסים"
+   "קשר, מערכת יחסים"
   ],
   [
    "relax",
@@ -1116,15 +1116,15 @@ window.UNIT_DATA_EN = {
   ],
   [
    "ride",
-   "רכיבה, לרכוב"
+   "רכיבה, לרכוב; נסיעה"
   ],
   [
    "right",
-   "ימינה; זכות"
+   "נכון, ימינה; זכות; ימין"
   ],
   [
    "ring",
-   "טבעת; זירה"
+   "טבעת; זירה; לצלצל"
   ],
   [
    "road",
@@ -1132,11 +1132,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "run, ran",
-   "לרוץ, רץ"
+   "לרוץ, רץ; לנהל"
   ],
   [
    "safe",
-   "בטוח"
+   "בטוח; כספת"
   ],
   [
    "salt",
@@ -1164,7 +1164,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "secret",
-   "סוד"
+   "סוד; סודי"
   ],
   [
    "sell",
@@ -1188,7 +1188,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "short",
-   "קצר"
+   "קצר; נמוך"
   ],
   [
    "show",
@@ -1252,7 +1252,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "so that",
-   "כך ש-"
+   "כדי ש, כך ש-"
   ],
   [
    "soldier",
@@ -1264,7 +1264,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "soon",
-   "בהקדם, מוקדם"
+   "בקרוב, בהקדם, מוקדם"
   ],
   [
    "South",
@@ -1276,7 +1276,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "spend",
-   "לבזבז, לפזר; לבלות, להעביר"
+   "להוציא, לבזבז, לפזר; לבלות, להעביר"
   ],
   [
    "stand",
@@ -1296,7 +1296,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "step",
-   "צעד, לצעוד"
+   "צעד, לצעוד; מדרגה"
   ],
   [
    "still",
@@ -1356,7 +1356,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "team",
-   "צוות"
+   "קבוצה, צוות"
   ],
   [
    "teeth, tooth",
@@ -1364,7 +1364,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "than",
-   "מ-"
+   "מאשר, מ-"
   ],
   [
    "thank",
@@ -1376,7 +1376,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "that",
-   "ש-"
+   "ש, ש-; ההוא"
   ],
   [
    "theater",
@@ -1432,7 +1432,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "turn",
-   "לפנות, סיבוב"
+   "לפנות, סיבוב; תור"
   ],
   [
    "under",
@@ -1476,7 +1476,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "wall",
-   "קיר"
+   "קיר; חומה"
   ],
   [
    "want",
@@ -1488,11 +1488,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "watch",
-   "להסתכל, להשגיח; שעון"
+   "לצפות, להסתכל, להשגיח; שעון"
   ],
   [
    "way",
-   "דרך"
+   "דרך; אופן"
   ],
   [
    "weekend",
@@ -1508,7 +1508,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "when",
-   "כאשר, כש-"
+   "מתי, כאשר, כש-"
   ],
   [
    "where",
@@ -1572,7 +1572,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "writer",
-   "סופר"
+   "סופר; כותב"
   ],
   [
    "young",
@@ -1818,7 +1818,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "cause",
-   "מטרה; גורם, סיבה"
+   "לגרום, מטרה; גורם, סיבה"
   ],
   [
    "celebrate",
@@ -1866,7 +1866,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "comic",
-   "קומי (מהמילה קומדיה)"
+   "קומי (מהמילה קומדיה); קומיקס"
   ],
   [
    "connect",
@@ -1882,7 +1882,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "copy",
-   "להעתיק"
+   "עותק, להעתיק"
   ],
   [
    "correct",
@@ -1954,11 +1954,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "depression",
-   "דיכאון"
+   "דיכאון; מיתון"
   ],
   [
    "design",
-   "תכנית, דוגמה, תרשים; לתכנן, לעצב"
+   "עיצוב, תכנית, דוגמה, תרשים; לתכנן, לעצב"
   ],
   [
    "designer",
@@ -1990,7 +1990,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "direction",
-   "כיוון"
+   "כיוון; הכוונה"
   ],
   [
    "discover",
@@ -2018,7 +2018,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "earlier",
-   "קודם לכן"
+   "מוקדם, קודם לכן"
   ],
   [
    "easily",
@@ -2026,7 +2026,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "echo",
-   "הד"
+   "הד; להדהד"
   ],
   [
    "ecological",
@@ -2066,7 +2066,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "episode",
-   "פרק"
+   "פרק; אירוע"
   ],
   [
    "error",
@@ -2146,7 +2146,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "filter",
-   "פילטר, מסנן"
+   "פילטר, מסנן; לסנן"
   ],
   [
    "finger",
@@ -2154,7 +2154,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "flow",
-   "זרם"
+   "לזרום, זרם; זרימה"
   ],
   [
    "flower",
@@ -2186,7 +2186,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "freeze, froze",
-   "להקפיא, הקפיא"
+   "לקפוא, להקפיא, הקפיא"
   ],
   [
    "friendly",
@@ -2198,7 +2198,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "front",
-   "חזית, להתעמת"
+   "חזית, להתעמת; קדמי"
   ],
   [
    "garden",
@@ -2234,11 +2234,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "goal",
-   "מטרה"
+   "מטרה; שער"
   ],
   [
    "golden",
-   "מוזהב"
+   "זהוב, מוזהב"
   ],
   [
    "grandfather",
@@ -2258,7 +2258,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "gym",
-   "אולם ספורט"
+   "חדר כושר, אולם ספורט"
   ],
   [
    "harmony",
@@ -2298,7 +2298,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "in that case",
-   "במקרה הזה"
+   "אם כך, במקרה הזה"
   ],
   [
    "in the same way",
@@ -2314,7 +2314,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "intellectual",
-   "אינטלקטואלי"
+   "אינטלקטואלי; אינטלקטואל"
   ],
   [
    "international",
@@ -2430,7 +2430,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "makeup",
-   "איפור"
+   "איפור; הרכב"
   ],
   [
    "male",
@@ -2446,7 +2446,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "market",
-   "שוק"
+   "שוק; לשווק"
   ],
   [
    "master",
@@ -2458,11 +2458,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "mental",
-   "נפשי"
+   "נפשי; שכלי"
   ],
   [
    "mentor",
-   "מדריך רוחני"
+   "חונך, מדריך רוחני"
   ],
   [
    "metal",
@@ -2502,7 +2502,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "nature",
-   "טבע"
+   "טבע; מהות"
   ],
   [
    "neck",
@@ -2550,7 +2550,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "official",
-   "רשמי, מאושר"
+   "רשמי, מאושר; פקיד"
   ],
   [
    "oil",
@@ -2558,7 +2558,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "on top of",
-   "על, מעל"
+   "על, מעל; בנוסף ל"
   ],
   [
    "opinion",
@@ -2582,7 +2582,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "original",
-   "מקורי"
+   "מקורי; מקור"
   ],
   [
    "owner",
@@ -2598,7 +2598,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "panic",
-   "פאניקה, בהלה"
+   "פאניקה, בהלה; להיבהל"
   ],
   [
    "paradox",
@@ -2654,15 +2654,15 @@ window.UNIT_DATA_EN = {
   ],
   [
    "pilot",
-   "טייס"
+   "טייס; ניסיוני"
   ],
   [
    "potential",
-   "אפשרי, פוטנציאלי"
+   "פוטנציאל, אפשרי, פוטנציאלי"
   ],
   [
    "powerful",
-   "רב כוח"
+   "חזק, רב כוח; רב עוצמה"
   ],
   [
    "prehistoric",
@@ -2670,11 +2670,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "prepare",
-   "התכונן"
+   "להכין, התכונן; להתכונן"
   ],
   [
    "presentation",
-   "מצגת"
+   "מצגת; הצגה"
   ],
   [
    "price",
@@ -2682,7 +2682,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "professional",
-   "מקצועי"
+   "מקצועי; מקצוען"
   ],
   [
    "program",
@@ -2690,11 +2690,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "puzzle",
-   "חידה, פאזל"
+   "חידה, פאזל; לבלבל"
   ],
   [
    "quality",
-   "איכות"
+   "איכות; תכונה"
   ],
   [
    "question",
@@ -2750,7 +2750,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "result",
-   "תוצאה"
+   "תוצאה; לנבוע"
   ],
   [
    "revolution",
@@ -2854,7 +2854,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "size",
-   "גודל"
+   "גודל; מידה"
   ],
   [
    "skill",
@@ -2894,7 +2894,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "sort",
-   "למיין"
+   "סוג, למיין"
   ],
   [
    "speak, spoke",
@@ -2910,7 +2910,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "spicy",
-   "פיקנטי"
+   "חריף, פיקנטי"
   ],
   [
    "spider",
@@ -2970,7 +2970,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "suggest",
-   "להציע"
+   "להציע; לרמז"
   ],
   [
    "suicide",
@@ -3018,7 +3018,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "tone",
-   "טון"
+   "טון; נימה"
   ],
   [
    "tour",
@@ -3082,7 +3082,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "unsafe",
-   "לא בטוח"
+   "לא בטוח; מסוכן"
   ],
   [
    "update",
@@ -3126,7 +3126,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "wave",
-   "גל"
+   "גל; לנופף"
   ],
   [
    "weapon",
@@ -3150,7 +3150,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "wood",
-   "עץ"
+   "עץ; יער"
   ],
   [
    "worldwide",
@@ -3224,7 +3224,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "allow",
-   "להרשות"
+   "להרשות; לאפשר"
   ],
   [
    "anger",
@@ -3280,7 +3280,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "beat",
-   "מקצב; מכה, להכות"
+   "לנצח, מקצב; מכה, להכות"
   ],
   [
    "behavior",
@@ -3344,7 +3344,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "carry",
-   "לסחוב"
+   "לשאת, לסחוב"
   ],
   [
    "castle",
@@ -3440,7 +3440,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "complex",
-   "מסובך"
+   "מורכב, מסובך; מתחם"
   ],
   [
    "concept",
@@ -3496,7 +3496,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "curious",
-   "סקרן"
+   "סקרן; מוזר"
   ],
   [
    "currently",
@@ -3508,7 +3508,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "daily",
-   "יומיומי"
+   "יומי, יומיומי; מדי יום"
   ],
   [
    "defend",
@@ -3596,7 +3596,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "dump",
-   "לשפוך"
+   "לזרוק, לשפוך; מזבלה"
   ],
   [
    "during",
@@ -3616,7 +3616,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "education",
-   "השכלה"
+   "חינוך, השכלה"
   ],
   [
    "effect",
@@ -3684,7 +3684,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "exercise",
-   "תרגיל; להתאמן; לממש, ליישם"
+   "פעילות גופנית, תרגיל; להתאמן; לממש, ליישם"
   ],
   [
    "exist",
@@ -3712,7 +3712,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "farmer",
-   "חוואי"
+   "חקלאי, חוואי; איכר"
   ],
   [
    "fault",
@@ -3768,7 +3768,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "form",
-   "צורה; ליצור, להקים"
+   "צורה; ליצור, להקים; טופס"
   ],
   [
    "frame",
@@ -3780,7 +3780,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "function",
-   "תפקוד, לתפקד"
+   "תפקיד, תפקוד, לתפקד"
   ],
   [
    "garbage",
@@ -3812,7 +3812,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "guide",
-   "להדריך"
+   "מדריך, להדריך"
   ],
   [
    "guilty",
@@ -3820,7 +3820,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "hall",
-   "מסדרון; היכל"
+   "אולם, מסדרון; היכל"
   ],
   [
    "harm",
@@ -3844,7 +3844,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "honest",
-   "הגון"
+   "כן, הגון; ישר"
   ],
   [
    "honor",
@@ -3884,7 +3884,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "image",
-   "דמות, תמונה"
+   "דמות, תמונה; דימוי"
   ],
   [
    "imagine",
@@ -3920,7 +3920,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "individual",
-   "יחיד, אינדיבידואל"
+   "יחיד, אינדיבידואל; אישי"
   ],
   [
    "influence",
@@ -3956,7 +3956,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "introduce",
-   "להציג, לעשות היכרות"
+   "להציג, לעשות היכרות; להכניס"
   ],
   [
    "investigate",
@@ -4020,7 +4020,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "lower",
-   "להנמיך"
+   "להוריד, להנמיך; נמוך"
   ],
   [
    "manage",
@@ -4028,7 +4028,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "management",
-   "ניהול"
+   "ניהול; הנהלה"
   ],
   [
    "mark",
@@ -4068,7 +4068,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "mostly",
-   "לרוב"
+   "בעיקר, לרוב"
   ],
   [
    "movement",
@@ -4208,7 +4208,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "position",
-   "מיקום, למקם; תנוחה; תפקיד, משרה"
+   "עמדה, מיקום, למקם; תנוחה; תפקיד, משרה"
   ],
   [
    "pot",
@@ -4256,7 +4256,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "product",
-   "מוצר"
+   "מוצר; תוצר"
   ],
   [
    "profit",
@@ -4320,7 +4320,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "realize",
-   "הבין"
+   "להבין, הבין; להגשים"
   ],
   [
    "recent",
@@ -4332,7 +4332,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "recognize",
-   "לזהות"
+   "לזהות; להכיר"
   ],
   [
    "recommend",
@@ -4484,7 +4484,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "simply",
-   "בפשטות"
+   "פשוט, בפשטות"
   ],
   [
    "sin",
@@ -4520,7 +4520,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "spirit",
-   "כוונה, רוח הדברים; רוח רפאים, נפש"
+   "רוח, כוונה, רוח הדברים; רוח רפאים, נפש"
   ],
   [
    "square",
@@ -4544,7 +4544,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "strength",
-   "חוזק"
+   "כוח, חוזק"
   ],
   [
    "structure",
@@ -4620,7 +4620,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "title",
-   "כותרת"
+   "כותרת; תואר"
   ],
   [
    "tongue",
@@ -4652,7 +4652,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "transport",
-   "להוביל; הובלה"
+   "להוביל; הובלה; תחבורה"
   ],
   [
    "trap",
@@ -4660,7 +4660,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "treatment",
-   "טיפול"
+   "טיפול; יחס"
   ],
   [
    "truck",
@@ -4728,7 +4728,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "wear",
-   "ללבוש"
+   "ללבוש; להתבלות"
   ],
   [
    "weather",
@@ -4802,11 +4802,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "amount",
-   "כמות"
+   "כמות; להסתכם"
   ],
   [
    "analog",
-   "אנלוגי (ההיפך מדיגיטלי)"
+   "אנלוגי (ההיפך מדיגיטלי); מקבילה"
   ],
   [
    "analyze",
@@ -4870,7 +4870,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "authority",
-   "סמכות"
+   "סמכות; רשות"
   ],
   [
    "automobile",
@@ -4886,7 +4886,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "backward",
-   "לאחור"
+   "לאחור; נחשל"
   ],
   [
    "bacteria",
@@ -4894,7 +4894,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "beg",
-   "להתחנן"
+   "להתחנן; לקבץ נדבות"
   ],
   [
    "belong",
@@ -5122,7 +5122,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "deeply",
-   "מאוד, במידה רבה"
+   "עמוקות, מאוד, במידה רבה"
   ],
   [
    "deer",
@@ -5150,7 +5150,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "dimension",
-   "מימד"
+   "ממד, מימד; היבט"
   ],
   [
    "disadvantage",
@@ -5198,7 +5198,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "earn",
-   "להרוויח"
+   "להרוויח; לזכות ב"
   ],
   [
    "earthquake",
@@ -5274,7 +5274,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "exclusive",
-   "בלעדי"
+   "בלעדי; יוקרתי"
   ],
   [
    "expectations",
@@ -5286,7 +5286,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "explosive",
-   "חומר נפץ"
+   "נפיץ, חומר נפץ"
   ],
   [
    "export",
@@ -5334,7 +5334,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "fiction",
-   "בדיון, לא אמיתי"
+   "בדיון, לא אמיתי; ספרות בדיונית"
   ],
   [
    "filmmaker",
@@ -5354,11 +5354,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "folklore",
-   "פולקלור"
+   "פולקלור; מסורת עממית"
   ],
   [
    "fork",
-   "מזלג"
+   "מזלג; הסתעפות"
   ],
   [
    "formal",
@@ -5386,7 +5386,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "generally",
-   "באופן כללי"
+   "בדרך כלל, באופן כללי"
   ],
   [
    "generate",
@@ -5422,7 +5422,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "handle",
-   "להתמודד"
+   "לטפל, להתמודד; ידית"
   ],
   [
    "heartbeat",
@@ -5438,7 +5438,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "hold back",
-   "לעכב, למנוע"
+   "להתאפק, לעכב, למנוע"
   ],
   [
    "horn",
@@ -5466,7 +5466,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "improve",
-   "לשפר"
+   "לשפר; להשתפר"
   ],
   [
    "in addition",
@@ -5478,7 +5478,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "incident",
-   "תקרית"
+   "תקרית; אירוע"
   ],
   [
    "indeed",
@@ -5506,7 +5506,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "instrument",
-   "כלי"
+   "כלי; כלי נגינה"
   ],
   [
    "insurance",
@@ -5522,7 +5522,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "irregular",
-   "לא רגיל"
+   "לא סדיר, לא רגיל"
   ],
   [
    "issue",
@@ -5566,7 +5566,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "load",
-   "להעמיס"
+   "מטען, להעמיס; לטעון"
   ],
   [
    "logic",
@@ -5614,7 +5614,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "minister",
-   "שר (בממשלה)"
+   "שר (בממשלה); כומר"
   ],
   [
    "miracle",
@@ -5650,7 +5650,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "narrow",
-   "צר"
+   "צר; לצמצם"
   ],
   [
    "navigate",
@@ -5770,7 +5770,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "priest",
-   "כומר"
+   "כומר; כהן"
   ],
   [
    "prime",
@@ -5794,7 +5794,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "prove",
-   "להוכיח"
+   "להוכיח; להתברר"
   ],
   [
    "provide",
@@ -5810,7 +5810,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "quite",
-   "למדי"
+   "די, למדי; לגמרי"
   ],
   [
    "quote",
@@ -5838,7 +5838,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "range",
-   "טווח; רכס; מטווח"
+   "טווח; רכס; מטווח; לנוע"
   ],
   [
    "rank",
@@ -5898,7 +5898,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "regret",
-   "להתחרט, חרטה"
+   "להצטער, להתחרט, חרטה"
   ],
   [
    "regularly",
@@ -5946,7 +5946,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "ruin",
-   "להרוס"
+   "להרוס; חורבה"
   ],
   [
    "sacrifice",
@@ -5978,7 +5978,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "selective",
-   "סלקטיבי"
+   "בררני, סלקטיבי"
   ],
   [
    "self-confidence",
@@ -5990,7 +5990,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "separation",
-   "הפרדה"
+   "הפרדה; פרידה"
   ],
   [
    "several",
@@ -5998,7 +5998,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "share",
-   "מניה; לחלוק"
+   "לשתף, מניה; לחלוק; חלק"
   ],
   [
    "shelf (shelves)",
@@ -6006,7 +6006,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "shift",
-   "משמרת; להזיז"
+   "שינוי, משמרת; להזיז"
   ],
   [
    "side effect",
@@ -6014,7 +6014,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "sight",
-   "ראייה, כוונת"
+   "ראייה, כוונת; מראה"
   ],
   [
    "significantly",
@@ -6038,7 +6038,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "speaker",
-   "דובר"
+   "דובר; רמקול"
   ],
   [
    "spice",
@@ -6046,7 +6046,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "spot",
-   "כתם; לזהות"
+   "כתם; לזהות; מקום"
   ],
   [
    "spread",
@@ -6074,7 +6074,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "study",
-   "מחקר; חדר עבודה"
+   "ללמוד, מחקר; חדר עבודה"
   ],
   [
    "subject",
@@ -6086,7 +6086,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "surface",
-   "פני שטח"
+   "משטח, פני שטח; לצוף"
   ],
   [
    "surprisingly",
@@ -6118,7 +6118,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "take place",
-   "התרחש"
+   "להתרחש, התרחש; להתקיים"
   ],
   [
    "teach, taught",
@@ -6250,7 +6250,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "verbal",
-   "ורבלי, מילולי"
+   "ורבלי, מילולי; בעל פה"
   ],
   [
    "veteran",
@@ -6314,7 +6314,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "witness",
-   "עד, להעיד"
+   "עד, להעיד; לחזות"
   ],
   [
    "wonder",
@@ -6364,7 +6364,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "administration",
-   "מנהל"
+   "ממשל, מנהל; ניהול"
   ],
   [
    "affect",
@@ -6384,7 +6384,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "annoy",
-   "להציק"
+   "להרגיז, להציק"
   ],
   [
    "apply",
@@ -6396,7 +6396,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "arrange",
-   "לסדר"
+   "לסדר; לארגן"
   ],
   [
    "article",
@@ -6416,7 +6416,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "association",
-   "אסוציאציה; איגוד"
+   "אסוציאציה; איגוד; קשר"
   ],
   [
    "athlete",
@@ -6424,7 +6424,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "attach",
-   "לחבר, לייחס"
+   "לצרף, לחבר, לייחס"
   ],
   [
    "attempt",
@@ -6436,7 +6436,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "attraction",
-   "משיכה"
+   "משיכה; אטרקציה"
   ],
   [
    "autograph",
@@ -6464,7 +6464,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "bald",
-   "קרח"
+   "קירח, קרח"
   ],
   [
    "ban",
@@ -6504,11 +6504,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "bond",
-   "קשר"
+   "קשר; אג\"ח"
   ],
   [
    "boost",
-   "דחף, המריץ"
+   "להגביר, דחף, המריץ"
   ],
   [
    "boot",
@@ -6536,7 +6536,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "bully",
-   "בריון"
+   "בריון; להציק"
   ],
   [
    "bury",
@@ -6548,7 +6548,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "cabin",
-   "בקתה"
+   "תא, בקתה"
   ],
   [
    "cage",
@@ -6576,7 +6576,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "cereal",
-   "דגני בוקר"
+   "דגן, דגני בוקר"
   ],
   [
    "charity",
@@ -6636,7 +6636,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "confident",
-   "בטוח בעצמו"
+   "בטוח בעצמו; בטוח"
   ],
   [
    "conservative",
@@ -6656,11 +6656,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "consult",
-   "להתייעץ"
+   "להתייעץ; לעיין ב"
   ],
   [
    "contain",
-   "להכיל, מכיל"
+   "להכיל, מכיל; לבלום"
   ],
   [
    "continent",
@@ -6728,11 +6728,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "deaf",
-   "חרש"
+   "חירש, חרש"
   ],
   [
    "debate",
-   "ויכוח, דיון"
+   "ויכוח, דיון; להתווכח"
   ],
   [
    "defeat",
@@ -6752,7 +6752,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "demand",
-   "לדרוש, דרישה"
+   "לדרוש, דרישה; ביקוש"
   ],
   [
    "dental",
@@ -6888,7 +6888,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "expand",
-   "להרחיב"
+   "להתרחב, להרחיב"
   ],
   [
    "expansion",
@@ -6904,7 +6904,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "expression",
-   "ביטוי"
+   "ביטוי; הבעה"
   ],
   [
    "extend",
@@ -6936,7 +6936,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "flood",
-   "שיטפון"
+   "שיטפון; להציף"
   ],
   [
    "footprints",
@@ -6948,7 +6948,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "foundation",
-   "יסוד"
+   "יסוד; קרן"
   ],
   [
    "frequently",
@@ -6960,7 +6960,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "fuel",
-   "דלק"
+   "דלק; לתדלק"
   ],
   [
    "fund",
@@ -6972,7 +6972,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "gain",
-   "להרוויח, לצבור, להוסיף"
+   "להשיג, להרוויח, לצבור, להוסיף; רווח"
   ],
   [
    "gap",
@@ -6984,7 +6984,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "gather",
-   "אסף"
+   "להתאסף, אסף; לאסוף"
   ],
   [
    "glove",
@@ -7016,7 +7016,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "hike",
-   "הליכה, טיול"
+   "טיול רגלי, הליכה, טיול; העלאה"
   ],
   [
    "homeland",
@@ -7024,7 +7024,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "identify",
-   "לזהות"
+   "לזהות; להזדהות"
   ],
   [
    "illness",
@@ -7072,7 +7072,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "infected",
-   "הודבק"
+   "נגוע, הודבק"
   ],
   [
    "infection",
@@ -7148,7 +7148,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "labor",
-   "להתאמץ; עבודה, עמל, לעמול"
+   "להתאמץ; עבודה, עמל, לעמול; לידה"
   ],
   [
    "lack",
@@ -7176,7 +7176,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "locate",
-   "לאתר"
+   "לאתר; למקם"
   ],
   [
    "log",
@@ -7212,7 +7212,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "measure",
-   "אמצעי; למדוד"
+   "אמצעי; למדוד; מידה"
   ],
   [
    "Mediterranean",
@@ -7220,7 +7220,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "melt",
-   "להמיס"
+   "להימס, להמיס"
   ],
   [
    "minor",
@@ -7232,7 +7232,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "moral",
-   "מוסר"
+   "מוסרי, מוסר; מוסר השכל"
   ],
   [
    "mortal",
@@ -7264,7 +7264,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "observe",
-   "להתבונן, להבחין"
+   "להתבונן, להבחין; לשמור"
   ],
   [
    "offend",
@@ -7272,7 +7272,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "offensive",
-   "מעליב, פוגעני"
+   "מעליב, פוגעני; התקפה"
   ],
   [
    "operate",
@@ -7308,7 +7308,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "pad",
-   "לרפד"
+   "פנקס, לרפד; רפידה"
   ],
   [
    "pan",
@@ -7408,7 +7408,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "provoke",
-   "להתגרות, להסית"
+   "לעורר, להתגרות, להסית"
   ],
   [
    "publisher",
@@ -7440,7 +7440,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "reasonable",
-   "הגיוני"
+   "סביר, הגיוני"
   ],
   [
    "rebellion",
@@ -7452,7 +7452,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "recognition",
-   "הכרה"
+   "הכרה; זיהוי"
   ],
   [
    "recover",
@@ -7496,7 +7496,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "reserve",
-   "עתודה, מילואים; לשמור; שמורה"
+   "להזמין מראש, עתודה, מילואים; לשמור; שמורה"
   ],
   [
    "resident",
@@ -7508,7 +7508,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "resistance",
-   "התנגדות, מחתרת"
+   "התנגדות, מחתרת; עמידות"
   ],
   [
    "resort",
@@ -7584,7 +7584,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "secure",
-   "להבטיח, לשמור, להגן"
+   "בטוח, להבטיח, לשמור, להגן; לאבטח"
   ],
   [
    "sequence",
@@ -7608,7 +7608,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "shelter",
-   "מקלט"
+   "מחסה, מקלט"
   ],
   [
    "shiny",
@@ -7616,7 +7616,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "shrink",
-   "לכווץ ,כיווץ"
+   "להתכווץ, לכווץ ,כיווץ"
   ],
   [
    "significant",
@@ -7656,11 +7656,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "stable",
-   "יציב"
+   "יציב; אורווה"
   ],
   [
    "stack",
-   "ערמה"
+   "ערימה, ערמה; לערום"
   ],
   [
    "staircase",
@@ -7704,7 +7704,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "struggle",
-   "מאבק, מאמץ"
+   "להיאבק, מאבק, מאמץ"
   ],
   [
    "stubborn",
@@ -7724,7 +7724,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "succeed",
-   "הצליח"
+   "להצליח, הצליח; לרשת"
   ],
   [
    "suitable",
@@ -7748,11 +7748,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "swallow",
-   "לבלוע"
+   "לבלוע; סנונית"
   ],
   [
    "swing",
-   "לנדנד, נדנדה"
+   "להתנדנד, לנדנד, נדנדה"
   ],
   [
    "temporary",
@@ -7792,7 +7792,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "trigger",
-   "הדק"
+   "לגרום, הדק"
   ],
   [
    "triggered",
@@ -7800,7 +7800,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "twist",
-   "תפנית; סיבוב, סיבוך"
+   "לפתל, תפנית; סיבוב, סיבוך"
   ],
   [
    "typically",
@@ -7922,7 +7922,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "abuse",
-   "התעללות, ניצול; להתעלל, לנצל"
+   "התעללות, ניצול; להתעלל, לנצל; שימוש לרעה"
   ],
   [
    "account",
@@ -8030,7 +8030,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "as far as",
-   "לגבי, בכל הנוגע ל-"
+   "ככל ש, לגבי, בכל הנוגע ל-"
   ],
   [
    "aside",
@@ -8038,7 +8038,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "associate",
-   "לקשר"
+   "לקשר; עמית"
   ],
   [
    "assume",
@@ -8074,7 +8074,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "bend",
-   "לכופף"
+   "לכופף; עיקול"
   ],
   [
    "beneath",
@@ -8082,7 +8082,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "bent",
-   "כופף"
+   "כפוף, כופף"
   ],
   [
    "berry",
@@ -8098,7 +8098,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "blame",
-   "להאשים"
+   "להאשים; אשמה"
   ],
   [
    "blanket",
@@ -8110,7 +8110,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "blow, blew",
-   "לנשוף, נשף; לפוצץ, פוצץ"
+   "לנשוף, נשף; לפוצץ, פוצץ; מכה"
   ],
   [
    "blur",
@@ -8130,11 +8130,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "broad",
-   "נרחב"
+   "רחב, נרחב; כללי"
   ],
   [
    "broadcast",
-   "לשדר"
+   "לשדר; שידור"
   ],
   [
    "butcher",
@@ -8218,7 +8218,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "conclusion",
-   "מסקנה"
+   "מסקנה; סיום"
   ],
   [
    "concrete",
@@ -8230,7 +8230,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "confession",
-   "וידוי"
+   "הודאה, וידוי"
   ],
   [
    "construct",
@@ -8338,7 +8338,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "differ",
-   "להיבדל, לחלוק"
+   "להיות שונה, להיבדל, לחלוק; לחלוק על"
   ],
   [
    "discipline",
@@ -8350,7 +8350,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "disguise",
-   "תחפושת"
+   "תחפושת; להסוות"
   ],
   [
    "disloyal",
@@ -8374,7 +8374,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "dull",
-   "סתום; משעמם; עמום"
+   "סתום; משעמם; עמום; קהה"
   ],
   [
    "duplicate",
@@ -8418,7 +8418,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "engagement",
-   "התחייבות; אירוסין"
+   "מעורבות, התחייבות; אירוסין"
   ],
   [
    "enjoyable",
@@ -8462,7 +8462,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "establish",
-   "לייסד"
+   "לייסד; לבסס"
   ],
   [
    "every now and then",
@@ -8470,7 +8470,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "evolutionary",
-   "התפתחותי"
+   "אבולוציוני, התפתחותי"
   ],
   [
    "exclusively",
@@ -8502,7 +8502,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "fancy",
-   "מחבב; מגונדר"
+   "מפואר, מחבב; מגונדר; לחבב"
   ],
   [
    "faulty",
@@ -8522,7 +8522,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "folk",
-   "עממי"
+   "עממי; אנשים"
   ],
   [
    "for the most part",
@@ -8558,7 +8558,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "fulfill",
-   "להגשים"
+   "למלא, להגשים"
   ],
   [
    "fur",
@@ -8574,7 +8574,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "genuine",
-   "אמיתי, מקורי"
+   "אמיתי, מקורי; כן"
   ],
   [
    "gesture",
@@ -8586,7 +8586,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "graduate",
-   "לסיים לימודים"
+   "בוגר, לסיים לימודים"
   ],
   [
    "gross",
@@ -8618,7 +8618,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "harsh",
-   "נוקשה, אכזרי"
+   "קשה, נוקשה, אכזרי; חמור"
   ],
   [
    "hierarchy",
@@ -8630,7 +8630,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "horrific",
-   "איום"
+   "מזעזע, איום"
   ],
   [
    "hospitalize",
@@ -8666,7 +8666,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "in favor of",
-   "לטובת"
+   "בעד, לטובת"
   ],
   [
    "in spite of",
@@ -8746,7 +8746,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "involve",
-   "לערב"
+   "לכלול, לערב"
   ],
   [
    "jog",
@@ -8762,7 +8762,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "judgment",
-   "שיפוט"
+   "שיפוט; שיקול דעת, פסק דין"
   ],
   [
    "just",
@@ -8770,7 +8770,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "lane",
-   "מסלול"
+   "נתיב, מסלול"
   ],
   [
    "launch",
@@ -8838,7 +8838,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "mandate",
-   "מנדט, ייפוי כוח"
+   "מנדט, ייפוי כוח; לחייב"
   ],
   [
    "manner",
@@ -8874,7 +8874,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "migrate",
-   "להגר"
+   "לנדוד, להגר"
   ],
   [
    "migration",
@@ -8914,7 +8914,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "nationality",
-   "לאום"
+   "לאום; אזרחות"
   ],
   [
    "negotiate",
@@ -8990,7 +8990,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "orientation",
-   "התמצאות"
+   "התמצאות; כיוון"
   ],
   [
    "originality",
@@ -9042,11 +9042,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "pit",
-   "בור"
+   "בור; גלעין"
   ],
   [
    "plague",
-   "מגפה"
+   "מגפה; להטריד"
   ],
   [
    "plot",
@@ -9166,7 +9166,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "reservation",
-   "שמורה; שריון מקום"
+   "הזמנה, שמורה; שריון מקום; הסתייגות"
   ],
   [
    "residence",
@@ -9178,7 +9178,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "result in",
-   "הסתיים ב-"
+   "לגרום ל, הסתיים ב-; להוביל ל"
   ],
   [
    "retire",
@@ -9186,7 +9186,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "retreat",
-   "לסגת, נסיגה"
+   "לסגת, נסיגה; מפלט"
   ],
   [
    "revolutionary",
@@ -9206,7 +9206,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "scale",
-   "מאזניים; לעלות, לטפס; סולם, סקלה"
+   "קנה מידה, מאזניים; לעלות, לטפס; סולם, סקלה"
   ],
   [
    "season",
@@ -9258,7 +9258,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "sober",
-   "פיכח"
+   "פיכח; רציני"
   ],
   [
    "sophisticated",
@@ -9286,7 +9286,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "spring",
-   "מעיין; אביב"
+   "מעיין; אביב; קפיץ"
   ],
   [
    "stability",
@@ -9322,7 +9322,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "superior",
-   "עליון"
+   "עדיף, עליון; ממונה"
   ],
   [
    "surveillance",
@@ -9338,11 +9338,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "temple",
-   "מקדש"
+   "מקדש; רקה"
   ],
   [
    "tend",
-   "נוטה"
+   "נוטה; לטפל"
   ],
   [
    "tension",
@@ -9374,7 +9374,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "trial",
-   "נסיון; משפט"
+   "נסיון; משפט; ניסוי"
   ],
   [
    "tribe",
@@ -9390,7 +9390,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "unconscious",
-   "מחוסר הכרה"
+   "מחוסר הכרה; לא מודע"
   ],
   [
    "uncountable",
@@ -9482,7 +9482,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "withdraw",
-   "לסגת, לפרוש"
+   "לסגת, לפרוש; למשוך"
   ],
   [
    "worthy",
@@ -9540,7 +9540,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "align",
-   "ליישר; להסתדר בשורה"
+   "ליישר; להסתדר בשורה; להתאים"
   ],
   [
    "alongside",
@@ -9556,7 +9556,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "anchor",
-   "עוגן"
+   "עוגן; קריין"
   ],
   [
    "anticipation",
@@ -9588,7 +9588,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "asset",
-   "נכס"
+   "נכס; יתרון"
   ],
   [
    "assign",
@@ -9644,7 +9644,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "certify",
-   "להצהיר, לאשר"
+   "להצהיר, לאשר; להסמיך"
   ],
   [
    "circuit",
@@ -9728,11 +9728,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "conquer",
-   "לכבוש"
+   "לכבוש; להתגבר על"
   ],
   [
    "conscious",
-   "מודע"
+   "מודע; בהכרה"
   ],
   [
    "consequence",
@@ -9760,7 +9760,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "continuous",
-   "מתמשך"
+   "רציף, מתמשך"
   ],
   [
    "contribute",
@@ -9816,7 +9816,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "dairy",
-   "מחלבה"
+   "חלבי, מחלבה"
   ],
   [
    "decade",
@@ -9848,7 +9848,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "desirable",
-   "נחשק"
+   "רצוי, נחשק"
   ],
   [
    "desperation",
@@ -9924,11 +9924,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "distribute",
-   "להפיץ"
+   "להפיץ; לחלק"
   ],
   [
    "distribution",
-   "הפצה"
+   "הפצה; חלוקה"
   ],
   [
    "disturbance",
@@ -9940,7 +9940,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "downhill",
-   "מדרון, מורד"
+   "מדרון, מורד; מתדרדר"
   ],
   [
    "drain",
@@ -9948,7 +9948,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "drift",
-   "זרם, סחף"
+   "לנדוד, זרם, סחף"
   ],
   [
    "drip",
@@ -10024,7 +10024,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "erosion",
-   "סחף, כרסום"
+   "שחיקה, סחף, כרסום"
   ],
   [
    "essentially",
@@ -10188,7 +10188,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "grocery",
-   "מכולת"
+   "מכולת; מצרכים"
   ],
   [
    "guidance",
@@ -10212,7 +10212,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "herb",
-   "עשב"
+   "עשב תיבול, עשב"
   ],
   [
    "heroine",
@@ -10276,7 +10276,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "inconsistent",
-   "לא עקבי"
+   "לא עקבי; סותר"
   ],
   [
    "infectious",
@@ -10348,11 +10348,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "inventory",
-   "מצאי"
+   "מלאי, מצאי; רשימת מלאי"
   ],
   [
    "jewel",
-   "תכשיט"
+   "תכשיט; אבן חן"
   ],
   [
    "junkyard",
@@ -10404,7 +10404,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "margin",
-   "שוליים, מרווח"
+   "שוליים, מרווח; הפרש"
   ],
   [
    "masculine",
@@ -10460,11 +10460,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "obligation",
-   "התחייבות"
+   "התחייבות; חובה"
   ],
   [
    "observer",
-   "משקיף"
+   "משקיף; צופה"
   ],
   [
    "obtain",
@@ -10480,11 +10480,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "occasions",
-   "הזדמנויות, מקרים"
+   "אירוע, הזדמנויות, מקרים"
   ],
   [
    "offender",
-   "פושע, פוגע"
+   "עבריין, פושע, פוגע"
   ],
   [
    "offense",
@@ -10572,7 +10572,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "predict",
-   "לצפות מראש"
+   "לחזות, לצפות מראש; לנבא"
   ],
   [
    "prediction",
@@ -10600,11 +10600,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "proportion",
-   "שיעור, מידה"
+   "יחס, שיעור, מידה"
   ],
   [
    "proposition",
-   "הצעה"
+   "הצעה; טענה"
   ],
   [
    "publicized",
@@ -10612,7 +10612,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "pupil",
-   "תלמיד"
+   "תלמיד; אישון"
   ],
   [
    "purification",
@@ -10628,11 +10628,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "quake",
-   "רעד"
+   "לרעוד, רעד; רעידת אדמה"
   ],
   [
    "qualify",
-   "להיות מוסמך"
+   "להעפיל, להיות מוסמך"
   ],
   [
    "railroad",
@@ -10652,7 +10652,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "reconstruct",
-   "לשחזר"
+   "לשחזר; לבנות מחדש"
   ],
   [
    "recreate",
@@ -10660,7 +10660,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "recruit",
-   "לגייס"
+   "לגייס; טירון"
   ],
   [
    "recurring",
@@ -10668,7 +10668,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "refer",
-   "מתייחס"
+   "להתייחס, מתייחס; להפנות"
   ],
   [
    "reflect",
@@ -10676,7 +10676,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "reflection",
-   "השתקפות"
+   "השתקפות; הרהור"
   ],
   [
    "refugee",
@@ -10716,7 +10716,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "relocate",
-   "למקם מחדש"
+   "לעבור, למקם מחדש; להעביר"
   ],
   [
    "renovation",
@@ -10736,7 +10736,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "resigned",
-   "התפטר"
+   "התפטר; משלים"
   ],
   [
    "resolve",
@@ -10748,7 +10748,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "resume",
-   "להמשיך"
+   "להמשיך; קורות חיים"
   ],
   [
    "revert",
@@ -10780,7 +10780,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "robe",
-   "חלוק"
+   "חלוק; גלימה"
   ],
   [
    "ruler",
@@ -10812,7 +10812,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "shuttle",
-   "מעבורת"
+   "הסעה, מעבורת"
   ],
   [
    "sibling",
@@ -10852,7 +10852,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "spark",
-   "גיץ, ניצוץ"
+   "גיץ, ניצוץ; להצית"
   ],
   [
    "specify",
@@ -10924,7 +10924,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "suspend",
-   "להשעות"
+   "להשעות; לתלות, להשהות"
   ],
   [
    "suspicion",
@@ -10960,7 +10960,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "transmit",
-   "לשדר"
+   "לשדר; להעביר"
   ],
   [
    "transmitter",
@@ -11110,7 +11110,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "adjust",
-   "להתרגל; לכוונן"
+   "להתאים, להתרגל; לכוונן"
   ],
   [
    "admirable",
@@ -11138,7 +11138,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "airborne",
-   "נישא באוויר"
+   "נישא באוויר; באוויר"
   ],
   [
    "allowance",
@@ -11178,7 +11178,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "appreciation",
-   "הערכה"
+   "הערכה; תודה"
   ],
   [
    "approximately",
@@ -11242,7 +11242,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "briefly",
-   "בקצרה"
+   "בקצרה; לזמן קצר"
   ],
   [
    "burial",
@@ -11254,7 +11254,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "cater",
-   "לספק"
+   "לספק קייטרינג, לספק"
   ],
   [
    "caterpillar",
@@ -11282,7 +11282,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "characteristic",
-   "מאפיין"
+   "מאפיין; אופייני"
   ],
   [
    "civil",
@@ -11338,7 +11338,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "conserve",
-   "לשמר"
+   "לשמר; לחסוך"
   ],
   [
    "considering",
@@ -11390,7 +11390,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "cripple",
-   "להטיל מום"
+   "לשתק, להטיל מום; נכה"
   ],
   [
    "crucial",
@@ -11406,7 +11406,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "dart",
-   "חץ"
+   "חץ; לזנק"
   ],
   [
    "dealt",
@@ -11414,7 +11414,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "decay",
-   "ריקבון"
+   "להירקב, ריקבון"
   ],
   [
    "decline",
@@ -11434,7 +11434,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "delight",
-   "תענוג"
+   "תענוג; לשמח"
   ],
   [
    "demented",
@@ -11450,7 +11450,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "despair",
-   "להתייאש"
+   "ייאוש, להתייאש"
   ],
   [
    "despise",
@@ -11462,7 +11462,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "determined",
-   "נחוש, נחרץ"
+   "נחוש, נחרץ; לקבוע"
   ],
   [
    "devote",
@@ -11474,7 +11474,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "discourage",
-   "להרתיע, לשכנע שלא"
+   "לייאש, להרתיע, לשכנע שלא; להניא"
   ],
   [
    "disgrace",
@@ -11494,11 +11494,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "disregard",
-   "להתעלם"
+   "להתעלם; זלזול"
   ],
   [
    "dissolve",
-   "להתמוסס"
+   "להתמוסס; לפרק"
   ],
   [
    "distinct",
@@ -11506,11 +11506,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "distinctive",
-   "מיוחד"
+   "ייחודי, מיוחד"
   ],
   [
    "distress",
-   "מצוקה"
+   "מצוקה; לצער"
   ],
   [
    "disuse",
@@ -11570,7 +11570,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "enhance",
-   "להעצים"
+   "לשפר, להעצים"
   ],
   [
    "enthusiast",
@@ -11602,7 +11602,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "exile",
-   "להגלות, לגרש"
+   "גלות, להגלות, לגרש"
   ],
   [
    "expel",
@@ -11622,7 +11622,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "fabric",
-   "בד"
+   "בד; מרקם"
   ],
   [
    "fatigue",
@@ -11666,11 +11666,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "fraction",
-   "שבר"
+   "שבר; חלק קטן"
   ],
   [
    "fracture",
-   "שבר"
+   "שבר; לשבור"
   ],
   [
    "fragrance",
@@ -11698,7 +11698,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "glance",
-   "מבט חטוף"
+   "מבט חטוף; להעיף מבט"
   ],
   [
    "goods",
@@ -11818,7 +11818,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "impose",
-   "לכפות"
+   "להטיל, לכפות"
   ],
   [
    "imprisoned",
@@ -11918,15 +11918,15 @@ window.UNIT_DATA_EN = {
   ],
   [
    "laid",
-   "מונח"
+   "להניח, מונח; להטיל"
   ],
   [
    "lean",
-   "להישען"
+   "להישען; רזה"
   ],
   [
    "lie, lay",
-   "לשכב, שכב"
+   "לשכב, שכב; להימצא"
   ],
   [
    "likewise",
@@ -11970,11 +11970,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "mastery",
-   "מומחיות"
+   "שליטה, מומחיות"
   ],
   [
    "match",
-   "גפרור; התאמה, להתאים"
+   "משחק, גפרור; התאמה, להתאים"
   ],
   [
    "maturity",
@@ -12018,7 +12018,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "mock",
-   "ללעוג"
+   "ללעוג; מדומה"
   ],
   [
    "moderate",
@@ -12026,7 +12026,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "modest",
-   "צנוע"
+   "צנוע; מתון"
   ],
   [
    "moist",
@@ -12074,7 +12074,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "nobility",
-   "אצולה"
+   "אצולה; אצילות"
   ],
   [
    "notion",
@@ -12110,7 +12110,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "occupy",
-   "להעסיק; לתפוס, לאכלס"
+   "להעסיק; לתפוס, לאכלס; לכבוש"
   ],
   [
    "occurrence",
@@ -12158,7 +12158,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "pedestrian",
-   "הולך רגל"
+   "הולך רגל; שגרתי"
   ],
   [
    "perception",
@@ -12166,7 +12166,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "persist",
-   "להתמיד, להתעקש"
+   "להתמיד, להתעקש; להימשך"
   ],
   [
    "persuade",
@@ -12190,11 +12190,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "pinch",
-   "לצבוט"
+   "לצבוט; קורט"
   ],
   [
    "pioneer",
-   "חלוץ"
+   "חלוץ; לפרוץ דרך"
   ],
   [
    "plaster",
@@ -12202,7 +12202,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "plead",
-   "לעתור, להתחנן"
+   "לעתור, להתחנן; לטעון"
   ],
   [
    "pledge",
@@ -12270,7 +12270,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "pursue",
-   "לרדוף"
+   "לרדוף; לשאוף"
   ],
   [
    "query",
@@ -12298,15 +12298,15 @@ window.UNIT_DATA_EN = {
   ],
   [
    "refined",
-   "מעודן, מלוטש"
+   "מעודן, מלוטש; מזוקק"
   ],
   [
    "regard",
-   "להתייחס, להחשיב"
+   "להתייחס, להחשיב; כבוד"
   ],
   [
    "regulate",
-   "לווסת"
+   "להסדיר, לווסת"
   ],
   [
    "rehearsal",
@@ -12334,7 +12334,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "remedy",
-   "תרופה"
+   "תרופה; לתקן"
   ],
   [
    "repelled",
@@ -12386,7 +12386,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "rim",
-   "שפה"
+   "שפה; חישוק"
   ],
   [
    "rural",
@@ -12398,7 +12398,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "scarce",
-   "נדיר"
+   "נדיר; מועט"
   ],
   [
    "scatter",
@@ -12410,7 +12410,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "sentiments",
-   "רגשות"
+   "רגשות; דעה"
   ],
   [
    "settle",
@@ -12470,7 +12470,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "spike",
-   "יתד"
+   "זינוק, יתד; מסמר"
   ],
   [
    "steer",
@@ -12506,7 +12506,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "supplement",
-   "תוסף"
+   "תוסף; להשלים"
   ],
   [
    "surrounding",
@@ -12618,7 +12618,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "virtually",
-   "למעשה, בעצם"
+   "כמעט, למעשה, בעצם"
   ],
   [
    "wage",
@@ -12626,7 +12626,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "wanted",
-   "מבוקש"
+   "לרצות, מבוקש"
   ],
   [
    "wardrobe",
@@ -12646,7 +12646,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "welfare",
-   "סעד"
+   "רווחה, סעד"
   ],
   [
    "widespread",
@@ -12736,7 +12736,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "amid",
-   "בקרב, בין"
+   "בתוך, בקרב, בין"
   ],
   [
    "ample",
@@ -12784,7 +12784,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "arise, arose",
-   "לקום, קם"
+   "לצוץ, לקום, קם"
   ],
   [
    "ark",
@@ -12824,7 +12824,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "augment",
-   "להרחיב"
+   "להגדיל, להרחיב"
   ],
   [
    "awe",
@@ -12872,7 +12872,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "burden",
-   "עול"
+   "נטל, עול; להכביד"
   ],
   [
    "burglar",
@@ -12892,7 +12892,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "cavity",
-   "חור"
+   "חלל, חור; עששת"
   ],
   [
    "characterize",
@@ -12928,7 +12928,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "communal",
-   "משותף, ציבורי"
+   "קהילתי, משותף, ציבורי"
   ],
   [
    "comparable",
@@ -12944,7 +12944,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "composed",
-   "רגוע, שלו, שולט בעצמו; הלחין, חיבר"
+   "רגוע, שלו, שולט בעצמו; הלחין, חיבר; מורכב"
   ],
   [
    "comprehend",
@@ -13020,7 +13020,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "correspondence",
-   "התכתבות"
+   "התכתבות; התאמה"
   ],
   [
    "correspondingly",
@@ -13028,7 +13028,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "counsel",
-   "לייעץ, להדריך; פרקליט, יועץ"
+   "עצה, לייעץ, להדריך; פרקליט, יועץ; עורך דין"
   ],
   [
    "counterpart",
@@ -13080,11 +13080,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "defer",
-   "לעכב, לדחות"
+   "לעכב, לדחות; להישמע"
   ],
   [
    "deficiency",
-   "מחסור"
+   "מחסור; ליקוי"
   ],
   [
    "deformity",
@@ -13116,11 +13116,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "derive",
-   "לשאוב, להפיק, לגזור מ-"
+   "לנבוע, לשאוב, להפיק, לגזור מ-"
   ],
   [
    "differences",
-   "חילוקי דעות"
+   "חילוקי דעות; שוני"
   ],
   [
    "disciples",
@@ -13140,11 +13140,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "dispatch",
-   "לשגר"
+   "לשלוח, לשגר; דיווח"
   ],
   [
    "displacement",
-   "עקירה"
+   "עקירה; תזוזה"
   ],
   [
    "disprove",
@@ -13160,7 +13160,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "dissection",
-   "חיתוך, ביתור"
+   "ניתוח, חיתוך, ביתור; נתיחה"
   ],
   [
    "divert",
@@ -13168,7 +13168,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "draw",
-   "תיקו, שוויון; לצייר"
+   "תיקו, שוויון; לצייר; למשוך"
   ],
   [
    "drought",
@@ -13180,7 +13180,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "dwell",
-   "להתגורר"
+   "להתגורר; להתעכב"
   ],
   [
    "dwelling",
@@ -13216,11 +13216,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "enlist",
-   "להתגייס"
+   "להתגייס; לגייס"
   ],
   [
    "envision",
-   "לחזות, לצפות"
+   "לדמיין, לחזות, לצפות"
   ],
   [
    "equates",
@@ -13384,7 +13384,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "hasty",
-   "מהיר, בהול"
+   "מהיר, בהול; פזיז"
   ],
   [
    "haul",
@@ -13424,7 +13424,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "illuminate",
-   "להאיר"
+   "להאיר; להבהיר"
   ],
   [
    "immense",
@@ -13444,7 +13444,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "in order",
-   "תקין, מסודר"
+   "כדי, תקין, מסודר"
   ],
   [
    "incentive",
@@ -13468,7 +13468,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "induce",
-   "לגרום, לייצר"
+   "לגרום, לייצר; לשכנע"
   ],
   [
    "inevitably",
@@ -13476,7 +13476,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "inferred",
-   "נגזר, משתמע"
+   "להסיק, נגזר, משתמע"
   ],
   [
    "inflammation",
@@ -13488,7 +13488,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "inhibit",
-   "לרסן"
+   "לעכב, לרסן; למנוע"
   ],
   [
    "inquire",
@@ -13496,7 +13496,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "inquiry",
-   "חקירה"
+   "בירור, חקירה"
   ],
   [
    "insulate",
@@ -13548,7 +13548,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "launder",
-   "לכבס"
+   "לכבס; להלבין"
   ],
   [
    "legislate",
@@ -13584,7 +13584,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "loosely",
-   "באופן רפוי"
+   "באופן רופף, באופן רפוי; בערך"
   ],
   [
    "lumber",
@@ -13616,11 +13616,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "mobilize",
-   "לנייד, להניע"
+   "לגייס, לנייד, להניע"
   ],
   [
    "mold",
-   "לעצב; עובש"
+   "לעצב; עובש; תבנית"
   ],
   [
    "moth",
@@ -13644,7 +13644,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "negate",
-   "לשלול"
+   "לשלול; לבטל"
   ],
   [
    "negligent",
@@ -13664,7 +13664,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "noted",
-   "ידוע, מפורסם"
+   "לציין, ידוע, מפורסם"
   ],
   [
    "nurture",
@@ -13692,7 +13692,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "orient",
-   "להתמצא"
+   "לכוון, להתמצא"
   ],
   [
    "originate",
@@ -13728,7 +13728,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "perceive",
-   "להבחין, לראות"
+   "לתפוס, להבחין, לראות"
   ],
   [
    "persuasion",
@@ -13764,7 +13764,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "posture",
-   "יציבה, תנוחה"
+   "יציבה, תנוחה; עמדה"
   ],
   [
    "potent",
@@ -13800,7 +13800,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "prescribe",
-   "לרשום מרשם"
+   "לרשום, לרשום מרשם; להורות"
   ],
   [
    "prescription",
@@ -13808,7 +13808,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "presently",
-   "כעת"
+   "כעת; בקרוב"
   ],
   [
    "prevalent",
@@ -13860,7 +13860,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "pursuit",
-   "מרדף"
+   "מרדף; שאיפה"
   ],
   [
    "quantify",
@@ -13876,7 +13876,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "readily",
-   "ללא קושי"
+   "בקלות, ללא קושי; ברצון"
   ],
   [
    "reap",
@@ -13892,7 +13892,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "recipient",
-   "נמען"
+   "מקבל, נמען"
   ],
   [
    "recollection",
@@ -13908,7 +13908,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "reign",
-   "שלטון"
+   "שלטון; למלוך"
   ],
   [
    "reincarnation",
@@ -13936,7 +13936,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "riddle",
-   "חידה"
+   "חידה; לנקב"
   ],
   [
    "ridicule",
@@ -13956,11 +13956,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "sake",
-   "תועלת, עניין"
+   "למען, תועלת, עניין"
   ],
   [
    "sanctuary",
-   "מקדש; מקלט"
+   "מקדש; מקלט; שמורה"
   ],
   [
    "saturated",
@@ -13968,7 +13968,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "saw",
-   "מסור"
+   "לראות, מסור"
   ],
   [
    "scope",
@@ -13988,7 +13988,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "seek, sought",
-   "לחפש, חיפש"
+   "לחפש, חיפש; לבקש"
   ],
   [
    "segregation",
@@ -14000,7 +14000,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "seizure",
-   "התקף"
+   "התקף; תפיסה"
   ],
   [
    "seldom",
@@ -14108,7 +14108,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "sympathetic",
-   "אוהד"
+   "אוהד; מבין"
   ],
   [
    "tainted",
@@ -14156,7 +14156,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "unfold",
-   "נפרש, נפתח, התגלה; לפתוח קיפול"
+   "להתפתח, נפרש, נפתח, התגלה; לפתוח קיפול; לפרוש"
   ],
   [
    "unparalleled",
@@ -14188,7 +14188,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "vessel",
-   "כלי שיט"
+   "כלי, כלי שיט"
   ],
   [
    "viable",
@@ -14196,7 +14196,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "virtue",
-   "מעלה"
+   "מידה טובה, מעלה"
   ],
   [
    "vivid",
@@ -14220,7 +14220,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "wholesale",
-   "סיטונאות"
+   "סיטונאי, סיטונאות; גורף"
   ],
   [
    "wickedly",
@@ -14232,7 +14232,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "wind",
-   "למתוח; רוח"
+   "למתוח; רוח; ללפף"
   ],
   [
    "wound",
@@ -14254,7 +14254,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "abide",
-   "לציית"
+   "לציית; לסבול"
   ],
   [
    "abrupt",
@@ -14266,7 +14266,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "acclaim",
-   "להריע, לשבח"
+   "שבח, להריע, לשבח"
   ],
   [
    "accomplices",
@@ -14298,7 +14298,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "affluence",
-   "שפע"
+   "עושר, שפע"
   ],
   [
    "affluent",
@@ -14306,7 +14306,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "agitate",
-   "להסעיר, לזעזע, לעצבן"
+   "להסעיר, לזעזע, לעצבן; לנער"
   ],
   [
    "agonize",
@@ -14362,7 +14362,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "ascertain",
-   "לוודא"
+   "לוודא; לברר"
   ],
   [
    "aspiration",
@@ -14406,7 +14406,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "bland",
-   "תפל"
+   "תפל; משעמם"
   ],
   [
    "bleak",
@@ -14426,11 +14426,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "canvass",
-   "לבדוק, לסקור"
+   "לגייס תמיכה, לבדוק, לסקור"
   ],
   [
    "capitalize",
-   "לנצל"
+   "לנצל; לכתוב ברישיות"
   ],
   [
    "caste",
@@ -14462,7 +14462,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "comprise",
-   "לכלול"
+   "לכלול; להיות מורכב"
   ],
   [
    "compulsory",
@@ -14494,7 +14494,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "condone",
-   "לסלוח, למחול"
+   "להשלים עם, לסלוח, למחול"
   ],
   [
    "confer",
@@ -14570,7 +14570,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "dampen",
-   "לדכא"
+   "להרטיב, לדכא; להחליש"
   ],
   [
    "dandy",
@@ -14590,7 +14590,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "deliberation",
-   "דיון"
+   "שיקול דעת, דיון"
   ],
   [
    "delicacy",
@@ -14678,7 +14678,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "diminish",
-   "לצמצם"
+   "לפחות, לצמצם"
   ],
   [
    "disarmament",
@@ -14734,7 +14734,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "diverge",
-   "לסטות"
+   "להתפצל, לסטות"
   ],
   [
    "divinity",
@@ -14750,7 +14750,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "draw (drew)",
-   "לשלוף, שלף"
+   "לצייר, לשלוף, שלף; למשוך"
   ],
   [
    "drench",
@@ -14794,11 +14794,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "enclose",
-   "לצרף"
+   "לצרף; להקיף"
   ],
   [
    "enclosing",
-   "לסגור, להקיף"
+   "לצרף, לסגור, להקיף"
   ],
   [
    "enclosure",
@@ -14858,7 +14858,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "fabricate",
-   "לבדות"
+   "לבדות; לייצר"
   ],
   [
    "facilitate",
@@ -14894,11 +14894,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "fluctuation",
-   "חוסר יציבות"
+   "תנודה, חוסר יציבות"
   ],
   [
    "foil",
-   "לסכל"
+   "לסכל; רדיד"
   ],
   [
    "foremost",
@@ -14934,11 +14934,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "fume",
-   "אדים, עשן"
+   "לזעום, אדים, עשן"
   ],
   [
    "furnish",
-   "לרהט"
+   "לרהט; לספק"
   ],
   [
    "futile",
@@ -14946,7 +14946,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "gauge",
-   "למדוד, להעריך, מידה"
+   "מד, למדוד, להעריך, מידה"
   ],
   [
    "genial",
@@ -14970,7 +14970,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "granted (that)",
-   "בהנחה ש-, נתון ש-"
+   "אמנם, בהנחה ש-, נתון ש-"
   ],
   [
    "gratify",
@@ -14990,7 +14990,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "harness",
-   "לרתום"
+   "לרתום; רתמה"
   ],
   [
    "hearsay",
@@ -15002,7 +15002,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "hegemony",
-   "הגמוניה"
+   "הגמוניה; שליטה"
   ],
   [
    "herald",
@@ -15066,7 +15066,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "infancy",
-   "ינקות"
+   "ינקות; שלב ראשוני"
   ],
   [
    "infraction",
@@ -15098,11 +15098,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "interjection",
-   "הערה, הפרעה לשיחה"
+   "מילת קריאה, הערה, הפרעה לשיחה"
   ],
   [
    "interminable",
-   "נצחי"
+   "אינסופי, נצחי; בלתי נגמר"
   ],
   [
    "invariably",
@@ -15118,7 +15118,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "keep",
-   "לשמור; חלק מהמצודה"
+   "לשמור; חלק מהמצודה; להמשיך"
   ],
   [
    "keystone",
@@ -15318,7 +15318,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "penned",
-   "כתב"
+   "כתב; לכלוא"
   ],
   [
    "perch",
@@ -15366,7 +15366,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "populous",
-   "מאוכלס בצפיפות"
+   "רב אוכלוסין, מאוכלס בצפיפות"
   ],
   [
    "postage",
@@ -15406,7 +15406,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "proliferate",
-   "התפשט במהירות"
+   "להתרבות, התפשט במהירות"
   ],
   [
    "prolific",
@@ -15418,7 +15418,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "prompted",
-   "הביא לידי"
+   "לעורר, הביא לידי; לגרום"
   ],
   [
    "prop",
@@ -15442,7 +15442,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "quench",
-   "לספק, להרוות"
+   "לספק, להרוות; לכבות"
   ],
   [
    "rearing",
@@ -15534,7 +15534,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "scales",
-   "קשקשים (של דג)"
+   "מאזניים, קשקשים (של דג)"
   ],
   [
    "scorn",
@@ -15550,7 +15550,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "sensations",
-   "חדשות מרעישות"
+   "תחושה, חדשות מרעישות; סנסציה"
   ],
   [
    "sheer",
@@ -15558,11 +15558,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "shingles",
-   "רעף"
+   "שלבקת חוגרת, רעף"
   ],
   [
    "shroud",
-   "תכריך, עטיפה"
+   "תכריך, עטיפה; לאפוף"
   ],
   [
    "slander",
@@ -15570,11 +15570,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "slant",
-   "אלכסון, נטייה"
+   "הטיה, אלכסון, נטייה; שיפוע"
   ],
   [
    "slate",
-   "לקבוע (מועד), להכניס לרשימה; רעף, לוח"
+   "צפחה, לקבוע (מועד), להכניס לרשימה; רעף, לוח; להכניס מישהו לרשימה"
   ],
   [
    "smuggle",
@@ -15594,11 +15594,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "solicit",
-   "לשדל / להדיח; לבקש/לחפש בתחינה"
+   "לבקש, לשדל / להדיח; לבקש/לחפש בתחינה"
   ],
   [
    "solitude",
-   "בדידות"
+   "בדידות; התבודדות"
   ],
   [
    "speck",
@@ -15654,7 +15654,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "subdue",
-   "להכניע"
+   "להכניע; לרסן"
   ],
   [
    "superfluous",
@@ -15718,7 +15718,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "transcend",
-   "להתעלות"
+   "להתעלות; לחרוג"
   ],
   [
    "transpire",
@@ -15738,11 +15738,11 @@ window.UNIT_DATA_EN = {
   ],
   [
    "upheaval",
-   "מהפך"
+   "טלטלה, מהפך"
   ],
   [
    "uphold",
-   "להחזיק, לתמוך, לדגול"
+   "לקיים, להחזיק, לתמוך, לדגול"
   ],
   [
    "upholstery",
@@ -15754,7 +15754,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "usher",
-   "סדרן"
+   "סדרן; ללוות"
   ],
   [
    "utter",
@@ -15782,7 +15782,7 @@ window.UNIT_DATA_EN = {
   ],
   [
    "vocation",
-   "מקצוע"
+   "ייעוד, מקצוע"
   ],
   [
    "vociferous",

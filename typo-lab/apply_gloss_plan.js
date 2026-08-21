@@ -36,7 +36,12 @@ for (const r of plan) {
   const hits = src.match(re);
   if (!hits) { failed.push({ term, why: 'לא נמצאה התאמה' }); continue; }
   if (hits.length > 1) { failed.push({ term, why: hits.length + ' התאמות — לא יחידה' }); continue; }
-  src = src.replace(re, '$1' + to.replace(/\$/g, '$$$$') + '$2');
+  /* ⛔ הפירוש נכתב **בתוך מחרוזת JS**, ולכן חייב בריחה. `bond` → `קשר; אג"ח`
+     מכיל גרשיים, והגרסה הראשונה הזריקה אותן כמות שהן ושברה את הקובץ
+     (`Unexpected identifier 'ח'`). השער אחרי הכתיבה תפס וסירב לכתוב.
+     `JSON.stringify(...).slice(1,-1)` נותן בדיוק את התוכן המוברח, בלי המרכאות. */
+  const toEsc = JSON.stringify(to).slice(1, -1);
+  src = src.replace(re, '$1' + toEsc.replace(/\$/g, '$$$$') + '$2');
   applied.push({ term, from, to });
 }
 

@@ -89,6 +89,12 @@ function build(cur) {
   for (const r of tsv('gloss-decisions-50.tsv'))
     push((r['מילה'] || '').trim(), (r['הפירוש החדש'] || '').trim(), 'הכרעה', r['נימוק'] || '');
 
+  /* מקור 4 · 449 ממצאי הפאנל שעברו **פה אחד 3/3** בשלב 3 של הביקורת העיוורת.
+     ⭐ הפאנל דחה 898 הצעות אחרות (62%), ולכן אלה אינן חותמת גומי.
+     נמדד ש-99% מהם פותחים תשובה שנפסלת היום: typo-lab/measure_audit_impact.js */
+  for (const r of tsv('gloss-decisions-panel.tsv'))
+    push((r['מילה'] || '').trim(), (r['הפירוש החדש'] || '').trim(), 'פאנל', r['נימוק'] || '');
+
   return { plan, skipped };
 }
 
