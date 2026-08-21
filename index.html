@@ -52,6 +52,20 @@
     --paper:#f6f1e7; --paper-deep:#efe7d6; --card:#fffdf8; --ink:#2c2620; --ink-soft:#6b6254;   /* היה #736a5c = 4.32:1 על --paper-deep, מתחת ל-AA; עכשיו עובר גם שם */
     --gold:#c9962f; --accent:#b5482e; --accent-deep:#8f3620; --green:#4e7d4e; --line:#e3d8c4;
     --shadow:0 10px 30px -14px rgba(90,60,20,.4);
+    /* ===== עומק · נוסף 21.8.2026 =====
+       ⭐ המודל לא הומצא כאן. מסך ההתחברות כבר החזיק אותו במלואו · כיוון אור אחד,
+       קו ספקולרי פנימי, ושקעים אמיתיים · והוא היה כלוא שם. שאר האפליקציה קיבלה
+       טוקן אחד (--shadow, 13 שימושים) ועוד 27 צללים ייחודיים בלי כיוון אור משותף,
+       ולכן הכרטיסים נקראו כמודבקים ולא כמונחים.
+       ⛔ חם בלבד. צל אפור על שמנת נקרא כלכלוך · זה כתוב בהערה במסך ההתחברות.
+       ⭐ הקו הלבן הפנימי הוא מה שעושה את העבודה: הוא ההבדל בין מלבן לבין משטח
+       מואר, והוא עולה אפס. */
+    --lift-1:inset 0 1px 0 rgba(255,255,255,.90), 0 1px 2px rgba(120,84,48,.07);
+    --lift-2:inset 0 1px 0 rgba(255,255,255,.92), 0 1px 2px rgba(120,84,48,.09),
+             0 8px 18px -12px rgba(120,84,48,.28);
+    /* ⭐ ההפך ממורם · שקוע. שתי רמות (מורם מול שקוע) נקראות עמוק יותר משלוש
+       רמות של מורם, וזה החצי שלא היה בשימוש בשום מקום מחוץ למסך ההתחברות. */
+    --well:inset 0 2px 4px rgba(120,84,48,.11), inset 0 -1px 0 rgba(255,255,255,.70);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
@@ -90,6 +104,12 @@
     .wtp-prices button:active,.m-head:active,.rev-chip:active,.cw:active,
     .wc-prac:active,.wc-alt:active,.wc-reveal:active,.hint-btn:active,.was-right:active{
       transform:none;background-color:var(--paper-deep)}}
+  /* ⭐ גרעין נייר · ~400 בתים, data URI, אלפא בלבד ובלי שום צבע חדש.
+     האסתטיקה היא נייר חם ולא היה לה שום מרקם · זה הדבר היחיד כאן שנותן לרקע
+     גוף. z-index:-1 ו-pointer-events:none · הוא אינו יכול לחסום לחיצה.
+     ⚠ #auth יושב ב-z-index:70 ולכן ממילא מעליו. */
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
   .wrap{max-width:640px;margin:0 auto;padding:22px 18px 60px}
   /* ספארי באייפון, כשהאפליקציה פתוחה כאתר ולא כאפליקציה מותקנת.
      שורת הכתובת התחתונה של ספארי מרחפת מעל התוכן ואינה נכללת ב-env(safe-area-inset-bottom)
@@ -161,7 +181,7 @@
   .lc-nums b{font-family:"Frank Ruhl Libre",serif;font-size:1.15rem;font-weight:900;
     color:var(--ink);margin-inline-end:3px}
   .lc-of{margin-inline-start:auto}
-  .lang-prog{height:6px;border-radius:3px;background:var(--paper-deep);margin-top:8px;overflow:hidden}
+  .lang-prog{height:6px;border-radius:3px;background:var(--paper-deep);margin-top:8px;overflow:hidden;box-shadow:var(--well)}
   .lang-prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--accent));transition:.4s}
   .lang-card.en .lang-prog i{background:linear-gradient(90deg,#4e7d4e,#2f6f8f)}
   .w-foot{text-align:center;color:var(--ink-soft);font-size:.72rem;margin-top:26px}
@@ -223,7 +243,7 @@
   .cw-meaning{width:100%;font-size:.82rem;color:var(--ink-soft);margin:-2px 0 6px;padding-inline-start:4px}
   .cloud-note{font-size:.8rem;color:var(--ink-soft);line-height:1.7;margin:0 0 10px}
   .quiet-line{background:var(--card);border:1px solid var(--line);border-radius:12px;
-      padding:12px 14px;font-size:.88rem;color:var(--ink-soft)}
+      padding:12px 14px;font-size:.88rem;color:var(--ink-soft);box-shadow:var(--lift-1)}
   .quiet-line b{color:var(--ink);font-weight:700}
   /* ===== מסך הסטטיסטיקה · נבנה מחדש 21.8.2026 =====
      "לא משנה כמה הוא צדק · משנה במה הוא טעה ומה הוא לא יודע" (חגי).
@@ -285,7 +305,7 @@
   .up-top{display:flex;align-items:baseline;gap:8px;margin-bottom:4px}
   .up-top b{font-family:"Frank Ruhl Libre",serif;font-size:1.12rem}
   .up-top span{margin-inline-start:auto;font-size:.82rem;color:var(--ink-soft)}
-  .up-bar{display:flex;height:14px;border-radius:7px;overflow:hidden;background:var(--paper-deep);
+  .up-bar{display:flex;height:14px;border-radius:7px;overflow:hidden;background:var(--paper-deep);box-shadow:var(--well);
        margin:12px 0 10px}
   .up-bar i{height:100%;transition:width .8s cubic-bezier(.22,.8,.3,1)}
   .up-bar .s{background:linear-gradient(180deg,#6fae72,#4e8d55)}
@@ -394,10 +414,10 @@
   .s-sum{font-size:.86rem;color:var(--ink-soft);margin-top:6px}
 
   /* QUIZ */
-  .prog{height:6px;background:var(--paper-deep);border-radius:3px;overflow:hidden;margin-bottom:6px}
+  .prog{height:6px;background:var(--paper-deep);border-radius:3px;overflow:hidden;margin-bottom:6px;box-shadow:var(--well)}
   .prog i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--accent));transition:.3s}
   .qmeta{display:flex;justify-content:space-between;font-size:.78rem;color:var(--ink-soft);margin-bottom:20px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 24px;box-shadow:var(--shadow);text-align:center}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 24px;box-shadow:var(--lift-2);text-align:center}
   /* #8a6512 ולא --gold: הזהב על הכרטיס = 2.61:1, מתחת ל-AA. */
   .q-kind{font-size:.72rem;letter-spacing:.12em;color:#8a6512;font-weight:700;text-transform:uppercase;margin-bottom:14px}
   .q-text{font-family:"Frank Ruhl Libre",serif;font-size:clamp(1.4rem,4.6vw,1.9rem);font-weight:700;line-height:1.35}
@@ -1017,7 +1037,7 @@
   /* the morning glance -- five numbers, above the list, before any scrolling */
   .adm-glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px;
        margin:2px 0 14px}
-  .adm-g{background:var(--card);border:1px solid var(--line);border-radius:12px;
+  .adm-g{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--lift-1);
        padding:12px 10px;text-align:center}
   .adm-g b{display:block;font-family:"Frank Ruhl Libre",serif;font-size:1.6rem;
        font-weight:900;color:var(--ink);line-height:1.1}
@@ -2329,17 +2349,17 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=212"></script>
-<script src="config.js?v=212"></script>
-<script src="store.js?v=212"></script>
-<script src="leveltest-he.js?v=212"></script>
-  <script src="leveltest.js?v=212"></script>
-<script src="enrank.js?v=212"></script>
-<script src="data.js?v=212"></script>
-<script src="data-en.js?v=212"></script>
+<script src="supabase.min.js?v=213"></script>
+<script src="config.js?v=213"></script>
+<script src="store.js?v=213"></script>
+<script src="leveltest-he.js?v=213"></script>
+  <script src="leveltest.js?v=213"></script>
+<script src="enrank.js?v=213"></script>
+<script src="data.js?v=213"></script>
+<script src="data-en.js?v=213"></script>
 <!-- לקסיקון סובלנות האיות · חייב להיטען לפני app.js, שקורא window.TYPO_LEX.
      נכשל בטעינה? השכבה כבויה והאפליקציה מתנהגת כמו היום. -->
-<script src="typo-lex.js?v=212"></script>
-<script src="app.js?v=212"></script>
+<script src="typo-lex.js?v=213"></script>
+<script src="app.js?v=213"></script>
 </body>
 </html>
