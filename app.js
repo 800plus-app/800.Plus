@@ -130,6 +130,12 @@ function saneRec(r){
   /* הרמה שהייתה לפני שהלומד סימן "ידעתי", כדי שביטול הסימון יחזיר אותה במקום לאפס.
      בלי השדה הזה ביטול היה מוחק היסטוריית תרגול אמיתית · וזה בדיוק מה שהמאגר נזהר ממנו. */
   if(r.k0!==undefined) out.k0=int0(r.k0);
+  /* מתי המילה **נלמדה** · הרגע שבו הלומד נפגש בה בפעם הראשונה ולא ידע אותה.
+     נוכחות t0 היא ההגדרה עצמה: אין דגל נפרד, כי "יש תאריך למידה" ו"נלמדה דרך טעות"
+     הם אותה עובדה, ושני שדות שאמורים להסכים תמיד הם שני שדות שיום אחד לא יסכימו.
+     ⚠ זה אינו last. last הוא "תורגלה לאחרונה" וזז קדימה בכל סבב · t0 נכתב פעם אחת
+     ולעולם לא זז, כי הוא היסטוריה ולא מצב. */
+  if(r.t0!==undefined) out.t0=int0(r.t0);
   /* אילו פירושים של המילה הלומד כבר כתב, כאינדקסים לתוך meaningSegs. משתמש דיווח שהוא
      עונה פירוש אחד מתוך כמה, מקבל "נכון", ושוכח את השאר · האפליקציה אישרה לו שהוא יודע
      את המילה בזמן שידע שליש ממנה.
@@ -145,6 +151,27 @@ function saneRec(r){
     if(s.length) out.sens=s;
   }
   return out;
+}
+/* ⭐ שחזור t0 להיסטוריה שנצברה לפני שהשדה קיים · **קירוב מוצהר, לא שחזור אמיתי.**
+   מה שנכנס: מילה שנפגשו בה, מעולם לא ענו עליה נכון בניסיון ראשון, וטעו בה לפחות
+   פעם אחת. זו תת-קבוצה **נקייה** · אם first===0 ומספר הטעויות חיובי, אז בהכרח גם
+   המפגש הראשון לא היה נכון-בניסיון-ראשון, כי אין לאן להסתיר מפגש מוצלח.
+   ⚠ מה שלא נכנס, ואי אפשר להחזיר: מילה שנלמדה דרך טעות ואז נשלטה. אחרי ששלטו בה
+   first עולה, והמונים חסרי סדר · אין שום דרך להבדיל בינה לבין מילה שידעו מיד.
+   הן פשוט חסרות מהרשימה עד שיטעו בהן שוב.
+   ⚠ והתאריך אינו התאריך. last הוא "תורגלה לאחרונה", וזה מה שיש · לכן הסדר בין
+   הוותיקות מקורב, ומתייצב מעצמו ככל שנצברות מילים עם t0 אמיתי.
+   src==='lv' יוצא: מבחן הרמה כותב רשומה מלאה בלי שהלומד נפגש במילה בכלל.
+   idempotent · t0 קיים ⇒ דילוג, ולכן אין צורך בדגל מיגרציה והרצה חוזרת אינה מזיזה
+   דבר. מחזיר כמה שוחזרו, כדי שיהיה מה לבדוק בלי DOM. */
+function backfillT0(words){
+  let n=0;
+  for(const k in words){
+    const r=words[k];
+    if(!isObj(r) || r.t0) continue;
+    if(r.seen>0 && r.first===0 && r.wrong>0 && r.src!=='lv'){ r.t0 = r.last || Date.now(); n++; }
+  }
+  return n;
 }
 /* כמה פירושים נפרדים יש למילה, וכמה מהם הלומד כבר כתב. שניהם נגזרים מאותו meaningSegs
    שמכריע אם תשובה נכונה, ולכן אי אפשר שהמונה יימדד על חלוקה אחת והבדיקה על אחרת. */
@@ -183,6 +210,7 @@ function loadLangState(){
   const s=LS.get(KEY('hw_stats'), {});
   const words={}, srcW=isObj(s)&&isObj(s.words)?s.words:{};
   for(const k in srcW) words[k]=saneRec(srcW[k]);
+  backfillT0(words);
   const srcS=isObj(s)&&Array.isArray(s.sessions)?s.sessions:[];
   stats={ words, sessions: srcS.filter(isObj).slice(-MAX_SESSIONS) };
 
@@ -668,6 +696,20 @@ function newCards(scope){ return uniqScope(scope).filter(w=>seenCount(w.term)===
 function weakCards(scope){
   const arr=uniqScope(scope).filter(w=>seenCount(w.term)>0 && lvl(w.term)<3);
   arr.sort((a,b)=>lastOf(a.term)-lastOf(b.term));
+  return arr;
+}
+/* ⭐ המילים שנרכשו דרך טעות · הישן קודם.
+   t0 קיים ⇒ המילה נלמדה (ראה saneRec). המיון עולה, ולכן המילה שהפער בין רגע
+   הלמידה שלה לעכשיו הוא הגדול ביותר עומדת ראשונה · חיזוק מה שהכי בסכנת שכחה.
+   ⚠ אין כאן סינון level. מילה שנלמדה ואז נשלטה **נשארת** ברשימה, כי כל הרעיון הוא
+   חזרה על מה שנרכש · "בשליטה" היום אינו "בשליטה בעוד חודש", וזו בדיוק השכחה
+   שחגי תיאר. מי שרוצה רק את החלשות, זה כבר הכפתור "המילים שאתה עדיין מפספס".
+   קריאה ישירה ל-stats.words ולא דרך rec(): rec יוצר רשומה ריקה לכל מילה שנבדקת,
+   כלומר סלקטור היה מנפח את המאגר בכל רינדור. זה הדפוס של seenCount למעלה. */
+const t0Of = term => { const r=stats.words[K(term)]; return r ? int0(r.t0) : 0; };
+function acquiredCards(scope){
+  const arr=uniqScope(scope).filter(w=>t0Of(w.term)>0 && !wasSkipped(w.term));
+  arr.sort((a,b)=>t0Of(a.term)-t0Of(b.term));
   return arr;
 }
 /* `wasSkipped` guards were added to `classify` and `langSummary` today and NOT here, so the same
@@ -1490,6 +1532,8 @@ function renderHome(){
    בתוך renderHome, כדי שיהיה מה לבדוק בלי DOM שלם. */
 const weakCtaText = n =>
   (n===1 ? 'מילה אחת לחיזוק' : `${n} מילים לחיזוק`) + ' · מכל יחידות הלימוד';
+const acquiredCtaText = n =>
+  n===1 ? 'מילה אחת · לחזרה' : `${n} מילים · הישנות קודם`;
 /* הסף היה 4, בלי נימוק רשום: מי שנשארו לו שתיים־שלוש מילים לחיזוק לא ראה אותן,
      וזה בדיוק הרגע שבו סבב קצר סוגר את הפער. הנימוק שכן נרשם · "לא להציע לתרגל אפס" ·
      מכוסה בסף 1. askSize מדלג על שאלת הגודל כשהרשימה קטנה מכל הקיצורים, ולכן
@@ -1497,6 +1541,15 @@ const weakCtaText = n =>
   if(cta){
     cta.classList.toggle('hidden', !weakAll.length);
     $('#homeWeakSub').textContent = weakCtaText(weakAll.length);
+  }
+  /* יחידת החזרות · אותו דפוס בדיוק: מוסתר ברשימה ריקה, ופונקציית נוסח נפרדת כדי
+     שאפשר יהיה לבדוק את היחיד/רבים בלי DOM. ⚠ "הישנות קודם" ברבים בלבד · במילה
+     אחת אין "קודם" ממה, וזו אותה משפחה של "1 מילים" שנתפסה כאן פעם. */
+  const acqAll = acquiredCards('global');
+  const acqCta = $('#homeAcquired');
+  if(acqCta){
+    acqCta.classList.toggle('hidden', !acqAll.length);
+    $('#homeAcquiredSub').textContent = acquiredCtaText(acqAll.length);
   }
   renderDirSegs();
   renderWordCard();
@@ -1687,6 +1740,26 @@ $('#homeWeak').onclick = ()=>{
   const l=weakCards('global');
   if(!l.length){ toast('אין כרגע מילים לחיזוק. תרגל סבב ונראה'); return; }
   askSize(l.length, n=> startRound(capSampled(l,n), 'global', 'weak'));
+};
+$('#homeAcquired').onclick = ()=>{
+  curScope='global';
+  const l=acquiredCards('global');
+  if(!l.length){ toast('אין עדיין מילים לחזרה. תרגל סבב ונראה'); return; }
+  askSize(l.length, n=>{
+    /* ⛔ slice ולא capSampled. capSampled מדגים חלון של 2n ומערבב אותו בכוונה, כדי
+       שאותן מילים לא יחזרו · שם זה נכון, כאן זה הורס את הפיצ'ר. "הישנות קודם" הוא
+       כל התכן, ולכן חותכים את n הראשונות **בסדרן**. */
+    const pick=l.slice(0, n||l.length);
+    if(pick.length<l.length) toast(`מתרגל ${pick.length} מתוך ${l.length}`);
+    startRound(pick, 'global', 'acquired');
+    /* startRound מערבב כל חפיסה ללא תנאי (וזה נכון לכל שאר המסלולים), ולכן הסדר
+       מוחזר כאן · אותו פתרון בדיוק כמו ב-wcPractice, ומאותו טעם: שינוי מקומי לנתיב
+       הזה במקום לגעת בפונקציה שכל הסבבים עוברים בה.
+       ⚠ ממיינים את deck עצמו ולא מציבים את pick במקומו: הכרטיסים ב-deck הם העתקים
+       שנושאים _dir ואת היפוך oneCardPerGloss, והחלפה הייתה מוחקת את שניהם. */
+    deck.sort((a,b)=>t0Of(a.term)-t0Of(b.term));
+    idx=0; renderCard();
+  });
 };
 $('#pbWeak').onclick    = ()=>{ const l=weakCards(curScope);    askSize(l.length, n=> startRound(capSampled(l,n), curScope, 'weak')); };
 $('#pbNew').onclick     = ()=>{ const l=newCards(curScope);     askSize(l.length, n=> startRound(cap(shuffle(l),n), curScope, 'new')); };
@@ -2742,6 +2815,16 @@ function commitSession(){
        שגויה, הוא לא ענה בכלל. לרשום כאן wrong ולהוריד level היה מעניש אותו על סגירת
        האפליקציה ודוחף את המילה לרשימת החיזוק בלי שום ראיה שהיא חלשה. */
     if(e.attempts===0){ r.last=now; return; }
+    /* ⭐ רגע הלמידה · המפגש הראשון שבו הלומד **ענה** ולא ידע.
+       virgin ולא wasNew: wasNew נשען על seen, ו-seen עולה גם על כרטיס שהוצג ונסגרה
+       האפליקציה · כלומר מילה שהלומד מעולם לא ענה עליה כבר אינה "חדשה". שלושת מוני
+       המענה הם מה שבאמת אומר "אף פעם לא ענית על זה".
+       התנאי מגיע **אחרי** ה-return של attempts===0, ולכן דילוג-בלי-מענה אינו למידה ·
+       אבל "לא יודע" כן: skip() קורא ל-finishCard שמעלה attempts. זו ההכרעה הנכונה,
+       "לא יודע" הוא בדיוק ההודאה שהמילה לא ידועה.
+       sticky · נכתב פעם אחת. בלי זה כל טעות חוזרת הייתה מאפסת את התאריך והרשימה
+       הייתה מסודרת לפי הטעות האחרונה במקום לפי הלמידה הראשונה. */
+    if(!r.t0 && (r.first + r.ever + r.wrong) === 0 && !(e.mastered && e.firstTry)) r.t0 = now;
     if(e.mastered && e.firstTry){                     // knew it (correct on first attempt of the round)
       r.first++; r.ever++;
       // a retry of a word just missed proves short-term recall, not knowledge: credit it, but
@@ -4788,6 +4871,9 @@ function mergeProgress(local, remote){
     words[k]={ seen:Math.max(a.seen,b.seen), first:Math.max(a.first,b.first), ever:Math.max(a.ever,b.ever),
                wrong:Math.max(a.wrong,b.wrong), level:newer.level, last:Math.max(a.last,b.last) };
     if(newer.src) words[k].src=newer.src;
+    /* ⛔ t0 · min, לא max. הנימוק ב-saneRec. חיוביים בלבד: 0 הוא רשומה חסרה. */
+    const t0s=[int0(a.t0), int0(b.t0)].filter(x=>x>0);
+    if(t0s.length) words[k].t0=Math.min(...t0s);
     /* saneRec ו-mergeProgress הן שתי רשימות לבנות נפרדות, ושדה שנוסף לאחת ולא לשנייה נמחק
        בשקט בסנכרון הבא. כך אבדו כאן `sens` ו-`k0` · ולא בהתנגשות בין מכשירים, אלא בכל
        סבב: flushRemoteSync ממזג בסופו, ו-absorbDisk ממזג בין שתי לשוניות.

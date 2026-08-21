@@ -77,6 +77,10 @@ const SYMBOLS = [
   // stats model and the three practice buckets
   'rec', 'scopeWords', 'lvl', 'lastOf', 'wasSkipped', 'seenCount',
   'classify', 'uniqScope', 'newCards', 'weakCards', 'learnedCards', 'weakCtaText',
+  /* יחידת החזרות · t0. ⛔ פונקציה שנקראת מ-commitSession או מ-loadLangState ואינה
+     רשומה כאן נופלת ב-ReferenceError בתוך הסנדבוקס, והשם הסמנטי של הבדיקה שנופלת
+     מסתיר את הסיבה. זה קרה שלוש פעמים ביום אחד · ראה ההערה על fullVetoPass. */
+  'backfillT0', 't0Of', 'acquiredCards', 'acquiredCtaText',
   'sess', 'commitSession',
   // answer checking
   'isCorrect', 'meaningSegs', 'meaningMatch', 'otherSenses',
