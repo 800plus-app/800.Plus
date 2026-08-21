@@ -1675,6 +1675,14 @@
       <div class="wc-tx"><b>מילים שדורשות תרגול נוסף</b><span id="homeWeakSub"></span></div>
       <div class="wc-go">←</div>
     </button>
+    <!-- חזרות · המילים שנרכשו דרך טעות, מהוותיקה לחדשה.
+         אותן מחלקות בדיוק כמו homeWeak ולא מחלקות חדשות בשם דומה: wc-go מוגדר
+         פעמיים בגיליון והשני מנצח, ולכן מחלקה "כמעט זהה" יורשת עיגול 38px ונשברת.
+         זה כבר קרה ל-wcPractice · ההערה למעלה. -->
+    <button class="weak-cta hidden" id="homeAcquired">
+      <div class="wc-tx"><b>המילים שטעית בהן בהתחלה</b><span id="homeAcquiredSub"></span></div>
+      <div class="wc-go">←</div>
+    </button>
 
     <div class="section-t">כיוון התרגול</div>
     <div class="seg" id="dirSegHome"></div>
@@ -2202,17 +2210,17 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=208"></script>
-<script src="config.js?v=208"></script>
-<script src="store.js?v=208"></script>
-<script src="leveltest-he.js?v=208"></script>
-  <script src="leveltest.js?v=208"></script>
-<script src="enrank.js?v=208"></script>
-<script src="data.js?v=208"></script>
-<script src="data-en.js?v=208"></script>
+<script src="supabase.min.js?v=209"></script>
+<script src="config.js?v=209"></script>
+<script src="store.js?v=209"></script>
+<script src="leveltest-he.js?v=209"></script>
+  <script src="leveltest.js?v=209"></script>
+<script src="enrank.js?v=209"></script>
+<script src="data.js?v=209"></script>
+<script src="data-en.js?v=209"></script>
 <!-- לקסיקון סובלנות האיות · חייב להיטען לפני app.js, שקורא window.TYPO_LEX.
      נכשל בטעינה? השכבה כבויה והאפליקציה מתנהגת כמו היום. -->
-<script src="typo-lex.js?v=208"></script>
-<script src="app.js?v=208"></script>
+<script src="typo-lex.js?v=209"></script>
+<script src="app.js?v=209"></script>
 </body>
 </html>

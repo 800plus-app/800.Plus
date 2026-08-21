@@ -53,7 +53,11 @@ const SYMBOLS = [
   'NIQ', 'normEn', 'norm',
   'LS', 'shedStorage', 'showStorageBar', 'hideStorageBar',
   'SUF', 'KEY', 'K',
-  'loadLangState',
+  /* backfillT0 נקראת מתוך loadLangState · בלעדיה כל טעינה כאן זורקת
+     "backfillT0 is not defined", וההודעה מצביעה על הבדיקה ולא על הסיבה.
+     ⚠ זו רשימת סמלים **שנייה**, נפרדת מזו של sandbox.js: שדה או פונקציה חדשה
+     שנוגעת בטעינה חייבת להתווסף לשתיהן. */
+  'loadLangState', 'backfillT0',
   'undeletedKey', 'markRestored', 'markDeletedAgain', 'restoredMap',
   'mergeProgress', 'absorbDisk',
   'saveAssoc', 'saveStats', 'saveDeleted', 'saveAdded',

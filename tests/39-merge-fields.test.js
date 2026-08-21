@@ -115,7 +115,14 @@ describe('שתי הרשימות הלבנות מסונכרנות', () => {
     const sane = app.slice(app.indexOf('function saneRec'), app.indexOf('function saneRec') + 1400);
     const fields = [...sane.matchAll(/out\.(\w+)\s*=/g)].map(m => m[1])
       .concat([...sane.matchAll(/\b(\w+)\s*:\s*int0\(r\./g)].map(m => m[1]));
-    const mp = app.slice(app.indexOf('function mergeProgress'), app.indexOf('function mergeProgress') + 4000);
+    /* ⚠ החלון היה 4000 תווים קבועים, ו-mergeProgress ארוכה 11,760 · השער כיסה שליש
+       מהפונקציה. הדבר היחיד שהחזיק אותו ירוק היה שהערה בתוך החלון מזכירה את שמות
+       השדות: `k0` כבר ישב ב-4005 — **מחוץ לחלון** — והבדיקה עברה בזכות הטקסט ולא
+       בזכות הקוד. נמדד כשנוסף t0 ב-21.8.2026.
+       הגבול עכשיו הוא סוף הפונקציה, ולא מספר. זו החמרה: יותר קוד נסרק. */
+    const mpAt = app.indexOf('function mergeProgress');
+    const mpEnd = app.indexOf('\nfunction ', mpAt + 10);
+    const mp = app.slice(mpAt, mpEnd > 0 ? mpEnd : app.length);
     const missing = [...new Set(fields)].filter(f => !new RegExp('\\b' + f + '\\b').test(mp));
     assert.deepStrictEqual(missing, [],
       'saneRec שומר שדות ש-mergeProgress מוחק: ' + missing.join(', '));
