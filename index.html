@@ -883,23 +883,55 @@
   .lp-week i.today{outline:2px solid var(--accent);outline-offset:1px}
   .lp-week em{font-style:normal;font-size:.56rem;color:var(--ink-soft)}
   .lp-week i.on em{color:#fffdf8}
-  /* the top request, as the top action */
-  .weak-cta{display:flex;align-items:center;gap:12px;width:100%;margin:14px 0 4px;
-       padding:16px 18px;border-radius:16px;cursor:pointer;text-align:start;
-       border:1px solid rgba(166,60,38,.28);
-       background:linear-gradient(135deg,#fffdf8,#fdf3ea 60%,#fbeade);
-       box-shadow:0 1px 2px rgba(120,84,48,.08),0 10px 22px -14px rgba(166,60,38,.5),
-                  inset 0 1px 0 rgba(255,255,255,.9);transition:.2s}
+  /* the top request, as the top action.
+     ⭐ נבנה מחדש 21.8.2026, והכול נמדד באפליקציה החיה ב-375px לפני ואחרי:
+     · הכותרת הקבועה הוצגה ב-17.92px משקל 900 והמספר המשתנה ב-13.12px משקל 400.
+       מה שזהה בכל כניסה היה גדול ב-37% מהסיבה היחידה ללחוץ. המספר הוא הכותרת עכשיו.
+     · העיגול היה 38px מלא · פי 2.3 מסה מהכותרת שהוא מצביע עליה. הפך לחץ דק.
+     · הגרדיאנט מדד 1.15:1 מקצה לקצה, מתחת לסף שבו העין מבחינה בהפרש. ירד.
+     · שני כפתורים זהים = אין ראשי. רק העליון מקבל קצה זהב.
+     · 80px ⇒ 66px לכל אחד.
+     ⛔ ולמה .wc-go נשאר בשמו: הוא מוגדר גם ליד #wcActs, ומחלקה חדשה בשם דומה
+        יורשת את העיגול ונשברת. זה כבר קרה ל-wcPractice. */
+  .weak-cta{position:relative;display:grid;grid-template-columns:auto 1fr auto;
+       align-items:center;column-gap:14px;width:100%;min-height:64px;
+       margin:12px 0 0;padding:12px 16px;border-radius:14px;cursor:pointer;
+       text-align:start;line-height:1.35;
+       border:1px solid var(--line);background:var(--card);
+       box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 1px 2px rgba(120,84,48,.07);
+       transition:transform .09s cubic-bezier(.25,.46,.45,.94),
+                  box-shadow .2s cubic-bezier(.215,.61,.355,1),
+                  border-color .2s cubic-bezier(.215,.61,.355,1)}
   .weak-cta.hidden{display:none!important}
-  @media (hover:hover) and (pointer:fine){.weak-cta:hover{transform:translateY(-2px);border-color:rgba(166,60,38,.5)}}
-  .wc-tx{flex:1;min-width:0}
-  .wc-tx b{display:block;font-family:"Frank Ruhl Libre",serif;font-size:1.12rem;
-       font-weight:900;color:var(--ink)}
-  .wc-tx span{display:block;margin-top:3px;font-size:.82rem;color:var(--ink-soft)}
-  .wc-go{flex:none;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;
-       justify-content:center;font-size:1.1rem;color:#fffdf8;
-       background:linear-gradient(180deg,#b8492e,#9d3520);
-       box-shadow:0 4px 12px -5px rgba(166,60,38,.7)}
+  /* המספר · Frank Ruhl Libre משקל 500, משקל שהגופן נושא ומעולם לא היה בשימוש */
+  .wc-n{font-family:"Frank Ruhl Libre",serif;font-weight:500;font-size:2.1rem;
+       line-height:1;letter-spacing:-.02em;color:var(--accent-deep);
+       font-variant-numeric:tabular-nums;min-width:1.7em;text-align:center}
+  .wc-tx{min-width:0}
+  .wc-tx b{display:block;font-family:"Heebo",sans-serif;font-size:.98rem;
+       font-weight:600;color:var(--ink);line-height:1.3}
+  .wc-tx span{display:block;margin-top:2px;font-size:.78rem;color:var(--ink-soft);line-height:1.4}
+  .wc-go{flex:none;width:auto;height:auto;border-radius:0;background:none;box-shadow:none;
+       font-style:normal;font-size:1.05rem;line-height:1;color:var(--accent);opacity:.5;
+       transition:transform .2s cubic-bezier(.215,.61,.355,1),opacity .2s}
+  /* ⛔ inset-inline-start ולא end · ב-RTL הקצה הקורא הוא הימני, ו-end מחזיר את השמאלי */
+  #homeWeak{border-color:rgba(181,72,46,.34)}
+  #homeWeak::before{content:"";position:absolute;inset-block:12px;inset-inline-start:0;
+       width:3px;border-radius:0 3px 3px 0;
+       background:linear-gradient(180deg,var(--gold),var(--accent))}
+  #homeAcquired .wc-n{font-size:1.6rem;color:var(--ink-soft)}
+  /* ⭐ תגובת לחיצה · לא היה בגיליון אף כלל :active, וכל 42 כללי ההצבעה יושבים
+     מאחורי hover:hover שאינו נורה בטלפון לעולם. 90ms הוא בתוך חלון 80-150. */
+  .weak-cta:active{transform:scale(.985)}
+  .weak-cta:active .wc-go{transform:translateX(-3px);opacity:1}
+  /* ⛔ כלל אחד לכל @media, ולא שניים בבלוק אחד · השער ב-tests/61 מוודא שהטקסט
+     שלפני כל כלל :hover נגמר בדיוק בסייג, ולכן כלל שני באותו בלוק נספר כלא־מסויג.
+     זו התבנית בכל 42 הכללים האחרים בגיליון. */
+  @media (hover:hover) and (pointer:fine){.weak-cta:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.92),0 1px 2px rgba(120,84,48,.09),0 8px 18px -12px rgba(120,84,48,.28)}}
+  @media (hover:hover) and (pointer:fine){.weak-cta:hover .wc-go{transform:translateX(-3px);opacity:1}}
+  @media (prefers-reduced-motion:reduce){
+    .weak-cta:active{transform:none;background:var(--paper-deep)}
+    .wc-go{transition:none}}
   /* the morning glance -- five numbers, above the list, before any scrolling */
   .adm-glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px;
        margin:2px 0 14px}
@@ -1672,16 +1704,18 @@
     <!-- role=status: קורא מסך מקריא את הספירה כשהיא מופיעה או משתנה, בלי לחטוף פוקוס -->
     <div class="exam-pill hidden" id="examPill" role="status"></div>
     <button class="weak-cta hidden" id="homeWeak">
-      <div class="wc-tx"><b>מילים שדורשות תרגול נוסף</b><span id="homeWeakSub"></span></div>
-      <div class="wc-go">←</div>
+      <b class="wc-n" id="homeWeakN"></b>
+      <span class="wc-tx"><b>מילים שדורשות תרגול נוסף</b><span id="homeWeakSub"></span></span>
+      <i class="wc-go" aria-hidden="true">←</i>
     </button>
     <!-- חזרות · המילים שנרכשו דרך טעות, מהוותיקה לחדשה.
          אותן מחלקות בדיוק כמו homeWeak ולא מחלקות חדשות בשם דומה: wc-go מוגדר
          פעמיים בגיליון והשני מנצח, ולכן מחלקה "כמעט זהה" יורשת עיגול 38px ונשברת.
          זה כבר קרה ל-wcPractice · ההערה למעלה. -->
     <button class="weak-cta hidden" id="homeAcquired">
-      <div class="wc-tx"><b>המילים שטעית בהן בהתחלה</b><span id="homeAcquiredSub"></span></div>
-      <div class="wc-go">←</div>
+      <b class="wc-n" id="homeAcquiredN"></b>
+      <span class="wc-tx"><b>המילים שלמדת עד כה</b><span id="homeAcquiredSub"></span></span>
+      <i class="wc-go" aria-hidden="true">←</i>
     </button>
 
     <div class="section-t">כיוון התרגול</div>
@@ -2210,17 +2244,17 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=209"></script>
-<script src="config.js?v=209"></script>
-<script src="store.js?v=209"></script>
-<script src="leveltest-he.js?v=209"></script>
-  <script src="leveltest.js?v=209"></script>
-<script src="enrank.js?v=209"></script>
-<script src="data.js?v=209"></script>
-<script src="data-en.js?v=209"></script>
+<script src="supabase.min.js?v=210"></script>
+<script src="config.js?v=210"></script>
+<script src="store.js?v=210"></script>
+<script src="leveltest-he.js?v=210"></script>
+  <script src="leveltest.js?v=210"></script>
+<script src="enrank.js?v=210"></script>
+<script src="data.js?v=210"></script>
+<script src="data-en.js?v=210"></script>
 <!-- לקסיקון סובלנות האיות · חייב להיטען לפני app.js, שקורא window.TYPO_LEX.
      נכשל בטעינה? השכבה כבויה והאפליקציה מתנהגת כמו היום. -->
-<script src="typo-lex.js?v=209"></script>
-<script src="app.js?v=209"></script>
+<script src="typo-lex.js?v=210"></script>
+<script src="app.js?v=210"></script>
 </body>
 </html>
