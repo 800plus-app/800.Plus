@@ -369,7 +369,14 @@ function backfillT0(words){
   for(const k in words){
     const r=words[k];
     if(!isObj(r) || r.t0) continue;
-    if(r.seen>0 && r.first===0 && r.wrong>0 && r.src!=='lv'){ r.t0 = r.last || Date.now(); n++; }
+    /* ⛔ התנאי היה `first===0 && wrong>0`, כלומר "מעולם לא ידע אותה בניסיון ראשון".
+       זה פסל כל מילה שנלמדה דרך טעות **ואז נשלטה**, כי שליטה מעלה את `first`.
+       אצל חגי זה החזיר מילה אחת בזמן שמסך הסטטיסטיקה הציג 31 מילים "שטעית בהן
+       בעבר וכבר יודע". כלומר הנתון היה שם כל הזמן.
+       ⭐ `wrong` הוא מונה מצטבר שאינו מתאפס לעולם, וזה בדיוק האות ש-`renderStats`
+       משתמש בו (`settled`). היחידה מיושרת עכשיו למסך: מה שהמסך סופר כמילה שטעית
+       בה, נכנס לחזרות. */
+    if(r.seen>0 && r.wrong>0 && r.src!=='lv'){ r.t0 = r.last || Date.now(); n++; }
   }
   return n;
 }
@@ -1730,17 +1737,21 @@ function renderHome(){
   const cta = $('#homeWeak');
   /* "1 מילים לחיזוק" אינו עברית, והוא נחשף ברגע שהסף ירד ל-1. פונקציה נפרדת ולא ביטוי
    בתוך renderHome, כדי שיהיה מה לבדוק בלי DOM שלם. */
-const weakCtaText = n =>
-  (n===1 ? 'מילה אחת לחיזוק' : `${n} מילים לחיזוק`) + ' · מכל יחידות הלימוד';
-const acquiredCtaText = n =>
-  n===1 ? 'מילה אחת · לחזרה' : `${n} מילים · הישנות קודם`;
+/* ⭐ המספר יצא מהתת־כותרת והפך לאלמנט משלו (.wc-n). הנימוק נמדד באפליקציה
+   החיה: הכותרת הקבועה 17.92px משקל 900, המספר המשתנה 13.12px משקל 400 · מה
+   שזהה בכל כניסה היה גדול ב-37% וכבד בהרבה מהסיבה היחידה ללחוץ.
+   הפונקציות מחזירות את הכיתוב הקבוע בלבד, ולכן אין בהן עוד ענף יחיד/רבים:
+   "1 מילים" אינו יכול להיווצר כשהספרה עומדת לבדה. */
+const weakCtaText = () => 'מכל יחידות הלימוד';
+const acquiredCtaText = () => 'כל מילה שלא הכרת';
 /* הסף היה 4, בלי נימוק רשום: מי שנשארו לו שתיים־שלוש מילים לחיזוק לא ראה אותן,
      וזה בדיוק הרגע שבו סבב קצר סוגר את הפער. הנימוק שכן נרשם · "לא להציע לתרגל אפס" ·
      מכוסה בסף 1. askSize מדלג על שאלת הגודל כשהרשימה קטנה מכל הקיצורים, ולכן
      סבב של מילה אחת נפתח ישר בלי דיאלוג מיותר. */
   if(cta){
     cta.classList.toggle('hidden', !weakAll.length);
-    $('#homeWeakSub').textContent = weakCtaText(weakAll.length);
+    $('#homeWeakN').textContent = weakAll.length;
+    $('#homeWeakSub').textContent = weakCtaText();
   }
   /* יחידת החזרות · אותו דפוס בדיוק: מוסתר ברשימה ריקה, ופונקציית נוסח נפרדת כדי
      שאפשר יהיה לבדוק את היחיד/רבים בלי DOM. ⚠ "הישנות קודם" ברבים בלבד · במילה
@@ -1749,7 +1760,8 @@ const acquiredCtaText = n =>
   const acqCta = $('#homeAcquired');
   if(acqCta){
     acqCta.classList.toggle('hidden', !acqAll.length);
-    $('#homeAcquiredSub').textContent = acquiredCtaText(acqAll.length);
+    $('#homeAcquiredN').textContent = acqAll.length;
+    $('#homeAcquiredSub').textContent = acquiredCtaText();
   }
   renderDirSegs();
   renderWordCard();

@@ -14,7 +14,7 @@
 
 const { test, describe } = require('node:test');
 const assert = require('node:assert');
-const { loadApp, startRound, practiseRound, answerCard, expectNone } = require('./_harness/sandbox.js');
+const { loadApp, startRound, practiseRound, answerCard, expectNone, appSource } = require('./_harness/sandbox.js');
 
 const none = (list, msg) => expectNone(assert, list, msg);
 const SCOPE = 'unit:1';
@@ -297,24 +297,49 @@ describe('buckets · scope', () => {
  * the learner with two left · the moment a short round actually closes the gap · was shown
  * nothing. Lowering the floor to one exposed a second bug the old threshold had been hiding:
  * the label was built as `${n} מילים`, so it would have read "1 מילים לחיזוק". */
+/* ⭐ שוכתב 21.8.2026. המספר יצא מהתת־כותרת והפך לאלמנט משלו (.wc-n), אחרי שנמדד
+ * שהכותרת הקבועה מוצגת ב-17.92px משקל 900 והמספר המשתנה ב-13.12px משקל 400.
+ * שלושת העקרונות שהבדיקות האלה שמרו עליהם לא השתנו · רק המקום שבו הם נאכפים:
+ *   1. "1 מילים" אינו עברית                 ⇒ עכשיו בלתי אפשרי, הספרה עומדת לבדה
+ *   2. המספר הוא הסיבה ללחוץ, ולכן מוצג     ⇒ נבדק על .wc-n ועל הכתיבה אליו
+ *   3. הכיתוב אומר אילו מילים, בלקסיקון      ⇒ נבדק על הכותרת ב-index.html
+ * בדיקה שנמחקת כשהמבנה משתנה אינה שער · היא תזכורת שמישהו כבר עבר. */
 describe('the weak-words shortcut on the home screen', () => {
-  test('one weak word is written as Hebrew, not as "1 מילים"', () => {
+  const fs = require('fs'), path = require('path');
+  const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+  const app = appSource();
+
+  test('התת־כותרת אינה נושאת מספר · ולכן "1 מילים" אינו יכול להיווצר', () => {
     const ctx = fresh();
-    assert.match(ctx.weakCtaText(1), /מילה אחת/, 'singular must not be "1 מילים"');
-    assert.ok(!/^1 /.test(ctx.weakCtaText(1)), 'and must not open with the digit 1');
+    for (const f of [ctx.weakCtaText, ctx.acquiredCtaText])
+      assert.ok(!/\d/.test(f()), 'ספרה חזרה לתת־כותרת — הענף יחיד/רבים נדרש שוב');
   });
 
-  test('every other count keeps the number, because the number is the reason to tap', () => {
-    const ctx = fresh();
-    for (const n of [2, 3, 7, 40, 312])
-      assert.match(ctx.weakCtaText(n), new RegExp('(^|[^0-9])' + n + ' מילים'),
-        'the count must appear for n=' + n);
+  test('המספר עדיין מוצג · הוא הסיבה ללחוץ', () => {
+    for (const id of ['homeWeakN', 'homeAcquiredN']) {
+      assert.ok(html.includes(`id="${id}"`), `#${id} נעלם מהמבנה — הספירה לא תוצג`);
+      assert.match(app, new RegExp(`#${id}'\\)\\.textContent\\s*=`),
+        `renderHome אינו כותב ל-#${id} — הכפתור יציג ריק`);
+    }
+    assert.match(html, /\.wc-n\{[^}]*font-variant-numeric:tabular-nums/,
+      'ספרות לא־טבלאיות מזיזות את הכיתוב כשהמספר משתנה מ-9 ל-31');
   });
 
-  test('the label always says which words these are, in the screen\'s own lexicon', () => {
-    const ctx = fresh();
-    for (const n of [1, 5])
-      assert.match(ctx.weakCtaText(n), /לחיזוק · מכל יחידות הלימוד$/,
-        'a new synonym for the weak bucket would make the learner translate');
+  test('הכיתוב אומר אילו מילים אלה, בלקסיקון של המסך', () => {
+    assert.match(html, /id="homeWeak"[\s\S]{0,240}מילים שדורשות תרגול נוסף/,
+      'מילה נרדפת חדשה לדלי החיזוק תחייב את הלומד לתרגם');
+    assert.match(html, /id="homeAcquired"[\s\S]{0,240}המילים שלמדת עד כה/,
+      'כותרת יחידת החזרות השתנתה בלי שהלקסיקון עודכן');
+    assert.match(fresh().weakCtaText(), /^מכל יחידות הלימוד$/);
+    assert.match(fresh().acquiredCtaText(), /^כל מילה שלא הכרת$/);
+  });
+
+  test('המספר גדול מהכיתוב · ההיררכיה לא תתהפך בחזרה', () => {
+    /* ⛔ זה הליקוי שהתיקון נולד ממנו: מה שזהה בכל כניסה היה גדול ב-37% מהמשתנה. */
+    const n = html.match(/\.wc-n\{[^}]*font-size:([\d.]+)rem/);
+    const b = html.match(/\.wc-tx b\{[^}]*font-size:([\d.]+)rem/);
+    assert.ok(n && b, 'אחד משני הכללים נעלם');
+    assert.ok(parseFloat(n[1]) > parseFloat(b[1]) * 1.5,
+      `המספר ${n[1]}rem אינו גדול מספיק מהכותרת ${b[1]}rem — ההיררכיה חזרה להיות הפוכה`);
   });
 });

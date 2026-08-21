@@ -151,12 +151,26 @@ describe('t0 · שחזור להיסטוריה שנצברה לפני השדה', (
     assert.strictEqual(words.a.t0, 777);
   });
 
-  test('ידע פעם אחת בניסיון ראשון ⇒ לא משוחזר', () => {
-    /* first>0 פירושו שהיה מפגש מוצלח, והמונים חסרי סדר · אי אפשר לדעת אם הוא היה
-       הראשון. תת-קבוצה נקייה עדיפה על ניחוש. */
-    const words = { a: { seen: 3, first: 1, ever: 1, wrong: 2, level: 1, last: 777 } };
-    assert.strictEqual(loadApp({ lang: 'he', bank: false }).backfillT0(words), 0);
-    assert.strictEqual(words.a.t0, undefined);
+  test('⭐ טעה ואז נשלט ⇒ משוחזר · זה המקרה שהיה שבור', () => {
+    /* ⛔ הבדיקה קבעה כאן `0`, לפי ההנחה ש-first>0 הורס את הראיה. ההנחה הופרכה
+       בשדה: מסך הסטטיסטיקה הציג לחגי **31 מילים "שטעית בהן בעבר וכבר יודע"**
+       בזמן שיחידת החזרות מצאה **אחת**. `wrong` אינו מתאפס לעולם, ולכן הראיה
+       שרדה · התנאי הוא שפסל אותה, ודווקא אצל מי שהתקדם הכי הרבה. */
+    const words = { a: { seen: 8, first: 5, ever: 6, wrong: 2, level: 3, last: 777 } };
+    assert.strictEqual(loadApp({ lang: 'he', bank: false }).backfillT0(words), 1,
+      'מילה בשליטה שטעו בה בעבר נפסלה — היחידה תישאר ריקה בדיוק למי שהכי התקדם');
+    assert.strictEqual(words.a.t0, 777);
+  });
+
+  test('היחידה מיושרת למסך הסטטיסטיקה', () => {
+    /* renderStats סופר `settled` לפי `wrong>0` בלבד. כל פער בין שני התנאים חוזר
+       למשתמש כ"המסך אומר 31 והיחידה נותנת 1". */
+    const src = require('fs').readFileSync(require('path').join(__dirname, '..', 'app.js'), 'utf8');
+    const at = src.indexOf('function backfillT0');
+    const body = src.slice(at, src.indexOf('\nfunction ', at + 10));
+    assert.ok(!/r\.first\s*===\s*0/.test(body),
+      'התנאי first===0 חזר — הוא פוסל כל מילה שנלמדה דרך טעות ואז נשלטה');
+    assert.ok(/r\.wrong\s*>\s*0/.test(body), 'האות היציב `wrong>0` נעלם מהשחזור');
   });
 
   test('מבחן רמה (src=lv) ⇒ לא משוחזר', () => {
@@ -225,15 +239,16 @@ describe('acquiredCards · הרשימה והסדר', () => {
 describe('נוסח הכפתור', () => {
   const ctx = loadApp({ lang: 'he', bank: false });
 
-  test('יחיד ורבים', () => {
-    /* "1 מילים" אינו עברית · אותה משפחה שנתפסה ב-weakCtaText. */
-    assert.ok(!/^1 מילים/.test(ctx.acquiredCtaText(1)), '"1 מילים" אינו עברית');
-    assert.match(ctx.acquiredCtaText(1), /מילה אחת/);
-    assert.match(ctx.acquiredCtaText(7), /^7 מילים/);
+  test('התת־כותרת קבועה · הספרה עומדת בנפרד', () => {
+    /* ⭐ הבדיקה בדקה "1 מילים" מול ענף יחיד/רבים. המספר יצא מהמחרוזת והפך
+       לאלמנט משלו (.wc-n), ולכן הענף אינו קיים ואינו יכול להישבר · אבל מחרוזת
+       שתחזיר ספרה תחזיר גם את הבאג. זה מה שנשמר כאן. */
+    assert.ok(!/\d/.test(ctx.acquiredCtaText()), 'ספרה חזרה לתת־כותרת');
+    assert.strictEqual(ctx.acquiredCtaText(), 'כל מילה שלא הכרת');
   });
 
   test('אין מקף ארוך', () => {
-    for (const n of [0, 1, 5]) assert.ok(!ctx.acquiredCtaText(n).includes('—'),
+    assert.ok(!ctx.acquiredCtaText().includes('—'),
       'מקף ארוך הוא סממן מזהה ל-AI · אסור בכל טקסט שיוצא החוצה');
   });
 });
