@@ -60,6 +60,36 @@
     line-height:1.5;-webkit-tap-highlight-color:transparent;
     padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
+  /* ===== תגובת לחיצה · נוסף 21.8.2026 =====
+     ⛔ הליקוי, מדוד: בגיליון היו **אפס** כללי `:active`, מול **42** כללי `:hover`
+     שכולם יושבים מאחורי `@media (hover:hover) and (pointer:fine)` · שאילתה
+     שאינה נכונה בשום טלפון. יחד עם `-webkit-tap-highlight-color:transparent`
+     בשורה 60, שמבטל גם את המשוב של הדפדפן עצמו, התוצאה היא ש**שום לחיצה
+     בטלפון לא ייצרה תגובה ויזואלית**. רוב הלומדים כאן על טלפון.
+     ⭐ 90ms נמצא בתוך חלון 80-150 שהמדריך קובע למשוב לחיצה.
+     ⭐ `transform` בלבד ולא `translateY` או `padding`: הוא אינו משנה פריסה,
+     ולכן שכן אינו זז כשלוחצים · זה מה שהופך משוב לתחושה ולא לקפיצה. */
+  .btn,.pbtn,.tile,.big-tile,.lang-card,.lp-card,.install-cta,.seg button,.s-opt,
+  .lv-opts button,.ask-opts button,.fb-kinds button,.wtp-prices button,.m-head,
+  .rev-chip,.cw,.wc-prac,.wc-alt,.wc-reveal,.hint-btn,.was-right{
+      transition:transform .09s cubic-bezier(.25,.46,.45,.94),
+                 box-shadow .2s cubic-bezier(.215,.61,.355,1),
+                 border-color .2s cubic-bezier(.215,.61,.355,1),
+                 background-color .2s cubic-bezier(.215,.61,.355,1)}
+  .btn:not(:disabled):active,.pbtn:not(:disabled):active,.tile:active,.big-tile:active,
+  .lang-card:active,.lp-card:active,.install-cta:active,.seg button:active,
+  .s-opt:not(:disabled):active,.lv-opts button:not(:disabled):active,
+  .ask-opts button:not(:disabled):active,.fb-kinds button:active,
+  .wtp-prices button:active,.m-head:active,.rev-chip:active,.cw:active,
+  .wc-prac:active,.wc-alt:active,.wc-reveal:active,.hint-btn:active,.was-right:active{
+      transform:scale(.978)}
+  @media (prefers-reduced-motion:reduce){
+    .btn:active,.pbtn:active,.tile:active,.big-tile:active,.lang-card:active,
+    .lp-card:active,.install-cta:active,.seg button:active,.s-opt:active,
+    .lv-opts button:active,.ask-opts button:active,.fb-kinds button:active,
+    .wtp-prices button:active,.m-head:active,.rev-chip:active,.cw:active,
+    .wc-prac:active,.wc-alt:active,.wc-reveal:active,.hint-btn:active,.was-right:active{
+      transform:none;background-color:var(--paper-deep)}}
   .wrap{max-width:640px;margin:0 auto;padding:22px 18px 60px}
   /* ספארי באייפון, כשהאפליקציה פתוחה כאתר ולא כאפליקציה מותקנת.
      שורת הכתובת התחתונה של ספארי מרחפת מעל התוכן ואינה נכללת ב-env(safe-area-inset-bottom)
@@ -1148,8 +1178,11 @@
   .feat{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);
     border-radius:14px;padding:14px 16px 14px 15px;display:flex;gap:11px;align-items:flex-start;
     transition:transform .25s cubic-bezier(.22,.8,.3,1), box-shadow .25s, border-color .25s}
-  /* a gold edge that grows from the top on hover -- the reading edge in RTL is the right one */
-  .feat::before{content:"";position:absolute;inset-block:0;inset-inline-end:0;width:3px;
+  /* a gold edge that grows from the top on hover -- the reading edge in RTL is the right one.
+     ⛔ תוקן 21.8.2026: הקוד כתב `inset-inline-end` בזמן שההערה מעליו אומרת "הקצה
+     הימני". נמדד בדפדפן תחת `direction:rtl` · `inset-inline-end` מחזיר את הקצה
+     ה**שמאלי** ו-`inset-inline-start` את הימני. הפס ישב הפוך מהכוונה הכתובה. */
+  .feat::before{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:3px;
     background:linear-gradient(180deg,var(--gold),var(--accent));
     transform:scaleY(0);transform-origin:top;transition:transform .3s cubic-bezier(.22,.8,.3,1)}
   @media (hover:hover) and (pointer:fine){.feat:hover{transform:translateY(-3px);border-color:#d8c8a8;box-shadow:var(--shadow)}}
@@ -2296,17 +2329,17 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=211"></script>
-<script src="config.js?v=211"></script>
-<script src="store.js?v=211"></script>
-<script src="leveltest-he.js?v=211"></script>
-  <script src="leveltest.js?v=211"></script>
-<script src="enrank.js?v=211"></script>
-<script src="data.js?v=211"></script>
-<script src="data-en.js?v=211"></script>
+<script src="supabase.min.js?v=212"></script>
+<script src="config.js?v=212"></script>
+<script src="store.js?v=212"></script>
+<script src="leveltest-he.js?v=212"></script>
+  <script src="leveltest.js?v=212"></script>
+<script src="enrank.js?v=212"></script>
+<script src="data.js?v=212"></script>
+<script src="data-en.js?v=212"></script>
 <!-- לקסיקון סובלנות האיות · חייב להיטען לפני app.js, שקורא window.TYPO_LEX.
      נכשל בטעינה? השכבה כבויה והאפליקציה מתנהגת כמו היום. -->
-<script src="typo-lex.js?v=211"></script>
-<script src="app.js?v=211"></script>
+<script src="typo-lex.js?v=212"></script>
+<script src="app.js?v=212"></script>
 </body>
 </html>

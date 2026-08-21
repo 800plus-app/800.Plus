@@ -110,3 +110,44 @@ describe('פוקוס מקלדת במבחן הרמה', () => {
       'ההבחנה בין מקלדת לעכבר אינה נשענת על :focus-visible');
   });
 });
+
+/* ⭐ נוסף 21.8.2026, מאותה משפחה בדיוק.
+ *
+ * הבדיקות למעלה ודאו שכל כלל `:hover` מסויג · כלומר שהוא **לא** יירה במסך מגע.
+ * מה שאיש לא בדק הוא מה כן קורה שם. נמדד: **אפס** כללי `:active` בגיליון, מול
+ * 42 כללי hover מסויגים, ועל גבי `-webkit-tap-highlight-color:transparent`
+ * שמבטל גם את המשוב של הדפדפן. כלומר התיקון של 6.8 היה נכון וחצי:
+ * הוא הסיר את הדביקות ולא שם דבר במקומה, ולחיצה בטלפון נשארה בלי שום תגובה.
+ *
+ * חגי, על שני כפתורי דף הבית: "לא מעניינים, לא מושכים, גדולים מידי, **ותקועים**".
+ */
+describe('יש משוב לחיצה במסך מגע', () => {
+
+  test('קיימים כללי :active, ולא רק :hover', () => {
+    const n = [...html.matchAll(/:active/g)].length;
+    assert.ok(n >= 20, `נמצאו רק ${n} מופעי :active · הגיליון חזר להיות אילם בטלפון`);
+  });
+
+  test('המחלקות המרכזיות מכוסות', () => {
+    /* לא רשימה מלאה · דגימה שנשברת אם מישהו מוחק את הבלוק. */
+    const noRM = html.replace(/@media \(prefers-reduced-motion:reduce\)\{[\s\S]*?\}\}/g, ' ');
+    for (const sel of ['.btn:not(:disabled):active', '.tile:active', '.big-tile:active',
+                       '.pbtn:not(:disabled):active', '.seg button:active'])
+      assert.ok(noRM.includes(sel), `${sel} אינו מכוסה מחוץ לסייג התנועה המופחתת`);
+  });
+
+  test('⛔ המשוב הוא transform בלבד · לא זז שום שכן', () => {
+    /* translateY או padding על אלמנט לחוץ מזיזים את מה שסביבו, וזה נקרא כקפיצה
+       ולא כמשוב. גם `top`/`margin` פסולים מאותה סיבה. */
+    const block = html.match(/\.btn:not\(:disabled\):active[\s\S]*?\{([^}]*)\}/);
+    assert.ok(block, 'בלוק ה-:active נעלם');
+    assert.match(block[1], /transform:scale/, 'המשוב אינו scale');
+    assert.ok(!/(margin|padding|top|width|height):/.test(block[1]),
+      'המשוב משנה פריסה · שכנים יזוזו בכל לחיצה');
+  });
+
+  test('יש סייג לתנועה מופחתת', () => {
+    assert.match(html, /@media \(prefers-reduced-motion:reduce\)\{[\s\S]{0,600}?transform:none/,
+      'אין נפילה חזרה לרקע במקום תנועה');
+  });
+});
