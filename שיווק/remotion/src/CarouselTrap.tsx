@@ -3,7 +3,7 @@ import { AbsoluteFill, useCurrentFrame } from "remotion";
 import { C, paperBackground } from "./brand";
 
 /**
- * ק3 · קרוסלה · "המילה שנראית נכונה". 1080×1350, 8 שקופיות.
+ * ק3 · קרוסלה · "המילה שנראית נכונה". 1080×1350, **7 שקופיות**.
  *
  * ⭐ **פורמט חדש, ובכוונה.** חגי, 23.8: "בוא נוסיף כלל שהפרסומות לא חוזרות על
  * עצמן." ארבעה מתוך שבעה פרסומים היו קרוסלת רשימה. זה ההפך ממנה: **פריט אחד
@@ -17,6 +17,10 @@ import { C, paperBackground } from "./brand";
  *
  * ⛔ אין כאן טענה על מה "רוב הנבחנים" בוחרים. אין לנו נתון כזה, ו-`/VIS §4`
  * אוסר פרט שאי אפשר לאמת. הניסוח הוא `נראה מתאים`, וזה נכון תמיד.
+ *
+ * ⛔ **המשפט והאפשרויות באותה שקופית.** חגי, 23.8: "בהשלמת משפטים אסור שיהיה
+ * משפט בלי תשובות, כי אף אחד לא יתחיל לגלול קדימה אחורה בשביל התשובות."
+ * הגרסה הראשונה פיצלה אותם לשתיים, **ומי שצריך לגלול חזרה גולל הלאה.**
  *
  * הפריט: `data-sent-en.js` · אקדמי #22 · `aca4#10`. הנימוקים הם שדה `r`.
  */
@@ -33,7 +37,7 @@ const ITEM = {
   answerWhy: "הכרעה קודמת שמקנה תוקף להכרעה חדשה",
 };
 
-export const TRAP_SLIDES = 8;
+export const TRAP_SLIDES = 7;
 
 const Frame: React.FC<{ children: React.ReactNode; footer?: string }> = ({ children, footer }) => (
   <AbsoluteFill
@@ -117,27 +121,22 @@ export const CarouselTrap: React.FC = () => {
     );
   }
 
-  /* 1 · המשפט */
+  /* 1 · ⭐ המשפט **והאפשרויות יחד** · שקופית אחת
+     חגי, 23.8: "בהשלמת משפטים אסור שיהיה משפט בלי תשובות, כי אף אחד לא
+     יתחיל לגלול קדימה אחורה בשביל התשובות."
+     ⛔ הפיצול לשתי שקופיות הכריח את הצופה להחזיק את המשפט בראש ולגלול
+     חזרה אליו. **מי שצריך לגלול, גולל הלאה.** */
   if (i === 1) {
     return (
       <Frame footer="איזו מילה נכנסת?">
         <Sentence />
-      </Frame>
-    );
-  }
-
-  /* 2 · האפשרויות */
-  if (i === 2) {
-    return (
-      <Frame footer="כל הארבע נשמעות סבירות">
-        <Kicker>ארבע אפשרויות</Kicker>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 26, width: "100%", maxWidth: 880 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, width: "100%", maxWidth: 880, marginTop: 40 }}>
           {ITEM.options.map((o) => (
             <div
               key={o}
               style={{
-                background: C.card, borderRadius: 999, padding: "30px 20px",
-                fontFamily: "Frank Ruhl Libre, serif", fontWeight: 900, fontSize: 52,
+                background: C.card, borderRadius: 999, padding: "24px 16px",
+                fontFamily: "Frank Ruhl Libre, serif", fontWeight: 900, fontSize: 46,
                 color: C.ink, direction: "ltr", border: `2px solid ${C.line}`,
               }}
             >
@@ -149,8 +148,8 @@ export const CarouselTrap: React.FC = () => {
     );
   }
 
-  /* 3 · המלכודת */
-  if (i === 3) {
+  /* 2 · המלכודת */
+  if (i === 2) {
     return (
       <Frame>
         <Kicker>המלכודת</Kicker>
@@ -167,8 +166,8 @@ export const CarouselTrap: React.FC = () => {
     );
   }
 
-  /* 4 · למה המסיח נופל */
-  if (i === 4) {
+  /* 3 · למה המסיח נופל */
+  if (i === 3) {
     return (
       <Frame>
         <Kicker>למה הוא לא נכון</Kicker>
@@ -179,8 +178,8 @@ export const CarouselTrap: React.FC = () => {
     );
   }
 
-  /* 5 · ⭐ הטכניקה · הלב של הנכס */
-  if (i === 5) {
+  /* 4 · ⭐ הטכניקה · הלב של הנכס */
+  if (i === 4) {
     return (
       <Frame footer="זה עובד על כל פריט, לא רק על זה">
         <Kicker>הטכניקה</Kicker>
@@ -207,8 +206,8 @@ export const CarouselTrap: React.FC = () => {
     );
   }
 
-  /* 6 · התשובה */
-  if (i === 6) {
+  /* 5 · התשובה */
+  if (i === 5) {
     return (
       <Frame>
         <Kicker>התשובה</Kicker>
@@ -223,7 +222,7 @@ export const CarouselTrap: React.FC = () => {
     );
   }
 
-  /* 7 · סיום */
+  /* 6 · סיום */
   return (
     <Frame>
       <Big size={86}>
