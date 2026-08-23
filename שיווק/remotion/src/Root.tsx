@@ -15,6 +15,7 @@ import { ReelCold, REEL_COLD_SEC } from "./ReelCold";
 import { Carousel, CAROUSEL_SLIDES } from "./Carousel";
 import { CarouselPairs, PAIRS_SLIDES } from "./CarouselPairs";
 import { CarouselPlan, PLAN_SLIDES } from "./CarouselPlan";
+import { CarouselTrap, TRAP_SLIDES } from "./CarouselTrap";
 
 /**
  * שני הגופנים של 800+, נטענים פעם אחת לכל הקומפוזיציות.
@@ -92,6 +93,14 @@ export const RemotionRoot: React.FC = () => {
       {/* פ1 · קרוסלה לאינסטגרם. **כל פריים הוא שקופית**, לא סרטון.
           המידה 1080×1350 (4:5), ו-fps=1 כדי שמספר הפריים יהיה מספר השקופית.
           לרינדור: רנדר-קרוסלה.ps1 */}
+      <Composition
+        id="CarouselTrap"
+        component={CarouselTrap}
+        durationInFrames={TRAP_SLIDES}
+        fps={1}
+        width={1080}
+        height={1350}
+      />
       <Composition
         id="Carousel"
         component={Carousel}
