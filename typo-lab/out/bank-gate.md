@@ -1,6 +1,6 @@
 # שער כל המאגר · אפס התנגשויות חדשות
 
-נוצר: 2026-08-20T11:31:16.167Z · ‏`node typo-lab/bank_gate.js`
+נוצר: 2026-08-21T08:38:43.290Z · ‏`node typo-lab/bank_gate.js`
 
 ## הטענה
 
@@ -13,17 +13,17 @@
 · פרמטרים: `out/typo-rules.json` ver=`typo-lab/evolve/v1` · טביעת אצבע `8a4707170aa4` · enabled=true
 · חוק צד-הפירוש: `B1-union` · פיצול "או" מחלק · איחוד שני השומרים (ליבה≥2 או חלופה≥3)
 · נרדפות: 55 קבוצות בסטטוס approved מתוך 102
-· דאטהסט: 89375 שורות
+· דאטהסט: 90488 שורות
 
 | שכבה | EFF | צורות | מועמדים | זוגות שחושבו | חדשות | של היום | אותה מילה |
 |---|---|---|---|---|---|---|---|
-| he/he-word | 3 | 18249 | 2268155 | 2247775 | 0 | 12 | 27 |
-| en/en-word | 3 | 25770 | 2010005 | 1976978 | 0 | 17 | 17 |
-| he/gloss + B1-union | 3 | 6390 | 636278 | 629547 | 0 | 16 | 0 |
-| en/gloss + B1-union | 3 | 9290 | 5372247 | 5357662 | 0 | 707 | 0 |
+| he/he-word | 3 | 18247 | 2268152 | 2247774 | 0 | 12 | 27 |
+| en/en-word | 3 | 25771 | 2011399 | 1976698 | 0 | 15 | 2 |
+| he/gloss + B1-union | 3 | 6383 | 634568 | 627850 | 0 | 16 | 0 |
+| en/gloss + B1-union | 3 | 9778 | 5957030 | 5940782 | 0 | 787 | 0 |
 | נרדפות · 55 קבוצות | · | · | · | · | 0 | · | · |
 
-**10211962** זוגות (צורה, כרטיס) הגיעו לחישוב מרחק אמיתי, מתוך 10286685 מועמדים
+**10793104** זוגות (צורה, כרטיס) הגיעו לחישוב מרחק אמיתי, מתוך 10871149 מועמדים
 שהמסנן העלה, על 5663 ערכים.
 
 הסינון נגזר מהפרמטרים ואינו היוריסטי: ‏EFF = min(MAX_OPS, floor(max(t)/min(W))) חוסם
@@ -39,7 +39,7 @@
 אלה אינן תוצר של השכבה החדשה: זו ההתנהגות של האפליקציה כמו שהיא, והן מדווחות כאן
 כדי שלא ייבלעו לתוך המספר של ההתנגשויות החדשות.
 
-752 מקרים. הראשונים:
+830 מקרים. הראשונים:
 
 | שפה | כיוון | כרטיס | הוקלד | הפולש |
 |---|---|---|---|---|
@@ -58,18 +58,16 @@
 | en | term | jump | spring | spring |
 | en | term | jump | sprang | sprang |
 | en | term | scene | ring | ring rang |
+| en | term | beat | blew | blew |
 | en | term | plant | sprang | spring sprang |
-| en | term | request | seek | seek sought |
 | en | term | rise | arise | arise arose |
 | en | term | appear | arise | arise arose |
-| en | term | view | saw | saw |
 | en | term | dedicated | saw | saw see |
 | en | term | scale | arise | arise arose |
-| en | term | appeal | seek | seek sought |
+| en | term | spring | sprang | sprang |
 | en | term | emerge | arise | arise arose |
 | en | term | exhale | blew | blew |
-| en | term | perceive | saw | saw |
-| en | term | solicit | seek | seek sought |
+| en | term | stroke | blew | blew |
 | en | term | sprang | spring | spring |
 | en | term | staunch | saw | saw see |
 | he | gloss | אֲלוּמָּת אוֹר | קרנ אור | אלומה |
@@ -83,7 +81,9 @@
 | he | gloss | דּוּמָם | שקט | חרישי |
 | he | gloss | מַצְבִּיא | הקצינ | הסלימ |
 | he | gloss | בֵּית גְּנָזִים | מקומ לאכסונ מסמכימ | גנזכ |
-| ... | | ועוד 712 | | |
+| he | gloss | אַסְפַּקְלַרְיָה | המראה | נסיקה |
+| he | gloss | נְסִיקָה | מראה | אספקלריה |
+| ... | | ועוד 790 | | |
 
 ## אותה מילה, שני ערכים
 
@@ -92,7 +92,7 @@
 של הכרטיס עצמו, ולכן אינה התנגשות. מה שכן נשאר אדום: מחרוזת שהיא **צורה קבילה** של
 הערך האחר ואינה צורה קבילה של הכרטיס.
 
-44 מקרים. הראשונים:
+29 מקרים. הראשונים:
 
 | שפה | כיוון | כרטיס | הוקלד | הערך החולק |
 |---|---|---|---|---|
@@ -121,7 +121,7 @@
 | he | term | מַשְׂאַת לֵב / נֶפֶש | נפשש | פזור דעת נפש |
 | he | term | פִּזּוּר דַּעַת / נֶפֶש | נפש | משאת לב נפש |
 | he | term | פִּזּוּר דַּעַת / נֶפֶש | נפשש | משאת לב נפש |
-| ... | | ועוד 19 | | |
+| ... | | ועוד 4 | | |
 
 ## הכיוון ההפוך · חמשת זוגות הצירה שהוחזרו
 
@@ -138,7 +138,7 @@
 
 ## פסק דין
 
-✅ ירוק · אפס התנגשויות חדשות על 5663 ערכים, 10211962 זוגות שחושבו, וחמשת זוגות הצירה נשארו דחויים.
+✅ ירוק · אפס התנגשויות חדשות על 5663 ערכים, 10793104 זוגות שחושבו, וחמשת זוגות הצירה נשארו דחויים.
 
 ## מה השער הזה **אינו** מוכיח
 
@@ -147,4 +147,4 @@
 · ‏via=exact הוא ההתנהגות של היום, והשער אינו מתיימר לתקן אותה.
 · איכות התוכן, ניסוח ההודעה למשתמש, וההתנהגות בדפדפן אינן נמדדות כאן.
 
-<!-- bank-gate: {"ver":"typo-lab/evolve/v1","paramsFp":"8a4707170aa4","enabled":true,"cfg":"B1-union","cards":5663,"candidates":10286685,"pairs":10211962,"newCollisions":0,"baselineExact":752,"sameWord":44,"synonymGroups":55,"tsereRejected":5,"tserePairs":5,"layers":[{"lang":"he","set":"he-word","eff":3,"forms":18249,"pairs":2247775,"collisions":0},{"lang":"en","set":"en-word","eff":3,"forms":25770,"pairs":1976978,"collisions":0},{"lang":"he","set":"gloss","eff":3,"forms":6390,"pairs":629547,"collisions":0},{"lang":"en","set":"gloss","eff":3,"forms":9290,"pairs":5357662,"collisions":0}],"pass":true} -->
+<!-- bank-gate: {"ver":"typo-lab/evolve/v1","paramsFp":"8a4707170aa4","enabled":true,"cfg":"B1-union","cards":5663,"candidates":10871149,"pairs":10793104,"newCollisions":0,"baselineExact":830,"sameWord":29,"synonymGroups":55,"tsereRejected":5,"tserePairs":5,"layers":[{"lang":"he","set":"he-word","eff":3,"forms":18247,"pairs":2247774,"collisions":0},{"lang":"en","set":"en-word","eff":3,"forms":25771,"pairs":1976698,"collisions":0},{"lang":"he","set":"gloss","eff":3,"forms":6383,"pairs":627850,"collisions":0},{"lang":"en","set":"gloss","eff":3,"forms":9778,"pairs":5940782,"collisions":0}],"pass":true} -->
