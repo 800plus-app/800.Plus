@@ -210,18 +210,53 @@ describe('acquiredCards · הרשימה והסדר', () => {
     assert.strictEqual(got.size, 2);
   });
 
-  test('⭐ ממוינת מהוותיקה לחדשה', () => {
-    /* זה כל התכן: "אם למדתי 10 מילים 2 בכל יום 5 ימים אחורה אז ה-2 מילים של היום
-       הראשון יופיעו קודם". */
+  test('⭐ תור מעגלי · הפחות־שתורגלה־לאחרונה ראשונה', () => {
+    /* ⛔ הבדיקה כאן קבעה מיון לפי `t0`. `t0` הוא רגע הלמידה ו**אינו זז לעולם**,
+       ולכן הסדר היה קבוע: אצל חגי, עם 198 מילים ביחידה וסבב של 20, אותן 20
+       הוותיקות חזרו בכל פעם והמילה ה-21 לא הוצגה מעולם.
+       חגי, 24.8: "מילים שתרגלתי ביחידה הזאת עוברות לסוף ולא יופיעו לי עד
+       שאסיים את כל המילים · ככה זה מעגל". `last` הוא מה שמייצר את המעגל. */
     const ctx = fresh();
     const ws = ctx.uniqScope('unit:1').slice(0, 4);
     practiseRound(ctx, ws.map(w => [w, 'wrong']), { scope: 'unit:1' });
     const stamps = [400, 100, 300, 200];
-    ws.forEach((w, i) => { ctx.stats.words[ctx.K(w.term)].t0 = stamps[i]; });
-    /* Array.from · המערך נבנה בתוך ה-vm ולכן אינו חולק prototype עם המערך כאן,
-       ו-deepStrictEqual דוחה אותו גם כשהתוכן זהה. מתועד ב-sandbox.js. */
-    const order = Array.from(ctx.acquiredCards('unit:1')).map(w => ctx.stats.words[ctx.K(w.term)].t0);
-    assert.deepStrictEqual(order, [100, 200, 300, 400], 'הסדר אינו מהוותיק לחדש');
+    ws.forEach((w, i) => { ctx.stats.words[ctx.K(w.term)].last = stamps[i]; });
+    const order = Array.from(ctx.acquiredCards('unit:1')).map(w => ctx.stats.words[ctx.K(w.term)].last);
+    assert.deepStrictEqual(order, [100, 200, 300, 400], 'הסדר אינו לפי last עולה');
+  });
+
+  test('⭐ מילה שתורגלה שוקעת לתחתית התור', () => {
+    /* המבחן האמיתי של המעגל: לא רק שהסדר נכון, אלא שהוא **משתנה** אחרי תרגול.
+       בלי זה היחידה מציגה את אותן מילים לנצח, וזה מה שהיה. */
+    const ctx = fresh();
+    const ws = ctx.uniqScope('unit:1').slice(0, 5);
+    practiseRound(ctx, ws.map(w => [w, 'wrong']), { scope: 'unit:1' });
+    ws.forEach((w, i) => { ctx.stats.words[ctx.K(w.term)].last = 100 + i; });
+
+    const before = Array.from(ctx.acquiredCards('unit:1')).map(w => ctx.K(w.term));
+    const head = before.slice(0, 2);            // שתי הראשונות בתור
+    practiseRound(ctx, ws.filter(w => head.includes(ctx.K(w.term))).map(w => [w, 'first']),
+                  { scope: 'unit:1' });
+
+    const after = Array.from(ctx.acquiredCards('unit:1')).map(w => ctx.K(w.term));
+    assert.strictEqual(after.length, before.length, 'מילה נעלמה מהיחידה');
+    for (const k of head)
+      assert.ok(after.indexOf(k) >= after.length - 2,
+        'מילה שתורגלה לא שקעה לתחתית · היחידה תציג אותה שוב מיד');
+    assert.strictEqual(ctx.K(after[0]), ctx.K(before[2]),
+      'ראש התור החדש אינו המילה הבאה בתור · המעגל אינו מתקדם');
+  });
+
+  test('⛔ הסדר אינו מוחזר אחרי הערבוב · הערבוב הוא הפיצ׳ר', () => {
+    /* הבחירה כבר עשתה את העבודה · pick הוא n שהכי מזמן לא תורגלו. בתוך הסבב
+       הסדר אקראי בכוונה, כדי שהיחידה לא תיקרא כרשימה משוננת.
+       חגי: "הן מסודרות בסדר אקראי". */
+    const src = require('fs').readFileSync(require('path').join(__dirname, '..', 'app.js'), 'utf8');
+    const at = src.indexOf("$('#homeAcquired').onclick");
+    assert.ok(at > 0, 'המטפל נעלם');
+    const body = src.slice(at, at + 1400);
+    assert.ok(!/deck\.sort\(/.test(body),
+      'deck.sort חזר · הוא מבטל את הערבוב ומחזיר סדר קבוע');
   });
 
   test('מילה שדולגה במבחן הרמה אינה נכנסת', () => {
