@@ -1,6 +1,6 @@
 # שער כל המאגר · אפס התנגשויות חדשות
 
-נוצר: 2026-08-21T08:38:43.290Z · ‏`node typo-lab/bank_gate.js`
+נוצר: 2026-08-25T15:03:56.769Z · ‏`node typo-lab/bank_gate.js`
 
 ## הטענה
 
@@ -13,17 +13,17 @@
 · פרמטרים: `out/typo-rules.json` ver=`typo-lab/evolve/v1` · טביעת אצבע `8a4707170aa4` · enabled=true
 · חוק צד-הפירוש: `B1-union` · פיצול "או" מחלק · איחוד שני השומרים (ליבה≥2 או חלופה≥3)
 · נרדפות: 55 קבוצות בסטטוס approved מתוך 102
-· דאטהסט: 90488 שורות
+· דאטהסט: 90502 שורות
 
 | שכבה | EFF | צורות | מועמדים | זוגות שחושבו | חדשות | של היום | אותה מילה |
 |---|---|---|---|---|---|---|---|
-| he/he-word | 3 | 18247 | 2268152 | 2247774 | 0 | 12 | 27 |
-| en/en-word | 3 | 25771 | 2011399 | 1976698 | 0 | 15 | 2 |
-| he/gloss + B1-union | 3 | 6383 | 634568 | 627850 | 0 | 16 | 0 |
-| en/gloss + B1-union | 3 | 9778 | 5957030 | 5940782 | 0 | 787 | 0 |
+| he/he-word | 3 | 18249 | 2268162 | 2247774 | 0 | 12 | 27 |
+| en/en-word | 3 | 25772 | 2011449 | 1976747 | 0 | 15 | 2 |
+| he/gloss + B1-union | 3 | 6397 | 635394 | 628655 | 0 | 16 | 0 |
+| en/gloss + B1-union | 3 | 9779 | 5957047 | 5940798 | 0 | 787 | 0 |
 | נרדפות · 55 קבוצות | · | · | · | · | 0 | · | · |
 
-**10793104** זוגות (צורה, כרטיס) הגיעו לחישוב מרחק אמיתי, מתוך 10871149 מועמדים
+**10793974** זוגות (צורה, כרטיס) הגיעו לחישוב מרחק אמיתי, מתוך 10872052 מועמדים
 שהמסנן העלה, על 5663 ערכים.
 
 הסינון נגזר מהפרמטרים ואינו היוריסטי: ‏EFF = min(MAX_OPS, floor(max(t)/min(W))) חוסם
@@ -138,7 +138,7 @@
 
 ## פסק דין
 
-✅ ירוק · אפס התנגשויות חדשות על 5663 ערכים, 10793104 זוגות שחושבו, וחמשת זוגות הצירה נשארו דחויים.
+✅ ירוק · אפס התנגשויות חדשות על 5663 ערכים, 10793974 זוגות שחושבו, וחמשת זוגות הצירה נשארו דחויים.
 
 ## מה השער הזה **אינו** מוכיח
 
@@ -147,4 +147,4 @@
 · ‏via=exact הוא ההתנהגות של היום, והשער אינו מתיימר לתקן אותה.
 · איכות התוכן, ניסוח ההודעה למשתמש, וההתנהגות בדפדפן אינן נמדדות כאן.
 
-<!-- bank-gate: {"ver":"typo-lab/evolve/v1","paramsFp":"8a4707170aa4","enabled":true,"cfg":"B1-union","cards":5663,"candidates":10871149,"pairs":10793104,"newCollisions":0,"baselineExact":830,"sameWord":29,"synonymGroups":55,"tsereRejected":5,"tserePairs":5,"layers":[{"lang":"he","set":"he-word","eff":3,"forms":18247,"pairs":2247774,"collisions":0},{"lang":"en","set":"en-word","eff":3,"forms":25771,"pairs":1976698,"collisions":0},{"lang":"he","set":"gloss","eff":3,"forms":6383,"pairs":627850,"collisions":0},{"lang":"en","set":"gloss","eff":3,"forms":9778,"pairs":5940782,"collisions":0}],"pass":true} -->
+<!-- bank-gate: {"ver":"typo-lab/evolve/v1","paramsFp":"8a4707170aa4","enabled":true,"cfg":"B1-union","cards":5663,"candidates":10872052,"pairs":10793974,"newCollisions":0,"baselineExact":830,"sameWord":29,"synonymGroups":55,"tsereRejected":5,"tserePairs":5,"layers":[{"lang":"he","set":"he-word","eff":3,"forms":18249,"pairs":2247774,"collisions":0},{"lang":"en","set":"en-word","eff":3,"forms":25772,"pairs":1976747,"collisions":0},{"lang":"he","set":"gloss","eff":3,"forms":6397,"pairs":628655,"collisions":0},{"lang":"en","set":"gloss","eff":3,"forms":9779,"pairs":5940798,"collisions":0}],"pass":true} -->

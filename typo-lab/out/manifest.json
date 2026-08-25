@@ -27,10 +27,10 @@
     }
   },
   "lexicon": {
-    "files": 599,
-    "bytes": 5943001,
-    "heTypes": 35284,
-    "enTypes": 9753
+    "files": 598,
+    "bytes": 4929824,
+    "heTypes": 35261,
+    "enTypes": 9750
   },
   "consistencyFlips": 6,
   "broken": {
@@ -38,23 +38,23 @@
     "fold": false,
     "limitCards": 0
   },
-  "total": 90488,
+  "total": 90502,
   "counts": {
     "set": {
       "en-word": 35272,
-      "gloss": 29999,
+      "gloss": 30013,
       "he-word": 25217
     },
     "label": {
-      "accept": 45350,
-      "reject": 45138
+      "accept": 45369,
+      "reject": 45133
     },
     "op": {
-      "adj": 19606,
-      "double": 9692,
+      "adj": 19609,
+      "double": 9696,
       "drop": 13717,
-      "homophone": 5479,
-      "mater": 5683,
+      "homophone": 5481,
+      "mater": 5688,
       "neg/d1-partner": 2739,
       "neg/garbage": 2981,
       "neg/inflection": 364,
@@ -70,41 +70,41 @@
       "transpose": 9895
     },
     "why": {
-      "ambiguous": 25163,
+      "ambiguous": 25161,
       "cross-card": 6,
       "garbage": 2491,
       "inflection": 217,
-      "novel": 41153,
-      "novel-unverified": 4197,
+      "novel": 41170,
+      "novel-unverified": 4199,
       "other-variant": 25,
-      "real-word": 2044,
-      "veto": 15192
+      "real-word": 2039,
+      "veto": 15194
     },
     "setLabel": {
-      "en-word/accept": 21664,
-      "en-word/reject": 13608,
-      "gloss/accept": 9238,
-      "gloss/reject": 20761,
-      "he-word/accept": 14448,
-      "he-word/reject": 10769
+      "en-word/accept": 21665,
+      "en-word/reject": 13607,
+      "gloss/accept": 9254,
+      "gloss/reject": 20759,
+      "he-word/accept": 14450,
+      "he-word/reject": 10767
     },
     "trusted": {
-      "false": 4197,
-      "true": 86291
+      "false": 4199,
+      "true": 86303
     }
   },
   "files": [
     {
       "name": "dataset-he.jsonl",
-      "rows": 33670,
-      "bytes": 7494213,
-      "sha256": "e2bfefda08737c5252d359a165cb677eab5bb024b4c909bb3e22741f46c950ff"
+      "rows": 33684,
+      "bytes": 7497210,
+      "sha256": "770660cfd56e88ffdcf9f793fa228b12685a0c1ab7c9f12844bea56c5096d83a"
     },
     {
       "name": "dataset-en.jsonl",
       "rows": 56818,
-      "bytes": 11326123,
-      "sha256": "e526ab1c8fe58687bb54b66a254a48337292bd5e98613a781669e677c8bf9ee0"
+      "bytes": 11326624,
+      "sha256": "60cbd2c0316dbff294b410625ad91e7e0d566915bf050cdca4ac032693219960"
     }
   ]
 }
