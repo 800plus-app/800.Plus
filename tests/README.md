@@ -28,11 +28,16 @@ node --test tests/03-buckets.test.js
 
 ## Current status
 
-**171 tests · 166 pass · 4 fail · 1 skipped.**
+**996 tests · 995 pass · 0 fail · 1 skipped · 73 files.** (Updated 11.8.2026, בדק בית 3.)
 
-The four failures are real findings about the word banks, not broken tests. They are described
-in [`דוחות/סיכומים/בדק-בית-בדיקות.md`](../דוחות/סיכומים/בדק-בית-בדיקות.md) and summarised at the bottom of this
-file. **Do not silence them.** Fixing them means editing `data.js` / `data-en.js`.
+⚠ **This file described 171 tests and four failures until 11.8.2026.** The plan for בדק בית 3
+called that out by name, because a stale "what is NOT covered" list is worse than no list: it
+sends the next audit to re-test areas that are already saturated, and it quietly grants absolution
+to areas that were never covered at all. If you are reading this more than a few weeks after the
+date above, re-run `node tests/run.js` before trusting any number here.
+
+The four bank failures this file used to list are **gone** — the data was fixed and the tests
+evolved with it (`02-bank.test.js` now passes 32/32). Do not go looking for them.
 
 ---
 
@@ -122,6 +127,18 @@ normalises the realm and prints the offenders), and `plain(x)` for deep comparis
 | `05-answer.test.js` | `isCorrect`, alternatives, compounds, plene forms, shared-gloss acceptance, `meaningMatch` |
 | `06-merge.test.js` | `mergeProgress` — max counts, last-write-wins level, deletions, session dedupe and cap, idempotence, malformed input |
 
+⚠ **That table covers files `00`–`06` only — the original core. There are 73 files.** It is not
+maintained per-file on purpose: a hand-written index of 73 entries goes stale between one audit
+and the next, and a stale index is what sent this whole document wrong until 11.8.2026. Every
+file opens with a header comment saying what it guards and, where it matters, which real failure
+it locks in. `ls tests/` and read the headers — those cannot drift from the tests they sit above.
+
+Broadly, beyond the core: `07`–`08` storage and `store.js` · `11` time · `15` copy · `22` unloaded
+sync · `30` sampling · `39` merge fields · `49` navigation · `62`–`63` senses · `65` speech ·
+`67` entitlement · `68`–`70` sentence completion · `71` entitlement network · `72` `enrank` ·
+`73` innerHTML escaping and CSP · `74` partial bank, update safety, login failure · `75` offline
+sentence bank.
+
 ### Named regressions locked in
 
 Each of these is a separate test with the word in its name, so undoing one produces a red line
@@ -174,60 +191,53 @@ it would be believed. So it was checked, on a throwaway copy of the tree outside
 Nothing below is tested here. Listing it is the point: an untested area that nobody has written
 down reads as a tested one.
 
-- **Everything DOM.** Rendering, `goto()`/screen switching, the donut, the results screen, the
-  manage screen, `#feedback` markup, `esc()` and therefore XSS on a personal word or an
-  association. `maskTerm()` is lifted and callable but has no tests yet — its output is only ever
-  seen as a prompt, so judging it needs eyes.
+**Rewritten 11.8.2026.** Most of what this section used to list is now covered — `localStorage`
+and the migrations (`07`, `74`), `store.js` and the network paths (`08`, `71`), the service
+worker (`75`), the level test and `enrank` (`72`), and `esc()`/XSS (`73`, plus a live-browser
+run). Those entries were removed rather than left standing, because a "not covered" list that is
+wrong in the *safe* direction still wastes the next reader's week.
+
+What genuinely has no automated coverage:
+
+- **Rendering itself.** The suite reaches functions, never pixels. Whether the donut draws, the
+  results screen reads well, or a layout breaks at some width — no test sees any of it. ‏320px
+  and 375px were checked by hand in a browser on 11.8 (zero overflow across five screens); that
+  is a measurement, not a standing guarantee.
 - **Event wiring.** Buttons, Enter-to-check, focus handling. `check()` and `finishCard()` are
   covered only through the two restated lines above; a bug in the rest of `finishCard` is
-  invisible here.
-- **`localStorage`.** `LS.get`/`LS.set`, quota failure, the assoc budget, and the
-  `migrateStores` / `remapHyphenKeys` / `pruneOrphans` migrations. These are the riskiest
-  untested code in the app: they rewrite stored progress in place, and a mistake is permanent.
-  They are testable with a localStorage stub and are the obvious next thing to add.
-- **Supabase / `store.js`.** Every network path: sign-in, `pullProgress`, `pushProgress`, shared
-  associations, RLS. `mergeProgress` is tested as a pure function; nothing tests that the right
-  payload reaches it or that a failed read is distinguished from an empty cloud.
-- **The service worker.** Cache versioning, the update prompt, the stale-cache trap.
-- **The level test** (`leveltest.js`, `leveltest-he.js`) and exam generation — including
-  `pickDistractors`, where a bad distractor is a card with two correct answers.
-- **Timing and ordering.** Debounced sync, `queueRemoteSync`, `pagehide`/`visibilitychange`,
-  two devices racing in real time. `mergeProgress` is tested with hand-built payloads, not with
-  concurrent writers.
+  invisible here. Several real bugs found on 11.8 lived exactly here.
+- **`maskTerm()`.** Lifted and callable, but its output is only ever read by a human as a prompt.
+  Judging whether it hides the answer *well* needs eyes. (Its output goes to `.textContent`, so
+  it is not an escaping question — see `73`.)
+- **Timing and ordering.** Debounced sync, two devices racing in real time. `mergeProgress` is
+  tested with hand-built payloads, never with concurrent writers.
 - **Clock skew.** `mergeProgress` resolves `level` by comparing `last` timestamps written by
-  different devices. A device with a skewed clock wins every conflict. Not tested, and not
-  currently defended against in the app either.
+  different devices. A device with a skewed clock wins every conflict. Still not tested, and
+  still not defended against in the app — see the skipped test below.
+- **A real device, a real restore, the live database, a real screen reader.** Group ה' of
+  בדק בית 3. Cannot be closed from a terminal, and is listed here so nobody assumes it was.
 - **Anything about whether a translation is *correct*.** The bank tests check shape, uniqueness
   and language — never meaning.
 
+⚠ **The single largest blind spot is structural, not a list.** The mutation run on 11.8 scored
+100% — but only across the 10.7% of `app.js` the harness can reach. **89.3% of the file receives
+no mutant at all.** Inside what is reachable the coverage is absolute; outside it there is no
+measurement whatsoever. Read any coverage claim about this suite with that ratio in hand.
+
 ---
 
-## The four failing tests
+## The four failing tests — resolved
 
-All four are in `02-bank.test.js` and all four are data, not code. Full detail in
-[`דוחות/סיכומים/בדק-בית-בדיקות.md`](../דוחות/סיכומים/בדק-בית-בדיקות.md).
+⚠ **Historical.** Until 11.8.2026 this section listed four failures in `02-bank.test.js`: a
+sense repeated inside one entry, leftover separator artefacts, and three pairs of Hebrew entries
+reachable from each other through `heForms`. **All four are gone.** The data was corrected and
+the tests grew with it — `02-bank.test.js` now passes 32/32, and the homograph question is
+covered by two named tests (`colliding entries differ in vocalisation`, `a legal homograph pair
+carries two different meanings`).
 
-1. **`no sense is listed twice inside one entry` (English, 4 entries.)** `before :: לפני, מול; לפני`,
-   `store :: חנות, לאחסן; לאחסן`, `propose :: להציע; להציע, להציע נישואין`,
-   `serve :: לשרת; לְרַצּוֹת (עונש); להגיש, לשרת`. User-visible: answer `before` correctly with
-   `מול` and the feedback line reads **"גם: לפני · לפני"**.
-
-2. **`no leftover separator artefacts` (one entry per bank.)**
-   `שָׁדוּד :: "עייף מאוד, מדוכא,"` — a trailing comma from a truncated edit.
-   `track :: "מסילה, מסלול,; לעקוב"` — a doubled separator. No user-visible effect today
-   (both `meaningSegs` and `otherSenses` drop empty segments); they are flagged as evidence of an
-   edit that stopped half-way.
-
-3. **`no two entries are reachable from each other through heForms` (3 pairs.)**
-   - `עֹל` [unit 8] and `עֹול` [unit 3] — the same word, entered once defectively and once plene,
-     with near-identical glosses. Two entries, two units, split progress.
-   - `אִכּוּל` [unit 10] and `אִיכּוּל` [unit 4] — same again.
-   - `נֹגַהּ` [unit 9] "אור, זוהר" and `נוּגֶה` [unit 3] "עצוב" — genuinely different words that
-     collide once `fullSpelling` restores the vav. A learner asked for one is marked correct for
-     the other. This may be an acceptable homograph; the first two are not.
-
-   Key uniqueness alone cannot see any of these, because niqqud-stripping leaves `על`/`עול` as
-   two different keys. `data.js`'s own first line promises "One word = one entry".
+The section is kept as a stub rather than deleted, because the detail lives on in
+[`דוחות/בדק-בית-בדיקות.md`](../דוחות/בדק-בית-בדיקות.md) and a reader arriving from there needs to
+know it was closed. **Do not re-open this hunt.**
 
 ## The skipped test
 

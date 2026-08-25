@@ -659,6 +659,21 @@ function pruneOrphans(){
     console.error('pruneOrphans בוטל: המאגר נטען חלקית ('+live.size+' מילים) · לא נמחק דבר');
     return;
   }
+  /* ⛔ נמצא בבדק בית 3: הרצפה שמעל מגנה מפני מאגר **ריק**, לא מפני מאגר **חצי**.
+     מאגר שהגיע עם 200 מילים מתוך 3,000 עובר אותה בנוחות, וכל שאר הרשומות
+     נמחקות · ו-saveStats() גוררת queueRemoteSync(), כלומר האובדן נדחף גם לענן
+     ואין ממנו חזרה. אותה משפחת כשל שההערה שמעל מתארת, רק בדרגה אחת פחות קיצונית,
+     ולכן היא חמקה מהשומר שנכתב בדיוק בשבילה.
+     הכלל היחסי: מחיקה שמוחקת את **רוב** רשומות הלומד אינה תחזוקה אלא תאונה.
+     המינימום נדרש כדי שהכלל לא יתפוס לומד עם שתי רשומות שאחת מהן באמת יתומה,
+     וזה מצב תקין לגמרי · ראו tests/06. */
+  const recs=Object.keys(stats.words);
+  const doomed=recs.filter(k=>!live.has(k));
+  if(recs.length >= 20 && doomed.length > recs.length/2){
+    console.error('pruneOrphans בוטל: '+doomed.length+' מתוך '+recs.length+
+                  ' רשומות היו נמחקות · המאגר כנראה נטען חלקית');
+    return;
+  }
   let touched=false;
   for(const k in stats.words) if(!live.has(k)){ delete stats.words[k]; touched=true; }
   for(const k in assoc)       if(!live.has(k)){ delete assoc[k];       touched=true; }
@@ -1670,6 +1685,16 @@ const NAV_DEPTH = { boot:0, intro:0, auth:0, welcome:0, locked:0, home:0, mode:0
                     quiz:2, results:2, exam:2, stats:2, manage:2, add:2, sent:2 };
 const navDepth = id => NAV_DEPTH[id] || 0;
 let navPop = false;   // אמת בזמן טיפול ב-popstate: הדפדפן כבר הזיז את ההיסטוריה
+/* ⛔ נמצא בבדק בית 3: "→ בית" השאיר רשומה תלויה, ולחיצת "אחורה" אחת נבלעה ·
+   בדיוק הרגרסיה שההערה מעל NAV_DEPTH מתארת, רק מדלת אחרת.
+   התיקון הנאיבי · history.go(-navDepth(current)) · **שגוי ומסוכן**: עומק אינו
+   מספר הרשומות שנדחפו. כניסה לאנגלית עוברת mode (עומק 0) → sent (עומק 2)
+   ודוחפת **רשומה אחת**, ו-go(-2) היה מוציא את המשתמש מהאפליקציה.
+   לכן המונה נשמר בתוך רשומת ההיסטוריה עצמה: הוא שורד רענון, והוא נכון גם
+   כשקופצים כמה רשומות בבת אחת. */
+const navN = () => (history.state && history.state.n) || 0;
+let navHome = false;      // "→ בית" ממתין לגלישה חזרה אל הבסיס
+let navHomeT = null;      // רשת ביטחון: היסטוריה קצרה מהצפוי לא תשאיר כפתור מת
 
 function goto(id){
   SCREENS.forEach(s=>{
@@ -1680,8 +1705,9 @@ function goto(id){
   if(!navPop){
     const cur = history.state && history.state.scr;
     try{
-      if(navDepth(id) > navDepth(cur)) history.pushState({scr:id}, '');
-      else history.replaceState({scr:id}, '');
+      const n = navN();
+      if(navDepth(id) > navDepth(cur)) history.pushState({scr:id, n:n+1}, '');
+      else history.replaceState({scr:id, n}, '');
     }catch(e){}
   }
   if(id==='intro'){
@@ -3170,7 +3196,16 @@ function goBack(){
 }
 window.addEventListener('popstate', e=>{
   navPop = true;
-  try{ navTo((e.state && e.state.scr) || 'home'); }
+  try{
+    /* חזרנו מ-"→ בית": הרשומות שנדחפו כבר נצרכו, ועכשיו מציירים בית ומקבעים
+       את הבסיס על n=0. בלי navPop=false כאן, goto לא היה מעדכן את הרשומה
+       והמצב היה מכריז על מסך אחר מזה שרואים. */
+    if(navHome){
+      navHome = false; clearTimeout(navHomeT);
+      navPop = false; renderHome(); goto('home'); return;
+    }
+    navTo((e.state && e.state.scr) || 'home');
+  }
   finally{ navPop = false; }
 });
 // safety net: if the app is closed/backgrounded on the results screen, still record the round
@@ -3538,6 +3573,17 @@ $('#addSave').onclick=()=>{
 document.querySelectorAll('[data-home]').forEach(b=>b.onclick=()=>{
   if(!committed && session.size>0) commitSession();
   if(!BANK.length || (LANG!=='he' && LANG!=='en')){ renderWelcome(); return; }
+  /* צורכים את הרשומות שנדחפו במקום להחליף את העליונה בלבד. בלי זה נשארת רשומה
+     תלויה ולחיצת "אחורה" הבאה נבלעת · ראו ההערה על navN למעלה. */
+  const n = navN();
+  if(n > 0){
+    navHome = true;
+    /* אם ההיסטוריה קצרה מ-n (רענון שקיצץ אותה, או פתיחה מקישור) · go אינו
+       מפעיל popstate כלל, והכפתור היה נראה מת. נופלים חזרה לציור ישיר. */
+    clearTimeout(navHomeT);
+    navHomeT = setTimeout(()=>{ if(navHome){ navHome=false; renderHome(); goto('home'); } }, 250);
+    history.go(-n); return;
+  }
   renderHome(); goto('home');
 });
 document.querySelectorAll('[data-scope]').forEach(b=>b.onclick=()=>openScope(b.dataset.scope));
@@ -3588,7 +3634,13 @@ function updateSafeNow(){
      ⚠ התנאי השני בשורה למטה שומר על תרגול המילים דרך `session`, ולמודול המשפטים
      אין `session` · הוא אינו נשען על אותו מנגנון. לכן שם המסך הוא ההגנה היחידה
      שלו, וזו הסיבה שהשמטה כאן הייתה שקטה לחלוטין. */
-  const busy=['quiz','exam','level','sent'];
+  /* ⛔ `'results'` נוסף בבדק בית 3. ההערה שמעל הפונקציה כותבת במפורש שהעדכון
+     "deliberately NOT applied automatically when the round ends, because that moment
+     is the results screen" · אבל המסך לא היה ברשימה. וגם התנאי השני אינו מכסה
+     אותו: finishRound כבר הריצה commitSession, ולכן `committed` אמת והביטוי כבוי.
+     כלומר הפונקציה החזירה "בטוח לרענן" בדיוק במסך שההערה מגינה עליו, ורענון שם
+     מוחק גם את מה שהלומד קורא וגם תיקוני "בעצם ידעתי" שטרם נשמרו. */
+  const busy=['quiz','exam','level','sent','results'];
   return !busy.includes(currentScreenId()) && !(typeof session!=='undefined' && session.size>0 && !committed);
 }
 /* May this tab reload itself right now?
@@ -4219,7 +4271,23 @@ const lvOfferNote = kind => ({
           <br><span style="${LV_SUB}">ברמה הזו אין דילוג: כל המילים במאגר עדיין רלוונטיות לך,
           ולכן כולן נשארות בתרגול.</span>`,
 }[kind] || '');
-function lvRankOf(term){ const m=window.EN_RANK; return m ? m[normEn(term)] : null; }
+/* שתי צורות, כי המפה והנרמול נבנו בנפרד: מפתחות enrank.js נכתבו עם רווחים
+   ומקפים **מוסרים** (`povertystricken`), ואילו normEn הופך מקף לרווח ומשאיר
+   אותו (`poverty stricken`). שש רשומות נפלו בין הכיסאות · begin an un ·
+   best seller · self confidence · department store · old fashioned ·
+   poverty stricken · וקיבלו undefined.
+   זה לא נראה כשגיאה בשום מקום: הקוראים עושים `if(!(r && r<=cut)) continue`,
+   כלומר ערך בלי דירוג פשוט נעלם ממאגר מבחן הרמה ומ-lvCountKnown, בשקט.
+   הנפילה־אחורה כאן ולא תיקון של enrank.js: הקובץ הוא דאטה שנבנה בצינור נפרד,
+   ולוגיקת חיפוש שסובלת את שתי הכתיבות עמידה גם לבנייה הבאה. */
+function lvRankOf(term){
+  const m=window.EN_RANK; if(!m) return null;
+  const k=normEn(term);
+  const hit=m[k];
+  if(hit!=null) return hit;
+  const squashed=k.replace(/[\s-]/g,'');
+  return squashed!==k ? m[squashed] : hit;
+}
 /* Counts what will ACTUALLY be marked, which is not the same as what is below the cut.
    The old version counted every ranked word under the cut across the whole bank and ignored
    history and deletions -- so it advertised 2,470 while lvApplyKnown, which skips any word that
@@ -5641,6 +5709,14 @@ $('#authForm').addEventListener('submit', async e=>{
       if(r.error){ msg.className='au-msg err'; msg.textContent=translateAuthError(r.error); return; }
       currentUser=r.user; afterAuthed(false);
     }
+  /* ⛔ נמצא בבדק בית 3: כאן היה try{…} finally בלי catch. כל זריקה · רשת שנופלת
+     באמצע, או store.js שלא נטען ו-Store אינו מוגדר · עברה מעל ההודעה והשאירה את
+     "מתחבר…" על המסך. הכפתור אמנם השתחרר, אבל הטקסט המשיך להבטיח שמשהו קורה,
+     והמשתמש נשאר מול מסך שמשקר לו. §10: הודעת שגיאה חייבת לומר מה עכשיו. */
+  }catch(err){
+    console.error('כשל בהתחברות', err);
+    msg.className='au-msg err';
+    msg.textContent='ההתחברות נכשלה. בדוק את החיבור לרשת ונסה שוב';
   } finally { btn.disabled=false; }
 });
 $('#cheerOk').onclick=()=>hide($('#cheer'));
@@ -6450,7 +6526,19 @@ function entVerdict(ent, now){
 async function refreshEntitlement(){
   try{
     const ent = await Store.myEntitlement();
-    if(ent && typeof ent.access==='boolean'){ LS.set(ENT_KEY, ent); return ent; }
+    if(ent && typeof ent.access==='boolean'){
+      /* ⚠ אסימטרי בכוונה, ולא סתם LS.set.
+         כשהדיסק מלא הכתיבה נכשלת בשקט, והמטמון הקודם נשאר. אם השרת **שלל**
+         גישה והכתיבה לא עברה, נשאר על הדיסק {access:true} מלפני כן · ובטעינה
+         הבאה entVerdict מחזיר true והגישה חוזרת. כלומר שלילה אינה נדבקת על
+         מכשיר במצוקת מכסה, וזה בדיוק המכשיר שיש בו shedStorage מפני שזה קורה.
+         לכן: כתיבה שנכשלה על שלילה **מוחקת** את המטמון. בטעינה הבאה entVerdict
+         מחזיר null, נופלים למסלול המקומי שבודק את הפרופיל, וזו האמת.
+         כשהשרת מתיר והכתיבה נכשלת · המטמון נשאר. מחיקה שם הייתה שוללת גישה
+         ממי שיש לו אותה, במכשיר שכבר במצוקה. */
+      if(!LS.set(ENT_KEY, ent) && ent.access===false) LS.del(ENT_KEY);
+      return ent;
+    }
   }catch(e){}
   return LS.get(ENT_KEY, null);
 }
@@ -6916,7 +7004,7 @@ async function renderAdminFeedback(){
     + rows.map(r=>{
       const c=r.context||{};
       return `<div class="adm-row"${r.status==='done'?' style="opacity:.55"':''}>
-        <div class="adm-top"><b>${FB_KIND_HE[r.kind]||r.kind}</b>
+        <div class="adm-top"><b>${FB_KIND_HE[r.kind]||esc(r.kind)}</b>
           <span class="mail">${esc(r.email||'–')}</span>
           ${r.status==='done'?'<span class="adm-tag">טופל</span>':''}</div>
         <p style="font-size:.94rem;line-height:1.55;margin:6px 0 8px;white-space:pre-wrap">${esc(r.body)}</p>
@@ -7042,7 +7130,12 @@ function sentProg(){
   const old = LS.get(SENT_KEY, null);
   const out = {};
   if (Array.isArray(old)) old.forEach(src => { if (src) out[src] = { n: 1, ok: 0, last: 0 }; });
-  if (Object.keys(out).length) LS.set(SENT_PROG, out);
+  /* המקור נמחק **רק** אחרי שהיעד נכתב בהצלחה. LS.set מחזיר בוליאני בדיוק בשביל
+     זה: מחיקה בלי התנאי הזה מוחקת את העותק היחיד כשהדיסק מלא · וזו כל ההתקדמות.
+     ובלי המחיקה בכלל, hw_sent_done נשאר לנצח כנתונים מתים שאיש כבר לא קורא
+     (המבנה החדש גובר עליו למעלה) ותופס מכסה באפליקציה שיש בה shedStorage שלם
+     מפני שהמכסה נגמרת בפועל. */
+  if (Object.keys(out).length && LS.set(SENT_PROG, out)) LS.del(SENT_KEY);
   return out;
 }
 function sentRecord(src, right){
@@ -7104,8 +7197,15 @@ function sentSummary(band){
            pct: total ? Math.round(100 * ok / total) : 0 };
 }
 
+/* ‏המרכאות נוספו ב-14.8.2026. sEsc מאושרת ב-ESCAPERS של tests/73 · כלומר השער
+   מאשר כל מה שהיא עוטפת, **בכל הקשר, כולל בתוך מאפיין**. בלי בריחה ממרכאות
+   `<div title="${sEsc(v)}">` נשבר החוצה מהמאפיין והשער שותק. בפועל כל אתרי
+   הקריאה היום הם טקסט ו-SENT_EN הוא תוכן פנימי, ולכן לא הייתה חשיפה חיה; זה
+   נסגר כדי שהאישור הגורף שב-ESCAPERS יהיה נכון ולא רק נכון-במקרה.
+   בהקשר טקסט `&quot;` מוצג כ-" · הרינדור אינו משתנה. */
 const sEsc = s => String(s==null?'':s)
-  .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+  .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 /* `**…**` הוא סימון ההדגשה בשדה t. נהפך ל-<b> **אחרי** ההחלטה, ולכן ההחלטה חלה
    על התוכן והתג נוסף בסוף. */
 const sBold = s => sEsc(s).replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>');

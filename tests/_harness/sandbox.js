@@ -100,6 +100,9 @@ const SYMBOLS = [
      שאר מדדי לוח הבקרה חיים בתוך openAdmin, שדורשת Supabase חי, ולכן נבדקים
      רק כשער מקור · חלש יותר. זו נכתבה בחוץ במכוון כדי לצאת מהמלכודת הזאת. */
   'sameLocalDay',
+  /* דירוג התדירות שמזין את מבחן הרמה. הוסף 11.8.2026 · עד אז lvRankOf לא
+     הייתה ניתנת לבדיקה כלל, ו-enrank.js היה קובץ דאטה בלי אף בדיקה. */
+  'lvRankOf',
 ];
 
 /* Symbols that must exist on the context afterwards. Superset of SYMBOLS: it also names the
@@ -126,7 +129,10 @@ function banks() {
   };
   load('data.js');
   load('data-en.js');
-  cachedBanks = { he: w.UNIT_DATA, en: w.UNIT_DATA_EN };
+  /* enrank.js מזין את מבחן הרמה דרך lvRankOf. בלעדיו lvRankOf מחזיר null תמיד,
+     וכל בדיקה עליו הייתה עוברת ריקם — ירוק שאינו מעיד על כלום. */
+  load('enrank.js');
+  cachedBanks = { he: w.UNIT_DATA, en: w.UNIT_DATA_EN, rank: w.EN_RANK };
   return cachedBanks;
 }
 
@@ -170,7 +176,7 @@ function loadApp(opts = {}) {
     __saved: { stats: 0, assoc: 0, deleted: 0, added: 0 },
     __toasts: [],
   };
-  ctx.window = { UNIT_DATA: b.he, UNIT_DATA_EN: b.en };
+  ctx.window = { UNIT_DATA: b.he, UNIT_DATA_EN: b.en, EN_RANK: b.rank };
   ctx.globalThis = ctx;
   vm.createContext(ctx);
 

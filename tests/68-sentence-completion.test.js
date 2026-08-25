@@ -334,8 +334,23 @@ describe('השלמת משפטים · מעקב ההתקדמות', () => {
        שהמילים מגודרות ל-395 מתוך 3,946. זה לא היה החלטה: `PREVIEW` מסנן יחידות,
        והמשפטים אינם בנויים ביחידות, ולכן הסינון פשוט לא חל עליהם. */
     assert.match(app, /const PREVIEW_BAND = /, 'אין גדר לרצועות במצב הצצה.');
-    const fn = app.slice(app.indexOf('function sentBank('));
-    const body = fn.slice(0, fn.indexOf('\n}') + 2);
+    /* ⚠ 11.8.2026 — היה כאן `app.slice(app.indexOf('function sentBank('))`.
+       כששם פונקציה משתנה, `indexOf` מחזיר ‎-1, `slice(-1)` מחזיר את **התו האחרון**
+       של הקובץ, ו-`indexOf('\n}')` מחזיר ‎-1 — כלומר גוף באורך תו אחד שכל בדיקת
+       היעדר עליו עוברת ריקם. נמדד: שינוי שם של renderSentPick השאיר את הקובץ
+       הזה 32/0 ירוק, עם הגדר שלא נבדק כלל.
+       `extractFunction` מחזיר null במקום לחתוך בשקט, ו-`codeMask` מסנן הערות —
+       מה שמייתר גם את מסיר-ההערות הידני שהיה כאן. */
+    const { extractFunction } = require('./_harness/extract.js');
+    const { codeMask } = require('./_harness/scan.js');
+    const mask = codeMask(app);
+    const lift = name => {
+      const src = extractFunction(app, name, mask);
+      assert.ok(src, `${name} נעלמה מ-app.js — הבדיקה איבדה את מה שהיא אמורה לשמור`);
+      return src;
+    };
+
+    const body = lift('sentBank');
     assert.match(body, /if\(!PREVIEW\) return S/, 'sentBank אינו מגדר במצב הצצה.');
     assert.match(body, /PREVIEW_BAND/, 'sentBank אינו מגביל לרצועה שהוגדרה.');
     /* ⭐ והדרישה האמיתית: **קורא אחד**. גידור שמפוזר על פני כמה קוראים הוא גידור
@@ -344,12 +359,14 @@ describe('השלמת משפטים · מעקב ההתקדמות', () => {
        תקין, כי `renderSentPick` **מזכיר** את `window.SENT_EN` בהערה שמסבירה באג
        קודם. בדיקה שמחפשת מחרוזת בטקסט חופשי בודקת את הדבר הלא נכון, וזה בדיוק
        הכשל שחוזר בפרויקט הזה. */
+    /* ⚠ ההערות מוסרות לפני בדיקת התוכן. `extractFunction` משתמש ב-mask כדי למצוא
+       את הגבולות, אבל מחזיר את המקור **הגולמי** — כולל הערות. ו-renderSentPick
+       מזכיר את window.SENT_EN בהערה שמסבירה באג קודם, ולכן בדיקה על הטקסט המלא
+       מאדימה על קוד תקין. נתפס כאן ב-11.8.2026, בדיוק אותה מלכודת שההערה
+       המקורית בבדיקה הזאת מתעדת. */
     const code = t => t.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/[^\n]*/g, '');
-    const readers = ['function sentSummary(', 'function renderSentPick(', 'function startSentRound('];
-    for (const r of readers) {
-      const f = app.slice(app.indexOf(r));
-      const b = code(f.slice(0, f.indexOf('\n}') + 2));
-      assert.ok(!/window\.SENT_EN/.test(b),
+    for (const r of ['sentSummary', 'renderSentPick', 'startSentRound']) {
+      assert.ok(!/window\.SENT_EN/.test(code(lift(r))),
         `${r} קורא את הקורפוס ישירות ועוקף את הגדר. חייב לעבור דרך sentBank().`);
     }
   });

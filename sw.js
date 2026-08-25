@@ -2,7 +2,7 @@
    ONE place to bump on every deploy: REV. It names the cache *and* the asset query strings,
    so the URLs precached here are byte-for-byte the URLs index.html requests. When those drift
    apart the app silently keeps serving an old build -- which is exactly what used to happen. */
-const REV = '215';
+const REV = '216';
 const V = 'hw-v' + REV;
 /* App DATA must not live in a versioned cache. The personalised reminder text was written into
    hw-v<REV>, so the next deploy deleted it along with the assets -- and it was never rewritten,
@@ -55,6 +55,25 @@ self.addEventListener('install', e => {
       await Promise.all(CORE.map(u => load(u).then(r => c.put(u, r))));
       await Promise.all(ASSETS.filter(u => !CORE.includes(u))
         .map(u => load(u).then(r => c.put(u, r)).catch(() => {})));
+
+      /* ⛔ נמצא בבדק בית 3, אחרי מדידה בשרת מכובה: השלמת משפטים לא עבדה
+         אופליין אחרי כל דיפלוי.
+         `data-sent-en.js` שוקל 195KB ואינו ב-ASSETS · בכוונה, כי רוב הכניסות
+         אינן נוגעות בתרגול הזה (app.js:5668). הוא כן נכנס למטמון בזמן ריצה
+         בשימוש הראשון, אבל `activate` למטה מוחק את המטמון הישן כולו בכל גרסה,
+         ו-REV זז 41 פעם בעשרה ימים. כלומר דווקא מי שכן מתרגל משפטים איבד את
+         היכולת לתרגל אופליין, שוב ושוב, והוא המשתמש שהכי אכפת לו.
+         שתי הפשרות נשמרות יחד: מי שמעולם לא נגע במשפטים אינו מוריד כלום, ומי
+         שהקובץ כבר היה אצלו מקבל אותו מראש. המטמון הישן הוא העדות היחידה
+         שיש כאן על מה שהמשתמש באמת עשה.
+         best-effort ככל השאר: 195KB על רשת חלשה לא יפילו התקנה. */
+      const SENT = `./data-sent-en.js?v=${REV}`;
+      try {
+        const old = (await caches.keys()).filter(k => k !== V && k.startsWith('hw-v'));
+        const had = await Promise.all(old.map(k => caches.open(k)
+          .then(o => o.keys()).then(rs => rs.some(r => r.url.includes('data-sent-en.js')))));
+        if (had.some(Boolean)) await load(SENT).then(r => c.put(SENT, r)).catch(() => {});
+      } catch (_) { /* אין מטמון ישן לקרוא · התקנה ראשונה. לא מורידים. */ }
     }).then(() => self.skipWaiting())
   );
 });
