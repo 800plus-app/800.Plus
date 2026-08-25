@@ -1,0 +1,104 @@
+name: תרגיל שחזור
+
+# האם הגיבוי באמת ניתן לשחזור, או רק קיים.
+#
+# למה זה קיים
+# ------------
+# הגיבוי היומי רץ ב-Hagay-BOT/800plus-backups ומדווח "success" כל לילה. הדיווח הזה
+# אומר שה-workflow הסתיים בלי שגיאה. הוא **אינו** אומר שהקובץ נטען, שיש בו שורות,
+# או שאפשר להחזיר ממנו משתמש.
+#
+# ההבדל בין שתי הטענות נבדק לראשונה ביום שבו צריך את הגיבוי, כלומר ביום הגרוע ביותר.
+# הסקריפט scripts/restore_drill.py קיים בריפו מ-8.2026 ו**אף אחד לא הריץ אותו** ·
+# נמצא ב-24.8.2026 בבדיקת גיבוי יזומה. זה מה שה-workflow הזה מתקן.
+#
+# מה נבדק, וכל בדיקה היא כשל אמיתי
+# ---------------------------------
+#   1. הקובץ נטען       · JSON קטוע הוא הכשל השכיח בגיבוי שנכתב תוך כדי ריצה
+#   2. יש שורות         · 200 OK עם מערך ריק הוא הכשל השקט ביותר. RLS שחוסמת
+#                          את המפתח מחזירה בדיוק את זה
+#   3. העמודות קיימות   · שחזור נכשל על עמודה חסרה, לא על קובץ חסר
+#   4. המפתחות ייחודיים · id כפול = הייצוא רץ תוך כדי כתיבה ואינו עקבי
+#   5. ההתקדמות נפתחת   · progress.data הוא JSON בתוך JSON. אם הפנימי שבור,
+#                          השורה קיימת והמשתמש איבד הכול
+#   6. הצלבה מול ייצור  · גיבוי שקטן משמעותית מהמצב החי הוא גיבוי חלקי
+#
+# הסקריפט אינו כותב כלום. תרגיל שחזור שנוגע בייצור אינו תרגיל.
+#
+# למה שבועי ולא יומי
+# -------------------
+# הגיבוי עצמו יומי. התרגיל בודק את **המנגנון**, והוא נשבר לאט: סכמה שהשתנתה,
+# מפתח שפג, טבלה שנוספה ולא נכללת. שבוע הוא חלון סביר לתפוס את אלה, ובלי לייצר
+# רעש שגורם להתעלם מההתרעה.
+#
+# ⚠ תזמון ב-Actions הוא best effort. הריצה עשויה לאחר בשעות. זה מקובל כאן.
+#
+# שני סודות, ושניהם אופציונליים במובנים שונים:
+#   GH_BACKUP_TOKEN   · קריאה מריפו הגיבויים הפרטי. בלעדיו התרגיל אינו יכול לרוץ
+#   RESEND_API_KEY    · מייל התרעה. בלעדיו הכישלון נראה רק ב-Actions
+#   SUPABASE_SERVICE_KEY · רק לבדיקה 6. בלעדיו היא מדולגת והשאר רץ
+
+on:
+  schedule:
+    - cron: '17 4 * * 0'      # ראשון, 04:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  drill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262   # v4.4.0
+
+      - name: התרגיל
+        id: run
+        env:
+          GH_TOKEN: ${{ secrets.GH_BACKUP_TOKEN || github.token }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          set +e
+          python scripts/restore_drill.py 2>&1 | tee out.txt
+          code=${PIPESTATUS[0]}
+          set -e
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          # שתי שורות בלבד למייל · הפלט המלא נשאר בלוג
+          {
+            echo 'body<<XEOF'
+            tail -20 out.txt
+            echo XEOF
+          } >> "$GITHUB_OUTPUT"
+          exit $code
+
+      # ⚠ if: failure() ולא הצלחה · מייל בכל שבוע נקרא כרעש ומפסיקים לפתוח אותו
+      - name: מייל כשהתרגיל נכשל
+        if: failure()
+        env:
+          KEY: ${{ secrets.RESEND_API_KEY }}
+          BODY: ${{ steps.run.outputs.body }}
+        run: |
+          if [ -z "$KEY" ]; then
+            echo "::warning::RESEND_API_KEY לא מוגדר — אי אפשר לשלוח את ההתרעה"
+            exit 0
+          fi
+          payload=$(python - <<'PY'
+          import json, os
+          body = os.environ.get('BODY', '(אין פלט)')
+          url = 'https://github.com/%s/actions/runs/%s' % (
+              os.environ['GITHUB_REPOSITORY'], os.environ['GITHUB_RUN_ID'])
+          html = ('<p>תרגיל השחזור השבועי נכשל. הגיבוי אולי רץ, אבל לא הוכח '
+                  'שאפשר לשחזר ממנו.</p><pre style="background:#f6f1e7;padding:12px;'
+                  'border-radius:8px;white-space:pre-wrap;direction:ltr;text-align:left">'
+                  + body.replace('&','&amp;').replace('<','&lt;') + '</pre>'
+                  '<p><a href="' + url + '">הריצה המלאה</a></p>')
+          print(json.dumps({"from":"800+ <admin@800-plus.com>",
+                            "to":["03hagay@gmail.com"],
+                            "subject":"⛔ תרגיל השחזור נכשל",
+                            "html":html}))
+          PY
+          )
+          curl -sS -X POST https://api.resend.com/emails \
+            -H "Authorization: Bearer $KEY" \
+            -H "Content-Type: application/json" \
+            -d "$payload"
