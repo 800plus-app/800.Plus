@@ -7,6 +7,28 @@ const sb = window.supabase.createClient(window.SUPA_URL, window.SUPA_KEY, {
   auth: { persistSession: true, autoRefreshToken: true }
 });
 
+/* ⭐ שלב במשפך הסקר · שורה אחת, ללא תשובה. `kind` מבדיל בינה לבין תגובה
+   (`supabase/wtp-kind-migration.sql`).
+
+   ⛔ best-effort במלוא מובן המילה: בלי `await`, בלי טיפול בשגיאה, ובתוך `try`.
+   שתי הקריאות מגיעות מרגעים שבהם משהו כבר קרה על המסך · סבב שהסתיים, וכרטיס
+   שכבר מוצג · וכתיבה תפעולית אסור שתעכב או תשבור אף אחד מהם.
+
+   ⚠ ואם העמודה `kind` עדיין לא נוספה, ה-INSERT נכשל והשורה לא נכתבת. זה מכוון:
+   מוטב אפס רשומות מאשר רשומות שאי אפשר לפרש. */
+function wtpMark(kind) {
+  try {
+    sb.auth.getUser().then(({ data }) => {
+      const user = data && data.user;
+      if (!user) return;                          // מנותק · אין למי לשייך
+      sb.from('wtp_survey').insert({
+        user_id: user.id, kind,
+        price_bucket: null, what_helped: null, what_would_stop: null, dismissed: false
+      }).then(() => { }, () => { });
+    }, () => { });
+  } catch (e) { }
+}
+
 /* ---------- auth ---------- */
 const Store = {
   async signUp(email, password, username) {
@@ -18,12 +40,26 @@ const Store = {
   },
   async signIn(email, password) {
     const { data, error } = await sb.auth.signInWithPassword({ email, password });
-    if (data && data.user) {
-      // best-effort -- auth.users.last_sign_in_at isn't readable via the client,
-      // so the admin dashboard needs its own "last seen" it can actually query
-      sb.from('profiles').update({ last_seen: new Date().toISOString() }).eq('id', data.user.id).then(()=>{});
-    }
+    if (data && data.user) Store.touchSeen(data.user.id);
     return { user: data && data.user, session: data && data.session, error };
+  },
+  /* ⛔ `last_seen` נכתב **בכל פתיחה של האפליקציה**, ולא רק כשמישהו מקליד סיסמה.
+     הכתיבה ישבה כאן בתוך signIn בלבד · ומכיוון שהלקוח מוגדר `persistSession: true`,
+     מי שנכנס פעם אחת במכשיר חוזר אליו לנצח בלי לעבור דרך signIn. כלומר השדה מדד
+     "מתי הוקלדה סיסמה בפעם האחרונה" ונקרא כאילו הוא "מתי נראה לאחרונה".
+
+     ⭐ ומה שזה שבר בפועל: `scripts/pick_inactive.py` מזהה "נרשם ולא פתח מעולם" לפי
+     `last_seen` ריק. לומד פעיל שנכנס פעם אחת לפני שהעמודה הזאת נוספה, או שנרשם
+     וקיבל הפעלה מיד, נשאר עם ריק · ולכן היה מועמד למייל "נרשמת ולא פתחת".
+
+     best-effort בכוונה, בלי await ובלי טיפול בשגיאה: זה נתון תפעולי, ותקלה בכתיבתו
+     אסור שתעכב או תשבור פתיחה של האפליקציה. */
+  touchSeen(uid) {
+    try {
+      if (!uid) return;
+      sb.from('profiles').update({ last_seen: new Date().toISOString() })
+        .eq('id', uid).then(()=>{}, ()=>{});
+    } catch (e) { }
   },
   async signOut() { await sb.auth.signOut(); },
   /* Re-sends the sign-up confirmation to an account that exists but was never confirmed.
@@ -208,11 +244,37 @@ const Store = {
     if (!user) return true;                       // signed out -- nothing to write to
     /* head:true returns the count and no rows -- `data` is null here, so the answer has to come
        from `count`. Reading data.length instead would always say "never asked". */
+    /* ⛔ **תשובות בלבד, לא הצגות.** מאז ש-`wtpMarkShown` כותבת שורה ברגע ההצגה,
+       ספירה של כל השורות הייתה חוסמת גם את מי שהכרטיס הוצג לו והוא לא נגע בו.
+       ⭐ זה היה **משנה התנהגות** ולא רק מדידה: היום מי שהתעלם כן נשאל שוב
+       בטעינה הבאה, כי לא נכתבה לו שורה. הסינון כאן שומר על ההתנהגות הזאת
+       בדיוק, ומוסיף רק את היכולת לספור. */
     const { count, error } = await sb.from('wtp_survey')
-      .select('user_id', { count: 'exact', head: true }).eq('user_id', user.id);
+      .select('user_id', { count: 'exact', head: true }).eq('user_id', user.id)
+      .or('price_bucket.not.is.null,dismissed.is.true');
     if (error) return true;
     return (count || 0) > 0;
   },
+  /* ⭐ «הכרטיס הוצג» · הרישום שלא היה קיים, וזה מה שחסם כל מדידה של המשפך.
+     עד היום נכתבה שורה **רק** ב-✕ או בשליחת תשובה, ולכן «כמה ראו» היה
+     בלתי ניתן להפרדה מ«כמה הגיבו» · בשום שאילתה.
+
+     ⛔ INSERT ולא UPDATE, במכוון: ל-`wtp_survey` אין מיגרציה בריפו והמדיניות
+     שלה אינה ידועה מהקוד. INSERT **מוכח שעובד** · 17 שורות קיימות. UPDATE
+     הוא ניחוש, ואם הוא חסום התשובות עצמן היו מפסיקות להירשם.
+     המחיר: שתי שורות ללומד שהגיב. ניתוח סופר `distinct user_id`.
+
+     best-effort · בלי await ובלי טיפול בשגיאה. כישלון כתיבה כאן אסור שיפריע
+     לכרטיס שכבר מוצג על המסך. */
+  wtpMarkShown() { wtpMark('shown'); },
+  /* ⭐ «הגיע לנקודה» · הצד השני של אותו משפך.
+     `finishRound` הוא הרגע שבו הסקר **נשקל**, והוא לא כתב דבר · לא לענן ולא
+     לדיסק. בלי הרישום הזה אי אפשר להבדיל בין «לא הגיע» לבין «הגיע ולא הוצג»,
+     כי שלוש יציאות מוקדמות שותקות בדיוק אותו דבר.
+
+     ⛔ נכתב **בכל** סיום סבב, גם למי שכבר ענה. זה המכנה · והוא צריך לכלול את
+     כולם, אחרת הוא מודד את עצמו. */
+  wtpMarkReached() { wtpMark('reached'); },
   /* dismissed:true is written for a ✕ with no answer. It is a real data point -- the ratio of
      dismissals to answers says how much appetite there was for the question at all -- and it is
      also what stops the card from coming back. */
@@ -222,6 +284,10 @@ const Store = {
     if (!user) return { ok: false };
     const { error } = await sb.from('wtp_survey').insert({
       user_id: user.id,
+      /* ⭐ אותו `kind` כמו בשלבים הקודמים, כדי ששאילתה אחת תספור את כל המשפך.
+         ⛔ והסינון ב-`wtpAsked` נשאר על `price_bucket`/`dismissed` ולא על `kind`:
+         שורה שנכתבה לפני שהעמודה נוספה מחזיקה `kind = null` והיא **כן** תגובה. */
+      kind: row.dismissed ? 'dismiss' : 'answer',
       price_bucket: row.price_bucket || null,
       what_helped: row.what_helped || null,
       what_would_stop: row.what_would_stop || null,

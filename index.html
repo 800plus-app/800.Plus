@@ -50,7 +50,7 @@
     unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
   :root{
     --paper:#f6f1e7; --paper-deep:#efe7d6; --card:#fffdf8; --ink:#2c2620; --ink-soft:#6b6254;   /* היה #736a5c = 4.32:1 על --paper-deep, מתחת ל-AA; עכשיו עובר גם שם */
-    --gold:#c9962f; --accent:#b5482e; --accent-deep:#8f3620; --green:#4e7d4e; --line:#e3d8c4;
+    --gold:#c9962f; --gold-ink:#8a6512; --accent:#b5482e; --accent-deep:#8f3620; --green:#4e7d4e; --line:#e3d8c4;
     --shadow:0 10px 30px -14px rgba(90,60,20,.4);
     /* ===== עומק · נוסף 21.8.2026 =====
        ⭐ המודל לא הומצא כאן. מסך ההתחברות כבר החזיק אותו במלואו · כיוון אור אחד,
@@ -153,7 +153,7 @@
   /* segmented direction control */
   .seg{display:flex;gap:6px;background:var(--paper-deep);border:1px solid var(--line);border-radius:12px;padding:5px}
   .seg button{flex:1;border:none;background:transparent;color:var(--ink-soft);font-family:"Heebo";font-weight:700;font-size:.82rem;padding:9px 5px;border-radius:8px;transition:.15s}
-  .seg button.active{background:linear-gradient(180deg,var(--gold),var(--accent));color:#fff;box-shadow:var(--shadow)}
+  .seg button.active{background:linear-gradient(180deg,var(--gold-ink),var(--accent));color:#fff;box-shadow:var(--shadow)}
 
   /* WELCOME */
   #welcome{padding-top:6vh}
@@ -349,6 +349,45 @@
   .s-sent{direction:ltr;text-align:left;font-family:"Frank Ruhl Libre",serif;
     font-size:clamp(1.05rem,3.4vw,1.3rem);line-height:1.7;margin-bottom:20px}
   .s-sent .bl{color:var(--accent);font-weight:700;letter-spacing:.06em}
+  /* ═══ מילה שאפשר להקיש עליה לפירוש ═══
+     ⛔ כל מילה במשפט לחיצה, ולא רק אלה שיש להן פירוש · הקשה על מילה שאין לה
+     ערך מחזירה תשובה מפורשת ולא שתיקה. הקו המקווקו מסמן היכן **יש** פירוש,
+     כדי שההקשה תהיה מושכלת ולא ניחוש. */
+  .s-w{font:inherit;color:inherit;background:none;border:0;padding:0 1px;cursor:pointer;
+       border-radius:3px;transition:background .12s}
+  .s-w.has{border-bottom:1px dotted var(--gold-ink)}
+  .s-w:active{background:rgba(201,150,47,.22)}
+  .s-w.on{background:rgba(201,150,47,.28)}
+  @media (hover:hover) and (pointer:fine){.s-w:hover{background:rgba(201,150,47,.16)}}
+  .s-gloss{position:relative;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;
+       margin-bottom:12px;padding:11px 38px 11px 14px;border-radius:12px;
+       background:var(--paper-deep);border:1px solid var(--line);text-align:right}
+  .s-gloss.hidden{display:none!important}
+  .s-gloss-w{font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:1.02rem;
+       color:var(--accent-deep)}
+  .s-gloss-m{font-size:.9rem;color:var(--ink)}
+  .s-gloss-m.none{color:var(--ink-soft);font-size:.82rem}
+  .s-gloss-x{position:absolute;inset-inline-end:6px;top:50%;transform:translateY(-50%);
+       width:30px;height:30px;border:0;background:none;color:var(--ink-soft);
+       font-size:.9rem;cursor:pointer;border-radius:50%}
+  .s-len{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+  .s-len-l{flex:0 0 auto;font-size:.82rem;font-weight:700;color:var(--ink-soft)}
+  .s-len .seg{flex:1}
+  .s-hint{margin-top:9px;font-size:.72rem;color:var(--ink-soft);text-align:center}
+  .s-hint.hidden{display:none!important}
+  /* ═══ הבוחן הקצר ═══ */
+  .sq-box{max-width:400px}
+  .sq-term{font-family:"Frank Ruhl Libre",serif;font-size:1.7rem;font-weight:900;
+       margin-top:6px;color:var(--ink)}
+  .sq-opts{display:grid;gap:8px;margin-top:16px}
+  .sq-opts button{font-family:"Heebo";font-size:.95rem;font-weight:500;padding:13px 14px;
+       border-radius:12px;border:1px solid var(--line);background:var(--paper);
+       color:var(--ink);text-align:right;transition:.15s;line-height:1.4}
+  @media (hover:hover) and (pointer:fine){
+    .sq-opts button:not(:disabled):hover{border-color:var(--gold);transform:translateY(-2px)}}
+  .sq-opts button.is-right{border-color:var(--green);background:rgba(78,125,78,.12);font-weight:700}
+  .sq-opts button.is-wrong{border-color:var(--accent);background:rgba(181,72,46,.1)}
+  .sq-opts button .mk{margin-inline-start:6px;font-weight:900}
   /* מספור החסרים בפריט זוג. שני `___` זהים והאפשרות היא "align + differ", כלומר
      הסדר קובע · והמספר אומר מה לאיפה בלי מילים. */
   .s-sent .bl sup{font-size:.62em;font-weight:700;vertical-align:super;margin-inline-start:1px}
@@ -382,7 +421,7 @@
   .s-opt.is-wrong .mk{color:var(--accent)}
   /* ההסבר. שלושה חלקים בסדר שנקבע: פירוש האפשרויות, תרגום המשפט, ואז הנימוק. */
   .s-exp{margin-top:20px;padding-top:18px;border-top:1px solid var(--line);text-align:right}
-  .s-exp h4{font-size:.7rem;letter-spacing:.12em;color:var(--gold);font-weight:700;
+  .s-exp h4{font-size:.7rem;letter-spacing:.12em;color:var(--gold-ink);font-weight:700;
     text-transform:uppercase;margin-bottom:7px}
   .s-exp section{margin-bottom:16px}
   .s-exp section:last-child{margin-bottom:0}
@@ -405,12 +444,12 @@
   .s-why p{font-size:.94rem;line-height:1.65;margin-bottom:9px}
   .s-why p:last-child{margin-bottom:0}
   .s-why .vd{font-weight:700}
-  .s-why .vd.bad{color:var(--accent)}
-  .s-why .vd.ok{color:var(--green)}
+  .s-why .vd.bad{color:#b0462d}
+  .s-why .vd.ok{color:#477247}
   .s-why code{direction:ltr;display:inline-block;font-family:"Heebo",sans-serif;font-weight:700;
     background:var(--paper-deep);border-radius:5px;padding:0 5px}
   .s-done{text-align:center;padding:6vh 0}
-  .s-done .num{font-family:"Frank Ruhl Libre",serif;font-size:3.4rem;font-weight:700;color:var(--gold)}
+  .s-done .num{font-family:"Frank Ruhl Libre",serif;font-size:3.4rem;font-weight:700;color:var(--gold-ink)}
   .s-sum{font-size:.86rem;color:var(--ink-soft);margin-top:6px}
 
   /* QUIZ */
@@ -480,7 +519,7 @@
      ⚠ ניסוח ההערה: הגרסה הראשונה השתמשה במילה שהלקסיקון פוסל (`tests/47`), והבדיקה
      סורקת את **כל** הקובץ ולא רק טקסט ממשק. השער צודק, ולכן ההערה שונתה ולא השער. */
   .ex-sent{text-align:center}
-  .ex-sent .ex-lbl{display:block;font-size:.68rem;letter-spacing:.1em;color:var(--gold);
+  .ex-sent .ex-lbl{display:block;font-size:.68rem;letter-spacing:.1em;color:var(--gold-ink);
     font-weight:700;margin-bottom:3px}
   .ex-sent .ex-en{display:block;direction:ltr;text-align:center;margin-bottom:2px}
   .ex-sent .ex-he{display:block;text-align:center}
@@ -493,7 +532,7 @@
      דלוק · אחרת "לחץ לביטול" הוא הרמז היחיד שמשהו קרה. */
   .was-right.on{border-color:var(--green);color:var(--green);background:rgba(47,133,90,.08)}
   .assoc{margin-top:18px;text-align:right;border-top:1px dashed var(--line);padding-top:14px}
-  .assoc label{display:block;font-weight:500;font-size:.86rem;color:var(--gold);margin-bottom:7px}
+  .assoc label{display:block;font-weight:500;font-size:.86rem;color:var(--gold-ink);margin-bottom:7px}
   .assoc textarea{width:100%;font-family:"Heebo";font-size:1rem;color:var(--ink);background:rgba(201,150,47,.06);border:1px solid var(--line);border-radius:10px;padding:9px 12px;resize:vertical;outline:none;line-height:1.5}
   .assoc textarea:focus{border-color:var(--gold)}
   .assoc-bar{display:flex;align-items:center;gap:10px;margin-top:8px}
@@ -555,14 +594,14 @@
   .m-known{flex:0 0 auto;background:none;border:1px solid var(--line);color:var(--ink-soft);
            border-radius:999px;padding:4px 11px;font-size:.75rem;font-family:inherit;cursor:pointer}
   .m-known.on{border-color:var(--green);color:var(--green);background:color-mix(in srgb,var(--green) 12%,transparent)}
-  .m-row .u{font-size:.66rem;color:var(--gold);background:rgba(201,150,47,.1);border-radius:6px;padding:2px 7px;flex:0 0 auto}
+  .m-row .u{font-size:.66rem;color:var(--gold-ink);background:rgba(201,150,47,.1);border-radius:6px;padding:2px 7px;flex:0 0 auto}
   /* grouped-by-unit manage list */
   .m-group{margin-bottom:8px}
   .m-head{display:flex;align-items:center;gap:10px;width:100%;text-align:start;cursor:pointer;
       background:var(--card);border:1px solid var(--line);border-radius:11px;padding:11px 14px;
       font-family:inherit;color:var(--ink)}
   @media (hover:hover) and (pointer:fine){.m-head:hover{border-color:var(--gold)}}
-  .m-head i{font-style:normal;color:var(--gold);font-size:.8rem;width:12px}
+  .m-head i{font-style:normal;color:var(--gold-ink);font-size:.8rem;width:12px}
   .m-head b{font-family:"Frank Ruhl Libre",serif;font-size:1.02rem}
   .m-head span{margin-inline-start:auto;font-size:.78rem;color:var(--ink-soft)}
   .m-head em{font-style:normal;color:var(--accent)}
@@ -592,7 +631,7 @@
   .ask-opts button{font-family:"Heebo";font-weight:700;font-size:1.05rem;padding:14px 8px;border-radius:12px;
        border:1px solid var(--line);background:var(--paper);color:var(--ink);transition:.15s}
   @media (hover:hover) and (pointer:fine){.ask-opts button:hover{border-color:var(--gold);transform:translateY(-2px)}}
-  .ask-opts button.active{background:linear-gradient(180deg,var(--gold),var(--accent));color:#fff;border-color:transparent}
+  .ask-opts button.active{background:linear-gradient(180deg,var(--gold-ink),var(--accent));color:#fff;border-color:transparent}
   /* five options in a two-column grid leaves the last one stranded beside a hole.
      "everything" is the odd one out anyway, so it takes the full width. */
   .ask-opts button.wide{grid-column:1/-1;font-size:.98rem}
@@ -610,7 +649,7 @@
   .size-custom input{-moz-appearance:textfield}
   .size-custom button{font-family:"Heebo";font-weight:700;font-size:1rem;padding:14px 18px;
        border-radius:12px;border:1px solid transparent;cursor:pointer;
-       background:linear-gradient(180deg,var(--gold),var(--accent));color:#fff}
+       background:linear-gradient(180deg,var(--gold-ink),var(--accent));color:#fff}
   /* Styled as a text link, but it is a button and gets tapped with a thumb. Measured at
      127×20 before min-height was added -- half a finger. Nine buttons inherit this rule, and
      one of them (#mailAskResend) is the only way out for somebody whose confirmation mail
@@ -679,7 +718,7 @@
        padding:12px 3px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
        border-radius:11px;transition:.15s}
   @media (hover:hover) and (pointer:fine){.wtp-prices button:hover{border-color:var(--gold)}}
-  .wtp-prices button.active{background:linear-gradient(180deg,var(--gold),var(--accent));color:#fff;border-color:transparent}
+  .wtp-prices button.active{background:linear-gradient(180deg,var(--gold-ink),var(--accent));color:#fff;border-color:transparent}
   .wtp-box textarea{width:100%;font-family:"Heebo";font-size:.9rem;color:var(--ink);background:var(--paper);
        border:1px solid var(--line);border-radius:11px;padding:10px 12px;resize:none;margin-bottom:16px;outline:none}
   .wtp-box textarea::placeholder{color:#a89e8d}
@@ -687,7 +726,7 @@
   .ask-go{margin-top:18px;width:100%;font-family:"Heebo";font-weight:700;font-size:1rem;
        padding:15px;border-radius:12px;border:0;cursor:pointer;color:#fffdf8;
        display:block;text-align:center;text-decoration:none;
-       background:linear-gradient(180deg,var(--gold),var(--accent));
+       background:linear-gradient(180deg,var(--gold-ink),var(--accent));
        box-shadow:0 8px 18px -9px rgba(166,60,38,.6)}
   /* כפתור סגירה בפינה, כי חגי ביקש X מפורש להזמנת הוואטסאפ. inset-inline-end = שמאל ב-RTL,
      המיקום המקובל ל-X. min 44px כדי שהאצבע תפגע בו. */
@@ -780,7 +819,7 @@
   .au-field input:focus{border-color:#c07a52;
        background:linear-gradient(180deg,rgba(255,252,246,.9),rgba(253,248,240,.7));
        box-shadow:inset 0 2px 5px rgba(120,84,48,.08),0 0 0 3px rgba(201,150,47,.20)}
-  .au-field span{position:absolute;inset-inline-start:14px;top:17px;font-size:.94rem;color:#8d8274;
+  .au-field span{position:absolute;inset-inline-start:14px;top:17px;font-size:.94rem;color:var(--ink-soft);
        pointer-events:none;transition:.16s cubic-bezier(.2,.8,.2,1);transform-origin:right top}
   .au-field input:focus + span,.au-field input:not(:placeholder-shown) + span{
        top:3px;transform:scale(.72)}
@@ -798,7 +837,7 @@
   @media (hover:hover) and (pointer:fine){.au-go:hover{background:#7d5718;color:#fffdf8}}
   @media (hover:hover) and (pointer:fine){.au-go:hover i{transform:translateX(-5px)}}
   .au-go:disabled{opacity:.5;cursor:not-allowed}
-  .au-link{background:transparent;border:0;color:#8d8274;font-family:"Heebo";font-size:.8rem;
+  .au-link{background:transparent;border:0;color:var(--ink-soft);font-family:"Heebo";font-size:.8rem;
        text-decoration:underline;cursor:pointer;margin-top:5px}
   .au-legal{margin-top:14px;font-size:.78rem;line-height:1.6;color:var(--ink-soft);text-align:center}
   .au-legal a,.acc-legal a{color:var(--ink-soft)}
@@ -1263,7 +1302,7 @@
   }
   /* a new build is ready but the moment was wrong -- one tap, no hunting for a reload button */
   .upd-bar{position:fixed;inset-inline:0;bottom:0;z-index:200;border:0;width:100%;
-    background:linear-gradient(180deg,var(--gold),var(--accent));color:#fff;
+    background:linear-gradient(180deg,var(--gold-ink),var(--accent));color:#fff;
     font-family:"Heebo",sans-serif;font-weight:700;font-size:.92rem;
     padding:13px 16px calc(13px + env(safe-area-inset-bottom));
     box-shadow:0 -8px 24px -12px rgba(90,60,20,.55);animation:updIn .35s cubic-bezier(.22,.8,.3,1)}
@@ -1347,7 +1386,7 @@
   .install-cta .tx{flex:1;display:flex;flex-direction:column;gap:1px}
   .install-cta .tx b{font-family:"Frank Ruhl Libre",serif;font-size:1.02rem;font-weight:700;color:var(--ink)}
   .install-cta .tx em{font-style:normal;font-size:.76rem;color:var(--ink-soft)}
-  .install-cta .ar{color:var(--gold);font-size:1.1rem;flex:0 0 auto;transition:.18s}
+  .install-cta .ar{color:var(--gold-ink);font-size:1.1rem;flex:0 0 auto;transition:.18s}
   @media (hover:hover) and (pointer:fine){.install-cta:hover .ar{transform:translateX(-4px)}}
 
   /* bug report -- a small persistent affordance; MVP users need it one tap away */
@@ -1365,7 +1404,7 @@
   .fb-kinds{display:flex;gap:7px;margin-top:16px}
   .fb-kinds button{flex:1;font-family:"Heebo";font-size:.82rem;font-weight:700;padding:9px 4px;
        border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink-soft);transition:.15s}
-  .fb-kinds button.active{background:linear-gradient(180deg,var(--gold),var(--accent));
+  .fb-kinds button.active{background:linear-gradient(180deg,var(--gold-ink),var(--accent));
        color:#fff;border-color:transparent}
   #fbBody{width:100%;margin-top:11px;font-family:"Heebo";font-size:.98rem;line-height:1.55;
        background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px;
@@ -1387,7 +1426,7 @@
   .inst-steps li{display:flex;align-items:center;gap:10px;font-size:.92rem;
        background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
   .inst-steps li span{flex:0 0 auto;width:23px;height:23px;border-radius:50%;
-       background:linear-gradient(180deg,var(--gold),var(--accent));color:#fff;font-weight:700;
+       background:linear-gradient(180deg,var(--gold-ink),var(--accent));color:#fff;font-weight:700;
        font-size:.78rem;display:flex;align-items:center;justify-content:center}
   .inst-steps li b{font-weight:700}
   .inst-manual{margin-top:14px;background:var(--paper);border:1px dashed var(--gold);
@@ -2024,10 +2063,31 @@
     <!-- בחירת הרצועה. יושבת **בתוך** המסך ולא בדף הבית, כי המספרים מגיעים מקובץ
          הנתונים ששוקל מעל 190KB. הצגתם בבית הייתה מחייבת לטעון אותו בכל עליית דף,
          גם למי שלא נוגע בתרגול הזה. כאן הוא נטען פעם אחת, בכניסה. -->
-    <div id="sentPick"><div class="practice-btns" id="sentPickList"></div></div>
+    <div id="sentPick">
+      <!-- אורך הסבב, מעל בחירת הרצועה: זו החלטה על הסבב כולו ולא על רצועה
+           מסוימת, והיא נקראת לפני שבוחרים לאן להיכנס. `.seg` הוא הבורר שכבר
+           קיים באפליקציה, ולכן הוא כבר עומד בתקן הניגודיות. -->
+      <div class="s-len">
+        <span class="s-len-l">אורך סבב</span>
+        <div class="seg" id="sentLenSeg" role="group" aria-label="אורך סבב">
+          <button type="button" data-n="5">5 משפטים</button>
+          <button type="button" data-n="10">10 משפטים</button>
+        </div>
+      </div>
+      <div class="practice-btns" id="sentPickList"></div>
+    </div>
     <div class="card hidden" id="sentCard">
       <div class="q-kind">השלם את החסר</div>
+      <!-- הפירוש של מילה שהלומד הקיש עליה. יושב **מעל** המשפט ולא מתחתיו: מי
+           שנתקע במילה מסתכל למעלה, והמשפט לא זז לו מתחת לאצבע כשהפירוש נפתח.
+           aria-live כי התוכן מתחלף בלי ניווט, וקורא מסך צריך לשמוע אותו. -->
+      <div class="s-gloss hidden" id="sentGloss" aria-live="polite" aria-atomic="true">
+        <button class="s-gloss-x" id="sentGlossX" aria-label="סגור פירוש">✕</button>
+        <span class="s-gloss-w" id="sentGlossW" dir="ltr"></span>
+        <span class="s-gloss-m" id="sentGlossM"></span>
+      </div>
       <p class="s-sent" id="sentText"></p>
+      <p class="s-hint" id="sentHint">הקש על מילה במשפט כדי לראות את הפירוש שלה</p>
       <div class="s-opts" id="sentOpts"></div>
       <div class="s-exp hidden" id="sentExp"></div>
       <div class="actions hidden" id="sentActions" style="margin-top:18px">
@@ -2036,6 +2096,33 @@
     </div>
     <div class="s-done hidden" id="sentDone"></div>
   </section>
+
+<!-- ═══ בוחן קצר על המילים שתורגלו זה עתה ═══
+     ⭐ מוצע אחרי כל חמש השלמות, ו**לא** נכפה: "לא" ממשיך את הסבב בדיוק מאיפה
+     שהוא היה. הבוחן שואל על אותן מילים שהלומד פגש בחמש השאלות האחרונות, ולכן
+     הוא חזרה על מה שקרה ולא נושא חדש. -->
+<div class="ask hidden" id="sqAsk">
+  <div class="ask-box">
+    <div class="kicker">חמש השלמות</div>
+    <h3 id="sqAskH">בוחן קצר על המילים?</h3>
+    <p id="sqAskP"></p>
+    <div class="actions" style="margin-top:18px;justify-content:center">
+      <button class="btn btn-primary" id="sqYes">תרגל עכשיו</button>
+      <button class="btn btn-ghost" id="sqNo">המשך בסבב</button>
+    </div>
+  </div>
+</div>
+
+<div class="ask hidden" id="sqCard">
+  <div class="ask-box sq-box">
+    <div class="kicker" id="sqCount"></div>
+    <h3 class="sq-term" id="sqTerm" dir="ltr"></h3>
+    <div class="sq-opts" id="sqOpts"></div>
+    <div class="actions hidden" id="sqActions" style="margin-top:16px;justify-content:center">
+      <button class="btn btn-primary" id="sqNext">הבא ←</button>
+    </div>
+  </div>
+</div>
 
   <!-- ===== RESULTS ===== -->
   <section id="results" class="hidden">
@@ -2138,7 +2225,10 @@
   <div class="ask-box wtp-box">
     <button class="wtp-x" id="wtpX" aria-label="סגור">✕</button>
     <div class="kicker">שלוש שאלות</div>
-    <h3>עוזר לי להחליט מה יהיה אחרי 30.8</h3>
+    <!-- ⛔ הכותרת נשאה תאריך יעד. הכרטיס מוצג באפליקציה החיה,
+         והתאריך היה מפנה ליום שעבר. המחיר כבר הוכרע ב-26.8 (שלושה ימי ניסיון,
+         ואז מדרגות), ולכן אין צורך בתאריך כלל · והשאלות עצמן שואלות על מחיר. -->
+    <h3>עוזר לי להחליט על המחיר</h3>
 
     <!-- ⚠ סדר השאלות התהפך ב-11.8.2026, ולא מטעמי עיצוב. נמדד: מתוך 6 הצגות
          ראשונות **5 נסגרו בלי מענה** ורק אחת ענתה. שאלת הכסף פתחה את הכרטיס,
@@ -2355,17 +2445,17 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=216"></script>
-<script src="config.js?v=216"></script>
-<script src="store.js?v=216"></script>
-<script src="leveltest-he.js?v=216"></script>
-  <script src="leveltest.js?v=216"></script>
-<script src="enrank.js?v=216"></script>
-<script src="data.js?v=216"></script>
-<script src="data-en.js?v=216"></script>
+<script src="supabase.min.js?v=217"></script>
+<script src="config.js?v=217"></script>
+<script src="store.js?v=217"></script>
+<script src="leveltest-he.js?v=217"></script>
+  <script src="leveltest.js?v=217"></script>
+<script src="enrank.js?v=217"></script>
+<script src="data.js?v=217"></script>
+<script src="data-en.js?v=217"></script>
 <!-- לקסיקון סובלנות האיות · חייב להיטען לפני app.js, שקורא window.TYPO_LEX.
      נכשל בטעינה? השכבה כבויה והאפליקציה מתנהגת כמו היום. -->
-<script src="typo-lex.js?v=216"></script>
-<script src="app.js?v=216"></script>
+<script src="typo-lex.js?v=217"></script>
+<script src="app.js?v=217"></script>
 </body>
 </html>

@@ -18,6 +18,7 @@
  *   נזרק  e                       הארכיון
  */
 const fs = require('fs'), path = require('path');
+const { writeGen } = require('./write_gen.js');
 
 global.window = global.window || {};
 delete global.window.SENT_EN;
@@ -61,7 +62,8 @@ const header = [
 ].join('\n');
 
 const dest = path.join(__dirname, '..', 'data-sent-en.js');
-fs.writeFileSync(dest, header, 'utf8');
+/* writeGen · ההנמקה המלאה ב-write_gen.js. */
+const נכתבייצור = writeGen(dest, header);
 const kb = Math.round(fs.statSync(dest).size / 1024);
-console.log(`נכתב: data-sent-en.js · ${n} פריטים · ${kb}KB`);
+console.log(`${נכתבייצור ? 'נכתב' : 'ללא שינוי'}: data-sent-en.js · ${n} פריטים · ${kb}KB`);
 console.log('רצועות: ' + Object.keys(out).map(b => `${b} ${out[b].length}`).join(' · '));

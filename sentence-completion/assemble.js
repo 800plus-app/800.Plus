@@ -11,6 +11,7 @@
  */
 const fs = require('fs'), path = require('path');
 const B = require('./bands.js');
+const { writeGen } = require('./write_gen.js');
 
 const dir = path.join(__dirname, 'batches');
 /* ⚠ תוקן ב-10.8: הפילטר היה מוגבל לארבעה שמות, ולכן `v2.json` (8 הפריטים המאומתים)
@@ -84,7 +85,9 @@ for (const b of B.BANDS.map(x => x.name)) {
   lines.push('  ],');
 }
 lines.push('};', '');
-fs.writeFileSync(path.join(__dirname, 'sentences-en-v3.js'), lines.join('\n'), 'utf8');
+/* writeGen ולא writeFileSync · תוכן זהה אינו נכתב, ומסוף השורות הוא זה
+   ש-checkout מייצר. בלי זה כל הרצה משאירה M בעץ העבודה · write_gen.js. */
+const נכתב3 = writeGen(path.join(__dirname, 'sentences-en-v3.js'), lines.join('\n'));
 
 /* ⚠ קובץ הייצור נבנה כאן ולא בפקודה נפרדת. שני צעדים שצריך לזכור להריץ בסדר הנכון
    הם צעד אחד שיישכח, והתוצאה היא אפליקציה שמגישה קורפוס ישן בלי שאף שער יצעק. */
@@ -102,4 +105,6 @@ console.log('נקראו: ' + total + ' · נכנסו: ' + kept + ' · נדחו: 
 console.log(B.BANDS.map(b => b.name + ' ' + byBand[b.name].length).join(' · '));
 if (moved.length) { console.log('\n⚠ רצועה נגזרת שונה מההצהרה:'); moved.forEach(m => console.log('  ' + m)); }
 if (rejected.length) { console.log('\n⛔ נדחו:'); rejected.forEach(r => console.log('  ' + r)); }
-console.log('\nנכתב: sentences-en-v3.js');
+/* ⚠ השורה הזאת הכריזה «נכתב» תמיד. מאז ש-writeGen מדלג על תוכן זהה זה היה
+   הופך אותה לשקר בכל הרצה שנייה, וזה בדיוק סוג הדיווח שהכלי הזה נבנה נגדו. */
+console.log('\n' + (נכתב3 ? 'נכתב' : 'ללא שינוי · התוכן זהה') + ': sentences-en-v3.js');

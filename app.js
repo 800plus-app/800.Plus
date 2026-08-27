@@ -2823,6 +2823,11 @@ function finishRound(){
   renderReview();
   renderUnitProgress();
   goto('results');
+  /* ⭐ «הגיע לנקודה» · המכנה של משפך הסקר, ונרשם **לפני** שנשקל אם להציג.
+     ⛔ כאן ולא בתוך `maybeAskWtp`: שם הוא היה נרשם רק אחרי שכל התנאים עברו,
+     כלומר סופר את עצמו. הרגע הנמדד הוא סיום הסבב, לא ההחלטה.
+     ⚠ ולא ב-`commitSession` · היא נקראת משמונה מקומות, רובם אינם סיום סבב. */
+  try{ Store.wtpMarkReached(); }catch(e){}
   maybeAskWtp();
 }
 
@@ -5611,8 +5616,18 @@ function setBadges(text){
   ['#userBadge','#userBadgeW','#userBadgeM'].forEach(id=>{ const el=$(id); if(el) el.textContent=t; });
 }
 
+/* פתיחה אחת = כתיבת `last_seen` אחת. afterAuthed נקראת גם מאירוע החלפת משתמש,
+   ובלי הדגל הזה אותה פתיחה הייתה כותבת פעמיים. */
+let seenTouched = null;
 async function afterAuthed(justSignedUp){
   bindCacheToUser(currentUser.id, justSignedUp);   // a fresh account inherits the preview it came from
+  /* ⛔ כאן ולא ב-signIn בלבד. afterAuthed הוא המקום היחיד שכל שלושת המסלולים עוברים
+     בו · הרשמה, התחברות עם סיסמה, ושחזור הפעלה מהדיסק · והשלישי הוא הנפוץ ביותר.
+     ההנמקה המלאה ב-store.js › touchSeen. */
+  if(seenTouched !== currentUser.id){
+    seenTouched = currentUser.id;
+    try{ Store.touchSeen(currentUser.id); }catch(e){}
+  }
   /* השם נקרא מהרשת, ולכן במצב טיסה הוא לא הגיע והוחלף בכתובת המייל · נמדד בטלפון
      ב-2.8. זה נראה כאילו נכנסת לחשבון אחר, וזו ההרגשה הכי גרועה שאפשר לתת למי שפתח
      את האפליקציה בלי רשת.
@@ -6181,7 +6196,6 @@ let wtpPrice = null, wtpShown = false;
 function maybeAskWtp(){
   if(wtpShown) return;                      // once per page load, whatever else happens
   if(!currentUser) return;                  // signed out: there is no row to write
-  wtpShown = true;
   setTimeout(async ()=>{
     /* Still on the results screen? Two seconds is enough time to press "חזרה", and a dialog
        that opens over a screen the learner has already left is pure interruption. */
@@ -6190,11 +6204,23 @@ function maybeAskWtp(){
     try{ asked = await Store.wtpAsked(); }catch(e){}
     if(asked) return;
     if($('#results').classList.contains('hidden')) return;   // re-checked after the await
+    /* הבדיקה החוזרת של הדגל · הוא נדלק רק בהצגה בפועל (למטה), ולכן שני סבבים שנסגרו
+       בתוך שתי שניות זה מזה מייצרים שני טיימרים פתוחים. בלי השורה הזאת שניהם יציגו. */
+    if(wtpShown) return;
     wtpPrice = null;
     document.querySelectorAll('#wtpPrices button').forEach(b=>b.classList.remove('active'));
     $('#wtpHelped').value=''; $('#wtpStop').value='';
     $('#wtpGo').disabled = true;
     show($('#wtpAsk'));
+    /* ⭐ הרישום היחיד שאומר «הכרטיס הוצג», והוא נכתב **אחרי** ההצגה בפועל.
+       בלעדיו אי אפשר להפריד בין «לא הוצג לו» לבין «הוצג ולא הגיב» · שתי
+       הכתיבות שהיו עד היום מגיעות רק מ-✕ ומשליחת תשובה, כלומר סופרות
+       מגיבים. ההנמקה המלאה ב-store.js › wtpMarkShown. */
+    try{ Store.wtpMarkShown(); }catch(e){}
+    /* ⛔ כאן, ולא בכניסה לפונקציה. הדגל ישב שלוש יציאות מוקדמות לפני ההצגה · מסך
+       התוצאות שנעזב תוך שתי שניות, קריאת השרת שנכשלה, ורשומה שכבר קיימת · ולכן
+       לומד שיצא באמצע נספר כמי שנשאל, ולא נשאל שוב עד טעינת עמוד חדשה. */
+    wtpShown = true;
   }, 2000);
 }
 /* ⚠ הכפתור נפתח על **כל** שדה שמולא, לא רק על המחיר.
@@ -7081,7 +7107,16 @@ $('#lockContact').onclick=()=>{
    לגרסה הראשונה: ישות חדשה ב-Supabase דורשת סכימה, RLS ומיגרציה, וזה סיכון גדול
    בהרבה מהתועלת של שמירת התקדמות בין מכשירים בתרגול שרק עולה לאוויר. מה שכן
    נשמר: אילו פריטים נענו, כדי שסבב חדש יעדיף פריטים שטרם נראו. */
-const SENT_ROUND = 10;                       // פריטים בסבב
+/* ⛔ היה אורך קבוע של עשרה פריטים. חגי, 27.8.2026: "אי אפשר להגדיר, רק 10 ·
+   זה המון". שני ערכים בדיוק · הוא ביקש שניים, ולא בורר עם "אחר". */
+const SENT_LENS = [5, 10];
+const SENT_LEN_KEY = 'hw_sent_len';
+/* ⛔ הערך נבדק מול הרשימה ולא רק «אם קיים». ‏localStorage ניתן לעריכה ביד, וערך
+   שאינו ברשימה היה מייצר סבב באורך שרירותי · או `NaN` שחותך את החפיסה לאפס. */
+function sentRoundLen(){
+  const v = Number(LS.get(SENT_LEN_KEY, 10));
+  return SENT_LENS.includes(v) ? v : 10;
+}
 const SENT_KEY   = 'hw_sent_done';           // ⚠ המבנה הישן: מערך מזהים בלבד
 const SENT_PROG  = 'hw_sent_prog';           // המבנה הנוכחי: מזהה → {n, ok, last}
 let sentQ = [], sentI = 0, sentOk = 0, sentAnswered = false, sentBand = '';
@@ -7303,7 +7338,22 @@ function loadExSentData(){
    `sentProg()`, ו-`sentRecord()` הוא הכותב היחיד אליו. */
 
 /* ===== בורר הרצועות ===== */
+/* בורר אורך הסבב. מסומן לפי מה ששמור, ונשמר בכל לחיצה.
+   ⛔ הבחירה נשמרת ל-localStorage ולא למשתנה · «שורדת רענון» הוא חלק מהדרישה,
+   ומשתנה במודול היה נעלם בכל טעינה. */
+function renderSentLen(){
+  const seg = $('#sentLenSeg'); if(!seg) return;
+  const cur = sentRoundLen();
+  seg.querySelectorAll('button').forEach(b=>{
+    const n = Number(b.dataset.n);
+    b.classList.toggle('active', n === cur);
+    b.setAttribute('aria-pressed', n === cur ? 'true' : 'false');
+    b.onclick = ()=>{ LS.set(SENT_LEN_KEY, n); renderSentLen(); };
+  });
+}
+
 function renderSentPick(){
+  renderSentLen();
   const list = $('#sentPickList'); if(!list) return;
   const S = sentBank();
   list.innerHTML = '';
@@ -7366,14 +7416,18 @@ function startSentRound(band){
   const slipped = shuffle(known.filter(it => p[it.src].last === 0));
   const solid   = shuffle(known.filter(it => p[it.src].last !== 0));
   let pool = shuffle(fresh.slice());
-  if(pool.length < SENT_ROUND) pool = pool.concat(shuffle(failed.slice()));
-  if(pool.length < SENT_ROUND) pool = pool.concat(slipped, solid);
+  const want = sentRoundLen();
+  if(pool.length < want) pool = pool.concat(shuffle(failed.slice()));
+  if(pool.length < want) pool = pool.concat(slipped, solid);
   /* מערבבים גם את סדר הפריטים וגם את סדר האפשרויות **בתוך** כל פריט. */
   /* ⚠ **בלי shuffle נוסף כאן.** הגרסה הראשונה של סדר העדיפות ערבבה את pool כולו
      בשורה הזאת, וזה ביטל בשקט את כל הסדר שנבנה למעלה: פריט שנכשל בו חזר לאותה
      סבירות כמו פריט שידע. הקבוצות מעורבבות **בתוכן** בנפרד, וזה מספיק. */
-  sentQ = pool.slice(0, Math.min(SENT_ROUND, all.length)).map(sentShuffled);
+  sentQ = pool.slice(0, Math.min(want, all.length)).map(sentShuffled);
   sentI = 0; sentOk = 0; sentBand = band;
+  /* ⛔ המנה מתאפסת עם הסבב. בלי זה שאריות מסבב קודם היו נספרות בבוחן של הסבב
+     הזה, והלומד היה נשאל על מילים שלא ראה עכשיו · בדיוק ההפך מהכוונה. */
+  sqBatch = [];
   $('#sentPick').classList.add('hidden');
   $('#sentDone').classList.add('hidden');
   $('#sentCard').classList.remove('hidden');
@@ -7432,6 +7486,97 @@ function sentFull(it){
     `<b>${sEsc(parts[Math.min(k++, parts.length - 1)])}</b>`);
 }
 
+/* ═══ פירוש למילה במשפט ═══
+   ⭐ מאגר `word → פירוש` שנבנה פעם אחת מ-`UNIT_DATA_EN`. הוא נבנה בעצלתיים ולא
+   באתחול: מסך המשפטים אינו נפתח ברוב הכניסות, ובניית מפה של ~3,900 ערכים בכל
+   טעינה היא עבודה שאיש לא ביקש. */
+let sentLexMap = null;
+function sentLex(){
+  if(sentLexMap) return sentLexMap;
+  const m = new Map();
+  const data = window.UNIT_DATA_EN || {};
+  for(const u in data) for(const p of (data[u] || [])){
+    const term = String(p && p[0] || ''), gloss = String(p && p[1] || '');
+    if(!term || !gloss) continue;
+    /* ⚠ ערכים במאגר נכתבים גם בצורה "1st - first" · הצד שאחרי המקף הוא המילה
+       שתופיע במשפט. שני הצדדים נרשמים, ולכן הקשה על כל אחד מהם עונה. */
+    for(const part of term.split(/\s+-\s+/)){
+      const k = normEn(part);
+      if(k && !m.has(k)) m.set(k, gloss);
+    }
+  }
+  sentLexMap = m;
+  return m;
+}
+/* סיומות שמוסרות כשהצורה המדויקת אינה במאגר. ⛔ **סדר יורד באורך** · "ies"
+   חייב להיבדק לפני "s", אחרת "studies" נחתך ל-"studie" ולא נמצא. */
+const SENT_SUFF = [
+  ['ies','y'], ['ied','y'], ['ily','y'], ['iest','y'], ['ier','y'],
+  ['ness',''], ['ment',''], ['ing',''], ['ely','e'], ['edly',''],
+  ['ed',''], ['es',''], ['ly',''], ['s','']
+];
+/** הפירוש של מילה, או `null` אם אין. מחזיר גם את הצורה שנמצאה בפועל. */
+function sentWordGloss(raw){
+  const lex = sentLex();
+  const base = normEn(String(raw || ''));
+  if(!base) return null;
+  if(lex.has(base)) return { form: base, gloss: lex.get(base) };
+  for(const [suf, add] of SENT_SUFF){
+    if(base.length > suf.length + 2 && base.endsWith(suf)){
+      const cut = base.slice(0, base.length - suf.length) + add;
+      if(lex.has(cut)) return { form: cut, gloss: lex.get(cut) };
+      /* "running" → "runn" → "run" · הכפלת העיצור האחרון לפני סיומת. */
+      if(cut.length > 2 && cut[cut.length-1] === cut[cut.length-2]){
+        const one = cut.slice(0, -1);
+        if(lex.has(one)) return { form: one, gloss: lex.get(one) };
+      }
+      /* "used" → "use" · e שנשמטה לפני הסיומת. */
+      if(add === '' && lex.has(cut + 'e')) return { form: cut + 'e', gloss: lex.get(cut + 'e') };
+    }
+  }
+  return null;
+}
+function hideSentGloss(){
+  $('#sentGloss').classList.add('hidden');
+  $('#sentText').querySelectorAll('.s-w.on').forEach(b=>b.classList.remove('on'));
+}
+function showSentGloss(word, btn){
+  const hit = sentWordGloss(word);
+  $('#sentText').querySelectorAll('.s-w.on').forEach(b=>b.classList.remove('on'));
+  if(btn) btn.classList.add('on');
+  $('#sentGlossW').textContent = word;
+  const m = $('#sentGlossM');
+  /* ⛔ מילה שאינה במאגר מקבלת תשובה מפורשת ולא שתיקה · הקשה שלא עושה כלום
+     נקראת כתקלה, והלומד מקיש שוב ושוב. */
+  m.textContent = hit ? hit.gloss : 'אין פירוש למילה הזאת במאגר';
+  m.classList.toggle('none', !hit);
+  $('#sentGloss').classList.remove('hidden');
+}
+
+/** המשפט, כשכל מילה בו היא כפתור. החסרים והמספור שלהם נשארים כפי שהם. */
+function sentTextHtml(it){
+  let nBlank = 0;
+  const twin = (it.s.match(/_{2,}/g) || []).length > 1;
+  /* ⛔ הפיצול על **הטקסט הגולמי** ולא על הפלט המוגן · `sEsc` מייצר `&amp;`,
+     ופיצול אחריו היה שובר ישויות באמצע והופך אותן לזבל על המסך.
+     כל מקטע נבדק בנפרד: חסר · מילה · או מפריד (רווח ופיסוק). */
+  return String(it.s).split(/(_{2,}|[A-Za-z][A-Za-z'’-]*)/g).map(part=>{
+    if(!part) return '';
+    if(/^_{2,}$/.test(part)){
+      nBlank++;
+      return twin
+        ? `<span class="bl">___<sup aria-hidden="true">${nBlank}</sup></span>`
+        : '<span class="bl">___</span>';
+    }
+    if(!/^[A-Za-z]/.test(part)) return sEsc(part);
+    const has = !!sentWordGloss(part);
+    /* ⛔ המילה **אינה** נכתבת ל-attribute. `sEsc` מגן על `& < >` ולא על גרשיים,
+       ולכן ערך בתוך `data-w="…"` היה נשען על כך שה-regex לעולם לא יתפוס `"`.
+       תלות שקטה כזאת נשברת בעריכה הבאה · הטקסט של הכפתור **הוא** המילה. */
+    return `<button type="button" class="s-w${has?' has':''}">${sEsc(part)}</button>`;
+  }).join('');
+}
+
 function renderSentCard(){
   const it = sentQ[sentI]; if(!it) return finishSentRound();
   sentAnswered = false;
@@ -7442,14 +7587,14 @@ function renderSentCard(){
   /* ⚠ בפריט זוג שני החסרים נראים **זהים**, והאפשרות היא "align + differ" · כלומר
      הסדר קובע, והכרטיס לא אמר מה לאיפה. נמצא בציד ב-11.8. מספור החסרים אומר את
      זה בלי מילים, ו-`aria-hidden` מונע מקורא מסך להקריא ספרה בתוך המשפט. */
-  let nBlank = 0;
-  const twin = (it.s.match(/_{2,}/g) || []).length > 1;
-  $('#sentText').innerHTML = sEsc(it.s).replace(/_{2,}/g, () => {
-    nBlank++;
-    return twin
-      ? `<span class="bl">___<sup aria-hidden="true">${nBlank}</sup></span>`
-      : '<span class="bl">___</span>';
+  $('#sentText').innerHTML = sentTextHtml(it);
+  /* המטפלים נתלים אחרי ה-innerHTML · ה-CSP חוסם `onclick=` שנכתב כמחרוזת.
+     אותו דפוס בדיוק כמו הרמקולים במסך הזה. */
+  $('#sentText').querySelectorAll('.s-w').forEach(b=>{
+    b.onclick = ()=> showSentGloss(b.textContent, b);
   });
+  hideSentGloss();
+  $('#sentHint').classList.remove('hidden');
   const box = $('#sentOpts'); box.innerHTML = '';
   /* LANG==='en' ולא TTS.available() לבדו · TTS.pick בוחר קול אנגלי בלבד. אותו נימוק
      שכבר כתוב מעל bindSay ובמסך הסיכום: כפתור שאינו יודע להגות את מה שכתוב עליו
@@ -7543,9 +7688,15 @@ function finishSentRound(){
           + `פנה מקום ונסה שוב, או המשך לתרגל בלי מעקב</p>`
         : `<p class="s-sum">בסך הכול: ${all.ok} מתוך ${all.total} · ${all.pct}%</p>`)
     + `<div class="actions" style="margin-top:22px;justify-content:center">`
+    /* ⭐ הבוחן כאן ולא כחלונית שקופצת על המסך הזה · ראה ההנמקה מעל sqOfferIfDue.
+       מוצג רק כשיש מה לשאול, ולכן מסך הסיכום אינו נושא כפתור מת. */
+    + (sqQ.length >= 2
+        ? `<button class="btn btn-ghost" id="sentQuizBtn">בוחן על ${sqQ.length} המילים</button>`
+        : '')
     + `<button class="btn btn-primary" id="sentAgain">סבב נוסף</button>`
     + `<button class="btn btn-ghost" id="sentBack">בחירת רצועה</button></div>`;
   $('#sentDone').classList.remove('hidden');
+  if($('#sentQuizBtn')) $('#sentQuizBtn').onclick = ()=> sqStart();
   $('#sentAgain').onclick = ()=> startSentRound(sentBand);
   $('#sentBack').onclick  = ()=> openSentPick();
   renderHome();                               // הכפתור בבית מציג את מה שנותר
@@ -7568,10 +7719,134 @@ function openSentPick(){
    או לחיצה כפולה מהירה כן מגיעים לשם. `sentAnswered` הוא בדיוק הדגל שאומר "שאלה
    זו נענתה"; הוא מתאפס ב-renderSentCard, ולכן שימוש בו כאן חוסם את הלחיצה השנייה
    בלי מצב חדש. */
+/* ═══════════════ בוחן קצר על המילים שתורגלו זה עתה ═══════════════
+   ⭐ מוצע אחרי כל חמש השלמות, ו**אינו נכפה**: "המשך בסבב" מחזיר בדיוק לאותה
+   נקודה. הבוחן שואל על המילים שהלומד פגש בחמש השאלות האחרונות · חזרה על מה
+   שקרה, לא נושא חדש.
+   ⛔ ומדוע לא בסוף הסבב: בסוף כבר יש מסך סיכום, והמילים הראשונות רחוקות. חמש
+   הן המרחק שבו הפגישה עוד טרייה. */
+const SQ_EVERY = 5;
+let sqBatch = [], sqQ = [], sqI = 0, sqOk = 0, sqAnswered = false;
+
+/** הפירוש נשמר כ-"pay = לשלם". רק הצד העברי מוצג כאפשרות. */
+const sqMeaning = g => String(g == null ? '' : g).split(/\s*=\s*/).slice(1).join(' = ').trim()
+  || String(g == null ? '' : g).trim();
+
+/** בונה שאלות מהפריטים שנצברו · מילה אחת לכל פריט, עם התשובה הנכונה שלו. */
+function sqBuild(items){
+  const seen = new Set();
+  const rows = [];
+  for(const it of items){
+    const term = sLabel(it.o[it.a]);
+    const mean = sqMeaning((it.g || [])[it.a]);
+    const k = normEn(term);
+    /* ⛔ בלי מילה כפולה ובלי מילה שאין לה פירוש · שאלה בלי תשובה נכונה גרועה
+       מהיעדר שאלה, והיא הייתה נוצרת בשקט מפריט שחסר בו `g`. */
+    if(!term || !mean || !k || seen.has(k)) continue;
+    seen.add(k); rows.push({ term, mean });
+  }
+  /* המסיחים הם פירושים של **המילים האחרות באותה מנה** · אותה רמה, אותו הקשר,
+     ולכן הבוחן בודק ידיעה ולא ניחוש לפי אורך המילה. */
+  return shuffle(rows).map(r=>{
+    const others = shuffle(rows.filter(x=>x.term !== r.term).map(x=>x.mean)).slice(0, 3);
+    const opts = shuffle([r.mean].concat(others));
+    return { term: r.term, opts, a: opts.indexOf(r.mean) };
+  }).filter(q=>q.opts.length > 1);      // ⛔ שאלה עם אפשרות אחת אינה שאלה
+}
+
+/* ⭐⭐ ההכרעה על `SQ_EVERY`, ולמה לא אף אחת משלוש האפשרויות שהוצעו
+   ------------------------------------------------------------------
+   הבעיה: הבוחן מוצע אחרי כל חמש, והפריט החמישי הוא **הפריט האחרון** בסבב של 5.
+   כלומר חלונית ומיד אחריה מסך סיום · שתי הצעות ברצף, ואדם לוחץ «לא» על שתיהן.
+   ⚠ וזה קורה גם בסבב של 10, בהצעה השנייה. **הבעיה אינה באורך הסבב.**
+
+   ⛔ «לדלג כשזה נופל על האחרון» · נדחתה. בסבב של 5 היא מבטלת את הבוחן לגמרי,
+      וחגי ביקש את שני הדברים באותה שיחה.
+   ⛔ «לקשור את הסף לאורך הסבב» · נדחתה. היא משאירה את ההצעה הכפולה בסבב של 10.
+   ⛔ «להשאיר כמו שהוא» · נדחתה. זה הכשל עצמו.
+
+   ⭐ **ההכרעה: ההצעה נשארת חלונית רק באמצע הסבב. בסיום היא הופכת לכפתור
+      במסך הסיכום.** הבוחן נשמר בשני אורכי הסבב, אין שתי חלוניות ברצף, והוא
+      מגיע בדיוק במקום שבו מסך הסיום כבר שואל «מה עכשיו».
+   ‏`SQ_EVERY` נשאר 5 ומשמעותו לא השתנתה. */
+function sqOfferIfDue(over){
+  if(sqBatch.length < SQ_EVERY){ if(over) sqQ = []; return false; }
+  const q = sqBuild(sqBatch);
+  sqBatch = [];
+  /* ⚠ פחות משתי שאלות · אין מה להציע. קורה כשכל חמש המילים חוזרות על עצמן
+     או שחסר להן פירוש, ואז ההצעה הייתה נפתחת על בוחן ריק. */
+  if(q.length < 2){ sqQ = []; return false; }
+  sqQ = q;
+  if(over) return false;                     // הכפתור במסך הסיכום ייקח את זה
+  $('#sqAskP').textContent = `${q.length} מילים שפגשת בחמש השאלות האחרונות`;
+  show($('#sqAsk'));
+  return true;
+}
+
+function sqStart(){
+  hide($('#sqAsk'));
+  sqI = 0; sqOk = 0;
+  show($('#sqCard'));
+  sqRender();
+}
+
+function sqRender(){
+  const q = sqQ[sqI];
+  if(!q) return sqEnd();
+  sqAnswered = false;
+  $('#sqCount').textContent = `מילה ${sqI+1} מתוך ${sqQ.length}`;
+  $('#sqTerm').textContent = q.term;
+  const box = $('#sqOpts'); box.innerHTML = '';
+  q.opts.forEach((o,j)=>{
+    const b = document.createElement('button');
+    b.type = 'button'; b.textContent = o;
+    b.onclick = ()=> sqAnswer(j);
+    box.appendChild(b);
+  });
+  $('#sqActions').classList.add('hidden');
+}
+
+function sqAnswer(pick){
+  if(sqAnswered) return;                    // הגנה מהקלקה כפולה, כמו ב-answerSent
+  sqAnswered = true;
+  const q = sqQ[sqI];
+  if(pick === q.a) sqOk++;
+  $('#sqOpts').querySelectorAll('button').forEach((b,j)=>{
+    b.disabled = true;
+    if(j === q.a){ b.classList.add('is-right'); b.insertAdjacentHTML('afterbegin','<span class="mk">✓</span>'); }
+    else if(j === pick){ b.classList.add('is-wrong'); b.insertAdjacentHTML('afterbegin','<span class="mk">✗</span>'); }
+  });
+  $('#sqNext').textContent = (sqI+1 >= sqQ.length) ? 'חזרה לסבב ←' : 'הבא ←';
+  $('#sqActions').classList.remove('hidden');
+}
+
+function sqEnd(){
+  hide($('#sqCard'));
+  toast(`${sqOk} מתוך ${sqQ.length} במילים`);
+  sqQ = [];
+}
+
+$('#sqYes').onclick = ()=> sqStart();
+/* ⛔ "לא" אינו דוחה את ההצעה למועד אחר · הוא סוגר אותה. המנה כבר אופסה
+   ב-`sqOfferIfDue`, ולכן ההצעה הבאה תגיע אחרי חמש השלמות נוספות. */
+$('#sqNo').onclick = ()=>{ hide($('#sqAsk')); sqQ = []; };
+$('#sqNext').onclick = ()=>{ if(!sqAnswered) return; sqI++; sqRender(); };
+$('#sentGlossX').onclick = ()=> hideSentGloss();
+
 $('#sentNext').onclick = ()=>{
   if(!sentAnswered) return;
   sentAnswered = false;
-  sentI++; renderSentCard();
+  /* הפריט נצבר **כאן** ולא ב-`answerSent` · שם הוא היה נספר גם כשהלומד יוצא
+     מהמסך בלי ללחוץ "הבא", והמנה הייתה מתמלאת ממשפטים שלא נסגרו. */
+  const done = sentQ[sentI];
+  if(done) sqBatch.push(done);
+  sentI++;
+  /* ⛔ הבוחן נבנה **לפני** הציור, לא אחריו. ‏`renderSentCard` קוראת ל-
+     `finishSentRound` כשהחפיסה נגמרה · ואם השאלות לא נבנו עד אז, מסך הסיכום
+     אינו יודע שיש בוחן ולא יציג את הכפתור.
+     ⚠ באמצע הסבב אין הבדל: החלונית נפתחת, והכרטיס הבא נצבע מאחוריה. */
+  sqOfferIfDue(sentI >= sentQ.length);
+  renderSentCard();
 };
 $('#sentExit').onclick = ()=>{ goBack(); };
 

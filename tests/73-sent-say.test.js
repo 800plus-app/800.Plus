@@ -114,7 +114,10 @@ El.prototype.querySelectorAll = function (sel) {
 El.prototype.querySelector = function (sel) { return this.querySelectorAll(sel)[0] || null; };
 
 const IDS = ['sentBrand', 'sentCount', 'sentScore', 'sentBar', 'sentText',
-             'sentOpts', 'sentExp', 'sentActions', 'sentNext', 'sentLive', 'sentCard'];
+             'sentOpts', 'sentExp', 'sentActions', 'sentNext', 'sentLive', 'sentCard',
+             /* ⭐ נוספו עם הפירוש שנפתח בהקשה על מילה במשפט. בלעדיהם
+                `renderSentCard` נופלת על `$('#sentGloss')` שמחזיר null. */
+             'sentGloss', 'sentGlossW', 'sentGlossM', 'sentHint'];
 
 /* פריט אמיתי בצורתו: ארבע אפשרויות, שלישית נכונה, אחת מהן זוג. */
 function item() {
@@ -144,12 +147,25 @@ function build(opts = {}) {
     },
     sentQ: [item()], sentI: 0, sentOk: 0, sentAnswered: false, sentBand: 'רצועה',
     sentRecord: () => {},
+    /* ⭐ המילון של הפירושים נבנה מ-window.UNIT_DATA_EN. ריק כאן במכוון:
+       הבדיקות בקובץ הזה עוסקות ברמקולים ובסימונים, ולא בפירושים · ומילון
+       ריק מוודא שהמשפט עדיין נבנה כשאין לאף מילה ערך. */
+    window: { UNIT_DATA_EN: {} },
+    sentLexMap: null,
     finishSentRound: () => { throw new Error('finishSentRound נקראה — הפריט לא נמצא'); },
     console,
   };
   vm.createContext(ctx);
   for (const n of ['sEsc', 'sBold', 'sLabel', 'sSpeak', 'sSayLbl',
                    'sentSayBtn', 'sentSayRefresh', 'sentFull',
+                   /* ⭐ שכבת הפירוש-בהקשה. `renderSentCard` קוראת ל-
+                      `sentTextHtml` ול-`hideSentGloss`, ואלה קוראות
+                      ל-`sentWordGloss` → `sentLex` → `normEn`.
+                      ⛔ פונקציה שחסרה כאן נופלת ב-ReferenceError, והשם
+                      הסמנטי של הבדיקה מסתיר את הסיבה · 23 בדיקות האדימו
+                      על `sentTextHtml is not defined`. */
+                   'NIQ', 'normEn', 'SENT_SUFF', 'sentLex', 'sentWordGloss',
+                   'sentTextHtml', 'hideSentGloss', 'showSentGloss',
                    'renderSentCard', 'answerSent']) {
     vm.runInContext(lift(n), ctx, { filename: 'app.js:' + n });
   }
