@@ -412,12 +412,18 @@ function ingest3() {
 function decide(surv, p3) {
   const byK = new Map(surv.map(s => [s.k, s]));
   const rows = [];
+  let stale = 0;
   for (const it of p3.items) {
     const votes = ['J1', 'J2', 'J3'].map(j => p3.J[j].get(it.k)).filter(Boolean);
     if (votes.length < 3) continue;                    /* פחות מ-3 שופטים ⇒ נופל */
     const forProp = votes.filter(v => v === it.propIs).length;
     if (forProp < 2) continue;                         /* ⛔ בספק — לא סתירה */
     const s = byK.get(it.k);
+    /* ⛔ panel.json הוא צילום מרגע ה-emit3. מאז ייתכן שהמאגר החי (data-en.js)
+     * זז — מובן שסומן שרד אז כבר נכנס למאגר, או שהמונח נעלם משלב 2 מכל סיבה
+     * אחרת. פריט כזה כבר אינו שרד שלב 2 בהרצה הנוכחית, ואין לו נתונים לשחזר
+     * (gloss/blind/unit) בלי לנחש. מדלגים ולא קורסים — וסופרים לשקיפות. */
+    if (!s) { stale++; continue; }
     rows.push({
       k: s.k, unit: s.unit, term: s.term, gloss: s.gloss,
       blind: s.blind.join(', '), prop: proposal(s), klass: klass(s),
@@ -429,6 +435,7 @@ function decide(surv, p3) {
   const head = ['מילה', 'פירוש היום', 'מה השופטים כתבו', 'ההצעה', 'מחלקה', 'חוזק', 'פאנל', 'יחידה'].join('\t');
   const body = [head].concat(rows.map(r => [r.term, r.gloss, r.blind, r.prop, r.klass, r.strength, r.votes, r.unit].join('\t'))).join('\n');
   fs.writeFileSync(path.join(__dirname, 'out', 'gloss-audit.tsv'), body + '\n');
+  if (stale) say('⚠ ' + stale + ' פסקי שלב 3 דולגו · שרד שלב 2 שכבר אינו שרד בהרצה הנוכחית (המאגר החי זז מאז ה-emit)');
   return rows;
 }
 
