@@ -292,12 +292,14 @@ describe('the detector itself · proof these tests can go red', () => {
     assert.deepStrictEqual(Array.from(he.exDistract(pool, item, 'meaning', new Set())), ['מושב']);
   });
 
-  /* The gap the substring guard cannot see. exDistract compares glosses with norm(), which keeps
-     the contents of a parenthesis; glossAlts compares them with glossKey(), which strips it. Two
-     entries whose glossKey is identical but whose parentheticals differ are invisible to the
-     filter and visible to the app's own shared-gloss index. This asserts the gap exists, so it
-     cannot be closed by accident and left undocumented. */
-  test('KNOWN GAP: same glossKey, different parenthetical · the filter does not see it', () => {
+  /* CLOSED GAP · was "KNOWN GAP", inverted 29.8.2026 exactly as the note below instructed.
+     The gap: exDistract compared glosses with norm(), which keeps the contents of a parenthesis,
+     while the app's own shared-gloss index compares them with glossSenses(), which strips it.
+     Two entries whose senses are identical but whose parentheticals differ were invisible to the
+     filter and visible to the index · so the option list offered a second correct answer.
+     exDistract now consults glossSenses(), the same split that decides which answers are
+     accepted, and the pair is filtered out. The pool is kept as it was so the case stays pinned. */
+  test('same senses, different parenthetical · the filter now sees it', () => {
     /* A private sandbox: the two entries are pushed into BANK and the REAL buildGlossIndex is
        run over it, so glossAlts and exWriteOk answer about them the way they answer about any
        shipped word. Nothing about the index is restated here. */
@@ -315,13 +317,16 @@ describe('the detector itself · proof these tests can go red', () => {
     assert.ok(termIsAlsoCorrect(ctx, [item, twin], item, twin.term),
       'and exWriteOk therefore accepts the twin as an answer to this prompt');
 
-    /* …and exDistract offers it anyway: it compares glosses with norm(), which keeps what is
-       inside the parentheses, so neither string contains the other and the clash guard is silent.
-       When this line goes red because exDistract started consulting glossKey/glossAlts, delete
-       the KNOWN GAP wording and assert the twin is NOT offered -- the gap will have been closed. */
+    /* …and exDistract no longer offers it. The substring guard is still silent on this pair —
+       neither gloss string contains the other — so this asserts the NEW guard and nothing else:
+       remove the glossSenses() check from usable() and this line goes red on its own. */
     const pool = [item, twin, { term: 'כִּסֵּא', meaning: 'מושב', k: ctx.K('כִּסֵּא') }];
-    assert.ok(ctx.exDistract(pool, item, 'term', new Set()).includes(twin.term),
-      'today exDistract offers it; if it no longer does, invert this assertion');
+    assert.ok(!ctx.norm(item.meaning).includes(ctx.norm(twin.meaning)) &&
+              !ctx.norm(twin.meaning).includes(ctx.norm(item.meaning)),
+      'the two glosses became substrings of each other · the OLD guard would catch this pair, ' +
+      'so the test would no longer be measuring the sense-level guard');
+    assert.ok(!ctx.exDistract(pool, item, 'term', new Set()).includes(twin.term),
+      'exDistract offers a word the app itself accepts as an answer to this very prompt');
   });
 
   test('a pool with nothing but co-correct candidates yields no distractors at all', () => {
@@ -747,4 +752,69 @@ describe('feedback timers · nothing may outlive the exit button', () => {
     assert.ok(!/confirm\(/.test(body),
       '#exExit confirms on its own AND navTo confirms -- the learner is asked twice');
   });
+});
+
+/* ===================== מילה שנוספה לפירוש · מסיח שהוא תשובה שנייה =====================
+ *
+ * ⛔ מה ששער ההתנגשויות אינו רואה
+ * -----------------------------------
+ * כשמוסיפים מילה עברית לפירוש של ערך, היא עלולה להיות כבר פירוש של ערך אחר.
+ * שער ההתנגשויות מדוד קבלות ש**שכבת סובלנות השגיאות** יוצרת, וקבלה
+ * חוצת-ערכים שקיימת בהתאמה מדויקת היא "התנהגות קיימת" מבחינתו. לכן מילה
+ * שנוספה לפירוש עוברת אותו בירוק גם כשהיא יוצרת שאלת מבחן עם שתי תשובות
+ * נכונות. זה הצד של האפליקציה, והוא נמדד כאן.
+ *
+ * ⛔ ולמה הסוויפ שלמעלה היה ירוק בכל זאת
+ * -------------------------------------------
+ * הוא מדגם שנים-עשר פריטים ליחידה (PER_UNIT), והמקרים האמיתיים נופלים
+ * מחוץ למדגם. סריקה ללא מדגם על שני המאגרים מצאה פריטים שהמסיח שלהם הוא
+ * תשובה נכונה שנייה: confess/admit חולקים "להודות" · certify/authorize חולקים
+ * "להסמיך" · scorn/disdain חולקים "בוז". בכולם יש מקטע פירוש משותף, ובאף אחד
+ * מהם מחרוזת פירוש אחת אינה מכילה את השנייה · ולכן שומר ההכלה של exDistract, שמשווה
+ * מחרוזות שלמות ב-norm(), שותק.
+ *
+ * ⭐ למה הבדיקה מהירה ובכל זאת שלמה למחלקה שלה
+ * -----------------------------------------------
+ * מסיח יכול להיות תשובה שנייה מתוקף פירוש משותף רק אם הוא חולק מקטע עם
+ * הפריט, ולכן נבדקים **כל** הפריטים שחולקים מקטע עם ערך אחר בבריכה ·
+ * כ-750 פריטים בשני המאגרים, ולא מדגם מהם. הפסק ניתן בשתי הפונקציות של
+ * הקובץ הזה (termIsAlsoCorrect · meaningIsAlsoCorrect), כלומר ב-exWriteOk וב-meaningMatch
+ * עצמן, ולא בכלל מקביל שנכתב כאן.
+ * ⚠ מה שהיא אינה בודקת: תשובה שנייה שנוצרה ממקור אחר (שכבת השגיאות,
+ * תעתוק) ולא מפירוש משותף · זה מה שהסוויף המדגמי שלמעלה מכסה. */
+
+describe('פירוש משותף · מסיח שהוא תשובה שנייה', () => {
+  for (const [lang, ctx] of LANGS) {
+    test(`${lang}: כל ערך שחולק פירוש עם ערך אחר · ללא מדגם`, () => {
+      ctx.__reseed(20260828);
+      const bad = [];
+      let checked = 0;
+      for (const uid of ctx.UNIT_IDS) {
+        const pool = ctx.exWords(uid);
+        if (pool.length < 8) continue;
+        const bySense = new Map();
+        for (const o of pool)
+          for (const s of ctx.glossSenses(o.meaning)) {
+            let a = bySense.get(s); if (!a) { a = []; bySense.set(s, a); }
+            a.push(o);
+          }
+        const taken = new Set();
+        for (const o of pool) { taken.add(ctx.norm(o.term)); taken.add(ctx.norm(o.meaning)); }
+        const shared = pool.filter(o =>
+          ctx.glossSenses(o.meaning).some(s => (bySense.get(s) || []).some(x => x.k !== o.k)));
+        for (const item of shared) {
+          checked++;
+          for (const t of ctx.exDistract(pool, item, 'term', taken))
+            if (termIsAlsoCorrect(ctx, pool, item, t))
+              bad.push(`${lang} u${uid} [retrieve] "${item.meaning}" -> ${item.term} · offered ${t}`);
+          for (const m of ctx.exDistract(pool, item, 'meaning', taken))
+            if (meaningIsAlsoCorrect(ctx, item, m))
+              bad.push(`${lang} u${uid} [recognise] ${item.term} -> "${item.meaning}" · offered "${m}"`);
+        }
+      }
+      assert.ok(checked > 50,
+        `רק ${checked} פריטים נבדקו · הקדם-סינון אינו מוצא פירושים משותפים והבדיקה ריקה`);
+      none(bad, 'המבחן הציע מסיח שהאפליקציה עצמה מקבלת כתשובה · שתי תשובות נכונות בשאלה אחת:');
+    });
+  }
 });

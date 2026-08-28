@@ -3086,7 +3086,6 @@ function commitSession(){
        "לא יודע" הוא בדיוק ההודאה שהמילה לא ידועה.
        sticky · נכתב פעם אחת. בלי זה כל טעות חוזרת הייתה מאפסת את התאריך והרשימה
        הייתה מסודרת לפי הטעות האחרונה במקום לפי הלמידה הראשונה. */
-    if(!r.t0 && (r.first + r.ever + r.wrong) === 0 && !(e.mastered && e.firstTry)) r.t0 = now;
     if(e.mastered && e.firstTry){                     // knew it (correct on first attempt of the round)
       r.first++; r.ever++;
       // a retry of a word just missed proves short-term recall, not knowledge: credit it, but
@@ -3106,6 +3105,17 @@ function commitSession(){
     }
     else if(e.mastered){ r.ever++; r.wrong+=Math.max(0,e.attempts-1); r.level=Math.max(0,r.level-1); st++; c++; }
     else { r.wrong++; r.level=Math.max(0,r.level-1); }
+    /* ⭐ רגע הלמידה · נכתב **אחרי** המונים, כי האות הוא `wrong` עצמו.
+       ⛔ התנאי היה `(first+ever+wrong)===0`, כלומר רשומה בתולית בלבד. זה פסל
+       מילה שהלומד ידע בניסיון הראשון ואז שכח: `wrong` שלה עלה, מסך הסטטיסטיקה
+       ספר אותה תחת "המילים שטעית בהן", והיא **לא נכנסה ליחידת החזרות**.
+       ⚠ וזה היה גרוע מהעדר: `backfillT0` בטעינה הבאה כן סימן אותה (`wrong>0`),
+       ולכן אותה מילה היתה חסרה מהרשימה ומופיעה בה אחרי רענון, בלי שהלומד עשה דבר.
+       שני המסלולים מחזיקים עכשיו את אותו כלל.
+       sticky · `!r.t0` שומר שהתאריך נכתב פעם אחת ואינו זז, אחרת הסדר היה לפי הטעות
+       האחרונה ולא לפי הלמידה הראשונה.
+       כרטיס שהוצג ולא נענה אינו מגיע לכאן כלל · ה-return על attempts===0 קודם לו. */
+    if(!r.t0 && r.wrong>0) r.t0 = now;
     r.last=now;
   });
   /* One log row per ROUND, not per commit. A round interrupted twice used to be recorded as
@@ -4608,12 +4618,24 @@ function exDistract(pool, item, field, taken, wider){
   const other = field==='term' ? 'meaning' : 'term';
   const on=norm(item[other]);
   const clash=(a,b)=> a===b || a.includes(b) || b.includes(a);
+  /* ⛔ שומר המחרוזות למעלה משווה פירושים **שלמים**, ולכן הוא שותק כששני ערכים
+     חולקים פירוש אחד מתוך כמה: `confess` "להודות; להתוודות" מול `admit`
+     "להודות; להכניס" · אף מחרוזת אינה מכילה את השנייה. התוצאה היא שאלה
+     עם שתי תשובות נכונות: `exWriteOk` מקבלת את המסיח דרך `glossAlts`, והלומד
+     שבחר אותו נסמן כטועה. נמדד על שני המאגרים בלי מדגם (tests/10).
+     ⭐ `glossSenses` הוא אותו פיצול שמכריע אילו תשובות מתקבלות (`meaningSegs`), ולכן
+     "שני ערכים חולקים פירוש" ו"אותה תשובה מתקבלת לשניהם" נשארים בהכרח אותו דבר.
+     זה גם המדד שהאפליקציה כבר משתמשת בו ב-`oneCardPerGloss` וב-`glossAlts`, ולא כלל שלישי.
+     פירוש שאין לו מקטעים כלל (דוגמה בלבד) אינו מסנן כלום · אותה התנהגות כמו קודם. */
+  const mySenses=new Set(glossSenses(item.meaning));
   const usable=o=>{
     if(o.k===item.k) return false;
     const v=o[field]; if(!v) return false;
     if(clash(norm(v), rn)) return false;
     const w=o[other];
-    return !(w && clash(norm(w), on));
+    if(w && clash(norm(w), on)) return false;
+    if(mySenses.size && glossSenses(o.meaning).some(s=>mySenses.has(s))) return false;
+    return true;
   };
   // Prefer distractors that aren't another item's answer -- reusing one hands out that item's
   // solution a question early. In a unit small enough that the paper covers most of it there
