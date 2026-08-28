@@ -1,0 +1,208 @@
+# ממצאים ידועים · חוב מתועד שהשער אינו נופל עליו, אבל סופר ומדפיס בכל הרצה.
+# ⛔ אין להוסיף שורה כאן כדי להשתיק ממצא חדש. נכתב פעם אחת, 26.8.2026.
+attestation-missing.tsv|הִתְקַשֵּׁט בְּנוֹצוֹת זָרִים|אין מקור
+attestation-missing.tsv|הִתְקַשֵּׁט בְּנוֹצוֹת זָרִים|אין רפרנס
+attestation-missing.tsv|הוּדְרְכָה מְנוּחָתוֹ|אין מקור
+attestation-missing.tsv|הוּדְרְכָה מְנוּחָתוֹ|אין רפרנס
+attestation-missing.tsv|נֶעְתְּקוּ מִילִּים מִפִּיו|אין מקור
+attestation-missing.tsv|נֶעְתְּקוּ מִילִּים מִפִּיו|אין רפרנס
+attestation-missing.tsv|פוֹרְס מָזʼוֹר|אין מקור
+attestation-missing.tsv|פוֹרְס מָזʼוֹר|אין רפרנס
+attestation-missing.tsv|קִיצֵּץ אֶת כְּנָפָיו|אין מקור
+attestation-missing.tsv|קִיצֵּץ אֶת כְּנָפָיו|אין רפרנס
+gloss-status.tsv|אומדן|אין רפרנס
+gloss-status.tsv|אומניפוטנטי|אין רפרנס
+gloss-status.tsv|אופורטוניזם|אין רפרנס
+gloss-status.tsv|אחוז אימה|אין רפרנס
+gloss-status.tsv|איה?|אין רפרנס
+gloss-status.tsv|איכול|אין רפרנס
+gloss-status.tsv|אילוח|אין רפרנס
+gloss-status.tsv|אימתי|אין רפרנס
+gloss-status.tsv|אימתני|אין רפרנס
+gloss-status.tsv|איש|אין רפרנס
+gloss-status.tsv|אלולא|אין רפרנס
+gloss-status.tsv|אלומת אור|אין רפרנס
+gloss-status.tsv|אלונטית|אין רפרנס
+gloss-status.tsv|אלחוש|אין רפרנס
+gloss-status.tsv|אלפס|אין רפרנס
+gloss-status.tsv|אקרן|אין רפרנס
+gloss-status.tsv|אשפה|אין רפרנס
+gloss-status.tsv|אתנן|אין רפרנס
+gloss-status.tsv|בדק בית|אין רפרנס
+gloss-status.tsv|בזיך|אין רפרנס
+gloss-status.tsv|בזר|אין רפרנס
+gloss-status.tsv|בחש בקלחת|אין רפרנס
+gloss-status.tsv|ביות|אין רפרנס
+gloss-status.tsv|בית גנזים|אין רפרנס
+gloss-status.tsv|בית מטבחים|אין רפרנס
+gloss-status.tsv|בית נתיבות|אין רפרנס
+gloss-status.tsv|בית עבוט|אין רפרנס
+gloss-status.tsv|בכורים|אין רפרנס
+gloss-status.tsv|במבם|אין רפרנס
+gloss-status.tsv|בעוד מועד|אין רפרנס
+gloss-status.tsv|בריות|אין רפרנס
+gloss-status.tsv|ברר|אין רפרנס
+gloss-status.tsv|גזיר|אין רפרנס
+gloss-status.tsv|גזם|אין רפרנס
+gloss-status.tsv|גללים|אין רפרנס
+gloss-status.tsv|גפים|אין רפרנס
+gloss-status.tsv|גפת|אין רפרנס
+gloss-status.tsv|דא עקא|אין רפרנס
+gloss-status.tsv|דבוקה|אין רפרנס
+gloss-status.tsv|דומן|אין רפרנס
+gloss-status.tsv|דידקטי|אין רפרנס
+gloss-status.tsv|דנדן|אין רפרנס
+gloss-status.tsv|האניש|אין רפרנס
+gloss-status.tsv|הבכיר|אין רפרנס
+gloss-status.tsv|הגמוניה|אין רפרנס
+gloss-status.tsv|הדיר שינה מעיניו|אין רפרנס
+gloss-status.tsv|הויה|אין רפרנס
+gloss-status.tsv|הועם|אין רפרנס
+gloss-status.tsv|הזדככות|אין רפרנס
+gloss-status.tsv|הזחה|אין רפרנס
+gloss-status.tsv|החפיץ|אין רפרנס
+gloss-status.tsv|הלאים|אין רפרנס
+gloss-status.tsv|הלמות|אין רפרנס
+gloss-status.tsv|הלנת שכר|אין רפרנס
+gloss-status.tsv|הלצה|אין רפרנס
+gloss-status.tsv|המרה את פיו|אין רפרנס
+gloss-status.tsv|הנפיק|אין רפרנס
+gloss-status.tsv|הסלים|אין רפרנס
+gloss-status.tsv|הפר|אין רפרנס
+gloss-status.tsv|הקצה|אין רפרנס
+gloss-status.tsv|הרעים|אין רפרנס
+gloss-status.tsv|הרף|אין רפרנס
+gloss-status.tsv|הררי זהב|אין רפרנס
+gloss-status.tsv|השיא עצה|אין רפרנס
+gloss-status.tsv|השתעבד|אין רפרנס
+gloss-status.tsv|התאבק בעפר רגליו|אין רפרנס
+gloss-status.tsv|התבדרות|אין רפרנס
+gloss-status.tsv|התגפף|אין רפרנס
+gloss-status.tsv|התודע|אין רפרנס
+gloss-status.tsv|התכתש|אין רפרנס
+gloss-status.tsv|התלהם|אין רפרנס
+gloss-status.tsv|התלקח|אין רפרנס
+gloss-status.tsv|התמם|אין רפרנס
+gloss-status.tsv|התמקח|אין רפרנס
+gloss-status.tsv|התפקר|אין רפרנס
+gloss-status.tsv|התרברב|אין רפרנס
+gloss-status.tsv|זבדה|אין רפרנס
+gloss-status.tsv|זכיון|אין רפרנס
+gloss-status.tsv|זמם|אין רפרנס
+gloss-status.tsv|זעום|אין רפרנס
+gloss-status.tsv|חבל|אין רפרנס
+gloss-status.tsv|חלוק נחל|אין רפרנס
+gloss-status.tsv|חלט|אין רפרנס
+gloss-status.tsv|חמשיר|אין רפרנס
+gloss-status.tsv|חפיר|אין רפרנס
+gloss-status.tsv|חרול|אין רפרנס
+gloss-status.tsv|חרשף|אין רפרנס
+gloss-status.tsv|חתימת שפם|אין רפרנס
+gloss-status.tsv|טפחות|אין רפרנס
+gloss-status.tsv|טפיפה|אין רפרנס
+gloss-status.tsv|טרוט עינים|אין רפרנס
+gloss-status.tsv|טרסה|אין רפרנס
+gloss-status.tsv|יהב|אין רפרנס
+gloss-status.tsv|ילודה|אין רפרנס
+gloss-status.tsv|יש בלבו עליו|אין רפרנס
+gloss-status.tsv|כחכוח|אין רפרנס
+gloss-status.tsv|כליל|אין רפרנס
+gloss-status.tsv|כסיה|אין רפרנס
+gloss-status.tsv|לאט|אין רפרנס
+gloss-status.tsv|למכביר|אין רפרנס
+gloss-status.tsv|לעילא ולעילא|אין רפרנס
+gloss-status.tsv|מאובן|אין רפרנס
+gloss-status.tsv|מבלעת|אין רפרנס
+gloss-status.tsv|מגבית|אין רפרנס
+gloss-status.tsv|מדוכה|אין רפרנס
+gloss-status.tsv|מהדרין|אין רפרנס
+gloss-status.tsv|מזכר|אין רפרנס
+gloss-status.tsv|מחבוש|אין רפרנס
+gloss-status.tsv|מחושים|אין רפרנס
+gloss-status.tsv|מחטט|אין רפרנס
+gloss-status.tsv|מטיל|אין רפרנס
+gloss-status.tsv|מטף|אין רפרנס
+gloss-status.tsv|מיכן|אין רפרנס
+gloss-status.tsv|מכות נאמנות / נמרצות|אין רפרנס
+gloss-status.tsv|מכלב|אין רפרנס
+gloss-status.tsv|מלגו / מלגו|אין רפרנס
+gloss-status.tsv|מסדר|אין רפרנס
+gloss-status.tsv|מסובב|אין רפרנס
+gloss-status.tsv|מסופק|אין רפרנס
+gloss-status.tsv|מסוקס|אין רפרנס
+gloss-status.tsv|מערה היער|אין רפרנס
+gloss-status.tsv|מצנפת|אין רפרנס
+gloss-status.tsv|מקצועה|אין רפרנס
+gloss-status.tsv|מרחשת|אין רפרנס
+gloss-status.tsv|מרט את עצביו|אין רפרנס
+gloss-status.tsv|מרקם|אין רפרנס
+gloss-status.tsv|משח|אין רפרנס
+gloss-status.tsv|נאור|אין רפרנס
+gloss-status.tsv|נחירה|אין רפרנס
+gloss-status.tsv|ניחא|אין רפרנס
+gloss-status.tsv|נכוש|אין רפרנס
+gloss-status.tsv|נמלך בו|אין רפרנס
+gloss-status.tsv|נסיקה|אין רפרנס
+gloss-status.tsv|נצחת|אין רפרנס
+gloss-status.tsv|נשפה|אין רפרנס
+gloss-status.tsv|סבב אותו בכחש|אין רפרנס
+gloss-status.tsv|סוללה|אין רפרנס
+gloss-status.tsv|סיכה|אין רפרנס
+gloss-status.tsv|סיפא|אין רפרנס
+gloss-status.tsv|סכר את פיו|אין רפרנס
+gloss-status.tsv|סר מרע|אין רפרנס
+gloss-status.tsv|עור!|אין רפרנס
+gloss-status.tsv|עזבון|אין רפרנס
+gloss-status.tsv|על רגל אחת|אין רפרנס
+gloss-status.tsv|עמעום|אין רפרנס
+gloss-status.tsv|פדיון|אין רפרנס
+gloss-status.tsv|פומית|אין רפרנס
+gloss-status.tsv|פורה|אין רפרנס
+gloss-status.tsv|פיל לבן|אין רפרנס
+gloss-status.tsv|פכפוך|אין רפרנס
+gloss-status.tsv|פכר|אין רפרנס
+gloss-status.tsv|פלה|אין רפרנס
+gloss-status.tsv|פלוגתא|אין רפרנס
+gloss-status.tsv|פעמיו|אין רפרנס
+gloss-status.tsv|פרישות|אין רפרנס
+gloss-status.tsv|פרף|אין רפרנס
+gloss-status.tsv|צביר|אין רפרנס
+gloss-status.tsv|צדע / צדעים / צדעות|אין רפרנס
+gloss-status.tsv|צדקנות|אין רפרנס
+gloss-status.tsv|צינה|אין רפרנס
+gloss-status.tsv|צמיג|אין רפרנס
+gloss-status.tsv|צניפה|אין רפרנס
+gloss-status.tsv|קבעת|אין רפרנס
+gloss-status.tsv|קדרה|אין רפרנס
+gloss-status.tsv|קוקטי|אין רפרנס
+gloss-status.tsv|קטום|אין רפרנס
+gloss-status.tsv|קל תפיסה|אין רפרנס
+gloss-status.tsv|קלטר|אין רפרנס
+gloss-status.tsv|קליה|אין רפרנס
+gloss-status.tsv|קפנדריא / קפנדריה|אין רפרנס
+gloss-status.tsv|קרפיף|אין רפרנס
+gloss-status.tsv|קרת|אין רפרנס
+gloss-status.tsv|רודף שררה|אין רפרנס
+gloss-status.tsv|רישא|אין רפרנס
+gloss-status.tsv|רנן|אין רפרנס
+gloss-status.tsv|שדרה|אין רפרנס
+gloss-status.tsv|שווה בנפשך|אין רפרנס
+gloss-status.tsv|שווה|אין רפרנס
+gloss-status.tsv|שחרית|אין רפרנס
+gloss-status.tsv|שיפוי|אין רפרנס
+gloss-status.tsv|שלח יד בנפשו|אין רפרנס
+gloss-status.tsv|שנה|אין רפרנס
+gloss-status.tsv|שנץ|אין רפרנס
+gloss-status.tsv|שעל|אין רפרנס
+gloss-status.tsv|שפל|אין רפרנס
+gloss-status.tsv|שקט על שמריו|אין רפרנס
+gloss-status.tsv|שרף|אין רפרנס
+gloss-status.tsv|תבליט|אין רפרנס
+gloss-status.tsv|תועמלן|אין רפרנס
+gloss-status.tsv|תופין|אין רפרנס
+gloss-status.tsv|תחוח|אין רפרנס
+gloss-status.tsv|תינה|אין רפרנס
+gloss-status.tsv|תלולית|אין רפרנס
+gloss-status.tsv|תמלוגים|אין רפרנס
+gloss-status.tsv|תסכית|אין רפרנס
+gloss-status.tsv|תשליל|אין רפרנס

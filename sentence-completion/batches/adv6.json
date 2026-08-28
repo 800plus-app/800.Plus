@@ -1,782 +1,782 @@
 [
- {
-  "s": "Nothing he had claimed in the report was untrue, yet the tone was harsh enough that the board asked him for a short ___.",
-  "o": [
-   "apology",
-   "confession",
-   "refusal",
-   "objection"
-  ],
-  "a": 0,
-  "k": "contrast",
-  "w": [
-   "yet"
-  ],
-  "g": [
-   "apology = התנצלות",
-   "confession = וידוי",
-   "refusal = סירוב",
-   "objection = התנגדות"
-  ],
-  "t": "שום דבר שטען בדוח לא היה שקרי, אך הטון היה נוקשה דיו כדי שהוועד יבקש ממנו **התנצלות** קצרה.",
-  "r": [
-   "apology הוא מה שמבקשים על הטון: הבעת חרטה על האופן שבו נאמרו הדברים.",
-   "confession הוא וידוי על מעשה שהוסתר, והמשפט אומר שכל מה שנטען היה נכון.",
-   "refusal הוא סירוב לבקשה, וכאן מבקשים ממנו לתת משהו ולא לדחות.",
-   "objection הוא התנגדות להחלטה, והוועד אינו מבקש ממנו לחלוק עליה."
-  ]
- },
- {
-  "s": "The whole staff meets only once a year; therefore, a small ___ was appointed from among them to settle the routine questions.",
-  "o": [
-   "committee",
-   "council",
-   "union",
-   "convention"
-  ],
-  "a": 0,
-  "k": "cause",
-  "w": [
-   "therefore"
-  ],
-  "g": [
-   "committee = ועדה",
-   "council = מועצה",
-   "union = איגוד",
-   "convention = ועידה, כנס"
-  ],
-  "t": "כל הצוות מתכנס רק פעם בשנה; לכן מונתה מתוכו **ועדה** קטנה שתכריע בשאלות השוטפות.",
-  "r": [
-   "committee היא קבוצה קטנה שגוף גדול ממנה מתוך שורותיו כדי לטפל בעניינים שוטפים.",
-   "council הוא גוף שלטוני עומד בזכות עצמו, וכאן הקבוצה נבחרת מתוך הצוות עצמו.",
-   "union הוא ארגון שמגן על זכויות עובדים, ולא גוף שמכריע בשאלות עבודה שוטפות.",
-   "convention הוא כינוס גדול של משתתפים, ולא קבוצה קטנה שממונה לאורך זמן."
-  ]
- },
- {
-  "s": "Although the count had been checked twice by hand, the losing party still chose to ___ the result before the tribunal.",
-  "o": [
-   "contest",
-   "oppose",
-   "disregard",
-   "violate"
-  ],
-  "a": 0,
-  "k": "contrast",
-  "w": [
-   "although"
-  ],
-  "g": [
-   "contest = לערער על",
-   "oppose = להתנגד ל-",
-   "disregard = להתעלם",
-   "violate = להפר"
-  ],
-  "t": "אף שהספירה נבדקה פעמיים ביד, הצד המפסיד בחר בכל זאת **לערער** על התוצאה בפני הטריבונל.",
-  "r": [
-   "contest הוא הצעד הפורמלי של ערעור על תוצאה בפני גוף שופט.",
-   "oppose הוא להתייצב נגד דבר בעמדה, וזה אינו כולל פנייה לגוף שופט.",
-   "disregard הוא להתעלם מהתוצאה, וההיפך מכך הוא להביא אותה לטריבונל.",
-   "violate הוא להפר כלל, ותוצאת ספירה אינה כלל שניתן להפר."
-  ]
- },
- {
-  "s": "Since the two villages had shared one school for a century but had never had a common body, the county decided to ___ a single council for both.",
-  "o": [
-   "establish",
-   "construct",
-   "unify",
-   "merge"
-  ],
-  "a": 0,
-  "k": "cause",
-  "w": [
-   "since"
-  ],
-  "g": [
-   "establish = לייסד",
-   "construct = לבנות",
-   "unify = לאחד",
-   "merge = למזג"
-  ],
-  "t": "מכיוון ששני הכפרים חלקו בית ספר אחד במשך מאה שנה אך מעולם לא היה להם גוף משותף, המחוז החליט **לייסד** מועצה אחת לשניהם.",
-  "r": [
-   "establish הוא להקים גוף שלא היה קיים לפני כן.",
-   "construct הוא לבנות דבר פיזי, ומועצה אינה נבנית.",
-   "unify הוא לאחד גופים שכבר קיימים, והמשפט אומר שגוף משותף מעולם לא היה.",
-   "merge הוא למזג שני ארגונים לאחד, וכאן אין שני ארגונים שממזגים."
-  ]
- },
- {
-  "s": "Until the laboratory can ___ which of the two metals carries the current better, the engineers refuse to order any cable.",
-  "o": [
-   "determine",
-   "assume",
-   "estimate",
-   "indicate"
-  ],
-  "a": 0,
-  "k": "condition",
-  "w": [
-   "until"
-  ],
-  "g": [
-   "determine = לקבוע",
-   "assume = להניח",
-   "estimate = לאמוד",
-   "indicate = להצביע על"
-  ],
-  "t": "כל עוד המעבדה אינה יכולה **לקבוע** איזו מבין שתי המתכות מוליכה את הזרם טוב יותר, המהנדסים מסרבים להזמין כבל.",
-  "r": [
-   "determine הוא להכריע שאלה במדידה, כך שהתשובה נקבעת ואינה משתנה.",
-   "assume הוא להניח בלי לבדוק, ובדיקה היא בדיוק מה שחסר כאן.",
-   "estimate הוא לאמוד בקירוב, וההזמנה דורשת תשובה מוחלטת ולא הערכה.",
-   "indicate הוא להצביע על כיוון, וזה מה שעושה הממצא ולא המעבדה."
-  ]
- },
- {
-  "s": "Because each side had already given up its first demand, the mediator was sure that the two of them could still ___ before the deadline.",
-  "o": [
-   "compromise",
-   "collaborate",
-   "retreat",
-   "argue"
-  ],
-  "a": 0,
-  "k": "cause",
-  "w": [
-   "because"
-  ],
-  "g": [
-   "compromise = להתפשר",
-   "collaborate = לשתף פעולה",
-   "retreat = לסגת",
-   "argue = להתווכח"
-  ],
-  "t": "מכיוון שכל צד כבר זנח את דרישתו הראשונה, המגשר היה בטוח ששניהם עוד יוכלו **להתפשר** לפני המועד האחרון.",
-  "r": [
-   "compromise הוא לוותר על חלק מהדרישה כדי להיפגש באמצע, וזה מה ששני הצדדים כבר התחילו לעשות.",
-   "collaborate הוא לשתף פעולה במשימה משותפת, ולשני הצדדים כאן אין משימה אלא סכסוך.",
-   "retreat הוא נסיגה של צד אחד מן העמדה, והמשפט מוסר ששני הצדדים זזו זה לקראת זה.",
-   "argue הוא להחליף טיעונים, וזה מה שצריך להיפסק כדי להגיע להסכם."
-  ]
- },
- {
-  "s": "The new pump was built to a different standard, so the old pipes and the new fitting are simply not ___.",
-  "o": [
-   "compatible",
-   "identical",
-   "alike",
-   "equivalent"
-  ],
-  "a": 0,
-  "k": "cause",
-  "w": [
-   "so"
-  ],
-  "g": [
-   "compatible = תואם, מתיישב עם",
-   "identical = זהה",
-   "alike = דומה",
-   "equivalent = מקבילה"
-  ],
-  "t": "המשאבה החדשה נבנתה לפי תקן אחר, ולכן הצינורות הישנים והמחבר החדש פשוט אינם **תואמים**.",
-  "r": [
-   "compatible אומר ששני חלקים יכולים לעבוד יחד כמערכת אחת.",
-   "identical אומר ששני דברים זהים לגמרי, וצינור ומחבר שונים זה מזה בתכנון.",
-   "alike אומר שהם נראים דומים, ודמיון חיצוני אינו מבטיח שהם יתחברו.",
-   "equivalent אומר שהם שווים בערך או בתפקיד, והשאלה כאן היא אם הם מתחברים."
-  ]
- },
- {
-  "s": "While the frame and the varnish are both modern copies, the painting inside them is ___.",
-  "o": [
-   "genuine",
-   "accurate",
-   "identical",
-   "ordinary"
-  ],
-  "a": 0,
-  "k": "contrast",
-  "w": [
-   "while"
-  ],
-  "g": [
-   "genuine = אמיתי, מקורי",
-   "accurate = מדויק",
-   "identical = זהה",
-   "ordinary = רגיל"
-  ],
-  "t": "בעוד המסגרת והלכה הם שניהם העתקים מודרניים, הציור שבתוכם **מקורי**.",
-  "r": [
-   "genuine הוא הדבר עצמו ולא העתק שלו.",
-   "accurate מתאר מדידה או דיווח שמתאימים לעובדות, ולא את מקורו של חפץ.",
-   "identical אומר ששני דברים זהים, וציור אחד אינו יכול להיות זהה לעצמו.",
-   "ordinary הוא רגיל ושכיח, והמשפט מעמיד העתק מול מקור ולא נדיר מול שכיח."
-  ]
- },
- {
-  "s": "Because the minutes of every sitting are published in full within a week, the council's decisions are now entirely ___.",
-  "o": [
-   "transparent",
-   "explicit",
-   "evident",
-   "straightforward"
-  ],
-  "a": 0,
-  "k": "cause",
-  "w": [
-   "because"
-  ],
-  "g": [
-   "transparent = שקוף",
-   "explicit = מפורש",
-   "evident = נראה לעין",
-   "straightforward = פשוט, ברור"
-  ],
-  "t": "מכיוון שפרוטוקול כל ישיבה מתפרסם במלואו בתוך שבוע, החלטות המועצה **שקופות** לחלוטין.",
-  "r": [
-   "transparent אומר שכל אחד יכול לראות מה נעשה ולבדוק זאת בעצמו.",
-   "explicit אומר שהדבר נאמר במילים מפורשות, וזו תכונה של הניסוח ולא של הנגישות אליו.",
-   "evident אומר שקל להבחין בדבר, ופרסום פרוטוקול אינו הופך החלטה למובנת מאליה.",
-   "straightforward אומר שקל לעקוב אחרי הדבר, והחלטה שפורסמה יכולה להישאר מסובכת."
-  ]
- },
- {
-  "s": "Twelve of the twenty members voted against the plan; thus, those who had supported it were left a clear ___.",
-  "o": [
-   "minority",
-   "remainder",
-   "fraction",
-   "handful"
-  ],
-  "a": 0,
-  "k": "cause",
-  "w": [
-   "thus"
-  ],
-  "g": [
-   "minority = מיעוט",
-   "remainder = שארית",
-   "fraction = שבר",
-   "handful = קומץ"
-  ],
-  "t": "שנים עשר מעשרים החברים הצביעו נגד התוכנית; לכן אלה שתמכו בה נותרו **מיעוט** ברור.",
-  "r": [
-   "minority הוא הצד הקטן מבין שני הצדדים בהצבעה.",
-   "remainder הוא מה שנשאר אחרי חיסור, ולא צד בהצבעה.",
-   "fraction הוא מספר קטן מאחד, והמשפט מונה אנשים ולא שברים.",
-   "handful הוא מספר זעיר, ושמונה מתוך עשרים אינם קומץ."
-  ]
- },
- {
-  "s": "The family owned a house and a small field, but the debts swallowed both and left them in plain ___.",
-  "o": [
-   "poverty",
-   "debt",
-   "distress",
-   "discomfort"
-  ],
-  "a": 0,
-  "k": "contrast",
-  "w": [
-   "but"
-  ],
-  "g": [
-   "poverty = עוני",
-   "debt = חוב",
-   "distress = מצוקה",
-   "discomfort = אי-נוחות"
-  ],
-  "t": "למשפחה היו בית ושדה קטן, אך החובות בלעו את שניהם והותירו אותה ב**עוני** גמור.",
-  "r": [
-   "poverty הוא מצב שבו אין די כסף לצרכים הבסיסיים.",
-   "debt הוא כסף שחייבים, והמשפט אומר שהחובות עצמם הם שבלעו את הנכסים.",
-   "distress הוא מצוקה חריפה או סכנה, והמשפט מתאר חוסר אמצעים מתמשך.",
-   "discomfort הוא אי-נוחות קלה בגוף, וזה חלש מכדי לתאר חיים בלי אמצעים."
-  ]
- },
- {
-  "s": "The tenant had paid every month on time; even so, the owner used a small clause to ___ the lease a year early.",
-  "o": [
-   "terminate",
-   "postpone",
-   "renew",
-   "restrict"
-  ],
-  "a": 0,
-  "k": "contrast",
-  "w": [
-   "even so"
-  ],
-  "g": [
-   "terminate = לסיים",
-   "postpone = לדחות",
-   "renew = לחדש",
-   "restrict = להגביל"
-  ],
-  "t": "השוכר שילם בכל חודש במועד; למרות זאת, הבעלים השתמש בסעיף קטן כדי **לסיים** את החכירה שנה לפני הזמן.",
-  "r": [
-   "terminate הוא לסיים הסכם לפני התאריך שנקבע בו.",
-   "postpone הוא להזיז מועד לזמן מאוחר יותר, והחכירה אינה נדחית אלא נגמרת.",
-   "renew הוא להאריך הסכם, וזה ההיפך מסיום שנה לפני הזמן.",
-   "restrict הוא לצמצם את המותר, והסעיף כאן מבטל את ההסכם כולו."
-  ]
- },
- {
-  "s": "The archive holds the only copy of the map; hence, the first task is to ___ it before any reader touches the sheet.",
-  "o": [
-   "duplicate",
-   "imitate",
-   "reconstruct",
-   "modify"
-  ],
-  "a": 0,
-  "k": "cause",
-  "w": [
-   "hence"
-  ],
-  "g": [
-   "duplicate = לשכפל",
-   "imitate = לחקות",
-   "reconstruct = לשחזר",
-   "modify = לשנות"
-  ],
-  "t": "בארכיון נמצא ההעתק היחיד של המפה; לפיכך המשימה הראשונה היא **לשכפל** אותה לפני שקורא כלשהו נוגע בגיליון.",
-  "r": [
-   "duplicate הוא להפיק העתק שני מדויק.",
-   "imitate הוא לייצר דבר באותו סגנון, ולא העתק מדויק שלו.",
-   "reconstruct הוא לשחזר מה שאבד מתוך עדויות, והמפה כאן שלמה.",
-   "modify הוא לשנות את המקור, וזה הדבר האחרון שארכיון רוצה."
-  ]
- },
- {
-  "s": "A review must ___ what the writer did well and ___ what he did badly; yet hers did only the second.",
-  "o": [
-   [
-    "praise",
-    "criticize"
-   ],
-   [
-    "criticize",
-    "praise"
-   ],
-   [
-    "praise",
-    "blame"
-   ],
-   [
-    "admire",
-    "criticize"
-   ]
-  ],
-  "a": 0,
-  "k": "contrast",
-  "w": [
-   "yet"
-  ],
-  "g": [
-   "praise = לשבח · criticize = לבקר",
-   "criticize = לבקר · praise = לשבח",
-   "praise = לשבח · blame = להאשים",
-   "admire = להעריץ · criticize = לבקר"
-  ],
-  "t": "ביקורת חייבת **לשבח** את מה שהסופר עשה היטב ו**לבקר** את מה שעשה גרוע; אך שלה עשתה רק את השני.",
-  "r": [
-   "praise ואחריו criticize: את החלק הטוב משבחים ואת החלק הגרוע מבקרים.",
-   "הסדר הפוך: praise שייך לחלק הטוב ו-criticize לחלק הגרוע.",
-   "blame הוא להאשים מי שגרם לנזק, וביקורת שופטת את הכתיבה ולא מחפשת אשם.",
-   "admire הוא רגש הערצה פנימי, וביקורת חייבת לומר את דעתה במילים."
-  ]
- },
- {
-  "s": "The library lends its ordinary books to anyone; however, the manuscripts in the top room are shown ___ to registered scholars.",
-  "o": [
-   "exclusively",
-   "primarily",
-   "entirely",
-   "occasionally"
-  ],
-  "a": 0,
-  "k": "contrast",
-  "w": [
-   "however"
-  ],
-  "g": [
-   "exclusively = באופן בלעדי",
-   "primarily = בעיקר",
-   "entirely = לחלוטין",
-   "occasionally = מידי פעם"
-  ],
-  "t": "הספרייה משאילה את ספריה הרגילים לכל אדם; אולם כתבי היד שבחדר העליון מוצגים **באופן בלעדי** לחוקרים רשומים.",
-  "r": [
-   "exclusively אומר שרק אותה קבוצה מקבלת גישה ואף אחד אחר לא.",
-   "primarily אומר בעיקר, וזה משאיר פתח גם לאחרים.",
-   "entirely אומר לחלוטין, והוא מתאר שלמות של דבר ולא מי מורשה לראותו.",
-   "occasionally אומר מפעם לפעם, והמשפט קובע קבוצה ולא תדירות."
-  ]
- },
- {
-  "s": "The recipe names every herb by weight; moreover, it fixes the ___ of water in spoons and not as a share of the flour.",
-  "o": [
-   "quantity",
-   "proportion",
-   "fraction",
-   "remainder"
-  ],
-  "a": 0,
-  "k": "addition",
-  "w": [
-   "moreover"
-  ],
-  "g": [
-   "quantity = כמות",
-   "proportion = שיעור",
-   "fraction = שבר",
-   "remainder = שארית"
-  ],
-  "t": "המתכון נוקב בכל עשב לפי משקל; זאת ועוד, הוא קובע את **כמות** המים בכפיות ולא כחלק מן הקמח.",
-  "r": [
-   "quantity הוא כמה יש מדבר, וזה מה שנמדד בכפיות.",
-   "proportion הוא היחס בין חלק לשלם, והמשפט אומר במפורש שהמידה אינה חלק מן הקמח.",
-   "fraction הוא שבר, מספר קטן מאחד, והמים נמדדים בכפיות שלמות.",
-   "remainder הוא מה שנשאר אחרי שהשתמשו בשאר, וכאן טרם השתמשו בדבר."
-  ]
- },
- {
-  "s": "The bank already keeps a guard at each door; in addition, the new insurer demands constant ___ of the vault itself.",
-  "o": [
-   "surveillance",
-   "patrol",
-   "prevention",
-   "readiness"
-  ],
-  "a": 0,
-  "k": "addition",
-  "w": [
-   "in addition"
-  ],
-  "g": [
-   "surveillance = מעקב",
-   "patrol = סיור",
-   "prevention = מניעה",
-   "readiness = מוכנות"
-  ],
-  "t": "הבנק מציב שומר בכל דלת; נוסף על כך, המבטח החדש דורש **מעקב** רצוף אחר הכספת עצמה.",
-  "r": [
-   "surveillance הוא צפייה רצופה במקום כדי לדעת מה מתרחש בו.",
-   "patrol הוא סיור שעובר במקום מדי פעם, והדרישה כאן היא צפייה בלי הפסקה.",
-   "prevention הוא למנוע מראש, וצפייה רק מתעדת את מה שקורה.",
-   "readiness הוא להיות מוכן לפעול, והדרישה היא לצפות ולא להמתין."
-  ]
- },
- {
-  "s": "The new film records a face by candlelight; furthermore, its ___ to red is twice that of the older stock.",
-  "o": [
-   "sensitivity",
-   "accuracy",
-   "exposure",
-   "density"
-  ],
-  "a": 0,
-  "k": "addition",
-  "w": [
-   "furthermore"
-  ],
-  "g": [
-   "sensitivity = רגישות",
-   "accuracy = דיוק",
-   "exposure = חשיפה",
-   "density = צפיפות"
-  ],
-  "t": "הסרט החדש מתעד פנים לאור נר; זאת ועוד, ה**רגישות** שלו לאדום כפולה מזו של הסרט הישן.",
-  "r": [
-   "sensitivity הוא עד כמה חומר מגיב לכמות אור קטנה.",
-   "accuracy הוא כמה קריאה קרובה לאמת, וסרט אינו קורא ערך.",
-   "exposure הוא כמות האור שנכנסת בצילום, והמצלמה קובעת אותה ולא הסרט.",
-   "density הוא צפיפות החומר, והיא אינה אומרת דבר על תגובה לצבע."
-  ]
- },
- {
-  "s": "The new law names every existing trade one by one; what is more, its final clause is ___ enough to cover trades that do not yet exist.",
-  "o": [
-   "broad",
-   "explicit",
-   "radical",
-   "definite"
-  ],
-  "a": 0,
-  "k": "addition",
-  "w": [
-   "what is more"
-  ],
-  "g": [
-   "broad = נרחב",
-   "explicit = מפורש",
-   "radical = קיצוני",
-   "definite = מוגדר"
-  ],
-  "t": "החוק החדש נוקב בכל עיסוק קיים בשמו; זאת ועוד, סעיפו האחרון **נרחב** דיו כדי לחול גם על עיסוקים שטרם קיימים.",
-  "r": [
-   "broad אומר שהסעיף רחב בהיקפו, ולכן גם מקרים חדשים נופלים בתוכו.",
-   "explicit אומר שהדבר נאמר בשמו במפורש, ואי אפשר לנקוב בשמו של עיסוק שטרם קיים.",
-   "radical אומר קיצוני, והרחבה של תחולה אינה קיצוניות.",
-   "definite אומר מוגדר וחסום בגבולות, וזה ההיפך מסעיף שנמתח קדימה."
-  ]
- },
- {
-  "s": "Once the instruments stopped giving any reading at all, the pilot had to land on ___ alone.",
-  "o": [
-   "judgment",
-   "belief",
-   "perception",
-   "orientation"
-  ],
-  "a": 0,
-  "k": "condition",
-  "w": [
-   "once"
-  ],
-  "g": [
-   "judgment = שיפוט",
-   "belief = אמונה",
-   "perception = תפיסה",
-   "orientation = התמצאות"
-  ],
-  "t": "מרגע שהמכשירים חדלו להראות כל קריאה, הטייס נאלץ לנחות על סמך **שיפוט** בלבד.",
-  "r": [
-   "judgment הוא לשקול מצב ולהכריע כשאין כלל מוכן להסתמך עליו.",
-   "belief הוא להחזיק בדבר כאמת, ונחיתה דורשת הכרעה מעשית ולא שכנוע פנימי.",
-   "perception הוא מה שהחושים קולטים, והטייס נדרש לעשות יותר מלקלוט.",
-   "orientation הוא לדעת היכן אתה נמצא, וזה רק חלק אחד מההכרעה."
-  ]
- },
- {
-  "s": "Unless the tenant has lived in the flat for a full year, the reduced rent is not something he is ___ to claim.",
-  "o": [
-   "entitled",
-   "capable",
-   "worthy",
-   "nominated"
-  ],
-  "a": 0,
-  "k": "condition",
-  "w": [
-   "unless"
-  ],
-  "g": [
-   "entitled = זכאי",
-   "capable = מסוגל",
-   "worthy = ראוי",
-   "nominated = מועמד"
-  ],
-  "t": "אלא אם כן השוכר גר בדירה שנה שלמה, שכר הדירה המופחת אינו דבר שהוא **זכאי** לתבוע.",
-  "r": [
-   "entitled הוא בעל זכות מוקנית לדבר, וזכות כזאת נובעת מתנאי בהסכם.",
-   "capable הוא מסוגל לעשות דבר, והשאלה כאן היא זכות ולא יכולת.",
-   "worthy הוא ראוי מבחינת מעלה, וחוזה שכירות מקנה זכות לפי זמן ולא לפי מעלה.",
-   "nominated הוא מועמד לתפקיד, ושכר דירה אינו תפקיד."
-  ]
- },
- {
-  "s": "If the last two members send their notes today, the clerk can ___ the wording of the by-law before the sitting.",
-  "o": [
-   "finalize",
-   "simplify",
-   "broaden",
-   "certify"
-  ],
-  "a": 0,
-  "k": "condition",
-  "w": [
-   "if"
-  ],
-  "g": [
-   "finalize = לגבש",
-   "simplify = לפשט",
-   "broaden = להרחיב",
-   "certify = לאשר"
-  ],
-  "t": "אם שני החברים האחרונים ישלחו את הערותיהם היום, הפקיד יוכל **לגבש** את נוסח התקנון לפני הישיבה.",
-  "r": [
-   "finalize הוא לקבוע את הנוסח סופית, כך שלא מצפים לשינוי נוסף.",
-   "simplify הוא לפשט את הנוסח, וההערות אינן בהכרח מבקשות זאת.",
-   "broaden הוא להרחיב את מה שהנוסח מכסה, וזה שינוי ולא סגירה.",
-   "certify הוא להצהיר רשמית שנוסח נכון, וזה בא אחרי שהנוסח כבר נקבע."
-  ]
- },
- {
-  "s": "The customs list names every controlled ___, such as the poppy extract that hospitals still use against pain.",
-  "o": [
-   "narcotic",
-   "remedy",
-   "supplement",
-   "herb"
-  ],
-  "a": 0,
-  "k": "example",
-  "w": [
-   "such as"
-  ],
-  "g": [
-   "narcotic = סם",
-   "remedy = תרופה",
-   "supplement = תוסף",
-   "herb = עשב"
-  ],
-  "t": "רשימת המכס נוקבת בכל **סם** מפוקח, כמו תמצית הפרג שבתי החולים עדיין משתמשים בה נגד כאב.",
-  "r": [
-   "narcotic הוא סם שמקהה כאב ושהחוק מפקח על השימוש בו.",
-   "remedy הוא כל תרופה שמרפאה, ורוב התרופות אינן ברשימת מכס מפוקחת.",
-   "supplement הוא תוסף שמשלים חסר בתזונה, ואין צורך בהיתר עבורו.",
-   "herb הוא עשב שמשמש בבישול או ברפואה, והרשימה מפקחת על התמצית ולא על הצמח."
-  ]
- },
- {
-  "s": "Every clinic follows one written ___ for a new patient, for instance the order in which the temperature and the blood are taken.",
-  "o": [
-   "procedure",
-   "instruction",
-   "convention",
-   "custom"
-  ],
-  "a": 0,
-  "k": "example",
-  "w": [
-   "for instance"
-  ],
-  "g": [
-   "procedure = נוהל",
-   "instruction = הוראה",
-   "convention = מוסכמה",
-   "custom = מנהג"
-  ],
-  "t": "כל מרפאה פועלת לפי **נוהל** כתוב אחד לחולה חדש, למשל הסדר שבו נמדדים החום והדם.",
-  "r": [
-   "procedure הוא רצף צעדים קבוע שמבוצע באותו סדר בכל פעם.",
-   "instruction הוא הוראה בודדת, והמשפט מתאר מערכת שלמה של צעדים מסודרים.",
-   "convention הוא מוסכמה שקבוצה שומרת עליה בלי שנכתבה, וכאן מדובר בכתוב.",
-   "custom הוא מנהג שהשתרש עם הזמן, ולא דבר שמרפאה מחויבת לו."
-  ]
- },
- {
-  "s": "The tax falls on every ___ animal, including the goat that the family keeps behind the house.",
-  "o": [
-   "domestic",
-   "marine",
-   "rural",
-   "endangered"
-  ],
-  "a": 0,
-  "k": "example",
-  "w": [
-   "including"
-  ],
-  "g": [
-   "domestic = מבוית",
-   "marine = ימי",
-   "rural = כפרי",
-   "endangered = בסכנת הכחדה"
-  ],
-  "t": "המס חל על כל בעל חיים **מבוית**, ובכלל זה העז שהמשפחה מגדלת מאחורי הבית.",
-  "r": [
-   "domestic הוא בעל חיים שאדם מגדל ולא חיה שחיה בטבע.",
-   "marine הוא ימי, החי בים, ועז שמאחורי הבית אינה כזאת.",
-   "rural מתאר את הכפר עצמו ולא בעל חיים שאדם מגדל.",
-   "endangered אומר שמין נמצא בסכנת הכחדה, ועזים נפוצות."
-  ]
- },
- {
-  "s": "The nurse first cleans the skin above the vein; then she can ___ the needle and ___ the dye through it.",
-  "o": [
-   [
-    "insert",
-    "inject"
-   ],
-   [
-    "inject",
-    "insert"
-   ],
-   [
-    "insert",
-    "absorb"
-   ],
-   [
-    "expose",
-    "inject"
-   ]
-  ],
-  "a": 0,
-  "k": "sequence",
-  "w": [
-   "then"
-  ],
-  "g": [
-   "insert = להכניס · inject = להזריק",
-   "inject = להזריק · insert = להכניס",
-   "insert = להכניס · absorb = לספוג",
-   "expose = לחשוף · inject = להזריק"
-  ],
-  "t": "האחות מנקה קודם את העור שמעל הווריד; לאחר מכן היא יכולה **להכניס** את המחט ו**להזריק** דרכה את הצבע.",
-  "r": [
-   "insert ואחריו inject: המחט נכנסת ראשונה, והנוזל נדחף דרכה רק אחר כך.",
-   "הסדר הפוך: insert חל על המחט ו-inject על הנוזל, ואין מזריקים דרך מחט שטרם נכנסה.",
-   "absorb הוא לספוג נוזל, וזה מה שהגוף עושה ולא האחות.",
-   "expose הוא לחשוף, ומחט אינה נחשפת אל תוך הווריד."
-  ]
- },
- {
-  "s": "Since the ink had faded to nothing, the clerk could not ___ the name of the buyer through the older registers.",
-  "o": [
-   "trace",
-   "retrieve",
-   "uncover",
-   "interpret"
-  ],
-  "a": 0,
-  "k": "cause",
-  "w": [
-   "since"
-  ],
-  "g": [
-   "trace = לעקוב, למצוא",
-   "retrieve = לשלוף",
-   "uncover = לגלות",
-   "interpret = לפרש"
-  ],
-  "t": "מכיוון שהדיו דהה עד כלות, הפקיד לא הצליח **לעקוב** אחר שמו של הקונה במרשמים הישנים.",
-  "r": [
-   "trace הוא לעקוב אחרי רישום שלב אחר שלב עד שמוצאים את השם.",
-   "retrieve הוא לשלוף פרט שמור וידוע, וכאן השם עצמו אינו ידוע.",
-   "uncover הוא לגלות דבר נסתר בפעולה אחת, ולא לעקוב אחרי שרשרת רישומים.",
-   "interpret הוא לפרש את מה שכתוב, והפקיד אינו מצליח אפילו לקרוא את הכתוב."
-  ]
- },
- {
-  "s": "The blade still cuts paper cleanly, though after two winters of cutting rope it has grown too ___ for wood.",
-  "o": [
-   "dull",
-   "faulty",
-   "bent",
-   "stiff"
-  ],
-  "a": 0,
-  "k": "contrast",
-  "w": [
-   "though"
-  ],
-  "g": [
-   "dull = סתום",
-   "faulty = לקוי",
-   "bent = כופף",
-   "stiff = נוקשה"
-  ],
-  "t": "הסכין עדיין חותכת נייר בנקל, אף שאחרי שני חורפים של חיתוך חבל היא נעשתה **סתומה** מדי לעץ.",
-  "r": [
-   "dull מתאר להב שאיבד את חודו ואינו חותך יותר.",
-   "faulty הוא לקוי או פגום מלכתחילה, והלהב הזה עדיין חותך נייר.",
-   "bent הוא כופף מצורתו הישרה, וזה לא היה מונע ממנו לחתוך.",
-   "stiff הוא נוקשה וקשה לכיפוף, ולהב אמור להיות נוקשה."
-  ]
- }
+  {
+    "s": "Nothing he had claimed in the report was untrue, yet the tone was harsh enough that the board asked him for a short ___.",
+    "o": [
+      "apology",
+      "confession",
+      "refusal",
+      "objection"
+    ],
+    "a": 0,
+    "k": "contrast",
+    "w": [
+      "yet"
+    ],
+    "g": [
+      "apology = התנצלות",
+      "confession = וידוי",
+      "refusal = סירוב",
+      "objection = התנגדות"
+    ],
+    "t": "שום דבר שטען בדוח לא היה שקרי, אך הטון היה חריף דיו כדי שהוועד יבקש ממנו **התנצלות** קצרה.",
+    "r": [
+      "apology הוא מה שמבקשים על הטון: הבעת חרטה על האופן שבו נאמרו הדברים.",
+      "confession הוא וידוי על מעשה שהוסתר, והמשפט אומר שכל מה שנטען היה נכון.",
+      "refusal הוא סירוב לבקשה, וכאן מבקשים ממנו לתת משהו ולא לדחות.",
+      "objection הוא התנגדות להחלטה, והוועד אינו מבקש ממנו לחלוק עליה."
+    ]
+  },
+  {
+    "s": "The whole staff meets only once a year; therefore, a small ___ was appointed from among them to settle the routine questions.",
+    "o": [
+      "committee",
+      "council",
+      "union",
+      "convention"
+    ],
+    "a": 0,
+    "k": "cause",
+    "w": [
+      "therefore"
+    ],
+    "g": [
+      "committee = ועדה",
+      "council = מועצה",
+      "union = איגוד",
+      "convention = ועידה, כנס"
+    ],
+    "t": "כל הצוות מתכנס רק פעם בשנה; לכן מונתה מתוכו **ועדה** קטנה שתכריע בשאלות השוטפות.",
+    "r": [
+      "committee היא קבוצה קטנה שגוף גדול בוחר מתוך שורותיו כדי לטפל בעניינים שוטפים.",
+      "council הוא גוף שלטוני עומד בזכות עצמו, וכאן הקבוצה נבחרת מתוך הצוות עצמו.",
+      "union הוא ארגון שמגן על זכויות עובדים, ולא גוף שמכריע בשאלות עבודה שוטפות.",
+      "convention הוא כינוס גדול של משתתפים, ולא קבוצה קטנה שממונה לאורך זמן."
+    ]
+  },
+  {
+    "s": "Although the count had been checked twice by hand, the losing party still chose to ___ the result before the tribunal.",
+    "o": [
+      "contest",
+      "oppose",
+      "disregard",
+      "violate"
+    ],
+    "a": 0,
+    "k": "contrast",
+    "w": [
+      "although"
+    ],
+    "g": [
+      "contest = לערער על",
+      "oppose = להתנגד ל-",
+      "disregard = להתעלם",
+      "violate = להפר"
+    ],
+    "t": "אף שהספירה נבדקה פעמיים ביד, הצד המפסיד בחר בכל זאת **לערער** על התוצאה בפני בית הדין.",
+    "r": [
+      "contest הוא הצעד הפורמלי של ערעור על תוצאה בפני גוף שופט.",
+      "oppose הוא להתייצב נגד דבר בעמדה, וזה אינו כולל פנייה לגוף שופט.",
+      "disregard הוא להתעלם מהתוצאה, וההיפך מכך הוא להביא אותה לטריבונל.",
+      "violate הוא להפר כלל, ותוצאת ספירה אינה כלל שניתן להפר."
+    ]
+  },
+  {
+    "s": "Since the two villages had shared one school for a century but had never had a common body, the county decided to ___ a single council for both.",
+    "o": [
+      "establish",
+      "construct",
+      "unify",
+      "merge"
+    ],
+    "a": 0,
+    "k": "cause",
+    "w": [
+      "since"
+    ],
+    "g": [
+      "establish = לייסד",
+      "construct = לבנות",
+      "unify = לאחד",
+      "merge = למזג"
+    ],
+    "t": "מכיוון ששני הכפרים חלקו בית ספר אחד במשך מאה שנה אך מעולם לא היה להם גוף משותף, המחוז החליט **לייסד** מועצה אחת לשניהם.",
+    "r": [
+      "establish הוא להקים גוף שלא היה קיים לפני כן.",
+      "construct הוא לבנות דבר פיזי, ומועצה אינה נבנית.",
+      "unify הוא לאחד גופים שכבר קיימים, והמשפט אומר שגוף משותף מעולם לא היה.",
+      "merge הוא למזג שני ארגונים לאחד, וכאן אין שני ארגונים שממזגים."
+    ]
+  },
+  {
+    "s": "Until the laboratory can ___ which of the two metals carries the current better, the engineers refuse to order any cable.",
+    "o": [
+      "determine",
+      "assume",
+      "estimate",
+      "indicate"
+    ],
+    "a": 0,
+    "k": "condition",
+    "w": [
+      "until"
+    ],
+    "g": [
+      "determine = לקבוע",
+      "assume = להניח",
+      "estimate = לאמוד",
+      "indicate = להצביע על"
+    ],
+    "t": "כל עוד המעבדה אינה יכולה **לקבוע** איזו מבין שתי המתכות מוליכה את הזרם טוב יותר, המהנדסים מסרבים להזמין כבל.",
+    "r": [
+      "determine הוא להכריע שאלה במדידה, כך שהתשובה נקבעת ואינה משתנה.",
+      "assume הוא להניח בלי לבדוק, ובדיקה היא בדיוק מה שחסר כאן.",
+      "estimate הוא לאמוד בקירוב, וההזמנה דורשת תשובה מוחלטת ולא הערכה.",
+      "indicate הוא להצביע על כיוון, וזה מה שעושה הממצא ולא המעבדה."
+    ]
+  },
+  {
+    "s": "Because each side had already given up its first demand, the mediator was sure that the two of them could still ___ before the deadline.",
+    "o": [
+      "compromise",
+      "collaborate",
+      "retreat",
+      "argue"
+    ],
+    "a": 0,
+    "k": "cause",
+    "w": [
+      "because"
+    ],
+    "g": [
+      "compromise = להתפשר",
+      "collaborate = לשתף פעולה",
+      "retreat = לסגת",
+      "argue = להתווכח"
+    ],
+    "t": "מכיוון שכל צד כבר זנח את דרישתו הראשונה, המגשר היה בטוח ששניהם עוד יוכלו **להתפשר** לפני המועד האחרון.",
+    "r": [
+      "compromise הוא לוותר על חלק מהדרישה כדי להיפגש באמצע, וזה מה ששני הצדדים כבר התחילו לעשות.",
+      "collaborate הוא לשתף פעולה במשימה משותפת, ולשני הצדדים כאן אין משימה אלא סכסוך.",
+      "retreat הוא נסיגה של צד אחד מן העמדה, והמשפט מוסר ששני הצדדים זזו זה לקראת זה.",
+      "argue הוא להחליף טיעונים, וזה מה שצריך להיפסק כדי להגיע להסכם."
+    ]
+  },
+  {
+    "s": "The new pump was built to a different standard, so the old pipes and the new fitting are simply not ___.",
+    "o": [
+      "compatible",
+      "identical",
+      "alike",
+      "equivalent"
+    ],
+    "a": 0,
+    "k": "cause",
+    "w": [
+      "so"
+    ],
+    "g": [
+      "compatible = תואם, מתיישב עם",
+      "identical = זהה",
+      "alike = דומה",
+      "equivalent = שקול, מקביל"
+    ],
+    "t": "המשאבה החדשה נבנתה לפי תקן אחר, ולכן הצינורות הישנים והמחבר החדש פשוט אינם **תואמים**.",
+    "r": [
+      "compatible אומר ששני חלקים יכולים לעבוד יחד כמערכת אחת.",
+      "identical אומר ששני דברים זהים לגמרי, וצינור ומחבר שונים זה מזה בתכנון.",
+      "alike אומר שהם נראים דומים, ודמיון חיצוני אינו מבטיח שהם יתחברו.",
+      "equivalent אומר שהם שווים בערך או בתפקיד, והשאלה כאן היא אם הם מתחברים."
+    ]
+  },
+  {
+    "s": "While the frame and the varnish are both modern copies, the painting inside them is ___.",
+    "o": [
+      "genuine",
+      "accurate",
+      "identical",
+      "ordinary"
+    ],
+    "a": 0,
+    "k": "contrast",
+    "w": [
+      "while"
+    ],
+    "g": [
+      "genuine = אמיתי, מקורי",
+      "accurate = מדויק",
+      "identical = זהה",
+      "ordinary = רגיל"
+    ],
+    "t": "בעוד המסגרת ושכבת הלכה הן שתיהן העתקים מודרניים, הציור שבתוכן **מקורי**.",
+    "r": [
+      "genuine הוא הדבר עצמו ולא העתק שלו.",
+      "accurate מתאר מדידה או דיווח שמתאימים לעובדות, ולא את מקורו של חפץ.",
+      "identical אומר ששני דברים זהים, וציור אחד אינו יכול להיות זהה לעצמו.",
+      "ordinary הוא רגיל ושכיח, והמשפט מעמיד העתק מול מקור ולא נדיר מול שכיח."
+    ]
+  },
+  {
+    "s": "Because the minutes of every sitting are published in full within a week, the council's decisions are now entirely ___.",
+    "o": [
+      "transparent",
+      "explicit",
+      "evident",
+      "straightforward"
+    ],
+    "a": 0,
+    "k": "cause",
+    "w": [
+      "because"
+    ],
+    "g": [
+      "transparent = שקוף",
+      "explicit = מפורש",
+      "evident = נראה לעין",
+      "straightforward = פשוט, ברור"
+    ],
+    "t": "מכיוון שפרוטוקול כל ישיבה מתפרסם במלואו בתוך שבוע, החלטות המועצה **שקופות** כיום לחלוטין.",
+    "r": [
+      "transparent אומר שכל אחד יכול לראות מה נעשה ולבדוק זאת בעצמו.",
+      "explicit אומר שהדבר נאמר במילים מפורשות, וזו תכונה של הניסוח ולא של הנגישות אליו.",
+      "evident אומר שקל להבחין בדבר, ופרסום פרוטוקול אינו הופך החלטה למובנת מאליה.",
+      "straightforward אומר שקל לעקוב אחרי הדבר, והחלטה שפורסמה יכולה להישאר מסובכת."
+    ]
+  },
+  {
+    "s": "Twelve of the twenty members voted against the plan; thus, those who had supported it were left a clear ___.",
+    "o": [
+      "minority",
+      "remainder",
+      "fraction",
+      "handful"
+    ],
+    "a": 0,
+    "k": "cause",
+    "w": [
+      "thus"
+    ],
+    "g": [
+      "minority = מיעוט",
+      "remainder = שארית",
+      "fraction = שבר",
+      "handful = קומץ"
+    ],
+    "t": "שנים עשר מעשרים החברים הצביעו נגד התוכנית; לכן אלה שתמכו בה נותרו **מיעוט** ברור.",
+    "r": [
+      "minority הוא הצד הקטן מבין שני הצדדים בהצבעה.",
+      "remainder הוא מה שנשאר אחרי חיסור, ולא צד בהצבעה.",
+      "fraction הוא מספר קטן מאחד, והמשפט מונה אנשים ולא שברים.",
+      "handful הוא קומץ בודדים, והמשפט מציב צד שלם בהצבעה בת עשרים חברים."
+    ]
+  },
+  {
+    "s": "The family owned a house and a small field, but the debts swallowed both and left them in plain ___.",
+    "o": [
+      "poverty",
+      "debt",
+      "distress",
+      "discomfort"
+    ],
+    "a": 0,
+    "k": "contrast",
+    "w": [
+      "but"
+    ],
+    "g": [
+      "poverty = עוני",
+      "debt = חוב",
+      "distress = מצוקה",
+      "discomfort = אי-נוחות"
+    ],
+    "t": "למשפחה היו בית ושדה קטן, אך החובות בלעו את שניהם והותירו אותה ב**עוני** גמור.",
+    "r": [
+      "poverty הוא מצב שבו אין די כסף לצרכים הבסיסיים.",
+      "debt הוא כסף שחייבים, והמשפט אומר שהחובות עצמם הם שבלעו את הנכסים.",
+      "distress הוא מצוקה חריפה או סכנה, והמשפט מתאר חוסר אמצעים מתמשך.",
+      "discomfort הוא אי-נוחות קלה בגוף, וזה חלש מכדי לתאר חיים בלי אמצעים."
+    ]
+  },
+  {
+    "s": "The tenant had paid every month on time; even so, the owner used a small clause to ___ the lease a year early.",
+    "o": [
+      "terminate",
+      "postpone",
+      "renew",
+      "restrict"
+    ],
+    "a": 0,
+    "k": "contrast",
+    "w": [
+      "even so"
+    ],
+    "g": [
+      "terminate = לסיים",
+      "postpone = לדחות",
+      "renew = לחדש",
+      "restrict = להגביל"
+    ],
+    "t": "השוכר שילם בכל חודש במועד; למרות זאת, הבעלים השתמש בסעיף קטן כדי **לסיים** את השכירות שנה לפני הזמן.",
+    "r": [
+      "terminate הוא לסיים הסכם לפני התאריך שנקבע בו.",
+      "postpone הוא להזיז מועד לזמן מאוחר יותר, והשכירות אינה נדחית אלא נגמרת.",
+      "renew הוא להאריך הסכם, וזה ההיפך מסיום שנה לפני הזמן.",
+      "restrict הוא לצמצם את המותר, והסעיף כאן מבטל את ההסכם כולו."
+    ]
+  },
+  {
+    "s": "The archive holds the only copy of the map; hence, the first task is to ___ it before any reader touches the sheet.",
+    "o": [
+      "duplicate",
+      "imitate",
+      "reconstruct",
+      "modify"
+    ],
+    "a": 0,
+    "k": "cause",
+    "w": [
+      "hence"
+    ],
+    "g": [
+      "duplicate = לשכפל",
+      "imitate = לחקות",
+      "reconstruct = לשחזר",
+      "modify = לשנות"
+    ],
+    "t": "בארכיון נמצא העותק היחיד של המפה; לפיכך המשימה הראשונה היא **לשכפל** אותה לפני שקורא כלשהו נוגע בגיליון.",
+    "r": [
+      "duplicate הוא להפיק העתק שני מדויק.",
+      "imitate הוא לייצר דבר באותו סגנון, ולא העתק מדויק שלו.",
+      "reconstruct הוא לשחזר מה שאבד מתוך עדויות, והמפה כאן שלמה.",
+      "modify הוא לשנות את המקור, וזה הדבר האחרון שארכיון רוצה."
+    ]
+  },
+  {
+    "s": "A review must ___ what the writer did well and ___ what he did badly; yet hers did only the second.",
+    "o": [
+      [
+        "praise",
+        "criticize"
+      ],
+      [
+        "criticize",
+        "praise"
+      ],
+      [
+        "praise",
+        "blame"
+      ],
+      [
+        "admire",
+        "criticize"
+      ]
+    ],
+    "a": 0,
+    "k": "contrast",
+    "w": [
+      "yet"
+    ],
+    "g": [
+      "praise = לשבח · criticize = לבקר",
+      "criticize = לבקר · praise = לשבח",
+      "praise = לשבח · blame = להאשים",
+      "admire = להעריץ · criticize = לבקר"
+    ],
+    "t": "ביקורת חייבת **לשבח** את מה שהסופר עשה היטב ו**לבקר** את מה שעשה שלא כשורה; אולם הביקורת שלה עשתה רק את השני.",
+    "r": [
+      "praise ואחריו criticize: את החלק הטוב משבחים ואת החלק הגרוע מבקרים.",
+      "הסדר הפוך: praise שייך לחלק הטוב ו-criticize לחלק הגרוע.",
+      "blame הוא להאשים מי שגרם לנזק, וביקורת שופטת את הכתיבה ולא מחפשת אשם.",
+      "admire הוא רגש הערצה פנימי, וביקורת חייבת לומר את דעתה במילים."
+    ]
+  },
+  {
+    "s": "The library lends its ordinary books to anyone; however, the manuscripts in the top room are shown ___ to registered scholars.",
+    "o": [
+      "exclusively",
+      "primarily",
+      "entirely",
+      "occasionally"
+    ],
+    "a": 0,
+    "k": "contrast",
+    "w": [
+      "however"
+    ],
+    "g": [
+      "exclusively = אך ורק, באופן בלעדי",
+      "primarily = בעיקר",
+      "entirely = לחלוטין",
+      "occasionally = מדי פעם"
+    ],
+    "t": "הספרייה משאילה את ספריה הרגילים לכל אדם; אולם כתבי היד שבחדר העליון מוצגים **אך ורק** לחוקרים רשומים.",
+    "r": [
+      "exclusively אומר שרק אותה קבוצה מקבלת גישה ואף אחד אחר לא.",
+      "primarily אומר בעיקר, וזה משאיר פתח גם לאחרים.",
+      "entirely אומר לחלוטין, והוא מתאר שלמות של דבר ולא מי מורשה לראותו.",
+      "occasionally אומר מפעם לפעם, והמשפט קובע קבוצה ולא תדירות."
+    ]
+  },
+  {
+    "s": "The recipe names every herb by weight; moreover, it fixes the ___ of water in spoons and not as a share of the flour.",
+    "o": [
+      "quantity",
+      "proportion",
+      "fraction",
+      "remainder"
+    ],
+    "a": 0,
+    "k": "addition",
+    "w": [
+      "moreover"
+    ],
+    "g": [
+      "quantity = כמות",
+      "proportion = שיעור",
+      "fraction = שבר",
+      "remainder = שארית"
+    ],
+    "t": "המתכון מציין את משקלו של כל עשב תיבול; זאת ועוד, הוא קובע את **כמות** המים בכפות ולא כחלק מן הקמח.",
+    "r": [
+      "quantity הוא כמה יש מדבר, וזה מה שנמדד בכפות.",
+      "proportion הוא היחס בין חלק לשלם, והמשפט אומר במפורש שהמידה אינה חלק מן הקמח.",
+      "fraction הוא שבר, מספר קטן מאחד, והמים נמדדים בכפות שלמות.",
+      "remainder הוא מה שנשאר אחרי שהשתמשו בשאר, וכאן טרם השתמשו בדבר."
+    ]
+  },
+  {
+    "s": "The bank already keeps a guard at each door; in addition, the new insurer demands constant ___ of the vault itself.",
+    "o": [
+      "surveillance",
+      "patrol",
+      "prevention",
+      "readiness"
+    ],
+    "a": 0,
+    "k": "addition",
+    "w": [
+      "in addition"
+    ],
+    "g": [
+      "surveillance = מעקב",
+      "patrol = סיור",
+      "prevention = מניעה",
+      "readiness = מוכנות"
+    ],
+    "t": "הבנק כבר מציב שומר בכל דלת; נוסף על כך, המבטח החדש דורש **מעקב** רצוף אחר הכספת עצמה.",
+    "r": [
+      "surveillance הוא צפייה רצופה במקום כדי לדעת מה מתרחש בו.",
+      "patrol הוא סיור שעובר במקום מדי פעם, והדרישה כאן היא צפייה בלי הפסקה.",
+      "prevention הוא למנוע מראש, וצפייה רק מתעדת את מה שקורה.",
+      "readiness הוא להיות מוכן לפעול, והדרישה היא לצפות ולא להמתין."
+    ]
+  },
+  {
+    "s": "The new film records a face by candlelight; furthermore, its ___ to red is twice that of the older stock.",
+    "o": [
+      "sensitivity",
+      "accuracy",
+      "exposure",
+      "density"
+    ],
+    "a": 0,
+    "k": "addition",
+    "w": [
+      "furthermore"
+    ],
+    "g": [
+      "sensitivity = רגישות",
+      "accuracy = דיוק",
+      "exposure = חשיפה",
+      "density = צפיפות"
+    ],
+    "t": "הסרט החדש מתעד פנים לאור נר; זאת ועוד, ה**רגישות** שלו לאדום כפולה מזו של הסרט הישן.",
+    "r": [
+      "sensitivity הוא עד כמה חומר מגיב לכמות אור קטנה.",
+      "accuracy הוא כמה קריאה קרובה לאמת, וסרט אינו קורא ערך.",
+      "exposure הוא כמות האור שנכנסת בצילום, והמצלמה קובעת אותה ולא הסרט.",
+      "density הוא צפיפות החומר, והיא אינה אומרת דבר על תגובה לצבע."
+    ]
+  },
+  {
+    "s": "The new law names every existing trade one by one; what is more, its final clause is ___ enough to cover trades that do not yet exist.",
+    "o": [
+      "broad",
+      "explicit",
+      "radical",
+      "definite"
+    ],
+    "a": 0,
+    "k": "addition",
+    "w": [
+      "what is more"
+    ],
+    "g": [
+      "broad = נרחב",
+      "explicit = מפורש",
+      "radical = קיצוני",
+      "definite = מוגדר"
+    ],
+    "t": "החוק החדש נוקב בכל עיסוק קיים בשמו; זאת ועוד, סעיפו האחרון **נרחב** דיו כדי לחול גם על עיסוקים שעדיין אינם קיימים.",
+    "r": [
+      "broad אומר שהסעיף רחב בהיקפו, ולכן גם מקרים חדשים נופלים בתוכו.",
+      "explicit אומר שהדבר נאמר בשמו במפורש, ואי אפשר לנקוב בשמו של עיסוק שעדיין אינו קיים.",
+      "radical אומר קיצוני, והרחבה של תחולה אינה קיצוניות.",
+      "definite אומר מוגדר וחסום בגבולות, וזה ההיפך מסעיף שנמתח קדימה."
+    ]
+  },
+  {
+    "s": "Once the instruments stopped giving any reading at all, the pilot had to land on ___ alone.",
+    "o": [
+      "judgment",
+      "belief",
+      "perception",
+      "orientation"
+    ],
+    "a": 0,
+    "k": "condition",
+    "w": [
+      "once"
+    ],
+    "g": [
+      "judgment = שיקול דעת",
+      "belief = אמונה",
+      "perception = תפיסה",
+      "orientation = התמצאות"
+    ],
+    "t": "מרגע שהמכשירים חדלו להראות כל קריאה, הטייס נאלץ לנחות על סמך **שיקול דעת** בלבד.",
+    "r": [
+      "judgment הוא לשקול מצב ולהכריע כשאין כלל קבוע להסתמך עליו.",
+      "belief הוא להחזיק בדבר כאמת, ונחיתה דורשת הכרעה מעשית ולא שכנוע פנימי.",
+      "perception הוא מה שהחושים קולטים, והטייס נדרש לעשות יותר מלקלוט.",
+      "orientation הוא לדעת היכן אתה נמצא, וזה רק חלק אחד מההכרעה."
+    ]
+  },
+  {
+    "s": "Unless the tenant has lived in the flat for a full year, the reduced rent is not something he is ___ to claim.",
+    "o": [
+      "entitled",
+      "capable",
+      "worthy",
+      "nominated"
+    ],
+    "a": 0,
+    "k": "condition",
+    "w": [
+      "unless"
+    ],
+    "g": [
+      "entitled = זכאי",
+      "capable = מסוגל",
+      "worthy = ראוי",
+      "nominated = מועמד"
+    ],
+    "t": "אלא אם כן השוכר התגורר בדירה שנה שלמה, שכר הדירה המופחת אינו דבר שהוא **זכאי** לתבוע.",
+    "r": [
+      "entitled הוא בעל זכות מוקנית לדבר, וזכות כזאת נובעת מתנאי בהסכם.",
+      "capable הוא מסוגל לעשות דבר, והשאלה כאן היא זכות ולא יכולת.",
+      "worthy הוא ראוי מבחינת מעלה, וחוזה שכירות מקנה זכות לפי זמן ולא לפי מעלה.",
+      "nominated הוא מועמד לתפקיד, ושכר דירה אינו תפקיד."
+    ]
+  },
+  {
+    "s": "If the last two members send their notes today, the clerk can ___ the wording of the by-law before the sitting.",
+    "o": [
+      "finalize",
+      "simplify",
+      "broaden",
+      "certify"
+    ],
+    "a": 0,
+    "k": "condition",
+    "w": [
+      "if"
+    ],
+    "g": [
+      "finalize = לקבוע סופית",
+      "simplify = לפשט",
+      "broaden = להרחיב",
+      "certify = לאשר"
+    ],
+    "t": "אם שני החברים האחרונים ישלחו את הערותיהם היום, הפקיד יוכל **לקבוע סופית** את נוסח התקנון לפני הישיבה.",
+    "r": [
+      "finalize הוא לקבוע את הנוסח סופית, כך שלא מצפים לשינוי נוסף.",
+      "simplify הוא לפשט את הנוסח, וההערות אינן בהכרח מבקשות זאת.",
+      "broaden הוא להרחיב את מה שהנוסח מכסה, וזה שינוי ולא סגירה.",
+      "certify הוא להצהיר רשמית שנוסח נכון, וזה בא אחרי שהנוסח כבר נקבע."
+    ]
+  },
+  {
+    "s": "The customs list names every controlled ___, such as the poppy extract that hospitals still use against pain.",
+    "o": [
+      "narcotic",
+      "remedy",
+      "supplement",
+      "herb"
+    ],
+    "a": 0,
+    "k": "example",
+    "w": [
+      "such as"
+    ],
+    "g": [
+      "narcotic = סם",
+      "remedy = תרופה",
+      "supplement = תוסף",
+      "herb = עשב"
+    ],
+    "t": "רשימת המכס נוקבת בשמו של כל **סם** מפוקח, כמו תמצית הפרג שבתי החולים עדיין משתמשים בה נגד כאב.",
+    "r": [
+      "narcotic הוא סם שמקהה כאב ושהחוק מפקח על השימוש בו.",
+      "remedy הוא כל תרופה שמרפאה, ורוב התרופות אינן ברשימת מכס מפוקחת.",
+      "supplement הוא תוסף שמשלים חסר בתזונה, ואין צורך בהיתר עבורו.",
+      "herb הוא עשב שמשמש בבישול או ברפואה, והרשימה מפקחת על התמצית ולא על הצמח."
+    ]
+  },
+  {
+    "s": "Every clinic follows one written ___ for a new patient, for instance the order in which the temperature and the blood are taken.",
+    "o": [
+      "procedure",
+      "instruction",
+      "convention",
+      "custom"
+    ],
+    "a": 0,
+    "k": "example",
+    "w": [
+      "for instance"
+    ],
+    "g": [
+      "procedure = נוהל",
+      "instruction = הוראה",
+      "convention = מוסכמה",
+      "custom = מנהג"
+    ],
+    "t": "כל מרפאה פועלת לפי **נוהל** כתוב אחד לחולה חדש, למשל הסדר שבו נמדד החום ונלקח הדם.",
+    "r": [
+      "procedure הוא רצף צעדים קבוע שמבוצע באותו סדר בכל פעם.",
+      "instruction הוא הוראה בודדת, והמשפט מתאר מערכת שלמה של צעדים מסודרים.",
+      "convention הוא מוסכמה שקבוצה שומרת עליה בלי שנכתבה, וכאן מדובר בכתוב.",
+      "custom הוא מנהג שהשתרש עם הזמן, ולא דבר שמרפאה מחויבת לו."
+    ]
+  },
+  {
+    "s": "The tax falls on every ___ animal, including the goat that the family keeps behind the house.",
+    "o": [
+      "domestic",
+      "marine",
+      "rural",
+      "endangered"
+    ],
+    "a": 0,
+    "k": "example",
+    "w": [
+      "including"
+    ],
+    "g": [
+      "domestic = מבוית",
+      "marine = ימי",
+      "rural = כפרי",
+      "endangered = בסכנת הכחדה"
+    ],
+    "t": "המס חל על כל בעל חיים **מבוית**, ובכלל זה העז שהמשפחה מגדלת מאחורי הבית.",
+    "r": [
+      "domestic הוא בעל חיים שאדם מגדל ולא חיה שחיה בטבע.",
+      "marine הוא ימי, החי בים, ועז שמאחורי הבית אינה כזאת.",
+      "rural מתאר את הכפר עצמו ולא בעל חיים שאדם מגדל.",
+      "endangered אומר שמין נמצא בסכנת הכחדה, ועזים נפוצות."
+    ]
+  },
+  {
+    "s": "The nurse first cleans the skin above the vein; then she can ___ the needle and ___ the dye through it.",
+    "o": [
+      [
+        "insert",
+        "inject"
+      ],
+      [
+        "inject",
+        "insert"
+      ],
+      [
+        "insert",
+        "absorb"
+      ],
+      [
+        "expose",
+        "inject"
+      ]
+    ],
+    "a": 0,
+    "k": "sequence",
+    "w": [
+      "then"
+    ],
+    "g": [
+      "insert = להכניס · inject = להזריק",
+      "inject = להזריק · insert = להכניס",
+      "insert = להכניס · absorb = לספוג",
+      "expose = לחשוף · inject = להזריק"
+    ],
+    "t": "האחות מנקה קודם את העור שמעל הווריד; לאחר מכן היא יכולה **להכניס** את המחט ו**להזריק** דרכה את החומר הצבעני.",
+    "r": [
+      "insert ואחריו inject: המחט נכנסת ראשונה, והנוזל נדחף דרכה רק אחר כך.",
+      "הסדר הפוך: insert חל על המחט ו-inject על הנוזל, ואין מזריקים דרך מחט שטרם נכנסה.",
+      "absorb הוא לספוג נוזל, וזה מה שהגוף עושה ולא האחות.",
+      "expose הוא לחשוף, ומחט אינה נחשפת אל תוך הווריד."
+    ]
+  },
+  {
+    "s": "Since the ink had faded to nothing, the clerk could not ___ the name of the buyer through the older registers.",
+    "o": [
+      "trace",
+      "retrieve",
+      "uncover",
+      "interpret"
+    ],
+    "a": 0,
+    "k": "cause",
+    "w": [
+      "since"
+    ],
+    "g": [
+      "trace = להתחקות, לאתר",
+      "retrieve = לשלוף",
+      "uncover = לגלות",
+      "interpret = לפרש"
+    ],
+    "t": "מכיוון שהדיו דהה עד כלות, הפקיד לא הצליח **להתחקות** אחר שמו של הקונה בפנקסי הרישום הישנים.",
+    "r": [
+      "trace הוא לעקוב אחרי רישום שלב אחר שלב עד שמוצאים את השם.",
+      "retrieve הוא לשלוף פרט שמור וידוע, וכאן השם עצמו אינו ידוע.",
+      "uncover הוא לגלות דבר נסתר בפעולה אחת, ולא לעקוב אחרי שרשרת רישומים.",
+      "interpret הוא לפרש את מה שכתוב, והפקיד אינו מצליח אפילו לקרוא את הכתוב."
+    ]
+  },
+  {
+    "s": "The blade still cuts paper cleanly, though after two winters of cutting rope it has grown too ___ for wood.",
+    "o": [
+      "dull",
+      "faulty",
+      "bent",
+      "stiff"
+    ],
+    "a": 0,
+    "k": "contrast",
+    "w": [
+      "though"
+    ],
+    "g": [
+      "dull = קהה",
+      "faulty = לקוי",
+      "bent = כופף",
+      "stiff = נוקשה"
+    ],
+    "t": "הלהב עדיין חותך נייר בנקל, אף שאחרי שני חורפים של חיתוך חבל הוא נעשה **קהה** מדי לעץ.",
+    "r": [
+      "dull מתאר להב שאיבד את חודו ואינו חותך יותר.",
+      "faulty הוא לקוי או פגום מלכתחילה, והלהב הזה עדיין חותך נייר.",
+      "bent הוא כופף מצורתו הישרה, וזה לא היה מונע ממנו לחתוך.",
+      "stiff הוא נוקשה וקשה לכיפוף, ולהב אמור להיות נוקשה."
+    ]
+  }
 ]

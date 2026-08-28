@@ -1,294 +1,294 @@
 [
- {
-  "s": "The match had already begun and two goals had been scored, yet the referee agreed to ___ play until the storm passed.",
-  "o": [
-   "suspend",
-   "postpone",
-   "cancel",
-   "abandon"
-  ],
-  "a": 0,
-  "k": "contrast",
-  "w": [
-   "yet"
-  ],
-  "e": "‏suspend play הוא הצירוף לעצירה זמנית של משחק שנמצא באמצעו. postpone חל על מה שעוד לא התחיל, והמשפט מוסר במפורש שהמשחק כבר החל ושני שערים נכבשו. cancel ו-abandon הם ביטול סופי, והמשפט קובע חזרה מותנית (until the storm passed).",
-  "g": [
-   "suspend = להשעות",
-   "postpone = לדחות",
-   "cancel = לבטל",
-   "abandon = לנטוש"
-  ],
-  "r": [
-   "suspend play הוא הצירוף לעצירה זמנית של משחק שנמצא באמצעו.",
-   "postpone חל על מה שטרם החל, והמשפט מוסר שהמשחק כבר החל ושני שערים נכבשו.",
-   "cancel הוא ביטול סופי, והמשפט קובע חזרה מותנית: until the storm passed.",
-   "abandon הוא נטישה סופית של המשחק, וכאן ההפסקה זמנית עד שהסערה תחלוף."
-  ],
-  "t": "המשחק כבר החל ושני שערים נכבשו, אך השופט הסכים **להשעות** את המשחק עד שהסערה תחלוף."
- },
- {
-  "s": "Since the bridge had collapsed and no boat was available, the river itself became the main ___ to their journey.",
-  "o": [
-   "obstacle",
-   "boundary",
-   "restriction",
-   "objection"
-  ],
-  "a": 0,
-  "k": "cause",
-  "w": [
-   "since"
-  ],
-  "e": "‏obstacle to a journey הוא הצירוף למה שחוסם מעבר בפועל. boundary הוא קו שמסמן גבול ואינו חוסם. restriction הוא כלל שמגביל, והמשפט מוסר סיבה פיזית, גשר שהתמוטט ואין סירה. objection הוא התנגדות מוצהרת של אדם, ולא דבר שעומד בדרך.",
-  "g": [
-   "obstacle = מכשול",
-   "boundary = גבול",
-   "restriction = הגבלה",
-   "objection = התנגדות"
-  ],
-  "r": [
-   "obstacle to a journey הוא הצירוף למה שחוסם מעבר בפועל.",
-   "boundary הוא קו שמסמן גבול ואינו חוסם מעבר.",
-   "restriction הוא כלל שמגביל, והמשפט מוסר סיבה פיזית: גשר שהתמוטט ואין סירה.",
-   "objection הוא התנגדות מוצהרת של אדם, ולא דבר שעומד בדרך."
-  ],
-  "t": "מפני שהגשר התמוטט ולא הייתה סירה זמינה, הנהר עצמו הפך **למכשול** המרכזי במסעם."
- },
- {
-  "s": "The lecture was clear and well ordered; furthermore, the speaker used simple diagrams to ___ each new term.",
-  "o": [
-   "illustrate",
-   "demonstrate",
-   "decorate",
-   "exaggerate"
-  ],
-  "a": 0,
-  "k": "addition",
-  "w": [
-   "furthermore"
-  ],
-  "e": "‏תרשים שמבהיר מונח (illustrate) הוא הצירוף. demonstrate חל על תהליך או על מיומנות שמראים בפעולה, לא על משמעות של מילה. decorate נוגע למראה ולא להבנה, והמשפט מדגיש בהירות וסדר. exaggerate הוא הגזמה, וזה סותר את clear and well ordered.",
-  "g": [
-   "illustrate = להמחיש",
-   "demonstrate = להדגים",
-   "decorate = לקשט",
-   "exaggerate = להגזים"
-  ],
-  "r": [
-   "illustrate פירושו להמחיש מונח בעזרת תרשים, וזה מה שהמשפט מוסר.",
-   "demonstrate חל על תהליך או על מיומנות שמראים בפעולה, ולא על משמעות של מילה.",
-   "decorate נוגע למראה ולא להבנה, והמשפט מדגיש בהירות וסדר.",
-   "exaggerate הוא הגזמה, וזה סותר את clear and well ordered."
-  ],
-  "t": "ההרצאה הייתה בהירה וערוכה היטב; נוסף על כך, המרצה נעזר בתרשימים פשוטים כדי **להמחיש** כל מונח חדש."
- },
- {
-  "s": "Once the last form is stamped, the court can ___ the contract that both sides have already agreed to in full.",
-  "o": [
-   "enforce",
-   "obey",
-   "impose",
-   "dictate"
-  ],
-  "a": 0,
-  "k": "condition",
-  "w": [
-   "once"
-  ],
-  "e": "‏חוזה אוכפים (enforce a contract) הוא הצירוף הקנוני. obey חל על מי שכפוף לכלל, ובית משפט הוא הגוף שאוכף ולא הצד המחויב. impose ו-dictate פירושם לכפות תנאים על מי שלא הסכים, והמשפט מוסר שהצדדים הסכימו לכל התנאים במלואם.",
-  "g": [
-   "enforce = לאכוף",
-   "obey = לציית",
-   "impose = לכפות",
-   "dictate = להכתיב"
-  ],
-  "r": [
-   "enforce a contract הוא הצירוף הקנוני לאכיפת חוזה בידי בית משפט.",
-   "obey חל על מי שכפוף לכלל, ובית משפט הוא הגוף שאוכף ולא הצד המחויב.",
-   "impose פירושו לכפות תנאים על מי שלא הסכים, והצדדים כאן הסכימו במלואם.",
-   "dictate פירושו להכתיב תנאים לצד שאין לו ברירה, וכאן ההסכמה הייתה מרצון."
-  ],
-  "t": "משנחתם הטופס האחרון, בית המשפט יכול **לאכוף** את החוזה שאליו הסכימו שני הצדדים במלואו."
- },
- {
-  "s": "Food vanishes from the high meadow in winter, and several small mammals, such as the ground squirrel, ___ rather than move to lower ground.",
-  "o": [
-   "hibernate",
-   "migrate",
-   "retreat",
-   "settle"
-  ],
-  "a": 0,
-  "k": "example",
-  "w": [
-   "such as"
-  ],
-  "e": "‏hibernate הוא שינה לאורך כל החורף במקום עזיבת המקום. שלושת האחרים הם פעלי תנועה, והמשפט שולל תנועה במפורש (rather than move to lower ground): migrate הוא נדידה עונתית, retreat הוא נסיגה מהמקום, ו-settle הוא התיישבות במקום חדש.",
-  "g": [
-   "hibernate = לישון שנת חורף",
-   "migrate = להגר",
-   "retreat = לסגת",
-   "settle = להתיישב"
-  ],
-  "r": [
-   "hibernate הוא שינה לאורך כל החורף במקום עזיבת המקום.",
-   "migrate הוא נדידה עונתית, והמשפט שולל תנועה: rather than move to lower ground.",
-   "retreat הוא נסיגה מן המקום, וזו תנועה שהמשפט שולל במפורש.",
-   "settle הוא התיישבות במקום חדש, וגם היא מחייבת עזיבה של האחו."
-  ],
-  "t": "המזון נעלם מן האחו הגבוה בחורף, וכמה יונקים קטנים, כמו סנאי הקרקע, **ישנים שנת חורף** במקום לעבור לשטח נמוך יותר."
- },
- {
-  "s": "Because the storm ruined a whole year of fruit, the growers asked the council to ___ them for the loss.",
-  "o": [
-   "compensate",
-   "reward",
-   "refund",
-   "insure"
-  ],
-  "a": 0,
-  "k": "cause",
-  "w": [
-   "because"
-  ],
-  "e": "‏compensate somebody for a loss הוא הצירוף לתשלום על נזק שנגרם. reward הוא תשלום על הישג או על מעשה ראוי, ואין כאן הישג אלא נזק. refund הוא החזר לקונה על מה ששילם, ולא נקנה כאן דבר. insure נעשה מראש נגד נזק אפשרי, והמשפט מוסר שהנזק כבר קרה.",
-  "g": [
-   "compensate = לפצות",
-   "reward = לתגמל",
-   "refund = החזר",
-   "insure = לבטח"
-  ],
-  "r": [
-   "compensate somebody for a loss הוא הצירוף לתשלום על נזק שנגרם.",
-   "reward הוא תשלום על הישג או על מעשה ראוי, ואין כאן הישג אלא נזק.",
-   "refund הוא החזר לקונה על מה ששילם, ולא נקנה כאן דבר.",
-   "insure נעשה מראש נגד נזק אפשרי, והמשפט מוסר שהנזק כבר קרה."
-  ],
-  "t": "מפני שהסערה הרסה יבול של שנה שלמה, המגדלים ביקשו מהמועצה **לפצות** אותם על ההפסד."
- },
- {
-  "s": "Although the vase had been glued twice already, one light knock was enough to ___ it into a dozen pieces.",
-  "o": [
-   "shatter",
-   "crack",
-   "bend",
-   "fracture"
-  ],
-  "a": 0,
-  "k": "contrast",
-  "w": [
-   "although"
-  ],
-  "e": "‏shatter הוא התפרקות לרסיסים, וזה מה שהמשפט מוסר (a dozen pieces). crack הוא סדק אחד שמשאיר את הכלי שלם, ולכן נפסל בגוף המשפט. bend חל על מתכת או על חומר גמיש שמשנה צורה בלי להישבר, וזכוכית אינה מתכופפת. fracture חל על עצם או על סלע ומתאר קו שבר, לא התפוררות.",
-  "g": [
-   "shatter = לנפץ",
-   "crack = סדק, לסדוק",
-   "bend = לכופף",
-   "fracture = שבר"
-  ],
-  "r": [
-   "shatter הוא התפרקות לרסיסים, וזה מה שהמשפט מוסר: a dozen pieces.",
-   "crack הוא סדק אחד שמשאיר את הכלי שלם, ולכן נפסל בגוף המשפט.",
-   "bend חל על חומר גמיש שמשנה צורה בלי להישבר, וזכוכית אינה מתכופפת.",
-   "fracture חל על עצם או על סלע ומתאר קו שבר, ולא התפוררות."
-  ],
-  "t": "אף שהאגרטל הודבק כבר פעמיים, נקישה קלה אחת הספיקה **לנפץ** אותו לתריסר רסיסים."
- },
- {
-  "s": "The tribe kept no written history; however, its elders could ___ every name in the family line without a single mistake.",
-  "o": [
-   "recall",
-   "memorize",
-   "recognize",
-   "retrieve"
-  ],
-  "a": 0,
-  "k": "contrast",
-  "w": [
-   "however"
-  ],
-  "e": "‏recall הוא שליפה מהזיכרון בלי עזר חיצוני, וזה מה שההיעדר של תיעוד כתוב מחייב. memorize הוא שלב השינון עצמו, והמשפט מתאר הפקה של השמות ולא רכישה שלהם. recognize הוא זיהוי של פריט שמוצג לפניך, ובמשפט לא מוצג דבר. retrieve הוא הבאה בחזרה מאחסון, חפץ או נתון במערכת, לא מה שאדם זוכר.",
-  "g": [
-   "recall = להיזכר",
-   "memorize = לשנן",
-   "recognize = לזהות",
-   "retrieve = לאחזר, לשלוף"
-  ],
-  "r": [
-   "recall הוא שליפה מהזיכרון בלי עזר חיצוני, וזה מה שהיעדר התיעוד הכתוב מחייב.",
-   "memorize הוא שלב השינון עצמו, והמשפט מתאר הפקה של השמות ולא רכישה שלהם.",
-   "recognize הוא זיהוי של פריט שמוצג לפניך, ובמשפט לא מוצג דבר.",
-   "retrieve הוא הבאה בחזרה מאחסון, חפץ או נתון במערכת, ולא מה שאדם זוכר."
-  ],
-  "t": "לשבט לא היה תיעוד כתוב; ואולם זקניו יכלו **להיזכר** בכל שם בשושלת המשפחה בלי טעות אחת."
- },
- {
-  "s": "The beans need salt and a little pepper; in addition, a spoon of vinegar will ___ their flavor.",
-  "o": [
-   "enhance",
-   "enlarge",
-   "exaggerate",
-   "inflate"
-  ],
-  "a": 0,
-  "k": "addition",
-  "w": [
-   "in addition"
-  ],
-  "e": "‏enhance the flavor הוא הצירוף להשבחת טעם. enlarge הוא הגדלה בגודל פיזי, וטעם אינו גודל. exaggerate הוא הגזמה בדיבור וחל על טענה, לא על מאכל. inflate הוא ניפוח באוויר או העלאה מלאכותית של מספר.",
-  "g": [
-   "enhance = להעצים",
-   "enlarge = להגדיל",
-   "exaggerate = להגזים",
-   "inflate = לנפח"
-  ],
-  "r": [
-   "enhance the flavor הוא הצירוף להשבחת טעם.",
-   "enlarge הוא הגדלה בגודל פיזי, וטעם אינו גודל.",
-   "exaggerate הוא הגזמה בדיבור וחל על טענה, ולא על מאכל.",
-   "inflate הוא ניפוח באוויר או העלאה מלאכותית של מספר."
-  ],
-  "t": "השעועית זקוקה למלח ולמעט פלפל; נוסף על כך, כף חומץ **תעצים** את טעמה."
- },
- {
-  "s": "Because the two maps came from one survey, their coastlines should ___ when one sheet is laid over the other; where they ___, a clerk has made a copying error.",
-  "o": [
-   [
-    "align",
-    "differ"
-   ],
-   [
-    "differ",
-    "align"
-   ],
-   [
-    "align",
-    "combine"
-   ],
-   [
-    "combine",
-    "differ"
-   ]
-  ],
-  "a": 0,
-  "k": "cause",
-  "w": [
-   "because"
-  ],
-  "e": "‏מקור אחד מחייב התאמה: הקווים צריכים להתלכד (align), ואי-התאמה היא differ. הסדר ההפוך [differ, align] סותר את המשפט, מקור אחד אינו מוליד הבדל, ושגיאת העתקה אינה מיישרת. [align, combine] נופל בחריץ השני: combine הוא איחוד שני דברים לאחד, לא פער שנוצר מטעות. [combine, differ] נופל בחריץ הראשון: מפות אינן מתאחדות מעצמן, והחריץ מתאר התאמה ולא איחוד.",
-  "g": [
-   "align = להסתדר בשורה · differ = להיבדל",
-   "differ = להיבדל · align = להסתדר בשורה",
-   "align = להסתדר בשורה · combine = לצרף, לשלב",
-   "combine = לצרף, לשלב · differ = להיבדל"
-  ],
-  "r": [
-   "align · differ הוא הסדר שהמשפט מחייב: גיליון על גיליון מוליד התיישרות, וטעות העתקה מולידה פער.",
-   "הסדר הפוך: מקור אחד אינו מוליד differ, וטעות העתקה אינה מולידה align.",
-   "combine הוא איחוד שני דברים לאחד, ולא פער שנוצר מטעות, ולכן נופל בחריץ השני.",
-   "combine נופל בחריץ הראשון: מפות אינן מתאחדות מעצמן, והחריץ מתאר התאמה."
-  ],
-  "t": "מפני ששתי המפות באו מסקר אחד, קווי החוף שלהן אמורים **להתיישר** זה עם זה כשגיליון אחד מונח על האחר; ובמקום שהם **נבדלים**, פקיד עשה טעות בהעתקה."
- }
+  {
+    "s": "The match had already begun and two goals had been scored, yet the referee agreed to ___ play until the storm passed.",
+    "o": [
+      "suspend",
+      "postpone",
+      "cancel",
+      "abandon"
+    ],
+    "a": 0,
+    "k": "contrast",
+    "w": [
+      "yet"
+    ],
+    "e": "‏suspend play הוא הצירוף לעצירה זמנית של משחק שנמצא באמצעו. postpone חל על מה שעוד לא התחיל, והמשפט מוסר במפורש שהמשחק כבר החל ושני שערים נכבשו. cancel ו-abandon הם ביטול סופי, והמשפט קובע חזרה מותנית (until the storm passed).",
+    "g": [
+      "suspend = להשהות, לעצור זמנית",
+      "postpone = לדחות",
+      "cancel = לבטל",
+      "abandon = לנטוש"
+    ],
+    "r": [
+      "suspend play הוא הצירוף לעצירה זמנית של משחק שנמצא באמצעו.",
+      "postpone חל על מה שטרם החל, והמשפט מוסר שהמשחק כבר החל ושני שערים נכבשו.",
+      "cancel הוא ביטול סופי, והמשפט קובע חזרה מותנית: until the storm passed.",
+      "abandon הוא נטישה סופית של המשחק, וכאן ההפסקה זמנית עד שהסערה תחלוף."
+    ],
+    "t": "המשחק כבר החל ושני שערים נכבשו, אך השופט הסכים **להשהות** את המשחק עד שהסערה תחלוף."
+  },
+  {
+    "s": "Since the bridge had collapsed and no boat was available, the river itself became the main ___ to their journey.",
+    "o": [
+      "obstacle",
+      "boundary",
+      "restriction",
+      "objection"
+    ],
+    "a": 0,
+    "k": "cause",
+    "w": [
+      "since"
+    ],
+    "e": "‏obstacle to a journey הוא הצירוף למה שחוסם מעבר בפועל. boundary הוא קו שמסמן גבול ואינו חוסם. restriction הוא כלל שמגביל, והמשפט מוסר סיבה פיזית, גשר שהתמוטט ואין סירה. objection הוא התנגדות מוצהרת של אדם, ולא דבר שעומד בדרך.",
+    "g": [
+      "obstacle = מכשול",
+      "boundary = גבול",
+      "restriction = הגבלה",
+      "objection = התנגדות"
+    ],
+    "r": [
+      "obstacle to a journey הוא הצירוף לדבר שחוסם מעבר בפועל.",
+      "boundary הוא קו שמסמן גבול ואינו חוסם מעבר.",
+      "restriction הוא כלל שמגביל, והמשפט מוסר סיבה פיזית: גשר שהתמוטט ואין סירה.",
+      "objection הוא התנגדות מוצהרת של אדם, ולא דבר שעומד בדרך."
+    ],
+    "t": "מפני שהגשר התמוטט ולא הייתה סירה זמינה, הנהר עצמו הפך **למכשול** המרכזי במסעם."
+  },
+  {
+    "s": "The lecture was clear and well ordered; furthermore, the speaker used simple diagrams to ___ each new term.",
+    "o": [
+      "illustrate",
+      "demonstrate",
+      "decorate",
+      "exaggerate"
+    ],
+    "a": 0,
+    "k": "addition",
+    "w": [
+      "furthermore"
+    ],
+    "e": "‏תרשים שמבהיר מונח (illustrate) הוא הצירוף. demonstrate חל על תהליך או על מיומנות שמראים בפעולה, לא על משמעות של מילה. decorate נוגע למראה ולא להבנה, והמשפט מדגיש בהירות וסדר. exaggerate הוא הגזמה, וזה סותר את clear and well ordered.",
+    "g": [
+      "illustrate = להמחיש",
+      "demonstrate = להדגים",
+      "decorate = לקשט",
+      "exaggerate = להגזים"
+    ],
+    "r": [
+      "illustrate פירושו להמחיש מונח בעזרת תרשים, וזה מה שהמשפט מוסר.",
+      "demonstrate חל על תהליך או על מיומנות שמראים בפעולה, ולא על משמעות של מילה.",
+      "decorate נוגע למראה ולא להבנה, והמשפט מדגיש בהירות וסדר.",
+      "exaggerate הוא הגזמה, וזה סותר את clear and well ordered."
+    ],
+    "t": "ההרצאה הייתה בהירה וערוכה היטב; נוסף על כך, המרצה נעזר בתרשימים פשוטים כדי **להמחיש** כל מונח חדש."
+  },
+  {
+    "s": "Once the last form is stamped, the court can ___ the contract that both sides have already agreed to in full.",
+    "o": [
+      "enforce",
+      "obey",
+      "impose",
+      "dictate"
+    ],
+    "a": 0,
+    "k": "condition",
+    "w": [
+      "once"
+    ],
+    "e": "‏חוזה אוכפים (enforce a contract) הוא הצירוף הקנוני. obey חל על מי שכפוף לכלל, ובית משפט הוא הגוף שאוכף ולא הצד המחויב. impose ו-dictate פירושם לכפות תנאים על מי שלא הסכים, והמשפט מוסר שהצדדים הסכימו לכל התנאים במלואם.",
+    "g": [
+      "enforce = לאכוף",
+      "obey = לציית",
+      "impose = לכפות",
+      "dictate = להכתיב"
+    ],
+    "r": [
+      "enforce a contract הוא הצירוף הקנוני לאכיפת חוזה בידי בית משפט.",
+      "obey חל על מי שכפוף לכלל, ובית משפט הוא הגוף שאוכף ולא הצד המחויב.",
+      "impose פירושו לכפות תנאים על מי שלא הסכים, והצדדים כאן הסכימו במלואם.",
+      "dictate פירושו להכתיב תנאים לצד שאין לו ברירה, וכאן ההסכמה הייתה מרצון."
+    ],
+    "t": "משהוטבעה החותמת על הטופס האחרון, בית המשפט יכול **לאכוף** את החוזה שעליו כבר הסכימו שני הצדדים במלואו."
+  },
+  {
+    "s": "Food vanishes from the high meadow in winter, and several small mammals, such as the ground squirrel, ___ rather than move to lower ground.",
+    "o": [
+      "hibernate",
+      "migrate",
+      "retreat",
+      "settle"
+    ],
+    "a": 0,
+    "k": "example",
+    "w": [
+      "such as"
+    ],
+    "e": "‏hibernate הוא שינה לאורך כל החורף במקום עזיבת המקום. שלושת האחרים הם פעלי תנועה, והמשפט שולל תנועה במפורש (rather than move to lower ground): migrate הוא נדידה עונתית, retreat הוא נסיגה מהמקום, ו-settle הוא התיישבות במקום חדש.",
+    "g": [
+      "hibernate = לישון שנת חורף",
+      "migrate = להגר",
+      "retreat = לסגת",
+      "settle = להתיישב"
+    ],
+    "r": [
+      "hibernate הוא שינה לאורך כל החורף במקום עזיבת המקום.",
+      "migrate הוא נדידה עונתית, והמשפט שולל תנועה: rather than move to lower ground.",
+      "retreat הוא נסיגה מן המקום, וזו תנועה שהמשפט שולל במפורש.",
+      "settle הוא התיישבות במקום חדש, וגם היא מחייבת עזיבה של האחו."
+    ],
+    "t": "המזון נעלם מן האחו הגבוה בחורף, וכמה יונקים קטנים, כמו סנאי הקרקע, **ישנים שנת חורף** במקום לעבור לשטח נמוך יותר."
+  },
+  {
+    "s": "Because the storm ruined a whole year of fruit, the growers asked the council to ___ them for the loss.",
+    "o": [
+      "compensate",
+      "reward",
+      "refund",
+      "insure"
+    ],
+    "a": 0,
+    "k": "cause",
+    "w": [
+      "because"
+    ],
+    "e": "‏compensate somebody for a loss הוא הצירוף לתשלום על נזק שנגרם. reward הוא תשלום על הישג או על מעשה ראוי, ואין כאן הישג אלא נזק. refund הוא החזר לקונה על מה ששילם, ולא נקנה כאן דבר. insure נעשה מראש נגד נזק אפשרי, והמשפט מוסר שהנזק כבר קרה.",
+    "g": [
+      "compensate = לפצות",
+      "reward = לתגמל",
+      "refund = להחזיר תשלום",
+      "insure = לבטח"
+    ],
+    "r": [
+      "compensate somebody for a loss הוא הצירוף לתשלום על נזק שנגרם.",
+      "reward הוא תשלום על הישג או על מעשה ראוי, ואין כאן הישג אלא נזק.",
+      "refund הוא החזר לקונה על מה ששילם, ולא נקנה כאן דבר.",
+      "insure נעשה מראש נגד נזק אפשרי, והמשפט מוסר שהנזק כבר קרה."
+    ],
+    "t": "מפני שהסערה הרסה יבול של שנה שלמה, המגדלים ביקשו מהמועצה **לפצות** אותם על ההפסד."
+  },
+  {
+    "s": "Although the vase had been glued twice already, one light knock was enough to ___ it into a dozen pieces.",
+    "o": [
+      "shatter",
+      "crack",
+      "bend",
+      "fracture"
+    ],
+    "a": 0,
+    "k": "contrast",
+    "w": [
+      "although"
+    ],
+    "e": "‏shatter הוא התפרקות לרסיסים, וזה מה שהמשפט מוסר (a dozen pieces). crack הוא סדק אחד שמשאיר את הכלי שלם, ולכן נפסל בגוף המשפט. bend חל על מתכת או על חומר גמיש שמשנה צורה בלי להישבר, וזכוכית אינה מתכופפת. fracture חל על עצם או על סלע ומתאר קו שבר, לא התפוררות.",
+    "g": [
+      "shatter = לנפץ",
+      "crack = סדק, לסדוק",
+      "bend = לכופף",
+      "fracture = לשבור, לגרום שבר"
+    ],
+    "r": [
+      "shatter הוא התפרקות לרסיסים, וזה מה שהמשפט מוסר: a dozen pieces.",
+      "crack הוא סדק אחד שמשאיר את הכלי שלם, ולכן נפסל בגוף המשפט.",
+      "bend חל על חומר גמיש שמשנה צורה בלי להישבר, וזכוכית אינה מתכופפת.",
+      "fracture חל על עצם או על סלע ומתאר קו שבר, ולא התפוררות."
+    ],
+    "t": "אף שהאגרטל הודבק כבר פעמיים, נקישה קלה אחת הספיקה **לנפץ** אותו לתריסר רסיסים."
+  },
+  {
+    "s": "The tribe kept no written history; however, its elders could ___ every name in the family line without a single mistake.",
+    "o": [
+      "recall",
+      "memorize",
+      "recognize",
+      "retrieve"
+    ],
+    "a": 0,
+    "k": "contrast",
+    "w": [
+      "however"
+    ],
+    "e": "‏recall הוא שליפה מהזיכרון בלי עזר חיצוני, וזה מה שההיעדר של תיעוד כתוב מחייב. memorize הוא שלב השינון עצמו, והמשפט מתאר הפקה של השמות ולא רכישה שלהם. recognize הוא זיהוי של פריט שמוצג לפניך, ובמשפט לא מוצג דבר. retrieve הוא הבאה בחזרה מאחסון, חפץ או נתון במערכת, לא מה שאדם זוכר.",
+    "g": [
+      "recall = להיזכר",
+      "memorize = לשנן",
+      "recognize = לזהות",
+      "retrieve = לאחזר, לשלוף"
+    ],
+    "r": [
+      "recall הוא שליפה מהזיכרון בלי עזר חיצוני, וזה מה שהיעדר התיעוד הכתוב מחייב.",
+      "memorize הוא שלב השינון עצמו, והמשפט מתאר הפקה של השמות ולא רכישה שלהם.",
+      "recognize הוא זיהוי של פריט שמוצג לפניך, ובמשפט לא מוצג דבר.",
+      "retrieve הוא הבאה בחזרה מאחסון, חפץ או נתון במערכת, ולא מה שאדם זוכר."
+    ],
+    "t": "לשבט לא היה תיעוד כתוב; ואולם זקניו יכלו **לשלוף מזיכרונם** כל שם בשושלת המשפחה בלי טעות אחת."
+  },
+  {
+    "s": "The beans need salt and a little pepper; in addition, a spoon of vinegar will ___ their flavor.",
+    "o": [
+      "enhance",
+      "enlarge",
+      "exaggerate",
+      "inflate"
+    ],
+    "a": 0,
+    "k": "addition",
+    "w": [
+      "in addition"
+    ],
+    "e": "‏enhance the flavor הוא הצירוף להשבחת טעם. enlarge הוא הגדלה בגודל פיזי, וטעם אינו גודל. exaggerate הוא הגזמה בדיבור וחל על טענה, לא על מאכל. inflate הוא ניפוח באוויר או העלאה מלאכותית של מספר.",
+    "g": [
+      "enhance = להעצים",
+      "enlarge = להגדיל",
+      "exaggerate = להגזים",
+      "inflate = לנפח"
+    ],
+    "r": [
+      "enhance the flavor הוא הצירוף להשבחת טעם.",
+      "enlarge הוא הגדלה בגודל פיזי, וטעם אינו גודל.",
+      "exaggerate הוא הגזמה בדיבור וחל על טענה, ולא על מאכל.",
+      "inflate הוא ניפוח באוויר או העלאה מלאכותית של מספר."
+    ],
+    "t": "השעועית זקוקה למלח ולמעט פלפל; נוסף על כך, כף חומץ **תעצים** את טעמה."
+  },
+  {
+    "s": "Because the two maps came from one survey, their coastlines should ___ when one sheet is laid over the other; where they ___, a clerk has made a copying error.",
+    "o": [
+      [
+        "align",
+        "differ"
+      ],
+      [
+        "differ",
+        "align"
+      ],
+      [
+        "align",
+        "combine"
+      ],
+      [
+        "combine",
+        "differ"
+      ]
+    ],
+    "a": 0,
+    "k": "cause",
+    "w": [
+      "because"
+    ],
+    "e": "‏מקור אחד מחייב התאמה: הקווים צריכים להתלכד (align), ואי-התאמה היא differ. הסדר ההפוך [differ, align] סותר את המשפט, מקור אחד אינו מוליד הבדל, ושגיאת העתקה אינה מיישרת. [align, combine] נופל במקום החסר השני: combine הוא איחוד שני דברים לאחד, לא פער שנוצר מטעות. [combine, differ] נופל במקום החסר הראשון: מפות אינן מתאחדות מעצמן, והמקום החסר מתאר התאמה ולא איחוד.",
+    "g": [
+      "align = להתאים, לחפוף · differ = להיבדל",
+      "differ = להיבדל · align = להתאים, לחפוף",
+      "align = להתאים, לחפוף · combine = לצרף, לשלב",
+      "combine = לצרף, לשלב · differ = להיבדל"
+    ],
+    "r": [
+      "align · differ הוא הסדר שהמשפט מחייב: גיליון על גיליון מוליד התיישרות, וטעות העתקה מולידה פער.",
+      "הסדר הפוך: מקור אחד אינו מוליד differ, וטעות העתקה אינה מולידה align.",
+      "combine הוא איחוד שני דברים לאחד, ולא פער שנוצר מטעות, ולכן נופל במקום החסר השני.",
+      "combine נופל במקום החסר הראשון: מפות אינן מתאחדות מעצמן, והמקום החסר מתאר התאמה."
+    ],
+    "t": "מפני ששתי המפות באו מסקר אחד, קווי החוף שלהן אמורים **לחפוף** זה את זה כשגיליון אחד מונח על האחר; ובמקום שהם **נבדלים**, פקיד עשה טעות בהעתקה."
+  }
 ]

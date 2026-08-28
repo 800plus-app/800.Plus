@@ -300,7 +300,9 @@ const applicable = it => LENS_IDS.filter(l => appliesTo(l, it));
  * `המשך-מכאן.md §1`). לכן בעברית ההכרעה נאכפת ב**ניקוד** (`RULING_Q`) ולא
  * בהתנהגות, ואין למורה דרך מבנית לקבל את המחלקה הזאת בכיוון `word` העברי.
  * ‏⚠ אין היום אף פריט כיול בכיוון `word` בעברית, ולכן זה גם לא נמדד. */
-const EN_NOMINAL = ['ation', 'ition', 'tion', 'sion', 'ment', 'ance', 'ence', 'ure', 'al', 'age', 'ity', 'ness'];
+/* ⛔ ‏'ion' חסר היה, ולכן `create`→`creation` לא זוהה: הזנב הנבדל הוא
+ * `ion` בלבד (הגזע המשותף הוא `creat`), ו-'tion'/'ation' אינם מכסים אותו. */
+const EN_NOMINAL = ['ation', 'ition', 'tion', 'sion', 'ion', 'ment', 'ance', 'ence', 'ure', 'al', 'age', 'ity', 'ness'];
 /* ⛔⛔ **התיקון · 19.8.2026 · הבאג הזה הרג את המורה, ואפשר לכמת בכמה.**
  *
  * המימוש הקודם השווה את **הזנבות הנבדלים** ושאל אם בדיוק אחד מהם "נראה נומינלי".
@@ -1440,7 +1442,9 @@ function selftest() {
     ['describe', 'description'], ['maintain', 'maintenance'], ['break', 'breakage'],
     ['dark', 'darkness'], ['real', 'reality'], ['close', 'closure'], ['fail', 'failure'],
     ['refuse', 'refusal'], ['approve', 'approval'], ['press', 'pressure'],
-    ['intend', 'intention'], ['permit', 'permission'], ['pronounce', 'pronunciation']];
+    ['intend', 'intention'], ['permit', 'permission'], ['pronounce', 'pronunciation'],
+    /* ⭐ החור שנרשם ולא נסגר · הזנב הנבדל הוא `ion` ולא `tion` */
+    ['create', 'creation']];
   const nomMissed = NOM_TRUE.filter(([a, b]) => !isNominalization(a, b));
   t(nomMissed.length === 0, `⭐ כל ${NOM_TRUE.length} הגזירות האמיתיות מזוהות · הכרעת חגי לא נחתכה${nomMissed.length ? ' · נפלו: ' + nomMissed.map(p => p.join('→')).join(', ') : ''}`);
   t(isNominalization('decide', 'decision'), 'decide/decision מזוהה כגזירה נומינלית');

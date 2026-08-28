@@ -59,12 +59,34 @@ function concatForms(segs, card, ctx) {
 }
 const EXCEPT = [{ term: 'tie', typed: 'לקשור קשר' }];
 
+/* ⛔ ‏`off` הוא הפסק **בלי הגן**, ולא "הפסק של `app.js` ברגע זה".
+ *
+ * ‏`ctx.meaningMatch` היא הפונקציה החיה של `app.js`, והגן **כבר מודבק שם ודלוק**
+ * (`TYPO_GLOSS_RULES = { …, segConcat: true }`) — הוא נחת באותו קומיט שבו נולד
+ * הקובץ הזה. לכן קריאה תמימה מחזירה `off === on` לכל שורה: קבוצת `accept-partial`
+ * מתרוקנת, כל שורותיה מתויגות `accept-today`, ואפס שורות מתהפכות.
+ * ⭐ נמדד ב-26.8.2026: ‏141 שורות במקום 236, `accept-partial=0`, `diff=0`,
+ * ושערים ב' ו-ג' של `--selftest` נופלים. הכיבוי כאן הוא מה שמחזיר 89 מהן.
+ *
+ * ⚠ הכיבוי הוא **בזיכרון בלבד**, בתוך ארגז החול של המעבדה, ומוחזר ב-`finally`.
+ * ‏`app.js` על הדיסק אינו נגוע, ואף צרכן אחר של `getCtx` אינו רואה מצב ביניים. */
+function matchGeneOff(ctx, typed, meaning, card) {
+  const R = ctx.TYPO_GLOSS_RULES;
+  if (!R || typeof R.segConcat !== 'boolean') {
+    throw new Error('make_golden_segconcat: TYPO_GLOSS_RULES.segConcat אינו נגיש מ-app.js · עמודת `off` הייתה יוצאת שקרית בשקט');
+  }
+  const was = R.segConcat;
+  R.segConcat = false;
+  try { return !!ctx.meaningMatch(typed, meaning, card); }
+  finally { R.segConcat = was; }
+}
+
 function build() {
   const CTX = { he: getCtx('he'), en: getCtx('en') };
   const VET = { he: buildVeto(CTX.he, 'he'), en: buildVeto(CTX.en, 'en') };
 
   const verdicts = (ctx, veto, card, typed) => {
-    const off = !!ctx.meaningMatch(typed, card.meaning, card);
+    const off = matchGeneOff(ctx, typed, card.meaning, card);
     const a = ctx.norm(typed);
     const segs = Array.from(ctx.meaningSegs(card.meaning));
     const hit = !!a && concatForms(segs, card, ctx).has(a) && !isVetoedSeg(a, card, veto, ctx);
@@ -85,10 +107,18 @@ function build() {
   for (const L of ['he', 'en']) for (const w of Array.from(CTX[L].BANK)) byCard.set(L + '' + String(w.term) + '' + String(w.meaning), w);
 
   const acc = [], rej = [], today = [];
+  /* ⚠ סחיפת פירושים · הכרטיס מאותר לפי **מונח + פירוש מלא**, והפירושים ב-`data-en.js`
+     נערכו מאז ש-`answers-*.jsonl` נוצרו (16.8). ‏`agitate` קיבל "; לנער", ‏`match` קיבל
+     "משחק, " בראש, ומ-`rapid` הוסרו הניקודים. שורה כזאת אינה מאותרת ונופלת **בשקט**,
+     וזה מה שגורע 6 שורות `accept-partial` מהטבלה השלוחה (95 מול 89).
+     ⛔ המספר נספר ומוצג · נפילה בשקט היא בדיוק מה שמסתיר את הפער בסבב הבא.
+     ⛔ ולא ממופה מחדש לפי `unit`: המחרוזת שהוקלדה נוצרה מול הפירוש **הישן**, ולכן
+     תיוג מחדש מול פירוש חדש הוא ניחוש ולא שחזור. */
+  let skipped = 0;
   for (const r of pool) {
     const ctx = CTX[r.lang];
     const card = byCard.get(r.lang + '' + String(r.card_term) + '' + String(r.card_gloss));
-    if (!card) continue;
+    if (!card) { skipped++; continue; }
     const v = verdicts(ctx, VET[r.lang], card, r.typed);
     const row = {
       set: 'gloss-segconcat', lang: r.lang, term: String(card.term), unit: String(card.unit == null ? '' : card.unit),
@@ -122,7 +152,7 @@ function build() {
   const text = rows.map(r => JSON.stringify(r)).join('\n') + '\n';
   const sha = crypto.createHash('sha256').update(text, 'utf8').digest('hex');
   const diff = rows.filter(r => r.off.ok !== r.on.ok).length;
-  return { rows, text, sha, diff, pool: pool.length, acc: acc.length, rej: rej.length, today: today.length };
+  return { rows, text, sha, diff, pool: pool.length, skipped, acc: acc.length, rej: rej.length, today: today.length };
 }
 
 function selftest() {
@@ -145,6 +175,28 @@ function selftest() {
   const b2 = build();
   ok('ז · דטרמיניזם · שתי בניות, אותו SHA', b2.sha === b.sha, b.sha.slice(0, 16));
 
+  /* ⭐ ⛔ השן שהייתה חסרה · הטבלה חייבת לצאת **זהה בשני מצבי הדגל ב-app.js**.
+     בלי השער הזה, הדבקת הגן מרוקנת את `accept-partial` בשקט והטבלה יוצאת בלי
+     שיניים — וזה בדיוק מה שקרה בפועל בין 16.8 ל-26.8. הרצה על מקרה שאמור
+     להיפסל: לפני התיקון הדגל ההפוך הפיק 230 שורות מול 141, והשער נופל. */
+  const HE = getCtx('he'), EN = getCtx('en');
+  const was = { he: HE.TYPO_GLOSS_RULES.segConcat, en: EN.TYPO_GLOSS_RULES.segConcat };
+  let b3;
+  try {
+    HE.TYPO_GLOSS_RULES.segConcat = !was.he;
+    EN.TYPO_GLOSS_RULES.segConcat = !was.en;
+    b3 = build();
+  } finally {
+    HE.TYPO_GLOSS_RULES.segConcat = was.he;
+    EN.TYPO_GLOSS_RULES.segConcat = was.en;
+  }
+  ok('ח · ⛔ שן · הטבלה אינה תלויה במצב הדגל ב-`app.js`', b3.sha === b.sha,
+    `הדגל ${was.en ? 'דלוק' : 'כבוי'} → ${b.rows.length} שורות · הפוך → ${b3.rows.length} שורות`);
+
+  /* ⚠ לא שער · מספר שחייב להיראות. שורות מהקורפוס שכרטיסן לא אותר בגלל סחיפת
+     פירושים ב-`data-en.js`, ולכן אינן מגיעות לטבלה כלל. */
+  out.push(`INFO  ט · שורות שנפלו על סחיפת פירוש  · ${b.skipped} מתוך ${b.pool} · הן הפער מול 236 השורות השלוחות`);
+
   process.stdout.write(out.join('\n') + '\n' + (all ? '\n✅ כל השערים עברו\n' : '\n⛔ שער נכשל\n'));
   return all;
 }
@@ -159,4 +211,5 @@ if (require.main === module) {
   process.stdout.write(`golden.segconcat.jsonl · ${b.rows.length} שורות · ${b.sha.slice(0, 16)}…\n`);
   process.stdout.write(`  accept-partial ${g('accept-partial')} · reject ${g('reject')} · exception ${g('exception')}\n`);
   process.stdout.write(`  ⭐ ${b.diff} שורות מתהפכות בין off ל-on · זה מה שהופך את הטבלה לשומר\n`);
+  process.stdout.write(`  ⚠ ${b.skipped} שורות מתוך ${b.pool} נפלו · כרטיסן לא אותר בגלל סחיפת פירוש ב-data-en.js\n`);
 }
