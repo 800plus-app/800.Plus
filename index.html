@@ -351,16 +351,32 @@
   .s-sent .bl{color:var(--accent);font-weight:700;letter-spacing:.06em}
   /* ═══ מילה שאפשר להקיש עליה לפירוש ═══
      ⛔ כל מילה במשפט לחיצה, ולא רק אלה שיש להן פירוש · הקשה על מילה שאין לה
-     ערך מחזירה תשובה מפורשת ולא שתיקה. הקו המקווקו מסמן היכן **יש** פירוש,
-     כדי שההקשה תהיה מושכלת ולא ניחוש. */
-  .s-w{font:inherit;color:inherit;background:none;border:0;padding:0 1px;cursor:pointer;
-       border-radius:3px;transition:background .12s}
-  .s-w.has{border-bottom:1px dotted var(--gold-ink)}
-  .s-w:active{background:rgba(201,150,47,.22)}
-  .s-w.on{background:rgba(201,150,47,.28)}
-  @media (hover:hover) and (pointer:fine){.s-w:hover{background:rgba(201,150,47,.16)}}
+     ערך מחזירה תשובה מפורשת ולא שתיקה. */
+  /* ⛔ היה `padding:0 1px` · הכפתורים יצאו בגובה 28.6px, ומילים כמו `a`
+     ברוחב 10.2px · מתחת ל-24×24 של WCAG 2.5.8, וחריג המרווח אינו חל כי
+     המרווח בין כפתורים סמוכים הוא 4px. ⭐ הריפוד האנכי אינו משנה את פריסת
+     השורה · `line-height` של המשפט גדול ממנו ממילא, ו-`margin` שלילי מחזיר
+     את הרווח האופקי שנוסף. */
+  .s-w{font:inherit;color:inherit;background:none;border:0;cursor:pointer;
+       padding:7px 4px;margin:0 -3px;min-width:24px;
+       border-radius:4px;transition:background .12s}
+  /* ⛔ היה כאן קו מקווקו מתחת למילים שיש להן פירוש. חגי פסל אותו (27.8.2026):
+     הוא מלכלך את המשפט, ומסמן ללומד מראש אילו מילים "חשובות".
+     ⭐ המשפט נראה כמו טקסט רגיל · ההיזון היחיד הוא בהקשה עצמה, וזה עובד רק
+     אם **לכל** מילה יש תשובה. ראה sentence-completion/sent-lex.js. */
+  /* ⛔ היו `.22` ו-`.28` · נמדד 1.22:1 ו-1.28:1 מול 3:1 שדורש WCAG 1.4.11
+     למחוון מצב לא-טקסטואלי. ⚠ ו-`-webkit-tap-highlight-color:transparent`
+     על ה-body מבטל גם את הדגשת המגע של מערכת ההפעלה · אין רשת ביטחון.
+     ⭐ מסגרת ולא רק רקע · על רקע בהיר, שינוי רוויה לבדו אינו מגיע ל-3:1. */
+  .s-w:active{background:rgba(166,60,38,.16);box-shadow:inset 0 0 0 1px var(--accent)}
+  .s-w.on{background:rgba(166,60,38,.14);box-shadow:inset 0 0 0 1.5px var(--accent)}
+  @media (hover:hover) and (pointer:fine){.s-w:hover{background:rgba(201,150,47,.20)}}
+  /* ⛔ הריפוד היה `11px 38px 11px 14px` · 38px שמורים ב**ימין**, בזמן
+     ש-`inset-inline-end` ב-RTL מציב את ה-✕ ב**שמאל**. נמדד: 10.7% מהפירושים
+     נכתבו מתחת לכפתור ב-375px, ו-`elementFromPoint` במרכזו החזיר את הכפתור.
+     ⭐ `padding-inline-end` פותר בלי לדעת מה הכיוון · ואין מה לזכור. */
   .s-gloss{position:relative;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;
-       margin-bottom:12px;padding:11px 38px 11px 14px;border-radius:12px;
+       margin-top:12px;padding:11px 14px;padding-inline-end:46px;border-radius:12px;
        background:var(--paper-deep);border:1px solid var(--line);text-align:right}
   .s-gloss.hidden{display:none!important}
   .s-gloss-w{font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:1.02rem;
@@ -2078,15 +2094,18 @@
     </div>
     <div class="card hidden" id="sentCard">
       <div class="q-kind">השלם את החסר</div>
-      <!-- הפירוש של מילה שהלומד הקיש עליה. יושב **מעל** המשפט ולא מתחתיו: מי
-           שנתקע במילה מסתכל למעלה, והמשפט לא זז לו מתחת לאצבע כשהפירוש נפתח.
+      <p class="s-sent" id="sentText"></p>
+      <!-- הפירוש של מילה שהלומד הקיש עליה.
+           ⛔ **מתחת למשפט ולא מעליו.** ההערה הקודמת כאן טענה שמעל שומר על
+           המשפט במקומו · **וזה היה הפוך.** נמדד: הבועה דחפה את המשפט, את
+           האפשרויות **ואת המילה שהוקשה** ‏60px למטה, ובפירוש בן שתי שורות
+           כ-107px. מתחת · המשפט אינו זז כלל, וזזות רק האפשרויות.
            aria-live כי התוכן מתחלף בלי ניווט, וקורא מסך צריך לשמוע אותו. -->
-      <div class="s-gloss hidden" id="sentGloss" aria-live="polite" aria-atomic="true">
-        <button class="s-gloss-x" id="sentGlossX" aria-label="סגור פירוש">✕</button>
+      <div class="s-gloss hidden" id="sentGloss" role="status" aria-live="polite" aria-atomic="true">
         <span class="s-gloss-w" id="sentGlossW" dir="ltr"></span>
         <span class="s-gloss-m" id="sentGlossM"></span>
+        <button class="s-gloss-x" id="sentGlossX" aria-label="סגור פירוש">✕</button>
       </div>
-      <p class="s-sent" id="sentText"></p>
       <p class="s-hint" id="sentHint">הקש על מילה במשפט כדי לראות את הפירוש שלה</p>
       <div class="s-opts" id="sentOpts"></div>
       <div class="s-exp hidden" id="sentExp"></div>
@@ -2445,17 +2464,17 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=219"></script>
-<script src="config.js?v=219"></script>
-<script src="store.js?v=219"></script>
-<script src="leveltest-he.js?v=219"></script>
-  <script src="leveltest.js?v=219"></script>
-<script src="enrank.js?v=219"></script>
-<script src="data.js?v=219"></script>
-<script src="data-en.js?v=219"></script>
+<script src="supabase.min.js?v=220"></script>
+<script src="config.js?v=220"></script>
+<script src="store.js?v=220"></script>
+<script src="leveltest-he.js?v=220"></script>
+  <script src="leveltest.js?v=220"></script>
+<script src="enrank.js?v=220"></script>
+<script src="data.js?v=220"></script>
+<script src="data-en.js?v=220"></script>
 <!-- לקסיקון סובלנות האיות · חייב להיטען לפני app.js, שקורא window.TYPO_LEX.
      נכשל בטעינה? השכבה כבויה והאפליקציה מתנהגת כמו היום. -->
-<script src="typo-lex.js?v=219"></script>
-<script src="app.js?v=219"></script>
+<script src="typo-lex.js?v=220"></script>
+<script src="app.js?v=220"></script>
 </body>
 </html>

@@ -64,7 +64,16 @@ const SYMBOLS = [
   'remapHyphenKeys', 'migrationLanded', 'migrateStores', 'pruneOrphans',
   'levelKeyFor', 'examPreFor', 'sizeKeyFor', 'EXAM_KEY',
   'collectExtras', 'applyExtras', 'wipeAccountKeys', 'bindCacheToUser',
-  'exKey', 'UNIT_IDS', 'PREVIEW_UNIT', 'GLOSS_ALT', 'buildBank', 'glossKey', 'buildGlossIndex',
+  /* ⭐ שישה שנמצאו חסרים על ידי `tests/96-symbol-closure` · כולם נקראים
+     מתוך פונקציה שכן ברשימה, ואף אחד מהם לא היה בה. הם לא הפילו כלום עד
+     היום רק מפני שהמסלולים שקוראים להם אינם מורצים כאן · ⛔ בדיקה חדשה
+     שתיגע ב-`buildBank` הייתה מקבלת ReferenceError בשם סמנטי מטעה. */
+  'saneSentRec', 'sentProg',
+  'exKey', 'UNIT_IDS', 'PREVIEW_UNIT', 'GLOSS_ALT',
+  'HOLAM', 'YOD', 'Y_VOWELS', 'HE_LETTER', 'VAV',
+  'fullSpelling', 'pleneYod', 'pleneVav', 'heForms',
+  'vetoPut', 'fullVetoPass', 'buildBank',
+  'glossKey', 'meaningSegs', 'glossSenses', 'buildGlossIndex',
 ];
 
 /* A localStorage that behaves like the browser's, including the parts that bite:

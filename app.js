@@ -1751,6 +1751,23 @@ function countUpIntro(){
 }
 
 /* ===== HOME ===== */
+/* ⛔ **ברמת המודול, ולא בתוך `renderHome`.** הן ישבו בגוף הפונקציה · נבנו מחדש
+   בכל רינדור, ולא היו נגישות לשום קורא אחר. הבדיקות הגיעו אליהן רק מפני
+   ש-`extractAll` שולפת טקסט מהמקור, ⛔ **וקונסול הדפדפן לא יכול היה לקרוא להן
+   בכלל** · וזה מה שהאט את האימות הידני.
+   ⚠ הכניסה נראתה כמו רמת מודול כי הן נכתבו בעמודה 0 · **בג'אווהסקריפט ההיקף
+   נקבע בסוגריים ולא בהזחה.** נמדד בספירת סוגריים, לא בעין.
+
+   "1 מילים לחיזוק" אינו עברית, והוא נחשף ברגע שהסף ירד ל-1. פונקציה נפרדת
+   ולא ביטוי בתוך renderHome, כדי שיהיה מה לבדוק בלי DOM שלם.
+   ⭐ המספר יצא מהתת־כותרת והפך לאלמנט משלו (.wc-n). הנימוק נמדד באפליקציה
+   החיה: הכותרת הקבועה 17.92px משקל 900, המספר המשתנה 13.12px משקל 400 · מה
+   שזהה בכל כניסה היה גדול ב-37% וכבד בהרבה מהסיבה היחידה ללחוץ.
+   הפונקציות מחזירות את הכיתוב הקבוע בלבד, ולכן אין בהן עוד ענף יחיד/רבים:
+   "1 מילים" אינו יכול להיווצר כשהספרה עומדת לבדה. */
+const weakCtaText = () => 'מכל יחידות הלימוד';
+const acquiredCtaText = () => 'כל מילה שלא הכרת';
+
 function renderHome(){
   const total=BANK.length;
   const uniqTerms=new Set(BANK.map(w=>w.term)).size;
@@ -1768,15 +1785,6 @@ function renderHome(){
   renderExamPill();
   const weakAll = weakCards('global');
   const cta = $('#homeWeak');
-  /* "1 מילים לחיזוק" אינו עברית, והוא נחשף ברגע שהסף ירד ל-1. פונקציה נפרדת ולא ביטוי
-   בתוך renderHome, כדי שיהיה מה לבדוק בלי DOM שלם. */
-/* ⭐ המספר יצא מהתת־כותרת והפך לאלמנט משלו (.wc-n). הנימוק נמדד באפליקציה
-   החיה: הכותרת הקבועה 17.92px משקל 900, המספר המשתנה 13.12px משקל 400 · מה
-   שזהה בכל כניסה היה גדול ב-37% וכבד בהרבה מהסיבה היחידה ללחוץ.
-   הפונקציות מחזירות את הכיתוב הקבוע בלבד, ולכן אין בהן עוד ענף יחיד/רבים:
-   "1 מילים" אינו יכול להיווצר כשהספרה עומדת לבדה. */
-const weakCtaText = () => 'מכל יחידות הלימוד';
-const acquiredCtaText = () => 'כל מילה שלא הכרת';
 /* הסף היה 4, בלי נימוק רשום: מי שנשארו לו שתיים־שלוש מילים לחיזוק לא ראה אותן,
      וזה בדיוק הרגע שבו סבב קצר סוגר את הפער. הנימוק שכן נרשם · "לא להציע לתרגל אפס" ·
      מכוסה בסף 1. askSize מדלג על שאלת הגודל כשהרשימה קטנה מכל הקיצורים, ולכן
@@ -7311,6 +7319,17 @@ function loadSentData(){
        ומחזיר false לנצח, גם אחרי שהרשת חזרה. */
     el.onerror = ()=>{ sentLoading = null; res(false); };
     document.head.appendChild(el);
+    /* ⭐ מילון העזר לפירוש-בהקשה, נטען לצד המשפטים ובאותה השהיה.
+       ⛔ **בלי `await` ובלי תלות** · אם הוא נכשל, המשפטים עדיין עובדים והקשה
+       על מילה שאינה במאגר הראשי מחזירה «אין פירוש». כישלון של עזר קריאה אסור
+       שימנע תרגול. sentence-completion/sent-lex.js. */
+    const lx = document.createElement('script');
+    lx.src = './sentence-completion/sent-lex.js' + (v ? '?v='+v : '');
+    lx.onerror = ()=>{};
+    /* המילון נבנה בעצלתיים, ולכן אם הוא הגיע אחרי שכבר נבנה · מאפסים אותו
+       כדי שהבנייה הבאה תכלול אותו. */
+    lx.onload  = ()=>{ sentLexMap = null; };
+    document.head.appendChild(lx);
   });
   return sentLoading;
 }
@@ -7505,6 +7524,14 @@ function sentLex(){
       if(k && !m.has(k)) m.set(k, gloss);
     }
   }
+  /* ⭐ מילון העזר **אחרי** המאגר הראשי ובלי לדרוס אותו. ‏`data-en.js` עבר
+     ביקורת אנושית; העזר נכתב כדי שלא תישאר מילה בלי תשובה, ולא כדי להחליף
+     פירוש מאושר. מילה שקיימת בשניהם מקבלת את זה של המאגר. */
+  const extra = window.SENT_LEX || {};
+  for(const term in extra){
+    const k = normEn(term);
+    if(k && !m.has(k) && extra[term]) m.set(k, String(extra[term]));
+  }
   sentLexMap = m;
   return m;
 }
@@ -7515,23 +7542,41 @@ const SENT_SUFF = [
   ['ness',''], ['ment',''], ['ing',''], ['ely','e'], ['edly',''],
   ['ed',''], ['es',''], ['ly',''], ['s','']
 ];
+/* הסיומות שבהן הטיית הפועל משנה את הכתיב, ולכן מותר לתקן אותו · ראה
+   `sentWordGloss`. ⛔ בכל סיומת אחרת התיקון מייצר בסיס שגוי בשקט. */
+const REPAIR = new Set(['ed', 'es', 'ing']);
 /** הפירוש של מילה, או `null` אם אין. מחזיר גם את הצורה שנמצאה בפועל. */
 function sentWordGloss(raw){
   const lex = sentLex();
   const base = normEn(String(raw || ''));
   if(!base) return null;
   if(lex.has(base)) return { form: base, gloss: lex.get(base) };
+  /* ⛔ **אין כאן טיפול נפרד בשייכות, ובכוונה.** ‏`normEn` מוחק גרשיים לגמרי
+     (`father's` ⟵ `fathers`), ולכן בדיקה על `'s` היא קוד מת · כתבתי אותה
+     פעם אחת ומדדתי שהיא לעולם אינה נורית. הצורה שנשארת נגמרת ב-`s`,
+     ושכבת הסיומות למטה כבר מטפלת בה · בתנאי ששם העצם עצמו במילון. */
   for(const [suf, add] of SENT_SUFF){
     if(base.length > suf.length + 2 && base.endsWith(suf)){
       const cut = base.slice(0, base.length - suf.length) + add;
       if(lex.has(cut)) return { form: cut, gloss: lex.get(cut) };
-      /* "running" → "runn" → "run" · הכפלת העיצור האחרון לפני סיומת. */
-      if(cut.length > 2 && cut[cut.length-1] === cut[cut.length-2]){
-        const one = cut.slice(0, -1);
-        if(lex.has(one)) return { form: one, gloss: lex.get(one) };
+      /* ⛔ **שני התיקונים הבאים חלים רק על `ed` · `es` · `ing`, ולא על כל סיומת.**
+         הם מתקנים שינוי כתיב שקורה בהטיה של פועל · הכפלת עיצור (`run` ⟵ `running`)
+         ו-`e` שנשמטת (`use` ⟵ `used`). ⛔ בסיומות אחרות אין להם שום הצדקה
+         מורפולוגית, והם ייצרו פירושים שגויים:
+             eggs   ⟵ egg  ⟵ **eg**     «לדוגמה»
+             comment ⟵ commen ⟵ **come** «לבוא»
+             status  ⟵ statu  ⟵ **statue** «פסל»
+             madness ⟵ madnes ⟵ **made**
+         נמדד · 83,554 צמדים אפשריים נסרקו, ואלה שנמצאו אמיתיים. */
+      if(REPAIR.has(suf)){
+        /* "running" → "runn" → "run" · הכפלת העיצור האחרון לפני סיומת. */
+        if(cut.length > 2 && cut[cut.length-1] === cut[cut.length-2]){
+          const one = cut.slice(0, -1);
+          if(lex.has(one)) return { form: one, gloss: lex.get(one) };
+        }
+        /* "used" → "use" · e שנשמטה לפני הסיומת. */
+        if(add === '' && lex.has(cut + 'e')) return { form: cut + 'e', gloss: lex.get(cut + 'e') };
       }
-      /* "used" → "use" · e שנשמטה לפני הסיומת. */
-      if(add === '' && lex.has(cut + 'e')) return { form: cut + 'e', gloss: lex.get(cut + 'e') };
     }
   }
   return null;
@@ -7541,6 +7586,9 @@ function hideSentGloss(){
   $('#sentText').querySelectorAll('.s-w.on').forEach(b=>b.classList.remove('on'));
 }
 function showSentGloss(word, btn){
+  /* ⭐ הקשה שנייה על אותה מילה סוגרת. ⛔ בלי זה המוצא היחיד היה ה-✕, והוא
+     30×30 בפינה · כלומר הפעולה ההפוכה יקרה בהרבה מהפעולה עצמה. */
+  if(btn && btn.classList.contains('on')){ hideSentGloss(); return; }
   const hit = sentWordGloss(word);
   $('#sentText').querySelectorAll('.s-w.on').forEach(b=>b.classList.remove('on'));
   if(btn) btn.classList.add('on');
@@ -7569,11 +7617,15 @@ function sentTextHtml(it){
         : '<span class="bl">___</span>';
     }
     if(!/^[A-Za-z]/.test(part)) return sEsc(part);
-    const has = !!sentWordGloss(part);
-    /* ⛔ המילה **אינה** נכתבת ל-attribute. `sEsc` מגן על `& < >` ולא על גרשיים,
-       ולכן ערך בתוך `data-w="…"` היה נשען על כך שה-regex לעולם לא יתפוס `"`.
-       תלות שקטה כזאת נשברת בעריכה הבאה · הטקסט של הכפתור **הוא** המילה. */
-    return `<button type="button" class="s-w${has?' has':''}">${sEsc(part)}</button>`;
+    /* ⛔ **בלי מחלקת `has` ובלי חיפוש בזמן הרינדור.** היא סימנה אילו מילים יש
+       להן פירוש · חגי הסיר את הסימון הוויזואלי, ומרגע שהכיסוי הוא 100%
+       (`tests/95`) היא ממילא הוחלה על כל מילה. מחלקה שתמיד נוכחת אינה מידע.
+       ⭐ ובדרך זה חוסך קריאה ל-`sentWordGloss` לכל מילה בכל רינדור · החיפוש
+       קורה עכשיו רק בהקשה בפועל.
+       ⛔ והמילה **אינה** נכתבת ל-attribute · `sEsc` מגן על `& < >` ולא על
+       גרשיים, וערך ב-`data-w="…"` היה נשען על כך שה-regex לעולם לא יתפוס `"`.
+       הטקסט של הכפתור **הוא** המילה. */
+    return `<button type="button" class="s-w">${sEsc(part)}</button>`;
   }).join('');
 }
 
@@ -7592,6 +7644,25 @@ function renderSentCard(){
      אותו דפוס בדיוק כמו הרמקולים במסך הזה. */
   $('#sentText').querySelectorAll('.s-w').forEach(b=>{
     b.onclick = ()=> showSentGloss(b.textContent, b);
+    /* ⛔ בלי זה קורא מסך שומע «such, button» ולא יודע מה הכפתור עושה.
+       ⚠ והמשפט כבר מוקרא כפרוזה דרך `#sentLive` · כאן צריך רק את הפעולה. */
+    b.setAttribute('aria-label', 'פירוש של ' + b.textContent);
+  });
+  /* ⭐ החסר הוא הדבר היחיד המסומן במשפט, והיה היחיד שהקשה עליו לא עשתה דבר ·
+     בדיוק הכשל שהקוד הזה מזהיר מפניו במקום אחר. עכשיו הוא אומר מה הוא. */
+  $('#sentText').querySelectorAll('.bl').forEach(el=>{
+    el.setAttribute('role', 'button');
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('aria-label', 'המילה החסרה');
+    el.style.cursor = 'pointer';
+    el.onclick = ()=>{
+      $('#sentText').querySelectorAll('.s-w.on').forEach(b=>b.classList.remove('on'));
+      $('#sentGlossW').textContent = '___';
+      const m = $('#sentGlossM');
+      m.textContent = 'המילה החסרה · בחר מהאפשרויות למטה';
+      m.classList.add('none');
+      show($('#sentGloss'));
+    };
   });
   hideSentGloss();
   $('#sentHint').classList.remove('hidden');
@@ -7621,6 +7692,10 @@ function renderSentCard(){
 function answerSent(pick){
   if(sentAnswered) return;                   // הגנה מהקלקה כפולה
   sentAnswered = true;
+  /* ⭐ הבועה נסגרת עם המענה, והרמז יורד · אחריו מגיע ההסבר המלא, ופירוש של
+     מילה בודדת שנשאר פתוח מעליו הוא רעש. ⛔ בלי זה גם ההדגשה `.on` נשארה. */
+  hideSentGloss();
+  $('#sentHint').classList.add('hidden');
   const it = sentQ[sentI];
   const right = pick === it.a;
   if(right) sentOk++;
@@ -7832,6 +7907,10 @@ $('#sqYes').onclick = ()=> sqStart();
 $('#sqNo').onclick = ()=>{ hide($('#sqAsk')); sqQ = []; };
 $('#sqNext').onclick = ()=>{ if(!sqAnswered) return; sqI++; sqRender(); };
 $('#sentGlossX').onclick = ()=> hideSentGloss();
+/* ⛔ מוצא נוסף למקלדת. ה-✕ הוא 30×30 בפינה, והוא היה הדרך היחידה לסגור. */
+document.addEventListener('keydown', e=>{
+  if(e.key === 'Escape' && !$('#sentGloss').classList.contains('hidden')) hideSentGloss();
+});
 
 $('#sentNext').onclick = ()=>{
   if(!sentAnswered) return;

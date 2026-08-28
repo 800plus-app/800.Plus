@@ -53,7 +53,7 @@ function ctxWith(names, extra) {
 }
 
 const לקסיקון = () => ctxWith(
-  ['NIQ', 'normEn', 'SENT_SUFF', 'sentLex', 'sentWordGloss', 'sEsc', 'sentTextHtml'],
+  ['NIQ', 'normEn', 'SENT_SUFF', 'REPAIR', 'sentLex', 'sentWordGloss', 'sEsc', 'sentTextHtml'],
   { window: { UNIT_DATA_EN: bankEn() }, sentLexMap: null });
 
 /* ─────────────────── 1 · הפירוש ─────────────────── */
@@ -138,10 +138,14 @@ describe('פירוש בהקשה על מילה', () => {
       assert.ok(h.includes('.'), 'הנקודה נעלמה');
     });
 
-    /* ⭐ הקו המקווקו מסמן איפה **יש** פירוש · אחרת ההקשה היא ניחוש. */
-    test('מילים שיש להן פירוש מסומנות ב-has', () => {
-      const n = (html().match(/class="s-w has"/g) || []).length;
-      assert.ok(n >= 1, 'אף מילה לא סומנה כבעלת פירוש · הסימון אינו עובד');
+    /* ⛔ **אין סימון ויזואלי, ואין מחלקה שמסמנת.** היה כאן קו מקווקו מתחת
+       למילים שיש להן פירוש · חגי פסל אותו (27.8.2026), ומרגע שהכיסוי הוא
+       100% (`tests/95`) המחלקה ממילא הוחלה על כל מילה. מחלקה שתמיד נוכחת
+       אינה מידע, והיא גם החזירה ל-DOM בדיוק את הסימון שהוחלט להסיר. */
+    test('אין מחלקת has · הסימון הוסר גם מה-DOM', () => {
+      assert.ok(!/class="s-w has"/.test(html()),
+        'מחלקת has חזרה · היא מסמנת ב-DOM את מה שהוחלט להסיר מהמסך');
+      assert.ok(/class="s-w"/.test(html()), 'המילים אינן כפתורים');
     });
   });
 });

@@ -33,9 +33,54 @@
 
 const { test, describe } = require('node:test');
 const assert = require('node:assert');
+const fs = require('fs');
+const vm = require('vm');
 const { loadApp, appSource } = require('./_harness/sandbox.js');
 
 const app = appSource();
+
+/* ⛔ גבול הפונקציה נמדד מהסוגריים, לא ממספר קבוע.
+ *
+ * שלושה חלונות באורך קבוע ישבו בקובץ הזה, וכל אחד מהם שיקר לכיוון אחר:
+ *
+ *   · **קצר מדי** → קוד שלא נסרק, ושער שמכריז ירוק על מה שלא ראה. `mergeProgress` נסרקה
+ *     בחלון של 4,000 תווים בזמן ש-`k0` ישב ב-4005 · מחוץ לחלון · והבדיקה עברה רק בזכות
+ *     הערה שהזכירה את השם. תוקן ב-21.8.2026, אבל **רק בצד אחד של אותה טענה**: `saneRec`
+ *     המשיכה להיקרא בחלון של 1,400 תווים בעוד אורכה 2,074, ולכן `sens` · שיושב ב-2,040 ·
+ *     מעולם לא נכנס לרשימה שהשער בודק. השער הצהיר "כל שדה ש-saneRec שומר" ופסח על אחד.
+ *
+ *   · **ארוך מדי** → החלון בולע את הפונקציות שאחריו, והשער מוצא את מה שהוא מחפש אצל השכן.
+ *     `absorbDisk` ארוכה 734 תווים והחלון קרא 6,000 · 5,266 מהם קוד זר. החלון על
+ *     `mergeProgress` חרג ב-3,891 תווים, ו-`level` ו-`first` מופיעים שם ממילא · כלומר
+ *     מחיקה שלהם מהמיזוג עצמו הייתה נבלעת.
+ *
+ * ⭐ `fnBody` מחזירה בדיוק את הפונקציה · לא פחות ולא יותר · **ומאמתת את הגבול בכך שהיא
+ * מקמפלת את מה שחתכה.** סוגר שנספר בטעות בתוך מחרוזת ייפול כאן ברעש, ולא יקצר את החלון
+ * בשקט. זה מה שהופך את הגבול לנמדד ולא למוצהר. */
+function fnBody(name) {
+  let at = app.indexOf('function ' + name);
+  if (at < 0) return null;
+  /* ⚠ ‏`async` נמצא **לפני** המילה function, ולכן חיתוך שמתחיל ב-function מנתק אותו
+     מהגוף ו-`await` שבפנים נהיה שגיאת תחביר. flushRemoteSync ו-syncWithRemoteInner שתיהן
+     async · הקימפול הוא זה שתפס את זה, והחלונות הקבועים שהיו כאן פספסו אותו בשקט. */
+  if (app.slice(at - 6, at) === 'async ') at -= 6;
+  let depth = 0;
+  for (let i = app.indexOf('{', at); i < app.length; i++) {
+    if (app[i] === '{') depth++;
+    else if (app[i] === '}' && --depth === 0) {
+      const body = app.slice(at, i + 1);
+      /* מקמפל בלבד · vm.Script לא מריצה כלום. הגבול נכון רק אם מה שנחתך הוא פונקציה שלמה,
+         והקימפול הוא ההוכחה לכך · הוא זורק על חיתוך באמצע. */
+      new vm.Script('(' + body + ')');
+      return body;
+    }
+  }
+  return null;
+}
+
+/* השער בודק נוכחות של **שם** שדה, ולכן הערה שמזכירה אותו הספיקה כדי לצבוע אותו ירוק ·
+   וזו בדיוק הדרך שבה `k0` עבר. ההערות יורדות לפני הבדיקה, ונשאר קוד. */
+const codeOf = s => s.replace(/\/\*[\s\S]*?\*\//g, ' ').replace(/\/\/[^\n]*/g, ' ');
 const ctx = loadApp({ lang: 'he', bank: false });
 const K = ctx.K;
 const rec = o => ({ seen: 5, first: 2, ever: 3, wrong: 1, level: 3, last: 100, ...o });
@@ -97,9 +142,10 @@ describe('שלושת מסלולי המיזוג מעבירים את יומן הש
   const sites = ['absorbDisk', 'flushRemoteSync', 'syncWithRemoteInner'];
   for (const fn of sites) {
     test(`${fn} מעביר undeleted`, () => {
-      const at = app.indexOf('function ' + fn);
-      assert.ok(at > 0, fn + ' נעלמה');
-      const body = app.slice(at, at + 6000);
+      /* ⛔ הגוף ולא חלון · absorbDisk ארוכה 734 תווים והחלון הקודם קרא 6,000. פונקציה
+         שאיבדה את המיזוג שלה מצאה אותו אצל השכנה שנבלעה בחלון, והשער נצבע ירוק. */
+      const body = fnBody(fn);
+      assert.ok(body, fn + ' נעלמה');
       const call = body.indexOf('mergeProgress(');
       assert.ok(call > 0, fn + ' אינה ממזגת בכלל');
       assert.ok(/undeleted\s*:/.test(body.slice(call, call + 320)),
@@ -112,19 +158,47 @@ describe('שתי הרשימות הלבנות מסונכרנות', () => {
   test('כל שדה ש-saneRec שומר, mergeProgress מעביר', () => {
     /* זה הכלל שהיה חסר. saneRec ו-mergeProgress הן שתי רשימות לבנות נפרדות, ושדה חדש
        שנוסף לאחת ולא לשנייה נמחק בשקט בסנכרון הבא · בלי שאף בדיקה תראה. */
-    const sane = app.slice(app.indexOf('function saneRec'), app.indexOf('function saneRec') + 1400);
+    /* ⚠ **שני הצדדים נמדדים, ושניהם היו שבורים.**
+       הצד של mergeProgress תוקן ב-21.8.2026 (חלון 4,000 → סוף הפונקציה), אבל הצד של
+       saneRec נשאר על 1,400 תווים קבועים בעוד אורכה 2,074 · ‏`sens` יושב ב-2,040 ולכן
+       **מעולם לא נכנס ל-fields**, והשער שהצהיר "כל שדה" בדק תשעה מתוך עשרה. ‏`t0` ישב
+       ב-1,147, ‏253 תווים מהקצה · כלומר ההערה הבאה שנוספה ל-saneRec הייתה מפילה גם אותו
+       החוצה, בלי שאף בדיקה תאדים. */
+    const sane = fnBody('saneRec');
     const fields = [...sane.matchAll(/out\.(\w+)\s*=/g)].map(m => m[1])
       .concat([...sane.matchAll(/\b(\w+)\s*:\s*int0\(r\./g)].map(m => m[1]));
-    /* ⚠ החלון היה 4000 תווים קבועים, ו-mergeProgress ארוכה 11,760 · השער כיסה שליש
-       מהפונקציה. הדבר היחיד שהחזיק אותו ירוק היה שהערה בתוך החלון מזכירה את שמות
-       השדות: `k0` כבר ישב ב-4005 — **מחוץ לחלון** — והבדיקה עברה בזכות הטקסט ולא
-       בזכות הקוד. נמדד כשנוסף t0 ב-21.8.2026.
-       הגבול עכשיו הוא סוף הפונקציה, ולא מספר. זו החמרה: יותר קוד נסרק. */
-    const mpAt = app.indexOf('function mergeProgress');
-    const mpEnd = app.indexOf('\nfunction ', mpAt + 10);
-    const mp = app.slice(mpAt, mpEnd > 0 ? mpEnd : app.length);
+    /* ⛔ הגוף בלבד · החלון הקודם חרג ב-3,891 תווים אל הפונקציות שאחרי, ו-`level` ו-`first`
+       מופיעים שם ממילא · מחיקה שלהם מהמיזוג עצמו הייתה נמצאת אצל השכן ונבלעת.
+       ו-codeOf כי נוכחות בהערה אינה העברה של שדה · כך בדיוק `k0` עבר. */
+    const mp = codeOf(fnBody('mergeProgress'));
     const missing = [...new Set(fields)].filter(f => !new RegExp('\\b' + f + '\\b').test(mp));
     assert.deepStrictEqual(missing, [],
       'saneRec שומר שדות ש-mergeProgress מוחק: ' + missing.join(', '));
+  });
+
+  test('הרשימה שנקראה היא הרשימה השלמה', () => {
+    /* ⭐ הבדיקה שלמעלה יכולה לעבור גם כשהיא עיוורת · רשימה חסרה מייצרת `missing` ריק,
+       וזה נראה בדיוק כמו הצלחה. לכן הכיסוי עצמו נטען כאן במפורש: כל שדה ש-saneRec כותבת
+       ל-out חייב להופיע ברשימה שהשער בונה. זה מה שהיה תופס את `sens` ב-2,040. */
+    const sane = fnBody('saneRec');
+    const written = [...new Set([...sane.matchAll(/out\.(\w+)\s*=/g)].map(m => m[1])
+      .concat([...sane.matchAll(/\b(\w+)\s*:\s*int0\(r\./g)].map(m => m[1])))];
+    assert.ok(written.includes('sens') && written.includes('t0') && written.includes('k0'),
+      'הרשימה איבדה שדה שכן קיים ב-saneRec: ' + written.join(', '));
+    assert.ok(written.length >= 10, 'saneRec כותבת יותר שדות ממה שנקרא · ' + written.length);
+  });
+
+  test('הגבול הוא סוף הפונקציה, לא מספר', () => {
+    /* ⛔ זו הרגרסיה שחזרה כאן שלוש פעמים באותו קובץ: מישהו כותב `app.slice(at, at + N)`,
+       הבדיקה ירוקה, והקוד שמעבר ל-N שקט. השער הזה הופך את הדפוס עצמו לאדום.
+       ‏`fnBody` חותכת ב-`i + 1` · חד-ספרתי, ולכן אינו נתפס · וזה ההבדל בין גבול שנמדד
+       מהסוגריים לבין חלון שהוצהר במספר. */
+    /* ⚠ הניסוח הראשון כאן היה `[^)]*?` · והוא לא הצליח לחצות את הסוגר של
+       `app.indexOf('function mergeProgress')`, כלומר **פספס בדיוק את הצורה ההיסטורית**
+       שהוא נכתב כדי לתפוס. נמצא בהזרקה חוזרת של החלון. הגבול הוא השורה, לא הסוגריים. */
+    const self = codeOf(fs.readFileSync(__filename, 'utf8'));
+    const windows = [...self.matchAll(/app\.slice\([^\n]*\+\s*(\d{3,})/g)].map(m => m[1]);
+    assert.deepStrictEqual(windows, [],
+      'חזר חלון סריקה באורך קבוע: ' + windows.join(', ') + ' · השתמש ב-fnBody');
   });
 });
