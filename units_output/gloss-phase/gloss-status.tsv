@@ -19,7 +19,7 @@
 1	18	מִנֶּגֶד	מנגד	נגד	ויקינתונים (CC0)	אומת			L213452
 1	19	יֶתֶר עַל כֵּן	יתר על כן	יתר	ספריא · נחלת הכלל	שוכתב			Ritva on Yevamot 37b:1 (Chidushei HaRitva Yevamot; Lvov, 1861. [he])
 1	20	אַדְּרַבָּא	אדרבא	אדרבא	ספריא · נחלת הכלל	אומת			Rashba on Eruvin 71a:1 (Gerlitz edition, published by Oraita [he])
-1	21	עַל כָּרְחוֹ	על כרחו	כרח	ספריא · נחלת הכלל	אומת			Gur Aryeh on Bamidbar 22:18:2 (Gur Aryeh, Machon Yerushalyim, 1989-1995 [he])
+1	21	עַל כָּרְחוֹ	על כרחו	כרח	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Gur Aryeh on Bamidbar 22:18:2 (Gur Aryeh, Machon Yerushalyim, 1989-1995 [he])	Gur Aryeh on Bamidbar 22:18:2 (Gur Aryeh, Machon Yerushalyim, 1989-1995 [he])
 1	22	בְּדִיעֲבַד	בדיעבד	דיעבד	ויקינתונים (CC0)	אומת			L491991
 1	23	לְכַתְּחִלָּה	לכתחלה	תחל	ספריא · נחלת הכלל	שוכתב			Maharam Schiff on Gittin 4a:6 (Vilna Edition [he])
 1	24	פָּזִיז	פזיז	פזז	ויקינתונים (CC0)	אומת			L216609
@@ -153,7 +153,7 @@
 1	152	סְרָק	סרק	סרק	ויקינתונים (CC0)	שוכתב		נדחה בהפרכה ונכתב מחדש בכפוף לשער	L215859
 1	153	לַשָּׁוְא	לשוא	שוא	ספריא · נחלת הכלל	אומת			Rashi on Temurah 3b:7:2 (Vilna Edition [he])
 1	154	כְּפִיּוּת טוֹבָה	כפיות טובה	כפיות-טובה	ספריא · נחלת הכלל	אומת			Chelkat Mechokek on Job 5:19:1 (Chelkat Mechokek, Warsaw 1876 [he])
-1	155	מַשּׂוֹא פָּנִים	משוא פנים	משוא-פנים	ספריא · נחלת הכלל	אומת			Ben Yehoyada on Yevamot 79a:2 (Senlake edition 2019 based on Ben Yehoyada, Jerusalem, 1897 [he])
+1	155	מַשּׂוֹא פָּנִים	משוא פנים	משוא-פנים	ספריא · נחלת הכלל	אומת		⟵ מקור הוחלף · הטענה הקודמת: ספריא · נחלת הכלל / Ben Yehoyada on Yevamot 79a:2 (Senlake edition 2019 based on Ben Yehoyada, Jerusalem, 1897 [he]) · המקור החדש מ-attestation.tsv	Mishnah Avot 4:22 · Mishnah, ed. Romm, Vilna 1913 (Public Domain) · «ולא משוא פנים ולא מקח שוחד»
 1	156	קָלוֹן	קלון	קלה	ויקינתונים (CC0)	אומת			L81644
 1	157	תְּנוּךְ	תנוך	תנכ	ויקינתונים (CC0)	אומת			L82519
 1	158	עָכוּר	עכור	עכר	ויקינתונים (CC0)	אומת			L216146
@@ -189,12 +189,12 @@
 1	188	כִּלְאַחַר יָד	כלאחר יד	כלאחר-יד	ספריא · נחלת הכלל	אומת			Zohar Chadash, Tikuna Kadma'ah 75 (Zohar Chadash [he])
 1	189	אֵין תּוֹכוֹ כְּבָרוֹ	אין תוכו כברו	אין-תוכו-כברו	ספריא · נחלת הכלל	שוכתב			Malbim Beur Hamilot on Isaiah 10:6:2 (On Your Way [he])
 1	190	נִמְנָה עִם	נמנה עם	נמנה-עם	ויקינתונים (CC0)	שוכתב			L214705
-1	191	עוֹלֶה בְּקָנֶה אֶחָד עִם	עולה בקנה אחד עם	עולה-בקנה-אחד	ספריא · נחלת הכלל	אומת			Lechem Shamayim on Mishnah Mikvaot 2:9:1 (Jerusalem, 1978 [he])
+1	191	עוֹלֶה בְּקָנֶה אֶחָד עִם	עולה בקנה אחד עם	עולה-בקנה-אחד	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Lechem Shamayim on Mishnah Mikvaot 2:9:1 (Jerusalem, 1978 [he])	Lechem Shamayim on Mishnah Mikvaot 2:9:1 (Jerusalem, 1978 [he])
 1	192	חַס	חס	חוס	ויקינתונים (CC0)	SKIP			L211046
 1	193	טָבַע	טבע	טבע	ויקינתונים (CC0)	שוכתב			L211263
 1	194	אֶגֶד	אגד	אגד	ויקינתונים (CC0)	שוכתב			L204348
 1	195	נָא	נא	נא	ויקינתונים (CC0)	אומת			L492185
-1	196	לֹא בִּכְדִי	לא בכדי	לא-בכדי	ספריא · נחלת הכלל	שוכתב			Darkhei Moshe (Amiel), Derekh HaKodesh, Shmatta 11 9:3 (Darkhei Moshe, Jerusalem 1998-2000 [he])
+1	196	לֹא בִּכְדִי	לא בכדי	לא-בכדי	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Darkhei Moshe (Amiel), Derekh HaKodesh, Shmatta 11 9:3 (Darkhei Moshe, Jerusalem 1998-2000 [he])	Darkhei Moshe (Amiel), Derekh HaKodesh, Shmatta 11 9:3 (Darkhei Moshe, Jerusalem 1998-2000 [he])
 1	197	קוֹרַת רוּחַ	קורת רוח	קורת-רוח	ספריא · נחלת הכלל	שוכתב			Kessef Mishneh on Mishneh Torah, Slaves 6:4:2 (Torat Emet 363 [he])
 1	198	בְּפוּמְבִּי / בְּפוּמְבֵּי	בפומבי / בפומבי	בפומבי	ספריא · נחלת הכלל	אומת			Prisha, Even HaEzer 91:16:1 (Tur Even HaEzer, Vilna, 1923 [he])
 1	199	כַּן / כַּנָּה	כן / כנה	כנ	ויקינתונים (CC0)	אומת			L65801
@@ -204,9 +204,9 @@
 2	3	לְבַל	לבל	לבל	ספריא · נחלת הכלל	אומת			Tov haLevanon, Tenth Treatise on Devotion to God 7:72 (Chovat Halevavot, Warsaw 1875 [he])
 2	4	בְּטֶרֶם	בטרם	טרמ	ספריא · נחלת הכלל	שוכתב			Yahel Ohr on Zohar 3:249a:2 (Vilna 1882 [he])
 2	5	בִּן־לַיְלָה	בן לילה	בן-לילה	ספריא · נחלת הכלל	אומת			Etz Yosef on Shemot Rabbah 9:7:25 (Midrash Rabbah with Etz Yosef, Warsaw, 1867 [he])
-2	6	זֶה מִכְּבָר	זה מכבר	כבר	ספריא · נחלת הכלל	שוכתב			Justice in the Jewish State according to the Torah 31:2 (Tel Aviv, 1936 [he])
+2	6	זֶה מִכְּבָר	זה מכבר	כבר	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Justice in the Jewish State according to the Torah 31:2 (Tel Aviv, 1936 [he])	Justice in the Jewish State according to the Torah 31:2 (Tel Aviv, 1936 [he])
 2	7	לְשֶׁעָבַר	לשעבר	לשעבר	ויקינתונים (CC0)	שוכתב		הוחזר בסבב 1 · הופרך בהפרכת-המכהן ונכתב מחדש	L492056
-2	8	חֲדָשׁוֹת לַבְּקָרִים	חדשות לבקרים	חדשות-לבקרים	ספריא · נחלת הכלל	אומת			Sermons Unto My People, The Three Festivals 2:30 (Derashot El Ami, Jerusalem 1936 [he])
+2	8	חֲדָשׁוֹת לַבְּקָרִים	חדשות לבקרים	חדשות-לבקרים	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Sermons Unto My People, The Three Festivals 2:30 (Derashot El Ami, Jerusalem 1936 [he])	Sermons Unto My People, The Three Festivals 2:30 (Derashot El Ami, Jerusalem 1936 [he])
 2	9	קַל וָחֹמֶר	קל וחמר	קל-וחומר	ויקינתונים (CC0)	אומת			L67882
 2	10	מִבְּעוֹד מוֹעֵד	מבעוד מועד	מבעוד-מועד	ויקיטקסט · נחלת הכלל	אומת			חוק קיום דיונים בהיוועדות חזותית בהשתתפות עצורים, אסירים וכלואים בתקופת התפשטות נגיף הקורונה החדש (הוראת שעה)
 2	11	בְּעִצּוּמוֹ שֶׁל	בעצומו של	עצמ	ספריא · נחלת הכלל	אומת			Notes and Corrections on Midrash Aggadah, Genesis 7:8 (Midrash Aggadah, ed. Buber, Vienna, 1894. [he])
@@ -388,7 +388,7 @@
 2	187	הָדוּר	הדור	הדר	ויקינתונים (CC0)	אומת			L206972
 2	188	סַסְגּוֹנִי	ססגוני	ססגונ	ויקינתונים (CC0)	שוכתב			L215721
 2	189	קָפַץ יָדוֹ	קפץ ידו	קפץ-ידו	ספריא · נחלת הכלל	אומת			Shoel uMeshiv Mahadura I 3:200:1 (Lemberg, 1865-1890 [he])
-2	190	מוּסַר כְּלָיוֹת	מוסר כליות	מוסר-כליות	ספריא · נחלת הכלל	אומת			LeNevukhei HaTekufah 2:1:27 (Merkaz Shapira, 2014 [he])
+2	190	מוּסַר כְּלָיוֹת	מוסר כליות	מוסר-כליות	נחלת הכלל / CC0 (לפי ספריא)	אומת		⟵ מקור הוחלף · הטענה הקודמת: ספריא · נחלת הכלל / LeNevukhei HaTekufah 2:1:27 (Merkaz Shapira, 2014 [he]) · המקור החדש מ-attestation.tsv	LeNevukhei HaTekufah 2:1:27
 2	191	מַפַּח נֶפֶשׁ	מפח נפש	מפח-נפש	ספריא · נחלת הכלל	אומת			Melekhet Shelomoh on Mishnah Rosh Hashanah 2:6:6 (Mishnah, ed. Romm, Vilna 1913 [he])
 2	192	יָרַד לְסוֹף דַּעְתּוֹ	ירד לסוף דעתו	ירד-לסוף-דעתו	ספריא · נחלת הכלל	שוכתב			Prisha, Choshen Mishpat 290:10:1 (Tur Choshen Mishpat: Vilna, 1923 [he])
 2	193	עָמַד עַל טִיבוֹ	עמד על טיבו	עמד-על-טיבו	ספריא · נחלת הכלל	אומת			Torat HaBayit HaAroch, The Fifth House, The Second Gate 1 (Gerlitz edition, published by Oraita [he])
@@ -404,7 +404,7 @@
 2	203	תְּמִימֵי דֵעִים	תמימי דעים	תמימי-דעים	ספריא · נחלת הכלל	אומת			Ya'arot Devash II 2:62 (1293 [he])
 3	1	לְמִצְעָר	למצער	למצער	ספריא · נחלת הכלל	אומת			Malbim Beur Hamilot on Isaiah 63:18:1 (On Your Way [he])
 3	2	לְהַוָּתוֹ	להותו	הוה	ספריא · נחלת הכלל	אומת			Sefat Yeter 19 (Sefer Sefat Yeter, Warsaw 1895 [he])
-3	3	בְּצַוְתָּא	בצותא	צות	ספריא · נחלת הכלל	אומת			Hypothetica 46 (Tel Aviv, 1936 [he])
+3	3	בְּצַוְתָּא	בצותא	צות	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Hypothetica 46 (Tel Aviv, 1936 [he])	Hypothetica 46 (Tel Aviv, 1936 [he])
 3	4	קִמְעָה	קמעה	קמע	ספריא · נחלת הכלל	שוכתב			Perush Maharzu on Bamidbar Rabbah 4:13:5 (Midrash Rabbah, Vilna, 1878 [he])
 3	5	יוֹמָם	יומם	יומ	ויקינתונים (CC0)	שוכתב			L78235
 3	6	סַגְפָן	סגפן	סגפ	ויקינתונים (CC0)	אומת			L215170
@@ -490,7 +490,7 @@
 3	86	מָדוֹן	מדון	מדונ	ויקינתונים (CC0)	אומת			L66051
 3	87	מָגוֹר	מגור	גור	ויקינתונים (CC0)	אומת			L78766
 3	88	חִיל	חיל	חיל	ויקינתונים (CC0)	אומת			L65246
-3	89	מֹרֶךְ	מרך	מרכ	ספריא · נחלת הכלל	שוכתב			Rashi on Leviticus 26:36:1 (Pentateuch with Rashi's commentary by M. Rosenbaum and A.M. Silbermann, 1929-1934 [he])
+3	89	מֹרֶךְ	מרך	מרכ	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Rashi on Leviticus 26:36:1 (Pentateuch with Rashi's commentary by M. Rosenbaum and A.M. Silbermann, 1929-1934 [he])	Rashi on Leviticus 26:36:1 (Pentateuch with Rashi's commentary by M. Rosenbaum and A.M. Silbermann, 1929-1934 [he])
 3	90	הוֹד	הוד	הוד	ויקינתונים (CC0)	אומת			L64801
 3	91	פַּת	פת	פתת	ויקינתונים (CC0)	שוכתב			L67587
 3	92	תֶּלֶם	תלם	תלמ	ויקינתונים (CC0)	שוכתב			L68657
@@ -574,7 +574,7 @@
 3	170	סָתוּר	סתור	סתר	ויקינתונים (CC0)	אומת			L215868
 3	171	גָּרוּם	גרום	גרמ	ויקינתונים (CC0)	שוכתב			L206360
 3	172	כְּהֶרֶף עַיִן	כהרף עין	כהרף-עין	ספריא · נחלת הכלל	אומת			Be'er HaGolah on Shulchan Arukh, Yoreh De'ah 266:22 (Ashlei Ravrevei: Shulchan Aruch Yoreh Deah, Lemberg, 1888 [he])
-3	173	בִּמְחִי יָד	במחי יד	במחי-יד	ספריא · נחלת הכלל	אומת			LeNevukhei HaTekufah 3:24:38 (Merkaz Shapira, 2014 [he])
+3	173	בִּמְחִי יָד	במחי יד	במחי-יד	נחלת הכלל / CC0 (לפי ספריא)	אומת		⟵ מקור הוחלף · הטענה הקודמת: ספריא · נחלת הכלל / LeNevukhei HaTekufah 3:24:38 (Merkaz Shapira, 2014 [he]) · המקור החדש מ-attestation.tsv	LeNevukhei HaTekufah 3:24:38
 3	174	עוֹד בְּאִבּוֹ	עוד באבו	עוד-באיבו	ספריא · נחלת הכלל	אומת		הוחזר בסבב 1 · אומת בהפרכת-המכהן	HaKtav VeHaKabalah, Exodus 9:31:2 (HaKtav VeHaKabbalah, Frankfurt 1880 [he])
 3	175	קַל דַּעַת	קל דעת	קל-דעת	ספריא · נחלת הכלל	אומת			Midrash Sekhel Tov, Bereshit 34:4:1 (Sechel Tob, Berlin 1900-1901 [he])
 3	176	כְּבַד רֹאשׁ	כבד ראש	כבד-ראש	ספריא · נחלת הכלל	אומת			German Commentary on Pirkei Avot 3:13:1 (6811 [en])
@@ -585,7 +585,7 @@
 3	181	עוֹבֵר אֹרַח	עובר ארח	עובר-אורח	ויקינתונים (CC0)	שוכתב			L67175
 3	182	הוֹן עֲתֵק	הון עתק	הון-עתק	ויקינתונים (CC0)	אומת			L64818
 3	183	מַשְׂאַת נֶפֶשׁ	משאת נפש	משאת-נפש	ספריא · נחלת הכלל	אומת			Pri Etz Chaim, Gate of Putting Down the Head 2:9 (Pri Etz Chaim [he])
-3	184	אֲחִיזַת עֵינַיִם	אחיזת עינים	אחיזת-עיניים	ספריא · נחלת הכלל	אומת			BePardes HaChasidut VeHakabbalah, The Foundations of Chasidut 2:3 (Tel Aviv, 1997 [he])
+3	184	אֲחִיזַת עֵינַיִם	אחיזת עינים	אחיזת-עיניים	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / BePardes HaChasidut VeHakabbalah, The Foundations of Chasidut 2:3 (Tel Aviv, 1997 [he])	BePardes HaChasidut VeHakabbalah, The Foundations of Chasidut 2:3 (Tel Aviv, 1997 [he])
 3	185	שְׁאָר רוּחַ	שאר רוח	שאר-רוח	ספריא · נחלת הכלל	אומת			Haamek Davar on Genesis 1:2:4 (Ha'amek Davar [he])
 3	186	קְשֵׁה יוֹם	קשה יום	קשה-יום	ספריא · נחלת הכלל	שוכתב			Malbim Beur Hamilot on Isaiah 8:21:1 (On Your Way [he])
 3	187	מוּסַר הַשְׂכֵּל	מוסר השכל	מוסר-השכל	ספריא · נחלת הכלל	אומת			Etz Yosef on Shemot Rabbah 31:16:9 (Midrash Rabbah with Etz Yosef, Warsaw, 1867 [he])
@@ -597,7 +597,7 @@
 3	193	הִתְחַבֵּט	התחבט	חבט	ויקינתונים (CC0)	אומת		הוחזר בסבב 1 · אומת בהפרכת-המכהן	L209471
 3	194	כִּיבֵּד	כיבד	כבד	ויקינתונים (CC0)	שוכתב		הוחזר בסבב 1 · הופרך בהפרכת-המכהן ונכתב מחדש	L212036
 3	195	לַהַק	להק	להק	ויקינתונים (CC0)	שוכתב		נדחה בהפרכה ונכתב מחדש בכפוף לשער	L65900
-3	196	נִבְצַר מִמֶנּוּ	נבצר ממנו	נבצר-ממנו	ספריא · נחלת הכלל	אומת			Against Flaccus 10:10 (Tel Aviv, 1936 [he])
+3	196	נִבְצַר מִמֶנּוּ	נבצר ממנו	נבצר-ממנו	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Against Flaccus 10:10 (Tel Aviv, 1936 [he])	Against Flaccus 10:10 (Tel Aviv, 1936 [he])
 3	197	בְּחַדְרֵי חֲדָרִים	בחדרי חדרים	בחדרי-חדרים	ספריא · נחלת הכלל	אומת			Ba'er Hetev on Shulchan Arukh, Orach Chayim 301:33 (Torat Emet 357 [he])
 3	198	שִׁגְעוֹן גַּדְלוּת	שגעון גדלות	שגעון-גדלות	⚠ דרוש מקור	אומת		הוחזר בסבב 1 · אומת בהפרכת-המכהן	שגעון
 3	199	נוֹחַ לִכְעוֹס	נוח לכעוס	נוח-לכעוס	ספריא · נחלת הכלל	שוכתב			Pirkei Avot 5:11 (Mishnah, ed. Romm, Vilna 1913 [he])
@@ -785,10 +785,10 @@
 4	173	לְלֹא חָת	ללא חת	ללא-חת	ויקיטקסט · נחלת הכלל	אומת			צידה לדרך מפרשות השבוע/פרשת שמות
 4	174	סָמְרוּ שַׂעֲרוֹתָיו	סמרו שערותיו	סמרו-שערותיו	⚠ דרוש מקור	שוכתב			סמר
 4	175	הִרְקִיעַ שְׁחָקִים	הרקיע שחקים	הרקיע-שחקים	ספריא · נחלת הכלל	אומת			Otzar Midrashim, Maaseh Beraishit & Maaseh Merkavah, Zeh Maaseh Beraishit (Work of Creation) 7 (Otzar Midrashim, New York, 1915 [he])
-4	176	שֵׁם דָּבָר	שם דבר	שם-דבר	ספריא · נחלת הכלל	SKIP			Gur Aryeh on Shemot 16:3:1 (Gur Aryeh, Machon Yerushalyim, 1989-1995 [he])
+4	176	שֵׁם דָּבָר	שם דבר	שם-דבר	⚠ דרוש מקור	SKIP		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Gur Aryeh on Shemot 16:3:1 (Gur Aryeh, Machon Yerushalyim, 1989-1995 [he])	Gur Aryeh on Shemot 16:3:1 (Gur Aryeh, Machon Yerushalyim, 1989-1995 [he])
 4	177	עִיֵּי חֳרָבוֹת	עיי חרבות	עיי-חרבות	ויקיטקסט · נחלת הכלל	אומת			שירים (שאול טשרניחובסקי)/שירים חדשים/אהבתי כי אראה
 4	178	יֵשׁ מֵאַיִן	יש מאין	יש-מאין	ספריא · נחלת הכלל	אומת			Malbim Beur Hamilot on Isaiah 45:12:1 (On Your Way [he])
-4	179	מִקְסַם שָׁוְא	מקסם שוא	מקסם-שווא	ספריא · נחלת הכלל	אומת			Sermons Unto My People, The Three Festivals 5:12 (Derashot El Ami, Jerusalem 1936 [he])
+4	179	מִקְסַם שָׁוְא	מקסם שוא	מקסם-שווא	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Sermons Unto My People, The Three Festivals 5:12 (Derashot El Ami, Jerusalem 1936 [he])	Sermons Unto My People, The Three Festivals 5:12 (Derashot El Ami, Jerusalem 1936 [he])
 4	180	תָּלוּי עַל בְּלִימָה	תלוי על בלימה	תלוי-על-בלימה	ספריא · נחלת הכלל	אומת		הוחזר בסבב 1 · אומת בהפרכת-המכהן	Chelkat Mechokek on Job 26:7:1 (Chelkat Mechokek, Warsaw 1876 [he])
 4	181	שְׁכוּחַ אֵל	שכוח אל	שכוח-אל	ויקינתונים (CC0)	אומת			L219622
 4	182	עוֹלֶה עַל גְּדוֹתָיו	עולה על גדותיו	עולה-על-גדותיו	ספריא · נחלת הכלל	אומת			Meshekh Chokhmah, Miketz 8 (Riga, 1927 [he])
@@ -932,7 +932,7 @@
 5	112	נֶשֶׁךְ	נשך	נשכ	ויקינתונים (CC0)	אומת			L215062
 5	113	מַהֲמוֹרוֹת	מהמורות	המר	ספריא · נחלת הכלל	אומת			Korban HaEdah on Jerusalem Talmud Moed Katan 1:6:3:2 (1536 [he])
 5	114	חַתְחַתִּים	חתחתים	חתחת	ויקינתונים (CC0)	אומת			L211229
-5	115	תְּלָאוֹת	תלאות	תלא	ספריא · נחלת הכלל	אומת			Menorat HaMaor, iv; On Humility, Developing Humility 21 (Menorat HaMaor, Alnakawa, H.G. Enelow ed. N.Y. 1929-1934 [he])
+5	115	תְּלָאוֹת	תלאות	תלא	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Menorat HaMaor, iv; On Humility, Developing Humility 21 (Menorat HaMaor, Alnakawa, H.G. Enelow ed. N.Y. 1929-1934 [he])	Menorat HaMaor, iv; On Humility, Developing Humility 21 (Menorat HaMaor, Alnakawa, H.G. Enelow ed. N.Y. 1929-1934 [he])
 5	116	אֲסַפְסוּף	אספסוף	אספסופ	ויקינתונים (CC0)	אומת			L205173
 5	117	גֻּזְמָה	גזמה	גזמ	ויקינתונים (CC0)	אומת			L206085
 5	118	זוּטוֹת	זוטות	זוט	ויקינתונים (CC0)	אומת			L210377
@@ -941,11 +941,11 @@
 5	121	נֶאֱלָח	נאלח	אלח	ויקינתונים (CC0)	אומת			L214052
 5	122	שָׁחוּחַ	שחוח	שחח	ויקינתונים (CC0)	שוכתב			L219403
 5	123	מְאַלֵּף	מאלף	אלפ	ויקינתונים (CC0)	אומת			L65998
-5	124	הֵנִיחַ אֶת דַּעְתּוֹ	הניח את דעתו	הניח-את-דעתו	ספריא · נחלת הכלל	אומת			Shem MiShmuel, Vayakhel 13:4 (Sefer Shem Mishmuel, Piotrkow, 1927-1934 [he])
-5	125	הוֹלִיךְ שׁוֹלָל	הוליך שולל	הוליך-שולל	ספריא · נחלת הכלל	אומת			Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 11:90 (Derashot El Ami, Jerusalem 1936 [he])
+5	124	הֵנִיחַ אֶת דַּעְתּוֹ	הניח את דעתו	הניח-את-דעתו	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Shem MiShmuel, Vayakhel 13:4 (Sefer Shem Mishmuel, Piotrkow, 1927-1934 [he])	Shem MiShmuel, Vayakhel 13:4 (Sefer Shem Mishmuel, Piotrkow, 1927-1934 [he])
+5	125	הוֹלִיךְ שׁוֹלָל	הוליך שולל	הוליך-שולל	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 11:90 (Derashot El Ami, Jerusalem 1936 [he])	Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 11:90 (Derashot El Ami, Jerusalem 1936 [he])
 5	126	הֵקֵל רֹאשׁ	הקל ראש	הקל-ראש	ספריא · נחלת הכלל	אומת			Alshekh on Torah, Leviticus 10:1:11 (Torat Moshe, Warsaw, 1875 [he])
-5	127	מִן הַפַּח אֶל הַפַּחַת	מן הפח אל הפחת	מן-הפח-אל-הפחת	ספריא · נחלת הכלל	אומת			Sermons Unto My People, The High Holidays 7:39 (Derashot El Ami, Jerusalem 1936 [he])
-5	128	אֶפֶס קָצֵהוּ	אפס קצהו	אפס-קצהו	ספריא · נחלת הכלל	אומת			Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 15:65 (Derashot El Ami, Jerusalem 1936 [he])
+5	127	מִן הַפַּח אֶל הַפַּחַת	מן הפח אל הפחת	מן-הפח-אל-הפחת	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Sermons Unto My People, The High Holidays 7:39 (Derashot El Ami, Jerusalem 1936 [he])	Sermons Unto My People, The High Holidays 7:39 (Derashot El Ami, Jerusalem 1936 [he])
+5	128	אֶפֶס קָצֵהוּ	אפס קצהו	אפס-קצהו	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 15:65 (Derashot El Ami, Jerusalem 1936 [he])	Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 15:65 (Derashot El Ami, Jerusalem 1936 [he])
 5	129	טִפִּין טִפִּין	טפין טפין	טיפין-טיפין	ספריא · נחלת הכלל	אומת			Maggid Mishneh on Mishneh Torah, Forbidden Intercourse 9:6:3 (ToratEmet [he])
 5	130	אֵין אוֹנִים	אין אונים	אין-אונים	ספריא · נחלת הכלל	אומת			Ibn Ezra on Isaiah 40:29:1 (Ibn Ezra on Isaiah, by M. Friedlander; Society of Hebrew Literature, London 1877 [he])
 5	131	תְּמוֹל שִׁלְשׁוֹם	תמול שלשום	תמול-שלשום	ספריא · נחלת הכלל	אומת			Kitzur Ba'al HaTurim on Exodus 5:8:1 (On Your Way [he])
@@ -959,7 +959,7 @@
 5	139	שֹׁד וָשֶׁבֶר	שד ושבר	שוד-ושבר	ספריא · נחלת הכלל	אומת			Machberet Menachem, Introduction 190 (Mahberet Menahem, London, 1854. [he])
 5	140	מִן הַכֹּחַ אֶל הַפֹּעַל	מן הכח אל הפעל	מן-הכוח-אל-הפועל	ספריא · נחלת הכלל	אומת			Efodi on Guide for the Perplexed, Part 2 4:12 (Warsaw, 1872 [he])
 5	141	מְחוֹז חֶפְצוֹ	מחוז חפצו	מחוז-חפצו	ספריא · נחלת הכלל	אומת			HaKtav VeHaKabalah, Genesis 18:1:3 (HaKtav VeHaKabbalah, Frankfurt 1880 [he])
-5	142	בִּמְרוּצַת הַזְּמַן	במרוצת הזמן	במרוצת-הזמן	ספריא · נחלת הכלל	אומת		הוחזר בסבב 1 · אומת בהפרכת-המכהן	Against Flaccus 21:3 (Tel Aviv, 1936 [he])
+5	142	בִּמְרוּצַת הַזְּמַן	במרוצת הזמן	במרוצת-הזמן	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Against Flaccus 21:3 (Tel Aviv, 1936 [he]) · הוחזר בסבב 1 · אומת בהפרכת-המכהן	Against Flaccus 21:3 (Tel Aviv, 1936 [he])
 5	143	פָּרָשַׁת דְּרָכִים	פרשת דרכים	פרשת-דרכים	ספריא · נחלת הכלל	שוכתב			Rashi on Sotah 21a:13:1 (Vilna Edition [he])
 5	144	רֹעַ הַגְּזֵרָה	רע הגזרה	רוע-הגזרה	ספריא · נחלת הכלל	SKIP			Ibn Ezra on Isaiah 27:9:1 (Ibn Ezra on Isaiah, by M. Friedlander; Society of Hebrew Literature, London 1877 [he])
 5	145	עַמּוּד הַתָּוֶךְ	עמוד התוך	עמוד-התווך	ספריא · נחלת הכלל	אומת			Matnot Kehunah on Shemot Rabbah 15:22:9 (Midrash Rabbah, Vilna, 1878 [he])
@@ -973,7 +973,7 @@
 5	153	לֹא דֻּבִּים וְלֹא יַעַר	לא דבים ולא יער	לא-דובים-ולא-יער	ספריא · נחלת הכלל	אומת			Ein Yaakov, Sotah 9:6 (Daat [he])
 5	154	דָּן לְכַף זְכוּת	דן לכף זכות	דן-לכף-זכות	ספריא · נחלת הכלל	אומת			Shenei Luchot HaBerit, Torah Shebikhtav, Sefer Vayikra, Torah Ohr, Kedoshim 42 (Shenei Luchot HaBrit, based on Amsterdam, 1698 ed. Part III [he])
 5	155	לִפְנִים מִשּׁוּרַת הַדִּין	לפנים משורת הדין	לפנים-משורת-הדין	ספריא · נחלת הכלל	אומת			Chidushei Agadot on Avodah Zarah 4b:7 (Vilna Edition [he])
-5	156	יָצָא יְדֵי חוֹבָה	יצא ידי חובה	יצא-ידי-חובה	ספריא · נחלת הכלל	אומת			Arvei Nachal, Miketz 1:38 (Arvei Nachal, Jerusalem, 1991 [he])
+5	156	יָצָא יְדֵי חוֹבָה	יצא ידי חובה	יצא-ידי-חובה	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Arvei Nachal, Miketz 1:38 (Arvei Nachal, Jerusalem, 1991 [he])	Arvei Nachal, Miketz 1:38 (Arvei Nachal, Jerusalem, 1991 [he])
 5	157	עוֹבֵר לַסּוֹחֵר	עובר לסוחר	עובר-לסוחר	ספריא · נחלת הכלל	אומת			Gra's Nuschah on Avot D'Rabbi Natan 13:3:3 (Talmud Bavli, Vilna 1883 ed. [he])
 5	158	שָׁוֶה לְכָל נֶפֶשׁ	שוה לכל נפש	שווה-לכל-נפש	ספריא · נחלת הכלל	אומת			Korban HaEdah on Jerusalem Talmud Shabbat 3:3:13:7 (1536 [he])
 5	159	לֶחֶם חֻקּוֹ	לחם חקו	לחם-חוקו	ספריא · נחלת הכלל	שוכתב			Ralbag on I Kings 11:18:2 (On Your Way [he])
@@ -983,24 +983,24 @@
 5	163	קֶרֶן זָוִית	קרן זוית	קרן-זווית	ספריא · נחלת הכלל	אומת			Chatam Sofer on Shulchan Arukh, Orach Chayim 440:1 (Maginei Eretz: Shulchan Aruch Orach Chaim, Lemberg, 1893 [he])
 5	164	עָמַד בַּפֶּרֶץ	עמד בפרץ	עמד-בפרץ	ספריא · נחלת הכלל	אומת			Perush Maharzu on Ruth Rabbah, Petichta 1:55 (Midrash Rabbah, Vilna, 1878 [he])
 5	165	אַחַר כָּבוֹד	אחר כבוד	אחר-כבוד	ספריא · נחלת הכלל	אומת		הוחזר בסבב 1 · אומת בהפרכת-המכהן	Matnot Kehunah on Vayikra Rabbah 9:2:1 (Midrash Rabbah, Vilna, 1878 [he])
-5	166	בַּחֲצִי פֶּה	בחצי פה	בחצי-פה	ספריא · נחלת הכלל	אומת			Sha'arei Torat Eretz Yisrael on Jerusalem Talmud Pesachim 5:5:4:1 (Jerusalem, 1940 [he])
+5	166	בַּחֲצִי פֶּה	בחצי פה	בחצי-פה	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Sha'arei Torat Eretz Yisrael on Jerusalem Talmud Pesachim 5:5:4:1 (Jerusalem, 1940 [he])	Sha'arei Torat Eretz Yisrael on Jerusalem Talmud Pesachim 5:5:4:1 (Jerusalem, 1940 [he])
 5	167	בְּיָד רָמָה	ביד רמה	ביד-רמה	ספריא · נחלת הכלל	אומת			Netinah LaGer, Numbers 15:30:1 (Vilna, 1876 [he])
 5	168	בְּאֵין רוֹאִים	באין רואים	באין-רואים	ספריא · נחלת הכלל	שוכתב			Machatzit HaShekel on Orach Chayim 55:14:2 (Maginei Eretz: Shulchan Aruch Orach Chaim, Lemberg, 1893, Vol 1 [he])
 5	169	בֵּין הַשְּׁמָשׁוֹת	בין השמשות	בין-השמשות	ויקינתונים (CC0)	אומת			L76275
 5	170	לְעֵת מְצֹא	לעת מצא	לעת-מצוא	ספריא · נחלת הכלל	שוכתב			Torah Temimah on Psalms 32:6:1 (On Your Way [he])
 5	171	נַחֲלַת הַכְּלָל	נחלת הכלל	נחלת-הכלל	ספריא · נחלת הכלל	שוכתב			Akeidat Yitzchak 23:1:8 (Akeidat Yitzchak, Pressburg 1849 [he])
 5	172	נִכְסֵי צֹאן בַּרְזֶל	נכסי צאן ברזל	נכסי-צאן-ברזל	ספריא · נחלת הכלל	אומת			Chelkat Mechokek 66:39 (Vilna, 1876 [he])
-5	173	יְגִיעַ כַּפָּיו	יגיע כפיו	יגיע-כפיו	ספריא · נחלת הכלל	שוכתב			Meiri on Psalms 128:2:1 (Jerusalem, 1936 [he])
+5	173	יְגִיעַ כַּפָּיו	יגיע כפיו	יגיע-כפיו	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Meiri on Psalms 128:2:1 (Jerusalem, 1936 [he])	Meiri on Psalms 128:2:1 (Jerusalem, 1936 [he])
 5	174	הֲלָךְ רוּחַ	הלך רוח	הלך-רוח	ספריא · נחלת הכלל	אומת			Minchat Shai on Micah 2:10:1 (Minchat Shai [he])
 5	175	עִדָּן וְעִדָּנִים	עדן ועדנים	עידן-ועידנים	ספריא · נחלת הכלל	אומת			Beur HaRe'em on Midrash Lekach Tov, Deuteronomy, Vayeilech 24 (Midrash Lekach Tov on Torah, Vilna 1884 [he])
 5	176	עָשָׂה יָמִים כְּלֵילוֹת	עשה ימים כלילות	עשה-ימים-כלילות	ספריא · נחלת הכלל	אומת			Rosh on Moed Katan 3:63:1 (Vilna Edition [he])
 5	177	עֵרֶב רַב	ערב רב	ערב-רב	ספריא · נחלת הכלל	שוכתב			Mikdash Melekh on Zohar 3:237b:1 (Zholkva, 1864 [he])
 5	178	לְמַגִּנַּת לִבּוֹ	למגנת לבו	למגינת-ליבו	ויקיטקסט · נחלת הכלל	אומת			יהודה ליב גורדון
-5	179	אַלְיָה וְקוֹץ בָּהּ	אליה וקוץ בה	אליה-וקוץ-בה	ספריא · נחלת הכלל	אומת			Hegyonot El Ami, Volume II, Chayei Sara 20:22 (Antwerp, 1933-1936 [he])
-5	180	לַאֲמִתּוֹ שֶׁל דָּבָר	לאמתו של דבר	לאמיתו-של-דבר	ספריא · נחלת הכלל	שוכתב			Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 16:23 (Derashot El Ami, Jerusalem 1936 [he])
+5	179	אַלְיָה וְקוֹץ בָּהּ	אליה וקוץ בה	אליה-וקוץ-בה	נחלת הכלל / CC0 (לפי ספריא)	אומת		⟵ מקור הוחלף · הטענה הקודמת: ספריא · נחלת הכלל / Hegyonot El Ami, Volume II, Chayei Sara 20:22 (Antwerp, 1933-1936 [he]) · המקור החדש מ-attestation.tsv	Hegyonot El Ami, Volume II, Chayei Sara 20:22
+5	180	לַאֲמִתּוֹ שֶׁל דָּבָר	לאמתו של דבר	לאמיתו-של-דבר	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 16:23 (Derashot El Ami, Jerusalem 1936 [he])	Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 16:23 (Derashot El Ami, Jerusalem 1936 [he])
 5	181	אִמְרֵי שֶׁפֶר	אמרי שפר	אמרי-שפר	ספריא · נחלת הכלל	אומת			Abarbanel on Torah, Genesis 49:1:7 (Torah Commentary of Yitzchak Abarbanel, Warsaw 1862 [he])
 5	182	דִּבְרֵי טַעַם	דברי טעם	דברי-טעם	ספריא · נחלת הכלל	אומת		הוחזר בסבב 1 · אומת בהפרכת-המכהן	Chafetz Chaim on Sifra, Tazria Parashat Negaim, Chapter 6 7:9 (Wikisource [he])
-5	183	דִּבְרֵי בֶּלַע	דברי בלע	דברי-בלע	ספריא · נחלת הכלל	שוכתב			Meiri on Psalms 52:6:1 (Jerusalem, 1936 [he])
+5	183	דִּבְרֵי בֶּלַע	דברי בלע	דברי-בלע	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Meiri on Psalms 52:6:1 (Jerusalem, 1936 [he])	Meiri on Psalms 52:6:1 (Jerusalem, 1936 [he])
 5	184	כְּזַיִת	כזית	כזית	ספריא · נחלת הכלל	אומת			Rashi on Zevachim 30b:17:1 (Vilna Edition [he])
 5	185	עֲשֶׂרֶת מוֹנִים	עשרת מונים	עשרת-מונים	ספריא · נחלת הכלל	אומת			Da'at Zekenim on Genesis 31:7:1 (daat zekenim [he])
 5	186	עַד בְּלִי דַּי	עד בלי די	עד-בלי-די	ספריא · נחלת הכלל	אומת			Imrei Binah, Part I; Oseh Pele 3:31 (Imrei Binah, Jerusalem 1908 [he])
@@ -1104,7 +1104,7 @@
 6	81	גָּמַר אֹמֶר	גמר אמר	גמר-אומר	ספריא · נחלת הכלל	אומת			Machberet Menachem, Letter Gimel 46:2 (Mahberet Menahem, London, 1854. [he])
 6	82	חָכַךְ בְּדַעְתּוֹ	חכך בדעתו	חכך-בדעתו	⚠ דרוש מקור	אומת			חכך ידיו בהנאה
 6	83	שָׂם לְאַל	שם לאל	שם-לאל	ספריא · נחלת הכלל	אומת			Yefeh To'ar on Bereshit Rabbah 82:3:1 (Midrash Rabbah, Vilna, 1878 [he])
-6	84	קָבַע מַסְמְרוֹת	קבע מסמרות	קבע-מסמרות	ספריא · נחלת הכלל	שוכתב			Darkhei Moshe (Amiel), Derekh HaKodesh, Shmatta 1 7:6 (Darkhei Moshe, Jerusalem 1998-2000 [he])
+6	84	קָבַע מַסְמְרוֹת	קבע מסמרות	קבע-מסמרות	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Darkhei Moshe (Amiel), Derekh HaKodesh, Shmatta 1 7:6 (Darkhei Moshe, Jerusalem 1998-2000 [he])	Darkhei Moshe (Amiel), Derekh HaKodesh, Shmatta 1 7:6 (Darkhei Moshe, Jerusalem 1998-2000 [he])
 6	85	תָּהָה עַל קַנְקַנּוֹ	תהה על קנקנו	תהה-על-קנקנו	ויקיטקסט · נחלת הכלל	אומת			ספר הבדיחה והחידוד/קבלנים, בורסקאים וספסרים; סוחרים וסרסורים; חנוונים ותגרנים; קונים ומוכרים
 6	86	מִשְׁעֶנֶת קָנֶה רָצוּץ	משענת קנה רצוץ	משענת-קנה-רצוץ	ספריא · נחלת הכלל	אומת			Bechinat Olam 8:15 (Bechinat Olam, Vilna 1879 [he])
 6	87	חֲסַר כֹּל	חסר כל	חסר-כל	ספריא · נחלת הכלל	אומת			Etz Yosef on Vayikra Rabbah 3:6:8 (Midrash Rabbah with Etz Yosef, Warsaw, 1867 [he])
@@ -1117,21 +1117,21 @@
 6	94	הִדְרִיךְ מְנוּחָתוֹ	הדריך מנוחתו	הדריך-מנוחתו	לפי מילה: ויקינתונים · צורה (CC0)	שוכתב			הדריך=L206990 מנוחתו=L66350
 6	95	פָּרַק עֹל	פרק על	פרק-עול	ויקינתונים (CC0)	אומת			L217356
 6	96	טָמַן לוֹ פַּח	טמן לו פח	טמן-לו-פח	ספריא · נחלת הכלל	אומת			Beit Elohim, Shaar HaTeshuvah 9:17 (Warsaw, 1872 [he])
-6	97	הִרְעִישׁ עוֹלָמוֹת	הרעיש עולמות	הרעיש-עולמות	ספריא · נחלת הכלל	אומת			Hegyonot El Ami, Volume II, Vayera 18:61 (Antwerp, 1933-1936 [he])
+6	97	הִרְעִישׁ עוֹלָמוֹת	הרעיש עולמות	הרעיש-עולמות	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Hegyonot El Ami, Volume II, Vayera 18:61 (Antwerp, 1933-1936 [he])	Hegyonot El Ami, Volume II, Vayera 18:61 (Antwerp, 1933-1936 [he])
 6	98	פַּח יָקוּשׁ	פח יקוש	פח-יקוש	ספריא · נחלת הכלל	אומת			Metzudat Zion on Psalms 9:16:1 (On Your Way [he])
 6	99	דֶּרֶךְ הַמֶּלֶךְ	דרך המלך	דרך-המלך	ספריא · נחלת הכלל	אומת		הוחזר בסבב 1 · אומת בהפרכת-המכהן	Yachin on Mishnah Bava Batra 6:41:1 (Mishnah, ed. Romm, Vilna 1913 [he])
 6	100	בָּטֵל בְּשִׁשִּׁים	בטל בששים	בטל-בשישים	ספריא · נחלת הכלל	אומת			Pitchei Teshuva on Shulchan Arukh, Yoreh De'ah 134:3 (Ashlei Ravrevei: Shulchan Aruch Yoreh Deah, Lemberg, 1888 [he])
 6	101	יְקַר הַמְּצִיאוּת	יקר המציאות	יקר-המציאות	ספריא · נחלת הכלל	אומת			Shem HaGedolim, Maarekhet Sefarim, Letter Dalet 31:1 (Podgorze, 1905 (Wikisource edition) [he])
 6	102	פִּיק בִּרְכַּיִם	פיק ברכים	פיק-ברכיים	ספריא · נחלת הכלל	אומת		הוחזר בסבב 1 · אומת בהפרכת-המכהן	Rashi on Megillah 14b:2:2 (Vilna Edition [he])
 6	103	שְׁתִי וָעֵרֶב	שתי וערב	שתי-וערב	ספריא · נחלת הכלל	אומת			Korban HaEdah on Jerusalem Talmud Moed Katan 1:8:3:1 (1536 [he])
-6	104	נִכְנַס בְּעֹבִי הַקּוֹרָה	נכנס בעבי הקורה	נכנס-בעובי-הקורה	ספריא · נחלת הכלל	אומת			Rashi on Genesis 14:5:2 (Pentateuch with Rashi's commentary by M. Rosenbaum and A.M. Silbermann, 1929-1934 [he])
+6	104	נִכְנַס בְּעֹבִי הַקּוֹרָה	נכנס בעבי הקורה	נכנס-בעובי-הקורה	נחלת הכלל / CC0 (לפי ספריא)	אומת		⟵ מקור הוחלף · הטענה הקודמת: ספריא · נחלת הכלל / Rashi on Genesis 14:5:2 (Pentateuch with Rashi's commentary by M. Rosenbaum and A.M. Silbermann, 1929-1934 [he]) · המקור החדש מ-attestation.tsv	Rashi on Genesis 14:5:2
 6	105	אֶרֶץ גְּזֵרָה	ארץ גזרה	ארץ-גזרה	ספריא · נחלת הכלל	אומת			Reggio on Torah, Leviticus 16:22:2 (Vienna, 1821 [he])
 6	106	עַז נֶפֶשׁ	עז נפש	עז-נפש	ספריא · נחלת הכלל	שוכתב			The Antiquities of the Jews 1:4:2 (Yemei am olam, trans. Kalman Schulman. Vilna, 1886 [he])
 6	107	עַזּוּת מֵצַח	עזות מצח	עזות-מצח	ספריא · נחלת הכלל	אומת			Alshekh on Torah, Exodus 27:1:2 (Torat Moshe, Warsaw, 1875 [he])
 6	108	גַּס רוּחַ	גס רוח	גס-רוח	ספריא · נחלת הכלל	אומת			Devash LeFi, Letter Gimel 1 (Livorno, 1801 [he])
 6	109	דֶּרֶךְ אֶרֶץ	דרך ארץ	דרך-ארץ	ויקינתונים (CC0)	אומת			L64753
 6	110	שְׁוֵה נֶפֶשׁ	שוה נפש	שווה-נפש	ספריא · נחלת הכלל	אומת			Korban HaEdah on Jerusalem Talmud Shabbat 3:3:13:7 (1536 [he])
-6	111	מִדָּה כְּנֶגֶד מִדָּה	מדה כנגד מדה	מידה-כנגד-מידה	ספריא · נחלת הכלל	אומת			Hegyonot El Ami, Volume I, Yom Kippur 45:12 (Antwerp, 1933-1936 [he])
+6	111	מִדָּה כְּנֶגֶד מִדָּה	מדה כנגד מדה	מידה-כנגד-מידה	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Hegyonot El Ami, Volume I, Yom Kippur 45:12 (Antwerp, 1933-1936 [he])	Hegyonot El Ami, Volume I, Yom Kippur 45:12 (Antwerp, 1933-1936 [he])
 6	112	כְּיַד הַמֶּלֶךְ	כיד המלך	כיד-המלך	ספריא · נחלת הכלל	אומת			Torah Temimah on Esther 1:7:5 (Torah Temimah, Vilna, 1904 [he])
 6	113	קוֹרַת גַּג	קורת גג	קורת-גג	ויקיטקסט · נחלת הכלל	אומת			תקנות הבטחת הכנסה
 6	114	אֶבֶן שׁוֹאֶבֶת	אבן שואבת	אבן-שואבת	ספריא · נחלת הכלל	אומת			Rashi on Avodah Zarah 44a:15:3 (Vilna Edition [he])
@@ -1167,7 +1167,7 @@
 6	144	כַּבִּיר	כביר	כבר	ויקינתונים (CC0)	אומת			L211941
 6	145	כַּחַשׁ	כחש	כחש	ויקינתונים (CC0)	אומת			L78397
 6	146	מֶחֱוָה	מחוה	מחוה	ספריא · נחלת הכלל	שוכתב		הוחזר בסבב 1 · הופרך בהפרכת-המכהן ונכתב מחדש	Chidushei Agadot on Megillah 16a:16 (Vilna Edition [he])
-6	147	מָשַׁל בְּרוּחוֹ	משל ברוחו	משל-ברוחו	ספריא · נחלת הכלל	אומת			Shem MiShmuel, Yitro 4:22 (Sefer Shem Mishmuel, Piotrkow, 1927-1934 [he])
+6	147	מָשַׁל בְּרוּחוֹ	משל ברוחו	משל-ברוחו	נחלת הכלל / CC0 (לפי ספריא)	אומת		⟵ מקור הוחלף · הטענה הקודמת: ספריא · נחלת הכלל / Shem MiShmuel, Yitro 4:22 (Sefer Shem Mishmuel, Piotrkow, 1927-1934 [he]) · המקור החדש מ-attestation.tsv	BDB (Oxford, 1906) · הערכים מָשַׁל III ו-רוּחַ · «משל ברוחו» מודפס בגוף שניהם, מפנה למשלי טז לב
 6	148	סֶכֶר	סכר	סכר	ויקינתונים (CC0)	אומת			L215605
 6	149	עָלוּם	עלום	עלמ	ויקינתונים (CC0)	אומת			L216158
 6	150	עָנֵף	ענף	ענפ	ויקינתונים (CC0)	אומת			L216211
@@ -1194,7 +1194,7 @@
 6	171	פְּרַקְדָּן	פרקדן	פרקדן	ויקינתונים (CC0)	אומת			L492070
 6	172	הִלְבִּין פָּנִים	הלבין פנים	הלבין-פנים	ספריא · נחלת הכלל	אומת			Ritva on Ketubot 68a:1 (Chiddushei haRitva, Munkatch, 1908. [he])
 6	173	נְקִי כַּפַּיִם	נקי כפים	נקי-כפיים	ספריא · נחלת הכלל	אומת			Matnot Kehunah on Bereshit Rabbah 59:5:3 (Midrash Rabbah, Vilna, 1878 [he])
-6	174	עָשָׂה שַׁמּוֹת	עשה שמות	עשה-שמות	ספריא · נחלת הכלל	אומת			Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 1:64 (Derashot El Ami, Jerusalem 1936 [he])
+6	174	עָשָׂה שַׁמּוֹת	עשה שמות	עשה-שמות	נחלת הכלל / CC0 (לפי ספריא)	אומת		⟵ מקור הוחלף · הטענה הקודמת: ספריא · נחלת הכלל / Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 1:64 (Derashot El Ami, Jerusalem 1936 [he]) · המקור החדש מ-attestation.tsv	Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 1:64
 6	175	שַׁמַּאי	שמאי	שמאי	ויקינתונים (CC0)	אומת			L82252
 6	176	יָצוּעַ	יצוע	יצע	ויקינתונים (CC0)	אומת			L78297
 6	177	מִקְשָׁה	מקשה	מקשה	ויקינתונים (CC0)	אומת			L79527
@@ -1291,8 +1291,8 @@
 7	67	כְּאִישׁ אֶחָד	כאיש אחד	כאיש-אחד	ספריא · נחלת הכלל	שוכתב			Metzudat David on Judges 20:11:2 (On Your Way [he])
 7	68	יָדוֹ עַל הָעֶלְיוֹנָה	ידו על העליונה	ידו-על-העליונה	ספריא · נחלת הכלל	שוכתב			Rabbeinu Chananel on Bava Metzia 49b:5 (Vilna Edition [he])
 7	69	קָצְרָה רוּחוֹ	קצרה רוחו	קצרה-רוחו	ספריא · נחלת הכלל	אומת			Reggio on Torah, Exodus 6:12:1 (Vienna, 1821 [he])
-7	70	כָּלוּ כָּל הַקִּצִּין	כלו כל הקצין	כלו-כל-הקיצין	ספריא · נחלת הכלל	אומת			Hegyonot El Ami, Volume I, Rosh Hashanah 4:9 (Antwerp, 1933-1936 [he])
-7	71	יָרַד לְטִמְיוֹן	ירד לטמיון	ירד-לטמיון	ספריא · נחלת הכלל	אומת			Ben Yehoyada on Sanhedrin 110a:5 (Senlake edition 2019 based on Ben Yehoyada, Jerusalem, 1897 [he])
+7	70	כָּלוּ כָּל הַקִּצִּין	כלו כל הקצין	כלו-כל-הקיצין	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Hegyonot El Ami, Volume I, Rosh Hashanah 4:9 (Antwerp, 1933-1936 [he])	Hegyonot El Ami, Volume I, Rosh Hashanah 4:9 (Antwerp, 1933-1936 [he])
+7	71	יָרַד לְטִמְיוֹן	ירד לטמיון	ירד-לטמיון	נחלת הכלל / CC0 (לפי ספריא)	אומת		⟵ מקור הוחלף · הטענה הקודמת: ספריא · נחלת הכלל / Ben Yehoyada on Sanhedrin 110a:5 (Senlake edition 2019 based on Ben Yehoyada, Jerusalem, 1897 [he]) · המקור החדש מ-attestation.tsv	Ma'amar Torat HaBayit 11:1 (Piotrkow, 1907 [he])
 7	72	עָלָה בְּיָדוֹ	עלה בידו	עלה-בידו	ספריא · נחלת הכלל	אומת			Rash MiShantz on Mishnah Terumot 4:1:4 (Talmud Bavli, Vilna, 1880. [he])
 7	73	הִשִּׂיגָה יָדוֹ	השיגה ידו	השיגה-ידו	ספריא · נחלת הכלל	אומת			Reggio on Torah, Leviticus 25:49:4 (Vienna, 1821 [he])
 7	74	לֹא מָצָא יָדָיו וְרַגְלָיו	לא מצא ידיו ורגליו	לא-מצא-ידיו-ורגליו	ספריא · נחלת הכלל	אומת			Rashi on Yevamot 77b:23:2 (Vilna Edition [he])
@@ -1301,10 +1301,10 @@
 7	77	כַּדָּת וְכַדִּין	כדת וכדין	כדת-וכדין	ספריא · נחלת הכלל	אומת			Hagahot She'erit Tzion 64:2 (Podgorze, 1905 (Wikisource edition) [he])
 7	78	מִצְוַת אֲנָשִׁים מְלֻמָּדָה	מצות אנשים מלמדה	מצוות-אנשים-מלומדה	ספריא · נחלת הכלל	אומת			Mesillat Yesharim, Introduction 38 (Sefaria Vocalized Edition [he])
 7	79	מַס שְׂפָתַיִם	מס שפתים	מס-שפתיים	⚠ דרוש מקור	אומת			ערך: מס שפתים
-7	80	קוֹל קוֹרֵא בַּמִּדְבָּר	קול קורא במדבר	קול-קורא-במדבר	ספריא · נחלת הכלל	שוכתב			Sermons Unto My People, The High Holidays 16:30 (Derashot El Ami, Jerusalem 1936 [he])
+7	80	קוֹל קוֹרֵא בַּמִּדְבָּר	קול קורא במדבר	קול-קורא-במדבר	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Sermons Unto My People, The High Holidays 16:30 (Derashot El Ami, Jerusalem 1936 [he])	Sermons Unto My People, The High Holidays 16:30 (Derashot El Ami, Jerusalem 1936 [he])
 7	81	אָטַם אָזְנָיו	אטם אזניו	אטם-אוזניו	ספריא · נחלת הכלל	אומת			The War of the Jews 1:16:4 (The Jewish Wars, trans. Y.N. Simhoni, Warsaw, 1923 [he])
 7	82	הֶעֱלִים עַיִן	העלים עין	העלים-עין	ספריא · נחלת הכלל	אומת		הוחזר בסבב 1 · אומת בהפרכת-המכהן	Metzudat David on Jeremiah 14:9:3 (On Your Way [he])
-7	83	נֵר לְרַגְלָיו	נר לרגליו	נר-לרגליו	ספריא · נחלת הכלל	אומת			Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 19:10 (Derashot El Ami, Jerusalem 1936 [he])
+7	83	נֵר לְרַגְלָיו	נר לרגליו	נר-לרגליו	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 19:10 (Derashot El Ami, Jerusalem 1936 [he])	Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 19:10 (Derashot El Ami, Jerusalem 1936 [he])
 7	84	כִּבְרַת דֶּרֶךְ	כברת דרך	כברת-דרך	ספריא · נחלת הכלל	אומת			Etz Yosef on Bereishit Rabbah 82:10:6 (Midrash Rabbah with Etz Yosef, Warsaw, 1867 [he])
 7	85	הָרֵי חֹשֶׁךְ	הרי חשך	הרי-חושך	ספריא · נחלת הכלל	אומת			Etz Yosef on Bamidbar Rabbah 16:25:10 (Midrash Rabbah with Etz Yosef, Warsaw, 1867 [he])
 7	86	מֵהַמַּסָּד וְעַד הַטְּפָחוֹת	מהמסד ועד הטפחות	מהמסד-ועד-הטפחות	ספריא · נחלת הכלל	שוכתב			The Antiquities of the Jews 11:4:6 (42184 [he])
@@ -1334,7 +1334,7 @@
 7	110	טִכֵּס עֵצָה	טכס עצה	טיכס-עצה	לפי מילה: ויקיטקסט · נחלת הכלל + ויקינתונים · צורה (CC0)	אומת		הוחזר בסבב 1 · אומת בהפרכת-המכהן	טכס=שושן סודות אות רפא עצה=L67294
 7	111	יוֹשֵׁב קְרָנוֹת	יושב קרנות	יושב-קרנות	ספריא · נחלת הכלל	אומת			Rashi on Kiddushin 25a:3:2 (Vilna Edition [he])
 7	112	כִּמְטַחֲוֵי קֶשֶׁת	כמטחוי קשת	כמטחווי-קשת	ספריא · נחלת הכלל	אומת			Ralbag Beur HaMilot on Torah, Genesis 21:16:1 (Ralbag on Torah, Venice, 1547 [he])
-7	113	מִטַּת סְדוֹם	מטת סדום	מיטת-סדום	ספריא · נחלת הכלל	אומת			Hegyonot El Ami, Volume II, Vayera 15:15 (Antwerp, 1933-1936 [he])
+7	113	מִטַּת סְדוֹם	מטת סדום	מיטת-סדום	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Hegyonot El Ami, Volume II, Vayera 15:15 (Antwerp, 1933-1936 [he])	Hegyonot El Ami, Volume II, Vayera 15:15 (Antwerp, 1933-1936 [he])
 7	114	נָס לֵחוֹ	נס לחו	נס-לחו	ספריא · נחלת הכלל	אומת			Chelkat Mechokek on Job 17:7:1 (Chelkat Mechokek, Warsaw 1876 [he])
 7	115	עַיִר	עיר	עיר	ויקינתונים (CC0)	אומת			L67229
 7	116	צַיְקָן	ציקן	ציקן	ויקינתונים (CC0)	אומת			L217562
@@ -1387,28 +1387,28 @@
 7	163	מַשְׁכּוּכִית	משכוכית	משכוכית	ויקינתונים (CC0)	אומת		הוחזר בסבב 1 · אומת בהפרכת-המכהן	L79620
 7	164	מָרִית	מרית	מרח	ויקינתונים (CC0)	שוכתב			L66537
 7	165	מָרָה שְׁחוֹרָה	מרה שחורה	מרה-שחורה	ספריא · נחלת הכלל	אומת			Yachin on Mishnah Shabbat 2:49:1 (Mishnah, ed. Romm, Vilna 1913 [he])
-7	166	מוּג לֵב	מוג לב	מוג-לב	ספריא · נחלת הכלל	שוכתב			Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 15:22 (Derashot El Ami, Jerusalem 1936 [he])
+7	166	מוּג לֵב	מוג לב	מוג-לב	טקסט קלאסי (נחלת הכלל, לפי אופי החיבור)	שוכתב		⟵ מקור הוחלף · הטענה הקודמת: ספריא · נחלת הכלל / Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 15:22 (Derashot El Ami, Jerusalem 1936 [he]) · המקור החדש מ-attestation.tsv	Radak on Ezekiel 21:20:1
 7	167	מֻשְׂכָּל רִאשׁוֹן	משכל ראשון	מושכל-ראשון	ויקיטקסט · נחלת הכלל	אומת			שירים (שאול טשרניחובסקי)/ראי אדמה/שלשה חוחולים שהלכו
 7	168	נִצְרָךְ	נצרך	צרכ	ויקינתונים (CC0)	אומת			L220573
 7	169	נָפִיל	נפיל	נפל	ויקינתונים (CC0)	אומת			L66870
 7	170	סִרְהֵב	סרהב	סרהב	ספריא · נחלת הכלל	אומת			Sefer HeArukh, Letter Samekh 407 (Sefer HeArukh, Lublin 1883 [he])
 7	171	עֲזוּבָה	עזובה	עזב	ויקינתונים (CC0)	אומת			L216022
 7	172	עַרְדָּל	ערדל	ערדל	ויקינתונים (CC0)	אומת			L80598
-7	173	עָלֶה נִדָּף	עלה נדף	עלה-נדף	ספריא · נחלת הכלל	אומת			Gur Aryeh on Vayikra 26:36:2 (Gur Aryeh, Machon Yerushalyim, 1989-1995 [he])
+7	173	עָלֶה נִדָּף	עלה נדף	עלה-נדף	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Gur Aryeh on Vayikra 26:36:2 (Gur Aryeh, Machon Yerushalyim, 1989-1995 [he])	Gur Aryeh on Vayikra 26:36:2 (Gur Aryeh, Machon Yerushalyim, 1989-1995 [he])
 7	174	עוֹקֵר הָרִים	עוקר הרים	עוקר-הרים	ספריא · נחלת הכלל	אומת			Rashi on Bava Kamma 109b:8:4 (Vilna Edition [he])
 7	175	פֶּה מֵפִיק מַרְגָּלִיּוֹת	פה מפיק מרגליות	פה-מפיק-מרגליות	ספריא · נחלת הכלל	אומת			Beit Aharon, Title 5 (Beit Aharon, Brody, 1875. [he])
-7	176	פָּסַח עַל שְׁתֵּי הַסְּעִפִּים	פסח על שתי הסעפים	פסח-על-שתי-הסעיפים	ספריא · נחלת הכלל	אומת			Rashi on Exodus 12:13:3 (Pentateuch with Rashi's commentary by M. Rosenbaum and A.M. Silbermann, 1929-1934 [he])
+7	176	פָּסַח עַל שְׁתֵּי הַסְּעִפִּים	פסח על שתי הסעפים	פסח-על-שתי-הסעיפים	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Rashi on Exodus 12:13:3 (Pentateuch with Rashi's commentary by M. Rosenbaum and A.M. Silbermann, 1929-1934 [he])	Rashi on Exodus 12:13:3 (Pentateuch with Rashi's commentary by M. Rosenbaum and A.M. Silbermann, 1929-1934 [he])
 7	177	צִחְצוּחַ חֲרָבוֹת	צחצוח חרבות	צחצוח-חרבות	ספריא · נחלת הכלל	שוכתב		הוחזר בסבב 1 · הופרך בהפרכת-המכהן ונכתב מחדש	Rashi on Sotah 42b:1:2 (Vilna Edition [he])
-7	178	לִפְרָקִים	לפרקים	לפרקים	ספריא · נחלת הכלל	אומת			Talmud Eser HaSefirot, Section III, List of Answers on Terminology 66:1 (Jerusalem, 1956-1966 [he])
+7	178	לִפְרָקִים	לפרקים	לפרקים	ספריא · נחלת הכלל	אומת		⟵ מקור הוחלף · הטענה הקודמת: ספריא · נחלת הכלל / Talmud Eser HaSefirot, Section III, List of Answers on Terminology 66:1 (Jerusalem, 1956-1966 [he]) · המקור החדש מ-attestation.tsv	Mishnah Berakhot 9:2 · Mishnah, ed. Romm, Vilna 1913 (Public Domain) · «בזמן שרואה אותו לפרקים»
 7	179	קוֹטֵל קָנִים	קוטל קנים	קוטל-קנים	ויקיטקסט · נחלת הכלל	אומת			פרוזה (ביאליק)/איש הסִפּוּן
 7	180	קֻרְנָס	קרנס	קרנס	ספריא · נחלת הכלל	אומת			Sefer HeArukh, Letter Kof 555 (Sefer HeArukh, Lublin 1883 [he])
 7	181	רֵחַיִם	רחים	רחים	ויקינתונים (CC0)	אומת			L81970
 7	182	שִׂחֲקָה לוֹ הַשָּׁעָה	שחקה לו השעה	שיחקה-לו-השעה	ספריא · נחלת הכלל	אומת			The War of the Jews 2:11:4 (The Jewish Wars, trans. Y.N. Simhoni, Warsaw, 1923 [he])
-7	183	שִׁוָּה בְּנַפְשׁוֹ	שוה בנפשו	שיוה-בנפשו	ספריא · נחלת הכלל	אומת			Beur Reuven on Bava Kamma 85a:1 (Beur Reuven, New York 1955 [he])
+7	183	שִׁוָּה בְּנַפְשׁוֹ	שוה בנפשו	שיוה-בנפשו	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Beur Reuven on Bava Kamma 85a:1 (Beur Reuven, New York 1955 [he])	Beur Reuven on Bava Kamma 85a:1 (Beur Reuven, New York 1955 [he])
 7	184	לַאֲשׁוּרוֹ	לאשורו	לאשורו	ויקינתונים (CC0)	שוכתב			L492030
 7	185	מֹרֶךְ לֵב	מרך לב	מורך-לב	ספריא · נחלת הכלל	אומת			The War of the Jews 3:3:2 (The Jewish Wars, trans. Y.N. Simhoni, Warsaw, 1923 [he])
 7	186	עָשָׂה נְפָשׁוֹת	עשה נפשות	עשה-נפשות	ספריא · נחלת הכלל	אומת			Sha'arei Kedusha, Part 2 7:9 (Shaarei Kedusha [he])
-7	187	פִּתְחוֹן פֶּה	פתחון פה	פתחון-פה	ספריא · נחלת הכלל	אומת			Netivot Olam, Netiv Hatshuva 4:15 (Netivot Olam, Netiv Hateshuva, with footnotes and annotations by Rabbi Yehoshua D. Hartman, Machon Yerushalyim, 1997 [he])
+7	187	פִּתְחוֹן פֶּה	פתחון פה	פתחון-פה	טקסט קלאסי (נחלת הכלל, לפי אופי החיבור)	אומת		⟵ מקור הוחלף · הטענה הקודמת: ספריא · נחלת הכלל / Netivot Olam, Netiv Hatshuva 4:15 (Netivot Olam, Netiv Hateshuva, with footnotes and annotations by Rabbi Yehoshua D. Hartman, Machon Yerushalyim, 1997 [he]) · המקור החדש מ-attestation.tsv	Rashi on Ezekiel 29:21:2
 7	188	בַּחֲטָף	בחטף	חטפ	ספריא · נחלת הכלל	אומת			Minchat Shai on Daniel 7:4:3 (Minchat Shai [he])
 7	189	בָּלוּם	בלום	בלמ	ויקינתונים (CC0)	אומת			L205835
 7	190	בּוּלְמוּס	בולמוס	בולמוס	ויקינתונים (CC0)	אומת			L205584
@@ -1427,7 +1427,7 @@
 7	203	כּוֹרֵם	כורם	כרמ	ויקינתונים (CC0)	שוכתב			L78388
 7	204	עָמַד מִלֶּכֶת	עמד מלכת	עמד-מלכת	ספריא · נחלת הכלל	שוכתב			Masat Moshe on Esther 7:7:1 (Alshich on Five Megillot, Warsaw, 1862 [he])
 8	1	תָּאַב	תאב	תאב	ויקינתונים (CC0)	אומת			L219924
-8	2	נָחָה	נחה	נחה	ספריא · נחלת הכלל	שוכתב			Derekh Chayyim 4:17:12 (Derech Chaim, with footnotes and annotations by Rabbi Yehoshua D. Hartman, Machon Yerushalyim, 2005-2010 [he])
+8	2	נָחָה	נחה	נחה	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Derekh Chayyim 4:17:12 (Derech Chaim, with footnotes and annotations by Rabbi Yehoshua D. Hartman, Machon Yerushalyim, 2005-2010 [he])	Derekh Chayyim 4:17:12 (Derech Chaim, with footnotes and annotations by Rabbi Yehoshua D. Hartman, Machon Yerushalyim, 2005-2010 [he])
 8	3	הִתְחַסֵּד	התחסד	חסד	ויקינתונים (CC0)	אומת			L209525
 8	4	הִתְחַנְחֵן	התחנחן	חנחנ	ויקינתונים (CC0)	שוכתב			L209517
 8	5	הִתְרַפֵּס	התרפס	רפס	ויקינתונים (CC0)	אומת			L210237
@@ -1450,7 +1450,7 @@
 8	22	שָׁפָן	שפן	שפנ	ויקינתונים (CC0)	שוכתב			L82322
 8	23	מָךְ	מך	מככ	ויקינתונים · צורה (CC0)	שוכתב			L78868
 8	24	דַּךְ	דך	דככ	ויקינתונים · צורה (CC0)	שוכתב			L206554
-8	25	דּוֹמֶה שֶׁ־	דומה ש	דמה	ספריא · נחלת הכלל	אומת			Sermons Unto My People, The High Holidays 23:2 (Derashot El Ami, Jerusalem 1936 [he])
+8	25	דּוֹמֶה שֶׁ־	דומה ש	דמה	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Sermons Unto My People, The High Holidays 23:2 (Derashot El Ami, Jerusalem 1936 [he])	Sermons Unto My People, The High Holidays 23:2 (Derashot El Ami, Jerusalem 1936 [he])
 8	26	כִּמְדֻמֶּה	כמדמה	כמדומה	ספריא · נחלת הכלל	שוכתב		הוחזר בסבב 1 · הופרך בהפרכת-המכהן ונכתב מחדש	Chayei Moharan 247:1 (OYW [he])
 8	27	מִן הַסְּתָם	מן הסתם	סתמ	ספריא · נחלת הכלל	אומת			Rashi on Pesachim 87a:4:1 (Vilna Edition [he])
 8	28	הִסְבִּיר לוֹ פָּנִים	הסביר לו פנים	הסביר-לו-פנים	ספריא · נחלת הכלל	אומת			Rashi on Zevachim 102a:11:1 (Vilna Edition [he])
@@ -1471,18 +1471,18 @@
 8	43	אֶרֶץ לֹא זְרוּעָה	ארץ לא זרועה	ארץ-לא-זרועה	ספריא · נחלת הכלל	שוכתב		הוחזר בסבב 1 · הופרך בהפרכת-המכהן ונכתב מחדש	Likutei Moharan, Part II 5:17:2 (Likutei Moharan Tinyana - rabenubook.com [he])
 8	44	אַחֲרִית דָּבָר	אחרית דבר	אחרית-דבר	ספריא · נחלת הכלל	שוכתב			Perush Maharzu on Shemot Rabbah 6:2:7 (Midrash Rabbah, Vilna, 1878 [he])
 8	45	שְׁנוֹת דּוֹר	שנות דור	שנות-דור	ספריא · נחלת הכלל	אומת			Malbim on Deuteronomy 32:7:2 (Mikraei Kodesh, Vilna, 1891 [he])
-8	46	הִרְהִיב עֹז	הרהיב עז	הרהיב-עוז	ספריא · נחלת הכלל	שוכתב			Shem MiShmuel, Lech Lecha 7:10 (Sefer Shem Mishmuel, Piotrkow, 1927-1934 [he])
+8	46	הִרְהִיב עֹז	הרהיב עז	הרהיב-עוז	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Shem MiShmuel, Lech Lecha 7:10 (Sefer Shem Mishmuel, Piotrkow, 1927-1934 [he])	Shem MiShmuel, Lech Lecha 7:10 (Sefer Shem Mishmuel, Piotrkow, 1927-1934 [he])
 8	47	חֵרֵף נַפְשׁוֹ	חרף נפשו	חירף-נפשו	ספריא · נחלת הכלל	אומת			Hadar Zekenim on Torah, Leviticus 19:20:1 (Livorno, 1840 [he])
-8	48	דָּחָה בִּשְׁתֵּי יָדַיִם	דחה בשתי ידים	דחה-בשתי-ידיים	ספריא · נחלת הכלל	אומת			Beur Reuven on Bava Kamma 4b:7 (Beur Reuven, New York 1955 [he])
+8	48	דָּחָה בִּשְׁתֵּי יָדַיִם	דחה בשתי ידים	דחה-בשתי-ידיים	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Beur Reuven on Bava Kamma 4b:7 (Beur Reuven, New York 1955 [he])	Beur Reuven on Bava Kamma 4b:7 (Beur Reuven, New York 1955 [he])
 8	49	הִסִּיחַ אֶת הַדַּעַת	הסיח את הדעת	הסיח-את-הדעת	ספריא · נחלת הכלל	שוכתב			Eliyah Rabbah on Shulchan Arukh, Orach Chayim 110:12 (Eliya Rabba, Sulzbach 1757 [he])
 8	50	רֹאשׁוֹ וְרֻבּוֹ	ראשו ורבו	ראשו-ורובו	ספריא · נחלת הכלל	אומת		הוחזר בסבב 1 · אומת בהפרכת-המכהן	Mishneh Torah, Red Heifer 13:11 (Torat Emet 363 [he])
-8	51	בְּלֵב וָנֶפֶשׁ	בלב ונפש	בלב-ונפש	ספריא · נחלת הכלל	אומת			Teshuvot Rabbi Akiva Eiger HaChadashot 31:9 (Budapest, 1938 [he])
+8	51	בְּלֵב וָנֶפֶשׁ	בלב ונפש	בלב-ונפש	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Teshuvot Rabbi Akiva Eiger HaChadashot 31:9 (Budapest, 1938 [he])	Teshuvot Rabbi Akiva Eiger HaChadashot 31:9 (Budapest, 1938 [he])
 8	52	בְּכָל מְאוֹדוֹ	בכל מאודו	בכל-מאודו	ספריא · נחלת הכלל	אומת			Chidushei Agadot on Shabbat 56a:28 (Vilna Edition [he])
 8	53	בְּכָל רְמַ"ח אֵבָרָיו	בכל רמ"ח אבריו	בכל-רמח-אבריו	ספריא · נחלת הכלל	אומת			Devarim Tovim on Ecclesiastes 12:14:1 (Alshich on Five Megillot, Warsaw, 1862 [he])
 8	54	חֶבֶל אֶרֶץ	חבל ארץ	חבל-ארץ	ויקיטקסט · נחלת הכלל	אומת			מלבי"ם על יחזקאל מז טז
 8	55	עִיר וָאֵם	עיר ואם	עיר-ואם	ספריא · נחלת הכלל	שוכתב			Matnot Kehunah on Eichah Rabbah 1:31:4 (Midrash Rabbah, Vilna, 1878 [he])
-8	56	הֶעֱלָה אֲרוּכָה	העלה ארוכה	העלה-ארוכה	ספריא · נחלת הכלל	אומת			Rashi on Leviticus 13:18:2 (Pentateuch with Rashi's commentary by M. Rosenbaum and A.M. Silbermann, 1929-1934 [he])
-8	57	אֵין זֹאת כִּי אִם	אין זאת כי אם	אין-זאת-כי-אם	ספריא · נחלת הכלל	SKIP			Mishnat Rabbi Eliezer 6:27 (New York, 1934 [he])
+8	56	הֶעֱלָה אֲרוּכָה	העלה ארוכה	העלה-ארוכה	נחלת הכלל / CC0 (לפי ספריא)	אומת		⟵ מקור הוחלף · הטענה הקודמת: ספריא · נחלת הכלל / Rashi on Leviticus 13:18:2 (Pentateuch with Rashi's commentary by M. Rosenbaum and A.M. Silbermann, 1929-1934 [he]) · המקור החדש מ-attestation.tsv	Rashi on Leviticus 13:18:2
+8	57	אֵין זֹאת כִּי אִם	אין זאת כי אם	אין-זאת-כי-אם	⚠ דרוש מקור	SKIP		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Mishnat Rabbi Eliezer 6:27 (New York, 1934 [he])	Mishnat Rabbi Eliezer 6:27 (New York, 1934 [he])
 8	58	אִצְטְלָה	אצטלה	אצטלה	ויקינתונים (CC0)	אומת			L75926
 8	59	אוּרִים וְתֻמִּים	אורים ותמים	אורים-ותומים	ויקינתונים (CC0)	אומת			L75224
 8	60	בְּאִבּוֹ	באבו	אבב	ספריא · נחלת הכלל	שוכתב			Ralbag on Job 8:12:1 (On Your Way [he])
@@ -1493,7 +1493,7 @@
 8	65	הִקְהִיל	הקהיל	קהל	ויקינתונים (CC0)	שוכתב			L208794
 8	66	יוֹרֶה	יורה	ירה	ויקינתונים (CC0)	אומת			L65571
 8	67	מְסֹאָב	מסאב	סאב	ויקינתונים (CC0)	אומת			L213501
-8	68	מָלֵא תְּכוּנָה	מלא תכונה	מלא-תכונה	ספריא · נחלת הכלל	אומת			Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 22:65 (Derashot El Ami, Jerusalem 1936 [he])
+8	68	מָלֵא תְּכוּנָה	מלא תכונה	מלא-תכונה	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 22:65 (Derashot El Ami, Jerusalem 1936 [he])	Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 22:65 (Derashot El Ami, Jerusalem 1936 [he])
 8	69	מָסַךְ	מסך	מסכ	ויקינתונים (CC0)	אומת			L213541
 8	70	נֶאֱלַם	נאלם	אלמ	ויקינתונים (CC0)	אומת			L214053
 8	71	צְדִיָּה	צדיה	צדה	ספריא · נחלת הכלל	שוכתב			Metzudat Zion on Ezekiel 13:18:6 (On Your Way [he])
@@ -1527,7 +1527,7 @@
 8	99	מִנִּי אָז	מני אז	מני-אז	ספריא · נחלת הכלל	אומת			Rashash on Bekhorot 20a:3 (Vilna Edition [he])
 8	100	נִבְכֵי נַפְשׁוֹ	נבכי נפשו	נבכי-נפשו	לפי מילה: ויקינתונים · צורה (CC0)	אומת			נבכי=L214104 נפשו=L214889
 8	101	נִעֵר חָצְנוֹ	נער חצנו	ניער-חוצנו	ספריא · נחלת הכלל	שוכתב			Rambam on Mishnah Shabbat 1:4:1 (Vilna edition [he])
-8	102	נֶעְתְּקוּ מִלִּים מִפִּיו	נעתקו מלים מפיו	נעתקו-מילים-מפיו	ספריא · נחלת הכלל	שוכתב			Darkhei Moshe (Amiel), Introduction 4 (Darkhei Moshe, Jerusalem 1998-2000 [he])
+8	102	נֶעְתְּקוּ מִלִּים מִפִּיו	נעתקו מלים מפיו	נעתקו-מילים-מפיו	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Darkhei Moshe (Amiel), Introduction 4 (Darkhei Moshe, Jerusalem 1998-2000 [he])	Darkhei Moshe (Amiel), Introduction 4 (Darkhei Moshe, Jerusalem 1998-2000 [he])
 8	103	נַחְתּוֹם	נחתום	נחתומ	ויקינתונים (CC0)	אומת			L214422
 8	104	פֵּשֶׁר	פשר	פשר	ויקינתונים (CC0)	אומת			L67585
 8	105	פָּכַר אֶת יָדָיו	פכר את ידיו	פכר-את-ידיו	ספריא · נחלת הכלל	אומת			Lechem Mishneh on Mishneh Torah, Prayer and the Priestly Blessing 5:5:1 (ToratEmet [he])
@@ -1535,7 +1535,7 @@
 8	107	קַלּוּת רֹאשׁ	קלות ראש	קלות-ראש	ספריא · נחלת הכלל	אומת			Korban HaEdah on Jerusalem Talmud Megillah 3:3:3:1 (1536 [he])
 8	108	שָׁרִיר וְקַיָּם	שריר וקים	שריר-וקיים	ספריא · נחלת הכלל	אומת			Shulchan Arukh, Choshen Mishpat 44:9 (Torat Emet 363 [he])
 8	109	תִּנָּה אֶת צָרוֹתָיו	תנה את צרותיו	תינה-את-צרותיו	לפי מילה: ויקינתונים · צורה (CC0)	אומת			תנה=L215116 צרותיו=L67715
-8	110	דָּשׁ בַּעֲקֵבָיו	דש בעקביו	דש-בעקביו	ספריא · נחלת הכלל	שוכתב			Shem MiShmuel, Eikev 4:8 (Sefer Shem Mishmuel, Piotrkow, 1927-1934 [he])
+8	110	דָּשׁ בַּעֲקֵבָיו	דש בעקביו	דש-בעקביו	נחלת הכלל / CC0 (לפי ספריא)	שוכתב		⟵ מקור הוחלף · הטענה הקודמת: ספריא · נחלת הכלל / Shem MiShmuel, Eikev 4:8 (Sefer Shem Mishmuel, Piotrkow, 1927-1934 [he]) · המקור החדש מ-attestation.tsv	Shem MiShmuel, Eikev 4:8
 8	111	הֶעְתִּיר	העתיר	עתר	ויקינתונים (CC0)	אומת			L208504
 8	112	מְשׁוּבַת נְעוּרִים	משובת נעורים	משובת-נעורים	⚠ דרוש מקור	שוכתב			משובה
 8	113	נָפַל עַל אָזְנַיִם עֲרֵלוֹת	נפל על אזנים ערלות	נפל-על-אוזניים-ערלות	ויקיטקסט · נחלת הכלל	אומת			הספרות והסופר העברי
@@ -1545,7 +1545,7 @@
 8	117	יָד רוֹחֶצֶת יָד	יד רוחצת יד	יד-רוחצת-יד	ויקיטקסט · נחלת הכלל	אומת			חבל נחלתו יד סב
 8	118	כְּבַד לָשׁוֹן	כבד לשון	כבד-לשון	ספריא · נחלת הכלל	אומת			Haamek Davar on Exodus 4:12:2 (Sefer Torat Elohim, Vilna 1879 [he])
 8	119	מֵלִיץ יֹשֶׁר	מליץ ישר	מליץ-יושר	ויקיטקסט · נחלת הכלל	אומת			אמונים כגהו מתוך בהו
-8	120	נֶחָמָה פּוּרְתָּא	נחמה פורתא	נחמה-פורתא	ספריא · נחלת הכלל	שוכתב			Justice in the Jewish State according to the Torah 17:12 (Tel Aviv, 1936 [he])
+8	120	נֶחָמָה פּוּרְתָּא	נחמה פורתא	נחמה-פורתא	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Justice in the Jewish State according to the Torah 17:12 (Tel Aviv, 1936 [he])	Justice in the Jewish State according to the Torah 17:12 (Tel Aviv, 1936 [he])
 8	121	קָשַׁר לוֹ כְּתָרִים	קשר לו כתרים	קשר-לו-כתרים	ספריא · נחלת הכלל	אומת			Peri Tzadik, Rosh Chodesh Elul 1:2 (Pri Tzaddik, Lublin, 1901 [he])
 8	122	בֵּית מַרְזֵחַ	בית מרזח	בית-מרזח	ויקינתונים (CC0)	אומת			L76311
 8	123	הִקְדִּיחַ	הקדיח	קדח	ויקינתונים (CC0)	שוכתב			L208702
@@ -1562,7 +1562,7 @@
 8	134	פָּרִיךְ	פריך	פרכ	ויקינתונים (CC0)	אומת			L217266
 8	135	עֲרוּגָה	ערוגה	ערג	ויקינתונים (CC0)	אומת			L80599
 8	136	אֶבְרָה	אברה	אבר	ויקינתונים (CC0)	שוכתב			L63651
-8	137	נְכָלִים	נכלים	נכל	ספריא · נחלת הכלל	אומת			Rashi on Genesis 37:18:1 (Pentateuch with Rashi's commentary by M. Rosenbaum and A.M. Silbermann, 1929-1934 [he])
+8	137	נְכָלִים	נכלים	נכל	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Rashi on Genesis 37:18:1 (Pentateuch with Rashi's commentary by M. Rosenbaum and A.M. Silbermann, 1929-1934 [he])	Rashi on Genesis 37:18:1 (Pentateuch with Rashi's commentary by M. Rosenbaum and A.M. Silbermann, 1929-1934 [he])
 8	138	אָבָה	אבה	אבה	ויקינתונים (CC0)	אומת			L204315
 8	139	הוֹאִיל	הואיל	יאל	ויקינתונים (CC0)	אומת			L207001
 8	140	נָקְעָה נַפְשׁוֹ	נקעה נפשו	נקעה-נפשו	ויקיטקסט · נחלת הכלל	אומת			דורות הראשונים/כרך ב/פרק לו
@@ -1626,7 +1626,7 @@
 8	198	אַכְסַנְיָה	אכסניה	אכסניה	ויקינתונים (CC0)	שוכתב			L75432
 8	199	אִצְטַבָּה	אצטבה	אצטבה	ויקינתונים (CC0)	שוכתב			L75920
 8	200	בֵּרֵא	ברא	ברא	ויקינתונים (CC0)	שוכתב			L491566
-8	201	בְּשִׁוְיוֹן נֶפֶשׁ	בשויון נפש	בשויון-נפש	ספריא · נחלת הכלל	שוכתב			Sermons Unto My People, The High Holidays 32:48 (Derashot El Ami, Jerusalem 1936 [he])
+8	201	בְּשִׁוְיוֹן נֶפֶשׁ	בשויון נפש	בשויון-נפש	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Sermons Unto My People, The High Holidays 32:48 (Derashot El Ami, Jerusalem 1936 [he])	Sermons Unto My People, The High Holidays 32:48 (Derashot El Ami, Jerusalem 1936 [he])
 8	202	הִתְעַרְטֵל	התערטל	ערטל	ויקינתונים (CC0)	שוכתב			L209976
 8	203	זָרָה חוֹל בְּעֵינָיו	זרה חול בעיניו	זרה-חול-בעיניו	ספריא · נחלת הכלל	שוכתב			Shenei Luchot HaBerit, Shaar HaOtiyot, Shetikah 12 (Shenei Luchot HaBrit, based on Amsterdam, 1698 ed. Part I [he])
 8	204	חָצִיר	חציר	חצר	ויקינתונים (CC0)	שוכתב			L77915
@@ -1634,7 +1634,7 @@
 8	206	עַל אַפּוֹ וְעַל חֲמָתוֹ	על אפו ועל חמתו	על-אפו-ועל-חמתו	ספריא · נחלת הכלל	שוכתב			Shadal on Exodus 22:16:1 (Shadal first edition, Padua 1871 [he])
 8	207	פְּרִיטָה	פריטה	פרט	ויקינתונים (CC0)	שוכתב			L217262
 8	208	פָּשַׁט יָד	פשט יד	פשט-יד	ספריא · נחלת הכלל	שוכתב			Beur HaRadal on Pirkei DeRabbi Eliezer 26:14 (Warsaw, 1852 [he])
-8	209	רַךְ לֵבָב	רך לבב	רך-לבב	ספריא · נחלת הכלל	שוכתב			Shem MiShmuel, Bo 3:4 (Sefer Shem Mishmuel, Piotrkow, 1927-1934 [he])
+8	209	רַךְ לֵבָב	רך לבב	רך-לבב	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Shem MiShmuel, Bo 3:4 (Sefer Shem Mishmuel, Piotrkow, 1927-1934 [he])	Shem MiShmuel, Bo 3:4 (Sefer Shem Mishmuel, Piotrkow, 1927-1934 [he])
 9	1	מַלָּח	מלח	מלח	ויקינתונים (CC0)	אומת			L66302
 9	2	נְאָקָה	נאקה	נאק	ויקינתונים (CC0)	אומת			L66676
 9	3	סַהֲרוּרִי	סהרורי	סהר	ויקינתונים (CC0)	שוכתב			L215191
@@ -1662,7 +1662,7 @@
 9	25	אַדְּרַבָּה	אדרבה	אדרבה	ויקינתונים (CC0)	אומת			L492106
 9	26	אוֹב	אוב	אוב	ויקינתונים (CC0)	אומת			L75051
 9	27	טוֹמֵן בְּחֻבּוֹ	טומן בחבו	טומן-בחובו	⚠ דרוש מקור	אומת			פשוט
-9	28	בְּנַפְשׁוֹ הַדָּבָר	בנפשו הדבר	בנפשו-הדבר	ספריא · נחלת הכלל	אומת			Sha'arei HaYichud VeEmunah, Second Gate 38:2 (Jerusalem, 1990 [he])
+9	28	בְּנַפְשׁוֹ הַדָּבָר	בנפשו הדבר	בנפשו-הדבר	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Sha'arei HaYichud VeEmunah, Second Gate 38:2 (Jerusalem, 1990 [he])	Sha'arei HaYichud VeEmunah, Second Gate 38:2 (Jerusalem, 1990 [he])
 9	29	בִּקֵּשׁ עַל נַפְשׁוֹ	בקש על נפשו	ביקש-על-נפשו	ספריא · נחלת הכלל	אומת			Matnot Kehunah on Bereshit Rabbah 91:8:2 (Midrash Rabbah, Vilna, 1878 [he])
 9	30	גְּדִיל	גדיל	גדל	ויקינתונים (CC0)	אומת			L76565
 9	31	גָּמַר עָלָיו אֶת הַהַלֵּל	גמר עליו את ההלל	גמר-עליו-את-ההלל	ספריא · נחלת הכלל	אומת			Turei Zahav on Shulchan Arukh, Orach Chayim 489:11 (Maginei Eretz: Shulchan Aruch Orach Chaim, Lemberg, 1893 [he])
@@ -1689,13 +1689,13 @@
 9	52	נִטַּשׁ	נטש	נטש	ויקינתונים (CC0)	שוכתב			L214457
 9	53	נִקְרָה	נקרה	נקר	ויקינתונים (CC0)	שוכתב		נדחה בהפרכה ונכתב מחדש בכפוף לשער	L214984
 9	54	סָפַק אֶת כַּפָּיו	ספק את כפיו	ספק-את-כפיו	ספריא · נחלת הכלל	אומת		הוחזר בסבב 1 · אומת בהפרכת-המכהן	Abarbanel on Torah, Numbers 23:13:2 (Torah Commentary of Yitzchak Abarbanel, Warsaw 1862 [he])
-9	55	סָעַד אֶת לִבּוֹ	סעד את לבו	סעד-את-ליבו	ספריא · נחלת הכלל	אומת			Shem MiShmuel, Vayera 6:4 (Sefer Shem Mishmuel, Piotrkow, 1927-1934 [he])
+9	55	סָעַד אֶת לִבּוֹ	סעד את לבו	סעד-את-ליבו	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Shem MiShmuel, Vayera 6:4 (Sefer Shem Mishmuel, Piotrkow, 1927-1934 [he])	Shem MiShmuel, Vayera 6:4 (Sefer Shem Mishmuel, Piotrkow, 1927-1934 [he])
 9	56	עַבְדְּקָן	עבדקן	עבדקנ	ויקינתונים (CC0)	אומת			L80456
 9	57	עִוְעִים	עועים	עוע	ספריא · נחלת הכלל	אומת			Ibn Ezra on Isaiah 19:14:2 (Ibn Ezra on Isaiah, by M. Friedlander; Society of Hebrew Literature, London 1877 [he])
 9	58	עֹפֶר	עפר	עפר	ויקינתונים (CC0)	אומת			L67289
 9	59	פִּנְכָּה	פנכה	פנכ	ויקינתונים (CC0)	שוכתב		סבב הפרכה 2: דיוק מדומה — אף מקור לא מגדיר קטנה	L80971
 9	60	צוֹעֵר	צוער	צער	ויקינתונים (CC0)	שוכתב			L81257
-9	61	צוּר מַחְצַבְתּוֹ	צור מחצבתו	צור-מחצבתו	ספריא · נחלת הכלל	אומת			Hegyonot El Ami, Volume I, Yom Kippur 43:8 (Antwerp, 1933-1936 [he])
+9	61	צוּר מַחְצַבְתּוֹ	צור מחצבתו	צור-מחצבתו	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Hegyonot El Ami, Volume I, Yom Kippur 43:8 (Antwerp, 1933-1936 [he])	Hegyonot El Ami, Volume I, Yom Kippur 43:8 (Antwerp, 1933-1936 [he])
 9	62	קְסַרְקְטִין	קסרקטין	קסרקטינ	ויקינתונים (CC0)	אומת			L81694
 9	63	קָרוּץ	קרוץ	קרצ	ויקינתונים (CC0)	שוכתב			L218476
 9	64	רַעֲמָה	רעמה	רעמ	ויקינתונים (CC0)	אומת			L82032
@@ -1744,7 +1744,7 @@
 9	107	עַרְכָּאָה	ערכאה	ערכאה	ויקינתונים (CC0)	אומת			L80611
 9	108	עָמִיל	עמיל	עמיל	ויקינתונים (CC0)	אומת			L216181
 9	109	שָׂם פְּעָמָיו	שם פעמיו	שם-פעמיו	ספריא · נחלת הכלל	אומת			The Book of Maccabees I 5:34 (43747 [he])
-9	110	פִּזּוּר נֶפֶשׁ	פזור נפש	פיזור-נפש	ספריא · נחלת הכלל	אומת			Shem MiShmuel, Ki Tavo 7:21 (Sefer Shem Mishmuel, Piotrkow, 1927-1934 [he])
+9	110	פִּזּוּר נֶפֶשׁ	פזור נפש	פיזור-נפש	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Shem MiShmuel, Ki Tavo 7:21 (Sefer Shem Mishmuel, Piotrkow, 1927-1934 [he])	Shem MiShmuel, Ki Tavo 7:21 (Sefer Shem Mishmuel, Piotrkow, 1927-1934 [he])
 9	111	פָּרָדוֹקְס	פרדוקס	פרדוקס	ויקינתונים (CC0)	אומת			L67533
 9	112	פּוֹרֵק עֹל	פורק על	פורק-עול	ויקינתונים (CC0)	אומת			L216587
 9	113	צָבָה	צבה	צבה	ויקינתונים (CC0)	אומת			L217449
@@ -1797,7 +1797,7 @@
 9	160	עֲוִית	עוית	עוית	ויקינתונים (CC0)	אומת			L80493
 9	161	חֲכִירָה	חכירה	חכר	ויקינתונים (CC0)	אומת			L210909
 9	162	קוֹלָן	קולן	קולנ	ויקינתונים (CC0)	אומת			L67797
-9	163	מֶלְקָחַיִם	מלקחים	מלקח	ספריא · נחלת הכלל	אומת			Rashi on Exodus 35:14:1 (Pentateuch with Rashi's commentary by M. Rosenbaum and A.M. Silbermann, 1929-1934 [he])
+9	163	מֶלְקָחַיִם	מלקחים	מלקח	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Rashi on Exodus 35:14:1 (Pentateuch with Rashi's commentary by M. Rosenbaum and A.M. Silbermann, 1929-1934 [he])	Rashi on Exodus 35:14:1 (Pentateuch with Rashi's commentary by M. Rosenbaum and A.M. Silbermann, 1929-1934 [he])
 9	164	רַכָּב	רכב	רכב	ויקינתונים (CC0)	אומת			L218939
 9	165	תִּיתוֹרָה	תיתורה	תיתורה	⚠ דרוש מקור	אומת			ערך: תיתורה
 9	166	כֵּלִים שְׁלוּבִים	כלים שלובים	כלים-שלובים	ויקיטקסט · נחלת הכלל	אומת			ערך: כלים שלובים
@@ -1808,7 +1808,7 @@
 9	171	הֶחֱזִיר עֲטָרָה לְיָשְׁנָהּ	החזיר עטרה לישנה	החזיר-עטרה-ליושנה	לפי מילה: ויקינתונים · צורה (CC0) + ויקינתונים · כתיב מלא/חסר (CC0)	שוכתב		הוחזר בסבב 1 · הופרך בהפרכת-המכהן ונכתב מחדש	החזיר=L207609 עטרה=L216036 לישנה=L212520
 9	172	אֵין עָלָיו עוֹרְרִין	אין עליו עוררין	אין-עליו-עוררין	ספריא · נחלת הכלל	אומת			Ran on Ketubot 11a:8 (Vilna Edition [he])
 9	173	סְיָח	סיח	סיח	ויקינתונים (CC0)	אומת			L215455
-9	174	אוֹתִיּוֹת קִדּוּשׁ לְבָנָה	אותיות קדוש לבנה	אותיות-קידוש-לבנה	ספריא · נחלת הכלל	שוכתב			Ben Yehoyada on Bava Batra 75b:2 (Senlake edition 2019 based on Ben Yehoyada, Jerusalem, 1897 [he])
+9	174	אוֹתִיּוֹת קִדּוּשׁ לְבָנָה	אותיות קדוש לבנה	אותיות-קידוש-לבנה	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Ben Yehoyada on Bava Batra 75b:2 (Senlake edition 2019 based on Ben Yehoyada, Jerusalem, 1897 [he])	Ben Yehoyada on Bava Batra 75b:2 (Senlake edition 2019 based on Ben Yehoyada, Jerusalem, 1897 [he])
 9	175	מַרְבֵּק	מרבק	רבק	ספריא · נחלת הכלל	אומת			Malbim Beur Hamilot on Jeremiah 46:21:1 (On Your Way [he])
 9	176	הִתְעַתֵּד	התעתד	עתד	ויקינתונים (CC0)	שוכתב			L209988
 9	177	בֶּן דְּמוּתוֹ	בן דמותו	בן-דמותו	ספריא · נחלת הכלל	אומת		הוחזר בסבב 1 · אומת בהפרכת-המכהן	Tzror HaMor on Torah, Genesis 8:9:3 (Tzeror Hamor, Warsaw, 1879 [he])
@@ -1821,7 +1821,7 @@
 9	184	עַד הֲלוֹם	עד הלום	עד-הלום	ספריא · נחלת הכלל	אומת			Perush Maharzu on Ruth Rabbah 5:6:2 (Midrash Rabbah, Vilna, 1878 [he])
 9	185	אָנֶה וָאָנָה	אנה ואנה	אנה-ואנה	ספריא · נחלת הכלל	אומת			Minchat Shai on II Kings 5:25:2 (Minchat Shai [he])
 9	186	אַרְכּוֹף	ארכוף	ארכופ	ויקינתונים (CC0)	אומת			L76044
-9	187	יֵשׁ דְּבָרִים בְּגוֹ	יש דברים בגו	יש-דברים-בגו	ספריא · נחלת הכלל	שוכתב			Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 17:100 (Derashot El Ami, Jerusalem 1936 [he])
+9	187	יֵשׁ דְּבָרִים בְּגוֹ	יש דברים בגו	יש-דברים-בגו	נחלת הכלל / CC0 (לפי ספריא)	שוכתב		⟵ מקור הוחלף · הטענה הקודמת: ספריא · נחלת הכלל / Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 17:100 (Derashot El Ami, Jerusalem 1936 [he]) · המקור החדש מ-attestation.tsv	Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 17:100
 9	188	בֻּרְסְקִי	ברסקי	בורסקי	ויקינתונים (CC0)	אומת			L205638
 9	189	אֶזוֹטֶרִי	אזוטרי	אזוטרי	ויקינתונים (CC0)	אומת			L204619
 9	190	אֶפִּילוֹג	אפילוג	אפילוג	ויקינתונים (CC0)	אומת			L75881
@@ -1839,7 +1839,7 @@
 9	202	דַּקְדְּקָן	דקדקן	דקדק	ויקינתונים (CC0)	שוכתב			L206732
 9	203	חָזַר לְסוּרוֹ	חזר לסורו	חזר-לסורו	ספריא · נחלת הכלל	שוכתב			Tosafot Rabbi Akiva Eiger on Mishnah Nedarim 9:3:3 (Vilna, 1908-1909 [he])
 9	204	חֵרֵף אֶת נַפְשׁוֹ	חרף את נפשו	חרף-את-נפשו	ספריא · נחלת הכלל	שוכתב			The War of the Jews 1:17:6 (The Jewish Wars, trans. Y.N. Simhoni, Warsaw, 1923 [he])
-9	205	לְרוֹעֵץ	לרועץ	רעצ	ספריא · נחלת הכלל	שוכתב			Hegyonot El Ami, Volume I, Yom Kippur 36:12 (Antwerp, 1933-1936 [he])
+9	205	לְרוֹעֵץ	לרועץ	רעצ	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Hegyonot El Ami, Volume I, Yom Kippur 36:12 (Antwerp, 1933-1936 [he])	Hegyonot El Ami, Volume I, Yom Kippur 36:12 (Antwerp, 1933-1936 [he])
 9	206	מַלְקוֹשׁ	מלקוש	לקש	ויקינתונים (CC0)	שוכתב			L213391
 9	207	מַפְלִיא מַכּוֹתָיו	מפליא מכותיו	מפליא-מכותיו	לפי מילה: ויקינתונים · צורה (CC0) + ויקינתונים · כתיב מלא/חסר (CC0)	שוכתב			מפליא=L208536 מכותיו=L207155
 9	208	נָבוּל	נבול	נבל	ויקינתונים (CC0)	שוכתב			L214083
@@ -1866,7 +1866,7 @@
 10	10	חֶלֶד	חלד	חלד	ויקינתונים (CC0)	שוכתב			L65278
 10	11	הָלַךְ סְחוֹר סְחוֹר	הלך סחור סחור	הלך-סחור-סחור	ספריא · נחלת הכלל	אומת			Targum Jonathan on Ezekiel 41:10 (Mikraot Gedolot [he])
 10	12	אֵין בּוֹ מְתֹם	אין בו מתם	אין-בו-מתום	ספריא · נחלת הכלל	שוכתב			Ibn Ezra on Isaiah 1:6:2 (Ibn Ezra on Isaiah, by M. Friedlander; Society of Hebrew Literature, London 1877 [he])
-10	13	עַל לֹא עָוֶל בְּכַפּוֹ	על לא עול בכפו	על-לא-עוול-בכפו	ספריא · נחלת הכלל	אומת			Ben Yehoyada on Avodah Zarah 18a:2 (Senlake edition 2019 based on Ben Yehoyada, Jerusalem, 1897 [he])
+10	13	עַל לֹא עָוֶל בְּכַפּוֹ	על לא עול בכפו	על-לא-עוול-בכפו	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Ben Yehoyada on Avodah Zarah 18a:2 (Senlake edition 2019 based on Ben Yehoyada, Jerusalem, 1897 [he])	Ben Yehoyada on Avodah Zarah 18a:2 (Senlake edition 2019 based on Ben Yehoyada, Jerusalem, 1897 [he])
 10	14	כְּחֹמֶר בְּיַד הַיּוֹצֵר	כחמר ביד היוצר	כחומר-ביד-היוצר	ספריא · נחלת הכלל	אומת			Machberet Menachem, Letter Tzadi 58:3 (Mahberet Menahem, London, 1854. [he])
 10	15	עַד חָרְמָה	עד חרמה	עד-חורמה	ספריא · נחלת הכלל	אומת			Targum Jonathan on Deuteronomy 1:44 (Targum Jonathan on Deuteronomy [he])
 10	16	נוּל	נול	נול	ויקינתונים (CC0)	אומת			L79753
@@ -1879,7 +1879,7 @@
 10	23	חִזָּיוֹן	חזיון	חזה	ויקינתונים (CC0)	שוכתב			L210794
 10	24	אֵם הַדֶּרֶךְ	אם הדרך	אם-הדרך	ויקינתונים (CC0)	שוכתב		נדחה בהפרכה ונכתב מחדש בכפוף לשער	L75515
 10	25	מָבוֹי סָתוּם	מבוי סתום	מבוי-סתום	ספריא · נחלת הכלל	אומת			Rif Eruvin 3a:3 (Vilna Edition [he])
-10	26	אוֹת וּמוֹפֵת	אות ומופת	אות-ומופת	ספריא · נחלת הכלל	שוכתב			Mishnat Rabbi Eliezer 6:20 (New York, 1934 [he])
+10	26	אוֹת וּמוֹפֵת	אות ומופת	אות-ומופת	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Mishnat Rabbi Eliezer 6:20 (New York, 1934 [he])	Mishnat Rabbi Eliezer 6:20 (New York, 1934 [he])
 10	27	קִלְשׁוֹן	קלשון	קלשונ	ויקינתונים (CC0)	אומת			L218309
 10	28	מַזְמֵרָה	מזמרה	זמר	ויקינתונים (CC0)	אומת			L78935
 10	29	נוֹטָרִיקוֹן	נוטריקון	נוטריקון	ויקינתונים (CC0)	שוכתב			L79739
@@ -1902,7 +1902,7 @@
 10	46	יִדְּעוֹנִי	ידעוני	ידעונ	ויקינתונים (CC0)	שוכתב			L211735
 10	47	זִלּוּת	זלות	זול	ספריא · נחלת הכלל	שוכתב			Radak on Psalms 12:9:2 (13210 [he])
 10	48	הַכְּצַעֲקָתָהּ	הכצעקתה	הכצעקתה	ויקינתונים (CC0)	אומת			L492226
-10	49	גְּזֵרָה שָׁוָה	גזרה שוה	גזרה-שווה	ספריא · נחלת הכלל	שוכתב			Beur Reuven on Bava Kamma 5a:16 (Beur Reuven, New York 1955 [he])
+10	49	גְּזֵרָה שָׁוָה	גזרה שוה	גזרה-שווה	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Beur Reuven on Bava Kamma 5a:16 (Beur Reuven, New York 1955 [he])	Beur Reuven on Bava Kamma 5a:16 (Beur Reuven, New York 1955 [he])
 10	50	נִמְנוּ וְגָמְרוּ	נמנו וגמרו	נמנו-וגמרו	ספריא · נחלת הכלל	אומת			Etz Yosef on Kohelet Rabbah 9:17:1:2 (Midrash Rabbah, with Etz Yosef, Warsaw, 1867 [he])
 10	51	כָּרָה אָזְנוֹ	כרה אזנו	כרה-אוזנו	לפי מילה: ויקינתונים · צורה (CC0)	אומת			כרה=L212200 אזנו=L204728
 10	52	לַעַג לָרָשׁ	לעג לרש	לעג-לרש	ספריא · נחלת הכלל	שוכתב		הוחזר בסבב 1 · הופרך בהפרכת-המכהן ונכתב מחדש	Beur HaGra on Shulchan Arukh, Yoreh De'ah 368:2 (Ashlei Ravrevei: Shulchan Aruch Yoreh Deah, Lemberg, 1888 [he])
@@ -1931,13 +1931,13 @@
 10	75	בְּשָׂפָה רָפָה	בשפה רפה	בשפה-רפה	ספריא · נחלת הכלל	אומת			Maggid Mishneh on Mishneh Torah, Fasts 5:11:1 (ToratEmet [he])
 10	76	בּוֹר סוּד (שֶׁאֵינוֹ מְאַבֵּד טִפָּה)	בור סוד (שאינו מאבד טפה)	בור-סוד-(שאינו-מאבד-טפה)	ספריא · נחלת הכלל	אומת			Midrash Shmuel on Avot 2:8:18 (Midrash Shmuel, Warsaw, 1876 [he])
 10	77	גִּילָּה אֶת אָזְנוֹ	גילה את אזנו	גילה-את-אזנו	ספריא · נחלת הכלל	אומת			Teshuvot HaRadbaz Volume 1 293:2 (Teshuvot HaRadbaz, Warsaw 1882 [he])
-10	78	דָּחַק אֶת הַקֵּץ	דחק את הקץ	דחק-את-הקץ	ספריא · נחלת הכלל	אומת			Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 27:44 (Derashot El Ami, Jerusalem 1936 [he])
+10	78	דָּחַק אֶת הַקֵּץ	דחק את הקץ	דחק-את-הקץ	ספריא · Derashot El Ami, Jerusalem 1936 (Public Domain)	אומת		⟵ מקור הוחלף · הטענה הקודמת: ספריא · נחלת הכלל / Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 27:44 (Derashot El Ami, Jerusalem 1936 [he]) · המקור החדש מ-attestation.tsv	Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 27:44 · «נִדְחַק את הקץ»
 10	79	דָּחַק אֶת רַגְלָיו	דחק את רגליו	דחק-את-רגליו	⚠ דרוש מקור	אומת			דחק
 10	80	חוֹרֵשׁ מְזִמּוֹת	חורש מזמות	חורש-מזמות	ויקיטקסט · נחלת הכלל	שוכתב			אלטנוילנד ג ג
-10	81	מָשַׁךְ בְּעֵט	משך בעט	משך-בעט	ספריא · נחלת הכלל	אומת			Beur Reuven on Bava Kamma, Introduction 25 (Beur Reuven, New York 1955 [he])
+10	81	מָשַׁךְ בְּעֵט	משך בעט	משך-בעט	ספריא · Beur Reuven, New York 1955 (Public Domain)	אומת		⟵ מקור הוחלף · הטענה הקודמת: ספריא · נחלת הכלל / Beur Reuven on Bava Kamma, Introduction 25 (Beur Reuven, New York 1955 [he]) · המקור החדש מ-attestation.tsv	Beur Reuven on Bava Kamma, Introduction 25 · «לִמְשֹׁךְ בעט סופר»
 10	82	עֲשָׂבִים שּׁוֹטִים	עשבים שוטים	עשבים-שוטים	ויקיטקסט · נחלת הכלל	שוכתב			תקנות הזרעים (מכירה)
 10	83	פּוֹשֵט עוֹרוֹת	פושט עורות	פושט-עורות	ספריא · נחלת הכלל	אומת			Responsa Maharashdam, Yoreh Deah 39:1 (She'elot uTeshuvot Maharashdam, Lemberg, 1862 [he])
-10	84	אֲבַק אָדָם	אבק אדם	אבק-אדם	ספריא · נחלת הכלל	שוכתב			Menorat HaMaor, Ohr Olam 20:3 (Menorat HaMaor, Alnakawa, H.G. Enelow ed. N.Y. 1929-1934 [he])
+10	84	אֲבַק אָדָם	אבק אדם	אבק-אדם	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Menorat HaMaor, Ohr Olam 20:3 (Menorat HaMaor, Alnakawa, H.G. Enelow ed. N.Y. 1929-1934 [he])	Menorat HaMaor, Ohr Olam 20:3 (Menorat HaMaor, Alnakawa, H.G. Enelow ed. N.Y. 1929-1934 [he])
 10	85	אִישׁ קְּצָווֹת	איש קצוות	איש-קצוות	ספריא · נחלת הכלל	שוכתב		הוחזר בסבב 1 · הופרך בהפרכת-המכהן ונכתב מחדש	Shenei Luchot HaBerit, Shaar HaOtiyot, Hilchot Biah 3:32 (Shenei Luchot HaBrit, based on Amsterdam, 1698 ed. Part I [he])
 10	86	אִמֵּץ אֶת יָדָיו	אמץ את ידיו	אמץ-את-ידיו	ספריא · נחלת הכלל	אומת			Pele Yoetz 158:5 (Torat Emet [he])
 10	87	אֵין יָדוֹ מַשֶּׂגֶת	אין ידו משגת	אין-ידו-משגת	ספריא · נחלת הכלל	שוכתב			Shulchan Arukh, Orach Chayim 263:3 (Maginei Eretz: Shulchan Aruch Orach Chaim, Lemberg, 1893 [he])
@@ -1949,7 +1949,7 @@
 10	93	גַּיִס חֲמִישִׁי	גיס חמישי	גיס-חמישי	⚠ דרוש מקור	אומת			ערך: גיס חמישי
 10	94	חָמַד לָצוֹן	חמד לצון	חמד-לצון	ויקיטקסט · נחלת הכלל	שוכתב			חשוקי חמד/בבא קמא/כו עמוד ב
 10	95	חָתוּל בַּשַּׁק	חתול בשק	חתול-בשק	⚠ דרוש מקור	אומת			ערך: חתול בשק
-10	96	לֵיל שִמּוּרִים	ליל שמורים	ליל-שמורים	ספריא · נחלת הכלל	אומת		הוחזר בסבב 1 · אומת בהפרכת-המכהן	Gevurot Hashem 38:4 (Gevurot Hashem, with footnotes and annotations by Rabbi Yehoshua D. Hartman, Machon Yerushalyim, 2015-2020 [he])
+10	96	לֵיל שִמּוּרִים	ליל שמורים	ליל-שמורים	נחלת הכלל / CC0 (לפי ספריא)	אומת		⟵ מקור הוחלף · הטענה הקודמת: ספריא · נחלת הכלל / Gevurot Hashem 38:4 (Gevurot Hashem, with footnotes and annotations by Rabbi Yehoshua D. Hartman, Machon Yerushalyim, 2015-2020 [he]) · המקור החדש מ-attestation.tsv · הוחזר בסבב 1 · אומת בהפרכת-המכהן	Rashbam on Exodus 12:42:1
 10	97	עָקַר אֶת רַגְלָיו	עקר את רגליו	עקר-את-רגליו	ספריא · נחלת הכלל	שוכתב			Rosh on Berakhot 4:16:1 (Vilna Edition [he])
 10	98	קְטַן אֱמוּנָה	קטן אמונה	קטן-אמונה	ספריא · נחלת הכלל	אומת			Sod Yesharim, The First Night of Pesach 26:2 (Sod Yesharim, Warsaw 1902-1908 [he])
 10	99	קִיצֵּץ אֶת כְּנָפָיו	קיצץ את כנפיו	קיצץ-את-כנפיו	לפי מילה: ויקינתונים · צורה (CC0) + ויקינתונים · כתיב מלא/חסר (CC0)	שוכתב			קיצץ=L218203 כנפיו=L78458
@@ -1960,10 +1960,10 @@
 10	104	הִכְבִּיר בְּמִילִים	הכביר במילים	הכביר-במילים	לפי מילה: ויקינתונים · צורה (CC0) + ויקיטקסט · נחלת הכלל	אומת			הכביר=L208100 במילים=מצודות על ישעיהו לג יד
 10	105	דִמְעוֹת תַנִּין	דמעות תנין	דמעות-תנין	ספריא · נחלת הכלל	שוכתב			Megalleh Amukkot on Torah, Vayera 3 (Lublin, 1884 [he])
 10	106	יְחִידֵי סְגוּלָה	יחידי סגולה	יחידי-סגולה	ספריא · נחלת הכלל	שוכתב			Pat Lechem, Fourth Treatise on Trust 7:39 (Chovat Halevavot, Warsaw 1875 [he])
-10	107	זָרָה אֲבָק / חוֹל בַּעֵינַיִים	זרה אבק / חול בעיניים	זרה-אבק	ספריא · נחלת הכלל	שוכתב			Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 19:61 (Derashot El Ami, Jerusalem 1936 [he])
+10	107	זָרָה אֲבָק / חוֹל בַּעֵינַיִים	זרה אבק / חול בעיניים	זרה-אבק	נחלת הכלל / CC0 (לפי ספריא)	שוכתב		⟵ מקור הוחלף · הטענה הקודמת: ספריא · נחלת הכלל / Sermons Unto My People, Chanuka, Purim, and Special Shabbatot 19:61 (Derashot El Ami, Jerusalem 1936 [he]) · המקור החדש מ-attestation.tsv	A Dictionary of the Talmud, אִבֵּק
 10	108	הֵקִיץ הַקֵץ	הקיץ הקץ	הקיץ-הקץ	ספריא · נחלת הכלל	אומת			Malbim on Ezekiel 7:6:1 (On Your Way [he])
 10	109	רִיפָּה אֶת יָדָיו	ריפה את ידיו	ריפה-את-ידיו	לפי מילה: ויקינתונים · צורה (CC0) + ויקינתונים · כתיב מלא/חסר (CC0)	שוכתב			ריפה=L218902 ידיו=L206483
-10	110	בֵּית בַּד	בית בד	בית-בד	ספריא · נחלת הכלל	אומת			Lechem Shamayim on Mishnah Oholot 13:4:1 (Jerusalem, 1978 [he])
+10	110	בֵּית בַּד	בית בד	בית-בד	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Lechem Shamayim on Mishnah Oholot 13:4:1 (Jerusalem, 1978 [he])	Lechem Shamayim on Mishnah Oholot 13:4:1 (Jerusalem, 1978 [he])
 10	111	בֵּית תַּמְחוּי	בית תמחוי	בית-תמחוי	ספריא · נחלת הכלל	שוכתב			Mordechai on Bava Batra 2:15 (Vilna Edition [he])
 10	112	כִּתְמוֹל שִׁלְשוֹם	כתמול שלשום	כתמול-שלשום	ספריא · נחלת הכלל	שוכתב			Haamek Davar on Exodus 5:14:2 (Sefer Torat Elohim, Vilna 1879 [he])
 10	113	רִפְיוֹן יָדַיִּם	רפיון ידים	רפיון-ידים	ספריא · נחלת הכלל	שוכתב		הוחזר בסבב 1 · הופרך בהפרכת-המכהן ונכתב מחדש	Rashash on Arakhin 6a:1 (Vilna Edition [he])
@@ -1993,7 +1993,7 @@
 10	137	לֹא יְסוּלָּא בְּפָז	לא יסולא בפז	לא-יסולא-בפז	ויקיטקסט · נחלת הכלל	אומת			דו"ח מבקר המדינה/שנת 2014/מאי/פרק ג
 10	138	קַל רַגְלַיִים	קל רגליים	קל-רגליים	⚠ דרוש מקור	אומת			קל
 10	139	שְׁעַת כּוֹשֶׁר	שעת כושר	שעת-כושר	ספריא · נחלת הכלל	אומת			Ateret Zekenim on Shulchan Arukh, Orach Chayim 160:3 (Maginei Eretz: Shulchan Aruch Orach Chaim, Lemberg, 1893 [he])
-10	140	עִיר פְּרָזוֹת	עיר פרזות	עיר-פרזות	ספריא · נחלת הכלל	אומת			Lechem Shamayim on Mishnah Ketubot 13:10:2 (Jerusalem, 1978 [he])
+10	140	עִיר פְּרָזוֹת	עיר פרזות	עיר-פרזות	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Lechem Shamayim on Mishnah Ketubot 13:10:2 (Jerusalem, 1978 [he])	Lechem Shamayim on Mishnah Ketubot 13:10:2 (Jerusalem, 1978 [he])
 10	141	נַחַל אֵיתָן	נחל איתן	נחל-איתן	ויקינתונים (CC0)	שוכתב			L79784
 10	142	קֵירֵחַ מִכָּאן וּמִכָּאן	קירח מכאן ומכאן	קירח-מכאן-ומכאן	⚠ דרוש מקור	אומת			קרח מכאן ומכאן
 10	143	שׁוֹקֶת שְׁבוּרָה	שוקת שבורה	שוקת-שבורה	ויקיטקסט · נחלת הכלל	אומת			בלבבי משכן אבנה (שוורץ)/חלק ב
@@ -2032,8 +2032,8 @@
 10	176	תַּשׁ כֹּחוֹ	תש כחו	תש-כוחו	ספריא · נחלת הכלל	שוכתב			Rashi on Bereshit Rabbah 36:4:3 (Midrash Rabbah, Vilna, 1878 [he])
 10	177	נִבֵּל אֶת פִּיו	נבל את פיו	ניבל-את-פיו	ספריא · נחלת הכלל	אומת			Chidushei Agadot on Yevamot 63b:8 (Vilna Edition [he])
 10	178	הֵשִׁיב פָּנָיו רֵיקָם	השיב פניו ריקם	השיב-פניו-ריקם	ספריא · נחלת הכלל	אומת			Shivchei HaBesht 21:1 (Shivchei HaBesht, Kopyst 1815 [he])
-10	179	גַּבְהוּת לֵב	גבהות לב	גבהות-לב	ספריא · נחלת הכלל	אומת			Derekh Chayyim 3:2:14 (Derech Chaim, with footnotes and annotations by Rabbi Yehoshua D. Hartman, Machon Yerushalyim, 2005-2010 [he])
-10	180	בָּא אֶל קִצּוֹ	בא אל קצו	בא-אל-קיצו	ספריא · נחלת הכלל	שוכתב			Sermons Unto My People, The Three Festivals 14:35 (Derashot El Ami, Jerusalem 1936 [he])
+10	179	גַּבְהוּת לֵב	גבהות לב	גבהות-לב	⚠ דרוש מקור	אומת		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Derekh Chayyim 3:2:14 (Derech Chaim, with footnotes and annotations by Rabbi Yehoshua D. Hartman, Machon Yerushalyim, 2005-2010 [he])	Derekh Chayyim 3:2:14 (Derech Chaim, with footnotes and annotations by Rabbi Yehoshua D. Hartman, Machon Yerushalyim, 2005-2010 [he])
+10	180	בָּא אֶל קִצּוֹ	בא אל קצו	בא-אל-קיצו	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Sermons Unto My People, The Three Festivals 14:35 (Derashot El Ami, Jerusalem 1936 [he])	Sermons Unto My People, The Three Festivals 14:35 (Derashot El Ami, Jerusalem 1936 [he])
 10	181	אֵין לוֹ דּוֹרֵשׁ	אין לו דורש	אין-לו-דורש	ספריא · נחלת הכלל	אומת			Shoel uMeshiv Mahadura II 2:5:5 (Lemberg, 1865-1890 [he])
 10	182	אֵין לוֹ זֵכֶר	אין לו זכר	אין-לו-זכר	ספריא · נחלת הכלל	אומת			Rashi on Taanit 25b:1:2 (Vilna Edition [he])
 10	183	בָּא בְּצֵל קוֹרָתוֹ	בא בצל קורתו	בא-בצל-קורתו	ספריא · נחלת הכלל	אומת			Responsa Chatam Sofer, Even HaEzer 2:131:35 (Pressburg, 1855-1864 [he])
@@ -2053,7 +2053,7 @@
 10	197	בְּנָקֵל	בנקל	קלל	ספריא · נחלת הכלל	שוכתב			Likutei Moharan 56:6:1 (Likutei Moharan - rabenubook.com [he])
 10	198	גַּבְשׁוּשִׁי	גבשושי	גבש	ויקינתונים (CC0)	שוכתב			L206043
 10	199	גַּת	גת	גת	ויקינתונים (CC0)	שוכתב			L64591
-10	200	הִגִּיעַ לְפִרְקוֹ	הגיע לפרקו	הגיע-לפרקו	ספריא · נחלת הכלל	שוכתב			Lechem Shamayim on Mishnah Sotah 4:4:3 (Jerusalem, 1978 [he])
+10	200	הִגִּיעַ לְפִרְקוֹ	הגיע לפרקו	הגיע-לפרקו	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Lechem Shamayim on Mishnah Sotah 4:4:3 (Jerusalem, 1978 [he])	Lechem Shamayim on Mishnah Sotah 4:4:3 (Jerusalem, 1978 [he])
 10	201	הִכְפִּישׁ	הכפיש	כפש	ויקינתונים (CC0)	שוכתב			L208133
 10	202	הִלְבִּין אֶת פָּנָיו	הלבין את פניו	הלבין-את-פניו	ספריא · נחלת הכלל	שוכתב			Sha'arei Teshuvah 1:44 (Sefaria Vocalized Edition [he])
 10	203	הֵסִית	הסית	סות	ויקינתונים (CC0)	שוכתב			L208323
@@ -2070,7 +2070,7 @@
 10	214	עָנֹג	ענג	ענג	ויקינתונים (CC0)	שוכתב			L216094
 10	215	פִּיֵּס	פיס	פיס	ויקינתונים (CC0)	שוכתב			L80846
 10	216	פָּסַע	פסע	פסע	ויקינתונים (CC0)	שוכתב			L217050
-10	217	קָצְרָה יָדוֹ מֵהוֹשִׁיעַ	קצרה ידו מהושיע	קצרה-ידו-מהושיע	ספריא · נחלת הכלל	שוכתב			Menorat HaMaor, xiv; On Contentment, Accounts of the pious ones 7 (Menorat HaMaor, Alnakawa, H.G. Enelow ed. N.Y. 1929-1934 [he])
+10	217	קָצְרָה יָדוֹ מֵהוֹשִׁיעַ	קצרה ידו מהושיע	קצרה-ידו-מהושיע	⚠ דרוש מקור	שוכתב		⚠ מהדורה 1929 ואילך · «נחלת הכלל» אינו מאושר עליה · הטענה הקודמת: ספריא · נחלת הכלל / Menorat HaMaor, xiv; On Contentment, Accounts of the pious ones 7 (Menorat HaMaor, Alnakawa, H.G. Enelow ed. N.Y. 1929-1934 [he])	Menorat HaMaor, xiv; On Contentment, Accounts of the pious ones 7 (Menorat HaMaor, Alnakawa, H.G. Enelow ed. N.Y. 1929-1934 [he])
 10	218	תְּבוּסְתָנוּת	תבוסתנות	בוס	ויקינתונים (CC0)	שוכתב			L219960
 2	204	הִסְלִים	הסלים	סלמ	ויקינתונים (CC0)	ממתין		תוספת ממילות הפער · L208329 · פירוש נכתב מחדש, ממתין לשער הפירושים
 3	209	מֵרֵט אֶת עֲצַבָּיו	מרט את עצביו	מרט-את-עצביו	לפי מילה · CC0 / נחלת הכלל	ממתין		תוספת ממילות הפער · מרט=L213832 · עצביו=L80570 · פירוש נכתב מחדש, ממתין לשער הפירושים

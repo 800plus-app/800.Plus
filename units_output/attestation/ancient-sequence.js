@@ -233,7 +233,12 @@ function run(list, label) {
   console.log('  ' + (yes + pre + no === list.length ? '✅ הסכום מתיישב · ' + (yes + pre + no) : '⛔ הסכום אינו מתיישב'));
 }
 
-(async () => {
+/* ⭐ מיוצא כדי שמנוע התלמוד ישתמש **באותה** לוגיקת התאמה ולא בעותק שני שלה.
+ * ⚠ הלקח שמאחורי זה: אותה טבלה בשני עותקים עוקבים — תיקון שנגע באחד נראה שלם
+ * ולא היה. כאן יש עותק אחד, ומי שמשנה את `seqIn` משנה את שני המנועים. */
+module.exports = { strip, seqIn, formsOf, leftWords, tooNew, isPD, UA, sleep, CUTOFF };
+
+if (require.main === module) (async () => {
   const a = process.argv;
   if (a.indexOf('--build') >= 0) return void await build();
   if (a.indexOf('--selftest') >= 0) return selftest();

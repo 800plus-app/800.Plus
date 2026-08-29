@@ -75,6 +75,11 @@ const ALT_FILES = [
    * (רצף מדויק בנוסח מקרא ומשנה בנחלת הכלל). ⛔ כל שורה נושאת את הטקסט
    * שנמצא בפועל, לא את שם המקור בלבד. */
   { f: path.join(DIR, 'attestation-lexicon-proof.tsv'), w: 0, s: 2, r: 3 },
+  /* ⭐ נוסף ב-29.8 · `talmud-sequence.js` · רצף מדויק בתלמוד בבלי (וילנא, דרך
+   * ויקיטקסט) ובתוספתא בנחלת הכלל. ⛔ בספריא **אין** בבלי בעברית בנחלת הכלל —
+   * דוידסון הוא CC-BY-NC ופסול, וויקיטקסט מתויג CC-BY-SA על תעתיק של דפוס
+   * וילנא 1880–1886 שהוא עצמו נחלת הכלל. ⭐ מה שנרשם הוא **ציטוט**, לא טקסט. */
+  { f: path.join(DIR, 'attestation-talmud-proof.tsv'), w: 0, s: 2, r: 3 },
   { f: path.join(DIR, 'attestation-nine.tsv'), w: 0, s: 2, r: 3 },
   { f: path.join(DIR, 'attestation-299-worth.tsv'), w: 0, s: 2, r: 3 },
   { f: path.join(DIR, 'attestation-new-bank.tsv'), w: 0, s: 2, r: 3 },
@@ -244,7 +249,13 @@ function selftest() {
   process.exit(ok ? 0 : 1);
 }
 
-if (process.argv.indexOf('--selftest') >= 0) selftest();
+/* ⭐ מיוצא כדי שמיון הפירושים הוותיקים ישפוט **באותו שער בדיוק** ולא בעותק
+ * שני שלו. ⚠ הלקח: אותה טבלה בשני עותקים עוקבים — תיקון שנגע באחד נראה שלם
+ * ולא היה. מי שמשנה כאן את `verdict` משנה גם את המיון. */
+module.exports = { verdict: verdict, maxYear: maxYear, norm: norm, usableAlt: usableAlt, CUTOFF: CUTOFF };
+
+if (require.main !== module) { /* ייבוא בלבד · אין ריצה */ }
+else if (process.argv.indexOf('--selftest') >= 0) selftest();
 else if (process.argv.indexOf('--apply') >= 0) apply();
 else {
   const m = report(measure());
