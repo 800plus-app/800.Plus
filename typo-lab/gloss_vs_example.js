@@ -8,6 +8,9 @@
  *   node typo-lab/gloss_vs_example.js --agree             → הסכמה בין העדשות
  *   node typo-lab/gloss_vs_example.js --selftest          → ⛔ שיניים · יוצא 1 כשקלט שאמור להיפסל עובר
  *
+ *   הנכסים הם דגלים · --bank --bankKey --sent --sentKey (ברירת מחדל: המאגר האנגלי).
+ *   ⛔ מאגר בלי משפטי דוגמה מודגשים יוצא **2** ואומר שאין קלט · ולא «0 סתירות».
+ *
  * ═══════════════════════════════════════════════════════════════════════════
  * מה זה בודק · והראיה היא **פנימית**
  * ═══════════════════════════════════════════════════════════════════════════
@@ -80,6 +83,27 @@ const has = f => argv.includes(f);
 const arg = (f, d) => { const i = argv.indexOf(f); return i >= 0 && argv[i + 1] !== undefined ? argv[i + 1] : d; };
 const num = (f, d) => { const v = arg(f, null); return v === null ? d : Number(v); };
 
+/* דגל שמקבל גם `--bank X` וגם `--bank=X`. */
+const argEq = (f, d) => {
+  const eq = argv.find(a => a.indexOf(f + '=') === 0);
+  if (eq) return eq.slice(f.length + 1);
+  return arg(f, d);
+};
+
+/* ===== הנכסים כדגלים =====
+   ברירת המחדל היא המאגר האנגלי, בדיוק כמו עד היום. הדגלים קיימים כדי שאותה
+   בדיקה תרוץ על מאגר אחר בפקודה אחת ולא בכתיבה מחדש:
+
+     node typo-lab/gloss_vs_example.js --pairs        --bank=data.js --bankKey=UNIT_DATA --sent=data.js --sentKey=UNIT_DATA
+
+   הקוד אגנוסטי לשפה · מה שהוא דורש הוא משפט מתורגם שהמילה הנלמדת מודגשת בו. */
+const ASSET = {
+  bank: argEq('--bank', 'data-en.js'),
+  bankKey: argEq('--bankKey', 'UNIT_DATA_EN'),
+  sent: argEq('--sent', 'data-en-sentences.js'),
+  sentKey: argEq('--sentKey', 'EX_SENT_EN')
+};
+
 /* ===================== 1 · טעינת הנכסים ===================== */
 
 function loadWindowFile(rel, key) {
@@ -92,7 +116,7 @@ function loadWindowFile(rel, key) {
 }
 
 function loadBank() {
-  const units = loadWindowFile('data-en.js', 'UNIT_DATA_EN');
+  const units = loadWindowFile(ASSET.bank, ASSET.bankKey);
   const rows = [];
   for (const u of Object.keys(units)) for (const pair of units[u]) rows.push({ unit: u, term: pair[0], gloss: pair[1] });
   return rows;
@@ -161,7 +185,7 @@ function bolds(html) {
 
 function buildPairs() {
   const bank = loadBank();
-  const sent = loadWindowFile('data-en-sentences.js', 'EX_SENT_EN');
+  const sent = loadWindowFile(ASSET.sent, ASSET.sentKey);
   const stat = { total: 0, noSent: 0, noBold: 0, multiBold: 0, exact: 0, cand: 0 };
   const rows = [];
   for (const w of bank) {
@@ -181,6 +205,17 @@ function buildPairs() {
     const key = crypto.createHash('sha256')
       .update(['gloss-ex', w.term, w.gloss, joined].join('|')).digest('hex').slice(0, 12);
     rows.push({ k: key, unit: w.unit, term: w.term, gloss: w.gloss, bold: joined, en, he });
+  }
+  /* ⛔ הבקרה שמסרבת לרוץ · היא העיקר, לא נוחות.
+     מאגר בלי אף משפט מתורגם עם `<b>` היה מחזיר **0 סתירות** ונראה בדיוק כמו
+     מאגר נקי. אין קלט, ולכן אין מדידה — ויוצאים 2, לא 0. */
+  const withBold = stat.total - stat.noSent - stat.noBold;
+  if (stat.total > 0 && withBold === 0) {
+    say('⛔ ' + ASSET.sent + ' (' + ASSET.sentKey + ') אינו מכיל אף משפט מתורגם עם <b> עבור ' +
+        ASSET.bank + ' (' + ASSET.bankKey + ') · הבדיקה אינה יכולה לרוץ');
+    say('⛔ זה אינו «אפס סתירות». אין קלט, ולכן אין מדידה.');
+    say('   ' + JSON.stringify(stat));
+    process.exit(2);
   }
   return { rows, stat };
 }

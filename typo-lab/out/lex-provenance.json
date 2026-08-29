@@ -1,75 +1,129 @@
 {
  "exact": {
-  "he": 29054,
+  "he": 29076,
   "en": 6057
  },
- "fpr": {
+ "randomStringFpr": {
   "he": {
    "n": 60000,
    "hit": 361,
-   "pct": 0.006016666666666667
+   "pct": 0.006017
   },
   "en": {
    "n": 60000,
    "hit": 310,
-   "pct": 0.005166666666666667
+   "pct": 0.005167
   }
+ },
+ "realWordFloor": {
+  "he": 0.028094820017559263,
+  "en": null
+ },
+ "separates": {
+  "he": false,
+  "en": false
  },
  "findings": [
   {
    "group": "מוחרג · 01-גלם.tsv",
+   "kind": "test",
    "files": 1,
    "he": {
-    "n": 18246,
+    "n": 18245,
     "hit": 263,
-    "pct": 0.014414118162885016
+    "ok": true,
+    "pct": 0.014415
    },
    "en": {
     "n": 3,
     "hit": 0,
+    "ok": false,
     "pct": 0
    }
   },
   {
    "group": "מוחרג · 19-צירופים-מהרשת.tsv",
+   "kind": "test",
    "files": 1,
    "he": {
     "n": 938,
     "hit": 22,
-    "pct": 0.023454157782515993
+    "ok": true,
+    "pct": 0.023454
    },
    "en": {
     "n": 2,
     "hit": 0,
+    "ok": false,
     "pct": 0
    }
   },
   {
    "group": "מוחרג · pipeline_output/*.json",
+   "kind": "test",
    "files": 71,
    "he": {
-    "n": 10073,
+    "n": 10072,
     "hit": 223,
-    "pct": 0.022138389754790034
+    "ok": true,
+    "pct": 0.022141
    },
    "en": {
     "n": 28,
     "hit": 0,
+    "ok": false,
     "pct": 0
    }
   },
   {
-   "group": "בקרה · נסרק (sentence-completion)",
+   "group": "בקרה חיובית · נסרק (sentence-completion)",
+   "kind": "pos",
    "files": 1,
    "he": {
     "n": 2206,
     "hit": 55,
-    "pct": 0.024932003626473256
+    "ok": true,
+    "pct": 0.024932
    },
    "en": {
     "n": 1863,
     "hit": 14,
-    "pct": 0.007514761137949544
+    "ok": true,
+    "pct": 0.007515
+   }
+  },
+  {
+   "group": "בקרה שלילית · טקסט ממשק שאינו נסרק",
+   "kind": "neg",
+   "files": 3,
+   "he": {
+    "n": 854,
+    "hit": 18,
+    "ok": true,
+    "pct": 0.021077
+   },
+   "en": {
+    "n": 113,
+    "hit": 1,
+    "ok": false,
+    "pct": 0.00885
+   }
+  },
+  {
+   "group": "בקרה שלילית · תיעוד הפרויקט שאינו נסרק",
+   "kind": "neg",
+   "files": 5,
+   "he": {
+    "n": 1139,
+    "hit": 32,
+    "ok": true,
+    "pct": 0.028095
+   },
+   "en": {
+    "n": 208,
+    "hit": 1,
+    "ok": false,
+    "pct": 0.004808
    }
   }
  ]
