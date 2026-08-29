@@ -363,13 +363,45 @@ function emitL3(t, size, pre) {
 /* ⛔ זורק על שורה פגומה ואינו בולע. פסק סותר על אותו מפתח **זורק** ולא דורס —
    זה הבאג שהפיל את `semantic_panel.js` (הריקול השתנה פי שלושה לפי סדר קריאת
    התיקייה). */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * ⭐ שער השורה · ומה ההבדל בין «יתום» ל«פגום»
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ * המפתח הוא **גיבוב של המילה, הפירוש והמודגש**. לכן כל עריכת תוכן ב-`data-en.js`
+ * או ב-`data-en-sentences.js` מייצרת מפתח חדש ו**מייתמת** את הפסק הישן: הוא נשאר
+ * בקובץ הפסק ובפנקס, אבל אינו עוד בקבוצת המועמדים.
+ *
+ * ⛔ **הגרסה הקודמת זרקה על יתום**, ולכן `--ingest` הפסיק לרוץ אחרי עריכת תוכן
+ * ראשונה ונדרשה עקיפה ידנית (העברת 15 קובצי הפסק הישנים אל מחוץ למאגר וחזרה).
+ * זו הייתה **עקיפה של שער**, וזה בדיוק הדפוס שהפרויקט הזה אוסר.
+ *
+ * ⭐ ההפרדה: יתום הוא פסק ש**כבר בפנקס תחת אותה עדשה** — כלומר הוא נקלט בעבר,
+ * כשהמפתח עוד היה מועמד. הוא מדולג ונספר, ואינו משנה דבר.
+ * ⛔ **והשן נשמרת:** מפתח שאינו מועמד **ואינו בפנקס** עדיין זורק, וכך גם מפתח
+ * שאינו 12 ספרות הקסה. שופט שהמציא מפתח ייתפס בדיוק כמו קודם.
+ * ⚠ שתי הטענות האלה מוכחות ב-`--selftest` עם קלטים שחייבים להיפסל. */
+function ingestRow(k, lab, lens, known, led) {
+  if (!/^[0-9a-f]{12}$/.test(k)) return { act: 'זרוק', why: 'מפתח פגום' };
+  if (['כ', 'ל', '?'].indexOf(lab) < 0) return { act: 'זרוק', why: 'תווית לא חוקית "' + lab + '"' };
+  if (!known[k]) {
+    if (led[k] && led[k][lens]) return { act: 'יתום', why: 'מפתח שהתייתם בעריכת תוכן · כבר בפנקס' };
+    return { act: 'זרוק', why: 'מפתח שאינו בקבוצת המועמדים ואינו בפנקס' };
+  }
+  if (led[k] && led[k][lens]) {
+    if (led[k][lens].v !== lab) return { act: 'זרוק', why: 'פסק סותר · ' + led[k][lens].v + ' מול ' + lab };
+    return { act: 'חוזר', why: '' };
+  }
+  return { act: 'קלוט', why: '' };
+}
+
 function ingest(lens) {
   if (lens === 'L3') return ingestL3();
   const rows = buildPairs().rows;
   const known = {};
   rows.forEach(r => { known[r.k] = 1; });
   const led = loadLedger();
-  let added = 0, dup = 0;
+  let added = 0, dup = 0, orphan = 0;
   const files = fs.readdirSync(VERD).filter(f => /(^|-)L\d-\d+\.tsv$/.test(f) && f.indexOf(lens + '-') >= 0).sort();
   if (!files.length) throw new Error('אין קובצי פסק ל-' + lens + ' ב-' + VERD);
   for (const f of files) {
@@ -380,19 +412,18 @@ function ingest(lens) {
       if (c.length < 2) throw new Error(f + ': שורה בלי TAB → ' + line.slice(0, 60));
       const k = c[0].trim(), lab = c[1].trim(), why = (c[2] || '').trim();
       if (k === 'k') continue;
-      if (!known[k]) throw new Error(f + ': מפתח שאינו בקבוצת המועמדים → ' + k);
-      if (['כ', 'ל', '?'].indexOf(lab) < 0) throw new Error(f + ': תווית לא חוקית "' + lab + '" בשורה ' + k);
+      const g = ingestRow(k, lab, lens, known, led);
+      if (g.act === 'זרוק') throw new Error(f + ': ' + g.why + ' → ' + k);
+      if (g.act === 'יתום') { orphan++; continue; }
+      if (g.act === 'חוזר') { dup++; continue; }
       led[k] = led[k] || {};
-      if (led[k][lens]) {
-        if (led[k][lens].v !== lab) throw new Error(f + ': פסק סותר על ' + k + ' · ' + led[k][lens].v + ' מול ' + lab);
-        dup++; continue;
-      }
       led[k][lens] = { v: lab, why: why };
       added++;
     }
   }
   saveLedger(led);
-  say('עדשה ' + lens + ': נקלטו ' + added + ' · חוזרים ' + dup + ' · סה"כ בפנקס ' + Object.keys(led).length);
+  say('עדשה ' + lens + ': נקלטו ' + added + ' · חוזרים ' + dup + ' · יתומים (מפתח שהתייתם בעריכת תוכן) ' +
+    orphan + ' · סה"כ בפנקס ' + Object.keys(led).length);
 }
 
 /* ⛔ אותו שער קשיח, על הלמות. פסק סותר על אותה מחרוזת זורק ולא דורס. */
@@ -568,6 +599,20 @@ function selftest() {
   const L5 = { z: { L1: { v: 'כ' }, L2: { v: 'ל' } } };
   T('decide · L3=ל עם L1=כ ⇒ תקין', decide('z', L5, { bold: 'שעה', gloss: 'זמן' }, lm2).verdict === 'תקין');
 
+  /* ⛔ שער הקליטה · יתום עובר, פגום נופל. שני הכיוונים נבדקים כאן —
+     שער שרק "מרשה" הוא שער בלי שיניים. */
+  const KN = { '0123456789ab': 1 };
+  const LD = { '0123456789ab': { L1: { v: 'כ' } }, 'cafebabe1234': { L1: { v: 'ל' } } };
+  T('ingest · מועמד חדש ⇒ נקלט', ingestRow('0123456789ab', 'ל', 'L2', KN, LD).act === 'קלוט');
+  T('ingest · פסק זהה ⇒ חוזר', ingestRow('0123456789ab', 'כ', 'L1', KN, LD).act === 'חוזר');
+  T('ingest · יתום שכבר בפנקס ⇒ מדולג', ingestRow('cafebabe1234', 'ל', 'L1', KN, LD).act === 'יתום');
+  /* ⛔ ואלה **חייבים** ליפול — אחרת הרפיית היתומים הפכה לשער פתוח */
+  T('ingest · פסק סותר ⇒ זרוק', ingestRow('0123456789ab', 'ל', 'L1', KN, LD).act === 'זרוק');
+  T('ingest · לא מועמד ולא בפנקס ⇒ זרוק', ingestRow('deadbeef0000', 'כ', 'L1', KN, LD).act === 'זרוק');
+  T('ingest · יתום בעדשה אחרת ⇒ זרוק', ingestRow('cafebabe1234', 'כ', 'L2', KN, LD).act === 'זרוק');
+  T('ingest · מפתח פגום ⇒ זרוק', ingestRow('לא-מפתח', 'כ', 'L1', KN, LD).act === 'זרוק');
+  T('ingest · תווית לא חוקית ⇒ זרוק', ingestRow('0123456789ab', 'x', 'L2', KN, LD).act === 'זרוק');
+
   /* דגימה דטרמיניסטית · אותו זרע ⇒ אותה קבוצה */
   const fake = [];
   for (let i = 0; i < 100; i++) fake.push({ k: 'k' + i });
@@ -578,7 +623,7 @@ function selftest() {
   T('sample · זרע שונה ⇒ קבוצה שונה', s1 !== s3);
 
   if (bad.length) { say('⛔ נכשל:'); bad.forEach(b => say('  · ' + b)); process.exit(1); }
-  say('✅ selftest · ' + n + ' טענות עברו · כולל 4 קלטים שחייבים להיפסל ו-2 חוקי הכרעה שחייבים לא לדגול');
+  say('✅ selftest · ' + n + ' טענות עברו · כולל 9 קלטים שחייבים להיפסל ו-2 חוקי הכרעה שחייבים לא לדגול');
 }
 
 /* ===================== main ===================== */
