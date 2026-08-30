@@ -3900,6 +3900,13 @@ const PAY_FROM='2026-10-01';
    הופך ל-4 בצהריים, באמצע היום, בלי שקרה כלום. */
 function renderPayCountdown(){
   const bar=$('#payBar'); if(!bar) return;
+  /* ⛔ חגי, 30.8.2026, עם צילום של מסך הכניסה: «בדף הכניסה למי שלא רשום יש את
+     הספירה הזאת היא לא רלוונטית תוריד אותה.»
+     מי שאינו מחובר אינו נמצא בתקופה החינמית ואינו יכול לאבד אותה, ולכן «עד אז כל
+     אוצר המילים פתוח» מבטיח לו משהו שאינו שלו. הפס נשאר במלואו למי שמחובר ·
+     `afterAuthed` מסתיים ב-`renderWelcome()`, ולכן הוא מופיע מיד עם ההתחברות
+     ולא רק בטעינה הבאה. */
+  if(!currentUser){ bar.classList.add('hidden'); bar.innerHTML=''; return; }
   const end=new Date(PAY_FROM+'T00:00:00');
   const now=new Date(); now.setHours(0,0,0,0);
   const days=Math.round((end-now)/864e5);

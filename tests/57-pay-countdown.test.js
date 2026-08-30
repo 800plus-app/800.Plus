@@ -101,6 +101,46 @@ describe('שעון העצר לתשלום', () => {
       'המספר יירד באמצע היום במקום בחצות');
   });
 
+  /* ⛔ חגי, 30.8.2026, עם צילום של מסך הכניסה: «בדף הכניסה למי שלא רשום יש את
+     הספירה הזאת היא לא רלוונטית תוריד אותה.»
+     ⭐ הבדיקה הזאת מריצה את הפונקציה עצמה מול DOM מזויף · ולא מחפשת מחרוזת בקוד ·
+     כי מה שנשבר כאן הוא התנהגות. והיא בודקת את **שני** הכיוונים: גידור שמכבה את
+     הפס לכולם היה עובר בדיקה חד-כיוונית בשקט, ואיש לא היה רואה שהפס נעלם גם
+     למי שמחובר. */
+  const runRender = (user, days) => {
+    const at = app.indexOf('function renderPayCountdown');
+    const end = app.indexOf(String.fromCharCode(10) + '}', at);
+    assert.ok(at > 0 && end > at, 'לא נמצאה renderPayCountdown');
+    const src = app.slice(at, end + 2);
+    const bar = {
+      innerHTML: 'טקסט קודם',
+      classList: { s: new Set(['hidden']),
+        add(c) { this.s.add(c); }, remove(c) { this.s.delete(c); },
+        contains(c) { return this.s.has(c); } },
+    };
+    const d = new Date(); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() + days);
+    const pad = n => String(n).padStart(2, '0');
+    const PAY_FROM = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+    new Function('$', 'PAY_FROM', 'currentUser',
+      src + ';renderPayCountdown();')(sel => (sel === '#payBar' ? bar : null), PAY_FROM, user);
+    return bar;
+  };
+
+  test('מי שאינו מחובר אינו רואה את הספירה', () => {
+    const bar = runRender(null, 32);
+    assert.ok(bar.classList.contains('hidden'),
+      'הפס מוצג למי שלא נרשם · הוא מבטיח תקופה חינמית שאינה שלו');
+    assert.strictEqual(bar.innerHTML, '',
+      'התוכן לא נוקה · טקסט ישן יישאר בעץ הנגישות');
+  });
+
+  test('⛔ הכיוון ההפוך · מי שמחובר כן רואה אותה', () => {
+    const bar = runRender({ id: 'u1' }, 32);
+    assert.ok(!bar.classList.contains('hidden'),
+      'הגידור כיבה את הפס גם למחובר · זו הרגרסיה שבדיקה חד-כיוונית מפספסת');
+    assert.match(bar.innerHTML, /<b>32<\/b> ימים עד המעבר לתשלום/);
+  });
+
   test('renderWelcome מפעיל את הספירה', () => {
     const at = app.indexOf('function renderWelcome');
     assert.match(app.slice(at, at + 1600), /renderPayCountdown\(\)/,
