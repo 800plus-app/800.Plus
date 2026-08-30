@@ -13,8 +13,12 @@
 # --------
 #   קוד.bundle   — git bundle של המאגר כולו: כל ההיסטוריה, כל הענפים, בקובץ אחד.
 #                  שחזור: git clone <שם>.bundle
-#   נתונים\      — קובצי ה-JSON של הטבלאות, כפי שהגיבוי היומי הפיק אותם.
 #   מצב.txt      — מתי רץ, מה נשמר, ומה גודלו.
+#
+# ⛔ נתוני המשתמשים אינם מגובים לדרייב — הכרעת חגי 30.8.2026 ("תוריד את רגל
+# המשתמשים"). הם מגובים יומית לריפו הפרטי Hagay-BOT/800plus-backups בלבד,
+# וזה מה שמדיניות הפרטיות מצהירה. עותק לא-מוצפן בדרייב היה חשיפה בלי תועלת:
+# הנתונים כבר יושבים בשני ספקים בלתי-תלויים (סופאבייס + גיטהאב).
 #
 # למה bundle ולא העתקת התיקייה: תיקיית עבודה היא צילום של רגע אחד. bundle הוא המאגר
 # עצמו — אפשר לשחזר ממנו כל גרסה שהייתה, כולל היסטוריית הקומיטים.
@@ -52,27 +56,7 @@ try {
 $BundleMB = [math]::Round((Get-Item $BundlePath).Length / 1MB, 2)
 Write-Host "  קוד:    $BundleMB MB"
 
-# --- 2. הנתונים, מריפו הגיבויים ------------------------------------------------
-# נמשך דרך gh api ולא דרך clone: רק קובצי ה-JSON נחוצים, לא ההיסטוריה שלהם.
-$DataDir = Join-Path $Target 'נתונים'
-New-Item -ItemType Directory -Force $DataDir | Out-Null
-$files = @('profiles.json','progress.json','feedback.json','assoc_shared.json','subscription.json')
-$dataOk = 0
-foreach ($f in $files) {
-  try {
-    $url = gh api "repos/Hagay-BOT/800plus-backups/contents/data/$f" --jq '.download_url' 2>$null
-    if ($url) {
-      Invoke-WebRequest -Uri $url -OutFile (Join-Path $DataDir $f) -UseBasicParsing
-      $dataOk++
-    }
-  } catch {
-    # קובץ אחד שנכשל אינו מבטל את הגיבוי — הוא נרשם ב-מצב.txt וזהו.
-    Write-Host "  אזהרה: $f לא נמשך" -ForegroundColor Yellow
-  }
-}
-Write-Host "  נתונים: $dataOk מתוך $($files.Count) קבצים"
-
-# --- 3. שורת מצב ---------------------------------------------------------------
+# --- 2. שורת מצב ---------------------------------------------------------------
 # הקובץ הזה הוא מה שמאפשר לראות בסייר, בלי לפתוח כלום, שהגיבוי אכן רץ ומה הוא תפס.
 $rev = (Select-String -Path (Join-Path $Root 'sw.js') -Pattern "const REV = '(\d+)'").Matches[0].Groups[1].Value
 @"
@@ -80,10 +64,10 @@ $rev = (Select-String -Path (Join-Path $Root 'sw.js') -Pattern "const REV = '(\d
 נוצר:   $(Get-Date -Format 'yyyy-MM-dd HH:mm')
 גרסה:   REV $rev
 קוד:    קוד.bundle · $BundleMB MB · שחזור: git clone "קוד.bundle" 800plus
-נתונים: $dataOk מתוך $($files.Count) טבלאות
+נתונים: לא מגובים לדרייב (הכרעת 30.8.2026) — בריפו הפרטי בלבד
 "@ | Out-File (Join-Path $Target 'מצב.txt') -Encoding utf8
 
-# --- 4. ניקוי ישנים ------------------------------------------------------------
+# --- 3. ניקוי ישנים ------------------------------------------------------------
 # תיקיות בשם yyyy-MM-dd בלבד, כדי ששום דבר אחר בתיקייה לא יימחק בטעות.
 $old = Get-ChildItem $Drive -Directory |
        Where-Object { $_.Name -match '^\d{4}-\d{2}-\d{2}$' } |
