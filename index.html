@@ -1776,6 +1776,10 @@
       <input type="date" id="accExam" aria-label="תאריך המבחן"></label>
     <button class="pbtn" id="accNotif"><div class="ic">🔔</div><div class="tx"><b>תזכורת יומית</b>
       <span id="accNotifSub">הודעה קצרה בבוקר שמזכירה לתרגל</span></div><div class="cnt" id="accNotifState">‹</div></button>
+    <!-- ערוץ נפרד מהתראת הדחיפה שמעליו: זו שליחת מייל, וזו הודעה בדפדפן. המתג כותב
+         את nudge_optout, הדגל שבוררי הנמענים (scripts/pick_*.py) כבר מכבדים. -->
+    <button class="pbtn hidden" id="accNudge"><div class="ic">✉️</div><div class="tx"><b>תזכורות במייל</b>
+      <span id="accNudgeSub">מקבל תזכורות במייל לתרגל</span></div><div class="cnt" id="accNudgeState">‹</div></button>
     <button class="pbtn" id="accInstall"><div class="ic">📲</div><div class="tx"><b>התקנה כאפליקציה</b>
       <span>פותח את <bdi>800+</bdi> ממסך הבית, גם בלי אינטרנט</span></div><div class="cnt">‹</div></button>
     <!-- משתמש ביקש דרך לחזור על מה שכבר נלמד. היא הייתה קיימת רק בתוך יחידה בודדת
@@ -2464,17 +2468,17 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=227"></script>
-<script src="config.js?v=227"></script>
-<script src="store.js?v=227"></script>
-<script src="leveltest-he.js?v=227"></script>
-  <script src="leveltest.js?v=227"></script>
-<script src="enrank.js?v=227"></script>
-<script src="data.js?v=227"></script>
-<script src="data-en.js?v=227"></script>
+<script src="supabase.min.js?v=228"></script>
+<script src="config.js?v=228"></script>
+<script src="store.js?v=228"></script>
+<script src="leveltest-he.js?v=228"></script>
+  <script src="leveltest.js?v=228"></script>
+<script src="enrank.js?v=228"></script>
+<script src="data.js?v=228"></script>
+<script src="data-en.js?v=228"></script>
 <!-- לקסיקון סובלנות האיות · חייב להיטען לפני app.js, שקורא window.TYPO_LEX.
      נכשל בטעינה? השכבה כבויה והאפליקציה מתנהגת כמו היום. -->
-<script src="typo-lex.js?v=227"></script>
-<script src="app.js?v=227"></script>
+<script src="typo-lex.js?v=228"></script>
+<script src="app.js?v=228"></script>
 </body>
 </html>

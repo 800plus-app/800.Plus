@@ -5911,6 +5911,7 @@ async function openAccount(tab){
      hidden after a dismissal -- the whole point of moving it here is that a settings page is
      where you go looking for something you said "not now" to. */
   $('#accInstall').classList.toggle('hidden', isStandalone() || LS.get('hw_installed',0)===1);
+  $('#accNudge').classList.add('hidden');   // מוצג רק כשהפרופיל נטען ויודעים את הדגל
   renderAccNotif();
   renderAccProgress();
   renderAccExam();
@@ -5918,6 +5919,7 @@ async function openAccount(tab){
   try{
     const { ok, profile:p }=await Store.myProfile();
     if(p){
+      renderAccNudge(p.nudge_optout);
       if(p.username){ $('#accUser').textContent=p.username; $('#accName').textContent=p.username; }
       if(p.created_at) $('#accSince').textContent=fmtDate(p.created_at).split(' ')[0];
       $('#accSub').textContent = FREE_PHASE && p.sub_status==='none' ? 'פתוח · שלב חינמי' : subLabel(p);
@@ -6177,6 +6179,33 @@ function renderAccNotif(){
     st.textContent='–'; st.style.color=''; row.disabled=true;
   }
 }
+/* תזכורות המייל · מתג שכותב את nudge_optout, הדגל שבוררי הנמענים כבר מכבדים
+   (scripts/pick_*.py). ⛔ נפרד מ«תזכורת יומית» שמעליו · זו התראת דחיפה בדפדפן, וזו
+   שליחת מייל. שני ערוצים, שני דגלים. מוצג רק כשיש פרופיל אמיתי · לא במצב הצצה. */
+function renderAccNudge(optout){
+  const row=$('#accNudge'), sub=$('#accNudgeSub'), st=$('#accNudgeState');
+  if(!row||!sub||!st) return;
+  accNudgeOptout=!!optout;
+  row.classList.remove('hidden');
+  if(accNudgeOptout){
+    sub.textContent='לא מקבל תזכורות במייל';
+    st.textContent='‹'; st.style.color='';
+  } else {
+    sub.textContent='מקבל תזכורות במייל לתרגל';
+    st.textContent='✓'; st.style.color='#3f7a4a';
+  }
+}
+/* לחיצה מחליפה את המצב · כותבת דרך store ומעדכנת מיד. אם הכתיבה נכשלה המצב בקוד לא
+   זז, כדי שלא יוצג «כבוי» בזמן שהשרת עדיין שולח. */
+$('#accNudge').onclick = async ()=>{
+  const row=$('#accNudge'); if(row.disabled) return;
+  const next=!accNudgeOptout;
+  row.disabled=true;
+  const { ok }=await Store.setNudgeOptout(next);
+  row.disabled=false;
+  if(ok){ renderAccNudge(next); toast(next ? 'עודכן. לא נשלח לך תזכורות במייל' : 'עודכן. תקבל תזכורות במייל לתרגל'); }
+  else toast('לא הצלחנו לשמור. נסה שוב');
+};
 $('#accNotif').onclick = async ()=>{
   if(!NOTIF.askable()) return;
   const ok=await NOTIF.ask();
@@ -6329,10 +6358,11 @@ const ACC_TABS = {
   profile:  ['accProg','accReview','accLearnedSheet','accSheet','accExamRow'],
   /* מבחן הרמה נרשם כאן ולא בפרופיל: הוא פעולה שמשנה נתון, לא תצוגה שלו · ובעיקר, זו
      הבקשה עצמה. שורה שלא נרשמת ברשימה הזאת נשארת גלויה בשתי הלשוניות. */
-  settings: ['accNotif','accInstall','accWhat','accLevelHe','accLevelEn','accAdmin',
+  settings: ['accNotif','accNudge','accInstall','accWhat','accLevelHe','accLevelEn','accAdmin',
              'accSignOut','accReset','accDelete'],
 };
 let accTab='profile';
+let accNudgeOptout=false;
 function renderAccTab(){
   for(const [tab, ids] of Object.entries(ACC_TABS))
     for(const id of ids){

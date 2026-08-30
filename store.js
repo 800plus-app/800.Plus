@@ -140,6 +140,16 @@ const Store = {
     return { ok: true, profile: prof || null };
   },
 
+  /* המשתמש מכבה או מדליק לעצמו את תזכורות המייל. כותב את הדגל שהבוררים
+     (scripts/pick_*.py) כבר מכבדים · על שורת המשתמש עצמו, לפי מדיניות
+     nudge_self_optout. אותו pattern כמו כל עדכון פרופיל אחר כאן. */
+  async setNudgeOptout(optout) {
+    const { data } = await sb.auth.getUser();
+    if (!data || !data.user) return { ok: false };
+    const { error } = await sb.from('profiles').update({ nudge_optout: !!optout }).eq('id', data.user.id);
+    return { ok: !error, error };
+  },
+
   /* ההכרעה על מנוי, חתוכה בשרת. מחזירה את ה-jsonb של my_entitlement או null.
      null בכל מצב של כשל · אין רשת, אין הפעלה, או שהפונקציה לא נפרסה · ו-accessOk
      נופלת חזרה לבדיקה המקומית. **לא לשנות את זה ל-throw**: השער הזה נכשל־פתוח
