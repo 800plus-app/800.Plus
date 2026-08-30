@@ -34,7 +34,7 @@
 
 | נכס | מקור | רישיון | מצב |
 |---|---|---|---|
-| `enrank.js` · 3,175 דירוגי תדירות | [hermitdave/FrequencyWords](https://github.com/hermitdave/FrequencyWords) ← OpenSubtitles2016/2018 | **קוד MIT · תוכן CC BY-SA 4.0** | ⚠ הקובץ ציבורי **בלי ייחוס ובלי הודעת רישיון**. הייחוס קיים ב-`METHODOLOGY.md` בלבד |
+| `enrank.js` · 3,175 דירוגי תדירות | [hermitdave/FrequencyWords](https://github.com/hermitdave/FrequencyWords) ← OpenSubtitles2016/2018 | **קוד MIT · תוכן CC BY-SA 4.0** | ✅ ייחוס מלא + הודעת רישיון בראש הקובץ (שורות 1–14, נוסף 10.8.2026). ⚠ השורה הזאת אמרה בעבר "בלי ייחוס" והטעתה ביקורת ב-30.8 — נשארת פתוחה רק שאלת השיתוף-זהה (שאלה 3 אצל העו"ד) |
 
 ⚠ **`METHODOLOGY.md §5` כותב "CC BY-SA 3.0" וזה שגוי — הרישיון הוא 4.0.** אומת ב-10.8.2026
 מול ה-README ומול קובץ ה-LICENSE של המאגר.
