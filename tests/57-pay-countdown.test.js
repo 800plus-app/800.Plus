@@ -107,7 +107,7 @@ describe('שעון העצר לתשלום', () => {
      כי מה שנשבר כאן הוא התנהגות. והיא בודקת את **שני** הכיוונים: גידור שמכבה את
      הפס לכולם היה עובר בדיקה חד-כיוונית בשקט, ואיש לא היה רואה שהפס נעלם גם
      למי שמחובר. */
-  const runRender = (user, days) => {
+  const runRender = (user, days, barOn) => {
     const at = app.indexOf('function renderPayCountdown');
     const end = app.indexOf(String.fromCharCode(10) + '}', at);
     assert.ok(at > 0 && end > at, 'לא נמצאה renderPayCountdown');
@@ -121,24 +121,34 @@ describe('שעון העצר לתשלום', () => {
     const d = new Date(); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() + days);
     const pad = n => String(n).padStart(2, '0');
     const PAY_FROM = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
-    new Function('$', 'PAY_FROM', 'currentUser',
-      src + ';renderPayCountdown();')(sel => (sel === '#payBar' ? bar : null), PAY_FROM, user);
+    new Function('$', 'PAY_FROM', 'currentUser', 'PAY_BAR_ON',
+      src + ';renderPayCountdown();')(sel => (sel === '#payBar' ? bar : null), PAY_FROM, user, barOn);
     return bar;
   };
 
-  test('מי שאינו מחובר אינו רואה את הספירה', () => {
-    const bar = runRender(null, 32);
-    assert.ok(bar.classList.contains('hidden'),
-      'הפס מוצג למי שלא נרשם · הוא מבטיח תקופה חינמית שאינה שלו');
-    assert.strictEqual(bar.innerHTML, '',
-      'התוכן לא נוקה · טקסט ישן יישאר בעץ הנגישות');
+  test('הפס כבוי · חגי ביקש להוריד אותו משני המצבים', () => {
+    /* ⛔ 30.8.2026 · «תוריד אותה» ואז «שים לב שזה גם באתר כשאתה רשום». */
+    const off = app.match(/const PAY_BAR_ON = (true|false);/);
+    assert.ok(off, 'PAY_BAR_ON נעלם · אין יותר מתג אחד שמחזיק את ההחלטה');
+    assert.strictEqual(off[1], 'false', 'הפס הודלק בלי החלטה חדשה של חגי');
+    for (const user of [null, { id: 'u1' }]) {
+      const bar = runRender(user, 32, false);
+      assert.ok(bar.classList.contains('hidden'),
+        `הפס מוצג ${user ? 'למחובר' : 'למי שאינו מחובר'} למרות שהמתג כבוי`);
+      assert.strictEqual(bar.innerHTML, '', 'התוכן לא נוקה · טקסט ישן יישאר בעץ הנגישות');
+    }
   });
 
-  test('⛔ הכיוון ההפוך · מי שמחובר כן רואה אותה', () => {
-    const bar = runRender({ id: 'u1' }, 32);
-    assert.ok(!bar.classList.contains('hidden'),
-      'הגידור כיבה את הפס גם למחובר · זו הרגרסיה שבדיקה חד-כיוונית מפספסת');
-    assert.match(bar.innerHTML, /<b>32<\/b> ימים עד המעבר לתשלום/);
+  test('⛔ שן · כשהמתג יידלק, הפס יחזור למחובר בלבד', () => {
+    /* ⭐ בלי הבדיקה הזאת «הכול מוסתר» היה עובר גם אם הפונקציה נשברה לגמרי,
+       ואיש לא היה יודע שהחזרת המתג ל-true אינה מחזירה כלום. */
+    const on = runRender({ id: 'u1' }, 32, true);
+    assert.ok(!on.classList.contains('hidden'), 'המתג דלוק והפס עדיין מוסתר');
+    assert.match(on.innerHTML, /<b>32<\/b> ימים עד המעבר לתשלום/);
+
+    const out = runRender(null, 32, true);
+    assert.ok(out.classList.contains('hidden'),
+      'המתג דלוק והפס חזר גם למי שאינו רשום · זו הבקשה הראשונה של חגי');
   });
 
   test('renderWelcome מפעיל את הספירה', () => {
