@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, useCurrentFrame } from "remotion";
-import { C, daysToExam, paperBackground } from "./brand";
+import { C, accessLabel, daysToExam, paperBackground } from "./brand";
 
 /**
  * ק2 · קרוסלה · "תוכנית אוצר מילים לימים שנשארו". 1080×1350, 7 שקופיות.
@@ -159,7 +159,7 @@ export const CarouselPlan: React.FC = () => {
         >
           800-plus.com
         </div>
-        <div style={{ fontSize: 32, color: C.inkSoft, marginTop: 20, fontWeight: 300 }}>חינם עד 30.8</div>
+        <div style={{ fontSize: 32, color: C.inkSoft, marginTop: 20, fontWeight: 300 }}>{accessLabel()}</div>
       </Frame>
     );
   }

@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, Easing, interpolate, Sequence, useCurrentFrame, useVideoConfig } from "remotion";
-import { C, paperBackground } from "./brand";
+import { C, accessLabel, paperBackground } from "./brand";
 
 /**
  * ר1 · "פתיחה קרה". חמש מילים, ריל אנכי 1080×1920, ~25 שניות.
@@ -164,7 +164,7 @@ export const ReelCold: React.FC = () => {
           800-plus.com
         </div>
         <div style={{ fontSize: 34, color: C.inkSoft, marginTop: 20, fontWeight: 300 }}>
-          חינם עד 30.8
+          {accessLabel()}
         </div>
       </AbsoluteFill>
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, useCurrentFrame } from "remotion";
-import { C, paperBackground } from "./brand";
+import { C, accessLabel, paperBackground } from "./brand";
 
 /**
  * ק1 · קרוסלה · "כמעט אותו דבר". 1080×1350, 7 שקופיות.
@@ -166,7 +166,7 @@ export const CarouselPairs: React.FC = () => {
         >
           800-plus.com
         </div>
-        <div style={{ fontSize: 32, color: C.inkSoft, marginTop: 20, fontWeight: 300 }}>חינם עד 30.8</div>
+        <div style={{ fontSize: 32, color: C.inkSoft, marginTop: 20, fontWeight: 300 }}>{accessLabel()}</div>
       </Frame>
     );
   }

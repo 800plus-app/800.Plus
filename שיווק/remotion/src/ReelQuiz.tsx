@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, Easing, interpolate, Sequence, useCurrentFrame, useVideoConfig } from "remotion";
-import { C, paperBackground } from "./brand";
+import { C, accessLabel, paperBackground } from "./brand";
 
 /**
  * ר2 · "5 מילים שרוב האנשים לא יודעים". 32 שניות, ריל אנכי.
@@ -171,7 +171,7 @@ export const ReelQuiz: React.FC = () => {
         </div>
 
         <div style={{ marginTop: 64, fontSize: 42, color: C.ink, textAlign: "center", lineHeight: 1.5 }}>
-          יש עוד <b style={{ fontFamily: "Frank Ruhl Libre, serif", fontWeight: 900, color: C.accentDeep }}>5,657</b> כאלה
+          המערכת <b style={{ fontFamily: "Frank Ruhl Libre, serif", fontWeight: 900, color: C.accentDeep }}>מזהה</b> על אילו מילים אתה צריך לחזור, ומתי
         </div>
 
         <div
@@ -184,7 +184,7 @@ export const ReelQuiz: React.FC = () => {
           800-plus.com
         </div>
         <div style={{ fontSize: 34, color: C.inkSoft, marginTop: 20, fontWeight: 300 }}>
-          חינם עד 30.8
+          {accessLabel()}
         </div>
       </AbsoluteFill>
 

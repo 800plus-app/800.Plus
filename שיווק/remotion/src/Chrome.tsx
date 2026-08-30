@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
-import { C, paperBackground, freeUntilLabel } from "./brand";
+import { C, paperBackground, accessLabel } from "./brand";
 
 /**
  * המסגרת שחוזרת בכל הנכסים: רקע הנייר, הסימן 800+ למעלה, והכתובת למטה.
@@ -72,7 +72,7 @@ export const Frame: React.FC<{
           800-plus.com
         </div>
         <div style={{ fontSize: 30, color: C.inkSoft, marginTop: 18, fontWeight: 300 }}>
-          חינם עד {freeUntilLabel()}
+          {accessLabel()}
         </div>
       </AbsoluteFill>
     </AbsoluteFill>

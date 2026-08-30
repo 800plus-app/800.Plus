@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, Easing, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
-import { C, TOTAL_WORDS, daysToExam, freeUntilLabel } from "./brand";
+import { C, daysToExam, accessLabel } from "./brand";
 
 /**
  * הביטים של סרטון התדמית, כרכיבים עצמאיים שמקבלים תזמון.
@@ -303,7 +303,7 @@ export const BeatOffer: React.FC<{ from: number; dur: number }> = ({ from, dur }
 
   // שלוש שורות ולא חמש. ארבע כבר יותר מדי לשש שניות.
   const rows: [string, string][] = [
-    [`${TOTAL_WORDS.toLocaleString("en-US")} מילים`, "בעברית ובאנגלית"],
+    ["חזרה מרווחת", "המילה חוזרת כשאתה עומד לשכוח"],
     ["תרגול אדפטיבי", "רק מה שאתה לא יודע"],
     ["שליפה אקטיבית", "אתה כותב, לא בוחר"],
   ];
@@ -355,7 +355,7 @@ export const BeatClose: React.FC<{ from: number }> = ({ from }) => {
           הסוגרת. היא נועדה לגרום לצופה לעשות את החשבון בעצמו, אבל בסוף
           סרטון קצר היא רק מוסיפה תאריך שני ומטשטשת את הקריאה לפעולה. */}
       <div style={{ marginTop: 58, textAlign: "center" }}>
-        <div style={{ fontSize: 46, fontWeight: 700, color: C.ink }}>גישה חינם עד {freeUntilLabel()}</div>
+        <div style={{ fontSize: 46, fontWeight: 700, color: C.ink }}>{accessLabel()}</div>
       </div>
     </AbsoluteFill>
   );
