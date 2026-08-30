@@ -63,9 +63,18 @@ Deno.serve(async (req) => {
 
   /* A last stop for the owner's own account. Deleting it would take the admin panel with it,
      and there would be no way back in. If he ever really means it, he can do it from the
-     dashboard — where the consequence is visible. */
+     dashboard — where the consequence is visible.
+
+     The admin addresses come from the ADMIN_EMAILS env var (comma-separated), read the same
+     way SUPABASE_URL is above — so no private address is committed to this public repo.
+     The default is the service address alone, and is deliberately NOT empty: an empty list
+     would guard nobody and reopen the admin account to deletion. ADMIN_EMAILS must be set to
+     every address that can sign in as admin (the owner's Gmail included) BEFORE deploy — an
+     admin whose address falls outside the default would otherwise lose this protection. */
   const email = (who.user.email || '').toLowerCase();
-  if (email === 'admin@800-plus.com' || email === '03hagay@gmail.com')
+  const adminEmails = (Deno.env.get('ADMIN_EMAILS') || 'admin@800-plus.com')
+    .toLowerCase().split(',').map(e => e.trim()).filter(Boolean);
+  if (adminEmails.includes(email))
     return json({ error: 'זהו חשבון הניהול — מחיקה שלו נעשית רק מהדשבורד' }, 403);
 
   const removed: Record<string, number | string> = {};
@@ -74,6 +83,8 @@ Deno.serve(async (req) => {
     ['feedback', 'user_id'],
     ['assoc_shared', 'user_id'],
     ['subscription', 'user_id'],
+    ['wtp_survey', 'user_id'],
+    ['push_sub', 'user_id'],
   ] as const) {
     const { error, count } = await admin.from(table).delete({ count: 'exact' }).eq(col, uid);
     // A table that does not exist in this project is not a failure — assoc_shared and
