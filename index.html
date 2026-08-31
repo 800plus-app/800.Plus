@@ -1905,6 +1905,15 @@
       <button class="big-tile" data-scope="random"><div class="emoji">🎲</div><h3>אקראי</h3><p>סבב מהיר של מילים אקראיות מכל היחידות</p></button>
     </div>
 
+    <!-- מילות קישור. תמונת ראי של המקטע שמעליו: שם הקורפוס אנגלי
+         וה-JS מסתיר את המקטע בעברית, וכאן הקורפוס עברי והמקטע מוסתר באנגלית.
+         ⭐ השם והתיאור אושרו על ידי חגי · והמקטע ממוקם **מעל** היחידות לפי בקשתו.
+         השורה השנייה על הכפתור נבנית ממספרים בלבד, אחרי שקובץ הנתונים נטען. -->
+    <div class="section-t hidden" id="connSectionT">מילות קישור להשלמת משפטים</div>
+    <div class="practice-btns hidden" id="connBands">
+      <button class="pbtn" id="pbConn"><div class="ic">🔗</div><div class="tx"><b>מילות קישור להשלמת משפטים</b><span id="pbConnSub">בכל משפט חסרה מילת הקישור · השלם את המילה <b>המתאימה&nbsp;ביותר</b></span></div><div class="cnt" id="cntConn">›</div></button>
+    </div>
+
     <div class="section-t">יחידות</div>
     <div class="grid" id="unitGrid"></div>
 
@@ -1913,15 +1922,6 @@
     <div class="section-t hidden" id="sentSectionT">השלמת משפטים</div>
     <div class="practice-btns hidden" id="sentBands">
       <button class="pbtn" id="pbSent"><div class="ic">✍️</div><div class="tx"><b>השלמת משפטים</b><span id="pbSentSub">בחירת המילה שמתאימה למשפט · הסבר מלא אחרי כל תשובה</span></div><div class="cnt" id="cntSent">›</div></button>
-    </div>
-
-    <!-- מילות קישור. תמונת ראי של המקטע שמעליו: שם הקורפוס אנגלי
-         וה-JS מסתיר את המקטע בעברית, וכאן הקורפוס עברי והמקטע מוסתר באנגלית.
-         ⚠ השם כאן הוא זמני וההכרעה עליו טרם נפלה, ולכן אין כאן תת-כותרת.
-         השורה השנייה על הכפתור נבנית ממספרים בלבד, אחרי שקובץ הנתונים נטען. -->
-    <div class="section-t hidden" id="connSectionT">מילים להשלמת משפטים</div>
-    <div class="practice-btns hidden" id="connBands">
-      <button class="pbtn" id="pbConn"><div class="ic">🔗</div><div class="tx"><b>מילים להשלמת משפטים</b><span id="pbConnSub">בכל משפט חסרה מילת הקישור · השלם את המילה <b>המתאימה&nbsp;ביותר</b></span></div><div class="cnt" id="cntConn">›</div></button>
     </div>
 
     <div class="section-t">כלים</div>
@@ -2517,17 +2517,17 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=229"></script>
-<script src="config.js?v=229"></script>
-<script src="store.js?v=229"></script>
-<script src="leveltest-he.js?v=229"></script>
-  <script src="leveltest.js?v=229"></script>
-<script src="enrank.js?v=229"></script>
-<script src="data.js?v=229"></script>
-<script src="data-en.js?v=229"></script>
+<script src="supabase.min.js?v=230"></script>
+<script src="config.js?v=230"></script>
+<script src="store.js?v=230"></script>
+<script src="leveltest-he.js?v=230"></script>
+  <script src="leveltest.js?v=230"></script>
+<script src="enrank.js?v=230"></script>
+<script src="data.js?v=230"></script>
+<script src="data-en.js?v=230"></script>
 <!-- לקסיקון סובלנות האיות · חייב להיטען לפני app.js, שקורא window.TYPO_LEX.
      נכשל בטעינה? השכבה כבויה והאפליקציה מתנהגת כמו היום. -->
-<script src="typo-lex.js?v=229"></script>
-<script src="app.js?v=229"></script>
+<script src="typo-lex.js?v=230"></script>
+<script src="app.js?v=230"></script>
 </body>
 </html>

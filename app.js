@@ -8218,7 +8218,7 @@ function renderConnPick(){
   if(!q.total){
     list.innerHTML = '<p class="s-sum">לא נטענו משפטים. חזור למסך הקודם ונסה שוב, '
       + 'ואם זה חוזר בדוק את החיבור לרשת.</p>';
-    $('#connBrand').textContent = 'מילים להשלמת משפטים';
+    $('#connBrand').textContent = 'מילות קישור להשלמת משפטים';
     return;
   }
   const b = document.createElement('button');
@@ -8226,12 +8226,12 @@ function renderConnPick(){
   const sub = q.left
     ? `${q.left} משפטים שטרם פתרת · מתוך ${q.total}` + (q.solved ? ` · ${okN(q.ok)}` : '')
     : `הושלמה · ${okN(q.ok)} מתוך ${q.total}`;
-  b.innerHTML = `<div class="ic">🔗</div><div class="tx"><b>מילים להשלמת משפטים</b>`
+  b.innerHTML = `<div class="ic">🔗</div><div class="tx"><b>מילות קישור להשלמת משפטים</b>`
     + `<span>${sEsc(sub)}</span></div>`
     + `<div class="cnt">${q.left ? q.left : '✓'}</div>`;
   b.onclick = ()=> startConnRound();
   list.appendChild(b);
-  $('#connBrand').textContent = 'מילים להשלמת משפטים';
+  $('#connBrand').textContent = 'מילות קישור להשלמת משפטים';
   $('#connCount').textContent = '';
   $('#connScore').textContent = '';
   $('#connBar').style.width = '0%';
@@ -8288,7 +8288,7 @@ function connFull(it){
 function renderConnCard(){
   const it = connQ[connI]; if(!it) return finishConnRound();
   connAnswered = false;
-  $('#connBrand').textContent = 'מילים להשלמת משפטים';
+  $('#connBrand').textContent = 'מילות קישור להשלמת משפטים';
   $('#connCount').textContent = `שאלה ${connI+1} מתוך ${connQ.length}`;
   $('#connScore').textContent = connOk ? `✓ ${connOk}` : '';
   $('#connBar').style.width = (100*connI/connQ.length)+'%';
