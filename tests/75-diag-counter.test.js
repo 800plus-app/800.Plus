@@ -49,7 +49,7 @@ const SYMBOLS = [
   'NIQ', 'normEn', 'norm', 'K', 'meaningSegs', 'editDist',
   'GLOSS_ALT', 'glossKey', 'glossSenses', 'glossAlts',
   // מה שנוסע לענן · כדי להוכיח שהיומן אינו נוסע איתו
-  'levelKeyFor', 'sizeKeyFor', 'examPreFor', 'EXAM_KEY', 'SENT_PROG', 'collectExtras',
+  'levelKeyFor', 'sizeKeyFor', 'examPreFor', 'EXAM_KEY', 'SENT_PROG', 'CONN_PROG', 'collectExtras',
 ];
 
 /* localStorage שמתנהג כמו הדפדפן · ערכים הם מחרוזות, מפתח חסר הוא null,

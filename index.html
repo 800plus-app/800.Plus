@@ -410,7 +410,15 @@
   /* ⚠ יעד המגע של "✕ יציאה" נמדד ב-38px, מתחת למינימום 44. `.topbar .back` הוא
      מחלקה משותפת ל-16 מסכים, ולכן התיקון ממוקד לשני המסכים שנוספו כאן ולא גורף:
      שינוי גלובלי היה מזיז פריסה בכל האפליקציה. הפער בשאר המסכים קדם לשינוי הזה. */
-  #sent .topbar .back, #mode .topbar .back{min-height:44px}
+  /* ⛔ המסך העברי יורש CSS שנכתב למשפט אנגלי (direction:ltr). בעברית זה דוחף
+     את הקו התחתון לקצה הלא נכון ומעיף את הנקודה הסופית לצד ההפוך · נמדד על
+     23 משפטים שפותחים ב-___ ועל הנקודה בכל 150. הכללים כאן מחזירים RTL. */
+  #conn .s-sent{direction:rtl;text-align:right}
+  #conn .s-optrow{direction:rtl}
+  #conn .s-opt{direction:rtl;text-align:right}
+  #conn .s-opt .mk{float:right}
+  #conn .s-g{direction:rtl;text-align:right}
+  #sent .topbar .back, #mode .topbar .back, #conn .topbar .back{min-height:44px}
   .s-opts{display:flex;flex-direction:column;gap:9px}
   /* שורת אפשרות: הכפתור והרמקול כאחים בתוך עטיפה.
      ⚠ העטיפה אינה קישוט. `<button>` בתוך `<button>` אינו HTML חוקי, והדפדפן מפרק
@@ -1907,6 +1915,15 @@
       <button class="pbtn" id="pbSent"><div class="ic">✍️</div><div class="tx"><b>השלמת משפטים</b><span id="pbSentSub">בחירת המילה שמתאימה למשפט · הסבר מלא אחרי כל תשובה</span></div><div class="cnt" id="cntSent">›</div></button>
     </div>
 
+    <!-- מילות קישור. תמונת ראי של המקטע שמעליו: שם הקורפוס אנגלי
+         וה-JS מסתיר את המקטע בעברית, וכאן הקורפוס עברי והמקטע מוסתר באנגלית.
+         ⚠ השם כאן הוא זמני וההכרעה עליו טרם נפלה, ולכן אין כאן תת-כותרת.
+         השורה השנייה על הכפתור נבנית ממספרים בלבד, אחרי שקובץ הנתונים נטען. -->
+    <div class="section-t hidden" id="connSectionT">מילים להשלמת משפטים</div>
+    <div class="practice-btns hidden" id="connBands">
+      <button class="pbtn" id="pbConn"><div class="ic">🔗</div><div class="tx"><b>מילים להשלמת משפטים</b><span id="pbConnSub">בכל משפט חסרה מילת הקישור · השלם את המילה <b>המתאימה&nbsp;ביותר</b></span></div><div class="cnt" id="cntConn">›</div></button>
+    </div>
+
     <div class="section-t">כלים</div>
     <div class="row">
       <button class="btn btn-ghost" id="manageBtn">🗑 ניהול מילים</button>
@@ -2118,6 +2135,38 @@
       </div>
     </div>
     <div class="s-done hidden" id="sentDone"></div>
+  </section>
+
+  <!-- ===== CONNECTIVES ===== -->
+  <!-- במבנה של מסך השלמת המשפטים שמעליו, ובאותן מחלקות עיצוב.
+       ⚠ מה שאיננו כאן, במפורש: בועת הפירוש למילה שבמשפט, שנשענת על מאגר
+       אנגלי, והרמקולים · מנוע ההקראה בוחר קול אנגלי בלבד. -->
+  <section id="conn" class="hidden">
+    <div class="topbar"><button class="back" id="connExit">✕ יציאה</button><div class="sp"></div>
+      <div class="brand" id="connBrand"></div></div>
+    <div class="prog"><i id="connBar"></i></div>
+    <div class="qmeta"><span id="connCount"></span><span id="connScore"></span></div>
+    <div class="sr-only" id="connLive" aria-live="polite" aria-atomic="true"></div>
+    <div id="connPick">
+      <div class="s-len">
+        <span class="s-len-l">אורך סבב</span>
+        <div class="seg" id="connLenSeg" role="group" aria-label="אורך סבב">
+          <button type="button" data-n="5">5 משפטים</button>
+          <button type="button" data-n="10">10 משפטים</button>
+        </div>
+      </div>
+      <div class="practice-btns" id="connPickList"></div>
+    </div>
+    <div class="card hidden" id="connCard">
+      <div class="q-kind">השלם את החסר</div>
+      <p class="s-sent" id="connText"></p>
+      <div class="s-opts" id="connOpts"></div>
+      <div class="s-exp hidden" id="connExp"></div>
+      <div class="actions hidden" id="connActions" style="margin-top:18px">
+        <button class="btn btn-primary" id="connNext">הבא ←</button>
+      </div>
+    </div>
+    <div class="s-done hidden" id="connDone"></div>
   </section>
 
 <!-- ═══ בוחן קצר על המילים שתורגלו זה עתה ═══
@@ -2468,17 +2517,17 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="supabase.min.js?v=228"></script>
-<script src="config.js?v=228"></script>
-<script src="store.js?v=228"></script>
-<script src="leveltest-he.js?v=228"></script>
-  <script src="leveltest.js?v=228"></script>
-<script src="enrank.js?v=228"></script>
-<script src="data.js?v=228"></script>
-<script src="data-en.js?v=228"></script>
+<script src="supabase.min.js?v=229"></script>
+<script src="config.js?v=229"></script>
+<script src="store.js?v=229"></script>
+<script src="leveltest-he.js?v=229"></script>
+  <script src="leveltest.js?v=229"></script>
+<script src="enrank.js?v=229"></script>
+<script src="data.js?v=229"></script>
+<script src="data-en.js?v=229"></script>
 <!-- לקסיקון סובלנות האיות · חייב להיטען לפני app.js, שקורא window.TYPO_LEX.
      נכשל בטעינה? השכבה כבויה והאפליקציה מתנהגת כמו היום. -->
-<script src="typo-lex.js?v=228"></script>
-<script src="app.js?v=228"></script>
+<script src="typo-lex.js?v=229"></script>
+<script src="app.js?v=229"></script>
 </body>
 </html>

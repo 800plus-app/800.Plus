@@ -2,7 +2,7 @@
    ONE place to bump on every deploy: REV. It names the cache *and* the asset query strings,
    so the URLs precached here are byte-for-byte the URLs index.html requests. When those drift
    apart the app silently keeps serving an old build -- which is exactly what used to happen. */
-const REV = '228';
+const REV = '229';
 const V = 'hw-v' + REV;
 /* App DATA must not live in a versioned cache. The personalised reminder text was written into
    hw-v<REV>, so the next deploy deleted it along with the assets -- and it was never rewritten,
@@ -73,6 +73,18 @@ self.addEventListener('install', e => {
         const had = await Promise.all(old.map(k => caches.open(k)
           .then(o => o.keys()).then(rs => rs.some(r => r.url.includes('data-sent-en.js')))));
         if (had.some(Boolean)) await load(SENT).then(r => c.put(SENT, r)).catch(() => {});
+      } catch (_) { /* אין מטמון ישן לקרוא · התקנה ראשונה. לא מורידים. */ }
+      /* ⭐ אותה הפשרה בדיוק, ליחידת מילות הקישור: מי שמעולם לא נגע בה אינו
+         מוריד כלום, ומי שהקובץ כבר היה אצלו מקבל אותו מראש · אחרת activate
+         היה מוחק אותו בכל גרסה, ודווקא מהלומד שכן מתרגל אותה.
+         ⚠ הקובץ יושב תחת connectives-he/ · שם הצינור כותב אותו, וזה ה-URL
+         ש-loadConnData מבקשת. */
+      const CONN = `./connectives-he/data-conn-he.js?v=${REV}`;
+      try {
+        const oldc = (await caches.keys()).filter(k => k !== V && k.startsWith('hw-v'));
+        const hadc = await Promise.all(oldc.map(k => caches.open(k)
+          .then(o => o.keys()).then(rs => rs.some(r => r.url.includes('data-conn-he.js')))));
+        if (hadc.some(Boolean)) await load(CONN).then(r => c.put(CONN, r)).catch(() => {});
       } catch (_) { /* אין מטמון ישן לקרוא · התקנה ראשונה. לא מורידים. */ }
     }).then(() => self.skipWaiting())
   );

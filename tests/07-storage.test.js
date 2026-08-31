@@ -69,6 +69,10 @@ const SYMBOLS = [
      היום רק מפני שהמסלולים שקוראים להם אינם מורצים כאן · ⛔ בדיקה חדשה
      שתיגע ב-`buildBank` הייתה מקבלת ReferenceError בשם סמנטי מטעה. */
   'saneSentRec', 'sentProg',
+  /* ⭐ יחידת מילות הקישור · `applyExtras` קוראת ל-`connProg`, ו-`collectExtras`
+     קוראת את `CONN_PROG`. ⚠ אותו כלל שכתוב מעל: שדה חדש שנוסע בבלוב
+     חייב להתווסף לרשימות של שני המרימים. */
+  'CONN_PROG', 'saneConnRec', 'connProg',
   'exKey', 'UNIT_IDS', 'PREVIEW_UNIT', 'GLOSS_ALT',
   'HOLAM', 'YOD', 'Y_VOWELS', 'HE_LETTER', 'VAV',
   'fullSpelling', 'pleneYod', 'pleneVav', 'heForms',

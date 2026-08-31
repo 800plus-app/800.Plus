@@ -1657,7 +1657,7 @@ function isCorrect(input, term){
 }
 
 /* ===== screens ===== */
-const SCREENS=['auth','welcome','level','home','scope','quiz','results','stats','manage','add','exam','admin','locked','intro','account','boot','sent','mode'];
+const SCREENS=['auth','welcome','level','home','scope','quiz','results','stats','manage','add','exam','admin','locked','intro','account','boot','sent','conn','mode'];
 /* Heavy lists left in hidden screens keep thousands of nodes alive for the whole session;
    drop them on the way out -- they are always rebuilt when the screen is opened again. */
 const HEAVY = {stats:'#statsBody', manage:'#manageList', results:'#reviewList'};
@@ -1682,7 +1682,7 @@ const HEAVY = {stats:'#statsBody', manage:'#manageList', results:'#reviewList'};
    האפליקציה, ולא בהיסטוריית הדפדפן. */
 const NAV_DEPTH = { boot:0, intro:0, auth:0, welcome:0, locked:0, home:0, mode:0,
                     scope:1, account:1, level:1, admin:1,
-                    quiz:2, results:2, exam:2, stats:2, manage:2, add:2, sent:2 };
+                    quiz:2, results:2, exam:2, stats:2, manage:2, add:2, sent:2, conn:2 };
 const navDepth = id => NAV_DEPTH[id] || 0;
 let navPop = false;   // אמת בזמן טיפול ב-popstate: הדפדפן כבר הזיז את ההיסטוריה
 /* ⛔ נמצא בבדק בית 3: "→ בית" השאיר רשומה תלויה, ולחיצת "אחורה" אחת נבלעה ·
@@ -1811,6 +1811,19 @@ function renderHome(){
      ⚠ המספר על הכפתור מוצג רק אחרי שקובץ הנתונים נטען, ולא לפניו: הצגתו מיד
      הייתה מחייבת להוריד 190KB בכל עליית דף, גם למי שלא נוגע בתרגול. עד אז
      הכפתור נושא ‹›, בדיוק כמו שאר הכפתורים שמובילים למסך. */
+  /* מילות קישור · עברית בלבד, תמונת ראי של המקטע שמתחת. הפריטים עבריים, ובצד
+     האנגלי הכפתור היה מוביל לתרגול בשפה אחרת מזו שנפתחה.
+     ⚠ המספר מוצג רק אחרי שקובץ הנתונים נטען, ולא לפניו · אותה הפשרה בדיוק
+     שכתובה מתחת על המשפטים. עד אז הכפתור נושא ‹›. */
+  $('#connSectionT')?.classList.toggle('hidden', !connOn());
+  $('#connBands')?.classList.toggle('hidden', !connOn());
+  if(connOn() && window.CONN_HE){
+    const cq = connSummary();
+    $('#cntConn').textContent = cq.left ? cq.left : '✓';
+    $('#pbConnSub').textContent = cq.left
+      ? `${cq.left} משפטים שטרם פתרת · ${okN(cq.ok)} מתוך ${cq.total}`
+      : `כל ${cq.total} המשפטים נפתרו · ${okN(cq.ok)}`;
+  }
   const sentOn = LANG==='en';
   $('#sentSectionT')?.classList.toggle('hidden', !sentOn);
   $('#sentBands')?.classList.toggle('hidden', !sentOn);
@@ -3663,7 +3676,7 @@ function updateSafeNow(){
      אותו: finishRound כבר הריצה commitSession, ולכן `committed` אמת והביטוי כבוי.
      כלומר הפונקציה החזירה "בטוח לרענן" בדיוק במסך שההערה מגינה עליו, ורענון שם
      מוחק גם את מה שהלומד קורא וגם תיקוני "בעצם ידעתי" שטרם נשמרו. */
-  const busy=['quiz','exam','level','sent','results'];
+  const busy=['quiz','exam','level','sent','conn','results'];
   return !busy.includes(currentScreenId()) && !(typeof session!=='undefined' && session.size>0 && !committed);
 }
 /* May this tab reload itself right now?
@@ -5059,6 +5072,10 @@ function collectExtras(lang){
      ⭐ נוסע בבלוב הקיים ולא בטבלה חדשה: ישות חדשה ב-Supabase דורשת סכימה, RLS
      ומיגרציה, והבלוב הזה כבר מסונכרן, כבר מוגן ב-RLS, וכבר ממוזג additively. */
   if(lang==='en'){ const p = LS.get(SENT_PROG, null); if(isObj(p)) out.sent = p; }
+  /* מילות קישור · עברית בלבד, ולכן רק על השורה של עברית. ⭐ נוסע בבלוב הקיים
+     ולא בטבלה חדשה, מאותו נימוק שכתוב שורה מעל: ישות חדשה ב-Supabase דורשת
+     סכימה, RLS ומיגרציה, והבלוב הזה כבר מסונכרן וכבר ממוזג additively. */
+  if(lang==='he'){ const c = LS.get(CONN_PROG, null); if(isObj(c)) out.conn = c; }
   return out;
 }
 /* Same rule as mergeProgress: additive only. A local value already present is never replaced,
@@ -5090,6 +5107,25 @@ function applyExtras(lang, ex){
       }
     }
     if(changed) LS.set(SENT_PROG, loc);
+  }
+  /* מילות קישור · אותו מיזוג **מונוטוני** בדיוק, ומאותה סיבה: מפה שבה שני
+     מכשירים יכולים להתקדם במקביל בפריטים שונים. "אם אין מקומי" היה מוחק את
+     מה שהמכשיר הזה פתר. */
+  if(lang==='he' && isObj(ex.conn)){
+    const loc = connProg();
+    let changed = false;
+    for(const src of Object.keys(ex.conn)){
+      const r = ex.conn[src]; if(!isObj(r)) continue;
+      const l = loc[src] || { n:0, ok:0, last:0 };
+      const n = Math.max(Number(l.n)||0, Number(r.n)||0);
+      const ok = Math.max(Number(l.ok)||0, Number(r.ok)||0);
+      const fixed = Math.min(ok, n);
+      if(n!==(l.n||0) || fixed!==(l.ok||0)){
+        loc[src] = { n, ok:fixed, last: l.n ? l.last : (Number(r.last)?1:0) };
+        changed = true;
+      }
+    }
+    if(changed) LS.set(CONN_PROG, loc);
   }
   if(!isObj(ex.exams)) return;
   const pre=examPreFor(lang);
@@ -7479,6 +7515,10 @@ function renderSentPick(){
 
 /* ===== סבב ===== */
 function startSentRound(band){
+  /* ⛔ מאפסים בתחילת כל סבב. הדגל הצטבר ולעולם לא התאפס, ולכן לומד שהאחסון
+     שלו התמלא פעם אחת ראה «ההתקדמות לא נשמרה» **לנצח**, גם אחרי שפינה מקום,
+     עד רענון הדף. נמדד בסימולציית «בעל האחסון המלא». */
+  sentSaveFailed = false;
   /* פריטים שבורים מסוננים לפני כל השאר. ⚠ אם **כולם** נפלו, אין סבב: מסך ריק
      עם כפתור "סבב נוסף" שאינו עושה דבר הוא לופ שהלומד לא יכול לצאת ממנו. */
   const all = (sentBank()[band] || []).filter(sentItemOk);
@@ -8006,6 +8046,352 @@ $('#pbSent').onclick = async ()=>{
   if(!ok){ toast('לא ניתן לטעון את המשפטים. בדוק את החיבור לרשת ונסה שוב'); return; }
   openSentPick();
   goto('sent');
+};
+
+/* ═══════════════════ מילות קישור · יחידה עברית ═══════════════════
+   ⭐ תמונת ראי של השלמת המשפטים, בצד השני של השפה. שם הקורפוס אנגלי והמקטע
+   בבית מגודר `LANG==='en'`; כאן הקורפוס עברי והגידור הוא `LANG==='he'`.
+
+   ⚠ שם היחידה בממשק הוא **זמני**. ההכרעה על הנוסח היא של חגי, ולכן אין כאן
+   תת-כותרת: השורה השנייה על הכפתור נבנית ממספרים בלבד, וכל שאר המחרוזות
+   במסך הזה לקוחות מילה במילה ממסך המשפטים שכבר עבר אישור.
+
+   ⛔ ומה שאינו כאן, במפורש: **שלב א של הפריט** · בחירת הכיוון מתוך `d`. הוא
+   דורש תווית עברית לכל אחד משלושה-עשר הכיוונים, כלומר נוסח חדש שטרם אושר.
+   ‏`d` בכל זאת מעורבב יחד עם השאר, כדי ש-`k === d[a]` יישמר בפריט המוגש
+   ברגע שהשלב הזה ייבנה. */
+const CONN_LENS = [5, 10];
+const CONN_LEN_KEY = 'hw_conn_len';
+const CONN_PROG = 'hw_conn_prog';           // מזהה → {n, ok, last} · אותו מבנה של המשפטים
+let connQ = [], connI = 0, connOk = 0, connAnswered = false;
+let connSaveFailed = false;   // נדלק כשכתיבה ל-localStorage נכשלה. ראה connRecord.
+
+/* ⭐ הגידור בשורה אחת ולא בכל אתר שימוש · אותו נימוק שכתוב מעל connBank.
+   פונקציה ולא קבוע, כי `LANG` מתחלף בתוך הסשן במעבר שפה. */
+function connOn(){ return LANG === 'he'; }
+
+/* ⛔ הערך נבדק מול הרשימה ולא רק "אם קיים" · localStorage ניתן לעריכה ביד,
+   וערך שאינו ברשימה היה מייצר סבב באורך שרירותי או `NaN` שחותך אותו לאפס. */
+function connRoundLen(){
+  const v = Number(LS.get(CONN_LEN_KEY, 10));
+  return CONN_LENS.includes(v) ? v : 10;
+}
+
+/* רשומה תקינה, מנורמלת, **בקורא אחד** · אותה הכרעה בדיוק שכבר תועדה מעל
+   saneSentRec, ומאותו ציד באגים: רשומה עם `n` שלילי או שאינו מספר לא נכנסת
+   לאף אחת מקבוצות הרוטציה ולכן הפריט יוצא ממנה לנצח, ורשומה עם `ok` גדול
+   מ-`n` מפיקה אחוז מעל 100. נחסם פעם אחת, בקריאה. */
+function saneConnRec(r){
+  if (!isObj(r)) return null;
+  const n = Math.max(0, Math.floor(Number(r.n) || 0));
+  const ok = Math.min(n, Math.max(0, Math.floor(Number(r.ok) || 0)));
+  return { n, ok, last: Number(r.last) ? 1 : 0 };
+}
+/* ⚠ אין כאן הגירה ממבנה ישן, בשונה מ-sentProg: היחידה הזאת נולדה עם המפה
+   ומעולם לא היה לה מערך מזהים. מפתח שאינו אובייקט נזרק ולא "מתוקן". */
+function connProg(){
+  const raw = LS.get(CONN_PROG, null);
+  if (!isObj(raw)) return {};
+  const out = {};
+  for (const k of Object.keys(raw)) { const r = saneConnRec(raw[k]); if (r) out[k] = r; }
+  return out;
+}
+function connRecord(src, right){
+  const p = connProg();
+  const e = saneConnRec(p[src]) || { n: 0, ok: 0, last: 0 };
+  e.n++; if (right) e.ok++;
+  if (e.ok > e.n) e.ok = e.n;
+  e.last = right ? 1 : 0;
+  p[src] = e;
+  /* ⚠ `LS.set` מחזיר false כשהמכסה מלאה. הדגל גורם למסך הסיום לומר שההתקדמות
+     לא נשמרה, במקום להציג שני מספרים שסותרים זה את זה. */
+  connSaveFailed = !LS.set(CONN_PROG, p) || connSaveFailed;
+  queueRemoteSync();
+}
+
+/* ⭐ **קורא יחיד** ל-`window.CONN_HE`, ולא שבעה אתרי שימוש נפרדים. אותו נימוק
+   שכתוב מעל sentBank: גידור שמפוזר על פני כמה קוראים הוא גידור שאחד מהם
+   יפספס. ⚠ אין כאן צמצום להצצה כמו שם · שם ההצצה נחתכת לרצועה אחת מתוך
+   ארבע, וכאן אין רצועות כלל. הקורא היחיד נשאר כדי שצמצום עתידי ייכנס
+   בנקודה אחת ולא בשבע. */
+function connBank(){
+  return window.CONN_HE || {};
+}
+/* כל הפריטים התקינים, מכל הכיוונים יחד. ⛔ הסבב **אינו** נבחר לפי כיוון:
+   סבב שכולו "ויתור" הופך את הכיוון לידוע מראש, וזה בדיוק מה שהפריט בא לבדוק. */
+function connItems(){
+  return Object.values(connBank()).filter(Array.isArray).flat().filter(connItemOk);
+}
+function connSummary(){
+  const arr = connItems();
+  const p = connProg();
+  let solved = 0, ok = 0;
+  for (const it of arr){
+    const e = p[it.src];
+    if (!e || !e.n) continue;
+    solved++; if (e.ok > 0) ok++;
+  }
+  const total = arr.length;
+  return { total, solved, ok, left: total - solved,
+           pct: total ? Math.round(100 * ok / total) : 0 };
+}
+
+/* ⛔ שער תקינות לפריט · פריט שאינו עומד בו נפסל מהסבב ולא מוצג שבור. אותם
+   כשלים שקטים בדיוק שנמצאו במשפטים: `a` מחוץ לטווח מסמן כל בחירה כשגויה,
+   ו-`g`/`r` קצרים מ-`o` מצמידים לכל אפשרות את הפירוש של אפשרות אחרת.
+   ⚠ ושתי דרישות שאין להן מקבילה במשפטים: `d` באורך `o` · הוא מעורבב יחד
+   איתו, ומערך קצר היה מייצר `undefined` בכיוון · ו-`k === d[a]`, שהוא
+   ההצהרה של הפריט על עצמו. פריט שסותר אותה שבור במקור, לא בהגשה. */
+function connItemOk(it){
+  return isObj(it) && typeof it.src === 'string' && !!it.src
+    && typeof it.s === 'string' && /_{2,}/.test(it.s)
+    && Array.isArray(it.o) && it.o.length >= 2 && it.o.every(x => !!x)
+    && Number.isInteger(it.a) && it.a >= 0 && it.a < it.o.length
+    && Array.isArray(it.g) && it.g.length === it.o.length && it.g.every(x => !!x)
+    && Array.isArray(it.r) && it.r.length === it.o.length && it.r.every(x => !!x)
+    && Array.isArray(it.d) && it.d.length === it.o.length && it.d.every(x => !!x)
+    && it.k === it.d[it.a];
+}
+/* ⛔ **כל פריט נשמר עם `a:0`** · כך כותב אותו assemble_conn.js, והכותרת של קובץ
+   הנתונים אומרת זאת במפורש: "המגיש חייב לערבב". האפליקציה היא המגיש.
+   ⚠ והערבוב חייב למפות מחדש **ארבעה** מערכים יחד · o, g, r ו-d. הם מקבילים
+   איבר-מול-איבר, וערבוב של אחד בלי השלושה האחרים מצמיד לכל מילת קישור את
+   הפירוש, הנימוק והכיוון של מילה אחרת. זה כשל **שקט**: המסך נראה תקין
+   והלומד לומד ממנו דבר שגוי. במשפטים זה כבר קרה עם שלושה מערכים.
+   ⚠ מופעל רק על פריט שעבר connItemOk, ולכן אין כאן הגנה על אורכים. */
+function connShuffled(it){
+  const idx = shuffle(it.o.map((_, i) => i));
+  return {
+    ...it,
+    o: idx.map(i => it.o[i]),
+    g: idx.map(i => it.g[i]),
+    r: idx.map(i => it.r[i]),
+    d: idx.map(i => it.d[i]),
+    a: idx.indexOf(it.a),
+  };
+}
+
+/* ⭐ נטען בהשהיה, בכניסה ליחידה · בדיוק כמו קובץ המשפטים ומאותה סיבה: מי
+   שאינו נוגע ביחידה הזאת אינו מוריד אותה בכל עליית דף.
+   ⚠ הקובץ יושב תחת connectives-he/ ולא בשורש. הצינור כותב אותו לשם, ו-sw.js
+   מקדים למטמון בדיוק את ה-URL הזה.
+   ⚠ `sentBuildV` נקראת כאן ולא משוכפלת · היא שולפת את מספר הבנייה מתג
+   הסקריפט של app.js עצמו, וזה נכון לכל קובץ נתונים באפליקציה. */
+let connLoading = null;
+function loadConnData(){
+  if(window.CONN_HE) return Promise.resolve(true);
+  if(connLoading) return connLoading;
+  connLoading = new Promise(res=>{
+    const el = document.createElement('script');
+    const v = sentBuildV();
+    el.src = './connectives-he/data-conn-he.js' + (v ? '?v='+v : '');
+    el.onload  = ()=> res(!!window.CONN_HE);
+    /* ⚠ **מאפסים את ההבטחה בכשל.** בלי זה נסיון שני מקבל את ההבטחה הכבויה
+       ומחזיר false לנצח, גם אחרי שהרשת חזרה · כלומר כניסה אחת בלי רשת
+       נועלת את היחידה עד רענון הדף. אותה מלכודת בדיוק כבר נסגרה
+       ב-loadSentData, וזו הסיבה שהיא מסומנת גם כאן. */
+    el.onerror = ()=>{ connLoading = null; res(false); };
+    document.head.appendChild(el);
+  });
+  return connLoading;
+}
+
+/* ===== המסך ===== */
+function renderConnLen(){
+  const seg = $('#connLenSeg'); if(!seg) return;
+  const cur = connRoundLen();
+  seg.querySelectorAll('button').forEach(b=>{
+    const n = Number(b.dataset.n);
+    b.classList.toggle('active', n === cur);
+    b.setAttribute('aria-pressed', n === cur ? 'true' : 'false');
+    b.onclick = ()=>{ LS.set(CONN_LEN_KEY, n); renderConnLen(); };
+  });
+}
+
+function renderConnPick(){
+  renderConnLen();
+  const list = $('#connPickList'); if(!list) return;
+  list.innerHTML = '';
+  const q = connSummary();
+  /* ⛔ `loadConnData` מחזירה `!!window.CONN_HE`, ואובייקט ריק הוא truthy ·
+     כלומר "הצליח". בלי השורה הזאת התוצאה היא מסך ריק בלי הודעה. /HEB §10. */
+  if(!q.total){
+    list.innerHTML = '<p class="s-sum">לא נטענו משפטים. חזור למסך הקודם ונסה שוב, '
+      + 'ואם זה חוזר בדוק את החיבור לרשת.</p>';
+    $('#connBrand').textContent = 'מילים להשלמת משפטים';
+    return;
+  }
+  const b = document.createElement('button');
+  b.className = 'pbtn';
+  const sub = q.left
+    ? `${q.left} משפטים שטרם פתרת · מתוך ${q.total}` + (q.solved ? ` · ${okN(q.ok)}` : '')
+    : `הושלמה · ${okN(q.ok)} מתוך ${q.total}`;
+  b.innerHTML = `<div class="ic">🔗</div><div class="tx"><b>מילים להשלמת משפטים</b>`
+    + `<span>${sEsc(sub)}</span></div>`
+    + `<div class="cnt">${q.left ? q.left : '✓'}</div>`;
+  b.onclick = ()=> startConnRound();
+  list.appendChild(b);
+  $('#connBrand').textContent = 'מילים להשלמת משפטים';
+  $('#connCount').textContent = '';
+  $('#connScore').textContent = '';
+  $('#connBar').style.width = '0%';
+}
+
+/* ===== סבב ===== */
+function startConnRound(){
+  /* ⛔ מאפסים בתחילת כל סבב. הדגל הצטבר ולעולם לא התאפס, ולכן לומד שהאחסון
+     שלו התמלא פעם אחת ראה «ההתקדמות לא נשמרה» **לנצח**, גם אחרי שפינה מקום,
+     עד רענון הדף. נמדד בסימולציית «בעל האחסון המלא». */
+  connSaveFailed = false;
+  const all = connItems();
+  /* ⚠ אם כל הפריטים נפלו בשער, אין סבב: מסך ריק עם כפתור "סבב נוסף" שאינו
+     עושה דבר הוא לופ שהלומד אינו יכול לצאת ממנו. */
+  if(!all.length){
+    toast('לא נטענו משפטים. חזור למסך הקודם ונסה שוב, ואם זה חוזר בדוק את החיבור לרשת');
+    openConnPick();
+    return;
+  }
+  const p = connProg();
+  /* ⭐ שלוש קבוצות, בסדר הזה · טרם נפתרו, נפתרו ומעולם לא נענו נכון, והשאר.
+     אותה עדיפות בדיוק של startSentRound, ומאותה סיבה: פריט שנכשל בו חוזר
+     לפני פריט שהוא כבר יודע. */
+  const fresh  = all.filter(it => !p[it.src] || !p[it.src].n);
+  const failed = all.filter(it => p[it.src] && p[it.src].n && !p[it.src].ok);
+  const known  = all.filter(it => p[it.src] && p[it.src].ok > 0);
+  const slipped = shuffle(known.filter(it => p[it.src].last === 0));
+  const solid   = shuffle(known.filter(it => p[it.src].last !== 0));
+  let pool = shuffle(fresh.slice());
+  const want = connRoundLen();
+  if(pool.length < want) pool = pool.concat(shuffle(failed.slice()));
+  if(pool.length < want) pool = pool.concat(slipped, solid);
+  /* ⛔ בלי shuffle נוסף על pool כולו · הוא היה מבטל בשקט את סדר העדיפות
+     שנבנה למעלה. הקבוצות מעורבבות בתוכן בנפרד, וזה מספיק. */
+  connQ = pool.slice(0, Math.min(want, all.length)).map(connShuffled);
+  connI = 0; connOk = 0;
+  $('#connPick').classList.add('hidden');
+  $('#connDone').classList.add('hidden');
+  $('#connCard').classList.remove('hidden');
+  renderConnCard();
+}
+
+/* המשפט עם החסר מסומן. ⚠ בלי כפתורי פירוש למילה בודדת: מאגר הפירושים
+   שמזין אותם באנגלית, ותרגום עברי-לעברית אינו מה שהוא מחזיר. */
+function connTextHtml(it){
+  return sEsc(it.s).replace(/_{2,}/g, '<span class="bl">___</span>');
+}
+/* המשפט השלם, כשהתשובה הנכונה יושבת במקום החסר ומודגשת · הלומד לא ראה עד
+   כה את המשפט השלם שהוא אמור לזכור. */
+function connFull(it){
+  return sEsc(it.s).replace(/_{2,}/g, () => `<b>${sEsc(it.o[it.a])}</b>`);
+}
+
+function renderConnCard(){
+  const it = connQ[connI]; if(!it) return finishConnRound();
+  connAnswered = false;
+  $('#connBrand').textContent = 'מילים להשלמת משפטים';
+  $('#connCount').textContent = `שאלה ${connI+1} מתוך ${connQ.length}`;
+  $('#connScore').textContent = connOk ? `✓ ${connOk}` : '';
+  $('#connBar').style.width = (100*connI/connQ.length)+'%';
+  $('#connText').innerHTML = connTextHtml(it);
+  const box = $('#connOpts'); box.innerHTML = '';
+  /* המטפלים נתלים בקוד ולא כמחרוזת · ה-CSP של הפרויקט חוסם `onclick=` inline. */
+  it.o.forEach((o,j)=>{
+    const row = document.createElement('div');
+    row.className = 's-optrow';
+    const b = document.createElement('button');
+    b.className = 's-opt'; b.type = 'button';
+    b.textContent = String(o);
+    b.onclick = ()=> answerConn(j);
+    row.appendChild(b);
+    box.appendChild(row);
+  });
+  $('#connExp').classList.add('hidden');
+  $('#connActions').classList.add('hidden');
+  $('#connLive').textContent = `שאלה ${connI+1} מתוך ${connQ.length}. ${it.s.replace(/_{2,}/g,'חסר')}`;
+}
+
+function answerConn(pick){
+  if(connAnswered) return;                   // הגנה מהקלקה כפולה
+  connAnswered = true;
+  const it = connQ[connI];
+  const right = pick === it.a;
+  if(right) connOk++;
+  connRecord(it.src, right);
+  /* ⚠ `.s-opt` ולא `.children` · הילדים של `#connOpts` הם `.s-optrow`, ו-
+     `disabled` על div אינו עושה דבר · כלומר אפשר היה לענות פעמיים. */
+  $('#connOpts').querySelectorAll('.s-opt').forEach((b,j)=>{
+    b.disabled = true;
+    if(j === it.a){ b.classList.add('is-right'); b.insertAdjacentHTML('afterbegin','<span class="mk">✓</span>'); }
+    else if(j === pick){ b.classList.add('is-wrong'); b.insertAdjacentHTML('afterbegin','<span class="mk">✗</span>'); }
+  });
+  $('#connScore').textContent = connOk ? `✓ ${connOk}` : '';
+  /* הלומד רואה **שני** נימוקים בלבד: של הבחירה שלו ושל התשובה הנכונה. */
+  const g = it.g.map((x,j)=>
+    `<div class="s-g${j===it.a?' key':''}"><span class="s-gt">${j===it.a?'✓ ':''}${sEsc(x)}</span></div>`).join('');
+  const r = it.r;
+  const why = right
+    ? `<p class="vd ok">בחרת <code>${sEsc(it.o[pick])}</code> וצדקת</p><p>${sEsc(r[pick]||'')}</p>`
+    : `<p class="vd bad">בחרת <code>${sEsc(it.o[pick])}</code></p><p>${sEsc(r[pick]||'')}</p>`
+      + `<p class="vd ok">התשובה: <code>${sEsc(it.o[it.a])}</code></p><p>${sEsc(r[it.a]||'')}</p>`;
+  $('#connExp').innerHTML =
+      `<section><h4>המילים</h4>${g}</section>`
+    + `<section><h4>המשפט</h4><p class="s-sent">${connFull(it)}</p></section>`
+    + `<section class="s-why"><h4>${right?'למה זה נכון':'למה הבחירה שלך אינה נכונה'}</h4>${why}</section>`;
+  $('#connExp').classList.remove('hidden');
+  $('#connNext').textContent = (connI+1 >= connQ.length) ? 'סיום ←' : 'הבא ←';
+  $('#connActions').classList.remove('hidden');
+}
+
+function finishConnRound(){
+  $('#connCard').classList.add('hidden');
+  $('#connBar').style.width = '100%';
+  const n = connQ.length;
+  const all = connSummary();
+  $('#connDone').innerHTML =
+      `<div class="num">${connOk}</div><div>מתוך ${n} משפטים</div>`
+    /* ⚠ כשהכתיבה לדיסק נכשלה, הסיכום המצטבר סותר את ציון הסבב. במקום שני
+       מספרים שמכחישים זה את זה, נאמר מה קרה. /HEB §10. */
+    + (connSaveFailed
+        ? `<p class="s-sum">⚠ ההתקדמות לא נשמרה במכשיר הזה, כי אחסון הדפדפן מלא. `
+          + `פנה מקום ונסה שוב, או המשך לתרגל בלי מעקב</p>`
+        : `<p class="s-sum">בסך הכול: ${all.ok} מתוך ${all.total} · ${all.pct}%</p>`)
+    + `<div class="actions" style="margin-top:22px;justify-content:center">`
+    + `<button class="btn btn-primary" id="connAgain">סבב נוסף</button></div>`;
+  $('#connDone').classList.remove('hidden');
+  $('#connAgain').onclick = ()=> startConnRound();
+  renderHome();                               // הכפתור בבית מציג את מה שנותר
+  /* ⚠ דחיפה כפויה בסוף סבב · queueRemoteSync משהה 12 שניות, וסוף סבב הוא
+     נקודה שבה הלומד עלול לסגור את הלשונית. */
+  if(currentUser) flushRemoteSync().catch(()=>{});
+}
+
+function openConnPick(){
+  $('#connCard').classList.add('hidden');
+  $('#connDone').classList.add('hidden');
+  $('#connPick').classList.remove('hidden');
+  renderConnPick();
+}
+
+$('#connNext').onclick = ()=>{
+  if(!connAnswered) return;
+  connAnswered = false;
+  connI++;
+  renderConnCard();
+};
+$('#connExit').onclick = ()=>{ goBack(); };
+
+$('#pbConn').onclick = async ()=>{
+  /* ⛔ innerHTML ולא textContent: שורת התיאור מכילה <b> על «המתאימה ביותר»,
+     ושמירה כטקסט הייתה מוחקת את ההדגשה בלחיצה הראשונה ולא מחזירה אותה.
+     הדפוס הועתק מ-#pbSentSub שאין בו תגיות, ולכן הוא בטוח שם ושבור כאן. */
+  const btn = $('#pbConn'), sub = $('#pbConnSub'), was = sub.innerHTML;
+  btn.disabled = true; sub.textContent = 'טוען את המשפטים…';
+  const ok = await loadConnData();
+  btn.disabled = false; sub.innerHTML = was;
+  /* §10: הודעת שגיאה חייבת לומר מה עכשיו. */
+  if(!ok){ toast('לא ניתן לטעון את המשפטים. בדוק את החיבור לרשת ונסה שוב'); return; }
+  openConnPick();
+  goto('conn');
 };
 
 /* ===== preview =====

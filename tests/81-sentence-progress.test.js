@@ -33,6 +33,7 @@ const { plain } = require('./_harness/sandbox.js');
 
 const SYMS = ['isObj', 'SUF', 'KEY', 'SENT_KEY', 'SENT_PROG', 'saneSentRec', 'sentProg',
               'sentItemOk', 'LS', 'levelKeyFor', 'examPreFor', 'sizeKeyFor', 'EXAM_KEY',
+              'CONN_PROG', 'saneConnRec', 'connProg',
               'collectExtras', 'applyExtras', 'shedStorage', 'showStorageBar', 'hideStorageBar'];
 
 const load = (opts = {}) => loadWithStorage(SYMS, opts);
