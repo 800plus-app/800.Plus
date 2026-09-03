@@ -125,3 +125,14 @@ blue-demo.html
 units_output/attestation/check_versions.js
 units_output/attestation/find_idioms.js
 units_output/attestation/sample_live.js
+
+# ⛔ תיבות סשן ומחקר על אנשים חיים · 3.9.2026 · לא לריפו הציבורי
+# תיבות/ מכילות מיילים של אנשים · שותפים/ צילומי פרופיל של אדם פרטי · שיחה-*/להעתקה-*
+# הן סיכומי שיחות עם מורים. נמצאו לא-מוחרגים בסקירת 2.9 (git check-ignore החזיר
+# חיובי-שקר על שורה ריקה — לאמת עם `git status --short --ignored`, לא איתו).
+ביקורת/תיבות/
+שיווק/שותפים/
+שיווק/תוכניות/שיחה-*.md
+שיווק/תוכניות/להעתקה-*.txt
+שיווק/תוכניות/החלטות-מחיר-שלי.md
+*.bak
