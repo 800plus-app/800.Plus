@@ -1,0 +1,70 @@
+name: pages
+
+# פורס לאתר **רק** את מה שהאפליקציה מבקשת, במקום את כל המאגר.
+#
+# למה זה קיים
+# ------------
+# GitHub Pages במצב «פרסום מענף» מגיש כל קובץ שיושב במאגר. נמדד ב-3.9.2026 על
+# האתר החי: 2,442 קבצים היו נגישים בכתובת הפומבית בלי חשבון ובלי תשלום, ובהם
+# טבלאות המילים הקריאות, רשימות המילים הגולמיות, פלט הצינור, חבילת הבדיקות,
+# קובצי ה-SQL ותיעוד השיטה. `scripts/build-pages.js` מעתיק ל-`_site/` רשימה
+# סגורה, וכל השאר מפסיק להיות נגיש — בלי למחוק שום דבר מהמאגר.
+#
+# ⛔ מה שזה **אינו** פותר: `data.js` ו-`data-en.js` נשארים מוגשים, מפני
+# שהדפדפן טוען אותם. אפליקציית PWA סטטית לא יכולה להסתיר מהמשתמש את מה שהיא
+# מציגה לו. ההגנה כאן חלקית במפורש.
+#
+# ⭐ צעד ידני חד-פעמי לפני שזה תופס — בלעדיו הענף ממשיך להתפרסם כרגיל:
+#   Settings → Pages → Build and deployment → Source: **GitHub Actions**
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# ההרשאות המינימליות שפריסת Pages דורשת.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# פריסה אחת בכל רגע. `cancel-in-progress: false` בכוונה — ביטול פריסה באמצע
+# משאיר אתר חצי מעודכן, וזה גרוע מלחכות לזו שלפניה.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # ⛔ השער לפני הפריסה. הבדיקה 105 משווה את הרשימה ב-build-pages.js למה
+      # ש-index.html, sw.js ו-app.js באמת מבקשים. קובץ חדש שנטען ונשכח ברשימה
+      # מפיל כאן את הפריסה — ולא מגיע למשתמש כ-404.
+      - name: בדיקות
+        run: node tests/run.js
+
+      - name: בניית _site
+        run: node scripts/build-pages.js _site
+
+      # ראיה בלוג: כמה קבצים באמת נפרסו, מול 2,442 שהיו נגישים קודם.
+      - name: כמה קבצים נפרסים
+        run: |
+          echo "קבצים ב-_site: $(find _site -type f | wc -l)"
+          echo "קבצים במאגר:   $(git ls-files | wc -l)"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

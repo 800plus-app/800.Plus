@@ -137,3 +137,6 @@ units_output/attestation/sample_live.js
 שיווק/תוכניות/החלטות-מחיר-שלי.md
 *.bak
 graphify-out/
+
+# תיקיית הפרסום · נבנית מחדש בכל פריסה מתוך scripts/build-pages.js ואינה מקור
+_site/
