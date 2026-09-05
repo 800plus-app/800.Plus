@@ -1,7 +1,7 @@
 /* ⛔ זה **אינו** קובץ בדיקה. ראה `tests/teeth/README.md`.
 
-   הוכחת שיניים ל-tests/107-sent-gloss-quiz.
-   node tests/teeth/107-sent-gloss-quiz.teeth.js
+   הוכחת שיניים ל-tests/109-sent-gloss-quiz.
+   node tests/teeth/109-sent-gloss-quiz.teeth.js
      <none|nosuffix|suffixorder|attr|blankbtn|noreset|nopush|noffer|nogloss
       |dupword|onefromone|noclose|forced|fixedlen|badlen|nosave|modalatend|nobtn>
 */
@@ -14,7 +14,7 @@ const ROOT = path.join(__dirname, '..', '..');
 const mut = process.argv[2] || 'none';
 const work = fs.mkdtempSync(path.join(os.tmpdir(), 'teeth85-'));
 fs.mkdirSync(path.join(work, 'tests/_harness'), { recursive: true });
-['tests/107-sent-gloss-quiz.test.js', 'tests/_harness/sandbox.js', 'tests/_harness/extract.js',
+['tests/109-sent-gloss-quiz.test.js', 'tests/_harness/sandbox.js', 'tests/_harness/extract.js',
   'tests/_harness/scan.js', 'app.js', 'index.html', 'data-en.js']
   .forEach(f => fs.copyFileSync(path.join(ROOT, f), path.join(work, f)));
 
@@ -73,7 +73,7 @@ if (mut === 'nobtn')        // הכפתור יורד ממסך הסיכום
   edit('app.js', "? `<button class=\"btn btn-ghost\" id=\"sentQuizBtn\">בוחן על ${sqQ.length} המילים</button>`",
        "? ''");
 
-const r = cp.spawnSync(process.execPath, ['--test', 'tests/107-sent-gloss-quiz.test.js'],
+const r = cp.spawnSync(process.execPath, ['--test', 'tests/109-sent-gloss-quiz.test.js'],
   { cwd: work, encoding: 'utf8' });
 const out = (r.stdout || '') + (r.stderr || '');
 const g = k => (out.match(new RegExp('^ℹ ' + k + ' (\\d+)', 'm')) || [])[1] || '?';
