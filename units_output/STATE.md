@@ -1,3 +1,5 @@
+> ⚠ מיושן (הוקפא 14.8). האמת: C:\Users\03hag\Claude projects\החלטות-800plus.md + ביקורת\החלפת-מנהל.md
+
 # STATE — בניית יחידות 2–10
 
 **branch:** `pipeline-v2` · **פרומט מחייב:** `units_output/source/prompt-units-2-10.md`

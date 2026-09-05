@@ -25,7 +25,7 @@ gh api -X POST repos/Hagay-BOT/milim/pages -f "source[branch]=main" -f "source[p
 3. ייפתח כאפליקציה שעובדת **אופליין**, בלי המחשב שלך. כל ההתקדמות נשמרת בטלפון.
 
 ## עדכון מילים בעתיד
-לאחר שינוי מילים במחשב: `git add -A && git commit -m "update" && git push`,
+לאחר שינוי מילים במחשב: `git add words.js sw.js` (נתיבים מפורשים בלבד — לעולם לא להוסיף הכול בבת אחת, הריפו ציבורי), ואז `git commit -m "update"` ו-`git push`,
 ולעדכן את מספר הגרסה ב-`sw.js` (`hw-v1` → `hw-v2`) כדי שהטלפון ימשוך את החדש.
 
 ## הערת זכויות ומקור
