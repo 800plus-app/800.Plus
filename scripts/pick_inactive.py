@@ -12,6 +12,10 @@
 `persistSession: true`, ולכן מי שנכנס פעם אחת במכשיר חוזר אליו לנצח בלי לעבור שם שוב.
 בפועל השדה מדד "מתי הוקלדה סיסמה בפעם האחרונה".
 
+⭐ עדכון 27.8.2026: `last_seen` תוקן בלקוח (`store.js:46-63` touchSeen, נקרא מ-signIn
+ומ-`app.js:5711` בכל טעינה) — מעכשיו הוא מתעדכן גם בלי הקלדת סיסמה. אבל שורות
+שקדמו ל-2026-08-27 נשארו ריקות, ולכן האות השני עדיין הכרחי לקהל הקיים.
+
 לומד פעיל עם `last_seen` ריק נבחר כאן למייל "נרשמת ולא פתחת", **ובאותו יום נבחר גם
 לתזכורת השבועית** — שתי הודעות סותרות, שעה זו מזו. ‏`activation-email.yml` מבטיח
 במפורש שזה בלתי אפשרי; ההבטחה נשענה על אותה הנחה שגויה.
@@ -55,7 +59,41 @@ def ts(v):
 
 def days_since(v):
     t = ts(v)
-    return None if t is None else (NOW - t).days
+    # round ולא floor: החותמת מהריצה הקודמת מאוחרת משעת ה-cron (06:00Z), ולכן
+    # floor הפך 6 ימים ו-22 שעות ל-6 < 7 ופסל 55 מ-59 נמענים ב-30.8.
+    return None if t is None else round((NOW - t).total_seconds() / 86400)
+
+
+def _selftest(broken=False):
+    """ארבעה מקרים שמסמרים את העיגול: 6 ימים ו-22 שעות חייבים להיחשב 7.
+    הגרסה הישנה ((NOW-t).days) עיגלה כלפי מטה ופסלה 55 מ-59 נמענים ב-30.8."""
+    from datetime import timedelta
+    cases = [
+        ('6 ימים ו-22 שעות', NOW - timedelta(days=6, hours=22), 7),
+        ('6 ימים בדיוק', NOW - timedelta(days=6), 6),
+        ('7 ימים ושעתיים', NOW - timedelta(days=7, hours=2), 7),
+        ('אין תאריך', None, None),
+    ]
+    if broken:
+        # שן: מזריקים ציפייה שגויה כדי להוכיח שהבדיקה עצמה מסוגלת ליפול.
+        cases[0] = (cases[0][0] + ' · שן', cases[0][1], 6)
+    ok = 0
+    for name, t, want in cases:
+        got = days_since(t.isoformat() if t is not None else None)
+        if got == want:
+            ok += 1
+            print('  ✓ %s → %s' % (name, got))
+        else:
+            print('  ✗ %s → %s (ציפינו %s)' % (name, got, want))
+    print('בדיקה עצמית: %d/%d' % (ok, len(cases)))
+    sys.exit(0 if ok == len(cases) else 1)
+
+
+if '--selftest' in sys.argv:
+    # קונסולת Windows מקומית היא cp1252; ה-CI ממילא utf-8.
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    _selftest('--break' in sys.argv)
+
 
 
 def mask(e):

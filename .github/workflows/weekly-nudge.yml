@@ -80,7 +80,16 @@ jobs:
           # ב-19-admin-privacy סורקת את store.js בלבד, ולכן הדלת הזאת נשארה מחוץ לשדה
           # הראייה שלה. הנימוק שלה תקף גם כאן: שורה שהגיעה — נראתה.
           curl -sS -o progress.json "${H[@]}"             "$BASE/rest/v1/progress?select=user_id,lang,stats:data->stats,exam:data->extras->exam"
+          # רק user_id — ספירה בלבד, בלי endpoint ובלי מפתחות. המספר מכריע אם
+          # push-daily מקבל לוח זמנים או מושבת (ראה scripts/activity.py).
+          curl -sS -o push.json "${H[@]}" "$BASE/rest/v1/push_sub?select=user_id"
           python3 scripts/pick_nudges.py
+
+      # שורת מדד אחת ללוג, בלי PII. if: always() — גם ריצה שנכשלה בבחירה עדיין
+      # מדפיסה את מה שיש; הסקריפט עצמו אינו נופל על קובץ חסר אלא כותב זאת.
+      - name: פעילות
+        if: always()
+        run: python3 scripts/activity.py
 
       - name: שליחה
         if: steps.pick.outputs.count != '0'
