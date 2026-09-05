@@ -71,6 +71,15 @@ hit 'BILLING_WEBHOOK_SECRET[[:space:]]*[:=][[:space:]]*["'"'"']?[A-Za-z0-9]' 'ה
 hit 'PUSH_TRIGGER_SECRET[[:space:]]*[:=][[:space:]]*["'"'"']?[A-Za-z0-9]'    'הצבת ערך לסוד ה-push'
 hit 'VAPID_PRIVATE[[:space:]]*[:=][[:space:]]*["'"'"']?[A-Za-z0-9]'          'מפתח VAPID פרטי'
 
+# ── 3 · כתובות מייל של משתמשים ───────────────────────────────────────────────
+# ב-1.8 דלפו 14 כתובות מייל לענף ציבורי. כל כתובת @gmail.com שנוספת נחסמת,
+# חוץ משתי החרגות מפורשות (רשימה, לא ניחוש):
+#   · 03hagay@gmail.com — הכתובת של חגי עצמו, מופיעה בכוונה בקבצי תפעול.
+#   · .github/workflows/uptime.yml — התראות הזמינות נשלחות לכתובת שלו משם.
+mail_added=$(git diff $RANGE --diff-filter=AM -U0 -- . ':(exclude).github/workflows/uptime.yml' | grep '^+' | grep -v '^+++')
+mails=$(printf '%s\n' "$mail_added" | grep -oE '[A-Za-z0-9._%+-]+@gmail\.com' | grep -v '^03hagay@gmail\.com$' | sort -u | head -3)
+[ -n "$mails" ] && { say "${RED}✖ כתובת מייל של משתמש (gmail)${OFF}"; printf '%s\n' "$mails" | sed 's/^/    /' >&2; fail=1; }
+
 if [ "$fail" -ne 0 ]; then
   say ""
   say "${RED}הקומיט נעצר.${OFF} הריפו הזה ציבורי — מה שנכנס להיסטוריה לא יוצא ממנה."
