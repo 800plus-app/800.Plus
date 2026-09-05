@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://800-plus.com/sitemap.xml

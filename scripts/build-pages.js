@@ -59,6 +59,9 @@ const FILES = [
   'leveltest.js',
   'leveltest-he.js',
   'typo-lex.js',
+  /* SEO — מפת אתר ועמודי מילה לניסוי האינדקס של גוגל */
+  'robots.txt',
+  'sitemap.xml',
   /* אייקונים של המניפסט */
   'icon-192.png',
   'icon-512.png',
@@ -74,6 +77,9 @@ const DIRS = [
 /* קבצים בודדים בתוך תיקיות מקור. ⚠ שאר התיקייה **אינו** מתפרסם.
    הראשונים נטענים בזמן ריצה מ-app.js ומופיעים גם ב-sw.js. */
 const NESTED = [
+  /* עמודי מילה — ניסוי SEO, שני עמודים לפני ייצור המוני */
+  'word/he-אמתלה.html',
+  'word/en-meticulous.html',
   'sentence-completion/sent-lex.js',
   'connectives-he/data-conn-he.js',
   /* נקודת הקצה שגאדג'ט האייפון קורא ממנה — 800-plus.com/widget/widget.json.
