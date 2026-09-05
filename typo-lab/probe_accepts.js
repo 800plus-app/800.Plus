@@ -130,6 +130,13 @@ function ownerOf(ctx, key, dir) {
 
 function loadRows() {
   const out = [];
+  /* ⭐ עץ נקי · הקורפוס אינו במעקב git, אבל `gen_answers.js` דטרמיניסטי לחלוטין
+   * (זרע קבוע, אפס Math.random — שתי ריצות מפיקות קובץ זהה בית-בבית), ולכן
+   * הבדיקה רשאית לחולל אותו בעצמה במקום ליפול. מחוללים פעם אחת, ברעש. */
+  if (['answers-he.jsonl', 'answers-en.jsonl'].some(f => !fs.existsSync(path.join(OUT, f)))) {
+    process.stderr.write('probe_accepts: answers-*.jsonl חסרים · מחולל עכשיו (זרע קבוע, ~2 דקות)\n');
+    require('child_process').execFileSync(process.execPath, [path.join(__dirname, 'gen_answers.js')], { stdio: ['ignore', 'inherit', 'inherit'] });
+  }
   for (const f of ['answers-he.jsonl', 'answers-en.jsonl']) {
     const p = path.join(OUT, f);
     if (!fs.existsSync(p)) throw new Error(`probe_accepts: ${f} חסר · הרץ קודם node typo-lab/gen_answers.js`);
