@@ -26,11 +26,17 @@ if (files.length === 0) {
   process.exit(1);
 }
 
+/* --quick: skip the 3 slowest files (measured 4.9.2026: 42s / 20s / 18s) + the slow selftest */
+const QUICK = process.argv.includes('--quick');
+const SLOW3 = ['10-distractors.test.js', '46-exam-gloss.test.js', '11-time.test.js'];
+const runFiles = QUICK ? files.filter(p => !SLOW3.includes(path.basename(p))) : files;
+const { runSelftests } = require('./selftests.js');
+
 let passed = 0, failed = 0;
 const failures = [];
 const isSuite = e => !!(e.details && e.details.type === 'suite');   // suites re-report their children
 
-const stream = run({ files, concurrency: true });
+const stream = run({ files: runFiles, concurrency: true });
 
 stream.on('test:pass', e => { if (!isSuite(e)) passed++; });
 stream.on('test:fail', e => {
@@ -51,7 +57,7 @@ process.on('exit', () => {
     return;
   }
   if (failed === 0) {
-    process.stdout.write(`PASS -- ${passed} tests, 0 failures (${files.length} files)\n${line}\n`);
+    process.stdout.write(`PASS -- ${passed} tests, 0 failures (${runFiles.length} files)\n${line}\n`);
   } else {
     process.stdout.write(`FAIL -- ${failed} failing of ${passed + failed} tests (${files.length} files)\n\n`);
     for (const f of failures) process.stdout.write(`  x ${f}\n`);
@@ -61,4 +67,8 @@ process.on('exit', () => {
 });
 
 /* A run that discovered files but executed nothing is a failure, not a pass. */
-stream.on('end', () => { if (passed + failed === 0) process.exitCode = 1; });
+stream.on('end', () => {
+  if (passed + failed === 0) process.exitCode = 1;
+  /* typo-lab selftests: exit codes surface here; EXIT!=0 marks the run failed */
+  if (runSelftests(QUICK) > 0) process.exitCode = 1;
+});
