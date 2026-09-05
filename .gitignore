@@ -77,7 +77,7 @@ units_output/gloss-phase/hewiktionary.xml.bz2
 
 # תיקיות עבודה פנימיות — לא במאגר הציבורי
 exams/
-units_output/coverage-test/
+units_output/coverage-*/
 
 # גיבוי מקומי אוטומטי · נוצר בסשן 15-16.8 כשהאינטרנט קרס. עותק של קבצים שטרם
 # קומטו, נכתב כל 45 שניות. מקומי בלבד ולעולם לא נכנס לריפו הציבורי.
