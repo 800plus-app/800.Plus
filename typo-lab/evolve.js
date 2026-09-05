@@ -60,7 +60,11 @@ const SETS = ['he-word', 'en-word', 'gloss'];
    שהמסלול המדויק בוחן, אחרת ההפרש בין השניים אינו "בחירת יישור" אלא באג. */
 const CAND_K = MAX_CANDS;
 const CAND_CAP = MAX_OPS;
-const GOLDEN_TARGET = 10000;
+/* ⭐ 5.9.2026 · יעד דגימה **לכל שפה בנפרד** במקום יעד משותף (היה 10,000 יחד).
+   הערכים נבחרו כחלוקה שהייתה בפועל בטבלה האחרונה, כדי שההרכב לא יזוז בבת אחת.
+   ⛔ אלה קבועים, לא נגזרת מגודל הדאטהסט — זו כל הנקודה: גידול במאגר של שפה אחת
+   אינו נוגע בדגימה של השנייה. ראה buildGolden. */
+const GOLDEN_TARGET_BY_LANG = { he: 3707, en: 6295 };
 const BIG_GA = { popSize: 80, maxGen: 130, patience: 22 };
 const COMPLEXITY_W = 0.002;
 
@@ -856,22 +860,32 @@ function bindingRejects(S, margin, limit) {
 /* ===== טבלת הזהב ===== */
 function buildGolden(rowsBySet, params, langs) {
   const strata = new Map();
-  let total = 0;
+  /* ⭐ 5.9.2026 · המכסה נגזרת **לכל שפה בנפרד**, לא מהסכום המשותף.
+     קודם המכסה הייתה `GOLDEN_TARGET * arr.length / total` כשה-total משותף לשתי
+     השפות — ולכן כל גידול במאגר העברי כיווץ את הדגימה האנגלית בלי ששום דבר
+     באנגלית השתנה, והבדיקות שמצמידות מספרים אנגליים (tests/71 · "שכבת הלקסיקון
+     נושאת במשקל") נשברו בכל החלפת מאגר וגררו סבב חקירה שלם (אומת 4.9.2026).
+     עכשיו לכל שפה יעד קבוע משלה, והשכבות (וזרעי הדגימה) מפוצלים גם לפי שפה —
+     כך שמספר אנגלי מוצמד זז רק כשהצד האנגלי עצמו זז. היעדים נקבעו קרוב לחלוקה
+     שהייתה בפועל בטבלה הקודמת (‏he ‎3,707‎ · en ‎6,295‎ מתוך 10,002). */
+  const totalByLang = { he: 0, en: 0 };
   for (const set of SETS) for (const r of rowsBySet[set]) {
-    const k = `${r.set}|${String(r.op).split('/')[0]}|${r.label}`;
+    const k = `${r.lang}|${r.set}|${String(r.op).split('/')[0]}|${r.label}`;
     let a = strata.get(k);
     if (!a) { a = []; strata.set(k, a); }
     a.push(r);
-    total++;
+    totalByLang[r.lang]++;
   }
   const out = [];
   const keys = Array.from(strata.keys()).sort();
   const checkers = {};
   for (const k of keys) {
     const arr = strata.get(k);
-    /* מכסה יחסית לגודל השכבה, אבל לא פחות מ-5 · אופרטור נדיר (‏ie/ei, 32 שורות בסך
-       הכול) חייב להופיע בטבלה, אחרת הבדיקה שתריץ אותה מחדש לא תיגע בו לעולם. */
-    const quota = Math.max(5, Math.round(GOLDEN_TARGET * arr.length / total));
+    const lang = k.slice(0, k.indexOf('|'));
+    /* מכסה יחסית לגודל השכבה **בתוך שפתה**, אבל לא פחות מ-5 · אופרטור נדיר
+       (‏ie/ei, 32 שורות בסך הכול) חייב להופיע בטבלה, אחרת הבדיקה שתריץ אותה
+       מחדש לא תיגע בו לעולם. */
+    const quota = Math.max(5, Math.round(GOLDEN_TARGET_BY_LANG[lang] * arr.length / totalByLang[lang]));
     const n = Math.min(quota, arr.length);
     const rnd = mulberry32(seedFor(SEED, 'golden', k));
     const a = arr.slice();

@@ -8271,7 +8271,7 @@
   }
  },
  "golden": {
-  "rows": 10002,
+  "rows": 9998,
   "file": "golden.jsonl"
  },
  "shipGate": {

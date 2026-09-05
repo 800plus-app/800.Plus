@@ -27,37 +27,37 @@
     }
   },
   "lexicon": {
-    "files": 598,
-    "bytes": 4929824,
-    "heTypes": 35261,
-    "enTypes": 9750
+    "files": 582,
+    "bytes": 4728088,
+    "heTypes": 33957,
+    "enTypes": 9895
   },
-  "consistencyFlips": 6,
+  "consistencyFlips": 8,
   "broken": {
     "op": false,
     "fold": false,
     "limitCards": 0
   },
-  "total": 90502,
+  "total": 90660,
   "counts": {
     "set": {
-      "en-word": 35272,
-      "gloss": 30013,
-      "he-word": 25217
+      "en-word": 35273,
+      "gloss": 30173,
+      "he-word": 25214
     },
     "label": {
-      "accept": 45369,
-      "reject": 45133
+      "accept": 45467,
+      "reject": 45193
     },
     "op": {
-      "adj": 19609,
-      "double": 9696,
-      "drop": 13717,
-      "homophone": 5481,
-      "mater": 5688,
+      "adj": 19666,
+      "double": 9715,
+      "drop": 13734,
+      "homophone": 5502,
+      "mater": 5711,
       "neg/d1-partner": 2739,
-      "neg/garbage": 2981,
-      "neg/inflection": 364,
+      "neg/garbage": 2982,
+      "neg/inflection": 361,
       "neg/other-gloss-seg": 11326,
       "neg/other-variant": 5223,
       "pattern/c/k": 547,
@@ -67,44 +67,44 @@
       "pattern/ph/f": 236,
       "pattern/silent-e": 374,
       "pattern/y/i": 189,
-      "transpose": 9895
+      "transpose": 9918
     },
     "why": {
-      "ambiguous": 25161,
-      "cross-card": 6,
+      "ambiguous": 25234,
+      "cross-card": 8,
       "garbage": 2491,
-      "inflection": 217,
-      "novel": 41170,
-      "novel-unverified": 4199,
+      "inflection": 218,
+      "novel": 41240,
+      "novel-unverified": 4227,
       "other-variant": 25,
-      "real-word": 2039,
-      "veto": 15194
+      "real-word": 2019,
+      "veto": 15198
     },
     "setLabel": {
-      "en-word/accept": 21665,
-      "en-word/reject": 13607,
-      "gloss/accept": 9254,
-      "gloss/reject": 20759,
-      "he-word/accept": 14450,
-      "he-word/reject": 10767
+      "en-word/accept": 21645,
+      "en-word/reject": 13628,
+      "gloss/accept": 9341,
+      "gloss/reject": 20832,
+      "he-word/accept": 14481,
+      "he-word/reject": 10733
     },
     "trusted": {
-      "false": 4199,
-      "true": 86303
+      "false": 4227,
+      "true": 86433
     }
   },
   "files": [
     {
       "name": "dataset-he.jsonl",
-      "rows": 33684,
-      "bytes": 7497210,
-      "sha256": "770660cfd56e88ffdcf9f793fa228b12685a0c1ab7c9f12844bea56c5096d83a"
+      "rows": 33647,
+      "bytes": 7488918,
+      "sha256": "dc2ef02287930837412d4e2befebd77cda6d2cbd91d804aa8348d16c5199a649"
     },
     {
       "name": "dataset-en.jsonl",
-      "rows": 56818,
-      "bytes": 11326624,
-      "sha256": "60cbd2c0316dbff294b410625ad91e7e0d566915bf050cdca4ac032693219960"
+      "rows": 57013,
+      "bytes": 11366573,
+      "sha256": "fd40cee44746ebdccafb89ee6ed0bfa4114e5c4b50c14363b892efad5d830dc7"
     }
   ]
 }
