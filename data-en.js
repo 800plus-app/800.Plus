@@ -1,4 +1,5 @@
 // English word bank: 3,946 entries in 10 units, glossed in Hebrew. One word = one entry, senses merged.
+// © 800plus · כל הזכויות שמורות
 // Deduplicated and dictionary-audited. Provenance and the full audit trail: METHODOLOGY.md
 window.UNIT_DATA_EN = {
  "1": [

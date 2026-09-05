@@ -1,4 +1,5 @@
 // Hebrew word bank: 1,717 entries in 10 units + a personal unit. One word = one entry, senses merged.
+// © 800plus · כל הזכויות שמורות
 // Deduplicated, NFKC-normalised, and dictionary-audited. Provenance and the full audit trail: METHODOLOGY.md
 window.UNIT_DATA = {
  "1": [
