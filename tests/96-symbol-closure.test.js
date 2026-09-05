@@ -15,12 +15,10 @@
  *
  * ⭐ ובכל פעם התיקון היה שורה אחת, והאבחון לקח את רוב הזמן.
  *
- * ⛔ ולמה שער ולא «להוריש את הרשימה»
- * ---------------------------------
- * ‏`tests/07` מרים **סט אחר בכוונה** · הוא בודק את שכבת האחסון ומספק
- * `localStorage` משלו, בזמן ש-`sandbox.js` דווקא **אינו** מספק אחד.
- * הורשה הייתה מכריחה אותו לגרור ~100 סמלים שאינם נוגעים לו.
- * ⭐ הסגירות היא מה שצריך לאכוף, לא זהות הרשימות.
+ * ⭐ ומאז 5.9.2026 · `tests/07` **יורש** את הרשימה של `sandbox.js` ומוסיף רק
+ * את סמלי שכבת האחסון שלו (`EXTRA_SYMBOLS`), כך ששם חדש שנכנס למקור האחד זורם
+ * אליו מעצמו. השער כאן נשאר על הרשימה **המאוחדת**: הורשה סוגרת את פער
+ * שתי-הרשימות, אבל אינה מוכיחה שהרשימה המאוחדת עצמה סגורה.
  *
  * ⚠ מה השער **אינו** תופס, במפורש: קריאה שנבנית כמחרוזת, קריאה דרך
  * `window[...]`, ופונקציה שנקראת רק מתוך מטפל DOM שאינו מורם ממילא.
@@ -69,10 +67,10 @@ function קוראל(גוף, מועמדים) {
 }
 
 /** רשימת הסמלים של קובץ בדיקה, כפי שהיא כתובה בו. */
-function רשימתקובץ(rel) {
+function רשימתקובץ(rel, marker = 'const SYMBOLS = [') {
   const txt = fs.readFileSync(path.join(שורש, rel), 'utf8');
-  const i = txt.indexOf('const SYMBOLS = [');
-  assert.notStrictEqual(i, -1, `${rel} · לא נמצאה רשימת SYMBOLS`);
+  const i = txt.indexOf(marker);
+  assert.notStrictEqual(i, -1, `${rel} · לא נמצאה הרשימה ${marker}`);
   const seg = txt.slice(i, txt.indexOf('];', i));
   return [...seg.matchAll(/'([A-Za-z_$][\w$]*)'/g)].map(m => m[1]);
 }
@@ -99,7 +97,9 @@ describe('סגירות רשימות הסמלים', () => {
 
   const מקרים = [
     { rel: 'tests/_harness/sandbox.js', list: () => SANDBOX_SYMBOLS },
-    { rel: 'tests/07-storage.test.js', list: () => רשימתקובץ('tests/07-storage.test.js') },
+    /* הרשימה בפועל של tests/07 היא ירושה + תוספות · השער רץ על האיחוד. */
+    { rel: 'tests/07-storage.test.js',
+      list: () => SANDBOX_SYMBOLS.concat(רשימתקובץ('tests/07-storage.test.js', 'const EXTRA_SYMBOLS = [')) },
   ];
 
   for (const { rel, list } of מקרים) {
@@ -122,11 +122,14 @@ describe('סגירות רשימות הסמלים', () => {
     });
   }
 
-  /* ⭐ ההערה ב-`tests/07` מתעדת שזו רשימה שנייה · השער הזה הוא מה שהופך
-     את התיעוד הזה לאכיף. */
-  test('ההערה על הרשימה השנייה נשארה במקומה', () => {
+  /* ⭐ הירושה היא התיקון · השער הזה הוא מה שמונע ממנה להתפרק בחזרה לשתי רשימות. */
+  test('tests/07 יורש את הרשימה של sandbox.js ואינו מעתיק אותה', () => {
     const txt = fs.readFileSync(path.join(שורש, 'tests/07-storage.test.js'), 'utf8');
-    assert.ok(/רשימת סמלים \*\*שנייה\*\*/.test(txt),
-      'ההערה שמסבירה שיש שתי רשימות הוסרה · הקורא הבא לא יידע');
+    assert.ok(txt.includes('SANDBOX_SYMBOLS.concat(EXTRA_SYMBOLS)'),
+      'tests/07 חזר לרשימה עצמאית · שם חדש ב-sandbox.js שוב יפיל אותו בשמות מטעים');
+    const extras = רשימתקובץ('tests/07-storage.test.js', 'const EXTRA_SYMBOLS = [');
+    const dup = extras.filter(n => SANDBOX_SYMBOLS.includes(n));
+    assert.deepStrictEqual(dup, [],
+      'EXTRA_SYMBOLS מכפיל שמות שכבר ב-sandbox.js · זו תחילת הפיצול בחזרה: ' + dup.join(', '));
   });
 });

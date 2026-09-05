@@ -57,18 +57,18 @@ const app = appSource();
  * ⭐ `fnBody` מחזירה בדיוק את הפונקציה · לא פחות ולא יותר · **ומאמתת את הגבול בכך שהיא
  * מקמפלת את מה שחתכה.** סוגר שנספר בטעות בתוך מחרוזת ייפול כאן ברעש, ולא יקצר את החלון
  * בשקט. זה מה שהופך את הגבול לנמדד ולא למוצהר. */
-function fnBody(name) {
-  let at = app.indexOf('function ' + name);
+function fnBody(name, src = app) {
+  let at = src.indexOf('function ' + name);
   if (at < 0) return null;
   /* ⚠ ‏`async` נמצא **לפני** המילה function, ולכן חיתוך שמתחיל ב-function מנתק אותו
      מהגוף ו-`await` שבפנים נהיה שגיאת תחביר. flushRemoteSync ו-syncWithRemoteInner שתיהן
      async · הקימפול הוא זה שתפס את זה, והחלונות הקבועים שהיו כאן פספסו אותו בשקט. */
-  if (app.slice(at - 6, at) === 'async ') at -= 6;
+  if (src.slice(at - 6, at) === 'async ') at -= 6;
   let depth = 0;
-  for (let i = app.indexOf('{', at); i < app.length; i++) {
-    if (app[i] === '{') depth++;
-    else if (app[i] === '}' && --depth === 0) {
-      const body = app.slice(at, i + 1);
+  for (let i = src.indexOf('{', at); i < src.length; i++) {
+    if (src[i] === '{') depth++;
+    else if (src[i] === '}' && --depth === 0) {
+      const body = src.slice(at, i + 1);
       /* מקמפל בלבד · vm.Script לא מריצה כלום. הגבול נכון רק אם מה שנחתך הוא פונקציה שלמה,
          והקימפול הוא ההוכחה לכך · הוא זורק על חיתוך באמצע. */
       new vm.Script('(' + body + ')');
@@ -81,6 +81,19 @@ function fnBody(name) {
 /* השער בודק נוכחות של **שם** שדה, ולכן הערה שמזכירה אותו הספיקה כדי לצבוע אותו ירוק ·
    וזו בדיוק הדרך שבה `k0` עבר. ההערות יורדות לפני הבדיקה, ונשאר קוד. */
 const codeOf = s => s.replace(/\/\*[\s\S]*?\*\//g, ' ').replace(/\/\/[^\n]*/g, ' ');
+
+/* ⭐ חישוב השער כולו במקום אחד, על מקור נתון · כדי ששן-ההוכחה למטה תריץ **את אותו
+   שער בדיוק** על מקור מוטנטי, ולא העתק שיכול לסטות ממנו בשקט. */
+function missingFields(src) {
+  const sane = fnBody('saneRec', src);
+  const fields = [...sane.matchAll(/out\.(\w+)\s*=/g)].map(m => m[1])
+    .concat([...sane.matchAll(/\b(\w+)\s*:\s*int0\(r\./g)].map(m => m[1]));
+  /* ⛔ הגוף בלבד · החלון הקודם חרג ב-3,891 תווים אל הפונקציות שאחרי, ו-`level` ו-`first`
+     מופיעים שם ממילא · מחיקה שלהם מהמיזוג עצמו הייתה נמצאת אצל השכן ונבלעת.
+     ו-codeOf כי נוכחות בהערה אינה העברה של שדה · כך בדיוק `k0` עבר. */
+  const mp = codeOf(fnBody('mergeProgress', src));
+  return [...new Set(fields)].filter(f => !new RegExp('\\b' + f + '\\b').test(mp));
+}
 const ctx = loadApp({ lang: 'he', bank: false });
 const K = ctx.K;
 const rec = o => ({ seen: 5, first: 2, ever: 3, wrong: 1, level: 3, last: 100, ...o });
@@ -164,14 +177,7 @@ describe('שתי הרשימות הלבנות מסונכרנות', () => {
        **מעולם לא נכנס ל-fields**, והשער שהצהיר "כל שדה" בדק תשעה מתוך עשרה. ‏`t0` ישב
        ב-1,147, ‏253 תווים מהקצה · כלומר ההערה הבאה שנוספה ל-saneRec הייתה מפילה גם אותו
        החוצה, בלי שאף בדיקה תאדים. */
-    const sane = fnBody('saneRec');
-    const fields = [...sane.matchAll(/out\.(\w+)\s*=/g)].map(m => m[1])
-      .concat([...sane.matchAll(/\b(\w+)\s*:\s*int0\(r\./g)].map(m => m[1]));
-    /* ⛔ הגוף בלבד · החלון הקודם חרג ב-3,891 תווים אל הפונקציות שאחרי, ו-`level` ו-`first`
-       מופיעים שם ממילא · מחיקה שלהם מהמיזוג עצמו הייתה נמצאת אצל השכן ונבלעת.
-       ו-codeOf כי נוכחות בהערה אינה העברה של שדה · כך בדיוק `k0` עבר. */
-    const mp = codeOf(fnBody('mergeProgress'));
-    const missing = [...new Set(fields)].filter(f => !new RegExp('\\b' + f + '\\b').test(mp));
+    const missing = missingFields(app);
     assert.deepStrictEqual(missing, [],
       'saneRec שומר שדות ש-mergeProgress מוחק: ' + missing.join(', '));
   });
@@ -200,5 +206,30 @@ describe('שתי הרשימות הלבנות מסונכרנות', () => {
     const windows = [...self.matchAll(/app\.slice\([^\n]*\+\s*(\d{3,})/g)].map(m => m[1]);
     assert.deepStrictEqual(windows, [],
       'חזר חלון סריקה באורך קבוע: ' + windows.join(', ') + ' · השתמש ב-fnBody');
+  });
+
+  /* ⭐ הוכחת השיניים של השער עצמו · זה המדד שנרשם ב-21.8: "בדיקה שמוסיפה שדה
+     פיקטיבי ל-saneRec, מזכירה אותו רק בהערה ב-mergeProgress, ומצפה שהשער יאדים".
+     המוטציה נעשית על **מחרוזת** של המקור · הקובץ עצמו אינו נגוע, ואותו שער בדיוק
+     (missingFields) רץ עליה. שני הכיוונים נבדקים, כי שן שתופסת הכול אינה שן. */
+  test('שן · שדה חדש ב-saneRec שמוזכר רק בהערה במיזוג — השער מאדים', () => {
+    const saneOld = fnBody('saneRec');
+    const mpOld = fnBody('mergeProgress');
+    const saneNew = saneOld.replace('{', '{ out.zzTooth = 1;');
+    const mutated = app.replace(saneOld, saneNew)
+      .replace(mpOld, mpOld.replace('{', '{ /* zzTooth */'));
+    assert.ok(missingFields(mutated).includes('zzTooth'),
+      'השער נשאר ירוק על שדה שקיים רק בהערה · התאמת-מחרוזת חזרה, ראה codeOf');
+  });
+
+  test('שן · אותו שדה כשהוא מועבר בקוד אמיתי — השער ירוק', () => {
+    /* בקרה חיובית · בלעדיה השן שלמעלה יכולה לעבור גם אם השער החל להאדים על הכול. */
+    const saneOld = fnBody('saneRec');
+    const mpOld = fnBody('mergeProgress');
+    const saneNew = saneOld.replace('{', '{ out.zzTooth = 1;');
+    const mutated = app.replace(saneOld, saneNew)
+      .replace(mpOld, mpOld.replace('{', '{ var zzTooth;'));
+    assert.ok(!missingFields(mutated).includes('zzTooth'),
+      'השער מאדים גם על שדה שכן מועבר בקוד · הוא מחמיר מדי ויוחלף בהתעלמות');
   });
 });

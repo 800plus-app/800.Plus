@@ -38,47 +38,44 @@ const assert = require('node:assert');
 const path = require('path');
 const vm = require('vm');
 const { extractAll } = require('./_harness/extract.js');
-const { appSource, banks, plain, expectNone } = require('./_harness/sandbox.js');
+const { appSource, banks, plain, expectNone, SYMBOLS: SANDBOX_SYMBOLS } = require('./_harness/sandbox.js');
 
 const none = (list, msg) => expectNone(assert, list, msg);
 
 /* ============================ the loader ============================ */
 
-/* Every symbol this file reaches for. Same contract as sandbox.js's SYMBOLS: a rename in app.js
- * throws by name out of extractAll rather than producing a test that quietly passes. */
-const SYMBOLS = [
-  'storageWarned', 'storageBarOn',
-  'ASSOC_MAX', 'ASSOC_BUDGET', 'MAX_SESSIONS', 'DEFAULT_DIR',
-  'isObj', 'int0', 'saneRec',
-  'NIQ', 'normEn', 'norm',
+/* ⭐ מקור אחד לרשימת הסמלים · הבסיס יורש מ-sandbox.js, וכאן נוספים רק סמלי שכבת
+ * האחסון שאין להם מקום שם. שם חדש שנכנס ל-sandbox.js זורם לכאן מעצמו, ואינו יכול
+ * להפיל את הקובץ הזה. אותו חוזה כמו שם: שינוי שם ב-app.js זורק בשם מתוך extractAll,
+ * ולא מייצר בדיקה שעוברת בשקט. */
+const EXTRA_SYMBOLS = [
+  'storageWarned', 'storageBarOn', 'ASSOC_BUDGET',
   'LS', 'shedStorage', 'showStorageBar', 'hideStorageBar',
-  'SUF', 'KEY', 'K',
-  /* backfillT0 נקראת מתוך loadLangState · בלעדיה כל טעינה כאן זורקת
-     "backfillT0 is not defined", וההודעה מצביעה על הבדיקה ולא על הסיבה.
-     ⚠ זו רשימת סמלים **שנייה**, נפרדת מזו של sandbox.js: שדה או פונקציה חדשה
-     שנוגעת בטעינה חייבת להתווסף לשתיהן. */
-  'loadLangState', 'backfillT0',
+  'SUF', 'KEY',
+  /* backfillT0 נקראת מתוך loadLangState · היא מגיעה מהרשימה של sandbox.js, ולכן
+     אינה חוזרת כאן. ⭐ עד 5.9.2026 הייתה כאן רשימת סמלים שנייה מלאה, נפרדת מזו
+     של sandbox.js · שם חדש שנוסף לאחת ולא לשנייה (backfillT0) הפיל 15 בדיקות
+     בשמות מטעים ("junk of every type loads to an empty state"). */
+  'loadLangState',
   'undeletedKey', 'markRestored', 'markDeletedAgain', 'restoredMap',
-  'mergeProgress', 'absorbDisk',
+  'absorbDisk',
   'saveAssoc', 'saveStats', 'saveDeleted', 'saveAdded',
-  'remapHyphenKeys', 'migrationLanded', 'migrateStores', 'pruneOrphans',
+  'remapHyphenKeys', 'migrationLanded', 'migrateStores',
   'levelKeyFor', 'examPreFor', 'sizeKeyFor', 'EXAM_KEY',
   'collectExtras', 'applyExtras', 'wipeAccountKeys', 'bindCacheToUser',
-  /* ⭐ שישה שנמצאו חסרים על ידי `tests/96-symbol-closure` · כולם נקראים
-     מתוך פונקציה שכן ברשימה, ואף אחד מהם לא היה בה. הם לא הפילו כלום עד
-     היום רק מפני שהמסלולים שקוראים להם אינם מורצים כאן · ⛔ בדיקה חדשה
-     שתיגע ב-`buildBank` הייתה מקבלת ReferenceError בשם סמנטי מטעה. */
   'saneSentRec', 'sentProg',
   /* ⭐ יחידת מילות הקישור · `applyExtras` קוראת ל-`connProg`, ו-`collectExtras`
-     קוראת את `CONN_PROG`. ⚠ אותו כלל שכתוב מעל: שדה חדש שנוסע בבלוב
-     חייב להתווסף לרשימות של שני המרימים. */
+     קוראת את `CONN_PROG`. */
   'CONN_PROG', 'saneConnRec', 'connProg',
-  'exKey', 'UNIT_IDS', 'PREVIEW_UNIT', 'GLOSS_ALT',
-  'HOLAM', 'YOD', 'Y_VOWELS', 'HE_LETTER', 'VAV',
-  'fullSpelling', 'pleneYod', 'pleneVav', 'heForms',
-  'vetoPut', 'fullVetoPass', 'buildBank',
-  'glossKey', 'meaningSegs', 'glossSenses', 'buildGlossIndex',
+  'exKey',
 ];
+/* ⛔ שם שכבר יושב ברשימה של sandbox.js אסור שיחזור כאן · כפילות היא הצורה שבה
+   הרשימות מתפצלות בחזרה לשתיים. נאכף, לא מוצהר. */
+{
+  const dup = EXTRA_SYMBOLS.filter(n => SANDBOX_SYMBOLS.includes(n));
+  if (dup.length) throw new Error('EXTRA_SYMBOLS מכפיל שמות מ-sandbox.js: ' + dup.join(', '));
+}
+const SYMBOLS = SANDBOX_SYMBOLS.concat(EXTRA_SYMBOLS);
 
 /* A localStorage that behaves like the browser's, including the parts that bite:
  *   - values are STRINGS. localStorage.setItem(k, {}) stores "[object Object]", and code that
